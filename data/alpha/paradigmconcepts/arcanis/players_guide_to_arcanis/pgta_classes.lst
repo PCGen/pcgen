@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 28 22:43:24 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Mar 30 00:06:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -9,7 +9,7 @@ CLASS:Druid.MOD	BONUS:VAR|WildEmpathy|-5|PRERACE:1,Dark-Kin
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Bearer of Woe	HD:8		TYPE:Base.PC	ABB:HCA		MAXLEVEL:20	SOURCEPAGE:pg. 73	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
-CLASS:Bearer of Woe	PREALIGN:LG	PREDEITY:Anshar	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+CLASS:Bearer of Woe	PREALIGN:LG	PREDEITY:1,Anshar	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bearer of Woe	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Knowledge (Geography)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -45,8 +45,8 @@ CLASS:Bearer of Woe	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Beltinian Hospitaler	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HCBlt		MAXLEVEL:20	SOURCEPAGE:pg. 79	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name			Required AL	Required Deity	Prohibited Race
-CLASS:Beltinian Hospitaler	PREALIGN:LN	PREDEITY:Beltine	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name			Required AL	Required Deity		Prohibited Race
+CLASS:Beltinian Hospitaler	PREALIGN:LN	PREDEITY:1,Beltine	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Beltinian Hospitaler	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level
@@ -87,7 +87,7 @@ CLASS:Beltinian Hospitaler	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Deathbringer	HD:10		TYPE:Base.PC	ABB:HCNrt		MAXLEVEL:20	SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
-CLASS:Deathbringer	PREALIGN:LG	PREDEITY:Neroth	!PRERACE:1,Elorii,Ss'ressen
+CLASS:Deathbringer	PREALIGN:LG	PREDEITY:1,Neroth	!PRERACE:1,Elorii,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Deathbringer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -123,8 +123,8 @@ CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Fatespinner	HD:10		TYPE:Base.PC	ABB:HCL		MAXLEVEL:20	SOURCEPAGE:pg. 95	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Deity	Multiple Requirements
-CLASS:Fatespinner	PREALIGN:CG,CN,CE	PREDEITY:Larissa	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PRETEMPLATE:1,Tultipetan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+# Class Name	Required AL		Required Deity		Multiple Requirements
+CLASS:Fatespinner	PREALIGN:CG,CN,CE	PREDEITY:1,Larissa	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PRETEMPLATE:1,Tultipetan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fatespinner	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|Listen|TYPE.Profession|Ride|Spot|Sense Motive
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -163,7 +163,7 @@ CLASS:Fatespinner	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Harbinger of the Dawn	HD:10		TYPE:Base.PC	ABB:HCIlr		MAXLEVEL:20	SOURCEPAGE:pg. 93	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Deity	Multiple Requirements
-CLASS:Harbinger of the Dawn	PREALIGN:LG,LN,LE	PREDEITY:Saluwe	PREMULT:1,[PRERACE:1,Val,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PREREGION:Solanos Mor]]
+CLASS:Harbinger of the Dawn	PREALIGN:LG,LN,LE	PREDEITY:1,Saluwe	PREMULT:1,[PRERACE:1,Val,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PREREGION:Solanos Mor]]
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Harbinger of the Dawn	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
@@ -243,7 +243,7 @@ CLASS:Holy Judge of Nier	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Knight of the Twelve Oaks	HD:10		TYPE:Base.PC	ABB:HCBls		MAXLEVEL:20	SOURCEPAGE:pg. 77	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Required AL		Required Deity		Required Race
-CLASS:Knight of the Twelve Oaks	PREALIGN:LG,NG,CG	PREDEITY:Belisarda	PRERACE:1,Elorii
+CLASS:Knight of the Twelve Oaks	PREALIGN:LG,NG,CG	PREDEITY:1,Belisarda	PRERACE:1,Elorii
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Twelve Oaks	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 # Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -284,7 +284,7 @@ CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Order of the Inner Demon	HD:10		TYPE:Base.PC	ABB:HCSrs		MAXLEVEL:20	SOURCEPAGE:pg. 106	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Required AL	Required Deity	Multiple Requirements
-CLASS:Order of the Inner Demon	PREALIGN:LG	PREDEITY:Sarish	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PRETEMPLATE:1,Encalan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+CLASS:Order of the Inner Demon	PREALIGN:LG	PREDEITY:1,Sarish	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2,[PRERACE:1,Dwarf],[PRETEMPLATE:1,Encalan]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Inner Demon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (The Planes)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 # Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -353,8 +353,8 @@ CLASS:Patrician	STARTSKILLPTS:6	CSKILL:Appraise|Black Market|Bluff|Concentration
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Philosophic Warrior	HD:8		TYPE:Base.PC	ABB:HCAlt		MAXLEVEL:20	SOURCEPAGE:pg. 71	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name			Required AL		Required Deity	Prohibited Race
-CLASS:Philosophic Warrior	PREALIGN:LG,LN,LE	PREDEITY:Althares	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+# Class Name			Required AL		Required Deity		Prohibited Race
+CLASS:Philosophic Warrior	PREALIGN:LG,LN,LE	PREDEITY:1,Althares	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Philosophic Warrior	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Examine Martial Technique|Handle Animal|Heal|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -380,7 +380,7 @@ CLASS:Philosophic Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEV
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0	SAB:Insight of Althares (Ex)
 15	CAST:0,2,1,1,1
-16	CAST:0,2,2,1,1	SAB:Tools of the Trade (Ex)																	VFEAT:Exotic Armor Proficiency(Lorica Segmentata)|Exotic Armor Proficiency(Andrean Plate)|Exotic Armor Proficiency(Milandisian Cuirass)																																				AUTO:WEAPONPROF|TYPE.Exotic
+16	CAST:0,2,2,1,1																						VFEAT:Exotic Armor Proficiency(Lorica Segmentata)|Exotic Armor Proficiency(Andrean Plate)|Exotic Armor Proficiency(Milandisian Cuirass)	AUTO:FEAT|Tools of the Trade
 17	CAST:0,2,2,2,1
 18	CAST:0,3,2,2,1	SAB:Steel Mind (Ex)
 19	CAST:0,3,3,3,2
@@ -395,59 +395,59 @@ CLASS:Priest	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Scri
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
 CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
 #
-SUBCLASS:Priest of Althares		PREDEITY:Althares
+SUBCLASS:Priest of Althares		PREDEITY:1,Althares
 SUBCLASSLEVEL:1						SAB:Right to Carry																							BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																					VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))							AUTO:WEAPONPROF|Warhammer
-SUBCLASSLEVEL:5																																									BONUS:VAR|AgesKnowledgeLevel|CL/2|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
-SUBCLASS:Priest of Anshar		PREDEITY:Anshar
+SUBCLASSLEVEL:5																																									BONUS:VAR|AgesKnowledgeLevel|CL/2|PREDEITY:1,Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:1,Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
+SUBCLASS:Priest of Anshar		PREDEITY:1,Anshar
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																					VFEAT:Improved Unarmed Strike
 SUBCLASSLEVEL:3																																																																																																													VFEAT:Endurance
 SUBCLASSLEVEL:9																																																																																																													VFEAT:Diehard
-SUBCLASS:Priest of Belisarda		PREDEITY:Belisarda	CSKILL:Knowledge (Geography)|Knowledge (Nature)|Survival
+SUBCLASS:Priest of Belisarda		PREDEITY:1,Belisarda	CSKILL:Knowledge (Geography)|Knowledge (Nature)|Survival
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Longbow
-SUBCLASS:Priest of Beltine		PREDEITY:Beltine
+SUBCLASS:Priest of Beltine		PREDEITY:1,Beltine
 SUBCLASSLEVEL:1																																																																																													ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Quarterstaff
-SUBCLASS:Priest of Cadic		PREDEITY:Cadic		CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
+SUBCLASS:Priest of Cadic		PREDEITY:1,Cadic		CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:FEAT|1|TYPE=TurnCadicGood												VFEAT:Martial Weapon Proficiency(Crossbow (Hand))									AUTO:WEAPONPROF|Sword (Short)
 SUBCLASSLEVEL:5																																									BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1																																																	TEMPLATE:Uncanny Dodge
-SUBCLASS:Priest of Hurrian		PREDEITY:Hurrian		CSKILL:Survival
+SUBCLASS:Priest of Hurrian		PREDEITY:1,Hurrian	CSKILL:Survival
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Longsword
-SUBCLASS:Priest of Illir		PREDEITY:Illir
+SUBCLASS:Priest of Illir		PREDEITY:1,Illir
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:FEAT|1|TYPE=TurnIllirGood												VFEAT:Gladius Exotic Weapon Proficiency											AUTO:WEAPONPROF|Gladius
 SUBCLASSLEVEL:5						SAB:Fearless (Ex)
-SUBCLASS:Priest of the Fire Dragon	PREDEITY:Fire Dragon	CSKILL:Survival
+SUBCLASS:Priest of the Fire Dragon	PREDEITY:1,Fire Dragon	CSKILL:Survival
 SUBCLASSLEVEL:1						SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.														BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Flail (Heavy)
-SUBCLASS:Priest of Larissa		PREDEITY:Larissa		CSKILL:TYPE.Perform|Tumble
+SUBCLASS:Priest of Larissa		PREDEITY:1,Larissa	CSKILL:TYPE.Perform|Tumble
 SUBCLASSLEVEL:1	DOMAIN:Divination|Pleasure																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																			BONUS:DOMAIN|NUMBER|1																															VFEAT:Exotic Weapon Proficiency(Whip)					AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Rapier
 SUBCLASSLEVEL:3																																																													BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
-SUBCLASS:Priest of Neroth		PREDEITY:Neroth
+SUBCLASS:Priest of Neroth		PREDEITY:1,Neroth
 SUBCLASSLEVEL:1																																																																																													ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																						AUTO:WEAPONPROF|Scythe
-SUBCLASS:Priest of Nier			PREDEITY:Nier
+SUBCLASS:Priest of Nier			PREDEITY:1,Nier
 SUBCLASSLEVEL:1						SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Priest of Nier must destroy the undead or nothing happens.	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Greatsword
-SUBCLASS:Priest of Saluwe		PREDEITY:Saluwe
+SUBCLASS:Priest of Saluwe		PREDEITY:1,Saluwe
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																						AUTO:WEAPONPROF|Spear
 SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex)																																																																																																															AUTO:FEAT|Track
 SUBCLASSLEVEL:4																																									BONUS:VAR|CompLevel|CL																																																																												AUTO:FEAT|Animal Companion
-SUBCLASS:Priest of Sarish		PREDEITY:Sarish
+SUBCLASS:Priest of Sarish		PREDEITY:1,Sarish
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:EQUIP|1|Dagger (Sarishan Steel)																												AUTO:WEAPONPROF|Dagger		LANGAUTO:Infernal
 SUBCLASSLEVEL:3																																																																																																																								AUTO:FEAT|Magical Aptitude
 SUBCLASSLEVEL:10						SAB:Mark of My Brother
-SUBCLASS:Priest of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
+SUBCLASS:Priest of Yarris		PREDEITY:1,Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																					ADD:FEAT|1|TYPE=TurnYarrisGood																												AUTO:WEAPONPROF|Trident
 SUBCLASSLEVEL:2						SAB:Effected by Endure Elements when within 1 mile of any large body of water.
 SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex) (Water Only)																																																																				BONUS:SKILL|Profession (Navigator),Survival,Swim|2
 ###Block: Basic Turn Undead
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack							DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:TurnLevelSpecial|0	ABILITY:Special Ability|AUTOMATIC|Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:Althares,Cadic,Fire Dragon,Larissa,Sarish
-1	BONUS:VAR|TurnLevelBase|CL-2|PREDEITY:Hurrian,Yarris
-1	BONUS:VAR|TurnLevelBase|CL-1|PREDEITY:Anshar,Illir,Saluwe
-1	BONUS:VAR|TurnLevelBase|CL|PREDEITY:Belisarda,Nier
-1	BONUS:VAR|TurnLevelBase|CL+2|PREDEITY:Beltine,Neroth
+1	BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
+1	BONUS:VAR|TurnLevelBase|CL-2|PREDEITY:1,Hurrian,Yarris
+1	BONUS:VAR|TurnLevelBase|CL-1|PREDEITY:1,Anshar,Illir,Saluwe
+1	BONUS:VAR|TurnLevelBase|CL|PREDEITY:1,Belisarda,Nier
+1	BONUS:VAR|TurnLevelBase|CL+2|PREDEITY:1,Beltine,Neroth
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase-2|PREDEITY:Beltine,Neroth
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+1|PREDEITY:Illir
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+3|PREDEITY:Yarris
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase|PREDEITY:Cadic
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase-2|PREDEITY:1,Beltine,Neroth
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+1|PREDEITY:1,Illir
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+3|PREDEITY:1,Yarris
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase|PREDEITY:1,Cadic
 ###Block: Channeling Stuff
 1	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
 1	BONUS:VAR|ChannelLevelBase|CL
@@ -480,7 +480,7 @@ SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex) (Water Only)																									
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Sea Lord	HD:8		TYPE:Base.PC	ABB:HCY		MAXLEVEL:20	SOURCEPAGE:pg. 111	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity	Prohibited Race
-CLASS:Sea Lord	PREALIGN:LG,NG,CG	PREDEITY:Yarris	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+CLASS:Sea Lord	PREALIGN:LG,NG,CG	PREDEITY:1,Yarris	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sea Lord	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|TYPE.Local|Knowledge (Nature)|Listen|Move Silently|TYPE.Sea|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -517,7 +517,7 @@ CLASS:Sea Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Sentinel of the Blazing Wyrm	HD:10		TYPE:Base.PC	ABB:HCFD		MAXLEVEL:20	SOURCEPAGE:pg. 86	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Required AL		Required Deity		Required Race
-CLASS:Sentinel of the Blazing Wyrm	PREALIGN:LG,LN	PREDEITY:Fire Dragon	PRERACE:1,Ss'ressen
+CLASS:Sentinel of the Blazing Wyrm	PREALIGN:LG,LN	PREDEITY:1,Fire Dragon	PRERACE:1,Ss'ressen
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Sentinel of the Blazing Wyrm	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Nature:Ss'ressen)|Knowledge (Geography:Ssethregore)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Swim
 # Class Name				Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -553,8 +553,8 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Storm Lord	HD:10		TYPE:Base.PC	ABB:HCHrr		MAXLEVEL:20	SOURCEPAGE:pg. 89	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Deity	Multiple Requirements
-CLASS:Storm Lord	PREALIGN:LG,NG,CG	PREDEITY:Hurrian	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:Dwarf],[PRETEMPLATE:1,Tir Betoqi]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+# Class Name	Required AL		Required Deity		Multiple Requirements
+CLASS:Storm Lord	PREALIGN:LG,NG,CG	PREDEITY:1,Hurrian	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:Dwarf],[PRETEMPLATE:1,Tir Betoqi]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Storm Lord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Nature)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -591,7 +591,7 @@ CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Twilight Warrior	HD:8		TYPE:Base.PC	ABB:HCCdc		MAXLEVEL:20	SOURCEPAGE:pg. 83	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
-CLASS:Twilight Warrior	PREALIGN:LN	PREDEITY:Cadic	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+CLASS:Twilight Warrior	PREALIGN:LN	PREDEITY:1,Cadic	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Twilight Warrior	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE.Religion|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
@@ -630,7 +630,7 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Verdant Champion	HD:10		TYPE:Base.PC	ABB:HCSlw		MAXLEVEL:20	SOURCEPAGE:pg. 98	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Deity	Prohibited Race
-CLASS:Verdant Champion	PREALIGN:LN	PREDEITY:Saluwe	!PRERACE:1,Elorii,Dwarf,Ss'ressen
+CLASS:Verdant Champion	PREALIGN:LN	PREDEITY:1,Saluwe	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Verdant Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level

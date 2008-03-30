@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Mar 28 22:43:24 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Mar 30 00:06:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
 # Class Name	Automaticaly Gained Weapon Prof.
 CLASS:Druid.MOD	AUTO:WEAPONPROF|Longbow|Shortbow|Terbutje|Khopesh
 # Class Name	Required Deity
-CLASS:Druid.MOD	PREDEITY:Saluwe,Yarris,Belisarda,Fire Dragon
+CLASS:Druid.MOD	PREDEITY:1,Saluwe,Yarris,Belisarda,Fire Dragon
 
 # Class Name
 CLASS:Aristocrat.MOD
@@ -20,59 +20,59 @@ CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 #
-SUBCLASS:Cleric of Althares		PREDEITY:Althares		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1	SAB:Right to Carry																							BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																						VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-SUBCLASSLEVEL:5																																				BONUS:VAR|AgesKnowledgeLevel|floor(CL/2)|PREDEITY:Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
-SUBCLASS:Cleric of Anshar		PREDEITY:Anshar		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																						VFEAT:Improved Unarmed Strike							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBCLASSLEVEL:3																																																																																																									VFEAT:Endurance
-SUBCLASSLEVEL:9																																																																																																									VFEAT:Dieheard
-SUBCLASS:Cleric of Belisarda		PREDEITY:Belisarda	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Knowledge (Geography)|Knowledge (Nature)|Survival
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
-SUBCLASS:Cleric of Beltine		PREDEITY:Beltine		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																									ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
-SUBCLASS:Cleric of Cadic		PREDEITY:Cadic		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																						ADD:FEAT|1|TYPE=TurnCadicGood												VFEAT:Martial Weapon Proficiency(Crossbow (Hand))			AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
-SUBCLASSLEVEL:5																																				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1																																																		TEMPLATE:Uncanny Dodge
-SUBCLASS:Cleric of Hurrian		PREDEITY:Hurrian		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Longsword
-SUBCLASS:Cleric of Illir		PREDEITY:Illir		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																						ADD:FEAT|1|TYPE=TurnIllirGood												VFEAT:Gladius Exotic Weapon Proficiency					AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASS:Cleric of Althares		PREDEITY:1,Althares	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1	SAB:Right to Carry																							BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																							VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+SUBCLASSLEVEL:5																																				BONUS:VAR|AgesKnowledgeLevel|floor(CL/2)|PREDEITY:1,Althares	BONUS:VAR|AgesKnowledge|AgesKnowledgeLevel|PREDEITY:1,Althares																												DEFINE:AgesKnowledgeLevel|0	ADD:FEAT|1|Knowledge of the Ages
+SUBCLASS:Cleric of Anshar		PREDEITY:1,Anshar		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																							VFEAT:Improved Unarmed Strike							AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBCLASSLEVEL:3																																																																																																										VFEAT:Endurance
+SUBCLASSLEVEL:9																																																																																																										VFEAT:Dieheard
+SUBCLASS:Cleric of Belisarda		PREDEITY:1,Belisarda	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Knowledge (Geography)|Knowledge (Nature)|Survival
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																		AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
+SUBCLASS:Cleric of Beltine		PREDEITY:1,Beltine	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1																																																																																										ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Simple Weapon Proficiency
+SUBCLASS:Cleric of Cadic		PREDEITY:1,Cadic		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																							ADD:FEAT|1|TYPE=TurnCadicGood												VFEAT:Martial Weapon Proficiency(Crossbow (Hand))			AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)													AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
+SUBCLASSLEVEL:5																																				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1																																																			TEMPLATE:Uncanny Dodge
+SUBCLASS:Cleric of Hurrian		PREDEITY:1,Hurrian	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																		AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)				AUTO:WEAPONPROF|Longsword
+SUBCLASS:Cleric of Illir		PREDEITY:1,Illir		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																							ADD:FEAT|1|TYPE=TurnIllirGood												VFEAT:Gladius Exotic Weapon Proficiency					AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 SUBCLASSLEVEL:5	SAB:Fearless (Ex)
-SUBCLASS:Cleric of the Fire Dragon	PREDEITY:Fire Dragon	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
-SUBCLASSLEVEL:1	SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.														BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Flail (Heavy)
-SUBCLASS:Cleric of Larissa		PREDEITY:Larissa		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|TYPE.Perform|Tumble
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																				BONUS:DOMAIN|NUMBER|1																																										AUTO:FEAT|Simple Weapon Proficiency																						AUTO:WEAPONPROF|Rapier|TYPE.Whip
-SUBCLASSLEVEL:3																																																									BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
-SUBCLASS:Cleric of Neroth		PREDEITY:Neroth		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																																																																																									ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Scythe
-SUBCLASS:Cleric of Nier			PREDEITY:Nier		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1	SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Cleric of Nier must destroy the undead or nothing happens.	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)					AUTO:WEAPONPROF|Greatsword
-SUBCLASS:Cleric of Saluwe		PREDEITY:Saluwe		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																	AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)														AUTO:WEAPONPROF|Club|Dagger|Dart|Khopesh|Longbow|Quarterstaff|Scimitar|Sickle|Shortbow|Shortspear|Sling|Terbutje|Halfspear|Spear
-SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex)																																																																																																																AUTO:FEAT|Track
-SUBCLASSLEVEL:4																																				BONUS:VAR|CompLevel|CL																																																																													AUTO:FEAT|Animal Companion
-SUBCLASS:Cleric of Sarish		PREDEITY:Sarish		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																						ADD:LANGUAGE|1|TYPE=Infernal	ADD:EQUIP|1|Dagger (Sarishan Steel)																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Rebuke Undead
-SUBCLASSLEVEL:3																																																																																																																				AUTO:FEAT|Magical Aptitude
+SUBCLASS:Cleric of the Fire Dragon	PREDEITY:1,Fire Dragon	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|Survival
+SUBCLASSLEVEL:1	SAB:Ignore detrimental effects from natural heat between 80-150 degrees F.														BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																		AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)				AUTO:WEAPONPROF|Flail (Heavy)
+SUBCLASS:Cleric of Larissa		PREDEITY:1,Larissa	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft|TYPE.Perform|Tumble
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																					BONUS:DOMAIN|NUMBER|1																																										AUTO:FEAT|Simple Weapon Proficiency																					AUTO:WEAPONPROF|Rapier|TYPE.Whip
+SUBCLASSLEVEL:3																																																										BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
+SUBCLASS:Cleric of Neroth		PREDEITY:1,Neroth		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1																																																																																										ADD:FEAT|1|TYPE=TurnNerothGood	ADD:FEAT|1|TYPE=TurnBeltineGood																AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)				AUTO:WEAPONPROF|Scythe
+SUBCLASS:Cleric of Nier			PREDEITY:1,Nier		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1	SAB:+1 per die of damage on spells cast with the fire descriptor.	SAB:When turning undead, the Cleric of Nier must destroy the undead or nothing happens.	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																		AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)				AUTO:WEAPONPROF|Greatsword
+SUBCLASS:Cleric of Saluwe		PREDEITY:1,Saluwe		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																		AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)													AUTO:WEAPONPROF|Club|Dagger|Dart|Khopesh|Longbow|Quarterstaff|Scimitar|Sickle|Shortbow|Shortspear|Sling|Terbutje|Halfspear|Spear
+SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex)																																																																																																																	AUTO:FEAT|Track
+SUBCLASSLEVEL:4																																				BONUS:VAR|CompLevel|CL																																																																														AUTO:FEAT|Animal Companion
+SUBCLASS:Cleric of Sarish		PREDEITY:1,Sarish		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																							ADD:LANGUAGE|1|TYPE=Infernal	ADD:EQUIP|1|Dagger (Sarishan Steel)																	AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)																										ABILITY:Special Ability|AUTOMATIC|Rebuke Undead
+SUBCLASSLEVEL:3																																																																																																																					AUTO:FEAT|Magical Aptitude
 SUBCLASSLEVEL:10	SAB:Mark of My Brother
-SUBCLASS:Cleric of Yarris		PREDEITY:Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
-SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																						ADD:FEAT|1|TYPE=TurnYarrisGood																						AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)														AUTO:WEAPONPROF|Trident
+SUBCLASS:Cleric of Yarris		PREDEITY:1,Yarris		CSKILL:Knowledge (Nature)|Survival|Swim
+SUBCLASSLEVEL:1																											BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																							ADD:FEAT|1|TYPE=TurnYarrisGood																						AUTO:FEAT|Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)													AUTO:WEAPONPROF|Trident
 SUBCLASSLEVEL:2	SAB:Effected by Endure Elements when within 1 mile of any large body of water.
-SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex) (Water Only)																																																																					BONUS:SKILL|Profession (Navigator),Survival,Swim|2
+SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex) (Water Only)																																																																						BONUS:SKILL|Profession (Navigator),Survival,Swim|2
 ###Block: Basic Turn Undead
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack							DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:TurnLevelSpecial|0	ABILITY:Special Ability|AUTOMATIC|Basic Turning
-1	BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:Althares,Cadic,Fire Dragon,Larissa,Sarish
-1	BONUS:VAR|TurnLevelBase|CL-2|PREDEITY:Hurrian,Yarris
-1	BONUS:VAR|TurnLevelBase|CL-1|PREDEITY:Anshar,Illir,Saluwe
-1	BONUS:VAR|TurnLevelBase|CL|PREDEITY:Belisarda,Nier
-1	BONUS:VAR|TurnLevelBase|CL+2|PREDEITY:Beltine,Neroth
+1	BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
+1	BONUS:VAR|TurnLevelBase|CL-2|PREDEITY:1,Hurrian,Yarris
+1	BONUS:VAR|TurnLevelBase|CL-1|PREDEITY:1,Anshar,Illir,Saluwe
+1	BONUS:VAR|TurnLevelBase|CL|PREDEITY:1,Belisarda,Nier
+1	BONUS:VAR|TurnLevelBase|CL+2|PREDEITY:1,Beltine,Neroth
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase-2|PREDEITY:Beltine,Neroth
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+1|PREDEITY:Illir
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+3|PREDEITY:Yarris
-1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase|PREDEITY:Cadic
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase-2|PREDEITY:1,Beltine,Neroth
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+1|PREDEITY:1,Illir
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase+3|PREDEITY:1,Yarris
+1	BONUS:VAR|TurnLevelSpecial|TurnLevelBase|PREDEITY:1,Cadic
 ###Block: Channeling Stuff
 1	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
 1	BONUS:VAR|ChannelLevelBase|CL
@@ -167,7 +167,7 @@ SUBCLASSLEVEL:1	SAB:May multiclass with Ranger.																																	
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Deflect Arrows,Mobility
 SUBCLASSLEVEL:3																																																		ADD:VFEAT|1|Master of the Tops
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Hero's Heart,Improved Disarm
-SUBCLASS:Order of the Perfect Union		COST:0	PREDEITY:Illir																						CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
+SUBCLASS:Order of the Perfect Union		COST:0	PREDEITY:1,Illir																						CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|TYPE.Religion|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot|Swim|Tumble|TYPE.Perform
 SUBCLASSLEVEL:1																																																		ADD:VFEAT|1|Unfazed,Stunning Fist																																										AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Callous,Combat Reflexes
 SUBCLASSLEVEL:5	SAB:Immune to all types of fear, and mind-affecting compulsions and spells or spell-like abilities of third level or less.	SAB:Suffer an extra +1d6 damage when struck by an Abomination or Undead.
@@ -209,26 +209,26 @@ CLASS:Paladin	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level
 CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASS:1,Paladin=4
 #
-SUBCLASS:Paladin of Althares		PREDEITY:Althares										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+SUBCLASS:Paladin of Althares		PREDEITY:1,Althares									CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 SUBCLASSLEVEL:1	SAB:May multiclass with Philosophic Warrior (Holy Champion of Althares).								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0		ADD:LANGUAGE|1|TYPE=Imperial	ADD:EQUIP|1|Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)	ADD:EQUIP|1|Blastpowder (10)	AUTO:FEAT|Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:FEAT|Bardic Knowledge|Special Mount
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelAlthares											BONUS:VAR|ChannelLevelAlthares|ChannelLevelUndead-1						DEFINE:ChannelLevelAlthares|0
-SUBCLASS:Paladin of Belisarda		PREDEITY:Belisarda									CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Knowledge (Nature)|Survival
+SUBCLASS:Paladin of Belisarda		PREDEITY:1,Belisarda									CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Knowledge (Nature)|Survival
 SUBCLASSLEVEL:1	SAB:Wild Empathy (Ex)
 SUBCLASSLEVEL:4	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
-SUBCLASS:Paladin of Hurrian		PREDEITY:Hurrian										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
+SUBCLASS:Paladin of Hurrian		PREDEITY:1,Hurrian									CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 SUBCLASSLEVEL:1																																									ADD:LANGUAGE|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Longsword)
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelHurrian											BONUS:VAR|ChannelLevelHurrian|ChannelLevelUndead-1						DEFINE:ChannelLevelHurrian|0
-SUBCLASS:Paladin of Illir		PREDEITY:Illir										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+SUBCLASS:Paladin of Illir		PREDEITY:1,Illir										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 SUBCLASSLEVEL:1																																									ADD:LANGUAGE|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Gladius)
 SUBCLASSLEVEL:4	SAB:+2 on saving throws against Enchantment spells and abilities.	SAB:May prepare and cast Light as a 1st level spell.
 SUBCLASSLEVEL:8	SAB:May prepare and cast Searing Light as a 2nd level spell.
-SUBCLASS:Paladin of Nier		PREDEITY:Nier										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+SUBCLASS:Paladin of Nier		PREDEITY:1,Nier										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 SUBCLASSLEVEL:1																																									ADD:LANGUAGE|1|TYPE=Imperial																		AUTO:FEAT|Weapon Focus(Greatsword)
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelNier												BONUS:VAR|ChannelLevelNier|ChannelLevelUndead-1							DEFINE:ChannelLevelNier|0
-SUBCLASS:Paladin of Sarish		PREDEITY:Sarish										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
+SUBCLASS:Paladin of Sarish		PREDEITY:1,Sarish										CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive
 SUBCLASSLEVEL:1	SAB:You gain a Sarishan Steel weapon of your choice.																																ADD:LANGUAGE|2|TYPE=Imperial,TYPE=Infernal
 SUBCLASSLEVEL:6	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelSarish											BONUS:VAR|ChannelLevelSarish|ChannelLevelUndead-2						DEFINE:ChannelLevelSarish|0
-SUBCLASS:Paladin of the Fire Dragon	PREDEITY:Fire Dragon	PRETEMPLATE:1,Black Talon Male,Ashen Hide Male	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
+SUBCLASS:Paladin of the Fire Dragon	PREDEITY:1,Fire Dragon	PRETEMPLATE:1,Black Talon Male,Ashen Hide Male	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 SUBCLASSLEVEL:1																																																															AUTO:FEAT|Weapon Focus(Flail (Heavy)
 SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon											BONUS:VAR|ChannelLevelFireDragon|ChannelLevelUndead-1						DEFINE:ChannelLevelFireDragon|0
 ###Block: Channeling Stuff

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Mar 30 00:06:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -11,7 +11,7 @@ CLASS:Arcane Archer.MOD	PRE:.CLEAR		PREATT:6	PREFEAT:2,Point Blank Shot,Precise 
 CLASS:Eldritch Knight.MOD	PRETEMPLATE:1,Hawk,Shield
 
 # Class Name		Required Deity
-CLASS:Thaumaturgist.MOD	PREDEITY:Sarish
+CLASS:Thaumaturgist.MOD	PREDEITY:1,Sarish
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Hierophant	HD:8		TYPE:PC.Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:prestigeclasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -61,7 +61,7 @@ CLASS:Altherian Triggermage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craf
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Ansharan Gatekeeper	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:AGk		MAXLEVEL:10	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Deity	Required Feat																				Required Skill														Req. Spell Type		Required Text
-CLASS:Ansharan Gatekeeper	PREDEITY:Anshar	PREFEAT:1,Endurance,Great Fortitude	PREFEAT:1,Skill Focus(Knowledge (Arcana)),Skill Focus(TYPE.Religion),Skill Focus(Spellcraft)	PRESKILL:1,TYPE.Religion=8	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must be able to activate a portal of Anshar.  Must be attuned to at least 15 portals.
+CLASS:Ansharan Gatekeeper	PREDEITY:1,Anshar	PREFEAT:1,Endurance,Great Fortitude	PREFEAT:1,Skill Focus(Knowledge (Arcana)),Skill Focus(TYPE.Religion),Skill Focus(Spellcraft)	PRESKILL:1,TYPE.Religion=8	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must be able to activate a portal of Anshar.  Must be attuned to at least 15 portals.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ansharan Gatekeeper	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Gather Information|Knowledge (Arcana)|Knowledge (Geography)|Knowledge (The Planes)|TYPE.Religion|Listen|Open Lock|TYPE.Profession|Search|Sense Motive|Spellcraft
 1	SAB:Keen Eye (Ex)(+% bonus when searching for any kind of gateway)|CL																	ADD:SPELLCASTER|1|Divine
@@ -94,8 +94,8 @@ CLASS:Battlemage of the Coryani Legions	STARTSKILLPTS:2	CSKILL:Concentration|TYP
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Beltinian Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BEx		MAXLEVEL:10	SOURCEPAGE:p.171	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name			Required AL		Required Deity	Required Feat				Required Skill										Req. Known Spell
-CLASS:Beltinian Exorcist	PREALIGN:LG,NG,CG	PREDEITY:Beltine	PREFEAT:2,Turn Undead,Extra Turning	PRESKILL:3,Concentration,Knowledge (Arcana),Knowledge (Religion)=8	PRESPELL:2,Detect Undead,Dispel Evil
+# Class Name			Required AL		Required Deity		Required Feat				Required Skill										Req. Known Spell
+CLASS:Beltinian Exorcist	PREALIGN:LG,NG,CG	PREDEITY:1,Beltine	PREFEAT:2,Turn Undead,Extra Turning	PRESKILL:3,Concentration,Knowledge (Arcana),Knowledge (Religion)=8	PRESPELL:2,Detect Undead,Dispel Evil
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Beltinian Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (The Planes)|Knowledge (Religion)|TYPE.Profession|Ride|Search|Spellcraft
 1	SAB:My Spirit is My Own (Su)			BONUS:VAR|TurnLevelBase|CL
@@ -367,8 +367,8 @@ CLASS:Grand Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Craft (Weaponsmith
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Hurrianic Aegis	HD:10		TYPE:PC.Prestige	ABB:HAegs		MAXLEVEL:10	SOURCEPAGE:p.190	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required AL				Required Check Base		Required Deity	Required Domain			Required Feat							Required Skill												Req. Spell Type
-CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PREDEITY:Hurrian	PREDOMAIN:2,Refuge,Protection	PREFEAT:3,Diehard,Endurance,Domain Focus(Refuge)	PRESKILL:2,Concentration,Knowledge (Religion:Hurrian)=6	PRESKILL:1,Spellcraft=4	PRESPELLTYPE:1,Divine=3
+# Class Name		Required AL				Required Check Base		Required Deity		Required Domain			Required Feat							Required Skill												Req. Spell Type
+CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PREDEITY:1,Hurrian	PREDOMAIN:2,Refuge,Protection	PREFEAT:3,Diehard,Endurance,Domain Focus(Refuge)	PRESKILL:2,Concentration,Knowledge (Religion:Hurrian)=6	PRESKILL:1,Spellcraft=4	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion:Hurrian)|Knowledge (Nature)|TYPE.Profession|Sense Motive|Spellcraft|Survival
 1			SAB:Hurrian's Shield (Su)						BONUS:VAR|HurrianAC|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)	BONUS:COMBAT|AC|HurrianAC|TYPE=Deflection	DEFINE:HurrianAC|0																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
@@ -384,8 +384,8 @@ CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Larissan Dancer	HD:6		TYPE:PC.Prestige	ABB:LDncr		MAXLEVEL:10	SOURCEPAGE:p.192	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name		Required AL				Required Feat								Multiple Requirements																	Required Skill
-CLASS:Larissan Dancer	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:3,Acrobatic,Agile,Skill Focus(Perform (Dance))	PREMULT:1,[PREDEITY:Larissa],[PREMULT:3,[PREDEITY:Cadic],[PRECLASS:1,Bard=1],[PRESKILL:1,Knowledge (Religion:Larissa)]]	PRESKILL:2,Bluff,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
+# Class Name		Required AL				Required Feat								Multiple Requirements																		Required Skill
+CLASS:Larissan Dancer	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:3,Acrobatic,Agile,Skill Focus(Perform (Dance))	PREMULT:1,[PREDEITY:1,Larissa],[PREMULT:3,[PREDEITY:1,Cadic],[PRECLASS:1,Bard=1],[PRESKILL:1,Knowledge (Religion:Larissa)]]	PRESKILL:2,Bluff,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Larissan Dancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|Diplomacy|Escape Artist|Gather Information|Hide|Knowledge (Arcana)|Knowledge (Art and Architecture)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Spellcraft|Tumble
 1	SAB:Larissa's Dance (Ex)(%/day)|CL	SAB:Dance of Steel (Ex)|PRESKILL:1,Perform (Dance)=10	ADD:SPELLCASTER|1|ANY
@@ -501,7 +501,7 @@ CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Bless|Bless Weap
 ### What is here (which is what is listed in the rules text of the class) and what is shown int he book on the chart
 ### are completely different.  It needs errata before use.
 #CLASS:Order of the Still Heart	HD:8	MAXLEVEL:10	TYPE:Prestige.PC	ABB:OotSH	SOURCEPAGE:p.204	BONUS:CHECKS|BASE.Fortitude,BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-#CLASS:Order of the Still Heart	PREDEITY:Neroth	PREATT:4	PRESKILL:2,Concentration,Knowledge (Religion)=8		PREFEAT:1,Iron Will	PRETEXT:Must be a member of the Order in good standing and must pas sthe tests and perform the necromantic rituals necessary to gain admittance.
+#CLASS:Order of the Still Heart	PREDEITY:1,Neroth	PREATT:4	PRESKILL:2,Concentration,Knowledge (Religion)=8		PREFEAT:1,Iron Will	PRETEXT:Must be a member of the Order in good standing and must pas sthe tests and perform the necromantic rituals necessary to gain admittance.
 #CLASS:Order of the Still Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (The Planes)|Knowledge (Religion)|TYPE.Profession|Spellcraft
 #1	BONUS:STAT|CON|-2	SAB:The Path Taken
 #2	SAB:Morbidity (Su)	SAB:Tireless (Ex)	SAB:Lure of Darkness (Su)	BONUS:MOVEADD|TYPE.Walk|-5	ADD:SPELLCASTER(ANY)
@@ -514,12 +514,12 @@ CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Bless|Bless Weap
 
 # Class Name				Hit Dice	Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Order of the Thundering Storm	HD:10		ABB:OotTS		MAXLEVEL:10	SOURCEPAGE:p.205	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name				Required Check Base	Required Deity	Required Feat													Required Skill
-CLASS:Order of the Thundering Storm	PRECHECKBASE:1,Will=6	PREDEITY:Hurrian	PREFEAT:5,Combat Expertise,Dodge,Spring Attack,Weapon Focus(Longsword),Whirlwind Attack	PRESKILL:1,Knowledge (Religion)=5
+# Class Name				Required Check Base	Required Deity		Required Feat													Required Skill
+CLASS:Order of the Thundering Storm	PRECHECKBASE:1,Will=6	PREDEITY:1,Hurrian	PREFEAT:5,Combat Expertise,Dodge,Spring Attack,Weapon Focus(Longsword),Whirlwind Attack	PRESKILL:1,Knowledge (Religion)=5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Religion)|Ride|Tumble
 1	SAB:The Reluctant Warrior (Su)
-2	SAB:Lay on Hands (Su) % hp/day|LayOnHands|!PRESA:Lay on Hands (Su)	BONUS:VAR|LayOnHands|max(CHA,0)*CL							DEFINE:LayOnHands|0
+2	SAB:Lay on Hands (Su) % hp/day|LayOnHands|!PRESA:1,Lay on Hands (Su)	BONUS:VAR|LayOnHands|max(CHA,0)*CL							DEFINE:LayOnHands|0
 3	SAB:Way of the Wind (Ex)
 4	SAB:Force of the Storm (Su) %/day|ForceStormTimes				BONUS:VAR|ForceStormTimes|CL/4							DEFINE:ForceStormTimes|0
 5	SAB:The Tempest (Ex)
@@ -556,7 +556,7 @@ CLASS:Royal Marine of Milandir	STARTSKILLPTS:2	CSKILL:Balance|Climb|Diplomacy|Ju
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sarishan Binder	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SBndr		MAXLEVEL:10	SOURCEPAGE:p.209	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Deity	Required Feat									Required Skill								Req. Known Spell
-CLASS:Sarishan Binder	PREALIGN:LG,LN,LE	PREDEITY:Sarish	PREFEAT:2,Alien Understanding,Greater Spell Focus(Conjuration)	PRESKILL:2,Knowledge (Religion),Knowledge (The Planes)=13	PRESPELL:1,Dismissal
+CLASS:Sarishan Binder	PREALIGN:LG,LN,LE	PREDEITY:1,Sarish	PREFEAT:2,Alien Understanding,Greater Spell Focus(Conjuration)	PRESKILL:2,Knowledge (Religion),Knowledge (The Planes)=13	PRESPELL:1,Dismissal
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarishan Binder	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|TYPE.Local|Knowledge (The Planes)|Knowledge (Religion)|TYPE.Profession|Spellcraft
 1	DOMAIN:Binding	SAB:Focused Turning (Su)							DEFINE:FocusTurn|1					AUTO:FEAT|Basic Channeling|Channeling|Turn Infernal|Rebuke Infernal
@@ -572,8 +572,8 @@ CLASS:Sarishan Binder	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Sensate of Savona	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SoS		MAXLEVEL:10	SOURCEPAGE:p.212	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Restricted AL		Req. Att.	Required Deity	Required Feat												Required Skill
-CLASS:Sensate of Savona	!PREALIGN:LG,LN,LE	PREATT:5	PREDEITY:Larissa	PREFEAT:4,Dodge,Endurance,Improved Unarmed Strike,Weapon Focus(Unarmed Strike)	PRESKILL:2,Knowledge (Religion),Tumble=4
+# Class Name		Restricted AL		Req. Att.	Required Deity		Required Feat												Required Skill
+CLASS:Sensate of Savona	!PREALIGN:LG,LN,LE	PREATT:5	PREDEITY:1,Larissa	PREFEAT:4,Dodge,Endurance,Improved Unarmed Strike,Weapon Focus(Unarmed Strike)	PRESKILL:2,Knowledge (Religion),Tumble=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 1								SAB:A Toast to Larissa (Sp) %/day|ToastTimes	SAB:The Life of the Party (Ex)	BONUS:VAR|ToastTimes|1+(CL>=3)+(CL>=5)+(CL>=7)+(CL>=9)							DEFINE:ToastTimes|0									SPELLS:Class|TIMES=ToastTimes|CASTERLEVEL=CL|Bear's Endurance|Bull's Strength|Cat's Grace|Cure Moderate Wounds	AUTO:FEAT|Alertness
@@ -650,7 +650,7 @@ CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Craft|Diplomacy|Exa
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					List of Class Spells by Level
 CLASS:Ulfian Ranger	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:UlfR		MAXLEVEL:5	SOURCEPAGE:p.218	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Ulfian Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass Without Trace,Resist Elements,Shillelagh|Ulfian Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Protection from Energy,Shocking Grasp,Spider Climb|Ulfian Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
 # Class Name		Req. Att.	Required Feat			Multiple Requirements											Required Region	Required Skill
-CLASS:Ulfian Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREMULT:1,[PREDEITY:Hurrian],[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]	PREREGION:Coryan	PRESKILL:1,Climb=4	PRESKILL:2,Knowledge (Nature),Survival=8
+CLASS:Ulfian Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREMULT:1,[PREDEITY:1,Hurrian],[PRETEMPLATE:1,Tensen],[PRETEMPLATE:1,HolrynTensen]	PREREGION:Coryan	PRESKILL:1,Climb=4	PRESKILL:2,Knowledge (Nature),Survival=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ulfian Ranger	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels
@@ -690,7 +690,7 @@ CLASS:Warped Ones	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jum
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					List of Class Spells by Level
 CLASS:Warrior of the Eternal Flame	HD:12		TYPE:PC.Prestige	ABB:WotEF		MAXLEVEL:10	SOURCEPAGE:p.224	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Magic Weapon,Cause Fear,Dancing Lights,Pyrotechnics,Spiritual Weapon|Warrior of the Eternal Flame=2|Continual Flame,Flaming Sphere,Flame Blade,Magic Vestment,Resist Energy|Warrior of the Eternal Flame=3|Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=4|Fireball,Fireshield,Flame Strike,Wall of Fire
 # Class Name				Required AL		Req. Att.	Required Deity	Required Feat					Required Skill
-CLASS:Warrior of the Eternal Flame	PREALIGN:LG,LN,LE	PREATT:7	PREDEITY:Nier	PREFEAT:2,Toughness,Improved Toughness	PRESKILL:1,Knowledge (Religion)=4
+CLASS:Warrior of the Eternal Flame	PREALIGN:LG,LN,LE	PREATT:7	PREDEITY:1,Nier	PREFEAT:2,Toughness,Improved Toughness	PRESKILL:1,Knowledge (Religion)=4
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Warrior of the Eternal Flame	STARTSKILLPTS:2	CSKILL:Concentraation|TYPE.Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|Knwoledge (Nobility & Royalty)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
 # Class Name				Spell Stat		Spell Type		Memorize

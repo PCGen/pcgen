@@ -84,7 +84,7 @@ BIOSET:pgta_bio.lst
 # RSRD Imports - Basics
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
 ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
-CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric|Fighter|Monk|Paladin|Ranger|Rogue|Sorcerer|Wizard)
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric|Fighter|Monk|Paladin|Rogue|Sorcerer|Wizard)
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
 COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
 DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst
@@ -124,6 +124,7 @@ EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_melee_specific.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_ranged_specific.lst
 
 # Psionics
+ABILITYCATEGORY:@/d20ogl/srd35/psionics/rsrd_ability_categories_psionic.lst
 CLASS:@/d20ogl/srd35/psionics/rsrd_classes_psionic.lst
 CLASS:@/d20ogl/srd35/psionics/rsrd_classes_psionic_prestige.lst
 EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic.lst
