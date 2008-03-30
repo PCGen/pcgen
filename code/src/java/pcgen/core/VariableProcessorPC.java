@@ -1380,16 +1380,9 @@ public class VariableProcessorPC extends VariableProcessor
 	 * @param catKey The key of the category to be retrieved
 	 * @return List of matching abilities.
 	 */
-	private List<Ability> getAggregateAbilitiesListForKey(String catKey)
+	public List<Ability> getAggregateAbilitiesListForKey(String catKey)
 	{
-		Collection<AbilityCategory> cats =
-				SettingsHandler.getGame().getAllAbilityCatsForKey(catKey);
-		List<Ability> abilityList = new ArrayList<Ability>();
-		for (AbilityCategory abilityCategory : cats)
-		{
-			abilityList.addAll(getPc().getAggregateAbilityList(
-				abilityCategory));
-		}
-		return abilityList;
+		return AbilityUtilities
+			.getAggregateAbilitiesListForKey(catKey, getPc());
 	}
 }

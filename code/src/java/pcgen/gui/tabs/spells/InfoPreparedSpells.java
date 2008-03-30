@@ -55,6 +55,8 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -229,7 +231,9 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		// get the list of metamagic feats for the PC
 		characterMetaMagicFeats.clear();
-		List<Ability> feats = pc.aggregateFeatList();
+		List<Ability> feats =
+				AbilityUtilities.getAggregateAbilitiesListForKey(
+					AbilityCategory.FEAT.getAbilityCategory(), pc);
 		Globals.sortPObjectListByName(feats);
 
 		for (Ability aFeat : feats)

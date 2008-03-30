@@ -5754,14 +5754,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(aggregateFeatList(),
+		return AbilityUtilities.getAbilityFromList(AbilityUtilities
+			.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this),
 			Constants.FEAT_CATEGORY, featName, Ability.Nature.ANY);
 	}
 
 	public Ability getFeatNamed(final String featName,
 		final Ability.Nature featType)
 	{
-		return AbilityUtilities.getAbilityFromList(aggregateFeatList(),
+		return AbilityUtilities.getAbilityFromList(AbilityUtilities
+			.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this),
 			Constants.FEAT_CATEGORY, featName, featType);
 	}
 

@@ -1173,4 +1173,27 @@ public class AbilityUtilities
 
 		return altName;
 	}
+	
+
+	/**
+	 * Retrieve a list of all abilities in all categories associated 
+	 * with a given key. e.g. Fighter feats are included when feats 
+	 * are requested.
+	 * @param catKey The key of the category to be retrieved
+	 * @param pc The character to query
+	 * @return List of matching abilities.
+	 */
+	public static List<Ability> getAggregateAbilitiesListForKey(String catKey, PlayerCharacter pc)
+	{
+		Collection<AbilityCategory> cats =
+				SettingsHandler.getGame().getAllAbilityCatsForKey(catKey);
+		List<Ability> abilityList = new ArrayList<Ability>();
+		for (AbilityCategory abilityCategory : cats)
+		{
+			abilityList.addAll(pc.getAggregateAbilityList(
+				abilityCategory));
+		}
+		return abilityList;
+	}
+	
 }
