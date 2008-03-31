@@ -43,7 +43,6 @@ EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
 
-FEAT:@/d20ogl/srd/basics/srd_feats_descriptions.lst
 FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:Flyby Attack|Hover|Improved Control Shape|Multidexterity|Multiweapon Fighting|Multiattack|Quicken Spell-Like Ability|Snatch|Spell-Like Ability Focus|Unearthly Beauty|Wingover)
 

@@ -273,7 +273,7 @@ CLASS:Quissian Blademaster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Rezurbek Buerin	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL	Req. Att.	Required Deity	Required Feat					Required Race		Required Skill									Req. Spell Type		Required Text
-CLASS:Rezurbek Buerin	PREALIGN:TN	PREATT:3	PREDEITY:Buer	PREFEAT:2,Blind-Fight,Improved Initiative	PRERACE:1,Rezurbek	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Wilderness Lore=8	PRESPELLTYPE:1,Divine=1	PRETEXT:See text
+CLASS:Rezurbek Buerin	PREALIGN:TN	PREATT:3	PREDEITY:1,Buer	PREFEAT:2,Blind-Fight,Improved Initiative	PRERACE:1,Rezurbek	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Wilderness Lore=8	PRESPELLTYPE:1,Divine=1	PRETEXT:See text
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rezurbek Buerin	STARTSKILLPTS:2	CSKILL:Animal Empathy|Control Shape|TYPE.Craft|Handle Animal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -460,7 +460,7 @@ CLASS:Forest Shepherd	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.C
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Uthuk Qi'nok	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Deity	Required Race		Req. Spell Type
-CLASS:Uthuk Qi'nok	PREALIGN:CG,CN,CE	PREDEITY:Y'llan	PRERACE:1,Uthuk Y'llan	PRESPELLTYPE:1,Arcane=3
+CLASS:Uthuk Qi'nok	PREALIGN:CG,CN,CE	PREDEITY:1,Y'llan	PRERACE:1,Uthuk Y'llan	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Uthuk Qi'nok	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
 ###Block: Proficiencies

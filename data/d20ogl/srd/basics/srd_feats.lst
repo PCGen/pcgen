@@ -130,9 +130,6 @@ Maximize Spell.MOD			DESC:.CLEAR		DESC:All variable, numeric effects of a maximi
 Mobility.MOD				DESC:.CLEAR		DESC:The character gets a +4 dodge bonus to Armor Class against attacks of opportunity caused when the character moves out of or within a threatened area.
 Mounted Archery.MOD			DESC:.CLEAR		DESC:The penalty the character suffers when using a ranged weapon from horseback is halved.
 Mounted Combat.MOD			DESC:.CLEAR		DESC:Once per round when the character's mount is hit in combat, the character may make a Ride check to negate the hit.
-Multiattack.MOD				DESC:.CLEAR		DESC:The creature's secondary attacks with natural weapons suffer only a -2 penalty.
-Multidexterity.MOD			DESC:.CLEAR		DESC:The creature ignores all penalties for using an off hand.
-Multiweapon Fighting.MOD		DESC:.CLEAR		DESC:Penalties for fighting with multiple weapons are reduced by 2.
 Point Blank Shot.MOD			DESC:.CLEAR		DESC:The character gets a +1 bonus to attack and damage rolls with ranged weapons at ranges of up to 30 feet.
 Precise Shot.MOD				DESC:.CLEAR		DESC:The character can shoot or throw ranged weapons at an opponent engaged in melee without suffering the standard -4 penalty.
 Quick Draw.MOD				DESC:.CLEAR		DESC:The character can draw a weapon as a free action instead of as a move-equivalent action.

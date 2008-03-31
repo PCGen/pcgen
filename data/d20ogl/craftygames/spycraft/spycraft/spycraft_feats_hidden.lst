@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Mar 30 12:39:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -27,16 +27,16 @@ Wheelman Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SAB:Lucky	SAB:
 
 ###Block:  Fixer Abilities
 
-# Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose				Add					Add to base move													Modify VAR
+# Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose			Add					Add to base move													Modify VAR
 Sneak Attack		TYPE:Special			VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie																														DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6
 Uncanny Dodge		TYPE:Special			VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	SAB:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	SAB:Uncanny Dodge (can't be flanked, +% against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3	DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|max((UncannyDodge-2),0)
 Evasion			TYPE:Special			VISIBLE:NO	SAB:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	SAB:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	SAB:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3								DEFINE:EvasionFactor|0
 
-Fast Movement		TYPE:FixerSpecialAbility	VISIBLE:NO																																																																	BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
-Improvisation		TYPE:FixerSpecialAbility	VISIBLE:NO																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerImprovisation|1
-Master Thief		TYPE:FixerSpecialAbility	VISIBLE:NO																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerMasterThief|1
-Fixer Skill Mastery	TYPE:FixerSpecialAbility	VISIBLE:NO																																																			STACK:NO	MULT:YES	CHOOSE:NOCHOICE			ADD:FEAT|3|Skill Mastery
-Skill Mastery		TYPE:SpecialAbility		VISIBLE:NO	SAB:Skill Mastery (%CHOICE)																																														STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL|1
+Fast Movement		TYPE:FixerSpecialAbility	VISIBLE:NO																																																																BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
+Improvisation		TYPE:FixerSpecialAbility	VISIBLE:NO																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|FixerImprovisation|1
+Master Thief		TYPE:FixerSpecialAbility	VISIBLE:NO																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|FixerMasterThief|1
+Fixer Skill Mastery	TYPE:FixerSpecialAbility	VISIBLE:NO																																																			STACK:NO	MULT:YES	CHOOSE:NOCHOICE		ADD:FEAT|3|Skill Mastery
+Skill Mastery		TYPE:SpecialAbility		VISIBLE:NO	SAB:Skill Mastery (%CHOICE)																																														STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL
 Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SAB:Stash It
 
 ###Block:  Pointman Abilities

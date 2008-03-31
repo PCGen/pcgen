@@ -11,7 +11,7 @@ Channeling (Priest)		TYPE:General							PREFEAT:1,Power Surge																			
 # new feats
 #Dark Heritage			TYPE:General	TEMPLATE:ADDCHOICE:Dark Heritage template	BONUS:DC|CLASS.Hedge Mage|1	PREPCLEVEL:MAX=1	SOURCEPAGE:p51
 Dark Heritage			TYPE:General															PREPCLEVEL:MAX=1																																																										BONUS:DC|CLASS.Hedge Mage|1																				SOURCEPAGE:p51
-Devotion				TYPE:General																				PRESA:Membership in an Order of Knighthood												SAB:+2 bonus when existance of order is threatened																BONUS:COMBAT|TOHIT|1|TYPE.Moral	BONUS:COMBAT|DAMAGE|1|TYPE.Moral																									SOURCEPAGE:p51
+Devotion				TYPE:General																				PRESA:1,Membership in an Order of Knighthood												SAB:+2 bonus when existance of order is threatened																BONUS:COMBAT|TOHIT|1|TYPE.Moral	BONUS:COMBAT|DAMAGE|1|TYPE.Moral																									SOURCEPAGE:p51
 Faith					TYPE:General																																	PRESTAT:1,WIS=11	PRESTAT:1,NOB=20																																																								CSKILL:Knowledge (Religion)	SOURCEPAGE:p51
 Heritage of Nobility		TYPE:General															PREPCLEVEL:MAX=1																																																																					BONUS:STAT|NOB|10											SOURCEPAGE:p51
 Inheritance				TYPE:General															PREPCLEVEL:MAX=1																																																																																		SOURCEPAGE:p52
