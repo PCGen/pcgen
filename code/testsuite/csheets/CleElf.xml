@@ -116,10 +116,14 @@ BIO
 			<weight_nounit>105</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>0</cost>
+			<cost>-1</cost>
 			<current>0</current>
 		</poolpoints>
 		<notes>
+			<note>
+				<name>Character Sheet Notes</name>
+				<value></value>
+			</note>
 		</notes>
 	</basics>
 	<!--
@@ -1457,32 +1461,12 @@ BIO
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-		<feat>
-			<name>Turn Undead</name>
-			<description></description>
-			<type>SPECIAL.TURNING.TURNUNDEAD</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
 		<feat>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Basic Turning</name>
-			<description></description>
-			<type>SPECIAL.TURNING</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
