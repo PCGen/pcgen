@@ -7,7 +7,7 @@ SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:A
 # ARCANUM: Manuals after being owned for a period of time bestow skill bonuses
 # GIZMOS: Communicators cost 500-2000 and weigh 1-2, so prorated each based on strength
 # GIZMOS: Infra-Red Goggles bestow VISION:Dark Vision (240')
-# GIZMOS: Memory Chip, Android are PRERACE:Android
+# GIZMOS: Memory Chip, Android are PRERACE:1,Android
 # GIZMOS: Portable Alcohol Power Generator is from description of Portable Petrol Power Generator
 # GOOD JUJU: Regen Tank is immobile (basically a structure) so gave it WT:9999 until buildings are implemented
 # GOOD JUJU: Drugs and medical devices have DCs for Medical Incompatibility

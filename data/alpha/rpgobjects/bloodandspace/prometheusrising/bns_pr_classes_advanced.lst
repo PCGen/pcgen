@@ -4,7 +4,7 @@ SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Human Computer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Required Race	Required Skill
-CLASS:Human Computer	PRERACE:Menome	PRESKILL:3,Computer Use,Research,Knowledge (Tactics)=6
+CLASS:Human Computer	PRERACE:1,Menome	PRESKILL:3,Computer Use,Research,Knowledge (Tactics)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Human Computer	STARTSKILLPTS:8	CSKILL:Bluff|Climb|Computer Use|Concentration|Demolitions|Diplomacy|Disable Device|Disguise|Drive|Forgery|Gather Information|Hide|Intimidate|Investigate|TYPE.Knowledge|Listen|Move Silently|Navigate|Pilot|Repair|Research|Sense Motive|Spot
 1	SAB:Skill Download (% ranks)|SkillDownload	BONUS:VAR|SkillDownload|1														DEFINE:SkillDownload|0

@@ -45,7 +45,7 @@ CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silen
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blight Bearer	HD:8		TYPE:PC.Prestige	ABB:BlB		MAXLEVEL:4	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Deity	Required Domain		Required Feat				Required Skill					Req. Spell Type
-CLASS:Blight Bearer	PREALIGN:LE,NE,CE	PREDEITY:Neroth	PREDOMAIN:1,Disease	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion),Heal=5	PRESPELLTYPE:1,Divine=3
+CLASS:Blight Bearer	PREALIGN:LE,NE,CE	PREDEITY:1,Neroth	PREDOMAIN:1,Disease	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion),Heal=5	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blight Bearer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
 1																																				AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE.Simple|Scythe
@@ -130,7 +130,7 @@ CLASS:Wine Drinker	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wine Drinker
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Warriors of the Eternal Flame	HD:10		TYPE:PC.Prestige	ABB:WEF		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name				Req. Att.	Required Deity	Required Feat		Required Skill
-CLASS:Warriors of the Eternal Flame	PREATT:5	PREDEITY:Nier	PREFEAT:1,Toughness	PRESKILL:1,Knowledge (Religion)=5
+CLASS:Warriors of the Eternal Flame	PREATT:5	PREDEITY:1,Nier	PREFEAT:1,Toughness	PRESKILL:1,Knowledge (Religion)=5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Warriors of the Eternal Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Jump|Knowledge (Religion)|Knowledge (Arcana)|Knowledge (History)|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name				Spell Stat		Spell Type		Memorize		Caster level

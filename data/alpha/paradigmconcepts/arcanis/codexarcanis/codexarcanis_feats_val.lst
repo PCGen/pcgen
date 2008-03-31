@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Mon Mar 31 13:16:54 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
 # Feat Name	Type		Visible	Required Feat		Required Race	Modify VAR				Cost		Source Page
-Bloodrank 1	TYPE:Val	VISIBLE:YES					PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
-Bloodrank 2	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 1	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
-Bloodrank 3	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 2	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
-Bloodrank 4	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 3	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
-Bloodrank 5	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 4	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
-Bloodrank 6	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 5	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
-Bloodrank 7	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 6	PRERACE:Val		BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 1	TYPE:Val	VISIBLE:YES					PRERACE:1,Val	BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 2	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 1	PRERACE:1,Val	BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 3	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 2	PRERACE:1,Val	BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 4	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 3	PRERACE:1,Val	BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 5	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 4	PRERACE:1,Val	BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 6	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 5	PRERACE:1,Val	BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
+Bloodrank 7	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 6	PRERACE:1,Val	BONUS:VAR|ValBloodrank|1	COST:0	SOURCEPAGE:p.162
 
 
 ###Block: Val'Abebi Bloodline Powers

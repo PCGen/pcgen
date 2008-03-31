@@ -554,7 +554,7 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Storm Lord	HD:10		TYPE:Base.PC	ABB:HCHrr		MAXLEVEL:20	SOURCEPAGE:pg. 89	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity		Multiple Requirements
-CLASS:Storm Lord	PREALIGN:LG,NG,CG	PREDEITY:1,Hurrian	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:Dwarf],[PRETEMPLATE:1,Tir Betoqi]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
+CLASS:Storm Lord	PREALIGN:LG,NG,CG	PREDEITY:1,Hurrian	PREMULT:1,[PRERACE:1,Val],[PRERACE:1,Human],[PREMULT:2[PRERACE:1,Dwarf],[PRETEMPLATE:1,Tir Betoqi]],[PRERACE:1,Dark-Kin],[PRERACE:1,Half-Orc],[PRERACE:1,Half-Hobgoblin],[PRERACE:1,Gnome]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Storm Lord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Nature)|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Survival
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
