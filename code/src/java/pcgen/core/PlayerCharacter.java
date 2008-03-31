@@ -1632,6 +1632,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		double pool = getTotalBonusTo("FEAT", "POOL");
 		double pcpool = getTotalBonusTo("FEAT", "PCPOOL");
 		double mpool = getTotalBonusTo("FEAT", "MONSTERPOOL");
+		double bonus = getTotalBonusTo("ABILITYPOOL", "FEAT");
 
 		Logging.debugPrint(""); //$NON-NLS-1$
 		Logging.debugPrint("=============="); //$NON-NLS-1$
@@ -1640,6 +1641,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Logging.debugPrint("POOL:   " + pool); //$NON-NLS-1$
 		Logging.debugPrint("PCPOOL: " + pcpool); //$NON-NLS-1$
 		Logging.debugPrint("MPOOL:  " + mpool); //$NON-NLS-1$
+		Logging.debugPrint("APOOL:  " + bonus); //$NON-NLS-1$
 
 		double startAdjust = rangeLevel == 0 ? 0 : startLevel / rangeLevel;
 
@@ -1647,6 +1649,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Math.floor((this.getTotalCharacterLevel() >= startLevel) ? 1.0d
 					+ pcpool - startAdjust + 0.0001 : pcpool + 0.0001);
 		pool += Math.floor(mpool + 0.0001);
+		pool += Math.floor(bonus + 0.0001);
 
 		Logging.debugPrint(""); //$NON-NLS-1$
 		Logging.debugPrint("Total Bonus: " + pool); //$NON-NLS-1$
