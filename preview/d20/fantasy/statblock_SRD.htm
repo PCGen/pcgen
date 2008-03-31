@@ -260,7 +260,7 @@ melee
   <tr valign="top">
     <td width="25%"><b>Special Attacks/Qualities: </b></td>
     <td width="75%"> 
-|IIF(count("ABILITIES";"CATEGORY=Special Ability")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT")>0)|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0| 
 |IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Extraordinary)|
 |ABILITYALL.Special Ability.%specialAbilities| (Ex), 
