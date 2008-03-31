@@ -94,7 +94,6 @@ CATEGORY=Occupation|Sense Motive(+1 to skill).MOD					TYPE:Psychic_Roaring_Skill
 CATEGORY=Occupation|Sleight of Hand(class skill).MOD					TYPE:Psychic_Roaring_Skills
 CATEGORY=Occupation|Sleight of Hand(+1 to skill).MOD					TYPE:Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Speak Language(class skill).MOD					TYPE:Explorer_Skills
 CATEGORY=Occupation|Speak Language(1 additional language).MOD			TYPE:Explorer_Skills
 
 CATEGORY=Occupation|Spot(class skill).MOD							TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
