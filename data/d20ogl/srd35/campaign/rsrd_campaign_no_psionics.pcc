@@ -172,7 +172,7 @@ TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
 
 
 # Epic
-ABILITYCATEGORY:rsrd_abilitycategories_epic.lst
+ABILITYCATEGORY:@/d20ogl/srd35/epic/rsrd_ability_categories_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_base_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_monsters_dragons_epic.lst
