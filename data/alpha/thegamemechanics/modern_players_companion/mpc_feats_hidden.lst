@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb  7 12:25:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Mar 31 22:18:19 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
@@ -52,7 +52,7 @@ Uncanny Dodge X2				TYPE:GentleWarriorAbility				VISIBLE:NO	PREFEAT:1,Uncanny Do
 Hacker Abilities				TYPE:HackerAbility					VISIBLE:NO											SAB:Hacker Abilities (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|STRING|Careful Progress|Electronic Empathy|False Trail|Install Backdoor|Instant Upgrade|Overclock|Passfirewall|Personal Database																																																													SOURCEPAGE:p.34
 Naturalist					TYPE:SurvivalistAbility					VISIBLE:NO											SAB:Naturalist (%CHOICE)									STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Arctic|Desert|Deciduous Forest|Jungle|Mountain (high altitude)|Mountain (low altitude)|Plains (temperate grasslands)|Rainforest|Savanna|Sea Coast|Swamp|Volcanic Plain																																																					SOURCEPAGE:p.40
 Advanced Techniques			TYPE:MartialArtsMasterAbility				VISIBLE:NO											SAB:Advanced Techniques (%CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Crane Kick|Hands Without Shadow|Improvised Weapon Proficiency|Mat Techniques|Three Conflicts Stance																																																																SOURCEPAGE:p.46
-Trigger Power				TYPE:MentalistAbility					VISIBLE:NO											SAB:Trigger Power (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SPELLLIST|LIST																																																																																SOURCEPAGE:p.50
+Trigger Power				TYPE:MentalistAbility					VISIBLE:NO											SAB:Trigger Power (%CHOICE)									STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Psionic[KNOWN=YES]																																																																														SOURCEPAGE:p.50
 
 #Cross Training Sub-Entries
 Raise Abilities				TYPE:X-Training						VISIBLE:NO											SAB:Cross Training (+1 to %CHOICE)								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|STAT																																																		BONUS:STAT|%LIST|1																												SOURCEPAGE:p.55
