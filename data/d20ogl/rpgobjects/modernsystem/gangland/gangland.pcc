@@ -22,6 +22,8 @@ COPYRIGHT:PCGen dataset conversion for Gangland Copyright 2005-2006, PCGen Data 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:gangland_abilities.lst
+ABILITYCATEGORY:gangland_ability_categories.lst
 CLASS:gangland_classes_prestige.lst
 FEAT:gangland_feats.lst
 FEAT:gangland_feats_hidden.lst

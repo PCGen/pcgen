@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Mon Mar 31 23:43:22 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
+
+###Block: .MOD feats for TYPE addition
+# Ability Name									Type
+CATEGORY=Occupation|Disable Device(class skill).MOD			TYPE:CriminalRecord
+CATEGORY=Occupation|Disable Device(+1 to skill).MOD			TYPE:CriminalRecord
+CATEGORY=Occupation|Disguise(class skill).MOD				TYPE:CriminalRecord
+CATEGORY=Occupation|Disguise(+1 to skill).MOD				TYPE:CriminalRecord
+CATEGORY=Occupation|Forgery(class skill).MOD				TYPE:CriminalRecord
+CATEGORY=Occupation|Forgery(+1 to skill).MOD				TYPE:CriminalRecord
+CATEGORY=Occupation|Gamble(class skill).MOD				TYPE:CriminalRecord
+CATEGORY=Occupation|Gamble(+1 to skill).MOD				TYPE:CriminalRecord
+CATEGORY=Occupation|Hide(class skill).MOD					TYPE:CriminalRecord
+CATEGORY=Occupation|Hide(+1 to skill).MOD					TYPE:CriminalRecord
+CATEGORY=Occupation|Knowledge (Streetwise - +1 to skill).MOD	TYPE:CriminalRecord
+CATEGORY=Occupation|Move Silently(class skill).MOD			TYPE:CriminalRecord
+CATEGORY=Occupation|Move Silently(+1 to skill).MOD			TYPE:CriminalRecord
+CATEGORY=Occupation|Sleight of Hand(class skill).MOD			TYPE:CriminalRecord
+CATEGORY=Occupation|Sleight of Hand(+1 to skill).MOD			TYPE:CriminalRecord
+

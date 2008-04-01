@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 22:35:21 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Mar 31 23:43:22 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
 # Original Entry by: Paul W. King
 
 ###Block: feat
-# Feat Name		Type			Description														Add						Modify VAR			Source Page
-Criminal Record	TYPE:General	DESC:You have had numerous brushes with the law and many of your friends are criminals.	ADD:FEAT|2|TYPE=CriminalRecord	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5
+# Feat Name		Type			Description														Bonus to Ability Pool					Modify VAR			Source Page
+Criminal Record	TYPE:General	DESC:You have had numerous brushes with the law and many of your friends are criminals.	BONUS:ABILITYPOOL|Criminal Record Skills|2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5
 
 ###Block: advanced occupations
 # Feat Name	Type						Required Feat						Required Skill				Description																																													Stackable?	Multiple?	Choose							Bonus to skill						Source Page
@@ -19,39 +19,23 @@ Safecracker	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Crim
 Stalker	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Gather Information=4	DESC:Whether you follow your targets for money or to indulge a sick fascination no one can stop you from knowing their whereabouts.																									STACK:NO	MULT:YES	CHOOSE:STRING|Gather Information|Hide		BONUS:SKILL|Gather Information,Hide|2		SOURCEPAGE:p.5
 Wheelman	TYPE:General.AdvancedOccupation	PREFEAT:1,Occupation (Criminal),Criminal Record	PRESKILL:1,Drive=4			DESC:You make your living driving criminals to their meetings, making sure they are not disturbed along the way by police or rival criminals																							STACK:NO	MULT:YES	CHOOSE:STRING|Drive|Spot				BONUS:SKILL|Drive,Spot|2				SOURCEPAGE:p.5
 
-###Block: .MOD feats for TYPE addition
-# Feat Name						Type
-Disable Device(class skill).MOD		TYPE:CriminalRecord
-Disable Device(+1 to skill).MOD		TYPE:CriminalRecord
-Disguise(class skill).MOD			TYPE:CriminalRecord
-Disguise(+1 to skill).MOD			TYPE:CriminalRecord
-Forgery(class skill).MOD			TYPE:CriminalRecord
-Forgery(+1 to skill).MOD			TYPE:CriminalRecord
-Gamble(class skill).MOD				TYPE:CriminalRecord
-Gamble(+1 to skill).MOD				TYPE:CriminalRecord
-Hide(class skill).MOD				TYPE:CriminalRecord
-Hide(+1 to skill).MOD				TYPE:CriminalRecord
-Knowledge (Streetwise - class skill).MOD	TYPE:CriminalRecord
-Knowledge (Streetwise - +1 to skill).MOD	TYPE:CriminalRecord
-Move Silently(class skill).MOD		TYPE:CriminalRecord
-Move Silently(+1 to skill).MOD		TYPE:CriminalRecord
-Sleight of Hand(class skill).MOD		TYPE:CriminalRecord
-Sleight of Hand(+1 to skill).MOD		TYPE:CriminalRecord
 
-Alertness.MOD					TYPE:Hitman
-Archaic Weapons Proficiency.MOD		TYPE:Hitman
-Armor Proficiency (Light).MOD			TYPE:Hitman.Vigilante
-Armor Proficiency (Medium).MOD		TYPE:Hitman.Vigilante
-Brawl.MOD						TYPE:Hitman
-Burst Fire.MOD					TYPE:Vigilante
-Confident.MOD					TYPE:Hitman.Vigilante
-Double Tap.MOD					TYPE:Hitman.Vigilante
-Drive-By Attack.MOD				TYPE:Hitman.Vigilante
-Far Shot.MOD					TYPE:Hitman
-Low Profile.MOD					TYPE:Hitman.Vigilante
-Point Blank Shot.MOD				TYPE:Hitman.Vigilante
-Precise Shot.MOD					TYPE:Vigilante
-Quick Draw.MOD					TYPE:Hitman.Vigilante
-Quick Reload.MOD					TYPE:Hitman.Vigilante
-Renown.MOD						TYPE:Hitman.Vigilante
+###Block: .MOD feats for TYPE addition
+# Feat Name					Type
+Alertness.MOD				TYPE:Hitman
+Archaic Weapons Proficiency.MOD	TYPE:Hitman
+Armor Proficiency (Light).MOD		TYPE:Hitman.Vigilante
+Armor Proficiency (Medium).MOD	TYPE:Hitman.Vigilante
+Brawl.MOD					TYPE:Hitman
+Burst Fire.MOD				TYPE:Vigilante
+Confident.MOD				TYPE:Hitman.Vigilante
+Double Tap.MOD				TYPE:Hitman.Vigilante
+Drive-By Attack.MOD			TYPE:Hitman.Vigilante
+Far Shot.MOD				TYPE:Hitman
+Low Profile.MOD				TYPE:Hitman.Vigilante
+Point Blank Shot.MOD			TYPE:Hitman.Vigilante
+Precise Shot.MOD				TYPE:Vigilante
+Quick Draw.MOD				TYPE:Hitman.Vigilante
+Quick Reload.MOD				TYPE:Hitman.Vigilante
+Renown.MOD					TYPE:Hitman.Vigilante
 
