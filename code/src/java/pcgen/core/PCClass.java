@@ -1221,7 +1221,12 @@ public class PCClass extends PObject
 
 						if (x > -1)
 						{
-							adj = 1;
+							PCClass target = this;
+							if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
+							{
+								target = getSubClassKeyed(subClassKey);
+							}
+							adj = target.getSpecialtyKnownForLevel(spellLevel, aPC);
 
 							break;
 						}
@@ -1229,7 +1234,7 @@ public class PCClass extends PObject
 				}
 				// end of what to do if aList is not empty
 
-				if (adj == 1)
+				if (adj > 0)
 				{
 					break;
 				}
@@ -2652,7 +2657,13 @@ public class PCClass extends PObject
 			// if this class has a specialty, return +1
 			if (hasSpecialtyList())
 			{
-				return "+1";
+				PCClass target = this;
+				if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
+				{
+					target = getSubClassKeyed(subClassKey);
+				}
+				
+				return "+"+target.getSpecialtyKnownForLevel(spellLevel, aPC);
 			}
 
 			if (!aPC.hasCharacterDomainList())
@@ -2761,14 +2772,9 @@ public class PCClass extends PObject
 				}
 			}
 
-			// if we have known spells (0==no known spells recorded) or a psi
-			// specialty.
-			if ((total > 0) && (spellLevel > 0))
-			{
-				// make sure any slots due from specialties (including domains) are
-				// added
-				total += castInfo.getKnownSpellsFromSpecialty();
-			}
+			// make sure any slots due from specialties (including domains) are
+			// added
+			total += castInfo.getKnownSpellsFromSpecialty();
 		}
 
 		return total;
@@ -4463,12 +4469,12 @@ public class PCClass extends PObject
 		return i;
 	}
 
-	/*
+	/**
 	 * -2 means that the spell itself indicates what stat should be used,
 	 * otherwise this method returns an index into the global list of stats for
 	 * which stat the bonus spells are based upon.
 	 * 
-	 * @return int
+	 * @return int Index of the class' spell stat, or -2 if spell based
 	 */
 	/*
 	 * REFACTOR Why is this returning an INT and not a PCStat or something like
@@ -4479,9 +4485,8 @@ public class PCClass extends PObject
 	{
 		String tmpSpellBaseStat = getSpellBaseStat();
 
-		return "SPELL".equals(tmpSpellBaseStat) ? (-2 // means base spell stat
-			// is based upon spell
-			// itself
+		return "SPELL".equals(tmpSpellBaseStat) || tmpSpellBaseStat == null
+			? (-2 // means base spell stat is based upon spell itself
 			) : SettingsHandler.getGame().getStatFromAbbrev(tmpSpellBaseStat);
 	}
 
