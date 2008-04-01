@@ -23,6 +23,7 @@ COPYRIGHT:PCGen dataset conversion for the Spellbinder's Sourcebook Copyright 20
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+KIT:spellbinder_kits.lst
 RACE:spellbinder_races.lst
 SPELL:spellbinder_spells.lst
 TEMPLATE:spellbinder_templates.lst

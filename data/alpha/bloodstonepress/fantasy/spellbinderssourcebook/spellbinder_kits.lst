@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Tue Apr  1 13:15:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
+# Original Entry by: Eddy Anthony
+
+STARTPACK:War Pig Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,War Pig]	SOURCEPAGE:p.19
+RACE:War Pig	!PRERACE:1,%
+NAME:War Pig
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Weapon Focus(Gore)
+FEAT:Improved Natural Attack(Gore)
+FEAT:Iron Will
+FEAT:Endurance
+FEAT:Improved Initiative
+FEAT:Toughness
+FEAT:Alertness
+GEAR:Barding (Full Plate)	SIZE:PC	LOCATION:Equipped	EQMOD:SPIKE_A
