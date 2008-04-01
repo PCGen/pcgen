@@ -53,11 +53,11 @@ PrerequisiteTest
 
 		try
 		{
-			anInt = Integer.parseInt(prereq.getOperand());
+			anInt = Integer.parseInt(prereq.getKey());
 		}
 		catch (NumberFormatException exc)
 		{
-			anInt = Globals.getBioSet().getAgeSetNamed(prereq.getOperand());
+			anInt = Globals.getBioSet().getAgeSetNamed(prereq.getKey());
 		}
 		catch (Exception e)
 		{

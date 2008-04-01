@@ -57,12 +57,12 @@ implements PrerequisiteParserInterface
 
 		//Operand should be either an integer or a recognizable String
 		try{
-			Integer.parseInt(formula);
+			Integer.parseInt(prereq.getKey());
 			Logging.errorPrint("You are using an old form of PREAGESET,"
 					+ " you should use the age set name, e.g.: PREAGESET:1,Old");
 		}
 		catch (NumberFormatException exc){
-			prereq.setOperand(formula); //assume recognizable String for now
+			//prereq.setOperand(formula); //assume recognizable String for now
 		}
 
 		return prereq;

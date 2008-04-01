@@ -68,7 +68,7 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 		checkValidOperator(prereq, operatorsHandled());
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
 			}
@@ -83,4 +83,32 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
+
+
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
+		if (po == null)
+		{
+			return false;
+		}
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+				+ (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+				: "1");
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			writer.write(',');
+			writer.write(p.getKey());
+		}
+		return true;
+	}
+	
 }
