@@ -22,6 +22,9 @@ COPYRIGHT:PCGen dataset conversion for Blood and Guts: Modern Military Copyright
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:modernmilitary_abilities.lst
+ABILITYCATEGORY:modernmilitary_ability_categories.lst
+
 CLASS:modernmilitary_classes_prestige.lst
 
 EQUIPMENT:modernmilitary_equip_personal.lst

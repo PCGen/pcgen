@@ -1,0 +1,45 @@
+# CVS $Revision$ $Author$ -- Tue Apr  1 12:15:52 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
+# Original Entry by Paul W. King
+
+### MOS skills
+# Ability Name					Category of Ability	Type														Visible		Class Skill
+Air Traffic Control(class skill)		CATEGORY:Occupation	TYPE:AviationSkills.Pilotskills									VISIBLE:DISPLAY	CSKILL:Air Traffic Control
+Communication Operations(class skill)	CATEGORY:Occupation	TYPE:ArmorSkills.AviationSkills.SignalsSkills.MaintenanceSkills.IntelligenceSkills	VISIBLE:DISPLAY	CSKILL:Communication Operations
+Profession(class skill)				CATEGORY:Occupation	TYPE:DiverSkills												VISIBLE:DISPLAY	CSKILL:Profession
+
+###Block: Skill .MODs
+# Ability Name										Type
+CATEGORY=Occupation|Climb(class skill).MOD					TYPE:InfantrySkills
+CATEGORY=Occupation|Computer Use(class skill).MOD				TYPE:IntelligenceSkills
+CATEGORY=Occupation|Craft (Chemical - class skill).MOD			TYPE:CombatEngineeringSkills.DiverSkills.NBCSkills.MedicalSkills
+CATEGORY=Occupation|Craft (Electronic - class skill).MOD			TYPE:AviationSkills.CombatEngineeringSkills.DiverSkills.SignalsSkills.PilotSkills.NBCSkills.MaintenanceSkills
+CATEGORY=Occupation|Craft (Mechanical - class skill).MOD			TYPE:AviationSkills.CombatEngineeringSkills.SignalsSkills.PilotSkills.MaintenanceSkills
+CATEGORY=Occupation|Craft (Pharmaceutical - class skill).MOD		TYPE:MedicalSkills
+CATEGORY=Occupation|Craft (Structural - class skill).MOD			TYPE:AviationSkills.CombatEngineeringSkills.FieldArtillerySkills.InfantrySkills.MaintenanceSkills.MaintenanceSkills
+CATEGORY=Occupation|Decipher Script(class skill).MOD				TYPE:IntelligenceSkills
+CATEGORY=Occupation|Demolitions(class skill).MOD				TYPE:ArmorSkills.CombatEngineeringSkills.DiverSkills.FieldArtillerySkills.InfantrySkills
+CATEGORY=Occupation|Diplomacy(class skill).MOD					TYPE:SignalsSkills.NBCSkills.Medicalskills.LawEnforcementSkills.IntelligenceSkills
+CATEGORY=Occupation|Disable Device(class skill).MOD				TYPE:ArmorSkills.CombatEngineeringSkills.Diverskills.FieldArtillerySkills.InfantrySkills.NBCSkills
+CATEGORY=Occupation|Drive(class skill).MOD					TYPE:ArmorSkills.CombatEngineeringSkills.FieldArtillerySkills.InfantrySkills.LawEnforcementSkills.MaintenanceSkills
+CATEGORY=Occupation|Forgery(class skill).MOD					TYPE:IntelligenceSkills
+CATEGORY=Occupation|Gather Information(class skill).MOD			TYPE:IntelligenceSkills
+CATEGORY=Occupation|Handle Animal(class skill).MOD				TYPE:LawEnforcementSkills
+CATEGORY=Occupation|Hide(class skill).MOD						TYPE:ArmorSkills.FieldArtillerySkills.InfantrySkills
+CATEGORY=Occupation|Intimidate(class skill).MOD					TYPE:InfantrySkills.LawEnforcementSkills.IntelligenceSkills
+CATEGORY=Occupation|Investigate(class skill).MOD				TYPE:LawEnforcementSkills
+CATEGORY=Occupation|Knowledge (Behavioral Sciences - class skill).MOD	TYPE:MedicalSkills
+CATEGORY=Occupation|Knowledge (Civics - class skill).MOD			TYPE:LawEnforcementSkills
+CATEGORY=Occupation|Knowledge (Tactics - class skill).MOD			TYPE:ArmorSkills.FieldArtillerySkills.InfantrySkills.PilotSkills
+CATEGORY=Occupation|Knowledge (Technology - class skill).MOD		TYPE:ArmorSkills.AviationSkills.CombatEngineeringSkills.DiverSkills.SignalsSkills.NBCSkills.MedicalSkills.MaintenanceSkills
+CATEGORY=Occupation|Navigate(class skill).MOD					TYPE:ArmorSkills.CombatEngineeringSkills.InfantrySkills
+CATEGORY=Occupation|Pilot(class skill).MOD					TYPE:PilotSkills
+CATEGORY=Occupation|Repair(class skill).MOD					TYPE:ArmorSkills.AviationSkills.CombatEngineeringSkills.DiverSkills.FieldArtillerySkills.SignalsSkills.PilotSkills.NBCSkills.MedicalSkills.MaintenanceSkills
+CATEGORY=Occupation|Research(class skill).MOD					TYPE:NBCSkills.MedicalSkills.IntelligenceSkills
+CATEGORY=Occupation|Search(class skill).MOD					TYPE:CombatEngineeringSkills.DiverSkills.InfantrySkills
+CATEGORY=Occupation|Sense Motive(class skill).MOD				TYPE:LawEnforcementSkills.IntelligenceSkills
+CATEGORY=Occupation|Spot(class skill).MOD						TYPE:InfantrySkills.LawEnforcementSkills
+CATEGORY=Occupation|Swim(class skill).MOD						TYPE:DiverSkills
+CATEGORY=Occupation|Survival(class skill).MOD					TYPE:CombatEngineeringSkills.InfantrySkills
+CATEGORY=Occupation|Treat Injury(class skill).MOD				TYPE:NBCSkills.MedicalSkills
+
