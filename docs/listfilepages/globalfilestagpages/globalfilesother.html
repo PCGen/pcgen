@@ -42,14 +42,14 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Adds an ability, of the given category and nature, to a character.</li>
-			<li>The listed Ability Category must have been defined in the appropriate <em>gamemode/miscinfo.lst</em> 
+			<li>The listed Ability Category must have been defined in the appropriate <em>gamemode/miscinfo.lst</em>
 				or <em>abilitycategory.lst</em> file.</li>
 			<li>Valid Ability Natures are NORMAL, AUTOMATIC, or VIRTUAL.</li>
-			<li>When adding an ability to a category, that category's pool will be charged only if the 
+			<li>When adding an ability to a category, that category's pool will be charged only if the
 				&quot;Nature&quot; is NORMAL.</li>
 			<li>This tag will not cause a chooser to appear so all required choices must be specified in the
 				tag.</li>
-			<li>Abilities with a built-in chooser, e.g. Weapon Focus, can have the choice specified by including 
+			<li>Abilities with a built-in chooser, e.g. Weapon Focus, can have the choice specified by including
 				the choice in parenthesis after the ability name, e.g. Weapon Focus(Longsword).</li>
 			<li>The standard list for the ability category will be used to find a matching ability.</li>
 			<li>ABILITY tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
@@ -76,10 +76,10 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> ARMORTYPE=Text (Armor type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This is a pipe-delimited (|) list of armor, by name or by armor type, that are granted 
+			<li>This is a pipe-delimited (|) list of armor, by name or by armor type, that are granted
 				as free armor proficiencies.</li>
-			<li>When including the <code>ARMORTYPE=</code> sub-tag you may use a period-delimted (.) list 
-				of armor types. This will grant the character proficiency with armor that meet all of the 
+			<li>When including the <code>ARMORTYPE=</code> sub-tag you may use a period-delimted (.) list
+				of armor types. This will grant the character proficiency with armor that meet all of the
 				listed armor types.</li>
 			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
 			<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
@@ -151,10 +151,10 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> SHIELDTYPE=Text (Shield type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This is a pipe-delimited (|) list of shields, by name or shield type, that are granted 
+			<li>This is a pipe-delimited (|) list of shields, by name or shield type, that are granted
 				as free shield proficiencies.</li>
-			<li>When including the <code>SHIELDTYPE=</code> sub-tag you may use a period-delimted (.) list 
-				of shield types. This will grant the character proficiency with shields that meet all of the 
+			<li>When including the <code>SHIELDTYPE=</code> sub-tag you may use a period-delimted (.) list
+				of shield types. This will grant the character proficiency with shields that meet all of the
 				listed shield types.</li>
 			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
 			<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
@@ -178,11 +178,11 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> DEITYWEAPONS</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This is a pipe-delimited (|) list of weapons, by name or weapon type, that are granted 
+		<li>This is a pipe-delimited (|) list of weapons, by name or weapon type, that are granted
 			as free weapon proficiencies.</li>
 		<li>You can specify individual weapons or all weapons of a weapon proficiency type.</li>
-		<li>When including the <code>TYPE=</code> sub-tag you may use a period-delimted (.) list 
-			of weapon types. This will grant the character proficiency with weapons that meet all of the 
+		<li>When including the <code>TYPE=</code> sub-tag you may use a period-delimted (.) list
+			of weapon types. This will grant the character proficiency with weapons that meet all of the
 			listed weapon types.</li>
 		<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
 		<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
@@ -565,14 +565,14 @@
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent1">
-		<li>This tag is used to define natural attacks and add them to the character when the 
+		<li>This tag is used to define natural attacks and add them to the character when the
 			the containing object is assigned to the character.</li>
 		<li>This is a comma (,) and pipe (|) delimited list of the natural attacks a
 			creature has.
 			<ul>
 				<li>Pipes are used to separate the entries if the creature has multiple attacks.</li>
-				<li>Commas are used to delimit variables within a single attack listing. All four 
-					variables separated by three commas must be present or PCGen will hang when 
+				<li>Commas are used to delimit variables within a single attack listing. All four
+					variables separated by three commas must be present or PCGen will hang when
 					attempting to load the .pcc file.</li>
 			</ul>
 			<li>Natural weapon types should be period-delimited (.). This must always
@@ -586,9 +586,9 @@
 				natural weapons it possesses.</li>
 		<li>The damage the natural weapon does is entered in the standard dice notation
 				such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
-		<li>The NATURALATTACKS tag creates a proficiency for the attacks on the fly which allows 
-			the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the NATURALATTACKS 
-			tag to create a Bite attack you could then use <code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> 
+		<li>The NATURALATTACKS tag creates a proficiency for the attacks on the fly which allows
+			the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the NATURALATTACKS
+			tag to create a Bite attack you could then use <code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code>
 			to add 2 to the attack and damage rolls.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -653,7 +653,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> WEAPONPROF</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Object KEY)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Counters PRExxx tags checking for the listed objects. Any objects 
+	<p class="indent2">Counters PRExxx tags checking for the listed objects. Any objects
 		listed will ignore all PRE tags and be a valid selection for the character.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>QUALIFY:ABILITY=FEAT|Mounted Combat|Ride-By Attack</code></p>
@@ -997,7 +997,7 @@
 		<li>The spellbook should never be the same name as a Class, as it will cause an exception in
 			PCGen.</li>
 		<li><code>TIMES</code> is an optional parameter and if not present will default to 1.</li>
-		<li><code>TIMEUNIT</code> can be any unit of time, e.g. Day, Week, Month, Encounter, etc., but is 
+		<li><code>TIMEUNIT</code> can be any unit of time, e.g. Day, Week, Month, Encounter, etc., but is
 			optional and if not present will default to &quot;Day&quot;.</li>
 		<li><code>CASTERLEVEL</code> is an optional parameter and if not present will default to 1.</li>
 		<li>There should never be more than one <code>TIMES</code> and <code>CASTERLEVEL</code> tag used within a <code>SPELLS</code> tag.</li>
@@ -1011,6 +1011,8 @@
 		</li>
 		<li>Formulas which use comma's within them should be encapsulated using parentheses &quot;( )&quot;.</li>
 		<li>Because the <code>SPELLS</code> tag is not associated with any one class the variable &quot;CL&quot; will not work in it.</li>
+		<li><a href="../../listfilepages/listfileLSTstandards.html#STDSPELLNAME">Standard Spellbook Names</a></li>
+
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Acid Arrow,12+CHA|PRESTAT:1,CHA=12</code></p>
@@ -1168,15 +1170,15 @@
 		<li>Grants any number of feats to the character as &quot;Virtual&quot; feats.</li>
 		<li>The list of feats granted are a pipe-delimited (&quot;|&quot;) list of feats.</li>
 		<li>The feats are granted regardless of the prerequisites for those feats.</li>
-		<li>Feats with built-in choosers, i.e. &quot;Weapon Focus&quot;, must include the 
+		<li>Feats with built-in choosers, i.e. &quot;Weapon Focus&quot;, must include the
 			specific &quot;choice&quot; being granted, i.e. &quot;Weapon Focus(Greatsword)&quot;.</li>
-		<li type="none"><strong>Note:</strong> The VFEAT tag <strong class="new">WILL NOT</strong> activate a 
-			CHOOSER inside of a feat. You must use <a href="globalfilesadd.html#FEAT|">ADD:FEAT</a> 
+		<li type="none"><strong>Note:</strong> The VFEAT tag <strong class="new">WILL NOT</strong> activate a
+			CHOOSER inside of a feat. You must use <a href="globalfilesadd.html#FEAT|">ADD:FEAT</a>
 			to activate a chooser inside of a feat being granted.</li>
-		<li>Feats such as &quot;Armor Proficiency (yyy)&quot; that do not have a built-in chooser are a set 
-			of individual feats and therfore <strong>WILL</strong> have a space between the feat name 
+		<li>Feats such as &quot;Armor Proficiency (yyy)&quot; that do not have a built-in chooser are a set
+			of individual feats and therfore <strong>WILL</strong> have a space between the feat name
 			and the opening parenthesis.</li>
-		<li>Feats such as &quot;Weapon Focus&quot; are single feats with built-in choosers and will <strong>NOT</strong> 
+		<li>Feats such as &quot;Weapon Focus&quot; are single feats with built-in choosers and will <strong>NOT</strong>
 			have a space between the feat name and the opening parenthesis, i.e. &quot;Weapon Focus(xxx)&quot;.</li>
 		<li>PRExxx tags can be used to assign new prerequisites to the virtual feats.</li>
 	</ul>
@@ -1242,25 +1244,25 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Modifies a existing LST object.</li>
-		<li>When modifying abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>, 
+		<li>When modifying abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>,
 			and its name, or &quot;key&quot;.</li>
 		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
 		<li>Modifying a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
 		<li>If you want to <code>.MOD</code> the name of an object you need to include the <code>NAME:</code> tag.</li>
 		<li>If you want to <code>.MOD</code> an eqmod, you use the &quot;key&quot; but not the <code>KEY</code> tag.</li>
 		<li>Any tags that follow the <code>.MOD</code> tag are added to the list of tags already in the object.</li>
-		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new 
+		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new
 			tag will replace the tag in the original entry.</li>
-		<li>If more than one tag is allowed, most notably <code>BONUS</code> statements, then the new tag will 
+		<li>If more than one tag is allowed, most notably <code>BONUS</code> statements, then the new tag will
 			be added to the other tags in the object.</li>
-		<li>When modifying an object to remove or replace a numerical <code>BONUS</code>, you must duplicate the 
-			original <code>BONUS</code> with the number or formula used for the numerical bonus multiplied by 
+		<li>When modifying an object to remove or replace a numerical <code>BONUS</code>, you must duplicate the
+			original <code>BONUS</code> with the number or formula used for the numerical bonus multiplied by
 			&quot;-1&quot;.</li>
-		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the 
+		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the
 			order of operation is also controlled by the <code>RANK</code> tag in the PCC file.
 			<ul>
 				<li>Given: <code>1.MOD</code> <code>1.FORGET</code> <code>2.COPY</code> <code>2.Blank</code> <code>2.MOD</code> <code>3.MOD</code></li>
-				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code> 
+				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code>
 					<code>3.MOD</code> <code>1.FORGET</code></li>
 			</ul>
 		</li>
@@ -1283,7 +1285,7 @@
 	<p class="indent2"><code>BOWSTR.MOD</code></p>
 	<p class="indent3">Modifies the &quot;BOWSTR&quot; eqmod (in eqmod.lst)</p>
 	<p class="indent2"><code>CATEGORY=Mutation|Weak Immune System.MOD</code></p>
-	<p class="indent3">Modifies an ability of the category Mutation, which is called Weak Immune System. 
+	<p class="indent3">Modifies an ability of the category Mutation, which is called Weak Immune System.
 		Another ability of the same name, which belongs to another category, would not be affected.</p>
 	<p></p>
 
@@ -1300,7 +1302,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Copies a LST object, creating a new object with the same properties as the original object.</li>
-		<li>When copying abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>, 
+		<li>When copying abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>,
 			and its name, or &quot;key&quot;.</li>
 		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
 		<li>Copying a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
@@ -1309,18 +1311,18 @@
 			original class by name. The effect of this is that you r new class will not inherit any class
 			abilities that reference the old class name, some of these include: Spellcasting, Favored Enemies
 			and other special abilities.</li>
-		<li>Tags following the <code>.COPY</code> line modify the new object in the same way the <code>.MOD</code> 
+		<li>Tags following the <code>.COPY</code> line modify the new object in the same way the <code>.MOD</code>
 			tag modifies objects.</li>
 		<li>Any tags that follow the <code>.COPY</code> tag are added to the list of tags already in the object.</li>
-		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new 
+		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new
 			tag will replace the tag in the original entry.</li>
-		<li>If more than one tag is allowed, most notably <code>BONUS</code> statements, then the new tag will 
+		<li>If more than one tag is allowed, most notably <code>BONUS</code> statements, then the new tag will
 			be added to the other tags in the object.</li>
-		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the 
+		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the
 			order of operation is also controlled by the <code>RANK</code> tag in the PCC file.
 			<ul>
 				<li>Given: <code>1.MOD</code> <code>1.FORGET</code> <code>2.COPY</code> <code>2.Blank</code> <code>2.MOD</code> <code>3.MOD</code></li>
-				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code> 
+				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code>
 					<code>3.MOD</code> <code>1.FORGET</code></li>
 			</ul>
 		</li>
@@ -1403,16 +1405,16 @@
 	<p class="indent1"><strong>What it does:</strong> </p>
 	<ul class="indent2">
 		<li>Completely removes a LST object from the loaded dataset.</li>
-		<li>When forgeting abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>, 
+		<li>When forgeting abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>,
 			and its name, or &quot;key&quot;.</li>
 		<li>This tag has no other tags following it.</li>
 		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
 		<li>Forgeting a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
-		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the 
+		<li>The order of operations is: Native line, <code>COPY</code>, <code>MOD</code>, then <code>FORGET</code>, but the
 			order of operation is also controlled by the <code>RANK</code> tag in the PCC file.
 			<ul>
 				<li>Given: <code>1.MOD</code> <code>1.FORGET</code> <code>2.COPY</code> <code>2.Blank</code> <code>2.MOD</code> <code>3.MOD</code></li>
-				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code> 
+				<li>Order of processing is: <code>2.Blank</code> <code>2.COPY</code> <code>1.MOD</code> <code>2.MOD</code>
 					<code>3.MOD</code> <code>1.FORGET</code></li>
 			</ul>
 		</li>
