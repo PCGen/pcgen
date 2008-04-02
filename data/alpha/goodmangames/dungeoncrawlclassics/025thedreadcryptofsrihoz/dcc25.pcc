@@ -5,9 +5,7 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Generic
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Goodman Games.Dungeon Crawl Classics
+TYPE:Goodman Games.Dungeon Crawl Classics
 PUBNAMELONG:Goodman Games
 PUBNAMESHORT:Goodman
 PUBNAMEWEB:http://www.goodman-games.com/
@@ -23,5 +21,6 @@ COPYRIGHT:PCGen dataset conversion for Dungeon Crawl Classics 25: The dread Cryp
 #EXTRAFILE:OGL.txt
 
 EQUIPMENT:dcc25_equip.lst
+KIT:dcc25_kits.lst
 RACE:dcc25_races.lst
 SPELL:dcc25_spells.lst

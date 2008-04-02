@@ -1,0 +1,32 @@
+# CVS $Revision$ $Author$ -- Wed Apr  2 15:12:06 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:DCC 25 - The Dread Crypt of Srihoz	SOURCESHORT:DCC25	SOURCEWEB:http://www.goodman-games.com/
+
+STARTPACK:Golem (Amber) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Amber)]	SOURCEPAGE:p.36
+RACE:Golem (Amber)	!PRERACE:1,%
+NAME:Amber Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Ash Guardian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ash Guardian]	SOURCEPAGE:p.37
+RACE:Ash Guardian	!PRERACE:1,%
+NAME:Ash Guardian
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Listen			RANK:12
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spellcraft			RANK:8
+SKILL:Spot				RANK:12
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Vampiric Bloom Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampiric Bloom]	SOURCEPAGE:p.38
+RACE:Vampiric Bloom	!PRERACE:1,%
+NAME:Vampiric Bloom
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
