@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 28 14:46:53 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Apr  1 21:32:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -105,13 +105,14 @@ Favored Bonus__Undead			CATEGORY:Special Ability	TYPE:FavoredEnemyBonus	VISIBLE:
 Favored Bonus__Vermin			CATEGORY:Special Ability	TYPE:FavoredEnemyBonus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy (Vermin)			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|FavoredVermin|2			SOURCEPAGE:ClassesII.rtf
 
 ###Block: Rogue Special Abilities
-# Ability Name	Category of Ability		Type											Visible		Special ABility												Define				Description																								Stackable?	Multiple?	Selections		Choose			BONUS:FEAT		Modify VAR					Source Page
-Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:YES		SAB:Crippling Strike (Ex)															DESC:An opponent damaged with Sneak Attack also takes 2 points STR damage.																																	SOURCEPAGE:ClassesII.rtf
-Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:YES		SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0	DESC:%1 / day, when reduced to 0 or fewer hit points by damage in combat, may take only 1/2 damage on successful Reflex save.|DefensiveRollTimes															BONUS:VAR|DefensiveRollTimes|1	SOURCEPAGE:ClassesII.rtf
-Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:YES		SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character						DESC:Once per round, may make an AoO vs opponent damaged in melee by another character.																															SOURCEPAGE:ClassesII.rtf
-Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:YES		SAB:Slippery Mind (Ex)																DESC:Class Special Ability																																									SOURCEPAGE:ClassesII.rtf
-Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities.SpecialQuality						VISIBLE:YES																					DESC:Take 10 on listed skills																					STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL										SOURCEPAGE:ClassesII.rtf
-Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY																				DESC:1 Extra Feat (Spend on Feat tab)																			STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1							SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type											Visible		Required Feat	Special ABility												Define					Description																								Stackable?	Multiple?	Selections		Choose			BONUS:FEAT		Modify VAR																						Source Page
+Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY				SAB:Crippling Strike (Ex)																DESC:An opponent damaged with Sneak Attack also takes 2 points STR damage.																																																		SOURCEPAGE:ClassesII.rtf
+Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY				SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0		DESC:%1 / day, when reduced to 0 or fewer hit points by damage in combat, may take only 1/2 damage on successful Reflex save.|DefensiveRollTimes															BONUS:VAR|DefensiveRollTimes|1																		SOURCEPAGE:ClassesII.rtf
+Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY	PREFEAT:1,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable							DEFINE:ImprovedEvasionUsable|0	DESC:Class Special Ability																																			BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
+Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY				SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character							DESC:Once per round, may make an AoO vs opponent damaged in melee by another character.																																																SOURCEPAGE:ClassesII.rtf
+Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY				SAB:Slippery Mind (Ex)																	DESC:Class Special Ability																																																										SOURCEPAGE:ClassesII.rtf
+Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities.SpecialQuality						VISIBLE:DISPLAY																								DESC:Take 10 on listed skills																					STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL																											SOURCEPAGE:ClassesII.rtf
+Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY																								DESC:1 Extra Feat (Spend on Feat tab)																			STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1																								SOURCEPAGE:ClassesII.rtf
 
 ###Block: Uncanny Dodge
 # Use: TEMPLATE:Uncanny Dodge to add the Uncanny Dodge/Improved Uncanny Dodge feature
