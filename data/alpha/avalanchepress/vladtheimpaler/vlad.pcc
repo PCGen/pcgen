@@ -27,6 +27,7 @@ CLASS:vlad_classes.lst
 FEAT:vlad_feats.lst
 EQUIPMENT:vlad_weapons.lst
 WEAPONPROF:vlad_weaponprofs.lst
+KIT:vlad_kits.lst
 RACE:vlad_races.lst
 TEMPLATE:vlad_templates.lst
 

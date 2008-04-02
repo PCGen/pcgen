@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Tue Apr  1 23:52:51 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+
+STARTPACK:Vukodlak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vukodlak]	SOURCEPAGE:p.39
+RACE:Vukodlak	!PRERACE:1,%
+NAME:Vukodlak
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Intuit Direction	RANK:3
+SKILL:Search		RANK:5
+SKILL:Spot			RANK:4
+
+STARTPACK:Obru Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Obru]	SOURCEPAGE:p.37
+RACE:Obru	!PRERACE:1,%
+NAME:Obru
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Hide			RANK:4
+SKILL:Spot			RANK:4
+SKILL:Intuit Direction	RANK:5
+SKILL:Search		RANK:5
+SKILL:Move Silently	RANK:5
+SKILL:Listen		RANK:2
+SKILL:Wilderness Lore	RANK:3
