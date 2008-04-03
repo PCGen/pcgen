@@ -8907,15 +8907,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Calculate and add the CR from race
 		final float raceCR = race.getCR();
-		// If the total CR to date is 0 and the race CR is less than 1, then add
-		// the fractional CR, e.g.  A Lizard has CR of 1/2
-		if (CR == 0 && raceCR < 1)
+		// If the total CR to date is 0 then add race CR, e.g.  A Lizard has CR of 1/2
+		if (CR == 0)
 		{
 			CR += raceCR;
 		}
-		// Else if the total CR so far is greater than 0 and the race CR is greater
-		// than or equal to 1 then add the race CR, e.g.  A 2nd level Drow Fighter
-		else if (CR > 0 && raceCR >= 1)
+		// Else if the total CR so far is 1 or greater and the race CR is greater
+		// than or equal to 1 then add the race CR
+		else if (CR >= 1 && raceCR >= 1)
 		{
 			CR += raceCR;
 		}
