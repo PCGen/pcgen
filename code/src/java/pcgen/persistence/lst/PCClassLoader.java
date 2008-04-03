@@ -305,13 +305,18 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				continue;
 			}
+			else if (colString.trim().length() == 0)
+			{
+				Logging.log(Logging.LST_ERROR, "Ignoring space in class line '"
+					+ pcClass.getDisplayName() + "' in " + source.getURI());
+			}
 			else
 			{
 				if (!(pcClass instanceof SubClass)
 					&& !(pcClass instanceof SubstitutionClass))
 				{
-					Logging.errorPrint("Illegal class info tag '" + colString
-						+ "' in " + source.getURI());
+					Logging.log(Logging.LST_ERROR, "Illegal class info tag '"
+						+ colString + "' in " + source.getURI());
 				}
 			}
 
