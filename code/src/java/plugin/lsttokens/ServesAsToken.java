@@ -85,8 +85,9 @@ public class ServesAsToken implements GlobalLstToken
 	
 	public List<Class<? extends PObject>> getLegalTypes() {
 		return Arrays.asList(
-			//Ability.class, Deity.class, Domain.class,Equipment.class, 
-			PCClass.class, Ability.class
+			 
+			PCClass.class, Ability.class,Skill.class
+			//Ability.class, Deity.class, Domain.class,Equipment.class,
 			//Race.class, Skill.class,Spell.class, PCTemplate.class, WeaponProf.class
 			);
 	}

@@ -100,7 +100,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake = new Skill();
 		fake.addClassList("My Class");
 		fake.setName("Fake");
-		fake.setTypeInfo("INT");
+		fake.setTypeInfo("WIS");
 		fake.modRanks(6.0, myClass, true, character);
 		character.addSkill(fake);
 		Globals.getSkillList().add((Skill) fake);
@@ -116,13 +116,13 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		target = new Skill();
 		target.addClassList("My Class");
 		target.setName("Target");
-		target.setTypeInfo("INT");
+		target.setTypeInfo("STR");
 		Globals.getSkillList().add((Skill) target);
 		
 		target2 = new Skill();
 		target2.addClassList("My Class");
 		target2.setName("Target2");
-		target2.setTypeInfo("INT");
+		target2.setTypeInfo("STR");
 		Globals.getSkillList().add((Skill) target2);
 		
 		fake.putServesAs(target.getDisplayName(), "");		
@@ -365,8 +365,40 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		
 		prereq = factory.parse("PRESKILL:2,Target=4,Target2=7");
 		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+	}
+	public void testServesAsTypeMatch() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite prereq = factory.parse("PRESKILL:1,TYPE.INT=4");
+		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+	
+		prereq = factory.parse("PRESKILL:1,TYPE.STR=6");
+		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILL:1,TYPE.ST%=6");
+		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILL:1,TYPE.STR=7");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILL:1,TYPE.ST%=7");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
 		
 		
+		prereq = factory.parse("PRESKILL:1,TYPE.CHA=1");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
 		
+		prereq = factory.parse("PRESKILL:1,TYPE.CH%=7");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		
+/*		
+		prereq = factory.parse("PRESKILL:2,Target,Target2=7");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILL:2,Target=4,Target2=7");
+		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+	*/
 	}
 }

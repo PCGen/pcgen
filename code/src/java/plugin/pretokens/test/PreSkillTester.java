@@ -97,7 +97,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 			{
 				if (percentageSignPosition >= 0)
 				{
-					foundMatch = matchesTypeWildCard(aSkillKey, percentageSignPosition, foundSkill, aSkill);
+					foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, aSkill);
 					foundSkill = (foundMatch)? true: false;
 					runningTotal = getRunningTotal(aSkill, character
 						, prereq, foundMatch, runningTotal, requiredRanks);
@@ -130,24 +130,18 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 				break;
 			}
 		}
-		if (isType)
-		{
-			if(percentageSignPosition >= 0)
-			{
-				
-			}
-			else
-			{
-				
-			}
-		}
-		else
+		if (!isType && !foundSkill) 
 		{
 			for(Skill mock: serveAsSkills.keySet()) 
 			{
 				HashSet<Skill> targets = serveAsSkills.get(mock);
 				for(Skill target: targets)
 				{
+					if (foundSkill)
+					{
+						break;
+					}
+					final String aSkillKey = target.getKeyName().toUpperCase();
 					if(target.getDisplayName().equalsIgnoreCase(skillKey))
 					{
 						foundSkill = true;
@@ -155,6 +149,55 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 						int theTotal = getRunningTotal(mock, character, prereq, foundMatch
 							, runningTotal, requiredRanks);
 						runningTotal += theTotal;
+					}
+					else if( aSkillKey.equals(skillKey)
+					|| ((percentageSignPosition >= 0) && aSkillKey
+							.startsWith(skillKey.substring(0, percentageSignPosition))))
+					{
+						foundSkill = true;
+						foundMatch = true;
+						int theTotal = getRunningTotal(mock, character, prereq, foundMatch
+							, runningTotal, requiredRanks);
+						runningTotal += theTotal;						
+						
+					}
+				}
+			}
+		}
+		else if (isType && !foundSkill) 
+		{
+			for(Skill mock: serveAsSkills.keySet()) 
+			{
+				HashSet<Skill> targets = serveAsSkills.get(mock);
+				for(Skill target: targets)
+				{
+					if (foundSkill)
+					{
+						break;
+					}
+					if(target.isType(skillKey))
+					{
+						foundSkill = true;
+						foundMatch = true;
+						int theTotal = getRunningTotal(mock, character, prereq, foundMatch
+							, runningTotal, requiredRanks);
+						runningTotal += theTotal;
+					}
+					else if((percentageSignPosition >= 0))
+					{
+						List<String> mockTypes = target.getTypeList(true);
+						for(String mockType: mockTypes)
+						{
+							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
+							foundSkill = (foundMatch)? true: false;
+							runningTotal = getRunningTotal(mock, character
+								, prereq, foundMatch, runningTotal, requiredRanks);	
+							if (foundSkill)
+							{
+								break;
+							}
+						}
+						
 					}
 				}
 			}
