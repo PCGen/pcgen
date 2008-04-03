@@ -42,6 +42,7 @@ EQUIPMOD:deadlands_equipmods.lst
 
 CLASS:deadlands_mon_classes.lst
 FEAT:deadlands_mon_feats.lst
+KIT:deadlands_mon_kits.lst
 RACE:deadlands_mon_races.lst
 TEMPLATE:deadlands_mon_templates.lst
 WEAPONPROF:deadlands_mon_weaponprofs.lst
