@@ -1,7 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
-# Race Name	Favored Class	Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages	Main Race Type	Type			CR		Template				Vision		Source Page
-#Human		FAVCLASS:Any	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	LANGBONUS:ALL	RACETYPE:Humanoid	TYPE:Humanoid	CR:1/2	TEMPLATE:Starting Background	VISION:Normal	SOURCEPAGE:msrdcreatures.rtf
-# Race Name	Favored Class	Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Vision		Bonus Languages	Main Race Type	Type			CR		Source Page
-Human		FAVCLASS:Any	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Normal	LANGBONUS:ALL	RACETYPE:Humanoid	TYPE:Humanoid	CR:1/2	SOURCEPAGE:msrdcreatures.rtf
+# Race Name	Favored Class	Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages	Main Race Type	Type			CR		Source Page
+Human		FAVCLASS:Any	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	LANGBONUS:ALL	RACETYPE:Humanoid	TYPE:Humanoid	CR:1/2	SOURCEPAGE:msrdcreatures.rtf

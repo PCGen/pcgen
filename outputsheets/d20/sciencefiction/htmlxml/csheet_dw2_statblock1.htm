@@ -101,7 +101,10 @@ Damage Reduction |DR|,
 |ELSE|
 Spell Resistance |SR|, 
 |ENDIF|
- |SPECIALLIST|; SQ: |VISION|; AL: |ALIGNMENT.SHORT|;
+ |SPECIALLIST|; 
+|IIF(VAR.IF(VAR("COUNT[VISION]")>0;1;0):1)|
+Vision: |VISION|; 
+|ENDIF|
 SV 
 |FOR,%checks,0,COUNT[CHECKS]-2,1,0|
 |IIF(CHECK.%checks.NAME:Fortitude)|
@@ -145,6 +148,14 @@ Will
 <p/>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Skills and Feats:</i> |SKILLLISTMODS|; |FEATALLLIST|.<p/>
+
+|IIF(count("ABILITIES";"CATEGORY=Mutation")>0)|
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Mutations:</i> |ABILITYLIST.Mutation|<p/>
+|ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Defect")>0)|
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Defects:</i> |ABILITYLIST.Defect|<p/>
+|ENDIF|
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Possessions:</i>
 

@@ -76,11 +76,12 @@ $Date$
 |ENDFOR|
     </td>
   </tr>
+|IIF(VAR.IF(VAR("COUNT[VISION]")>0;1;0):1)|
   <tr valign="top">
     <td width="25%"><b>Vision: </b></td>
     <td width="75%">|VISION| </td>
   </tr>
-
+|ENDIF|
   <tr valign="top">
     <td width="25%"><b>Face / Reach: </b></td>
     <td width="75%">|FACE| / |REACH| </td>
@@ -89,6 +90,18 @@ $Date$
     <td width="25%"><b>Special Qualities &amp; Talents: </b></td>
     <td width="75%">|SPECIALLIST| </td>
   </tr>
+|IIF(count("ABILITIES";"CATEGORY=Mutation")>0)|
+  <tr valign="top">
+    <td width="25%"><b>Mutations:</b></td>
+    <td width="75%">|ABILITYLIST.Mutation|</td>
+  </tr>
+|ENDIF|
+|IIF(count("ABILITIES";"CATEGORY=Defect")>0)|
+  <tr valign="top">
+    <td width="25%"><b>Defects:</b></td>
+    <td width="75%">|ABILITYLIST.Defect|</td>
+  </tr>
+|ENDIF|
   <tr valign="top">
     <td width="25%"><b>Saves: </b></td>
     <td width="75%">
@@ -127,10 +140,12 @@ $Date$
     <td width="25%">&nbsp;</td>
     <td width="75%">&nbsp; </td>
   </tr>
+|IIF(count("ABILITIES";"CATEGORY=Background")>0)|
   <tr valign="top">
     <td width="25%"><b>Background:</b></td>
     <td width="75%">|FEATALL.HIDDEN.0.TYPE=Background||ABILITYALL.Background.0.TYPE=Background|</td>
   </tr>
+|ENDIF|
 |IIF(count("ABILITIES";"CATEGORY=Occupation")>0)|
   <tr valign="top">
     <td width="25%"><b>Starting Occupation:</b></td>

@@ -36,10 +36,10 @@ ABILITYCATEGORY:Survivalist Region		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	F
 
 #
 # Master Category
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display where?
 ABILITYCATEGORY:Talent			VISIBLE:NO		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Talent
-ABILITYCATEGORY:Mutation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation			TYPE:Mutation		PLURAL:Mutations		
-ABILITYCATEGORY:Defect			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Defect			TYPE:Defect			PLURAL:Defects	
+ABILITYCATEGORY:Mutation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation			TYPE:Mutation		PLURAL:Mutations			DISPLAYLOCATION:Mutations & Defects
+ABILITYCATEGORY:Defect			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Defect			TYPE:Defect			PLURAL:Defects			DISPLAYLOCATION:Mutations & Defects
 
 
 # Ability Category - Occupation Skills			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI				Display where?
