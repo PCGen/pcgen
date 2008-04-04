@@ -1,0 +1,182 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME| - |PLAYERNAME| (|POOL.COST| Points) in Statblock Format</title>
+<!--
+	This format is designed to match the official WotC Statblock style 
+	as defined in the 3.5 Edition DMG (I)
+
+	10/05/2005 - James Dempsey
+	    Extensive work to make the stat block come closer to the WotC standard. 
+	     
+	8/1/2004 - Chuck Pint
+		Fixed problems with all possessions not listing.
+		Added spells per day for spell casters.
+
+$Revision$
+$Author$
+$Date$
+
+-->
+<style type="text/css">
+	body  { font-family:arial; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 0px; }
+	.header { display:block; font-size:7pt; text-align:center; }
+</style>
+</head>
+<body>
+<!--
+<span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
+-->
+<b>|NAME|:</b> |GENDER||RACE||%REGION| From |REGION|.|%| |CLASSLIST| ;
+CR |CR|; |SIZELONG| 
+|IIF(RACETYPE:None)|
+|TEXT.TITLE.TYPE|
+|ELSE|
+|RACETYPE|
+|ENDIF|
+|IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
+; 
+|ELSE|
+ (
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|RACESUBTYPE.%subtype|, 
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|RACESUBTYPE.%subtype|
+|ENDFOR|
+); 
+|ENDIF|
+HD |HITDICE|; 
+|IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
+hp |HP|;
+|ELSE|
+vp |HP|; wp |ALTHP|;
+|ENDIF|
+Init |INITIATIVEMOD|;
+Spd |MOVEMENT|; AC |AC.Total|, touch |AC.Touch|, flat-footed |AC.Flatfooted|,
+Base Atk |ATTACK.MELEE|; Grp|ATTACK.GRAPPLE.TOTAL|;
+
+Atk:
+|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|WEAPON.%weap.BASEHIT.0|
+|IIF(WEAPON.%weap.CATEGORY:Melee)|
+Melee
+|ENDIF|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+Ranged
+|ENDIF|
+(|WEAPON.%weap.DAMAGE|/|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|,
+|WEAPON.%weap.NAME|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+, Range |WEAPON.%weap.RANGE|
+|ENDIF|
+) or
+|ENDFOR|
+;
+Full Atk:
+|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
+|WEAPON.%weap.BASEHIT|
+|IIF(WEAPON.%weap.CATEGORY:Melee)|
+Melee
+|ENDIF|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+Ranged
+|ENDIF|
+(|WEAPON.%weap.DAMAGE|/|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|,
+|WEAPON.%weap.NAME|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+, Range |WEAPON.%weap.RANGE|
+|ENDIF|
+) or
+|ENDFOR|
+;
+SA 
+|FOR,%DRtest,STRLEN[DR],STRLEN[DR],1,0|
+|IIF(%DRtest:0)|
+|ELSE|
+Damage Reduction |DR|, 
+|ENDIF|
+|ENDFOR|
+|IIF(SR:0)|
+|ELSE|
+Spell Resistance |SR|, 
+|ENDIF|
+ |SPECIALLIST|; SQ: |VISION|; AL: |ALIGNMENT.SHORT|;
+SV 
+|FOR,%checks,0,COUNT[CHECKS]-2,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will 
+|ELSE|
+|CHECK.%checks.NAME| 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|, 
+|ENDFOR|
+|FOR,%checks,COUNT[CHECKS]-1,COUNT[CHECKS]-1,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Fort 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Ref 
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+Will 
+|ELSE|
+|CHECK.%checks.NAME| 
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|; 
+|ENDFOR|
+|FOR,%stat,0,COUNT[STATS]-2,1,1|
+|STAT.%stat.NAME| |STAT.%stat|,
+|ENDFOR|
+|FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
+|STAT.%stat.NAME| |STAT.%stat|
+|ENDFOR|
+.
+<p/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Skills and Feats:</i> |SKILLLISTMODS|; |FEATALLLIST|.<p/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Possessions:</i>
+
+|FOR,%equip,0,COUNT[EQUIPMENT.Not.Contained.NOT.Container]-1,1,1|
+|IIF(EQ.NOT.CONTAINED.NOT.Container.%equip.QTY.INTVAL:1)|
+|EQ.NOT.CONTAINED.NOT.Container.%equip.NAME|;
+|ELSE|
+|EQ.NOT.CONTAINED.NOT.Container.%equip.NAME| (x|EQ.NOT.Contained.NOT.CONTAINER.%equip.QTY.INTVAL|);
+|ENDIF|
+|ENDFOR|
+
+|FOR,%container,0,COUNT[CONTAINERS]-1,1,1|
+|EQ.IS.Container.%container.NAME|
+|IIF(EQ.IS.Container.%container.CONTENTSNUM.QTY.INTVAL:0)|
+|ELSE|
+[
+|ENDIF|
+|FOR,%equip,0,EQ.IS.Container.%container.CONTENTSNUM-1,1,1|
+|IIF(EQ.IS.Container.%container.CONTENTS.%equip.QTY.INTVAL:1)|
+|EQ.IS.Container.%container.CONTENTS.%equip.NAME|;
+|ELSE|
+|EQ.IS.Container.%container.CONTENTS.%equip.NAME| (x|EQ.IS.Container.%container.CONTENTS.%equip.QTY.INTVAL|);
+|ENDIF|
+|ENDFOR|
+|IIF(EQ.IS.Container.%container.CONTENTSNUM.QTY.INTVAL:0)|
+;
+|ELSE|
+];
+|ENDIF|
+|ENDFOR|
+
+<!-- ================================================================= -->
+
+</body>
+</html>

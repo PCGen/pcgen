@@ -1,0 +1,90 @@
+# CVS $Revision$ $Author$ -- Tue Mar 18 12:53:45 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+#Original Entry by Arknight
+
+###Block: PA Hero Talents
+# Ability Name		Category of Ability	Type						Visible	Required Ability																										Required Feat					Required Skill					Required Template		Description																	Stackable?	Multiple?	Choose				Combat bonus			Bonus to skill										Modify VAR												Weapon prof. bonus				Source Page
+Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Technologist																														BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p. 14
+Computer Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Computer Lore																													BONUS:SKILL|Computer Use|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p. 14
+Medical Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Medical Lore																														BONUS:SKILL|Treat Injury|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p. 14
+Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Historian																														BONUS:SKILL|Knowledge (Ancient Lore)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p. 14
+Craft Lore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Advanced Technology														DESC:Craft Lore (%CHOICE)														STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Craft						BONUS:SKILL|LIST|var("CL=Post Apocalyptic Hero")																								SOURCEPAGE:p. 14
+
+Mutation Knowledge	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES																																				PRESKILL:1,Knowledge (Mutant Lore)=1					DESC:Mutation Knowledge																																																													SOURCEPAGE:p. 14
+Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																																			PRETEMPLATE:1,Mutant	DESC:Mutant Weapon																																																						BONUS:WEAPONPROF=TYPE.Mutation|TOHIT|1	SOURCEPAGE:p. 14
+Neural Mastery		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition,Neural Mutation - Telekinesis,Neural Mutation - Telepathy																			DESC:Neural Mastery																																									BONUS:VAR|precogUses|WIS	BONUS:VAR|tkUses|CON	BONUS:VAR|teepUses|CHA								SOURCEPAGE:p. 14
+
+Improvised Toolkit	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																				PRESKILL:1,Repair=1								DESC:Improvised Toolkit																																																													SOURCEPAGE:p. 14
+Restore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Improvised Toolkit																																							DESC:Restore																																																														SOURCEPAGE:p. 14
+Salvage Expert		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																															DESC:Salvage Expert (+%1)|(2*var("CL=Post Apocalyptic Hero"))																																																						SOURCEPAGE:p. 14
+
+Conserve			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Conserve																																																														SOURCEPAGE:p. 15
+Wasteland Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Wasteland Lore (+%1 to Survival and Navigation in Wasteland areas)|var("CL=Post Apocalyptic Hero")																																															SOURCEPAGE:p. 15
+Necropoli Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Necropoli Lore (+%1 to Survival and Navigation in Necropoli areas)|var("CL=Post Apocalyptic Hero")																																															SOURCEPAGE:p. 15
+Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Wasteland Lore,Necropoli Lore																																					DESC:Survival Sense (+2 Init.; +2 Spot for detecting Ambushes)																	BONUS:COMBAT|INITIATIVE|2																																	SOURCEPAGE:p. 15
+
+###Block: Scholar Abilities
+# Ability Name			Output Name		Category of Ability	Type							Visible	Description					Multiple?	Choose																		Bonus to skill rank
+Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%CHOICE)	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Knowledge														BONUS:SKILLRANK|LIST|4
+Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%CHOICE)		MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Craft															BONUS:SKILLRANK|LIST|4
+Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%CHOICE)	MULT:YES	CHOOSE:FEATADD|Advanced Technology|TYPE=TechCraft
+Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%CHOICE)	MULT:YES	CHOOSE:FEATADD|Aircraft Operation|Powered Armor Operation|Surface Vehicle Operation|Vehicle Expert|TYPE=ASVehicle
+
+Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																												BONUS:SKILLRANK|Pilot|4
+Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																												BONUS:SKILLRANK|Drive|4
+
+###Block: Survivalist
+# Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add										Bonus to skill						Modify VAR
+Survival Bonus (Overall)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES	DEFINE:SurvOverall|0	DESC:Way of the Land (+%1 Overall Survival/Navigation)|SurvOverall			STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:SKILL|Survival,Navigation|SurvOverall	BONUS:VAR|SurvOverall|2
+Survival Bonus (Regional)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES																			STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:ABILITY|CATEGORY=Talent|NORMAL|TYPE=SurvivalRegion
+Region (Big Rocks)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Big Rocks Region)
+Region (Baja Cliffs)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Baja Cliffs Region)
+Region (Big Hole)				CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Big Hole Region)
+Region (Burning Lands)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Burning Lands Region)
+Region (Cursed Sea)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Cursed Sea Region)
+Region (Deadlands)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Deadlands Region)
+Region (Far Desert)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Far Desert Region)
+Region (Forbidden Lands)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Forbidden Lands Region)
+Region (Forgotten Desert)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Forgotten Desert Region)
+Region (Glowing Hills)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Glowing Hills Region)
+Region (Grass Plains Empire)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Grass Plains Empire Region)
+Region (Graveyard of Bone Cities)	CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Graveyard of Bone Cities Region)
+Region (Great Rift Valley)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Great Rift Valley Region)
+Region (Mountains of Misery)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Mountains of Misery Region)
+Region (Range of the Lost)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Range of the Lost Region)
+Region (Sierra Gehenna)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Sierra Gehenna Region)
+Region (Wilds of Desolation)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Wilds of Desolation Region)
+
+###Block: Mech Mastercraft
+# Ability Name		Category of Ability	Type							Visible	Required Class	Define				Description								Stackable?	Multiple?	Choose		Modify VAR				Source Page
+Electronic Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	VISIBLE:YES	PRECLASS:1,Mech=1	DEFINE:MasterElectronic|0	DESC:Mastercraft (Electronic +%1)|MasterElectronic	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:p. 47
+Mechanical Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	VISIBLE:YES	PRECLASS:1,Mech=1	DEFINE:MasterMechanical|0	DESC:Mastercraft (Mechanical +%1)|MasterMechanical	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:p. 47
+
+###Block: Medicine Man
+# Ability Name			Category of Ability	Type									Visible	Required Feat						Prohibited Feat						Req. Special Ability					!PRESA							Description								Virtual Feat					Add								Source Page
+Advanced Pharmaceuticals	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES									!PREFEAT:1,Advanced Pharmaceutical Discipline																	DESC:Ancient Drugs						VFEAT:Advanced Pharmaceutical Discipline									SOURCEPAGE:p. 48
+JuJu Doctor Feat I		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES	PREFEAT:1,Advanced Pharmaceutical Discipline																									DESC:Ancient Drugs													ADD:ABILITY|CATEGORY=Talent|NORMAL|TYPE=JujuDoc	SOURCEPAGE:p. 48
+JuJu Doctor Feat II		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																	PRESA:1,Juju Miracle,Minor Medical Miracle																									ADD:ABILITY|CATEGORY=Talent|NORMAL|TYPE=JujuDoc	SOURCEPAGE:p. 49
+Minor Medical Miracle		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																									!PRESA:2,Juju Miracle,Minor Medical Miracle	DESC:Minor Medical Miracle																				SOURCEPAGE:p. 49
+MedTech (Cloning)			CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Cloning)																		SOURCEPAGE:p. 49
+MedTech (Regeneration Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Regeneration Serum)																SOURCEPAGE:p. 49
+MedTech (Zombie Plague Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Zombie Plague Serum)																SOURCEPAGE:p. 49
+
+###Block: Scientist
+# Ability Name	Category of Ability	Type					Visible	Special ABility		Multiple?	Choose			Weapon prof. bonus															Source Page
+Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart Weapon (%)	MULT:YES	CHOOSE:WEAPONPROFS|LIST	BONUS:WEAPONPROF=%LIST|TOHIT|INT-STR|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|TOHIT|INT-DEX|TYPE=Ranged	SOURCEPAGE:p. 52
+
+###Block: Warrior Monk
+# Ability Name				Category of Ability	Type				Visible	Required Feat						Description							Stackable?	Multiple?	Choose					Weapon prof. bonus			Source Page
+Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREFEAT:1,Weapon Focus					DESC:Superior Weapon Focus (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p. 58
+Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES									DESC:Superior Combat Reflexes																				SOURCEPAGE:p. 58
+Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREFEAT:2,Weapon Focus,Weapon Specialization	DESC:Superior Weapon Specialization (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:FEAT=Weapon Specialization	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p. 58
+Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES									DESC:Superior Combat Expertise																			SOURCEPAGE:p. 58
+
+###Block: Companion support
+# Ability Name	Category of Ability	Type							Visible	Special ABility		Define			Allow Follower			Allowed Companions
+Animal Partner	CATEGORY:Talent		TYPE:Talent.SymbioteTalent.AnimalPartner	VISIBLE:YES	SAB:Animal Partner (Ex)	DEFINE:CompLevel|0	FOLLOWERS:Animal Partner|1	COMPANIONLIST:Animal Partner|RACETYPE=Animal	COMPANIONLIST:Animal Partner|Cynemie,Desert Horse,Fraxx Steed,Grunt,Lurking Panther,Rad Wolf,Ravening Hound,Snoffle Hog,Two Headed Mutant Bear
+
+#
+## EOF
+#

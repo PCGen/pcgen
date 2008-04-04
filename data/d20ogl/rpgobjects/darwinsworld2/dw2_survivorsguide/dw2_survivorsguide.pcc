@@ -1,0 +1,126 @@
+# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+CAMPAIGN:Darwin's World 2nd Edition - Survivors Guide
+RANK:1
+GAMEMODE:Darwins_World_2
+GENRE:Post Apocalyptic
+#BOOKTYPE:
+#SETTING:
+TYPE:RPGObjects.Darwin's World 2nd Edition.Survivors Guide
+ISOGL:YES
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)
+SOURCESHORT:DW2_SG
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:The Quintessential Fighter, 2001 Mongoose Publishing.
+COPYRIGHT:Rokugan, 2001 AEG
+COPYRIGHT:Dragon Star: Starfarer's Handbook, Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Traps and Treachery, Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Galatictic Races, Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Wrath & Rage, 2002 Green Ronin Publishing, Author Jim Bishop.
+COPYRIGHT:Bastards and Bloodlines, 2003 Green Ronin Publishing, Author Owen K.C. Stephens
+COPYRIGHT:Ultramodern Firearms d20, Copyright 2002, Charles McManus Ryan
+COPYRIGHT:Deadlands d20, copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Redline, Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Darwin's World 2nd Edition: Survivor's Handbook Copyright 2006, RPGObjects; Authors Dominic Covey and Chris Davis.
+COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
+COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe.
+COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Handbook Copyright 2008, PCgen Data team including, Thomas Clegg (Arknight), Eddy Anthony (MoSaT).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+#Load required msrd information
+#msrd files
+#ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
+
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
+ABILITY:@/d20ogl/msrd/future/future_basics/futurebasics_abilities_talents_mod.lst
+
+CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
+CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_npc.lst|(EXCLUDE:Magical Beast)
+CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_advanced.lst|(INCLUDE:Soldier|Martial Artist|Gunslinger)
+
+
+EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip.lst|(EXCLUDE:Clothing Outfit (Normal Everday)|Clothing Outfit (Business)|Clothing Outfit (Casual)|Clothing Outfit (Formal)|Fatigues|Uniform|Camera (Film Developing (Roll))|Cell Phone|Modem (Broadband)|Modem (Cellular)|Portable Satellite Phone|Car opening Kit|Evidence Kit (Basic)|Evidence Kit (Deluxe)|Black Box|Caller ID Defeater|Cellular Interceptor|Lineman's Buttset|Tap Detector|Telephone Tap (Line Tap)|Telephone Tap (Receiver Tap)|Telephone Tap (Telephone Line Tracer)|GPS Receiver)
+EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_armor.lst
+EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap.lst
+#EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_vehicles.lst
+EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_melee.lst|(EXCLUDE:Sword Cane)
+EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_ranged.lst|(EXCLUDE:Taser)
+EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_ranged_firearms.lst|(EXCLUDE:Colt Double Eagle (10mm autoloader)|Colt M1911 (.45 autoloader)|Derringer (.45)|MAC Ingram M10 (.45 machine pistol)|Pathfinder (.22 revolver)|Ruger Service-Six (.385 revolver)|SITES M9 (9mm autoloader)|TEC-9 (9mm machine pistol)|Walther PPK (.32 autoloader)|Benelli 121 M1 (12-gague shotgun)|Beretta M3P (12 gauge shotgun)|Browning BPS (10 gauge shotgun)|HK G3 (7.62 assault rifle)|HK MP5K (9mm submachine gun)|HK PSG1 (7.62 sniper rifle)|M4 Carbine (5.56mm assault rifle)|Mossberg (12 gauge shotgun)|Remington 700 (7.62 hunting rifle)|Steyr AUG (5.56mm assault rifle)|Uzi (9mm submachine gun))
+#EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_vehicles.lst
+
+EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
+
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats_hidden.lst|(EXCLUDE:Electronic Mastercraft|Mechanical Mastercraft|Evasion)
+FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:Action Boost|Armor Proficiency (Powered)|Charismatic Plus|Dedicated Plus|Fast Plus|Nerve Pinch|Smart Plus|Strong Plus|Tough Plus)
+#FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats_hidden_mod.lst
+
+SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst|(EXCLUDE:Profession)
+
+LANGUAGE:@/d20ogl/msrd/basics/modern_basics/modernbasics_languages.lst
+
+TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
+
+WEAPONPROF:@/d20ogl/msrd/basics/modern_basics/modernbasics_weaponprofs.lst
+
+###DW2 Specific/Modified files
+ABILITYCATEGORY:dw2sg_ability_categories.lst
+
+ABILITY:dw2sg_abilities_backgrounds.lst
+ABILITY:dw2sg_abilities_occupations.lst
+ABILITY:dw2sg_abilities_defects.lst
+ABILITY:dw2sg_abilities_mutations.lst
+ABILITY:dw2sg_abilities_talents.lst
+
+RACE:dw2sg_races_human.lst
+
+CLASS:dw2sg_classes.lst
+CLASS:dw2sg_classes_npc.lst
+CLASS:dw2sg_classes_advanced.lst
+CLASS:dw2sg_classes_epic.lst
+
+SKILL:dw2sg_skills.lst
+
+FEAT:dw2sg_feats.lst
+FEAT:dw2sg_feats_mutations.lst
+FEAT:dw2sg_feats_hidden.lst
+
+LANGUAGE:dw2sg_languages.lst
+
+TEMPLATE:dw2sg_templates.lst
+
+COMPANIONMOD:dw2sg_companionmods.lst
+
+KIT:dw2sg_kits.lst
+
+EQUIPMENT:dw2sg_equip.lst
+EQUIPMENT:dw2sg_equip_armorshields.lst
+EQUIPMENT:dw2sg_equip_vehicles.lst
+EQUIPMENT:dw2sg_equip_weap.lst
+EQUIPMENT:dw2sg_equip_weap_melee.lst
+EQUIPMENT:dw2sg_equip_weap_ranged.lst
+EQUIPMENT:dw2sg_equip_weap_ranged_firearms.lst
+EQUIPMENT:dw2sg_equip_weap_ammo.lst
+EQUIPMOD:dw2sg_equipmods.lst
+
+WEAPONPROF:dw2sg_weaponprofs.lst
+
+#Hiding Equipment Types that control EQMODS
+HIDETYPE:EQUIP|SpecialSuppressor
+
+#Hiding Feat Types that control Mutant abilities
+HIDETYPE:FEAT|MutantAbility|EnergyResist
+
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
+#

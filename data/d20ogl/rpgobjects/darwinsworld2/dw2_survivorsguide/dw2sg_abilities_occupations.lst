@@ -1,0 +1,294 @@
+# CVS $Revision$ $Author$ -- Wed Mar 12 15:59:20 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+#Original Entry by Arknight
+
+###Block: Occupations
+# Ability Name	Category of Ability	Type			Visible		Description																																					Bonus to Ability Pool											Apply Kit			Source Page
+Academic		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Academics are rare, studying a wide range of topics.																													BONUS:ABILITYPOOL|Academic Occupation Skills|3							KIT:1|Funds_5d4_10	SOURCEPAGE:Occupations.rtf
+Caravan Guard	CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Caravan Guards are hired to help ensure Trader's goods arrive saely at their destinations.																							BONUS:ABILITYPOOL|Caravan Guard Occupation Skills|2						KIT:1|Funds_6d6_10	SOURCEPAGE:Occupations.rtf
+Corium Prospector	CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Corium prospectors, however, are not like typical miners. They are trained to spot likely sources of the rare metal, either by learning the physical signs left on the land.									BONUS:ABILITYPOOL|Corium Prospector Occupation Skills|2					KIT:1|Funds_6d6_10	SOURCEPAGE:Occupations.rtf
+Craftsman		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Craftsmen try to survive as people always have, operating shops, repairing vehicles, feeding their families, and trying to stay out of trouble.														BONUS:ABILITYPOOL|Craftsman Occupation Skills|2							KIT:1|Funds_6d6_10	SOURCEPAGE:Occupations.rtf
+Demagogue		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Demagogues are politicians, rising up among large groups. Many of these 'public servants' have no real desire to help the people they lead at all, instead manipulating the emotions of their followers to their own benefit.	BONUS:ABILITYPOOL|Demagogue Occupation Skills|2							KIT:1|Funds_6d6_10	SOURCEPAGE:Occupations.rtf
+Furniture		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Furnitures are prostitutes, part of the oldest profession on earth.																										BONUS:ABILITYPOOL|Furniture Occupation Skills|2							KIT:1|Funds_5d4_10	SOURCEPAGE:Occupations.rtf
+Guide			CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Guides are those who lead travelers and caravans through the wastes for a fee, using their knowledge of these areas to avoid danger and keep expeditions adequately supplied.									BONUS:ABILITYPOOL|Guide Occupation Skills|2							KIT:1|Funds_6d6_10	SOURCEPAGE:Occupations.rtf
+Healer		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Healers are those who help cure others. They often possess only limited skill and experience, but in a world where much medical knowledge has been lost, this makes them comparative experts.						BONUS:ABILITYPOOL|Healer Occupation Skills|2							KIT:1|Funds_6d10_10	SOURCEPAGE:Occupations.rtf
+Herdsman		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Herdsmen are those who tend the flocks of animals a community relies on to survive.																								BONUS:ABILITYPOOL|Herdsman Occupation Skills|2							KIT:1|Funds_6d6_10	SOURCEPAGE:Occupations.rtf
+Merchant		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Merchants are those who ensure that the various communities have the items that the community needs or wants.																			BONUS:ABILITYPOOL|Merchant Occupation Skills|1							KIT:1|Funds_8d12_10	SOURCEPAGE:Occupations.rtf
+Military		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Military are the soldiers and warriors who ensure the survival of a community.																									BONUS:ABILITYPOOL|Military Occupation Skills|1							KIT:1|Funds_5d4_10	SOURCEPAGE:Occupations.rtf
+Predator		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Predators are those who prey on others for their survival.																												BONUS:ABILITYPOOL|Predator Occupation Skills|1							KIT:1|Funds_5d4_10	SOURCEPAGE:Occupations.rtf
+Repairman		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Repairmen are those who fix items.																																BONUS:ABILITYPOOL|Repairman Occupation Skills|2							KIT:1|Funds_6d10_10	SOURCEPAGE:Occupations.rtf
+Slave			CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Slaves are those who forcibly serve others. Characters are assumed to have escaped or been freed.																					BONUS:ABILITYPOOL|Slave Occupation Skills|2	BONUS:ABILITYPOOL|Slave Feat|1	KIT:1|Funds_5d4_1		SOURCEPAGE:Occupations.rtf
+Slaver		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Slavers are those who ensure a steady flow of slaves for various people or communities.																							BONUS:ABILITYPOOL|Slaver Occupation Skills|2							KIT:1|Funds_6d10_10	SOURCEPAGE:Occupations.rtf
+Wanderer		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Wanderers are those who travel the wilderness from place to place and are satisfied with that.																						BONUS:ABILITYPOOL|Wanderer Occupation Skills|2							KIT:1|Funds_5d4_10	SOURCEPAGE:Occupations.rtf
+
+###Block: The Skill choices
+# Ability Name							Category of Ability	Type																								Visible		Required Template															Add						Bonus to skill									Class Skill
+Balance(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																		CSKILL:Balance
+Balance(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																			BONUS:SKILL|Balance|1|TYPE=Competance					CSKILL:Balance
+
+Bluff(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Demagogue_Skills.Furniture_Skills.Merchant_Skills.Slaver_Skills										VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Bluff
+Bluff(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Demagogue_Skills.Furniture_Skills.Merchant_Skills.Slaver_Skills										VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Bluff|1|TYPE=Competance						CSKILL:Bluff
+
+Climb(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Corium_Prospector_Skills.Guide_Skills.Herdsman_Skills.Military_Skills.Slave_Skills.Wanderer_Skills				VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,SmartSkills,DedicatedSkills,CharismaticSkills																							CSKILL:Climb
+Climb(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Corium_Prospector_Skills.Guide_Skills.Herdsman_Skills.Military_Skills.Slave_Skills.Wanderer_Skills				VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,PApocSkills															BONUS:SKILL|Climb|1|TYPE=Competance						CSKILL:Climb
+
+Computer Use(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Repairman_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Computer Use
+Computer Use(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Repairman_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Computer Use|1|TYPE=Competance				CSKILL:Computer Use
+
+Concentration(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Concentration
+Concentration(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,ToughSkills																			BONUS:SKILL|Concentration|1|TYPE=Competance				CSKILL:Concentration
+
+Craft (Chemical - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Craft (Chemical)
+Craft (Chemical - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Craft (Chemical)|1|TYPE=Competance				CSKILL:Craft (Chemical)
+
+Craft (Electronic - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Craft (Electronic)
+Craft (Electronic - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Craft (Electronic)|1|TYPE=Competance			CSKILL:Craft (Electronic)
+
+Craft (Mechanical - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,DedicatedSkills,CharismaticSkills,PApocSkills																						CSKILL:Craft (Mechanical)
+Craft (Mechanical - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills,SmartSkills															BONUS:SKILL|Craft (Mechanical)|1|TYPE=Competance			CSKILL:Craft (Mechanical)
+
+Craft (Pharmaceutical - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Healer_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills,PApocSkills																					CSKILL:Craft (Pharmaceutical)
+Craft (Pharmaceutical - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Healer_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills																	BONUS:SKILL|Craft (Pharmaceutical)|1|TYPE=Competance			CSKILL:Craft (Pharmaceutical)
+
+Craft (Structural - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Craftsman_Skills.Repairman_Skills.Slave_Skill													VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,DedicatedSkills,CharismaticSkills,PApocSkills																							CSKILL:Craft (Structural)
+Craft (Structural - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Craftsman_Skills.Repairman_Skills.Slave_Skill													VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills															BONUS:SKILL|Craft (Structural)|1|TYPE=Competance			CSKILL:Craft (Structural)
+
+Craft (Visual Art - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Demagogue_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Craft (Visual Art)
+Craft (Visual Art - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Demagogue_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Craft (Visual Art)|1|TYPE=Competance			CSKILL:Craft (Visual Art)
+
+Craft (Writing - class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Demagogue_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Craft (Writing)
+Craft (Writing - +1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Demagogue_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Craft (Writing)|1|TYPE=Competance				CSKILL:Craft (Writing)
+
+Decipher Script(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Corium_Prospector_Skills														VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Decipher Script
+Decipher Script(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Corium_Prospector_Skills														VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Decipher Script|1|TYPE=Competance				CSKILL:Decipher Script
+
+Demolitions(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Demolitions
+Demolitions(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Demolitions|1|TYPE=Competance					CSKILL:Demolitions
+
+Diplomacy(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Craftsman_Skills.Demagogue_Skills.Furniture_Skills.Merchant_Skills.Slaver_Skills.Wanderer_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Diplomacy
+Diplomacy(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Craftsman_Skills.Demagogue_Skills.Furniture_Skills.Merchant_Skills.Slaver_Skills.Wanderer_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Diplomacy|1|TYPE=Competance					CSKILL:Diplomacy
+
+Disable Device(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Repairman_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Disable Device
+Disable Device(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Repairman_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Disable Device|1|TYPE=Competance				CSKILL:Disable Device
+
+Disguise(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Slaver_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Disguise
+Disguise(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Slaver_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Disguise|1|TYPE=Competance					CSKILL:Disguise
+
+Drive(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Guide_Skills.Military_Skills.Wanderer_Skills										VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																				CSKILL:Drive
+Drive(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Guide_Skills.Military_Skills.Wanderer_Skills										VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills																	BONUS:SKILL|Drive|1|TYPE=Competance						CSKILL:Drive
+
+Escape Artist(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																		CSKILL:Escape Artist
+Escape Artist(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																			BONUS:SKILL|Escape Artist|1|TYPE=Competance				CSKILL:Escape Artist
+
+Forgery(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Forgery
+Forgery(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Forgery|1|TYPE=Competance					CSKILL:Forgery
+
+Gamble(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Furniture_Skills.Merchant_Skills.Slaver_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,CharismaticSkills,PApocSkills																			CSKILL:Gamble
+Gamble(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Furniture_Skills.Merchant_Skills.Slaver_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,DedicatedSkills																			BONUS:SKILL|Gamble|1|TYPE=Competance					CSKILL:Gamble
+
+Gather Information(class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Corium_Prospector_Skills.Craftsman_Skills.Furniture_Skills.Merchant_Skills.Slaver_Skills						VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Gather Information
+Gather Information(+1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Corium_Prospector_Skills.Craftsman_Skills.Furniture_Skills.Merchant_Skills.Slaver_Skills						VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Gather Information|1|TYPE=Competance			CSKILL:Gather Information
+
+Handle Animal(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Corium_Prospector_Skills.Craftsman_Skills.Guide_Skills.Herdsman_Skills.Slave_Skills.Wanderer_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																						CSKILL:Handle Animal
+Handle Animal(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Corium_Prospector_Skills.Craftsman_Skills.Guide_Skills.Herdsman_Skills.Slave_Skills.Wanderer_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,CharismaticSkills																BONUS:SKILL|Handle Animal|1|TYPE=Competance				CSKILL:Handle Animal
+
+Hide(class skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills.Predator_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																				CSKILL:Hide
+Hide(+1 to skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills.Predator_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,PApocSkills																	BONUS:SKILL|Hide|1|TYPE=Competance						CSKILL:Hide
+
+Intimidate(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Military_Skills.Predator_Skills.Slaver_Skills										VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,SmartSkills,DedicatedSkills,PApocSkills																						CSKILL:Intimidate
+Intimidate(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Military_Skills.Predator_Skills.Slaver_Skills										VISIBLE:DISPLAY	PRETEMPLATE:1,ToughSkills,CharismaticSkills																BONUS:SKILL|Intimidate|1|TYPE=Competance					CSKILL:Intimidate
+
+Investigate(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Predator_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills,PApocSkills																					CSKILL:Investigate
+Investigate(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Predator_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills																	BONUS:SKILL|Investigate|1|TYPE=Competance					CSKILL:Investigate
+
+Jump(class skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Herdsman_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																					CSKILL:Jump
+Jump(+1 to skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Herdsman_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,PApocSkills																	BONUS:SKILL|Jump|1|TYPE=Competance						CSKILL:Jump
+
+Knowledge (Arcane Lore - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Knowledge (Arcane Lore)
+Knowledge (Arcane Lore - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Knowledge (Arcane Lore)|1|TYPE=Competance			CSKILL:Knowledge (Arcane Lore)
+
+Knowledge (Ancient Lore - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Knowledge (Arcane Lore)
+Knowledge (Ancient Lore - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills												BONUS:SKILL|Knowledge (Arcane Lore)|1|TYPE=Competance			CSKILL:Knowledge (Arcane Lore)
+
+Knowledge (Art - class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Knowledge (Art)
+Knowledge (Art - +1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Knowledge (Art)|1|TYPE=Competance				CSKILL:Knowledge (Art)
+
+Knowledge (Behavioral Sciences - class skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Healer_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Knowledge (Behavioral Sciences)
+Knowledge (Behavioral Sciences - +1 to skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Healer_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Knowledge (Behavioral Sciences)|1|TYPE=Competance	CSKILL:Knowledge (Behavioral Sciences)
+
+Knowledge (Business - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Merchant_Skills.Slaver_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Knowledge (Business)
+Knowledge (Business - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Merchant_Skills.Slaver_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Knowledge (Business)|1|TYPE=Competance			CSKILL:Knowledge (Business)
+
+Knowledge (Civics - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Demagogue_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Knowledge (Civics)
+Knowledge (Civics - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Demagogue_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Knowledge (Civics)|1|TYPE=Competance			CSKILL:Knowledge (Civics)
+
+Knowledge (Current Events - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Craftsman_Skills.Demagogue_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,PApocSkills																														CSKILL:Knowledge (Current Events)
+Knowledge (Current Events - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Craftsman_Skills.Demagogue_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								BONUS:SKILL|Knowledge (Current Events)|1|TYPE=Competance		CSKILL:Knowledge (Current Events)
+
+Knowledge (Earth and Life Sciences - class skill)	CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Corium_Prospector_Skills.Healer_Skills												VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills,PApocSkills																					CSKILL:Knowledge (Earth and Life Sciences)
+Knowledge (Earth and Life Sciences - +1 to skill)	CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Corium_Prospector_Skills.Healer_Skills												VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills																	BONUS:SKILL|Knowledge (Earth and Life Sciences)|1|TYPE=Competance	CSKILL:Knowledge (Earth and Life Sciences)
+
+Knowledge (History - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills,PApocSkills																					CSKILL:Knowledge (History)
+Knowledge (History - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills																	BONUS:SKILL|Knowledge (History)|1|TYPE=Competance			CSKILL:Knowledge (History)
+
+Knowledge (Mutant Lore - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills																							CSKILL:Knowledge (Arcane Lore)
+Knowledge (Mutant Lore - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,PApocSkills															BONUS:SKILL|Knowledge (Arcane Lore)|1|TYPE=Competance			CSKILL:Knowledge (Arcane Lore)
+
+Knowledge (Physical Sciences - class skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills,PApocSkills																					CSKILL:Knowledge (Physical Sciences)
+Knowledge (Physical Sciences - +1 to skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills																	BONUS:SKILL|Knowledge (Physical Sciences)|1|TYPE=Competance		CSKILL:Knowledge (Physical Sciences)
+
+Knowledge (Popular Culture - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Demagogue_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,PApocSkills																														CSKILL:Knowledge (Popular Culture)
+Knowledge (Popular Culture - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Demagogue_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								BONUS:SKILL|Knowledge (Popular Culture)|1|TYPE=Competance		CSKILL:Knowledge (Popular Culture)
+
+Knowledge (Streetwise - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Furniture_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,PApocSkills																														CSKILL:Knowledge (Streetwise)
+Knowledge (Streetwise - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Furniture_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills								BONUS:SKILL|Knowledge (Streetwise)|1|TYPE=Competance			CSKILL:Knowledge (Streetwise)
+
+Knowledge (Tactics - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Military_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills,CharismaticSkills,PApocSkills																							CSKILL:Knowledge (Tactics)
+Knowledge (Tactics - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Military_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,SmartSkills,DedicatedSkills														BONUS:SKILL|Knowledge (Tactics)|1|TYPE=Competance			CSKILL:Knowledge (Tactics)
+
+Knowledge (Technology - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Repairman_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills,PApocSkills																					CSKILL:Knowledge (Technology)
+Knowledge (Technology - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Repairman_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills																	BONUS:SKILL|Knowledge (Technology)|1|TYPE=Competance			CSKILL:Knowledge (Technology)
+
+Knowledge (Theology and Philosophy - class skill)	CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,PApocSkills																								CSKILL:Knowledge (Theology and Philosophy)
+Knowledge (Theology and Philosophy - +1 to skill)	CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,CharismaticSkills														BONUS:SKILL|Knowledge (Theology and Philosophy)|1|TYPE=Competance	CSKILL:Knowledge (Theology and Philosophy)
+
+Knowledge (Twisted Earth - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,CharismaticSkills																							CSKILL:Knowledge (Arcane Lore)
+Knowledge (Twisted Earth - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,DedicatedSkills,PApocSkills															BONUS:SKILL|Knowledge (Arcane Lore)|1|TYPE=Competance			CSKILL:Knowledge (Arcane Lore)
+
+Listen(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Guide_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,CharismaticSkills																					CSKILL:Listen
+Listen(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Guide_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,DedicatedSkills,PApocSkills																	BONUS:SKILL|Listen|1|TYPE=Competance					CSKILL:Listen
+
+Move Silently(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills.Predator_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																				CSKILL:Move Silently
+Move Silently(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills.Predator_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,PApocSkills																	BONUS:SKILL|Move Silently|1|TYPE=Competance				CSKILL:Move Silently
+
+Navigate(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Corium_Prospector_Skills.Guide_Skills.Herdsman_Skills.Military_Skills.Wanderer_Skills			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills																					CSKILL:Navigate
+Navigate(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Corium_Prospector_Skills.Guide_Skills.Herdsman_Skills.Military_Skills.Wanderer_Skills			VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,PApocSkills																	BONUS:SKILL|Navigate|1|TYPE=Competance					CSKILL:Navigate
+
+Perform (Act - class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Act)
+Perform (Act - +1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Act)|1|TYPE=Competance				CSKILL:Perform (Act)
+
+Perform (Dance - class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Furniture_Skills.Slave_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Dance)
+Perform (Dance - +1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Furniture_Skills.Slave_Skills																VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Dance)|1|TYPE=Competance				CSKILL:Perform (Dance)
+
+Perform (Keyboards - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Keyboards)
+Perform (Keyboards - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Keyboards)|1|TYPE=Competance			CSKILL:Perform (Keyboards)
+
+Perform (Percussion Instruments - class skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Percussion Instruments)
+Perform (Percussion Instruments - +1 to skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Percussion Instruments)|1|TYPE=Competance	CSKILL:Perform (Percussion Instruments)
+
+Perform (Sing - class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Sing)
+Perform (Sing - +1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Sing)|1|TYPE=Competance				CSKILL:Perform (Sing)
+
+Perform (Stand-Up - class skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Stand-Up)
+Perform (Stand-Up - +1 to skill)				CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Stand-Up)|1|TYPE=Competance			CSKILL:Perform (Stand-Up)
+
+Perform (Stringed Instruments - class skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Stringed Instruments)
+Perform (Stringed Instruments - +1 to skill)		CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Stringed Instruments)|1|TYPE=Competance	CSKILL:Perform (Stringed Instruments)
+
+Perform (Wind Instruments - class skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,PApocSkills																				CSKILL:Perform (Wind Instruments)
+Perform (Wind Instruments - +1 to skill)			CATEGORY:Occupation	TYPE:Occupation_Skill.Slave_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,CharismaticSkills																		BONUS:SKILL|Perform (Wind Instruments)|1|TYPE=Competance		CSKILL:Perform (Wind Instruments)
+
+Pilot(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																		CSKILL:Pilot
+Pilot(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																			BONUS:SKILL|Pilot|1|TYPE=Competance						CSKILL:Pilot
+
+Read/Write Language(1 additional language)		CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Corium_Prospector_Skills														VISIBLE:DISPLAY																		ADD:SKILL|1|Read/Write Language												CSKILL:Read/Write Language
+
+Repair(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Craftsman_Skills.Repairman_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills																							CSKILL:Repair
+Repair(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Craftsman_Skills.Repairman_Skills															VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,SmartSkills,PApocSkills															BONUS:SKILL|Repair|1|TYPE=Competance					CSKILL:Repair
+
+Research(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Corium_Prospector_Skills														VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Research
+Research(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Corium_Prospector_Skills														VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills																			BONUS:SKILL|Research|1|TYPE=Competance					CSKILL:Research
+
+Ride(class skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Guide_Skills.Herdsman_Skills.Slave_Skills.Wanderer_Skills								VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																				CSKILL:Ride
+Ride(+1 to skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Guide_Skills.Herdsman_Skills.Slave_Skills.Wanderer_Skills								VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills																	BONUS:SKILL|Ride|1|TYPE=Competance						CSKILL:Ride
+
+Search(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Corium_Prospector_Skills																	VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,DedicatedSkills,CharismaticSkills																					CSKILL:Search
+Search(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Corium_Prospector_Skills																	VISIBLE:DISPLAY	PRETEMPLATE:1,SmartSkills,PApocSkills																	BONUS:SKILL|Search|1|TYPE=Competance					CSKILL:Search
+
+Sense Motive(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Demagogue_Skills.Furniture_Skills.Guide_Skills.Merchant_Skills.Predator_Skills				VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,CharismaticSkills,PApocSkills																			CSKILL:Sense Motive
+Sense Motive(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Demagogue_Skills.Furniture_Skills.Guide_Skills.Merchant_Skills.Predator_Skills				VISIBLE:DISPLAY	PRETEMPLATE:1,DedicatedSkills																			BONUS:SKILL|Sense Motive|1|TYPE=Competance				CSKILL:Sense Motive
+
+Sleight of Hand(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Furniture_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																		CSKILL:Sleight of Hand
+Sleight of Hand(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Furniture_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																			BONUS:SKILL|Sleight of Hand|1|TYPE=Competance				CSKILL:Sleight of Hand
+
+Speak Language(1 additional language)			CATEGORY:Occupation	TYPE:Occupation_Skill.Academic_Skills.Wanderer_Skills																VISIBLE:DISPLAY																		ADD:SKILL|1|Speak Language													CSKILL:Speak Language
+
+Spot(class skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Guide_Skills.Predator_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,SmartSkills,CharismaticSkills																							CSKILL:Spot
+Spot(+1 to skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Guide_Skills.Predator_Skills													VISIBLE:DISPLAY	PRETEMPLATE:1,ToughSkills,DedicatedSkills,PApocSkills															BONUS:SKILL|Spot|1|TYPE=Competance						CSKILL:Spot
+
+Survival(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Corium_Prospector_Skills.Craftsman_Skills.Guide_Skills.Herdsman_Skills.Military_Skills.Slave_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,SmartSkills,CharismaticSkills																							CSKILL:Survival
+Survival(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Caravan_Guard_Skills.Corium_Prospector_Skills.Craftsman_Skills.Guide_Skills.Herdsman_Skills.Military_Skills.Slave_Skills	VISIBLE:DISPLAY	PRETEMPLATE:1,ToughSkills,DedicatedSkills,PApocSkills															BONUS:SKILL|Survival|1|TYPE=Competance					CSKILL:Survival
+
+Swim(class skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																			CSKILL:Swim
+Swim(+1 to skill)							CATEGORY:Occupation	TYPE:Occupation_Skill.Military_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills																			BONUS:SKILL|Swim|1|TYPE=Competance						CSKILL:Swim
+
+Treat Injury(class skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Healer_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,ToughSkills,SmartSkills,CharismaticSkills,PApocSkills																			CSKILL:Treat Injury
+Treat Injury(+1 to skill)					CATEGORY:Occupation	TYPE:Occupation_Skill.Healer_Skills																			VISIBLE:DISPLAY	PRETEMPLATE:1,DedicatedSkills																			BONUS:SKILL|Treat Injury|1|TYPE=Competance				CSKILL:Treat Injury
+
+Tumble(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills,PApocSkills																		CSKILL:Tumble
+Tumble(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.NoOccupationYet																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																			BONUS:SKILL|Tumble|1|TYPE=Competance					CSKILL:Tumble
+
+
+###Block: Skill feat mods for Backgrounds
+# Ability Name											Type
+CATEGORY=Occupation|Balance(class skill).MOD						TYPE:Feral_Skills
+CATEGORY=Occupation|Climb(class skill).MOD						TYPE:Feral_Skills.Tribal_Skills
+CATEGORY=Occupation|Computer Use(class skill).MOD					TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Concentration(class skill).MOD					TYPE:Feral_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Craft (Chemical - class skill).MOD				TYPE:Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Craft (Electronic - class skill).MOD				TYPE:Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Craft (Mechanical - class skill).MOD				TYPE:Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Craft (Pharmaceutical - class skill).MOD			TYPE:Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Craft (Structural - class skill).MOD				TYPE:Tribal_Skills.Resentful_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Craft (Visual Art - class skill).MOD				TYPE:Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Craft (Writing - class skill).MOD					TYPE:Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Decipher Script(class skill).MOD					TYPE:Resurrector_Skills.Advanced_Skills
+CATEGORY=Occupation|Demolitions(class skill).MOD					TYPE:Radical_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Diplomacy(class skill).MOD						TYPE:Visionary_Reinventor_Skills
+CATEGORY=Occupation|Disable Device(class skill).MOD					TYPE:Advanced_Skills
+CATEGORY=Occupation|Drive(class skill).MOD						TYPE:Degenerate_Skills.Ritual_Preservationist_Skills.Radical_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Escape Artist(class skill).MOD					TYPE:Feral_Skills
+CATEGORY=Occupation|Handle Animal(class skill).MOD					TYPE:Resentful_Skills
+CATEGORY=Occupation|Hide(class skill).MOD							TYPE:Feral_Skills.Degenerate_Skills.Tribal_Skills.Radical_Skills
+CATEGORY=Occupation|Intimidate(class skill).MOD						TYPE:Feral_Skills.Tribal_Skills.Radical_Skills
+CATEGORY=Occupation|Jump(class skill).MOD							TYPE:Feral_Skills.Tribal_Skills
+CATEGORY=Occupation|Knowledge (Arcane Lore - class skill).MOD			TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Ancient Lore - class skill).MOD			TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Art - class skill).MOD					TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Behavioral Sciences - class skill).MOD		TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Business - class skill).MOD				TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Civics - class skill).MOD				TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Current Events - class skill).MOD			TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (History - class skill).MOD				TYPE:Degenerate_Skills.Resentful_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Mutant Lore - class skill).MOD			TYPE:Degenerate_Skills.Ritual_Preservationist_Skills.Resentful_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Physical Sciences - class skill).MOD		TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Popular Culture - class skill).MOD			TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Streetwise - class skill).MOD			TYPE:Degenerate_Skills.Radical_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Tactics - class skill).MOD				TYPE:Degenerate_Skills.Radical_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Technology - class skill).MOD			TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Degenerate_Skills.Ritual_Preservationist_Skills.Resentful_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Knowledge (Twisted Earth - class skill).MOD			TYPE:Degenerate_Skills.Resurrector_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Hedonist_Skills.Advanced_Skills
+CATEGORY=Occupation|Listen(class skill).MOD						TYPE:Feral_Skills.Tribal_Skills
+CATEGORY=Occupation|Move Silently(class skill).MOD					TYPE:Feral_Skills.Tribal_Skills.Radical_Skills
+CATEGORY=Occupation|Navigate(class skill).MOD						TYPE:Feral_Skills.Tribal_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Perform (Act - class skill).MOD					TYPE:Hedonist_Skills
+CATEGORY=Occupation|Perform (Dance - class skill).MOD					TYPE:Hedonist_Skills
+CATEGORY=Occupation|Perform (Keyboards - class skill).MOD				TYPE:Hedonist_Skills
+CATEGORY=Occupation|Perform (Percussion Instruments - class skill).MOD		TYPE:Hedonist_Skills
+CATEGORY=Occupation|Perform (Sing - class skill).MOD					TYPE:Hedonist_Skills
+CATEGORY=Occupation|Perform (Stand-Up - class skill).MOD				TYPE:Hedonist_Skills
+CATEGORY=Occupation|Perform (Stringed Instruments - class skill).MOD		TYPE:Hedonist_Skills
+CATEGORY=Occupation|Perform (Wind Instruments - class skill).MOD			TYPE:Hedonist_Skills
+CATEGORY=Occupation|Pilot(class skill).MOD						TYPE:Degenerate_Skills.Ritual_Preservationist_Skills.Resentful_Skills.Visionary_Reinventor_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Repair(class skill).MOD						TYPE:Degenerate_Skills.Ritual_Preservationist_Skills.Resentful_Skills.Resurrector_Skills.Guardian_Skills.Advanced_Skills
+CATEGORY=Occupation|Research(class skill).MOD						TYPE:Resurrector_Skills.Hedonist_Skills
+CATEGORY=Occupation|Search(class skill).MOD						TYPE:Feral_Skills.Tribal_Skills
+CATEGORY=Occupation|Spot(class skill).MOD							TYPE:Feral_Skills.Tribal_Skills
+CATEGORY=Occupation|Survival(class skill).MOD						TYPE:Feral_Skills.Tribal_Skills
+CATEGORY=Occupation|Swim(class skill).MOD							TYPE:Feral_Skills
+CATEGORY=Occupation|Treat Injury(class skill).MOD					TYPE:Degenerate_Skills.Guardian_Skills.Advanced_Skills
+
+#
+# End
+#

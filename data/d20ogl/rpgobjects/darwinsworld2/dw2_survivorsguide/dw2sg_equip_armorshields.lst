@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+# DW2 & MSRD Armor
+# Equipment Name			Output Name				Required Proficiency		Type						Contains			Cost		Weight	AC Penalty Check	Modifier																				Maximum DEX Bonus	Source Page		Combat bonus																	Stat bonus												Special Property																Automaticaly Added to Inventory
+Leather Jacket.MOD																						COST:25
+Leather Armor.MOD																							COST:40
+Light Undercover Shirt.MOD																					COST:50
+Pull-up Pouch Vest.MOD																						COST:75
+Undercover Vest.MOD																						COST:100
+
+#Medium Armor NonProf=+2
+Concealable Vest.MOD																						COST:120
+Chainmail Shirt.MOD																						COST:120
+Light-Duty Vest.MOD																						COST:200
+Civil Security Suit												TYPE:Armor.Medium.Suit.Tactical					COST:200	WT:8		ACCHECK:-4																							MAXDEX:3		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+Tactical Vest.MOD																							COST:300
+Military Combat Suit												TYPE:Armor.Medium.Suit.Tactical					COST:400	WT:10		ACCHECK:-4																							MAXDEX:3		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+
+#Heavy Armor nonprof=+3
+Environment Suit													TYPE:Armor.Heavy.Suit.Impromptu					COST:500	WT:100	ACCHECK:-7																							MAXDEX:0		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK															SPROP:Integral Flashlight, Radiation (Hard) Protection, 12 hour air supply (recharge takes 30 min)
+NBC Suit														TYPE:Armor.Heavy.Suit.Impromptu					COST:600	WT:50		ACCHECK:-6																							MAXDEX:1		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK															SPROP:Protection from - Chemical Agents, Biological Agents and Radiation (Moderate)
+LazAb															TYPE:Armor.Heavy.Suit.Tactical					COST:1000	WT:50		ACCHECK:-7																							MAXDEX:0		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK															SPROP:Provides DR 10 vs. Directed Energy (Laser, Maser, etc.)
+Special Response Vest.MOD																					COST:2000
+Plate Mail.MOD																							COST:1500
+Forced Entry Unit.MOD																						COST:4000
+Special Security Suit												TYPE:Armor.Heavy.Suit.Tactical					COST:4000	WT:20		ACCHECK:-8																							MAXDEX:0		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|9|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK																																	AUTO:EQUIP|Web Belt
+Advanced Metal													TYPE:Armor.Heavy.Suit.Tactical					COST:7500	WT:50		ACCHECK:-6																							MAXDEX:0		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|9|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK															SPROP:Superior materials/alloys
+Plastex														TYPE:Armor.Heavy.Suit.Tactical					COST:10000	WT:30		ACCHECK:-5																							MAXDEX:2		SOURCEPAGE:p. 193	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|10|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK															SPROP:Custom Fit
+
+#Powered Armor nonprof=+3
+Mk1 Ares														TYPE:Armor.Powered.Suit.Tactical	CONTAINS:1|PwrMini=1	COST:20000	WT:30		ACCHECK:-7		EQMOD:BASE_MV_20.AIR_SUPP_ARMR.COMM_SYS_ARMR.HAZ_MAT_ARMR.N_VIS120_ARMR										MAXDEX:0		SOURCEPAGE:p. 196	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|2	BONUS:STAT|STR|3|PREFEAT:1,Armor Proficiency (Powered)
+Mk2 Ares														TYPE:Armor.Powered.Suit.Tactical	CONTAINS:1|PwrMini=1	COST:40000	WT:18		ACCHECK:-3		EQMOD:BASE_MV_25.AIR_SUPP_ARMR.COMM_SYS_ARMR.HAZ_MAT_ARMR.N_VIS120_ARMR.GPRO_MOD_ARMR							MAXDEX:3		SOURCEPAGE:p. 196	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|2	BONUS:STAT|STR|2|PREFEAT:1,Armor Proficiency (Powered)	SPROP:Weapon Mount - Wrist (Medium Weapon or smaller)
+Mk3 Ares														TYPE:Armor.Powered.Suit.Tactical	CONTAINS:1|PwrMini=1	COST:40000	WT:18		ACCHECK:-3		EQMOD:BASE_MV_25.AIR_SUPP_ARMR.COMM_SYS_ARMR.HAZ_MAT_ARMR.N_VIS120_ARMR.GPRO_MOD_ARMR							MAXDEX:3		SOURCEPAGE:p. 196	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|2	BONUS:STAT|STR|2|PREFEAT:1,Armor Proficiency (Powered)	SPROP:Weapon Mount - Shoulder (Huge Weapon or smaller)
+Mk1 Hermes														TYPE:Armor.Powered.Suit.Tactical	CONTAINS:1|PwrMini=1	COST:50000	WT:8		ACCHECK:-6		EQMOD:BASE_MV_70.AIR_SUPP_ARMR.COMM_SYS_ARMR.HAZ_MAT_ARMR.N_VIS120_ARMR.TELE_VIS_ARMR.GEIGER_ARMR.CHEM_SEN_ARMR			MAXDEX:0		SOURCEPAGE:p. 196	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|1	BONUS:STAT|STR|1|PREFEAT:1,Armor Proficiency (Powered)
+Mk2 Hermes														TYPE:Armor.Powered.Suit.Tactical	CONTAINS:1|PwrMini=1	COST:65000	WT:8		ACCHECK:-6		EQMOD:BASE_MV_70.AIR_SUPP_ARMR.COMM_SYS_ARMR.HAZ_MAT_ARMR.N_VIS120_ARMR.TELE_VIS_ARMR.GEIGER_ARMR.CHEM_SEN_ARMR.XRAY_VIS_ARMR	MAXDEX:0		SOURCEPAGE:p. 196	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|1	BONUS:STAT|STR|1|PREFEAT:1,Armor Proficiency (Powered)
+Zeus Suit														TYPE:Armor.Powered.Suit.Tactical	CONTAINS:1|PwrMini=1	COST:70000	WT:20		ACCHECK:-3		EQMOD:BASE_MV_25.AIR_SUPP_ARMR.COMM_SYS_ARMR.HAZ_MAT_ARMR.N_VIS120_ARMR.GPRO_MOD_ARMR							MAXDEX:3		SOURCEPAGE:p. 196	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|3	BONUS:STAT|STR|5|PREFEAT:1,Armor Proficiency (Powered)	SPROP:Weapon Mount - Wrist (Medium Weapon or smaller), Weapon Mount - Shoulder (Huge Weapon or smaller)
+
+#Shields
+Shield (Impromptu)		OUTPUTNAME:Shield, [NAME]	PROFICIENCY:SHIELD|Shield	TYPE:Shield.Impromptu.Standard					COST:5	WT:6		ACCHECK:-2																										SOURCEPAGE:p. 193	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK
+Shield (Small)			OUTPUTNAME:Shield, [NAME]	PROFICIENCY:SHIELD|Shield	TYPE:Shield.Small.Standard						COST:25	WT:6		ACCHECK:-1																										SOURCEPAGE:p. 193	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK
+Shield (Large)			OUTPUTNAME:Shield, [NAME]	PROFICIENCY:SHIELD|Shield	TYPE:Shield.Large.Standard						COST:75	WT:15		ACCHECK:-2																										SOURCEPAGE:p. 193	BONUS:COMBAT|AC|1|TYPE=Shield.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK
+Shield (Riot)			OUTPUTNAME:Shield, [NAME]	PROFICIENCY:SHIELD|Shield	TYPE:Shield.Riot.Standard						COST:100	WT:6		ACCHECK:-1		EQMOD:PLASTIC_HARD																					SOURCEPAGE:p. 193	BONUS:COMBAT|AC|1|TYPE=Shield.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Shield.STACK
+

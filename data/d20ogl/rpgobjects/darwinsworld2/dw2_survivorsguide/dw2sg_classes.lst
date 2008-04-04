@@ -1,0 +1,40 @@
+# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+###Block:DW2 Base Class
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
+CLASS:Post Apocalyptic Hero	HD:8		TYPE:Base.PC	ABB:PApoc		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Post Apocalyptic Hero	STARTSKILLPTS:5	CSKILL:Climb|Hide|Jump|Knowledge (Mutant Lore)|Knowledge (Ancient Lore)|Knowledge (Twisted Earth)|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival
+#
+1																										TEMPLATE:Starting Background|Starting Benefits|Occupation	AUTO:FEAT|Simple Weapons Proficiency
+#
+1	BONUS:ABILITYPOOL|PA Hero Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP
+2	BONUS:ABILITYPOOL|PA Hero Feat|CL/2
+
+###Block:Modified MSRD Classes
+
+# Class Name
+CLASS:Strong.MOD
+1	ABILITY:Wealth|AUTOMATIC|.CLEAR.Starting Wealth	TEMPLATE:Starting Background
+
+# Class Name
+CLASS:Fast.MOD
+1	ABILITY:Wealth|AUTOMATIC|.CLEAR.Starting Wealth	TEMPLATE:Starting Background
+
+# Class Name
+CLASS:Tough.MOD
+1	ABILITY:Wealth|AUTOMATIC|.CLEAR.Starting Wealth	TEMPLATE:Starting Background
+
+# Class Name	Class Skill
+CLASS:Smart.MOD	CSKILL:Knowledge (Ancient Lore)|Knowledge (Mutant Lore)|Knowledge (Twisted Earth)
+1	ABILITY:Wealth|AUTOMATIC|.CLEAR.Starting Wealth	TEMPLATE:Starting Background
+
+# Class Name		Class Skill
+CLASS:Dedicated.MOD	CSKILL:Knowledge (Ancient Lore)|Knowledge (Mutant Lore)|Knowledge (Twisted Earth)
+1	ABILITY:Wealth|AUTOMATIC|.CLEAR.Starting Wealth	TEMPLATE:Starting Background
+
+# Class Name		Class Skill
+CLASS:Charismatic.MOD	CSKILL:Knowledge (Ancient Lore)
+1	ABILITY:Wealth|AUTOMATIC|.CLEAR.Starting Wealth	TEMPLATE:Starting Background

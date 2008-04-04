@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+# Language	Type			Source Page
+Ancient	TYPE:Spoken.DW2	SOURCEPAGE:p. 48
+Ancient	TYPE:Written.DW2	SOURCEPAGE:p. 48
+
+Gutter Talk	TYPE:Spoken.DW2	SOURCEPAGE:p. 48
+
+Trade		TYPE:Spoken.DW2	SOURCEPAGE:p. 48
+Trade		TYPE:Written.DW2	SOURCEPAGE:p. 48
+
+Unislang	TYPE:Spoken.DW2	SOURCEPAGE:p. 48
+Unislang	TYPE:Written.DW2	SOURCEPAGE:p. 48

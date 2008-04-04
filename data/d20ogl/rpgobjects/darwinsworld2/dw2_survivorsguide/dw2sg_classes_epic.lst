@@ -1,0 +1,140 @@
+# CVS $Revision$ $Author$ -- Tue Mar 18 13:02:00 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Champion	HD:12		TYPE:Base.Epic	ABB:Chm		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 44	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL+1)/2)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Req. Att.	Required Feat			Req. Special Ability	Required Skill
+CLASS:Champion	PREATT:10	PREFEAT:2,Iron Will,Toughness	PRESA:1,Defender%		PRESKILL:1,Knowledge (Tactics)=8	PRESKILL:1,Intimidate=10
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Champion	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Search|Spot|Survival
+
+1	SAB:Rallying Cry (+%)|rallyingCry											BONUS:VAR|rallyingCry|2	DEFINE:rallyingCry|0
+2	SAB:Tactical Aid (Improved)|PREVARGTEQ:tactAid,1
+2	SAB:Tactical Aid|!PREVARGTEQ:tactAid,1														DEFINE:tactAid|0
+3										BONUS:ABILITYPOOL|Champion Feat|CL/3
+4																	BONUS:VAR|rallyingCry|1
+5	SAB:Awesome Presence
+7	SAB:Challenge
+8																	BONUS:VAR|rallyingCry|1
+10	SAB:To the Bitter End
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Mech		HD:6		TYPE:Base.Epic	ABB:Mec		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 46	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Required Feat		Required Skill
+CLASS:Mech		PREFEAT:1,Gearhead	PRESKILL:2,Craft (Electronic),Knowledge (Technology)=10	PRESKILL:1,Craft (Mechanical)=12	PRESKILL:1,Repair=13
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mech		STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Decipher Script|Demolitions|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Ancient Lore)|Navigate|Read/Write Language|Repair|Research|Speak Language|Spot
+
+1							BONUS:ABILITYPOOL|Mech Mastercraft|(CL=2)/3
+2	SAB:Quick Repairs|PREVARLT:CL,8
+3							BONUS:ABILITYPOOL|Mech Feat|CL/3
+4															BONUS:VAR|Reputation|1
+5	SAB:Improved Repairs
+6															BONUS:VAR|Reputation|1
+8	SAB:Lightning Repairs
+10	SAB:Supercraft												BONUS:VAR|Reputation|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Medicine Man	HD:8		TYPE:Base.Epic	ABB:Med		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 46	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name		Required Feat				Required Skill
+CLASS:Medicine Man	PREFEAT:2,Surgery,Medical Expert	PRESKILL:1,Treat Injury=13	PRESKILL:1,Craft (Pharmaceutical)=8	PRESKILL:3,Knowledge (Earth and Life Sciences),Knowledge (Mutant Lore),Knowledge (Technology)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Medicine Man	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Ancient Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Knowledge (Technology)|Listen|Read/Write Language|Research|Speak Language|Spot|Treat Injury
+
+1											BONUS:ABILITYPOOL|Medicine Man Drugs|1
+2											BONUS:ABILITYPOOL|Medicine Man Minor Miracle|1
+3	SAB:Medical Specialist (+%)|medSpec														BONUS:VAR|medSpec|1					BONUS:SKILL|Treat Injury|medSpec	DEFINE:medSpec|0
+4	SAB:Mutant Treatment (+4 to Medical Incompatability Rolls)										BONUS:VAR|Reputation|1
+5	SAB:Mutant Drugs
+6																				BONUS:VAR|Reputation|1	BONUS:VAR|medSpec|1
+7	SAB:Second Chance
+8	SAB:Medical Miracle
+9																				BONUS:VAR|medSpec|1
+10											BONUS:ABILITYPOOL|Medicine Man Ancient Med Tech|1	BONUS:VAR|Reputation|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus									Combat bonus		Modify VAR
+CLASS:Mutant Hunter	HD:10		TYPE:Base.Epic	ABB:MHntr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 49	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name		Required Ability						Required Feat													Prohibited Template
+CLASS:Mutant Hunter	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREFEAT:1,Personal Firearms Proficiency,Archaic Weapons Proficiency	PREFEAT:1,Track	!PRETEMPLATE:1,Mutant
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mutant Hunter	STARTSKILLPTS:5	CSKILL:Disguise|Escape Artist|Gather Information|Hide|Intimidate|Navigate|Knowledge (Mutant Lore)|Listen|Move Silently|Spot|Survival|Treat Injury|Tumble
+
+1	SAB:Smite Mutant (+%)|smiteMut															BONUS:VAR|smiteMut|skillinfo("RANK", "Knowledge (Mutant Lore)")					DEFINE:smiteMut|0
+2	SAB:Mutant Hunter (+%)|mHntr																BONUS:VAR|mHntr|1													DEFINE:mHntr|0
+3														BONUS:ABILITYPOOL|Mutant Hunter Feat|CL/3
+4	SAB:Mutant Slayer (DC:%)|mutSlay															BONUS:VAR|mutSlay|10	BONUS:VAR|mutSlay|skillinfo("RANK", "Knowledge (Mutant Lore)")	DEFINE:mutSlay|0
+5																					BONUS:VAR|mHntr|1
+7	SAB:Mind Tricks (+% to Will save vs. psionics/mind-affecting mutations)|CL
+8																					BONUS:VAR|mHntr|1
+10	SAB:Mutant Bane
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Scientist	HD:6		TYPE:Base.Epic	ABB:Sci		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 51	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Required Skill
+CLASS:Scientist	PRESKILL:2,Knowledge (Technology),Research=13	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Earth and Life Sciences),Knowledge (Physical Sciences)=13
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE.Craft|Decipher Script|Disable Device|Drive|TYPE.Knowledge|Navigate|Read/Write Language|Research|Search|Speak Language|Spot
+
+1	SAB:Scientific Method
+2	SAB:Scientific Improvisation
+3	SAB:Protected By Code|!PRECLASS:1,Scholar=8	BONUS:ABILITYPOOL|Scientist Feat|1|PRECLASS:1,Scholar=8
+4									BONUS:ABILITYPOOL|Scientist Smart Weapon|1			BONUS:VAR|Reputation|1
+5	SAB:Hypothesis (% percent correct)|((CL*2)+50)
+6									BONUS:ABILITYPOOL|Scientist Feat|1					BONUS:VAR|Reputation|1
+7	SAB:Lead Scientist																			AUTO:FEAT|Leadership
+8	SAB:Funding
+9									BONUS:ABILITYPOOL|Scientist Feat|1
+10	SAB:Improved Scientific Method													BONUS:VAR|Reputation|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus			Modify VAR
+CLASS:Tech Looter	HD:8		TYPE:Base.Epic	ABB:TLtr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 54	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Req. Att.	Required Feat			Required Skill
+CLASS:Tech Looter	PREATT:6	PREFEAT:1,Advanced Technology	PRESKILL:1,Knowledge (Technology)=13	PRESKILL:2,Disable Device,Knowledge (Ancient Lore)=8	PRESKILL:1,Gather Information=10	PRESKILL:2,Computer Use,Repair=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tech Looter	STARTSKILLPTS:5	CSKILL:Computer Use|Decipher Script|Disable Device|Drive|Gather Information|Hide|Knowledge (Ancient Lore)|Knowledge (Technology)|Listen|Move Silently|Navigate|Repair|Search|Sleight of Hand|Spot|Survival
+
+1	SAB:Contacts										BONUS:VAR|SneakAttack|1	AUTO:FEAT|Sneak Attack
+2	SAB:Ancient Sense
+3						BONUS:ABILITYPOOL|Tech Looter Feat|CL/3
+4	SAB:Beat Feat
+5													BONUS:VAR|SneakAttack|1
+7	SAB:On the Lookout (+%)|CL
+8	SAB:Tech Mastery
+10													BONUS:VAR|SneakAttack|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Trade Master	HD:6		TYPE:Base.Epic	ABB:TMstr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 55	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|((CL-1)/3)+2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name		Required Feat			Required Skill
+CLASS:Trade Master	PREFEAT:2,Leadership,Market	PRESKILL:1,Bluff=10	PRESKILL:1,Diplomacy=13	PRESKILL:1,Gather Information=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Trade Master	STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gather Information|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (Business)|Navigate|Ride|Search|Sense Motive|Speak Language|Spot
+
+1	SAB:Distribution Network	SAB:Improved Cohort
+2	SAB:Leadership (+%)|ldrShip					BONUS:VAR|ldrShip|1											DEFINE:ldrShip|0
+3	SAB:Make a Deal (DC:%)|mkDeal					BONUS:VAR|mkDeal|10+CHA+CL										DEFINE:mkDeal|0
+4										BONUS:VAR|ldrShip|1
+5	SAB:Wise Man Speaks
+6										BONUS:VAR|ldrShip|1
+7	SAB:Peacemaker												BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|4
+8										BONUS:VAR|ldrShip|1
+9	SAB:Market Leverage
+10										BONUS:VAR|ldrShip|1
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Warrior Monk	HD:10		TYPE:Base.Epic	ABB:MHntr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 57	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	BONUS:VAR|WeapSpecQualify|1
+# Class Name		Req. Att.	Required Feat								Required Skill
+CLASS:Warrior Monk	PREATT:10	PREFEAT:3,Combat Expertise,Combat Reflexes,Weapon Focus	PRESKILL:1,Knowledge (Tactics)=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Warrior Monk	STARTSKILLPTS:3	CSKILL:Drive|Intimidate|Jump|Knowledge (Tactics)|Listen|Ride|Sense Motive|Spot|Survival
+
+1					BONUS:ABILITYPOOL|Warrior Monk Superior Ability|1
+2					BONUS:ABILITYPOOL|Warrior Monk Feat|1
+3	SAB:Perfect Attack
+4					BONUS:ABILITYPOOL|Warrior Monk Superior Ability|1
+5					BONUS:ABILITYPOOL|Warrior Monk Feat|1
+6	SAB:Deadly Critical
+7					BONUS:ABILITYPOOL|Warrior Monk Superior Ability|1
+8					BONUS:ABILITYPOOL|Warrior Monk Feat|1
+9					BONUS:ABILITYPOOL|Warrior Monk Superior Ability|1
+10					BONUS:ABILITYPOOL|Warrior Monk Feat|1
+

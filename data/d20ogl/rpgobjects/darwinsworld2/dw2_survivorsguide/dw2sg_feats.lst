@@ -1,0 +1,227 @@
+# CVS $Revision$ $Author$ -- Tue Mar  4 23:40:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+###Block:Mod of msrd Feat types
+# Feat Name					Type																				Clear Prereq.
+Acrobatic.MOD				TYPE:RdWarrior.Scav.Skulk.TechLooter
+Advanced Firearms Proficiency.MOD	TYPE:Guardian.Raider.Survivalist.Champion.MutantHunter.TechLooter
+Advanced Combat Martial Arts.MOD	TYPE:WarriorMonk
+Advanced Two-Weapon Fighting.MOD	TYPE:WarriorMonk
+Agile Riposte.MOD				TYPE:TechLooter
+Alertness.MOD				TYPE:Feral.PAHero.Barbarian.JujuDoc.Psionic.Scav.Scholar.Skulk.SisOTD.Symbiote.Trader.TechLooter
+Animal Affinity.MOD			TYPE:Feral.Tribal.Resentful.Slave.Barbarian.Psionic.SisOTD.Symbiote
+Archaic Weapons Proficiency.MOD	TYPE:Tribal.Resentful.PAHero.Guardian.Psionic.Raider.SisOTD.Survivalist.Symbiote.Champion.MutantHunter
+Armor Proficiency (Light).MOD		TYPE:Tribal.Radical.Barbarian.Guardian.Psionic.Raider.RdWarrior.Scav.Skulk.SisOTD.Champion.MutantHunter
+Armor Proficiency (Medium).MOD	TYPE:Barbarian.Guardian.Raider.Champion
+Armor Proficiency (Heavy).MOD		TYPE:Guardian.Raider.Champion
+Athletic.MOD				TYPE:Feral.Tribal.PAHero.Barbarian.RdWarrior.Scav.Skulk.Symbiote
+Attentive.MOD				TYPE:Demagogue.JujuDoc.Psionic.Scav.Scholar.Skulk.Trader
+Blind-Fight.MOD				TYPE:Feral.Psionic
+Brawl.MOD					TYPE:Feral.Tribal.Radical.PAHero.Barbarian.Raider.Symbiote
+Builder.MOD					TYPE:Scholar.Tinker.Mech
+Burst Fire.MOD				TYPE:Guardian.Raider.Champion.MutantHunter.WarriorMonk
+Cautious.MOD				TYPE:Scav.Skulk.Tinker.TechLooter
+Cleave.MOD					TYPE:Feral.Tribal.Barbarian.Guardian.Raider.Champion
+Combat Expertise.MOD			TYPE:SisOTD.Symbiote.Tinker
+Combat Reflexes.MOD			TYPE:Barbarian.Guardian.Psionic.Raider.SisOTD.Symbiote.Champion
+Combat Martial Arts.MOD			TYPE:Feral.Tribal.Radical
+Combat Throw.MOD				TYPE:SisOTD
+Confident.MOD				TYPE:Demagogue.SisOTD.Trader
+Creative.MOD				TYPE:Hedonist.Demagogue.Scholar.Trader
+Dead Aim.MOD				TYPE:Survivalist.MutantHunter.WarriorMonk
+Deceptive.MOD				TYPE:Demagogue.Psionic.SisOTD.Trader
+Defensive Martial Arts.MOD		TYPE:Psionic.Scav.Scholar.Skulk.SisOTD.Symbiote.TechLooter
+Dodge.MOD					TYPE:Feral.Tribal.PAHero.Scav.Scholar.Skulk.SisOTD.Symbiote.MutantHunter.TechLooter
+Double Tap.MOD				TYPE:Guardian.Survivalist.Champion.MutantHunter.TechLooter
+Drive-By Attack.MOD			TYPE:RdWarrior
+Educated.MOD				TYPE:Hedonist.JujuDoc.Scholar.Tinker.Mech.Scientist
+Elusive Target.MOD			TYPE:Scav.Skulk.SisOTD.TechLooter
+Endurance.MOD				TYPE:Feral.Tribal.Resentful.Slave.Barbarian
+Exotic Firearms Proficiency.MOD	TYPE:Guardian.Raider.Survivalist.Champion.MutantHunter.WarriorMonk
+Exotic Melee Weapon Proficiency.MOD	TYPE:Barbarian.Guardian.Raider.SisOTD.Champion.WarriorMonk
+Far Shot.MOD				TYPE:Guardian.Survivalist.Champion.MutantHunter
+Focused.MOD					TYPE:Hedonist.Psionic
+Force Stop.MOD				TYPE:RdWarrior
+Gearhead.MOD				TYPE:Hedonist.RdWarrior.Scholar.Tinker.Scientist
+Great Cleave.MOD				TYPE:Barbarian.Guardian.Raider.Champion.WarriorMonk
+Great Fortitude.MOD			TYPE:Feral.Tribal.Resentful.PAHero
+Guide.MOD					TYPE:Feral.Tribal.Resentful.PAHero.Barbarian.Survivalist.Symbiote.Trader.MutantHunter
+Heroic Surge.MOD				TYPE:RdWarrior.SisOTD
+Improved Brawl.MOD			TYPE:Barbarian.Raider
+Improved Combat Throw.MOD		TYPE:SisOTD
+Improved Combat Martial Arts.MOD	TYPE:WarriorMonk
+Improved Damage Threshold.MOD		TYPE:Feral.Tribal.RdWarrior
+Improved Disarm.MOD			TYPE:WarriorMonk
+Improved Initiative.MOD			TYPE:Feral.Tribal.JujuDoc.Psionic.Symbiote.MutantHunter.TechLooter
+Improved Knockout Punch.MOD		TYPE:Raider
+Improved Trip.MOD				TYPE:WarriorMonk
+Improved Two-Weapon Fighting.MOD	TYPE:Champion.WarriorMonk
+Iron Will.MOD				TYPE:Feral.Tribal.Resentful.Psionic.SisOTD
+Knockout Punch.MOD			TYPE:Raider
+Leadership.MOD				TYPE:Demagogue.Trader
+Lightning Reflexes.MOD			TYPE:Feral.Tribal
+Low Profile.MOD				TYPE:Psionic
+Medical Expert.MOD			TYPE:JujuDoc
+Meticulous.MOD				TYPE:Scav.Skulk.Trader.TechLooter
+Mobility.MOD				TYPE:RdWarrior.Scav.Scholar.Skulk.SisOTD.Symbiote.MutantHunter.TechLooter
+Nimble.MOD					TYPE:Scav.Skulk.TechLooter
+Personal Firearms Proficiency.MOD	TYPE:Radical.PAHero.Guardian.Raider.RdWarrior.Survivalist.Symbiote.Tinker.Trader.Champion.MutantHunter.Mech.TechLooter
+Point Blank Shot.MOD			TYPE:Guardian.RdWarrior.Survivalist.Tinker.Champion.TechLooter
+Power Attack.MOD				TYPE:Feral.Tribal.Barbarian.Guardian.Raider.Symbiote.Champion
+Precise Shot.MOD				TYPE:RdWarrior.Survivalist.Champion.MutantHunter.TechLooter
+Quick Draw.MOD				TYPE:Survivalist.MutantHunter.TechLooter
+Quick Reload.MOD				TYPE:MutantHunter
+Renown.MOD					TYPE:Demagogue.Psionic.Trader.Scientist
+Run.MOD					TYPE:Feral.Tribal.PAHero.Scav.Skulk.Survivalist.Symbiote.MutantHunter.TechLooter
+Shot on the Run.MOD			TYPE:RdWarrior.Survivalist.TechLooter.WarriorMonk
+Skip Shot.MOD				TYPE:Survivalist.MutantHunter.WarriorMonk
+Spring Attack.MOD				TYPE:RdWarrior.Scav.Skulk.SisOTD.MutantHunter.TechLooter.WarriorMonk
+Stealthy.MOD				TYPE:Feral.Tribal.Scav.Skulk.Survivalist.MutantHunter.TechLooter
+Strafe.MOD					TYPE:Guardian.Raider.Champion
+Studious.MOD				TYPE:Hedonist.Demagogue.JujuDoc.Scholar.Tinker.Trader.Mech
+Sunder.MOD					TYPE:Barbarian.Raider.Champion.WarriorMonk
+Surface Vehicle Operation.MOD		TYPE:RdWarrior
+Surgery.MOD					TYPE:JujuDoc
+Toughness.MOD				TYPE:Feral.Tribal.PAHero
+Track.MOD					TYPE:Feral.Tribal.Resentful.PAHero.Scav.Skulk.TechLooter
+Trustworthy.MOD				TYPE:Hedonist.Demagogue.SisOTD.Trader
+Two Weapon Fighting			TYPE:Champion
+Unbalance Opponent.MOD			TYPE:Scav.Skulk.SisOTD.TechLooter
+Vehicle Dodge.MOD				TYPE:RdWarrior
+Vehicle Expert.MOD			TYPE:Raider
+Weapon Focus.MOD				TYPE:PAHero.Psionic.Raider
+Weapon Specialization.MOD		TYPE:WarriorMonk
+Whirlwind Attack.MOD			TYPE:WarriorMonk
+
+#Monster Feats
+Snatch.MOD																									PRE:.CLEAR
+
+###Block: DW2 Feats
+# Feat Name					Type											Visible	Required Ability					Required Feat										Required Lvl	Required Skill																						Required Stat	Prohibited Stat	Description		Automaticaly Gained Weapon Prof.		Bonus to skill				Class Skill		Source Page
+Armed To The Teeth			TYPE:General.WarriorMonk							VISIBLE:YES								PREFEAT:1,Two-Weapon Fighting																																									DESC:See Text.																	SOURCEPAGE:p. 57
+Bull's Eye					TYPE:General.Survivalist							VISIBLE:YES								PREFEAT:2,Point Blank Shot,Precise Shot																																							DESC:See Text.																	SOURCEPAGE:p. 58
+Combat Driving				TYPE:General									VISIBLE:YES																							PRESKILL:1,Drive=4																											DESC:See Text.																	SOURCEPAGE:p. 58
+Concubine					TYPE:General.Slave								VISIBLE:YES																																															PRESTAT:1,CHA=13				DESC:See Text.								BONUS:SKILL|TYPE.Perform|4					SOURCEPAGE:p. 59
+Filthy					TYPE:General.Barbarian								VISIBLE:YES																																																		!PRESTAT:1,CHA=10	DESC:See Text.																	SOURCEPAGE:p. 61
+Fleet of Foot				TYPE:General									VISIBLE:YES								PREFEAT:1,Run																																											DESC:See Text.																	SOURCEPAGE:p. 61
+Forsaken					TYPE:General.Slave								VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Feral													PRELEVEL:MAX=1																															DESC:See Text.																	SOURCEPAGE:p. 61
+Futuristic Firearm Proficiency	TYPE:General.Champion.Mech.MutantHunter.TechLooter.WarriorMonk	VISIBLE:YES								PREFEAT:1,Advanced Technology																																									DESC:See Text.	AUTO:WEAPONPROF|TYPE=FuturisticFirearm										SOURCEPAGE:p. 61
+Gladiator					TYPE:General.Slave								VISIBLE:YES								PREFEAT:1,Alertness																																				PRESTAT:1,WIS=13				DESC:See Text.																	SOURCEPAGE:p. 62
+Hard-Eyed					TYPE:General.Raider.Champion							VISIBLE:YES																							PRESKILL:1,Intimidate=4																					PRESTAT:1,CHA=13				DESC:See Text.																	SOURCEPAGE:p. 62
+High Ready					TYPE:General									VISIBLE:YES								PREFEAT:1,Reactive Shooter																																			PRESTAT:1,Dex=13				DESC:See Text.																	SOURCEPAGE:p. 62
+Improved Autofire				TYPE:General.Guardian								VISIBLE:YES								PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency																																		DESC:See Text.																	SOURCEPAGE:p. 62
+Improved Dead Aim				TYPE:General									VISIBLE:YES								PREFEAT:2,Far Shot,Dead Aim																																			PRESTAT:1,WIS=13				DESC:See Text.																	SOURCEPAGE:p. 62
+Improved Overrun				TYPE:General									VISIBLE:YES								PREFEAT:1,Power Attack																																				PRESTAT:1,STR=13				DESC:See Text.																	SOURCEPAGE:p. 63
+Improvised Weapons			TYPE:General									VISIBLE:YES								PREFEAT:1,Brawl																																											DESC:See Text.																	SOURCEPAGE:p. 63
+Intimidating Strength			TYPE:General.Raider.Champion							VISIBLE:YES																							PRESKILL:1,Intimidate=4																					PRESTAT:1,STR=15				DESC:See Text.								BONUS:SKILL|Intimidate|(STR-CHA)				SOURCEPAGE:p. 64
+Intuitive Mechanic			TYPE:General.RdWarrior.Tinker.Mech						VISIBLE:YES																																															PRESTAT:1,INT=15				DESC:See Text.														CSKILL:Repair	SOURCEPAGE:p. 64
+Juju Medicine				TYPE:General.Tribal								VISIBLE:YES																							PRESKILL:2,Treat Injury,Survival=4																									DESC:See Text.																	SOURCEPAGE:p. 64
+Leadership					TYPE:General									VISIBLE:YES																				PRELEVEL:MIN=6																															DESC:See Text.																	SOURCEPAGE:p. 64
+Market					TYPE:General.Trader								VISIBLE:YES																							PRESKILL:1,Profession=2																											DESC:See Text.																	SOURCEPAGE:p. 65
+Master Artificer				TYPE:General									VISIBLE:YES																							PRESKILL:2,Craft (Electronic),Craft (Mechanical)=8																						DESC:See Text.																	SOURCEPAGE:p. 65
+Master Mechanic				TYPE:General									VISIBLE:YES																							PRESKILL:1,Repair=8																											DESC:See Text.																	SOURCEPAGE:p. 65
+Mounted Archery				TYPE:General.Barbarian								VISIBLE:YES								PREFEAT:1,Mounted Combat											PRESKILL:1,Ride=1																												DESC:See Text.																	SOURCEPAGE:p. 66
+Mounted Combat				TYPE:General.Barbarian								VISIBLE:YES																							PRESKILL:1,Ride=1																												DESC:See Text.																	SOURCEPAGE:p. 66
+#Powered Armor Operation			TYPE:General.Champion.Mech																VISIBLE:YES			PREFEAT:1,Advanced Technology																											PRESKILL:1,Pilot=4																																	DESC:See Text.																																												SOURCEPAGE:p. 67
+Quick Treatment				TYPE:General.JujuDoc								VISIBLE:YES																							PRESKILL:1,Treat Injury=5																										DESC:See Text.																	SOURCEPAGE:p. 68
+Radiation Sense				TYPE:General.JujuDoc.Scholar.Survivalist.Symbiote			VISIBLE:YES																																																					DESC:See Text.																	SOURCEPAGE:p. 68
+Reactive Shooter				TYPE:General.Guardian.Survivalist						VISIBLE:YES																																															PRESTAT:1,DEX=13				DESC:See Text.																	SOURCEPAGE:p. 68
+Ride-By Attack				TYPE:General									VISIBLE:YES								PREFEAT:1,Mounted Combat											PRESKILL:1,Ride=1																												DESC:See Text.																	SOURCEPAGE:p. 68
+Rip a Clip					TYPE:General.Guardian.Survivalist.Champion				VISIBLE:YES								PREFEAT:1,Double Tap																																										DESC:See Text.																	SOURCEPAGE:p. 68
+Room-Broom					TYPE:General.Guardian								VISIBLE:YES								PREFEAT:1,Point Blank Shot																																									DESC:See Text.																	SOURCEPAGE:p. 68
+Silver Tongue				TYPE:General.Trader								VISIBLE:YES																																															PRESTAT:1,CHA=13				DESC:See Text.																	SOURCEPAGE:p. 68
+Spirited Charge				TYPE:General									VISIBLE:YES								PREFEAT:2,Mounted Combat,Ride-By Attack									PRESKILL:1,Ride=1																												DESC:See Text.																	SOURCEPAGE:p. 68
+Super-Charismatic				TYPE:General.Scholar								VISIBLE:YES																																																					DESC:See Text.																	SOURCEPAGE:p. 68
+Suppressive Fire				TYPE:General.Guardian								VISIBLE:YES								PREFEAT:1,Personal Firearms Proficiency																																	PRESTAT:1,WIS=13				DESC:See Text.																	SOURCEPAGE:p. 69
+Trample					TYPE:General									VISIBLE:YES								PREFEAT:1,Mounted Combat											PRESKILL:1,Ride=1																												DESC:See Text.																	SOURCEPAGE:p. 69
+Troglodyte					TYPE:General									VISIBLE:YES																				PRELEVEL:MAX=1																															DESC:See Text.																	SOURCEPAGE:p. 69
+Vehicle Combat				TYPE:General.RdWarrior								VISIBLE:YES								PREFEAT:2,Vehicle Expert,Vehicle Dodge																																							DESC:See Text.																	SOURCEPAGE:p. 69
+Vulture					TYPE:General.Scholar.Trader							VISIBLE:YES																																															PRESTAT:1,WIS=13				DESC:See Text.								BONUS:SKILL|Search|4						SOURCEPAGE:p. 69
+
+Primitive Technology			TYPE:Technology									VISIBLE:YES																																																					DESC:See Text.																	SOURCEPAGE:p. 69
+Post-Apocalyptic Technology		TYPE:Technology									VISIBLE:YES																																																					DESC:See Text.																	SOURCEPAGE:p. 69
+Advanced Technology			TYPE:Technology									VISIBLE:YES																																																					DESC:See Text.																	SOURCEPAGE:p. 69
+
+Modern Aircraft Discipline		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES																							PRESKILL:1,Craft (Mechanical)=10	PRESKILL:2,Knowledge (Physical Sciences),Knowledge (Technology)=6														DESC:See Text.																	SOURCEPAGE:p. 70
+Modern Firearms Discipline		TYPE:TechCraft.Tinker.Mech.Scientist					VISIBLE:YES																							PRESKILL:1,Craft (Mechanical)=8	PRESKILL:2,Knowledge (Physical Sciences),Knowledge (Technology)=4														DESC:See Text.																	SOURCEPAGE:p. 70
+Modern Vehicles Discipline		TYPE:TechCraft.Tinker.Mech.Scientist					VISIBLE:YES																							PRESKILL:1,Craft (Mechanical)=8	PRESKILL:2,Knowledge (Physical Sciences),Knowledge (Technology)=3														DESC:See Text.																	SOURCEPAGE:p. 70
+Advanced Armor Discipline		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES								PREFEAT:1,Advanced Electronics Discipline									PRESKILL:2,Craft (Electronic),Craft (Mechanical)=13	PRESKILL:1,Knowledge (Physical Sciences)=6	PRESKILL:1,Knowledge (Technology)=10							DESC:See Text.																	SOURCEPAGE:p. 70
+Advanced Electronics Discipline	TYPE:TechCraft.Mech.Scientist							VISIBLE:YES																							PRESKILL:1,Craft (Electronic)=8	PRESKILL:1,Knowledge (Technology)=6	PRESKILL:1,Knowledge (Physical Sciences)=4											DESC:See Text.																	SOURCEPAGE:p. 71
+Advanced Pharmaceutical Discipline	TYPE:TechCraft.JujuDoc.Scientist						VISIBLE:YES																							PRESKILL:1,Craft (Pharmaceutical)=13	PRESKILL:2,Knowledge (Earth and Life Sciences),Knowledge (Technology)=8	PRESKILL:1,Treat Injury=10							DESC:See Text.																	SOURCEPAGE:p. 71
+Advanced Weapons Discipline		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES								PREFEAT:1,Advanced Electronics Discipline									PRESKILL:2,Craft (Electronic),Craft (Mechanical)=13	PRESKILL:1,Knowledge (Physical Sciences)=6	PRESKILL:1,Knowledge (Technology)=10							DESC:See Text.																	SOURCEPAGE:p. 71
+
+###Block: Mutant Feats
+# Feat Name			Type			Visible	Required Ability																	Req. Att.	Required Feat					PREHANDSGTEQ	Req. Movement	Minimum Size	Required Stat	Required Text				Description		Combat bonus									Bonus to skill							Source Page
+Aerial Maneuverability	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																												PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 91
+Awesome Blow		TYPE:MutantFeat	VISIBLE:YES																						PREFEAT:2,Power Attack,Improved Bull Rush							PRESIZEGTEQ:L	PRESTAT:1,STR=25							DESC:See Text.																					SOURCEPAGE:p. 91
+Constrict			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Gigantism																															PRESTAT:1,STR=18							DESC:See Text.																					SOURCEPAGE:p. 91
+Duck				TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism															PREFEAT:1,Dodge														PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 92
+Fly-By Attack		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																																					DESC:See Text.																					SOURCEPAGE:p. 92
+Hover				TYPE:MutantFeat	VISIBLE:YES																																PREMOVE:1,Fly=1													DESC:See Text.																					SOURCEPAGE:p. 92
+Horn Charge			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development																																					DESC:See Text.																					SOURCEPAGE:p. 92
+Improved Grab		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development,Claws,Serrated Dental Development																						PRESTAT:1,STR=17							DESC:See Text.																					SOURCEPAGE:p. 92
+Improved Multiattack	TYPE:MutantFeat	VISIBLE:YES																						PREFEAT:1,Multiattack																PRETEXT:3 or more natural weapons	DESC:See Text.																					SOURCEPAGE:p. 92
+Irradiated			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Radiation Immunity																																						DESC:See Text.																					SOURCEPAGE:p. 92
+Leaper			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																							PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 92
+Multiattack			TYPE:MutantFeat	VISIBLE:YES																																									PRETEXT:3 or more natural weapons	DESC:See Text.																					SOURCEPAGE:p. 93
+MultiWeapon Fighting	TYPE:MutantFeat	VISIBLE:YES																													PREHANDSGTEQ:3																DESC:See Text.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6										SOURCEPAGE:p. 93
+Natural Armor Expertise	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant EndoSkeletal Casing,Dermal Spike Growth,Protective Dermal Development																			PRESTAT:1,INT=13							DESC:See Text.																					SOURCEPAGE:p. 93
+Plague Carrier		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Accumulated Resistance																																						DESC:See Text.																					SOURCEPAGE:p. 93
+Power Dive			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development										PREATT:5																										DESC:See Text.																					SOURCEPAGE:p. 93
+Pounce			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																							PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 93
+Rend				TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Claws																															PRESTAT:1,STR=16							DESC:See Text.																					SOURCEPAGE:p. 93
+Spineless			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Abnormal Joint Flexibility,Elongation																																			DESC:See Text.												BONUS:SKILL|Escape Artist|4					SOURCEPAGE:p. 93
+Strong Flyer		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																												PRESTAT:1,STR=15							DESC:See Text.																					SOURCEPAGE:p. 93
+Surefooted			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism																																								DESC:See Text.												BONUS:SKILL|Climb,Jump,Move Silently|2|TYPE=Racial	SOURCEPAGE:p. 94
+Tearing Bite		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Serrated Dental Development																																					DESC:See Text.																					SOURCEPAGE:p. 94
+Wingover			TYPE:MutantFeat	VISIBLE:YES																																PREMOVE:1,Fly=1													DESC:See Text.																					SOURCEPAGE:p. 94
+Withstand			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Increased Body Density,Skeletal Fortification																																		DESC:See Text.																					SOURCEPAGE:p. 94
+
+###Block: Neural Feats
+# Feat Name			Type					Visible	Required Ability									Required Feat									Description		Source Page
+Anxiety Trigger		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
+Attraction Trigger	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
+Battle Plan			TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Precognitive Combat					DESC:See Text.	SOURCEPAGE:p. 94
+Charm Person		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Attraction Trigger							DESC:See Text.	SOURCEPAGE:p. 95
+Clairaudience		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
+Clairvoyance		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
+Danger Sense		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 95
+Domination			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Attraction Trigger,Charm Person					DESC:See Text.	SOURCEPAGE:p. 95
+Fight Trigger		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Anxiety Trigger							DESC:See Text.	SOURCEPAGE:p. 95
+Flight Trigger		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Foresight			TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 96
+Levitation			TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Mastery				DESC:See Text.	SOURCEPAGE:p. 96
+Lie Detector		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mental Communication						DESC:See Text.	SOURCEPAGE:p. 96
+Mental Communication	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Mind Stun			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Mind Blast			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 96
+Mind Strike			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 97
+Mind Crush			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mind Stun,Mind Strike						DESC:See Text.	SOURCEPAGE:p. 97
+Precognitive Combat	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Precognitive Dodge	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Precognitive Reflexes	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Perceive Danger		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Danger Sense						DESC:See Text.	SOURCEPAGE:p. 97
+Perceive Outcome		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Psychic Interrogation	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mental Communication,Lie Detector				DESC:See Text.	SOURCEPAGE:p. 97
+Rain of Objects		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Second Chance		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Perceive Outcome					DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Mastery	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Throw		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:3,Telekinetic Hand,Telekinetic Mastery,Rain of Objects	DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Disarm	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Guide		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Hand		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Hand II	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Punch		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Shield	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Shield II	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Slam		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Punch				DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Sword		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
+Telekinetic Sword II	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
+
+###Block: Monster Feats
+# Feat Name	Type			Required Template				Description		Source Page
+Snatch	TYPE:General	PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text	SOURCEPAGE:srdmonstersdragons.rtf
+
+#
+# EoF
+#

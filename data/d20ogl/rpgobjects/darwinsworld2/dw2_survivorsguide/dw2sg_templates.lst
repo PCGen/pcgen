@@ -1,0 +1,58 @@
+# CVS $Revision$ $Author$ -- Thu Mar  6 13:19:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+###Block: Background and Occupation
+# Template Name		Visible	Template					Bonus to Ability Pool
+Starting Background	VISIBLE:NO							BONUS:ABILITYPOOL|Background|1
+Occupation.MOD				TEMPLATE:ADDCHOICE:PApocSkills	BONUS:ABILITYPOOL|Occupation|-1|!PREABILITY:1,CATEGORY=Background,TYPE=Background
+
+###Block: Assigned for Occupation prerequisites, it's how we know what class was taken first and thus which skills are 1st level class skills --Eddy
+# Template Name	Visible	Required Class
+PApocSkills		VISIBLE:NO	PRECLASS:1,Post Apocalyptic Hero
+
+###Block: Backgrounds
+# Template Name				Visible	Bonus to Ability Pool																			Automaticaly Gained Feat			Apply Kit								Automatic Languages
+Background (Feral)			VISIBLE:NO	BONUS:ABILITYPOOL|Feral Background Skills|3	BONUS:ABILITYPOOL|Feral Background Feat|1															KIT:1|Equipment_AnySimpleWeapon
+Background (Tribal)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Tribal Background Skills|1	BONUS:ABILITYPOOL|Tribal Background Feat|1	AUTO:FEAT|Primitive Technology		KIT:1|Equipment_MWArchaicWeapon				LANGAUTO:Unislang
+Background (Ritual Preservationist)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Ritual Preservationist Background Skills|1						AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Gutter Talk
+Background (Resentful)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resentful Background Skills|1	BONUS:ABILITYPOOL|Resentful Background Feat|1	AUTO:FEAT|Primitive Technology											LANGAUTO:Unislang
+Background (Radical)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Radical Background Skills|1	BONUS:ABILITYPOOL|Radical Background Feat|1	AUTO:FEAT|Post-Apocalyptic Technology										LANGAUTO:Unislang
+Background (Degenerate)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Degenerate Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Gutter Talk
+Background (Resurrector)		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resurrector Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Unislang
+Background (Visionary Reinventor)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Visionary Reinventor Background Skills|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Unislang
+Background (Guardian)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Guardian Background Skills|3																KIT:1|Equipment_WeaponOfAncients				LANGAUTO:Ancient
+Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|1	BONUS:ABILITYPOOL|Hedonist Background Feat|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:2|Equipment_ArtifactOfAncientsII|Funds_6d6_10	LANGAUTO:Ancient
+Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																KIT:1|Equipment_ArtifactOfAncientsIII			LANGAUTO:Ancient
+
+###Block: Mutant
+# Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							SUBRACE
+Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:Yes
+Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|MUTATION|3	BONUS:ABILITYPOOL|DEFECT|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
+Mutant Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
+
+###Block: Templates to handle specific Mutations and Defects
+# Template Name					Visible	Stat bonus																								Weapon prof. bonus														Move		Natural Attacks
+Aberrant Horn Development Template		VISIBLE:NO																										BONUS:WEAPONPROF=Gore|DAMAGESIZE|AberrantHornDevelopment										NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*1,1d4
+Claws Template					VISIBLE:NO																										BONUS:WEAPONPROF=Claw|DAMAGESIZE|ClawsMut													NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*1,1d4
+Complete Wing Development Template		VISIBLE:NO																																											MOVE:Fly,0
+Gigantism Penalty Template			VISIBLE:NO	BONUS:STAT|DEX|-1|TYPE=GigantismPenalty	BONUS:STAT|STR|-8|TYPE=SizeOffset	BONUS:STAT|CON|-4|TYPE=SizeOffset	BONUS:STAT|DEX|2|TYPE=SizeOffset
+Serrated Dental Development Template	VISIBLE:NO																										BONUS:WEAPONPROF=Bite|DAMAGESIZE|SerratedDentalDevelopment	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1			NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4
+
+###Block: Nonexistant Scores
+# Template Name	Visible	Define
+No Strength		VISIBLE:NO	DEFINE:LOCK.STR|10
+No Dexterity	VISIBLE:NO	DEFINE:LOCK.DEX|10
+No Constitution	VISIBLE:NO	DEFINE:LOCK.CON|10
+No Intelligence	VISIBLE:NO	DEFINE:LOCK.INT|10
+No Wisdom		VISIBLE:NO	DEFINE:LOCK.WIS|10
+No Charisma		VISIBLE:NO	DEFINE:LOCK.CHA|10
+
+###Block: Companion Mods
+# Template Name			Visible	Virtual Feat
+Companion Track			VISIBLE:NO	VFEAT:Track
+Companion Evasion			VISIBLE:NO	VFEAT:Evasion
+Companion Improved Evasion	VISIBLE:NO	VFEAT:Improved Evasion
+
+#
+# End
+#

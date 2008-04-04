@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+#Mutation Feats
+# Feat Name			Type				Visible	Required Lvl	Var. Min. Value		Description		Stackable?	Multiple?	Choose		Bonus to Ability Pool		Modify VAR			Source Page
+Remove Defect		TYPE:MutationFeat		VISIBLE:YES	PRELEVEL:MAX=1	PREVARGTEQ:IsMutant,1	DESC:See Text.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Defect|-1					SOURCEPAGE:p. 75
+Super Mutant		TYPE:MutationFeat.Feral	VISIBLE:YES	PRELEVEL:MAX=1	PREVARGTEQ:IsMutant,1	DESC:See Text.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Mutation|1	BONUS:VAR|MedIncomp|2	SOURCEPAGE:p. 75
+Mutation Advancement	TYPE:MutationFeat		VISIBLE:YES	PRELEVEL:MIN=2	PREVARGTEQ:IsMutant,1	DESC:See Text.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Mutation|1					SOURCEPAGE:p. 75
+Defect Adaptation		TYPE:MutationFeat		VISIBLE:YES	PRELEVEL:MIN=2	PREVARGTEQ:IsMutant,1	DESC:See Text.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Defect|-1					SOURCEPAGE:p. 75
+
+#
+#EOF
+#

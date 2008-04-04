@@ -1,0 +1,37 @@
+# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+STARTPACK:Funds_5d4_1	VISIBLE:NO
+FUNDS:cp	QTY:1*roll("5d4")
+
+STARTPACK:Funds_5d4_10	VISIBLE:NO
+FUNDS:cp	QTY:10*roll("5d4")
+
+STARTPACK:Funds_6d6_10	VISIBLE:NO
+FUNDS:cp	QTY:10*roll("6d6")
+
+STARTPACK:Funds_6d10_10	VISIBLE:NO
+FUNDS:cp	QTY:10*roll("6d10")
+
+STARTPACK:Funds_8d12_10	VISIBLE:NO
+FUNDS:cp	QTY:10*roll("8d12")
+
+STARTPACK:Equipment_AnySimpleWeapon	VISIBLE:NO	EQUIPBUY:0
+GEAR:TYPE=Weapon.Simple
+
+STARTPACK:Equipment_MWArchaicWeapon	VISIBLE:NO	EQUIPBUY:0
+GEAR:TYPE=Weapon.Archaic	EQMOD:MASTERCRAFT_WEAP_HIT_3
+
+STARTPACK:Equipment_WeaponOfAncients	VISIBLE:NO	EQUIPBUY:0
+GEAR:TYPE=Weapon.Futuristic	MAXCOST:5000
+
+STARTPACK:Equipment_ArtifactOfAncientsI	VISIBLE:NO	EQUIPBUY:0
+GEAR:TYPE=Goods	MAXCOST:1000
+
+STARTPACK:Equipment_ArtifactOfAncientsII	VISIBLE:NO	EQUIPBUY:0
+GEAR:TYPE=Goods	MAXCOST:2000
+
+STARTPACK:Equipment_ArtifactOfAncientsIII	VISIBLE:NO	EQUIPBUY:0
+GEAR:TYPE=Goods	MAXCOST:5000
+
+
