@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr  4 09:21:31 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Apr  4 09:32:51 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -29,24 +29,24 @@ Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIB
 Dragon Wings		CATEGORY:Special Ability	TYPE:Dragon Disciple.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
 
 ###Block: Hierophant Abilities
-# Ability Name			Category of Ability		Type								Visible		Required AL		Required Class		Var. Must Be Lower	Special ABility				Define			Description				Stackable?	Multiple?	Choose							Bonus to Ability Pool			Caster level											Modify VAR								Source Page
-Blast Infidel Lawful Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:TN,CE									SAB:Blast Infidel (Lawful Good)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Lawful Neutral	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:CN										SAB:Blast Infidel (Lawful Neutral)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Lawful Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:TN,CG									SAB:Blast Infidel (Lawful Evil)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Neutral Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:NE										SAB:Blast Infidel (Neutral Good)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Neutral Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:NG										SAB:Blast Infidel (Neutral Evil)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LE,TN									SAB:Blast Infidel (Chaotic Good)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Neutral	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LN										SAB:Blast Infidel (Chaotic Neutral)																																																		SOURCEPAGE:PrestigeClasses.rtf
-Blast Infidel Chaotic Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LG,TN									SAB:Blast Infidel (Chaotic Evil																																																		SOURCEPAGE:PrestigeClasses.rtf
-Divine Reach			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY								PREVARLT:DivineReach,60	SAB:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0								MULT:YES	CHOOSE:NOCHOICE																									BONUS:VAR|DivineReach|30					SOURCEPAGE:PrestigeClasses.rtf
-Faith Healing			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY												SAB:Faith Healing																																																					SOURCEPAGE:PrestigeClasses.rtf
-Gift of the Divine		CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1					SAB:Gift of the Divine																																																				SOURCEPAGE:PrestigeClasses.rtf
-Mastery of Energy			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1					SAB:Mastery of Energy																																											BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|4	SOURCEPAGE:PrestigeClasses.rtf
-Power of Nature			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Druid=1					SAB:Power of Nature																																																				SOURCEPAGE:PrestigeClasses.rtf
-Hierophant Spell Power		CATEGORY:Special Ability	TYPE:Hierophant.SpecialQuality			VISIBLE:DISPLAY																													MULT:YES	CHOOSE:NOCHOICE												BONUS:CASTERLEVEL|TYPE.Divine|COUNT[FEATNAME=Hierophant Spell Power.ALL]										SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name			Category of Ability		Type								Visible		Required AL		Required Class		Var. Must Be Lower	Special ABility				Define			Description				Stackable?	Multiple?	Choose							Bonus to Ability Pool			Caster level				Modify VAR								Source Page
+Blast Infidel Lawful Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:TN,CE									SAB:Blast Infidel (Lawful Good)																																											SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Lawful Neutral	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:CN										SAB:Blast Infidel (Lawful Neutral)																																											SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Lawful Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:TN,CG									SAB:Blast Infidel (Lawful Evil)																																											SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Neutral Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:NE										SAB:Blast Infidel (Neutral Good)																																											SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Neutral Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:NG										SAB:Blast Infidel (Neutral Evil)																																											SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LE,TN									SAB:Blast Infidel (Chaotic Good)																																											SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Neutral	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LN										SAB:Blast Infidel (Chaotic Neutral)																																											SOURCEPAGE:PrestigeClasses.rtf
+Blast Infidel Chaotic Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LG,TN									SAB:Blast Infidel (Chaotic Evil																																											SOURCEPAGE:PrestigeClasses.rtf
+Divine Reach			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY								PREVARLT:DivineReach,60	SAB:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0								MULT:YES	CHOOSE:NOCHOICE																		BONUS:VAR|DivineReach|30					SOURCEPAGE:PrestigeClasses.rtf
+Faith Healing			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY												SAB:Faith Healing																																														SOURCEPAGE:PrestigeClasses.rtf
+Gift of the Divine		CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1					SAB:Gift of the Divine																																													SOURCEPAGE:PrestigeClasses.rtf
+Mastery of Energy			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1					SAB:Mastery of Energy																																				BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|4	SOURCEPAGE:PrestigeClasses.rtf
+Power of Nature			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Druid=1					SAB:Power of Nature																																													SOURCEPAGE:PrestigeClasses.rtf
+Hierophant Spell Power		CATEGORY:Special Ability	TYPE:Hierophant.SpecialQuality			VISIBLE:DISPLAY																													MULT:YES	CHOOSE:NOCHOICE												BONUS:CASTERLEVEL|TYPE.Divine|1										SOURCEPAGE:PrestigeClasses.rtf
 # Needs alot of work -- Needs a way to choose spell from spell-list and possibly to add metamagic and extra times per day to it...
-Hierophant Spell-Like Ability	CATEGORY:Special Ability	TYPE:Hierophant.SpecialAttack				VISIBLE:DISPLAY												SAB:Spell-Like Ability (%CHOICE)										STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE="Spell-Like Ability"																													SOURCEPAGE:PrestigeClasses.rtf
-Metamagic Feat			CATEGORY:Special Ability	TYPE:Hierophant						VISIBLE:DISPLAY																						DESC:1 Extra Metamagic Feat	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Metamagic Feat|1																							SOURCEPAGE:PrestigeClasses.rtf
+Hierophant Spell-Like Ability	CATEGORY:Special Ability	TYPE:Hierophant.SpecialAttack				VISIBLE:DISPLAY												SAB:Spell-Like Ability (%CHOICE)										STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE="Spell-Like Ability"																						SOURCEPAGE:PrestigeClasses.rtf
+Metamagic Feat			CATEGORY:Special Ability	TYPE:Hierophant						VISIBLE:DISPLAY																						DESC:1 Extra Metamagic Feat	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Metamagic Feat|1																SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Horizon Walker Terrain Abilities
 # Ability Name		Category of Ability		Type					Visible		Special ABility																																		Define							Add to magical move						Bonus to skill								Modify VAR							Vision				Source Page
