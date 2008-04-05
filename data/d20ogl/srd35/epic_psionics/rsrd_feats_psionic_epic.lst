@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 14 17:45:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Apr  4 21:42:24 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 #     These are epic psionic feats derived from epic magic feats as allowed in the epic feat section
@@ -41,11 +41,11 @@ Craft Epic Universal Item		TYPE:Epic.ItemCreation	PREFEAT:1,Craft Universal Item
 Imprint Epic Stone			TYPE:Epic.ItemCreation	PREFEAT:1,Imprint Stone				PRELEVEL:MIN=21	PRESKILL:2,Psicraft,Knowledge (Psionics)=24	DESC:See Scribe Epic Scroll			SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Hidden feats
-# Feat Name					Type				Visible	Special ABility																			Define									Misc bonus				Modify VAR																																	Source Page
-Add 2 Power Resistance			TYPE:EpicPsiCountFeat	VISIBLE:NO																						DEFINE:IPRCount|0								BONUS:MISC|SR|(2*IPRCount)	BONUS:VAR|IPRCount|COUNT[FEATNAME=Improved Power Resistance]																								SOURCEPAGE:EpicFeats.rtf
-Add Psionic Focus				TYPE:EpicPsiCountFeat	VISIBLE:NO	SAB:you can simultaneously use % feats that requires a psionic focus to be expended|PsiFocusCount					DEFINE:PsiFocusCount|1												BONUS:VAR|PsiFocusCount|COUNT[FEATNAME=Add Psionic Focus]																									SOURCEPAGE:EpicFeats.rtf
-Improved Manifestation Power Points	TYPE:ImpManifestPP	VISIBLE:NO																						DEFINE:ImpManifestCount|0	DEFINE:ImpManifestBonus|0						BONUS:VAR|ImpManifestCount|COUNT[FEATNAME=Improved Manifestation Power Points]	BONUS:VAR|ImpManifestBonus|((18+ImpManifestCount)*ImpManifestCount)	BONUS:VAR|BasePowerPoints|ImpManifestBonus	SOURCEPAGE:EpicFeats.rtf
-ImpMetapsionics				TYPE:ImpMetapsionics	VISIBLE:NO	SAB:Metapsionic powers you manifest cost % power points less than normal (to a minimum of 1 power point).|ImpMetapsiBonus	DEFINE:ImpMetapsiCount|0	DEFINE:ImpMetapsiBonus|0						BONUS:VAR|ImpMetapsiCount|COUNT[FEATNAME=ImpMetapsionics]	BONUS:VAR|ImpMetapsiBonus|2*ImpMetapsiCount																	SOURCEPAGE:EpicFeats.rtf
+# Feat Name					Type				Visible	Special ABility																			Define									Misc bonus				Modify VAR																								Source Page
+Add 2 Power Resistance			TYPE:EpicPsiCountFeat	VISIBLE:NO																						DEFINE:IPRCount|0								BONUS:MISC|SR|(2*IPRCount)	BONUS:VAR|IPRCount|COUNT[FEATNAME=Improved Power Resistance]															SOURCEPAGE:EpicFeats.rtf
+Add Psionic Focus				TYPE:EpicPsiCountFeat	VISIBLE:NO	SAB:you can simultaneously use % feats that requires a psionic focus to be expended|PsiFocusCount					DEFINE:PsiFocusCount|1												BONUS:VAR|PsiFocusCount|1																					SOURCEPAGE:EpicFeats.rtf
+Improved Manifestation Power Points	TYPE:ImpManifestPP	VISIBLE:NO																						DEFINE:ImpManifestCount|0	DEFINE:ImpManifestBonus|0						BONUS:VAR|ImpManifestCount|1	BONUS:VAR|ImpManifestBonus|((18+ImpManifestCount)*ImpManifestCount)	BONUS:VAR|BasePowerPoints|ImpManifestBonus	SOURCEPAGE:EpicFeats.rtf
+ImpMetapsionics				TYPE:ImpMetapsionics	VISIBLE:NO	SAB:Metapsionic powers you manifest cost % power points less than normal (to a minimum of 1 power point).|ImpMetapsiBonus	DEFINE:ImpMetapsiCount|0	DEFINE:ImpMetapsiBonus|0						BONUS:VAR|ImpMetapsiCount|1	BONUS:VAR|ImpMetapsiBonus|2																SOURCEPAGE:EpicFeats.rtf
 
 ###Block: Feat Descriptions
 # Feat Name					Description
