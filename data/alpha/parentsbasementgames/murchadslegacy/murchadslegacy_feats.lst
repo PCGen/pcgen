@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 30 00:55:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Apr  4 21:41:22 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -36,12 +36,12 @@ Shintai		TYPE:Cultural							!PREFEAT:1,TYPE.Cultural		PREPCLEVEL:MAX=1									
 
 ###Block: The Evolving Character - Rewards
 
-# Feat Name				Type		Visible		Required Text																												Special ABility												Description																					Stackable?	Multiple?	Choose								Virtual Feat		Add										Bonus to skill									Weapon prof. bonus					Source Page
-Defeater of the Immortal	TYPE:Reward				PRETEXT:You must have slain the Dread Immortal.																							SAB:Resistance to Fire 5	SAB:+4 bonus vs. energy drain attacks			DESC:You have assisted in the slaying of the Dread Immortal, the mightiest single creature in the Surrounding Lands.																																																	SOURCEPAGE:p.202
-Peacemaker				TYPE:Reward				PRETEXT:You must have established a true, lasting peace between two rival groups.																															DESC:You have successfully negotiated a lasting peace between two peoples.										STACK:NO	MULT:YES	CHOOSE:STRING|First Peace|Second Peace|Third Peace	VFEAT:Peacemaker Bonus											BONUS:SKILL|Diplomacy,Sense Motive|2*COUNT[FEATNAME=Peacemaker]									SOURCEPAGE:p.202
-Master of the Joust		TYPE:Reward				PRETEXT:You must have won three tourneys, one of which must have been the Grand Tourney at Baudrau Spires.																											DESC:Regular competition has kept your arm steady and strong. You have felled many noble opponents and you are a noted jouster.																												BONUS:SKILL|Ride|2								BONUS:WEAPONPROF=Lance|TOHIT|1|TYPE=Competence	SOURCEPAGE:p.203
-Triumphant Hero of Launhym	TYPE:Reward				PRETEXT:You must have saved Launhym from the orcs. The chances of an orc invasion must be zero and the orcs must be in a position that they will never threaten Launhym ever again.															DESC:You have saved the kingdom! Huzzah!																																	ADD:FEAT|1|Leadership,Triumphant Hero Ability Score Bonus																				SOURCEPAGE:p.203
-Damnation (aka Ylviuss' Wish)	TYPE:Reward	VISIBLE:DISPLAY	PRETEXT:You must have worked toward gaining Ylviuss’ attention for two levels.																	SAB:Soulless - You may not be raised or resurrected	SAB:Mark of Divine Disfavor	DESC:You have effectively been granted a wish by Ylviuss.																														ADD:FEAT|1|TYPE=DamnationReward																								SOURCEPAGE:p.203
+# Feat Name				Type		Visible		Required Text																												Special ABility												Description																					Stackable?	Multiple?	Choose								Virtual Feat		Add										Bonus to skill					Weapon prof. bonus					Source Page
+Defeater of the Immortal	TYPE:Reward				PRETEXT:You must have slain the Dread Immortal.																							SAB:Resistance to Fire 5	SAB:+4 bonus vs. energy drain attacks			DESC:You have assisted in the slaying of the Dread Immortal, the mightiest single creature in the Surrounding Lands.																																													SOURCEPAGE:p.202
+Peacemaker				TYPE:Reward				PRETEXT:You must have established a true, lasting peace between two rival groups.																															DESC:You have successfully negotiated a lasting peace between two peoples.										STACK:NO	MULT:YES	CHOOSE:STRING|First Peace|Second Peace|Third Peace	VFEAT:Peacemaker Bonus											BONUS:SKILL|Diplomacy,Sense Motive|2									SOURCEPAGE:p.202
+Master of the Joust		TYPE:Reward				PRETEXT:You must have won three tourneys, one of which must have been the Grand Tourney at Baudrau Spires.																											DESC:Regular competition has kept your arm steady and strong. You have felled many noble opponents and you are a noted jouster.																												BONUS:SKILL|Ride|2				BONUS:WEAPONPROF=Lance|TOHIT|1|TYPE=Competence	SOURCEPAGE:p.203
+Triumphant Hero of Launhym	TYPE:Reward				PRETEXT:You must have saved Launhym from the orcs. The chances of an orc invasion must be zero and the orcs must be in a position that they will never threaten Launhym ever again.															DESC:You have saved the kingdom! Huzzah!																																	ADD:FEAT|1|Leadership,Triumphant Hero Ability Score Bonus																SOURCEPAGE:p.203
+Damnation (aka Ylviuss' Wish)	TYPE:Reward	VISIBLE:DISPLAY	PRETEXT:You must have worked toward gaining Ylviuss’ attention for two levels.																	SAB:Soulless - You may not be raised or resurrected	SAB:Mark of Divine Disfavor	DESC:You have effectively been granted a wish by Ylviuss.																														ADD:FEAT|1|TYPE=DamnationReward																				SOURCEPAGE:p.203
 
 ###Block: Class support
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Apr  4 21:40:26 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -71,19 +71,19 @@ Gift of Wisdom		TYPE:WildernessGuideGift	VISIBLE:NO	SAB:Gift of Wisdom						BONU
 #TODO:Check if Gift of Wisdom PREs work, if yes add the rest...plus pre for charisma...
 
 ###Block: Unbroken's Resistance
-# Feat Name				Type				Visible	Required Feat									Special ABility												Define					Multiple?	Choose		Virtual Feat		Modify VAR														Damage Reduction	Source Page
-Toxin Resistance			TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Toxin Resistance																																									SOURCEPAGE:p.117
-Weather Hardened Acid		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Acid Resistance %|AcidResistance			DEFINE:AcidResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AcidResistance|var("COUNT[FEATNAME=Weather Hardened Acid.ALL]")*5						SOURCEPAGE:p.117
-Weather Hardened Cold		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Cold Resistance %|ColdResistance			DEFINE:ColdResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ColdResistance|var("COUNT[FEATNAME=Weather Hardened Cold.ALL]")*5						SOURCEPAGE:p.117
-Weather Hardened Electricity	TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Electricity Resistance %|ElectricityResistance	DEFINE:ElectricityResistance|0	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ElectricityResistance|var("COUNT[FEATNAME=Weather Hardened Electricity.ALL]")*5				SOURCEPAGE:p.117
-Weather Hardened Fire		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Fire Resistance %|FireResistance			DEFINE:FireResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|FireResistance|var("COUNT[FEATNAME=Weather Hardened Fire.ALL]")*5						SOURCEPAGE:p.117
-Weather Hardened Sonic		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Sonic Resistance %|SonicResistance			DEFINE:SonicResistance|0		MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|SonicResistance|var("COUNT[FEATNAME=Weather Hardened Sonic.ALL]")*5						SOURCEPAGE:p.117
-Battle Hardened			TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Battle Hardened																																							DR:2/-		SOURCEPAGE:p.117
-Battle Hardened II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Battle Hardened																																																			DR:3/-		SOURCEPAGE:p.117
-Battle Hardened III		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:2,Battle Hardened II,Battle Hardened																																																DR:4/-		SOURCEPAGE:p.117
-Battle Hardened IV		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:3,Battle Hardened III,Battle Hardened II,Battle Hardened																																													DR:5/-		SOURCEPAGE:p.117
-Survival Instincts		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Survival Instincts																			VFEAT:Evasion																				SOURCEPAGE:p.117
-Survival Instincts II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Survival Instincts																																VFEAT:Improved Evasion																			SOURCEPAGE:p.117
+# Feat Name				Type				Visible	Required Feat									Special ABility												Define					Multiple?	Choose		Virtual Feat		Modify VAR					Damage Reduction	Source Page
+Toxin Resistance			TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Toxin Resistance																																SOURCEPAGE:p.117
+Weather Hardened Acid		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Acid Resistance %|AcidResistance			DEFINE:AcidResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AcidResistance|5					SOURCEPAGE:p.117
+Weather Hardened Cold		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Cold Resistance %|ColdResistance			DEFINE:ColdResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ColdResistance|5					SOURCEPAGE:p.117
+Weather Hardened Electricity	TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Electricity Resistance %|ElectricityResistance	DEFINE:ElectricityResistance|0	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ElectricityResistance|5				SOURCEPAGE:p.117
+Weather Hardened Fire		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Fire Resistance %|FireResistance			DEFINE:FireResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|FireResistance|5					SOURCEPAGE:p.117
+Weather Hardened Sonic		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Weather Hardened Sonic Resistance %|SonicResistance			DEFINE:SonicResistance|0		MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|SonicResistance|5					SOURCEPAGE:p.117
+Battle Hardened			TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Battle Hardened																														DR:2/-		SOURCEPAGE:p.117
+Battle Hardened II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Battle Hardened																																										DR:3/-		SOURCEPAGE:p.117
+Battle Hardened III		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:2,Battle Hardened II,Battle Hardened																																							DR:4/-		SOURCEPAGE:p.117
+Battle Hardened IV		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:3,Battle Hardened III,Battle Hardened II,Battle Hardened																																				DR:5/-		SOURCEPAGE:p.117
+Survival Instincts		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Survival Instincts																			VFEAT:Evasion											SOURCEPAGE:p.117
+Survival Instincts II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Survival Instincts																																VFEAT:Improved Evasion										SOURCEPAGE:p.117
 
 ###Block: Trueborn Staunch bonuses
 # Feat Name						Type				Visible	Save checks bonus

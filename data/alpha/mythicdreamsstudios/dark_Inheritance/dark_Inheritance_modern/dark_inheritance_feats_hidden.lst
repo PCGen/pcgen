@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Apr  4 21:40:57 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
@@ -70,17 +70,17 @@ Massive Damage Threshold Boost (Daemon Form)	TYPE:DaemonForm	VISIBLE:NO				SAB:M
 Abyssal Tentacles (Daemon Form)			TYPE:DaemonForm	VISIBLE:NO				SAB:Abyssal Tentacles(Su)																																	TEMPLATE:Daemon Tentacles
 
 ###Block: Abyssal Powers
-# Feat Name				Type			Visible	Required Class		Special ABility														Stackable?	Multiple?	Choose		Combat bonus				Bonus to skill				Cost
-Abyssal Deflection		TYPE:AbyssalPower	VISIBLE:NO					SAB:Abyssal Deflection(Ex)																			BONUS:COMBAT|AC|4|TYPE=Profane
+# Feat Name				Type			Visible	Required Class		Special ABility											Define					Stackable?	Multiple?	Choose		Combat bonus				Bonus to skill				Modify VAR					Cost
+Abyssal Deflection		TYPE:AbyssalPower	VISIBLE:NO					SAB:Abyssal Deflection(Ex)																						BONUS:COMBAT|AC|4|TYPE=Profane
 Abyssal Smite			TYPE:AbyssalPower	VISIBLE:NO					SAB:Abyssal Smite(Su)
 Abyssal Initiate			TYPE:AbyssalPower	VISIBLE:NO	PRECLASS:1,Initiate=1	SAB:Abyssal Initiate(Ex)
-Abyssal Touch			TYPE:AbyssalPower	VISIBLE:NO					SAB:Touch of the Abyss(Su)																															COST:2
+Abyssal Touch			TYPE:AbyssalPower	VISIBLE:NO					SAB:Touch of the Abyss(Su)																																								COST:2
 Aura of Fear (Abyssal Power)	TYPE:AbyssalPower	VISIBLE:NO					SAB:Aura of Fear(Su) (Will Save DC %)|10+(TL-LevelsBeforePossession)/2+CHA
-Baleful Attacks			TYPE:AbyssalPower	VISIBLE:NO					SAB:Baleful Attacks(Su)																				BONUS:COMBAT|TOHIT.Melee|CHA
-Fast Healing (Abyssal Power)	TYPE:AbyssalPower	VISIBLE:NO					SAB:Fast Healing(Ex) (Fast Healing %)|4*var("COUNT[FEATNAME=Fast Healing (Abyssal Power)]")	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Baleful Attacks			TYPE:AbyssalPower	VISIBLE:NO					SAB:Baleful Attacks(Su)																							BONUS:COMBAT|TOHIT.Melee|CHA
+Fast Healing (Abyssal Power)	TYPE:AbyssalPower	VISIBLE:NO					SAB:Fast Healing(Ex) (Fast Healing %)|FastHealingAbyssalPower			DEFINE:FastHealingAbyssalPower|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|FastHealingAbyssalPower|4
 Freezing Touch			TYPE:AbyssalPower	VISIBLE:NO					SAB:Freezing Touch(Su) (Fort Save DC %)|10+(TL-LevelsBeforePossession)/2+CHA
-One with Shadows			TYPE:AbyssalPower	VISIBLE:NO					SAB:One with Shadows(Su)																									BONUS:SKILL|Hide|4|TYPE=Profane
+One with Shadows			TYPE:AbyssalPower	VISIBLE:NO					SAB:One with Shadows(Su)																												BONUS:SKILL|Hide|4|TYPE=Profane
 Probe Soul				TYPE:AbyssalPower	VISIBLE:NO					SAB:Probe Soul(Su) (Will Save DC %)|10+(TL-LevelsBeforePossession)/2+CHA
 Sacrificial Magic			TYPE:AbyssalPower	VISIBLE:NO	PRECLASS:1,Initiate=1	SAB:Sacrificial Magic(Su)
-True Seeing				TYPE:AbyssalPower	VISIBLE:NO					SAB:True Seeing(Su)																																COST:2
-Words of Power			TYPE:AbyssalPower	VISIBLE:NO					SAB:Words of Power(Sp)																																COST:2
+True Seeing				TYPE:AbyssalPower	VISIBLE:NO					SAB:True Seeing(Su)																																									COST:2
+Words of Power			TYPE:AbyssalPower	VISIBLE:NO					SAB:Words of Power(Sp)																																									COST:2
