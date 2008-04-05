@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Apr  4 22:40:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
@@ -182,13 +182,13 @@ Reputation (Public ID -19 / 3rd Secret ID +19)	TYPE:MoveReputationThree	VISIBLE:
 Reputation (Public ID -20 / 3rd Secret ID +20)	TYPE:MoveReputationThree	VISIBLE:NO	PREVARGTEQ:Reputation,20	BONUS:VAR|Reputation|-20	BONUS:VAR|SecretReputationThree|20
 
 ###Block:Ambassador Class Abilities
-# Feat Name			Type				Visible	Special ABility						Define			Multiple?	Choose		Bonus to skill						Modify VAR								Source Page
-Diplomatic Immunity	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Diplomatic Immunity																															SOURCEPAGE:p.92
-Open Arms			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Open Arms															BONUS:SKILL|Diplomacy|var("CL=Ambassador")/2										SOURCEPAGE:p.93
-Information Access	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Information Access																															SOURCEPAGE:p.93
-Stipend			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Stipend x%|StipendCount				DEFINE:StipendCount|0	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|StipendCount|var("COUNT[FEATNAME=Stipend]")	SOURCEPAGE:p.93
-Restricted Access		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Restricted Access														BONUS:SKILL|Gather Information,Research|5											SOURCEPAGE:p.93
-Select Consuls		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Select Consuls (up to %)|SelectConsuls	DEFINE:SelectConsuls|0														BONUS:VAR|SelectConsuls|Reputation				SOURCEPAGE:p.93
+# Feat Name			Type				Visible	Special ABility						Define			Multiple?	Choose		Bonus to skill						Modify VAR					Source Page
+Diplomatic Immunity	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Diplomatic Immunity																												SOURCEPAGE:p.92
+Open Arms			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Open Arms															BONUS:SKILL|Diplomacy|var("CL=Ambassador")/2							SOURCEPAGE:p.93
+Information Access	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Information Access																												SOURCEPAGE:p.93
+Stipend			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Stipend x%|StipendCount				DEFINE:StipendCount|0	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|StipendCount|1		SOURCEPAGE:p.93
+Restricted Access		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Restricted Access														BONUS:SKILL|Gather Information,Research|5								SOURCEPAGE:p.93
+Select Consuls		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Select Consuls (up to %)|SelectConsuls	DEFINE:SelectConsuls|0														BONUS:VAR|SelectConsuls|Reputation	SOURCEPAGE:p.93
 
 ###Block:Brawler Class Abilities
 # Feat Name				Type							Visible	Special ABility			Define			Modify VAR						Source Page
@@ -271,11 +271,11 @@ Secret Headquarters		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Secret Headquarters		
 Debonair				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Debonair																																																																																																																																						SOURCEPAGE:p.107
 
 ###Block:Mystic Class Abilities
-# Feat Name		Type				Visible	Special ABility																							Define				Stackable?	Multiple?	Choose				Automaticaly Added to Inventory	Modify VAR														Source Page
-Living Weapon	TYPE:MysticAbility	VISIBLE:NO	SAB:Living Weapon 1d%|LivingWeaponDice																			DEFINE:LivingWeaponDice|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE							BONUS:VAR|LivingWeaponDice|6+2*(var("COUNT[FEATNAME=Living Weapon]")-1)|TYPE=NonStacking	SOURCEPAGE:p.109
-Flying Kick		TYPE:MysticAbility	VISIBLE:NO	SAB:Flying Kick																																																										SOURCEPAGE:p.109
-Iron Fist		TYPE:MysticAbility	VISIBLE:NO	SAB:Iron Fist (one attack)|PREVAREQ:var("COUNT[FEATNAME=Iron Fist)]"),1	SAB:Iron Fist (all attacks)|PREVARGT:var("COUNT[FEATNAME=Iron Fist)]"),1								MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE																						SOURCEPAGE:p.109
-Flurry of Blows	TYPE:MysticAbility	VISIBLE:NO	SAB:Flurry of Blows																																				AUTO:EQUIP|Flurry of Blows																	SOURCEPAGE:p.109
+# Feat Name		Type				Visible	Special ABility																							Define				Stackable?	Multiple?	Choose				Template				Automaticaly Added to Inventory	Source Page
+Living Weapon	TYPE:MysticAbility	VISIBLE:NO	SAB:Living Weapon 1d%|LivingWeaponDice																			DEFINE:LivingWeaponDice|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE	TEMPLATE:Living Weapon Dice							SOURCEPAGE:p.109
+Flying Kick		TYPE:MysticAbility	VISIBLE:NO	SAB:Flying Kick																																																SOURCEPAGE:p.109
+Iron Fist		TYPE:MysticAbility	VISIBLE:NO	SAB:Iron Fist (one attack)|PREVAREQ:var("COUNT[FEATNAME=Iron Fist)]"),1	SAB:Iron Fist (all attacks)|PREVARGT:var("COUNT[FEATNAME=Iron Fist)]"),1								MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE												SOURCEPAGE:p.109
+Flurry of Blows	TYPE:MysticAbility	VISIBLE:NO	SAB:Flurry of Blows																																									AUTO:EQUIP|Flurry of Blows		SOURCEPAGE:p.109
 
 ###Block:News Hound Class Abilities
 # Feat Name				Type				Visible	Special ABility																																		Define				Stackable?	Multiple?	Choose				Bonus to skill						Bonus to skill rank						Modify VAR					Source Page
@@ -331,12 +331,12 @@ Quick Change	TYPE:ShadowyAvengerAbility	VISIBLE:NO	SAB:Quick Change													
 Improved Critical.MOD	TYPE:Special.Hunter.Operator
 
 ###Block:Spy Class Abilities
-# Feat Name		Type			Visible	Special ABility						Define				Stackable?	Multiple?	Choose		Modify VAR																				Source Page
-Assumed Identity	TYPE:SpyAbility	VISIBLE:NO	SAB:Assume Identity (+%)|AssumeIdentityNum	DEFINE:AssumeIdentityNum|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|AssumeIdentityNum|1																	SOURCEPAGE:p.121
-Extend Cover	TYPE:SpyAbility	VISIBLE:NO	SAB:Extend Cover|ExtendCoverNum			DEFINE:ExtendCoverNum|0		STACK:NO	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ExtendCoverNum|var("CL=Spy")/2-1|PREVARGTEQ:var("COUNT[FEATNAME=Extend Cover]"),2	BONUS:VAR|ExtendCoverNum|1	SOURCEPAGE:p.122
-License to Kill	TYPE:SpyAbility	VISIBLE:NO	SAB:License to Kill																																						SOURCEPAGE:p.122
-Bald Faced Liar	TYPE:SpyAbility	VISIBLE:NO	SAB:Bald Faced Liar (%/day)|BaldFacedLiarNum	DEFINE:BaldFacedLiarNum|0	STACK:NO	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|BaldFacedLiarNum|WIS+1	BONUS:VAR|BaldFacedLiarNum|2|PREVARGTEQ:var("COUNT[FEATNAME=Bald Faced Liar]"),2		SOURCEPAGE:p.122
-Self Deception	TYPE:SpyAbility	VISIBLE:NO	SAB:Self Deception																																						SOURCEPAGE:p.122
+# Feat Name		Type			Visible	Special ABility																				Define				Modify VAR															Source Page
+Assumed Identity	TYPE:SpyAbility	VISIBLE:NO	SAB:Assume Identity (+%)|AssumeIdentityNum															DEFINE:AssumeIdentityNum|0																	SOURCEPAGE:p.121
+Extend Cover	TYPE:SpyAbility	VISIBLE:NO	SAB:Extend Cover (1 other character)|PREVAREQ:ExtendCoverNum,1	SAB:Extend Cover (5 other characters)|PREVARGTEQ:ExtendCoverNum,2	DEFINE:ExtendCoverNum|0		BONUS:VAR|ExtendCoverNum|(var("CL=Spy")/2)-1|PRECLASS:1,Spy=7	BONUS:VAR|ExtendCoverNum|1	SOURCEPAGE:p.122
+License to Kill	TYPE:SpyAbility	VISIBLE:NO	SAB:License to Kill																																								SOURCEPAGE:p.122
+Bald Faced Liar	TYPE:SpyAbility	VISIBLE:NO	SAB:Bald Faced Liar (%/day)|BaldFacedLiarNum															DEFINE:BaldFacedLiarNum|0	BONUS:VAR|BaldFacedLiarNum|WIS+1	BONUS:VAR|BaldFacedLiarNum|2|PRECLASS:1,Spy=9			SOURCEPAGE:p.122
+Self Deception	TYPE:SpyAbility	VISIBLE:NO	SAB:Self Deception																																								SOURCEPAGE:p.122
 
 ###Block:Weird Inventor Class Abilities
 # Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add				Bonus to skill			Modify VAR											Source Page

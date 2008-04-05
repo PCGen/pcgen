@@ -1,11 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Jun  8 03:52:12 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Apr  4 22:40:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
 ###Block:Tracker Templates
-# Template Name			Visible	Source Page		Modify VAR										Choose										Temporary effect description
-Infamy Reputation Modificator	VISIBLE:NO	SOURCEPAGE:p.109	BONUS:VAR|Reputation|%CHOICE|PREFEAT:1,Infamy|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Infamy Reputation modification	TEMPDESC:This can be used to change the Reputation because of Infamy relevant actions. If you have more than 10 this can be applied multiple times.
-
+# Template Name			Visible	Source Page		Modify VAR																		Choose										Temporary effect description
+Infamy Reputation Modificator	VISIBLE:NO	SOURCEPAGE:p.109	BONUS:VAR|Reputation|%CHOICE|PREFEAT:1,Infamy|PREAPPLY:ANYPC									CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Infamy Reputation modification	TEMPDESC:This can be used to change the Reputation because of Infamy relevant actions. If you have more than 10 this can be applied multiple times.
+Sidekick Score			VISIBLE:NO				BONUS:VAR|SidekickScore|TL+CHA+(3*var("COUNT[FEATNAME=Renown]"))+var("COUNT[FEATNAME=Sidekick]")+(Wealth>=16)
+Living Weapon Dice		VISIBLE:NO				BONUS:VAR|LivingWeaponDice|6+2*(var("COUNT[FEATNAME=Living Weapon]")-1)|TYPE=NonStacking
 
 ###Block: Fractional Hit Die Adjustments for Monster classes
 # Template Name	Hit Dice Size			Visible

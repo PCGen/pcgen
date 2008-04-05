@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Apr  4 22:40:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
@@ -199,7 +199,7 @@ CLASS:News Hound	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Craft (Visual Arts)|
 5													AUTO:FEAT|Nerves of Steel|News Hound Intuition
 7													AUTO:FEAT|News Hound Sex Appeal
 8													AUTO:FEAT|Memory For Facts
-9													AUTO:FEAT|Language Training
+9	ADD:FEAT|1|Language Training
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Operator	HD:8		TYPE:Advanced.PC	ABB:Oprt		MAXLEVEL:10	SOURCEPAGE:p.111	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -288,16 +288,15 @@ CLASS:Spy		HD:8		TYPE:Advanced.PC	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.121	BONUS:CH
 CLASS:Spy		PRELANG:2,ANY	PRESKILL:2,Diplomacy,Sense Motive=8	PRESTAT:1,CHA=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spy		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Disable Device|Decipher Script|Diplomacy|Disguise|Demolitions|Drive|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Read/Write Language|Search|Sense Motive|Speak Language|Spot|Tumble|Swim
-1	AUTO:FEAT|Assumed Identity
-2	AUTO:FEAT|Language Training)|Extend Cover
-3	AUTO:FEAT|License to Kill
-4	AUTO:FEAT|Assumed Identity
-5	AUTO:FEAT|Language Training|Bald Faced Liar
-6	AUTO:FEAT|Self Deception
-7	AUTO:FEAT|Assumed Identity
-8	AUTO:FEAT|Language Training
-9	AUTO:FEAT|Bald Faced Liar
-10	AUTO:FEAT|Assumed Identity
+1	BONUS:VAR|AssumeIdentityNum|(CL+2)/3						AUTO:FEAT|Assumed Identity
+2								ADD:FEAT|1|Language Training	AUTO:FEAT|Extend Cover
+3													AUTO:FEAT|License to Kill
+4													AUTO:FEAT|Assumed Identity
+5								ADD:FEAT|1|Language Training	AUTO:FEAT|Bald Faced Liar
+6													AUTO:FEAT|Self Deception
+7													AUTO:FEAT|Assumed Identity
+8								ADD:FEAT|1|Language Training
+10													AUTO:FEAT|Assumed Identity
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Weird Inventor	HD:6		TYPE:Advanced.PC	ABB:WInv		MAXLEVEL:10	SOURCEPAGE:p.122	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+2)/2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
