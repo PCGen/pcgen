@@ -4,6 +4,7 @@ import org.nfunk.jep.ParseException;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
+import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 
 import java.util.Stack;
@@ -90,6 +91,14 @@ public class SkillInfoCommand extends PCGenCommand
 				else if ("totalrank".equalsIgnoreCase((String) param1))
 				{
 					result = aSkill.getTotalRank(pc).doubleValue(); // aSkill.getTotalRank() returns Float
+				}
+				else
+				{
+					Logging.log(Logging.LST_ERROR,
+						"Ignoring unknown parameter '" + param1
+							+ "' in Skillinfo call: skillinfo(\"" + param1
+							+ "\",\"" + param2 + "\")");
+					result = (double) 0;
 				}
 			}
 			else
