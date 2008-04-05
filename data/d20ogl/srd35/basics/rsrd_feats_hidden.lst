@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  1 22:35:28 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Apr  5 14:15:20 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -283,13 +283,13 @@ Assassin Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Cros
 Shadowdancer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|TYPE.Crossbow|TYPE.Dagger|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)
 
 ###Block: Automatic Creature Type Proficiencies
-# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.		Source Page
-Fey Proficiencies				TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Simple			SOURCEPAGE:TypesSubtypesAbilities.rtf
-Giant Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Humanoid Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Simple			SOURCEPAGE:TypesSubtypesAbilities.rtf
-Monstrous Humanoid Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Simple			SOURCEPAGE:TypesSubtypesAbilities.rtf
-Outsider Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Undead Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Simple			SOURCEPAGE:TypesSubtypesAbilities.rtf
+# Feat Name					Type			Visible	Virtual Feat									Source Page
+Fey Proficiencies				TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant Proficiencies			TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Humanoid Proficiencies			TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Monstrous Humanoid Proficiencies	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Outsider Proficiencies			TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Undead Proficiencies			TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Creature Type Traits
 # Feat Name				Type			Visible	Special ABility																																																																																																																																																																																																																					Vision					Source Page
