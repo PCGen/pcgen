@@ -24,6 +24,14 @@ COPYRIGHT:PCGen dataset conversion for Fantasy Folio: Masterwork Qualities Copyr
 ISLICENSED:YES
 LICENSE:FILE=data\alpha\bigfingergames\masterwork_qualities\masterworkqualities_permission.htm
 
+COVER:masterworkqualities.jpg
+LOGO:@/publisher_logos/Big_Finger_Games.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Big Finger Games
+DESC:Fantasy Folio: Masterwork Qualities presents a system for granting masterwork weapons and armor special qualities at the time of their creation. These qualities include perfect edge, custom hilt, barbed, and many more...
+URL:WEBSITE|http://www.bigfingergames.com/|Visit Big Finger Games.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=20165&it=1|Buy this pdf from RPGNow.com!
+URL:yourgamesnow.com|http://www.yourgamesnow.com/index.php?main_page=product_info&manufacturers_id=48&products_id=1506&zenid=6f33875f68e7b2aa19ecf4f1d1c80dca|Buy this pdf from Your Games Now!
+
 #INFOTEXT:
 
 # Do not remove the EXTRAFILE comment.
