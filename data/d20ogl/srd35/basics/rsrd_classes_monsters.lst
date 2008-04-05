@@ -105,8 +105,8 @@ CLASS:Fey		PRERACETYPE:Fey
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
 
-# Class Name	Hit Dice	Type			Max Level		Source Page					Virtual Feat																Save checks bonus											Combat bonus
-CLASS:Giant		HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Giant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level		Source Page					Virtual Feat																					Save checks bonus											Combat bonus
+CLASS:Giant		HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Giant Proficiencies|All Martial Weapon Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Giant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Giant		PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
@@ -164,8 +164,8 @@ CLASS:Ooze (Intelligent)	PRERACETYPE:Ooze
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
-# Class Name	Hit Dice	Type			Max Level		Source Page					Virtual Feat						Save checks bonus								Combat bonus
-CLASS:Outsider	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Outsider Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level		Source Page					Virtual Feat																						Save checks bonus								Combat bonus
+CLASS:Outsider	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Outsider Proficiencies|All Martial Weapon Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Outsider Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Outsider	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
