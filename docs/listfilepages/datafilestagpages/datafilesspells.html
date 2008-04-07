@@ -145,11 +145,8 @@
 	<p class="indent2">This indicates that this spell is the indicated level for the named class.</p>
 	<p class="indent2">This tag can now be qualified with PRExxx statements.  Please note that you must
 		enclose the PRExxx statement with [ ] instead of the usual Pipe delineation.</p>
-	<p class="new">*** Deprecatee both DOMAINS:.CLEAR and CLASSES:.CLEAR, replaced by DOMAINS:.CLEARALL and
-		CLASSES:.CLEARALL.  This is done due to the past side-effects between the two tokens.  You may wish to
-		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></p>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>CLASSES:Wizard=5|Enchanter=3|Druid=6</code></p>
+	<p class="indent2"><code>CLASSES:Wizard=5|Druid=6</code></p>
 	<p class="indent3">Indicates this spell is 5th Lvl Wizard, 3rd Lvl Enchanter, and 6th Lvl Druid.</p>
 	<p class="indent2"><code>CLASSES:Wizard,Sorcerer=5|Cleric=4</code></p>
 	<p class="indent3">Indicates this spell is 5th Lvl Wizard, 5th Lvl Sorcerer, and 4th Lvl Cleric.</p>
@@ -167,6 +164,11 @@
 		does not otherwise have a spell progression.</p>
 	<p class="indent2"><code>Misdirection.MOD &lt;tab&gt; CLASSES:Circle Walker=2</code></p>
 	<p class="indent3">Indicates this spell is modified to 2nd Level for Circle Walker classes.</p>
+	<p class="indent1">Deprecated Syntax:</p>
+	<p class="indent2"><code>CLASSES:.CLEAR</code> replaced by <code>CLASSES:.CLEARALL.</code></p>
+	<p class="indent3">This is done due to the past side-effects between the <code>CLASSES</code> and 
+		<code>DOMAINS</code> tags. Note that any single <code>.CLEAR</code> is equivalent to both 
+		<code>.CLEARALL</code> tags due to this old interaction.</p>
 	<p></p>
 
 <hr>
@@ -255,9 +257,6 @@
 	<p class="indent2">This indicates that this spell is the indicated level for the named domain.</p>
 	<p class="indent2">This tag can now be qualified with PRExxx statements.  Please note that you must
 		enclose the PRExxx statement with [ ] instead of the usual Pipe delineation.</p>
-	<p class="new">*** Deprecatee both DOMAINS:.CLEAR and CLASSES:.CLEAR, replaced by DOMAINS:.CLEARALL and
-		CLASSES:.CLEARALL.  This is done due to the past side-effects between the two tokens.  You may wish to
-		note that any single .CLEAR is equivalent to both .CLEARALLs due to this (old) interaction.</p><p></p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>DOMAINS:Charm=2|Beauty=3</code></p>
 	<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain, and 3rd level for the
@@ -271,6 +270,11 @@
 		prestige class.</p>
 	<p class="indent2"><code>Binding.MOD &lt;tab&gt; DOMAINS:Fate=8</code></p>
 	<p class="indent3">Indicates that this is a 8th level spell for the Fate domain.</p>
+	<p class="indent1">Deprecated Syntax:</p>
+	<p class="indent2"><code>DOMAINS:.CLEAR</code> replaced by <code>DOMAINS:.CLEARALL.</code></p>
+	<p class="indent3">This is done due to the past side-effects between the <code>CLASSES</code> and 
+		<code>DOMAINS</code> tags. Note that any single <code>.CLEAR</code> is equivalent to both 
+		<code>.CLEARALL</code> tags due to this old interaction.</p>
 	<p></p>
 
 <hr>
