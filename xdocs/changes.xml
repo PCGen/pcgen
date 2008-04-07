@@ -5,6 +5,8 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.13.13" date="In SVN" description="Beta release"> 
+    </release>
     <release version="5.13.12" date="2008-03-25" description="Beta release"> 
       <action dev="eddyanthony" type="add" issue="1905559">[Paizo] Rise of the Runelords Player's Guide</action>  
       <action dev="eddyanthony" type="add" issue="1905557">[Paizo] Rise of the Runelords - Chapter 1</action>  
