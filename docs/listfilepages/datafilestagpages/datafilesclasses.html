@@ -745,22 +745,22 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.7.15*** Updated 5.11.4</p>
+	<p class="new">*** Updated 5.11.4 ***</p>
 	<p class="indent0"><strong><a name="SPELLLIST">Tag Name:</a></strong> SPELLLIST:x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (number of choices)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Class Name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> DOMAIN.Text (Domain Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Optional.</li>
-		<li>Following the number of choices this is a | (pipe) delimited list of class names that the class
+		<li>This is an optional tag with PCGen defaulting to the class name as the name of the spell list if this 
+			tag is not included.</li>
+		<li>Following the number of choices (x), this is a pipe-delimited (|) list of class names (y) that the class
 			can choose from to duplicate spell casting ability.</li>
-		<li>This tag can be used on a CLASS, CLASS line, SUBCLASS line or SUBCLASSLEVEL line.</li>
-		<li>This tag can NOT be used on a ClassLevelLine.</li>
+		<li>For a spellcasting class with subclasses that have separate spell lists, the <code>SPELLLIST</code> 
+			tag should be included in the subclass line only.</li>
 		<li>When .MODing the CLASS line you will need other Tags like SPELLSTAT: &lt;tab&gt; BONUSSPELLSTAT:
 			&lt;tab&gt; SPELLTYPE: &lt;tab&gt; SPELLBOOK: &lt;tab&gt; BONUS:CASTERLEVEL| &lt;tab&gt; (list not
 			inclusive).</li>
-		<li>The syntax <code>SPELLLIST:&lt;name&gt;</code> has been deprecated.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CLASS:Faemancer &lt;tab&gt; SPELLLIST:1|Ranger</code></p>
@@ -775,8 +775,10 @@
 	<p class="indent3">Copy class Rogue to Blood Witch useing the Animal Domain spell list.</p>
 	<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
 	<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>SPELLLIST:&lt;name&gt;</code></p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">CLASSES, CLASS Line, SUBCLASS line or SUBCLASSLEVEL line.</p>
+	<p class="indent2">Class Line, SubClass line or SubClassLevel line.</p>
 	<p></p>
 
 <hr>
