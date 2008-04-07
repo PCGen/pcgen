@@ -6,6 +6,7 @@
   </properties>  
   <body> 
     <release version="5.13.13" date="In SVN" description="Beta release"> 
+      <action dev="eddyanthony" type="add" issue="1227901">[RPG Objects] Darwin&#039;s World 2 - Survivors Guide</action>  
     </release>
     <release version="5.13.12" date="2008-03-25" description="Beta release"> 
       <action dev="eddyanthony" type="add" issue="1905559">[Paizo] Rise of the Runelords Player's Guide</action>  
