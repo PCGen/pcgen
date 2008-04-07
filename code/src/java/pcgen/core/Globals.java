@@ -2395,13 +2395,7 @@ public final class Globals
 	public static boolean displayListsHappy()
 	{
 		// NOTE: If you add something here be sure to update the log output below
-		//TODO: JD Reinstate armor and shield proficiency checks once data has been created.
-		boolean listsHappy =
-				!((raceMap.size() == 0) || (getClassList().size() == 0)
-					|| (getSkillList().size() == 0)
-					|| (getUnmodifiableAbilityList("FEAT").size() == 0)
-					|| (EquipmentList.size() == 0) || /*(getArmorProfSize() == 0)
-					|| (getShieldProfSize() == 0) ||*/ (getWeaponProfSize() == 0));
+		boolean listsHappy = checkListsHappy();
 
 		Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;
 		Logging.log(logLevel, "Number of objects loaded. The following should "
@@ -2418,6 +2412,22 @@ public final class Globals
 		Logging.log(logLevel, "Kits=" + kitMap.size());
 		Logging.log(logLevel, "Templates=" + templateList.size());
 
+		return listsHappy;
+	}
+
+	/**
+	 * Check if enough data has been loaded to support character creation.
+	 * @return true or false
+	 */
+	public static boolean checkListsHappy()
+	{
+		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
+		boolean listsHappy =
+				!((raceMap.size() == 0) || (getClassList().size() == 0)
+					|| (getSkillList().size() == 0)
+					|| (getUnmodifiableAbilityList("FEAT").size() == 0)
+					|| (EquipmentList.size() == 0) || (getArmorProfSize() == 0)
+					|| (getShieldProfSize() == 0) || (getWeaponProfSize() == 0));
 		return listsHappy;
 	}
 

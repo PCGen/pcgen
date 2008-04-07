@@ -451,7 +451,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		frame.enableLstEditors(false);
 
 		/* No campaigns open */
-		if (!Globals.displayListsHappy())
+		if (!Globals.checkListsHappy())
 		{
 			// If you can autoload a campaign, you can open a PC
 			if (SettingsHandler.isExpertGUI())
