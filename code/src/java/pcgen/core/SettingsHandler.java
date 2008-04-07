@@ -1280,6 +1280,15 @@ public final class SettingsHandler
 		//   pcgen.options.rulechecks=aKey:Y|bKey:N|cKey:Y
 		parseRuleChecksFromOptions(getPCGenOption("ruleChecks", "")); //$NON-NLS-1$ //$NON-NLS-2$
 
+		return d;
+	}
+
+	/**
+	 * Initialise the data and game modes - does the parsing of the data, so 
+	 * the plugins must be loaded before this method is called.
+	 */
+	public static void initGameModes()
+	{
 		try
 		{
 			PersistenceManager.getInstance().initialize();
@@ -1297,8 +1306,6 @@ public final class SettingsHandler
 		validateBonuses = getPCGenOption("validateBonuses", false); //$NON-NLS-1$
 
 		debugFeats = getPCGenOption("debugFeats", false); //$NON-NLS-1$
-
-		return d;
 	}
 
 	public static void setOptionsProperties(final PlayerCharacter aPC)

@@ -126,46 +126,8 @@ public class pcGenGUI
 	 * Some of the logic of the program initialisation should probably
 	 * be refactored into the core package.
 	 */
-	public pcGenGUI()
+	public pcGenGUI(Dimension d)
 	{
-		Dimension d = null;
-
-		try
-		{
-			if (SettingsHandler.getFirstRun())
-			{
-				if (Globals.getUseGUI())
-				{
-					hideSplashScreen();
-					askFileLocation();
-				}
-			}
-
-			SettingsHandler.readOptionsProperties();
-			d = SettingsHandler.getOptionsFromProperties(null);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace(System.err);
-
-			String message = e.getMessage();
-
-			if ((message == null) || (message.length() == 0))
-			{
-				message = "Unknown error whilst reading options.ini";
-			}
-
-			message += "\n\nIt MAY be possible to fix this problem by deleting your options.ini file.";
-			ShowMessageDelegate.showMessageDialog(new MessageWrapper(message, "PCGen - Error processing Options.ini", MessageType.ERROR));
-
-			if (Globals.getUseGUI())
-			{
-				hideSplashScreen();
-			}
-
-			System.exit(0);
-		}
-
 		if (Globals.getUseGUI())
 		{
 			macSpecificInit();
@@ -472,10 +434,50 @@ public class pcGenGUI
 			showSplashScreen();
 		}
 
+		Dimension d = null;
+
+		try
+		{
+			if (SettingsHandler.getFirstRun())
+			{
+				if (Globals.getUseGUI())
+				{
+					hideSplashScreen();
+					askFileLocation();
+				}
+			}
+
+			SettingsHandler.readOptionsProperties();
+			d = SettingsHandler.getOptionsFromProperties(null);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace(System.err);
+
+			String message = e.getMessage();
+
+			if ((message == null) || (message.length() == 0))
+			{
+				message = "Unknown error whilst reading options.ini";
+			}
+
+			message += "\n\nIt MAY be possible to fix this problem by deleting your options.ini file.";
+			ShowMessageDelegate.showMessageDialog(new MessageWrapper(message, "PCGen - Error processing Options.ini", MessageType.ERROR));
+
+			if (Globals.getUseGUI())
+			{
+				hideSplashScreen();
+			}
+
+			System.exit(0);
+		}
+		
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 
-		new pcGenGUI();
+		SettingsHandler.initGameModes();
+
+		new pcGenGUI(d);
 	}
 
 	public static void showHpFrame(PlayerCharacter aPC)
@@ -752,7 +754,7 @@ public class pcGenGUI
 		new TipOfTheDay().setVisible(true);
 	}
 
-	private void askFileLocation()
+	private static void askFileLocation()
 	{
 		final Object[] oOk = { "OK" };
 		final JLabel aLabel = new JLabel(
