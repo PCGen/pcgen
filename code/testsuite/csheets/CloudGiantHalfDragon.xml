@@ -1367,6 +1367,16 @@ BIO
 		<!-- Auto feats -->
  
 		<!-- Virtual Feats -->
+		<feat>
+			<name>Simple Weapon Proficiency</name>
+			<description>You make attack rolls with simple weapons normally.</description>
+			<type>GENERAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 		<feat>
@@ -1390,6 +1400,16 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 <!-- Hidden VFEATS -->
+		<feat>
+			<name>All Martial Weapon Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>T</virtual>
+		</feat>
 		<feat>
 			<name>Giant Proficiencies</name>
 			<description></description>

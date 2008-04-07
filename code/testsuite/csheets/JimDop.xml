@@ -1383,6 +1383,16 @@ BIO
 		</feat>
  
 		<!-- Virtual Feats -->
+		<feat>
+			<name>Simple Weapon Proficiency</name>
+			<description>You make attack rolls with simple weapons normally.</description>
+			<type>GENERAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 		<feat>
