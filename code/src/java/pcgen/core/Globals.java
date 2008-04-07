@@ -2426,8 +2426,7 @@ public final class Globals
 				!((raceMap.size() == 0) || (getClassList().size() == 0)
 					|| (getSkillList().size() == 0)
 					|| (getUnmodifiableAbilityList("FEAT").size() == 0)
-					|| (EquipmentList.size() == 0) || (getArmorProfSize() == 0)
-					|| (getShieldProfSize() == 0) || (getWeaponProfSize() == 0));
+					|| (EquipmentList.size() == 0) || (getWeaponProfSize() == 0));
 		return listsHappy;
 	}
 
