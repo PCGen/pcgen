@@ -74,6 +74,8 @@ Readonly my $SRC_NSIS           => "$SRC_BRANCH/pcgen/installers/win-installer";
 
 Readonly my $SRC_NSIS_LICENCE_FILE => "$SRC_NSIS/PCGenLicense.txt";
 
+Readonly my $SRC_LOGGING_PROP_FILE => "$SRC_PCGEN/logging.properties";
+
 # ------------------------------------------
 # Destination folder and file information
 # ------------------------------------------
@@ -215,6 +217,18 @@ else {
     fcopy( $SRC_RELEASE_NOTES, $DEST_NSIS_BASE_FOLDER );
     if($SEPERATE_ALPHA) {
         fcopy( $SRC_RELEASE_NOTES, $DEST_ALPHA_FOLDER );
+    }
+}
+
+# Copy the logging properties file
+{
+    print "pcgen directory... \n";
+
+    fcopy( $SRC_LOGGING_PROP_FILE, $DEST_FULL_FOLDER );
+    fcopy( $SRC_LOGGING_PROP_FILE, $DEST_PARTIAL_FOLDER );
+    fcopy( $SRC_LOGGING_PROP_FILE, $DEST_NSIS_BASE_FOLDER );
+    if($SEPERATE_ALPHA) {
+        fcopy( $SRC_LOGGING_PROP_FILE, $DEST_ALPHA_FOLDER );
     }
 }
 
