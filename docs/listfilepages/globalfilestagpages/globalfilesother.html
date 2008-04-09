@@ -450,14 +450,20 @@
 	<ul class="indent2">
 		<li>This defines the damage reduction this feat/class/template/etc. bestows.</li>
 		<li>Multiple damage types can be specified by separating them with "and" or "or" as appropriate.</li>
-		<li>Damage Reduction's must be first defined in this manner before a BONUS:DR tag can
-			be used to add to them.</li>
+		<li>DR tags with the same damage types do not stack, only the DR tag with the highest value will be used.</li>
+		<li>Damage Reduction's must be first defined in this manner before a 
+		<a href="globalfilesbonus.html#DR">BONUS:DR</a> tag can be used to add to them.</li>
 		<li>If a lst file tries to do a BONUS:DR|+1|10 and no DR:xx/+1 has ever
 			been defined, the bonus will do nothing.</li>
+		<li>DR tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
+			DR tags qualified with PRExxx tags will not display unless the character meets the
+			prerequisites.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DR:10/+1</code></p>
-	<p class="indent3">Grants DR of 10/+1 on output.</p>
+	<p class="indent3">Grants DR of 10/+1 on output.</p><br>
+	<p class="indent2"><code>DR:2/-|PRESTAT:1,CON=18</code></p>
+	<p class="indent3">Grants DR of 2/- if the character has a constitution of 18 or higher.</p>
 	<p></p>
 
 <hr>
@@ -468,11 +474,11 @@
 	<p class="indent1"><strong>Variables Used (x): </strong>Number, variable or formula (Number of this type
 		of companion the master can have)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">? Limits the number of the specified type of companion the master can have.</p>
-	<p class="indent2">? Optional, if this tag is not present no limits are placed on the number of
+	<p class="indent2">Limits the number of the specified type of companion the master can have.</p>
+	<p class="indent2">Optional, if this tag is not present no limits are placed on the number of
 		companions the character can have. </p>
-	<p class="indent2">? If more than one tag is encountered the highest value is used. </p>
-	<p class="indent2">? The value can be adjusted with the BONUS:FOLLOWERS tag.</p>
+	<p class="indent2">If more than one tag is encountered the highest value is used. </p>
+	<p class="indent2">The value can be adjusted with the BONUS:FOLLOWERS tag.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Global tag, would most often be used in class and feat (ability) files, should also
 		be enabled for templates and Domains.</p>
