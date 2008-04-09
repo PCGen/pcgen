@@ -1,0 +1,12 @@
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+# Weapon Name		Type				Nb Hands
+
+# Futuristic Firearms
+Acid Rifle			TYPE:FuturisticFirearm	HANDS:2
+
+#Ranged
+Rock				TYPE:Simple
+
+#Melee
+

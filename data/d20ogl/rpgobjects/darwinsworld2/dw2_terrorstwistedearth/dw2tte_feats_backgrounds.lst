@@ -1,0 +1,12 @@
+SOURCELONG:Darwin's World 2nd Edition - Terrors of Twisted Earth (v2.4)	SOURCESHORT:DW2_TTE	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+# Background Feats
+# Name			Output Name							Type			Visible		Template
+# Feat Name			Output Name							Type			Visible	Template
+Plantman			OUTPUTNAME:Background - Plantman			TYPE:Background	VISIBLE:NO	TEMPLATE:Background (Plantman)
+Sandman			OUTPUTNAME:Background - Sandman			TYPE:Background	VISIBLE:NO	TEMPLATE:Background (Sandman)
+#Shadow People		OUTPUTNAME:Background - Shadow People		TYPE:Background	VISIBLE:NO	TEMPLATE:Background (Shadow People)
+
+#
+# EoF
+#

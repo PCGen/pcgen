@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Wed Mar 19 13:16:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+CAMPAIGN:Darwin's World 2nd Edition - Terrors of Twisted Earth
+RANK:1
+GAMEMODE:Darwins_World_2
+GENRE:Post Apocalyptic
+#BOOKTYPE:
+#SETTING:
+TYPE:RPGObjects.Darwin's World 2nd Edition.Terrors of Twisted Earth
+ISOGL:YES
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com
+SOURCELONG:Darwin's World 2nd Edition
+SOURCESHORT:DW2
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:The Quintessential Fighter, 2001 Mongoose Publishing.
+COPYRIGHT:Rokugan, 2001 AEG
+COPYRIGHT:Galatictic Races, 2001 Fantasy Flight Games.
+COPYRIGHT:Wrath & Rage, 2002 Green Ronin Publishing, Author Jim Bishop.
+COPYRIGHT:Bastards and Bloodlines, 2003 Green Ronin Publishing, Author Owen K.C. Stephens
+COPYRIGHT:Ultramodern Firearms d20, Copyright 2002, Charles McManus Ryan
+COPYRIGHT:Darwin's World 2nd Edition: Survivors Handbook Copyright 2003, RPGObjects; Author Chris Davis and Dominic Covey
+COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
+COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe.
+COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Handbook Copyright 2008, PCgen Data team including, Thomas Clegg (Arknight), Eddy Anthony (MoSaT).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+#msrd files
+FEAT:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_feats.lst
+TEMPLATE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_templates.lst
+
+#DW2 Specific/Modified files
+ABILITY:dw2tte_abilities_backgrounds.lst
+FEAT:dw2tte_feats_hidden.lst
+RACE:dw2tte_races_creatures_a_l.lst
+RACE:dw2tte_races_creatures_m_z.lst
+KIT:dw2tte_kits_creatures_a_l.lst
+KIT:dw2tte_kits_creatures_m_z.lst
+KIT:dw2tte_kits_creatures_a_l_extra.lst
+KIT:dw2tte_kits_creatures_m_z_extra.lst
+TEMPLATE:dw2tte_templates.lst
+
+EQUIPMENT:dw2tte_equip_weap_melee.lst
+EQUIPMENT:dw2tte_equip_weap_ranged_firearms.lst

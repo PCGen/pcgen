@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Wed Mar 19 13:16:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+STARTPACK:Crawler Fast Hero Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crawler],[!PRERACE:1,%]
+RACE:Crawler	!PRERACE:1,%
+NAME:Crawler Fast Hero
+CLASS:Fast	LEVEL:3	SUBCLASS:Fast Hero
+LEVELABILITY:Humanoid=2	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency,Armor Proficiency (Light))|CHOICE:Simple Weapons Proficiency
+LEVELABILITY:Fast=1	ABILITY:CATEGORY=FastTalent|Evasion
+LEVELABILITY:Fast=3	ABILITY:CATEGORY=FastTalent|Uncanny Dodge I
+STAT:STR=14|DEX=14|CON=13|INT=10|WIS=12|CHA=9
+TEMPLATE:Crawler Character CSkills
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:1
+SKILL:Navigate		RANK:1
+SKILL:Spot			RANK:1
+SKILL:Survival		RANK:1
+ABILITY:CATEGORY=FEAT|Improved Initiative		FREE:NO
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)	FREE:NO
+ABILITY:CATEGORY=FEAT|Troglodyte			FREE:NO
+ABILITY:CATEGORY=FEAT|Dodge				FREE:NO
+ABILITY:CATEGORY=FEAT|Mobility			FREE:NO

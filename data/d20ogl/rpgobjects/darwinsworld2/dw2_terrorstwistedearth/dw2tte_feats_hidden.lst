@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Wed Mar 19 13:16:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+
+###Block: Heap Turtle Debris
+# Feat Name	Type				Visible	Special ABility									Define			Combat bonus						Bonus to skill						Modify VAR
+Debris 1	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|1|TYPE=DebrisEnhancement
+Debris 2	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|2|TYPE=DebrisEnhancement
+Debris 3	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|3|TYPE=DebrisEnhancement
+Debris 4	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|4|TYPE=DebrisEnhancement
+Debris 5	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|5|TYPE=DebrisEnhancement
+Debris 6	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|6|TYPE=DebrisEnhancement
+Debris 7	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|7|TYPE=DebrisEnhancement
+Debris 8	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|8|TYPE=DebrisEnhancement
+Debris 9	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|9|TYPE=DebrisEnhancement
+Debris 10	TYPE:Special.HeapTurtle	VISIBLE:NO	SAB:Debris (Ex) (+% Armor,+% Hide Bonus)|DebrisBonus|DebrisBonus	DEFINE:DebrisBonus|0	BONUS:COMBAT|AC|DebrisBonus|TYPE=Armor.STACK	BONUS:SKILL|Hide|DebrisBonus|TYPE=Enhancement	BONUS:VAR|DebrisBonus|10|TYPE=DebrisEnhancement
+
+###Block: Rattlecharmer
+# Feat Name			Type					Visible	Special ABility						Define			Modify VAR
+Rattlecharmer Poison	TYPE:Special.Rattlecharmer	VISIBLE:NO	SAB:Poison (Ex) (DC:%;DMG:1d6 CON,1d6 CON)	DEFINE:RCPoisonDC|0	BONUS:VAR|RCPoisonDC|11+(var("HD")/2)+CON
+
+
+#
+# EoF
+#
