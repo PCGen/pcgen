@@ -686,46 +686,49 @@
 <hr>
 
 	<p class="new">*** Updated 5.11.6</p>
-	<p class="indent0"><strong><a name="PROHIBITSPELL">Tag Name:</a></strong> PROHIBITSPELL:x.y.y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ALIGNMENT</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> SCHOOL</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text</p>
+	<p class="indent0"><strong><a name="PROHIBITSPELL">Tag Name:</a></strong> PROHIBITSPELL:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALIGNMENT.Text (Alignment name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR.Text (Descriptor name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SCHOOL.Text (School name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL.Text (Subschool name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELL.Text (Spell name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Prohibits characters from using certain spells.</li>
+		<li>Alignment, descriptor, school, and subschool names are period-delimited (.) lists of the appropriate parameter.</li>
+		<li>Spell name is a comma-delimited (,) list of individual spell names.</li>
 		<li>Alignment restrictions imposed by this tag can be turned off by the PROHIBITSPELLS
 		house rule preference.</li>
-		<li>This tag can be qualified with PRExxx statements.</li>
+		<li>This tag can be qualified with PRExxx statements using a pipe (|) as the delimiter.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PROHIBITSPELL:ALIGNMENT.Evil</code></p>
-	<p class="indent3">Prohibits the character from taking spells with the 'Evil' descriptor.</p>
+	<p class="indent3">Prohibits the character from taking spells with the &quot;Evil&quot; descriptor.</p>
 	<p class="indent2"><code>PROHIBITSPELL:ALIGNMENT.Chaotic.Evil</code></p>
-	<p class="indent3">Prohibits the character from taking spells that have both the 'Chaotic' and the
-		'Evil' descriptors.</p>
+	<p class="indent3">Prohibits the character from taking spells that have both the &quot;Chaotic&quot; and the
+		&quot;Evil&quot; descriptors.</p>
 	<p class="indent2"><code>PROHIBITSPELL:DESCRIPTOR.Fear</code></p>
-	<p class="indent3">Prohibits the character from taking spells with the 'Fear' descriptor.</p>
+	<p class="indent3">Prohibits the character from taking spells with the &quot;Fear&quot; descriptor.</p>
 	<p class="indent2"><code>PROHIBITSPELL:SCHOOL.Illusion</code></p>
-	<p class="indent3">Prohibits the character from taking spells from the illusion school.</p>
+	<p class="indent3">Prohibits the character from taking spells from the &quot;Illusion&quot; school.</p>
+	<p class="indent2"><code>PROHIBITSPELL:SUBSCHOOL.Healing</code></p>
+	<p class="indent3">Prohibits the character from taking spells from the &quot;Healing&quot; subschool.</p>
 	<blockquote class="indent2">
 		<p class="tagindent2"><code>1 &lt;tab&gt; PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE &lt;tab&gt;
 		PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG &lt;tab&gt;
 		PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE &lt;tab&gt;
 		PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE &lt;tab&gt;
-		PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8 &lt;tab&gt;
-		PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6 &lt;tab&gt;
-		PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8 &lt;tab&gt;
-		PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2</code></p>
+		PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE &lt;tab&gt;
+		PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG &lt;tab&gt;
+		PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE &lt;tab&gt;
+		PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE</code></p>
 	</blockquote>
-	<p class="indent3">Prohibits the character from taking Good spells if alignment is 2,5,8; taking
-		evil spells if alignment is 0,3,6; taking Lawful spells if alignment is 6,7,8; taking Chaotic
-		spells if alignment is 0,1,2; taking Good spells if Deity alignment is LE,NE,CE; taking
-		evil spells if Deity alignment is LG,NG,CG; taking Lawful spells if Deity alignment is CG,CN,CE;
-		taking Chaotic spells if Deity alignment is LG,LN,LE.</p>
-	<p class="indent2"><code>PROHIBITSPELL:SPELL.Fireball.Lightning Bolt</code></p>
+	<p class="indent3">Prohibits the character from taking &quot;Good&quot; spells if alignment is LE,NE,CE; taking
+		&quot;evil&quot; spells if alignment is LG,NG,CG; taking &quot;Lawful&quot; spells if alignment is CG,CN,CE; taking &quot;Chaotic&quot;
+		spells if alignment is LG,LN,LE; taking &quot;Good&quot; spells if Deity alignment is LE,NE,CE; taking
+		&quot;evil&quot; spells if Deity alignment is LG,NG,CG; taking &quot;Lawful&quot; spells if Deity alignment is CG,CN,CE;
+		taking &quot;Chaotic&quot; spells if Deity alignment is LG,LN,LE.</p>
+	<p class="indent2"><code>PROHIBITSPELL:SPELL.Fireball,Lightning Bolt</code></p>
 	<p class="indent3">Prohibits the character from taking either &quot;Fireball&quot; or &quot;Lightening Bolt&quot; spells.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Line and Class Level Line.</p>
