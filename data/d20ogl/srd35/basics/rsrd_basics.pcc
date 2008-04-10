@@ -20,7 +20,7 @@ INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 
 
 ABILITY:rsrd_abilities_class.lst
-
+ABILITY:rsrd_abilities_monsters.lst
 ABILITYCATEGORY:rsrd_ability_categories_core.lst
 
 CLASS:rsrd_classes_base.lst
