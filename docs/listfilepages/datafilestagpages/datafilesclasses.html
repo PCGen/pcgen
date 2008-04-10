@@ -88,19 +88,16 @@
 		<li>Only the Sub-Class Level Lines that contain tags need to be included.</li>
 		<li>Only tags identified as Sub-Class Line or Class Line tags should be used on this line.
 		<ul>
-			<li>SPELLLIST does not work on CLASS Line IF SUBCLASS or SUBSTITUTIONCLASS is present. In those
-					cases, the SPELLLIST tag must be placed ON EACH SUBCLASS or SUBSTITUTION class line (Not
-					Level Line).</li>
-			<li>Another noted behavior - mainly code bug: Such classes will NOT display there Known Spells OR
-					cast information on the spells tab.</li>
-			<li>This behavior is expected to be fixed once CDOM is operational.</li>
+			<li><code>SPELLLIST</code> does not work on Class Line if a subclass or substitution class is present. 
+				In these cases, the <code>SPELLLIST</code> tag must be placed on each SubClass or Substitution 
+				Class Line (Not the SubClass/Substitution Level Line).</li>
 		</ul>
 		</li>
 	</ul>
 	<p><strong>A Sub-Class Example</strong></p>
 	<blockquote>
 		<p><code>CLASS:Wizard . . .</code><br>
-        	<code>CLASS:Wizard . . .HASSUBCLASS:YES</code><br>
+        	<code>CLASS:Wizard . . . HASSUBCLASS:YES . . . ALLOWBASECLASS:NO</code><br>
         	<code>CLASS:Wizard . . .</code><br>
         	<code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:SCHOOL|Abjuration &lt;tab&gt; 			KNOWNSPELLSFROMSPECIALTY:1</code><br>
         	<code>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning Bonus</code><br>
@@ -848,7 +845,24 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.14.0</p>
+	<p class="new">*** Updated 5.13.x</p>
+	<p class="indent0"><strong><a name="ALLOWBASECLASS">Tag Name:</a></strong> ALLOWBASECLASS:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (Default &quot;YES&quot;)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Determies whether the base class will be presented as a choice when selecting a subclass.</li>
+		<li>Used with classes which have subclasses.</li> 
+		<li>This tag is optional.</li> 
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>ALLOWBASECLASS:NO</code></p>
+	<p class="indent3">The base class cannot be selected, only subclasses are allowed.</p>
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Class Line</p>
+	
+<hr>
+
+	<p class="new">*** Updated 5.13.x</p>
 	<p class="indent0"><strong><a name="CHOICE">Tag Name:</a></strong> CHOICE:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE (SCHOOL, DESCRIPTOR, SUBSCHOOL)</p>
 	<p align="left"><strong class="indent1">Variables Used (y):</strong> Schools (Abjuration, Conjuration, Divination,  Enchantment, Evocation, Illusion, Necromancy, Transmutation<span class="style1">, Psychokinesis, etc </span>)
