@@ -864,14 +864,17 @@
 
 	<p class="new">*** Updated 5.13.x</p>
 	<p class="indent0"><strong><a name="CHOICE">Tag Name:</a></strong> CHOICE:x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE (SCHOOL, DESCRIPTOR, SUBSCHOOL)</p>
-	<p align="left"><strong class="indent1">Variables Used (y):</strong> Schools (Abjuration, Conjuration, Divination,  Enchantment, Evocation, Illusion, Necromancy, Transmutation<span class="style1">, Psychokinesis, etc </span>)
-	</p>
-	<p class="indent1"><strong>Variables Used (y): </strong>Descriptors (Mind-Affecting, Fire, Water, Earth, Air, Lawful, Chaotic, Good, Evil, etc.)</p>
-	<p class="indent1"><strong>Variables Used (y): </strong>Subschools (Summoning, Creation, Healing, etc.) </p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SCHOOL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Descriptor, school, or subschool name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Indicates the specialty (By TYPE using the name of school, sub-school or descriptor and then the corresponding CHOICE applicable to the TYPE selected) of this
-		subclass/specialty. Any used SCHOOL, DESCRIPTOR or SUBSCHOOL is a valid choice. </p>
+	<ul class="indent2">
+		<li>Indicates the specialty, by descriptor, school, or subschool, applicable to the subclass/specialty selected.</li>
+		<li>All descriptors, schools, and subschools used within the loaded lst files are valid choices.</li>
+		<li><strong>Note:</strong> Due to the diversity of publishers and material we support, we cannot list 
+			all descriptors, schools, or subschools available.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SUBCLASS:Illusionist &lt;tab&gt; CHOICE:SCHOOL|Illusion</code></p>
 	<p class="indent3">For an Illusionist.</p>
@@ -888,8 +891,6 @@
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Subclass Line.</p>
 	<p class="indent2"></p>
-	<p class="indent1"><strong>NOTE:</strong></p>
-	<p class="indent2">Due to the diversity of the various publishers we cannot list each and every school, subschool and descriptor. All used in existing lst files are valid choices.	</p>
 	<p></p>
 
 <hr>
@@ -1296,9 +1297,8 @@
 
 <hr>
 
-	<a name="OLDREPEATLEVEL"></a>
 	<p class="new">*** Deprecated 5.13.3 - Remove 6.0, use <a href="../datafilestagpages/datafilesclasses.html#REPEATLEVEL">REPEATLEVEL</a> tag instead.</p>
-	<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:x|y|z:&lt;level&gt;:&lt;level assigned item&gt;</p>
+	<p class="indent0"><strong><a name="OLDREPEATLEVEL">Tag Name:</a></strong> REPEATLEVEL:x|y|z:&lt;level&gt;:&lt;level assigned item&gt;</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (level interval)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of intervals before skipping one
 	interval, use 0 for no skip, Optional)</p>
