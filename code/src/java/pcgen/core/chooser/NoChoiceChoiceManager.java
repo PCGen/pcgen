@@ -29,7 +29,10 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 	public List<String> doChooser(PlayerCharacter pc,
 			List<String> availableList, List<String> selectedList)
 	{
-		selectedList.add("NOCHOICE");
+		if (getNumberOfChoices() > selectedList.size())
+		{
+			selectedList.add("NOCHOICE");
+		}
 		return new ArrayList<String>(selectedList);
 	}
 
