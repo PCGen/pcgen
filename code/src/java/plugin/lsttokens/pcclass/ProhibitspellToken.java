@@ -27,18 +27,63 @@ public class ProhibitspellToken implements PCClassLstToken
 
 		SpellProhibitor spellProb = new SpellProhibitor();
 
-		boolean isPre = false;
+		final String spString = aTok.nextToken().toUpperCase();
+
+		final StringTokenizer elements = new StringTokenizer(spString, ".",
+				false);
+		final String aType = elements.nextToken();
+
+		for (ProhibitedSpellType type : ProhibitedSpellType.values())
+		{
+			if (type.toString().equalsIgnoreCase(aType))
+			{
+				spellProb.setType(type);
+				while (elements.hasMoreTokens())
+				{
+					String aValue = elements.nextToken();
+					if (type.equals(ProhibitedSpellType.ALIGNMENT)
+							&& (!aValue.equals("GOOD"))
+							&& (!aValue.equals("EVIL"))
+							&& (!aValue.equals("LAWFUL"))
+							&& (!aValue.equals("CHAOTIC")))
+					{
+						Logging
+								.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '"
+										+ aValue + "'");
+					}
+					else
+					{
+						if (type.equals(ProhibitedSpellType.SPELL))
+						{
+							for (String spell : aValue.split(","))
+							{
+								spellProb.addValue(spell);
+							}
+						}
+						else
+						{
+							spellProb.addValue(aValue);
+						}
+					}
+				}
+			}
+		}
+		if (spellProb.getType() == null)
+		{
+			Logging.errorPrint("Illegal PROHIBITSPELL subtag '" + spString
+					+ "'");
+		}
+
 		while (aTok.hasMoreTokens())
 		{
 			final String aString = aTok.nextToken().toUpperCase();
 
 			if (PreParserFactory.isPreReqString(aString))
 			{
-				isPre = true;
 				try
 				{
-					final PreParserFactory factory =
-							PreParserFactory.getInstance();
+					final PreParserFactory factory = PreParserFactory
+							.getInstance();
 					spellProb.addPreReq(factory.parse(aString));
 				}
 				catch (PersistenceLayerException ple)
@@ -48,56 +93,15 @@ public class ProhibitspellToken implements PCClassLstToken
 			}
 			else
 			{
-				if (isPre)
-				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": " + value);
-					Logging.errorPrint("  PRExxx must be at the END of the Token");
-				}
-				final StringTokenizer elements =
-						new StringTokenizer(aString, ".", false);
-				final String aType = elements.nextToken();
-
-				for (ProhibitedSpellType type : ProhibitedSpellType.values())
-				{
-					if (type.toString().equalsIgnoreCase(aType))
-					{
-						spellProb.setType(type);
-						while (elements.hasMoreTokens())
-						{
-							String aValue = elements.nextToken();
-							if (type.equals(ProhibitedSpellType.ALIGNMENT)
-								&& (!aValue.equals("GOOD"))
-								&& (!aValue.equals("EVIL"))
-								&& (!aValue.equals("LAWFUL"))
-								&& (!aValue.equals("CHAOTIC")))
-							{
-								Logging
-									.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '"
-										+ aValue + "'");
-							}
-							else
-							{
-								if (type.equals(ProhibitedSpellType.SPELL))
-								{
-									for (String spell : aValue.split(","))
-									{
-										spellProb.addValue(spell);
-									}
-								}
-								else 
-								{
-									spellProb.addValue(aValue);
-								}
-							}
-						}
-					}
-				}
-				if (spellProb.getType() == null)
-				{
-					Logging.errorPrint("Illegal PROHIBITSPELL subtag '"
-						+ aString + "'");
-				}
+				Logging.errorPrint("Invalid " + getTokenName() + ": " + value);
+				Logging.errorPrint("  PRExxx must be at the END of the Token");
 			}
+		}
+		if (spellProb.getValueList() == null)
+		{
+			Logging.errorPrint("Invalid Spell Prohibitor, "
+					+ "nothing found to prohibit: " + value);
+			return false;
 		}
 		pcclass.setProhibitSpell(spellProb);
 		return true;
