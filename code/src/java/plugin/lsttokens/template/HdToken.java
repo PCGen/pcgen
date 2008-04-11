@@ -50,7 +50,7 @@ public class HdToken implements PCTemplateLstToken
 		else
 		{
 			String tagValue =
-					value.substring(hdStr.length() + 1) + "|PREHD:" + hdStr; 
+					value.substring(hdStr.length() + 1) + "|PREHDSILENT:" + hdStr; 
 			try
 			{
 				return PObjectLoader.parseTag(template, tagValue);

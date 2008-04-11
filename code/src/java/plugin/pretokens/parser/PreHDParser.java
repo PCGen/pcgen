@@ -46,7 +46,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{"HD"};
+		return new String[]{"HD", "HDSILENT"};
 	}
 
 	@Override
@@ -125,6 +125,14 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 		}
 		else
 		{
+			if (!"HDSILENT".equals(kind))
+			{
+				Logging.deprecationPrint("Deprecated use of PREHD found: ");
+				Logging.deprecationPrint("The PREHD:+ or PREHD:x-y syntax is no longer supported. "
+						+"The new format is  'MIN=x', 'MAX=y', or 'MIN=x,MAX=y' where x and y are integers. "
+						+"Passed formala was: " + formula);
+			}
+			
 			processOldSyntax(formula, prereq);	
 		}
 
@@ -143,15 +151,8 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 	private void processOldSyntax(String formula, Prerequisite prereq)
 			throws PersistenceLayerException {
 		int plusLoc = formula.indexOf('+');
-		
-		Logging.deprecationPrint("Deprecated use of PREHD found: ");
-		Logging.deprecationPrint("The PREHD:+ or PREHD:x-y syntax is no longer supported. "
-				+"The new format is  'MIN=x', 'MAX=y', or 'MIN=x,MAX=y' where x and y are integers. "
-				+"Passed formala was: " + formula);
-		
 		if (plusLoc == -1)
 		{
-
 			int minusLoc = formula.indexOf('-');
 			if (minusLoc == -1)
 			{
