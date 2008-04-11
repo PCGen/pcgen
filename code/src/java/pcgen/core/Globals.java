@@ -2969,18 +2969,6 @@ public final class Globals
 		return SettingsHandler.getGame().getBonusFeatLevels().get(0);
 	}
 
-	static int getBonusFeatsForLevel(final int level)
-	{
-		int num = 0;
-
-		for (String s : SettingsHandler.getGame().getBonusFeatLevels())
-		{
-			num = bonusParsing(s, level, num);
-		}
-
-		return num;
-	}
-
 	static int getBonusStatsForLevel(final int level)
 	{
 		int num = 0;

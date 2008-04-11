@@ -3166,7 +3166,7 @@ public class PCClass extends PObject
 					final String aString = Globals.getBonusFeatString();
 					final StringTokenizer aTok =
 							new StringTokenizer(aString, "|", false);
-					final int startLevel = Integer.parseInt(aTok.nextToken());
+					int startLevel = Integer.parseInt(aTok.nextToken());
 					final int rangeLevel = Integer.parseInt(aTok.nextToken());
 					int divisor = 1;
 					final boolean isMonsterClass =
@@ -3174,7 +3174,15 @@ public class PCClass extends PObject
 								&& aPC.getRace().getMonsterClass(aPC, false)
 									.equalsIgnoreCase(this.getKeyName());
 					Integer mLevPerFeat = getLevelsPerFeat();
-					divisor = (mLevPerFeat != null) ? mLevPerFeat : rangeLevel;
+					if (mLevPerFeat == null)
+					{
+						divisor = rangeLevel;
+					}
+					else
+					{
+						divisor = mLevPerFeat;
+						startLevel = 0;
+					}
 					if (divisor > 0)
 					{
 						if (SettingsHandler.isMonsterDefault() && isMonsterClass)
@@ -3185,12 +3193,14 @@ public class PCClass extends PObject
 
 							formula = new StringBuffer("max(0,floor((CL-");
 							formula.append(monLev);
+							formula.append("-");
+							formula.append(startLevel);
 							formula.append(")/");
 							formula.append(divisor);
 							formula.append("))");
 
 							StringBuffer aBuf =
-									new StringBuffer("0|FEAT|MONSTERPOOL|");
+									new StringBuffer(startLevel + "|FEAT|MONSTERPOOL|");
 							aBuf.append(formula);
 							BonusObj bon = Bonus.newBonus(aBuf.toString());
 							bon.setCreatorObject(this);
@@ -3199,7 +3209,8 @@ public class PCClass extends PObject
 						else
 						{
 							StringBuffer aBuf =
-									new StringBuffer("0|FEAT|PCPOOL|CL/");
+									new StringBuffer(startLevel
+									+ "|FEAT|PCPOOL|(CL-" + startLevel + "+" + rangeLevel + ")/");
 							aBuf.append(divisor);
 							BonusObj bon = Bonus.newBonus(aBuf.toString());
 							bon.setCreatorObject(this);
