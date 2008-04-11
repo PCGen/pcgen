@@ -38,5 +38,6 @@
 	<classpathentry kind="lib" path="lib/jep/djep-2.24.jar"/>
 	<classpathentry kind="lib" path="lib/cobra/cobra.jar"/>
 	<classpathentry kind="lib" path="lib/cobra/js.jar"/>
+	<classpathentry kind="lib" path="lib/apache/commons-lang-2.4.jar"/>
 	<classpathentry kind="output" path="code/build.eclipse"/>
 </classpath>
