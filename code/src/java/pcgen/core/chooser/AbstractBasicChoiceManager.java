@@ -366,4 +366,9 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	{
 		numberOfChoices = maxChoices;
 	}
+
+	public int getNumberOfChoices()
+	{
+		return numberOfChoices;
+	}
 }
