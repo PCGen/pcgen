@@ -56,8 +56,7 @@
 
 <hr>
 
-	<a name="DICTIONARY"></a>
-	<h3>Global CHOOSE Dictionary</h3>
+	<h3><a name="DICTIONARY">Global CHOOSE Dictionary</a></h3>
 
 <hr>
 
@@ -105,9 +104,8 @@
 	<p class="indent0"><strong><a name="ARMORTYPE">Tag Name:</a></strong> CHOOSE:ARMORTYPE</p>
 	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2"
-		<li>This will produce a list of all armor types that the character is proficient with. 
-			This list is built from the choices for the Armor Proficiency feat.</li>
+	<ul class="indent2">
+		<li>This will produce a list of all armor types that the character is proficient with.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -163,13 +161,11 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of Domains.</li>
-		<ul>
-			<li>ANY returns a list of all loaded Domains.</li>
-			<li>DIETY=&lt;text&gt; returns a list of Domains granted by specified Deity.</li>
-			<li>QUALIFY returns a list of loaded Domains the PC qualifies for but does not have.</li>
-			<li>PC returns a list of all domains a character actually has.</li>
-		</ul>
+		<li>This will produce a list of Domains.<li>
+		<li>ANY returns a list of all loaded Domains.</li>
+		<li>DIETY=&lt;text&gt; returns a list of Domains granted by specified Deity.</li>
+		<li>QUALIFY returns a list of loaded Domains the PC qualifies for but does not have.</li>
+		<li>PC returns a list of all domains a character actually has.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -863,19 +859,20 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Not.Text (Proficiency type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The actual listing of the types of weapon proficiencies the list may have is made up of:</li>
-		<ul>
-			<li>LIST - All character's weapon profs are added to list</li>
-			<li>DEITYWEAPON - All the character's Deity's favorite weapons are added to the list</li>
-			<li>Size.y&lt;Weapon prof name&gt; - Weapon prof is added to list if character is at least size specified and the character has the proficiency specified. Other options
-				are F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).</li>
-			<li>WSize.string - The character's weapon prof is added to the list if the wield category matches the specified type.</li>
-			<li>Spellcaster.string - The specified weapon proficiency will be added to the list if the character is a spellcaster.</li>
-			<li>ADD.string - The specified weapon proficiency is added to the list unconditionally.</li>
-			<li>TYPE.string - All proficiencies that has equipment that matches the specified type or wield category will be added to the list.</li>
-			<li>TYPE.Not.string - Remove a previously added proficiency that has equipment that matches the specified type or wield category will be added to the list.</li>
-			<li>weaponprof - The specified proficiency will be added to the list if the character has it.</li>
-		</ul>
+		<li>The actual listing of the types of weapon proficiencies the list may have is made up of:
+			<ul>
+				<li>LIST - All character's weapon profs are added to list</li>
+				<li>DEITYWEAPON - All the character's Deity's favorite weapons are added to the list</li>
+				<li>Size.y&lt;Weapon prof name&gt; - Weapon prof is added to list if character is at least size specified and the character has the proficiency specified. Other options
+					are F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).</li>
+				<li>WSize.string - The character's weapon prof is added to the list if the wield category matches the specified type.</li>
+				<li>Spellcaster.string - The specified weapon proficiency will be added to the list if the character is a spellcaster.</li>
+				<li>ADD.string - The specified weapon proficiency is added to the list unconditionally.</li>
+				<li>TYPE.string - All proficiencies that has equipment that matches the specified type or wield category will be added to the list.</li>
+				<li>TYPE.Not.string - Remove a previously added proficiency that has equipment that matches the specified type or wield category will be added to the list.</li>
+				<li>weaponprof - The specified proficiency will be added to the list if the character has it.</li>
+			</ul>
+		</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -906,8 +903,7 @@
 
 <hr>
 
-  	<a name="PREFIX"></a>
-  	<h3>CHOOSE Tag Prefixes</h3>
+  	<h3><a name="PREFIX">CHOOSE Tag Prefixes</a></h3>
 	<p class="indent0">The CHOOSE tag uses &quot;Prefix&quot; tags to modify the application of
 	the CHOOSE tag. The prefix tags are inserted into the CHOOSE tags syntax immediately after the
 	colon (:) and before the first argument, using a pipe (|) as a delimiter between itself and
