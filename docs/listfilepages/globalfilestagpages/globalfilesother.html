@@ -461,7 +461,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DR:10/+1</code></p>
-	<p class="indent3">Grants DR of 10/+1 on output.</p><br>
+	<p class="indent3">Grants DR of 10/+1 on output.</p>
 	<p class="indent2"><code>DR:2/-|PRESTAT:1,CON=18</code></p>
 	<p class="indent3">Grants DR of 2/- if the character has a constitution of 18 or higher.</p>
 	<p></p>
@@ -828,13 +828,17 @@
 	<p class="indent1"><strong>Variables Used (x):</strong>Number, Variable, or Formula (Number of choices)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
+		<li>This tag is optional.</li>
 		<li>Defines the number of choices allowed every time the associated object is taken.</li>
-		<li>This tag <strong>MUST</strong> be used in conjunction with a <code>CHOOSE</code> tag that does not already have an integrated number for &quot;choices&quot;.</li>
+		<li>This tag is used in conjunction with a <code>CHOOSE</code> tag that does not 
+			already have an integrated number for &quot;choices&quot; to be made.</li>
+		<li>If this tag is not used the default number of selections made is one (1).</li>
 		<li>Tag is ignored when used in conjunction with <code>CHOOSE:NOCHOICE</code>.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SELECT:3 &lt;tab&gt; CHOOSE:SKILLS</code></p>
-	<p class="indent3">Allows the selection of &quot;3&quot; skills selected from the list of skills currently held by the character.</p>
+	<p class="indent3">Allows the selection of &quot;3&quot; skills selected from the list of 
+		skills currently held by the character.</p>
 	<p class="indent2"><code>SELECT:INT</code></p>
 	<p class="indent3">Allows a number of choices equal to the Intelligence ability bonus.</p>
 	<p></p>

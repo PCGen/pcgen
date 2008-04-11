@@ -103,8 +103,14 @@
 <hr>
 
 	<p class="indent0"><strong><a name="ARMORTYPE">Tag Name:</a></strong> CHOOSE:ARMORTYPE</p>
+	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all armor types that the character is proficient with.  This list is built from the choices for the Armor Proficiency feat.</p>
+	<ul class="indent2"
+		<li>This will produce a list of all armor types that the character is proficient with. 
+			This list is built from the choices for the Armor Proficiency feat.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:ARMORTYPE</code></p>
 	<p class="indent3">This will produce a list of all the armor types with which the character is proficient.  If the character in question was a Fighter the list produced would be Light, Medium, and Heavy.</p>
@@ -132,8 +138,13 @@
 <hr>
 
 	<p class="indent0"><strong><a name="CSKILLS">Tag Name:</a></strong> CHOOSE:CSKILLS</p>
+	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all class skills for the	character, regardless of rank.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all class skills for the	character, regardless of rank.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:CSKILLS</code></p>
 	<p class="indent3">This will produce a list of all class skills for the character.</p>
@@ -151,12 +162,16 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> PC</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of Domains.</p>
 	<ul class="indent2">
-		<li>ANY returns a list of all loaded Domains.</li>
-		<li>DIETY=&lt;name&gt; returns a list of Domains granted by specified Deity.</li>
-		<li>QUALIFY returns a list of loaded Domains the PC qualifies for but does not have.</li>
-		<li>PC returns a list of all domains a character actually has.</li>
+		<li>This will produce a list of Domains.</li>
+		<ul>
+			<li>ANY returns a list of all loaded Domains.</li>
+			<li>DIETY=&lt;text&gt; returns a list of Domains granted by specified Deity.</li>
+			<li>QUALIFY returns a list of loaded Domains the PC qualifies for but does not have.</li>
+			<li>PC returns a list of all domains a character actually has.</li>
+		</ul>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:DOMAIN|Air,Fire,Sun</code></p>
@@ -172,7 +187,11 @@
 	<p class="indent0"><strong><a name="EQUIPTYPE">Tag Name:</a></strong> CHOOSE:EQUIPTYPE|x.x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all known equipment that are of all of the named types.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all known equipment that are of all of the named types.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:EQUIPTYPE|Melee.Simple</code></p>
 	<p class="indent3">Will allow selection from all simple melee weapons.</p>
@@ -185,8 +204,12 @@
 	<p class="indent0"><strong><a name="FEAT">Tag Name:</a></strong> CHOOSE:FEAT=x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list from the list choices associated with the named feat
-		(Should replace WEAPONFOCUS).</p>
+	<ul class="indent2">
+		<li>This will produce a list of choices associated with the named feat
+			(Should replace WEAPONFOCUS).</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus</code></p>
 	<p class="indent3">Will display a list of all the character's choices for the Weapon Focus feat.</p>
@@ -200,7 +223,12 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of feats that match the type or name specified. The selected feat will be added to the characters feats.</p>
+	<ul class="indent2">
+		<li>This will produce a list of feats that match the type or name specified. The selected 
+			feat will be added to the characters feats.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEATADD|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all fighter feats. The selected feat will be added to the character's feats.</p>
@@ -214,7 +242,11 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of feats possessed by the character that match the type or name specified.</p>
+	<ul class="indent2">
+		<li>This will produce a list of feats possessed by the character that match the type or name specified.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEATLIST|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
@@ -228,7 +260,11 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of feats that match the type or name specified.</p>
+	<ul class="indent2">
+		<li>This will produce a list of feats that match the type or name specified.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEATSELECT|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all fighter feats.</p>
@@ -241,7 +277,11 @@
 	<p class="indent0"><strong><a name="HP">Tag Name:</a></strong> CHOOSE:HP|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Display name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Displays a list with the display name </p>
+	<ul class="indent2">
+		<li>Displays a list with the display name </li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:HP|+3 hp </code></p>
 	<p class="indent3">Will display a list with &quot;+3 hp&quot; .</p>
@@ -292,8 +332,12 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Highest value to choose from)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Description to output to the chooser)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) he high and low values</p>
-	<p class="indent1"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
+	<ul class="indent2">
+		<li>Allows the selections of a number between the high and low values, inclusive</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="sidebar1"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
 	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
@@ -311,14 +355,14 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> PC (Choose from proficiencies already possessed by PC)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL (Choose from all proficiencies)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> UNIQUE (Choose from all proficiencies not already possessed by PC)</p>
-	<ul class="indent2">
-		<li><p class="new">CHOOSE:PROFICIENCY|ARMOR|UNIQUE|ARMORTYPE= "Currently inactive, implemented
-after 6.0".</p></li>
-	</ul>
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Proficiency to add to list)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> TYPE= (Type of proficiency)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all proficiencies that match the criteria specified.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all proficiencies that match the criteria specified.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Exotic</code></p>
 	<p class="indent3">This will produce a list of all exotic weapon proficiencies the PC does not have.</p>
@@ -341,10 +385,13 @@ after 6.0".</p></li>
 	<p class="indent1"><strong>Variables Used (x):</strong> RACESUBTYPE=x (Race subtype)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=x (Race's type tag)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all races  that match the criteria specified.&nbsp; A
-		race that matches any of the criteria specified will be added to the list.&nbsp; To group items
-		together so that all the items in the group must be true use &quot;[]&quot; to surround
-		the choices.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all races that match the criteria specified.</li>
+		<li>To group items together so that all the items in the group must be true use 
+			&quot;[]&quot; to surround the choices.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Dragon</code></p>
 	<p class="indent3">This will produce a list of all races that have the Dragon racial type.</p>
@@ -360,8 +407,12 @@ after 6.0".</p></li>
 	<p class="indent0"><strong><a name="SALIST"></a>Tag Name:</strong> CHOOSE:SALIST|x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Start of SA name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all special abilities for
-		the character that match the start strings specified.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all special abilities for the character that match 
+			the start strings specified.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SALIST|Turn,Rebuke</code></p>
 	<p class="indent3">This will produce a list of all Special Abilities that start with Turn or Rebuke possessed by the character.</p>
@@ -372,8 +423,13 @@ after 6.0".</p></li>
 <hr>
 
 	<p class="indent0"><strong><a name="SCHOOLS">Tag Name:</a></strong> CHOOSE:SCHOOLS</p>
+	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all schools of magic from schools.lst.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all schools of magic from <em>schools.lst</em>.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SCHOOLS</code></p>
 	<p class="indent3">This will produce a list of all schools of magic (abjuration, evocation, etc.).</p>
@@ -387,7 +443,11 @@ after 6.0".</p></li>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Shield type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all shields of the specified type or name.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all shields of the specified type or name.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SHIELDPROF|TYPE=Wood</code></p>
 	<p class="indent3">This will produce a list of all wooden shields.</p>
@@ -413,9 +473,14 @@ after 6.0".</p></li>
 <hr>
 
 	<p class="indent0"><strong><a name="SKILLS">Tag Name:</a></strong> CHOOSE:SKILLS</p>
+	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all skills currently attached to the
-		character, regardless of rank.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all skills currently attached to the character, 
+			regardless of rank.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SKILLS</code></p>
 	<p class="indent3">This will produce a list of all skills usable Untrained and any skills that
@@ -438,7 +503,11 @@ after 6.0".</p></li>
 	<p class="indent1"><strong>Variables Used (x):</strong> RANKS=Number (Displays all skills the PC has of the listed rank)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> NORANK (Displays all skills the PC has no ranks in)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of named skills.  More than one can be used and if so the qualifying skills are combined.</p>
+	<ul class="indent2">
+		<li>This will produce a list of named skills that match the included selection criteria.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SKILLSNAMED|CLASS</code></p>
 	<p class="indent3">This will produce a list of class skills from which the character can pick.</p>
@@ -469,7 +538,12 @@ after 6.0".</p></li>
 	<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all cross class skills)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all exclusive skills)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of named skills.  The selected skill will be made a cross class skill for the character.</p>
+	<ul class="indent2">
+		<li>This will produce a list of named skills.</li>
+		<li>The selected skill will be made a cross class skill for the character.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCCSKILL|CLASS</code></p>
 	<p class="indent3">This will display a list of all the characters class skills and allow them to select a skill to be made a cross class skill.</p>
@@ -488,7 +562,12 @@ after 6.0".</p></li>
 	<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all cross class skills)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all exclusive skills)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of named skills.  The selected skill will be made a class skill for the character.</p>
+	<ul class="indent2">
+		<li>This will produce a list of named skills.</li>
+		<li>The selected skill will be made a class skill for the character.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCSKILL|CROSSCLASS</code></p>
 	<p class="indent3">This will display a list of all the characters cross class skills and allow them to select a skill to be made a class skill.</p>
@@ -498,9 +577,14 @@ after 6.0".</p></li>
 <hr>
 
 	<p class="indent0"><strong><a name="SPELLCLASSES">Tag Name:</a></strong> CHOOSE:SPELLCLASSES</p>
+	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all the character's classes which don't have a base spell
-		stat of &quot;None&quot;.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all the character's classes which don't have a base spell
+			stat of &quot;None&quot;.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SPELLCLASSES</code></p>
 	<p class="indent3">Will produce a list of the character's classes that can cast spells.</p>
@@ -544,7 +628,10 @@ after 6.0".</p></li>
 	<p class="indent0"><strong><a name="SPELLLIST">Tag Name</a>:</strong> CHOOSE:SPELLLIST|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (Spellbook required. Y or N)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of known spells for each class that matches the spellbook requirement. Allows selection of the maximum stat modifier spells for each qualifying class.</p>
+	<ul class="indent2">
+		<li>This will produce a list of known spells for each class that matches the spellbook requirement.</li>
+		<li>Allows selection of the maximum stat modifier spells for each qualifying class.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SPELLLIST|Y</code></p>
 	<p class="indent3">Would produce a list of all known spells for each class that uses a spellbook for the character. If the character is a Wizard, for example, it would allow INT mod selections from the list.</p>
@@ -587,8 +674,9 @@ after 6.0".</p></li>
 		<li>Dependent &quot;z&quot; parameters can use a common set of square-brackets ([ ]) paired
 			with the associated &quot;y&quot; parameter. (e.g. y[z;z])</li>
 		<li><strong>Note:</strong> y[z;z]|y[z] is legal, y[z][z] is not.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
-	<p class="indent2"></p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SPELLS|Acid Arrow|Magic Missile|Ray of Frost</code></p>
 	<p class="indent3">Choose between Acid Arrow, Magic Missile and Ray of Frost</p>
@@ -638,7 +726,11 @@ after 6.0".</p></li>
 	<p class="indent0"><strong><a name="STAT">Tag Name:</a></strong> CHOOSE:STAT|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat name. Optional)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all stats except the one(s) listed.</p>
+	<ul class="indent2">
+		<li>This will produce a list of all stats except the one(s) listed.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:STAT|CON</code></p>
 	<p class="indent3">This will produce a list off all stats except CON.</p>
@@ -652,7 +744,11 @@ after 6.0".</p></li>
 	<p class="indent0"><strong><a name="STRING">Tag Name:</a></strong> CHOOSE:STRING|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Choice to be offered)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of the provided strings.</p>
+	<ul class="indent2">
+		<li>This will produce a list of the provided strings.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:STRING|+1|+2</code></p>
 	<p class="indent3">This will produce a list consisting of &quot;+1&quot; and &quot;+2&quot;.</p>
@@ -687,8 +783,11 @@ after 6.0".</p></li>
 	<p class="indent0"><strong><a name="WEAPONFOCUS">Tag Name:</a></strong> CHOOSE:WEAPONFOCUS|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Equipment type) </p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of weaponprofs associated with the Weapon
-		Focus Feat.</p>
+	<ul class="indent2">
+		<li>This will produce a list of weaponprofs associated with the Weapon Focus Feat.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:WEAPONFOCUS|TYPE.Sword</code></p>
 	<p class="indent3">Present a list of weaponprofs associated with a characters Weapon Focus feats that match a given equipment type.</p>
@@ -764,7 +863,7 @@ after 6.0".</p></li>
 	<p class="indent1"><strong>Variables Used (y):</strong> Not.Text (Proficiency type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The actual listing of the types of weapon proficiencies the list may have is made up of:
+		<li>The actual listing of the types of weapon proficiencies the list may have is made up of:</li>
 		<ul>
 			<li>LIST - All character's weapon profs are added to list</li>
 			<li>DEITYWEAPON - All the character's Deity's favorite weapons are added to the list</li>
@@ -777,7 +876,8 @@ after 6.0".</p></li>
 			<li>TYPE.Not.string - Remove a previously added proficiency that has equipment that matches the specified type or wield category will be added to the list.</li>
 			<li>weaponprof - The specified proficiency will be added to the list if the character has it.</li>
 		</ul>
-		</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST</code></p>
