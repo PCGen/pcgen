@@ -2736,7 +2736,7 @@ public class PCClass extends PObject
 
 		final int index = baseSpellIndex();
 
-		if (index != -2)
+		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
 			final PCStat aStat = aPC.getStatList().getStatAt(index);
 			final int maxSpellLevel =
