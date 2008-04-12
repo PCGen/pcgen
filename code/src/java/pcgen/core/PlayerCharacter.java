@@ -4681,10 +4681,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final int c = pcClass.attackCycle(at);
 
 			// add to all other classes
-			final int d = ab.get(c).intValue() + b;
-
-			// set new value for iteration
-			ab.set(c, Integer.valueOf(d));
+			if (c < ab.size())
+			{
+				final int d = ab.get(c).intValue() + b;
+	
+				// set new value for iteration
+				ab.set(c, Integer.valueOf(d));
+			}
 
 			if (c != 3)
 			{
