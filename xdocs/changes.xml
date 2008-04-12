@@ -7,6 +7,13 @@
   <body> 
     <release version="5.13.13" date="2008-04-08" description="Beta release"> 
       <action dev="eddyanthony" type="add" issue="1227901">[RPG Objects] Darwin's World 2 - Survivors Guide</action> 
+      <action dev="thpr" type="fix" issue="1938396">HD triggering message about PREHD</action> 
+      <action dev="thpr" type="fix" issue="1934562">CHOOSE:NUMCHOICES=x|NOCHOICE not working</action> 
+      <action dev="thpr" type="fix" issue="1926308">CHOOSE:SPELLS|SPELLTYPE not filtering</action> 
+      <action dev="thpr" type="fix" issue="1903158">CHOOSE:NONCLASSSKILLLIST broken</action> 
+      <action dev="thpr" type="fix" issue="1937506">Scribe Scroll error</action> 
+      <action dev="thpr" type="fix" issue="1791283">UDAM does not respect level identifier</action> 
+      <action dev="thpr" type="fix" issue="1885033">Ability POOL Visibility</action> 
     </release>  
     <release version="5.13.12" date="2008-03-25" description="Beta release"> 
       <action dev="eddyanthony" type="add" issue="1905559">[Paizo] Rise of the Runelords Player's Guide</action>  
