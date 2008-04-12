@@ -279,13 +279,14 @@ public class AbilityCategory implements KeyedObject
 	 */
 	public boolean isVisible(PlayerCharacter pc)
 	{
-		if (theVisibleFlag ==  VISIBLE_NO)
+		if (theVisibleFlag == VISIBLE_NO)
 		{
 			return false;
 		}
 		if (theVisibleFlag == VISIBLE_QUALIFIED && pc != null)
 		{
-			return (pc.getTotalAbilityPool(this).floatValue() != 0.0);
+			return pc.getTotalAbilityPool(this).floatValue() != 0.0
+					|| !pc.getAggregateVisibleAbilityList(this).isEmpty();
 		}
 		return true;
 	}
