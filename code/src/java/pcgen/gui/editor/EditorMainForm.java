@@ -1051,7 +1051,7 @@ public final class EditorMainForm extends JDialog
 				thisPCClass.clearTemplates();
 				thisPCClass.addUmult(".CLEAR");
 				thisPCClass.clearFeatAutos();
-				thisPCClass.addUdamList(".CLEAR");
+				thisPCClass.clearUdamList();
 				break;
 
 			default:

@@ -139,6 +139,32 @@ public class ListKeyMapToList
 	}
 
 	/**
+	 * Adds the given value to the List at the given position, for the given
+	 * ListKey. The null value cannot be used as a key in a ListKeyMapToList.
+	 * This method will automatically initialize the list for the given key if
+	 * there is not already a List for that key. Any necessary null values will
+	 * be inserted if the given value is larger than the current length of the
+	 * list.
+	 * 
+	 * This method is reference-semantic and this ListKeyMapToList will maintain
+	 * a strong reference to both the key object and the value object given as
+	 * arguments to this method.
+	 * 
+	 * @param key
+	 *            The ListKey indicating which List the given object should be
+	 *            added to.
+	 * @param value
+	 *            The value to be added to the List for the given key.
+	 * @param loc
+	 *            The position at which the value will be added to the list.
+	 * @return The value previously at the given position, otherwise null.
+	 */
+	public <T> T addToListAt(ListKey<T> key, T value, int loc)
+	{
+		return (T) map.addToListAt(key, value, loc);
+	}
+
+	/**
 	 * Returns true if this ListKeyMapToList contains a List for the given
 	 * ListKey. This method returns false if the given key is not in this
 	 * ListKeyMapToList.

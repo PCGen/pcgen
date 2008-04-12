@@ -9,7 +9,7 @@ import pcgen.persistence.lst.GlobalLstToken;
 
 /**
  * @author djones4
- *
+ * 
  */
 public class UdamLst implements GlobalLstToken
 {
@@ -21,7 +21,18 @@ public class UdamLst implements GlobalLstToken
 
 	public boolean parse(PObject obj, String value, int anInt)
 	{
-		obj.addUdamList(value);
+		if (".CLEAR".equals(value))
+		{
+			obj.clearUdamList();
+		}
+		else if (anInt <= 0)
+		{
+			obj.setUdamItem(value, 0);
+		}
+		else
+		{
+			obj.setUdamItem(value, anInt);
+		}
 		return true;
 	}
 }

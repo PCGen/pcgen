@@ -980,16 +980,18 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Add to the unarmed damage list (or clear the whole list)
 	 * @param addString
 	 */
-	public final void addUdamList(final String addString)
+	public final void clearUdamList()
 	{
-		if (".CLEAR".equals(addString))
-		{
-			listChar.removeListFor(ListKey.UDAM);
-		}
-		else
-		{
-			listChar.addToListFor(ListKey.UDAM, addString);
-		}
+		listChar.removeListFor(ListKey.UDAM);
+	}
+
+	/**
+	 * Add to the unarmed damage list (or clear the whole list)
+	 * @param addString
+	 */
+	public final void setUdamItem(String addString, int loc)
+	{
+		listChar.addToListAt(ListKey.UDAM, addString, loc);
 	}
 
 	/**

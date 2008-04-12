@@ -149,6 +149,45 @@ public class HashMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
+	 * Adds the given value to the List at the given position, for the given
+	 * key. The null value cannot be used as a key in a HashMapToList. This
+	 * method will automatically initialize the list for the given key if there
+	 * is not already a List for that key. Any necessary null values will be
+	 * inserted if the given value is larger than the current length of the
+	 * list.
+	 * 
+	 * This method is reference-semantic and this HashMapToList will maintain a
+	 * strong reference to both the key object and the value object given as
+	 * arguments to this method.
+	 * 
+	 * @param key
+	 *            The key indicating which List the given object should be added
+	 *            to.
+	 * @param value
+	 *            The value to be added to the List for the given key.
+	 * @param loc
+	 *            The position at which the value will be added to the list.
+	 * @return The value previously at the given position, otherwise null.
+	 */
+	public V addToListAt(K key, V value, int loc)
+	{
+		/*
+		 * Note there is no requirement that a Key is added before this method
+		 * is called
+		 */
+		if (!containsListFor(key))
+		{
+			initializeListFor(key);
+		}
+		List<V> list = mapToList.get(key);
+		while (list.size() <= loc)
+		{
+			list.add(null);
+		}
+		return list.set(loc, value);
+	}
+
+	/**
 	 * Adds all of the Objects in the given list to the (internal) List for the
 	 * given key. The null value cannot be used as a key in a MapToList. This
 	 * method will automatically initialize the list for the given key if there

@@ -4044,8 +4044,12 @@ public class PCClass extends PObject
 		{
 			for (int x = 0; x < udamList.size(); ++x)
 			{
-				pccTxt.append(lineSep).append(String.valueOf(x + 1)).append(
+				String udamItem = udamList.get(x);
+				if (udamItem != null)
+				{
+					pccTxt.append(lineSep).append(String.valueOf(x)).append(
 					"\tUDAM:").append(udamList.get(x));
+				}
 			}
 		}
 
@@ -5453,7 +5457,6 @@ public class PCClass extends PObject
 
 		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + keyName);
 
-		int iLevel = aLevel;
 		final Equipment eq =
 				EquipmentList.getEquipmentKeyed("KEY_Unarmed Strike");
 
@@ -5509,14 +5512,8 @@ public class PCClass extends PObject
 				}
 			}
 
-			if (aLevel > udamList.size())
-			{
-				iLevel = udamList.size();
-			}
-
-			final StringTokenizer aTok =
-					new StringTokenizer(udamList.get(Math.max(iLevel - 1, 0)),
-						",", false);
+			final StringTokenizer aTok = new StringTokenizer(udamList.get(Math
+					.min(Math.max(aLevel, 0), udamList.size() - 1)), ",", false);
 
 			while ((iSize > -1) && aTok.hasMoreTokens())
 			{
