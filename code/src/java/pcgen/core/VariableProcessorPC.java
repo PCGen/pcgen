@@ -20,18 +20,17 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.character.Follower;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.exporttoken.EqTypeToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * <code>VariableProcessorPC</code> is a processor for variables
@@ -478,6 +477,25 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ("BAB".equals(valString))
 		{
 			valString = Integer.toString(getPc().baseAttackBonus());
+		}
+		else if ("MAXCASTABLE".equals(valString) && src.startsWith("SPELLTYPE:"))
+		{
+			String typeKey = src.substring(10);
+			int max = 0;
+			for (PCClass spClass : getPc().getClassList())
+			{
+				if (typeKey.equalsIgnoreCase(spClass.getSpellType()))
+				{
+					int cutoff = spClass.getHighestLevelSpell();
+					for (int i = 0; i < cutoff; i++) {
+						if (spClass.getKnownForLevel(i, getPc()) != 0)
+						{
+							max = Math.max(max,i);
+						}
+					}
+				}
+			}
+			valString = Integer.toString(max);
 		}
 		else if ("MAXCASTABLE".equals(valString) && src.startsWith("CLASS:"))
 		{

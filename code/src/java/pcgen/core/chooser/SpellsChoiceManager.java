@@ -78,6 +78,7 @@ public class SpellsChoiceManager extends
 			StringTokenizer st = new StringTokenizer(item, ",");
 			while (st.hasMoreTokens())
 			{
+				boolean fail = false;
 				String token = st.nextToken();
 				List<Spell> localList = new ArrayList<Spell>();
 				if (token.startsWith("DOMAIN=") || token.startsWith("DOMAIN."))
@@ -90,6 +91,31 @@ public class SpellsChoiceManager extends
 				{
 					appendSpells(new TypeKeyFilter("CLASS", token.substring(6),
 							null), aPc, localList);
+				}
+				else if (token.startsWith("SPELLTYPE="))
+				{
+					int bracketLoc = token.indexOf('[');
+					String spellType;
+					Restriction r = null;
+					if (bracketLoc == -1)
+					{
+						spellType = token.substring(10);
+					}
+					else
+					{
+						if (!token.endsWith("]"))
+						{
+							Logging.errorPrint("Invalid entry in "
+									+ "CHOOSE:SPELLS: " + token
+									+ " did not have matching brackets");
+						}
+						spellType = token.substring(10, bracketLoc);
+						r = getRestriction("SPELLTYPE:" + spellType, token
+								.substring(bracketLoc + 1, token.length() - 1),
+								aPc);
+					}
+					appendSpells(new SpellTypeFilter(spellType, r), aPc,
+							localList);
 				}
 				else if (token.startsWith("DOMAINLIST="))
 				{
@@ -197,9 +223,17 @@ public class SpellsChoiceManager extends
 						{
 							localList.add((Spell) obj);
 						}
+						else
+						{
+							fail = true;
+						}
 					}
 				}
-				if (masterList == null)
+				if (fail)
+				{
+					continue;
+				}
+				else if (masterList == null)
 				{
 					masterList = localList;
 				}
@@ -347,6 +381,90 @@ public class SpellsChoiceManager extends
 				availableList.add(spell);
 				break LEVEL;
 			}
+		}
+	}
+
+	private class SpellTypeFilter implements SpellFilter
+	{
+		private final String listname;
+		private final Restriction res;
+		private final String defaultbook;
+
+		public SpellTypeFilter(String listkey, Restriction r)
+		{
+			defaultbook = Globals.getDefaultSpellBook();
+			listname = listkey;
+			res = r;
+		}
+
+		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
+				List<Spell> availableList)
+		{
+			if (!spell.isType(listname))
+			{
+				return;
+			}
+			Map<String, Integer> levelInfo = spell.getLevelInfo(pc);
+			boolean useDomain = "DIVINE".equalsIgnoreCase(listname);
+			for (Map.Entry<String, Integer> me : levelInfo.entrySet())
+			{
+				if (useDomain && me.getKey().startsWith("DOMAIN|"))
+				{
+					if (passesRestriction(spell, pc, me.getValue()))
+					{
+						availableList.add(spell);
+						return;
+					}
+				}
+				else if (me.getKey().startsWith("CLASS|"))
+				{
+					PCClass cl = pc.getClassKeyed(me.getKey().substring(6));
+					if (cl != null && !listname.equalsIgnoreCase(cl.getSpellType()))
+					{
+						continue;
+					}
+					else if (passesRestriction(spell, pc, me.getValue()))
+					{
+						availableList.add(spell);
+						return;
+					}
+				}
+			}
+		}
+
+		private boolean passesRestriction(Spell spell, PlayerCharacter pc,
+				int level)
+		{
+			if (res != null)
+			{
+				if (level > res.maxLevel || level < res.minLevel)
+				{
+					return false;
+				}
+				if (res.knownRequired)
+				{
+					boolean found = false;
+					for (PCClass cl : pc.getClassList())
+					{
+						SpellSupport ss = cl.getSpellSupport();
+						List<CharacterSpell> csl = ss.getCharacterSpell(spell,
+								defaultbook, -1);
+						if (csl != null && !csl.isEmpty())
+						{
+							/*
+							 * Going to assume here that the level doesn't need
+							 * to be rechecked... ?? - thpr Feb 26, 08
+							 */
+							found = true;
+						}
+					}
+					if (!found)
+					{
+						return false;
+					}
+				}
+			}
+			return true;
 		}
 	}
 

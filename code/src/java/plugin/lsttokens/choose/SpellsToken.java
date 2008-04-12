@@ -136,6 +136,38 @@ public class SpellsToken implements ChooseLstToken
 								token.length() - 1));
 					}
 				}
+				else if (token.startsWith("SPELLTYPE="))
+				{
+					int bracketLoc = token.indexOf('[');
+					if (bracketLoc == -1)
+					{
+						if (token.length() < 10)
+						{
+							Logging.errorPrint("Invalid SPELLTYPE= entry for "
+									+ "CHOOSE:SPELLS: requires a spell type");
+							return false;
+						}
+					}
+					else
+					{
+						if (!token.endsWith("]"))
+						{
+							Logging.errorPrint("Invalid entry in "
+									+ "CHOOSE:SPELLS: " + token
+									+ " did not have matching brackets");
+							return false;
+						}
+						String className = token.substring(10, bracketLoc);
+						if (className == null || className.length() == 0)
+						{
+							Logging.errorPrint("Invalid SPELLTYPE= entry for "
+									+ "CHOOSE:SPELLS: requires a spell type");
+							return false;
+						}
+						validateRestriction(token.substring(bracketLoc + 1,
+								token.length() - 1));
+					}
+				}
 				else if (token.startsWith("SCHOOL="))
 				{
 					if (token.length() < 8)
@@ -193,6 +225,12 @@ public class SpellsToken implements ChooseLstToken
 				}
 				else
 				{
+					if (token.indexOf('[') != -1 || token.indexOf('=') != -1)
+					{
+						Logging.errorPrint("Invalid (unknown) entry: " + token
+								+ " for " + "CHOOSE:SPELLS:");
+						return false;
+					}
 					// Just a spell name
 				}
 			}
