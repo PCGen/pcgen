@@ -697,7 +697,7 @@ public class LevelAbilityAbility extends LevelAbility
 		{
 			// If automatically choosing all abilities in a list, then set the
 			// number allowed to the number available
-			if (aArrayList.equals(selectedList))
+			if (aArrayList != null && aArrayList.equals(selectedList))
 			{
 				numFeats = selectedList.size();
 			}
