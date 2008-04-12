@@ -1148,8 +1148,9 @@ public class PCClass extends PObject
 
 		if ((index > -2) && limitByStat)
 		{
+			String spellStatString = getSpellBaseStat();
 			final int maxSpellLevel =
-					aPC.getVariableValue("MAXLEVELSTAT=" + statString, "")
+					aPC.getVariableValue("MAXLEVELSTAT=" + spellStatString, "")
 						.intValue();
 
 			if ((maxSpellLevel + bonusStat) < spellLevel)
