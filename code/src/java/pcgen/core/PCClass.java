@@ -1222,12 +1222,7 @@ public class PCClass extends PObject
 
 						if (x > -1)
 						{
-							PCClass target = this;
-							if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
-							{
-								target = getSubClassKeyed(subClassKey);
-							}
-							adj = target.getSpecialtyKnownForLevel(spellLevel, aPC);
+							adj = 1;
 
 							break;
 						}
@@ -1235,7 +1230,7 @@ public class PCClass extends PObject
 				}
 				// end of what to do if aList is not empty
 
-				if (adj > 0)
+				if (adj == 1)
 				{
 					break;
 				}
@@ -2658,13 +2653,7 @@ public class PCClass extends PObject
 			// if this class has a specialty, return +1
 			if (hasSpecialtyList())
 			{
-				PCClass target = this;
-				if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
-				{
-					target = getSubClassKeyed(subClassKey);
-				}
-				
-				return "+"+target.getSpecialtyKnownForLevel(spellLevel, aPC);
+				return "+1";
 			}
 
 			if (!aPC.hasCharacterDomainList())
@@ -2773,9 +2762,14 @@ public class PCClass extends PObject
 				}
 			}
 
-			// make sure any slots due from specialties (including domains) are
-			// added
-			total += castInfo.getKnownSpellsFromSpecialty();
+			// if we have known spells (0==no known spells recorded) or a psi
+			// specialty.
+			if ((total > 0) && (spellLevel > 0))
+			{
+				// make sure any slots due from specialties (including domains) are
+				// added
+				total += castInfo.getKnownSpellsFromSpecialty();
+			}
 		}
 
 		return total;
@@ -3167,7 +3161,7 @@ public class PCClass extends PObject
 					final String aString = Globals.getBonusFeatString();
 					final StringTokenizer aTok =
 							new StringTokenizer(aString, "|", false);
-					int startLevel = Integer.parseInt(aTok.nextToken());
+					final int startLevel = Integer.parseInt(aTok.nextToken());
 					final int rangeLevel = Integer.parseInt(aTok.nextToken());
 					int divisor = 1;
 					final boolean isMonsterClass =
@@ -3175,15 +3169,7 @@ public class PCClass extends PObject
 								&& aPC.getRace().getMonsterClass(aPC, false)
 									.equalsIgnoreCase(this.getKeyName());
 					Integer mLevPerFeat = getLevelsPerFeat();
-					if (mLevPerFeat == null)
-					{
-						divisor = rangeLevel;
-					}
-					else
-					{
-						divisor = mLevPerFeat;
-						startLevel = 0;
-					}
+					divisor = (mLevPerFeat != null) ? mLevPerFeat : rangeLevel;
 					if (divisor > 0)
 					{
 						if (SettingsHandler.isMonsterDefault() && isMonsterClass)
@@ -3194,14 +3180,12 @@ public class PCClass extends PObject
 
 							formula = new StringBuffer("max(0,floor((CL-");
 							formula.append(monLev);
-							formula.append("-");
-							formula.append(startLevel);
 							formula.append(")/");
 							formula.append(divisor);
 							formula.append("))");
 
 							StringBuffer aBuf =
-									new StringBuffer(startLevel + "|FEAT|MONSTERPOOL|");
+									new StringBuffer("0|FEAT|MONSTERPOOL|");
 							aBuf.append(formula);
 							BonusObj bon = Bonus.newBonus(aBuf.toString());
 							bon.setCreatorObject(this);
@@ -3210,8 +3194,7 @@ public class PCClass extends PObject
 						else
 						{
 							StringBuffer aBuf =
-									new StringBuffer(startLevel
-									+ "|FEAT|PCPOOL|(CL-" + startLevel + "+" + rangeLevel + ")/");
+									new StringBuffer("0|FEAT|PCPOOL|CL/");
 							aBuf.append(divisor);
 							BonusObj bon = Bonus.newBonus(aBuf.toString());
 							bon.setCreatorObject(this);
@@ -4481,12 +4464,12 @@ public class PCClass extends PObject
 		return i;
 	}
 
-	/**
+	/*
 	 * -2 means that the spell itself indicates what stat should be used,
 	 * otherwise this method returns an index into the global list of stats for
 	 * which stat the bonus spells are based upon.
 	 * 
-	 * @return int Index of the class' spell stat, or -2 if spell based
+	 * @return int
 	 */
 	/*
 	 * REFACTOR Why is this returning an INT and not a PCStat or something like
@@ -4497,8 +4480,9 @@ public class PCClass extends PObject
 	{
 		String tmpSpellBaseStat = getSpellBaseStat();
 
-		return "SPELL".equals(tmpSpellBaseStat) || tmpSpellBaseStat == null
-			? (-2 // means base spell stat is based upon spell itself
+		return "SPELL".equals(tmpSpellBaseStat) ? (-2 // means base spell stat
+			// is based upon spell
+			// itself
 			) : SettingsHandler.getGame().getStatFromAbbrev(tmpSpellBaseStat);
 	}
 
