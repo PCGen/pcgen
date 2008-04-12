@@ -23,6 +23,7 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -39,7 +40,7 @@ import pcgen.util.enumeration.Visibility;
 public class SkillListChoiceManager extends AbstractBasicStringChoiceManager
 {
 
-	protected List<String> rootArrayList;
+	protected List<String> rootArrayList = new ArrayList<String>();
 
 	/**
 	 * Make a new Skill List chooser.
