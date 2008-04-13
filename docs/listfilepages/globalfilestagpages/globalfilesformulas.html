@@ -311,7 +311,7 @@
 			<li>The formula used within the roll("x") function can use all the standard JEP operators 
 			and in addition	it can take a dice expression in the form of xdx, for example 2d6, 1d20 and 3d4.</li>
 			<li>The following functions are also supported within the roll function and must be encapsulated in a roll(&quot;x&quot;) call to function properly:
-				<ul class=indent2">
+				<ul>
 					<li><code>min(v1,v2)</code></li>
 					<li><code>max(v1,v2)</code></li>
 					<li><code>pow(base, exponent)</code></li>
@@ -453,12 +453,13 @@
 		<li>This token is used to obtain the number of objects matching the provided criteria.</li>
 		<li>The matching criteria are a comma-delimited (,) list of quotated parameters ("parameter=text") associated with 
 		the &quot;Object&quot; being counted.</li>
+		<li>&quot;<code>[and]</code>&quot; and &quot;<code>[or]</code>&quot; can be used between parameters.</li>
 		<li>Use of this token in conjunction with output sheet tokens <code>IIF</code> and <code>VAR</code> require 
 		a semicolon-delimited (;) list of quotated parameters instead of a comma-delimited list.</li>
 		<li>This token can be used in any of the OS FOR loops in place of max.</li>
 		<li>Valid &lt;Object to be counted&gt; and the associated &lt;Matching criteria&gt; are listed below:
 			<ul>
-				<li>ABILITIES - Will count the abilities that satisfy the included &quot;CATEGORY&quot;, &quot;NATURE&quot;, 
+				<li>ABILITIES - Will count the abilities that satisfy the included &quot;CATEGORY&quot;, &quot;NAME&quot;, &quot;NATURE&quot;, 
 				&quot;TYPE&quot;, and &quot;VISIBILITY&quot; parameters.
 					<ul>
 						<li><code>&quot;CATEGORY=&lt;text&gt;&quot;</code> - The ability category as defined in the 
@@ -470,14 +471,15 @@
 						&quot;AUTOMATIC&quot;.</li>
 						<li><code>&quot;TYPE=&lt;text&gt;&quot;</code> - The ability type as defined in the ability.lst 
 						file. (i.e. &quot;General&quot;, &quot;Fighter&quot;, &quot;Metamagic&quot;, etc.)</li>
-						<li><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code> - &quot;HIDDEN&quot;, &quot;DEFAULT&quot;, 
-						&quot;OUTPUT_ONLY&quot;, &quot;DISPLAY_ONLY&quot;.</li>
-						<li>Proper syntax for this formula when being used in output sheets to count abilities is:
+						<li><code>&quot;VISIBILITY=&lt;text&gt;&quot;</code>
 							<ul>
-								<li><code>&lt;abilityCount&gt;|VAR.count(&quot;ABILITIES&quot;,y)|&lt;/abilityCount&gt;</code></li>
+								<li>&quot;HIDDEN&quot;, includes abilities with VISIBLE:NO</li>
+								<li>&quot;DEFAULT&quot;, includes abilities with VISIBLE:YES or no VISIBLE tag at all</li>
+								<li>&quot;OUTPUT_ONLY&quot;, includes abilities with VISIBLE:EXPORT</li>
+								<li>&quot;DISPLAY_ONLY&quot;,  includes abilities with VISIBLE:DISPLAY</li>
 							</ul>
 						</li>
-					</ul>
+					</ul><br>
 				</li>
 				<li>CLASSES - Not yet implemented.</li>
 				<li>DOMAINS - Not yet implemented.</li>
@@ -494,14 +496,18 @@
 		</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>count(&quot;ABILITIES&quot;,&quot;CATEGORY=FEAT&quot;,&quot;TYPE=Metamagic&quot;,&quot;VISIBILITY=YES&quot;)</code></p>
+	<p class="indent2"><code>count(&quot;ABILITIES&quot;,&quot;CATEGORY=FEAT&quot;,&quot;TYPE=Metamagic&quot;,&quot;VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY&quot;)</code></p>
 	<p class="indent3">This token returns the number of visible metamagic feats the character has.</p>
-	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;TYPE=Fighter&quot;,"VISIBILITY=YES")</code></p>
+	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;TYPE=Fighter&quot;,"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")</code></p>
 	<p class="indent3">Returns the number of all visible Fighter type feat abilities.</p>
 	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;NAME=Toughness&quot;)</code></p>
 	<p class="indent3">Returns the number of times the Toughness feat was taken.</p>
+	<p class="indent2"><code>count("ABILITIES","CATEGORY=Special Ability",&quot;NATURE=VIRTUAL[or]NATURE=AUTOMATIC&quot;)</code></p>
+	<p class="indent3">Returns the number of abilities of category "Special Ability" the character has which are either virtual or automatic.</p>
+	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY&quot;)</code></p>
+	<p class="indent3">Returns the number of hidden feats.</p>
 	<p class="indent2"><code>|VAR.count(&quot;ABILITIES&quot;,&quot;CATEGORY=Maneuver&quot;)|</code></p>
-	<p class="indent3">Returns the number of &quot;Maneuver&quot; abilities the character has.</p>
+	<p class="indent3">Outputs the number of &quot;Maneuver&quot; abilities the character has.</p>
 	</blockquote>
 	<p></p>
 
