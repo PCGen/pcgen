@@ -1221,7 +1221,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 	private PObjectNode[] getLevelNodes()
 	{
 		PObjectNode[] tempNodes = new PObjectNode[20];
-		for (int ix = 0; ix < 20; ++ix)
+		for (int ix = 0; ix <= Constants.MAX_SPELL_LEVEL; ++ix)
 		{
 			tempNodes[ix] = new PObjectNode();
 			String ix2 = "" + ix; //$NON-NLS-1$

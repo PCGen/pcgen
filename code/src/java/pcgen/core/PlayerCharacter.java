@@ -13191,7 +13191,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (int i = level;; ++i)
+		for (int i = level; i <= Constants.MAX_SPELL_LEVEL; ++i)
 		{
 			if (knownLearned)
 			{
@@ -13218,7 +13218,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// in
 			// going higher than the spell's level.
 			//
-			if (knownTot == 0 || (!canUseHigher && i > level))
+			if (!canUseHigher && i > level)
 			{
 				break;
 			}
