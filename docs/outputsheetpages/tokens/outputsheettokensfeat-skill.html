@@ -27,8 +27,14 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="ABILITY">Token Name:</a></strong> ABILITY.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent0"><strong><a name="ABILITY">Token Name:</a></strong> ABILITY.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all abilities.</li>
+		</ul>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The ability's position in the character's complete ability list
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
@@ -57,12 +63,14 @@
 		<p class="indent3">Displays the name of the 4<sup>th</sup> chosen feat with a type of general.</p>
 		<p class="indent2"><code>ABILITY.ECHIDNA.3.TYPE=General.TYPE</code></p>
 		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen echidna category ability with a type of general.</p>
-
+		<p class="indent2"><code>ABILITY.FEAT.HIDDEN.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> chosen hidden feat.</p>
+		
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="ABILITYALL">Token Name:</a></strong> ABILITYALL.v.w.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility).</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
 		<ul class="indent2">
 			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
 			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
@@ -81,7 +89,7 @@
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the yth ability in the character's complete ability list.</li>
+			<li>Displays information about the yth ability in the character's complete ability list (including automatic, virtual and normal abilities).</li>
 			<li>You may include more than one TYPE=type in the token.</li>
 			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
 			<li>You may not have an inclusion and exclusion in the same token.</li>
@@ -91,13 +99,15 @@
 		<p class="indent2"><code>ABILITYALL.FEAT.0</code></p>
 		<p class="indent3">Displays the first feat name.</p>
 		<p class="indent2"><code>ABILITYALL.FIGHTER.0.DESC</code></p>
-		<p class="indent3">Displays the description of the first fighter ability.</p>
+		<p class="indent3">Displays the description of the first category "FIGHTER" ability.</p>
 		<p class="indent2"><code>ABILITYALL.WIZARD.1.TYPE=Metamagic</code></p>
-		<p class="indent3">Displays the 2<sup>nd</sup> ability name if it is a metamagic wizard ability.</p>
+		<p class="indent3">Displays the 2<sup>nd</sup> category "WIZARD" ability description of type "Metamagic".</p>
 		<p class="indent2"><code>ABILITYALL.FIGHTER.2.!TYPE=General.DESC</code></p>
-		<p class="indent3">Displays the 3<sup>rd</sup> ability description if it is a General fighter ability.</p>
+		<p class="indent3">Displays the 3<sup>rd</sup> category "FIGHTER" ability description of type "General".</p>
 		<p class="indent2"><code>ABILITYALL.STARTING.3.TYPE=Occupation.TYPE</code></p>
-		<p class="indent3">Displays the type of the 4<sup>th</sup> ability if it is an Occupation starting ability.</p>
+		<p class="indent3">Displays the type of the 4<sup>th</sup> category "STARTING" ability of type "Occupation".</p>
+		<p class="indent2"><code>ABILITYALL.Special Ability.HIDDEN.1.TYPE=Special</code></p>
+		<p class="indent3">Displays the 2<sup>nd</sup> category "Special Ability" hidden ability name of type "Special".</p>
 
 
 		<p></p><hr>
@@ -126,8 +136,14 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="ABILITYAUTO">Token Name:</a></strong> ABILITYAUTO.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent0"><strong><a name="ABILITYAUTO">Token Name:</a></strong> ABILITYAUTO.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all abilities.</li>
+		</ul>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The abilities position in the character's complete ability list
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
@@ -204,7 +220,13 @@
 		<p class="indent3">Displays all of the character's chosen item creation type wizard abilities (comma delimited).</p>
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="FEAT">Token Name:</a></strong> FEAT.x.y.z</p>
+		<p class="indent0"><strong><a name="FEAT">Token Name:</a></strong> FEAT.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all abilities.</li>
+		</ul>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
@@ -300,7 +322,13 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="FEATAUTO">Token Name:</a></strong> FEATAUTO.x.y.z</p>
+		<p class="indent0"><strong><a name="FEATAUTO">Token Name:</a></strong> FEATAUTO.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all abilities.</li>
+		</ul>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
@@ -608,8 +636,14 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="VABILITY">Token Name:</a></strong> VABILITY.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent0"><strong><a name="VABILITY">Token Name:</a></strong> VABILITY.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all abilities.</li>
+		</ul>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The abilities position in the character's complete ability list
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
@@ -664,7 +698,13 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="VFEAT">Token Name:</a></strong> VFEAT.x.y.z</p>
+		<p class="indent0"><strong><a name="VFEAT">Token Name:</a></strong> VFEAT.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all abilities.</li>
+		</ul>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
