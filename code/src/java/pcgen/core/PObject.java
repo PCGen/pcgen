@@ -5148,7 +5148,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * @param aPC
 	 * @return partial bonus
 	 */
-	private double calcPartialBonus(final int iTimes, final BonusObj aBonus, final Object anObj, final String listString, final PlayerCharacter aPC)
+	public double calcPartialBonus(final int iTimes, final BonusObj aBonus, final Object anObj, final String listString, final PlayerCharacter aPC)
 	{
 		final String aList = aBonus.getBonusInfo();
 		String aVal = aBonus.getValue();
@@ -5169,12 +5169,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				//first, find out which one
 				//this is a bit of a hack but it was the best I could figure out so far
 				boolean found = false;
+				final StringBuffer sb = new StringBuffer();
 				for (int i = 0; i < getAssociatedCount(); ++i)
 				{
 					final String associatedStr = getAssociated(i).toUpperCase();
+					
 					if (listString.indexOf(associatedStr) >= 0)
 					{
-						final StringBuffer sb = new StringBuffer();
+						
 						if (listIndex > 0)
 						{
 							sb.append(aVal.substring(0, listIndex));
@@ -5188,8 +5190,16 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 						found = true;
 						break;
 					}
+					else 
+					{
+                       if (i != 0) 
+                        { 
+                        	sb.append("+"); 
+                        } 
+                        sb.append(associatedStr);
+					}
 				}
-
+				aVal = aVal.replace("%LIST", sb.toString());
 				listIndex = (found) ? aVal.indexOf("%LIST") : -1;
 			}
 		}

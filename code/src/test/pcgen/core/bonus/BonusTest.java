@@ -23,6 +23,8 @@
  */
 package pcgen.core.bonus;
 
+import java.util.ArrayList;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
@@ -31,6 +33,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
 import plugin.bonustokens.Var;
 
 /**
@@ -194,5 +197,37 @@ public class BonusTest extends AbstractCharacterTestCase
 		
 		Double a = sp.calcBonusFrom(spCost, character, character);
 		assertEquals(10, spCosts + a.intValue());
+	}
+	
+	/**
+	 * Test to make sure that fix for replacing %LIST within a 
+	 * bonuses value will work.
+	 */
+	public void testBonuswithLISTValue()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Globals.setCurrentPC(character);
+		setPCStat(character, "INT", 18);
+		int statMod = character.getStatList().getStatModFor("INT");
+		final BonusObj bonus =
+				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
+		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		bonusList.add(bonus);
+		final Ability testBonus = new Ability();
+		testBonus.addBonusList(bonus);
+		testBonus.addAssociated("INT");
+		bonus.setCreatorObject(testBonus);
+		character.addFeat(testBonus, null);
+
+		int bonusVal = (int) testBonus.calcPartialBonus(1, bonus, character, "VISION.DARKVISION:MAGICAL BOON", character);
+		assertEquals(14, bonusVal);
+		
+		
+
+		
+		
+		
+		//Double a = sp.calcBonusFrom(spCost, character, character);
 	}
 }
