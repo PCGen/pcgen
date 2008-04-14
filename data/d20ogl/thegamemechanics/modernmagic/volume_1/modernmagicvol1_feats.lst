@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jan 11 15:08:36 2007 -- reformated by prettylst.pl v1.35 (build 1495)
+# CVS $Revision$ $Author$ -- Mon Apr 14 13:08:45 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
 
 #CREATED BY:Paul W. King, Jan 2007
 #UPDATED BY:Paul W. King, Jan 2007
 
-# Feat Name		Type							Required Feat				Req. Spell Type		Description											Add Spell Lvl	BONUS:EQMARMOR				Source Page
-Armored Casting	TYPE:General.ArcaneSpecOp.Thaumaturgical	PREFEAT:1,Armor Proficiency (Light)					DESC:You are skilled at casting spells while wearing armor.						BONUS:EQMARMOR|SPELLFAILURE|-10	SOURCEPAGE:p.31
-Combat Casting	TYPE:General.ArcaneSpecOp									PRESPELLTYPE:1,Arcane=4	DESC:You are adept at casting spells during combat.													SOURCEPAGE:p.31
-Fork Spell		TYPE:Metamagic.ArcaneSpecOp													DESC:You can double the number of targets your spell has.			ADDSPELLLEVEL:2							SOURCEPAGE:p.31
-Mass Spell		TYPE:Metamagic.ArcaneSpecOp			PREFEAT:1,Fork Spell							DESC:You can vastly increase the number of targets your spells affect.	ADDSPELLLEVEL:4							SOURCEPAGE:p.31
+# Feat Name		Type							Required Feat				Req. Spell Type		Description											Add Spell Lvl	Misc bonus				Source Page
+Armored Casting	TYPE:General.ArcaneSpecOp.Thaumaturgical	PREFEAT:1,Armor Proficiency (Light)					DESC:You are skilled at casting spells while wearing armor.						BONUS:MISC|SPELLFAILURE|-10	SOURCEPAGE:p.31
+Combat Casting	TYPE:General.ArcaneSpecOp									PRESPELLTYPE:1,Arcane=4	DESC:You are adept at casting spells during combat.												SOURCEPAGE:p.31
+Fork Spell		TYPE:Metamagic.ArcaneSpecOp													DESC:You can double the number of targets your spell has.			ADDSPELLLEVEL:2						SOURCEPAGE:p.31
+Mass Spell		TYPE:Metamagic.ArcaneSpecOp			PREFEAT:1,Fork Spell							DESC:You can vastly increase the number of targets your spells affect.	ADDSPELLLEVEL:4						SOURCEPAGE:p.31
