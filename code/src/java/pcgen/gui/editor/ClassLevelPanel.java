@@ -106,7 +106,12 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			{
 				// Make sure that the source file is in URL format for use in
 				// the campaign source entry
-				sourceFile = new URI("file", null, CustomData.customClassFilePath(true), null);
+				String path = CustomData.customClassFilePath(true);
+				if (!path.startsWith("/"))
+				{
+					path = "/" + path;
+				}
+				sourceFile = new URI("file", null, path, null);
 				object.setSourceURI(sourceFile);
 				object.setSourceCampaign(customCampaign);
 			}
@@ -118,9 +123,9 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			object.addAddList(-1, ".CLEAR");
 
 			// Loop through level tags.  Parse them to apply them to the PCClass.
-			for (Iterator i = levelTagList.iterator(); i.hasNext();)
+			for (Iterator<LevelTag> i = levelTagList.iterator(); i.hasNext();)
 			{
-				LevelTag lt = (LevelTag) i.next();
+				LevelTag lt = i.next();
 
 				if (lt.needsSaving())
 				{
