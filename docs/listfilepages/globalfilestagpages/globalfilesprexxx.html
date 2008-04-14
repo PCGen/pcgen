@@ -623,21 +623,21 @@
 <hr>
 
 	<p class="indent0"><strong><a name="PREFEAT">Tag Name:</a></strong> PREFEAT:x,y,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number
-		(The number of feats from the list that the character must have).</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of required feats)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> CHECKMULT
-		(Used to make the program count each instance of a feat separately - optional).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Text (The name of a feat a character must have).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> [Text] (The name of a feat a character must NOT have).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> TYPE=Text (The type of a feat the character must have).</p>
-	<p class="indent1"><strong>Variables Used (z): </strong>[TYPE=Text] (The type of a feat the character must NOT have).</p>
+		(Used to make the program count each instance of a feat separately - optional)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Text (Feat name)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> [Text] (Name of a feat a character must NOT have)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> TYPE=Text (Feat type)</p>
+	<p class="indent1"><strong>Variables Used (z): </strong>[TYPE=Text] (Type of feat the character must NOT have)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets character feat requirements.</li>
 		<li>Feats with multiple instances where the instance is expressed within parentheses, e.g. Skill 
 			Focus or Spell Focus, there is no space between the name of the feat and the parentheses.</li>
 		<li>Use of the <code>(TYPE=&lt;text&gt;)</code> syntax with feats with multiple instances, e.g. 
-			<code>Weapon Focus(TYPE=Bow)</code>, though allowed with this tag, does not support all such feats.</li>
+			<code>Weapon Focus(TYPE=Bow)</code>, though allowed, is only supported for feats with internal 
+			choosers for <code>DOMAIN</code>, <code>SKILL</code>, <code>SPELL</code>, and <code>WEAPONPROF</code> types.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREFEAT:1,Dodge,Combat Reflexes</code></p>
