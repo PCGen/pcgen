@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 29 22:07:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Mon Apr 14 11:44:27 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
 
 STARTPACK:NPC (Goblin Warchanter)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 12
@@ -13,13 +13,13 @@ SKILL:Listen		RANK:4
 SKILL:Perform (Sing)	RANK:4
 SKILL:Tumble		RANK:4
 FEAT:Combat Reflexes
-GEAR:Potion (Cure Light Wounds)	LOCATION:Carried
-GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
-GEAR:Whip					SIZE:S	LOCATION:Primary Hand
-GEAR:Shortbow				SIZE:S	LOCATION:Carried
-GEAR:Arrow					SIZE:S	LOCATION:Carried	QUANTITY:21
-GEAR:Coin (Gold)				LOCATION:Carried	QUANTITY:20
-GEAR:Dogslicer				LOCATION:Carried
+GEAR:Potion (Cure Light Wounds)					LOCATION:Carried
+GEAR:Studded Leather					SIZE:S	LOCATION:Equipped
+GEAR:Whip							SIZE:S	LOCATION:Primary Hand
+GEAR:Shortbow						SIZE:S	LOCATION:Carried
+GEAR:Arrow					QTY:21	SIZE:S	LOCATION:Carried
+GEAR:Coin (Gold)				QTY:20			LOCATION:Carried
+GEAR:Dogslicer								LOCATION:Carried
 
 
 STARTPACK:NPC (Goblin Commando)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 13
@@ -35,9 +35,9 @@ SKILL:Spot			RANK:4
 SKILL:Survival		RANK:4
 FEAT:Mounted Combat
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
-GEAR:Studded Leather	SIZE:S	LOCATION:Equipped
-GEAR:Horsechopper		LOCATION:Both Hands	EQMOD:MWORKW.STEEL
-GEAR:Shortbow		SIZE:S	LOCATION:Carried
+GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
+GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:MWORKW.STEEL
+GEAR:Shortbow				SIZE:S	LOCATION:Carried
 GEAR:Arrow			QTY:20	SIZE:S	LOCATION:Carried
 
 
@@ -68,8 +68,8 @@ ABILITY:CATEGORY=Monk Feat|Monk Lvl 2 Bonus Feat (Deflect Arrows)
 GEAR:Potion (Cure Light Wounds)	LOCATION:Equipped
 GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:BOWSTR|+1.WOOD
 GEAR:Ring (Protection +1)		LOCATION:Equipped
-GEAR:Thieves' Tools			LOCATION:Equipped	EQMOD:MWORKT
-GEAR:Musical Instrument (Flute)	LOCATION:Equipped	EQMOD:MWORKI
+GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:MWORKT
+GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:MWORKI
 GEAR:Flurry of Blows			LOCATION:Equipped
 
 
@@ -86,7 +86,7 @@ ABILITY:CATEGORY=Fighter Feat|Toughness
 TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
 GEAR:Longsword	LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:MWORKW
-GEAR:Dagger		LOCATION:Carried	EQMOD:ALCHM
+GEAR:Dagger		LOCATION:Carried		EQMOD:ALCHM
 
 
 STARTPACK:NPC (Gogmurt)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 35
@@ -100,12 +100,12 @@ SKILL:Knowledge (Nature)	RANK:7
 SKILL:Survival			RANK:7
 FEAT:Brew Potion
 FEAT:Combat Casting
-GEAR:Potion (Cure Light Wounds)	QTY:2	LOCATION:Carried
-GEAR:Wand					LOCATION:Carried	EQMOD:SPL_CHRG|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
-GEAR:Leather				SIZE:S	LOCATION:Equipped	EQMOD:PLUS1A.LEATHER
-GEAR:Spear					SIZE:S	LOCATION:Both Hands
-GEAR:Sling					SIZE:S	LOCATION:Carried
-GEAR:Cloak of Resistance +1		LOCATION:Equipped
+GEAR:Potion (Cure Light Wounds)	QTY:2			LOCATION:Carried
+GEAR:Wand								LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
+GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:PLUS1A.LEATHER
+GEAR:Spear						SIZE:S	LOCATION:Both Hands
+GEAR:Sling						SIZE:S	LOCATION:Carried
+GEAR:Cloak of Resistance +1					LOCATION:Equipped
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Animal Messenger|Charm Animal|Cure Light Wounds=2|Cure Minor Wounds|Entangle|Flame Blade|Flare=2|Guidance|Mending|Restoration (Lesser)
 
 
@@ -123,10 +123,10 @@ FEAT:Weapon Specialization(Dogslicer)
 ABILITY:CATEGORY=Fighter Feat|Mounted Combat
 ABILITY:CATEGORY=Fighter Feat|Ride By Attack
 ABILITY:CATEGORY=Fighter Feat|Spirited Charge
-GEAR:Potion (Barkskin +2)		LOCATION:Carried
-GEAR:Potion (Cure Moderate Wounds)	QTY:2	LOCATION:Carried
-GEAR:Breastplate				SIZE:S	LOCATION:Equipped	EQMOD:MWORKA.STEEL
-GEAR:Dogslicer				SIZE:S	LOCATION:Equipped	EQMOD:PLUS1W.STEEL
+GEAR:Potion (Barkskin +2)					LOCATION:Carried
+GEAR:Potion (Cure Moderate Wounds)	QTY:2			LOCATION:Carried
+GEAR:Breastplate					SIZE:S	LOCATION:Equipped	EQMOD:MWORKA.STEEL
+GEAR:Dogslicer					SIZE:S	LOCATION:Equipped	EQMOD:PLUS1W.STEEL
 
 
 STARTPACK:NPC (Bruthazamus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]	SOURCEPAGE:p. 44
@@ -141,12 +141,12 @@ SKILL:Survival		RANK:5
 FEAT:Point Blank Shot
 FEAT:Weapon Focus(Longbow)
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Elf))
-GEAR:Potion (Cure Moderate Wounds)	LOCATION:Carried
-GEAR:Studded Leather			LOCATION:Equipped
-GEAR:Flail (Heavy)			LOCATION:Both Hands
-GEAR:Longbow (Composite)		LOCATION:Carried	EQMOD:BOWSTR|+3.MWORKW
+GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
+GEAR:Studded Leather					LOCATION:Equipped
+GEAR:Flail (Heavy)					LOCATION:Both Hands
+GEAR:Longbow (Composite)				LOCATION:Carried		EQMOD:BOWSTR|+3.MWORKW
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Arrow					QTY:4	LOCATION:Carried	EQMOD:PLUS1W.BANE_A|Humanoids (elf)
+GEAR:Arrow					QTY:4		LOCATION:Carried		EQMOD:PLUS1W.BANE_A|Humanoids (elf)
 
 
 STARTPACK:NPC (Orik Vancaskerkin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 46
@@ -164,14 +164,14 @@ FEAT:Athletic
 FEAT:Blind Fight
 ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Power Attack
-GEAR:Potion (Cure Moderate Wounds)	LOCATION:Carried
-GEAR:Banded Mail				LOCATION:Equipped	EQMOD:PLUS1A
-GEAR:Shield (Heavy/Metal)		LOCATION:Equipped	EQMOD:MWORKA
-GEAR:Sword (Bastard)			LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
+GEAR:Banded Mail						LOCATION:Equipped		EQMOD:PLUS1A
+GEAR:Shield (Heavy/Metal)				LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Sword (Bastard)					LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Longbow (Composite)		LOCATION:Carried
-GEAR:Everburning Torch			LOCATION:Carried
-GEAR:Coin (Platinum)			QTY:2	LOCATION:Carried
+GEAR:Longbow (Composite)				LOCATION:Carried
+GEAR:Everburning Torch					LOCATION:Carried
+GEAR:Coin (Platinum)			QTY:2		LOCATION:Carried
 
 
 STARTPACK:NPC (Lyrie Akenja)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 50
@@ -283,14 +283,14 @@ ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 ABILITY:CATEGORY=Turn Undead|Rebuke Undead
 TEMPLATE:Lamashtu's Gift
-GEAR:Breastplate			LOCATION:Equipped	EQMOD:PLUS1A
-GEAR:Sword (Bastard)		LOCATION:Primary Hand	EQMOD:PLUS1W
-GEAR:Sihedron Medallion		LOCATION:Carried
-GEAR:Longbow (Composite)	EQMOD:BOWSTR|+3.MWORKW	LOCATION:Carried
+GEAR:Breastplate					LOCATION:Equipped		EQMOD:PLUS1A
+GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Sihedron Medallion				LOCATION:Carried
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+3.MWORKW
 GEAR:Arrow				QTY:20	LOCATION:Carried
-GEAR:Holy Symbol (Silver)	LOCATION:Carried	EQMOD:GOLD
-GEAR:Coin (Platinum)		QTY:7	LOCATION:Carried
-GEAR:Coin (Gold)			QTY:5	LOCATION:Carried
+GEAR:Holy Symbol (Silver)			LOCATION:Carried		EQMOD:GOLD
+GEAR:Coin (Platinum)		QTY:7		LOCATION:Carried
+GEAR:Coin (Gold)			QTY:5		LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cause Fear
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Minor Wounds=2
@@ -310,11 +310,11 @@ NAME:Malfeshnekor
 ALIGN:NE
 CLASS:Outsider	LEVEL:1
 STAT:STR=16|DEX=14|CON=13|INT=10|WIS=8|CHA=13
-SKILL:Bluff				RANKS:13
-SKILL:Climb				RANKS:13
-SKILL:Diplomacy			RANKS:13
-SKILL:Hide				RANKS:13
-SKILL:Intimidate			RANKS:13
+SKILL:Bluff				RANK:13
+SKILL:Climb				RANK:13
+SKILL:Diplomacy			RANK:13
+SKILL:Hide				RANK:13
+SKILL:Intimidate			RANK:13
 SKILL:Jump				RANK:13
 SKILL:Knowledge (History)	RANK:6.5
 SKILL:Listen			RANK:13
