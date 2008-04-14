@@ -210,7 +210,7 @@ CLASS:Holy Judge of Nier	PREALIGN:LG,LN,LE	PREMULT:1,[PRERACE:1,Human],[PRERACE:
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Holy Judge of Nier	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Nobility and Royalty)|TYPE.Religion|TYPE.Local|TYPE.Profession|Ride|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels
-CLASS:Holy Judge of Nier	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
+CLASS:Holy Judge of Nier	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Judge of Nier|CL/2|PRECLASS:1,Holy Judge of Nier=4
 ###Block: Channeling Stuff
 4	BONUS:VAR|ChannelTimesBase|3+CHA|TYPE=NoStack	DEFINE:AllowImprovedTurning|1	ADD:FEAT|1|TYPE=Channeling	AUTO:FEAT|Basic Channeling
 4	BONUS:VAR|ChannelLevelBase|CL-3			DEFINE:AllowExtraTurning|1
@@ -393,7 +393,7 @@ CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Local|TYPE.Religion|Knowledge (The Planes)|Perform (Oratory)|TYPE.Profession|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
-CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Priest|CL
 #
 SUBCLASS:Priest of Althares		PREDEITY:1,Althares
 SUBCLASSLEVEL:1						SAB:Right to Carry																							BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																					VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))							AUTO:WEAPONPROF|Warhammer
