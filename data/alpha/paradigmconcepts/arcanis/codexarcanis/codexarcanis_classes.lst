@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 21:23:47 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Apr 14 12:43:34 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
@@ -34,10 +34,10 @@ CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	ABB:DoE		MAXLEVEL:5	SOURCEPA
 CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:7,Evasion,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform,Jump,Tumble=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silently|Perform|Tumble
-1																																																AUTO:WEAPONPROF|TYPE.Martial
-1	SAB:The First Steps	BONUS:COMBAT|AC|max(INT,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0	BONUS:COMBAT|AC|1|TYPE=DancerElements																	AUTO:FEAT|Armor Proficiency (Light)
+1																																	AUTO:WEAPONPROF|TYPE.Martial
+1	SAB:The First Steps	BONUS:COMBAT|AC|max(INT,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0	BONUS:COMBAT|AC|1|TYPE=DancerElements		AUTO:FEAT|Armor Proficiency (Light)
 2	SAB:Dance of Air
-3	SAB:Dance of Fire																								BONUS:DAMAGE|TYPE.Melee|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0
+3	SAB:Dance of Fire		BONUS:COMBAT|DAMAGE.Melee|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0
 4	SAB:Dance of Water	BONUS:COMBAT|INITIATIVE|max(WIS,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0	BONUS:COMBAT|AC|1|TYPE=DancerElements
 5	SAB:Dance of Earth	BONUS:COMBAT|TOHIT|max(CON,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0
 
