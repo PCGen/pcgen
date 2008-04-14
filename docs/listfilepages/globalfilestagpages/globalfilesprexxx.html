@@ -634,11 +634,11 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets character feat requirements.</li>
-		<li>Feats with multiple instances, like Skill Focus or Spell Focus, where the instance is expressed 
-			within parentheses there is no space between the name of the feat and the parentheses.</li>
+		<li>Feats with multiple instances where the instance is expressed within parentheses, e.g. Skill 
+			Focus or Spell Focus, there is no space between the name of the feat and the parentheses.</li>
+		<li>Use of the <code>(TYPE=&lt;text&gt;)</code> syntax with feats with multiple instances, e.g. 
+			<code>Weapon Focus(TYPE=Bow)</code>, though allowed with this tag, does not support all such feats.</li>
 	</ul>
-	<p class="indent1"><strong>Note: </strong>The Fighter, Loremaster, Arcane Archer and Archmage are good 
-		examples of Prestige classes to see how to setup this pre-requisite.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREFEAT:1,Dodge,Combat Reflexes</code></p>
 	<p class="indent3">Character must have either &quot;Dodge&quot; or &quot;Combat Reflexes&quot;.</p>
@@ -653,11 +653,11 @@
 	<p class="indent2"><code>PREFEAT:2,Skill Focus(Spot),Skill Focus(Listen),Skill Focus(Search)</code></p>
 	<p class="indent3">Character must have any two of &quot;Skill Focus(Spot)&quot;, &quot;Skill Focus(Listen)&quot;, or &quot;Skill Focus(Search)&quot;.</p>
 	<p class="indent2"><code>PREFEAT:2,TYPE=ItemCreation</code></p>
-	<p class="indent3">Character must have any two ItemCreation type feats.</p>
+	<p class="indent3">Character must have any two &quot;ItemCreation&quot; type feats.</p>
 	<p class="indent2"><code>PREFEAT:1,Skill Focus(Knowledge%)</code></p>
-	<p class="indent3">Character must have one Skill Focus Knowledge sub-type (%) feats.</p>
+	<p class="indent3">Character must have one &quot;Skill Focus&quot; feat for a &quot;Knowledge&quot; sub-type skill.</p>
 	<p class="indent2"><code>Magecraft (Charismatic).MOD &lt;tab&gt; !PREFEAT:1,Untapped Potential</code></p>
-	<p class="indent3">Character must not (!) have one feat called Untapped Potential.</p>
+	<p class="indent3">Character must not (!) have one feat called &quot;Untapped Potential&quot;.</p>
 	<p></p>
 
 <hr>
