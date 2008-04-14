@@ -1257,12 +1257,16 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Modifies a existing LST object.</li>
-		<li>When modifying abilities you reference the ability by its &quot;category&quot;, i.e. <code>CATEGORY=&lt;category&gt;</code>,
-			and its name, or &quot;key&quot;.</li>
+		<li><code>.MOD</code> is appended to the end of the first tag on an object line as follows:
+		<ul>
+			<li><code>&lt;object name&gt;.MOD</code> for dieties, domains, equipment (including weapons, 
+				armor, and shields), eqmods, feats, languages, race, skill, spell, and templates.</li>
+			<li><code>CLASS:&lt;class name&gt;.MOD</code> for classes.</li>
+			<li><code>CATEGORY=&lt;category name&gt;|&lt;ability name or key&gt;.MOD</code> for abilities.</li>
+		</ul>
+		</li>
 		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
-		<li>Modifying a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
 		<li>If you want to <code>.MOD</code> the name of an object you need to include the <code>NAME:</code> tag.</li>
-		<li>If you want to <code>.MOD</code> an eqmod, you use the &quot;key&quot; but not the <code>KEY</code> tag.</li>
 		<li>Any tags that follow the <code>.MOD</code> tag are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new
 			tag will replace the tag in the original entry.</li>
