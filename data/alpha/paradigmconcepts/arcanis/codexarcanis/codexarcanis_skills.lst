@@ -95,23 +95,23 @@ Knowledge (History-Ymandragore)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:I
 
 
 #Knowledge (History-<Race>)
-Knowledge (History-Human)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (History-Dwarves)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (History-Half Orc)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (History-Half Hobgoblin)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (History-Ss'ressen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (History-Elorii)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (History-Val)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (Harvesters)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (History-Human)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Dwarves)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Half Orc)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Half Hobgoblin)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Ss'ressen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Elorii)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (History-Val)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Harvesters)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
 
 
 
-Knowledge (Heraldry)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (Metallurgy)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
-Knowledge (Poison)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:
+Knowledge (Heraldry)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Metallurgy)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Poison)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
 
-Profession (Pilot)				KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession		SOURCEPAGE:
-Profession (Courtesan)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession		SOURCEPAGE:
+Profession (Pilot)				KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.
+Profession (Courtesan)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.
 
 #
 # End
