@@ -28,14 +28,17 @@
 		<h1>Starting Kit Files</h1>
 		<p class="indent0">These files define the &quot;Starting Kits&quot; that are used to simplify 
 			the creation of characters and monsters.</p>
-<!--
+
 		<h2>Building a Starting Kit</h2>
 		<p class="indent1">Unlike most LST file objects which are implemented on a single line for 
 			each object, starting kits are defined as a block of lines with specific information
 			contained on each line.</p>
-
-		<h3>Basic Stating Kit Block:</h3>
+<!--
+		<h3>Basic Starting Kit Block:</h3>
 		<p class="indent1">STARTPACK line</p>
+		<p class="indent2">The STARTPACK line uses the <a href="#STARTPACK"><code>STARTPACK</code></a>, 
+			<a href="#VISIBLE"><code>VISIBLE</code></a>, and <a href="#EQUIPBUY"><code>EQUIPBUY</code></a> tags.</p>
+		
 		<p class="indent1">RACE line</p>
 		<p class="indent1">NAME line</p>
 		<p class="indent1">ALIGN line</p>
@@ -49,6 +52,7 @@
 		<p class="indent1">ABILITY line</p>
 		<p class="indent1">TEMPLATE line</p>
 		<p class="indent1">GEAR sub-block</p>
+		<p class="indent1">TABLE sub-block</p>
 		<p class="indent1">SPELLS sub-block</p>
 -->
 
@@ -286,8 +290,6 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This sets the percentage that the total cost of all the gear in the kit
 		is discounted (or inflated by). If set to 0 the gear is granted for free.</p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">EQUIPBUY must be used in lines that start with STARTPACK.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>EQUIPBUY:0</code></p>
 	<p class="indent3">The gear granted by the KIT is free.</p>
@@ -295,6 +297,8 @@
 	<p class="indent3">The gear granted by the KIT is granted for half the normal cost.</p>
 	<p class="indent2"><code>EQUIPBUY:200</code></p>
 	<p class="indent3">The gear granted by the KIT is granted for twice the normal cost.</p>
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Used in STARTPACK lines.</p>
 	<p></p>
 
 <hr>
@@ -418,6 +422,20 @@
 		the Shield to the Shield slot and the Javelin to Carried.</p>
 	<p></p>
 
+<!--
+<hr>
+
+	<p class="indent0"><strong><a name="LOOKUP">Tag Name:</a></strong> LOOKUP:x,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Table name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li></li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>LOOKUP:Bar1</code></p>
+	<p class="indent3"></p>
+	<p></p>
+-->
 <hr>
 
 	<p class="new">*** New 5.8</p>
@@ -682,14 +700,14 @@
 		<li>QUALIFY - Displays the name of the KIT only if the character passes the prerequisites.</li>
 		<li>This is an optional tag and if not used it will default to YES.</li>
 	</ul>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">VISIBLE must be used in lines that start with STARTPACK.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>VISIBLE:YES</code></p>
 	<p class="indent3">Shows the KIT name in PCGen.</p>
 	<p class="indent2"><code>VISIBLE:NO</code></p>
 	<p class="indent3">Hides the KIT name in PCGen.</p>
-
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Used in STARTPACK lines.</p>
+	<p></p>
 <hr>
 
 	<h2>Misc Main Body Tags</h2>
