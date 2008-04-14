@@ -1473,21 +1473,24 @@
 
 	<p class="new">*** Updated</p>
 	<p class="indent0"><strong><a name="PREWEAPONPROF">Tag Name:</a></strong> PREWEAPONPROF:x,y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of proficiencies that must match the specified requirements).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a weapon proficiency).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (The name of a weaponprof type).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> DEITYWEAPON (The favored weapon of the character's deity).</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of matching proficiencies).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon proficiency name).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Weapon Proficiency type).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> DEITYWEAPON (Deities favored weapon).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets weapon proficiency requirements.</p>
+	<ul class="indent2">
+		<li>Sets requiremnts based upon weapon proficiencies held.</li>
+		<li>Though types can be used within this tag, their use can be tricky and can sometiime produce unexpected or unwanted results.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREWEAPONPROF:2,Kama,Katana</code></p>
-	<p class="indent3">Character must have both &quot;Kama&quot; and &quot;Katana&quot;.</p>
+	<p class="indent3">Character must have both proficienct with both the &quot;Kama&quot; and the &quot;Katana&quot;.</p>
 	<p class="indent2"><code>PREWEAPONPROF:1,TYPE.Exotic</code></p>
-	<p class="indent3">Character must have proficiency with any one exotic weaponprof type.</p>
+	<p class="indent3">Character must have proficiency with any one weapon with an exotic proficiency type.</p>
 	<p class="indent2"><code>PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)</code></p>
-	<p class="indent3">Character must have proficiency with either the Chain (Spiked) or any martial weapon.</p>
+	<p class="indent3">Character must have proficiency with either the Chain (Spiked) or any weapon with a martial type.</p>
 	<p class="indent2"><code>PREWEAPONPROF:1,DEITYWEAPON</code></p>
-	<p class="indent3">Weapon Prof in question must be one of the chosen deity's favored weapons.</p>
+	<p class="indent3">Character must have proficiency with one of the chosen deity's favored weapons.</p>
 	<p></p>
 
 <hr>
