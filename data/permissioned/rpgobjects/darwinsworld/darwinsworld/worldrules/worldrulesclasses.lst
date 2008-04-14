@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Apr 14 11:50:57 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 # Original entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 
@@ -62,9 +62,9 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|For
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Nature Sense						BONUS:VAR|SneakAttack|CL/5+1																									ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced	AUTO:FEAT|Sneak Attack
+1	SAB:Nature Sense						BONUS:VAR|SneakAttack|CL/5+1																												ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced	AUTO:FEAT|Sneak Attack
 4	SAB:Radiation Sense
-8	SAB:Canny Defense (%)|WIS									BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement	DEFINE:LowArmor|COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]
+8	SAB:Canny Defense (%)|WIS									BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement	DEFINE:LowArmor|var("COUNT[EQTYPE.ARMOR.EQUIPPED]")-var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")
 12	SAB:Feign Death (% rounds)|FeignDeathRounds																DEFINE:FeignDeathRounds|CL*10
 16	SAB:Shadow in the Open
 

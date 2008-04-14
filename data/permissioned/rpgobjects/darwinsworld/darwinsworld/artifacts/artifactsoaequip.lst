@@ -40,37 +40,37 @@ CBI (Education Knowledge Technology)		TYPE:Goods.Arcanum.CBI.Enhancement								
 CBI (Education Knowledge Vehicle Operations)	TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Vehicle Operations)|8|TYPE=Enhancement
 CBI (Education Open Locks)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Open Locks|8|TYPE=Enhancement
 CBI (Education Perform)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Perform|8|TYPE=Enhancement
-CBI (Education Profession, Any)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Profession%|8|TYPE=Enhancement
-CBI (Education Speak Language, Computer)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62	VFEAT:Speak Language (Computer)
+CBI (Education Profession/Any)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Profession%|8|TYPE=Enhancement
+CBI (Education Speak Language/Computer)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62	VFEAT:CBI (Education/Speak Language/Computer)
 CBI (Education Swim)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Swim|8|TYPE=Enhancement
 CBI (Education Use Rope)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Use Rope|8|TYPE=Enhancement
 CBI (Education Wilderness Lore)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Wilderness Lore|8|TYPE=Enhancement
 CBI (Memory)						TYPE:Goods.Arcanum.CBI.Enhancement																		COST:27500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|STAT=INT|6|TYPE=Enhancement
 CBI (Preservation)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:72000	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																					SPROP:Keeps body alive after brain-death.
 Manual (Climb)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Climb)
-Manual (Craft Cybernetics)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft, Cybernetics)
-Manual (Craft Electrician)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft, Electrician)
-Manual (Craft Mechanics)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft, Mechanics)
-Manual (Craft Robotics)					TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft, Robotics)
-Manual (Craft Technician)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft, Technician)
-Manual (Craft Weaponsmithing)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft, Weaponsmithing)
+Manual (Craft Cybernetics)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft Cybernetics)
+Manual (Craft Electrician)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft Electrician)
+Manual (Craft Mechanics)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft Mechanics)
+Manual (Craft Robotics)					TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft Robotics)
+Manual (Craft Technician)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft Technician)
+Manual (Craft Weaponsmithing)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Craft Weaponsmithing)
 Manual (Decipher Script)				TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Decipher Script)
 Manual (Disable Device)					TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Disable Device)
 Manual (Disguise)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Disguise)
 Manual (Forgery)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Forgery)
 Manual (Heal)						TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Heal)
-Manual (Knowledge Ancient Lore)			TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Ancient Lore)
-Manual (Knowledge Computers)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Computers)
-Manual (Knowledge Genetics)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Genetics)
-Manual (Knowledge Medicine)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Medicine)
-Manual (Knowledge Pathology)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Pathology)
-Manual (Knowledge Pharmology)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Pharmology)
-Manual (Knowledge Technology)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Technology)
-Manual (Knowledge Vehicle Operations)		TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge, Vehicle Operations)
+Manual (Knowledge Ancient Lore)			TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Ancient Lore)
+Manual (Knowledge Computers)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Computers)
+Manual (Knowledge Genetics)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Genetics)
+Manual (Knowledge Medicine)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Medicine)
+Manual (Knowledge Pathology)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Pathology)
+Manual (Knowledge Pharmology)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Pharmology)
+Manual (Knowledge Technology)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Technology)
+Manual (Knowledge Vehicle Operations)		TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Vehicle Operations)
 Manual (Open Locks)					TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Open Locks)
 Manual (Perform)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Perform)
-Manual (Profession Any)					TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Profession, Any)
-Manual (Speak Language Computer)			TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Speak Language (Computer)
+Manual (Profession Any)					TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Profession Any)
+Manual (Speak Language Computer)			TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Speak Language Computer)
 Manual (Swim)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Swim)
 Manual (Use Rope)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Use Rope)
 Manual (Wilderness Lore)				TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Wilderness Lore)
@@ -133,9 +133,9 @@ Language Translator					TYPE:Goods.Gizmos.Powered																			COST:2600	WT
 Magnetic Shield A						TYPE:Goods.Gizmos.Powered.Protection																	COST:16000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67									DR:5/+1
 Magnetic Shield B						TYPE:Goods.Gizmos.Powered.Protection																	COST:36000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67									DR:10/+1
 Magnetic Shield C						TYPE:Goods.Gizmos.Powered.Protection																	COST:56000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67									DR:15/+1
-Memory Chip, Android (+6)				TYPE:Goods.Gizmos																					COST:18000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
-Memory Chip, Android (+12)				TYPE:Goods.Gizmos																					COST:36000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
-Memory Chip, Android (+18)				TYPE:Goods.Gizmos																					COST:54000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
+Memory Chip (Android/+6)				TYPE:Goods.Gizmos																					COST:18000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
+Memory Chip (Android/+12)				TYPE:Goods.Gizmos																					COST:36000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
+Memory Chip (Android/+18)				TYPE:Goods.Gizmos																					COST:54000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
 Metal Detector						TYPE:Goods.Gizmos.Powered																			COST:5000	WT:0		SIZE:S	SOURCEPAGE:pp.64,67
 Minifusion Cell						TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:1000	WT:0		SIZE:T	SOURCEPAGE:pp.64,68
 Motion Detector						TYPE:Goods.Gizmos.Powered																			COST:7000	WT:4		SIZE:S	SOURCEPAGE:pp.64,67
@@ -151,7 +151,7 @@ Power Beltpack						TYPE:Goods.Gizmos.Ammunition.Energy.Charges																C
 Power Cell							TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:90	WT:0		SIZE:T	SOURCEPAGE:pp.64,68
 Power Clip							TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:500	WT:0		SIZE:S	SOURCEPAGE:pp.64,68
 Power Fist							TYPE:Goods.Gizmos.Energy.Powered																		COST:4000	WT:8		SIZE:S	SOURCEPAGE:pp.64,67																															BONUS:STAT|STR|4
-Power Fist, Pair						TYPE:Goods.Gizmos.Energy.Powered																		COST:8000	WT:16		SIZE:S	SOURCEPAGE:pp.64,67																															BONUS:STAT|STR|8
+Power Fist (Pair)						TYPE:Goods.Gizmos.Energy.Powered																		COST:8000	WT:16		SIZE:S	SOURCEPAGE:pp.64,67																															BONUS:STAT|STR|8
 Power Pack							TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:750	WT:3		SIZE:M	SOURCEPAGE:pp.64,68
 Stealth Pack						TYPE:Goods.Gizmos.Powered																			COST:52000	WT:3		SIZE:S	SOURCEPAGE:pp.64,69
 UV Sterilizer						TYPE:Goods.Gizmos.Powered																			COST:8000	WT:3		SIZE:S	SOURCEPAGE:pp.64,69
