@@ -12,6 +12,7 @@
 	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 	Eddy Anthony - eddybaATmindspringDOTcom
 	Terry FitzSimons - fitzsimonsATmintelDOTnet
+	Eric C Smith - mareduddATblackrootDOTorg
 
 	Description:
 	Provides information on the content of PCGen Spell Files.
@@ -96,18 +97,25 @@
 	<p class="new">*** New 5.4 - Updated 5.13.8</p>
 	<p class="indent0"><strong><a name="CASTERLEVEL">Tag Name:</a></strong> CASTERLEVEL (Spell Variable)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">CASTERLEVEL is a special variable for use within <a href="#DESC">
-		DESC</a>, <a href="#DURATION">DURATION</a> and <a href="#TARGETAREA">TARGETAREA</a> tags.
-		When these tags encounter text in parenthesis, they treat the text as a formula and
-		replace it with the result of evaluating the formula. When used inside parenthesis
-		in these tags, CASTERLEVEL returns the caster level of the class which grants the spell.
-		The value of CASTERLEVEL depends on mostly on the Class granting the spell, but can
-		be affected by Race or by other attributes of the Spell (e.g. School, Descriptor, etc.).
-		CASTERLEVEL can be adjusted using the
+	<ul class="indent2">
+		<li>CASTERLEVEL is a special variable for use within <a href="#DESC">
+			DESC</a>, <a href="#DURATION">DURATION</a> and <a href="#TARGETAREA">TARGETAREA</a> tags.
+			<ul>
+				<li>When these tags encounter text in parenthesis, they treat the text as a formula and
+					replace it with the result of evaluating the formula.</li>
+				<li>When used inside parenthesis in these tags, <code>CASTERLEVEL</code> returns the 
+				caster level of the class which grants the spell.</li>
+			</ul>
+		</li>
+		<li>The value of <code>CASTERLEVEL</code> depends mostly on the &quot;Class&quot; granting the 
+			spell, but can be affected by &quot;Race&quot; or by other attributes of the spell (e.g. 
+			School, Descriptor, etc.).</li>
+		<li><code>CASTERLEVEL</code> can be adjusted using the
 		<a href="../globalfilestagpages/globalfilesbonus.html#CASTERLEVEL">BONUS:CASTERLEVEL</a>
 		tag. In some cases where division and multiplication are used it is recommended that the
 		<a href="../globalfilestagpages/globalfilesformulas.html#Truncation">floor()</a> function
-		be applied.</p>
+		be applied.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DESC:Electricity deals (CASTERLEVEL)d6 damage</code></p>
 	<p class="indent3">If caster level is 2 output reads:Electricity deals 2d6 damage.</p>
