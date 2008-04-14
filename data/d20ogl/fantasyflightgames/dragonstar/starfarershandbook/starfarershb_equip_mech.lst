@@ -1,60 +1,60 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 18:23:11 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Mon Apr 14 11:57:42 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 ###Block: Robot torso
-# Equipment Name				Type					Contains			Cost		Required Race			Maximum Size	Requires Modification?	Source Page			Virtual Feat				Vision			Damage Reduction	Combat bonus					Add to magical move																	Bonus to skill						Stat bonus					Special Property
-Robot Chassis (Tiny)			TYPE:RoboticChassis						COST:500									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Tiny)
-Robot Chassis (Small)			TYPE:RoboticChassis						COST:1000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Small)
-Robot Chassis (Medium)			TYPE:RoboticChassis						COST:2000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Medium)
-Robot Chassis (Large)			TYPE:RoboticChassis						COST:4000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Large)
-Robot Chassis (Huge)			TYPE:RoboticChassis						COST:8000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Huge)
-Robot Chassis (Gargantuan)		TYPE:RoboticChassis						COST:16000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Gargantuan)
-Robot Chassis (Colossal)		TYPE:RoboticChassis						COST:32000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Colossal)
-Debt on Chassis body			TYPE:RoboticChassis						COST:-2000													SOURCEPAGE:p.116
+# Equipment Name					Type					Contains			Cost		Required Race			Maximum Size	Requires Modification?	Source Page			Virtual Feat				Vision			Damage Reduction	Combat bonus					Add to magical move																	Bonus to skill						Stat bonus					Special Property
+Robot Chassis (Tiny)				TYPE:RoboticChassis						COST:500									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Tiny)
+Robot Chassis (Small)				TYPE:RoboticChassis						COST:1000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Small)
+Robot Chassis (Medium)				TYPE:RoboticChassis						COST:2000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Medium)
+Robot Chassis (Large)				TYPE:RoboticChassis						COST:4000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Large)
+Robot Chassis (Huge)				TYPE:RoboticChassis						COST:8000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Huge)
+Robot Chassis (Gargantuan)			TYPE:RoboticChassis						COST:16000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Gargantuan)
+Robot Chassis (Colossal)			TYPE:RoboticChassis						COST:32000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Colossal)
+Debt on Chassis body				TYPE:RoboticChassis						COST:-2000													SOURCEPAGE:p.116
 ### Blah
-RU_Vision_360				TYPE:RoboticUpgrade						COST:300	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122							VISION:360-Degree																																BONUS:SKILL|Spot|2|TYPE=Circumstance
-RU_AI Module				TYPE:RoboticUpgrade						COST:5000	PRERACE:1,Robot										SOURCEPAGE:p.118-122																																																							SPROP:Allows a robot to use any untrained skills that an organic player can use untrained
-RU_Biosynthetic Conversion		TYPE:RoboticUpgrade						COST:1500	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:designed to mimic an organic being must be incorporated into orginal design of construct
-RU_Combat Programming			TYPE:RoboticUpgrade						COST:1500	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:without this a robot may not fight or even defend itself
-RU_Darkvision				TYPE:RoboticUpgrade						COST:1200	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122							VISION:Darkvision (60')
-RU_Emergency Beacon			TYPE:RoboticUpgrade						COST:150	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:see text p.119
-RU_Enhanced Dexterity +2		TYPE:RoboticUpgrade						COST:400	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|DEX|2|TYPE=MechUpgrade
-RU_Enhanced Dexterity +4		TYPE:RoboticUpgrade						COST:1600	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|DEX|4|TYPE=MechUpgrade
-RU_Enhanced Dexterity +6		TYPE:RoboticUpgrade						COST:3600	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|DEX|6|TYPE=MechUpgrade
-RU_Enhanced Strength +2			TYPE:RoboticUpgrade						COST:400	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|STR|2|TYPE=MechUpgrade
-RU_Enhanced Strength +4			TYPE:RoboticUpgrade						COST:1600	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|STR|4|TYPE=MechUpgrade
-RU_Enhanced Strength +6			TYPE:RoboticUpgrade						COST:3600	PRERACE:1,Robot										SOURCEPAGE:p.118-122																																																	BONUS:STAT|STR|6|TYPE=MechUpgrade
-RU_Hoverlift				TYPE:RoboticUpgrade						COST:3000	PRERACE:1,Robot,Soulmech	PRESIZELTEQ:S					SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Fly|50|TYPE=MechUpgrade|PRESIZEEQ:T	BONUS:POSTMOVEADD|TYPE=Fly|40|TYPE=MechUpgrade|PRESIZEEQ:S															SPROP:may fly with good manueverability,upgrade does not work on a conventional bipedal robot chassis
-RU_Improved Audio Sensors		TYPE:RoboticUpgrade						COST:80	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																									BONUS:SKILL|Listen|2|TYPE=Enhancement
-RU_Improved Visual Sensors		TYPE:RoboticUpgrade						COST:80	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																									BONUS:SKILL|Search|2|TYPE=Enhancement
-RU_Integral Laser Sight			TYPE:RoboticUpgrade						COST:150	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p118-122														BONUS:COMBAT|BAB|1|TYPE=Ranged
-RU_Integral Toolkit			TYPE:RoboticUpgrade								PRERACE:1,Robot,Soulmech								SOURCEPAGE:p118-122
-RU_Integral Weapons			TYPE:RoboticUpgrade								PRERACE:1,Robot,Soulmech								SOURCEPAGE:p118-122
-RU_Language Module			TYPE:RoboticUpgrade						COST:500	PRERACE:1,Robot										SOURCEPAGE:p.118-122																																									BONUS:SKILL|Speak Language|1|TYPE;MechUpgrade
-RU_Laser Torch				TYPE:RoboticUpgrade						COST:250	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Robot has retractible, internally powered laser torc
-RU_Manipulators				TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Limbs for noe huminoid robots
-RU_Motion Sensors				TYPE:RoboticUpgrade						COST:80	PRERACE:1,Robot										SOURCEPAGE:p.118-122																																									BONUS:SKILL|Spot|2|TYPE=MechUpgrade
-RU_Multiple Legs				TYPE:RoboticUpgrade						COST:1250	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Walk|10|TYPE=MechUpgrade													BONUS:SKILL|Climb,Balance|2|TYPE=MechUpgrade
-RU_Natural Armor +2			TYPE:RoboticUpgrade						COST:800	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-RU_Natural Armor +4			TYPE:RoboticUpgrade						COST:3200	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|4|TYPE=NaturalArmor
-RU_Natural Armor +6			TYPE:RoboticUpgrade						COST:7200	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|6|TYPE=NaturalArmor
-RU_Natural Armor +8			TYPE:RoboticUpgrade						COST:12800	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|8|TYPE=NaturalArmor
-RU_Natural Armor +10			TYPE:RoboticUpgrade						COST:20000	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|10|TYPE=NaturalArmor
-RU_Personnel Communicator		TYPE:RoboticUpgrade						COST:100	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:see standard communicator
-RU_Personality Module			TYPE:RoboticUpgrade						COST:2500	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|CHA|2|TYPE=MechUpgrade
-RU_Magnetic Grippers			TYPE:RoboticUpgrade						COST:120	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:More effective zero G movement
-RU_Medical Package			TYPE:RoboticUpgrade						COST:420	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																									BONUS:SKILL|Heal|6|TYPE=Circumstance
-RU_Multiscanner				TYPE:RoboticUpgrade						COST:2500	PRERACE:1,Robot										SOURCEPAGE:p.118-122																																																							SPROP:as regular muliscanner
-RU_Reinforced Construction, DR 5/-	TYPE:RoboticUpgrade						COST:10000	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122											DR:5/-
-RU_Reinforced Construction, DR 10/-	TYPE:RoboticUpgrade						COST:20000	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122											DR:10/-
-RU_Remote Operation Unit		TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot										SOURCEPAGE:p.118-122																																																							SPROP:remote control
-RU_Security Scanner			TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:same as a security scanner
-RU_Sensory Recorder			TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP: can record up to 100 hours of holographic data
-RU_Storage Compartment			TYPE:RoboticUpgrade.Container	CONTAINS:100|Any=100	COST:50	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Compartment that holds weight determined by chasses size
-RU_Telescopic Vision			TYPE:RoboticUpgrade						COST:500	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Suffer 1- to Spot for every 100' rather than every 10'
-RU_Tracks					TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Tracks|10|TYPE=MechUpgrade																										SPROP:equiped tracks. Movement penalties for poor conditions are removed
-RU_Transform Conversion			TYPE:RoboticUpgrade						COST:1500	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Alows conversion between different movement types.
-RU_Wheels					TYPE:RoboticUpgrade						COST:800	PRERACE:1,Robot,Soulmech								SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Wheeled|20|TYPE=MechUpgrade																										SPROP:equiped wheels
+RU_Vision_360					TYPE:RoboticUpgrade						COST:300	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122							VISION:360-Degree																																BONUS:SKILL|Spot|2|TYPE=Circumstance
+RU_AI Module					TYPE:RoboticUpgrade						COST:5000	PRERACE:1,Robot%										SOURCEPAGE:p.118-122																																																							SPROP:Allows a robot to use any untrained skills that an organic player can use untrained
+RU_Biosynthetic Conversion			TYPE:RoboticUpgrade						COST:1500	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:designed to mimic an organic being must be incorporated into orginal design of construct
+RU_Combat Programming				TYPE:RoboticUpgrade						COST:1500	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:without this a robot may not fight or even defend itself
+RU_Darkvision					TYPE:RoboticUpgrade						COST:1200	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122							VISION:Darkvision (60')
+RU_Emergency Beacon				TYPE:RoboticUpgrade						COST:150	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:see text p.119
+RU_Enhanced Dexterity +2			TYPE:RoboticUpgrade						COST:400	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|DEX|2|TYPE=MechUpgrade
+RU_Enhanced Dexterity +4			TYPE:RoboticUpgrade						COST:1600	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|DEX|4|TYPE=MechUpgrade
+RU_Enhanced Dexterity +6			TYPE:RoboticUpgrade						COST:3600	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|DEX|6|TYPE=MechUpgrade
+RU_Enhanced Strength +2				TYPE:RoboticUpgrade						COST:400	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|STR|2|TYPE=MechUpgrade
+RU_Enhanced Strength +4				TYPE:RoboticUpgrade						COST:1600	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|STR|4|TYPE=MechUpgrade
+RU_Enhanced Strength +6				TYPE:RoboticUpgrade						COST:3600	PRERACE:1,Robot%										SOURCEPAGE:p.118-122																																																	BONUS:STAT|STR|6|TYPE=MechUpgrade
+RU_Hoverlift					TYPE:RoboticUpgrade						COST:3000	PRERACE:1,Robot%,Soulmech	PRESIZELTEQ:S					SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Fly|50|TYPE=MechUpgrade|PRESIZEEQ:T	BONUS:POSTMOVEADD|TYPE=Fly|40|TYPE=MechUpgrade|PRESIZEEQ:S															SPROP:may fly with good manueverability,upgrade does not work on a conventional bipedal robot chassis
+RU_Improved Audio Sensors			TYPE:RoboticUpgrade						COST:80	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																									BONUS:SKILL|Listen|2|TYPE=Enhancement
+RU_Improved Visual Sensors			TYPE:RoboticUpgrade						COST:80	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																									BONUS:SKILL|Search|2|TYPE=Enhancement
+RU_Integral Laser Sight				TYPE:RoboticUpgrade						COST:150	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p118-122														BONUS:COMBAT|BAB|1|TYPE=Ranged
+RU_Integral Toolkit				TYPE:RoboticUpgrade								PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p118-122
+RU_Integral Weapons				TYPE:RoboticUpgrade								PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p118-122
+RU_Language Module				TYPE:RoboticUpgrade						COST:500	PRERACE:1,Robot%										SOURCEPAGE:p.118-122																																									BONUS:SKILL|Speak Language|1|TYPE;MechUpgrade
+RU_Laser Torch					TYPE:RoboticUpgrade						COST:250	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Robot has retractible, internally powered laser torc
+RU_Manipulators					TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Limbs for noe huminoid robots
+RU_Motion Sensors					TYPE:RoboticUpgrade						COST:80	PRERACE:1,Robot%										SOURCEPAGE:p.118-122																																									BONUS:SKILL|Spot|2|TYPE=MechUpgrade
+RU_Multiple Legs					TYPE:RoboticUpgrade						COST:1250	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Walk|10|TYPE=MechUpgrade													BONUS:SKILL|Climb,Balance|2|TYPE=MechUpgrade
+RU_Natural Armor +2				TYPE:RoboticUpgrade						COST:800	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+RU_Natural Armor +4				TYPE:RoboticUpgrade						COST:3200	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|4|TYPE=NaturalArmor
+RU_Natural Armor +6				TYPE:RoboticUpgrade						COST:7200	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|6|TYPE=NaturalArmor
+RU_Natural Armor +8				TYPE:RoboticUpgrade						COST:12800	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|8|TYPE=NaturalArmor
+RU_Natural Armor +10				TYPE:RoboticUpgrade						COST:20000	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122														BONUS:COMBAT|AC|10|TYPE=NaturalArmor
+RU_Personnel Communicator			TYPE:RoboticUpgrade						COST:100	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:see standard communicator
+RU_Personality Module				TYPE:RoboticUpgrade						COST:2500	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																	BONUS:STAT|CHA|2|TYPE=MechUpgrade
+RU_Magnetic Grippers				TYPE:RoboticUpgrade						COST:120	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:More effective zero G movement
+RU_Medical Package				TYPE:RoboticUpgrade						COST:420	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																									BONUS:SKILL|Heal|6|TYPE=Circumstance
+RU_Multiscanner					TYPE:RoboticUpgrade						COST:2500	PRERACE:1,Robot%										SOURCEPAGE:p.118-122																																																							SPROP:as regular muliscanner
+RU_Reinforced Construction (DR 5/-)		TYPE:RoboticUpgrade						COST:10000	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122											DR:5/-
+RU_Reinforced Construction (DR 10/-)	TYPE:RoboticUpgrade						COST:20000	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122											DR:10/-
+RU_Remote Operation Unit			TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot%										SOURCEPAGE:p.118-122																																																							SPROP:remote control
+RU_Security Scanner				TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:same as a security scanner
+RU_Sensory Recorder				TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP: can record up to 100 hours of holographic data
+RU_Storage Compartment				TYPE:RoboticUpgrade.Container	CONTAINS:100|Any=100	COST:50	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Compartment that holds weight determined by chasses size
+RU_Telescopic Vision				TYPE:RoboticUpgrade						COST:500	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Suffer 1- to Spot for every 100' rather than every 10'
+RU_Tracks						TYPE:RoboticUpgrade						COST:1000	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Tracks|10|TYPE=MechUpgrade																										SPROP:equiped tracks. Movement penalties for poor conditions are removed
+RU_Transform Conversion				TYPE:RoboticUpgrade						COST:1500	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																																																							SPROP:Alows conversion between different movement types.
+RU_Wheels						TYPE:RoboticUpgrade						COST:800	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122																					BONUS:POSTMOVEADD|TYPE=Wheeled|20|TYPE=MechUpgrade																										SPROP:equiped wheels
 
 
 ###Block: Vehicles
