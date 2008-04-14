@@ -396,7 +396,7 @@ public final class PrerequisiteUtilities
 			{
 				for (AbilityCategory aCat : allCats)
 				{
-					if (aCat.getAbilityCategory().equals(categoryName))
+					if (aCat.getAbilityCategory().equalsIgnoreCase(categoryName))
 					{
 						abilityList.addAll(character.getAggregateAbilityList(aCat));
 					}
