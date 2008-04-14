@@ -16,19 +16,19 @@ Masterwork		KEY:INSTMW		TYPE:Instruments	COST:95	ITYPE:Masterwork	SOURCEPAGE:p.1
 Silvered		KEY:AMMOSLVR	TYPE:Ammunition	COST:1	ITYPE:Silvered	SOURCEPAGE:p.113
 Silvered		KEY:DAGSLVR		TYPE:Dagger		COST:10	ITYPE:Silvered	SOURCEPAGE:p.113
 #
-###Block
+###Block - Commented this out as I can find no reason for it's existance - Eddy
 # Used for testing which items to allow editing on. Any item with the properties listed will not be allowed to be edited
 # Modifier Name	Visible	Type granted
-EXCLUDEEQ_PHB	VISIBLE:NO	ITYPE:Masterwork.Adamantine
+#EXCLUDEEQ_PHB	VISIBLE:NO	ITYPE:Masterwork.Adamantine
 
 ###Block:Weapon
-# Modifier Name	Type		Cost			Keys to replace	Source Page		Required Item		Required Type	BONUS:EQMWEAPON						Bonus to skill		Weapon prop. bonus
-Engraved		TYPE:Weapon	COST:BASECOST/5				SOURCEPAGE:p.65					PRETYPE:1,Firearm
-Gold-inlaid		TYPE:Weapon	COST:BASECOST/4	REPLACES:Engraved	SOURCEPAGE:p.65					PRETYPE:1,Firearm
-Hardin's Card	TYPE:Weapon	COST:0					SOURCEPAGE:p.197	PREITEM:1,Hardin's Card	PRETYPE:1,Pistol													BONUS:WEAPON|TOHIT|2|TYPE=ENHANCEMENT
-Ivory-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:1,Firearm
-Long barrel		TYPE:Weapon	COST:15					SOURCEPAGE:p.64					PRETYPE:1,Firearm	BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION	BONUS:SKILL|Holdout|-2
-Nickel-plated	TYPE:Weapon	COST:BASECOST				SOURCEPAGE:p.65					PRETYPE:1,Firearm
-Pearl-handled	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:1,Firearm
-Short barrel	TYPE:Weapon	COST:5					SOURCEPAGE:p.65					PRETYPE:1,Firearm	BONUS:EQMWEAPON|RANGEADD|-5|TYPE=CONVERSION	BONUS:SKILL|Holdout|2
-Silver-plated	TYPE:Weapon	COST:BASECOST*2				SOURCEPAGE:p.65					PRETYPE:1,Firearm
+# Modifier Name				Type		Cost			Keys to replace	Source Page		Required Item		Required Type	BONUS:EQMWEAPON						Bonus to skill		Weapon prop. bonus
+Engraved		KEY:ENGRAVED	TYPE:Weapon	COST:BASECOST/5				SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Gold-inlaid		KEY:GOLD_INLAID	TYPE:Weapon	COST:BASECOST/4	REPLACES:ENGRAVED	SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Hardin's Card	KEY:HARDINS_CARD	TYPE:Weapon	COST:0					SOURCEPAGE:p.197	PREITEM:1,Hardin's Card	PRETYPE:1,Pistol													BONUS:WEAPON|TOHIT|2|TYPE=ENHANCEMENT
+Ivory-handled	KEY:IVORY_HANDLED	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Long barrel		KEY:LONG_BARREL	TYPE:Weapon	COST:15					SOURCEPAGE:p.64					PRETYPE:1,Firearm	BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION	BONUS:SKILL|Holdout|-2
+Nickel-plated	KEY:NICKEL_PLATED	TYPE:Weapon	COST:BASECOST				SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Pearl-handled	KEY:PEARL_HANDLED	TYPE:Weapon	COST:10					SOURCEPAGE:p.65					PRETYPE:1,Firearm
+Short barrel	KEY:SHORT_BARREL	TYPE:Weapon	COST:5					SOURCEPAGE:p.65					PRETYPE:1,Firearm	BONUS:EQMWEAPON|RANGEADD|-5|TYPE=CONVERSION	BONUS:SKILL|Holdout|2
+Silver-plated	KEY:SILVER_PLATED	TYPE:Weapon	COST:BASECOST*2				SOURCEPAGE:p.65					PRETYPE:1,Firearm
