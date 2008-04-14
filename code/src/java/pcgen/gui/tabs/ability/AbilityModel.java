@@ -38,6 +38,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SourceEntry.SourceFormat;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.CoreUtility;
@@ -810,49 +811,32 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			if (showAll || theFilter == null
 				|| theFilter.accept(theViewMode, ability))
 			{
-				final String sourceString =
-						ability.getSourceEntry().getSourceBook().getLongName();
-				if (sourceString == null)
+				String sourceString =
+						ability.getSourceEntry().getFormattedString(
+							SourceFormat.MEDIUM, false);
+				if (sourceString == null || sourceString.trim().length() == 0)
 				{
-					Logging
-						.errorPrint("In InfoFeats.buildTreeSourceName the feat "
-							+ ability + " has no source long entry.");
+					sourceString = "None";
 				}
 				//
+				boolean found = false;
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 				{
 					if (sourceString.equals(rootAsPObjectNode.getChild(i)
 						.toString()))
 					{
-						final PObjectNode aFN = new PObjectNode();
-
-						switch (ability.getFeatType())
-						{
-							case AUTOMATIC:
-								aFN
-									.setColor(SettingsHandler
-										.getFeatAutoColor());
-								break;
-							case VIRTUAL:
-								aFN.setColor(SettingsHandler
-									.getFeatVirtualColor());
-								break;
-						}
-
-						aFN.setParent(rootAsPObjectNode.getChild(i));
-						aFN.setItem(ability);
-
-						// TODO - This code appears to have no effect.
-						//						if (Globals.checkRule(RuleConstants.FEATPRE))
-						//						{
-						//							// Method no longer exitsts - aFN.setIsValid(true);
-						//						}
-						//						else
-						//						{
-						//							PrereqHandler.passesAll( aFeat.getPreReqList(), getPc(), aFeat );
-						//						}
+						found = true;
+						final PObjectNode aFN =
+								createAbilityPObjectNode(rootAsPObjectNode
+									.getChild(i), ability);
 						rootAsPObjectNode.getChild(i).addChild(aFN);
 					}
+				}
+				if (!found)
+				{
+					final PObjectNode aFN =
+						createAbilityPObjectNode(rootAsPObjectNode, ability);
+					rootAsPObjectNode.addChild(aFN, true);
 				}
 			}
 		}
