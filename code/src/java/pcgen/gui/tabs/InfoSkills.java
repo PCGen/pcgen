@@ -640,6 +640,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private void availTableMouseClicked(MouseEvent evt)
 	{
 		final int selectedSkill = availableTable.getSelectedRow();
+
+		if (selectedSkill < 0)
+		{
+			return;
+		}
+
 		Object temp =
 				availableTable.getTree().getPathForRow(selectedSkill)
 					.getLastPathComponent();
@@ -677,6 +683,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private void selectedTableMouseClicked(MouseEvent evt)
 	{
 		final int selectedSkill = selectedTable.getSelectedRow();
+		
+		if (selectedSkill < 0)
+		{
+			return;
+		}
+
 		TreePath path = selectedTable.getTree().getPathForRow(selectedSkill);
 		Object temp = (path == null ? null : path.getLastPathComponent());
 
