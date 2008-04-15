@@ -2656,7 +2656,9 @@ public final class Equipment extends PObject implements Serializable,
 		if (eqMod.getChoiceString().length() != 0) {
 			while (aTok.hasMoreTokens()) {
 				final String x = aTok.nextToken();
-				if (eqMod.getChoiceString().startsWith("EQBUILDER") && !isLoading) {
+				if (eqMod.getMinCharges() > 0
+					|| (eqMod.getChoiceString().startsWith("EQBUILDER") && !isLoading))
+				{
 					// We clear the associated info to avoid a buildup of info
 					// like number of charges.
 					eqMod.clearAssociated();
