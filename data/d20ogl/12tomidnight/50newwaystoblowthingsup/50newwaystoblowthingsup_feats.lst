@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:50 New Ways to Blow Things Up - Starlanko the Magnificent's Big Book of Evocations	SOURCESHORT:50Evocations	SOURCEWEB:http://www.silven.com/productlines.asp?case=showproduct&id=19
+# Original Entry by: Tir Gwaith
+
+# Feat Name				Req. Spellbook	Description											Source Page
+Scribe Generic Spellbook	PRESPELLBOOK:YES	DESC:Spells you copy into a spellbook are far easier to comprehend.	SOURCEPAGE:p.41
