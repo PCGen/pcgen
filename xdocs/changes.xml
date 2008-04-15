@@ -14,6 +14,11 @@
       <action dev="thpr" type="fix" issue="1937506">Scribe Scroll error</action> 
       <action dev="thpr" type="fix" issue="1791283">UDAM does not respect level identifier</action> 
       <action dev="thpr" type="fix" issue="1885033">Ability POOL Visibility</action> 
+      <action dev="thpr" type="fix" issue="1828057">Ability object - AUTO vs Normal behavior</action> 
+      <action dev="thpr" type="fix" issue="1899975">Ability Info Pane title does not switch when changing pools</action> 
+      <action dev="thpr" type="fix" issue="1745890">Occasional No Skill Selected. Try Again error</action> 
+      <action dev="thpr" type="fix" issue="1941810">Gamemode files with extra ws not read in properly</action> 
+      <action dev="thpr" type="fix" issue="1887156">PREABILITY not working with BONUSes</action> 
     </release>  
     <release version="5.13.12" date="2008-03-25" description="Beta release"> 
       <action dev="eddyanthony" type="add" issue="1905559">[Paizo] Rise of the Runelords Player's Guide</action>  
