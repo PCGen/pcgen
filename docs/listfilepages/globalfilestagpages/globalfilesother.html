@@ -1128,13 +1128,20 @@
 <hr>
 
 	<p class="indent0"><strong><a name="UDAM">Tag Name:</a></strong> UDAM:x,x,x,x,x,x,x,x,x </p>
-	<p class="indent1"><strong> Variables Used (x):</strong> Text (By Creature Size)</p>
+	<p class="indent1"><strong> Variables Used (x):</strong> Text (Damage)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This indicates the unarmed damage the character does. There should always be 9
-		fields, one for each size. From Finite to Colossal, left to right.</p>
+	<ul class="indent2">
+		<li>This tag indicates the unarmed damage the character does by size category.</li>
+		<li>If nine (9) fields are included, they will represent the damage done for each size, from 
+			left to right, &quot;Fine&quot; to &quot;Colossal&quot;.</li>
+		<li>If only one (1) field is included, it will represent the damage done irrespective of the 
+			creatures size.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8</code></p>
-	<p class="indent3">This sets unarmed damage done as 1 for finite to 2d8 for colossal.</p>
+	<p class="indent3">This sets unarmed damage done to &quot;1&quot; for size &quot;Fine&quot; to &quot;2d8&quot; for size &quot;Colossal&quot;.</p>
+	<p class="indent2"><code>UDAM:2d8</code></p>
+	<p class="indent3">This sets unarmed damage done to &quot;2d8&quot; irrespective of size.</p>
 	<p></p>
 
 <hr>
