@@ -25,6 +25,7 @@ package pcgen.core.chooser;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -39,6 +40,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.Ability.Nature;
 import pcgen.util.Logging;
 
 
@@ -237,6 +239,7 @@ public class ChooserUtilities
 	{
 		availableList.clear();
 		selectedList.clear();
+		List reservedList = new ArrayList();
 
 		ChoiceManagerList aMan = getChoiceManager(aPObject, "", aPC);
 
@@ -257,6 +260,13 @@ public class ChooserUtilities
 			}
 			AbstractBasicChoiceManager abcm = (AbstractBasicChoiceManager) aMan;
 			abcm.setController(abcm.new AbilityChooseController(a, category, aPC));
+			for (Ability ab : aPC.getAllAbilities())
+			{
+				if (ab.getKeyName().equals(a.getKeyName()))
+				{
+					reservedList.addAll(ab.getAssociatedList());
+				}
+			}
 		}
 		aMan.getChoices(aPC, availableList, selectedList);
 
@@ -266,7 +276,8 @@ public class ChooserUtilities
 		{
 			if (addIt)
 			{
-				final List newSelections = aMan.doChooser(aPC, availableList, selectedList);
+				final List newSelections = aMan.doChooser(aPC, availableList,
+						selectedList, reservedList);
 				if (newSelections.isEmpty())
 				{
 					return false;
@@ -275,7 +286,8 @@ public class ChooserUtilities
 			}
 			else
 			{
-				aMan.doChooserRemove(aPC, availableList, selectedList);
+				aMan.doChooserRemove(aPC, availableList, selectedList,
+						reservedList);
 			}
 			return true;
 		}
@@ -322,9 +334,13 @@ public class ChooserUtilities
 			return;
 		}
 
+		/*
+		 * TODO is empty reservedList appropriate here?
+		 */
 		final List newSelections = aMan.doChooser(aPC,
 												  availableList,
-												  selectedList);
+												  selectedList,
+												  new ArrayList());
 
 		aMan.applyChoices(aPC, newSelections);
 	}

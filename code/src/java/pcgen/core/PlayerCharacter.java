@@ -16276,6 +16276,26 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return st;
 	}
 
+
+	public List<Ability> getAllAbilities()
+	{
+		Set<AbilityCategory> abCats = theAbilities.getKeySet();
+
+		List<Ability> list = new ArrayList<Ability>();
+
+		if (abCats == null)
+		{
+			return list;
+		}
+
+		for (AbilityCategory ac : abCats)
+		{
+			list.addAll(getAutomaticAbilityList(ac));
+			list.addAll(getRealAbilitiesList(ac));
+			list.addAll(getVirtualAbilityList(ac));
+		}
+		return list;
+	}
 	public List<Ability> getRealAbilitiesList(final AbilityCategory aCategory)
 	{
 		List<Ability> abilities =

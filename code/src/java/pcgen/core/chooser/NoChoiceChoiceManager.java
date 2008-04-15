@@ -27,10 +27,11 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 
 	@Override
 	public List<String> doChooser(PlayerCharacter pc,
-			List<String> availableList, List<String> selectedList)
+			List<String> availableList, List<String> selectedList,
+			List<String> reservedList)
 	{
 		int choiceLimit = getNumberOfChoices();
-		if (choiceLimit == -1 || choiceLimit > selectedList.size())
+		if (choiceLimit == -1 || choiceLimit > reservedList.size())
 		{
 			selectedList.add("NOCHOICE");
 		}
@@ -39,7 +40,8 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 
 	@Override
 	public void doChooserRemove(PlayerCharacter apc,
-			List<String> availableList, List<String> selectedList)
+			List<String> availableList, List<String> selectedList,
+			List<String> reservedList)
 	{
 		selectedList.remove(0);
 		applyChoices(apc, selectedList);

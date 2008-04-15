@@ -49,7 +49,6 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	private final ArrayList<String> choices = new ArrayList<String>();
 	private final List<String> uniqueList = new ArrayList<String>();
 
-	private final PlayerCharacter pc;
 	protected final PObject pobject;
 
 	private ChooseController<T> controller = new ChooseController<T>();
@@ -67,7 +66,6 @@ public abstract class AbstractBasicChoiceManager<T> implements
 			PlayerCharacter aPC)
 	{
 		pobject = aPObject;
-		pc = aPC;
 		StringTokenizer st = new StringTokenizer(theChoices, Constants.PIPE);
 		String chooserName = st.nextToken();
 		String selectionsPerUnitCost = pobject.getSelectCount();
@@ -137,19 +135,18 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	 * @return list
 	 */
 	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
-			final List<T> selectedList)
+			final List<T> selectedList, final List<T> reservedList)
 	{
 		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
+				/ choicesPerUnitCost;
+		int reservedPoolValue = (reservedList.size() + (choicesPerUnitCost - 1))
 				/ choicesPerUnitCost;
 		int effectiveTotalChoices = numberOfChoices == -1 ? controller
 				.getTotalChoices() : numberOfChoices;
 		int effectiveChoices = Math
 				.min(controller.getPool() + selectedPoolValue,
-						effectiveTotalChoices / choicesPerUnitCost);
-		if (effectiveChoices <= 0)
-		{
-			return selectedList;
-		}
+						effectiveTotalChoices / choicesPerUnitCost)
+				- reservedPoolValue + selectedPoolValue;
 
 		final ChooserInterface chooser = getChooserInstance();
 		chooser
@@ -200,10 +197,10 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	 * @param selectedList
 	 */
 	public void doChooserRemove(PlayerCharacter aPC, List<T> availableList,
-			List<T> selectedList)
+			List<T> selectedList, List<T> reservedList)
 	{
 		final List<T> newSelections = doChooser(aPC, availableList,
-				selectedList);
+				selectedList, reservedList);
 
 		applyChoices(aPC, newSelections);
 	}

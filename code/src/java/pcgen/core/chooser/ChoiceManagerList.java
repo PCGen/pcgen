@@ -60,7 +60,8 @@ public interface ChoiceManagerList<T> {
 	public abstract List<T> doChooser(
 			PlayerCharacter aPc,
 			final List<T> availableList,
-			final List<T> selectedList);
+			final List<T> selectedList,
+			final List<T> reservedList);
 
 	/**
 	 * Do chooser for removing a choice
@@ -71,7 +72,8 @@ public interface ChoiceManagerList<T> {
 	public abstract void doChooserRemove (
 			PlayerCharacter aPc,
 			final List<T> availableList,
-			final List<T> selectedList);
+			final List<T> selectedList,
+			final List<T> reservedList);
 
 
 	/**
