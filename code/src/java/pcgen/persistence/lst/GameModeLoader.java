@@ -69,7 +69,7 @@ public final class GameModeLoader
 		}
 
 		final String key = aLine.substring(0, idxColon);
-		final String value = aLine.substring(idxColon + 1);
+		final String value = aLine.substring(idxColon + 1).trim();
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(GameModeLstToken.class);
 		GameModeLstToken token = (GameModeLstToken) tokenMap.get(key);
