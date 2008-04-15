@@ -353,11 +353,6 @@ class CharacterSheetSelectionPanel extends JPanel implements ItemListener
 	private void buildCombo()
 	{
 		final File sheetDir = new File(theSheetDir);
-		if (sheetDir == null)
-		{
-			Logging.errorPrint("Could not find preview sheet directory " + theSheetDir);
-			return;
-		}
 		final File[] fileList = sheetDir.listFiles();
 		if (fileList == null)
 		{
