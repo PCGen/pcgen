@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 10 13:55:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Apr 15 00:25:52 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
@@ -32,3 +32,32 @@ Swallow Whole						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Att
 Trample							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Trample (Ex)													DEFINE:TrampleDC|10									DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																																																											BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Turn Resistance						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Turn Resistance (Ex) +%|TurnResistBonus								DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
 
+###Block: Immunities
+# Ability Name		Category of Ability		Type								Visible	Special ABility			Description
+Acid Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Acid Immunity			DESC:You never take Acid damage
+Cold Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Cold Immunity			DESC:You never take Cold damage
+Fire Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Fire Immunity			DESC:You never take Fire damage
+Electricity Immunity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Electricity Immunity	DESC:You never take Electricity damage
+Sonic Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Sonic Immunity		DESC:You never take Sonic damage
+
+###Block: Resistances
+# Ability Name				Output Name						Category of Ability		Type								Visible		Special ABility								Define					Description																			Ability
+Resistance To Acid										CATEGORY:Special Ability									VISIBLE:NO												DEFINE:AcidResistanceBonus|0																						ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Acid Immunity,Vulnerability To Acid
+Resistance To Cold										CATEGORY:Special Ability									VISIBLE:NO												DEFINE:ColdResistanceBonus|0																						ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Cold Immunity,Vulnerability To Cold
+Resistance To Fire										CATEGORY:Special Ability									VISIBLE:NO												DEFINE:FireResistanceBonus|0																						ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Fire Immunity,Vulnerability To Fire
+Resistance To Electricity									CATEGORY:Special Ability									VISIBLE:NO												DEFINE:ElectricityResistanceBonus|0																					ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Electricity Immunity,Vulnerability To Electricity
+Resistance To Sonic										CATEGORY:Special Ability									VISIBLE:NO												DEFINE:SonicResistanceBonus|0																						ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Sonic Immunity,Vulnerability To Sonic
+
+Resistance To Acid Output		OUTPUTNAME:Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:EXPORT	SAB:Resistance To Acid %|AcidResistanceBonus									DESC:You may ignore %1 points of Acid damage each time you take Acid damage|AcidResistanceBonus
+Resistance To Cold Output		OUTPUTNAME:Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:EXPORT	SAB:Resistance To Cold %|ColdResistanceBonus									DESC:You may ignore %1 points of Cold damage each time you take Cold damage|ColdResistanceBonus
+Resistance To Fire Output		OUTPUTNAME:Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:EXPORT	SAB:Resistance To Fire %|FireResistanceBonus									DESC:You may ignore %1 points of Fire damage each time you take Fire damage|FireResistanceBonus
+Resistance To Electricity Output	OUTPUTNAME:Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:EXPORT	SAB:Resistance To Electricity %|ElectricityResistanceBonus							DESC:You may ignore %1 points of Electricity damage each time you take Electricity damage|ElectricityResistanceBonus
+Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:EXPORT	SAB:Resistance To Sonic %|SonicResistanceBonus									DESC:You may ignore %1 points of Sonic damage each time you take Sonic damage|SonicResistanceBonus
+
+###Block: Vulnerabilities
+# Ability Name			Category of Ability		Type								Visible	Special ABility				Description
+Vulnerability To Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Acid		DESC:You take half again as much (+50%) damage as normal from Acid, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Cold		DESC:You take half again as much (+50%) damage as normal from Cold, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Fire		DESC:You take half again as much (+50%) damage as normal from Fire, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Electricity	DESC:You take half again as much (+50%) damage as normal from Electricity, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Sonic		DESC:You take half again as much (+50%) damage as normal from Sonic, regardless of whether a saving throw is allowed, or if the save is a success or failure
