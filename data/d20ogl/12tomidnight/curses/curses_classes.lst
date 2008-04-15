@@ -1,0 +1,84 @@
+# CVS $Revision$ $Author$ -- Wed Jan  2 22:34:58 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
+# Original Entry by: Eddy Anthony (MoSaT)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	ABB:BldHx		MAXLEVEL:10	SOURCEPAGE:p. 14	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Feat							Required Skill						Req. Known Spell		Req. Casting Type
+CLASS:Blood Hexer	PREALIGN:CG,CN,CE	PREFEAT:2,Curse of Blood,Curse of Blood - Greater	PRESKILL:1,Knowledge (Arcana),Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Perform|TYPE.Profession|Spellcraft|Use Magic Device
+1	BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY										AUTO:FEAT|Metacurse Affinity|Blood Curse Reprieve
+2	BONUS:VAR|BloodSweatProgression|(CL+3)/5	ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire					AUTO:FEAT|Blood Sweat
+3	BONUS:VAR|MaliciousCurseProgression|CL/3	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic						AUTO:FEAT|Malicious Curse
+4								ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire
+5								ADD:SPELLCASTER|ANY
+6								ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire
+7								ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic
+8								ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire
+9								ADD:SPELLCASTER|ANY
+10								ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic	ADD:FEAT|Curse Repertoire
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Evil Eye	HD:6		TYPE:PC.Prestige	ABB:EvlEy		MAXLEVEL:5	SOURCEPAGE:p. 16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL+2)/2)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Feat						Required Skill				Req. Spell Type
+CLASS:Evil Eye	PREALIGN:LE,NE,CE	PREFEAT:2,Death Curse Contingency,Iron Will	PRESKILL:3,Bluff,Intimidate,Spot=4	PRESPELLTYPE:1,Arcane=3,Divine=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft|Psicraft|Spot
+###Block: Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
+###Block: Level Progression
+1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY																						AUTO:FEAT|Expanded Awareness|Evil Eye|Warlock Superstition
+2																	ADD:SPELLCASTER|ANY	ADD:FEAT|Expanded Awareness ~ Enhanced Darkvision	ADD:FEAT|Expanded Awareness ~ Darkvision
+3																	ADD:SPELLCASTER|ANY
+4																	ADD:SPELLCASTER|ANY																	TEMPLATE:Evil Eye Subtype
+5																	ADD:SPELLCASTER|ANY
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Hexomancer	HD:4		TYPE:PC.Prestige	ABB:Hexo		MAXLEVEL:10	SOURCEPAGE:p. 18	BONUS:CHECKS|BASE.Will|((CL+2)/2)+1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Feat												Required Skill														Req. Casting Type		Req. Spell Type
+CLASS:Hexomancer	PREALIGN:LE,NE,CE	PREFEAT:5,Enlarge Spell,Extend Spell,Heighten Spell,Persistent Curse,Potent Curse	PRESKILL:1,Craft (Doll-Making)=5	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,Intimidate=6	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Intimidate|TYPE.Knowledge|TYPE.Profession|Spellcraft
+###Block: Level Progression
+1									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic	AUTO:FEAT|Extended Curse
+2	BONUS:VAR|EffigyOfControlProgression|CL		ADD:SPELLCASTER|ANY						AUTO:FEAT|Effigy of Control
+3									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic	AUTO:FEAT|Enlarged Curse
+4									ADD:SPELLCASTER|ANY
+5	BONUS:VAR|HeightenedCurseProgression|(CL-3)/2	ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic	AUTO:FEAT|Heightened Curse|Deny Solace
+6									ADD:SPELLCASTER|ANY
+7									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic
+8									ADD:SPELLCASTER|ANY
+9									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic
+10									ADD:SPELLCASTER|ANY
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Servant of Vengeance	HD:8		TYPE:PC.Prestige	ABB:SrVen		MAXLEVEL:10	SOURCEPAGE:p. 20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL+2)/2)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
+# Class Name			Required AL		Required Feat					Required Skill						Req. Known Spell
+CLASS:Servant of Vengeance	PREALIGN:LE,LN,LG	PREFEAT:3,Endurance,Diehard,Iron Will	PRESKILL:2,Knowledge (Religion),Sense Motive=5	PRESPELL:1,Mark of Justice
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Servant of Vengeance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Gather Information|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
+###Block: Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+###Block: Level Progression
+1	BONUS:VAR|EyeForAnEyeProgression|(CL+1)/2	ADD:SPELLCASTER|ANY	AUTO:FEAT|Eye for an Eye
+2	BONUS:VAR|BrandOfJusticeProgression|CL/2	ADD:SPELLCASTER|ANY	AUTO:FEAT|Brand of Justice
+3								ADD:SPELLCASTER|ANY
+4	BONUS:VAR|SmiteInjusticeProgression|1	ADD:SPELLCASTER|ANY	AUTO:FEAT|Smite Injustice
+5								ADD:SPELLCASTER|ANY
+6								ADD:SPELLCASTER|ANY
+7	BONUS:VAR|SmiteInjusticeProgression|1	ADD:SPELLCASTER|ANY
+8								ADD:SPELLCASTER|ANY
+9								ADD:SPELLCASTER|ANY
+10								ADD:SPELLCASTER|ANY	AUTO:FEAT|Dictum
+
+#
+# End
+#
