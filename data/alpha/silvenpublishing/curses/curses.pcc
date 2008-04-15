@@ -5,10 +5,8 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Silven Publishing.The Game Foundry
-PUBNAMELONG:Silven Publishing
+TYPE:12 to Midnight.Silven Crossroads
+PUBNAMELONG:12 to Midnight/Silven Crossroads
 PUBNAMESHORT:Silven
 PUBNAMEWEB:http://www.silven.com/
 SOURCELONG:Curses!
@@ -20,7 +18,13 @@ COPYRIGHT:Open Game Licence v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by Dave Arneson and E. Gary Gygax.
 COPYRIGHT:Curses! copyright 2002, Eytan Bernstein. All game mechanics in the book are to be considered Open Game Content.
 COPYRIGHT:PCGen dataset conversion for Curses! 2007, PCGen Data team (Including, but not limited to Eddy Anthony (MoSaT))
+
 COVER:curses.jpg
+LOGO:@/publisher_logos/12_to_Midnight.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, 12 to Midnight
+DESC:Curses! is a comprehensive d20 guide to the use of curses, hexes and other magical afflictions. Curses! provides background material for expanding the notion of curses in your game and includes several new prestige classes, new feats, spells, and a number of variant options. From voodoo dolls to sweating blood, Curses! is everything you need to torment your PCs or spice up your favorite evil game! If evil isn't your style, there are also a variety of tools for vengeance and punishment and material to make your NPCs more interesting. Curses! is not only useful to spellcasters but also to other classes. There are options for traditional hexers as well for those looking to add a little misery to their character - or that of others. The book also offers some rules that clarify and expand the existing d20 curse rules.
+URL:WEBSITE|http://12tomidnight.com/|Visit 12 to Midnight.
+URL:Midnight Cellar|http://midnightcellar.com/product.php?productid=16221&cat=0&page=1|Buy this pdf from 12 to Midnight's Midnight Cellar!
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
