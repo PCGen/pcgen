@@ -22,17 +22,30 @@
  */
 package pcgen.gui.tabs.ability;
 
+import static pcgen.gui.HTMLUtils.BOLD;
+import static pcgen.gui.HTMLUtils.BR;
+import static pcgen.gui.HTMLUtils.END_BOLD;
+import static pcgen.gui.HTMLUtils.END_FONT;
+import static pcgen.gui.HTMLUtils.END_HTML;
+import static pcgen.gui.HTMLUtils.FONT_PLUS_1;
+import static pcgen.gui.HTMLUtils.HTML;
+import static pcgen.gui.HTMLUtils.THREE_SPACES;
+
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
+
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.CoreUtility;
-import static pcgen.gui.HTMLUtils.*;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.*;
 
 /**
  * @author boomer70 <boomer70@yahoo.com>
@@ -45,6 +58,7 @@ public class AbilityInfoPanel extends JPanel
 	private Ability theAbility = null;
 
 	private JLabelPane theInfoLabel = new JLabelPane();
+	private final TitledBorder border;
 
 	/**
 	 * Constructs a panel for displaying information about an ability.
@@ -70,9 +84,9 @@ public class AbilityInfoPanel extends JPanel
 		c.anchor = GridBagConstraints.CENTER;
 		gridbag.setConstraints(infoScroll, c);
 
-		final TitledBorder title1 = BorderFactory.createTitledBorder(aTitle);
-		title1.setTitleJustification(TitledBorder.CENTER);
-		infoScroll.setBorder(title1);
+		border = BorderFactory.createTitledBorder(aTitle);
+		border.setTitleJustification(TitledBorder.CENTER);
+		infoScroll.setBorder(border);
 		theInfoLabel.setBackground(getBackground());
 		infoScroll.setViewportView(theInfoLabel);
 		Utility.setDescription(infoScroll, PropertyFactory
@@ -100,6 +114,13 @@ public class AbilityInfoPanel extends JPanel
 	{
 		theAbility = anAbility;
 		theInfoLabel.setText(getDisplayString());
+	}
+
+	public void setCategory(final AbilityCategory cat)
+	{
+		border.setTitle(PropertyFactory.getFormattedString("InfoAbility.Title",
+				cat.getDisplayName()));
+		repaint();
 	}
 
 	private String getDisplayString()

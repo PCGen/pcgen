@@ -66,7 +66,6 @@ import pcgen.gui.tabs.ability.AbilitySelectionPanel;
 import pcgen.gui.tabs.ability.AvailableAbilityPanel;
 import pcgen.gui.tabs.ability.IAbilityCategorySelectionListener;
 import pcgen.gui.tabs.ability.IAbilitySelectionListener;
-import pcgen.gui.tabs.ability.PCAbilityCategory;
 import pcgen.gui.tabs.ability.SelectedAbilityPanel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.util.Logging;
@@ -565,6 +564,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		if (theInfoPanel != null)
 		{
 			theInfoPanel.setPC(getPc());
+			theInfoPanel.setCategory(theCategory);
 			theInfoPanel.setAbility(null);
 		}
 
