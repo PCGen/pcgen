@@ -66,33 +66,33 @@
 
 	<h2>Implementation Discussion</h2>
 
-	<p class="indent1">Implementing &quot;Abilities by Skill Ranks&quot; requires modifications to two 
-	Gamemode files and three Data files. The gamemode files include the <em>miscinfo.lst</em> file where 
-	we will be adding a new category of abilities called the &quot;AbilitybySkills&quot;, and the 
-	<em>statsandchecks.lst</em> file where we will be modifying the <strong>Intelligence</strong> stat. 
-	The data files include the <em>skill.lst</em> file where we will be creating a new skill called the 
-	&quot;Ability by Skill&quot;, the <em>ability.lst</em> file where we will be creating two new abilities, 
-	one to be purchased by skill ranks and one to increase the maximum number of abilities that can be bought, 
-	and the <em>class.lst</em> file where we will demonstrate how abilities are granted through the Abilities 
-	by Skill mechanism at level-up. For the purposes of this implementation, we will call these abilities 
-	&quot;Generic Skill Bought Ability&quot;, and &quot;Increasing Skill Bought Ability Max&quot;.</p>
+	<p class="indent1">Implementing &quot;Abilities by Skill Ranks&quot; requires modifications to one 
+	Gamemode file and four Data files. The gamemode file we need to modify is the <em>statsandchecks.lst</em> 
+	file where we will be modifying the <strong>Intelligence</strong> stat. The data files include the 
+	<em>abilitycategory.lst</em> file where we will be adding a new category of abilities called the 
+	&quot;AbilitybySkills&quot;, the <em>skill.lst</em> file where we will be creating a new skill called 
+	the &quot;Skills to Abilities&quot;, the <em>ability.lst</em> file where we will be creating two new 
+	abilities, one to be purchased by skill ranks and one to increase the maximum number of abilities that 
+	can be bought, and the <em>class.lst</em> file where we will demonstrate how abilities are granted through 
+	the &quot;Abilities by Skill Ranks&quot; mechanism at level-up. For the purposes of this implementation, we will 
+	call these abilities &quot;Generic Skill Bought Ability&quot;, and &quot;Increasing Skill Bought Ability Max&quot;.</p>
 	
 	<p class="indent1">The mechanics of this rule, as implemented on this page, work this way:</p>
 
 	<ul class="indent1">
-		<li class="tagindent0">When the character is loaded, the <span class="lstvar">AbilitybySkillMax</span> 
+		<li class="tagindent0">When the character is loaded, the <strong><em>AbilitybySkillMax</em></strong> 
 			variable is initialized and set to half of the characters total level.</li>
-		<li class="tagindent0">Each rank taken in the skill named &quot;Ability by Skill&quot; adds 
+		<li class="tagindent0">Each rank taken in the skill named &quot;Skills to Abilities&quot; adds 
 			one point to the ability pool for the &quot;AbilitybySkill&quot; category of abilities.</li>
 		<li class="tagindent0">&quot;AbilitybySkill&quot; abilities become available under the 
 			&quot;AbilitybySkill&quot; sub-tab on the feats tab.</li>
 		<li class="tagindent0">The first such ability the character takes defines and initializes the 
-			<span class="lstvar">AbilitybySkillCount</span> variable.</li>
+			<strong><em>AbilitybySkillCount</em></strong> variable.</li>
 		<li class="tagindent0"> Subsequent AbilitybySkill abilities taken by the character increases the 
-			value of the variable, <span class="lstvar">AbilitybySkillCount</span>, by one.</li>
-		<li class="tagindent0">Once <span class="lstvar">AbilitybySkillCount</span> equals or exceeds <span class="lstvar">AbilitybySkillMax</span>, 
+			value of the variable, <strong><em>AbilitybySkillCount</em></strong>, by one.</li>
+		<li class="tagindent0">Once <strong><em>AbilitybySkillCount</em></strong> equals or exceeds <span class="lstvar">AbilitybySkillMax</span>, 
 			AbilitybySkill abilities become unavailable until the character goes up a level, thereby 
-			increasing the <span class="lstvar">AbilitybySkillMax</span> variable.</li>
+			increasing the <strong><em>AbilitybySkillMax</em></strong> variable.</li>
 	</ul>
 	
 	<p class="indent1">We will discuss, below, each of the LST entries required, and the tags that make 
@@ -101,15 +101,30 @@
 
 <hr>
 
-	<h3>Miscinfo.lst File</h3>
+	<h3>Statsandchecks.lst File</h3>
+	
+	<p class="sidebar1">Note: The <em>statsandchecks.lst</em> file is a gamemode file and as such is not 
+	referenced in the <em>*.pcc</em> file. It can be found in the <em>pcgen/system/gamemodes/35e</em> directory.</p>
 
-	<p class="sidebar1">Note: The <em>miscinfo.lst</em> file is a gamemode file and as such is not referenced 
-	in the <em>*.pcc</em> file. It can be found in the <em>pcgen/system/gamemodes/35e</em> directory. The 
-	modifications listed below can be placed right below the Salient Divine Abilities entry.</p>
+	<p class="indent1">The <em>statsandchecks.lst</em> file entry required in this implementation 
+	consists of the modification of an existing entry. The following tag is added to the line 
+	defining the intelligence stat:</p>
 
-	<p class="indent1">The specific <em>miscinfo.lst</em> file entry required to 
+	<blockquote class="indent1">
+		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillMax|TL/2</code></p>
+		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
+		<span class="lstvar">AbilitybySkillMax</span> to have a value of half the character's total level.</p>
+	</blockquote>
+
+	<p class="indent1">You will find the modified <a href="#STATSANDSCHECKS">Intellegence Stat</a> below.</p>
+
+<hr>
+
+	<h3>AbilityCategory.lst File</h3>
+
+	<p class="indent1">The specific <em>abilitycategory.lst</em> file entry required to 
 	implement &quot;Abilities by Skill Ranks&quot; consists of the definition of a single ability 
-	category called AbilitybySkill. The tags used to do this are explained below:</p>
+	category called &quot;AbilitybySkill&quot;. The tags used to do this are explained below:</p>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>ABILITYCATEGORY:AbilitybySkill</code></p>
@@ -165,29 +180,10 @@
 
 <hr>
 
-	<h3>Statsandchecks.lst File</h3>
-	
-	<p class="sidebar1">Note: The <em>statsandchecks.lst</em> file is a gamemode file and as such is not 
-	referenced in the <em>*.pcc</em> file. It can be found in the <em>pcgen/system/gamemodes/35e</em> directory.</p>
-
-	<p class="indent1">The <em>statsandchecks.lst</em> file entry required in this implementation 
-	consists of the modification of an existing entry. The following tag is added to the line 
-	defining the intelligence stat:</p>
-
-	<blockquote class="indent1">
-		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillMax|TL/2</code></p>
-		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		<span class="lstvar">AbilitybySkillMax</span> to have a value of half the character's total level.</p>
-	</blockquote>
-
-	<p class="indent1">You will find the modified <a href="#STATSANDSCHECKS">Intellegence Stat</a> below.</p>
-
-<hr>
-
 	<h3>Skills.lst File</h3>
 		
 	<p class="indent1">Only one new entry is required in the <em>skill.lst</em> file. This is the new 
-	skill &quot;Ability by Skill&quot;. The purpose of this skill is to add bonus points to the pool 
+	skill &quot;Skills to Abilities&quot;. The purpose of this skill is to add bonus points to the pool 
 	of available points for the AbilitybySkill category of abilities, one for each skill rank taken. 
 	The tags used to do this are explained below:</p>
 
@@ -208,7 +204,7 @@
 		category for each skill rank placed in the skill.</p>
 	</blockquote>
 
-	<p class="indent1">You will find the completed <a href="#SKILLS">Ability by Skill</a> below.</p>
+	<p class="indent1">You will find the completed <a href="#SKILLS">Skills to Abilities</a> below.</p>
 
 <hr>
 
@@ -221,9 +217,9 @@
 	&quot;Increasing Skill Bought Ability Max&quot;, and &quot;Level Granted Skill Bought 
 	Ability&quot;.</p>
 
-	<h4 class="indent0">Ability - Generic Skill Bought Ability</h4>
+	<h4 class="indent0">Generic Skill Bought Ability</h4>
 		
-	<p class="indent1">[Explanation of this ability. The tags used to do this are explained below:</p>
+	<p class="indent1">[Explanation of this ability.] The tags used to do this are explained below:</p>
 	
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>CATEGORY:AbilitybySkill</code></p>
@@ -286,10 +282,11 @@
 		<p class="indent1"><strong>What it Does:</strong> This bonus tag increases the value of 
 		the variable <span class="lstvar">AbilitybySkillCount</span> by 1.</p>
 	</blockquote>
-
-	<h4 class="indent0">Ability - Increasing Skill Bought Ability Max</h4>
+	<p></p>
+	
+	<h4 class="indent0">Increasing Skill Bought Ability Max</h4>
 		
-	<p class="indent1">[Explanation of this ability. The tags used to do this are explained below:</p>
+	<p class="indent1">[Explanation of this ability.] The tags used to do this are explained below:</p>
 	
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code></code></p>
@@ -324,8 +321,20 @@
 
 	<p class="indent1">These LST objects are being presented as examples only and are not 
 	part of any official PCGen dataset.</p>
-	<a name="MISCINFO"></a>
-	<p class="indent1">Miscinfo Gamemode File: &quot;AbilitybySkill&quot; category.</p>
+
+	<p class="indent1"><a name="STATSANDSCHECKS">Stats and Checks Gamemode File: Modifying the stat &quot;Intelligence&quot;.</a></p>
+	<p></p>
+	<blockquote class="indent2">
+	<p class="tagindent1"><code>STATNAME:Intelligence</code></p>
+	<p class="tagindent1"><code>ABB:INT</code></p>
+	<p class="tagindent1"><code>STATMOD:floor(SCORE/2)-5</code></p>
+	<p class="tagindent1"><code>DEFINE:MAXLEVELSTAT=INT|INTSCORE-10</code></p>
+	<p class="tagindent1"><code>BONUS:LANG|BONUS|INT</code></p>
+	<p class="tagindent1"><code>BONUS:MODSKILLPOINTS|NUMBER|INT</code></p>
+	<p class="tagindent1"><code>DEFINE:AbilitybySkillMax|TL/2</code> (New tag)</p>
+	</blockquote>
+
+	<p class="indent1"><a name="ABILITYCATEGORY">AbilityCategory File: &quot;AbilitybySkill&quot; category.</a></p>
 	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>ABILITYCATEGORY:AbilitybySkill</code></p>
@@ -339,31 +348,16 @@
 		<p class="tagindent1"><code>VISIBLE:QUALIFY</code></p>
 	</blockquote>
 
-	<a name="STATSANDSCHECKS"></a>
-	<p class="indent1">Stats and Checks Gamemode File: Modifying the stat &quot;Intelligence&quot;.</p>
+	<p class="indent1"><a name="SKILLS">Skills File: &quot;Skills to Abilities&quot;</a></p>
 	<p></p>
 	<blockquote class="indent2">
-	<p class="tagindent1"><code>STATNAME:Intelligence</code></p>
-	<p class="tagindent1"><code>ABB:INT</code></p>
-	<p class="tagindent1"><code>STATMOD:floor(SCORE/2)-5</code></p>
-	<p class="tagindent1"><code>DEFINE:MAXLEVELSTAT=INT|INTSCORE-10</code></p>
-	<p class="tagindent1"><code>BONUS:LANG|BONUS|INT</code></p>
-	<p class="tagindent1"><code>BONUS:MODSKILLPOINTS|NUMBER|INT</code></p>
-	<p class="tagindent1"><code>DEFINE:AbilitybySkillMax|TL/2</code> (New tag)</p>
-	</blockquote>
-
-	<a name="SKILLS"></a>
-	<p class="indent1">Skills File: &quot;Ability by Skill&quot;</p>
-	<p></p>
-	<blockquote class="indent2">
-		<p class="tagindent1"><code>Ability by Skill</code></p>
+		<p class="tagindent1"><code>Skills to Abilities</code></p>
 		<p class="tagindent1"><code>TYPE:NoStat</code></p>
 		<p class="tagindent1"><code>VISIBLE:DISPLAY</code></p>
-		<p class="tagindent1"><code>BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Ability by Skill.RANK</code></p>
+		<p class="tagindent1"><code>BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Skills to Abilities.RANK</code></p>
 	</blockquote>
 
-	<a name="ABILITY"></a>
-	<p class="indent1">Ability Files: &quot;AbilitybySkill&quot; abilities</p>
+	<p class="indent1"><a name="ABILITY">Ability Files: &quot;AbilitybySkill&quot; abilities</a></p>
 	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Generic Skill Bought Ability</code></p>
@@ -391,8 +385,7 @@
 	</blockquote>
 	<p></p>
 
-	<a name="CLASS"></a>
-	<p class="indent1">Class File: &quot;&quot; modifications</p>
+	<p class="indent1"><a name="CLASS">Class File: &quot;&quot; modifications</a></p>
 	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>CLASS:Generic Class</code></p>
