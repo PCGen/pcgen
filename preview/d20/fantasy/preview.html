@@ -985,24 +985,24 @@
 <!-- STOP Money Table -->
 
 <!-- Start Special Attacks Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 						<tr>
 							<td>
 								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
 									<tr>
 										<td class="border2 bor_col_dark color_header bold center">SPECIAL ATTACKS</td>
 									</tr>
-|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
+|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 									<tr>
 |OIF(EVEN:%specialAttack,<td class="even bold">,<td class="odd bold">)|
-											|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|
-|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)|
+											|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)|
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)|
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
  (Sp)
 |ENDIF|
 
@@ -1010,7 +1010,7 @@
 									</tr>
 									<tr>
 |OIF(EVEN:%specialAttack,<td class="even">,<td class="odd">)|
-											|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|
+											|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.DESC|
 										</td>
 									</tr>
 |ENDFOR|
@@ -1021,24 +1021,24 @@
 <!-- Stop Special Attacks Table -->
 
 <!-- Start Special Qualities Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 						<tr>
 							<td>
 								<table width="100%" class="border2 bor_col_dark" cellspacing="0" cellpadding="2" summary="Class Abilities">
 									<tr>
 										<td class="border2 bor_col_dark color_header bold center">SPECIAL QUALITIES</td>
 									</tr>
-|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality")-1,1,0|
+|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 									<tr>
 |OIF(EVEN:%specialQuality,<td class="even bold">,<td class="odd bold">)|
-											|ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality|
-|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
+											|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)|
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
  (Sp)
 |ENDIF|
 
@@ -1046,7 +1046,7 @@
 									</tr>
 									<tr>
 |OIF(EVEN:%specialQuality,<td class="even">,<td class="odd">)|
-											|ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.DESC|
+											|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.DESC|
 										</td>
 									</tr>
 |ENDFOR|

@@ -89,6 +89,13 @@ $Date$
     <td width="25%"><b>Special Qualities &amp; Talents: </b></td>
     <td width="75%">|SPECIALLIST| </td>
   </tr>
+
+|IIF(count("ABILITIES";"CATEGORY=Mutation")>0)|
+  <tr valign="top">
+    <td width="25%"><b>Mutations: </b></td>
+    <td width="75%">|ABILITYALLLIST.Mutation| </td>
+  </tr>
+|ENDIF|
   <tr valign="top">
     <td width="25%"><b>Saves: </b></td>
     <td width="75%">

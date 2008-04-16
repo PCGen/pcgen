@@ -49,7 +49,7 @@ $Date: 2007/03/08 18:57:54 $
 <b>Multiclassing experience penalty</b> |EXP.PENALTY|<br>
 <b>Favored Classes</b> |FAVOREDLIST|<br>
 <b>Total Classes</b> |VAR.COUNT[CLASSES]|<br>
-<hr align="left" width="50%">
+<hr />
 
 <b>Initiative</b> |INITIATIVEMOD| = |STAT.1.MOD.SIGN|[STAT] |INITIATIVEBONUS.SIGN|[MISC]<br>
 
@@ -96,8 +96,8 @@ $Date: 2007/03/08 18:57:54 $
 |ENDIF|
 <br>
 
-<hr align="left" width="50%">
-<p><b>Ability Scores</b></p>
+<hr />
+<b>Ability Scores</b>
 
 <blockquote>
 |FOR,%stat,0,COUNT[STATS]-1,1,1|
@@ -111,8 +111,8 @@ $Date: 2007/03/08 18:57:54 $
 |ENDFOR|
 </blockquote>
 
-<p><hr />
-<b>Saving Throws</b></p>
+<hr />
+<b>Saving Throws</b>
 
 <blockquote>
 <b>Fortitude</b>: |CHECK.FORTITUDE.TOTAL| = 
@@ -174,8 +174,8 @@ $Date: 2007/03/08 18:57:54 $
 <br>
 </blockquote>
 
-<hr align="left" width="50%">
-<p><b>Attacks</b></p>
+<hr />
+<b>Attacks</b>
 
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <b>|WEAPON.%weap.NAME.NOSTAR| </b>
@@ -243,8 +243,8 @@ To Hit:
 <br>
 |ENDFOR|
 
-<hr align="left" width="50%">
-<p><b>Skills</b></p>
+<hr />
+<b>Skills</b>
 
 <blockquote>
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
@@ -259,7 +259,7 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
-<p><b>Skill Points</b></p>
+<b>Skill Points</b>
 <blockquote>
 |FOR,%points,0,COUNT[CLASSES]-1,1,0|
 |MANUALWHITESPACE| |CLASS.%points.LEVEL| |TEXT.NUMSUFFIX.CLASS.%points.LEVEL| |ENDMANUALWHITESPACE| level |CLASS.%points|: <b>|SKILLPOINTS.TOTAL.%points|</b>
@@ -270,11 +270,14 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
-<hr align="left" width="50%">
+|IIF(var("COUNT[FEATSALL.VISIBLE]")==0)|
+|ELSE|
+<hr />
+|ENDIF|
 
 |IIF(var("COUNT[FEATS.VISIBLE]")==0)|
 |ELSE|
-<p><b>Feats</b></p>
+<b>Feats</b>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATS.VISIBLE]-1,1,0|
@@ -284,7 +287,7 @@ To Hit:
 
 |IIF(var("COUNT[FEATSAUTO.VISIBLE]")==0)|
 |ELSE|
-<p><b>Feats (Automatic)</b></p>
+<b>Feats (Automatic)</b>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATSAUTO.VISIBLE]-1,1,0|
@@ -294,7 +297,7 @@ To Hit:
 
 |IIF(var("COUNT[VFEATS.VISIBLE]")==0)|
 |ELSE|
-<p><b>Feats (Virtual)</b></p>
+<b>Feats (Virtual)</b>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
@@ -302,12 +305,14 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
-<hr align="left" width="50%">
-
+|IIF(var("COUNT[FEATSALL.HIDDEN]")==0)|
+|ELSE|
+<hr />
+|ENDIF|
 
 |IIF(var("COUNT[FEATS.HIDDEN]")==0)|
 |ELSE|
-<p><b>Feats (Hidden)</b></p>
+<b>Feats (Hidden)</b>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
@@ -317,7 +322,7 @@ To Hit:
 
 |IIF(var("COUNT[FEATSAUTO.HIDDEN]")==0)|
 |ELSE|
-<p><b>Feats (Hidden Automatic)</b></p>
+<b>Feats (Hidden Automatic)</b>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[FEATSAUTO.HIDDEN]-1,1,0|
@@ -327,7 +332,7 @@ To Hit:
 
 |IIF(var("COUNT[VFEATS.HIDDEN]")==0)|
 |ELSE|
-<p><b>Feats (Hidden Virtual)</b></p>
+<b>Feats (Hidden Virtual)</b>
 |ENDIF|
 <blockquote>
 |FOR,%feat,0,COUNT[VFEATS.HIDDEN]-1,1,0|
@@ -337,14 +342,14 @@ To Hit:
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
-<hr align="left" width="50%">
+<hr />
 |ENDIF|
 
 
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
-<b>Special Abilities</b></p>
+<b>Special Abilities</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
@@ -354,7 +359,7 @@ To Hit:
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
-<b>Special Abilities (Automatic)</b></p>
+<b>Special Abilities (Automatic)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
@@ -364,7 +369,7 @@ To Hit:
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
-<b>Special Abilities (Virtual)</b></p>
+<b>Special Abilities (Virtual)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
@@ -374,50 +379,50 @@ To Hit:
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")==0)|
 |ELSE|
-<hr align="left" width="50%">
+<hr />
 |ENDIF|
 
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
-<b>Special Abilities (Hidden)</b></p>
+<b>Special Abilities (Hidden)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-<b>|ABILITYALL.Special Ability.HIDDEN.%ability|</b> [<i>|ABILITYALL.Special Ability.HIDDEN.%ability.SOURCE|</i>]<br>
+<b>|ABILITY.Special Ability.HIDDEN.%ability|</b> [<i>|ABILITY.Special Ability.HIDDEN.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
-<b>Special Abilities (Hidden Automatic)</b></p>
+<b>Special Abilities (Hidden Automatic)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-<b>|ABILITYAUTO.Special Ability.VISIBLE.%ability|</b> [<i>|ABILITYAUTO.Special Ability.VISIBLE.%ability.SOURCE|</i>]<br>
+<b>|ABILITYAUTO.Special Ability.HIDDEN.%ability|</b> [<i>|ABILITYAUTO.Special Ability.HIDDEN.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
-<b>Special Abilities (Hidden Virtual)</b></p>
+<b>Special Abilities (Hidden Virtual)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-<b>|VABILITY.Special Ability.VISIBLE.%ability|</b> [<i>|VABILITY.Special Ability.VISIBLE.%ability.SOURCE|</i>]<br>
+<b>|VABILITY.Special Ability.HIDDEN.%ability|</b> [<i>|VABILITY.Special Ability.HIDDEN.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
-<hr align="left" width="50%">
+<hr />
 |ENDIF|
 
 
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
-<b>Internal Abilities</b></p>
+<b>Internal Abilities</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
@@ -427,7 +432,7 @@ To Hit:
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
-<b>Internal Abilities (Automatic)</b></p>
+<b>Internal Abilities (Automatic)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
@@ -437,7 +442,7 @@ To Hit:
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
-<b>Internal Abilities (Virtual)</b></p>
+<b>Internal Abilities (Virtual)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
@@ -447,41 +452,41 @@ To Hit:
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")==0)|
 |ELSE|
-<hr align="left" width="50%">
+<hr />
 |ENDIF|
 
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
-<b>Internal Abilities (Hidden)</b></p>
+<b>Internal Abilities (Hidden)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
-<b>|ABILITYALL.Internal.HIDDEN.%ability|</b> [<i>|ABILITYALL.Internal.HIDDEN.%ability.SOURCE|</i>]<br>
+<b>|ABILITY.Internal.HIDDEN.%ability|</b> [<i>|ABILITY.Internal.HIDDEN.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
-<b>Internal Abilities (Hidden Automatic)</b></p>
+<b>Internal Abilities (Hidden Automatic)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
-<b>|ABILITYAUTO.Internal.VISIBLE.%ability|</b> [<i>|ABILITYAUTO.Internal.VISIBLE.%ability.SOURCE|</i>]<br>
+<b>|ABILITYAUTO.Internal.HIDDEN.%ability|</b> [<i>|ABILITYAUTO.Internal.HIDDEN.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 
 |IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
-<b>Internal Abilities (Hidden Virtual)</b></p>
+<b>Internal Abilities (Hidden Virtual)</b>
 |ENDIF|
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
-<b>|VABILITY.Internal.VISIBLE.%ability|</b> [<i>|VABILITY.Internal.VISIBLE.%ability.SOURCE|</i>]<br>
+<b>|VABILITY.Internal.HIDDEN.%ability|</b> [<i>|VABILITY.Internal.HIDDEN.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 
-<hr align="left" width="50%">
+<hr />
 
 </body>
 </html>

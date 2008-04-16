@@ -1990,58 +1990,58 @@ Wisdom
 <!-- STOP Proficiency Table -->
 |%|
 <!-- START Special Attacks Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>SPECIAL ATTACKS</b></font></td>
+     <td bgcolor="black" align="center" colspan="2" class="ab"><b>SPECIAL ATTACKS</b></td>
     </tr>
     <tr>
-     <td valign="top" width="40%" class="border8"><b>NAME</b></td>
-     <td valign="top" width="60%" class="border8" align="left"><b>DESCRIPTION</b></td>
+     <td valign="top" width="40%" class="border10"><b>NAME</b></td>
+     <td valign="top" width="60%" class="border10" align="left"><b>DESCRIPTION</b></td>
     </tr>
-|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack")-1,1,0|
+|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialAttack,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack|
-|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)|
+     <td valign="top" class="font8">|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)|
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)|
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
  (Sp)
 |ENDIF|
 	 </td>
-     <td valign="top" align="left" class="font8">|ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|</td>
+     <td valign="top" align="left" class="font8">|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.DESC|</td>
     </tr>
 |ENDFOR|
    </table>
 |ENDIF|
 <!-- STOP Special Attacks Table -->
 <!-- START Special Qualities Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>SPECIAL QUALITIES</b></font></td>
+     <td bgcolor="black" align="center" colspan="2" class="ab"><b>SPECIAL QUALITIES</b></td>
     </tr>
     <tr>
-     <td valign="top" width="40%" class="border8"><b>NAME</b></td>
-     <td valign="top" width="60%" class="border8" align="left"><b>DESCRIPTION</b></td>
+     <td valign="top" width="40%" class="border10"><b>NAME</b></td>
+     <td valign="top" width="60%" class="border10" align="left"><b>DESCRIPTION</b></td>
     </tr>
-|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality")-1,1,0|
+|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8">|ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality|
-|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
+     <td valign="top" class="font8">|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)|
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
  (Sp)
 |ENDIF|
 	 </td>
-     <td valign="top" align="left" class="font8">|ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.DESC|</td>
+     <td valign="top" align="left" class="font8">|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.DESC|</td>
     </tr>
 |ENDFOR|
    </table>

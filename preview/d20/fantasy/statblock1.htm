@@ -108,10 +108,10 @@ $Date$
     <td width="25%"><b>Face / Reach: </b></td>
     <td width="75%">|FACE| / |REACH| </td>
   </tr>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
   <tr valign="top">
     <td width="25%"><b>Special Attacks: </b></td>
-    <td width="75%">|ABILITYLIST.Special Ability.TYPE=SpecialAttack|</td>
+    <td width="75%">|ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack|</td>
   </tr>
 |ENDIF|
  <tr valign="top">
@@ -127,7 +127,7 @@ Damage Reduction |DR|,
 |ELSE|
 Spell Resistance |SR|, 
 |ENDIF|
- |ABILITYLIST.Special Ability.TYPE=SpecialQuality| </td>
+ |ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality| </td>
  </tr>
 |%COUNT[SA]|
   <tr valign="top">

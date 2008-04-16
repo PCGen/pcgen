@@ -99,18 +99,18 @@ Ranged
 |ENDFOR|
 ;
 SA: 
-|IIF(count("ABILITIES";"CATEGORY=Special Ability")>0)|
-|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0| 
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Extraordinary)|
-|ABILITYALL.Special Ability.%specialAbilities| (Ex), 
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")>0)|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")-1,1,0| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE:Extraordinary)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities| (Ex), 
 |ELSE|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Supernatural)|
-|ABILITYALL.Special Ability.%specialAbilities| (Su), 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE:Supernatural)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities| (Su), 
 |ELSE|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:SpellLike)|
-|ABILITYALL.Special Ability.%specialAbilities| (Sp), 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE:SpellLike)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities| (Sp), 
 |ELSE|
-|ABILITYALL.Special Ability.%specialAbilities|, 
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities|, 
 |ENDIF|
 |ENDIF|
 |ENDIF|

@@ -177,11 +177,11 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
  - 
 |ENDIF|
 
-|IIF(count("ABILITIES";"TYPE=AttackOption")>0)|
-<br><b>Atk Options: </b> |ABILITYLIST.FEAT.TYPE=AttackOption| |ABILITYLIST.Special Ability.TYPE=AttackOption|
+|IIF(count("ABILITIES";"TYPE=AttackOption";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<br><b>Atk Options: </b> |FEATALLLIST.TYPE=AttackOption| |ABILITYALLLIST.Special Ability.TYPE=AttackOption|
 |ENDIF|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack")>0)|
-<br><b>Special Actions </b> |ABILITYLIST.Special Ability.TYPE=SpecialAttack|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<br><b>Special Actions </b> |ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack|
 |ENDIF|
 
 <!-- TODO: Combat Gear need to be defined by Equipment TYPE -->
@@ -346,8 +346,12 @@ at will)
 |TEXT.TITLECASE.STAT.%stat.NAME| |STAT.%stat|
 |ENDFOR|
 <br>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality")>0)|
-<b>Special Qualities </b> |ABILITYLIST.Special Ability.TYPE=SpecialQuality|<br>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")>0)|
+<b>Special Qualities </b> 
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")-1,1,0| 
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality|, 
+|ENDFOR|
+<br>
 |ENDIF|
 |%COUNT[SA]|
 <b>Special Abilities </b> |SPECIALLIST|<br>
