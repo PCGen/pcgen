@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Apr 15 23:28:03 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Malhavoc Press - Book of Eldritch Might	SOURCESHORT:BoEM1	SOURCEWEB:http://www.montecook.com
 #Spell names and other proper names from The Book of Eldritch Might are
 #	©2001-2003 Monte J. Cook and are used here with his permission.
 
 #Errata from http://pub58.ezboard.com/fokayyourturnfrm16.showMessage?topicID=197.topic applied (changed costs for mirrors, as they take up no item slot)
 
-# Equipment Name			Type						Cost		Weight	Source Page		Bonus to spell attribute	Stat bonus
-Amulet of the Arcanist		TYPE:Magic.Wondrous.Neckgear.Amulet	COST:50000	WT:0		SOURCEPAGE:p.26	BONUS:SPELL|DC|2
+# Equipment Name			Type						Cost		Weight	Source Page		Bonus to DC			Stat bonus
+Amulet of the Arcanist		TYPE:Magic.Wondrous.Neckgear.Amulet	COST:50000	WT:0		SOURCEPAGE:p.26	BONUS:DC|TYPE.Arcane|2
 Book of Roses			TYPE:Magic.Wondrous.Book		COST:100000	WT:2		SOURCEPAGE:p.26
 Bottled Whirlwind			TYPE:Magic.Wondrous			COST:3000	WT:1		SOURCEPAGE:p.26
 Doomskull				TYPE:Magic.Wondrous			COST:800	WT:3		SOURCEPAGE:p.26
@@ -14,9 +14,9 @@ Elemental Charms			TYPE:Magic.Wondrous			COST:1250	WT:0		SOURCEPAGE:p.26
 Glass of Mist			TYPE:Magic.Wondrous			COST:9000	WT:1		SOURCEPAGE:p.26
 Glass Rose				TYPE:Magic.Wondrous			COST:15000	WT:0		SOURCEPAGE:p.26
 Lanneath's Conjure Bomb		TYPE:Magic.Wondrous			COST:4000	WT:2		SOURCEPAGE:p.27
-Mirror of Vanity (+2 CHA)	TYPE:Magic.Wondrous			COST:8000	WT:2		SOURCEPAGE:p.27						BONUS:STAT|CHA|2
-Mirror of Vanity (+4 CHA)	TYPE:Magic.Wondrous			COST:32000	WT:2		SOURCEPAGE:p.27						BONUS:STAT|CHA|4
-Mirror of Vanity (+6 CHA)	TYPE:Magic.Wondrous			COST:76000	WT:2		SOURCEPAGE:p.27						BONUS:STAT|CHA|6
+Mirror of Vanity (+2 CHA)	TYPE:Magic.Wondrous			COST:8000	WT:2		SOURCEPAGE:p.27					BONUS:STAT|CHA|2
+Mirror of Vanity (+4 CHA)	TYPE:Magic.Wondrous			COST:32000	WT:2		SOURCEPAGE:p.27					BONUS:STAT|CHA|4
+Mirror of Vanity (+6 CHA)	TYPE:Magic.Wondrous			COST:76000	WT:2		SOURCEPAGE:p.27					BONUS:STAT|CHA|6
 Ocular Band				TYPE:Magic.Wondrous.Eyegear		COST:21000	WT:0		SOURCEPAGE:p.27
 Pipes of Power			TYPE:Magic.Wondrous.Instrument	COST:70000	WT:2		SOURCEPAGE:p.27
 Scabbard of Venoms		TYPE:Magic.Wondrous			COST:5000	WT:1		SOURCEPAGE:p.27
