@@ -3706,6 +3706,11 @@ public final class Globals
 		raceMap.put(aRace.getKeyName().toLowerCase(), aRace);
 	}
 	
+	public static Map<String, Race> getRaces()
+	{
+		return raceMap;
+	}
+	
 	public static Collection<Race> getAllRaces()
 	{
 		return Collections.unmodifiableCollection(raceMap.values());

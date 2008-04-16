@@ -28,6 +28,8 @@
  */
 package pcgen.core.prereq;
 
+import java.util.HashMap;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -152,6 +154,142 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("race");
 		prereq.setKey("human");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+	}
+	/**
+	 * Test to make sure that we return true when races are equal using ServesAs.
+	 * 
+	 * @throws Exception
+	 */
+	public void testPassServesAsName() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Race race = new Race();
+		race.setName("Human");
+		Globals.addRace(race);
+		
+		final Race fake = new Race();
+		fake.setName("NotHuman");
+		Globals.addRace(fake);
+
+		race.putServesAs(fake.getDisplayName(), "");
+		character.setRace(fake);
+
+		
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("race");
+		prereq.setKey("human");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+	}
+	/**
+	 * Test to make sure that we return true when races RACESUBTYPE are equal using ServesAs.
+	 * 
+	 * @throws Exception
+	 */
+	public void testPassServesAsRaceSubType() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Race race = new Race();
+		race.setName("Human");
+		race.setTypeInfo("Outsider");
+		race.addRacialSubType("aqautic");
+		race.addRacialSubType("foo");
+		Globals.addRace(race);
+		
+		final Race fake = new Race();
+		fake.setName("NotHuman");
+		fake.setTypeInfo("Humanoid");
+		fake.addRacialSubType("desert");
+		fake.addRacialSubType("none");
+		Globals.addRace(fake);
+
+		fake.putServesAs(race.getDisplayName(), "");
+		character.setRace(fake);
+		
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("race");
+		prereq.setKey("RACESUBTYPE=aqautic");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+		
+		final Prerequisite prereq2 = new Prerequisite();
+		prereq2.setKind("race");
+		prereq2.setKey("RACESUBTYPE=foo");
+		prereq2.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes2 = PrereqHandler.passes(prereq2, character, null);
+		assertTrue(passes2);
+		
+		
+	}
+	/**
+	 * Test to make sure that we return true when races RACETYPE are equal using ServesAs.
+	 * 
+	 * @throws Exception
+	 */
+	public void testPassServesAsRaceType() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Race race = new Race();
+		race.setName("Human");
+		race.setTypeInfo("Outsider");
+		Globals.addRace(race);
+		
+		final Race fake = new Race();
+		fake.setName("NotHuman");
+		fake.setTypeInfo("Humanoid");
+		Globals.addRace(fake);
+
+		race.putServesAs(fake.getDisplayName(), "");
+		character.setRace(fake);
+
+		
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("race");
+		prereq.setKey("RACETYPE=Humanoid");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+	}
+	
+	/**
+	 * Test to make sure that we return true when races TYPE are equal.
+	 * 
+	 * @throws Exception
+	 */
+	public void testPassServesAsType() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Race race = new Race();
+		race.setName("Human");
+		race.setTypeInfo("Outsider");
+		Globals.addRace(race);
+		
+		final Race fake = new Race();
+		fake.setName("NotHuman");
+		fake.setTypeInfo("Humanoid");
+		Globals.addRace(fake);
+
+		race.putServesAs(fake.getDisplayName(), "");
+		character.setRace(fake);
+
+		
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("race");
+		prereq.setKey("TYPE=Humanoid");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
