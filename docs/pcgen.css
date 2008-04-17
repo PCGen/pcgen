@@ -16,13 +16,13 @@ file {
 	font-style: italic;
 	font-size: 10pt;
 }
-psource {
+pubsource {
 	font-weight: bold;
 	text-decoration: underline;
 	font-style: italic;
 	font-size: 10pt;
 }
-pobject {
+lstobject {
 	font-weight: bold;
 	font-size: 10pt;
 }
