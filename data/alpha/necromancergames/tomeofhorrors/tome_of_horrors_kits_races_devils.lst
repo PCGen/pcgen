@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 17 00:46:52 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -30,11 +30,11 @@ SKILL:Spot				RANK:25
 SKILL:Survival			RANK:25
 FEAT:Blind Fight
 FEAT:Cleave
-FEAT:Greave Cleave
+FEAT:Great Cleave
 FEAT:Improved Critical (Mace (Heavy))
 FEAT:Improved Initiative
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability (Fireball)
+FEAT:Quicken Spell Like Ability(Fireball)
 FEAT:Weapon Focus (Mace (Heavy))
 FEAT:Blinding Speed
 FEAT:Overwhelming Critical (Mace (Heavy))
@@ -69,7 +69,7 @@ FEAT:Improved Initiative
 FEAT:Improved Sunder
 FEAT:Power Attack
 FEAT:Weapon Focus (Scythe)
-GEAR:Chainmail	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
+GEAR:Chainmail	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3A
 GEAR:Scythe		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.LAW_M.KEEN
 
 STARTPACK:Devil (Bael) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Bael)]
@@ -105,7 +105,7 @@ FEAT:Improved Sunder
 FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Weapon Focus (Morningstar)
-GEAR:Chainmail	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
+GEAR:Chainmail	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3A
 GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKA.PLUS4W.UNHLY_M.TELE
 
 STARTPACK:Devil (Geryon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Geryon)]
@@ -138,7 +138,7 @@ FEAT:Improved Initiative
 FEAT:Maximize Spell
 FEAT:Multiattack
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability (Ice Storm)
+FEAT:Quicken Spell Like Ability(Ice Storm)
 FEAT:Weapon Focus (Claw)
 FEAT:Weapon Focus (Tail String)
 FEAT:Enhance Spell
@@ -244,7 +244,7 @@ FEAT:Weapon Focus (Trident)
 FEAT:Improved Critical (Trident)
 FEAT:Greater Weapon Focus (Trident)
 FEAT:Improved Initiative
-FEAT:Quicken Spell Like Ability (Fireball)
+FEAT:Quicken Spell Like Ability(Fireball)
 GEAR:Trident		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.FLM_BR_M.UNHLY_M
 GEAR:Net of Snaring	SIZE:PC	LOCATION:Carried
 
@@ -397,7 +397,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Negotiator
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability (Confusion)
+FEAT:Quicken Spell Like Ability(Confusion)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.ALCHM.WOUND
 
 STARTPACK:Devil (Tormentor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Tormentor)]

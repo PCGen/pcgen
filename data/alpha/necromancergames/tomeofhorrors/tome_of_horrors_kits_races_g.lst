@@ -259,8 +259,8 @@ SKILL:Intimidate		RANK:10
 SKILL:Listen		RANK:10
 SKILL:Search		RANK:10
 SKILL:Sense Motive	RANK:10
-SKILL:SPot			RANK:10
-FEAT:Ability Focus (Keening)
+SKILL:Spot			RANK:10
+FEAT:Ability Focus(Keening)
 FEAT:Blind Fight
 FEAT:Improved Initiative
 

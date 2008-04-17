@@ -77,9 +77,9 @@ SKILL:Survival	RANK:1
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Wolf-in-Sheep's-Clothing	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf-in-Sheep's-Clothing]
-RACE:Wolf-in-Sheep's-Clothing	!PRERACE:1,%
-NAME:Wolf-in-Sheep's-Clothing
+STARTPACK:Wolf-in-Sheep's-Clothing Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf-In-Sheep's-Clothing]
+RACE:Wolf-In-Sheep's-Clothing	!PRERACE:1,%
+NAME:Wolf-In-Sheep's-Clothing
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:4

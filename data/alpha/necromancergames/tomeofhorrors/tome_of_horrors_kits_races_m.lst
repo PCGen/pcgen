@@ -17,7 +17,7 @@ SKILL:Search			RANK:7
 SKILL:Sense Motive		RANK:9
 SKILL:Spot				RANK:9
 SKILL:Survival			RANK:7
-FEAT:Ability Focus (Soul Portal)
+FEAT:Ability Focus(Soul Portal)
 FEAT:Blind Fight
 FEAT:Improved Initiative
 
@@ -143,11 +143,11 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Sleight of Hand	RANK:2
 SKILL:Survival		RANK:1
-FEAT:Ability Focus (Sound Imitation)
+FEAT:Ability Focus(Sound Imitation)
 GEAR:Club	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Random Mongrelman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongrelman]
-KIT:Default Mongrelman
+KIT:Mongrelman Default
 KIT:Mongrelman Head (Left)
 KIT:Mongrelman Head (Right)
 KIT:Mongrelman Upper Torso
@@ -673,9 +673,9 @@ SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Mud Man Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mud Man]
-RACE:Mud Man	!PRERACE:1,%
-NAME:Mud Man
+STARTPACK:Mudman Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mudman]
+RACE:Mudman	!PRERACE:1,%
+NAME:Mudman
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=10|CHA=10
 

@@ -102,7 +102,7 @@ SKILL:Sense Motive		RANK:16
 SKILL:Spellcraft			RANK:19
 SKILL:Spot				RANK:17
 SKILL:Survival			RANK:19
-FEAT:Ability Focus (Seduction)
+FEAT:Ability Focus(Seduction)
 FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Combat Reflexes
@@ -278,7 +278,7 @@ FEAT:Improved Initiative
 FEAT:Improved Sunder
 FEAT:Multiattack
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability (Prismatic Spray)
+FEAT:Quicken Spell Like Ability(Prismatic Spray)
 FEAT:Weapon Focus (Slam)
 FEAT:Craft Epic Staff
 FEAT:Dire Charge
@@ -348,7 +348,7 @@ FEAT:Enlarge Spell
 FEAT:Improved Initiative
 FEAT:Maximize Spell
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability (Circle of Cold)
+FEAT:Quicken Spell Like Ability(Circle of Cold)
 FEAT:Weapon Focus (Slam)
 FEAT:Enhance Spell
 FEAT:Epic Reflexes
@@ -590,7 +590,7 @@ SKILL:Survival			RANK:42
 SKILL:Use Magic Device		RANK:42
 FEAT:Blind Fight
 FEAT:Cleave
-FEAT:Empower Spell Like Ability (Lightning Bolt)
+FEAT:Empower Spell Like Ability(Lightning Bolt)
 FEAT:Flyby Attack
 FEAT:Great Cleave
 FEAT:Hover
@@ -722,7 +722,7 @@ FEAT:Weapon Focus (Tongue)
 FEAT:Epic Spellcasting (Epic Spellcaster (Arcane/CHA Spellstat))
 FEAT:Epic Toughness
 FEAT:Superior Initiative
-FEAT:Tenacious Magic (Unholy Aura)
+FEAT:Tenacious Magic(Unholy Aura)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash|Arcane Mark|Daze|Detect Poison|Flare|Ghost Sound|Light|Open/Close|Touch of Fatigue
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Chill Touch|Grease|Jump|Protection from Good|Sleep
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Lock|Blindness/Deafness|Blur|Acid Arrow|Misdirection

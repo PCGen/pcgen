@@ -57,7 +57,7 @@ FEAT:Improved Initiative
 FEAT:Improved Sunder
 FEAT:Negotiator
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability (Suggestion)
+FEAT:Quicken Spell Like Ability(Suggestion)
 FEAT:Skill Focus (Intimidate)
 FEAT:Weapon Focus (Quarterstaff)
 FEAT:Superior Initiative
@@ -92,7 +92,7 @@ NAME:Derghodaemon
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Hide			RANK:13
 SKILL:Intimidate		RANK:13
-SKILL:LIsten		RANK:13
+SKILL:Listen		RANK:13
 SKILL:Move Silently	RANK:13
 SKILL:Search		RANK:9
 SKILL:Sense Motive	RANK:13
@@ -155,10 +155,10 @@ FEAT:Improved Initiative
 FEAT:Maximize Spell
 FEAT:Power Attack
 FEAT:Quicken Spell
-FEAT:Quicken Spell Like Ability (Wall of Fire)
+FEAT:Quicken Spell Like Ability(Wall of Fire)
 FEAT:Silent Spell
 FEAT:Weapon Focus (Slam)
-FEAT:Epic Spellcasting (Divine/WIS Spellstat)
+FEAT:Epic Spellcaster (Divine/WIS Spellstat)
 FEAT:Intensify Spell
 FEAT:Spellcasting Harrier
 DEITY:None	DOMAIN:Death (NSA)|Destruction (NSA)|Evil (NSA)

@@ -182,7 +182,7 @@ FEAT:Improved Sunder
 FEAT:Lightning Reflexes
 FEAT:Mobility
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability (Fireball)
+FEAT:Quicken Spell Like Ability(Fireball)
 FEAT:Track
 FEAT:Weapon Focus (Scythe)
 GEAR:Scythe	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS5W.CHAOS_M
@@ -211,7 +211,7 @@ FEAT:Improved Initiative
 FEAT:Maximize Spell
 FEAT:Snatch
 FEAT:Weapon Focus (Bite)
-FEAT:Weapon Foucs (Claw)
+FEAT:Weapon Focus (Claw)
 FEAT:Wingover
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Daze|Disrupt Undead|Flare|Light|Open/Close|Prestidigitation|Ray of Frost|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Animate Rope|Burning Hands|Magic Missile|Obscuring Mist|True Strike
@@ -249,7 +249,7 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Cleave
 FEAT:Combat Casting
-FEAT:Combat Reflex
+FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Great Cleave
 FEAT:Improved Bull Rush
@@ -304,7 +304,7 @@ SKILL:Move Silently		RANK:13
 SKILL:Search			RANK:13
 SKILL:Spot				RANK:13
 SKILL:Survival			RANK:13
-FEAT:ALertness
+FEAT:Alertness
 FEAT:Dodge
 FEAT:Flyby Attack
 FEAT:Weapon Finesse

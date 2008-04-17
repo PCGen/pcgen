@@ -101,7 +101,7 @@ NAME:Chrystone
 STAT:STR=11|DEX=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Ability Focus (Breath Weapon (Cone/Color Spray))
+FEAT:Ability Focus(Breath Weapon)
 FEAT:Iron Will
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 

@@ -2,9 +2,9 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Inphidian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inphidian]
+STARTPACK:Inphidian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inphidian (Common)]
 ALIGN:NE
-RACE:Inphidian	!PRERACE:1,%
+RACE:Inphidian (Common)	!PRERACE:1,%
 NAME:Inphidian
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Craft (Poisonmaking)	RANK:7

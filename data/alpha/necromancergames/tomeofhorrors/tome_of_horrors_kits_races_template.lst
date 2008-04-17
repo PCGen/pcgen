@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Apr 17 00:46:52 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -24,13 +24,13 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 
 STARTPACK:Sample Beast of Chaos
-KIT:Default Lion
+KIT:Lion Default
 NAME:Lion Beast of Chaos
 TEMPLATE:Beast of Chaos
 ALIGN:CN
 
 STARTPACK:Sample Bleeding Horror
-KIT:Default Minotaur
+KIT:Minotaur Default
 NAME:Bleeding Horror Minotaur
 TEMPLATE:Bleeding Horror
 ALIGN:CE
@@ -127,7 +127,7 @@ ABILITY:CATEGORY=Fighter Feat|Quick Draw
 FEAT:Improved Initiative
 ABILITY:CATEGORY=Fighter Feat|Improved Sunder
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W
-GEAR:Full Plate			SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
+GEAR:Full Plate			SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS2A
 GEAR:Cloak of Resistance +2	SIZE:PC	LOCATION:Equipped
 GEAR:Boots of Speed		SIZE:PC	LOCATION:Equipped
 TEMPLATE:Skeleton Warrior
