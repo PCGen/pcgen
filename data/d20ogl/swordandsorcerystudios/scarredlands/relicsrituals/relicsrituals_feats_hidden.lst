@@ -49,8 +49,8 @@ Ignore Metamagic Penalty	TYPE:ClassAbility	VISIBLE:NO	SAB:Ignore Metamagic Penal
 Aquatic Wildshape			TYPE:ClassAbility	VISIBLE:NO	SAB:Aquatic Wildshape %/day|Wildshape		DEFINE:Wildshape|0	SOURCEPAGE:p.18
 
 ###Block: Summoner class features
-# Feat Name							Type			Visible	Multiple?	Choose																								Source Page
-Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|TYPE=Arcane|MAXLEVEL|MAXLEVEL|TYPE=Divine|MAXLEVEL|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1][BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.20
+# Feat Name							Type			Visible	Multiple?	Choose																									Source Page
+Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|MAXLEVEL|MAXLEVEL|TYPE=Divine|MAXLEVEL|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1][BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.20
 
 ###Block: Vigilant Class Feats
 # Feat Name			Type			Visible	Special ABility						Define					Multiple?	Choose																											Source Page
