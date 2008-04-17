@@ -107,8 +107,8 @@ CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	ALLO
 CLASS:Sea Witch	PRESKILL:2,Concentration,Profession (Sailor)=8	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sea Witch	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Knowledge|TYPE.Profession|Sense Motive|Speak Language|Swim|Use Rope
-# Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Sea Witch	SPELLSTAT:ANY	SPELLTYPE:ANY	BONUS:CASTERLEVEL|Sea Witch|CL
+# Class Name	Caster level
+CLASS:Sea Witch	BONUS:CASTERLEVEL|Sea Witch|CL
 SUBCLASS:Intelligence Base	COST:0	SPELLSTAT:INT	SPELLTYPE:Arcane
 SUBCLASS:Wisdom Base		COST:0	SPELLSTAT:WIS	SPELLTYPE:Divine
 SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA	SPELLTYPE:Arcane
