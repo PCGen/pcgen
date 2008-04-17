@@ -132,7 +132,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 					{
 						for (Race mock: servesAsRace.get(imitators))
 						{
-							if(mock.isType(raceToMatch))
+							if(raceType.equalsIgnoreCase(raceToMatch))
 							{
 								return 1;
 							}
