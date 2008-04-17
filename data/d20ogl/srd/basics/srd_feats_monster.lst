@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Mon Mar 31 12:14:52 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Apr 17 00:37:29 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 ###Block: Monster Feats
 # Currently the Multidexterity and Multiweapon Fighting feats are only displayed properly
 #    in the eqsheet.htm created by the Equip tab.
-# Feat Name				Output Name						Type					Visible		PREHANDSGTEQ	Req. Movement	Required Stat	Required Template				Description		Stackable?	Multiple?	Choose		Combat bonus						Class Skill			Cost		Source Page
-Flyby Attack										TYPE:General.Fighter.Dragon							PREMOVE:1,Fly=1										DESC:See Text																						SOURCEPAGE:srdfeats.rtf
-Hover												TYPE:General.Dragon								PREMOVE:1,Fly=1				PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text																						SOURCEPAGE:srdmonstersdragons.rtf
-Improved Control Shape									TYPE:Special															PRETEMPLATE:1,Lycanthrope		DESC:See Text																CSKILL:Control Shape	COST:0	SOURCEPAGE:srdmonsterstemplates.rtf
-Multidexterity										TYPE:General.Fighter					PREHANDSGTEQ:3				PRESTAT:1,DEX=15							DESC:See Text								BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4							SOURCEPAGE:srdfeats.rtf
-Multiweapon Fighting									TYPE:General.Fighter					PREHANDSGTEQ:3													DESC:See Text								BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2							SOURCEPAGE:srdfeats.rtf
-Multiattack											TYPE:General.Fighter					PREHANDSGTEQ:3													DESC:See Text								BONUS:COMBAT|TOHIT-SECONDARY|3									SOURCEPAGE:srdfeats.rtf
+# Feat Name				Output Name						Type					Visible		Min. nb of Hand	Req. Movement	Required Stat	Required Template				Description		Stackable?	Multiple?	Choose					Combat bonus						Class Skill			Cost		Source Page
+Flyby Attack										TYPE:General.Fighter.Dragon							PREMOVE:1,Fly=1										DESC:See Text																									SOURCEPAGE:srdfeats.rtf
+Hover												TYPE:General.Dragon								PREMOVE:1,Fly=1				PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text																									SOURCEPAGE:srdmonstersdragons.rtf
+Improved Control Shape									TYPE:Special															PRETEMPLATE:1,Lycanthrope		DESC:See Text																			CSKILL:Control Shape	COST:0	SOURCEPAGE:srdmonsterstemplates.rtf
+Multidexterity										TYPE:General.Fighter					PREHANDSGTEQ:3				PRESTAT:1,DEX=15							DESC:See Text											BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4							SOURCEPAGE:srdfeats.rtf
+Multiweapon Fighting									TYPE:General.Fighter					PREHANDSGTEQ:3													DESC:See Text											BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2							SOURCEPAGE:srdfeats.rtf
+Multiattack											TYPE:General.Fighter					PREHANDSGTEQ:3													DESC:See Text											BONUS:COMBAT|TOHIT-SECONDARY|3									SOURCEPAGE:srdfeats.rtf
 #Multiattack does not work because of PCGen's inability to allow multiple natural attacks to be equipped.
-Quicken Spell Like Ability	OUTPUTNAME:Quicken Spell-Like Ability	TYPE:General.Dragon														PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text																						SOURCEPAGE:srdmonstersdragons.rtf
-Snatch											TYPE:General.Dragon														PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text																						SOURCEPAGE:srdmonstersdragons.rtf
-Spell Like Ability Focus	OUTPUTNAME:Spell-Like Ability Focus		TYPE:General																					DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS															SOURCEPAGE:srdmonstersfg.rtf
-Wingover											TYPE:General.Dragon														PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text																						SOURCEPAGE:srdmonstersdragons.rtf
+Quicken Spell Like Ability	OUTPUTNAME:Quicken Spell-Like Ability	TYPE:General.Dragon														PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate															SOURCEPAGE:srdmonstersdragons.rtf
+Snatch											TYPE:General.Dragon														PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text																									SOURCEPAGE:srdmonstersdragons.rtf
+Spell Like Ability Focus	OUTPUTNAME:Spell-Like Ability Focus		TYPE:General																					DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS																		SOURCEPAGE:srdmonstersfg.rtf
+Wingover											TYPE:General.Dragon														PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text																									SOURCEPAGE:srdmonstersdragons.rtf
 
 ### Special ???
-Unearthly Beauty										TYPE:General			VISIBLE:EXPORT																																								SOURCEPAGE:srdmonstersnop.rtf
+Unearthly Beauty										TYPE:General			VISIBLE:EXPORT																																											SOURCEPAGE:srdmonstersnop.rtf
 
 ###Block: Monster Feat Descriptions
 # Feat Name					Clear Description	Description
