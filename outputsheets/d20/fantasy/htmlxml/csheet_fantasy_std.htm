@@ -1232,11 +1232,11 @@ Wisdom
 |%|
 <!-- STOP Domain Table -->
 <!-- Start Turning Table -->
-|IIF(HASFEAT:Turn Undead.OR.HASFEAT:Rebuke Undead)|
+|IIF(count("ABILITIES";"NAME=Turn Undead[or]NAME=Rebuke Undead")>0)|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(HASFEAT:Turn Undead)|
+|IIF(count("ABILITIES";"NAME=Turn Undead")>0)|
       TURN UNDEAD
 |ELSE|
       REBUKE UNDEAD
@@ -1274,7 +1274,7 @@ Wisdom
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelUndead-1).INTVAL|</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(HASFEAT:Turn Undead)|
+|IIF(count("ABILITIES";"NAME=Turn Undead")>0)|
 	NOTE: You destroy undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.</td>
 |ELSE|
 	NOTE: You command undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.</td>
@@ -1305,11 +1305,11 @@ Wisdom
 |ENDIF|
 <!-- Stop Turning Table -->
 <!-- Start Turning Table Earth-->
-|IIF(HASFEAT:Turn Earth.OR.HASFEAT:Rebuke Earth)|
+|IIF(count("ABILITIES";"NAME=Turn Earth[or]NAME=Rebuke Earth")>0)|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(HASFEAT:Turn Earth)|
+|IIF(count("ABILITIES";"NAME=Turn Earth")>0)|
       TURN EARTH
 |ELSE|
       REBUKE EARTH
@@ -1347,7 +1347,7 @@ Wisdom
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelEarth-1).INTVAL|</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(HASFEAT:Turn Earth)|
+|IIF(count("ABILITIES";"NAME=Turn Earth")>0)|
 	NOTE: You destroy Earth creatures with total hit dice up to |(VAR.TurnLevelEarth/2).INTVAL|.</td>
 |ELSE|
 	NOTE: You command Earth creatures with total hit dice up to |VAR.TurnLevelEarth.INTVAL|.</td>
@@ -1378,11 +1378,11 @@ Wisdom
 |ENDIF|
 <!-- Stop Turning Table Earth -->
 <!-- Start Turning Table Air -->
-|IIF(HASFEAT:Turn Air.OR.HASFEAT:Rebuke Air)|
+|IIF(count("ABILITIES";"NAME=Turn Air[or]NAME=Rebuke Air")>0)|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(HASFEAT:Turn Air)|
+|IIF(count("ABILITIES";"NAME=Turn Air")>0)|
       TURN AIR
 |ELSE|
       REBUKE AIR
@@ -1420,7 +1420,7 @@ Wisdom
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelAir-1).INTVAL|</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(HASFEAT:Turn Air)|
+|IIF(count("ABILITIES";"NAME=Turn Air")>0)|
 	NOTE: You destroy Air creatures with total hit dice up to |(VAR.TurnLevelAir/2).INTVAL|.</td>
 |ELSE|
 	NOTE: You command Air creatures with total hit dice up to |VAR.TurnLevelAir.INTVAL|.</td>
@@ -1451,11 +1451,11 @@ Wisdom
 |ENDIF|
 <!-- Stop Turning Table Air -->
 <!-- Start Turning Table Plant -->
-|IIF(HASFEAT:Turn Plant.OR.HASFEAT:Rebuke Plant)|
+|IIF(count("ABILITIES";"NAME=Turn Plant[or]NAME=Rebuke Plant")>0)|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(HASFEAT:Turn Plant)|
+|IIF(count("ABILITIES";"NAME=Turn Plant")>0)|
       TURN PLANT
 |ELSE|
       REBUKE PLANT
@@ -1493,7 +1493,7 @@ Wisdom
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelPlant-1).INTVAL|</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(HASFEAT:Turn Plant)|
+|IIF(count("ABILITIES";"NAME=Turn Plant")>0)|
 	NOTE: You destroy Plant creatures with total hit dice up to |(VAR.TurnLevelPlant/2).INTVAL|.</td>
 |ELSE|
 	NOTE: You command Plant creatures with total hit dice up to |VAR.TurnLevelPlant.INTVAL|.</td>
@@ -1524,11 +1524,11 @@ Wisdom
 |ENDIF|
 <!-- Stop Turning Table Plant -->
 <!-- Start Turning Table Water -->
-|IIF(HASFEAT:Turn Water.OR.HASFEAT:Rebuke Water)|
+|IIF(count("ABILITIES";"NAME=Turn Water[or]NAME=Rebuke Water")>0)|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(HASFEAT:Turn Water)|
+|IIF(count("ABILITIES";"NAME=Turn Water")>0)|
       TURN WATER
 |ELSE|
       REBUKE WATER
@@ -1566,7 +1566,7 @@ Wisdom
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelWater-1).INTVAL|</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(HASFEAT:Turn Water)|
+|IIF(count("ABILITIES";"NAME=Turn Water")>0)|
 	NOTE: You destroy Water creatures with total hit dice up to |(VAR.TurnLevelWater/2).INTVAL|.</td>
 |ELSE|
 	NOTE: You command Water creatures with total hit dice up to |VAR.TurnLevelWater.INTVAL|.</td>
@@ -1597,11 +1597,11 @@ Wisdom
 |ENDIF|
 <!-- Stop Turning Table Water -->
 <!-- Start Turning Table Fire -->
-|IIF(HASFEAT:Turn Fire.OR.HASFEAT:Rebuke Fire)|
+|IIF(count("ABILITIES";"NAME=Turn Fire[or]NAME=Rebuke Fire")>0)|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(HASFEAT:Turn Fire)|
+|IIF(count("ABILITIES";"NAME=Turn Fire")>0)|
       TURN FIRE
 |ELSE|
       REBUKE FIRE
@@ -1639,7 +1639,7 @@ Wisdom
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelFire-1).INTVAL|</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(HASFEAT:Turn Fire)|
+|IIF(count("ABILITIES";"NAME=Turn Fire")>0)|
 	NOTE: You destroy Fire creatures with total hit dice up to |(VAR.TurnLevelFire/2).INTVAL|.</td>
 |ELSE|
 	NOTE: You command Fire creatures with total hit dice up to |VAR.TurnLevelFire.INTVAL|.</td>

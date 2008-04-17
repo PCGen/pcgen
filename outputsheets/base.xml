@@ -916,7 +916,7 @@
 
 
 	<!-- Turning ability -->
-|IIF(HASFEAT:Turn Undead)|
+|IIF(count("ABILITIES";"NAME=Turn Undead")>0)|
 	<turning kind="UNDEAD" type="TURN">
 			<level>|VAR.TurnLevelUndead.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
@@ -925,7 +925,7 @@
 			<notes>You destroy Undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Rebuke Undead)|
+|IIF(count("ABILITIES";"NAME=Rebuke Undead")>0)|
 	<turning kind="UNDEAD" type="REBUKE">
 			<level>|VAR.TurnLevelUndead.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
@@ -934,7 +934,7 @@
 			<notes>You command Undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Turn Air)|
+|IIF(count("ABILITIES";"NAME=Turn Air")>0)|
 	<turning kind="AIR" type="TURN">
 			<level>|VAR.TurnLevelAir.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
@@ -943,7 +943,7 @@
 			<notes>You destroy Air creatures with total hit dice up to |(VAR.TurnLevelAir/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Rebuke Air)|
+|IIF(count("ABILITIES";"NAME=Rebuke Air")>0)|
 	<turning kind="AIR" type="REBUKE">
 			<level>|VAR.TurnLevelAir.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
@@ -952,7 +952,7 @@
 			<notes>You command Air creatures with total hit dice up to |VAR.TurnLevelAir.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Turn Earth)|
+|IIF(count("ABILITIES";"NAME=Turn Earth")>0)|
 	<turning kind="EARTH" type="TURN">
 			<level>|VAR.TurnLevelEarth.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
@@ -961,7 +961,7 @@
 			<notes>You destroy Earth creatures with total hit dice up to |(VAR.TurnLevelEarth/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Rebuke Earth)|
+|IIF(count("ABILITIES";"NAME=Rebuke Earth")>0)|
 	<turning kind="EARTH" type="REBUKE">
 			<level>|VAR.TurnLevelEarth.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
@@ -970,7 +970,7 @@
 			<notes>You command Earth creatures with total hit dice up to |VAR.TurnLevelEarth.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Turn Fire)|
+|IIF(count("ABILITIES";"NAME=Turn Fire")>0)|
 	<turning kind="FIRE" type="TURN">
 			<level>|VAR.TurnLevelFire.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
@@ -979,7 +979,7 @@
 			<notes>You destroy Fire creatures with total hit dice up to |(VAR.TurnLevelFire/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Rebuke Fire)|
+|IIF(count("ABILITIES";"NAME=Rebuke Fire")>0)|
 	<turning kind="FIRE" type="REBUKE">
 			<level>|VAR.TurnLevelFire.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
@@ -988,7 +988,7 @@
 			<notes>You command Fire creatures with total hit dice up to |VAR.TurnLevelFire.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Turn Water)|
+|IIF(count("ABILITIES";"NAME=Turn Water")>0)|
 	<turning kind="WATER" type="TURN">
 			<level>|VAR.TurnLevelWater.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
@@ -997,7 +997,7 @@
 			<notes>You destroy Water creatures with total hit dice up to |(VAR.TurnLevelWater/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Rebuke Water)|
+|IIF(count("ABILITIES";"NAME=Rebuke Water")>0)|
 	<turning kind="WATER" type="REBUKE">
 			<level>|VAR.TurnLevelWater.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
@@ -1006,7 +1006,7 @@
 			<notes>You command Water creatures with total hit dice up to |VAR.TurnLevelWater.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Turn Plant)|
+|IIF(count("ABILITIES";"NAME=Turn Plant")>0)|
 	<turning kind="PLANT" type="TURN">
 			<level>|VAR.TurnLevelPlant.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
@@ -1015,7 +1015,7 @@
 			<notes>You destroy Plant creatures with total hit dice up to |(VAR.TurnLevelPlant/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(HASFEAT:Rebuke Plant)|
+|IIF(count("ABILITIES";"NAME=Rebuke Plant")>0)|
 	<turning kind="PLANT" type="REBUKE">
 			<level>|VAR.TurnLevelPlant.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
