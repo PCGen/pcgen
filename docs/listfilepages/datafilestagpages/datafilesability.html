@@ -25,6 +25,7 @@
 
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 	</head>
 
 	<body>
@@ -36,25 +37,25 @@
 
 		<p class="indent1">The following tags are discussed in the <a href="#abilitytagdictionary">Ability Tag Dictionary</a> section below:</p>
 		<p></p>
-		<p class="indent2"><a href="#ADDSPELLLEVEL">ADDSPELLLEVEL</a> <span class="note">(Ability)</span></p>
-		<p class="indent2"><a href="#BENEFIT">BENEFIT</a></p>
-		<p class="indent2"><a href="#CATEGORY2">CATEGORY</a></p>
-		<p class="indent2"><a href="#COST">COST</a></p>
-		<p class="indent2"><a href="#MODIFYABILITYCHOICE">MODIFYABILITYCHOICE</a></p>
-		<p class="indent2"><a href="#MULT">MULT</a></p>
-		<p class="indent2"><a href="#STACK">STACK</a></p>
-		<p class="indent2"><a href="#VISIBLE">VISIBLE</a></p>
-		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#CLEAR">&lt;ability&gt;.CLEAR</a></p>
-		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#COPY">&lt;ability&gt;.COPY</a></p>
-		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#FORGET">&lt;ability&gt;.FORGET</a></p>
-		<p class="indent2"><a href="listfilepages/globalfilestagpages/globalfilesother.html#MOD">&lt;ability&gt;.MOD</a></p>
+		<p class="indent1"><a href="#ADDSPELLLEVEL">ADDSPELLLEVEL</a>, 
+			<a href="#BENEFIT">BENEFIT</a>, 
+			<a href="#CATEGORY2">CATEGORY</a>, 
+			<a href="#COST">COST</a>, 
+			<a href="#MODIFYABILITYCHOICE">MODIFYABILITYCHOICE</a>, 
+			<a href="#MULT">MULT</a>, 
+			<a href="#STACK">STACK</a>, 
+			<a href="#VISIBLE">VISIBLE</a></p> 
+		<p class="indent1"><a href="listfilepages/globalfilestagpages/globalfilesother.html#CLEAR">&lt;ability&gt;.CLEAR</a>, 
+			<a href="listfilepages/globalfilestagpages/globalfilesother.html#COPY">&lt;ability&gt;.COPY</a>, 
+			<a href="listfilepages/globalfilestagpages/globalfilesother.html#FORGET">&lt;ability&gt;.FORGET</a>, 
+			<a href="listfilepages/globalfilestagpages/globalfilesother.html#MOD">&lt;ability&gt;.MOD</a></p>
 		<p></p>
 
 <hr>
 
 		<h2>How to Build an Ability</h2>
 
-		<p class="indent12">The first field is the Deity Name, this is a required field and does not have a tag.</p>
+		<p class="indent12">The first field is the Ability Name, this is a required field and does not have a tag.</p>
 		<p></p>
 		
 <hr>
@@ -97,14 +98,15 @@
 			<a href="../../menupages/settings/appearance/appearancedisplay.html">&quot;Display Feat Description&quot;</a>
 			checkbox in the Appearance/Display Options Preference window is unchecked.
 			Otherwise the text from the <a href="#DESC">DESC</a> tag will be displayed.</li>
-		<li>PRExxx tags can be used with the BENEFIT tag.</li>
-		<li>Multiple BENEFIT tags per line are allowed with all qualifying BENEFIT tags being concatonated for output and separated by commas (,).</li>
-		<li><code>.CLEAR</code> will clear all BENEFIT tags.</li>
+		<li>PRExxx tags can be used with the <code>BENEFIT</code> tag.</li>
+		<li>Multiple <code>BENEFIT</code> tags per line are allowed with all qualifying <code>BENEFIT</code> tags being 
+			concatonated for output and separated by commas (,).</li>
+		<li><code>.CLEAR</code> will clear all <code>BENEFIT</code> tags.</li>
 		<li><code>.CLEAR.(regular expression match)</code> will clear specific instances.</li>
-		<li>BENEFIT tags will take variable substitution.
+		<li><code>BENEFIT</code> tags will take variable substitution.
 		<ul>
 			<li>Within the text a % followed by a number will substitute the #th variable from the 
-				variable list associated with the BENEFIT.</li>
+				variable list associated with the <code>BENEFIT</code>.</li>
 			<li>Variables are specified after the descriptive text and are pipe-delimited (|).</li>
 			<li>The special parameter %% will insert an actual % character into the text.</li>
 			<li>If the parameter needs to be next to a number the parameter number should be surrounded 
@@ -112,7 +114,7 @@
 		</ul>
 		<li>The following special variables are allowed within the variable list:
 		<ul>
-			<li><code>%NAME</code> - The name of the object this BENEFIT tag is in.</li>
+			<li><code>%NAME</code> - The name of the object this <code>BENEFIT</code> tag is in.</li>
 			<li><code>%FEAT</code> - Will substitute the descriptions of feats within the object that match the associated preqrequisites.</li>
 			<li><code>%CHOICE</code> - Will replace the first associated choice in the object.</li>
 			<li><code>%LIST</code> - Will substitute all choices into that parameter as a comma-delimited list.</li>
@@ -128,8 +130,8 @@
 				regular expressions. Basically it allows for pattern matching in strings. You can
 				create fairly powerful match structures using things like character groups "[a-zA-Z]"
 				match any alphabetic character or groupings "(bat|super)man" match batman or superman
-				and many many more. So, for example, you could do a CLEARALL by doing BENEFIT:.CLEAR..*,
-				or clear all exceptional abilities by doing BENEFIT:.CLEAR.\(Ex\), or clear everything
+				and many many more. So, for example, you could clear all benefits by doing <code>BENEFIT:.CLEAR..*</code>,
+				or clear all exceptional abilities by doing <code>BENEFIT:.CLEAR.\(Ex\)</code>, or clear everything
 				that's non-numeric with <code>BENEFIT:.CLEAR.[A-Za-z]</code>.</li>
 		</ul>
 	</ul>
