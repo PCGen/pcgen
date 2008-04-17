@@ -16,6 +16,16 @@ file {
 	font-style: italic;
 	font-size: 10pt;
 }
+psource {
+	font-weight: bold;
+	text-decoration: underline;
+	font-style: italic;
+	font-size: 10pt;
+}
+pobject {
+	font-weight: bold;
+	font-size: 10pt;
+}
 dd	{
 	margin-bottom: 10px;
 }
