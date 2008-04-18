@@ -26,38 +26,44 @@
 
 	<h1>Abilities by Skill Ranks</h1>
 
-	<p class="indent0"><strong>Rule Description:</strong> Abilities can be bought by taking ranks in the appropriate skill.</p>
-	<p class="indent0"><strong>PCGen Version:</strong> 5.12.1</p>
-	<p class="indent0"><strong>Gamemode/Dataset:</strong> 35e/RSRD</p>
-	<p class="indent0"><strong>File(s) Covered:</strong> <file>statsandchecks.lst</file>, <file>abilitycategory.lst</file>, 
+	<p class="indent1"><strong>Rule Description:</strong> Abilities can be bought by taking ranks in the appropriate skill.</p>
+	<p class="indent1"><strong>PCGen Version:</strong> 5.12.1</p>
+	<p class="indent1"><strong>Gamemode/Dataset:</strong> 35e/RSRD</p>
+	<p class="indent1"><strong>File(s) Covered:</strong> <file>statsandchecks.lst</file>, <file>abilitycategory.lst</file>, 
 	<file>abilities.lst</file>, <file>skills.lst</file></p>
 
-	<p class="indent0"><strong>Tags used</strong> (Gamemode File):</p>
+	<p class="indent1"><strong>Tags used</strong> (Stats and Checks File):</p>
+	<p class="indent2"><a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a></p>
 
-	<p class="indent1"><code><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a>, 
-		<a href="../systemfilestagpages/gamemodemiscinfolist.html#CATEGORY2">CATEGORY</a>, 
+	<p class="indent1"><strong>Tags used</strong> (Ability Category File):</p>
+	<p class="indent2"><a href="../datafilestagpages/datafilesabilitycategory.html#ABILITYCATEGORY">ABILITYCATEGORY</a>, 
+		<a href="../systemfilestagpages/gamemodemiscinfolist.html#CATEGORY">CATEGORY</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#PLURAL">PLURAL</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITPOOL">EDITPOOL</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#FRACTIONALPOOL">FRACTIONALPOOL</a>, 
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#POOL">POOL</a>, 
-		<a href="../systemfilestagpages/gamemodemiscinfolist.html#VISIBLE">VISIBLE</a>, 
-		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>, 
-		<a href="../systemfilestagpages/gamemodemiscinfolist.html#TYPE">TYPE (miscinfo)</a>,
-		<a href="../globalfilestagpages/globalfilesprexxx.html#TYPE">TYPE (data file)</a>, 
-		<a href="../globalfilestagpages/globalfilesprexxx.html#VISIBILITY">VISIBILITY</a>, 
-		<a href="../globalfilestagpages/globalfilesprexxx.html#ABILITYPOOL">BONUS:ABILITYPOOL</a>, 
-		<a href="../globalfilestagpages/globalfilesprexxx.html#CATEGORYY">CATEGORY</a>, 
-		<a href="../globalfilestagpages/globalfilesprexxx.html#TYPE">TYPE</a>, 
-		<a href="../globalfilestagpages/globalfilesprexxx.html#VISIBILITY">VISIBLE</a>, 
+		<a href="../systemfilestagpages/gamemodemiscinfolist.html#VISIBLE">VISIBLE</a></p>
+
+	<p class="indent1"><strong>Tags used</strong> (Skill File):</p>
+	<p class="indent2"><a href="../globalfilestagpages/globalfilestype.html#Skill">TYPE</a>, 
+		<a href="../datafilestagpages/datafilesskill.html#VISIBILE">VISIBILE</a>, 
+		<a href="../globalfilestagpages/globalfilesbonus.html#ABILITYPOOL">BONUS:ABILITYPOOL</a></p>
+
+	<p class="indent1"><strong>Tags used</strong> (Ability File):</p>
+	<p class="indent2"><a href="../datafilestagpages/datafilesability.html#CATEGORY2">CATEGORY</a>, 
+		<a href="../globalfilestagpages/globalfilestype.html#Feat">TYPE</a>, 
+		<a href="../datafilestagpages/datafilesability.html#VISIBLE">VISIBLE</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#PREABILITY">PREABILITY</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#PRESKILL">PRESKILL</a>, 
 		<a href="../globalfilestagpages/globalfilesprexxx.html#PREVAR">PREVARLT</a>, 
 		<a href="../globalfilestagpages/globalfilesother.html#DESC">DESC</a>, 
-		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a></code>
-	</p>
+		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a></p>
 
-	<p class="sidebar1">NOTE: In this section we will discuss only those LST tags specific to this implementation,
+	<p class="indent1"><strong>Tags used</strong> (Class File):</p>
+	<p class="indent2"><a href="../globalfilestagpages/globalfilesbonus.html#ADD">BONUS:ADD</a></p>
+
+	<p class="sidebar1">In this section we will discuss only those LST tags specific to this implementation,
 	and how they are used to implement the subject rule. For more general information on the 
 	associated tags, please visit the <a href="../../navlistindex.html" target="navigation">LST 
 	File Tag Index</a> section of the PCGen Documentation.</p>
