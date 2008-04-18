@@ -31,7 +31,7 @@
 	<p class="indent0"><strong>File(s) Covered:</strong> equipment.lst and feat.lst</p>
 
 	<p class="indent0"><strong>Tags Used:</strong></p>
-	<p class="indent1"><code><a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
+	<p class="indent1"><a href="../datafilestagpages/datafilesfeats.html#TYPE">TYPE</a>,
   		<a href="../datafilestagpages/datafilesfeats.html#VISIBLE">VISIBLE</a>,
   		<a href="../globalfilestagpages/globalfilesother.html#SA">SA</a>,
  		<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a>,
@@ -40,7 +40,7 @@
   		<a href="../globalfilestagpages/globalfilesbonus.html#SKILL">BONUS:SKILL</a>
   		<a href="../globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a>,
   		<a href="../globalfilestagpages/globalfilesbonus.html#VAR">BONUS:VAR</a>
-  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREALIGN">PREALIGN</a></code></p>
+  		<a href="../globalfilestagpages/globalfilesprexxx.html#PREALIGN">PREALIGN</a></p>
 
 	<p class="sidebar1">NOTE: In this section we will discuss only those LST tags specific to this implementation,
 	and how they are used to implement the subject rule. For more general information on the 
@@ -94,7 +94,7 @@
 	to &quot;Fortitude&quot;, &quot;Reflex&quot;, and &quot;Will&quot; checks, the reduction 
 	of the characters &quot;To Hit&quot; bonus, and a reduction in skill bonuses across the board. 
 	The tags used are explained below:</p>
-	<p> </p>
+	<p></p>
 
 	<blockquote class="indent1">
 		<blockquote class="indent0">
@@ -149,16 +149,14 @@
 		equipment entry and then we must apply the specific number of negative levels through 
 		the <code>BONUS:VAR</code> tag.</p>
 
-	<a name="VFEAT"></a>
 	<blockquote class="indent1">
-		<p class="indent0"><strong>Tag Used:</strong> <code>VFEAT:Negative Levels</code></p>
+		<p class="indent0"><a name="VFEAT"><strong>Tag Used:</strong> <code>VFEAT:Negative Levels</code></a></p>
 		<p class="indent1"><strong>What it does:</strong> Grants the <span class="lstobj">Negative Levels</span> feat and 
 			initializes the <span class="lstvar">NegLevels</span> variable. (see Feat File Entry above.)</p>
 	</blockquote>
 
-	<a name="BONUSVAR"></a>
 	<blockquote class="indent1">
-		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:VAR|NegLevels|x|PREALIGN:LG,LN,NG,TN,CG,CN</code></p>
+		<p class="indent0"><a name="BONUSVAR"><strong>Tag Used:</strong> <code>BONUS:VAR|NegLevels|x|PREALIGN:LG,LN,NG,TN,CG,CN</code></a></p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (number of negative levels applied.)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -176,9 +174,8 @@
 		<p class="indent3">Demon Armor bestows one negative level to all non-evil characters.</p>
 	</blockquote>
 
-	<a name="PREALIGN"></a>
 	<blockquote class="indent2">
-		<p class="indent0"><strong>Tag Used:</strong> <code>PREALIGN:LG,LN,NG,TN,CG,CN</code></p>
+		<p class="indent0"><a name="PREALIGN"><strong>Tag Used:</strong> <code>PREALIGN:LG,LN,NG,TN,CG,CN</code></a>/p>
 		<p class="indent1"><strong>What it does:</strong> Sets an &quot;Alignment&quot; based 
 		restriction upon when the associated bonus will be applied.</p>
 	</blockquote>
