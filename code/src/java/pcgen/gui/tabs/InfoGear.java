@@ -2887,7 +2887,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
 						.getString("in_igBuy10At"), 10, null)); //$NON-NLS-1$
 				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
-						.getString("in_igBuy25At"), 15, null)); //$NON-NLS-1$
+						.getString("in_igBuy15At"), 15, null)); //$NON-NLS-1$
 				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
 						.getString("in_igBuy20At"), 20, null)); //$NON-NLS-1$
 				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
