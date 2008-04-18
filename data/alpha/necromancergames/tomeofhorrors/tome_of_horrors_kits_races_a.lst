@@ -37,7 +37,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:2
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
-SKILL:Spot			RANK:4
+SKILL:Spot			RANK:2
 FEAT:Alertness
 FEAT:Iron Will
 
@@ -55,7 +55,7 @@ SKILL:Spot		RANK:1
 SKILL:Survival	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Default Al-mi'raj	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Al-mi'raj]
+STARTPACK:Al-mi'raj Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Al-mi'raj]
 RACE:Al-mi'raj	!PRERACE:1,%
 NAME:Al-mi'raj
 KIT:Common Al-mi'raj

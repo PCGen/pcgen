@@ -7,7 +7,7 @@ RACE:Algoid (Psionic)	!PRERACE:1,%
 NAME:Algoid
 KIT:Common Algoid
 
-STARTPACK:Default Al-mi'raj (Psionic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Al-mi'raj%]
+STARTPACK:Al-mi'raj (Psionic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Al-mi'raj%]
 RACE:Al-mi'raj (Psionic)	!PRERACE:1,%
 NAME:Al-mi'raj, Psionic
 KIT:Common Al-mi'raj

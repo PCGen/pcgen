@@ -248,7 +248,7 @@ FEAT:Great Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Default Demon (Fraz-Urb'luu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Fraz-Urb'luu)]
+STARTPACK:Demon Default (Fraz-Urb'luu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Fraz-Urb'luu)]
 ALIGN:CE
 RACE:Demon (Fraz-Urb'luu)	!PRERACE:1,%
 NAME:Demon: Fraz-Urb'luu (Demon Prince)
