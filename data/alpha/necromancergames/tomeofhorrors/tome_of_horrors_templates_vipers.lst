@@ -1,54 +1,54 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Apr 18 01:07:38 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-# Template Name				CR	Visible	Required Race		Modify VAR																												Feat					Remove Object
-Viper (Adder/Death)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Adder/Night)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2															FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Adder/Puff)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonSecDieSize|2
-Viper (Black Snake (Redbellied))		VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4
-Viper (Black Snake/Spotted)			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2
-Viper (Boomslang)				CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Nauseated|1	BONUS:VAR|PoisonInitDice|1
-Viper (Brown Snake)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Brown Snake/King)		CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|PoisonSecDice|1
-Viper (Bushmaster)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3
-Viper (Cobra/Black Tree (Hoodless))		VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Common)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Necrosis|1	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2		FEAT:Poison (Con/Str)		REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Desert)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Forest)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cobra/King)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Egyptian (Asp))			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Rinkhals)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)|Spit Venom	REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Snouted)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-3						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Spitting)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)|Spit Venom	REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Water)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cobra/Yellow)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDice|1	BONUS:VAR|PoisonSecDieSize|-2	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Copperhead)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2
-Viper (Coral Snake)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1																						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Cottonmouth)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1
-Viper (Fer-de-Lance)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3
-Viper (Krait/Banded)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1																	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Krait/Blue)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Mamba/Black)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Mamba/Green)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Rattlesnake/Desert)			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|Necrosis|1
-Viper (Rattlesnake/Diamondback)		VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1
-Viper (Rattlesnake/Rock)			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1
-Viper (Rattlesnake/Tiger)			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2	BONUS:VAR|Necrosis|1
-Viper (Rattlesnake/Sidewinder)		VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1
-Viper (Sea Snake/Beaked)			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Taipan/Coastal)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Taipan/Western)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1																	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Tic-polonga)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|Nauseated|1	BONUS:VAR|PoisonInitDieSize|2	BONUS:VAR|PoisonSecDieSize|2
-Viper (Tiger Snake)			CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Suffocation|1	BONUS:VAR|PoisonInitDice|1																	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
-Viper (Viper/Desert)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1
-Viper (Viper/Gaboon)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|Necrosis|1	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2
-Viper (Viper/Mountain)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1
-Viper (Viper/Pit)					VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2	BONUS:VAR|Necrosis|1
-Viper (Viper/Rhinoceros)			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|Necrosis|1
-Viper (Viper/Sand)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1
-Viper (Viper/Saw-scaled)		CR:1	VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|Necrosis|1	BONUS:VAR|PoisonInitDice|1
-Viper (Viper/Sharp-nosed)			VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|Necrosis|1	BONUS:VAR|PoisonSecDieSize|-2
-Viper (Viper/Tree)				VISIBLE:YES	PRERACE:1,Snake (Viper%	BONUS:VAR|Necrosis|1	BONUS:VAR|PoisonSecDieSize|-2
+# Template Name				CR	Visible	Define						Required Race		Modify VAR																								Feat					Remove Object
+Viper (Adder/Death)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Adder/Night)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2															FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Adder/Puff)				VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonSecDieSize|2
+Viper (Black Snake (Redbellied))		VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4
+Viper (Black Snake/Spotted)			VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2
+Viper (Boomslang)				CR:1	VISIBLE:YES	DEFINE:Nauseated|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1
+Viper (Brown Snake)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Brown Snake/King)		CR:1	VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|PoisonSecDice|1
+Viper (Bushmaster)				VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3
+Viper (Cobra/Black Tree (Hoodless))		VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Common)				VISIBLE:YES	DEFINE:Necrosis|1	DEFINE:Suffocation|1	PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Con/Str)		REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Desert)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Forest)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cobra/King)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Egyptian (Asp))			VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Rinkhals)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)|Spit Venom	REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Snouted)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-3						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Spitting)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)|Spit Venom	REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Water)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cobra/Yellow)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDice|1	BONUS:VAR|PoisonSecDieSize|-2	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Copperhead)				VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2
+Viper (Coral Snake)				VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5																						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Cottonmouth)				VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%
+Viper (Fer-de-Lance)				VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3
+Viper (Krait/Banded)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|PoisonInitDice|1																	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Krait/Blue)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Mamba/Black)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Mamba/Green)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Rattlesnake/Desert)			VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4
+Viper (Rattlesnake/Diamondback)		VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%
+Viper (Rattlesnake/Rock)			VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%
+Viper (Rattlesnake/Tiger)			VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2
+Viper (Rattlesnake/Sidewinder)		VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%
+Viper (Sea Snake/Beaked)			VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2											FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Taipan/Coastal)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Taipan/Western)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|6	BONUS:VAR|PoisonInitDice|1																	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Tic-polonga)				VISIBLE:YES	DEFINE:Nauseated|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|PoisonInitDieSize|2	BONUS:VAR|PoisonSecDieSize|2
+Viper (Tiger Snake)			CR:1	VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1																	FEAT:Poison (Str)			REMOVE:FEAT|Poison (Con)
+Viper (Viper/Desert)				VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%
+Viper (Viper/Gaboon)				VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2
+Viper (Viper/Mountain)				VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%
+Viper (Viper/Pit)					VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|2
+Viper (Viper/Rhinoceros)			VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4
+Viper (Viper/Sand)				VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%
+Viper (Viper/Saw-scaled)		CR:1	VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1
+Viper (Viper/Sharp-nosed)			VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|PoisonSecDieSize|-2
+Viper (Viper/Tree)				VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonSecDieSize|-2
 
 

@@ -95,6 +95,8 @@ TEMPLATE:tome_of_horrors_templates_monster.lst
 TEMPLATE:tome_of_horrors_templates_vipers.lst
 WEAPONPROF:tome_of_horrors_weaponprofs.lst
 
+SPELL:@/d20ogl/swordandsorcerystudios/scarredlands/relicsrituals/relicsrituals_spells.lst|(INCLUDE:Bloodstorm)
+
 #
 # End
 #

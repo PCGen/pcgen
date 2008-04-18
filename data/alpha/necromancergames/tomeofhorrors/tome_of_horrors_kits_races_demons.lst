@@ -600,7 +600,8 @@ FEAT:Weapon Focus (Claw)
 FEAT:Weapon Focus (Greatsword)
 FEAT:Wingover
 FEAT:Blinding Speed
-FEAT:Epic Spellcasting (Epic Spellcaster (Arcane/CHA Spellstat))
+FEAT:Epic Spellcasting
+FEAT:Epic Spellcaster (Arcane/CHA Spellstat)
 FEAT:Fast Healing
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS5W.CHAOS_M.KEEN
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash|Arcane Mark|Daze|Dancing Lights|Flare|Light|Ray of Frost|Read Magic|Resistance
@@ -719,7 +720,8 @@ FEAT:Maximize Spell
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Weapon Focus (Tongue)
-FEAT:Epic Spellcasting (Epic Spellcaster (Arcane/CHA Spellstat))
+FEAT:Epic Spellcasting
+FEAT:Epic Spellcaster (Arcane/CHA Spellstat)
 FEAT:Epic Toughness
 FEAT:Superior Initiative
 FEAT:Tenacious Magic(Unholy Aura)

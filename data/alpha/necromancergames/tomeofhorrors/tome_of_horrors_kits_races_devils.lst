@@ -300,8 +300,8 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Fog|Contingency|Flesh to Stone
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Forcecage|Finger of Death|Waves of Exhaustion
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sunburst|Horrid Wilting|Iron Body
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dominate Monster|Soul Bind|Wish
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Chaos|Calm Emotion|Magic Circle against Chaos|Divine Power|Dispel Good|Blade Barrier|Power Word Blind|Power Word Stun|Power Word Kill
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Detect Poison|Guidance|Light|Mending|Reading
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Chaos|Calm Emotions|Magic Circle against Chaos|Divine Power|Dispel Good|Blade Barrier|Power Word Blind|Power Word Stun|Power Word Kill
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Detect Poison|Guidance|Light|Mending|Read Magic
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bane|Curse Water|Detect Chaos|Doom=2|Inflict Light Wounds=2|Shield of Faith
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Darkness|Death Knell|Delay Poison|Hold Person=3|Sound Burst
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Animate Dead=2|Blindness/Deafness|Contagion=2|Inflict Serious Wounds|Obscure Object
@@ -311,7 +311,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment|Geas/Quest|Harm|Inflict
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Destruction|Restoration (Greater)|Inflict Serious Wounds (Mass)|Repulsion|Resurrection
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Earthquake|Fire Storm|Spell Immunity (Greater)|Shield of Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Gate|Heal (Mass)|Storm of Vengeance|True Resurrection
-SPELLS:SPELLBOOK=Known Spells|CLASS=Epic Spells|Enslave|Epic Mage Armor|Greater Ruin
+SPELLS:SPELLBOOK=Known Spells|CLASS=Epic Spells (Arcane/CHA)|Enslave (Ritual)|Epic Mage Armor|Ruin (Greater)
 
 STARTPACK:Devil (Moloch) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Moloch)]
 ALIGN:LE
@@ -356,7 +356,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Blindness/Deafness|Glyph of Wardin
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Air Walk|Dimensional Anchor|Freedom of Movement|Giant Vermin|Inflict Critical Wounds=3
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command (Greater)|Insect Plague|Inflict Light Wounds (Mass)=2|Slay Living|Symbol of Pain
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Antilife Shell|Blade Barrier|Forbiddance|Geas/Quest|Harm
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Control Weather|Dictum|Inflict Serious Wounds (Mass)|Refuge|Resurreciton
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Control Weather|Dictum|Inflict Serious Wounds (Mass)|Refuge|Resurrection
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Greater Undead=2|Inflict Critical Wounds (Mass)|Shield of Law|Symbol of Death
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Energy Drain|Miracle|Soul Bind|True Resurrection
 GEAR:Whip (6 tail)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.UNHLY_M.SHOCK_M
