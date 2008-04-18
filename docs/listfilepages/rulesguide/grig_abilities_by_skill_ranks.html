@@ -77,11 +77,13 @@
 	file where we will be modifying the <strong>Intelligence</strong> stat. The data files include the 
 	<file>abilitycategory.lst</file> file where we will be adding a new category of abilities called the 
 	&quot;AbilitybySkills&quot;, the <file>skill.lst</file> file where we will be creating a new skill called 
-	the &quot;Skills to Abilities&quot;, the <file>ability.lst</file> file where we will be creating two new 
-	abilities, one to be purchased by skill ranks and one to increase the maximum number of abilities that 
-	can be bought, and the <file>class.lst</file> file where we will demonstrate how abilities are granted through 
-	the &quot;Abilities by Skill Ranks&quot; mechanism at level-up. For the purposes of this implementation, we will 
-	call these abilities &quot;Generic Skill Bought Ability&quot;, and &quot;Increasing Skill Bought Ability Max&quot;.</p>
+	the &quot;Skills to Abilities&quot;, the <file>ability.lst</file> file where we will be creating three new 
+	abilities, one to initialize the &quot;Abilities by Skill Rank&quot; mechanism for the character, one to be 
+	purchased by skill ranks and one to increase the maximum number of abilities that can be bought, and the 
+	<file>class.lst</file> file where we will demonstrate how abilities are granted through the &quot;Abilities 
+	by Skill Ranks&quot; mechanism at level-up. For the purposes of this implementation, we will call these 
+	abilities <lstobject>Initialize Abilities by Skill</lstobject>, <lstobject>Generic Skill Bought Ability</lstobject>, 
+	and <lstobject>Increasing Skill Bought Ability Max</lstobject>.</p>
 	
 	<p class="indent1">The mechanics of this rule, as implemented on this page, work this way:</p>
 
@@ -308,7 +310,12 @@
 	<p class="indent1">[Explanation of how this class grants an ability upon level-up. The tags used to do this are explained below:</p>
 	
 	<blockquote class="indent1">
-		<p class="indent0"><strong>Tag Used:</strong> <code></code></p>
+		<p class="indent0"><strong>Tag Used:</strong> <code>ADD:ABILITY|FEAT|AUTOMATIC|Initialize Abilities by Skill</code></p>
+		<p class="indent1"><strong>What it Does:</strong></p>
+	</blockquote>
+
+	<blockquote class="indent1">
+		<p class="indent0"><strong>Tag Used:</strong> <code>ADD:ABILITY|AbilitybySkill|AUTOMATIC|TYPE=AbilitybySkill</code></p>
 		<p class="indent1"><strong>What it Does:</strong></p>
 	</blockquote>
 
@@ -328,8 +335,9 @@
 	<p class="indent1">These LST objects are being presented as examples only and are not 
 	part of any official PCGen dataset.</p>
 
-	<p class="indent1"><a name="STATSANDSCHECKS">Stats and Checks Gamemode File: Modifying the stat &quot;Intelligence&quot;.</a></p>
+	<h4 class="indent1"><a name="STATSANDSCHECKS">Stats and Checks Gamemode File Entry:</a></h4>
 	<p></p>
+	
 	<blockquote class="indent2">
 	<p class="tagindent1"><code>STATNAME:Intelligence</code></p>
 	<p class="tagindent1"><code>ABB:INT</code></p>
@@ -337,11 +345,12 @@
 	<p class="tagindent1"><code>DEFINE:MAXLEVELSTAT=INT|INTSCORE-10</code></p>
 	<p class="tagindent1"><code>BONUS:LANG|BONUS|INT</code></p>
 	<p class="tagindent1"><code>BONUS:MODSKILLPOINTS|NUMBER|INT</code></p>
-	<p class="tagindent1"><code>DEFINE:AbilitybySkillMax|TL/2</code> (New tag)</p>
+	<p class="tagindent1"><code>DEFINE:AbilitybySkillMax|TL/2</code> (This tag is added to the existing entry.)</p>
 	</blockquote>
 
-	<p class="indent1"><a name="ABILITYCATEGORY">AbilityCategory File: &quot;AbilitybySkill&quot; category.</a></p>
+	<h4 class="indent1"><a name="ABILITYCATEGORY">AbilityCategory File Entry:</a></h4>
 	<p></p>
+	
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>ABILITYCATEGORY:AbilitybySkill</code></p>
 		<p class="tagindent1"><code>CATEGORY:AbilitybySkill</code></p>
@@ -354,8 +363,9 @@
 		<p class="tagindent1"><code>VISIBLE:QUALIFY</code></p>
 	</blockquote>
 
-	<p class="indent1"><a name="SKILLS">Skills File: &quot;Skills to Abilities&quot;</a></p>
+	<h4 class="indent1"><a name="SKILLS">Skills File Entry:</a></h4>
 	<p></p>
+	
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Skills to Abilities</code></p>
 		<p class="tagindent1"><code>TYPE:NoStat</code></p>
@@ -363,8 +373,18 @@
 		<p class="tagindent1"><code>BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Skills to Abilities.RANK</code></p>
 	</blockquote>
 
-	<p class="indent1"><a name="ABILITY">Ability Files: &quot;AbilitybySkill&quot; abilities</a></p>
+	<h4 class="indent1"><a name="ABILITY">Ability File Entries:</a></h4>
 	<p></p>
+
+	<blockquote class="indent2">
+		<p class="tagindent1"><code>Initialize Abilities by Skill</code></p>
+		<p class="tagindent1"><code>CATEGORY:FEAT</code></p>
+		<p class="tagindent1"><code>TYPE:AbilitybySkill.Movement</code></p>
+		<p class="tagindent1"><code>VISIBLE:NO</code></p>
+		<p class="tagindent1"><code>DEFINE:AbilitybySkillPool|0</code></p>
+	</blockquote>
+	<p></p>
+
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Generic Skill Bought Ability</code></p>
 		<p class="tagindent1"><code>CATEGORY:AbilitybySkill</code></p>
@@ -391,16 +411,18 @@
 	</blockquote>
 	<p></p>
 
-	<p class="indent1"><a name="CLASS">Class File: &quot;&quot; modifications</a></p>
+	<h4 class="indent1"><a name="CLASS">Class File Entry:</a></h4>
 	<p></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>CLASS:Generic Class</code></p>
 		<p class="tagindent1"><code>CLASS:Generic Class</code></p>
-		<p class="tagindent1"><code>1	ADD:ABILITY|AbilitybySkill|AUTOMATIC|TYPE=AbilitybySkill</code></p>
-		<p class="tagindent1"><code></code></p>
-		<p class="tagindent1"><code></code></p>
-		<p class="tagindent1"><code></code></p>
-		<p class="tagindent1"><code></code></p>
+		<p class="tagindent1"><code>CLASS:Generic Class</code></p>
+		<p class="tagindent1"><code>1</code>	[<code>ADD:ABILITY|FEAT|AUTOMATIC|Initialize Abilities by Skill</code>] (Add this tag to an existing class)</p>
+		<p class="tagindent1"><code>2</code></p>
+		<p class="tagindent1"><code>3</code></p>
+		<p class="tagindent1"><code>4</code>	[<code>ADD:ABILITY|AbilitybySkill|AUTOMATIC|TYPE=AbilitybySkill</code>] (Add this tag to an existing class)</p>
+		<p class="tagindent1"><code>5</code></p>
+		<p class="tagindent1"><code>6</code></p>
 	</blockquote>
 
 <hr>
