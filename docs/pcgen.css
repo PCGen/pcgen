@@ -6,26 +6,6 @@ code {
 	font-family: "Courier New", Courier, mono;
 	font-size: 10pt;
 }
-lstvar {
-	font-weight: bold;
-	font-style: italic;
-	font-size: 10pt;
-}
-file {
-	text-decoration: underline;
-	font-style: italic;
-	font-size: 10pt;
-}
-pubsource {
-	font-weight: bold;
-	text-decoration: underline;
-	font-style: italic;
-	font-size: 10pt;
-}
-lstobject {
-	font-weight: bold;
-	font-size: 10pt;
-}
 dd	{
 	margin-bottom: 10px;
 }
@@ -184,6 +164,26 @@ a img {
 	margin-left: 5%;
 	margin-right: 5%;
 	padding:	5px;
+}
+.lstvar {
+	font-weight: bold;
+	font-style: italic;
+	font-size: 10pt;
+}
+.lstfile {
+	text-decoration: underline;
+	font-style: italic;
+	font-size: 10pt;
+}
+.pubsrc {
+	font-weight: bold;
+	text-decoration: underline;
+	font-style: italic;
+	font-size: 10pt;
+}
+.lstobj {
+	font-weight: bold;
+	font-size: 10pt;
 }
 .w20 {
 	width: 20%;

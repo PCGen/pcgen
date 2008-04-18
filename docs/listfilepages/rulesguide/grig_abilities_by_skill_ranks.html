@@ -29,8 +29,8 @@
 	<p class="indent1"><strong>Rule Description:</strong> Abilities can be bought by taking ranks in the appropriate skill.</p>
 	<p class="indent1"><strong>PCGen Version:</strong> 5.12.1</p>
 	<p class="indent1"><strong>Gamemode/Dataset:</strong> 35e/RSRD</p>
-	<p class="indent1"><strong>File(s) Covered:</strong> <file>statsandchecks.lst</file>, <file>abilitycategory.lst</file>, 
-	<file>abilities.lst</file>, <file>skills.lst</file></p>
+	<p class="indent1"><strong>File(s) Covered:</strong> <span class="lstfile">statsandchecks.lst</span>, <span class="lstfile">abilitycategory.lst</span>, 
+	<span class="lstfile">abilities.lst</span>, <span class="lstfile">skills.lst</span></p>
 
 	<p class="indent1"><strong>Tags used</strong> (Stats and Checks File):</p>
 	<p class="indent2"><a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a></p>
@@ -73,34 +73,34 @@
 	<h2>Implementation Discussion</h2>
 
 	<p class="indent1">Implementing &quot;Abilities by Skill Ranks&quot; requires modifications to one 
-	Gamemode file and four Data files. The gamemode file we need to modify is the <file>statsandchecks.lst</file> 
+	Gamemode file and four Data files. The gamemode file we need to modify is the <span class="lstfile">statsandchecks.lst</span> 
 	file where we will be modifying the <strong>Intelligence</strong> stat. The data files include the 
-	<file>abilitycategory.lst</file> file where we will be adding a new category of abilities called the 
-	&quot;AbilitybySkills&quot;, the <file>skill.lst</file> file where we will be creating a new skill called 
-	the &quot;Skills to Abilities&quot;, the <file>ability.lst</file> file where we will be creating three new 
+	<span class="lstfile">abilitycategory.lst</span> file where we will be adding a new category of abilities called the 
+	&quot;AbilitybySkills&quot;, the <span class="lstfile">skill.lst</span> file where we will be creating a new skill called 
+	the &quot;Skills to Abilities&quot;, the <span class="lstfile">ability.lst</span> file where we will be creating three new 
 	abilities, one to initialize the &quot;Abilities by Skill Rank&quot; mechanism for the character, one to be 
 	purchased by skill ranks and one to increase the maximum number of abilities that can be bought, and the 
-	<file>class.lst</file> file where we will demonstrate how abilities are granted through the &quot;Abilities 
+	<span class="lstfile">class.lst</span> file where we will demonstrate how abilities are granted through the &quot;Abilities 
 	by Skill Ranks&quot; mechanism at level-up. For the purposes of this implementation, we will call these 
-	abilities <lstobject>Initialize Abilities by Skill</lstobject>, <lstobject>Generic Skill Bought Ability</lstobject>, 
-	and <lstobject>Increasing Skill Bought Ability Max</lstobject>.</p>
+	abilities <span class="lstobj">Initialize Abilities by Skill</span>, <span class="lstobj">Generic Skill Bought Ability</span>, 
+	and <span class="lstobj">Increasing Skill Bought Ability Max</span>.</p>
 	
 	<p class="indent1">The mechanics of this rule, as implemented on this page, work this way:</p>
 
 	<ul class="indent1">
-		<li class="tagindent0">When the character is loaded, the <lstvar>AbilitybySkillMax</lstvar> 
+		<li class="tagindent0">When the character is loaded, the <span class="lstvar">AbilitybySkillMax</span> 
 			variable is initialized and set to half of the characters total level.</li>
 		<li class="tagindent0">Each rank taken in the skill named &quot;Skills to Abilities&quot; adds 
 			one point to the ability pool for the &quot;AbilitybySkill&quot; category of abilities.</li>
 		<li class="tagindent0">&quot;AbilitybySkill&quot; abilities become available under the 
 			&quot;AbilitybySkill&quot; sub-tab on the feats tab.</li>
 		<li class="tagindent0">The first such ability the character takes defines and initializes the 
-			<lstvar>AbilitybySkillCount</lstvar> variable.</li>
+			<span class="lstvar">AbilitybySkillCount</span> variable.</li>
 		<li class="tagindent0"> Subsequent AbilitybySkill abilities taken by the character increases the 
-			value of the variable, <lstvar>AbilitybySkillCount</lstvar>, by one.</li>
-		<li class="tagindent0">Once <lstvar>AbilitybySkillCount</lstvar> equals or exceeds <lstvar>AbilitybySkillMax</lstvar>, 
+			value of the variable, <span class="lstvar">AbilitybySkillCount</span>, by one.</li>
+		<li class="tagindent0">Once <span class="lstvar">AbilitybySkillCount</span> equals or exceeds <span class="lstvar">AbilitybySkillMax</span>, 
 			AbilitybySkill abilities become unavailable until the character goes up a level, thereby 
-			increasing the <lstvar>AbilitybySkillMax</lstvar> variable.</li>
+			increasing the <span class="lstvar">AbilitybySkillMax</span> variable.</li>
 	</ul>
 	
 	<p class="indent1">We will discuss, below, each of the LST entries required, and the tags that make 
@@ -111,17 +111,17 @@
 
 	<h3>Statsandchecks.lst File</h3>
 	
-	<p class="sidebar1">Note: The <file>statsandchecks.lst</file> file is a gamemode file and as such is not 
-	referenced in the <file>*.pcc</file> file. It can be found in the <file>pcgen/system/gamemodes/35e</file> directory.</p>
+	<p class="sidebar1">Note: The <span class="lstfile">statsandchecks.lst</span> file is a gamemode file and as such is not 
+	referenced in the <span class="lstfile">*.pcc</span> file. It can be found in the <span class="lstfile">pcgen/system/gamemodes/35e</span> directory.</p>
 
-	<p class="indent1">The <file>statsandchecks.lst</file> file entry required in this implementation 
+	<p class="indent1">The <span class="lstfile">statsandchecks.lst</span> file entry required in this implementation 
 	consists of the modification of an existing entry. The following tag is added to the line 
 	defining the intelligence stat:</p>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillMax|TL/2</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		<lstvar>AbilitybySkillMax</lstvar> to have a value of half the character's total level.</p>
+		<span class="lstvar">AbilitybySkillMax</span> to have a value of half the character's total level.</p>
 	</blockquote>
 
 	<p class="indent1">You will find the modified <a href="#STATSANDSCHECKS">Intellegence Stat</a> below.</p>
@@ -130,7 +130,7 @@
 
 	<h3>AbilityCategory.lst File</h3>
 
-	<p class="indent1">The specific <file>abilitycategory.lst</file> file entry required to 
+	<p class="indent1">The specific <span class="lstfile">abilitycategory.lst</span> file entry required to 
 	implement &quot;Abilities by Skill Ranks&quot; consists of the definition of a single ability 
 	category called &quot;AbilitybySkill&quot;. The tags used to do this are explained below:</p>
 
@@ -168,13 +168,13 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>POOL:AbilitybySkillPool</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This establishes the base ability 
-		pool for AbilitybySkill equal to the value of the variable <lstvar>AbilitybySkillPool</lstvar>. 
+		pool for AbilitybySkill equal to the value of the variable <span class="lstvar">AbilitybySkillPool</span>. 
 		(See DEFINE tag below.)</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillPool|0</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		<lstvar>AbilitybySkillPool</lstvar> and initialize its value to zero.</p>
+		<span class="lstvar">AbilitybySkillPool</span> and initialize its value to zero.</p>
 	</blockquote>
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>VISIBLE:QUALIFY</code></p>
@@ -190,7 +190,7 @@
 
 	<h3>Skills.lst File</h3>
 		
-	<p class="indent1">Only one new entry is required in the <file>skill.lst</file> file. This is the new 
+	<p class="indent1">Only one new entry is required in the <span class="lstfile">skill.lst</span> file. This is the new 
 	skill &quot;Skills to Abilities&quot;. The purpose of this skill is to add bonus points to the pool 
 	of available points for the AbilitybySkill category of abilities, one for each skill rank taken. 
 	The tags used to do this are explained below:</p>
@@ -218,7 +218,7 @@
 
 	<h3>Ability.lst File</h3>
 		
-	<p class="indent1">The specific entries in the <file>ability.lst</file> file will consist 
+	<p class="indent1">The specific entries in the <span class="lstfile">ability.lst</span> file will consist 
 	of one entry per line for each of the AbilitybySkill abilities you wish. The first item 
 	on each line will be the name of the particular ability being defined. We include below 
 	notes on the creation of three abilities called &quot;Generic Skill Bought Ability&quot;, 
@@ -232,7 +232,7 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>CATEGORY:AbilitybySkill</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This places the &quot;Generic Skill Bought 
-		Ability&quot; ability into the AbilitybySkill category. (See <file>miscinfo.lst</file> above.)</p>
+		Ability&quot; ability into the AbilitybySkill category. (See <span class="lstfile">abilitycategory.lst</span> above.)</p>
 	</blockquote>
 
 	<blockquote class="indent1">
@@ -267,14 +267,14 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>PREVARLT:AbilitybySkillCount,AbilitybySkillMax</code></p>
 		<p class="indent1"><strong>What it Does:</strong> Sets a prerequisite for the &quot;Generic Skill Bought Ability&quot; 
-		ability. Specifically, the variable <lstvar>AbilitybySkillCount</lstvar> must be less than the variable 
-		<lstvar>AbilitybySkillMax</lstvar> in order for the ability to be selected.</p>
+		ability. Specifically, the variable <span class="lstvar">AbilitybySkillCount</span> must be less than the variable 
+		<span class="lstvar">AbilitybySkillMax</span> in order for the ability to be selected.</p>
 	</blockquote>
 
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>DEFINE:AbilitybySkillCount|0</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This tag is used to define the variable 
-		<lstvar>AbilitybySkillCount</lstvar> and to initialize it to the value zero.</p>
+		<span class="lstvar">AbilitybySkillCount</span> and to initialize it to the value zero.</p>
 	</blockquote>
 
 	<blockquote class="indent1">
@@ -288,7 +288,7 @@
 	<blockquote class="indent1">
 		<p class="indent0"><strong>Tag Used:</strong> <code>BONUS:VAR|AbilitybySkillCount|1</code></p>
 		<p class="indent1"><strong>What it Does:</strong> This bonus tag increases the value of 
-		the variable <lstvar>AbilitybySkillCount</lstvar> by 1.</p>
+		the variable <span class="lstvar">AbilitybySkillCount</span> by 1.</p>
 	</blockquote>
 	<p></p>
 	
