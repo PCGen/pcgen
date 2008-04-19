@@ -392,13 +392,23 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		
 		prereq = factory.parse("PRESKILL:1,TYPE.CH%=7");
 		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+	}
+	
+	public void testServesAsTotalsMatch() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
 		
-/*		
-		prereq = factory.parse("PRESKILL:2,Target,Target2=7");
+		Prerequisite prereq = factory.parse("PRESKILLTOT:Tumble,Target=18");
 		assertEquals(false, PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESKILL:2,Target=4,Target2=7");
+		prereq = factory.parse("PRESKILLTOT:Tumble,Target2=14");
+		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		
+		prereq = factory.parse("PRESKILLTOT:Foo,Target=40");
 		assertEquals(false, PrereqHandler.passes(prereq, character, null));
-	*/
+		
+
 	}
 }
