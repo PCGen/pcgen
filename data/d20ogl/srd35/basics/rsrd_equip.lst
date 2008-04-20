@@ -52,11 +52,10 @@ Inn (Poor/Per Day)	TYPE:Service.Lodging				COST:.2			SOURCEPAGE:Equipment.rtf
 Meals (Good/Per Day)	TYPE:Goods.Food.Resizable			COST:.5			SOURCEPAGE:Equipment.rtf
 Meals (Common/Per Day)	TYPE:Goods.Food.Resizable			COST:.3			SOURCEPAGE:Equipment.rtf
 Meals (Poor/Per Day)	TYPE:Goods.Food.Resizable			COST:.1			SOURCEPAGE:Equipment.rtf
-Meat (Chunk)		TYPE:Goods.Food.Consumable			COST:.3	WT:.5		SOURCEPAGE:Equipment.rtf
+Meat (Chunk)		TYPE:Goods.Food.Resizable.Consumable			COST:.3	WT:.5		SOURCEPAGE:Equipment.rtf
 Wine (Common/Pitcher)	TYPE:Goods.Food					COST:.2	WT:6		SOURCEPAGE:Equipment.rtf
 Wine (Fine/Bottle)	TYPE:Goods.Food.Consumable			COST:10	WT:1.5	SOURCEPAGE:Equipment.rtf
-#Wine (Fine)		TYPE:Goods.Liquid.Food.Resizable	COST:8	WT:1.5	SOURCEPAGE:Equipment.rtf
-Water (Pint)		TYPE:Goods.Liquid.Food.Resizable		COST:0	WT:1.00	SOURCEPAGE:Equipment.rtf
+Water (Pint)		TYPE:Goods.Liquid.Food			COST:0	WT:1.00	SOURCEPAGE:Equipment.rtf
 
 ###Block:Goods
 # Equipment Name			Type								Contains									Cost		Weight	Source Page				Bonus to skill					Quality and value
@@ -67,7 +66,7 @@ Bedroll				TYPE:Goods.General.Resizable														COST:.1	WT:5		SOURCEPAGE:Eq
 Bell					TYPE:Goods.General															COST:1	WT:0		SOURCEPAGE:Equipment.rtf
 Blanket (Winter)			TYPE:Goods.General.Resizable														COST:.5	WT:3		SOURCEPAGE:Equipment.rtf
 Block and Tackle			TYPE:Goods.General															COST:5	WT:5		SOURCEPAGE:Equipment.rtf
-Bottle (Glass/Wine)		TYPE:Goods.Container.General.Resizable		CONTAINS:1.5|Liquid=3							COST:2	WT:0		SOURCEPAGE:Equipment.rtf
+Bottle (Glass/Wine)		TYPE:Goods.Container.General				CONTAINS:1.5|Liquid=3							COST:2	WT:0		SOURCEPAGE:Equipment.rtf
 Bucket				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any=UNLIM						COST:.5	WT:2		SOURCEPAGE:Equipment.rtf
 Caltrops				TYPE:Goods.General															COST:1	WT:2		SOURCEPAGE:Equipment.rtf
 Candle				TYPE:Goods.General.Consumable.LightSource												COST:.01	WT:0		SOURCEPAGE:Equipment.rtf								QUALITY:Shadowy Illumination|5 ft.	QUALITY:Duration|1 hr.
