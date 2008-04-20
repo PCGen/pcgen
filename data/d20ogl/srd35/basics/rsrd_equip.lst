@@ -130,7 +130,7 @@ Spyglass				TYPE:Goods.General															COST:1000	WT:1		SOURCEPAGE:Equipmen
 Tent					TYPE:Goods.General.Resizable														COST:10	WT:20		SOURCEPAGE:Equipment.rtf
 Torch					TYPE:Goods.General.Consumable.LightSource												COST:.01	WT:1		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|1 hr.
 Vial					TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1	WT:.1		SOURCEPAGE:Equipment.rtf
-Waterskin				TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:1	WT:0		SOURCEPAGE:Equipment.rtf
+Waterskin				TYPE:Goods.Container.General.Resizable				CONTAINS:4|Liquid=4							COST:1	WT:0		SOURCEPAGE:Equipment.rtf
 Waterskin (Filled)		TYPE:Goods.General.Resizable														COST:1	WT:4		SOURCEPAGE:Equipment.rtf
 Whetstone				TYPE:Goods.General															COST:.02	WT:1		SOURCEPAGE:Equipment.rtf
 
@@ -198,8 +198,8 @@ Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable								
 Scale (Merchant's)			TYPE:Goods.Tools															COST:2	WT:1								SOURCEPAGE:Equipment.rtf																								SPROP:+2 to appraise items valued by weight
 Spell Component Pouch			TYPE:Goods.Tools															COST:5	WT:2								SOURCEPAGE:Equipment.rtf
 Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook					NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3								SOURCEPAGE:Equipment.rtf
-Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools										COST:30	WT:1								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Waterclock					TYPE:Goods.Tools.Resizable													COST:1000	WT:200							SOURCEPAGE:Equipment.rtf
+Thieves' Tools				TYPE:Goods.Tools.Thief.ThiefTools										COST:30	WT:1								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Waterclock					TYPE:Goods.Tools													COST:1000	WT:200							SOURCEPAGE:Equipment.rtf
 
 
 # From "Wealth other than coins", sorted by value
