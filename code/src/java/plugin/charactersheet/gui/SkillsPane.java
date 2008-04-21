@@ -322,7 +322,13 @@ public class SkillsPane extends javax.swing.JPanel
 		this.pc = pc;
 	}
 
-	public void refresh()
+	/**
+	 * This method refreshes the Skills Pane
+	 * 
+	 * Karianna - Synchronize this method as suggested by James
+	 * Bug 1945506 - SkillPanel throwing NPE
+	 */
+	public synchronized void refresh()
 	{
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
@@ -349,7 +355,12 @@ public class SkillsPane extends javax.swing.JPanel
 		// Remove only the skill lines, not the header block. 
 		for (int i = 0; i < componentList.size(); i++)
 		{
-			remove(componentList.get(i));
+			Component cmpt = componentList.get(i);
+			// Karianna - Added null check for bug 1945506
+			if (cmpt != null)
+			{
+				remove(cmpt);
+			}
 		}
 		componentList.clear();
 
