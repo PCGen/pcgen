@@ -2100,7 +2100,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		pc.setAge(Delta.parseInt("0" + ageText.getText()));
 		pc.setHeight(Globals.getGameModeUnitSet().convertHeightFromUnitSet(
 			Delta.parseDouble("0" + htText.getText())));
-		pc.setWeight(Globals.getGameModeUnitSet().convertWeightFromUnitSet(
+		pc.setWeight((int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(
 			Delta.parseDouble("0" + wtText.getText())));
 	}
 
@@ -2182,7 +2182,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		else if (input == wtText)
 		{
 			pc.setDirty(true);
-			pc.setWeight(Globals.getGameModeUnitSet().convertWeightFromUnitSet(
+			pc.setWeight((int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(
 				Delta.parseDouble("0" + wtText.getText())));
 		}
 		else if (input == playerNameText)

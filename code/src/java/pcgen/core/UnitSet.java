@@ -303,13 +303,13 @@ public final class UnitSet
 	 * Convert weight in units to weight in pounds.
 	 * 
 	 * @param weight
-	 * @return int weight in pounds.
+	 * @return double weight in pounds.
 	 */
-	public int convertWeightFromUnitSet(final double weight)
+	public double convertWeightFromUnitSet(final double weight)
 	{
 		final double weightInPounds = weight / getWeightFactor();
 
-		return (int) weightInPounds;
+		return weightInPounds;
 	}
 
 	/**
