@@ -419,11 +419,19 @@ public class NPCGenerator
 		while (aPC.getCharacterDomainUsed() < aPC.getMaxCharacterDomains())
 		{
 			final List<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
-			final Domain domain = domains.get(Globals.getRandomInt(domains.size()));
-			if ( ! domain.qualifiesForDomain(aPC) )
+			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
 			{
-				continue;
+				Domain domain = (Domain) iterator.next();
+				if (! domain.qualifiesForDomain(aPC))
+				{
+					iterator.remove();
+				}
 			}
+			if (domains.size() == 0)
+			{
+				return;
+			}
+			final Domain domain = domains.get(Globals.getRandomInt(domains.size()));
 
 			CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
 
