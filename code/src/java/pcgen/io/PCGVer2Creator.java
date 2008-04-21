@@ -1357,79 +1357,76 @@ final class PCGVer2Creator implements IOConstants
 		for (final AbilityCategory cat : SettingsHandler.getGame()
 			.getAllAbilityCategories())
 		{
-			if (cat.isEditable() == true)
+			final List<Ability> abilitiesToSave =
+					thePC.getRealAbilitiesList(cat);
+			for (final Ability vability : thePC.getVirtualAbilityList(cat))
 			{
-				final List<Ability> abilitiesToSave =
-						thePC.getRealAbilitiesList(cat);
-				for (final Ability vability : thePC.getVirtualAbilityList(cat))
+				if (vability.needsSaving())
 				{
-					if (vability.needsSaving())
-					{
-						abilitiesToSave.add(vability);
-					}
+					abilitiesToSave.add(vability);
 				}
-				// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
-				for (final Ability ability : abilitiesToSave)
+			}
+			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
+			for (final Ability ability : abilitiesToSave)
+			{
+				buffer.append(TAG_ABILITY).append(TAG_END);
+				buffer.append(EntityEncoder.encode(cat.getKeyName()))
+					.append(TAG_SEPARATOR);
+				buffer.append(TAG_TYPE).append(TAG_END);
+				buffer.append(
+					EntityEncoder.encode(ability.getFeatType().toString()))
+					.append(TAG_SEPARATOR);
+				buffer.append(TAG_CATEGORY).append(TAG_END);
+				buffer.append(EntityEncoder.encode(ability.getCategory()))
+					.append(TAG_SEPARATOR);
+				buffer.append(TAG_MAPKEY).append(TAG_END);
+				buffer.append(EntityEncoder.encode(ability.getKeyName()))
+					.append(TAG_SEPARATOR);
+				int it2 = 0;
+				if (ability.isMultiples())
 				{
-					buffer.append(TAG_ABILITY).append(TAG_END);
-					buffer.append(EntityEncoder.encode(cat.getKeyName()))
-						.append(TAG_SEPARATOR);
-					buffer.append(TAG_TYPE).append(TAG_END);
-					buffer.append(
-						EntityEncoder.encode(ability.getFeatType().toString()))
-						.append(TAG_SEPARATOR);
-					buffer.append(TAG_CATEGORY).append(TAG_END);
-					buffer.append(EntityEncoder.encode(ability.getCategory()))
-						.append(TAG_SEPARATOR);
-					buffer.append(TAG_MAPKEY).append(TAG_END);
-					buffer.append(EntityEncoder.encode(ability.getKeyName()))
-						.append(TAG_SEPARATOR);
-					int it2 = 0;
-					if (ability.isMultiples())
+					buffer.append(TAG_APPLIEDTO).append(TAG_END);
+					if (ability.getAssociatedObject(0) instanceof FeatMultipleChoice)
 					{
-						buffer.append(TAG_APPLIEDTO).append(TAG_END);
-						if (ability.getAssociatedObject(0) instanceof FeatMultipleChoice)
+						buffer.append(TAG_MULTISELECT).append(':');
+					}
+					for (; it2 < ability.getAssociatedCount(); ++it2)
+					{
+						if (it2 > 0 && it2 < ability.getAssociatedCount())
 						{
-							buffer.append(TAG_MULTISELECT).append(':');
+							buffer.append(Constants.COMMA);
 						}
-						for (; it2 < ability.getAssociatedCount(); ++it2)
-						{
-							if (it2 > 0 && it2 < ability.getAssociatedCount())
-							{
-								buffer.append(Constants.COMMA);
-							}
-							buffer.append(EntityEncoder.encode(ability
-								.getAssociated(it2)));
-						}
-						buffer.append(TAG_SEPARATOR);
+						buffer.append(EntityEncoder.encode(ability
+							.getAssociated(it2)));
 					}
-					buffer.append(TAG_TYPE).append(TAG_END);
-					buffer.append(EntityEncoder.encode(ability.getType()));
-
-					for (final String save : ability
-						.getSafeListFor(ListKey.SAVE))
-					{
-						buffer.append('|');
-						buffer.append(TAG_SAVE).append(':');
-						buffer.append(EntityEncoder.encode(save));
-					}
-
-					for (final Description desc : ability.getDescriptionList())
-					{
-						buffer.append(Constants.PIPE);
-						buffer.append(TAG_DESC).append(':');
-						buffer.append(EntityEncoder.encode(desc.getPCCText()));
-					}
-
-					buffer.append(LINE_SEP);
+					buffer.append(TAG_SEPARATOR);
 				}
-				buffer.append(TAG_USERPOOL).append(TAG_END);
-				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
-					TAG_SEPARATOR);
-				buffer.append(TAG_POOLPOINTS).append(TAG_END);
-				buffer.append(thePC.getUserPoolBonus(cat));
+				buffer.append(TAG_TYPE).append(TAG_END);
+				buffer.append(EntityEncoder.encode(ability.getType()));
+
+				for (final String save : ability
+					.getSafeListFor(ListKey.SAVE))
+				{
+					buffer.append('|');
+					buffer.append(TAG_SAVE).append(':');
+					buffer.append(EntityEncoder.encode(save));
+				}
+
+				for (final Description desc : ability.getDescriptionList())
+				{
+					buffer.append(Constants.PIPE);
+					buffer.append(TAG_DESC).append(':');
+					buffer.append(EntityEncoder.encode(desc.getPCCText()));
+				}
+
 				buffer.append(LINE_SEP);
 			}
+			buffer.append(TAG_USERPOOL).append(TAG_END);
+			buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
+				TAG_SEPARATOR);
+			buffer.append(TAG_POOLPOINTS).append(TAG_END);
+			buffer.append(thePC.getUserPoolBonus(cat));
+			buffer.append(LINE_SEP);
 		}
 	}
 
