@@ -26,6 +26,31 @@
  */
 package pcgen.gui;
 
+import gmgen.GMGenSystem;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.pluginmgr.GMBComponent;
+import gmgen.pluginmgr.GMBMessage;
+import gmgen.pluginmgr.GMBus;
+import gmgen.pluginmgr.PluginLoader;
+import gmgen.pluginmgr.messages.FetchOpenPCGRequestMessage;
+import gmgen.pluginmgr.messages.FileTypeMessage;
+import gmgen.pluginmgr.messages.InitHolderListSendMessage;
+import gmgen.pluginmgr.messages.NewMessage;
+import gmgen.pluginmgr.messages.OpenMessage;
+import gmgen.pluginmgr.messages.OpenPCGRequestMessage;
+import gmgen.pluginmgr.messages.PCClosedMessage;
+import gmgen.pluginmgr.messages.PCLoadedMessage;
+import gmgen.pluginmgr.messages.PauseRefreshMessage;
+import gmgen.pluginmgr.messages.ResumeRefreshMessage;
+import gmgen.pluginmgr.messages.SaveMessage;
+import gmgen.pluginmgr.messages.SavePCGNotificationMessage;
+import gmgen.pluginmgr.messages.SavePCGRequestMessage;
+import gmgen.pluginmgr.messages.StateChangedMessage;
+import gmgen.pluginmgr.messages.TabAddMessage;
+import gmgen.pluginmgr.messages.WindowClosedMessage;
+
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -72,31 +97,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.plaf.TabbedPaneUI;
 
-import gmgen.GMGenSystem;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.GMBComponent;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.PluginLoader;
-import gmgen.pluginmgr.messages.FetchOpenPCGRequestMessage;
-import gmgen.pluginmgr.messages.FileTypeMessage;
-import gmgen.pluginmgr.messages.InitHolderListSendMessage;
-import gmgen.pluginmgr.messages.NewMessage;
-import gmgen.pluginmgr.messages.OpenMessage;
-import gmgen.pluginmgr.messages.OpenPCGRequestMessage;
-import gmgen.pluginmgr.messages.PauseRefreshMessage;
-import gmgen.pluginmgr.messages.PCClosedMessage;
-import gmgen.pluginmgr.messages.PCLoadedMessage;
-import gmgen.pluginmgr.messages.ResumeRefreshMessage;
-import gmgen.pluginmgr.messages.SaveMessage;
-import gmgen.pluginmgr.messages.SavePCGNotificationMessage;
-import gmgen.pluginmgr.messages.SavePCGRequestMessage;
-import gmgen.pluginmgr.messages.StateChangedMessage;
-import gmgen.pluginmgr.messages.TabAddMessage;
-import gmgen.pluginmgr.messages.WindowClosedMessage;
-
 import pcgen.core.Constants;
 import pcgen.core.CustomData;
 import pcgen.core.Equipment;
@@ -105,6 +105,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
+import pcgen.core.npcgen.NPCGenerator;
 import pcgen.core.party.PCLoader;
 import pcgen.core.party.Party;
 import pcgen.core.utils.MessageType;
@@ -114,15 +115,13 @@ import pcgen.gui.filter.Filterable;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.LinkableHtmlMessage;
 import pcgen.gui.utils.Utility;
-import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGFile;
+import pcgen.io.PCGIOHandler;
 import pcgen.util.FOPResourceChecker;
 import pcgen.util.JEPResourceChecker;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
-
-import pcgen.core.npcgen.NPCGenerator;
 
 /**
  * Main screen of the application. Some of the custom JPanels created
@@ -132,7 +131,8 @@ import pcgen.core.npcgen.NPCGenerator;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLoader
+public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
+		PCLoader
 {
 	static final long serialVersionUID = 1042236188732008819L;
 
@@ -141,12 +141,13 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	private static PCGen_Frame1 inst;
 
 	// Our automagic mouse wait cursor when waiting for > 3/4 second
-    private static WaitCursorEventQueue waitQueue = new WaitCursorEventQueue(750);
-    // Use the automagic wait cursor flag, defauls to false
-    private static boolean usingWaitCursor = false;
-    
+	private static WaitCursorEventQueue waitQueue =
+			new WaitCursorEventQueue(750);
+	// Use the automagic wait cursor flag, defauls to false
+	private static boolean usingWaitCursor = false;
+
 	private static CharacterInfo characterPane = null;
-	
+
 	private static StatusBar statusBar = new StatusBar();
 
 	/**
@@ -219,7 +220,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		frameActionListener = new FrameActionListener(this);
 		mainPopupMenu = new MainPopupMenu(frameActionListener);
 		pcPopupMenu = new PCPopupMenu(frameActionListener);
-		popupListener = new PopupListener(baseTabbedPane, mainPopupMenu, pcPopupMenu);
+		popupListener =
+				new PopupListener(baseTabbedPane, mainPopupMenu, pcPopupMenu);
 		toolBar = PToolBar.createToolBar(this);
 		pcgenMenuBar = new PCGenMenuBar(this, frameActionListener);
 
@@ -239,19 +241,19 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		ploader.startSystemPlugins(Constants.s_SYSTEM_PCGEN);
 	}
 
-    /**
-     * Get the baseTabbedPane (the base pane for PCGen)
-     * @return baseTabbedPane
-     */
+	/**
+	 * Get the baseTabbedPane (the base pane for PCGen)
+	 * @return baseTabbedPane
+	 */
 	public static JTabbedPane getBaseTabbedPane()
 	{
 		return baseTabbedPane;
 	}
 
-    /**
-     * Get the characterPane (the Pane that holds the Character Tabs)
-     * @return characterPane
-     */
+	/**
+	 * Get the characterPane (the Pane that holds the Character Tabs)
+	 * @return characterPane
+	 */
 	public static CharacterInfo getCharacterPane()
 	{
 		return characterPane;
@@ -313,28 +315,28 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		return null;
 	}
 
-    /**
-     * Get an instance of this class
-     * @return instance of PCGen_Frame1 
-     */
+	/**
+	 * Get an instance of this class
+	 * @return instance of PCGen_Frame1 
+	 */
 	public static PCGen_Frame1 getInst()
 	{
 		return inst;
 	}
 
-    /**
-     * Set the main class for the application
-     * @param owner
-     */
+	/**
+	 * Set the main class for the application
+	 * @param owner
+	 */
 	public void setMainClass(pcGenGUI owner)
 	{
 		mainClass = owner;
 	}
 
-    /** 
-     * Get the source screen
-     * @return mainSource
-     */
+	/** 
+	 * Get the source screen
+	 * @return mainSource
+	 */
 	public MainSource getMainSource()
 	{
 		return mainSource;
@@ -399,10 +401,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		statusBar.setShowMemoryArea(showMemoryArea);
 	}
 
-    /**
-     * Set the title of the frame, sets the game mode name and 
-     * the version number 
-     */
+	/**
+	 * Set the title of the frame, sets the game mode name and 
+	 * the version number 
+	 */
 	public void setGameModeTitle()
 	{
 		String modeName;
@@ -417,7 +419,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			modeName = gameMode.getName();
 		}
 
-		setTitle("PCGen v. " + PCGenProp.getVersionNumber() + " - " + modeName + " Campaign");
+		setTitle("PCGen v. " + PCGenProp.getVersionNumber() + " - " + modeName
+			+ " Campaign");
 	}
 
 	/**
@@ -536,37 +539,37 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		frame.enableRevertToSaved(true);
 	}
 
-    /**
-     * Set the recently opened PCs list
-     * @param entries
-     */
+	/**
+	 * Set the recently opened PCs list
+	 * @param entries
+	 */
 	public void setOpenRecentPCs(String[] entries)
 	{
 		pcgenMenuBar.openRecentPCMenu.setEntriesAsStrings(entries);
 	}
 
-    /**
-     * Get the list of recently opened PCs
-     * @return recently opened PCs
-     */
+	/**
+	 * Get the list of recently opened PCs
+	 * @return recently opened PCs
+	 */
 	public String[] getOpenRecentPCs()
 	{
 		return pcgenMenuBar.openRecentPCMenu.getEntriesAsStrings();
 	}
 
-    /**
-     * Set recently opened Parties
-     * @param strings
-     */
+	/**
+	 * Set recently opened Parties
+	 * @param strings
+	 */
 	public void setOpenRecentParties(String[] strings)
 	{
 		pcgenMenuBar.openRecentPartyMenu.setEntriesAsStrings(strings);
 	}
 
-    /**
-     * Get recently opened parties
-     * @return recently opened parties
-     */
+	/**
+	 * Get recently opened parties
+	 * @return recently opened parties
+	 */
 	public String[] getOpenRecentParties()
 	{
 		return pcgenMenuBar.openRecentPartyMenu.getEntriesAsStrings();
@@ -583,12 +586,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		return (PCGen_Frame1) child.getTopLevelAncestor();
 	}
 
-    /**
-     * Add monster HD to the summary tab, the direction indicates 
-     * whether we are actually adding or subtracting
-     * 
-     * @param direction
-     */
+	/**
+	 * Add monster HD to the summary tab, the direction indicates 
+	 * whether we are actually adding or subtracting
+	 * 
+	 * @param direction
+	 */
 	public static void addMonsterHD(int direction)
 	{
 		if (characterPane != null)
@@ -597,9 +600,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-    /**
-     * Close all of the open PCs
-     */
+	/**
+	 * Close all of the open PCs
+	 */
 	public void closeAllPCs()
 	{
 		int tabCount = baseTabbedPane.getTabCount();
@@ -632,10 +635,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		newPCNameCount = 0;
 	}
 
-    /**
-     * Sets the LST editors to be enabled/disabled
-     * @param itemState
-     */
+	/**
+	 * Sets the LST editors to be enabled/disabled
+	 * @param itemState
+	 */
 	public void enableLstEditors(boolean itemState)
 	{
 		pcgenMenuBar.listEditor.setEnabled(itemState);
@@ -671,8 +674,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 	/**
 	 * Update the available equipment list for all of the currently loaded PCs, 
-     * but only purchase for the active PC.
-     * 
+	 * but only purchase for the active PC.
+	 * 
 	 * @param newEq The new equipment
 	 * @param purchase 
 	 */
@@ -680,13 +683,14 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		if (characterPane != null)
 		{
-			characterPane.infoInventory().getInfoGear().refreshAvailableList(newEq, purchase, true);
+			characterPane.infoInventory().getInfoGear().refreshAvailableList(
+				newEq, purchase, true);
 		}
 	}
 
-    /**
-     * Export to PDF/XML/XSL output sheets
-     */
+	/**
+	 * Export to PDF/XML/XSL output sheets
+	 */
 	public void exportToPDFItem_actionPerformed()
 	{
 		if (!pcgenMenuBar.enablePDF)
@@ -703,9 +707,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		pcgenMenuBar.exportPDFPopup.setCurrentPCSelectionByTab();
 	}
 
-    /**
-     * Export to standard html/xhtml output sheets
-     */
+	/**
+	 * Export to standard html/xhtml output sheets
+	 */
 	public void exportToStandardItem_actionPerformed()
 	{
 		if (pcgenMenuBar.exportPopup == null)
@@ -716,9 +720,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		pcgenMenuBar.exportPopup.setCurrentPCSelectionByTab();
 	}
 
-    /**
-     * Export to text output sheets
-     */
+	/**
+	 * Export to text output sheets
+	 */
 	public void exportToTextItem_actionPerformed()
 	{
 		if (pcgenMenuBar.exportTextPopup == null)
@@ -729,25 +733,24 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		pcgenMenuBar.exportTextPopup.setCurrentPCSelectionByTab();
 	}
 
-
 	public PlayerCharacter loadPCFromFile(File file)
 	{
 		return loadPCFromFile(file, false);
 	}
 
-    /**
-     * Set the current PC and load their companions (if that option is set)
-     * @param aPC The PC to set
-     */
-	public void setPC( final PlayerCharacter aPC )
+	/**
+	 * Set the current PC and load their companions (if that option is set)
+	 * @param aPC The PC to set
+	 */
+	public void setPC(final PlayerCharacter aPC)
 	{
-		if ( mainClass == null || aPC == null )
+		if (mainClass == null || aPC == null)
 		{
 			return;
 		}
 
 		addPCTab(aPC);
-		
+
 		if (aPC.getLoadCompanion() && !aPC.getFollowerList().isEmpty())
 		{
 			for (Follower nPC : aPC.getFollowerList())
@@ -776,32 +779,37 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 					else
 					{
 						//todo: i18n these messages
-						ShowMessageDelegate.showMessageDialog("Unrecoverable problems occurred while loading a companion or follower.",
-							"Error", MessageType.ERROR);
+						ShowMessageDelegate
+							.showMessageDialog(
+								"Unrecoverable problems occurred while loading a companion or follower.",
+								"Error", MessageType.ERROR);
 					}
 				}
 			}
 		}
 	}
-	
-    /**
-     * Load the PC from a PCG file
-     * 
-     * @param file The PCG file containing the PC
-     * @param blockLoadedMessage Whether we block the message that the PC is loaded 
-     * to the GMGen plugin system
-     * @return the PC
-     */
+
+	/**
+	 * Load the PC from a PCG file
+	 * 
+	 * @param file The PCG file containing the PC
+	 * @param blockLoadedMessage Whether we block the message that the PC is loaded 
+	 * to the GMGen plugin system
+	 * @return the PC
+	 */
 	public PlayerCharacter loadPCFromFile(File file, boolean blockLoadedMessage)
 	{
 		PlayerCharacter aPC;
 
 		// Fix for bug 1082786 - loading duplicate pcg files
-		for (PlayerCharacter possibleDuplicate : Globals.getPCList()) 
+		for (PlayerCharacter possibleDuplicate : Globals.getPCList())
 		{
-			if (file.getAbsolutePath().equals(possibleDuplicate.getFileName())) {
+			if (file.getAbsolutePath().equals(possibleDuplicate.getFileName()))
+			{
 				// TODO Internationalise
-				ShowMessageDelegate.showMessageDialog("This character has already been loaded from: " + file.getAbsolutePath(), "Error", MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"This character has already been loaded from: "
+						+ file.getAbsolutePath(), "Error", MessageType.ERROR);
 				Logging.errorPrint("The character was already loaded");
 				return null;
 			}
@@ -809,19 +817,25 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		Party party = Party.makeSingleCharacterParty(file);
 
-		if(!file.exists()) {
-			JOptionPane.showMessageDialog(this, "File does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+		if (!file.exists())
+		{
+			JOptionPane.showMessageDialog(this, "File does not exist", "Error",
+				JOptionPane.ERROR_MESSAGE);
 			return null;
 		}
 
-		try {
+		try
+		{
 			GMBus.send(new PauseRefreshMessage(this));
-			aPC =  party.load(null);
-			
+			aPC = party.load(null);
+
 			if (mainClass == null || aPC == null)
 			{
 				//TODO: i18n these messages
-				ShowMessageDelegate.showMessageDialog("Unrecoverable problems occurred while loading the character.", "Error", MessageType.ERROR);
+				ShowMessageDelegate
+					.showMessageDialog(
+						"Unrecoverable problems occurred while loading the character.",
+						"Error", MessageType.ERROR);
 				Logging.errorPrint("Error in loadPCFromFile");
 
 				return null;
@@ -829,11 +843,13 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			pcgenMenuBar.openRecentPCMenu.add(aPC.getDisplayName(), file);
 			setPC(aPC);
 
-			if(!blockLoadedMessage) {
+			if (!blockLoadedMessage)
+			{
 				GMBus.send(new PCLoadedMessage(this, aPC));
 			}
 		}
-		finally {
+		finally
+		{
 			GMBus.send(new ResumeRefreshMessage(this));
 		}
 
@@ -861,24 +877,24 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-    /**
-     * Update the list of feats that have changed, e.g.  Update the abilities tab
-     */
+	/**
+	 * Update the list of feats that have changed, e.g.  Update the abilities tab
+	 */
 	public void featList_Changed()
 	{
 		if (characterPane != null)
 		{
-            // TODO deprecated  - Previous code updated the old FEAT tab, remove commented 
-            // out code?
+			// TODO deprecated  - Previous code updated the old FEAT tab, remove commented 
+			// out code?
 			//characterPane.setPaneForUpdate(characterPane.infoFeats());
 			characterPane.setPaneForUpdate(characterPane.infoAbilities());
 			characterPane.refresh();
 		}
 	}
 
-    /**
-     * Force an update to all of the currently loaded PCs
-     */
+	/**
+	 * Force an update to all of the currently loaded PCs
+	 */
 	public static void forceUpdate_PlayerTabs()
 	{
 		boolean tips = SettingsHandler.isToolTipTextShown();
@@ -887,14 +903,15 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		{
 			PlayerCharacter aPC = getPCForTabAt(i);
 			setTabName(i, aPC.getDisplayName());
-			baseTabbedPane.setToolTipTextAt(i, tips ? aPC.getFullDisplayName() : null);
+			baseTabbedPane.setToolTipTextAt(i, tips ? aPC.getFullDisplayName()
+				: null);
 		}
 	}
 
-    /**
-     * Update the HP for the character in the Classes and Summary 
-     * screens.
-     */
+	/**
+	 * Update the HP for the character in the Classes and Summary 
+	 * screens.
+	 */
 	public void hpTotal_Changed()
 	{
 		if (characterPane != null)
@@ -924,8 +941,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			return;
 		}
 
-		int reallyClose = JOptionPane.showConfirmDialog(this, aPC.getDisplayName() + " changed.	 Discard changes?",
-				"Revert " + aPC.getDisplayName() + "?", JOptionPane.YES_NO_OPTION);
+		int reallyClose =
+				JOptionPane.showConfirmDialog(this, aPC.getDisplayName()
+					+ " changed.	 Discard changes?", "Revert "
+					+ aPC.getDisplayName() + "?", JOptionPane.YES_NO_OPTION);
 
 		if (reallyClose != JOptionPane.YES_OPTION)
 		{
@@ -978,11 +997,11 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		String aPCFileName = aPC.getFileName();
 		GMBus.send(new SavePCGNotificationMessage(this, aPC));
 
-
 		if (aPCFileName.equals(""))
 		{
-			prevFile = new File(SettingsHandler.getPcgPath(),
-					aPC.getDisplayName() + Constants.s_PCGEN_CHARACTER_EXTENSION);
+			prevFile =
+					new File(SettingsHandler.getPcgPath(), aPC.getDisplayName()
+						+ Constants.s_PCGEN_CHARACTER_EXTENSION);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
 		}
@@ -993,13 +1012,15 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		if (saveas || newPC)
 		{
-			final JFileChooser fc = SettingsHandler.isShowImagePreview()
-			? ImagePreview.decorateWithImagePreview(new JFileChooser())
-			: new JFileChooser();
+			final JFileChooser fc =
+					SettingsHandler.isShowImagePreview() ? ImagePreview
+						.decorateWithImagePreview(new JFileChooser())
+						: new JFileChooser();
 			fc.setFileFilter(filter);
 			fc.setSelectedFile(prevFile);
 
-			FilenameChangeListener listener = new FilenameChangeListener(aPCFileName, fc);
+			FilenameChangeListener listener =
+					new FilenameChangeListener(aPCFileName, fc);
 
 			fc.addPropertyChangeListener(listener);
 
@@ -1012,23 +1033,33 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 				if (!PCGFile.isPCGenCharacterFile(file))
 				{
-					file = new File(file.getParent(), file.getName() + Constants.s_PCGEN_CHARACTER_EXTENSION);
+					file =
+							new File(file.getParent(), file.getName()
+								+ Constants.s_PCGEN_CHARACTER_EXTENSION);
 				}
 
 				if (file.isDirectory())
 				{
-					ShowMessageDelegate.showMessageDialog("You cannot overwrite a directory with a character.", Constants.s_APPNAME,
-						MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(
+						"You cannot overwrite a directory with a character.",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return false;
 				}
 
-                // Do't worry about checking for prevFile == null as we know it can't be from above
-				if (file.exists() && (newPC || !file.getName().equals(prevFile.getName())))
+				// Do't worry about checking for prevFile == null as we know it can't be from above
+				if (file.exists()
+					&& (newPC || !file.getName().equals(prevFile.getName())))
 				{
-					int reallyClose = JOptionPane.showConfirmDialog(this,
-							"The file " + file.getName() + " already exists, are you sure you want to overwrite it?",
-							"Confirm overwriting " + file.getName(), JOptionPane.YES_NO_OPTION);
+					int reallyClose =
+							JOptionPane
+								.showConfirmDialog(
+									this,
+									"The file "
+										+ file.getName()
+										+ " already exists, are you sure you want to overwrite it?",
+									"Confirm overwriting " + file.getName(),
+									JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
 					{
@@ -1038,13 +1069,15 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 				aPC.setFileName(file.getAbsolutePath());
 			}
-			else // not saving
+			else
+			// not saving
 			{
 				return false;
 			}
 		}
 
-		else // simple save
+		else
+		// simple save
 		{
 			file = prevFile;
 		}
@@ -1057,7 +1090,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 		catch (Exception ex)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not save " + aPC.getDisplayName(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Could not save "
+				+ aPC.getDisplayName(), Constants.s_APPNAME, MessageType.ERROR);
 			Logging.errorPrint("Could not save " + aPC.getDisplayName(), ex);
 
 			return false;
@@ -1068,13 +1102,13 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		return true;
 	}
 
-    /**
-     * Use the wait mouse cursor.  If b is true then set the usingWaitCursor boolean 
-     * to true (if not already set) else if b is false and the usingWaitCursoe is 
-     * true then switch it to off.
-     * 
-     * @param b 
-     */
+	/**
+	 * Use the wait mouse cursor.  If b is true then set the usingWaitCursor boolean 
+	 * to true (if not already set) else if b is false and the usingWaitCursoe is 
+	 * true then switch it to off.
+	 * 
+	 * @param b 
+	 */
 	public static void useWaitCursor(boolean b)
 	{
 		if (b)
@@ -1082,7 +1116,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			if (!usingWaitCursor)
 			{
 				usingWaitCursor = true;
-				Toolkit.getDefaultToolkit().getSystemEventQueue().push(waitQueue);
+				Toolkit.getDefaultToolkit().getSystemEventQueue().push(
+					waitQueue);
 			}
 		}
 		else
@@ -1103,19 +1138,19 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-    /**
-     * Set the PCGen menu Bar
-     * @param thePcgenMenuBar
-     */
+	/**
+	 * Set the PCGen menu Bar
+	 * @param thePcgenMenuBar
+	 */
 	public void setPcgenMenuBar(PCGenMenuBar thePcgenMenuBar)
 	{
 		this.pcgenMenuBar = thePcgenMenuBar;
 	}
 
-    /**
-     * Get the PCGen menu bar
-     * @return pcgenMenuBar
-     */
+	/**
+	 * Get the PCGen menu bar
+	 * @return pcgenMenuBar
+	 */
 	public PCGenMenuBar getPcgenMenuBar()
 	{
 		return pcgenMenuBar;
@@ -1163,10 +1198,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		{
 			handleTabAddMessage((TabAddMessage) message);
 		}
-		else if (message instanceof PauseRefreshMessage) {
+		else if (message instanceof PauseRefreshMessage)
+		{
 			handlePauseRefreshMessage();
 		}
-		else if (message instanceof ResumeRefreshMessage) {
+		else if (message instanceof ResumeRefreshMessage)
+		{
 			handleResumeRefreshMessage();
 		}
 	}
@@ -1174,11 +1211,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	/**
 	 * @param message
 	 */
-	private void handleOpenMessage(OpenMessage message) {
+	private void handleOpenMessage(OpenMessage message)
+	{
 		final File[] pcFiles = message.getFile();
 		for (int i = 0; i < pcFiles.length; i++)
 		{
-			if(filter.accept(pcFiles[i]))
+			if (filter.accept(pcFiles[i]))
 			{
 				SettingsHandler.setPcgPath(pcFiles[i].getParentFile());
 				loadPCFromFile(pcFiles[i]);
@@ -1189,7 +1227,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		message.veto();
 	}
 
-	private void handleSaveMessage(SaveMessage message) {
+	private void handleSaveMessage(SaveMessage message)
+	{
 		final int currTab = baseTabbedPane.getSelectedIndex();
 		if (this.isFocused() && currTab >= FIRST_CHAR_TAB)
 		{
@@ -1208,9 +1247,11 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-	private void handleNewMessage() {
+	private void handleNewMessage()
+	{
 		final int currTab = baseTabbedPane.getSelectedIndex();
-		if (currTab >= FIRST_CHAR_TAB || baseTabbedPane.getSelectedComponent() == mainSource)
+		if (currTab >= FIRST_CHAR_TAB
+			|| baseTabbedPane.getSelectedComponent() == mainSource)
 		{
 			// seize the focus to cause focus listeners to fire
 			// How does this work with the toolbar button?? --bko XXX
@@ -1221,10 +1262,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-    /**
-     * Send a state changed message to the GMGen plugin system
-     * @param e The event that has changed
-     */
+	/**
+	 * Send a state changed message to the GMGen plugin system
+	 * @param e The event that has changed
+	 */
 	public void stateUpdate(EventObject e)
 	{
 		GMBus.send(new StateChangedMessage(this, null));
@@ -1236,7 +1277,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	 * @param e The window event
 	 */
 	@Override
-    protected void processWindowEvent(WindowEvent e)
+	protected void processWindowEvent(WindowEvent e)
 	{
 		super.processWindowEvent(e);
 
@@ -1246,9 +1287,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-    /**
-     * Add a Kit to the PC
-     */
+	/**
+	 * Add a Kit to the PC
+	 */
 	public void addKit_actionPerformed()
 	{
 		toolBar.addKit.requestFocus();
@@ -1265,7 +1306,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		if (currTab >= FIRST_CHAR_TAB)
 		{
-//			final String kitFilter = getCharacterPane().getKitFilter();
+			//			final String kitFilter = getCharacterPane().getKitFilter();
 
 			if (kitSelector == null)
 			{
@@ -1273,7 +1314,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			}
 
 			kitSelector.setVisible(true);
-//			kitSelector.setFilter(kitFilter);
+			//			kitSelector.setFilter(kitFilter);
 			kitSelector = null;
 		}
 	}
@@ -1323,15 +1364,18 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		closePCTabAt(index, true);
 
 		// Try not to jump the tab focus around
-		baseTabbedPane.setSelectedIndex((index < baseTabbedPane.getTabCount()) ? index : (index - 1));
+		baseTabbedPane.setSelectedIndex((index < baseTabbedPane.getTabCount())
+			? index : (index - 1));
 	}
 
 	boolean loadPartyFromFile(File file)
 	{
 		Party party = Party.makePartyFromFile(file);
 
-		if(!file.exists()) {
-			JOptionPane.showMessageDialog(this, "File does not exist", "Error", JOptionPane.ERROR_MESSAGE);
+		if (!file.exists())
+		{
+			JOptionPane.showMessageDialog(this, "File does not exist", "Error",
+				JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 
@@ -1349,7 +1393,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		else
 		{
 			//todo: i18n these messages
-			ShowMessageDelegate.showMessageDialog("Problems occurred while loading the party.", "Error", MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Problems occurred while loading the party.", "Error",
+				MessageType.ERROR);
 			Logging.errorPrint("PCGen_Frame1: Error in loadPartyFromFile");
 
 			return false;
@@ -1370,36 +1416,43 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		GMBus.send(new NewMessage(this));
 	}
 
-// WIP please leave boomer70
+	// WIP please leave boomer70
 	void doNewNPC()
 	{
 		if (!Globals.displayListsHappy())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_newCharNoSources"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_newCharNoSources"), Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
 		final PlayerCharacter pc = new PlayerCharacter();
-		
+
 		final NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
 		genDlg.pack();
 		genDlg.setVisible(true);
 
 		if (genDlg.getValue() == NPCGeneratorDlg.OK_BUTTON)
 		{
+			// Add a waiting cursor as this can take some time
+			final Cursor oldCursor = getCursor();
+			setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
 			final NPCGenerator npcgen = NPCGenerator.getInst();
-			npcgen.generate(pc, genDlg.getAlignment(),
-					  genDlg.getRace(), genDlg.getGender(),
-					  genDlg.getClassList(), genDlg.getLevels(),
-						  genDlg.getRollMethod(),
-						  genDlg.getNameChoice());
+			npcgen.generate(pc, genDlg.getAlignment(), genDlg.getRace(), genDlg
+				.getGender(), genDlg.getClassList(), genDlg.getLevels(), genDlg
+				.getRollMethod(), genDlg.getNameChoice());
 
 			Globals.getPCList().add(pc);
 			Globals.setCurrentPC(pc);
 			pc.setDirty(true);
-			
+
 			setPC(pc);
+
+			// Put the cursor back to what it was
+			setCursor(oldCursor);
 		}
 	}
 
@@ -1413,10 +1466,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		doNewItem();
 	}
 
-// WIP please leave boomer70
+	// WIP please leave boomer70
 	void newNPCPopupItem_actionPerformed()
 	{
-//		doNewItem();
+		//		doNewItem();
 		doNewNPC();
 	}
 
@@ -1452,14 +1505,16 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		// seize the focus to cause focus listeners to fire
 		pcgenMenuBar.openItem.requestFocus();
 
-		final JFileChooser fc = SettingsHandler.isShowImagePreview()
-		? ImagePreview.decorateWithImagePreview(new JFileChooser())
-		: new JFileChooser();
+		final JFileChooser fc =
+				SettingsHandler.isShowImagePreview() ? ImagePreview
+					.decorateWithImagePreview(new JFileChooser())
+					: new JFileChooser();
 		fc.setCurrentDirectory(SettingsHandler.getPcgPath());
 		FileTypeMessage ftMessage = new FileTypeMessage(this);
 		GMBus.send(ftMessage);
 		FileFilter[] ffs = ftMessage.getFileypes();
-		for(int i = 0; i < ffs.length; i++) {
+		for (int i = 0; i < ffs.length; i++)
+		{
 			fc.addChoosableFileFilter(ffs[i]);
 		}
 
@@ -1656,13 +1711,15 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	void shiftLeftPopupItem_actionPerformed()
 	{
 		int index = popupListener.getTabIndex();
-		moveTab(index, (index == FIRST_CHAR_TAB) ? (baseTabbedPane.getTabCount() - 1) : (index - 1));
+		moveTab(index, (index == FIRST_CHAR_TAB) ? (baseTabbedPane
+			.getTabCount() - 1) : (index - 1));
 	}
 
 	void shiftRightPopupItem_actionPerformed()
 	{
 		int index = popupListener.getTabIndex();
-		moveTab(index, (index == (baseTabbedPane.getTabCount() - 1)) ? FIRST_CHAR_TAB : (index + 1));
+		moveTab(index, (index == (baseTabbedPane.getTabCount() - 1))
+			? FIRST_CHAR_TAB : (index + 1));
 	}
 
 	void updateByKludge()
@@ -1713,7 +1770,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		try
 		{
-			final AskUserPopup dlg = new AskUserPopup(this, "Remove temporary files?", true);
+			final AskUserPopup dlg =
+					new AskUserPopup(this, "Remove temporary files?", true);
 			dlg.setVisible(true);
 
 			return dlg.getDelete();
@@ -1742,7 +1800,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		characterPane.resetToSummaryTab();
 
 		baseTabbedPane.addTab(aPC.getDisplayName(), null, characterPane,
-			SettingsHandler.isToolTipTextShown() ? aPC.getFullDisplayName() : null);
+			SettingsHandler.isToolTipTextShown() ? aPC.getFullDisplayName()
+				: null);
 		baseTabbedPane.setSelectedIndex(baseTabbedPane.getTabCount() - 1);
 	}
 
@@ -1789,7 +1848,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 			featList_Changed();
 
-			final JTabbedPane aPane = (JTabbedPane) characterPane.getComponent(0);
+			final JTabbedPane aPane =
+					(JTabbedPane) characterPane.getComponent(0);
 			final int si = aPane.getSelectedIndex();
 
 			if (si >= 0)
@@ -1797,7 +1857,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 				aPane.getComponent(si).requestFocus();
 
 				// force component to get componentShown message
-				final ComponentEvent ce = new ComponentEvent(aPane.getComponent(si), ComponentEvent.COMPONENT_SHOWN);
+				final ComponentEvent ce =
+						new ComponentEvent(aPane.getComponent(si),
+							ComponentEvent.COMPONENT_SHOWN);
 				aPane.getComponent(si).dispatchEvent(ce);
 			}
 		}
@@ -1810,7 +1872,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		if ((JEPResourceChecker.getMissingResourceCount() != 0))
 		{
-			new LinkableHtmlMessage(this, JEPResourceChecker.getMissingResourceMessage(), Constants.s_APPNAME).setVisible(true);
+			new LinkableHtmlMessage(this, JEPResourceChecker
+				.getMissingResourceMessage(), Constants.s_APPNAME)
+				.setVisible(true);
 		}
 	}
 
@@ -1833,16 +1897,22 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 			if (isClosing)
 			{
-				reallyClose = JOptionPane.showConfirmDialog(this,
-						aPC.getDisplayName() + " changed.  Save changes before closing?",
-						"Save " + aPC.getDisplayName() + " before closing?", JOptionPane.YES_NO_CANCEL_OPTION);
+				reallyClose =
+						JOptionPane
+							.showConfirmDialog(this, aPC.getDisplayName()
+								+ " changed.  Save changes before closing?",
+								"Save " + aPC.getDisplayName()
+									+ " before closing?",
+								JOptionPane.YES_NO_CANCEL_OPTION);
 			}
-			else // reverting
+			else
+			// reverting
 			{
 				bSave = false;
 			}
 
-			if ((reallyClose == JOptionPane.CANCEL_OPTION) || (reallyClose == JOptionPane.CLOSED_OPTION))
+			if ((reallyClose == JOptionPane.CANCEL_OPTION)
+				|| (reallyClose == JOptionPane.CLOSED_OPTION))
 			{
 				return false; // don't quit/close
 			}
@@ -1868,16 +1938,16 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			characterPane.storeFilterSettings();
 
 			// bSave has already checked the aPC != null condition, but we 
-            // repeat it due to paranoia :)
-            if (bSave && aPC != null)
+			// repeat it due to paranoia :)
+			if (bSave && aPC != null)
 			{
 				// Quick hack: blank filename means never saved before
-   				final String fileName = aPC.getFileName();
-    
-   				if (!savePC(aPC, fileName.equals("")))
-   				{
-   					return false;
-   				}
+				final String fileName = aPC.getFileName();
+
+				if (!savePC(aPC, fileName.equals("")))
+				{
+					return false;
+				}
 			}
 		}
 
@@ -1893,7 +1963,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		final PlayerCharacter oldPC = getPCForTabAt(index);
 		Globals.setCurrentPC(oldPC);
 
-		int newIndex = ((index == (baseTabbedPane.getTabCount() - 1)) ? (index - 1) : index);
+		int newIndex =
+				((index == (baseTabbedPane.getTabCount() - 1)) ? (index - 1)
+					: index);
 
 		//This should dispose of the character objects.
 		ChangeListener[] cl = baseTabbedPane.getChangeListeners();
@@ -1902,7 +1974,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			baseTabbedPane.removeChangeListener(cl[i]);
 		}
 		baseTabbedPane.removeTabAt(index);
-		for (int i = cl.length-1; i>= 0; i--)
+		for (int i = cl.length - 1; i >= 0; i--)
 		{
 			baseTabbedPane.addChangeListener(cl[i]);
 		}
@@ -2089,7 +2161,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		handleQuit();
 	}
 
-	private void handleInitHolderListSendMessage(InitHolderListSendMessage message)
+	private void handleInitHolderListSendMessage(
+		InitHolderListSendMessage message)
 	{
 		InitHolderList list = message.getInitHolderList();
 
@@ -2114,7 +2187,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		if (PCGFile.isPCGenCharacterFile(pcFile))
 		{
-			message.setPlayerCharacter(loadPCFromFile(pcFile, message.blockLoadedMessage()));
+			message.setPlayerCharacter(loadPCFromFile(pcFile, message
+				.blockLoadedMessage()));
 		}
 		else if (PCGFile.isPCGenPartyFile(pcFile))
 		{
@@ -2144,7 +2218,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		if (getState() != Frame.ICONIFIED)
 		{
-			SettingsHandler.getLeftUpperCorner().setLocation(getLocationOnScreen().getX(), getLocationOnScreen().getY());
+			SettingsHandler.getLeftUpperCorner().setLocation(
+				getLocationOnScreen().getX(), getLocationOnScreen().getY());
 		}
 
 		//Get the maximized state of the window (1.4 ONLY!!!!)
@@ -2204,9 +2279,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 	private void handleStateChangedMessage()
 	{
-		if(this.isFocused() && characterPane != null)
+		if (this.isFocused() && characterPane != null)
 		{
-			PlayerCharacter aPC = getPCForTabAt(baseTabbedPane.getSelectedIndex());
+			PlayerCharacter aPC =
+					getPCForTabAt(baseTabbedPane.getSelectedIndex());
 			Globals.setCurrentPC(aPC);
 			// What could possibly have changed on focus that would
 			// require a forceUpdate of all the panels?
@@ -2219,12 +2295,13 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			// changes to the PlayerCharacter object.  Without this, what the user
 			// sees on the screen is stale.
 			// DJ -- 05/23/2004
-			characterPane.setPaneForUpdate(characterPane.infoSpecialAbilities());
+			characterPane
+				.setPaneForUpdate(characterPane.infoSpecialAbilities());
 			characterPane.setPaneForUpdate(characterPane.infoSummary());
 			characterPane.setPaneForUpdate(characterPane.infoRace());
 			characterPane.setPaneForUpdate(characterPane.infoClasses());
 			characterPane.setPaneForUpdate(characterPane.infoDomain());
-//			characterPane.setPaneForUpdate(characterPane.infoFeats());
+			//			characterPane.setPaneForUpdate(characterPane.infoFeats());
 			characterPane.setPaneForUpdate(characterPane.infoAbilities());
 			characterPane.setPaneForUpdate(characterPane.infoSkills());
 			characterPane.setPaneForUpdate(characterPane.infoSpells());
@@ -2237,17 +2314,17 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 	private void handleTabAddMessage(TabAddMessage message)
 	{
-		if(message.getSystem().equals(Constants.s_SYSTEM_PCGEN))
+		if (message.getSystem().equals(Constants.s_SYSTEM_PCGEN))
 		{
-			if(message.getPane() instanceof CharacterInfoTab)
+			if (message.getPane() instanceof CharacterInfoTab)
 			{
-				if(characterPane == null)
+				if (characterPane == null)
 				{
 					tempTabList.add(message.getPane());
 				}
 				else
 				{
-					characterPane.addTab((CharacterInfoTab)message.getPane());
+					characterPane.addTab((CharacterInfoTab) message.getPane());
 				}
 			}
 			else
@@ -2258,14 +2335,18 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-	private void handlePauseRefreshMessage() {
-		if(characterPane != null) {
+	private void handlePauseRefreshMessage()
+	{
+		if (characterPane != null)
+		{
 			characterPane.setRefresh(false);
 		}
 	}
 
-	private void handleResumeRefreshMessage() {
-		if(characterPane != null) {
+	private void handleResumeRefreshMessage()
+	{
+		if (characterPane != null)
+		{
 			characterPane.setRefresh(true);
 			characterPane.refresh();
 		}
@@ -2315,19 +2396,19 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		if ((game != null) && (game.getTabShown(Tab.SOURCES)))
 		{
 			baseTabbedPane.addTab(game.getTabName(Tab.SOURCES), mainSource);
-			baseTabbedPane.setToolTipTextAt(0,
-				SettingsHandler.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
+			baseTabbedPane.setToolTipTextAt(0, SettingsHandler
+				.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
 		}
 
 		this.getContentPane().add(panelSouth, BorderLayout.SOUTH);
 		panelSouth.add(statusBar, BorderLayout.SOUTH);
 		baseTabbedPane.addChangeListener(new ChangeListener()
+		{
+			public void stateChanged(ChangeEvent c)
 			{
-				public void stateChanged(ChangeEvent c)
-				{
-					baseTabbedPane_changePanel();
-				}
-			});
+				baseTabbedPane_changePanel();
+			}
+		});
 
 		mainSource.addComponentListener(toolBar.getComponentListener());
 
@@ -2336,8 +2417,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		 * the summary page)
 		 * James Dempsey jdempsey@users.sourceforge.net 01 Feb 2004
 		 */
-		if (!(UIFactory.isWindowsUI()
-			&& System.getProperty("java.version").startsWith("1.4.0")))
+		if (!(UIFactory.isWindowsUI() && System.getProperty("java.version")
+			.startsWith("1.4.0")))
 		{
 			addWindowFocusListener(new java.awt.event.WindowFocusListener()
 			{
@@ -2345,6 +2426,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 				{
 					stateUpdate(e);
 				}
+
 				public void windowLostFocus(java.awt.event.WindowEvent e)
 				{
 					// TODO This method currently does nothing?
@@ -2388,7 +2470,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		if (partyFileName.length() == 0)
 		{
-			prevFile = new File(SettingsHandler.getPcgPath(), "Party" + Constants.s_PCGEN_PARTY_EXTENSION);
+			prevFile =
+					new File(SettingsHandler.getPcgPath(), "Party"
+						+ Constants.s_PCGEN_PARTY_EXTENSION);
 			partyFileName = prevFile.getAbsolutePath();
 			newParty = true;
 		}
@@ -2405,7 +2489,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			fc.setFileFilter(partyFilter);
 			fc.setSelectedFile(prevFile);
 
-			FilenameChangeListener listener = new FilenameChangeListener(partyFileName, fc);
+			FilenameChangeListener listener =
+					new FilenameChangeListener(partyFileName, fc);
 			fc.addPropertyChangeListener(listener);
 
 			int returnVal = fc.showSaveDialog(PCGen_Frame1.this);
@@ -2417,23 +2502,33 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 				if (!PCGFile.isPCGenPartyFile(file))
 				{
-					file = new File(file.getParent(), file.getName() + Constants.s_PCGEN_PARTY_EXTENSION);
+					file =
+							new File(file.getParent(), file.getName()
+								+ Constants.s_PCGEN_PARTY_EXTENSION);
 				}
 
 				if (file.isDirectory())
 				{
-					ShowMessageDelegate.showMessageDialog("You cannot overwrite a directory with a party.", Constants.s_APPNAME,
-						MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(
+						"You cannot overwrite a directory with a party.",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
 
-                // No need to check that prevFile == null as we know it's not from above
-				if (file.exists() && (newParty || !file.getName().equals(prevFile.getName())))
+				// No need to check that prevFile == null as we know it's not from above
+				if (file.exists()
+					&& (newParty || !file.getName().equals(prevFile.getName())))
 				{
-					int reallyClose = JOptionPane.showConfirmDialog(this,
-							"The file " + file.getName() + " already exists, are you sure you want to overwrite it?",
-							"Confirm overwriting " + file.getName(), JOptionPane.YES_NO_OPTION);
+					int reallyClose =
+							JOptionPane
+								.showConfirmDialog(
+									this,
+									"The file "
+										+ file.getName()
+										+ " already exists, are you sure you want to overwrite it?",
+									"Confirm overwriting " + file.getName(),
+									JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
 					{
@@ -2457,7 +2552,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 		catch (IOException ex)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not save " + partyFileName, Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Could not save "
+				+ partyFileName, Constants.s_APPNAME, MessageType.ERROR);
 			Logging.errorPrint("Could not save" + partyFileName, ex);
 
 			return;
@@ -2466,7 +2562,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		pcgenMenuBar.openRecentPartyMenu.add(partyFileName, file);
 	}
 
-	protected void resetUI() {
+	protected void resetUI()
+	{
 		mainSource.resetUI();
 	}
 
@@ -2479,37 +2576,38 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			return;
 		}
 
-		final String aDirectory = SettingsHandler.getTempPath() + File.separator;
+		final String aDirectory =
+				SettingsHandler.getTempPath() + File.separator;
 		new File(aDirectory).list(new FilenameFilter()
+		{
+			boolean myCleanUp = cleanUp;
+
+			public boolean accept(File aFile, String aString)
 			{
-				boolean myCleanUp = cleanUp;
-
-				public boolean accept(File aFile, String aString)
+				try
 				{
-					try
+					if (aString.startsWith(Constants.s_TempFileName))
 					{
-						if (aString.startsWith(Constants.s_TempFileName))
+						if (!myCleanUp)
 						{
-							if (!myCleanUp)
-							{
-								myCleanUp = getUserChoice();
-							}
+							myCleanUp = getUserChoice();
+						}
 
-							if (myCleanUp)
-							{
-								final File tf = new File(aFile, aString);
-								tf.delete();
-							}
+						if (myCleanUp)
+						{
+							final File tf = new File(aFile, aString);
+							tf.delete();
 						}
 					}
-					catch (Exception e)
-					{
-						Logging.errorPrint("removeTemporaryFiles", e);
-					}
-
-					return false;
 				}
-			});
+				catch (Exception e)
+				{
+					Logging.errorPrint("removeTemporaryFiles", e);
+				}
+
+				return false;
+			}
+		});
 	}
 
 	private void resetCharacterTabs()
@@ -2545,7 +2643,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 	void warnAboutMissingResource()
 	{
-		new LinkableHtmlMessage(this, FOPResourceChecker.getMissingResourceMessage(), Constants.s_APPNAME).setVisible(true);
+		new LinkableHtmlMessage(this, FOPResourceChecker
+			.getMissingResourceMessage(), Constants.s_APPNAME).setVisible(true);
 	}
 
 	/**
@@ -2581,7 +2680,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		private void onDirectoryChange()
 		{
-			fileChooser.setSelectedFile(new File(fileChooser.getCurrentDirectory(), lastSelName));
+			fileChooser.setSelectedFile(new File(fileChooser
+				.getCurrentDirectory(), lastSelName));
 		}
 
 		private void onSelectedFileChange(PropertyChangeEvent evt)
@@ -2605,34 +2705,35 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		PCPopupMenu pcPopupMenu;
 		int index;
 
-        /**
-         * Constructor for the pop up menus listener
-         * @param aTabbedPane
-         * @param theMainPopupMenu
-         * @param thePcPopupMenu
-         */
-		PopupListener(JTabbedPane aTabbedPane, MainPopupMenu theMainPopupMenu, PCPopupMenu thePcPopupMenu)
+		/**
+		 * Constructor for the pop up menus listener
+		 * @param aTabbedPane
+		 * @param theMainPopupMenu
+		 * @param thePcPopupMenu
+		 */
+		PopupListener(JTabbedPane aTabbedPane, MainPopupMenu theMainPopupMenu,
+			PCPopupMenu thePcPopupMenu)
 		{
 			this.tabbedPane = aTabbedPane;
 			this.mainPopupMenu = theMainPopupMenu;
 			this.pcPopupMenu = thePcPopupMenu;
 		}
 
-        /**
-         * Get the index of the current tab
-         * @return index of current tab
-         */
+		/**
+		 * Get the index of the current tab
+		 * @return index of current tab
+		 */
 		public int getTabIndex()
 		{
 			return index;
 		}
 
-        /**
-         * Fire off the mouse pressed event
-         * @param e The event
-         */
+		/**
+		 * Fire off the mouse pressed event
+		 * @param e The event
+		 */
 		@Override
-        public void mousePressed(MouseEvent e)
+		public void mousePressed(MouseEvent e)
 		{
 			// Work-around: W32 returns false even on
 			// right-mouse clicks
@@ -2660,13 +2761,14 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 			int tabCount = tabbedPane.getTabCount();
 
-			if(tabCount == FIRST_CHAR_TAB + 1)
+			if (tabCount == FIRST_CHAR_TAB + 1)
 			{ // one PC tab only -- no shifting
 				pcPopupMenu.setShiftType(PCPopupMenu.SHIFT_NONE);
 			}
-			else if(tabCount == FIRST_CHAR_TAB + 2)
+			else if (tabCount == FIRST_CHAR_TAB + 2)
 			{ // two PC tabs -- support swapping
-				pcPopupMenu.setShiftType((index == 1) ? PCPopupMenu.SHIFT_RIGHT : PCPopupMenu.SHIFT_LEFT);
+				pcPopupMenu.setShiftType((index == 1) ? PCPopupMenu.SHIFT_RIGHT
+					: PCPopupMenu.SHIFT_LEFT);
 			}
 			else
 			{ // many PC tabs -- support cycling
@@ -2706,12 +2808,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		static final long serialVersionUID = 1042236188732008819L;
 		private boolean doDelete = false;
 
-        /**
-         * Constructor for the ask a user pop up
-         * @param owner
-         * @param title
-         * @param modal
-         */
+		/**
+		 * Constructor for the ask a user pop up
+		 * @param owner
+		 * @param title
+		 * @param modal
+		 */
 		public AskUserPopup(JFrame owner, String title, boolean modal)
 		{
 			super(owner, title, modal);
@@ -2719,10 +2821,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			setLocationRelativeTo(owner);
 		}
 
-        /**
-         * Get the doDelete flag
-         * @return true if we delete, else false if we don't
-         */
+		/**
+		 * Get the doDelete flag
+		 * @return true if we delete, else false if we don't
+		 */
 		public boolean getDelete()
 		{
 			return doDelete;
@@ -2743,30 +2845,30 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			jPanel.add(btnYes);
 			jPanel.add(btnNo);
 			btnYes.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
+					if (chkDontAsk.isSelected())
 					{
-						if (chkDontAsk.isSelected())
-						{
-							SettingsHandler.setCleanupTempFiles(true);
-						}
-
-						setDelete(true);
-						dispose();
+						SettingsHandler.setCleanupTempFiles(true);
 					}
-				});
+
+					setDelete(true);
+					dispose();
+				}
+			});
 			btnNo.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
+					if (chkDontAsk.isSelected())
 					{
-						if (chkDontAsk.isSelected())
-						{
-							SettingsHandler.setCleanupTempFiles(false);
-						}
-
-						dispose();
+						SettingsHandler.setCleanupTempFiles(false);
 					}
-				});
+
+					dispose();
+				}
+			});
 			getContentPane().setLayout(new BorderLayout());
 			getContentPane().add(jPanel, BorderLayout.SOUTH);
 			pack();
@@ -2781,10 +2883,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		private WaitCursorTimer waitTimer;
 		private int delay;
 
-        /**
-         * The constructor for the wait cursor event queue
-         * @param theDelay
-         */
+		/**
+		 * The constructor for the wait cursor event queue
+		 * @param theDelay
+		 */
 		public WaitCursorEventQueue(int theDelay)
 		{
 			this.delay = theDelay;
@@ -2793,20 +2895,20 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			waitTimer.start();
 		}
 
-        /**
-         * Pop an event off the queue
-         */
+		/**
+		 * Pop an event off the queue
+		 */
 		public void doPop()
 		{
 			pop();
 		}
 
-        /**
-         * Dispatch and AWT event
-         * @param event The event to dispatch
-         */
+		/**
+		 * Dispatch and AWT event
+		 * @param event The event to dispatch
+		 */
 		@Override
-        protected void dispatchEvent(AWTEvent event)
+		protected void dispatchEvent(AWTEvent event)
 		{
 			waitTimer.startTimer(event.getSource());
 
@@ -2814,7 +2916,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			{
 				super.dispatchEvent(event);
 			}
-			catch(Exception e)
+			catch (Exception e)
 			{
 				//Logging.reportAllThreads();
 				Logging.errorPrint("Uncaught error - ignoring", e);
@@ -2830,12 +2932,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			private Component parent;
 			private Object source;
 
-            /**
-             * The standard run method for threaded code, in this 
-             * case deals with the waitMouseCursor thread
-             */
+			/**
+			 * The standard run method for threaded code, in this 
+			 * case deals with the waitMouseCursor thread
+			 */
 			@Override
-            public synchronized void run()
+			public synchronized void run()
 			{
 				while (true)
 				{
@@ -2856,17 +2958,21 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 						}
 						else if (source instanceof MenuComponent)
 						{
-							MenuContainer mParent = ((MenuComponent) source).getParent();
+							MenuContainer mParent =
+									((MenuComponent) source).getParent();
 
 							if (mParent instanceof Component)
 							{
-								parent = SwingUtilities.getRoot((Component) mParent);
+								parent =
+										SwingUtilities
+											.getRoot((Component) mParent);
 							}
 						}
 
 						if ((parent != null) && parent.isShowing())
 						{
-							parent.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+							parent.setCursor(Cursor
+								.getPredefinedCursor(Cursor.WAIT_CURSOR));
 						}
 					}
 					catch (InterruptedException ie)
@@ -2897,25 +3003,28 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		}
 	}
 
-
 	/* (non-Javadoc)
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-	public void update(Observable o, Object arg) {
+	public void update(Observable o, Object arg)
+	{
 		// A character has been updated.
-		if (arg != null) {
-			if ("TabName".equals(arg.toString())) {
+		if (arg != null)
+		{
+			if ("TabName".equals(arg.toString()))
+			{
 				forceUpdate_PlayerTabs();
 			}
 		}
 		PCGen_Frame1.enableDisableMenuItems();
 	}
-    
-    /**
-     * Set the character pane on the frame
-     * @param theCharacterPane to set
-     */
-	static void setCharacterPane(CharacterInfo theCharacterPane) {
+
+	/**
+	 * Set the character pane on the frame
+	 * @param theCharacterPane to set
+	 */
+	static void setCharacterPane(CharacterInfo theCharacterPane)
+	{
 		PCGen_Frame1.characterPane = characterPane;
 	}
 
