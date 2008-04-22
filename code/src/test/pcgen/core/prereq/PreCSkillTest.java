@@ -114,7 +114,70 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		assertTrue("Character has 3 Spy Skills", PrereqHandler.passes(prereq,
 			character, null));
 	}
+	public void testCSkillServesAs() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, myClass, true);
 
+		myClass = character.getClassKeyed("My Class");
+
+		Prerequisite prereq;
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		
+		Skill foo = new Skill();
+		foo.setName("Foo");
+		foo.putServesAs("Bar","");
+		foo.setTypeInfo("Foo");
+		Globals.getSkillList().add(foo);
+		
+		Skill bar = new Skill();
+		bar.setName("Bar");
+		bar.setTypeInfo("Bar");
+		Globals.getSkillList().add(bar); 
+		
+		Skill baz = new Skill();
+		baz.setName("Baz");
+		baz.setTypeInfo("Baz");
+		Globals.getSkillList().add(baz); 
+		
+		Skill fee = new Skill();
+		fee.setName("Fee");
+		fee.setTypeInfo("Bar");
+		Globals.getSkillList().add(fee); 
+		
+		
+		myClass.addCSkill("Foo");
+		myClass.addCSkill("Fee");
+		prereq = factory.parse("PRECSKILL:1,Bar");		
+		assertTrue("Character has 1 Listen Skill", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+		prereq = factory.parse("PRECSKILL:2,Bar,Fee");		
+		assertTrue("Character has a Bar Skill and a Fee Skill", PrereqHandler.passes(prereq,
+			character, null));
+		
+		prereq = factory.parse("PRECSKILL:2,Baz,Fee");		
+		assertFalse("Character does not have both Baz and Fee Skills", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+		
+		prereq = factory.parse("PRECSKILL:1,TYPE=Bar");		
+		assertTrue("Character has 1 Bar Type Skill", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+		prereq = factory.parse("PRECSKILL:2,TYPE=Bar");		
+		assertTrue("Character has 2 Bar Type Skills", PrereqHandler.passes(prereq,
+			character, null));
+		
+		prereq = factory.parse("PRECSKILL:3,TYPE=Bar");		
+		assertFalse("Character has less than 3 Bar Type Skills", PrereqHandler.passes(prereq,
+			character, null));
+		
+		
+	}
 	protected void setUp() throws Exception
 	{
 		super.setUp();

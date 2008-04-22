@@ -21,7 +21,14 @@
  *
  */package plugin.pretokens.test;
 
-import pcgen.core.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -42,6 +49,9 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
+		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<Skill, HashSet<Skill>>();
+		Set<Skill> imitators = new HashSet<Skill>();
+		this.getImitators(serveAsSkills, imitators, character);
 
 		// Compute the skill name from the Prerequisite
 		String requiredSkillKey = prereq.getKey().toUpperCase();
@@ -58,6 +68,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			requiredSkillKey = requiredSkillKey.substring(5);
 		}
 		final String skillKey = requiredSkillKey;
+		Set<Skill> skillMatches = new HashSet<Skill>();
 
 		if (isType)
 		{
@@ -68,7 +79,33 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			{
 				if (skill.isType(skillKey) && skill.isClassSkill(character))
 				{
+					skillMatches.add(skill);
 					runningTotal++;
+				}
+				
+			}
+			if (runningTotal < reqnumber ) 
+			{
+BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
+				{
+					if (fake.isClassSkill(character))
+					{
+						for(Skill mock: serveAsSkills.get(fake))
+						{
+							if (skillMatches.contains(mock))
+							{
+								// We already counted this skill in the above 
+								// calculation.  We DONT want to match it 
+								// a second time
+								break BREAKOUT; 
+							}
+							if (mock.isType(skillKey))
+							{
+								runningTotal++;
+								break BREAKOUT;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -79,10 +116,49 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			{
 				runningTotal++;
 			}
+			else 
+			{
+				for(Skill mock: imitators)
+				{
+					if (mock.isClassSkill(character) && serveAsSkills.get(mock).contains(skill))
+					{
+						runningTotal++;
+						break;
+					}
+				}
+			}
 		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, reqnumber);
 		return countedTotal(prereq, runningTotal);
+	}
+
+	/**
+	 * @param serveAsSkills
+	 * @param imitators
+	 * @param character
+	 */
+	private void getImitators(
+		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators,
+		PlayerCharacter character)
+	{
+		List<Skill> allSkills = Globals.getSkillList();		
+		for(Skill aSkill: allSkills)
+		{
+			Skill finalSkill = null ;
+			Set<Skill> servesAs = new HashSet<Skill>();
+			for(String fakeSkill: aSkill.getServesAs(""))
+			{
+				finalSkill = Globals.getSkillKeyed(fakeSkill);
+				servesAs.add(finalSkill);
+			}
+			
+			if(servesAs.size() > 0)
+			{
+				imitators.add(aSkill);
+				serveAsSkills.put(aSkill, (HashSet<Skill>) servesAs);
+			}
+		}		
 	}
 
 	/* (non-Javadoc)
