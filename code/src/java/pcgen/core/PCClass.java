@@ -3159,23 +3159,29 @@ public class PCClass extends PObject
 		{
 			if (level > curLevel || aPC.isImporting())
 			{
-				try
-				{
-					PreParserFactory factory = PreParserFactory.getInstance();
-
-					StringBuffer formula;
-					final String aString = Globals.getBonusFeatString();
-					final StringTokenizer aTok =
-							new StringTokenizer(aString, "|", false);
-					final int startLevel = Integer.parseInt(aTok.nextToken());
-					final int rangeLevel = Integer.parseInt(aTok.nextToken());
-					int divisor = 1;
 					final boolean isMonsterClass =
 							aPC.getRace().getMonsterClass(aPC, false) != null
 								&& aPC.getRace().getMonsterClass(aPC, false)
 									.equalsIgnoreCase(this.getKeyName());
 					Integer mLevPerFeat = getLevelsPerFeat();
-					divisor = (mLevPerFeat != null) ? mLevPerFeat : rangeLevel;
+					int startLevel;
+					int rangeLevel;
+					int divisor;
+					if (mLevPerFeat == null)
+					{
+						String aString = Globals.getBonusFeatString();
+						StringTokenizer aTok = 
+							new StringTokenizer(aString, "|", false);
+						startLevel = Integer.parseInt(aTok.nextToken());
+						rangeLevel = Integer.parseInt(aTok.nextToken());
+						divisor = rangeLevel;
+					}
+					else
+					{
+						startLevel = 0;
+						rangeLevel = 0;
+						divisor = mLevPerFeat;
+					}
 					if (divisor > 0)
 					{
 						if (SettingsHandler.isMonsterDefault() && isMonsterClass)
@@ -3184,35 +3190,28 @@ public class PCClass extends PObject
 									aPC.getRace().getMonsterClassLevels(aPC,
 										false);
 
-							formula = new StringBuffer("max(0,floor((CL-");
-							formula.append(monLev);
-							formula.append(")/");
-							formula.append(divisor);
-							formula.append("))");
-
-							StringBuffer aBuf =
-									new StringBuffer("0|FEAT|MONSTERPOOL|");
-							aBuf.append(formula);
+							StringBuffer aBuf = new StringBuffer(
+									"0|FEAT|MONSTERPOOL|");
+							aBuf.append("max(0,floor((CL-");
+							aBuf.append(monLev);
+							aBuf.append(")/");
+							aBuf.append(divisor);
+							aBuf.append("))");
 							BonusObj bon = Bonus.newBonus(aBuf.toString());
 							bon.setCreatorObject(this);
 							addBonusList(bon);
 						}
 						else
 						{
-							StringBuffer aBuf =
-									new StringBuffer("0|FEAT|PCPOOL|CL/");
+							StringBuffer aBuf = new StringBuffer(
+									"0|FEAT|PCPOOL|(CL-" + startLevel + "+"
+									+ rangeLevel + ")/");
 							aBuf.append(divisor);
 							BonusObj bon = Bonus.newBonus(aBuf.toString());
 							bon.setCreatorObject(this);
 							addBonusList(bon);
 						}
 					}
-				}
-
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint("Caught " + e);
-				}
 			}
 
 			chooseClassSkillList();
