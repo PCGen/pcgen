@@ -45,7 +45,12 @@ public class CategorisableStore implements Cloneable
 		{
 			public int compare(final Categorisable o1, final Categorisable o2)
 			{
-				return o1.getDisplayName().compareToIgnoreCase(o2.getDisplayName());
+				int comp = o1.getDisplayName().compareToIgnoreCase(o2.getDisplayName());
+				if (comp == 0)
+				{
+					comp = o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
+				}
+				return comp;
 			}
 		};
 
