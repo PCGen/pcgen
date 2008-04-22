@@ -95,11 +95,9 @@ public class SpellPointCosts extends BonusObj
 		sb.append(".");
 		sb.append(spInfo.getSpellPointPartFilterValue());
 		
-		if(!spInfo.getSpellPointPart().equals("TOTAL"))
-		{
-			sb.append(";");
-			sb.append(spInfo.getSpellPointPart());
-		}
+		sb.append(";");
+		sb.append(spInfo.getSpellPointPart());
+
 		return sb.toString();
 	}
 

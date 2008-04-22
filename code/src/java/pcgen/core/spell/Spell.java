@@ -1283,7 +1283,15 @@ public final class Spell extends PObject
 	public void setParsedSpellPointCost(String component, final int value)
 	{
 		hasSpellPointCost = true;
-		spellPointCost.put(component, value);
+		if (spellPointCost.containsKey(component))
+		{
+			int val = spellPointCost.get(component);
+			spellPointCost.put(component, value + val);
+		}
+		else
+		{
+			spellPointCost.put(component, value);
+		}
 	}
 	public static boolean hasSpellPointCost()
 	{
@@ -1375,111 +1383,79 @@ public final class Spell extends PObject
 		int totalSpellPoints =  getSpellPointCostActual(aPC);
 		StringBuffer sb = new StringBuffer();
 		StringBuffer sb2 = new StringBuffer();
+		StringBuffer sb3 = new StringBuffer();
  
-		int bonus =0;		
-		sb2.append("");
-		 
-		if (spCost.size() ==0)
+		int bonus =0;
+		int tempbonus =0;
+		tempbonus =	getBonusForSpellPointCostComponent(aPC, "TOTAL");
+		if (spCost.size()==0)
 		{
-			sb.append(totalSpellPoints);
+			sb.append(totalSpellPoints + bonus);
 			return sb.toString();
 		}
 		else if(spCost.size()==1 && spCost.containsKey("TOTAL"))
 		{
-			sb.append(totalSpellPoints);
+			sb.append(totalSpellPoints + bonus);
 			return sb.toString();
 		}
 		
-		sb.append(totalSpellPoints);
-		sb.append(" [");
+		//sb.append(totalSpellPoints);
 		
 		// Using a TreeSet so they are sorted no matter what order the data is input 
 		// by the lst coder
 		TreeSet<String> fields = new TreeSet<String>();
 		fields.addAll(spCost.keySet());
-
 		
 		for (String aComponent: fields)
 		{
-			bonus = 0;
 			if (aComponent.equalsIgnoreCase("Range"))
 			{
-				sb2.append(aComponent);
-				sb2.append(" ");
-				sb2.append(spCost.get(aComponent));
-
 				bonus =	getBonusForSpellPointCostComponent(aPC, aComponent);
 				
-				if (bonus != 0)	
-				{
-					sb2.append(" (");
-					String sign = (bonus >0)? "+": "-"; 
-					sb2.append(sign);
-					sb2.append(bonus);
-					sb2.append(")");
-				}
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent)+ bonus);
 				sb2.append("/");
 			}
 			else if(aComponent.equalsIgnoreCase("Area of Effect"))
 			{
-				sb2.append(aComponent);
-				sb2.append(" ");
-				sb2.append(spCost.get(aComponent));
-				
 				bonus =	getBonusForSpellPointCostComponent(aPC, aComponent);
 				
-				if (bonus != 0)	
-				{
-					sb2.append(" (");
-					String sign = (bonus >0)? "+": "-"; 
-					sb2.append(sign);
-					sb2.append(bonus);
-					sb2.append(")");
-				}
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent)+ bonus);
 				sb2.append("/");
 			}
 			else if (aComponent.equalsIgnoreCase("Duration"))
 			{
-				sb2.append(aComponent);
-				sb2.append(" ");
-				sb2.append(spCost.get(aComponent));
-
 				bonus =	getBonusForSpellPointCostComponent(aPC, aComponent);
 				
-				if (bonus != 0)	
-				{
-					sb2.append(" (");
-					String sign = (bonus >0)? "+": "-"; 
-					sb2.append(sign);
-					sb2.append(bonus);
-					sb2.append(")");
-				}
+				sb2.append(aComponent);
+				sb2.append(" ");
+				sb2.append(spCost.get(aComponent)+ bonus);
 				sb2.append("/");
 			}
 			else
 			{
 				bonus =	getBonusForSpellPointCostComponent(aPC, aComponent);
 				
-				sb.append(aComponent);
-				sb.append(" ");
-				sb.append(spCost.get(aComponent));
-				sb.append("/");
-				if (bonus != 0)	
-				{
-					sb.append(" (");
-					String sign = (bonus >0)? "+": "-"; 
-					sb.append(sign);
-					sb.append(bonus);
-					sb.append(")");
-				}
-			}			
+				sb3.append(aComponent);
+				sb3.append(" ");
+				sb3.append(spCost.get(aComponent) + bonus);
+				sb3.append("/");
+			}	
+			bonus = 0;
 		}
+		int total = totalSpellPoints + tempbonus;  
+		
 		if(sb2.length() < 1)
 		{
 			sb.replace(sb.length()-1, sb.length(), "");
 		}
 		sb2.replace(sb2.length()-1, sb2.length(), "");
-		
+		sb.append(total); 
+		sb.append(" ["); 
+		sb.append(sb3.toString());
 		sb.append(sb2.toString());
 		sb.append("]");
 		return sb.toString();
@@ -1503,7 +1479,7 @@ public final class Spell extends PObject
 		}
 		for (String subSchool: getSubschools())
 		{
-			aBonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + subSchool.toUpperCase() +";"+ aComponent.toUpperCase());
+			aBonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SUBSCHOOL." + subSchool.toUpperCase() +";"+ aComponent.toUpperCase());
 		}
 		aBonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SPELL." + this.getKeyName() +";"+ aComponent.toUpperCase());
 		return aBonus;
