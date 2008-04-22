@@ -243,11 +243,13 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
+		race.setRaceType("Outsider");
 		race.setTypeInfo("Outsider");
 		Globals.addRace(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
+		fake.setRaceType("Humanoid");
 		fake.setTypeInfo("Humanoid");
 		Globals.addRace(fake);
 
