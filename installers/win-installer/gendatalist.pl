@@ -35,6 +35,7 @@ $basedir{'permissioned'} = 'Permissioned';
 $basedir{'alpha'} = 'Alpha';
 
 # The list of publishers - add an entry here to correct a reported missing publisher
+$pub{'12tomidnight'} = '12 to Midnight';
 $pub{'alderacentertainmentgroup'} = 'Alderac Entertainment Group';
 $pub{'alderacentgroup'} = 'Alderac Entertainment Group';
 $pub{'aleapublishinggroup'} = 'Alea Publishing Group';
