@@ -109,7 +109,8 @@ public final class SubstitutionClass extends PCClass
 				aClass.removeAllAutoAbilites(aLevel);
 				aClass.removeAllLevelAbilities(aLevel);
 				aClass.clearSABList(aLevel);
-				aClass.removeLevelDR(aLevel); 
+				aClass.removeLevelDR(aLevel);
+				aClass.removelevelVariable(aLevel);
 				
 				// Now add in each new level line in turn.
 				for (String theLine: newLevels)

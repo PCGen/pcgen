@@ -1025,7 +1025,37 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		variableList.add(level, variableName, defaultFormula);
 	}
-
+	/**
+	 * Add a variable to the variable list
+	 * @param level
+	 * @param variableName
+	 * @param defaultFormula
+	 */
+	public final void removelevelVariable(final int level)
+	{
+		VariableList tempVariableList = new VariableList();
+		if (variableList == null)
+		{
+			variableList = new VariableList();
+			return;
+		}
+		
+		Iterator<Variable> vInt = variableList.iterator();
+		while (vInt.hasNext())
+		{
+			Variable var = vInt.next();
+			if ((var.getLevel() != level))
+			{
+				tempVariableList.add(var.getLevel(), var.getName(),var.getValue() );
+			}
+		}
+		variableList = tempVariableList;
+		
+		
+	
+	}
+	
+	
 	/**
 	 * Add a virtual feat to the character list
 	 * @param aFeat
