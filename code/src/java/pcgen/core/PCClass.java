@@ -7903,9 +7903,10 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * @param level2
+	 * Remove the level based DR.  Used by Substitution class levels
+	 * @param level
 	 */
-	public void removeDR(int level)
+	public void removeLevelDR(int level)
 	{
 		List<DamageReduction> newDR = new ArrayList<DamageReduction>();
 		for (DamageReduction reduction : getDRList())
