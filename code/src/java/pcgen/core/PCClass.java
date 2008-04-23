@@ -7902,6 +7902,32 @@ public class PCClass extends PObject
 		}
 	}
 
+	/**
+	 * @param level2
+	 */
+	public void removeDR(int level)
+	{
+		List<DamageReduction> newDR = new ArrayList<DamageReduction>();
+		for (DamageReduction reduction : getDRList())
+		{
+			for (Prerequisite prereq : reduction.getPreReqList())
+			{
+				if (!DamageReduction.isPrereqForClassLevel(prereq, getKeyName())
+					&& !prereq.getOperand().equals(Integer.toString(level))
+					)
+				{
+					newDR.add(reduction);
+				}
+			}
+		}
+		clearDR();
+		for (DamageReduction reduction : newDR)
+		{
+			addDR(reduction);
+		}
+		
+	}
+
 	//	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
 	//	{
 	//		if ( aCategory == AbilityCategory.FEAT )
