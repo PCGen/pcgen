@@ -84,24 +84,36 @@ public final class SubstitutionClass extends PCClass
 			customCampaign.addDescription(new Description("Custom data"));
 
 			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceURI());
-
+			
+			ArrayList<String> newLevels = new ArrayList<String>();
+			final PCClassLoader classLoader = new PCClassLoader();
+			
+			// find all qualifying level lines for this level
+			// and put into newLevels list.
 			for (String aLine : levelArray)
 			{
 				final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t")));
 				
 				if (aLevel == modLevel)
-				{
-					final PCClassLoader classLoader = new PCClassLoader();
+				{					
 					if (levelArrayQualifies(aPC, aLine, tempSource))
 					{
-						// remove all stuff from the original level
-						aClass.removeAllBonuses(aLevel);
-						//aClass.removeAllAutoFeats(aLevel);
-						aClass.removeAllAutoAbilites(aLevel);
-						aClass.removeAllLevelAbilities(aLevel);
-						aClass.clearSABList(aLevel);
-						classLoader.parseLine(aClass, aLine, tempSource);
+						newLevels.add(aLine);
 					}
+				}
+			}
+			if (newLevels.size() >1)
+			{
+				// remove all stuff from the original level
+				aClass.removeAllBonuses(aLevel);
+				aClass.removeAllAutoAbilites(aLevel);
+				aClass.removeAllLevelAbilities(aLevel);
+				aClass.clearSABList(aLevel);
+				
+				// Now add in each new level line in turn.
+				for (String theLine: newLevels)
+				{
+					classLoader.parseLine(aClass, theLine, tempSource);
 				}
 			}
 		}
