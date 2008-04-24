@@ -2210,6 +2210,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		Ability.Nature nature = Ability.Nature.NORMAL;
 		String abilityCat = null;
 		Ability ability = null;
+		String abilityKey = "";
 
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
 
@@ -2258,7 +2259,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final PCGElement element = it.next();
 
-			final String abilityKey = EntityEncoder.decode(element.getText());
+			abilityKey = EntityEncoder.decode(element.getText());
 			ability = Globals.getAbilityKeyed(abilityCat, abilityKey);
 			if (ability == null)
 			{
@@ -2358,7 +2359,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						AbilityUtilities.addVirtualAbility(ability,
 							new ArrayList<String>(), thePC
 								.getVirtualAbilityList(category), null);
-				ability.setNeedsSaving(true);
+				if (ability == null)
+				{
+					Logging
+						.errorPrint("Failed to create virtual ability from line "
+							+ line);
+					final String msg =
+							PropertyFactory.getFormattedString(
+								"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
+								abilityKey);
+					warnings.add(msg);
+				}
+				else
+				{
+					ability.setNeedsSaving(true);
+				}
 			}
 		}
 	}
