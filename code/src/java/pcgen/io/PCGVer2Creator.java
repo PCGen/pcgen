@@ -158,6 +158,7 @@ final class PCGVer2Creator implements IOConstants
 		appendUseTempModsLine(buffer);
 		appendOutputSheetsLines(buffer);
 		appendAutoSortLines(buffer);
+		appendGearCostSizeLines(buffer);
 
 		/*
 		 * #Character Bio
@@ -1733,6 +1734,19 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 		buffer.append(TAG_SKILLSOUTPUTORDER).append(':');
 		buffer.append(thePC.getSkillsOutputOrder());
+		buffer.append(LINE_SEP);
+	}
+
+	private void appendGearCostSizeLines(StringBuffer buffer)
+	{
+		buffer.append(TAG_IGNORECOST).append(':');
+		buffer.append(thePC.isIgnoreCost() ? 'Y' : 'N');
+		buffer.append(LINE_SEP);
+		buffer.append(TAG_ALLOWDEBT).append(':');
+		buffer.append(thePC.isAllowDebt() ? 'Y' : 'N');
+		buffer.append(LINE_SEP);
+		buffer.append(TAG_AUTORESIZEGEAR).append(':');
+		buffer.append(thePC.isAutoResize() ? 'Y' : 'N');
 		buffer.append(LINE_SEP);
 	}
 

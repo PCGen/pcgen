@@ -491,14 +491,42 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	/**
-	 * # Auto sort gear
-	 * @param line
+	 * Auto sort gear (Y/N)
+	 * @param line Line of saved data to be processed.
 	 **/
 	private void parseAutoSortGearLine(String line)
 	{
 		thePC.setAutoSortGear(line.endsWith(VALUE_Y));
 	}
 
+
+	/**
+	 * Ignore cost for gear (Y/N)
+	 * @param line Line of saved data to be processed.
+	 **/
+	private void parseIgnoreCostLine(String line)
+	{
+		thePC.setIgnoreCost(line.endsWith(VALUE_Y));
+	}
+
+	/**
+	 * Allow debt for gear (Y/N)
+	 * @param line Line of saved data to be processed.
+	 **/
+	private void parseAllowDebtLine(String line)
+	{
+		thePC.setAllowDebt(line.endsWith(VALUE_Y));
+	}
+
+	/**
+	 * Auto resize gear (Y/N)
+	 * @param line Line of saved data to be processed.
+	 **/
+	private void parseAutoResizeGearLine(String line)
+	{
+		thePC.setAutoResize(line.endsWith(VALUE_Y));
+	}
+	
 	/**
 	 * # Auto sort skills - transition only, line is no longer saved
 	 * @param line
@@ -702,6 +730,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (cache.containsKey(TAG_AUTOSORTGEAR))
 		{
 			parseAutoSortGearLine(cache.get(TAG_AUTOSORTGEAR).get(0));
+		}
+
+		if (cache.containsKey(TAG_IGNORECOST))
+		{
+			parseIgnoreCostLine(cache.get(TAG_IGNORECOST).get(0));
+		}
+
+		if (cache.containsKey(TAG_ALLOWDEBT))
+		{
+			parseAllowDebtLine(cache.get(TAG_ALLOWDEBT).get(0));
+		}
+
+		if (cache.containsKey(TAG_AUTORESIZEGEAR))
+		{
+			parseAutoResizeGearLine(cache.get(TAG_AUTORESIZEGEAR).get(0));
 		}
 
 		if (cache.containsKey(TAG_AUTOSORTSKILLS))

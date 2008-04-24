@@ -407,6 +407,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 		}
 
 		autoSort.setSelected(pc.isAutoSortGear());
+		costBox.setSelected(pc.isIgnoreCost());
+		allowDebtBox.setSelected(pc.isAllowDebt());
+		autoResize.setSelected(pc.isAutoResize());
 		pc.aggregateFeatList();
 		updateAvailableModel();
 		updateSelectedModel();
@@ -1249,11 +1252,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 		riPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		riPanel.add(removeButton);
 
-		autoSort.setSelected(pc.getAutoSpells());
+		autoSort.setSelected(pc.isAutoSortGear());
 		riPanel.add(autoSort);
 
 		Utility.setDescription(autoSort, PropertyFactory
-			.getString("InfoSpells.add.selected")); //$NON-NLS-1$
+			.getString("in_igAutoSortTip")); //$NON-NLS-1$
 		autoSort.setEnabled(true);
 		autoSort.setMargin(new Insets(1, 14, 1, 14));
 
@@ -1867,21 +1870,33 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			public void actionPerformed(ActionEvent evt)
 			{
-				SettingsHandler.setGearTab_IgnoreCost(costBox.isSelected());
+				if (pc != null)
+				{
+					pc.setDirty(true);
+					pc.setIgnoreCost(costBox.isSelected());
+				}
 			}
 		});
 		allowDebtBox.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
 			{
-				SettingsHandler.setGearTab_AllowDebt(allowDebtBox.isSelected());
+				if (pc != null)
+				{
+					pc.setDirty(true);
+					pc.setAllowDebt(allowDebtBox.isSelected());
+				}
 			}
 		});
 		autoResize.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
 			{
-				SettingsHandler.setGearTab_AutoResize(autoResize.isSelected());
+				if (pc != null)
+				{
+					pc.setDirty(true);
+					pc.setAutoResize(autoResize.isSelected());
+				}
 			}
 		});
 		autoSort.addActionListener(new ActionListener()

@@ -231,6 +231,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// Should we sort the gear automatically?
 	private boolean autoSortGear = true;
 
+	// Should we ignore cost for gear?
+	private boolean ignoreCost = SettingsHandler.getGearTab_IgnoreCost();
+
+	// Should we allow the character to go into debt?
+	private boolean allowDebt = SettingsHandler.getGearTab_AllowDebt();
+
+	// Should we resize the gear automatically?
+	private boolean autoResize = SettingsHandler.getGearTab_AutoResize();
+
 	private final boolean useMonsterDefault =
 			SettingsHandler.isMonsterDefault();
 
@@ -4571,6 +4580,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
+	/**
+	 * @return the allowDebt
+	 */
+	public boolean isAllowDebt()
+	{
+		return allowDebt;
+	}
+
+	/**
+	 * @param allowDebt the allowDebt to set
+	 */
+	public void setAllowDebt(boolean allowDebt)
+	{
+		this.allowDebt = allowDebt;
+	}
+
 	public String getAttackString(AttackType at)
 	{
 		return getAttackString(at, 0);
@@ -4828,6 +4853,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
+	 * @return the autoResize
+	 */
+	public boolean isAutoResize()
+	{
+		return autoResize;
+	}
+
+	/**
+	 * @param autoResize the autoResize to set
+	 */
+	public void setAutoResize(boolean autoResize)
+	{
+		this.autoResize = autoResize;
+	}
+
+	/**
 	 * Sets the autoSortGear.
 	 * 
 	 * @param autoSortGear
@@ -4863,6 +4904,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean getAutoSpells()
 	{
 		return autoKnownSpells;
+	}
+
+	/**
+	 * @return the ignoreCost
+	 */
+	public boolean isIgnoreCost()
+	{
+		return ignoreCost;
+	}
+
+	/**
+	 * @param ignoreCost the ignoreCost to set
+	 */
+	public void setIgnoreCost(boolean ignoreCost)
+	{
+		this.ignoreCost = ignoreCost;
 	}
 
 	/**
