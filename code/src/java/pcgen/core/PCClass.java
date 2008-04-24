@@ -7902,6 +7902,25 @@ public class PCClass extends PObject
 		}
 	}
 
+	public void removeAllVirtualAbilites(final int alevel)
+	{
+		for (AbilityCategory category : getAbilityCategories())
+		{
+			for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(
+				getRawAbilityObjects(category, Nature.VIRTUAL)))
+			{
+				if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
+				{
+					QualifiedObject.LevelAwareQualifiedObject<String> aqo =
+							(LevelAwareQualifiedObject<String>) qo;
+					if (aqo.level == level)
+					{
+						removeAbility(category, Nature.VIRTUAL, qo);
+					}
+				}
+			}
+		}
+	}
 	/**
 	 * Remove the level based DR.  Used by Substitution class levels
 	 * @param level
