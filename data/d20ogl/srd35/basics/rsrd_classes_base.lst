@@ -249,6 +249,8 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			VFEAT:Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1	AUTO:FEAT|Flurry of Blows
 1	BONUS:VAR|MonkBonusFeatLVL|CL								DEFINE:MonkBonusFeatLVL|0
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
+# Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites, The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
+# MonkBonusFeatLVL is used as a prerequisite for when a specific bonus feat can be taken
 ###Block: Ki Strike
 # Monk Ki Strike Progression grants the various different bypasses to Damage Reduction.
 #   Progression is in hidden feat, since other classes grant similar abilities at
