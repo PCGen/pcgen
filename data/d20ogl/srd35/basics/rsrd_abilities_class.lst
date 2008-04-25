@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr  4 09:32:51 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Apr 24 21:13:15 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -21,13 +21,13 @@ Turn Scalykind	CATEGORY:Special Ability	TYPE:Turning.TurnScalykind	VISIBLE:NO			
 Rebuke Scalykind	CATEGORY:Special Ability	TYPE:Turning.TurnScalykind	VISIBLE:NO																						SAB:Rebuke reptiles and snakes (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesScalykind|TurnLevelScalykind|TurnDiceScalykind|TurnDieSizeScalykind|TurnDamagePlusScalykind	DEFINE:TurnTimesScalykind|TurnTimesBase	DEFINE:TurnLevelScalykind|TurnLevelBase	DEFINE:TurnDiceScalykind|TurnDiceBase	DEFINE:TurnDieSizeScalykind|TurnDieSizeBase	DEFINE:TurnDamagePlusScalykind|TurnDamagePlusBase	DEFINE:TurnCheckScalykind|TurnCheckBase	SOURCEPAGE:DivineDomainsandSpells.lst
 
 ###Block: Monk Bonus Feats
-# Ability Name					Category of Ability		Type				Visible		Restricted Ability											Required Class	Virtual Feat
-Monk Lvl 1 Bonus Feat (Improved Grapple)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 1 Bonus Feat (Stunning Fist)		PRECLASS:1,Monk=1	VFEAT:Improved Grapple
-Monk Lvl 1 Bonus Feat (Stunning Fist)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 1 Bonus Feat (Improved Grapple)	PRECLASS:1,Monk=1	VFEAT:Stunning Fist
-Monk Lvl 2 Bonus Feat (Combat Reflexes)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 2 Bonus Feat (Deflect Arrows)		PRECLASS:1,Monk=2	VFEAT:Combat Reflexes
-Monk Lvl 2 Bonus Feat (Deflect Arrows)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 2 Bonus Feat (Combat Reflexes)	PRECLASS:1,Monk=2	VFEAT:Deflect Arrows
-Monk Lvl 6 Bonus Feat (Improved Disarm)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 6 Bonus Feat (Improved Trip)		PRECLASS:1,Monk=6	VFEAT:Improved Disarm
-Monk Lvl 6 Bonus Feat (Improved Trip)	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Monk Lvl 6 Bonus Feat (Improved Disarm)	PRECLASS:1,Monk=6	VFEAT:Improved Trip
+# Ability Name	Category of Ability		Type				Visible		Restricted Ability							Var. Min. Value			Virtual Feat
+Improved Grapple	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Stunning Fist		PREVARGTEQ:MonkBonusFeatLVL,1	VFEAT:Improved Grapple
+Stunning Fist	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Grapple	PREVARGTEQ:MonkBonusFeatLVL,1	VFEAT:Stunning Fist
+Combat Reflexes	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Deflect Arrows		PREVARGTEQ:MonkBonusFeatLVL,2	VFEAT:Combat Reflexes
+Deflect Arrows	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Combat Reflexes	PREVARGTEQ:MonkBonusFeatLVL,2	VFEAT:Deflect Arrows
+Improved Disarm	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip		PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Disarm
+Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Disarm	PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Trip
 
 ###Block: Ranger Combat Styles
 # Ability Name				Category of Ability		Type				Visible		Restricted Ability								Special ABility					Virtual Feat

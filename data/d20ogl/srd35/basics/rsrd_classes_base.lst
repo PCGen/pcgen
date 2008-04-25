@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  1 21:32:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Apr 24 21:13:15 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -244,10 +244,10 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 ###Block:Proficiencies
 1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Monk AC, Monk Movement, Flurry of Blows
-1	BONUS:VAR|MonkACLVL|CL																						AUTO:FEAT|Monk AC
-1	BONUS:VAR|MonkMoveLVL|CL																					AUTO:FEAT|Monk Movement
-1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0											AUTO:FEAT|Flurry of Blows
-1																VFEAT:Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1
+1	BONUS:VAR|MonkACLVL|CL																								AUTO:FEAT|Monk AC
+1	BONUS:VAR|MonkMoveLVL|CL																							AUTO:FEAT|Monk Movement
+1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			VFEAT:Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1	AUTO:FEAT|Flurry of Blows
+1	BONUS:VAR|MonkBonusFeatLVL|CL								DEFINE:MonkBonusFeatLVL|0
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
 ###Block: Ki Strike
 # Monk Ki Strike Progression grants the various different bypasses to Damage Reduction.
