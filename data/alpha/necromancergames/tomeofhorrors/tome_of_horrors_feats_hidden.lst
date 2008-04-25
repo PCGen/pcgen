@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr 18 00:53:41 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Fri Apr 25 13:33:01 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -307,7 +307,7 @@ Liquefy Bones												TYPE:SpecialAttack.Extraordinary.AtkOptions	VISIBLE:NO	
 Liquefy Organs												TYPE:SpecialAttack.Supernatural.AtkOptions	VISIBLE:NO					SAB:Liquefy Organs (Su)
 Lure-Growth													TYPE:SpecialQuality.Extraordinary.SQ		VISIBLE:NO					SAB:Lure-Growth (Ex) [DC %]|LureGrowthDC																																																																																																																																																																					DEFINE:LureGrowthDC|0																																																																																																																																														BONUS:VAR|LureGrowthDC|10+(HD/2)
 Magic Circle against Evil										TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO					SAB:Magic Circle against Evi (Su) [%-ft. radius]|MagicCircleRadius																																																																																																																																																																DEFINE:MagicCircleRadius|0
-Malevolence													TYPE:SpecialAttack.Supernatural.SpecialAction	VISIBLE:NO					SAB:Malevolence (Su) [DC %]|MalevolenceDC																																																																																																																																																																					DEFINE:MalevolenceDC|0
+Malevolence_ToH					OUTPUTNAME:Malevolence				TYPE:SpecialAttack.Supernatural.SpecialAction	VISIBLE:NO					SAB:Malevolence (Su) [DC %]|MalevolenceDC																																																																																																																																																																					DEFINE:MalevolenceDC|0
 Malleable													TYPE:SpecialQuality.Extraordinary.SQ		VISIBLE:NO					SAB:Malleable (Ex)
 Manifestation												TYPE:SpecialAttack.Supernatural.SQ			VISIBLE:NO					SAB:Manifestation (Su)
 Marsh Move													TYPE:SpecialQuality.Extraordinary.Movement	VISIBLE:NO					SAB:Marsh Move (Ex)
