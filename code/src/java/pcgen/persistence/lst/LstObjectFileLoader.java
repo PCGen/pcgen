@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
 
+import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
@@ -613,9 +614,11 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				{
 					boolean noSource = object.getSourceEntry() == null;
 					int hashCode = 0;
+					Campaign origCampaign = null;
 					if (!noSource)
 					{
 						hashCode = object.getSourceEntry().hashCode();
+						origCampaign = object.getSourceEntry().getSourceBook().getCampaign();
 					}
 
 					parseLine(object, element.getLstLine(), element.getSource());
@@ -636,6 +639,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 							Logging.errorPrintLocalised(
 								"Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
 						}
+					}
+					else if (!noSource)
+					{
+						object.getSourceEntry().getSourceBook().setCampaign(origCampaign);
 					}
 				}
 				catch (PersistenceLayerException ple)

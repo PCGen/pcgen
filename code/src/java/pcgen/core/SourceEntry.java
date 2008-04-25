@@ -98,7 +98,13 @@ public class SourceEntry
 		{
 			return;
 		}
-		theSourceBook = Source.getSource( aSourceMap );
+		// Copy over the campaign (if present) to ensure the data is not lost 
+		Source newSource = Source.getSource(aSourceMap);
+		if (theSourceBook != null)
+		{
+			newSource.setCampaign(theSourceBook.getCampaign());
+		}
+		theSourceBook = newSource;
 		if ( thePageNumber == null )
 		{
 			thePageNumber = aSourceMap.get( SourceFormat.PAGE );
@@ -248,7 +254,7 @@ public class SourceEntry
 			source = Constants.EMPTY_STRING;
 		}
 	
-		if ( aFormat.includesPublisher() && publisher != null )
+		if ( aFormat.includesPublisher() && publisher != null && publisher.trim().length() > 0)
 		{
 			ret.append( publisher );
 			ret.append( " - " ); //$NON-NLS-1$
