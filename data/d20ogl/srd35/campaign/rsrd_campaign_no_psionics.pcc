@@ -24,6 +24,7 @@ INFOTEXT:This is a subset of the RSRD which excludes Psionics, this should not b
 
 # Basics
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
 
 ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
 
