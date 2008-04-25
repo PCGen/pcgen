@@ -168,16 +168,19 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		public void insertUpdate(DocumentEvent e)
 		{
 			textIsDirty = true;
+			updateNoteItem();
 		}
 
 		public void removeUpdate(DocumentEvent e)
 		{
 			textIsDirty = true;
+			updateNoteItem();
 		}
 
 		public void changedUpdate(DocumentEvent e)
 		{
 			textIsDirty = true;
+			updateNoteItem();
 		}
 	};
 
@@ -301,6 +304,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		magicItemsNote = null;
 		otherAssetsNote = null;
 		portraitNote = null;
+		textIsDirty = false;
 	}
 
 	public PlayerCharacter getPc()
