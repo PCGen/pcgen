@@ -1261,6 +1261,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		pc.incrementClassLevel(levels, theClass);
 
+		// Recalc the innate spell list
+		pc.getSpellList();
+		
 		PCGen_Frame1.forceUpdate_PlayerTabs();
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoClasses());

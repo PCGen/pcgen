@@ -689,6 +689,10 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 				Constants.s_APPNAME, MessageType.ERROR);
 		}
 
+
+		// Recalc the innate spell list
+		getPc().getSpellList();
+
 		// update the skills tab, as feats could effect totals
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoSkills());
