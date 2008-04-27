@@ -10,7 +10,6 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 FEAT:Dodge
-FEAT:Flyby Attack
 FEAT:Weapon Finesse
 
 STARTPACK:Quasi Elemental (Lightning/Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quasi Elemental (Lightning/Medium)]
@@ -22,7 +21,6 @@ SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 FEAT:Combat Reflexes
 FEAT:Dodge
-FEAT:Flyby Attack
 FEAT:Weapon Finesse
 
 STARTPACK:Quasi Elemental (Lightning/Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quasi Elemental (Lightning/Large)]
@@ -33,7 +31,6 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 FEAT:Dodge
-FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Mobility
 FEAT:Weapon Finesse
