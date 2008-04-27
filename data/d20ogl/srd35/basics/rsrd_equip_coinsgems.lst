@@ -71,7 +71,7 @@ Opal (White)				OUTPUTNAME:[NAME] Opal				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEP
 Opal (Black)				OUTPUTNAME:[NAME] Opal				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
 Opal (Fire)					OUTPUTNAME:[NAME] Opal				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
 Sapphire (Blue)				OUTPUTNAME:[NAME] Sapphire			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
-Corundum (Firey Yellow)			OUTPUTNAME:[NAME] Corundum			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
+Corundum (Firy Yellow)			OUTPUTNAME:[NAME] Corundum			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
 Corundum (Rich Purple)			OUTPUTNAME:[NAME] Corundum			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
 Star Sapphire (Blue)			OUTPUTNAME:[NAME] Star Sapphire		TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
 Star Sapphire (Black)			OUTPUTNAME:[NAME] Star Sapphire		TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf
