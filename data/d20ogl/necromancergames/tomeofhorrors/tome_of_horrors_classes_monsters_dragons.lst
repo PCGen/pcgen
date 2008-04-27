@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Sun Mar 30 00:50:58 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+# Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus								Combat bonus
+CLASS:Cloud Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p. 162	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Cloud Dragon	PRERACE:1,Dragon (Cloud%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+1	VISION:Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponRange|max(15,(SIZE-1)*10)	BONUS:VAR|BreathWeaponDice|DragonAge*2	BONUS:VAR|BreathWeaponDieSize|6	BONUS:VAR|BreathWeaponDC|CON	AUTO:FEAT|Breath Weapon (Cone/Cold Air)
+1																											AUTO:FEAT|Immune to Sleep Effects	AUTO:FEAT|Immune to Paralysis	AUTO:FEAT|Immune to Electricity
+###Block: Frightful Presence
+17	BONUS:VAR|FrightfulPresenceRange|30*DragonAge	BONUS:VAR|FrightfulPresenceDC|CHA	AUTO:FEAT|Frightful Presence
+###Block: Stats
+8					BONUS:STAT|STR|4	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2
+11					BONUS:STAT|STR|4
+14	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|4	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2
+17					BONUS:STAT|STR|2	BONUS:STAT|CON|2
+20					BONUS:STAT|STR|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2
+23	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|CON|2
+26					BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|4	BONUS:STAT|CHA|4
+29					BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2
+32	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2
+35					BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2
+38					BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|6	BONUS:STAT|CHA|2
+###Block: Normal Progression
+8																						BONUS:MOVEADD|TYPE.Fly|50
+23																						BONUS:MOVEADD|TYPE.Fly|50
+1																																DEFINE:DragonAge|1
+8				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE																										SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Solid Fog,10+(HD/2)+CHA
+11				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|10|TYPE=NaturalArmor.REPLACE																										SPELLS:Innate|TIMES=2|CASTERLEVEL=3|Stinking Cloud,10+(HD/2)+CHA
+14				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|13|TYPE=NaturalArmor.REPLACE																					ADD:SPELLCASTER|1|Sorcerer	SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Create Water,10+(HD/2)+CHA
+17	SR:19	DR:5/magic	BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|16|TYPE=NaturalArmor.REPLACE												BONUS:PCLEVEL|Sorcerer|2
+20				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|19|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|1						BONUS:PCLEVEL|Sorcerer|2										SPELLS:Innate|TIMES=3|CASTERLEVEL=var("CL=Sorcerer")|Obscuring Mist,10+(HD/2)+CHA
+23				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|22|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Call Lightning,10+(HD/2)+CHA
+26				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|24|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2
+29				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|28|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Control Weather,10+(HD/2)+CHA
+32				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|31|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|3										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Control Winds,10+(HD/2)+CHA
+35				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|34|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|1
+38				BONUS:VAR|DragonAge|1	BONUS:COMBAT|AC|37|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2
+

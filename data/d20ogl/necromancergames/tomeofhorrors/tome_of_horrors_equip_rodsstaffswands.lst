@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Fri Feb 29 00:40:51 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+###Block:Rods
+# Equipment Name	Output Name				Required Proficiency		Type									Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Size		Source Page		Innate Spells																										Special Property
+Wand of Orcus	OUTPUTNAME:Wand of Orcus	PROFICIENCY:WEAPON|Greatclub	TYPE:Magic.Rod.Weapon.Martial.Melee.Bludgeoning.Club	COST:0	WT:8		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:WOOD.MWORKW.PLUS5W.UNHLY_M	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p. 125	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=20|Animate Dead|Deeper Darkness|Desecrate|Fear,29|Unhallow	SPELLS:Magic Item|TIMES=2|CASTERLEVEL=20|Blasphemy|Unholy Aura,33	SPROP:Slays any living creature it touches (DC 40)
+Rod of Infernus	OUTPUTNAME:Wand of Orcus	PROFICIENCY:WEAPON|Greatclub	TYPE:Magic.Rod.Weapon.Martial.Melee.Bludgeoning.Club	COST:0	WT:8		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:WOOD.MWORKW.PLUS_6_WEAP		WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p. 125
+
+###Block:Staves
+# Equipment Name		Output Name					Type			Cost		Weight	Base Item for EQMOD	Modifier					Source Page		Innate Spells
+Staff (Lower Planes)	OUTPUTNAME:Staff of the [NAME]	TYPE:Magic.Staff	COST:0	WT:5		BASEITEM:Staff		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p. 84	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=25|Doom,21|Fear,24|Dominate Monster,29|Geas/Quest,26|Charm Monster (Mass),28|Unholy Aura,28|Wish (Grant Another's)

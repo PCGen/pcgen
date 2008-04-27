@@ -1,0 +1,238 @@
+# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Common Eblis	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eblis]
+ALIGN:NE
+RACE:Eblis	!PRERACE:1,%
+NAME:Eblis
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Diplomacy		RANK:2
+SKILL:Hide			RANK:3
+SKILL:Intimidate		RANK:3
+SKILL:Jump			RANK:5
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Dodge
+FEAT:Lightning Reflexes
+
+STARTPACK:Eblis Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eblis]
+KIT:Common Eblis
+
+STARTPACK:Eblis (Spell User) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eblis]
+KIT:Common Eblis
+SELECT:roll("2d4")
+KIT:Eblis Spells	OPTION:1,2
+KIT:Eblis Spells	OPTION:1,2
+KIT:Eblis Spells	OPTION:1,3
+KIT:Eblis Spells	OPTION:1,4
+KIT:Eblis Spells	OPTION:1,5
+KIT:Eblis Spells	OPTION:1,6
+KIT:Eblis Spells	OPTION:1,7
+KIT:Eblis Spells	OPTION:1,8
+
+STARTPACK:Eblis Spells	VISIBLE:NO	PRERACE:1,Eblis
+SELECT:roll("1d8")
+TEMPLATE:Eblis (Ghost Sound)		OPTION:1
+TEMPLATE:Eblis (Disguise Self)	OPTION:2
+TEMPLATE:Eblis (Hypnotism)		OPTION:3
+TEMPLATE:Eblis (Scare)			OPTION:4
+TEMPLATE:Eblis (Fog Cloud)		OPTION:5
+TEMPLATE:Eblis (Blur)			OPTION:6
+TEMPLATE:Eblis (Hypnotic Pattern)	OPTION:7
+TEMPLATE:Eblis (Whispering Wind)	OPTION:8
+
+STARTPACK:Eel (Giant Moray) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eel (Giant Moray)]
+ALIGN:TN
+RACE:Eel (Giant Moray)	!PRERACE:1,%
+NAME:Eel, Giant Moray
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Hide		RANK:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Swim		RANK:3
+FEAT:Alertness
+FEAT:Weapon Finesse
+
+STARTPACK:Elemental (Time/Common) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Time/Common)]
+ALIGN:TN
+RACE:Elemental (Time/Common)	!PRERACE:1,%
+NAME:Elemental, Time - Common
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Listen		RANK:15
+SKILL:Move Silently	RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Spot			RANK:15
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+STARTPACK:Elemental (Time/Noble) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Time/Noble)]
+ALIGN:TN
+RACE:Elemental (Time/Noble)	!PRERACE:1,%
+NAME:Elemental, Time - Noble
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Listen			RANK:23
+SKILL:Knowledge (The Planes)	RANK:23
+SKILL:Move Silently		RANK:23
+SKILL:Sense Motive		RANK:23
+SKILL:Spot				RANK:23
+SKILL:Survival			RANK:23
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Weapon Finesse
+
+STARTPACK:Elemental (Time/Royal) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Time/Royal)]
+ALIGN:TN
+RACE:Elemental (Time/Royal)	!PRERACE:1,%
+NAME:Elemental, Time - Royal
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Diplomacy			RANK:27
+SKILL:Knowledge (The Planes)	RANK:27
+SKILL:TYPE.Knowledge		RANK:27
+SKILL:Listen			RANK:27
+SKILL:Move Silently		RANK:27
+SKILL:Sense Motive		RANK:27
+SKILL:Spot				RANK:27
+SKILL:Survival			RANK:27
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Weapon Finesse
+
+STARTPACK:Elemental Dragon (Air) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Dragon (Air)]
+ALIGN:LE|NE|CE
+RACE:Elemental Dragon (Air)	!PRERACE:1,%
+NAME:Elemental Dragon, Air
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (The Planes)	RANK:15
+SKILL:Listen			RANK:15
+SKILL:Search			RANK:15
+SKILL:Spot				RANK:15
+SKILL:Survival			RANK:11
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Elemental Dragon (Earth) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Dragon (Earth)]
+ALIGN:LE|NE|CE
+RACE:Elemental Dragon (Earth)	!PRERACE:1,%
+NAME:Elemental Dragon, Earth
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide				RANK:6
+SKILL:Knowledge (The Planes)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Search			RANK:10
+SKILL:Spot				RANK:10
+SKILL:Survival			RANK:8
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Snatch
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Elemental Dragon (Fire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Dragon (Fire)]
+ALIGN:LE|NE|CE
+RACE:Elemental Dragon (Fire)	!PRERACE:1,%
+NAME:Elemental Dragon, Fire
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Knowledge (The Planes)	RANK:16
+SKILL:Listen			RANK:17
+SKILL:Search			RANK:15
+SKILL:Spot				RANK:17
+SKILL:Survival			RANK:16
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Elemental Dragon (Water) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Dragon (Water)]
+ALIGN:LE|NE|CE
+RACE:Elemental Dragon (Water)	!PRERACE:1,%
+NAME:Elemental Dragon, Water
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:12
+SKILL:Listen		RANK:10
+SKILL:Move Silently	RANK:12
+SKILL:Search		RANK:10
+SKILL:Spot			RANK:10
+FEAT:Blind Fight
+FEAT:Cleave
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Claw)
+
+STARTPACK:Executioner's Hood Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Executioner's Hood]
+ALIGN:TN
+RACE:Executioner's Hood	!PRERACE:1,%
+NAME:Executioner's Hood
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:2
+FEAT:Alertness
+
+STARTPACK:Eye Killer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eye Killer]
+ALIGN:CE
+RACE:Eye Killer	!PRERACE:1,%
+NAME:Eye Killer
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:1
+FEAT:Alertness
+FEAT:Weapon Focus (Tail Slap)
+
+STARTPACK:Eye Killer (Umbral) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eye Killer (Umbral)]
+ALIGN:CE
+RACE:Eye Killer (Umbral)	!PRERACE:1,%
+NAME:Umbral Eye Killer
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:1
+FEAT:Alertness
+FEAT:Weapon Focus (Tail Slap)
+
+STARTPACK:Eye of the Deep Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eye of the Deep]
+ALIGN:LE
+RACE:Eye of the Deep	!PRERACE:1,%
+NAME:Eye of the Deep
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Hide		RANK:9
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+

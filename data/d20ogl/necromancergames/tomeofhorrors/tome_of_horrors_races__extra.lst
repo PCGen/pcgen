@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Sun Apr 27 16:14:14 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+# This file contains derived monsters mentioned in the source but not stat'd out.
+
+# Snake Swarm is used by the Summon Swarm (Snake Only) spell on the Serpent Domain spell list
+# Race Name		Output Name			Starting Feats	Size		Move				Face/Space	Reach		Required AL	Combat bonus						Bonus to skill																							Stat bonus														Modify VAR																							Racial HD Class Skills					Feat						Nb Legs	Nb Hands	Weapon prof. bonus			Natural Attacks												Monster Class Name and Starting Level	Main Race Type	Race Subtype	Template		CR	Source Page
+Swarm (Snake)	OUTPUTNAME:[NAME] Swarm	STARTFEATS:1	SIZE:T	MOVE:Walk,15,Climb,15	FACE:10	REACH:0	PREALIGN:TN	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Balance,Climb,Swim|8|TYPE=Racial	BONUS:SKILL|Hide,Listen,Spot|4|TYPE=Racial	BONUS:SKILL|Climb|max((DEX-STR),0)|TYPE=Racial.STACK	BONUS:STAT|STR|-6	BONUS:STAT|DEX|6	BONUS:STAT|INT|-9	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-8	BONUS:VAR|PoisonDC|CON	BONUS:VAR|PoisonInitDice,PoisonSecDice|1	BONUS:VAR|PoisonInitDieSize,PoisonSecDieSize|6	BONUS:VAR|DistractionDC|CON	MONCSKILL:Balance|Climb|Hide|Listen|Spot|Swim	FEAT:Poison (Con)|Distraction|Scent	LEGS:0	HANDS:0	BONUS:WEAPONPROF=Swarm|DAMAGE|-STR	NATURALATTACKS:Swarm,Weapon.Natural.Melee.Finesseable.Bludgeoning.Poison,*1,1d6	MONSTERCLASS:Animal:4				RACETYPE:Animal	RACESUBTYPE:Swarm	TEMPLATE:Swarm	CR:2	SOURCEPAGE:p. 240

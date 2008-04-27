@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+# Weapon Name	Type
+Coconut		TYPE:Simple
+Cutlass		TYPE:Martial
+Flindbar		TYPE:Exotic
+Korred Shears	TYPE:Exotic
+
+Rock			TYPE:Exotic

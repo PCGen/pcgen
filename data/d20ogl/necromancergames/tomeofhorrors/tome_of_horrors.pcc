@@ -1,0 +1,100 @@
+# CVS $Revision$ $Author$
+CAMPAIGN:Necromancer Games - The Tome of Horrors Revised
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Core
+TYPE:Necromancer Games.Supplement
+SOURCELONG:The Tome of Horrors Revised
+SOURCESHORT:ToHr
+SOURCEWEB:http://www.necromancergames.com/
+ISOGL:YES
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Tome of Horrors, Copyright 2002, Necromancer Games, Inc.
+COPYRIGHT:PCGen dataset conversion for The Tome of Horrors Revised Copyright 2006, PCgen Data team (including, but not limited to Aaron Divinsky (boomer70))
+
+INFOTEXT:An abbreviated Section 15 entry for the Tome of Horrors was authorized by Necromancer Games, Inc. specifically for PCGen.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:tome_of_horrors_classes_monsters_dragons.lst
+CLASS:tome_of_horrors_classes_monsters_specific.lst
+DEITY:tome_of_horrors_deities.lst
+DOMAIN:tome_of_horrors_domains.lst
+EQUIPMENT:tome_of_horrors_equip_rodsstaffswands.lst
+EQUIPMENT:tome_of_horrors_equip_weap_melee.lst
+EQUIPMENT:tome_of_horrors_equip_weap_ranged.lst
+EQUIPMENT:tome_of_horrors_equip_wondrousitems.lst
+EQUIPMOD:tome_of_horrors_equipmods_enhancing.lst
+FEAT:tome_of_horrors_feats_hidden.lst
+FEAT:tome_of_horrors_feats_psionic_hidden.lst
+KIT:tome_of_horrors_kits_races_a.lst
+KIT:tome_of_horrors_kits_races_b.lst
+KIT:tome_of_horrors_kits_races_c.lst
+KIT:tome_of_horrors_kits_races_d.lst
+KIT:tome_of_horrors_kits_races_demons.lst
+KIT:tome_of_horrors_kits_races_devils.lst
+KIT:tome_of_horrors_kits_races_e.lst
+KIT:tome_of_horrors_kits_races_f.lst
+KIT:tome_of_horrors_kits_races_g.lst
+KIT:tome_of_horrors_kits_races_h.lst
+KIT:tome_of_horrors_kits_races_i_j.lst
+KIT:tome_of_horrors_kits_races_k.lst
+KIT:tome_of_horrors_kits_races_l.lst
+KIT:tome_of_horrors_kits_races_m.lst
+KIT:tome_of_horrors_kits_races_n_o.lst
+KIT:tome_of_horrors_kits_races_p.lst
+KIT:tome_of_horrors_kits_races_psionic.lst
+KIT:tome_of_horrors_kits_races_q_r.lst
+KIT:tome_of_horrors_kits_races_s.lst
+KIT:tome_of_horrors_kits_races_t.lst
+KIT:tome_of_horrors_kits_races_u_v.lst
+KIT:tome_of_horrors_kits_races_w.lst
+KIT:tome_of_horrors_kits_races_y_z.lst
+KIT:tome_of_horrors_kits_races_template.lst
+KIT:tome_of_horrors_kits_races__animals.lst
+KIT:tome_of_horrors_kits_races__extra.lst
+LANGUAGE:tome_of_horrors_languages.lst
+RACE:tome_of_horrors_races_a.lst
+RACE:tome_of_horrors_races_b.lst
+RACE:tome_of_horrors_races_c.lst
+RACE:tome_of_horrors_races_d.lst
+RACE:tome_of_horrors_races_demons.lst
+RACE:tome_of_horrors_races_devils.lst
+RACE:tome_of_horrors_races_e.lst
+RACE:tome_of_horrors_races_f.lst
+RACE:tome_of_horrors_races_g.lst
+RACE:tome_of_horrors_races_h.lst
+RACE:tome_of_horrors_races_i_j.lst
+RACE:tome_of_horrors_races_k.lst
+RACE:tome_of_horrors_races_l.lst
+RACE:tome_of_horrors_races_m.lst
+RACE:tome_of_horrors_races_n_o.lst
+RACE:tome_of_horrors_races_p.lst
+RACE:tome_of_horrors_races_psionic.lst
+RACE:tome_of_horrors_races_q_r.lst
+RACE:tome_of_horrors_races_s.lst
+RACE:tome_of_horrors_races_t.lst
+RACE:tome_of_horrors_races_u_v.lst
+RACE:tome_of_horrors_races_w.lst
+RACE:tome_of_horrors_races_y_z.lst
+RACE:tome_of_horrors_races_template.lst
+RACE:tome_of_horrors_races__animals.lst
+RACE:tome_of_horrors_races__extra.lst
+SKILL:tome_of_horrors_skills.lst
+SPELL:tome_of_horrors_spells.lst
+SPELL:tome_of_horrors_powers_psionic.lst
+TEMPLATE:tome_of_horrors_templates.lst
+TEMPLATE:tome_of_horrors_templates_monster.lst
+TEMPLATE:tome_of_horrors_templates_vipers.lst
+WEAPONPROF:tome_of_horrors_weaponprofs.lst
+
+SPELL:@/d20ogl/swordandsorcerystudios/scarredlands/relicsrituals/relicsrituals_spells.lst|(INCLUDE:Bloodstorm)
+
+#
+# End
+#

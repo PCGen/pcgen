@@ -1,0 +1,241 @@
+# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:False Spider (Pedipalp) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Pedipalp)]
+ALIGN:TN
+RACE:False Spider (Pedipalp)	!PRERACE:1,%
+NAME:Pedipalp
+STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
+
+STARTPACK:False Spider (Pedipalp/Poisonous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Pedipalp/Poisonous)]
+ALIGN:TN
+RACE:False Spider (Pedipalp/Poisonous)	!PRERACE:1,%
+NAME:Poisonous Pedipalp
+STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
+
+STARTPACK:False Spider (Solifugid) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Solifugid)]
+ALIGN:TN
+RACE:False Spider (Solifugid)	!PRERACE:1,%
+NAME:Solifugid
+STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
+
+STARTPACK:Fen Witch Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fen Witch]
+ALIGN:CE
+RACE:Fen Witch	!PRERACE:1,%
+NAME:Fen Witch
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:TYPE.Craft	RANK:3
+SKILL:Hide		RANK:3
+SKILL:Intimidate	RANK:6
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Blind Fight
+FEAT:Great Fortitude
+
+STARTPACK:Fire Lizard Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Lizard]
+ALIGN:TN
+RACE:Fire Lizard	!PRERACE:1,%
+NAME:Fire Lizard
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:7
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Multiattack
+FEAT:Power Attack
+
+STARTPACK:Fire Nymph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Nymph]
+ALIGN:CN
+RACE:Fire Nymph	!PRERACE:1,%
+NAME:Fire Nymph
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Concentration		RANK:5
+SKILL:Diplomacy			RANK:5
+SKILL:Escape Artist		RANK:5
+SKILL:Heal				RANK:5
+SKILL:Hide				RANK:5
+SKILL:Knowledge (The Planes)	RANK:5
+SKILL:TYPE.Knowledge		RANK:5
+SKILL:Listen			RANK:5
+SKILL:Move Silently		RANK:5
+SKILL:Spot				RANK:5
+SKILL:Survival			RANK:5
+FEAT:Dodge
+
+STARTPACK:Fire Snake Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Snake]
+ALIGN:TN
+RACE:Fire Snake	!PRERACE:1,%
+NAME:Fire Snake
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Balance	RANK:3
+SKILL:Climb		RANK:3
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Weapon Finesse
+
+STARTPACK:Firefiend Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Firefiend]
+ALIGN:CE
+RACE:Firefiend	!PRERACE:1,%
+NAME:Firefiend
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:3
+FEAT:Multiweapon Fighting
+FEAT:Power Attack
+FEAT:Weapon Focus (Longsword)
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand
+GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand 2
+
+STARTPACK:Flail Snail Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flail Snail]
+ALIGN:TN
+RACE:Flail Snail	!PRERACE:1,%
+NAME:Flail Snail
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:3
+FEAT:Alertness
+FEAT:Weapon Focus (Tentacle Slam)
+
+STARTPACK:Flind Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flind]
+ALIGN:LE
+RACE:Flind	!PRERACE:1,%
+NAME:Flind
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Power Attack
+GEAR:Flindbar			SIZE:PC	LOCATION:Primary Hand
+GEAR:Club				SIZE:PC	LOCATION:Carried
+GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Floating Eye Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Floating Eye]
+ALIGN:TN
+RACE:Floating Eye	!PRERACE:1,%
+NAME:Floating Eye
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Alertness
+
+STARTPACK:Flumph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flumph]
+ALIGN:LG
+RACE:Flumph	!PRERACE:1,%
+NAME:Flumph
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Search		RANK:2
+SKILL:Spot			RANK:2
+FEAT:Weapon Finesse
+
+STARTPACK:Fly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant)]
+ALIGN:TN
+RACE:Fly (Giant)	!PRERACE:1,%
+NAME:Fly, Giant
+STAT:STR=10|DEX=11|CON=10|WIS=10|CHA=11
+
+STARTPACK:Fogwarden Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fogwarden]
+ALIGN:NE
+RACE:Fogwarden	!PRERACE:1,%
+NAME:Fogwarden
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide			RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:4
+SKILL:Sense Motive	RANK:3
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Weapon Focus (Lightning Bolt)
+
+STARTPACK:Forester's Bane Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forester's Bane]
+ALIGN:TN
+RACE:Forester's Bane	!PRERACE:1,%
+NAME:Forester's Bane (Snapper Saw)
+STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
+
+STARTPACK:Frog (Monstrous/Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Giant)]
+ALIGN:TN
+RACE:Frog (Monstrous/Giant)	!PRERACE:1,%
+NAME:Frog, Monstrous (Giant)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide	RANK:3
+SKILL:Spot	RANK:2
+
+STARTPACK:Frog (Monstrous/Giant Dire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Giant Dire)]
+ALIGN:TN
+RACE:Frog (Monstrous/Giant Dire)	!PRERACE:1,%
+NAME:Frog, Monstrous (Giant Dire)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide	RANK:4
+SKILL:Spot	RANK:3
+
+STARTPACK:Frog (Monstrous/Killer) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Killer)]
+ALIGN:TN
+RACE:Frog (Monstrous/Killer)	!PRERACE:1,%
+NAME:Frog, Monstrous (Killer)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Hide	RANK:2
+SKILL:Spot	RANK:2
+
+STARTPACK:Frog (Monstrous/Abyssal Dire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Abyssal Dire)]
+ALIGN:CE
+RACE:Frog (Monstrous/Abyssal Dire)	!PRERACE:1,%
+NAME:Frog, Monstrous (Abyssal Dire)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Search		RANK:9
+SKILL:Spot			RANK:9
+FEAT:Alertness
+FEAT:Power Attack
+FEAT:Weapon Focus (Tongue)
+
+STARTPACK:Frog (Monstrous/Poisonous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Poisonous)]
+ALIGN:TN
+RACE:Frog (Monstrous/Poisonous)	!PRERACE:1,%
+NAME:Frog, Monstrous (Poisonous)
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Jump	RANK:4
+SKILL:Spot	RANK:1
+
+STARTPACK:Froghemoth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Froghemoth]
+ALIGN:TN
+RACE:Froghemoth	!PRERACE:1,%
+NAME:Froghemoth
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+SKILL:Swim		RANK:5
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Multiattack
+FEAT:Power Attack
+FEAT:Skill Focus (Hide)
+FEAT:Toughness
+
+STARTPACK:Frost Man Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Man]
+ALIGN:LE
+RACE:Frost Man	!PRERACE:1,%
+NAME:Frost Man
+STAT:STR=10|DEX=12|CON=12|INT=10|WIS=11|CHA=11
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:2
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+SKILL:Survival		RANK:3
+FEAT:Alertness
+FEAT:Blind Fight
+GEAR:Leather	SIZE:PC	LOCATION:Equipped
+GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow	SIZE:PC	LOCATION:Carried
+
+

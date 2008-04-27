@@ -1,0 +1,120 @@
+# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+STARTPACK:Common Kamadan	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan%]
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:2
+SKILL:Spot			RANK:2
+FEAT:Alertness
+FEAT:Dodge
+
+STARTPACK:Kamadan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan]
+RACE:Kamadan	!PRERACE:1,%
+NAME:Kamadan
+KIT:Common Kamadan
+
+STARTPACK:Kamadan (Poisonous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan (Poisonous)]
+RACE:Kamadan (Poisonous)	!PRERACE:1,%
+NAME:Poisonous Kamadan
+KIT:Common Kamadan
+
+STARTPACK:Kampfult Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kampfult]
+ALIGN:TN
+RACE:Kampfult	!PRERACE:1,%
+NAME:Kampfult (Sinewy Mugger)
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Hide			RANK:1
+SKILL:Listen		RANK:5
+SKILL:Move Silently	RANK:1
+FEAT:Skill Focus (Hide)
+
+STARTPACK:Kech Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kech]
+ALIGN:NE
+RACE:Kech	!PRERACE:1,%
+NAME:Kech
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Climb			RANK:2
+SKILL:Hide			RANK:2
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:8
+SKILL:Spot			RANK:2
+FEAT:Dodge
+FEAT:Mobility
+
+STARTPACK:Kelp Devil Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelp Devil]
+ALIGN:NE
+RACE:Kelp Devil	!PRERACE:1,%
+NAME:Kelp Devil
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Hide		RANK:5
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Iron Will
+
+STARTPACK:Kelpie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]
+ALIGN:NE
+RACE:Kelpie	!PRERACE:1,%
+NAME:Kelpie
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Bluff		RANK:2
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Improved Initiative
+
+STARTPACK:Khargra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Khargra]
+ALIGN:TN
+RACE:Khargra	!PRERACE:1,%
+NAME:Khargra
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Search		RANK:9
+SKILL:Spot			RANK:9
+SKILL:Survival		RANK:9
+FEAT:Alertness
+FEAT:Improved Initiative
+FEAT:Multiattack
+
+STARTPACK:Killmoulis Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Killmoulis]
+ALIGN:CN
+RACE:Killmoulis	!PRERACE:1,%
+NAME:Killmoulis
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:TYPE.Craft						RANK:2
+SKILL:Escape Artist					RANK:3
+SKILL:Hide							RANK:4
+SKILL:Listen						RANK:3
+SKILL:Move Silently					RANK:2
+SKILL:Profession (Farmer)|Profession (Miller)	RANK:2
+SKILL:Spot							RANK:3
+FEAT:Dodge
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Korred Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred]
+ALIGN:CN
+RACE:Korred	!PRERACE:1,%
+NAME:Korred
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Bluff			RANK:9
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Perform (Dance)	RANK:9
+SKILL:Search		RANK:9
+SKILL:Spot			RANK:9
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Mobility
+GEAR:Korred Shears	SIZE:PC	LOCATION:Primary Hand
+GEAR:Club			SIZE:PC	LOCATION:Carried
+GEAR:Rock			SIZE:L	LOCATION:Carried
+

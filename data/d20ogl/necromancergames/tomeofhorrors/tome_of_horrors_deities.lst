@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+# Deity Name		Domains									Desciption of Deity/Title		Holy Item	Source Page
+The Oinodaemon		DOMAINS:Death,Destruction,Evil|PREALIGN:LE,NE,CE		DESC:The Oinodaemon			SYMBOL:None	SOURCEPAGE:p. 84
+Baphomet			DOMAINS:Chaos,Evil,War|PREALIGN:NE,CN,CE				DESC:Demon Lord				SYMBOL:None	SOURCEPAGE:p. 101
+Dagon				DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:Demon Prince of Sea Creatures	SYMBOL:None	SOURCEPAGE:p. 105
+Fraz-Urb'luu		DOMAINS:Chaos,Evil,Knowledge,Trickery|PREALIGN:NE,CN,CE	DESC:Demon Prince				SYMBOL:None	SOURCEPAGE:p. 111
+Geryon			DOMAINS:Evil,Law,Strength|PREALIGN:LN,LE,NE			DESC:Arch-Devil				SYMBOL:None	SOURCEPAGE:p. 141
+Orcus				DOMAINS:Chaos,Death,Destruction,Evil,War|PREALIGN:NE,CN,CE	DESC:Demon Prince of Undead		SYMBOL:None	SOURCEPAGE:p. 125
+Pazuzu			DOMAINS:Air,Chaos,Evil|PREALIGN:NE,CN,CE				DESC:Demon Prince of Air		SYMBOL:None	SOURCEPAGE:p. 127
+Tsathogga			DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:The Frog Demon God			SYMBOL:None	SOURCEPAGE:p. 134
+Lucifer			DOMAINS:Evil,Law,Strength,War|PREALIGN:LN,LE,NE			DESC:Devil					SYMBOL:None	SOURCEPAGE:p. 147
+Moloch			DOMAINS:Evil,Law,Strength|PREALIGN:LN,LE,NE			DESC:Arch Devil				SYMBOL:None	SOURCEPAGE:p. 151
+
+Demon Prince of Gnolls	DOMAINS:Chaos,Evil,Trickery|PREALIGN:LE,NE,CE			DESC:Demon Prince				SYMBOL:None	SOURCEPAGE:p. 199
+The Destroyer		DOMAINS:Chaos,Evil,Strength,War|PREALIGN:LE,NE,CE		DESC:"The Destroyer"			SYMBOL:None	SOURCEPAGE:p. 281
+
+
