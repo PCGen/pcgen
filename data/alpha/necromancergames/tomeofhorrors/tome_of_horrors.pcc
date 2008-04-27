@@ -5,9 +5,7 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Core
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Necromancer Games.Supplement
+TYPE:Necromancer Games.Supplement
 SOURCELONG:The Tome of Horrors Revised
 SOURCESHORT:ToHr
 SOURCEWEB:http://www.necromancergames.com/
