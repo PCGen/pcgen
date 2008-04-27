@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Apr 27 14:14:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -27,6 +27,26 @@ ALIGN:TN
 RACE:Leech (Giant)	!PRERACE:1,%
 NAME:Leech, Giant
 STAT:STR=11|DEX=10|CON=10|WIS=10|CHA=10
+
+STARTPACK:Leprechaun Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leprechaun]
+ALIGN:TN
+RACE:Leprechaun	!PRERACE:1,%
+NAME:Leprechaun
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:4
+SKILL:Concentration		RANK:2
+SKILL:Escape Artist		RANK:4
+SKILL:Listen			RANK:3
+SKILL:Perform (Comedy)		RANK:2
+SKILL:Perform (Dance)		RANK:2
+SKILL:Perform (Limericks)	RANK:2
+SKILL:Search			RANK:2
+SKILL:Sense Motive		RANK:2
+SKILL:Sleight of Hand		RANK:4
+SKILL:Spot				RANK:3
+FEAT:Improved Initiative
+GEAR:Dagger	SIZE:S	LOCATION:Primary Hand
+
 
 STARTPACK:Livestone Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Livestone]
 ALIGN:TN
