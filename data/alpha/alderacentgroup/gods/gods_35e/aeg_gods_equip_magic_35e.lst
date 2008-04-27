@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Mon Apr  7 13:37:17 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
+
+# Equipment Name		Virtual Feat
+Ring (Sundering).MOD	VFEAT:.CLEAR.Sunder	VFEAT:Improved Sunder

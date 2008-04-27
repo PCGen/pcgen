@@ -1,0 +1,72 @@
+# CVS $Revision$ $Author$ -- Mon Apr  7 13:37:17 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
+
+# Class Name		Clear Prereq.	Required AL		Req. Att.	Required Feat					Required Race	Required Skill							Req. Spell Type		Required Stat
+CLASS:Medicine Man.MOD	PRE:.CLEAR		PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:3,Great Fortitude,Toughness,Track	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Survival=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Medicine Man.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE.Perform|Ride|Search|Sense Motive|Spellcraft|Spot|Survival|Swim|Tumble|Use Rope
+
+# Class Name	Clear Prereq.	Required Feat					Required Skill							Required Text
+CLASS:Hunter.MOD	PRE:.CLEAR		PREFEAT:2,Track,Weapon Focus(TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently,Spot=6,Survival=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Hunter.MOD	CSKILL:.CLEAR		CSKILL:Climb|Hide|Jump|Listen|Move Silently|Search|Spot|Survival|Use Rope
+
+# Class Name	Removed Class Skill	Class Skill
+CLASS:Slaver.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Handle Animal|Intimidate|Sense Motive|Spot
+
+# Class Name		Clear Prereq.	Required AL		Required Feat		Required Skill							Required Text
+CLASS:Poison Master.MOD	PRE:.CLEAR		PREALIGN:LE,NE,CE	PREFEAT:1,Brew Potion	PRESKILL:2,Craft (Alchemy)=6,Knowledge (Arcana)=4	PRETEXT:Must be taught by a Poison Master of 5th level or greater.
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Poison Master.MOD	CSKILL:.CLEAR		CSKILL:Craft (Alchemy)|Concentration|Heal|Knowledge (Nature)|Spellcraft|Use Magic Device
+
+# Class Name			Clear Prereq.	Req. Att.	Required Race		Required Skill
+CLASS:Spider Warrior.MOD	PRE:.CLEAR		PREATT:6	PRERACE:1,Elf (Drow)	PRESKILL:1,Ride=6
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Spider Warrior.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Move Silently|Ride
+
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Karhollan Guard.MOD	CSKILL:.CLEAR		CSKILL:Climb|Craft (Stoneworking)|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|Survival|Swim
+
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Exemplar.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|Knowledge (Religion)|TYPE.Perform|Spellcraft
+
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Servants of the One.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft
+
+# Class Name			Clear Prereq.	Req. Att.	Required Race							Required Skill						Required Text
+CLASS:Humanoid Hunter.MOD	PRE:.CLEAR		PREATT:3	PRERACE:1,RACETYPE=Aberration,RACETYPE=Magical Beast	PRESKILL:2,Knowledge (Humanoids)=4,Survival=2	PRETEXT:Must have tracked down a humanoid that has slain a family member.
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Humanoid Hunter.MOD	CSKILL:.CLEAR		CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Humanoids)|Listen|Move Silently|Spot|Survival
+
+# Class Name		Removed Class Skill	Class Skill
+CLASS:The Broken.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Concentration|Craft (Alchemy)|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
+
+# Class Name			Clear Prereq.	Required AL		Req. Att.	Required Feat			Multiple Requirements								Required Race				Required Skill						Required Text
+CLASS:Master of the Swamp.MOD	PRE:.CLEAR		PREALIGN:LN,TN	PREATT:6	PREFEAT:2,Iron Will,Track	PREMULT:1,[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Power Attack]	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Survival=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Master of the Swamp.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Heal|Hide|Jump|Listen|Move Silently|Search|Spot|Survival|Swim|Use Magic Device
+
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Black Nail.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|Search|Sense Motive|Spot|Survival
+
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Chaos Crusader.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Listen|Gather Information|Sense Motive|Spellcraft|Search|Spot
+
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Keeper of Secrets.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Gather Information|Hide|TYPE.Knowledge|Move Silently|TYPE=Profession|Sense Motive
+
+# Class Name					Removed Class Skill	Class Skill
+CLASS:Underworld Druid of Thovis.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|TYPE=Profession|Spellcraft|Survival|Swim
+
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Whip of Urog.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Perform|Ride|Swim
+
+# Class Name		Removed Class Skill	Class Skill
+CLASS:Dryad Ranger.MOD	CSKILL:.CLEAR		CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Spot|Survival
+4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	TEMPLATE:Uncanny Dodge							AUTO:FEAT|.CLEAR.Uncanny Dodge
+7	BONUS:VAR|UncannyDodgeLevel|1
+8															VFEAT:Improved Two Weapon Fighting
+
+# Class Name			Removed Class Skill	Class Skill
+CLASS:Vendaks Chosen.MOD	CSKILL:.CLEAR		CSKILL:Climb|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|Listen|Swim
+

@@ -1,0 +1,5 @@
+#SOURCELONG:Alderac Entertainment Group (AEG) - Gods	SOURCESHORT:Gods	SOURCEWEB:http://www.alderac.com/d20
+
+###Block: Bonus Ability Category
+# Ability Category					Visible				Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object				Type of Object				Plural description for UI			Display where?
+ABILITYCATEGORY:KSKnownSpellBonus	VISIBLE:YES			EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	POOL:KSKnownSpellBonus									TYPE:KSBonusKnownSpell		PLURAL:KofS Bonus Known Spells		DISPLAYLOCATION:Class Abilities
