@@ -339,13 +339,15 @@
 	<p></p>
 	
 	<blockquote class="indent2">
-	<p class="tagindent1"><code>STATNAME:Intelligence</code></p>
-	<p class="tagindent1"><code>ABB:INT</code></p>
-	<p class="tagindent1"><code>STATMOD:floor(SCORE/2)-5</code></p>
-	<p class="tagindent1"><code>DEFINE:MAXLEVELSTAT=INT|INTSCORE-10</code></p>
-	<p class="tagindent1"><code>BONUS:LANG|BONUS|INT</code></p>
-	<p class="tagindent1"><code>BONUS:MODSKILLPOINTS|NUMBER|INT</code></p>
-	<p class="tagindent1"><code>DEFINE:AbilitybySkillMax|TL/2</code> (This tag is added to the existing entry.)</p>
+		<p class="tagindent1"><code>STATNAME:Intelligence</code></p>
+		<p class="tagindent1"><code>ABB:INT</code></p>
+		<p class="tagindent1"><code>STATMOD:floor(SCORE/2)-5</code></p>
+		<p class="tagindent1"><code>DEFINE:MAXLEVELSTAT=INT|INTSCORE-10</code></p>
+		<p class="tagindent1"><code>DEFINE:AbilitybySkillMax|0</code> (This tag is added to the existing entry.)</p>
+		<p class="tagindent1"><code>DEFINE:AbilitybySkillCount|0</code> (This tag is added to the existing entry.)</p>
+		<p class="tagindent1"><code>BONUS:VAR|AbilitybySkillMax|TL</code> (This tag is added to the existing entry.)</p>
+		<p class="tagindent1"><code>BONUS:LANG|BONUS|INT</code></p>
+		<p class="tagindent1"><code>BONUS:MODSKILLPOINTS|NUMBER|INT</code></p>
 	</blockquote>
 
 	<h4 class="indent1"><a name="ABILITYCATEGORY">AbilityCategory File Entry:</a></h4>
@@ -358,8 +360,6 @@
 		<p class="tagindent1"><code>EDITABLE:YES</code></p>
 		<p class="tagindent1"><code>EDITPOOL:NO</code></p>
 		<p class="tagindent1"><code>FRACTIONALPOOL:NO</code></p>
-		<p class="tagindent1"><code>POOL:AbilitybySkillPool</code></p>
-		<p class="tagindent1"><code>DEFINE:AbilitybySkillPool|0</code></p>
 		<p class="tagindent1"><code>VISIBLE:QUALIFY</code></p>
 	</blockquote>
 
@@ -368,21 +368,12 @@
 	
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Skills to Abilities</code></p>
-		<p class="tagindent1"><code>TYPE:NoStat</code></p>
+		<p class="tagindent1"><code>TYPE:None</code></p>
 		<p class="tagindent1"><code>VISIBLE:DISPLAY</code></p>
-		<p class="tagindent1"><code>BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Skills to Abilities.RANK</code></p>
+		<p class="tagindent1"><code>BONUS:ABILITYPOOL|AbilitybySkill|SKILL.Skills to Abilities.RANK</code></p>
 	</blockquote>
 
-	<h4 class="indent1"><a name="ABILITY">Ability File Entries:</a></h4>
-	<p></p>
-
-	<blockquote class="indent2">
-		<p class="tagindent1"><code>Initialize Abilities by Skill</code></p>
-		<p class="tagindent1"><code>CATEGORY:FEAT</code></p>
-		<p class="tagindent1"><code>TYPE:AbilitybySkill.Movement</code></p>
-		<p class="tagindent1"><code>VISIBLE:NO</code></p>
-		<p class="tagindent1"><code>DEFINE:AbilitybySkillPool|0</code></p>
-	</blockquote>
+	<h4 class="indent1"><a name="ABILITY">Ability File Entry:</a></h4>
 	<p></p>
 
 	<blockquote class="indent2">
@@ -399,18 +390,6 @@
 	</blockquote>
 	<p></p>
 
-	<blockquote class="indent2">
-		<p class="tagindent1"><code>Increasing Skill Bought Ability Max</code></p>
-		<p class="tagindent1"><code>CATEGORY:FEAT</code></p>
-		<p class="tagindent1"><code>TYPE:AbilitybySkill</code></p>
-		<p class="tagindent1"><code>VISIBLE:QUALIFY</code></p>
-		<p class="tagindent1"><code>!PREABILITY:1,CATEGORY=AbilitybySkill,Generic Skill Bought Ability</code></p>
-		<p class="tagindent1"><code>MULT:YES</code></p>
-		<p class="tagindent1"><code>STACK:YES</code></p>
-		<p class="tagindent1"><code>BONUS:VAR|AbilitybySkillMax|1</code></p>
-	</blockquote>
-	<p></p>
-
 	<h4 class="indent1"><a name="CLASS">Class File Entry:</a></h4>
 	<p></p>
 	<blockquote class="indent2">
@@ -420,7 +399,8 @@
 		<p class="tagindent1"><code>1</code>	[<code>ADD:ABILITY|FEAT|AUTOMATIC|Initialize Abilities by Skill</code>] (Add this tag to an existing class)</p>
 		<p class="tagindent1"><code>2</code></p>
 		<p class="tagindent1"><code>3</code></p>
-		<p class="tagindent1"><code>4</code>	[<code>ADD:ABILITY|AbilitybySkill|AUTOMATIC|TYPE=AbilitybySkill</code>] (Add this tag to an existing class)</p>
+		<p class="tagindent1"><code>4</code>	<code>ADD:ABILITY|AbilitybySkill|AUTOMATIC|TYPE=AbilitybySkill 
+			&lt;tab&gt; BONUS:VAR|AbilitybySkillMax|1</code> (Add these two tags to an existing class level lines)</p>
 		<p class="tagindent1"><code>5</code></p>
 		<p class="tagindent1"><code>6</code></p>
 	</blockquote>
