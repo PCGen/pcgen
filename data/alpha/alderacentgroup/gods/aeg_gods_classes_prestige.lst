@@ -158,7 +158,7 @@ CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomac
 10	BONUS:VAR|RangedCombatDefense|1	BONUS:VAR|FlameStrikeCasterLevel|3
 
 #
-# Gnoll Prestige Classes
+# Gnoll Prestige Classes (QC'd)
 #
 
 #Class:The Returned (Complete except for Demon in Form class feature)
@@ -183,13 +183,13 @@ CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|In
 10													AUTO:FEAT|Demon in Fact
 
 #
-# Goblin Prestige Classes
+# Goblin Prestige Classes (QC'd)
 #
 
 #Class:Exemplar (Complete except for 'Strength of Purpose' Class Feature which requires code work.)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
-CLASS:Exemplar	HD:8		TYPE:PC.Prestige	ABB:Explr		MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
+CLASS:Exemplar	HD:8		TYPE:PC.Prestige	ABB:Explr		MAXLEVEL:10	EXCLASS:Ex Exemplar		SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
 # Class Name	Required AL			Required Check Base	Required Domain				Required Feat		Required Race	Required Text
 CLASS:Exemplar	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PREFEAT:1,Iron Will	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -212,37 +212,35 @@ CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|K
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Ex Exemplar	HD:8		TYPE:PC.Prestige	ABB:ExEx		MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
-# Class Name	Required Check Base	Required Domain				Required Feat		Required Race	Required Text
-CLASS:Ex Exemplar	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PREFEAT:1,Iron Will	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
 ###Block:
 
 #
-# Hobgoblin Prestige Classes
+# Hobgoblin Prestige Classes (QC.d)
 #
 
-#Class:Servants of the One
+#Class:Servants of the One (Complete)
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPAGE:pg.64	BONUS:CHECKS|Fortitude|CL/3	BONUS:CHECKS|Reflex,Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required AL	Required Feat			Required Race		Required Skill							Required Text
-CLASS:Servants of the One	PREALIGN:LE	PREFEAT:2,Iron Will,Toughness	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=4	PRETEXT:Character must be able to cast 3rd level spells from the domain of Conquest and be responsible for the desecration of no fewer than three holy sites of other races.
+CLASS:Servants of the One	PREALIGN:LE	PREDOMAIN:1,Conquest	PRESPELLTYPE:1,Divine=3		PREFEAT:2,Iron Will,Toughness	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=4	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
 ###Block: Class Features
-1	SAB:Lost Souls - You may contact your fellow servants by sendings %/day.|CL
-###Block: Normal Progression
 1:REPEATLEVEL:2														ADD:SPELLCASTER|Divine
-2	AUTO:FEAT|One Heart Many Hands
-3	AUTO:FEAT|Hollow Heart
-4	AUTO:FEAT|The Flesh is Weak
-5	AUTO:FEAT|The Hunger of the Damned
-6	AUTO:FEAT|Ensnare the Mind
+###Block: Normal Progression
+1	ABILITY:FEAT|AUTOMATIC|Lost Souls
+2	ABILITY:FEAT|AUTOMATIC|One Heart Many Hands
+3	ABILITY:FEAT|AUTOMATIC|Hollow Heart
+4	ABILITY:FEAT|AUTOMATIC|The Flesh is Weak
+5	ABILITY:FEAT|AUTOMATIC|The Hunger of the Damned
+6	ABILITY:FEAT|AUTOMATIC|Ensnare the Mind
 7
 8
-9	AUTO:FEAT|Many Bodies One Soul
-10	AUTO:FEAT|Eternitys Humble Offerings
+9	ABILITY:FEAT|AUTOMATIC|Many Bodies One Soul
+10	ABILITY:FEAT|AUTOMATIC|Eternitys Humble Offerings
 
 #
 # Impossible Things Prestige Classes (QC'd)

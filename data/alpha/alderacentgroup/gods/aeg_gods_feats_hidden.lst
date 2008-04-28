@@ -114,7 +114,7 @@ Prayer Circle		TYPE:ClassFeature	VISIBLE:NO	SAB:Prayer Circle - % ft radius|Pray
 Flame Strike		TYPE:ClassFeature	VISIBLE:NO	SAB:Flame Strike																DEFINE:FlameStrikeCasterLevel|0	SPELLS:Class|TIMES=1|CASTERLEVEL=FlameStrikeCasterLevel|Flame Strike,15+CHA
 
 ##
-## Gnoll Abilities
+## Gnoll Abilities (QC'd)
 ##
 
 ###Block: The Returned Class Abilities (Demon in Form needs to have NATURALWEAPON tag added to cover the appropriate natural weapons.)
@@ -130,7 +130,7 @@ Demon in Form		TYPE:ClassFeature	VISIBLE:NO	SAB:Demon in Form					BONUS:STAT|CHA
 Demon in Fact		TYPE:ClassFeature	VISIBLE:NO	SAB:Demon in Fact
 
 ##
-## Goblin Abilities
+## Goblin Abilities (QC'd)
 ##
 
 ###Block: Exemplar Class Abilities (Complete. SofP needs code work so the domains can be removed and domain spell slots added.)
@@ -150,14 +150,15 @@ Exemplar Revealed		TYPE:ClassFeature	VISIBLE:NO	SAB:The Exemplar Reaevled
 ##
 
 ###Block: Servant of the One Class Abilities
-# Feat Name				Type			Visible	Special ABility				Stackable?	Multiple?
-One Heart Many Hands		TYPE:ClassFeature	VISIBLE:NO	SAB:One Heart, Many Hands		STACK:NO	MULT:NO
-Hollow Heart			TYPE:ClassFeature	VISIBLE:NO	SAB:Hollow Heart				STACK:NO	MULT:NO
-The Flesh is Weak			TYPE:ClassFeature	VISIBLE:NO	SAB:The Flesh is Weak			STACK:NO	MULT:NO
-The Hunger of the Damned	TYPE:ClassFeature	VISIBLE:NO	SAB:The Hunger of the Damned		STACK:NO	MULT:NO
-Ensnare the Mind			TYPE:ClassFeature	VISIBLE:NO	SAB:Ensnare the Mind			STACK:NO	MULT:NO
-Many Bodies One Soul		TYPE:ClassFeature	VISIBLE:NO	SAB:Many Bodies, One Soul		STACK:NO	MULT:NO
-Eternitys Humble Offerings	TYPE:ClassFeature	VISIBLE:NO	SAB:Eternity's Humble Offerings	STACK:NO	MULT:NO
+# Feat Name					Type				Visible		Special ABility				Stackable?	Multiple?
+Lost Souls					TYPE:ClassFeature	VISIBLE:NO	SAB:Lost Souls - Spells, spell-like abilities, supernatural abilities, extraordinary abilities and magic items that effect the sould have no effect.
+One Heart Many Hands		TYPE:ClassFeature	VISIBLE:NO	SAB:One Heart, Many Hands - You may contact your fellow servants by sendings %/day.|var("CLASSLEVEL=Servants of the One")
+Hollow Heart				TYPE:ClassFeature	VISIBLE:NO	SAB:Hollow Heart - Resistant to effects that would sway the emotions.|!PRECLASS:1,Servants of the One=8		SAB:Hollow Heart - Immune to effects that would sway the emotions.|PRECLASS:1,Servants of the One=8
+The Flesh is Weak			TYPE:ClassFeature	VISIBLE:NO	SAB:The Flesh is Weak - Reduced need to eat, drink and sleep.|!PRECLASS:1,Servants of the One=7		SAB:The Flexh is Weak (Su) - Eating, drinking and sleeping are no longer necessary.|PRECLASS:1,Servants of the One=7
+The Hunger of the Damned	TYPE:ClassFeature	VISIBLE:NO	SAB:The Hunger of the Damned		SPELLS:Hunger of the Damned|TIMES=1|CASTERLEVEL=classlevel("Servants of the One")|Energy Drain,WIS+19
+Ensnare the Mind			TYPE:ClassFeature	VISIBLE:NO	SAB:Ensnare the Mind
+Many Bodies One Soul		TYPE:ClassFeature	VISIBLE:NO	SAB:Many Bodies, One Soul
+Eternitys Humble Offerings	TYPE:ClassFeature	VISIBLE:NO	SAB:Eternity's Humble Offerings
 
 ##
 ## Impossible Things Abilities

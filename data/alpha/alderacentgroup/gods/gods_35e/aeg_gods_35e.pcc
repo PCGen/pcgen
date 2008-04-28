@@ -5,7 +5,8 @@ RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
-TYPE:Alderac Entertainment Group.Sourcebook
+#TYPE:Alderac Entertainment Group.Sourcebook
+TYPE:Alpha Datasets
 PUBNAMELONG:Alderac Entertainment Group
 PUBNAMESHORT:AEG
 PUBNAMEWEB:http://alderac.com/
@@ -41,9 +42,6 @@ TEMPLATE:../aeg_gods_templates.lst
 
 # Import Domains from other AEG Sources
 DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst|(INCLUDE:Blood|Darkness|Lust)
-
-#Animal Totem List
-COMPANIONLIST:Animal Totem|Badger|Bat|BearBoar|Camel|Cat|Cheetah|Crocodile|Dog|Eagle|Hawk|Horse|Lion|Lizard|Monkey|Owl|Rat|Raven|Stag|Snake|Tiger|Weasel|Wolf|Wolverine
 
 CLASS:aeg_gods_classes_prestige_35e.lst
 DOMAIN:aeg_gods_domains_35e.lst
