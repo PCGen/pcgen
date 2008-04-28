@@ -30,9 +30,11 @@ package plugin.pretokens.parser;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -69,6 +71,77 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 			compType = "gteq";
 		}
 
+		ParsingSeparator ps = new ParsingSeparator(formula, ',');
+		try
+		{
+			int count = 0;
+			while (ps.hasNext())
+			{
+				String first = ps.next();
+				if (!ps.hasNext())
+				{
+					return parseOld(kind, formula, invertResult, overrideQualify);
+//					throw new PersistenceLayerException(
+//							"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+//								+ "'. Incorrect parameter count (must be even)");
+				}
+				String second = ps.next();
+				Prerequisite subreq;
+				if (!ps.hasNext() && count == 0)
+				{
+					subreq = prereq;
+				}
+				else
+				{
+					prereq.setKind(null); // PREMULT
+					subreq = new Prerequisite();
+					subreq.setKind("var");
+					prereq.addPrerequisite(subreq);
+					count++;
+				}
+				subreq.setOperator(compType);
+				subreq.setKey(first);
+				subreq.setOperand(second);
+			}
+			if (count > 0)
+			{
+				prereq.setOperand(Integer.toString(count));
+			}
+		}
+		catch (PrerequisiteException pe)
+		{
+			return parseOld(kind, formula, invertResult, overrideQualify);
+//			throw new PersistenceLayerException(
+//				"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+//					+ "'. " + pe.getLocalizedMessage());
+		}
+
+		if (invertResult)
+		{
+			prereq.setOperator(prereq.getOperator().invert());
+		}
+		prereq.setOverrideQualify(overrideQualify);
+
+		return prereq;
+	}
+	
+	public Prerequisite parseOld(String kind, String formula,
+			boolean invertResult, boolean overrideQualify)
+			throws PersistenceLayerException
+	{
+		Logging.deprecationPrint("Warning: You are using a deprecated "
+				+ "(or broken) form of PREVAR: " + formula);
+		Prerequisite prereq = super.parse(kind, formula, invertResult,
+				overrideQualify);
+		prereq.setKind("var");
+
+		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
+		String compType = kind.substring(3);
+		if (compType.length() == 0)
+		{
+			compType = "gteq";
+		}
+
 		String[] tokens = formula.split(",|\\|");
 
 		//
@@ -77,8 +150,8 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		if ((tokens.length & 0x01) == 0x01)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse prrequisite 'PRE" + kind + ":" + formula
-					+ "'. Incorrect parameter count (must be even)");
+					"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+							+ "'. Incorrect parameter count (must be even)");
 		}
 
 		try
@@ -109,8 +182,8 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse prrequisite 'PRE" + kind + ":" + formula
-					+ "'. " + pe.getLocalizedMessage());
+					"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+							+ "'. " + pe.getLocalizedMessage());
 		}
 
 		if (invertResult)
@@ -121,4 +194,5 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 
 		return prereq;
 	}
+
 }
