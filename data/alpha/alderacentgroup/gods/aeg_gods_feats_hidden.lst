@@ -5,10 +5,14 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 # Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
 Slaver Weapon Proficiencies	TYPE:ClassFeature	VISIBLE:NO	AUTO:WEAPONPROF|Sap|Whip
 
-###Block: Hidden Abilities
+###Block: Abilities
 # Feat Name			Output Name				Type			Visible	Special ABility
 Woodlands Stride		OUTPUTNAME:Woodland Stride	TYPE:ClassFeature	VISIBLE:NO	SAB:Woodland Stride
 AEG Trackless Step	OUTPUTNAME:Trackless Step	TYPE:ClassFeature	VISIBLE:NO	SAB:Trackless Step
+
+###Block: Hidden Equipment Abilities - These abilities implement the abipities granted by magical equipment.
+# Feat Name			Type				Visible		
+Tooth of Steel		TYPE:WeaponAbility	VISIBLE:NO		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
 
 ##
 ## Barbarian abilities (QC'd)
