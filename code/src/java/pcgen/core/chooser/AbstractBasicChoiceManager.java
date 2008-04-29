@@ -28,6 +28,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AssociatedChoice;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -47,7 +48,6 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	private final int choicesPerUnitCost;
 	private final String chooserHandled;
 	private final ArrayList<String> choices = new ArrayList<String>();
-	private final List<String> uniqueList = new ArrayList<String>();
 
 	protected final PObject pobject;
 
@@ -135,28 +135,33 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	 * @return list
 	 */
 	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
-			final List<T> selectedList, final List<T> reservedList)
+			final List<T> selectedList, final List<AssociatedChoice> reservedList)
 	{
 		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
 				/ choicesPerUnitCost;
 		int reservedPoolValue = (reservedList.size() + (choicesPerUnitCost - 1))
 				/ choicesPerUnitCost;
+		int limitedChoices = numberOfChoices - reservedPoolValue + selectedPoolValue;
 		int effectiveTotalChoices = numberOfChoices == -1 ? controller
-				.getTotalChoices() : numberOfChoices;
+				.getTotalChoices() : limitedChoices;
 		int effectiveChoices = Math
 				.min(controller.getPool() + selectedPoolValue,
-						effectiveTotalChoices / choicesPerUnitCost)
-				- reservedPoolValue + selectedPoolValue;
+						effectiveTotalChoices / choicesPerUnitCost);
 
 		final ChooserInterface chooser = getChooserInstance();
-		chooser
-				.setAllowsDups(controller.isMultYes()
-						&& controller.isStackYes());
+		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
+		chooser.setAllowsDups(dupsAllowed);
+		if (!dupsAllowed)
+		{
+			for (AssociatedChoice o : reservedList)
+			{
+				availableList.remove(o.getDefaultChoice());
+			}
+		}
 
 		Globals.sortChooserLists(availableList, selectedList);
 		chooser.setAvailableList(availableList);
 		chooser.setSelectedList(selectedList);
-		chooser.setUniqueList(uniqueList);
 
 		chooser.setChoicesPerUnit(choicesPerUnitCost);
 		chooser.setTotalChoicesAvail(effectiveChoices);
@@ -197,7 +202,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	 * @param selectedList
 	 */
 	public void doChooserRemove(PlayerCharacter aPC, List<T> availableList,
-			List<T> selectedList, List<T> reservedList)
+			List<T> selectedList, List<AssociatedChoice> reservedList)
 	{
 		final List<T> newSelections = doChooser(aPC, availableList,
 				selectedList, reservedList);
