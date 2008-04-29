@@ -1395,28 +1395,35 @@
 	<p class="indent0"><strong><a name="CLEAR">Tag Name:</a></strong> &lt;tag&gt;.CLEAR.&lt;variable&gt;</p>
 	<p class="indent1"><strong>Variables Used: </strong>Text, Last field is the item to be cleared</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is used in conjunction with the .MOD and .COPY tags.</p>
-	<p class="indent2">This tag is also useful in CLASS lines. (see entry for SA in Other global tags)</p>
-  	<p class="indent2">Tags that can have multiple items (such as TYPE) and tags that can be used multiple
-  		times can be eliminated.</p>
-  	<p class="indent2">The .CLEAR syntax has not yet been standardized as many of the other tags have been
-  		and there are at least 3 variations on how it can be used.</p>
-  	<p class="indent2">Some experimentation may be required to see which usage is required with which tags.
-		<span class=alpha>Note:</span> Although listed as global not all tags will work with .CLEAR.</p>
+	<ul class="indent2">
+		<li>This tag is used in conjunction with the <code>.MOD</code> and <code>.COPY</code> tags and 
+			may not be used for "Run-Time" changes.</li>
+		<li>This tag is also useful in CLASS lines. (see entry for <code>SA</code> in other global tags)</li>
+  		<li>Tags that can have multiple items (such as <code>TYPE</code>) and tags that can be used multiple
+  			times can be eliminated.</li>
+  		<li>The <code>.CLEAR</code> syntax has not yet been standardized as many of the other tags have been
+  			and there are at least 3 variations on how it can be used.</li>
+ 	</ul>
+ 	<p class="sidebar1">Note: Although listed as global, <code>.CLEAR</code> will not work with all tags. 
+ 		Some experimentation may be required to see which usage is required with which tags.</p>
 	<p class="indent1"><strong>Syntax usage:</strong></p>
 	<p class="indent2"><code>TAG:.CLEAR.&lt;Values to be cleared&gt;</code></p>
-	<p class="indent3">This syntax works with the SA tag and the CSKILL tag, the items which follow the .CLEAR. are cleared<br></p>
+	<p class="indent3">This syntax works with the <code>SA</code> tag and the <code>CSKILL</code> tag, 
+		the items which follow the <code>.CLEAR.</code> are cleared.</p>
+	<p></p>
 	<p class="indent2"><code>TAG:.CLEAR</code></p>
-	<p class="indent3">This syntax clears ALL the values of the original object.
-		Once cleared follow it with a second tag which sets the new values.
-		<span class=alpha><strong>Caution:</strong></span>
-		PCGen works in a sequential manor and if the two tags order is swapped
-		the new value will be cleared as well as the original values.<br></p>
+	<p class="indent3">This syntax clears all the values of the original object. This tag is follow it 
+		with a second tag which sets the new values. It is important to note that PCGen works in a 
+		sequential manor and if the two tags order is swapped the new value will be cleared as well as 
+		the original values.</p>
 	<p class="indent1"><strong>Work Arounds:</strong></p>
-	<p class="indent2">What a curse that .CLEAR is not supported on CHOICE to make CHOICE to disappear from
-		the item.</p>
-	<p class="indent3">Two ways to do that.  a)  MULT:NO  - makes it a single feat, choice not supported.
-		b) CHOOSE:NOCHOICE  - no popup, but selectable multiple times. Tir Gwaith PCGen LST Chimp</p>
+	<p class="indent2"><code>.CLEAR</code> is not supported on the <code>CHOICE</code> tag, allowing the 
+		removal of the tag from the item. Two ways to do that are:
+		<ul class="indent2" style="list-style: lower-alpha">
+			<li><code>MULT:NO</code> - makes it a single feat, choice not supported.</li>
+			<li><code>CHOOSE:NOCHOICE</code> - no popup, but selectable multiple times.</li>
+		</ul>
+	</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CLASS:Toto</code></p>
 	<p class="indent2"><code>1 &lt;tab&gt; SA:Big Papa</code></p>
