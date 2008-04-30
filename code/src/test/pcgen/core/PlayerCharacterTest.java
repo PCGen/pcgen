@@ -29,6 +29,7 @@
 package pcgen.core;
 
 import java.awt.HeadlessException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -69,6 +70,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	Race human = null;
 	Ability toughness = null;
 	AbilityCategory specialFeatCat;
+	AbilityCategory specialAbilityCat;
 	
 	/**
 	 * Run the tests.
@@ -197,6 +199,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		specialFeatCat = new AbilityCategory("Special Feat");
 		specialFeatCat.setAbilityCategory(AbilityCategory.FEAT.getKeyName());
 		SettingsHandler.getGame().addAbilityCategory(specialFeatCat);
+		
+		
+		specialAbilityCat = new AbilityCategory("Special Ability");
+		SettingsHandler.getGame().addAbilityCategory(specialAbilityCat);
 	}
 
 	protected void tearDown()
@@ -945,5 +951,50 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		{
 			Logging.debugPrint("Ignoring Headless exception.");
 		}
+	}
+	
+	/**
+	 * Verify that bested abilities are processed correctly.
+	 */
+	public void testNestedAbilities()
+	{
+		Ability resToAcid =
+				TestHelper.makeAbility("Resistance To Acid", specialAbilityCat
+					.getKeyName(), "Foo");
+		Ability resToAcidOutputVirt =
+			TestHelper.makeAbility("Resistance To Acid Output Virt",
+				specialAbilityCat.getKeyName(), "Foo");
+		Ability resToAcidOutputAuto =
+			TestHelper.makeAbility("Resistance To Acid Output Auto",
+				specialAbilityCat.getKeyName(), "Foo");
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(human);
+		assertEquals("PC should now have a race of human", human, pc.getRace());
+
+		human.addAbility(specialAbilityCat, Ability.Nature.AUTOMATIC,
+			new QualifiedObject.LevelAwareQualifiedObject<String>(-9,
+					resToAcid.getKeyName(), new ArrayList<Prerequisite>()));
+		pc.setDirty(true);
+		pc.calcActiveBonuses();
+		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
+		assertNull("Character should not have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
+		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
+
+		resToAcid.addAbility(specialAbilityCat, Ability.Nature.VIRTUAL,
+			new QualifiedObject.LevelAwareQualifiedObject<String>(-9,
+					resToAcidOutputVirt.getKeyName(), new ArrayList<Prerequisite>()));		
+		pc.setDirty(true);
+		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
+		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
+		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
+
+		resToAcid.addAbility(specialAbilityCat, Ability.Nature.AUTOMATIC,
+			new QualifiedObject.LevelAwareQualifiedObject<String>(-9,
+					resToAcidOutputAuto.getKeyName(), new ArrayList<Prerequisite>()));		
+		pc.setDirty(true);
+		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
+		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
+		assertNotNull("Character should have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
+		
 	}
 }

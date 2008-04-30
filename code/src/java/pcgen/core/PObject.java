@@ -809,9 +809,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Get the list of virtual feats for this object
 	 * @return the list of virtual feats for this object
 	 */
-	public List<Ability> getVirtualFeatList()
+	public List<String> getVirtualFeatList()
 	{
-		return getSafeListFor(ListKey.VIRTUAL_FEATS);
+		return getAbilityKeys(null, AbilityCategory.FEAT, Ability.Nature.VIRTUAL);
 	}
 	
 //	/**
@@ -1062,7 +1062,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final void addVirtualFeat(final Ability aFeat)
 	{
-		listChar.addToListFor(ListKey.VIRTUAL_FEATS, aFeat);
+		addAbility(AbilityCategory.FEAT, Ability.Nature.VIRTUAL,
+			new QualifiedObject<String>(aFeat.getKeyName()));
 	}
 	
 	/**
@@ -1071,7 +1072,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final void addVirtualFeats(final List<Ability> aFeatList)
 	{
-		listChar.addAllToListFor(ListKey.VIRTUAL_FEATS, aFeatList);
+		for (Ability aFeat : aFeatList)
+		{
+			addAbility(AbilityCategory.FEAT, Ability.Nature.VIRTUAL,
+				new QualifiedObject<String>(aFeat.getKeyName()));
+		}
 	}
 	
 	/**

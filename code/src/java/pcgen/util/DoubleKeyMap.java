@@ -23,6 +23,7 @@
  */
 package pcgen.util;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -288,6 +289,33 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
+	 * Returns true if the DoubleKeyMap is empty
+	 * 
+	 * @return true if the DoubleKeyMap is empty; false otherwise
+	 */
+	public int size()
+	{
+		int size = 0;
+		for (K1 key1 : map.keySet())
+		{
+			for (K2 key2 : getSecondaryKeySet(key1))
+			{
+				Object val = get(key1, key2);
+				if (val instanceof Collection)
+				{
+					size += ((Collection) val).size();
+				}
+				else
+				{
+					size++;
+				}
+			}
+		}
+		return size;
+	}
+
+	
+	/**
 	 * Clones this DoubleKeyMap. The contents of the DoubleKeyMap (the keys and
 	 * values) are not cloned - this is not a truly deep clone. However, the
 	 * internal structure of the DoubleKeyMap is sufficiently cloned in order to
@@ -321,5 +349,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 			dkm.map.put(key, new HashMap<K2, V>(m));
 		}
 		return dkm;
+	}
+	
+	public String toString()
+	{
+		return map.toString();
 	}
 }

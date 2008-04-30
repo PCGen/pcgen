@@ -3283,7 +3283,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return true if it has virtual feats
 	 */
 	public boolean hasVFeats() {
-		final List<Ability> vFeats = getVirtualFeatList();
+		final List<String> vFeats = getVirtualFeatList();
 
 		return (vFeats != null) && (vFeats.size() > 0);
 	}
@@ -4710,27 +4710,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		d_containedEquipment.add(e);
-	}
-
-	/**
-	 * Adds
-	 * 
-	 * @param bPrimary
-	 * @param argVFeats
-	 * @return modified argVFeats list of virtual feats from EQ Mods
-	 */
-	private List<Ability> addEqModList(final boolean bPrimary,
-			final List<Ability> argVFeats) {
-		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
-		final List<Ability> vFeats = argVFeats;
-
-		if (eqModList.size() != 0) {
-			for (EquipmentModifier aEqMod : eqModList) {
-				vFeats.addAll(aEqMod.getVirtualFeatList());
-			}
-		}
-
-		return vFeats;
 	}
 
 	/**

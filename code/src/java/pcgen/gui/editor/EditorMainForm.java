@@ -1545,10 +1545,9 @@ public final class EditorMainForm extends JDialog
 					availableRaceVirtualFeatList.add(anAbility.getKeyName());
 				}
 
-				for (Iterator<Ability> e = ((Race) thisPObject).getVirtualFeatList().iterator(); e.hasNext();)
+				for (Iterator<String> e = ((Race) thisPObject).getVirtualFeatList().iterator(); e.hasNext();)
 				{
-					final Ability aFeat = e.next();
-					String featName = aFeat.getKeyName();
+					String featName = e.next();
 
 					if (!selectedRaceVirtualFeatList.contains(featName))
 					{
