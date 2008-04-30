@@ -12869,22 +12869,47 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aClassKey = aClassKey.replace('{', '(').replace('}', ')');
 		}
 
-		final PCClass aClass = getClassKeyed(aClassKey);
-
-		if (aClass != null)
+		if (aClassKey.startsWith("TYPE=")||aClassKey.startsWith("TYPE."))
 		{
-			if (lvl > 0)
+			int totalLevels = 0;
+			String[] classTypes = aClassKey.substring(5).split("\\.");
+			CLASSFOR: for (PCClass cl : getClassList())
 			{
-				return getLevelBefore(aClass.getKeyName(), lvl);
+				for (String type : classTypes)
+				{
+					if (!cl.isType(type))
+					{
+						continue CLASSFOR;
+					}
+					if (lvl > 0)
+					{
+						totalLevels += getLevelBefore(cl.getKeyName(), lvl);
+					}
+
+					totalLevels += cl.getLevel();
+				}
+			}
+			return Integer.toString(totalLevels);
+		}
+		else
+		{
+			final PCClass aClass = getClassKeyed(aClassKey);
+
+			if (aClass != null)
+			{
+				if (lvl > 0)
+				{
+					return Integer.toString(getLevelBefore(aClass.getKeyName(), lvl));
+				}
+
+				return Integer.toString(aClass.getLevel());
 			}
 
-			return Integer.toString(aClass.getLevel());
+			return "0";
 		}
-
-		return "0";
 	}
 
-	private String getLevelBefore(final String classKey, final int charLevel)
+	private int getLevelBefore(final String classKey, final int charLevel)
 	{
 		String thisClassKey;
 		int lvl = 0;
@@ -12904,7 +12929,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return Integer.toString(lvl);
+		return lvl;
 	}
 
 	private List<? extends PObject> getPObjectList()
