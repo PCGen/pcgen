@@ -6,6 +6,7 @@
 
 package plugin.charactersheet.gui;
 
+import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.io.exporttoken.VarToken;
@@ -591,13 +592,11 @@ public class TurnPane extends javax.swing.JPanel
 	 */
 	private String getEffectType(PlayerCharacter aPc, String aTurnType)
 	{
-		if (aPc.hasRealFeatNamed("Turn " + aTurnType)
-			|| aPc.hasFeatVirtual("Turn " + aTurnType))
+		if (aPc.hasAbilityKeyed("Turn " + aTurnType))
 		{
 			return "Turn";
 		}
-		else if (aPc.hasRealFeatNamed("Rebuke " + aTurnType)
-			|| aPc.hasFeatVirtual("Rebuke " + aTurnType))
+		else if (aPc.hasAbilityKeyed("Rebuke " + aTurnType))
 		{
 			return "Rebuke";
 		}

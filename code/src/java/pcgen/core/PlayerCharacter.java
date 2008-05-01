@@ -17164,6 +17164,36 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return null;
 	}
 
+	/**
+	 * Get an ability of any ctageory tat matches the key.
+	 * @param aKey The key to search for
+	 * @return An ability with the key, or null if none.
+	 */
+	public Ability getAbilityKeyed(final String aKey)
+	{
+		final List<Ability> abilities = getFullAbilityList();
+		for (final Ability ability : abilities)
+		{
+			if (ability.getKeyName().equals(aKey))
+			{
+				return ability;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Identify if the character has an ability, of any category, that
+	 * matches the key.
+	 * @param aKey The key to search for
+	 * @return True if an ability is found, false otherwise.
+	 */
+	public boolean hasAbilityKeyed(final String aKey)
+	{
+		return getAbilityKeyed(aKey) != null;
+	}
+	
 	public List<Ability> aggregateFeatList()
 	{
 		final List<Ability> aggregate = getStableAggregateFeatList();
