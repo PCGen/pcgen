@@ -1048,7 +1048,6 @@
 		<li>Formulas which use comma's within them should be encapsulated using parentheses &quot;( )&quot;.</li>
 		<li>Because the <code>SPELLS</code> tag is not associated with any one class the variable &quot;CL&quot; will not work in it.</li>
 		<li><a href="../../listfilepages/listfileLSTstandards.html#STDSPELLNAME">Standard Spellbook Names</a></li>
-
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Acid Arrow,12+CHA|PRESTAT:1,CHA=12</code></p>
@@ -1398,7 +1397,7 @@
 	<ul class="indent2">
 		<li>This tag is used in conjunction with the <code>.MOD</code> and <code>.COPY</code> tags and 
 			may not be used for "Run-Time" changes.</li>
-		<li>This tag is also useful in CLASS lines. (see entry for <code>SA</code> in other global tags)</li>
+		<li>This tag is also useful in CLASS lines. See <a href="#SAB">SAB</a> tag documentation.</li>
   		<li>Tags that can have multiple items (such as <code>TYPE</code>) and tags that can be used multiple
   			times can be eliminated.</li>
   		<li>The <code>.CLEAR</code> syntax has not yet been standardized as many of the other tags have been
@@ -1408,7 +1407,7 @@
  		Some experimentation may be required to see which usage is required with which tags.</p>
 	<p class="indent1"><strong>Syntax usage:</strong></p>
 	<p class="indent2"><code>TAG:.CLEAR.&lt;Values to be cleared&gt;</code></p>
-	<p class="indent3">This syntax works with the <code>SA</code> tag and the <code>CSKILL</code> tag, 
+	<p class="indent3">This syntax works with the <code>SAB</code> tag and the <code>CSKILL</code> tag, 
 		the items which follow the <code>.CLEAR.</code> are cleared.</p>
 	<p></p>
 	<p class="indent2"><code>TAG:.CLEAR</code></p>
@@ -1426,26 +1425,33 @@
 	</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CLASS:Toto</code></p>
-	<p class="indent2"><code>1 &lt;tab&gt; SA:Big Papa</code></p>
-	<p class="indent2"><code>2 &lt;tab&gt; SA:Big Mama</code></p>
-	<p class="indent2"><code>3 &lt;tab&gt; SA:.CLEAR.Big Papa &lt;tab&gt; SA:Very Big Papa</code></p>
-	<p class="indent3">At level 3 .CLEAR is used to delete the SA 'Big Papa' because
-		it becomes redundant or unnecessary when the class gets the SA 'Very Big Papa'. (in class.lst)<br></p>
+	<p class="indent2"><code>1 &lt;tab&gt; SAB:Big Papa</code></p>
+	<p class="indent2"><code>2 &lt;tab&gt; SAB:Big Mama</code></p>
+	<p class="indent2"><code>3 &lt;tab&gt; SAB:.CLEAR.Big Papa &lt;tab&gt; SAB:Very Big Papa</code></p>
+	<p class="indent3">At level 3 <code>.CLEAR</code> is used to delete the special ability 'Big Papa' 
+		because it becomes redundant or unnecessary when the class gets the special ability 'Very Big Papa'. 
+		(in <span class="lstfile">class.lst</span>)</p>
 	<p class="indent2"><code>CLASS:Ranger.MOD &lt;tab&gt; CSKILL:.CLEAR.Animal Empathy</code></p>
-	<p class="indent3">Modifies the Ranger class by eliminating the Animal Empathy skill from its class skill list (in class.lst)<br></p>
-	<p class="indent2"><code>Dagger.COPY=Hunting Knife<br>
-		TYPE:.CLEAR<br>
-		TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Piercing.Slashing.Dagger</code></p>
+	<p class="indent3">Modifies the Ranger class by eliminating the Animal Empathy skill from its 
+		class skill list (in class.lst)</p>
+	<blockquote class="indent2">
+		<p class="tagindent1"><code>Dagger.COPY=Hunting Knife &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; 
+			TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Piercing.Slashing.Dagger</code></p>
+	</blockquote>
 	<p class="indent3">Creates a new weapon called Hunting Knife,
 		clears ALL the types from the new weapon and then adds back the desired types (in equipment.lst file),
 		Note that in this example tabs are represented with line breaks.<br></p>
-	<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Lesser Conjuration</code></p>
-	<p class="indent3">Modifies the Acid Arrow spell by eliminating the original value of the SCHOOL tag
-		and then sets the new value with a second SCHOOL tag (in spell.lst)</p>
+	<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; 
+		SCHOOL:Lesser Conjuration</code></p>
+	<p class="indent3">Modifies the Acid Arrow spell by eliminating the original 
+		value of the <code>SCHOOL</code> tag and then sets the new value with a 
+		second <code>SCHOOL</code> tag (in <span class="lstfile">spell.lst</span>)</p>
 	<p class="indent1"><strong><span class=alpha>Deprecated syntax:</span></strong></p>
 	<p class="indent2"><code>TAG:.CLEAR.&lt;New values to be added&gt;</code></p>
-	<p class="indent3">This syntax clears ALL the values of the original object and then adds back any items which follow the .CLEAR.
-		This should not be used. Instead use <code>TAG:.CLEAR</code> followed by a new tag to set the new values as shown above.<br></p>
+	<p class="indent3">This syntax clears ALL the values of the original object 
+		and then adds back any items which follow the <code>.CLEAR.</code> This 
+		should not be used. Instead use <code>TAG:.CLEAR</code> followed by a 
+		new tag to set the new values as shown above.<br></p>
 	<p></p>
 
 <hr>
