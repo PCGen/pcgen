@@ -359,13 +359,23 @@
 	<p class="indent0"><strong>Class Level (JEP Expression)</strong></p>
 	<p class="indent1"><strong>Formula:</strong> <code>classlevel("x")</code></p>
 	<blockquote>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class Name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Class type)</p>
 		<p class="indent1"><strong>What it Does:</strong></p>
-		<p class="indent2">This function returns the number of level the PC has in the specified class.
-			This replaces the old variable <code>CL=class name</code>.</p>
+		<ul class="indent2">
+			<li>This function returns the number of level the PC has in the specified class.</li>
+			<li>When specifying a <span class="lstobj">Class</span> by <code>TYPE</code>, use of 
+				a period-delimited list of types will return the level of the <span class="lstobj">Class</span>
+				that is of all types listed.</li>
+		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>classlevel(&quot;Bard&quot;)</code></p>
-		<p class="indent3">Returns the number of levels of Bard.</p>
+		<p class="indent3">Returns the number of levels of <span class="lstobj">Bard</span>.</p>
+		<p class="indent2"><code>classlevel(&quot;PC.Prestige&quot;)</code></p>
+		<p class="indent3">Returns the number of levels of the class of types <span class="lstobj">PC</span> 
+			and <span class="lstobj">Prestige</span>.</p>
+		<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+		<p class="indent2"><code>CL=&lt;Bard&gt;</code></p>
 	</blockquote>
 	<p></p>
 
