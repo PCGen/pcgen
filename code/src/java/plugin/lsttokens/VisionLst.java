@@ -4,12 +4,17 @@
  */
 package plugin.lsttokens;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.Vision;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.VisionType;
 
@@ -38,10 +43,12 @@ public class VisionLst implements GlobalLstToken
 	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject,
 	 *      java.lang.String, int)
 	 */
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(PObject obj, String value, int anInt) throws PersistenceLayerException
 	{
-		final StringTokenizer aTok = new StringTokenizer(value, "|");
-
+ 		final StringTokenizer aTok = new StringTokenizer(value, "|");
+		final List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		final List<Vision> visions = new ArrayList<Vision>();
+		
 		while (aTok.hasMoreTokens())
 		{
 			String visionString = aTok.nextToken();
@@ -52,56 +59,75 @@ public class VisionLst implements GlobalLstToken
 				continue;
 			}
 
-			if (visionString.indexOf(',') >= 0)
+			if (visionString.startsWith("PRE"))
 			{
-				Logging
-					.deprecationPrint("Use of comma in VISION Tag is deprecated.  Use .CLEAR.[Vision] instead.");
-				final StringTokenizer visionTok =
-						new StringTokenizer(visionString, ",");
-				String numberTok = visionTok.nextToken();
-				if (numberTok == "2")
+				final PreParserFactory factory = PreParserFactory.getInstance();
+				final Prerequisite prereq = factory.parse(visionString);
+				prereqs.add(prereq);
+			}
+			else 
+			{	
+				if (visionString.indexOf(',') >= 0)
 				{
-					visionString = ".CLEAR." + visionTok.nextToken();
+					Logging
+						.deprecationPrint("Use of comma in VISION Tag is deprecated.  Use .CLEAR.[Vision] instead.");
+					final StringTokenizer visionTok =
+							new StringTokenizer(visionString, ",");
+					String numberTok = visionTok.nextToken();
+					if (numberTok == "2")
+					{
+						visionString = ".CLEAR." + visionTok.nextToken();
+					}
+					else if (numberTok == "0")
+					{
+						visionString = ".SET." + visionTok.nextToken();
+					}
+					else
+					{
+						visionString = visionTok.nextToken();
+					}
 				}
-				else if (numberTok == "0")
+	
+				Vision vis = null;
+				if (visionString.startsWith(".CLEAR."))
 				{
-					visionString = ".SET." + visionTok.nextToken();
+					obj.removeVisionType(VisionType.getVisionType(visionString
+						.substring(7)));
 				}
-				else
+				else if (visionString.startsWith(".SET."))
 				{
-					visionString = visionTok.nextToken();
-				}
-			}
-
-			Vision vis = null;
-			if (visionString.startsWith(".CLEAR."))
-			{
-				obj.removeVisionType(VisionType.getVisionType(visionString
-					.substring(7)));
-			}
-			else if (visionString.startsWith(".SET."))
-			{
-				obj.clearVisionList();
-				vis = getVision(anInt, visionString.substring(5));
-			}
-			else
-			{
-				vis = getVision(anInt, visionString);
-			}
-
-			if (vis != null)
-			{
-				if (anInt > -9)
-				{
-					((PCClass) obj).addVision(anInt, vis);
+					obj.clearVisionList();
+					vis = getVision(anInt, visionString.substring(5));
 				}
 				else
 				{
-					obj.addVision(vis);
+					vis = getVision(anInt, visionString);
+				}
+	
+				if (vis != null)
+				{
+					visions.add(vis);
 				}
 			}
 
 		}
+		for (Vision vis: visions)
+		{
+			for (Prerequisite prereq : prereqs)
+			{
+				vis.addPreReq(prereq);
+			}
+
+			if (anInt > -9)
+			{
+				((PCClass) obj).addVision(anInt, vis);
+			}
+			else
+			{
+				obj.addVision(vis);
+			}
+		}
+
 		return true;
 	}
 
