@@ -37,56 +37,73 @@ my $url = "http://sourceforge.net/search/index.php?group_id=25576&" .
    "384721+384722+439552+441567+453331+627102+679269+689516+748234+" . 
    "748235+748296+748297+750091+750092+772045+1036937%29+AND+" . 
    "status_id%3A%282%29+AND+last_update_date%3A%5B" . $fromDate . 
-   "+TO+" . $toDate. "%5D&Search=Search&limit=1000";
-#print $url . "\n";   
-my $page = get $url;
-   
-if (!$page) {
-    print "Tracker search site is not accessible\n";
-    exit;
-}
+   "+TO+" . $toDate. "%5D&Search=Search&limit=100";
 
-# Trim out headers and footers 
-$page =~ s/.*\<table id="searchtable"//s;
-$page =~ s/.*\<tbody>//s;
-$page =~ s/\s*\<\/tbody>\<\/table>.*//s;
-
+my @trackerLines;
+my $rowCountForPage = 0;
+my $startIndex = 0;
 my $firstTime = (1 == 1);
 my $trackerCat = "";
 my $trackerNum = "";
 my $trackerName = "";
-my @trackerLines;
+my $page;
+my @data;
+my $offset = 0;
 
-# Scan the search results, building up the list of trackers
-open CHANGELOG, ">work/changelog.txt";
-my @data = split(/\n/, $page);
-for (@data) {
-	s/^\s*//;
-	s/\s*$//;
-    if ( /^^<a href=\"\/tracker\/index.php\?/ ) {
-    	# Extract tracker number and name from link. 
-    	$trackerNum = $_;
-    	$trackerNum =~ s/.*aid=([0-9]*).*/$1/;
-    	$trackerName = $_;
-    	$trackerName =~ s/.*?>(.*?)<\/a>.*$/$1/;
-    } 
-	
-	elsif ( /^<a href=\"\/tracker\/\?group_id=25576&atid\=/ ) {
-		# Tracker info line
-    	$trackerCat = $_;
-    	$trackerCat =~ s/<.*?>//g;
+do {
+	$offset += $rowCountForPage;
+	#print $url . "&offset=" . $offset . "\n";
+	if ($offset > 0) {
+		print "Read " . $offset . "...\n";
+	}    
+	$page = get $url . "&offset=" . $offset;
+	   
+	if (!$page) {
+	    print "Tracker search site is not accessible\n";
+	    exit;
 	}
-
-    elsif ( /<\/tr>/ ) {
-    	# End of tracker
-    	push(@trackerLines, $trackerCat . "@@@<li>[ <a " .
-    		"href=\"http://sourceforge.net/support/tracker.php?aid=" . 
-    		$trackerNum . "\">" . $trackerNum . "</a> ]	" . 
-    		$trackerName . "<\/li>");
-    } 
+	
+	# Trim out headers and footers 
+	$page =~ s/.*\<table id="searchtable"//s;
+	$page =~ s/.*\<tbody>//s;
+	$page =~ s/\s*\<\/tbody>\<\/table>.*//s;
+	
+	$firstTime = (1 == 1);
+	$rowCountForPage = 0;
+	
+	# Scan the search results, building up the list of trackers
+	@data = split(/\n/, $page);
+	for (@data) {
+		s/^\s*//;
+		s/\s*$//;
+	    if ( /^^<a href=\"\/tracker\/index.php\?/ ) {
+	    	# Extract tracker number and name from link. 
+	    	$trackerNum = $_;
+	    	$trackerNum =~ s/.*aid=([0-9]*).*/$1/;
+	    	$trackerName = $_;
+	    	$trackerName =~ s/.*?>(.*?)<\/a>.*$/$1/;
+	    } 
+		
+		elsif ( /^<a href=\"\/tracker\/\?group_id=25576&atid\=/ ) {
+			# Tracker info line
+	    	$trackerCat = $_;
+	    	$trackerCat =~ s/<.*?>//g;
+		}
+	
+	    elsif ( /<\/tr>/ && $trackerNum gt "") {
+	    	# End of tracker
+	    	push(@trackerLines, $trackerCat . "@@@<li>[ <a " .
+	    		"href=\"http://sourceforge.net/support/tracker.php?aid=" . 
+	    		$trackerNum . "\">" . $trackerNum . "</a> ]	" . 
+	    		$trackerName . "<\/li>");
+	    	$rowCountForPage += 1;
+	    } 
+	}
 }
+while($rowCountForPage > 0);
 
 # Now output the info
+open CHANGELOG, ">work/changelog.txt";
 @trackerLines = sort { $a cmp $b } @trackerLines;
 my $lastTracker = "";
 foreach (@trackerLines) {
