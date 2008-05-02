@@ -31,6 +31,22 @@ my $toDate = sprintf("%04d%02d%02d",
 print("Generating changes and tracker listing for trackers closed between " . 
 	$fromDate . " and " . $toDate . ".\n");
 
+# Create a hash of the tracker categories against sort order
+my %trackerOrder = (
+	"New Data Source Development" => "A",
+	"Feature Requests" => "B Code",
+	"Data Feature Requests" => "C",
+	"New Release Steps" => "D",
+	"Documentation Feature Requests" => "E",
+	"Output Sheet Feature Requests" => "F",
+	"Plugin Feature Requests" => "G",
+	"Bugs" => "H Code",
+	"Data Bugs" => "I",
+	"Documentation Bugs" => "J",
+	"Output Sheet Bugs" => "K",
+	"Plugin Bugs" => "L"
+);
+ 
 # Run the tracker search on SourceForge to retrieve the trackers closed in the period.
 my $url = "http://sourceforge.net/search/index.php?group_id=25576&" .
    "type_of_search=artifact&pmode=0&words=group_artifact_id%3A%28384719+" .
@@ -92,7 +108,7 @@ do {
 	
 	    elsif ( /<\/tr>/ && $trackerNum gt "") {
 	    	# End of tracker
-	    	push(@trackerLines, $trackerCat . "@@@<li>[ <a " .
+	    	push(@trackerLines, $trackerOrder{$trackerCat} . " " . $trackerCat . "@@@<li>[ <a " .
 	    		"href=\"http://sourceforge.net/support/tracker.php?aid=" . 
 	    		$trackerNum . "\">" . $trackerNum . "</a> ]	" . 
 	    		$trackerName . "<\/li>");
@@ -106,6 +122,7 @@ while($rowCountForPage > 0);
 open CHANGELOG, ">work/changelog.txt";
 @trackerLines = sort { $a cmp $b } @trackerLines;
 my $lastTracker = "";
+my $trackerTitle;
 foreach (@trackerLines) {
 	#Detect change in tracker type
 	my $currTracker = $_;
@@ -117,7 +134,9 @@ foreach (@trackerLines) {
     	}
     	
     	$firstTime = (0 == 1);
-    	print CHANGELOG "<h3>".$currTracker."</h3>\n\n<ul>\n";
+    	$trackerTitle = $currTracker;
+    	$trackerTitle =~ s/\w* //;
+    	print CHANGELOG "<h3>".$trackerTitle."</h3>\n\n<ul>\n";
 	}
 	#output tracker line
 	s/^[A-Za-z0-9 ]+@@@//;
