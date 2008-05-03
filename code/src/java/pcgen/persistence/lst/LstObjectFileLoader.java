@@ -588,15 +588,16 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			key = key.substring(nameStart + 1);
 		}
 
-		if (excludedObjects.contains(key))
-		{
-			return;
-		}
 		// get the actual object to modify
 		T object = getObjectKeyed(key);
 
 		if (object == null)
 		{
+			if (excludedObjects.contains(key))
+			{
+				return;
+			}
+
 			String message = PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
 				entry.getSource().getURI(), entry.getLineNumber(), key);
