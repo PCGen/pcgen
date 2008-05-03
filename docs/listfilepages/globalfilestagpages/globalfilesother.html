@@ -1352,11 +1352,6 @@
 			and its name, or &quot;key&quot;.</li>
 		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
 		<li>Copying a &quot;class&quot; requires that the object include the beginning <code>CLASS:</code> tag.</li>
-		<li>Warning! While it can be done copying a Class is not recommended, the reason being that while
-			the class lines are copied into a new class there remain tags in those lines which refer to the
-			original class by name. The effect of this is that you r new class will not inherit any class
-			abilities that reference the old class name, some of these include: Spellcasting, Favored Enemies
-			and other special abilities.</li>
 		<li>Tags following the <code>.COPY</code> line modify the new object in the same way the <code>.MOD</code>
 			tag modifies objects.</li>
 		<li>Any tags that follow the <code>.COPY</code> tag are added to the list of tags already in the object.</li>
@@ -1373,17 +1368,21 @@
 			</ul>
 		</li>
 	</ul>
+	<p class="sidebar1">Note: When copying a Class it is important to remember that while the class lines 
+		are copied into a new class, there remain tags in those lines which refer to the original class 
+		by name. The effect of this is that your new class will not inherit any class abilities that 
+		reference the old class name, e.g. Spellcasting, Favored Enemies, etc.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Human.COPY=Aboriginee</code></p>
-	<p class="indent3">Creates a new race called Aboriginee based on the Human race. (in a race.lst file)</p>
+	<p class="indent3">Creates a new race called Aboriginee based on the Human race.</p>
 	<p class="indent2"><code>Dagger.COPY=Hunting Knife</code></p>
-	<p class="indent3">Creates a new weapon called Hunting Knife based on the weapon Dagger. (in equipment.lst file)</p>
+	<p class="indent3">Creates a new weapon called Hunting Knife based on the weapon Dagger.</p>
 	<p class="indent2"><code>CLASS:Ranger.COPY=Woodsman</code></p>
-	<p class="indent3">Creates a new class called the Woodsman based on the Ranger class. (in class.lst, see warning above)</p>
+	<p class="indent3">Creates a new class called the Woodsman based on the Ranger class.</p>
 	<p class="indent2"><code>Skill Focus.COPY=Heighten Knowledge</code></p>
-	<p class="indent3">Creates a new feat called Heighten Knowledge based on the Skill Focus feat. (in feat.lst)</p>
+	<p class="indent3">Creates a new feat called Heighten Knowledge based on the Skill Focus feat.</p>
 	<p class="indent2"><code>CATEGORY=(foo)|(key).COPY</code></p>
-	<p class="indent3">The new syntax to be used to .COPY an ability.</p>
+	<p class="indent3">The new syntax to be used to <code>.COPY</code> an ability.</p>
 	<p></p>
 
 <hr>
@@ -1391,14 +1390,15 @@
 	<h2>The .CLEAR Tag</h2>
 
 	<p></p>
-	<p class="indent0"><strong><a name="CLEAR">Tag Name:</a></strong> &lt;tag&gt;.CLEAR.&lt;variable&gt;</p>
-	<p class="indent1"><strong>Variables Used: </strong>Text, Last field is the item to be cleared</p>
+	<p class="indent0"><strong><a name="CLEAR">Tag Name:</a></strong> x.CLEAR.y</p>
+	<p class="indent1"><strong>Variables Used (x): </strong>Text (Tag to be cleared)</p>
+	<p class="indent1"><strong>Variables Used (y): </strong>Text (Name of object being cleared, Optional))</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This tag is used in conjunction with the <code>.MOD</code> and <code>.COPY</code> tags and 
 			may not be used for "Run-Time" changes.</li>
 		<li>This tag is also useful in CLASS lines. See <a href="#SAB">SAB</a> tag documentation.</li>
-  		<li>Tags that can have multiple items (such as <code>TYPE</code>) and tags that can be used multiple
+  		<li>Tags that can have multiple items, such as <code>TYPE</code>, or tags that can be used multiple
   			times can be eliminated.</li>
   		<li>The <code>.CLEAR</code> syntax has not yet been standardized as many of the other tags have been
   			and there are at least 3 variations on how it can be used.</li>
@@ -1406,15 +1406,14 @@
  	<p class="sidebar1">Note: Although listed as global, <code>.CLEAR</code> will not work with all tags. 
  		Some experimentation may be required to see which usage is required with which tags.</p>
 	<p class="indent1"><strong>Syntax usage:</strong></p>
+	<p class="indent2"><code>TAG:.CLEAR</code></p>
+	<p class="indent3">This syntax clears all the values of the original object. This tag is followed by 
+		a second tag which sets the new values. It is important to note that PCGen works in a sequential 
+		manor and if the two tags order is swapped the new value will be cleared as well as the original 
+		values.</p>
 	<p class="indent2"><code>TAG:.CLEAR.&lt;Values to be cleared&gt;</code></p>
 	<p class="indent3">This syntax works with the <code>SAB</code> tag and the <code>CSKILL</code> tag, 
 		the items which follow the <code>.CLEAR.</code> are cleared.</p>
-	<p></p>
-	<p class="indent2"><code>TAG:.CLEAR</code></p>
-	<p class="indent3">This syntax clears all the values of the original object. This tag is follow it 
-		with a second tag which sets the new values. It is important to note that PCGen works in a 
-		sequential manor and if the two tags order is swapped the new value will be cleared as well as 
-		the original values.</p>
 	<p class="indent1"><strong>Work Arounds:</strong></p>
 	<p class="indent2"><code>.CLEAR</code> is not supported on the <code>CHOICE</code> tag, allowing the 
 		removal of the tag from the item. Two ways to do that are:
@@ -1428,30 +1427,31 @@
 	<p class="indent2"><code>1 &lt;tab&gt; SAB:Big Papa</code></p>
 	<p class="indent2"><code>2 &lt;tab&gt; SAB:Big Mama</code></p>
 	<p class="indent2"><code>3 &lt;tab&gt; SAB:.CLEAR.Big Papa &lt;tab&gt; SAB:Very Big Papa</code></p>
-	<p class="indent3">At level 3 <code>.CLEAR</code> is used to delete the special ability 'Big Papa' 
-		because it becomes redundant or unnecessary when the class gets the special ability 'Very Big Papa'. 
-		(in <span class="lstfile">class.lst</span>)</p>
+	<p class="indent3">At level 3 <code>.CLEAR</code> is used to delete the special ability 
+		<span class="lstobj">Big Papa</span> because it becomes redundant or unnecessary when 
+		the class gets the special ability <span class="lstobj">Very Big Papa</span>.</p>
 	<p class="indent2"><code>CLASS:Ranger.MOD &lt;tab&gt; CSKILL:.CLEAR.Animal Empathy</code></p>
-	<p class="indent3">Modifies the Ranger class by eliminating the Animal Empathy skill from its 
-		class skill list (in class.lst)</p>
+	<p class="indent3">Modifies the <span class="lstobj">Ranger</span> class by eliminating the 
+		<span class="lstobj">Animal Empathy</span> skill from its class skill list.</p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Dagger.COPY=Hunting Knife &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; 
 			TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Piercing.Slashing.Dagger</code></p>
 	</blockquote>
-	<p class="indent3">Creates a new weapon called Hunting Knife,
-		clears ALL the types from the new weapon and then adds back the desired types (in equipment.lst file),
-		Note that in this example tabs are represented with line breaks.<br></p>
+	<p class="indent3">Creates a new weapon called <span class="lstobj">Hunting Knife</span>,
+		clears ALL the types from the new weapon and then adds back the desired types.</p>
 	<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; 
 		SCHOOL:Lesser Conjuration</code></p>
 	<p class="indent3">Modifies the Acid Arrow spell by eliminating the original 
 		value of the <code>SCHOOL</code> tag and then sets the new value with a 
-		second <code>SCHOOL</code> tag (in <span class="lstfile">spell.lst</span>)</p>
-	<p class="indent1"><strong><span class=alpha>Deprecated syntax:</span></strong></p>
+		second <code>SCHOOL</code> tag.</p>
+	<p class="indent1"><strong>Deprecated syntax:</strong></p>
 	<p class="indent2"><code>TAG:.CLEAR.&lt;New values to be added&gt;</code></p>
 	<p class="indent3">This syntax clears ALL the values of the original object 
 		and then adds back any items which follow the <code>.CLEAR.</code> This 
 		should not be used. Instead use <code>TAG:.CLEAR</code> followed by a 
-		new tag to set the new values as shown above.<br></p>
+		new tag to set the new values as shown above.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">In conjunction with <code>.MOD</code> and <code>.COPY</code></p>
 	<p></p>
 
 <hr>
