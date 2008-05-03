@@ -1,0 +1,1021 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.14.0 RC1</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.14.0 RC1</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.14.0 RC1</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.14.0 RC1</a></li>
+			<li><a href="#ChangeLog514">Change Log for 5.14</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.14.0 RC1</a></h2>
+
+<p>PCGen v5.14.0 RC1 is the first release candidate for PCGen 5.14. It represents a product 
+we believe is ready for production use and which we would like your assistance in testing 
+out. In particular the PCGen team would appreciate your feedback on importing your 
+characters and data from earlier versions of PCGen.
+The highlights of the changes for PCGen 5.14 are listed below:
+</p>
+<b>Major Changes:</b>
+<ul>
+<li>User programmable preview tab</li>
+<li>Move point buy definitions to Custom data</li>
+<li>Data installer for easy installation of out of cycle data releases</li>
+<li>Add cover art, logos, publisher links and purchase links for many source books</li>
+<li>Extensive tidy-up of the LST syntax in preparation for future automatic migration </li>
+<li>Convert class and racial abilities to ability objects improving visibility and editability  
+</ul>
+
+<b>New Output Sheets:</b>
+<ul>
+<li>Graphical preview sheet.</li>
+<li>Preview sheet with rolling functionality</li>
+</ul>
+
+<b>New Sources:</b>
+<ul>
+<li>[AEG] Feats</li>
+<li>[Alea Publishing Group]Honor and Corruption</li>
+<li>[Bad Axe Games] Heroes of High Favor - Dwarves</li>
+<li>[BnG2] On The Ground</li>
+<li>[BP] Sherwood: Legend of Robin Hood</li>
+<li>[Paizo] Rise of the Runelords - Chapter 1</li>
+<li>[Paizo] Rise of the Runelords Player's Guide</li>
+<li>[RPG Objects] Darwin's World 2 - Survivors Guide</li>
+<li>[RPG Objects] Darwin's World 2 -Terrors of Twisted Earth</li>
+<li>[RPG Objects] Modern Dispatch #108 Teamwork Mechanics</li>
+<li>[RPG Objects] Modern Dispatch #115</li>
+<li>[Secular Games] Shadows of Shinobi</li>
+<li>[Silven Publishing] Curses!</li>
+<li>[TGM] Modern Magic Vol 1</li>
+<li>[Vigilance Press] Clash of Arms: Cavalry</li>
+</ul>
+
+<b>Documentation:</b>
+<ul>
+<li>Extensive updates to LST tag and output token documentation</li>
+<li>Updated walkthrough to reflect system changes</li>
+</ul>
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+For full details of the new changes in 5.14, see the <a href="#ChangeLog514">Change Log for PCGen 5.12</a> .
+
+</p>
+<p>James Dempsey for the PCGEN Team -- 4 May, 2008.</p>
+<ul>
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>We've been making some major changes behind the scenes to the way special 
+			abilities for characters are handled. The benefit is that it lets us 
+			model them more accurately, with fighter feats tracked separately to normal 
+			feats for example, and that we can output them more accurately on the character 
+			sheet or stat block. However there is a downside - this means that there is some 
+			migration required for some characters. For details of what you need to do, see 
+			the sections for the affected game modes below.</p>
+		<p>This revamp of abilities is something we would like your feedback on. So please have a play 
+			with them and send your thoughts to the <a href="http://groups.yahoo.com/group/pcgen">PCGen list</a>.</p>
+
+		<h3>Fantasy Character Changes</h3>
+
+		<p>When a pre-generated SRD (3rd ed) or RSRD (3.5 ed) ranger, archmage or high level rogue 
+			character is loaded, it will not recognize
+			the selected abilities anymore. For that reason one or more error
+			messages will be displayed at character load, which read: "Warning:
+			Unable to Find Ability: xxx", where xxx is the name of an ability that
+			the character had previously selected.</p>
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Write down the abilities that are mentioned in those error messages somewhere.</li>
+			<li>Go to the Feats tab and select the new "Class Abilities" subtab.</li>
+			<li>In the lower right corner of the Class Abilities tab you see a drop down
+				menu which reads "Rogue Special Abilities". Select the appropriate type of ability 
+				for one of the abilities that you have noted. The "remaining" field should now show a
+				positive number.</li>
+			<li>In the upper left field only abilities that belong to that group will
+				be displayed. Select your ability(s) for that group there.</li>
+			<li>Repeat for any abilities that were taken from another group.</li>
+		</ol>
+		
+		<h4>Monk Character Changes</h4>
+		
+		<p>The 3.5 Monk present a special problem. The Monk gets to choose specific bonus 
+		  feats at levels 1, 2 and 6 and the Monk can ignore the prerequisites of these 
+		  feats. As of version 5.14.0 RC1 these selections are made in the Feat tab but previously 
+		  they were selected from a pop up menu at level up. The problem is that these 
+		  feat selections are virtual feats (since the Monk ignores the prerequisites) 
+		  and there is no way to remove previous selections made for pre-existing characters 
+		  from within the program. There are two options for dealing with this issue: 
+		  You can simply ignore the new feature and retain the previous selections, or 
+		  you can edit the character file with a text editor and delete the selections 
+		  manually.  A character with levels of Monk will have a feat pool named &quot;Monk 
+		  Feat&quot; with 1, 2 or 3 points in it (if no selections have been made), previously 
+		  generated characters will still retain their selections and those can be seen 
+		  in the feats tab as virtual feats. If you do not wish to make changes you can 
+		  set the pool to 0 and simply ignore it. if you wish to delete the previous selections 
+		  so that you can choose them through the new feature you will need to manually 
+		  edit your characters .pcg file with a text editor, always do this to a copy 
+		  of the file in case a mistake is made.</p>
+		  
+		<p>To edit the Monk:</p>
+
+		<ol>
+		  <li>Open a copy of the character in a text editor.</li>
+		  <li>Scroll down and find the text <code># Character Abilities</code></li>
+		  <li>Under this header find the lines which start with: <code>ABILITY:FEAT|TYPE:VIRTUAL|CATEGORY:FEAT|KEY:</code></li>
+		  <li>After &quot;Key&quot; will be the name of the feat, there are only 
+			six options: Improved Grapple, Stunning Fist, Combat Reflexes, Deflect Arrows, 
+			Improved Disarm and Improved Trip. Delete these lines.</li>
+		  <li>Save the file and open in PCGen.</li>
+		  <li>Go to the Feat tab and make your selections for the Monk Feat pool, 
+			these selections will then appear in the general feat pool as virtual feats.</li>
+		  <li>Save the character.</li>
+		</ol>
+
+<h3>MSRD Character Changes</h3>
+
+		
+		<p>When a pre-generated modern character is loaded, it will not recognize previously 
+		   selected Talents, Wealth Rolls, Occupations and it's associated selections anymore. 
+		   For that reason one or more error messages will be displayed at character load, 
+		   which read: "Warning: Unable to Find Ability: xxx", where xxx is the name of 
+		   a Ability that the character had previously selected.</p>
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Write down the Abilities that are mentioned in the error messages.</li>
+			<li>The Occupation feature is activated via a template that is added when adding a level of any base class, 
+				to get this template applied to a pre-generated character you must add a level of a base class. 
+				You can add a level and then remove it as well as remove a level and add it back if you need to stay at the current level
+				(remember to write down your current experience point value before you level up so you can reset it when leveling back down). 
+				If you have more than one base class you will get a pop up chooser window for a template with choices like "FastSkills" or "SmartSkills", 
+				choose the template that corresponds to the class taken at level 1.</li>
+			<li>Go to the Feats tab and select the new "Background" subtab.</li>
+			<li>For most characters you will see an available "Pool" for Wealth and Occupation.</li>
+			<li>Select the Wealth Pool and choose a Wealth Roll.</li>
+			<li>Select the Occupation Pool and choose an Occupation.</li>
+			<li>Once an Occupation is chosen a new pool for that Occupations skill selections becomes available.</li>
+			<li>Some Occupations also grant a choice of Feats, these options can be found and selected in the "Feats" subtab.</li>
+			<li>Previously selected Occupation Feats will be in the main Feat Pool, see notes below on how to fix this.</li>
+			<li>Next select the new "Talents" subtab.</li>
+			<li>In the lower right corner of the Talents tab you see a drop down
+				menus which reads "Talents". Select a class that one of the talents
+				you have noted was taken from. The "remaining" field should now show a
+				positive number.</li>
+			<li>In the upper left field only Talents that belong to that class will
+				be displayed. Select your Talent(s) for that class there.</li>
+			<li>Repeat for any Talents that were taken from another class.</li>
+		</ol>
+		<p>The way that the Base classes bonus feats are handled has been changed as well. 
+			  Instead of a pop up appearing when the character is leveled up a new Feat Pool 
+			  is created on the Feats subtab from which those feats can be chosen. Pre-generated 
+			  characters will now have an empty pool for these feats even though they have 
+			  already previously been selected.</p>
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Determine which Feats in the standard Feat Pool were chosen as Bonus Feats or Occupation Feats.</li>
+			<li>Remove those Feats from the standard Pool and change the number in the Feats Remaining field to 0.</li>
+			<li>Select the Bonus Feat Pool and add your Feats back.</li>
+		</ol>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.14.0 RC1 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="#CustomDataSets">Custom Data Sets</a> section below before 
+			installing your new version of PCGen.</p>
+
+		<h3>Windows Users</h3>
+
+		<p>We recommend that you use the Windows installer.</p>
+
+		<h3>Mac Users</h3>
+
+		<p>We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+			This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+			handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+			the application window caused the program to crash at startup. At this point in time
+			the solution is to set the menu bar to appear in application menu.</p>
+
+		<p>Also new in this version is the configuration of the program, all the necessary
+			files are now included with the program package. You can still access the files
+			by right clicking the program and choosing <strong>Show Package Contents</strong>.
+			See the notes included in the installer DMG for all the details.</p>
+
+		<h3>Others (or advanced) users</h3>
+
+		<p>Pick the package with the features you want and unzip it. It is highly
+			recommended that you use a new directory for every new release. Once the
+			package is unzipped, see docs\index.html for the full documentation.</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_full.zip?download">pcgen5140RC1_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_partial.zip?download">pcgen5140RC1_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_win_install.exe?download">pcgen5140RC1_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle with Ed's nifty installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_mac_install.dmg?download">pcgen5140RC1_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5140RC1_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. Both of these need some 
+			attention when upgrading PCGen.</P>
+
+		<h3>Migrating Data Created in the LST Editor</h3>
+
+		<p>If, as is recommended, you install PCGen into a new directory each time you upgrade, 
+			you will need to copy over the data created using the LST Editors. To do this follow
+			these steps.</p>
+		<ol>
+			<li>Stop PCGen, if it is currently running. PCGen must not be 
+				running when you copy the files, as PCGen writes a new copy of these files on exit.</LI>
+			<li>Copy the data/customsources folder and all of its contents from your old PCGen install 
+				directory to the new install directory.</LI>
+			<li>Start the new version of PCGen and verify that your custom data is present.</LI>
+		</ol>
+		<p>If you install PCGen in the same directory as your previous install, your LST 
+			editor data will still be present in the new version.</p> 
+
+		<h3>Migrating Data Created using the my_dataset files</h3>
+
+		<p>PCGen ships with an example set of data files ready to go to create you own data. This 
+			is in the data/my_dataset folder. As the example files ship with PCGen, it is very important
+			to note that these can be overwritten by a new PCGen install if you have not renamed the 
+			data set and install the new version of PCGen in the same location as the old one.</p>
+		<p>As a result, we strongly recommend that when using the my_dataset example files, you create a 
+			copy in a new folder and work with that copy, rather than editing the example files directly.</p>
+		<p>If you install PCGen into a new directory each time you upgrade, 
+			you may need to copy over the data you have created. If you cannot see your custom data, simply copy 
+			over the folder with your custom data to the same location in the new PCGen install. The data should 
+			then be visible when you restart PCGen. </p>
+		<p>If you are installing PCGen into the same directory, backup your custom data first, then make sure it 
+			does not use the default my_dataset folder name. Once you are sure you data is safe, then proceed with 
+			the upgrade of PCGen.</p>
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.14.0 RC1</a></h2>
+
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911122">1911122</a> ]	Support PRExxx in VISION</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1924920">1924920</a> ]	SERVESAS Token - Skills and Races</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1948821">1948821</a> ]	Add SERVESAS token</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791290">1791290</a> ]	Preview Tab does not update for Spells under all conditions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846790">1846790</a> ]	[5.13.5] Gear-Ignore Cost applying to all</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882319">1882319</a> ]	Character sheet notes not saving in 5.12.1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1887880">1887880</a> ]	Abilities with duplicate names but unique keys not appearing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929411">1929411</a> ]	5.13.1 Substitution Level broken for ABILITY:*|VIRTUAL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929413">1929413</a> ]	5.13.1 Substitution Level broken for DEFINE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929424">1929424</a> ]	5.13.1 Substitution Level broken for DR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1933033">1933033</a> ]	Duplicate virtual ability causes character load to fail</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941055">1941055</a> ]	.MOD SOURCE display error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1949341">1949341</a> ]	SUBSTITUTIONLEVEL only getting last level line applied</li>
+
+</ul>
+
+
+		<h2><a name="ChangeLog514">Change Log for 5.14</a></h2>
+
+<h3>New Data Source Development</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1227901">1227901</a> ]	[RPG Objects] Darwin&#039;s World 2 - Survivors Guide</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1633758">1633758</a> ]	[TGM] Modern Magic Vol 1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1637314">1637314</a> ]	[Secular Games] Shadows of Shinobi</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660101">1660101</a> ]	[BnG2] On The Ground</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1666685">1666685</a> ]	[Bad Axe Games] Heroes of High Favor - Dwarves</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1688504">1688504</a> ]	[Vigilance Press] Clash of Arms: Cavalry</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696673">1696673</a> ]	[Alea Publishing Group]Honor and Corruption</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1697140">1697140</a> ]	[RPGO][MD] #108 Teamwork Mechanics</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1773533">1773533</a> ]	[Silven Publishing] Curses!</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1812291">1812291</a> ]	[AEG] Feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1841888">1841888</a> ]	[RPGO] Modern Dispatch #115</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1869742">1869742</a> ]	[BP] Sherwood: Legend of Robin Hood</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905557">1905557</a> ]	[Paizo] Rise of the Runelords - Chapter 1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905559">1905559</a> ]	[Paizo] Rise of the Runelords Player&#039;s Guide</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1914042">1914042</a> ]	[RPG Objects] Darwin&#039;s World 2 -Terrors of Twisted Earth</li>
+</ul>
+
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1098587">1098587</a> ]	SKILLMULTIPLIER to take jep</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1470112">1470112</a> ]	BONUS:MISC|CR|x</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1471354">1471354</a> ]	Remove/Override Nonabilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1612795">1612795</a> ]	Eliminate Hard Coding of Hit Dice</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1631983">1631983</a> ]	Deprecate CHOOSE (weapon)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1676983">1676983</a> ]	Handling Fighter bonus feats and other feat pools</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1690306">1690306</a> ]	Token Cleanup (CHOOSE)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1707366">1707366</a> ]	Resolve MOVE related tag order of operations</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1726449">1726449</a> ]	Wildcard &#039;*&#039; for PCC calling both Vendor and Data Folders</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754529">1754529</a> ]	Deprecate PRETYPE for PlayerCharacter</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1756983">1756983</a> ]	Output of JEP values in output sheet unintuitive</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757227">1757227</a> ]	Filter for RACETYPE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777049">1777049</a> ]	Please Implement - CONTAINS Magical Value Elimination</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777050">1777050</a> ]	Please Implement - Class CHOICE: Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777052">1777052</a> ]	Please Implement - Formal MOVECLONE change request</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783488">1783488</a> ]	Programmable Preview Tab</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783780">1783780</a> ]	[5.13] ADD:ABILITY doesn&#039;t support TYPE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1784493">1784493</a> ]	REPEATLEVEL in Class lines</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786942">1786942</a> ]	Syntax cleanup - KNOWNSPELLS:.CLEAR.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1789856">1789856</a> ]	SERVESAS Token - Classes and Abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1798233">1798233</a> ]	Implement - Eliminate Cross-Level Interactions in SA tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800290">1800290</a> ]	Please Implement - SPELLLIST Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800342">1800342</a> ]	Please Implement - FAVCLASS resolution</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800407">1800407</a> ]	Deprecate Eqmod CHOOSE:EQBUILDER|1 tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1809932">1809932</a> ]	Please Implement - Deprecate ADD:SPELLLEVEL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1809933">1809933</a> ]	Please Implement - CHOOSE tag revision EqMod &amp; Non-EqMod</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1809951">1809951</a> ]	Please Implement - CHOOSE:STRING|x,x</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810508">1810508</a> ]	Please Implement - PREHD Token Cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1814803">1814803</a> ]	UI Text Clean up request</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1816819">1816819</a> ]	Counting Ability Objects by TYPE and NAME</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1816986">1816986</a> ]	Add option to &quot;Max HP at first level&quot; for class levels only</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1831621">1831621</a> ]	Move point buy definitions to Custom data</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1834907">1834907</a> ]	Define ABILITYCATEGORIES in lst file</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1835442">1835442</a> ]	Please Implement - PRELEVEL token cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1838181">1838181</a> ]	Ability tab location Freq - select pool from header</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1838955">1838955</a> ]	Class using SUB or SUBSTITION Class not Base Class listed...</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1840130">1840130</a> ]	Please Implement - Deprecate ADDPROF tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1840800">1840800</a> ]	Subclass fix up - same as Substitution</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1844124">1844124</a> ]	PREPCLEVEL tag for prereqs of non monster class levels</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1847137">1847137</a> ]	Add PRExxx capability to SUBSTITUTIONLEVEL line</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1848370">1848370</a> ]	ADD:SAB to replace ADD:SA</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1849571">1849571</a> ]	New Class tag: ALLOWBASECLASS:x</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1850536">1850536</a> ]	DESC pcc tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1850537">1850537</a> ]	URL pcc tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1856120">1856120</a> ]	Please Implement - Equipment Prof Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1859541">1859541</a> ]	Data installer for out of cycle data releases</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882211">1882211</a> ]	Add support for .CLEAR in AUTO:FEAT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882272">1882272</a> ]	Deprecate CHOOSE:COUNT=</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882273">1882273</a> ]	Implement CHOOSE:SELECT=</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883202">1883202</a> ]	Add SHIELDPROF and ARMORPROF LST files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883216">1883216</a> ]	New pcc tag: LOGO</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883254">1883254</a> ]	Deprecation Messages do not include File</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1886721">1886721</a> ]	Spell Chooser [Discussed on _exp]</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1889954">1889954</a> ]	Show Prerequisites for skills in GUI</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1889962">1889962</a> ]	Add support for .CLEAR in global ABILITY tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1891321">1891321</a> ]	Remove Save DCs for spells with no save</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1893274">1893274</a> ]	Add &quot;Choice&quot; column to cost and prohibited subclass chooser</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1894301">1894301</a> ]	Alter build to distribute identical Output Sheets</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1898420">1898420</a> ]	Deprecate CompanionMod SWITCHRACE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1899268">1899268</a> ]	Internal Spellbook type for Innate Spells</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900267">1900267</a> ]	SPELLS tag time unit enhancements</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901191">1901191</a> ]	Make At Will in SPELLS unambiguous</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1904978">1904978</a> ]	Deprecate .A in CHOOSE:SPELLLEVEL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909637">1909637</a> ]	Remove LANGAUTO from Kit file type</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911083">1911083</a> ]	Add Initial support for flexible SpellPoints</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1918253">1918253</a> ]	Rename the Feat tab to &quot;Feats &amp; Abilities&quot;</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1924920">1924920</a> ]	SERVESAS Token - Skills and Races</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=953153">953153</a> ]	New PCGen icon!</li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1081066">1081066</a> ]	Ability Object: Removing fighter bonus feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1246760">1246760</a> ]	[Malhavoc] If Thoughts Could Kill, review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411302">1411302</a> ]	lighting or illumination category</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1730267">1730267</a> ]	Break out Inspire Courage Attack and Damage abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1742698">1742698</a> ]	move COST and WEIGHT on EQMOD items</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1749677">1749677</a> ]	[5.13] Convert FEATAUTO: to AUTO:FEAT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1750552">1750552</a> ]	Add Sheath to PCGen OGC</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757672">1757672</a> ]	[MSRD] Move Talents to Ability</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1757673">1757673</a> ]	[MSRD] Move Occupations to ABILITY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1760642">1760642</a> ]	[MSRD] Make Vehicles Containers</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763417">1763417</a> ]	Complete 5.14 Source Load Test</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1774608">1774608</a> ]	Replace use of deprecated cl() function</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777281">1777281</a> ]	CONTAINS Unlimited Weight is UNLIM, not -1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777355">1777355</a> ]	Convert CHOICE to have type</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1778047">1778047</a> ]	Eliminate 4 argument MOVECLONE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1778601">1778601</a> ]	[RSRD] Expand Weaponprof Types</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1787972">1787972</a> ]	[Battlefield]Pulp Fantasy - Talents to Abilities conversion</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1788148">1788148</a> ]	Remove deprecated ISD20 tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1788624">1788624</a> ]	[SwordsEdgePublishing] Roles&amp;Classes Ability conversion</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804783">1804783</a> ]	Deprecate CHOOSE:EQBUILDER|1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804784">1804784</a> ]	Deprecate SA: replace with SAB:</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804787">1804787</a> ]	SPELLLIST Syntax Change for Domains</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804813">1804813</a> ]	REPEATLEVEL must be attached to level</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1805246">1805246</a> ]	[R/SRD] Fighter Feat Pool using ABILITYPOOL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1805969">1805969</a> ]	[R/SRD] Wizard feats using Ability Pool</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1813374">1813374</a> ]	[R/SRD] Favored Enemy, Rogue abilities to ABILITY objects</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1816099">1816099</a> ]	[R/SRD] Convert Prestige Classes to use Ability object</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1833804">1833804</a> ]	Please Implement - PREHD Token Cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1835342">1835342</a> ]	AEG Conversion datasets: 3.0 sourcebooks to 3.5</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1835829">1835829</a> ]	Please Implement - PRELEVEL Cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1836195">1836195</a> ]	[Dawnforge] Talents &amp; Transformations to Abililtes</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1836901">1836901</a> ]	Create Kits to replace the PREDEFAULTMONSTER stuff.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1841961">1841961</a> ]	HD in template convert to PREHD syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1842542">1842542</a> ]	Rename Default Kits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1843578">1843578</a> ]	[Bastion Press]Move datasets to DragonWing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1844598">1844598</a> ]	Subclass fix up - same as Substitution</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1845003">1845003</a> ]	[MSRD] Move Mutation Ability Cat definition to pcc</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1845620">1845620</a> ]	Implement DIESIZES in miscinfo</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1847124">1847124</a> ]	Convert PRELEVELMAX:x tags to PREPCLEVEL:MAX=x</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1851530">1851530</a> ]	Refactor BONUS:HD tags to HITDIE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860752">1860752</a> ]	Awakened tree (3.5)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1862325">1862325</a> ]	[Mongoose]  Fey Magic - review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1863763">1863763</a> ]	[EN Publishing] Secrets of Theurgy - review for d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864700">1864700</a> ]	PROFICIENCY: Token requires subtoken WEAPON</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864705">1864705</a> ]	AUTO:ARMORPROF|TYPE=x is deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864708">1864708</a> ]	Convert ADD:SA to ADD:SAB</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1867373">1867373</a> ]	Celestial and Fiendish vermin get an Intelligence score of 3</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870111">1870111</a> ]	FAVCLASS/FAVOREDCLASS updates</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870481">1870481</a> ]	AUTO: token changes</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870823">1870823</a> ]	CHOOSE: Cleanup (EqMod)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1873119">1873119</a> ]	[RSRD] Hydra veriants (Cryo and Pyro) missing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1877459">1877459</a> ]	Psychic Warrior Bonus Feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1877638">1877638</a> ]	Implement SELECT:x  &lt;tab&gt;  CHOOSE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1880549">1880549</a> ]	PROFICIENCY: Token requires subtoken SHIELD, ARMOR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1881456">1881456</a> ]	[All] Move Core ABILITYCATEGORY from GameMode to data</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882845">1882845</a> ]	[RSRD] Ranger Combat path to Ability Object</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885521">1885521</a> ]	[MSRD] Problems with Languages</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885532">1885532</a> ]	[MSRD] Base class bonus feats to Ability pool</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885542">1885542</a> ]	[MSRD] Move Wealth Roll feats to Ability Objects</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888295">1888295</a> ]	CHOOSE:COUNT= is deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1897476">1897476</a> ]	Standardize SPELLS spellbook name usage</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900704">1900704</a> ]	[RSRD] Missing Artifacts</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1902374">1902374</a> ]	[ALL] Update SPELLS tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905329">1905329</a> ]	Convert Turn Undead feature to Ability Objects</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905412">1905412</a> ]	[RSRD] Bard Inspire Greatness and Heroics Temporary Bonus</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1908746">1908746</a> ]	[Badaxe]Add cover art, logos, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1908804">1908804</a> ]	[BP]Add cover art, logos, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1908824">1908824</a> ]	[B&amp;S]Add Cover Art, Logos, and Hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909014">1909014</a> ]	[BDG]Add Cover Art, Logos, and Hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911603">1911603</a> ]	PREAGESET syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911604">1911604</a> ]	PRERULE syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911605">1911605</a> ]	PREPOINTBUYMETHOD syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911610">1911610</a> ]	PRETYPE syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911611">1911611</a> ]	PRETEMPLATE syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1912184">1912184</a> ]	PRECLASS syntax update</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1912324">1912324</a> ]	Deprecate PREAGESET using numbers</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1913265">1913265</a> ]	[RSRD] Convert Epic class bonus feats to Ability pools</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1917475">1917475</a> ]	[Crafty]Add cover art, logos, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1919065">1919065</a> ]	[AEG]Add cover art. logos, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1921543">1921543</a> ]	[DragonWing]Add cover art, logos, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1922159">1922159</a> ]	[EN Publishing]Add cover art, logos, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1924816">1924816</a> ]	Add contional skill for Dwarven Stonecunning</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1925720">1925720</a> ]	House Rule to display conditional skills</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1925750">1925750</a> ]	[Mongoose]Add cover art, logos, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1926549">1926549</a> ]	[RSRD] Convert Monk bonus feats to Ability Objects</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929131">1929131</a> ]	[Paizo] Rise of the Runelords - NPC Kits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929157">1929157</a> ]	[Beta] Full data load testing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1932697">1932697</a> ]	[Goodman Games] Dread Crypt of Srihoz: review/move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934614">1934614</a> ]	[BFG]Add cover, logo, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1936859">1936859</a> ]	[PEGINC]Add cover art, logo, and hyperlinks</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941830">1941830</a> ]	KEYs missing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941839">1941839</a> ]	No , in Dragonstar equipment files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941840">1941840</a> ]	Update BONUS:DAMAGE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941861">1941861</a> ]	[RPGO/Darwins World/1e] Update &#039;,&#039; in several files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1944583">1944583</a> ]	Add choosers to Spell Like Ability monster feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=798016">798016</a> ]	[Data Dependent] D20 Modern - Restart character levelling</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1273259">1273259</a> ]	Linux command line documentation</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1359026">1359026</a> ]	[Data File Tag Pages] Document various PRExxx tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411275">1411275</a> ]	[Data File Tag Pages] SKILLMULTIPLIER to take jep</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411279">1411279</a> ]	[Data File Tag Pages] STARTSKILLPTS to take JEP</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1673312">1673312</a> ]	Document JEP usage in IIF and OIF tokens</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1688378">1688378</a> ]	Document NPC Generator and related files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1721323">1721323</a> ]	Clean up the Global KEY Tag File</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1725989">1725989</a> ]	Various questions about MODding</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1728181">1728181</a> ]	64 bit Systems and PCGen</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1749679">1749679</a> ]	[5.13] FEATAUTO &amp; AUTO:FEAT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1752603">1752603</a> ]	Document Treasure Generator</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1753005">1753005</a> ]	Clarify .MOD for ABILITY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754358">1754358</a> ]	Add DESC functionality to BENEFIT tag for Abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754361">1754361</a> ]	Added a new variable %FEAT to the Description tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754371">1754371</a> ]	Added .CLEAR support to RACESUBTYPE.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1754380">1754380</a> ]	Add LENGTH, REPLACE and REPLACEALL to TEXT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1756984">1756984</a> ]	ABILITY on the Output Sheet - count[]</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1758675">1758675</a> ]	Documentation HTML Standards Compliance Review</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1760644">1760644</a> ]	Using .MOD in an equipmod</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1761725">1761725</a> ]	Combine Publisher Permissions and Sources Pages</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764858">1764858</a> ]	Please define LIST and %LIST usage.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1769443">1769443</a> ]	Review TYPE descriptions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1774437">1774437</a> ]	JEP cl() deprecated use classlevel()</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777280">1777280</a> ]	CONTAINS Unlimited Weight is UNLIM, not -1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777354">1777354</a> ]	Convert CHOICE to have type</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1778053">1778053</a> ]	MOVECLONE 4 arg version is deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783632">1783632</a> ]	Update LEVEL to include ABILITY and new info</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1789842">1789842</a> ]	Add Rules Implementation Section</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1793599">1793599</a> ]	Add a sample gamemode set called &#039;My_Gamemode&#039;</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800415">1800415</a> ]	Document new ABILITYCATEGORY tag DISPLAYLOCATION</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800416">1800416</a> ]	Document new ABILITYCATEGORY VISIBLE tag extension</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800674">1800674</a> ]	Document new Character Sheet Tab</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804785">1804785</a> ]	Deprecate SA: replace with SAB:</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804788">1804788</a> ]	SPELLLIST Syntax Change for Domains</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804812">1804812</a> ]	REPEATLEVEL must be attached to level</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1812271">1812271</a> ]	Clarification of CATEGORY in Ability category entries</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1832193">1832193</a> ]	Document CHOOSE:STRING</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1832931">1832931</a> ]	Deprecate ADD:SPELLLEVEL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1833802">1833802</a> ]	Please Implement - PREHD Token Cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1835395">1835395</a> ]	Add ABILITYCATEGORY tag to PCC docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1835946">1835946</a> ]	REMOVE:FEAT Cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1835954">1835954</a> ]	PRELEVEL Token Cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1837202">1837202</a> ]	Document count() correctly for ABILITIES</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1837242">1837242</a> ]	[TGM] Change Publisher Review Requirement</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1837247">1837247</a> ]	[Alea Publishing] Add Honor and Corruption to  Source list.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1837258">1837258</a> ]	[RPGO] Add BnG2, On the Ground to the  Source List</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1837405">1837405</a> ]	[Secular Games] Add Shadows of Shinobi to the Source Lists</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1837963">1837963</a> ]	[Secular Games] Add Winter Elves to the Sources List</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1838116">1838116</a> ]	[RPGO] Add MD #108 Team Mechanics to the Source List</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1839172">1839172</a> ]	NAV List to CHOOSE:STRING</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1842463">1842463</a> ]	ABILITY takes PRE tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1842758">1842758</a> ]	Document count(&quot;NAME=&lt;ability name&gt;&quot;) for counting multiples</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1844993">1844993</a> ]	Move TYPE entries to a Global TYPE page</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1844995">1844995</a> ]	Add BONUS TYPEs to the Global BONUS Page</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1845633">1845633</a> ]	Implement DIESIZES in miscinfo</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846183">1846183</a> ]	Document BONUS:MISC|CR|x</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846287">1846287</a> ]	PREPCLEVEL tag for prereqs of non monster class levels</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846587">1846587</a> ]	Please Document - DEFINE:UNLOCK.x</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846621">1846621</a> ]	Update screenshots and walkthrough for 5.14</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1851927">1851927</a> ]	DEITYWEAP:ANY is valid</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1859544">1859544</a> ]	Docuemnt new Data Installer Tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860320">1860320</a> ]	[AEG] Feats.  Add to Source List</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860779">1860779</a> ]	[Silven] Curses!, Add to Source List</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864701">1864701</a> ]	PROFICIENCY: requires a subtoken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864703">1864703</a> ]	AUTO:ARMORPROF|TYPE= is deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864709">1864709</a> ]	Convert ADD:SA to ADD:SAB</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1869962">1869962</a> ]	Add Clash of Arms:Cavalry to Pub &amp; Source Page</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870114">1870114</a> ]	FAVCLASS/FAVOREDCLASS updates</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870483">1870483</a> ]	AUTO:SHIELFPROF changes</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870824">1870824</a> ]	EqMod CHOOSE Changes</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1875909">1875909</a> ]	Add [BP] Sherwood to the Pubs and Sources page</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1876925">1876925</a> ]	Update the Global KEY Tag File</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1881560">1881560</a> ]	Add DESC Tag to PCC Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1881562">1881562</a> ]	Add URL Tag to PCC Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883417">1883417</a> ]	Add LOGO tag to the Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885026">1885026</a> ]	Valid EqMod CHOOSEs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1886723">1886723</a> ]	Add basic CHOOSE:SPELLS tag to docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1887442">1887442</a> ]	CHOOSE: items deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888289">1888289</a> ]	SELECT: Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888291">1888291</a> ]	CHOOSE:COUNT= is deprecated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888526">1888526</a> ]	CHOOSE:NUMCHOICES description</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1889945">1889945</a> ]	.MOD/.COPY/.FORGET Abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1890167">1890167</a> ]	Clarify NavListIndex entries for .MOD, .COPY, and .FORGET </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1892292">1892292</a> ]	ABILITY: token supports .CLEAR/.CLEAR.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1897478">1897478</a> ]	SPELLS spellbook name usage Standards</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1899747">1899747</a> ]	QUALIFY:ABILITY is not documented</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1902091">1902091</a> ]	Document SPELLS tag time unit enhancements</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905478">1905478</a> ]	Deprecate .A in &quot;maximum&quot; spell limit for CHOOSE:SPELLLEVEL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905480">1905480</a> ]	Deprecate CompanionMod SWITCHRACE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905792">1905792</a> ]	REMOVE:FEAT now valid in Abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1907217">1907217</a> ]	Document Logging Levels</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909640">1909640</a> ]	Remove LANGAUTO from Kit tag page</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911593">1911593</a> ]	PRETEMPLATE syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911594">1911594</a> ]	PRERULE syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911602">1911602</a> ]	PREAGESET syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1911606">1911606</a> ]	PREPOINTBUYMETHOD syntax change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1912323">1912323</a> ]	Deprecate PREAGESET using numbers</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1925459">1925459</a> ]	Add SHIELDPROF and ARMORPROF LST file Docs (incl. pcc tags)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1926271">1926271</a> ]	Add note to NATURALATTACKS</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934657">1934657</a> ]	Add Darwin&#039;s World 2 - Survivors Guide to the P&amp;S page</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1938400">1938400</a> ]	DR can take PRE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1939521">1939521</a> ]	Add ALLOWBASECLASS tag to Class File Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1940360">1940360</a> ]	Add note on SELECT to CHOOSE tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941485">1941485</a> ]	count() can use [or] &amp; [and] between parameters</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1948821">1948821</a> ]	Add SERVESAS token</li>
+</ul>
+
+<h3>Output Sheet Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1781901">1781901</a> ]	Please Implement - Illumination Categories</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1807828">1807828</a> ]	Graphic based Character Sheet</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1821039">1821039</a> ]	Preview.html javascript roll function enhancements</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1821462">1821462</a> ]	Split javascript out into separate files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1824152">1824152</a> ]	[HTML] New blocks for Special Attacks &amp; Special Qualities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1897482">1897482</a> ]	[HTML] Update Spell-like Ability output blocks</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1212173">1212173</a> ]	Print Error - Entity name must immediately follow the &amp;...</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1275620">1275620</a> ]	Domains feat selector charges feat pool</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1734821">1734821</a> ]	PRE Req Feat sorting not well defined</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1740281">1740281</a> ]	Race SKILLMULT interation with game mode SKILLMULTIPLIER</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1745890">1745890</a> ]	Occasional No Skill Selected. Try Again error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1748175">1748175</a> ]	ADD.Grapple silently ignored in CHOOSE:WEAPONPROFS</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1748840">1748840</a> ]	[5.10.1] No Gear to purchase on Inventory/Gear tab</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1752485">1752485</a> ]	Better Error message for incorrect Ability .MOD</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772054">1772054</a> ]	Scroll with Multiple Spells .CLEAR issues</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772344">1772344</a> ]	Date modified shows file type instead</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1773969">1773969</a> ]	in_ieExportEqOverwriteFileConfirmDesc not defined</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1774440">1774440</a> ]	cl() deprecation message error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1776390">1776390</a> ]	.MOD with weapon Profs renames the Proficiency</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1778126">1778126</a> ]	Categorized Objects (Abilities) unconditionally overwrite</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1782465">1782465</a> ]	VFEAT tags ignored</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783781">1783781</a> ]	ADD:ABILITY in template gives two pop-ups</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783783">1783783</a> ]	ABILITY:NonFeatCategory|NORMAL|FeatName not working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1785709">1785709</a> ]	SOURCE Corrupted with some combination of multiple sources</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786935">1786935</a> ]	LEVELSPERFEAT issue and bug with Default Monsters</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786946">1786946</a> ]	5.13.1 Substitution Level broken for ABILITY:FEAT and SAB</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786965">1786965</a> ]	Debug not going to debug console</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1787102">1787102</a> ]	Skill Mod Breakdown Incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1788307">1788307</a> ]	PREVARLT tag is broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1790746">1790746</a> ]	AUTO: must take multiple versions of each Subtoken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791283">1791283</a> ]	UDAM does not respect level identifier</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791290">1791290</a> ]	Preview Tab does not update for Spells under all conditions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1796835">1796835</a> ]	PREABILITY doesn&#039;t match category</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800720">1800720</a> ]	ADD:LANGUAGE|ALL broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1800900">1800900</a> ]	ADD:ABILITY - Not working with ABILITYCATEGORY, Just CATEGOR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802347">1802347</a> ]	PRESA: Can&#039;t Count Properly</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802349">1802349</a> ]	LEVEL: doesn&#039;t support any Template Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802350">1802350</a> ]	LEVEL:.CLEAR doesn&#039;t work</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802352">1802352</a> ]	PRESA: ignores PRExxx tokens on SAs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1803941">1803941</a> ]	Selecting Description tab clears Summary Class selection</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810555">1810555</a> ]	CHOOSE:SKILLSNAMEDTOCSKILL| not working as expected</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810564">1810564</a> ]	USEUNTRAINED not working &gt;Exclusive to Cross-Class</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1811224">1811224</a> ]	Template Bug - incrementClassLevel() not passing bypass flag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1813058">1813058</a> ]	Abilities Excluded from Calculations</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1820364">1820364</a> ]	AbilityAllListToken has FEAT hard coded</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1823848">1823848</a> ]	BONUSSPELLSTAT:NONE prevents display of spells known</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1827149">1827149</a> ]	Gear in Kits not correctly added to containers</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1828057">1828057</a> ]	Ability object - AUTO vs Normal behavior</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1829360">1829360</a> ]	AUTO:FEAT|.CLEAR.Summon Familiar</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1833209">1833209</a> ]	Mystery error messages</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1836464">1836464</a> ]	CHOOSE:NOCHOICE feats can be selected after failing PRE tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1836470">1836470</a> ]	Feat benefits from same feat in different pool not stacking</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1839176">1839176</a> ]	SPELLLIST not supporting DOMAINS</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1841843">1841843</a> ]	Error translating HD in template to PREHD</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846790">1846790</a> ]	[5.13.5] Gear-Ignore Cost applying to all</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1850583">1850583</a> ]	Defined Vars based upon another Var failing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1851519">1851519</a> ]	HITDIE template tag issues</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1866505">1866505</a> ]	CHOOSE:USERINPUT error message</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1869020">1869020</a> ]	Fix Messaging on Deprecated Special Cases</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1874314">1874314</a> ]	NUMCHOICES Bug</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1875191">1875191</a> ]	[5.13.7] ADD:FEAT not working properly inside a feat</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1878344">1878344</a> ]	CHOOSE:EQUIPMENT should be a valid subtoken in EqMods </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1878424">1878424</a> ]	SAB does not support %CHOICE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1881970">1881970</a> ]	Temperamental ability pool selection menu</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882119">1882119</a> ]	AUTO:SHIELDPROF not working as designed</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882319">1882319</a> ]	Character sheet notes not saving in 5.12.1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1883253">1883253</a> ]	Deprecation Messages should appear in load dialog</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885030">1885030</a> ]	MSRD Educated Feat can&#039;t be removed</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885033">1885033</a> ]	Ability pool visibility</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1886536">1886536</a> ]	CHOOSE: isn&#039;t properly charging Ability Pools</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1887156">1887156</a> ]	PREABILITY not working with BONUSes</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1887880">1887880</a> ]	Abilities with duplicate names but unique keys not appearing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1888987">1888987</a> ]	SELECT changing the number of feats taken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1891981">1891981</a> ]	Item Customizer allows 0 choices</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1899975">1899975</a> ]	Ability Info Pane title does not switch when changing pools</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901161">1901161</a> ]	PRESPELLTYPE Works in certain conditions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901271">1901271</a> ]	Metamagic Feat from Ability Pool not working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901819">1901819</a> ]	PREHD: no longer fully supported for write</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1902744">1902744</a> ]	CHOOSE:FEAT broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1902784">1902784</a> ]	SPELLLISTDC.x.y OS token broke</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1903158">1903158</a> ]	CHOOSE:NONCLASSSKILLLIST broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1903627">1903627</a> ]	Startup Error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1903632">1903632</a> ]	Closing a Chooser causes Feat Miscount</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1904138">1904138</a> ]	KNOWNSPELLSFROMSPECIALTY  broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905484">1905484</a> ]	Language File distinguishes by TYPE and KEY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905790">1905790</a> ]	REMOVE:FEAT adds to pool</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1906000">1906000</a> ]	Armor Profs are not unloaded on &quot;Unload All&quot;</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1906002">1906002</a> ]	PREABILITY cannot unparse CATEGORY=ANY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1906168">1906168</a> ]	BONUS:ABILITYPOOL and Feat Pool buggy</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1906692">1906692</a> ]	PREAGESET cannot be written</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1907166">1907166</a> ]	ABILITY kit tag pool use broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1907789">1907789</a> ]	Should not return null (&#039;&#039;) for unfound tokens</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1907868">1907868</a> ]	Row index out of range when removing an ability</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1908111">1908111</a> ]	skillinfo(&quot;TOTALRANKS&quot;, &quot;y&quot;) and var(&quot;SKILLRANK=x&quot;) wrong</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909249">1909249</a> ]	PRESHIELDPROF Assumes count = 1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909251">1909251</a> ]	PREWEAPONPROF assumes count=1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909831">1909831</a> ]	PREAMOR* assumes 1,</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909833">1909833</a> ]	PREITEM assumes 1,</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909834">1909834</a> ]	PREEQUIP*  assumes 1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910457">1910457</a> ]	Pcgen does not load options before plugins</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910596">1910596</a> ]	CHOOSE:SPELLLEVEL doesn&#039;t apply BONUS</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910620">1910620</a> ]	Pcgen throws null pointer on feat tab</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910744">1910744</a> ]	Kit tag ABILITY:PROMPT not working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1913228">1913228</a> ]	PREARMORPROF &amp; PRESHIELDPROF broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1913756">1913756</a> ]	Install.lst is case sensitive</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1914584">1914584</a> ]	Feat Info pane does not display Type</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1916479">1916479</a> ]	(VAR.count(&quot;ABILITIES&quot;,&quot;CATEGORY=Spell Lists&quot;)+1)/2 fails</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1917971">1917971</a> ]	fractional CR are not represented properly in PCGen</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1923243">1923243</a> ]	Level tab while creating a new class not saving</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1926308">1926308</a> ]	CHOOSE:SPELLS|SPELLTYPE not filtering</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1927473">1927473</a> ]	NPE using PROHIBITSPELL incorrectly</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929214">1929214</a> ]	Failure to satisfy spell slot using higher-level spell slot</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929411">1929411</a> ]	5.13.1 Substitution Level broken for ABILITY:*|VIRTUAL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929413">1929413</a> ]	5.13.1 Substitution Level broken for DEFINE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929424">1929424</a> ]	5.13.1 Substitution Level broken for DR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930969">1930969</a> ]	Filepath cannot handle &#039; character for loading image files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1931945">1931945</a> ]	BONUSFEATLEVELSTARTINTERVAL broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1932563">1932563</a> ]	CR calculations broke</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1933033">1933033</a> ]	Duplicate virtual ability causes character load to fail</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934562">1934562</a> ]	CHOOSE:NUMCHOICES=x|NOCHOICE not working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1937506">1937506</a> ]	Scribe Scroll error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1938396">1938396</a> ]	HD triggering message about PREHD</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1938485">1938485</a> ]	Charges not saving properly?</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1940161">1940161</a> ]	ADD:ABILITY not saved with PC</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1940639">1940639</a> ]	Load of Character Ability Fails</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941055">1941055</a> ]	.MOD SOURCE display error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941188">1941188</a> ]	BONUS cannot take %LIST in value section</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941810">1941810</a> ]	Gamemode files with extra ws not read in properly</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1945460">1945460</a> ]	Option for buying 15 malformed</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1945506">1945506</a> ]	SkillPanel throwing NPE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1947360">1947360</a> ]	Item Customizer does not allow Weight of less than 1lb</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1947690">1947690</a> ]	Create New NPC does not produce hourglass</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1949341">1949341</a> ]	SUBSTITUTIONLEVEL only getting last level line applied</li>
+</ul>
+
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1473613">1473613</a> ]	[All] Remove deprecated Default Monster tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1564330">1564330</a> ]	[SRD] Review races and remove unnecessary Skill bonuses</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763382">1763382</a> ]	[SRD] Mace (Light) / (Heavy) proficiency issues</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764116">1764116</a> ]	[RSRD] Feat CHOOSE typos</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764119">1764119</a> ]	[RSRD] Equipment uses incorrect CHOOSE syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764125">1764125</a> ]	[RSRD] Epic feat uses CHOOSE:DOMAIN incorrectly</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772816">1772816</a> ]	[RSRD] Derro and Babau don&#039;t use Sneak Attack mechanic right</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777004">1777004</a> ]	[Avalanche Press] Black Flags - WEAPONPROF wrong TYPE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777008">1777008</a> ]	[Battlefieldpress] Incorrect use of &#039;-&#039; in Proficiency name</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777072">1777072</a> ]	[Battlefield Press] Cityscape - remove srd weaponprofs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1779151">1779151</a> ]	Neiyar - Missing link to EQMOD in .pcc</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1779155">1779155</a> ]	[FantasyFlight] Midnight - missing link in .pcc</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1779163">1779163</a> ]	[Battlefield Press] Pulp Fantasy - Rocket Rangers miss file</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1781563">1781563</a> ]	[Bloodstone] 22talenttrees TYPE Error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1782396">1782396</a> ]	[SRD] Duplicate Summon Familiar Feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1784343">1784343</a> ]	Incorrect calculation for Dwarven Defender DR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786075">1786075</a> ]	[RSRD] Monk Fast Movement needs Enhancement TYPE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786795">1786795</a> ]	[SRD] Checkin 3915 has bad BONUS</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786939">1786939</a> ]	Incorporeal Template Attack Bonus - Doubles Ranged</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1787323">1787323</a> ]	Powerful Build isn&#039;t modifying Grapple</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1790750">1790750</a> ]	Mace (light) not finessable in 5.12 (SRD) </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791271">1791271</a> ]	[Alpha] CHOOSE in EqMod is invalid</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791274">1791274</a> ]	[Alpha] CHOOSE EqMod is Invalid</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791325">1791325</a> ]	[KIT]Snake (Viper/Small) incorrect skillpoints</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1791339">1791339</a> ]	[RSRD]Dire Bat missing Blindsense</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804566">1804566</a> ]	[RSRD] Basics refers to Epic</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1804580">1804580</a> ]	[MODERN] AC not calculating correctly</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810565">1810565</a> ]	Awakened Template doesn&#039;t work properly with &#039;Animal (Will)&#039;</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1810914">1810914</a> ]	Reconfigure SA:.CLEAR. cross level interactions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1814604">1814604</a> ]	[AEG] Wrong tag used.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1828084">1828084</a> ]	Energy Substitution NEEDS CHOOSE tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1839185">1839185</a> ]	itck_feats_35e.lst has tag error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1841848">1841848</a> ]	Invalid CHOOSE:DOMAIN in Spontaneous Domain Access</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846334">1846334</a> ]	[rsrd][srd] pack saddle missing Contains tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1857687">1857687</a> ]	mithral heavy shield has AC of 1 instead of 2</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1863358">1863358</a> ]	[rsrd] Non-melee thrown weapon don&#039;t qualify for Eqmods</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1864573">1864573</a> ]	[eldritch sorcery] typo in master aclhemist feat</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1867372">1867372</a> ]	Zombie and Skeleton AC and DR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1871643">1871643</a> ]	RSRD Typo</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1871707">1871707</a> ]	rsrd_spells_monster.lst missing from many rsrd datasets</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1872408">1872408</a> ]	SRD Feat Typo</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1872410">1872410</a> ]	SRD Monk Fast Movement Typo</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1872459">1872459</a> ]	[MSRD] Missing Weapon Profs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1872480">1872480</a> ]	[ALL] CHOOSE:SPELLLIST syntax usage</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1873151">1873151</a> ]	[RSRD] Rogue Extra Feat Class Ability not granted</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1875607">1875607</a> ]	[RSRD] Ex Paladin class does not have a CSKILL tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1877550">1877550</a> ]	[Shadows of Shinobi] LST error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1879374">1879374</a> ]	Invalid use of ADD: (FAVOREDCLASS)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1879878">1879878</a> ]	[Sidewinder] Update MSRD Ability dependancies</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1880159">1880159</a> ]	[Dark Inheritance] Update MSRD Ability dependancies</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1880163">1880163</a> ]	[Pulp Fantasy] hidden feats with brackets in name</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1882719">1882719</a> ]	[RSRD] Glory domain bonuses wrong VAR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885298">1885298</a> ]	[rsrd] recode requirements on Eldritch Knight</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1891703">1891703</a> ]	[SRD] Shards have CHOOSE:SKILLS in Equipment</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1898092">1898092</a> ]	[RSRD][5.13.9] Wizard missing Scribe Scroll</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900080">1900080</a> ]	[RSRD] KIT Equipment files reference unbuilt Equipment</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900081">1900081</a> ]	[RSRD] Kit files reference non-existant Kits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900101">1900101</a> ]	Kit LEVELABILITY tag with missing ADD kills kit</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900184">1900184</a> ]	[RSRD] Race File refers to non-existant ArmorProf</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900968">1900968</a> ]	[SRD/RSRD] typo in unholy eqmod</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1904746">1904746</a> ]	Remove DEFINE tag in my_gamemode</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909754">1909754</a> ]	Make Uncanny Dodge an automatic ability</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910695">1910695</a> ]	Update PRESPELLSCHOOL syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910701">1910701</a> ]	Fiend (Blade/Skinhusker) has a CHOOSE:SKILLSNAMED in it</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1914594">1914594</a> ]	[FFG] Spells and Spellcraft, spells missing CLASS data</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1925406">1925406</a> ]	[RSRD] Dwarf bonus to Craft (Stoneworking)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930106">1930106</a> ]	Camel and Elephant not found</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930109">1930109</a> ]	CHARGED_ITEM_10 not found in RSRD Core I</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930111">1930111</a> ]	RSRD No Psionics campaign multiple errors</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930343">1930343</a> ]	[FFG] Path of Shadow - Abyssal Skill CHOOSE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930352">1930352</a> ]	[RPGO] B&amp;G Modern Military - Advanced Training FUBAR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930372">1930372</a> ]	[RPGO] Gangland - uses hidden occupation feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930576">1930576</a> ]	[TGM] Martial Arts Mayhem - odd class mods</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1930579">1930579</a> ]	[TGM] Modern Player&#039;s Companion - CHOOSE syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1931788">1931788</a> ]	[RSRD] Convert Improved Evasion to Ability Object</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934412">1934412</a> ]	[RSRD] Hierophant Divine Reach ability does not display</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934432">1934432</a> ]	COUNT[FEATNAME=x] can no longer be self referencing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934950">1934950</a> ]	[Pulp Fantasy] Extend Cover hidden feat makes no sense</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934952">1934952</a> ]	[Pulp Fantasy] Bald Faced Liar hidden feat bonus may be off</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1935349">1935349</a> ]	[RSRD] Outsiders need All Martial Weapon Proficiencies</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941154">1941154</a> ]	CHOOSE:SPELLS restrictions are ; separated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941815">1941815</a> ]	BONUS:EQARMOR bugs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941817">1941817</a> ]	TIMES parameter missing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941818">1941818</a> ]	PREALIGN bugs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941819">1941819</a> ]	RACETYPE used more than once</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941821">1941821</a> ]	SOURCEPAGE errors</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941824">1941824</a> ]	Spellcasting class missing BONUS:CASTERLEVEL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941835">1941835</a> ]	RACETYPE/TYPE bug</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941837">1941837</a> ]	remove comma in Greater Bloodsteel NAME</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941842">1941842</a> ]	BONUS:SPELL not allowed</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941847">1941847</a> ]	Pathfinder Burnt Offering NPC Kit bugs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941850">1941850</a> ]	SPELLSTAT ANY is bad</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941856">1941856</a> ]	N should be TN for alignment</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1942196">1942196</a> ]	[RSRD] Lesser Confusion has wrong save</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1944532">1944532</a> ]	CHOOSE:SPELLLEVEL first argument must be an Integer</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1945461">1945461</a> ]	Halflings in RSRD incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1945468">1945468</a> ]	RSRD Wand (Greater Invisibility) incorrect</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1536512">1536512</a> ]	COUNT FEATALL.HIDDEN.ClassAbility clarification</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1696470">1696470</a> ]	Many LST Summary Sections refer to .CLEAR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1708216">1708216</a> ]	Equipment EDR Token is undocumented</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1726543">1726543</a> ]	Undocumented CHOOSE tag syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1740513">1740513</a> ]	update ARMOR token docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1750771">1750771</a> ]	CASTERLEVEL incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1762286">1762286</a> ]	CHOOSE:SPELLLEVEL should specificy character&#039;s spell</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1764850">1764850</a> ]	CHOOSE:SKILLLIST|LIST misspelled in code, docs need update</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1769461">1769461</a> ]	TYPE (feat) example wrong</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1770410">1770410</a> ]	Links to send messages from the BoD Page are broken.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772486">1772486</a> ]	Add BONUS:VISION back to the Trunk Docs.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1773137">1773137</a> ]	MODS tag default is YES</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1775614">1775614</a> ]	Remove (TEMPLATENAME).MOD entry in globalother file.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1775619">1775619</a> ]	Clarify example for TEMPLATE:CHOOSE tag globalother docs.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1775624">1775624</a> ]	NavListIndex link to &#039;CL&#039; is incorrect.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1778129">1778129</a> ]	Ability .COPY and .FORGET to be documented</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783016">1783016</a> ]	[OS]Undocumented features for EQTYPE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1783961">1783961</a> ]	Clean up ADD:CLASSKILLS tag in Class File Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1784315">1784315</a> ]	Example of FEATAUTO misspelled</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786134">1786134</a> ]	Move BONUS notes to top of page and add index entry.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1802354">1802354</a> ]	REPEATLEVEL is incorrect (Template File)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1814801">1814801</a> ]	CHOOSE:NUMCHOICES needs clarification.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1814805">1814805</a> ]	IGNORES tag not shown as deprecated in Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1820989">1820989</a> ]	[OS] IIF tag docs to be cleaned up and clarified</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1827306">1827306</a> ]	SPELLLIST needs to be used on SUB/Class line</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1830360">1830360</a> ]	BONUS:STAT|BASESPELLSTAT:Class=Wizard|2 incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1839112">1839112</a> ]	INCLUDE Tag (.pcc file) Docs need clarification</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846207">1846207</a> ]	[OS][LST] Combine jep count() docs into one set.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1846400">1846400</a> ]	Apply LST Doc Standard to JEP Formula Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1847355">1847355</a> ]	Clean-up doc examples that use [] for optional syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1847669">1847669</a> ]	Clean-up LST tag index and related tag entries</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1848241">1848241</a> ]	ADD:CLASSSKILLS tag is missing skill list options</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1866131">1866131</a> ]	WEAPONBONUS doesn&#039;t use a CHOOSE dialog</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1866506">1866506</a> ]	CHOOSE:USERINPUT has an optional limiter</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1875900">1875900</a> ]	5.13 Docs eliminated old REPEATLEVEL syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1884879">1884879</a> ]	CHOOSE:LANGUAGE docs incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1885566">1885566</a> ]	ADD:VFEAT does activate a chooser.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1887291">1887291</a> ]	CHOOSE: items not Global</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1893308">1893308</a> ]	CHOICE requires a subtoken.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1900444">1900444</a> ]	Clarify CATEGORY docs in Ability LST File Docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901246">1901246</a> ]	BONUS:SKILLPOOL|NUMBER|x not global</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901249">1901249</a> ]	Document PRESA and SAB interaction</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901252">1901252</a> ]	Document limited TYPEs on CHOOSE for Weapon profs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1901259">1901259</a> ]	Clarify REPEATLEVEL with MAXLEVEL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1904735">1904735</a> ]	Clarify the ABILITYCATEGORY line tag POOL docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1906006">1906006</a> ]	PREBASESIZE docs make Game Mode dependent assumptions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909271">1909271</a> ]	PRETYPE is not Racial Type</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909835">1909835</a> ]	PREEQUIPTWOWEAPONx needs :</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909836">1909836</a> ]	PRESPELLDESCRIPTOR uses old syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910512">1910512</a> ]	PRESKILL should use TYPE.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910589">1910589</a> ]	CHOOSE token refers to feat</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1916481">1916481</a> ]	UNDEPRECATE TEMPLATE:x.REMOVE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1925006">1925006</a> ]	BASEPPCOST undocumented</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929963">1929963</a> ]	PROHIBITSPELL incorrect syntax in example</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1934908">1934908</a> ]	Invalid Syntax for STAT tag in Starting Kits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1935649">1935649</a> ]	PREWEAPONPROF:1,TYPE.Martial is not working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1936418">1936418</a> ]	Add note: Spell file CLASSES tag can take Subclasses</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1938412">1938412</a> ]	PROHIBITSPELL incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1939853">1939853</a> ]	FEAT and ABILITY tokens have optional visibility parameters</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941015">1941015</a> ]	.MOD clarification</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1941816">1941816</a> ]	UDAM bugs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1944987">1944987</a> ]	Merge the Data File and Global File Ability Pages</li>
+</ul>
+
+<h3>Output Sheet Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1512852">1512852</a> ]	Combined Output Sheet Barbarian Rage Error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1763493">1763493</a> ]	xsl:template &#039;companions&#039;  twice in fantasy_master_std.xslt</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1776713">1776713</a> ]	rpgwebprofiler adds weapon weight twice</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777041">1777041</a> ]	[Bug] Two-handed outputting N/A [Fix explained]</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1805235">1805235</a> ]	Prepared Spells not listing...</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1863713">1863713</a> ]	psheet_fantasy_std.htm doesn&#039;t show characters&#039; portraits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1869014">1869014</a> ]	Troubleshooting OS warnings</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1870277">1870277</a> ]	Missing and incorrect data</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1905793">1905793</a> ]	|MISC.FUNDS| and |GOLD| in csheet_fantasy_combined</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1945052">1945052</a> ]	Turning blocks still use Feats but should use abilities</li>
+</ul>
+
+<h3>Plugin Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1565846">1565846</a> ]	GMGen - Unable to change inititative for PC</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1744534">1744534</a> ]	Initiative lost during re-sort</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772058">1772058</a> ]	IllegalArgumentException selecting Fantasy:Other category</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1772069">1772069</a> ]	If selecting Server option fails cannot change to client</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777073">1777073</a> ]	Encounter tab race selection lost after clicking Add</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777078">1777078</a> ]	Encounter tab encounter list not cleared when sources change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1777337">1777337</a> ]	Encounter Tab NullPointerException with encounter gen</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1785321">1785321</a> ]	NPE selecting name structure buttons</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1811230">1811230</a> ]	NPE clicking Generate when Default Monster option selected</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1860958">1860958</a> ]	Add experience doesn&#039;t work for CR&gt;20</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909544">1909544</a> ]	Price XML for Overland travel did not match DTD</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1909546">1909546</a> ]	GMGen not closing when File--&gt;Exit is chosen</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1916860">1916860</a> ]	When killing enemy XP doesn&#039;t appear on Experience Tab</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1916866">1916866</a> ]	Experience Tab slow</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1916880">1916880</a> ]	Adjust CR/Level in Experience Tab loops</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1918837">1918837</a> ]	Spell casters dont get spells listed sometimes</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1922539">1922539</a> ]	Events tab does not allow slider movement when long event</li>
+
+</ul>
+	</body>
+</html>
