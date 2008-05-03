@@ -182,7 +182,9 @@ public final class GameMode implements Comparable<Object>
 	
 	private TimeUnit defaultTimeUnit;
 	private List<TimeUnit> theTimeUnits = new ArrayList<TimeUnit>();
-	
+
+	private List<String> resizableTypeList = new ArrayList<String>();
+
 	/**
 	 * Creates a new instance of GameMode.
 	 *
@@ -3457,6 +3459,27 @@ public final class GameMode implements Comparable<Object>
 	public void setDieSizes(int[] die)
 	{
 		this.dieSizes = die;
+	}
+
+	/**
+	 * Retrieve the list of equipment types which flag it as able to 
+	 * be resized by the automatic resize feature.
+	 * @return the resizableTypeList
+	 */
+	public List<String> getResizableTypeList()
+	{
+		return Collections.unmodifiableList(resizableTypeList);
+	}
+
+	/**
+	 * Set the list of equipment types which flag it as able to 
+	 * be resized by the automatic resize feature.
+	 * 
+	 * @param resizableTypeList the resizableTypeList to set
+	 */
+	public void setResizableTypeList(List<String> resizableTypeList)
+	{
+		this.resizableTypeList = resizableTypeList;
 	}
 }
 

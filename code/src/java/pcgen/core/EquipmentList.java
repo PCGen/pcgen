@@ -704,8 +704,8 @@ public class EquipmentList {
 				//
 				// Only apply to Armor, Shield and resizable items
 				//
-				if (eq.isMagic() || eq.isUnarmed() || eq.isMasterwork()
-						|| (!eq.isArmor() && !eq.isShield() && !eq.isType("RESIZABLE"))) {
+				if (!Globals.canResizeHaveEffect(null, eq, null))
+				{
 					continue;
 				}
 

@@ -221,6 +221,9 @@ PREVIEWSHEET:Standard.htm
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
 DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000 
 
+# Types which automatic resizing is activated on
+RESIZABLEEQUIPTYPE:Weapon|Armor|Shield|Ammunition|Resizable
+
 #
 # End
 #

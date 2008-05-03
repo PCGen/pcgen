@@ -161,6 +161,8 @@ ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
 ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement
 ACTYPE:ClassDefense			ADD:ClassDefense
 ACTYPE:Dodge				ADD:Dodge
+ACTYPE:Deflection			ADD:Deflection
+ACTYPE:Insight				ADD:Insight
 
 # Damage die changes on size
 BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6	DOWN:1,0
@@ -276,6 +278,10 @@ PREVIEWSHEET:preview.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
 DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000 
+
+# Types which automatic resizing is activated on
+RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
+
 
 #
 # DONE

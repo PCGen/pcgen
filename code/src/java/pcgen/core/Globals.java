@@ -2326,16 +2326,10 @@ public final class Globals
 			typeList = aEq.typeList();
 		}
 
-		for (int iSize = 0; iSize < SettingsHandler.getGame().getSizeAdjustmentListSize(); ++iSize)
+		List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList();
+		for (String rType : resizeTypeList)
 		{
-			final SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize);
-
-			if ((!CoreUtility.doublesEqual(sadj.getBonusTo(aPC, "ITEMCOST", typeList, 1.0), 1.0))
-				|| (aEq.isArmor()
-				|| (aEq.isShield() && !CoreUtility.doublesEqual(sadj.getBonusTo(aPC, "ACVALUE", typeList, 1.0), 1.0)))
-				|| (!CoreUtility.doublesEqual(aEq.getWeightAsDouble(aPC), 0.0)
-				&& !CoreUtility.doublesEqual(sadj.getBonusTo(aPC, "ITEMWEIGHT", typeList, 1.0), 1.0))
-				|| (aEq.isContainer() && !CoreUtility.doublesEqual(sadj.getBonusTo(aPC, "ITEMCAPACITY", typeList, 1.0), 1.0)))
+			if (typeList.contains(rType.toUpperCase()))
 			{
 				return true;
 			}
