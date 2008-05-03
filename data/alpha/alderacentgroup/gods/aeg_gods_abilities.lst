@@ -2,8 +2,8 @@
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
-# Ability Name	Category of Ability		Type				Visible	Special ABility																						Define
-Rebuke Giants	CATEGORY:Special Ability	TYPE:Turning.TurnGiant	VISIBLE:NO	SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|TurnTimesBase	DEFINE:TurnLevelGiant|TurnLevelBase	DEFINE:TurnDiceGiant|TurnDiceBase	DEFINE:TurnDieSizeGiant|TurnDieSizeBase	DEFINE:TurnDamagePlusGiant|TurnDamagePlusBase	DEFINE:TurnCheckGiant|TurnCheckBase
+# Ability Name	Category of Ability			Type					Visible			Special ABility																						Define
+Rebuke Giants	CATEGORY:Special Ability	TYPE:Turning.TurnGiant	VISIBLE:NO		SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|TurnTimesBase	DEFINE:TurnLevelGiant|TurnLevelBase	DEFINE:TurnDiceGiant|TurnDiceBase	DEFINE:TurnDieSizeGiant|TurnDieSizeBase	DEFINE:TurnDamagePlusGiant|TurnDamagePlusBase	DEFINE:TurnCheckGiant|TurnCheckBase
 #Issue: Rebuke Giants table isn't showing up on the OS.
 
 ###Block: HHFavored Enemy

@@ -67,7 +67,7 @@ Darkcloak														TYPE:Magic.Wondrous.Cape								COST:25000	WT:1				EQMOD:
 Eagle Claw Necklace												TYPE:Magic.Wondrous.Amulet								COST:19000	WT:0				EQMOD:LEATHER		SOURCEPAGE:pg.12
 Everfull Satchel													TYPE:Magic.Wondrous									COST:15000	WT:1								SOURCEPAGE:pg.19
 Eyestalk Rings													TYPE:Magic.Wondrous									COST:0	WT:0								SOURCEPAGE:pg.74
-Figurine of Wondrous Power (Lost Children)								TYPE:<agic.Wondrous									COST:1000	WT:0								SOURCEPAGE:pg.81
+Figurine of Wondrous Power (Lost Children)								TYPE:Magic.Wondrous									COST:1000	WT:0								SOURCEPAGE:pg.81
 Helm of Dominance													TYPE:Magic.Wondrous.Headgear								COST:200	WT:3								SOURCEPAGE:pg.67
 Helm of the Lammasu												TYPE:Magic.Wondrous.Headgear								COST:25000	WT:3								SOURCEPAGE:pg.74						SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Magic Circle against Evil,15																												BONUS:COMBAT|AC|1
 Horn of the Wild													TYPE:Magic.Wondrous									COST:7000	WT:1								SOURCEPAGE:pg.131
@@ -88,7 +88,7 @@ Stone of Entangling												TYPE:Magic.Wondrous									COST:100	WT:1				EQMO
 Stone Wards														TYPE:Magic.Wondrous									COST:200	WT:1				EQMOD:STONE			SOURCEPAGE:pg.82
 Teeth (Hound)						OUTPUTNAME:Hound's Teeth			TYPE:Magic.Wondrous									COST:650	WT:0								SOURCEPAGE:pg.53
 Thirst Pebbles													TYPE:Magic.Wondrous									COST:100	WT:0				EQMOD:STONE			SOURCEPAGE:pg.36
-Tooth of Steel													TYPE:Magic.Wondrous.Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing	COST:8500	WT:0				EQMOD:STEEL.PLUS2W			ABILITY:FEAT|VIRTUAL|Tooth of Steel		SOURCEPAGE:pg.140																																																																									NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8
+Tooth of Steel													TYPE:Magic.Wondrous									COST:8500	WT:0				EQMOD:STEEL			SOURCEPAGE:pg.140																																																																									NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8
 # Need to find another way to apply NATURALATTACKS to Tooth of Steel
 Tooth of Venom													TYPE:Magic.Wondrous									COST:9600	WT:0								SOURCEPAGE:pg.140
 Water Barrier													TYPE:Magic.Wondrous									COST:6000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.90						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Air Bubble,16
