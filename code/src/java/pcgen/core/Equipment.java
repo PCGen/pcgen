@@ -215,8 +215,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	private String indexedUnderType = "";
 
-	private String longName = "";
-
 	private String wholeItemName = "";
 
 	private String modifiedName = "";
@@ -1493,16 +1491,6 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int getLocation() {
 		return location;
-	}
-
-	/**
-	 * Sets the longName attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new longName value
-	 */
-	public void setLongName(final String aString) {
-		longName = aString;
 	}
 
 	/**
@@ -3454,11 +3442,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 */
 	public String longName() {
-		if (longName.length() == 0) {
-			return toString();
-		}
-
-		return longName;
+		return toString(true);
 	}
 
 	/**

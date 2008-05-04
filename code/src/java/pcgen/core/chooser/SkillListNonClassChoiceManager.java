@@ -87,26 +87,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 					continue; // builds a list of Cross class skills
 				}
 
-				final String rootName = skill.getRootName();
-				final int rootNameLength = rootName.length();
-
-				 //all skills have ROOTs now, so go ahead and add it if the name and root are identical
-				if ((rootNameLength == 0) || rootName.equals(skill.getKeyName()))
-				{
-					availableList.add(skill.getKeyName());
-				}
-
-				final boolean rootArrayContainsRootName = rootArrayList.contains(rootName);
-
-				if ((rootNameLength > 0) && !rootArrayContainsRootName)
-				{
-					rootArrayList.add(rootName);
-				}
-
-				if ((rootNameLength > 0) && rootArrayContainsRootName)
-				{
-					availableList.add(skill.getKeyName());
-				}
+				availableList.add(skill.getKeyName());
 			}
 		}
 

@@ -23,7 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -39,8 +38,6 @@ import pcgen.util.enumeration.Visibility;
  */
 public class SkillListChoiceManager extends AbstractBasicStringChoiceManager
 {
-
-	protected List<String> rootArrayList = new ArrayList<String>();
 
 	/**
 	 * Make a new Skill List chooser.
@@ -91,26 +88,7 @@ public class SkillListChoiceManager extends AbstractBasicStringChoiceManager
 		{
 			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
 			{
-				final String rootName = skill.getRootName();
-				final int rootNameLength = rootName.length();
-
-				 //all skills have ROOTs now, so go ahead and add it if the name and root are identical
-				if ((rootNameLength == 0) || rootName.equals(skill.getKeyName()))
-				{
-					availableList.add(skill.getKeyName());
-				}
-
-				final boolean rootArrayContainsRootName = rootArrayList.contains(rootName);
-
-				if ((rootNameLength > 0) && !rootArrayContainsRootName)
-				{
-					rootArrayList.add(skill.getRootName());
-				}
-
-				if ((rootNameLength > 0) && rootArrayContainsRootName)
-				{
-					availableList.add(skill.getKeyName());
-				}
+				availableList.add(skill.getKeyName());
 			}
 		}
 
@@ -133,20 +111,7 @@ public class SkillListChoiceManager extends AbstractBasicStringChoiceManager
 		if (pobject != null && pobject instanceof Ability)
 		{
 			Ability ability = (Ability) pobject;
-			if (rootArrayList.contains(item))
-			{
-				for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
-				{
-					if (skill.getRootName().equalsIgnoreCase(item))
-					{
-						addSkillToAbility( ability, skill.getKeyName() );
-					}
-				}
-			}
-			else
-			{
-				addSkillToAbility( ability, item );
-			}
+			addSkillToAbility( ability, item );
 		}
 	}
 

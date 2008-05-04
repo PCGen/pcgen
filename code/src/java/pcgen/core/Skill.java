@@ -501,15 +501,6 @@ public final class Skill extends PObject
 		required = argRequired;
 	}
 
-    /**
-     * Set root name
-     * @param aString
-     */
-	public void setRootName(final String aString)
-	{
-		rootName = aString;
-	}
-
 	/**
      * Get the type of cost for a skill 
      * @param aClass
@@ -900,7 +891,6 @@ public final class Skill extends PObject
 		{
 			newSkill = (Skill) super.clone();
 			newSkill.required = required;
-			newSkill.setRootName(rootName);
 			newSkill.setKeyStat(getKeyStat());
 			newSkill.setIsExclusive(isExclusive());
 			newSkill.rankList = new ArrayList<String>(rankList);
@@ -1326,15 +1316,6 @@ public final class Skill extends PObject
 	boolean isRequired()
 	{
 		return required;
-	}
-
-    /**
-     * Get the root name
-     * @return root name
-     */
-	public String getRootName()
-	{
-		return rootName;
 	}
 
 	/**

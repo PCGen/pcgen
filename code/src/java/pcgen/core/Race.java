@@ -52,7 +52,6 @@ public final class Race extends PObject
 	// TODO - Why do we need a hit point map in the race?
 	private Map<String, Integer> hitPointMap = new HashMap<String, Integer>();
 	private Integer initMod = Integer.valueOf(0);
-	private Integer startingAC = Integer.valueOf(10);
 	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
 
@@ -856,21 +855,6 @@ public final class Race extends PObject
 			txt.append(retString);
 		}
 
-		if (startingAC.intValue() != 10)
-		{
-			txt.append("\tAC:").append(startingAC.toString());
-		}
-
-		/*
-		   if (ageString != null && !Constants.s_NONE.equals(ageString) && ageString.length() > 0)
-		   {
-			   txt.append("\tAGE:").append(ageString);
-		   }
-		   if (BAB != 0)
-		   {
-			   txt.append("\tBAB:").append(BAB);
-		   }
-		 */
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
 			txt.append("\tFACE:").append(face.getX() + " ft.");
@@ -939,11 +923,6 @@ public final class Race extends PObject
 	public String getSize()
 	{
 		return size;
-	}
-
-	public void setStartingAC(final Integer anInt)
-	{
-		startingAC = anInt;
 	}
 
 	@Override
