@@ -213,8 +213,6 @@ public final class EditorMainForm extends JDialog
 // XPCOST
 //
 //
-	private static final String[] qualifiers = new String[]{ "(None)", "VARDEFINED" };
-
 	private AgePanel pnlAge;
 	private AppearancePanel pnlAppearance;
 	private AvailableSelectedPanel pnlBonusLang;
@@ -243,7 +241,6 @@ public final class EditorMainForm extends JDialog
 	private MovementPanel pnlMovement;
 	private NaturalAttacksPanel pnlNaturalAttacks;
 	private PObject thisPObject = null;
-	private QualifiedAvailableSelectedPanel pnlFollowers;
 	private QualifiedAvailableSelectedPanel pnlQClasses;
 	private QualifiedAvailableSelectedPanel pnlQDomains;
 	private QualifiedAvailableSelectedPanel pnlQSpells;
@@ -319,59 +316,12 @@ public final class EditorMainForm extends JDialog
 		dispose();
 	}
 
-	//
-	// User has changed the selection in the qualifier combo. If they've selected "(None)" then disable choosing from the variable name
-	// combo. Otherwise enable it
-	//
-	private void cmbQualifierItemStateChanged()
-	{
-		final String qualifier = (String) pnlFollowers.getQualifierSelectedItem();
-
-		if ((qualifier != null) && !"(None)".equalsIgnoreCase(qualifier))
-		{
-			pnlFollowers.setVariableEnabled(true);
-		}
-		else
-		{
-			pnlFollowers.setVariableEnabled(false);
-		}
-	}
-
 	///////////////////////
 	// Spells--Classes and Domains tabs
 	//
 	private static String decodeDomainEntry(String entry)
 	{
 		final int idx = entry.indexOf('=');
-
-		if (idx >= 0)
-		{
-			entry = entry.substring(0, idx);
-		}
-
-		return entry;
-	}
-
-	///////////////////////
-	// Followers tab
-	//
-	private String decodeFollowerEntry(String entry)
-	{
-		int idx = -1;
-
-		if (entry.indexOf('[') >= 0)
-		{
-			for (int j = 0; j < pnlFollowers.getQualifierItemCount(); ++j)
-			{
-				final String qualifier = " [" + (String) pnlFollowers.getQualifierItemAt(j) + ":";
-				idx = entry.indexOf(qualifier);
-
-				if (idx >= 0)
-				{
-					break;
-				}
-			}
-		}
 
 		if (idx >= 0)
 		{
@@ -517,24 +467,6 @@ public final class EditorMainForm extends JDialog
 		return Globals.getSpellKeyed(entry);
 	}
 
-	private String encodeFollowerEntry(String newEntry)
-	{
-		String condition = null;
-		final String qualifier = (String) pnlFollowers.getQualifierSelectedItem();
-
-		if ((qualifier != null) && !"(None)".equalsIgnoreCase(qualifier))
-		{
-			condition = " [" + qualifier + ":" + (String) pnlFollowers.getVariableSelectedItem() + ']';
-		}
-
-		if (condition != null)
-		{
-			newEntry += condition;
-		}
-
-		return newEntry;
-	}
-
 	private String encodeSynergyEntry(String newEntry)
 	{
 		String condition = null;
@@ -671,54 +603,6 @@ public final class EditorMainForm extends JDialog
 					}
 					deity.setDomainList(qualDomains);
 				}
-
-				//
-				// Save follower alignments
-				//
-				sel = pnlFollowers.getSelectedList();
-
-				StringBuffer tbuf = new StringBuffer(100);
-
-				for (int i = 0; i < sel.length; ++i)
-				{
-					String qualifier = null;
-					aString = (String) sel[i];
-
-					int idx = aString.indexOf(" [VARDEFINED:");
-
-					if (idx >= 0)
-					{
-						qualifier = aString.substring(idx + 1);
-
-						if (qualifier.endsWith("]"))
-						{
-							qualifier = qualifier.substring(0, qualifier.length() - 1);
-						}
-
-						qualifier = qualifier.replace(':', '=');
-						aString = aString.substring(0, idx);
-					}
-
-					for (int align = 0; align < SettingsHandler.getGame().getUnmodifiableAlignmentList().size(); ++align)
-					{
-						if (aString.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(align)))
-						{
-							if (qualifier != null)
-							{
-								tbuf.append(qualifier).append('=');
-							}
-
-							tbuf.append(align);
-
-							if (qualifier != null)
-							{
-								tbuf.append(']');
-							}
-						}
-					}
-				}
-
-				((Deity) thisPObject).setFollowerAlignments(tbuf.toString());
 
 				//
 				// Save racial worshippers (no need to explicitly clear)
@@ -1237,28 +1121,6 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_DEITY:
-
-				//
-				// Initialize the lists of available and selected follower alignments
-				//
-				List<String> availableFollowerAlignmentList = new ArrayList<String>();
-				List<String> selectedFollowerAlignmentList = new ArrayList<String>();
-
-				for (Iterator<PCAlignment> e = SettingsHandler.getGame().getUnmodifiableAlignmentList().iterator(); e.hasNext();)
-				{
-					final PCAlignment anAlignment = e.next();
-
-					if (anAlignment.isValidForFollower())
-					{
-						availableFollowerAlignmentList.add(anAlignment.getKeyName());
-					}
-				}
-
-				final String followerAlignments = ((Deity) thisPObject).getFollowerAlignments();
-				parseAlignment(availableFollowerAlignmentList, selectedFollowerAlignmentList, followerAlignments, null);
-
-				pnlFollowers.setAvailableList(availableFollowerAlignmentList, true);
-				pnlFollowers.setSelectedList(selectedFollowerAlignmentList, true);
 
 				//
 				// Initialize the contents of the available and selected domains lists
@@ -2179,11 +2041,6 @@ public final class EditorMainForm extends JDialog
 			case EditorConstants.EDIT_DEITY:
 
 				//
-				// initialize the Qualifier combo on the Followers tab
-				//
-				pnlFollowers.setQualifierModel(new DefaultComboBoxModel(qualifiers));
-
-				//
 				// Initialize the Variable combo with all the variable names we can find
 				//
 				List<String> availableVariableList = new ArrayList<String>();
@@ -2195,7 +2052,6 @@ public final class EditorMainForm extends JDialog
 				addVariables(availableVariableList, Globals.getTemplateList());
 				addVariables(availableVariableList, Globals.getAllCompanionMods());
 				Collections.sort(availableVariableList);
-				pnlFollowers.setVariableModel(new DefaultComboBoxModel(availableVariableList.toArray()));
 
 				break;
 
@@ -2501,26 +2357,6 @@ public final class EditorMainForm extends JDialog
 				//lblQualifier = new JLabel();
 				//lblVariable = new JLabel();
 				pnlDomains = new AvailableSelectedPanel();
-				pnlFollowers = new QualifiedAvailableSelectedPanel("in_demQualifier", "in_demVariable",
-						new EditorAddFilter()
-						{
-							public Object encode(Object anObj)
-							{
-								return encodeFollowerEntry((String) anObj);
-							}
-
-							public Object decode(Object anObj)
-							{
-								return decodeFollowerEntry((String) anObj);
-							}
-						},
-						new ItemListener()
-						{
-							public void itemStateChanged(ItemEvent evt)
-							{
-								cmbQualifierItemStateChanged();
-							}
-						});
 				pnlRaces = new AvailableSelectedPanel();
 
 				break;
@@ -2744,9 +2580,6 @@ public final class EditorMainForm extends JDialog
 				pnlDomains.setHeader(PropertyFactory.getString("in_demGrantDom"));
 				jTabbedPane1.addTab(PropertyFactory.getString("in_domains"), pnlDomains);
 
-				//buildFollowersTab();
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demFollowers"), pnlFollowers);
-
 				pnlRaces.setHeader(PropertyFactory.getString("in_demRacWors"));
 				jTabbedPane1.addTab(PropertyFactory.getString("in_race"), pnlRaces);
 
@@ -2947,40 +2780,6 @@ public final class EditorMainForm extends JDialog
 		getContentPane().add(pnlMainDialog, gridBagConstraints);
 
 		pack();
-	}
-
-	private void parseAlignment(List<String> availableList, List<String> selectedList, String alignmentString, String qualifier)
-	{
-		for (int i = 0; i < alignmentString.length(); ++i)
-		{
-			final char alignmentChar = alignmentString.charAt(i);
-
-			if (alignmentChar == '[')
-			{
-				int idx = alignmentString.indexOf(']', i);
-
-				if (idx >= 0)
-				{
-					final StringTokenizer aTok = new StringTokenizer(alignmentString.substring(i + 1, idx), "=", false);
-
-					if (aTok.countTokens() == 3)
-					{
-						final String qualifierType = aTok.nextToken();
-						final String variableName = aTok.nextToken();
-						parseAlignment(availableList, selectedList, aTok.nextToken(),
-							" [" + qualifierType + ":" + variableName + ']');
-					}
-
-					i = idx;
-				}
-			}
-			else if ((alignmentChar >= '0') && (alignmentChar <= '9'))
-			{
-				final int idx = alignmentChar - '0';
-				availableList.remove(SettingsHandler.getGame().getLongAlignmentAtIndex(idx));
-				selectedList.add(SettingsHandler.getGame().getLongAlignmentAtIndex(idx) + ((qualifier == null) ? "" : qualifier));
-			}
-		}
 	}
 
 	private static boolean parseSynergyBonus(final BonusObj aBonus, List<String> availableList, List<String> selectedList)

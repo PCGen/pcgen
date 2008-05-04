@@ -238,7 +238,6 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		deity = new Deity();
 		deity.setName("Test Deity");
 		deity.setAlignment("NG");
-		deity.setFollowerAlignments("012345678");
 		deity.addPantheon("Celtic");
 
 		super.setUp();

@@ -53,7 +53,7 @@ import pcgen.util.enumeration.Visibility;
  * @author Mark Hulsman <hulsmanm@purdue.edu>
  * @version $Revision$
  */
-public final class PCTemplate extends PObject implements HasCost
+public final class PCTemplate extends PObject
 {
 	// /////////////////////////////////////////////////////////////////////
 	// Static properties
@@ -74,7 +74,6 @@ public final class PCTemplate extends PObject implements HasCost
 			null;
 
 	private List<String> templatesAdded = null;
-	private String cost = "1";
 
 	private String favoredClass = "";
 
@@ -247,32 +246,6 @@ public final class PCTemplate extends PObject implements HasCost
 			return theChosenAbilityKeys.get(aCategory);
 		}
 		return null;
-	}
-
-	/**
-	 * Set the COST of things granted by this Template.
-	 * 
-	 * XXX This seems insane to me, it's used for at least two different
-	 * unrelated things in the code base. The tag this is generated from is
-	 * undocumented and is not used in the current data.
-	 * 
-	 * @param argCost
-	 *            the cost as a string, it will be converted to a double before
-	 *            being used.
-	 */
-	public void setCost(final String argCost)
-	{
-		cost = argCost;
-	}
-
-	/**
-	 * Get the COST of things granted by this Template.
-	 * 
-	 * @return the cost bonuses granted by this Template
-	 */
-	public double getCost()
-	{
-		return Double.parseDouble(cost);
 	}
 
 	/**
@@ -579,11 +552,6 @@ public final class PCTemplate extends PObject implements HasCost
 			&& (getChooseLanguageAutos().length() > 0))
 		{
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
-		}
-
-		if (!CoreUtility.doublesEqual(getCost(), 1.0d))
-		{
-			txt.append("\tCOST:").append(String.valueOf(getCost()));
 		}
 
 		if (challengeRating != 0)

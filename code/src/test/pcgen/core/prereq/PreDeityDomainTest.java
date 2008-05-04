@@ -133,7 +133,6 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		deity = new Deity();
 		deity.setName("Test Deity");
 		deity.setAlignment("NG");
-		deity.setFollowerAlignments("012345678");
 		deity.addDomain("Good", new ArrayList<Prerequisite>());
 		deity.addDomain("Animal", new ArrayList<Prerequisite>());
 	}

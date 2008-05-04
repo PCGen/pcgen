@@ -168,7 +168,6 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		deity = new Deity();
 		deity.setName("TestDeity");
 		deity.setAlignment("NG");
-		deity.setFollowerAlignments("012345678");
 
 		super.setUp();
 	}

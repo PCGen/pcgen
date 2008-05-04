@@ -1067,7 +1067,7 @@ final class PCGVer2Creator implements IOConstants
 
 			buffer.append('|');
 			buffer.append(TAG_ALIGNALLOW).append(':');
-			buffer.append(aDeity.getFollowerAlignments());
+			//TODO Need to clean this up?
 			for (final Description desc : aDeity.getDescriptionList())
 			{
 				buffer.append('|');

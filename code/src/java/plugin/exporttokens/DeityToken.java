@@ -25,20 +25,20 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import pcgen.util.Logging;
 
 /**
  * Deal with tokens:
@@ -46,7 +46,6 @@ import java.util.StringTokenizer;
  * DEITY.NAME
  * DEITY.OUTPUTNAME
  * DEITY.DOMAINLIST
- * DEITY.FOLLOWERALIGNMENT
  * DEITY.ALIGNMENT
  * DEITY.APPEARANCE
  * DEITY.DESCRIPTION
@@ -107,7 +106,8 @@ public class DeityToken extends Token
 			}
 			else if ("FOLLOWERALIGNMENT".equals(subTag))
 			{
-				retString = getFollowerAlignmentToken(deity);
+				Logging.errorPrint("Output Sheet uses DEITY.FOLLOWERALIGN: "
+						+ "Function has been removed from PCGen");
 			}
 			else if ("ALIGNMENT".equals(subTag))
 			{
@@ -218,33 +218,6 @@ public class DeityToken extends Token
 	public static String getFavoredWeaponToken(Deity deity)
 	{
 		return deity.getFavoredWeapon();
-	}
-
-	/**
-	 * Get follower alignment sub token
-	 * @param deity
-	 * @return follower alignment sub token
-	 */
-	public static String getFollowerAlignmentToken(Deity deity)
-	{
-		StringBuffer returnString = new StringBuffer();
-		boolean firstLine = true;
-		String fAlignment = deity.getFollowerAlignments();
-
-		for (int i = 0; i < fAlignment.length(); i++)
-		{
-			if (!firstLine)
-			{
-				returnString.append(", ");
-			}
-
-			firstLine = false;
-
-			returnString.append(SettingsHandler.getGame()
-				.getShortAlignmentAtIndex(fAlignment.charAt(i) - 48));
-		}
-
-		return returnString.toString();
 	}
 
 	/**

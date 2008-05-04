@@ -24,17 +24,19 @@
  */
 package pcgen.core;
 
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.core.utils.*;
-import pcgen.util.Logging;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
+
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.ListKey;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.core.utils.StringKey;
+import pcgen.util.Logging;
 
 /**
  * <code>Deity</code>.
@@ -120,7 +122,6 @@ public final class Deity extends PObject
 		try
 		{
 			result = acceptableClass(classList.iterator())
-							 &&	allowsAlignment(anAlignment,pc)
 							 && PrereqHandler.passesAll( getPreReqList(), pc, this);
 		}
 		catch (NumberFormatException nfe)
@@ -249,15 +250,6 @@ public final class Deity extends PObject
 	}
 
 	/**
-	 * @return a comma-separated String of the alignments this deity can accept
-	 */
-	public String getFollowerAlignments()
-	{
-		String characteristic = stringChar.get(StringKey.FOLLOWER_ALIGNMENTS);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
 	 * @return the name of the holy item of this deity
 	 */
 	public String getHolyItem()
@@ -321,12 +313,6 @@ public final class Deity extends PObject
 				txt.append(PrerequisiteUtilities.getPrerequisitePCCText(
 					lastPreReqs, "|"));
 			}
-		}
-
-		String followerAlignments = getFollowerAlignments();
-		if (followerAlignments.length() != 0)
-		{
-			txt.append("\tFOLLOWERALIGN:").append(followerAlignments);
 		}
 
 		if (getHolyItem().length() != 0)
@@ -430,28 +416,12 @@ public final class Deity extends PObject
 		addPreReqTo(prereqs);
 		final List<Prerequisite> alignPrereqs = new ArrayList<Prerequisite>();
 
-		String alignText = "";
-		String followerAlignments = getFollowerAlignments();
-		if (followerAlignments.length() != 0)
-		{
-			Logging.debugPrint("preReqHTMLStrings: " + followerAlignments);
-
-			for (int i = 0; i < followerAlignments.length(); ++i)
-			{
-				final Prerequisite prereq = new Prerequisite();
-				prereq.setKind("align");
-				prereq.setOperator(PrerequisiteOperator.EQ);
-				prereq.setKey(followerAlignments.substring(i, i + 1));
-				alignPrereqs.add(prereq);
-			}
-			alignText = "One of (" + PrerequisiteUtilities.preReqHTMLStringsForList(aPC, null, alignPrereqs, includeHeader) + ")";
-		}
-		String text = alignText;
+		String text = "";
 
 		final String prereqText = PrerequisiteUtilities.preReqHTMLStringsForList(aPC, null, prereqs, includeHeader);
 		if (!prereqText.equals(""))
 		{
-			text = text + ", " + prereqText;
+			text = prereqText;
 		}
 		return text;
 	}
@@ -534,17 +504,6 @@ public final class Deity extends PObject
 	}
 
 	/**
-	 * This method sets the string containing the numeric
-	 * alignments accepted by this deity.
-	 * @param followerAlignments String containing the numeric alignments (with no spaces
-	 * or other delimiters, i.e. 3678).
-	 */
-	public void setFollowerAlignments(final String followerAlignments)
-	{
-		stringChar.put(StringKey.FOLLOWER_ALIGNMENTS, followerAlignments);
-	}
-
-	/**
 	 * This method sets the holy weapon of this deity.
 	 * @param holyItem String name of the holy weapon of this deity.
 	 */
@@ -619,72 +578,6 @@ public final class Deity extends PObject
 		}
 
 		return flag;
-	}
-
-	/**
-	 * @param index An integer representation of an alignment
-	 * @param pc
-	 * @return true if this deity allows worshippers of the passed in alignment
-	 */
-	private boolean allowsAlignment(final int index, final PlayerCharacter pc)
-	{
-		//[VARDEFINED=SuneLG=0]367
-		String followerAlignments = getFollowerAlignments();
-
-		for (;;)
-		{
-			final int idxStart = followerAlignments.indexOf('[');
-
-			if (idxStart < 0)
-			{
-				break;
-			}
-
-			final int idxEnd = followerAlignments.indexOf(']', idxStart);
-
-			if (idxEnd < 0)
-			{
-				break;
-			}
-
-			final String subPre = followerAlignments.substring(idxStart + 1, idxEnd);
-			final StringTokenizer pTok = new StringTokenizer(subPre, "=", false);
-
-			if (pTok.countTokens() != 3)
-			{
-				break;
-			}
-
-			final String cond = pTok.nextToken();
-			final String vName = pTok.nextToken();
-			final String condAlignment = pTok.nextToken();
-			boolean hasCond = false;
-
-			if ("VARDEFINED".equals(cond))
-			{
-				final PlayerCharacter aPC = pc;
-
-				if ((aPC != null) && aPC.hasVariable(vName))
-				{
-					hasCond = true;
-				}
-			}
-
-			if (hasCond)
-			{
-				followerAlignments = followerAlignments.substring(0, idxStart) + condAlignment + followerAlignments.substring(idxEnd + 1);
-			}
-			else
-			{
-				followerAlignments = followerAlignments.substring(0, idxStart) + followerAlignments.substring(idxEnd + 1);
-			}
-		}
-
-		if (followerAlignments.length() != 0)
-		{
-			return followerAlignments.lastIndexOf(String.valueOf(index)) >= 0;
-		}
-		return true;
 	}
 
 	/**
