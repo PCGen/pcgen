@@ -31,10 +31,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import java.util.StringTokenizer;
 
 /**
  * @author wardc
@@ -53,25 +50,7 @@ public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
 		int att = 0;
 		for (PCClass aClass : character.getClassList())
 		{
-			String s = aClass.getUattForLevel(aClass.getLevel());
-			if (s.length() == 0 || "0".equals(s)) //$NON-NLS-1$
-			{
-				att = Math.max(att, aClass.baseAttackBonus(character));
-			}
-			else
-			{
-				final StringTokenizer bTok = new StringTokenizer(s, ","); //$NON-NLS-1$
-				s = bTok.nextToken();
-				try
-				{
-					att = Math.max(att, Integer.parseInt(s));
-				}
-				catch (NumberFormatException e)
-				{
-					Logging.errorPrint(PropertyFactory.getFormattedString(
-						"PreUnarmedAttack.error.bad_operand", s)); //$NON-NLS-1$
-				}
-			}
+			att = Math.max(att, aClass.baseAttackBonus(character));
 		}
 
 		final int requiredValue = Integer.parseInt(prereq.getOperand());

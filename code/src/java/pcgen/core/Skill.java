@@ -1163,8 +1163,6 @@ public final class Skill extends PObject
 
 		// the above two if-blocks try to get
 		// BONUS:[C]CSKILL|TYPE=xxx|y to function
-		// now check for a racial bonus
-		bonus += aPC.getRace().bonusForSkill(getKeyName());
 
 		final int aCheckBonus = calcACheckBonus(aPC);
 		bonus += aCheckBonus;
@@ -1702,10 +1700,6 @@ public final class Skill extends PObject
 			bonus = aPC.getTotalBonusTo("CCSKILL", "LIST");
 			appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 		}
-
-		// Race
-		bonus = aPC.getRace().bonusForSkill(getKeyName());
-		appendBonusDesc(bonusDetails, bonus, "RACE");
 
 		// Encumbrance
 		final int aCheckMod = calcACheckBonus(aPC);

@@ -55,7 +55,6 @@ public final class Race extends PObject
 	private Integer startingAC = Integer.valueOf(10);
 	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
-	private String bonusSkillList = Constants.EMPTY_STRING;
 
 	//private String face = "5 ft. by 5 ft.";
 	private Point2D.Double face = new Point2D.Double(5, 0);
@@ -127,11 +126,6 @@ public final class Race extends PObject
 	public int getBonusInitialFeats()
 	{
 		return 0;
-	}
-
-	public void setBonusSkillList(final String aString)
-	{
-		bonusSkillList = aString;
 	}
 
 	public void setBonusSkillsPerLevel(final int i)
@@ -918,11 +912,6 @@ public final class Race extends PObject
 			txt.append("\tOUTPUTNAME:").append(displayName);
 		}
 
-		if ((bonusSkillList != null) && (bonusSkillList.length() > 0))
-		{
-			txt.append("\tSKILL:").append(bonusSkillList);
-		}
-
 		if (bonusSkillsPerLevel != 0)
 		{
 			txt.append("\tXTRASKILLPTSPERLVL:").append(bonusSkillsPerLevel);
@@ -969,7 +958,6 @@ public final class Race extends PObject
 			aRace.bonusSkillsPerLevel = bonusSkillsPerLevel;
 			aRace.size = size;
 
-			aRace.bonusSkillList = bonusSkillList;
 			aRace.ageString = ageString;
 			aRace.heightString = heightString;
 			aRace.weightString = weightString;
@@ -1115,36 +1103,6 @@ public final class Race extends PObject
 	String getMonsterClass(final PlayerCharacter aPC)
 	{
 		return getMonsterClass(aPC, true);
-	}
-
-	int bonusForSkill(final String skillName)
-	{
-		if (getBonusSkillList().length() == 0)
-		{
-			return 0;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(bonusSkillList, "=");
-
-		while (aTok.hasMoreTokens())
-		{
-			final String skillList = aTok.nextToken();
-			final int anInt = Integer.parseInt(aTok.nextToken());
-			final StringTokenizer bTok =
-					new StringTokenizer(skillList, ",", false);
-
-			while (bTok.hasMoreTokens())
-			{
-				final String aSkill = bTok.nextToken();
-
-				if (aSkill.equals(skillName))
-				{
-					return anInt;
-				}
-			}
-		}
-
-		return 0;
 	}
 
 	int calcHitPoints(final int iConMod)
@@ -1302,10 +1260,5 @@ public final class Race extends PObject
 		}
 
 		return 0;
-	}
-
-	private String getBonusSkillList()
-	{
-		return bonusSkillList;
 	}
 }

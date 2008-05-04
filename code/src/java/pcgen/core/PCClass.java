@@ -60,7 +60,6 @@ import pcgen.util.MapCollection;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
-import pcgen.util.enumeration.DefaultTriState;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
@@ -200,15 +199,6 @@ public class PCClass extends PObject
 	private List<SubstitutionClass> substitutionClassList = null;
 
 	/*
-	 * DELETEVARIABLE There is NO use of this Tag at all in the data/* structure
-	 * today, so support for this should be removed from this class.
-	 */
-	private List<String> uattList = new ArrayList<String>(); // TODO -
-	// This
-	// should be
-	// removed.
-
-	/*
 	 * ALLCLASSLEVELS castForLevelMap is part of PCClassLevel - or nothing at
 	 * all since this seems to be a form of cache? - DELETEVARIABLE
 	 */
@@ -329,23 +319,6 @@ public class PCClass extends PObject
 	 * a contract may be an efficient way to do this??
 	 */
 	private String CRFormula = null; // null or formula
-
-	/*
-	 * REFACTOR This gets really strange since this is part of a calculation
-	 * based on differences between class levels. The question is: Is there a
-	 * much more efficient way to do this calculation (it's in
-	 * multiclassXPMultiplier in PlayerCharacter) given the new structure of a
-	 * lot of PCClassLevels (and not one object for each PCClass that knows a
-	 * level) ( or does PlayerCharacter just need to keep track of the matching
-	 * keys?)
-	 */
-	/*
-	 * UNKNOWNDESTINATION Not really sure where to put this, given the
-	 * explanation above on when this is relevant and how it is calculated in
-	 * PlayerCharacter. Perhaps this is best to dump into all PCClassLevels for
-	 * safety? I really hate to get into that mode.
-	 */
-	private DefaultTriState XPPenalty = DefaultTriState.DEFAULT;
 
 	/*
 	 * FINALALLCLASSLEVELS The abbrev simply needs to be directly loaded into each
@@ -2855,17 +2828,6 @@ public class PCClass extends PObject
 		templates = null;
 	}
 
-	/**
-	 *         TODO - This should be removed.
-	 */
-	/*
-	 * DELETEMETHOD Associated with the unused List uattList
-	 */
-	public final void addUatt(String s)
-	{
-		uattList.add(s);
-	}
-
 	/*
 	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method.  The PCClassLevelversion should NOT be level 
@@ -2960,43 +2922,6 @@ public class PCClass extends PObject
 		{
 			hitPointMap = new HashMap<Integer, Integer>(hpMap);
 		}
-	}
-
-	/**
-	 * <p>
-	 * TODO - This should be removed
-	 * 
-	 * @param aLevel
-	 * @return BAB for unarmed attacks
-	 */
-	/*
-	 * DELETEMETHOD Associated with the unused List uattList
-	 */
-	public String getUattForLevel(int aLevel)
-	{
-		final String aString = "0";
-
-		if (uattList.isEmpty())
-		{
-			return aString;
-		}
-
-		for (String uatt : uattList)
-		{
-			if (aLevel == 1)
-			{
-				return uatt;
-			}
-
-			--aLevel;
-
-			if (aLevel < 1)
-			{
-				break;
-			}
-		}
-
-		return null;
 	}
 
 	/*
@@ -3960,16 +3885,6 @@ public class PCClass extends PObject
 			}
 		}
 
-		// TODO - This should be removed.
-		if ((uattList != null) && (uattList.size() != 0))
-		{
-			for (int x = 0; x < uattList.size(); ++x)
-			{
-				pccTxt.append(lineSep).append(String.valueOf(x + 1)).append(
-					"\tUATT:").append(uattList.get(x));
-			}
-		}
-
 		List<String> udamList = getListFor(ListKey.UDAM);
 		if ((udamList != null) && (udamList.size() != 0))
 		{
@@ -4059,11 +3974,6 @@ public class PCClass extends PObject
 		}
 
 		return returnList;
-	}
-
-	public void setXPPenalty(final DefaultTriState argXPPenalty)
-	{
-		XPPenalty = argXPPenalty;
 	}
 
 	/**
@@ -4546,8 +4456,6 @@ public class PCClass extends PObject
 			{
 				aClass.castInfo = castInfo.clone();
 			}
-			// TODO - This should be removed
-			aClass.uattList = new ArrayList<String>(uattList);
 			// aClass.acList = new ArrayList<String>(acList);
 			if (featList != null)
 			{
@@ -4930,21 +4838,16 @@ public class PCClass extends PObject
 	 */
 	public boolean hasXPPenalty()
 	{
-		if (XPPenalty.equals(DefaultTriState.DEFAULT))
+		for (String type : getTypeList(false))
 		{
-			for (String type : getTypeList(false))
-			{
-				final ClassType aClassType =
-						SettingsHandler.getGame().getClassTypeByName(type);
-
+			final ClassType aClassType =
+					SettingsHandler.getGame().getClassTypeByName(type);
 				if ((aClassType != null) && !aClassType.getXPPenalty())
-				{
-					return false;
-				}
+			{
+				return false;
 			}
-			return true;
 		}
-		return XPPenalty.booleanValue();
+		return true;
 	}
 
 	/*

@@ -47,7 +47,6 @@ import java.util.Map;
 public final class CompanionMod extends PObject
 {
 	private Map<String, String> classMap = new HashMap<String, String>();
-	private Map<String, String> switchRaceMap = new HashMap<String, String>();
 	private Map<String, String> varMap = new HashMap<String, String>();
 	private boolean useMasterSkill;
 	private String raceType = "";
@@ -66,7 +65,6 @@ public final class CompanionMod extends PObject
 		{
 			cmpMod = (CompanionMod) super.clone();
 			cmpMod.classMap = new HashMap<String, String>(classMap);
-			cmpMod.switchRaceMap = new HashMap<String, String>(switchRaceMap);
 			cmpMod.varMap = new HashMap<String, String>(varMap);
 			cmpMod.useMasterSkill = useMasterSkill;
 			cmpMod.raceType = raceType;
@@ -208,15 +206,6 @@ public final class CompanionMod extends PObject
 	public String getRaceType()
 	{
 		return raceType;
-	}
-
-	/**
-	 * Get switch race map
-	 * @return switch race map
-	 */
-	public Map<String, String> getSwitchRaceMap()
-	{
-		return switchRaceMap;
 	}
 
 	/**
