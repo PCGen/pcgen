@@ -475,11 +475,6 @@ public final class ExportHandler
 					return true;
 				}
 
-				if (cs.equalsIgnoreCase(aClass.getCastAs()))
-				{
-					return true;
-				}
-
 				if ("!Prepare".equalsIgnoreCase(cs)
 				    && aClass.getMemorizeSpells())
 				{
@@ -502,11 +497,6 @@ public final class ExportHandler
 					}
 
 					if (fString.equalsIgnoreCase(pcClass.getKeyName()))
-					{
-						return true;
-					}
-
-					if (fString.equalsIgnoreCase(pcClass.getCastAs()))
 					{
 						return true;
 					}

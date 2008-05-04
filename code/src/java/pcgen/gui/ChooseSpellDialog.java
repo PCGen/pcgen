@@ -496,16 +496,7 @@ final class ChooseSpellDialog extends JDialog
 			String cName = "";
 			String dName = "";
 
-			if (castingClass instanceof PCClass)
-			{
-				cName = ((PCClass) castingClass).getCastAs();
-
-				if (cName.length() == 0)
-				{
-					cName = castingClass.getKeyName();
-				}
-			}
-			else if (castingClass instanceof Domain)
+			if (castingClass instanceof Domain)
 			{
 				dName = castingClass.getKeyName();
 			}
@@ -640,18 +631,7 @@ final class ChooseSpellDialog extends JDialog
 				String caster;
 				String casterName;
 
-				if (castingClass instanceof PCClass)
-				{
-					casterName = ((PCClass) castingClass).getCastAs();
-
-					if (casterName.length() == 0)
-					{
-						casterName = castingClass.getKeyName();
-					}
-
-					caster = "CLASS";
-				}
-				else if (castingClass instanceof Domain)
+				if (castingClass instanceof Domain)
 				{
 					casterName = castingClass.getKeyName();
 					caster = "DOMAIN";

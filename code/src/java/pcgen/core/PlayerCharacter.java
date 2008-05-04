@@ -8552,11 +8552,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			String cName = pcClass.getKeyName();
 
-			if (pcClass.getCastAs().length() > 0)
-			{
-				cName = pcClass.getCastAs();
-			}
-
 			if ("Any".equalsIgnoreCase(aType)
 				|| aType.equalsIgnoreCase(pcClass.getSpellType())
 				|| aType.equalsIgnoreCase(cName))

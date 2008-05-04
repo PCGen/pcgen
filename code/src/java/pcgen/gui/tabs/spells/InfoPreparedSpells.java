@@ -1080,7 +1080,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			spellA = new CharacterSpell(spellA.getOwner(), spellA.getSpell());
 		}
-		className = aClass.getCastAs();
+		className = aClass.getKeyName();
 
 		// make sure all the feats are set
 		createFeatList();

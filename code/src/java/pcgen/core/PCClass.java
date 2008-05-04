@@ -355,12 +355,6 @@ public class PCClass extends PObject
 	private String abbrev = Constants.EMPTY_STRING;
 
 	/*
-	 * DELETEVARIABLE CastAS is Deprecated, will not be brought into
-	 * PCClass/PCClassLevel
-	 */
-	private String castAs = Constants.EMPTY_STRING;
-
-	/*
 	 * FINALPCCLASSONLY The selected delegate skill lists [see classSkillList]
 	 * (not the raw classSkillChoices) need to be stored in EACH individual
 	 * PCClassLevel. This is the case because each individual PCClassLevel will
@@ -846,48 +840,6 @@ public class PCClass extends PObject
 			return null;
 		}
 		return Collections.unmodifiableList(addDomains);
-	}
-
-	/**
-	 * Sets the CASTAS: key for this class.
-	 * 
-	 * @param aString
-	 *            The class key to use to determine casting ability for this
-	 *            class.
-	 * @deprecated The way to replicate another classes spellcasting
-	 *             capabilities is to copy that class' CAST, KNOWN and other
-	 *             spell related tags into the new class and then use the
-	 *             SPELLLIST tag to assign it the spell list from the class
-	 *             being replicated.
-	 * 
-	 */
-	/*
-	 * DELETEMETHOD Remove this as castas is removed
-	 */
-	@Deprecated
-	public final void setCastAs(final String aString)
-	{
-		castAs = aString;
-	}
-
-	/**
-	 * returns the CASTAS: tag for this class, or just the name of the class if
-	 * one hasn't been set
-	 * 
-	 * @return Class key to use when looking up spell ability functions.
-	 * 
-	 * @deprecated
-	 * 
-	 */
-	/*
-	 * DELETEMETHOD Remove this as CastAs is removed
-	 */
-	@Deprecated
-	public final String getCastAs()
-	{
-		if (castAs == null || castAs.equals(Constants.EMPTY_STRING))
-			return keyName;
-		return castAs;
 	}
 
 	/**
@@ -2505,23 +2457,11 @@ public class PCClass extends PObject
 	 */
 	public Map<Integer, List<String>> getKnownMap()
 	{
-		if (Constants.EMPTY_STRING.equals(castAs)
-			|| getKeyName().equals(castAs))
+		if (castInfo == null)
 		{
-			if (castInfo == null)
-			{
-				return null;
-			}
-			return castInfo.getKnownProgression();
+			return null;
 		}
-
-		final PCClass aClass = Globals.getClassKeyed(castAs);
-		if (aClass != null)
-		{
-			return aClass.getKnownMap();
-		}
-
-		throw new IllegalStateException("Unknown Class for CASTAS: " + castAs);
+		return castInfo.getKnownProgression();
 	}
 
 	/*
@@ -2529,15 +2469,6 @@ public class PCClass extends PObject
 	 */
 	public boolean hasKnownList()
 	{
-		if (!Constants.EMPTY_STRING.equals(castAs)
-			&& !getKeyName().equals(castAs))
-		{
-			final PCClass aClass = Globals.getClassKeyed(castAs);
-			if (aClass != null)
-			{
-				return aClass.hasKnownList();
-			}
-		}
 		return castInfo != null && castInfo.hasKnownProgression();
 	}
 

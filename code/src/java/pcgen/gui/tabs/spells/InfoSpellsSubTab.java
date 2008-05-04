@@ -594,7 +594,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		else
 		{
 			aClass = (PCClass) theOwner;
-			classKey = aClass.getCastAs();
+			classKey = aClass.getKeyName();
 		}
 		List<CharacterSpell> aList =
 				aClass.getSpellSupport().getCharacterSpell(aSpell,

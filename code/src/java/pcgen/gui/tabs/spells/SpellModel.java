@@ -965,10 +965,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							if (!knownSpellsOnly && aClass != null && iLev > -1
 								&& (aClass instanceof PCClass))
 							{
-								addDomainSpellsForClass(Globals
-									.getClassKeyed(((PCClass) aClass)
-										.getCastAs()), secondaryNodes[sindex],
-									iLev);
+								addDomainSpellsForClass((PCClass) aClass,
+										secondaryNodes[sindex], iLev);
 							}
 						}
 

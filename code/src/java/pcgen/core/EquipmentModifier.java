@@ -75,7 +75,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	private List<String>                armorType           = new ArrayList<String>();
 	private String              cost                = "0";
 	private String              preCost             = "0";
-	private String              proficiency         = "";
 	private boolean             assignToAll         = false;
 	private int                 costDouble          = -1;
 	private int                 equipmentVisible    = VISIBLE_YES;
@@ -542,15 +541,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	public String getPreCost()
 	{
 		return preCost;
-	}
-
-	/**
-	 * Set proficiency
-	 * @param prof
-	 */
-	public void setProficiency(final String prof)
-	{
-		proficiency = prof;
 	}
 
 	/**
@@ -1398,11 +1388,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		}
 
 		return costDouble == 1;
-	}
-
-	String getProficiency()
-	{
-		return proficiency;
 	}
 
 	void setRemainingCharges(final int remainingCharges)
