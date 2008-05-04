@@ -80,26 +80,26 @@ public class PluginBuildTest extends PCGenTestCase
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
 	}
 	
-	/**
-	 * Check for the presence of all deprecated token plugins.
-	 */
-	public void testDeprecatedPlugins()
-	{
-		String jarPrefix = "^[a-zA-Z]*-DEPRECATED-";
-		String sourceSuffix = "Lst";
-		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
-		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins")};
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
-		String[] sources = sourceFolder.list();
-		List<String> srcList = new ArrayList<String>();
-		srcList.addAll(Arrays.asList(sources));
-		srcList.remove("PreDefaultMonsterTester.java");
-		srcList.remove("PreDefaultMonsterWriter.java");
-		sources = (String[]) srcList.toArray(sources);
-		String [][] exceptions = new String[][] {
-		};
-		checkPluginJarsByRegex(jarPrefix, jarFolder, sourceSuffix, sources, exceptions);
-	}
+//	/**
+//	 * Check for the presence of all deprecated token plugins.
+//	 */
+//	public void testDeprecatedPlugins()
+//	{
+//		String jarPrefix = "^[a-zA-Z]*-DEPRECATED-";
+//		String sourceSuffix = "Lst";
+//		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
+//		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins")};
+//		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+//		String[] sources = sourceFolder.list();
+//		List<String> srcList = new ArrayList<String>();
+//		srcList.addAll(Arrays.asList(sources));
+//		srcList.remove("PreDefaultMonsterTester.java");
+//		srcList.remove("PreDefaultMonsterWriter.java");
+//		sources = (String[]) srcList.toArray(sources);
+//		String [][] exceptions = new String[][] {
+//		};
+//		checkPluginJarsByRegex(jarPrefix, jarFolder, sourceSuffix, sources, exceptions);
+//	}
 
 	/**
 	 * Check for the presence of all export token plugins.
