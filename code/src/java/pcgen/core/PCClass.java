@@ -84,36 +84,6 @@ public class PCClass extends PObject
 	private List<LevelProperty<Movement>> movementList = null;
 
 	/*
-	 * FUTURETYPESAFETY This is throwing around Feat names as Strings. :(
-	 * 
-	 * This requires a Chooser of some type to be able to be present in PCClass, as
-	 * this may be a CHOOSE: String rather than an individual Feat
-	 */
-	/*
-	 * FINALALLCLASSLEVELS The automatic Feats appropriate to any given level (they
-	 * should be stored in a series of LevelProperty objects) need to be placed
-	 * into each individual PCClassLevel when it is constructed.
-	 */
-	private List<LevelProperty<String>> featAutos = null;
-
-	/*
-	 * FUTURETYPESAFETY The Feats should be type safe, not Strings... The challenge
-	 * here is that this also is difficult to make Type Safe.  The problem is not 
-	 * in having the Abilities themselves be passed in (That is distinctly 
-	 * possible), it is in getting the associated Strings correct, as those
-	 * are magically processed based on the PC's deity - so the DEITYWEAPON 
-	 * associated String would need to be recognized as magical and processed
-	 * correctly in the code before it is added to the PC, but still appear as
-	 * the magical string here (and somehow do that in a typesafe way).
-	 */
-	/*
-	 * FINALALLCLASSLEVELS Since the Feats are being granted by level, this needs to
-	 * account for that and actually store these by level and put them into the
-	 * appropriate PCClassLevel.
-	 */
-	private List<LevelProperty<String>> featList = null;
-
-	/*
 	 * LEVELONEONLY This variable (automatically known spells) only needs to be
 	 * loaded into the first PCClassLevel returned by PCClass, because the data
 	 * is static (doesn't change by level) and because it will be tested
@@ -1298,150 +1268,6 @@ public class PCClass extends PObject
 	public final String getExClass()
 	{
 		return exClass;
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is only for PCClass - used to edit the class
-	 */
-	public final Collection<LevelProperty<String>> getAllFeatAutos()
-	{
-		Collection<LevelProperty<String>> returnList = null;
-		if (featAutos == null)
-		{
-			List<LevelProperty<String>> empty = Collections.emptyList();
-			returnList = Collections.unmodifiableCollection(empty);
-		}
-		else
-		{
-			returnList = Collections.unmodifiableCollection(featAutos);
-		}
-		return returnList;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public final Collection<String> getFeatAutos(int aLevel)
-	{
-		List<String> returnList = new ArrayList<String>();
-		if (featAutos != null)
-		{
-			for (LevelProperty<String> autoFeat : featAutos)
-			{
-				if (autoFeat.getLevel() == aLevel)
-				{
-					returnList.add(autoFeat.getObject());
-				}
-			}
-		}
-		return returnList;
-	}
-
-	//	public Collection<String> getAutoAbilityList(final AbilityCategory aCategory)
-	//	{
-	//		if ( aCategory == AbilityCategory.FEAT )
-	//		{
-	//			return getFeatAutos();
-	//		}
-	//		if ( theAutoAbilities == null )
-	//		{
-	//			return Collections.emptyList();
-	//		}
-	//		final List<String> ret = new ArrayList<String>();
-	//		for ( final int lvl : theAutoAbilities.getSecondaryKeySet(aCategory) )
-	//		{
-	//			if ( lvl <= level )
-	//			{
-	//				ret.addAll(theAutoAbilities.get(aCategory, lvl));
-	//			}
-	//		}
-	//		return Collections.unmodifiableList(ret);
-	//	}
-	/**
-	 * Removes an AUTO feat from the list of feats this class grants.
-	 * 
-	 * @param aFeat
-	 *            The feat string to remove.
-	 */
-	/*
-	 * FINALPCCLASSONLY This is for GUI construction of a PCClass and is therefore
-	 * only required in PCClass and not PCClassLevel
-	 */
-	public boolean removeFeatAuto(String type)
-	{
-		if (featAutos == null)
-		{
-			return false;
-		}
-		for (LevelProperty<String> autoFeat : featAutos)
-		{
-			if (autoFeat.getObject().equals(type))
-			{
-				return featAutos.remove(autoFeat);
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Removes an AUTO feat from the list of feats this class grants.
-	 * 
-	 * @param aLevel
-	 *            The level the feat would have been granted at.
-	 * @param aFeat
-	 *            The feat string to remove.
-	 */
-	/*
-	 * FINALPCCLASSONLY This is for GUI construction of a PCClass and is therefore
-	 * only required in PCClass and not PCClassLevel
-	 */
-	public boolean removeFeatAuto(int aLevel, String type)
-	{
-		if (featAutos == null)
-		{
-			return false;
-		}
-		for (LevelProperty<String> autoFeat : featAutos)
-		{
-			if (autoFeat.getLevel() == aLevel
-				&& autoFeat.getObject().equals(type))
-			{
-				return featAutos.remove(autoFeat);
-			}
-		}
-		return false;
-	}
-
-	//	public void removeAutoAbility(final AbilityCategory aCategory, final int aLevel, final String aKey)	
-	//	{
-	//		if ( aCategory == AbilityCategory.FEAT )
-	//		{
-	//			removeFeatAuto(aLevel, aKey);
-	//			return;
-	//		}
-	//		if ( theAutoAbilities == null )
-	//		{
-	//			return;
-	//		}
-	//		final List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
-	//		if ( abilities != null )
-	//		{
-	//			abilities.remove(aKey);
-	//		}
-	//	}
-
-	/*
-	 * FINALPCCLASSONLY This is for construction of a PCClass
-	 */
-	public final List<LevelProperty<String>> getFeatList()
-	{
-		if (featList == null)
-		{
-			final List<LevelProperty<String>> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
-		}
-		return Collections.unmodifiableList(featList);
 	}
 
 	/*
@@ -2828,29 +2654,6 @@ public class PCClass extends PObject
 		templates = null;
 	}
 
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method.  The PCClassLevelversion should NOT be level 
-	 * dependent
-	 */
-	public void addFeatAuto(final int aLevel, final String aString)
-	{
-		if (featAutos == null)
-		{
-			featAutos = new ArrayList<LevelProperty<String>>();
-		}
-		featAutos.add(LevelProperty.getLevelProperty(aLevel, aString));
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is an editor and loader requirement, therefore
-	 * PCClass only
-	 */
-	public void clearFeatAutos()
-	{
-		featAutos = null;
-	}
-
 	//	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
 	//	{
 	//		if ( aCategory == AbilityCategory.FEAT )
@@ -3866,24 +3669,7 @@ public class PCClass extends PObject
 			}
 		}
 
-		if (featList != null)
-		{
-			for (LevelProperty<String> lp : featList)
-			{
-				pccTxt.append(lineSep).append(lp.getLevel());
-				pccTxt.append("\tFEATAUTO:").append(lp.getObject());
-			}
-		}
-
 		// TODO - Add ABILITY tokens.
-		if (featAutos != null)
-		{
-			for (LevelProperty<String> autoFeat : featAutos)
-			{
-				pccTxt.append(lineSep).append(autoFeat.getLevel());
-				pccTxt.append("\tFEATAUTO:").append(autoFeat.getObject());
-			}
-		}
 
 		List<String> udamList = getListFor(ListKey.UDAM);
 		if ((udamList != null) && (udamList.size() != 0))
@@ -4127,21 +3913,6 @@ public class PCClass extends PObject
 		sClass.setHitPointMap(hitPointMap);
 		sClass.setHitDie(hitDie);
 		substitutionClassList.add(sClass);
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This needs to be in both PCClass (since it's imported from
-	 * a Tag) and PCClassLevel (although the PCClassLevel version should not be 
-	 * level dependent)
-	 */
-	public void addFeatList(final int aLevel, final String aFeatList)
-	{
-		// TODO - Make this not string based.
-		if (featList == null)
-		{
-			featList = new ArrayList<LevelProperty<String>>();
-		}
-		featList.add(LevelProperty.getLevelProperty(aLevel, aFeatList));
 	}
 
 	private SpellProgressionInfo getConstructingSpellProgressionInfo()
@@ -4457,11 +4228,6 @@ public class PCClass extends PObject
 				aClass.castInfo = castInfo.clone();
 			}
 			// aClass.acList = new ArrayList<String>(acList);
-			if (featList != null)
-			{
-				aClass.featList =
-						new ArrayList<LevelProperty<String>>(featList);
-			}
 			// aClass.vFeatList = (ArrayList) vFeatList.clone();
 			if (vFeatList != null)
 			{
@@ -4479,11 +4245,6 @@ public class PCClass extends PObject
 			{
 				aClass.hitDieLockList =
 						new ArrayList<LevelProperty<String>>(hitDieLockList);
-			}
-			if (featAutos != null)
-			{
-				aClass.featAutos =
-						new ArrayList<LevelProperty<String>>(featAutos);
 			}
 			//			if ( theAutoAbilities != null )
 			//			{
@@ -5828,11 +5589,6 @@ public class PCClass extends PObject
 	 */
 	void doMinusLevelMods(final PlayerCharacter aPC, final int oldLevel)
 	{
-		if (!isMonster())
-		{
-			changeFeatsForLevel(oldLevel, false, aPC);
-		}
-
 		subAddsForLevel(oldLevel, aPC);
 		aPC.removeVariable("CLASS:" + getKeyName() + "|"
 			+ Integer.toString(oldLevel));
@@ -5846,11 +5602,6 @@ public class PCClass extends PObject
 	void doPlusLevelMods(final int newLevel, final PlayerCharacter aPC,
 		final PCLevelInfo pcLevelInfo)
 	{
-		if (!isMonster())
-		{
-			changeFeatsForLevel(newLevel, true, aPC);
-		}
-
 		addVariablesForLevel(newLevel, aPC);
 
 		// moved after changeSpecials and addVariablesForLevel
@@ -6787,58 +6538,6 @@ public class PCClass extends PObject
 		return iBonus * iTimes;
 	}
 
-	/**
-	 * This method adds or deletes feats for a level.
-	 * 
-	 * @param aLevel
-	 *            the level to affect
-	 * @param addThem
-	 *            whether to add or remove feats
-	 * @param aPC
-	 */
-	/*
-	 * PCCLASSONLY This (or really a derivative of it, since this is actually
-	 * making some choices) is part of getLevel method of PCClass (the factory
-	 * that produces PCClassLevels.
-	 * 
-	 * Note (theoretically) that Feat removal should not need to be possible, as
-	 * the subLevel method of PCClass will not be present moving forward
-	 * (hopefully)
-	 */
-	private void changeFeatsForLevel(final int aLevel, final boolean addThem,
-		final PlayerCharacter aPC)
-	{
-		if ((aPC == null) || featList == null || featList.isEmpty())
-		{
-			return;
-		}
-
-		PCLevelInfo pcLevelInfo = null;
-		for (PCLevelInfo pcl : aPC.getLevelInfo())
-		{
-			if (pcl.getClassKeyName().equalsIgnoreCase(getKeyName())
-				&& pcl.getLevel() == aLevel)
-			{
-				pcLevelInfo = pcl;
-				break;
-			}
-		}
-
-		for (LevelProperty<String> lp : featList)
-		{
-			if (lp.getLevel() == aLevel)
-			{
-				final double preFeatCount = aPC.getUsedFeatCount();
-				AbilityUtilities.modFeatsFromList(aPC, pcLevelInfo, lp
-					.getObject(), addThem, aLevel == 1);
-
-				final double postFeatCount = aPC.getUsedFeatCount();
-				// Adjust the feat count by the total number that were given
-				aPC.adjustFeats(postFeatCount - preFeatCount);
-			}
-		}
-	}
-
 	/*
 	 * DELETEMETHOD through refactoring this to another location. While this is
 	 * yet another potentially useful utility function, PCClass really isn't the
@@ -7538,34 +7237,6 @@ public class PCClass extends PObject
 			return null;
 		}
 		return Collections.unmodifiableMap(attackCycleMap);
-	}
-
-	/**
-	 * Remove all auto feats gained via a level
-	 * @param aLevel
-	 * @deprecated
-	 */
-	/*
-	 * FINALPCCLASSONLY I think (heh) that committing this to the PCClassLevel really should
-	 * be part of the PCClass Factory, and thus part of the creation of the PCClassLevel
-	 * and thus only in PCClass
-	 * 
-	 */
-	@Deprecated
-	public void removeAllAutoFeats(final int aLevel)
-	{
-		if (featAutos != null)
-		{
-			for (Iterator<LevelProperty<String>> it = featAutos.iterator(); it
-				.hasNext();)
-			{
-				LevelProperty<String> autoFeat = it.next();
-				if (autoFeat.getLevel() == aLevel)
-				{
-					it.remove();
-				}
-			}
-		}
 	}
 
 	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)

@@ -51,7 +51,6 @@ public final class Race extends PObject
 	private List<String> monCSkillList = null;
 	// TODO - Why do we need a hit point map in the race?
 	private Map<String, Integer> hitPointMap = new HashMap<String, Integer>();
-	private Integer initMod = Integer.valueOf(0);
 	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
 
@@ -77,7 +76,6 @@ public final class Race extends PObject
 	private int hitDice = 0;
 	private int hitDiceSize = 0;
 	private Integer initialSkillMultiplier = null;
-	private int langNum = 0;
 	private int legs = 2;
 	private int monsterClassLevels = 0;
 	private int reach = 5;
@@ -325,11 +323,6 @@ public final class Race extends PObject
 		return hitPointMap.size();
 	}
 
-	public void setInitMod(final Integer initMod)
-	{
-		this.initMod = initMod;
-	}
-
 	/**
 	 * Set the initial skill multiplier that should be used for this
 	 * race. Use null to 'unset' the race's value and make it default
@@ -358,11 +351,6 @@ public final class Race extends PObject
 		}
 
 		return initialSkillMultiplier;
-	}
-
-	public void setLangNum(final int langNum)
-	{
-		this.langNum = langNum;
 	}
 
 	public void setLegs(final int argLegs)
@@ -876,16 +864,6 @@ public final class Race extends PObject
 				hitDiceSize);
 		}
 
-		if (initMod.intValue() != 0)
-		{
-			txt.append("\tINIT:").append(initMod.toString());
-		}
-
-		if (langNum != 0)
-		{
-			txt.append("\tLANGNUM:").append(langNum);
-		}
-
 		if (!"0".equals(levelAdjustment))
 		{
 			txt.append("\tLEVELADJUSTMENT:").append(levelAdjustment);
@@ -941,7 +919,6 @@ public final class Race extends PObject
 			aRace.heightString = heightString;
 			aRace.weightString = weightString;
 			aRace.featList = featList;
-			aRace.langNum = langNum;
 			aRace.initialSkillMultiplier = initialSkillMultiplier;
 			aRace.levelAdjustment = levelAdjustment;
 			aRace.CR = CR;
@@ -1072,11 +1049,6 @@ public final class Race extends PObject
 	String getHitDieLock()
 	{
 		return hitDieLock;
-	}
-
-	int getLangNum()
-	{
-		return langNum;
 	}
 
 	String getMonsterClass(final PlayerCharacter aPC)

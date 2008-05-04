@@ -298,16 +298,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(new LevelTag(lp.getLevel(), LevelTag.TAG_SR, lp.getObject()));
 		}
 
-		for (LevelProperty<String> lp : obj.getFeatList())
-		{
-			levelTagList.add(new LevelTag(lp.getLevel(), LevelTag.TAG_FEAT, lp.getObject()));
-		}
-
-		for (LevelProperty<String> c : obj.getAllFeatAutos() )
-		{
-			levelTagList.add(new LevelTag(c.getLevel(), LevelTag.TAG_FEATAUTO, c.getObject()));
-		}
-
 		/*
 		   aCol = obj.vFeatList();
 		   if (aCol != null)
@@ -584,14 +574,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 					case LevelTag.TAG_DEFINE:
 					case LevelTag.TAG_DR:
 					case LevelTag.TAG_FEAT:
-						break;
-
-					case LevelTag.TAG_FEATAUTO:
-						obj.removeFeatAuto(lt.getLevel(), lt.getValue());
-						bRemoved = true;
-
-						break;
-
 					case LevelTag.TAG_KIT:
 					case LevelTag.TAG_KNOWN:
 					case LevelTag.TAG_REGION:
@@ -917,7 +899,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		private static final int TAG_DEFINE = 4;
 		private static final int TAG_DR = 5;
 		private static final int TAG_FEAT = 6;
-		private static final int TAG_FEATAUTO = 7;
 		private static final int TAG_KIT = 8;
 		private static final int TAG_KNOWN = 9;
 		private static final int TAG_REGION = 10;

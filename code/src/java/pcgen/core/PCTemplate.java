@@ -93,7 +93,6 @@ public final class PCTemplate extends PObject
 	private int bonusInitialFeats = 0;
 	private int bonusSkillsPerLevel = 0;
 	private String hitDieLock = "";
-	private int levelsPerFeat = 3;
 	private int nonProficiencyPenalty = 1;
 	private String raceType = "";
 	private Integer hands;
@@ -412,18 +411,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Set an override for the one feat per 3 levels for creatures this template
-	 * is applied to
-	 * 
-	 * @param argLevelsPerFeat
-	 *            the number of levels between level dependant feats
-	 */
-	public void setLevelsPerFeat(final int argLevelsPerFeat)
-	{
-		levelsPerFeat = argLevelsPerFeat;
-	}
-
-	/**
 	 * Takes an integer input which it uses to access Games mode's "statlist"
 	 * array. If that stat has been locked at 10 then it is considered a
 	 * non-ability. 
@@ -630,11 +617,6 @@ public final class PCTemplate extends PObject
 		if (!"0".equals(levelAdjustment))
 		{
 			txt.append("\tLEVELADJUSTMENT:").append(levelAdjustment);
-		}
-
-		if (levelsPerFeat != 3)
-		{
-			txt.append("\tLEVELSPERFEAT:").append(levelsPerFeat);
 		}
 
 		if (nonProficiencyPenalty <= 0)

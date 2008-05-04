@@ -128,9 +128,10 @@ public class Movement
 	 */
 	public void setMoveRatesFlag(int i)
 	{
-		/*
-		 * CONSIDER Should any check be done here on the value of i?
-		 */
+		if (i != 0 && i != 2)
+		{
+			throw new IllegalArgumentException("Rate Flag must be 0 or 2");
+		}
 		moveRatesFlag = i;
 	}
 
@@ -351,10 +352,6 @@ public class Movement
 		txt.append("\tMOVE");
 		switch (moveRatesFlag)
 		{
-			case 1: // MOVEA:
-				txt.append('A');
-				break;
-
 			case 2: // MOVECLONE:
 				txt.append("CLONE");
 				break;

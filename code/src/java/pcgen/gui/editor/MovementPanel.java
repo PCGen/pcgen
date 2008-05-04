@@ -56,7 +56,7 @@ final class MovementPanel extends JPanel
 	static final long serialVersionUID = 3024201499870849149L;
 	private static final String[] rateTypes = new String[]
 		{
-			"MOVE (Set movement rate)", "MOVEA (Adjust movement rate)", "MOVECLONE (Adjust based on default rate)"
+			"MOVE (Set movement rate)", "<unused>", "MOVECLONE (Adjust based on default rate)"
 		};
 	private JButton btnAdd;
 	private JButton btnRemove;

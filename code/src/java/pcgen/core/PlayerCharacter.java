@@ -9763,9 +9763,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (pcRace != null)
 		{
-			i +=
-					(pcRace.getLangNum() + (int) getTotalBonusTo("LANGUAGES",
-						"NUMBER"));
+			i += ((int) getTotalBonusTo("LANGUAGES", "NUMBER"));
 		}
 
 		//
@@ -11978,26 +11976,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 
 				increaseMoveArray(moveRate, moveType, moveMult, multOp);
-			}
-			else if (moveFlag == 1)
-			{ // add moveRate to movement.
-
-				for (int i = 0; i < movements.length; i++)
-				{
-					moveRate =
-							new Double(anDouble + movements[i].doubleValue());
-
-					if (moveType.equals(movementTypes[i]))
-					{
-						movements[i] = moveRate;
-						movementMult[i] = moveMult;
-						movementMultOp[i] = multOp;
-
-						return;
-					}
-
-					increaseMoveArray(moveRate, moveType, moveMult, multOp);
-				}
 			}
 			else
 			{ // get base movement, then add moveRate
@@ -17587,67 +17565,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (final PCClass aClass : getClassList())
 		{
-			List<String> classFeatList = new ArrayList<String>();
-			for (int lvl = 0; lvl <= aClass.getLevel(); lvl++)
-			{
-				for (String st : aClass.getFeatAutos(lvl))
-				{
-					classFeatList.add(st);
-				}
-			}
-			for (String autoFeat : classFeatList)
-			{
-				final int idx = autoFeat.indexOf('[');
-
-				if (idx >= 0)
-				{
-					final StringTokenizer bTok =
-							new StringTokenizer(autoFeat.substring(idx + 1),
-								"[]");
-					final List<Prerequisite> preReqList =
-							new ArrayList<Prerequisite>();
-
-					while (bTok.hasMoreTokens())
-					{
-						final String prereqString = bTok.nextToken();
-						Logging
-							.debugPrint("Why is the prerequisite '"
-								+ prereqString
-								+ "' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
-						try
-						{
-							final PreParserFactory factory =
-									PreParserFactory.getInstance();
-							final Prerequisite prereq =
-									factory.parse(prereqString);
-							preReqList.add(prereq);
-						}
-						catch (PersistenceLayerException ple)
-						{
-							Logging.errorPrint(ple.getMessage(), ple);
-						}
-					}
-
-					autoFeat = autoFeat.substring(0, idx);
-
-					if (preReqList.size() != 0)
-					{
-						if (!PrereqHandler.passesAll(preReqList, this, null))
-						{
-							continue;
-						}
-					}
-				}
-
-				Ability added =
-						AbilityUtilities
-							.addCloneOfGlobalAbilityToListWithChoices(
-								abilities, Constants.FEAT_CATEGORY, autoFeat);
-				if (added != null)
-				{
-					added.setFeatType(Ability.Nature.AUTOMATIC);
-				}
-			}
 			addAutoProfsToList(aClass
 				.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS), abilities);
 		}
