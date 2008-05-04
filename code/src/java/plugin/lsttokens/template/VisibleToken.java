@@ -29,66 +29,34 @@ public class VisibleToken implements PCTemplateLstToken
 	 */
 	public boolean parse(PCTemplate template, String value)
 	{
-		if (value.startsWith("DISPLAY"))
+		if (value.equals("DISPLAY"))
 		{
-			if (!value.equals("DISPLAY"))
-			{
-				Logging.deprecationPrint(getErrorMsgPrefix(template, value)
-					+ "DISPLAY (exact String, upper case)");
-			}
 			template.setVisibility(Visibility.DISPLAY_ONLY);
 		}
-		else if (value.startsWith("EXPORT"))
+		else if (value.equals("EXPORT"))
 		{
-			if (!value.equals("EXPORT"))
-			{
-				Logging.deprecationPrint(getErrorMsgPrefix(template, value)
-					+ "EXPORT (exact String, upper case)");
-			}
-			template.setVisibility(Visibility.OUTPUT_ONLY);
 		}
-		else if (value.startsWith("NO"))
+		else if (value.equals("NO"))
 		{
-			if (!value.equals("NO"))
-			{
-				Logging.deprecationPrint(getErrorMsgPrefix(template, value)
-					+ "NO (exact String, upper case)");
-			}
 			template.setVisibility(Visibility.HIDDEN);
 		}
 		else
 		{
 			if (!value.equals("ALWAYS") && !value.equals("YES"))
 			{
-				Logging.deprecationPrint(getErrorMsgPrefix(template, value)
-					+ "DISPLAY, EXPORT, NO, YES or ALWAYS "
-					+ "(exact String, upper case)");
+				StringBuffer buff = new StringBuffer();
+				buff.append("In template ");
+				buff.append(template.getDisplayName());
+				buff.append(", token ");
+				buff.append(getTokenName());
+				buff.append(", use of '");
+				buff.append(value);
+				buff.append("' is not valid, please use DISPLAY, EXPORT, NO, YES or ALWAYS (exact String, upper case)");
+				Logging.errorPrint(buff.toString());
+				return false;
 			}
 			template.setVisibility(Visibility.DEFAULT);
 		}
 		return true;
-	}
-
-	/**
-	 * Produce the standard start of an error message for an invalid visible
-	 * tag.
-	 * 
-	 * @param template
-	 *            The template the tag is for.
-	 * @param value
-	 *            The value of the visible tag.
-	 * @return The error message prefix
-	 */
-	private String getErrorMsgPrefix(PCTemplate template, String value)
-	{
-		StringBuffer buff = new StringBuffer();
-		buff.append("In template ");
-		buff.append(template.getDisplayName());
-		buff.append(", token ");
-		buff.append(getTokenName());
-		buff.append(", use of '");
-		buff.append(value);
-		buff.append("' is not valid, please use ");
-		return buff.toString();
 	}
 }

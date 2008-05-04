@@ -38,8 +38,8 @@ public class NoChoiceToken implements EqModChooseLstToken
 			po.setChoiceString(sb.toString());
 			return true;
 		}
-		Logging.deprecationPrint("CHOOSE:" + getTokenName()
-			+ " will ignore arguments: " + value);
+		Logging.errorPrint("CHOOSE:" + getTokenName()
+			+ " must not have arguments: " + value);
 		return false;
 	}
 

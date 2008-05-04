@@ -20,12 +20,11 @@ public class DomainsToken implements SpellLstToken
 	{
 		if (value.equals(".CLEAR"))
 		{
-			Logging.deprecationPrint(".CLEAR is deprecated in "
+			Logging.errorPrint(".CLEAR was removed in "
 				+ getTokenName() + " because it has side effects on CLASSES:");
 			Logging
-				.deprecationPrint("  please use .CLEARALL to clear only DOMAINS");
-			spell.clearLevelInfo();
-			return true;
+				.errorPrint("  please use .CLEARALL to clear only DOMAINS");
+			return false;
 		}
 		else if (value.equals(".CLEARALL"))
 		{

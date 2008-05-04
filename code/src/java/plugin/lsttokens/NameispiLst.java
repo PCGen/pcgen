@@ -28,10 +28,9 @@ public class NameispiLst implements GlobalLstToken
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.deprecationPrint("You should use 'YES' or 'NO' as the "
-					+ getTokenName());
-				Logging
-					.deprecationPrint("Abbreviations will fail after PCGen 5.14");
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName());
+				return false;
 			}
 			set = true;
 		}
@@ -40,10 +39,9 @@ public class NameispiLst implements GlobalLstToken
 			if (firstChar != 'N' && firstChar != 'n'
 				&& !value.equalsIgnoreCase("NO"))
 			{
-				Logging.deprecationPrint("You should use 'YES' or 'NO' as the "
-					+ getTokenName());
-				Logging
-					.deprecationPrint("Abbreviations will fail after PCGen 5.14");
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName());
+				return false;
 			}
 			set = false;
 		}

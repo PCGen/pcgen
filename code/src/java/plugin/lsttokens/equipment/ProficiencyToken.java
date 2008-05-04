@@ -21,11 +21,11 @@ public class ProficiencyToken implements EquipmentLstToken
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.deprecationPrint("Equipment Token PROFICIENCY syntax "
-					+ "without a Subtoken is deprecated: " + value);
-			Logging.deprecationPrint("Please use: "
+			Logging.errorPrint("Equipment Token PROFICIENCY syntax "
+					+ "without a Subtoken was removed after 5.14: " + value);
+			Logging.errorPrint("Please use: "
 					+ "PROFICIENCY:<subtoken>|<prof>");
-			eq.setProfName(value);
+			return false;
 		}
 		else
 		{

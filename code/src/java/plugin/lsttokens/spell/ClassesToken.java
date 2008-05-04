@@ -20,12 +20,11 @@ public class ClassesToken implements SpellLstToken
 	{
 		if (value.equals(".CLEAR"))
 		{
-			Logging.deprecationPrint(".CLEAR is deprecated in "
+			Logging.errorPrint(".CLEAR was removed in "
 				+ getTokenName() + " because it has side effects on DOMAINS:");
 			Logging
-				.deprecationPrint("  please use .CLEARALL to clear only CLASSES");
-			spell.clearLevelInfo();
-			return true;
+				.errorPrint("Use .CLEARALL to clear only CLASSES");
+			return false;
 		}
 		else if (value.equals(".CLEARALL"))
 		{

@@ -25,7 +25,6 @@ package pcgen.core.spell;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,14 +41,12 @@ import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusObj.StackType;
 import pcgen.core.bonus.util.SpellPointCostInfo;
 import pcgen.core.bonus.util.SpellPointCostInfo.SpellPointFilterType;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -57,7 +54,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
-import plugin.bonustokens.SpellPointCosts;
 
 /**
  * <code>Spell</code> creates a new tabbed panel.
@@ -950,12 +946,6 @@ public final class Spell extends PObject
 		{
 			variantList.add(variant);
 		}
-	}
-
-	@Deprecated
-	public void clearLevelInfo()
-	{
-		levelInfo = null;
 	}
 
 	public void clearVariants()
