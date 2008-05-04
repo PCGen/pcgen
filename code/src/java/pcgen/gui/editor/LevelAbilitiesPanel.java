@@ -55,7 +55,7 @@ final class LevelAbilitiesPanel extends JPanel
 {
 	static final long serialVersionUID = -3457383056896786976L;
 	private static final String[] levelTypes = new String[]{ "HD", "LEVEL" };
-	private static final String[] abilityTypes = new String[]{ "DR", "SR", "CR", "SA", "FEAT" };
+	private static final String[] abilityTypes = new String[]{ "DR", "SR", "CR", "SAB", "FEAT" };
 	private JButton btnAdd;
 	private JButton btnRemove;
 	private JComboBoxEx cmbAbilityType;

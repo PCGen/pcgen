@@ -3156,7 +3156,7 @@ public final class EditorMainForm extends JDialog
 					saLevel += "|";
 				}
 
-				selectedList.add("SA:" + saLevel + saTxt);
+				selectedList.add("SAB:" + saLevel + saTxt);
 			}
 		}
 

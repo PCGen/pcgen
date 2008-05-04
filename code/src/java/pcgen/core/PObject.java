@@ -1617,6 +1617,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
+	 * Clear all qualify entries for the object. 
+	 */
+	public void clearQualify()
+	{
+		qualifyKeys = new DoubleKeyMap<Class, String, List<String>>();
+	}
+
+	/**
 	 * Set the qualify string
 	 */
 	public void putQualifyString(Class cl, String category, String key) {
@@ -2947,7 +2955,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			for (SpecialAbility sa : specialAbilityList)
 			{
-				txt.append("\tSA:").append(sa.toString());
+				txt.append("\tSAB:").append(sa.toString());
 			}
 		}
 		

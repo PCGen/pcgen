@@ -112,11 +112,20 @@ class ClassBasePanel extends BasePanel
 		obj.setLevelExchange(exchangeLevel.getText().trim());
 //		obj.setSkillPoints(Integer.parseInt(startSkillPoints.getText().trim()));
 		obj.setSkillPointFormula(startSkillPoints.getText().trim());
-		GlobalLstToken token = (GlobalLstToken) TokenStore.inst().getTokenMap(GlobalLstToken.class).get("QUALIFY");
-		try {
-			token.parse(obj, qualify.getText(), -9);
-		} catch (PersistenceLayerException e) {
-			Logging.errorPrint("Invalid QUALIFY: " + qualify.getText(), e);
+		obj.clearQualify();
+		if (qualify.getText().trim().length() > 0)
+		{
+			GlobalLstToken token =
+					(GlobalLstToken) TokenStore.inst().getTokenMap(
+						GlobalLstToken.class).get("QUALIFY");
+			try
+			{
+				token.parse(obj, qualify.getText(), -9);
+			}
+			catch (PersistenceLayerException e)
+			{
+				Logging.errorPrint("Invalid QUALIFY: " + qualify.getText(), e);
+			}
 		}
 		obj.setExClass(exClass.getText().trim());
 		obj.setHasSubClass(hasSubClass.getSelectedObjects() != null);

@@ -3975,7 +3975,7 @@ public class PCClass extends PObject
 			{
 				final String src = sa.getSASource();
 				final String lev = src.substring(src.lastIndexOf('|') + 1);
-				pccTxt.append(lineSep).append(lev).append("\tSA:").append(
+				pccTxt.append(lineSep).append(lev).append("\tSAB:").append(
 					sa.toString());
 			}
 		}

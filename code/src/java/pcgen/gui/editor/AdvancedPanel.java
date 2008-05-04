@@ -303,7 +303,7 @@ public final class AdvancedPanel extends JPanel
 			"PREVAR",
 			"PREWEAPONPROF",
 			"QUALIFY",
-			"SA",
+			"SAB",
 			"SPELLLEVEL",
 			"SPELLS",
 			"SR",

@@ -23,6 +23,7 @@
  */
 package pcgen.core;
 
+import java.text.DecimalFormat;
 import java.util.StringTokenizer;
 
 import pcgen.util.Logging;
@@ -381,7 +382,7 @@ public class Movement
 			}
 			else
 			{
-				txt.append(movements[index]);
+				txt.append(new DecimalFormat("###0.#").format(movements[index]));
 			}
 		}
 		return txt.toString();

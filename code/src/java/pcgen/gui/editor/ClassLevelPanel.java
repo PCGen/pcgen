@@ -271,7 +271,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				String src = sa.getSASource();
 				String lev = src.substring(src.lastIndexOf('|') + 1);
 
-				LevelTag lt = new LevelTag(lev, LevelTag.TAG_SA, sa.toString());
+				LevelTag lt = new LevelTag(lev, LevelTag.TAG_SAB, sa.toString());
 				levelTagList.add(lt);
 			}
 		}
@@ -595,7 +595,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 					case LevelTag.TAG_KIT:
 					case LevelTag.TAG_KNOWN:
 					case LevelTag.TAG_REGION:
-					case LevelTag.TAG_SA:
+					case LevelTag.TAG_SAB:
 					case LevelTag.TAG_SPELLS:
 					case LevelTag.TAG_SR:
 					case LevelTag.TAG_TEMPLATE:
@@ -907,7 +907,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 	{
 		static final String[] validTags =
 		{
-			"ADD", "ADDDOMAINS", "BONUS", "CAST", "DEFINE", "DR", "FEAT", "FEATAUTO", "KIT", "KNOWN", "REGION", "SA",
+			"ADD", "ADDDOMAINS", "BONUS", "CAST", "DEFINE", "DR", "FEAT", "AUTO:FEAT", "KIT", "KNOWN", "REGION", 
 			"SAB", "SPELLS", "SR", "TEMPLATE", "UDAM", "UMULT", "VFEAT"
 		};
 		private static final int TAG_ADD = 0;
@@ -921,14 +921,13 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		private static final int TAG_KIT = 8;
 		private static final int TAG_KNOWN = 9;
 		private static final int TAG_REGION = 10;
-		private static final int TAG_SA = 11;
-		private static final int TAG_SAB = 12;
-		private static final int TAG_SPELLS = 13;
-		private static final int TAG_SR = 14;
-		private static final int TAG_TEMPLATE = 15;
-		private static final int TAG_UDAM = 16;
-		private static final int TAG_UMULT = 17;
-		private static final int TAG_VFEAT = 18;
+		private static final int TAG_SAB = 11;
+		private static final int TAG_SPELLS = 12;
+		private static final int TAG_SR = 13;
+		private static final int TAG_TEMPLATE = 14;
+		private static final int TAG_UDAM = 15;
+		private static final int TAG_UMULT = 16;
+		private static final int TAG_VFEAT = 17;
 		private String value;
 		private boolean needsSaving;
 		private int level;
