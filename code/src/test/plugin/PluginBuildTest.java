@@ -97,13 +97,6 @@ public class PluginBuildTest extends PCGenTestCase
 		srcList.remove("PreDefaultMonsterWriter.java");
 		sources = (String[]) srcList.toArray(sources);
 		String [][] exceptions = new String[][] {
-			{ "AddInit", "Init" },
-			{ "AddSpecial", "Special" },
-			{ "AddSpellLevel", "SpellLevel" },
-			{ "ClassBab", "Bab" },
-			{ "PreDefaultMonsterParser", "PreDefaultMonster" },
-			{ "RaceAc", "Ac" },
-			{ "SkillList", "Choose" }
 		};
 		checkPluginJarsByRegex(jarPrefix, jarFolder, sourceSuffix, sources, exceptions);
 	}

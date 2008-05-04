@@ -154,8 +154,6 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreCityTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreClassTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreCSkillTest.class));
-		suite.addTest(new TestSuite(
-			pcgen.core.prereq.PreDefaultMonsterTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreDeityAlignTest.class));
 		suite
 			.addTest(new TestSuite(pcgen.core.prereq.PreDeityDomainTest.class));

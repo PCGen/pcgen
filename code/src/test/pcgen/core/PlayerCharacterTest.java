@@ -46,7 +46,6 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.SwingChooser;
-import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -102,13 +101,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Human
 		human = new Race();
 		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
-		final StringBuffer buf = new StringBuffer();
-	
-		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1+]");
-	
-		final Prerequisite humanFeatPrereq = factory.parse(buf.toString());
-	
-		humanRaceFeatBonus.addPreReq(humanFeatPrereq);
 		human.setBonusInitialFeats(humanRaceFeatBonus);
 	
 		// Giant Race
@@ -117,14 +109,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantRace.setMonsterClass("Giant");
 		giantRace.setMonsterClassLevels(4);
 		giantRace.setHitDiceAdvancement(new int[]{100});
-		final BonusObj babBonus =
-				Bonus
-					.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
-		giantRace.addBonusList(babBonus);
 	
 		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
-		final Prerequisite giantFeatPrereq = factory.parse(buf.toString());
-		giantRaceFeatBonus.addPreReq(giantFeatPrereq);
 	
 		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
 	
@@ -215,20 +201,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetBonusFeatsForNewLevel1() throws Exception
 	{
-		SettingsHandler.setMonsterDefault(false);
-		final PlayerCharacter character = new PlayerCharacter();
-
-		character.setRace(human);
-		character.incrementClassLevel(1, pcClass, true);
-		assertEquals(2, (int) character.getRawFeats(true));
-	}
-
-	/**
-	 * @throws Exception
-	 */
-	public void testGetBonusFeatsForNewLevel1Default() throws Exception
-	{
-		SettingsHandler.setMonsterDefault(true);
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -241,20 +213,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetBonusFeatsForNewLevel3() throws Exception
 	{
-		SettingsHandler.setMonsterDefault(false);
-		final PlayerCharacter character = new PlayerCharacter();
-
-		character.setRace(human);
-		character.incrementClassLevel(3, pcClass, true);
-		assertEquals(3, (int) character.getRawFeats(true));
-	}
-
-	/**
-	 * @throws Exception
-	 */
-	public void testGetBonusFeatsForNewLevel3Default() throws Exception
-	{
-		SettingsHandler.setMonsterDefault(true);
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -280,83 +238,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass, true);
 		is((int) character.getRawFeats(true), eq(3),
 			"Two levels of PCClass, feats increment");
-	}
-
-	/**
-	 * Test the number of feats a monster class gets when default monster
-	 * mode is on.
-	 * @throws Exception
-	 */
-	public void testGetMonsterBonusFeatsForNewLevel1Default() throws Exception
-	{
-		SettingsHandler.setMonsterDefault(true);
-		final PlayerCharacter character = new PlayerCharacter();
-
-		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass, true);
-
-		is((int) character.getRawFeats(true), eq(0),
-			"Default monster doesn't get feats from initial levels");
-		character.incrementClassLevel(2, giantClass, true);
-		is((int) character.getRawFeats(true), eq(0),
-			"Default monster doesn't get feats up to level 6 (4 monster + 2 extra)");
-		character.incrementClassLevel(1, giantClass, true);
-		is((int) character.getRawFeats(true), eq(1),
-			"Default monster gets first feat at level 7 (4 monster + 3 extra)");
-	}
-
-	/**
-	 * Test that BAB is calcuated properly for default monsters.
-	 * @throws Exception
-	 */
-	public void testBabDefaultOgre() throws Exception
-	{
-		SettingsHandler.setMonsterDefault(true);
-
-		final PlayerCharacter character = new PlayerCharacter();
-		character.setRace(giantRace);
-		assertEquals(3, character.baseAttackBonus());
-	}
-
-	/**
-	 * Tests that BAB is calculated properly for default monsters with levels.
-	 * @throws Exception
-	 */
-	public void testBabDefaultOgreLvl4() throws Exception
-	{
-		SettingsHandler.setMonsterDefault(true);
-
-		final PlayerCharacter character = new PlayerCharacter();
-		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass, true);
-		assertEquals(6, character.baseAttackBonus());
-	}
-
-	/**
-	 * TODO - This seems to want to test non-default monsters but it is wrong
-	 * @throws Exception
-	 */
-	public void testBabNonDefaultOgre() throws Exception
-	{
-		SettingsHandler.setMonsterDefault(true);
-
-		final PlayerCharacter character = new PlayerCharacter();
-		character.setRace(giantRace);
-		assertEquals(3, character.baseAttackBonus());
-	}
-
-	/**
-	 * TODO - This seems to want to test non-default monsters but it is wrong
-	 * @throws Exception
-	 */
-	public void testBabNonDefaultOgreLvl4() throws Exception
-	{
-		SettingsHandler.setMonsterDefault(true);
-
-		final PlayerCharacter character = new PlayerCharacter();
-		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass, true);
-		assertEquals(6, character.baseAttackBonus());
 	}
 
 	/**
@@ -390,43 +271,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests getVariableValue
-	 * @throws Exception
-	 */
-	public void testGetVariableValue2() throws Exception
-	{
-		Logging.debugPrint("\n\n\ntestGetVariableValue2()");
-		SettingsHandler.setMonsterDefault(true);
-		giantRace.addVariable(-9, "GiantVar1", "0");
-		final BonusObj raceBonus = Bonus.newBonus("1|VAR|GiantVar1|7+HD");
-		giantClass.addBonusList(raceBonus);
-
-		giantClass.addVariable(1, "GiantClass1", "0");
-		final BonusObj babClassBonus =
-				Bonus.newBonus("1|VAR|GiantClass1|CL=Giant");
-		giantClass.addBonusList(babClassBonus);
-
-		final PlayerCharacter character = new PlayerCharacter();
-		character.setRace(giantRace);
-		character.incrementClassLevel(4, giantClass, true);
-
-		assertEquals(new Float(11.0), character.getVariableValue("GiantVar1",
-			"CLASS:Giant"));
-		assertEquals(new Float(4.0), character.getVariableValue("GiantClass1",
-			"CLASS:Giant"));
-
-		final AttackToken token = new AttackToken();
-		assertEquals("+6/+1", token.getToken("ATTACK.MELEE.TOTAL", character,
-			null));
-	}
-
-	/**
 	 * Tests getVariableValue for stat modifier
 	 * @throws Exception
 	 */
 	public void testGetVariableValueStatMod() throws Exception
 	{
-		SettingsHandler.setMonsterDefault(false);
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatMod()");
 		final PlayerCharacter character = new PlayerCharacter();
@@ -447,7 +296,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValueStatModNew() throws Exception
 	{
-		SettingsHandler.setMonsterDefault(false);
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatModNew()");
 		final PlayerCharacter character = new PlayerCharacter();

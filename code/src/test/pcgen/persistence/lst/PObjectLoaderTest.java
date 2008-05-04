@@ -29,17 +29,17 @@
 package pcgen.persistence.lst;
 
 import gmgen.pluginmgr.PluginLoader;
+
 import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
-import pcgen.core.SpecialAbility;
 import pcgen.core.Variable;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 
 public class PObjectLoaderTest extends PCGenTestCase
@@ -113,24 +113,6 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		is(PObjectLoader.parseTag(feat, "DEFINE:UNLOCK.INT|0"), eq(false),
 			"Parse fails to catch bad unlock define");
-	}
-
-	public void testParseSA() throws Exception
-	{
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
-
-		PObject object = new PObject();
-
-		PObjectLoader
-			.parseTagLevel(
-				object,
-				"SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1",
-				1);
-		List<SpecialAbility> list =
-				object.getSafeListFor(ListKey.SPECIAL_ABILITY);
-		assertEquals("Incorrect size of special ability list.", 1, list.size());
-		list.get(0);
 	}
 
 	public void testParsePreClear() throws Exception
