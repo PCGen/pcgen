@@ -34,7 +34,6 @@ import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -80,10 +79,9 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 				String first = ps.next();
 				if (!ps.hasNext())
 				{
-					return parseOld(kind, formula, invertResult, overrideQualify);
-//					throw new PersistenceLayerException(
-//							"Unable to parse prrequisite 'PRE" + kind + ":" + formula
-//								+ "'. Incorrect parameter count (must be even)");
+					throw new PersistenceLayerException(
+							"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+								+ "'. Incorrect parameter count (must be even)");
 				}
 				String second = ps.next();
 				Prerequisite subreq;
@@ -110,10 +108,9 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		}
 		catch (PrerequisiteException pe)
 		{
-			return parseOld(kind, formula, invertResult, overrideQualify);
-//			throw new PersistenceLayerException(
-//				"Unable to parse prrequisite 'PRE" + kind + ":" + formula
-//					+ "'. " + pe.getLocalizedMessage());
+			throw new PersistenceLayerException(
+				"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+					+ "'. " + pe.getLocalizedMessage());
 		}
 
 		if (invertResult)
@@ -124,75 +121,4 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 
 		return prereq;
 	}
-	
-	public Prerequisite parseOld(String kind, String formula,
-			boolean invertResult, boolean overrideQualify)
-			throws PersistenceLayerException
-	{
-		Logging.deprecationPrint("Warning: You are using a deprecated "
-				+ "(or broken) form of PREVAR: " + formula);
-		Prerequisite prereq = super.parse(kind, formula, invertResult,
-				overrideQualify);
-		prereq.setKind("var");
-
-		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
-		String compType = kind.substring(3);
-		if (compType.length() == 0)
-		{
-			compType = "gteq";
-		}
-
-		String[] tokens = formula.split(",|\\|");
-
-		//
-		// There needs to be an even number of tokens
-		//
-		if ((tokens.length & 0x01) == 0x01)
-		{
-			throw new PersistenceLayerException(
-					"Unable to parse prrequisite 'PRE" + kind + ":" + formula
-							+ "'. Incorrect parameter count (must be even)");
-		}
-
-		try
-		{
-			prereq.setOperand(Integer.toString(tokens.length >> 1));
-			for (int i = 0; i < tokens.length; ++i)
-			{
-				String andKey = tokens[i];
-				String andOp = tokens[++i];
-
-				Prerequisite andPrereq;
-				if (tokens.length > 2)
-				{
-					prereq.setKind(null); // PREMULT
-					andPrereq = new Prerequisite();
-					prereq.addPrerequisite(andPrereq);
-					andPrereq.setKind("var");
-				}
-				else
-				{
-					andPrereq = prereq;
-				}
-				andPrereq.setOperator(compType);
-				andPrereq.setKey(andKey);
-				andPrereq.setOperand(andOp);
-			}
-		}
-		catch (PrerequisiteException pe)
-		{
-			throw new PersistenceLayerException(
-					"Unable to parse prrequisite 'PRE" + kind + ":" + formula
-							+ "'. " + pe.getLocalizedMessage());
-		}
-
-		if (invertResult)
-		{
-			prereq.setOperator(prereq.getOperator().invert());
-		}
-		prereq.setOverrideQualify(overrideQualify);
-
-		return prereq;
-	}
-
 }

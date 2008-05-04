@@ -25,6 +25,13 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -37,9 +44,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import java.math.BigDecimal;
-import java.util.*;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * Definition and games rules for an equipment modifier.
@@ -49,13 +54,6 @@ import java.util.*;
  */
 public final class EquipmentModifier extends PObject implements Comparable<Object>
 {
-	/** Value to indicate the modifier should not be visible. */
-	protected static final int VISIBLE_NO        = 0;
-	/** Value to indicate the modifier should be visible. */
-	protected static final int VISIBLE_YES       = 1;
-	/** Value to indicate the modifier should not be visible unless it is qualified for. */
-	protected static final int VISIBLE_QUALIFIED = 2;
-
 	private static final int NAMINGOPTION_NORMAL  = 0;
 	private static final int NAMINGOPTION_NONAME  = 1;
 	private static final int NAMINGOPTION_NOLIST  = 2;
@@ -77,7 +75,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	private String              preCost             = "0";
 	private boolean             assignToAll         = false;
 	private int                 costDouble          = -1;
-	private int                 equipmentVisible    = VISIBLE_YES;
 	private int                 maxCharges          = 0;
 	private int                 minCharges          = 0;
 	private int                 namingOption        = NAMINGOPTION_NORMAL;
@@ -702,59 +699,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		addAssociated(spellInfo.toString());
 	}
 
-	/**
-	 * Set visible
-	 * @param aString
-	 */
-	public void setVisible(final String aString)
+	public void setVisible(Visibility v)
 	{
-		if ((aString.length() > 0) && (aString.charAt(0) == 'Y'))
-		{
-			if (!aString.equals("YES"))
-			{
-				Logging
-					.deprecationPrint("Abbreviation used in VISIBLE in EQMod");
-				Logging.deprecationPrint(" " + aString
-					+ " is not a valid value for VISIBLE");
-				Logging
-					.deprecationPrint(" Valid values in EqMod are NO, QUALIFY and YES");
-				Logging
-					.deprecationPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
-			equipmentVisible = VISIBLE_YES;
-		}
-		else if ((aString.length() > 0) && (aString.charAt(0) == 'Q'))
-		{
-			if (!aString.equals("QUALIFY"))
-			{
-				Logging
-					.deprecationPrint("Abbreviation used in VISIBLE in EQMod");
-				Logging.deprecationPrint(" " + aString
-					+ " is not a valid value for VISIBLE");
-				Logging
-					.deprecationPrint(" Valid values in EqMod are NO, QUALIFY and YES");
-				Logging
-					.deprecationPrint(" assuming you meant QUALIFY, please use QUALIFY (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
-			equipmentVisible = VISIBLE_QUALIFIED;
-		}
-		else
-		{
-			if (!aString.equals("NO")) {
-				Logging
-					.deprecationPrint("Abbreviation used in VISIBLE in EQMod");
-				Logging.deprecationPrint(" " + aString
-					+ " is not a valid value for VISIBLE");
-				Logging
-					.deprecationPrint(" Valid values in EqMod are NO, QUALIFY and YES");
-				Logging
-					.deprecationPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
-			equipmentVisible = VISIBLE_NO;
-		}
+		visibility = v;
 	}
 
 	/**
@@ -1423,11 +1370,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	int getUsedCharges()
 	{
 		return maxCharges - getRemainingCharges();
-	}
-
-	int getVisible()
-	{
-		return equipmentVisible;
 	}
 
 	String replaceArmorType(final List<String> aTypes)

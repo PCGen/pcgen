@@ -6,16 +6,10 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
 import pcgen.core.Constants;
-import pcgen.core.Deity;
-import pcgen.core.Domain;
-import pcgen.core.Equipment;
 import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.Skill;
-import pcgen.core.WeaponProf;
-import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
@@ -59,11 +53,8 @@ public class ServesAsToken implements GlobalLstToken
 			category = key.substring(equalLoc + 1);
 		}
 		if (c == null) {
-			c = Object.class;
-			Logging.deprecationPrint(getTokenName() + " expecting a POBJECT Type, found: " + key);
-			Logging.deprecationPrint("  5.14 Format is: SERVESASType|Key[|Key] value was: " + value);
-			Logging.deprecationPrint("  Valid SERVESASTypes are: " + StringPClassUtil.getValidStrings());
-			Logging.deprecationPrint("  SERVESAS without a Type will fail after PCGen 5.14");
+			Logging.errorPrint(getTokenName() + " expecting a POBJECT Type, found: " + key);
+			return false;
 		} else {
 			key = st.nextToken();
 		}

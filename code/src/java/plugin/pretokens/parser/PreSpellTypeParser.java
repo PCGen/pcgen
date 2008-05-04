@@ -35,7 +35,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -113,49 +112,7 @@ public class PreSpellTypeParser extends AbstractPrerequisiteParser implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			//
-			// Must be exactly 3 tokens. Old-style did not support multiple options
-			//
-			Logging.deprecationPrint("Deprecated use of PRESPELLTYPE found: "
-					+ formula);
-			Logging.deprecationPrint("The new format is "
-					+ "<number of spells required>,<name of spell type>"
-					+ "=<minimum spell level>"
-					+ "[,<name of spell type>=<minimum spell level>,...]");
-			if (aTok.countTokens() == 2)
-			{
-				String[] types = aString.split("\\|");
-				String operand = aTok.nextToken();
-				String subKey = aTok.nextToken();
-
-				if (types.length == 1)
-				{
-					prereq.setKey(aString);
-					prereq.setSubKey(subKey);
-					prereq.setOperator(PrerequisiteOperator.GTEQ);
-					prereq.setOperand(operand);
-				}
-				else
-				{
-					prereq.setKind(null);
-
-					for (int i = 0; i < types.length; i++)
-					{
-						Prerequisite subreq = new Prerequisite();
-						prereq.addPrerequisite(subreq);
-						subreq.setKind("spell.type");
-						subreq.setKey(types[i]);
-						subreq.setSubKey(subKey);
-						subreq.setOperator(PrerequisiteOperator.GTEQ);
-						subreq.setOperand(operand);
-					}
-				}
-				
-			}
-			else
-			{
-				bError = true;
-			}
+			bError = true;
 		}
 		if (bError)
 		{

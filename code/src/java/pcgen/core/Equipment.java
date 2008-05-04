@@ -25,21 +25,41 @@
  */
 package pcgen.core;
 
+import java.io.BufferedWriter;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.*;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.IntegerKey;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.core.utils.StringKey;
 import pcgen.io.FileAccess;
-import pcgen.util.*;
+import pcgen.util.BigDecimalHelper;
+import pcgen.util.Delta;
+import pcgen.util.JEPResourceChecker;
+import pcgen.util.Logging;
+import pcgen.util.PJEP;
+import pcgen.util.PjepPool;
+import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Load;
-
-import java.io.BufferedWriter;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>Equipment</code>.
@@ -1245,7 +1265,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (int i = modList.size() - 1; i >= 0; --i) {
 			final EquipmentModifier eqMod = modList.get(i);
 
-			if (eqMod.getVisible() == EquipmentModifier.VISIBLE_NO) {
+			if (eqMod.getVisibility().equals(Visibility.HIDDEN)) {
 				modList.remove(i);
 
 				continue;
@@ -2385,9 +2405,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The visible value
 	 */
 	public boolean isVisible(final EquipmentModifier eqMod) {
-		final int vis = eqMod.getVisible();
+		Visibility vis = eqMod.getVisibility();
 
-		if (vis == EquipmentModifier.VISIBLE_QUALIFIED) {
+		if (Visibility.QUALIFY.equals(vis)) {
 			bonusPrimary = true;
 			if (eqMod.passesPreReqToGain(this, null)) {
 				return true;
@@ -2403,7 +2423,7 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		return vis == EquipmentModifier.VISIBLE_YES;
+		return Visibility.DEFAULT.equals(vis);
 	}
 
 	/**

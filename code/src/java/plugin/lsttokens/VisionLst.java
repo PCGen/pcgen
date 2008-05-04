@@ -15,7 +15,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.Logging;
 import pcgen.util.enumeration.VisionType;
 
 /**
@@ -69,23 +68,7 @@ public class VisionLst implements GlobalLstToken
 			{	
 				if (visionString.indexOf(',') >= 0)
 				{
-					Logging
-						.deprecationPrint("Use of comma in VISION Tag is deprecated.  Use .CLEAR.[Vision] instead.");
-					final StringTokenizer visionTok =
-							new StringTokenizer(visionString, ",");
-					String numberTok = visionTok.nextToken();
-					if (numberTok == "2")
-					{
-						visionString = ".CLEAR." + visionTok.nextToken();
-					}
-					else if (numberTok == "0")
-					{
-						visionString = ".SET." + visionTok.nextToken();
-					}
-					else
-					{
-						visionString = visionTok.nextToken();
-					}
+					return false;
 				}
 	
 				Vision vis = null;

@@ -33,60 +33,29 @@ public class VisibleToken implements AbilityLstToken
 	public boolean parse(Ability ability, String value)
 	{
 		final String visType = value.toUpperCase();
-		if (visType.startsWith("EXPORT"))
+		if (visType.equalsIgnoreCase("EXPORT"))
 		{
-			if (!"EXPORT".equalsIgnoreCase(visType))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Ability");
-				Logging.deprecationPrint(" " + visType
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" assuming you meant EXPORT, please use EXPORT (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			ability.setVisibility(Visibility.OUTPUT_ONLY);
 		}
-		else if (visType.startsWith("NO"))
+		else if (visType.equalsIgnoreCase("NO"))
 		{
-			if (!"NO".equalsIgnoreCase(visType))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Ability");
-				Logging.deprecationPrint(" " + visType
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			ability.setVisibility(Visibility.HIDDEN);
 		}
-		else if (visType.startsWith("DISPLAY"))
+		else if (visType.equalsIgnoreCase("DISPLAY"))
 		{
-			if (!"DISPLAY".equalsIgnoreCase(visType))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Ability");
-				Logging.deprecationPrint(" " + visType
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" assuming you meant DISPLAY, please use DISPLAY (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			ability.setVisibility(Visibility.DISPLAY_ONLY);
 		}
 		else
 		{
 			if (!"YES".equalsIgnoreCase(visType))
 			{
-				Logging.deprecationPrint("Unexpected value used in "
-					+ getTokenName() + " in Ability");
-				Logging.deprecationPrint(" " + visType
-					+ " is not a valid value for " + getTokenName());
+				Logging.errorPrint("Unexpected value used in " + getTokenName()
+						+ " in Ability");
+				Logging.errorPrint(" " + visType + " is not a valid value for "
+						+ getTokenName());
 				Logging
-					.deprecationPrint(" Valid values in Ability are EXPORT, NO, DISPLAY, and YES");
-				Logging
-					.deprecationPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
+						.errorPrint(" Valid values in Ability are EXPORT, NO, DISPLAY, and YES");
+				return false;
 			}
 			ability.setVisibility(Visibility.DEFAULT);
 		}

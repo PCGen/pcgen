@@ -24,7 +24,6 @@ package plugin.lsttokens.gamemode.abilitycategory;
 
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.lst.AbilityCategoryLstToken;
-import pcgen.util.Logging;
 
 /**
  * Handles the VISIBLE token on an ABILITYCATEGORY line.
@@ -40,51 +39,16 @@ public class VisibleToken implements AbilityCategoryLstToken
 	 */
 	public boolean parse(final AbilityCategory aCat, final String aValue)
 	{
-		if ((aValue.length() > 0) && (aValue.charAt(0) == 'Y'))
+		if (aValue.equals("YES"))
 		{
-			if (!aValue.equals("YES"))
-			{
-				Logging
-					.deprecationPrint("Abbreviation used in VISIBLE in AbilityCategory");
-				Logging.deprecationPrint(" " + aValue
-					+ " is not a valid value for VISIBLE");
-				Logging
-					.deprecationPrint(" Valid values in AbilityCategory are NO, QUALIFY and YES");
-				Logging
-					.deprecationPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			aCat.setVisible(AbilityCategory.VISIBLE_YES);
 		}
-		else if ((aValue.length() > 0) && (aValue.charAt(0) == 'Q'))
+		else if (aValue.equals("QUALIFY"))
 		{
-			if (!aValue.equals("QUALIFY"))
-			{
-				Logging
-					.deprecationPrint("Abbreviation used in VISIBLE in AbilityCategory");
-				Logging.deprecationPrint(" " + aValue
-					+ " is not a valid value for VISIBLE");
-				Logging
-					.deprecationPrint(" Valid values in AbilityCategory are NO, QUALIFY and YES");
-				Logging
-					.deprecationPrint(" assuming you meant QUALIFY, please use QUALIFY (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			aCat.setVisible(AbilityCategory.VISIBLE_QUALIFIED);
 		}
-		else if ((aValue.length() > 0) && (aValue.charAt(0) == 'N'))
+		else if (aValue.equals("NO"))
 		{
-			if (!aValue.equals("NO")) {
-				Logging
-					.deprecationPrint("Abbreviation used in VISIBLE in AbilityCategory");
-				Logging.deprecationPrint(" " + aValue
-					+ " is not a valid value for VISIBLE");
-				Logging
-					.deprecationPrint(" Valid values in AbilityCategory are NO, QUALIFY and YES");
-				Logging
-					.deprecationPrint(" assuming you meant NO, please use NO (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			aCat.setVisible(AbilityCategory.VISIBLE_NO);
 		}
 		else

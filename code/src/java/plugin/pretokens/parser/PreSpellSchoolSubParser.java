@@ -28,14 +28,13 @@
  */
 package plugin.pretokens.parser;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * @author wardc
@@ -113,26 +112,7 @@ public class PreSpellSchoolSubParser extends AbstractPrerequisiteParser
 		}
 		catch (NumberFormatException nfe)
 		{
-			//
-			// Must be exactly 3 tokens. Old-style did not support multiple options
-			//
-			Logging.deprecationPrint("Deprecated use of PRESPELLSCHOOLSUB found: "
-					+ formula);
-			Logging.deprecationPrint("The new format is "
-					+ "<number of spells required>,<name of spell subschool>"
-					+ "=<minimum spell level>"
-					+ "[,<name of spell subschool>=<minimum spell level>,...]");
-			if (aTok.countTokens() == 2)
-			{
-				prereq.setKey(aString);
-				prereq.setOperand(aTok.nextToken());
-				prereq.setSubKey(aTok.nextToken());
-				prereq.setOperator(PrerequisiteOperator.GTEQ);
-			}
-			else
-			{
-				bError = true;
-			}
+			bError = true;
 		}
 		if (bError)
 		{

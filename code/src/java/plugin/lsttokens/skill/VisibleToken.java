@@ -20,101 +20,37 @@ public class VisibleToken implements SkillLstToken
 	{
 		final String visType = value.toUpperCase();
 
-		if (visType.startsWith("YES"))
+		if (visType.equals("YES"))
 		{
-			if (!value.equals("YES"))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Skill");
-				Logging.deprecationPrint(" " + value
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.deprecationPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			skill.setVisibility(Visibility.DEFAULT);
 		}
-		else if (visType.startsWith("ALWAYS"))
+		else if (visType.equals("ALWAYS"))
 		{
-			if (!value.equals("ALWAYS"))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Skill");
-				Logging.deprecationPrint(" " + value
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.deprecationPrint(" assuming you meant ALWAYS, please use ALWAYS (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			skill.setVisibility(Visibility.DEFAULT);
 		}
 		else if (value.equals("DISPLAY"))
 		{
 			skill.setVisibility(Visibility.DISPLAY_ONLY);
 		}
-		else if (visType.startsWith("GUI"))
+		else if (visType.equals("GUI"))
 		{
-			if (!value.equals("GUI"))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Skill");
-				Logging.deprecationPrint(" " + value
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.deprecationPrint(" assuming you meant GUI, please use GUI or DISPLAY (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
-			skill.setVisibility(Visibility.DISPLAY_ONLY);
 		}
-		else if (visType.startsWith("EXPORT"))
+		else if (visType.equals("EXPORT") || visType.startsWith("EXPORT|"))
 		{
-			if (!value.equals("EXPORT"))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Skill");
-				Logging.deprecationPrint(" " + value
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.deprecationPrint(" assuming you meant EXPORT, please use EXPORT or CSHEET (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			skill.setVisibility(Visibility.OUTPUT_ONLY);
 		}
-		else if (visType.startsWith("CSHEET"))
+		else if (visType.equals("CSHEET"))
 		{
-			if (!value.equals("CSHEET"))
-			{
-				Logging.deprecationPrint("Abbreviation used in "
-					+ getTokenName() + " in Skill");
-				Logging.deprecationPrint(" " + value
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.deprecationPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-				Logging
-					.deprecationPrint(" assuming you meant CSHEET, please use EXPORT or CSHEET (exact String, upper case) in the LST file");
-				Logging.deprecationPrint(" This will break after PCGen 5.14");
-			}
 			skill.setVisibility(Visibility.OUTPUT_ONLY);
 		}
 		else
 		{
-			Logging.deprecationPrint("Unexpected value used in "
+			Logging.errorPrint("Unexpected value used in "
 				+ getTokenName() + " in Skill");
-			Logging.deprecationPrint(" " + visType
+			Logging.errorPrint(" " + visType
 				+ " is not a valid value for " + getTokenName());
 			Logging
-				.deprecationPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
-			Logging
-				.deprecationPrint(" assuming you meant YES, please use YES (exact String, upper case) in the LST file");
-			skill.setVisibility(Visibility.DEFAULT);
+				.errorPrint(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
 			return false;
 		}
 
@@ -122,25 +58,15 @@ public class VisibleToken implements SkillLstToken
 
 		if (elements.length > 1)
 		{
-			if (elements[1].equalsIgnoreCase("READONLY")
+			if (elements[1].equals("READONLY")
 				&& !visType.startsWith("EXPORT"))
 			{
-				if (!elements[1].equals("READONLY"))
-				{
-					Logging
-						.deprecationPrint("In Skill "
-							+ getTokenName()
-							+ " Use of lower case is deprecated in "
-							+ getTokenName()
-							+ ".  Please use 'READONLY' (exact String, upper case): "
-							+ value);
-				}
 				skill.setReadOnly(true);
 			}
 			else
 			{
 				Logging
-					.deprecationPrint("Invalid Combination in Skill LST "
+					.errorPrint("Invalid Combination in Skill LST "
 						+ getTokenName()
 						+ ".  | must separate READONLY and cannot be used with EXPORT: "
 						+ value);

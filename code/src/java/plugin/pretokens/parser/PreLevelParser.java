@@ -35,7 +35,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -63,76 +62,67 @@ public class PreLevelParser extends AbstractPrerequisiteParser implements
 		Prerequisite prereq = super.parse(kind, formula, invertResult,
 		        overrideQualify);
 
-		if (formula.contains("MIN") || formula.contains("MAX"))
+		StringTokenizer tok = new StringTokenizer(formula, ",");
+		Prerequisite maxPrereq = new Prerequisite();
+		Prerequisite minPrereq = new Prerequisite();
+		boolean hasMin = false;
+		boolean hasMax = false;
+		while (tok.hasMoreTokens())
 		{
-			StringTokenizer tok = new StringTokenizer(formula, ",");
-			Prerequisite maxPrereq = new Prerequisite();
-			Prerequisite minPrereq = new Prerequisite();
-			boolean hasMin = false;
-			boolean hasMax = false;
-			while (tok.hasMoreTokens())
+			String value = tok.nextToken();
+			String[] vals = value.split("=");
+			if (vals.length != 2)
 			{
-				String value = tok.nextToken();
-				String[] vals = value.split("=");
-				if (vals.length != 2)
-				{
-					throw new PersistenceLayerException(
-					        "PRELEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-					                + formula + "' is not valid. ");
-
-				}
-				String token = vals[0];
-				String hdVal = vals[1];
-				try
-				{
-					Integer.parseInt(hdVal);
-				}
-				catch (NumberFormatException nfe)
-				{
-					throw new PersistenceLayerException(
-					        "PRELEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-					                + formula
-					                + "' is not valid: "
-					                + hdVal
-					                + " is not an integer");
-				}
-				if (token.equals("MIN"))
-				{
-					minPrereq.setKind("level");
-					minPrereq.setOperator(PrerequisiteOperator.GTEQ);
-					minPrereq.setOperand(hdVal);
-
-					hasMin = true;
-
-				}
-				if (token.equals("MAX"))
-				{
-					maxPrereq.setKind("level");
-					maxPrereq.setOperator(PrerequisiteOperator.LTEQ);
-					maxPrereq.setOperand(hdVal);
-					hasMax = true;
-				}
+				throw new PersistenceLayerException(
+						"PRELEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
+								+ formula + "' is not valid. ");
 			}
-			if (hasMin && hasMax)
+			String token = vals[0];
+			String hdVal = vals[1];
+			try
 			{
-				prereq.setKind(null); // PREMULT
-				prereq.setOperand("2");
-				prereq.addPrerequisite(minPrereq);
-				prereq.addPrerequisite(maxPrereq);
+				Integer.parseInt(hdVal);
 			}
-			else if (hasMin)
+			catch (NumberFormatException nfe)
 			{
-				prereq = minPrereq;
+				throw new PersistenceLayerException(
+						"PRELEVEL must be either 'MIN=x', 'MAX=y' or 'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
+								+ formula
+								+ "' is not valid: "
+								+ hdVal
+								+ " is not an integer");
 			}
-			else if (hasMax)
+			if (token.equals("MIN"))
 			{
-				prereq = maxPrereq;
-			}
+				minPrereq.setKind("level");
+				minPrereq.setOperator(PrerequisiteOperator.GTEQ);
+				minPrereq.setOperand(hdVal);
 
+				hasMin = true;
+
+			}
+			if (token.equals("MAX"))
+			{
+				maxPrereq.setKind("level");
+				maxPrereq.setOperator(PrerequisiteOperator.LTEQ);
+				maxPrereq.setOperand(hdVal);
+				hasMax = true;
+			}
 		}
-		else
+		if (hasMin && hasMax)
 		{
-			processOldSyntax(formula, prereq);
+			prereq.setKind(null); // PREMULT
+			prereq.setOperand("2");
+			prereq.addPrerequisite(minPrereq);
+			prereq.addPrerequisite(maxPrereq);
+		}
+		else if (hasMin)
+		{
+			prereq = minPrereq;
+		}
+		else if (hasMax)
+		{
+			prereq = maxPrereq;
 		}
 
 		if (invertResult)
@@ -140,36 +130,5 @@ public class PreLevelParser extends AbstractPrerequisiteParser implements
 			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
-	}
-
-	/**
-	 * @param formula
-	 * @param prereq
-	 * @throws PersistenceLayerException
-	 */
-	private void processOldSyntax(String formula, Prerequisite prereq)
-	        throws PersistenceLayerException
-	{
-
-		Logging.deprecationPrint("Deprecated use of PRELEVEL found: ");
-		Logging
-		        .deprecationPrint("The PRELEVEL:x syntax is no longer supported. "
-		                + "The new format is  'MIN=x', 'MAX=y', or 'MIN=x,MAX=y' where x and y are integers. "
-		                + "Passed formala was: " + formula);
-
-		try
-		{
-			int min = Integer.parseInt(formula);
-			prereq.setKind("level");
-			prereq.setOperand(Integer.toString(min));
-			prereq.setOperator(PrerequisiteOperator.GTEQ);
-		}
-		catch (NumberFormatException nfe)
-		{
-			throw new PersistenceLayerException(
-			        "PRELEVEL must be 'x' where 'x' is an integer. '" + formula
-			                + "' is not valid: " + formula
-			                + " is not an integer");
-		}
 	}
 }

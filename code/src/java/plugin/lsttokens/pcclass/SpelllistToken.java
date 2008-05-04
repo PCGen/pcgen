@@ -46,9 +46,7 @@ public class SpelllistToken implements PCClassLstToken
 			String className = aTok.nextToken();
 			if (Globals.getDomainKeyed(className) != null)
 			{
-				Logging.deprecationPrint(getTokenName()
-					+ " now requires a DOMAIN. prefix "
-					+ "when used with a DOMAIN rather than a Class");
+				return false;
 			}
 			if (className.startsWith("DOMAIN."))
 			{
