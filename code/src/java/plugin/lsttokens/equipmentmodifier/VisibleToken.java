@@ -46,11 +46,11 @@ public class VisibleToken implements EquipmentModifierLstToken
 		else
 		{
 			Logging.errorPrint("Unexpected value used in "
-					+ getTokenName() + " in Skill");
+					+ getTokenName() + " in EqMod");
 				Logging.errorPrint(" " + value
 					+ " is not a valid value for " + getTokenName());
 				Logging
-					.errorPrint(" Valid values in Skill are YES, QUALIFY, NO");
+					.errorPrint(" Valid values in EqMod are YES, QUALIFY, NO");
 				return false;
 		}
 		return true;
