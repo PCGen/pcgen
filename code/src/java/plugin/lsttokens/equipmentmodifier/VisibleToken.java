@@ -31,15 +31,15 @@ public class VisibleToken implements EquipmentModifierLstToken
 	 */
 	public boolean parse(EquipmentModifier mod, String value)
 	{
-		if (value.equals("YES"))
+		if (value.equalsIgnoreCase("YES"))
 		{
 			mod.setVisibility(Visibility.DEFAULT);
 		}
-		else if (value.equals("QUALIFY"))
+		else if (value.equalsIgnoreCase("QUALIFY"))
 		{
 			mod.setVisibility(Visibility.QUALIFY);
 		}
-		else if (value.equals("NO"))
+		else if (value.equalsIgnoreCase("NO"))
 		{
 			mod.setVisibility(Visibility.HIDDEN);
 		}
