@@ -41,15 +41,15 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.IntegerKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.core.utils.StringKey;
 import pcgen.io.FileAccess;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;

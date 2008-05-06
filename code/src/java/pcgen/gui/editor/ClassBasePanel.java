@@ -22,6 +22,7 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -30,7 +31,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.TokenStore;
-import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;

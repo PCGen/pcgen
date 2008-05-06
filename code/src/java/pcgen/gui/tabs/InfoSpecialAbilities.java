@@ -48,6 +48,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Constants;
 import pcgen.core.Domain;
@@ -65,7 +66,6 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.AddSpecialAbility;

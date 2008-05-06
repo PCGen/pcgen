@@ -1,7 +1,7 @@
 package pcgen.core.npcgen;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Constants;
-import pcgen.util.WeightedList;
 
 public class Table 
 {

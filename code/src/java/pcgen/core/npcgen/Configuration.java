@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Constants;
@@ -41,7 +42,6 @@ import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
-import pcgen.util.WeightedList;
 
 /**
  * @author boomer70 <boomer70@yahoo.com>

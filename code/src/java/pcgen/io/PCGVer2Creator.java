@@ -35,6 +35,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -71,7 +72,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 
 /**

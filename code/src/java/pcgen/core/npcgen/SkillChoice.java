@@ -24,9 +24,9 @@ package pcgen.core.npcgen;
 
 import java.util.List;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Globals;
 import pcgen.core.Skill;
-import pcgen.util.WeightedList;
 
 /**
  * This class represents a potential skill choice.  The class is needed because

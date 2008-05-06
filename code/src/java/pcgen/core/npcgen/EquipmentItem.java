@@ -3,12 +3,12 @@ package pcgen.core.npcgen;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
-import pcgen.util.WeightedList;
 
 public class EquipmentItem 
 {

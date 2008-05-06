@@ -24,6 +24,9 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.utils.*;
 import pcgen.persistence.lst.CampaignSourceEntry;

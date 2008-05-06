@@ -22,10 +22,10 @@
  */
 package pcgen.core.npcgen;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
-import pcgen.util.WeightedList;
 
 /**
  * This class represents a particular alignment generator option.

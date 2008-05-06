@@ -20,7 +20,7 @@
  * Last Editor: $Author: $
  * Last Edited: $Date$
  */
-package pcgen.util;
+package pcgen.base.util;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -554,7 +554,7 @@ public class WeightedList<E> implements List<E>
 	 * @return The absolute index or -1
 	 * 
 	 * @see java.util.List#lastIndexOf(java.lang.Object)
-	 * @see pcgen.util.WeightedList#indexOf(java.lang.Object)
+	 * @see pcgen.base.util.WeightedList#indexOf(java.lang.Object)
 	 */
 	public int lastIndexOf(final Object o)
 	{

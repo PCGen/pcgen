@@ -42,7 +42,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -53,19 +57,14 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.EmptyIterator;
-import pcgen.core.utils.IntegerKey;
 import pcgen.core.utils.KeyedListContainer;
-import pcgen.core.utils.ListKey;
-import pcgen.core.utils.ListKeyMapToList;
 import pcgen.core.utils.MapKey;
 import pcgen.core.utils.MapKeyMapToList;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.core.utils.StringKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
@@ -85,7 +84,7 @@ import pcgen.util.enumeration.VisionType;
  * @author Joe.Frazier
  *
  */
-public class PObject extends ConcretePrereqObject implements Cloneable, Serializable, Comparable<Object>,
+public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,
 	SourcedObject, KeyedListContainer, KeyedObject
 {
 	/** Standard serialVersionUID for Serializable objects */
@@ -94,13 +93,7 @@ public class PObject extends ConcretePrereqObject implements Cloneable, Serializ
 	/** a boolean for whether something should recurse, default is false */
 	private static boolean dontRecurse = false;
 
-	/** A map to hold items keyed by Strings for the object */
-	protected Map<StringKey, String> stringChar = new HashMap<StringKey, String>();
-	/** A map to hold items keyed by Integers for the object */
-	protected Map<IntegerKey, Integer> integerChar = new HashMap<IntegerKey, Integer>();
 	/** A map of Lists for the object */
-	protected ListKeyMapToList listChar = new ListKeyMapToList();
-	
 	protected final MapKeyMapToList mapChar = new MapKeyMapToList();
 
 	/** List of associated items for the object */
@@ -1294,11 +1287,6 @@ public class PObject extends ConcretePrereqObject implements Cloneable, Serializ
 		retVal.stringChar.putAll(stringChar);
 		retVal.integerChar = new HashMap<IntegerKey, Integer>();
 		retVal.integerChar.putAll(integerChar);
-		retVal.listChar = new ListKeyMapToList();
-		retVal.listChar.addAllLists(listChar);
-		//SAVE is a special case: starts out empty
-		// because the saveList is based on user selections (merton_monk@yahoo.com)
-		retVal.listChar.removeListFor(ListKey.SAVE);
 		retVal.types = new LinkedHashSet<String>();
 		retVal.types.addAll(types);
 
@@ -4048,44 +4036,6 @@ public class PObject extends ConcretePrereqObject implements Cloneable, Serializ
 	public String getStringFor(StringKey key)
 	{
 		return stringChar.get(key);
-	}
-
-	/* *******************************************************************
-	 * The following methods are part of the KeyedListContainer Interface
-	 * ******************************************************************/
-	public boolean containsListFor(ListKey key)
-	{
-		return listChar.containsListFor(key);
-	}
-
-	public <T> List<T> getListFor(ListKey<T> key)
-	{
-		return listChar.getListFor(key);
-	}
-
-	public final <T> List<T> getSafeListFor(ListKey<T> key)
-	{
-		return listChar.containsListFor(key) ? listChar.getListFor(key) : new ArrayList<T>();
-	}
-
-	public int getSizeOfListFor(ListKey key)
-	{
-		return listChar.sizeOfListFor(key);
-	}
-
-	public int getSafeSizeOfListFor(ListKey key)
-	{
-		return listChar.containsListFor(key) ? listChar.sizeOfListFor(key) : 0;
-	}
-
-	public <T> boolean containsInList(ListKey<T> key, T value)
-	{
-		return listChar.containsInList(key, value);
-	}
-
-	public <T> T getElementInList(ListKey<T> key, int i)
-	{
-		return listChar.getElementInList(key, i);
 	}
 
 	/**

@@ -22,9 +22,9 @@
  */
 package pcgen.core.kit;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -36,6 +36,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.HashMapToList;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -43,8 +45,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.util.DoubleKeyMap;
-import pcgen.util.HashMapToList;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>

@@ -21,7 +21,7 @@
  * Last Editor: $Author$
  * Last Edited: $Date$
  */
-package pcgen.core.utils;
+package pcgen.cdom.enumeration;
 
 import java.net.URI;
 

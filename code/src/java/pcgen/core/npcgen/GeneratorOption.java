@@ -22,8 +22,8 @@
  */
 package pcgen.core.npcgen;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Constants;
-import pcgen.util.WeightedList;
 
 /**
  * This is a base class for all of the configurable options for the generator.

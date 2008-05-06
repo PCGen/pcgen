@@ -25,6 +25,8 @@ package pcgen.core.utils;
 
 import java.util.List;
 
+import pcgen.cdom.enumeration.ListKey;
+
 /**
  * @author Tom Parker <thpr@sourceforge.net>
  *

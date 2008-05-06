@@ -17,7 +17,7 @@
  * 
  * Created on Aug 29, 2004 Imported into PCGen on June 18, 2005.
  */
-package pcgen.util;
+package pcgen.base.util;
 
 import java.util.Collection;
 import java.util.List;

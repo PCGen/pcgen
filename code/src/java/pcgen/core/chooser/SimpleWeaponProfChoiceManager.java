@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.CategorisableStore;
@@ -39,7 +40,6 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.core.utils.ListKey;
 
 /**
  * <code>SimpleWeaponProfChoiceManager</code>

@@ -19,13 +19,13 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.utils.IntegerKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.core.utils.StringKey;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;

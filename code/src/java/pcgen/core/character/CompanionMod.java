@@ -28,12 +28,12 @@
  *************************************************************************/
 package pcgen.core.character;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
-import pcgen.core.utils.IntegerKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.core.utils.StringKey;
 
 import java.util.HashMap;
 import java.util.Map;

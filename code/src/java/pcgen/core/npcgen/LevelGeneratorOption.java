@@ -24,7 +24,7 @@ package pcgen.core.npcgen;
 
 import java.util.StringTokenizer;
 
-import pcgen.util.WeightedList;
+import pcgen.base.util.WeightedList;
 
 /**
  * This class represents a particular level generator option.

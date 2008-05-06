@@ -3,8 +3,8 @@ package pcgen.core.utils;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.util.DoubleKeyMapToList;
-import pcgen.util.MapToList;
+import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.MapToList;
 
 public class MapKeyMapToList
 {

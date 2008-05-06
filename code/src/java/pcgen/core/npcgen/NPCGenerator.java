@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -53,7 +54,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.gui.NameElement;
 import pcgen.util.Logging;
-import pcgen.util.WeightedList;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Visibility;
 

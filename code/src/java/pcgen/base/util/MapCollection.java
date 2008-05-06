@@ -21,7 +21,7 @@
  * Last Editor: $Author: boomer70 $
  * Last Edited: $Date: 2006-06-08 23:25:16 -0400 (Thu, 08 Jun 2006) $
  */
-package pcgen.util;
+package pcgen.base.util;
 
 import java.util.AbstractCollection;
 import java.util.Collection;

@@ -17,7 +17,7 @@
  * 
  * Created on Jun 16, 2005
  */
-package pcgen.util;
+package pcgen.base.util;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -349,7 +349,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	}
 
 	@Override
-	public Object clone() throws CloneNotSupportedException
+	public DoubleKeyMapToList clone() throws CloneNotSupportedException
 	{
 		DoubleKeyMapToList<K1, K2, V> dkm =
 				(DoubleKeyMapToList<K1, K2, V>) super.clone();

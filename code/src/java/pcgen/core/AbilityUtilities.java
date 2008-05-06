@@ -23,9 +23,9 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 
 import java.math.BigDecimal;

@@ -22,10 +22,10 @@
  */
 package pcgen.core.npcgen;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.util.Logging;
-import pcgen.util.WeightedList;
 
 /**
  * This class represents a particular class generator option.

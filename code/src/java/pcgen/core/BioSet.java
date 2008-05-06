@@ -25,9 +25,9 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 
 import java.util.*;

@@ -22,12 +22,12 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;

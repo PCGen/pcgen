@@ -21,11 +21,13 @@
  * Last Editor: $Author$
  * Last Edited: $Date$
  */
-package pcgen.core.utils;
+package pcgen.cdom.util;
 
-import pcgen.util.HashMapToList;
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.enumeration.ListKey;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -309,5 +311,10 @@ public class ListKeyMapToList
 	public <T> boolean containsInList(ListKey<T> key, T value)
 	{
 		return map.containsInList(key, value);
+	}
+
+	public Set<ListKey<?>> getKeySet()
+	{
+		return map.getKeySet();
 	}
 }

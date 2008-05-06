@@ -22,11 +22,11 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;

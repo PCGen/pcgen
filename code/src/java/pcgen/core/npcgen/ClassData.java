@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Constants;
@@ -38,7 +39,6 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
-import pcgen.util.WeightedList;
 
 /**
  * Stores information about how to randomly generate selections for a class.

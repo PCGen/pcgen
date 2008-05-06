@@ -22,11 +22,11 @@
  */
 package pcgen.core.npcgen;
 
+import pcgen.base.util.WeightedList;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Race;
 import pcgen.util.Logging;
-import pcgen.util.WeightedList;
 
 /**
  * This class represents a particular race generator option.

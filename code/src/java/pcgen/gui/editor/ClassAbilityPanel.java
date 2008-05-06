@@ -22,13 +22,13 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.base.util.MapCollection;
 import pcgen.core.*;
 import pcgen.core.utils.ChoiceList;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
-import pcgen.util.MapCollection;
 import pcgen.util.enumeration.AttackType;
 
 import javax.swing.*;

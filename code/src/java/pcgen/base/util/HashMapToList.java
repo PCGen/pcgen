@@ -22,7 +22,7 @@
  * Last Editor: $Author$
  * Last Edited: $Date$
  */
-package pcgen.util;
+package pcgen.base.util;
 
 import java.util.ArrayList;
 import java.util.Collection;

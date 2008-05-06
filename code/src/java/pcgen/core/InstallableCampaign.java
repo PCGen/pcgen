@@ -23,7 +23,7 @@
 
 package pcgen.core;
 
-import pcgen.core.utils.StringKey;
+import pcgen.cdom.enumeration.StringKey;
 
 /**
  * <code>InstallableCampaign</code> is a campaign (or data set) that can be 
