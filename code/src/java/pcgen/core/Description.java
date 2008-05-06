@@ -25,6 +25,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.util.Logging;
 
 /**
@@ -44,7 +45,7 @@ import pcgen.util.Logging;
  * 
  * @since 5.11.1
  */
-public class Description extends PrereqObject
+public class Description extends ConcretePrereqObject
 {
 	private List<String> theComponents = new ArrayList<String>();
 	private List<String> theVariables = null;
@@ -282,7 +283,7 @@ public class Description extends PrereqObject
 	 * 
 	 * @return A String in LST file format for this description.
 	 * 
-	 * @see pcgen.core.PrereqObject#getPCCText()
+	 * @see pcgen.cdom.base.PrereqObject#getPCCText()
 	 */
 	@Override
 	public String getPCCText()

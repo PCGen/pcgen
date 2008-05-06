@@ -38,6 +38,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
@@ -55,7 +56,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
-import pcgen.util.UnreachableError;
 
 /**
  *  A class loader implementation that loads classes from JAR files.

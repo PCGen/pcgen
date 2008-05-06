@@ -24,7 +24,7 @@
  */
 package pcgen.core;
 
-import pcgen.util.UnreachableError;
+import pcgen.base.lang.UnreachableError;
 
 
 

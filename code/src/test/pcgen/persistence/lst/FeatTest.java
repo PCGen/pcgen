@@ -11,10 +11,10 @@ import gmgen.pluginmgr.PluginLoader;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;
-import pcgen.util.UnreachableError;
 
 /**
  * JUnit testcases for <code>pcgen.core.Feat</code>.

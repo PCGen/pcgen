@@ -18,7 +18,7 @@
  * Created on Apr 23, 2005
  *
  */
-package pcgen.util;
+package pcgen.base.lang;
 
 /**
  * @author Thomas Parker (thpr@sourceforge.net)

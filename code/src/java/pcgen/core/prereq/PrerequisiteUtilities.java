@@ -63,7 +63,7 @@ public final class PrerequisiteUtilities
 		// Don't allow instantiation of utility class
 	}
 
-	public static final String preReqHTMLStringsForList(final PlayerCharacter aPC, final PObject aObj, final List<Prerequisite> aList, final boolean includeHeader)
+	public static final String preReqHTMLStringsForList(final PlayerCharacter aPC, final PObject aObj, final Collection<Prerequisite> aList, final boolean includeHeader)
 	{
 		if ((aList == null) || aList.isEmpty())
 		{

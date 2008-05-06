@@ -28,6 +28,7 @@
  */
 package pcgen.persistence.lst.utils;
 
+import pcgen.cdom.base.PrereqObject;
 import pcgen.core.*;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;

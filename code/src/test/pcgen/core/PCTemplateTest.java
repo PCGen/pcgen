@@ -31,11 +31,11 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCTemplateLoader;
-import pcgen.util.UnreachableError;
 
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.

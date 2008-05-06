@@ -42,7 +42,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pcgen.core.Ability.Nature;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -85,7 +85,7 @@ import pcgen.util.enumeration.VisionType;
  * @author Joe.Frazier
  *
  */
-public class PObject extends PrereqObject implements Cloneable, Serializable, Comparable<Object>,
+public class PObject extends ConcretePrereqObject implements Cloneable, Serializable, Comparable<Object>,
 	SourcedObject, KeyedListContainer, KeyedObject
 {
 	/** Standard serialVersionUID for Serializable objects */

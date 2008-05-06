@@ -25,6 +25,7 @@
 package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.*;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;

@@ -33,11 +33,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Campaign;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
-import pcgen.util.UnreachableError;
 
 /**
  * This class is used to match a source file to the campaign that

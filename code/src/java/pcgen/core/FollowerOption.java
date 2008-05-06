@@ -28,6 +28,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import pcgen.cdom.base.ConcretePrereqObject;
+
 /**
  * This class represents a possible choice for a follower.  This is basically
  * a Race with a "FOLLOWERADJUSTMENT" that modifies the owner's effective
@@ -35,7 +37,7 @@ import java.util.List;
  * 
  * @author boomer70
  */
-public class FollowerOption extends PrereqObject implements Comparable<FollowerOption>
+public class FollowerOption extends ConcretePrereqObject implements Comparable<FollowerOption>
 {
 	private String theRaceKey;
 	private Race theRace = null;
@@ -177,7 +179,7 @@ public class FollowerOption extends PrereqObject implements Comparable<FollowerO
 	 * for this follower.  For example, if a follower has an adjustment of -3
 	 * then the master must have at least 4 levels to qualify for this follower
 	 * (4 - 3 &gt; 0)
-	 * @see pcgen.core.PrereqObject#qualifies(pcgen.core.PlayerCharacter)
+	 * @see pcgen.cdom.base.PrereqObject#qualifies(pcgen.core.PlayerCharacter)
 	 */
 	@Override
 	public boolean qualifies( final PlayerCharacter aPC )

@@ -26,6 +26,7 @@ package pcgen.core;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -33,11 +34,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-
-import java.util.Collection;
 
 /**
  * Encapsulates a single DR entity.
@@ -49,7 +49,7 @@ import java.util.Collection;
  * @author boomer70
  *
  */
-public class DamageReduction extends PrereqObject implements Comparable<DamageReduction>, Cloneable
+public class DamageReduction extends ConcretePrereqObject implements Comparable<DamageReduction>, Cloneable
 {
 	private String theReduction = "0";
 	private String theBypass = "-";

@@ -26,9 +26,9 @@
  */
 package pcgen.core.character;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.util.UnreachableError;
 
 /**
  * <code>Follower.java</code>

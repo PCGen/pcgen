@@ -28,13 +28,20 @@
 package pcgen.core.prereq;
 
 
-import pcgen.core.*;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.core.Ability;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import java.util.List;
 
 /**
  * @author wardc
@@ -55,7 +62,7 @@ public class PrereqHandler {
 	 * @param caller The object that we are testing qualification for.
 	 * @return True if the character passes all prereqs.
 	 */
-	public static boolean passesAll(final List<Prerequisite> prereqList, final PlayerCharacter character, final PObject caller)
+	public static boolean passesAll(final Collection<Prerequisite> prereqList, final PlayerCharacter character, final PObject caller)
 	{
 		if (prereqList == null || prereqList.isEmpty())
 		{
@@ -114,7 +121,7 @@ public class PrereqHandler {
 		return true;
 	}
 
-	public static boolean passesAll(final List<?> prereqList, final Equipment equip, PlayerCharacter currentPC)
+	public static boolean passesAll(final Collection<?> prereqList, final Equipment equip, PlayerCharacter currentPC)
 	{
 		if (prereqList == null)
 		{
@@ -259,7 +266,7 @@ public class PrereqHandler {
 		return total>0;
 	}
 
-	public static final String toHtmlString(final List<Prerequisite> anArrayList)
+	public static final String toHtmlString(final Collection<Prerequisite> anArrayList)
 	{
 		if (anArrayList==null || anArrayList.isEmpty())
 		{

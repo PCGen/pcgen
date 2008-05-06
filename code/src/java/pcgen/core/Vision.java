@@ -22,9 +22,10 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.util.enumeration.VisionType;
 
-public class Vision extends PrereqObject implements Comparable<Vision> {
+public class Vision extends ConcretePrereqObject implements Comparable<Vision> {
 
 	private final VisionType visionType;
 

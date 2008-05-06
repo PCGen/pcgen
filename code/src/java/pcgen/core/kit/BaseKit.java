@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
-import pcgen.util.UnreachableError;
 import pcgen.core.prereq.Prerequisite;
 
 /**

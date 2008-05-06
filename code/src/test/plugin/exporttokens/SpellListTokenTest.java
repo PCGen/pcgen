@@ -30,6 +30,7 @@ import java.util.Arrays;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -42,7 +43,6 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.BonusSpellLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.util.UnreachableError;
 
 /**
  * <code>SpellListTokenTest</code> is ...

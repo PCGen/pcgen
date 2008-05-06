@@ -25,6 +25,7 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.*;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -33,7 +34,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-import pcgen.util.UnreachableError;
 
 import java.io.BufferedReader;
 import java.io.File;

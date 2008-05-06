@@ -25,11 +25,12 @@
  */
 package pcgen.core;
 
-import pcgen.core.spell.Spell;
-import pcgen.util.enumeration.ProhibitedSpellType;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.core.spell.Spell;
+import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * @author stefan
@@ -37,7 +38,7 @@ import java.util.List;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class SpellProhibitor extends PrereqObject {
+public class SpellProhibitor extends ConcretePrereqObject {
 
 	private ProhibitedSpellType type = null;
 	private List<String> valueList = null;

@@ -27,6 +27,7 @@ import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;
 import pcgen.core.EquipmentList;
@@ -35,7 +36,6 @@ import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
-import pcgen.util.UnreachableError;
 
 /**
  * 
