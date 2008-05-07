@@ -73,7 +73,9 @@ public class PreEquipBothWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREEQUIPBOTH:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
+			writer.write("PREEQUIPBOTH:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(prereq.getOperand());
+			writer.write(',');
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

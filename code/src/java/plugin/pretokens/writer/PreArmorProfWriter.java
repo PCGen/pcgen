@@ -75,7 +75,9 @@ public class PreArmorProfWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREARMORPROF:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
+			writer.write("PREARMORPROF:"+ (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(prereq.getOperand());
+			writer.write(',');
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

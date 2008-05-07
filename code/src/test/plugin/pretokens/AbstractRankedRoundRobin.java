@@ -71,6 +71,14 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	public void testTypeMultipleCount()
+	{
+		if (isTypeAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString() + ":2,TYPE.Foo=3");
+		}
+	}
+
 	public void testAny()
 	{
 		if (isAnyAllowed())

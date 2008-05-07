@@ -9,7 +9,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import junit.framework.TestCase;
 
-public class AbstractPreRoundRobin extends TestCase
+public abstract class AbstractPreRoundRobin extends TestCase
 {
 	public final void runRoundRobin(String s)
 	{
