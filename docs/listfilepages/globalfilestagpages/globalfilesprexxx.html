@@ -346,13 +346,8 @@
 	<p class="indent3">Removes the character must have 1 level in SPELLCASTER.Arcane class. Can now be any Class</p>
 	<p class="indent2"><code>PRECLASS:1,SPELLCASTER.Divine=6,SPELLCASTER.Psionic=3.MOD &lt;tab&gt; PRECLASS:1,Rogue=6,Ranger=3.MOD</code></p>
 	<p class="indent3">Changes the character must have 6 levels in any divine spellcasting class or 3 levels in any psionic manifesting class, with a requirement for either Rogue at 6 levels or Ranger at 3 levels.</p>
-	<p class="indent1"><strong>Deprecated Syntax:</strong> <a href="#FPRECLASSOLD">PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</a></p>
-	<p></p>
-
-<hr>
-
-	<p class="new">*** Deprecated - use <a href="#PRECLASS">PRECLASS:x,y=z,y=z</a></p>
-	<p class="indent0"><strong><a name="PRECLASSOLD">Tag Name:</a></strong> PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</code></p>
 	<p></p>
 
 <hr>
@@ -391,7 +386,7 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.12 RC2 - Remove 6.0 - Use  <a href="../globalfilestagpages/globalfilesother.html#KIT">KIT:</a> tag instead.</p>
+	<p class="new">*** Deprecated 5.12 RC2 - Remove 5.16 - Use  <a href="../globalfilestagpages/globalfilesother.html#KIT">KIT:</a> tag instead.</p>
 	<p class="indent0"><strong><a name="PREDEFAULTMONSTER">Tag Name:</a></strong> PREDEFAULTMONSTER:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Y (Applies to default monster).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> N (Does not apply to default monster).</p>
@@ -1215,23 +1210,6 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.11.6-5.12.0, Use <a href="#PRESPELLSCHOOL2">PRESPELLSCHOOL:x,y=z</a> tag instead.</p>
-	<p class="indent0"><strong><a name="PRESPELLSCHOOL">Tag Name:</a></strong> PRESPELLSCHOOL:x,y,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a school of magic).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (The quantity of spells of the proper
-		school and level the character must know).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The minimum spell level of the school
-		of spells a character must know).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets spell school requirements. Loremaster is a good example of this pre-requisite</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRESPELLSCHOOL:Necromancy,3,2</code></p>
-	<p class="indent3">Character must have at least three 2nd level or higher &quot;Necromancy spells to meet
-		the requirement.</p>
-	<p></p>
-
-<hr>
-
 	<p class="new">*** NEW 5.11.6</p>
 	<p class="indent0"><strong><a name="PRESPELLSCHOOL2">Tag Name:</a></strong> PRESPELLSCHOOL:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
@@ -1245,23 +1223,6 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESPELLSCHOOL:3,Necromancy=2</code></p>
 	<p class="indent3">Character must have at least three 2nd level or higher Necromancy spells to meet
-		the requirement.</p>
-	<p></p>
-
-<hr>
-
-	<p class="new">*** Deprecated 5.11.6-5.12.0, Use <a href="#PRESPELLSCHOOLSUB2">PRESPELLSCHOOLSUB:x,y=z</a></p>
-	<p class="indent0"><strong><a name="PRESPELLSCHOOLSUB">Tag Name:</a></strong> PRESPELLSCHOOLSUB:x,y,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The quantity of spells of the proper
-		sub-school and level the character must know).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a sub-school of magic).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (Minimum spell level of the sub-school of
-		spells a character must know).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets spell sub-school requirements.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRESPELLSCHOOLSUB:Creation,3,2</code></p>
-	<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
 		the requirement.</p>
 	<p></p>
 

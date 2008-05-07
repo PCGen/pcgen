@@ -1133,32 +1133,6 @@
 
 <hr>
 
-	<p class="new"> <span class="deprecated">(Deprecated, use <a href="../globalfilestagpages/globalfilesother.html#AUTOFEAT">AUTO:FEAT</a> tag instead. FEATAUTO to be removed in 6.0)</span></p>
-	<p class="indent0"><strong><a name="FEATAUTO">Tag Name:</a></strong> FEATAUTO:x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Names)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR.Text (Feat Names)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This is a PIPE (|) delimited list of feats that are automatically granted to the class.</li>
-		<li>The feats granted are not stored with the character, but are rather assigned &quot;on-the-fly&quot;.</li>
-		<li>The entire feat, including subchoices, must be specified within the tag. (i.e. 'Exotic Weapon Proficiency (Sword (Two-Bladed)).</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>FEATAUTO:Simple Weapon Proficiency</code></p>
-	<p class="indent3">The class automatically receives the &quot;Simple Weapon Proficiency&quot; feat.</p>
-	<p class="indent2"><code>FEATAUTO:Alertness|Blind Fighting</code></p>
-	<p class="indent3">The class automatically receives the &quot;Alertness&quot; and &quot;Blind
-		Fighting&quot; feats.</p>
-	<p class="indent2"><code>CLASS:Ranger.MOD  ADD:FEAT(Track,Shadow (TT))</code></p>
-	<p class="indent2"><code>1  FEATAUTO:.CLEAR.Track</code></p>
-	<p class="indent3">The class automatically receives the &quot;Track&quot; and &quot;Shadow (TT)&quot;
-		skills, then removes the &quot;Track&quot; skill, on the first Class Level.</p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class and Class Level Line.</p>
-	<p></p>
-
-<hr>
-
 	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="HITDIE">Tag Name:</a></strong> HITDIE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Die size)</p>
