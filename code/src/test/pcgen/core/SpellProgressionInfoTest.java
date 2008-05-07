@@ -3,6 +3,8 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import pcgen.cdom.base.Constants;
 import junit.framework.TestCase;
 
 public class SpellProgressionInfoTest extends TestCase

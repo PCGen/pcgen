@@ -12,9 +12,9 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
-import pcgen.core.Constants;
 
 /**
  * JUnit testcases for <code>pcgen.core.Feat</code>.
@@ -75,9 +75,9 @@ public class FeatTest extends TestCase
 		alertnessFeat = new Ability();
 		featLoader
 			.parseLine(
+				null,
 				alertnessFeat,
-				"Alertness	TYPE:General	DESC:+2 on Listen and Spot checks	BONUS:SKILL|Listen,Spot|2",
-				source);
+				"Alertness	TYPE:General	DESC:+2 on Listen and Spot checks	BONUS:SKILL|Listen,Spot|2", source);
 		assertEquals("Alertness", alertnessFeat.getKeyName());
 	}
 
@@ -104,9 +104,9 @@ public class FeatTest extends TestCase
 		Ability ambidexterityFeat = new Ability();
 		featLoader
 			.parseLine(
+				null,
 				ambidexterityFeat,
-				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4",
-				source);
+				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4", source);
 		assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
 	}
 
@@ -133,9 +133,9 @@ public class FeatTest extends TestCase
 		Ability simpleWeaponFeat = new Ability();
 		featLoader
 			.parseLine(
+				null,
 				simpleWeaponFeat,
-				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple",
-				source);
+				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple", source);
 		assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());
 	}
 }

@@ -26,6 +26,7 @@ package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -108,7 +109,7 @@ public class TestHelper
 			{
 				throw new UnreachableError(e);
 			}
-			eqLoader.parseLine(eq, input, source);
+			eqLoader.parseLine(null, eq, input, source);
 			EquipmentList.addEquipment(eq);
 			return true;
 		}
@@ -239,7 +240,7 @@ public class TestHelper
 				}
 			}
 
-			abLoader.parseLine(null, input, source);
+			abLoader.parseLine(null, null, input, source);
 			return true;
 		}
 		catch (Exception e)

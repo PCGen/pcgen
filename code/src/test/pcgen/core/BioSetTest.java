@@ -33,6 +33,7 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.Constants;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
 /**

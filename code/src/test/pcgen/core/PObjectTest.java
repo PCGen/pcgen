@@ -148,7 +148,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		Race reconstRace = new Race();
-		raceLoader.parseLine(reconstRace, racePCCText, source);
+		raceLoader.parseLine(null, reconstRace, racePCCText, source);
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			racePCCText, reconstRace.getPCCText());
@@ -164,7 +164,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		PCClass reconstClass = new PCClass();
 		reconstClass =
-				classLoader.parseLine(reconstClass, classPCCText, source);
+				classLoader.parseLine(null, reconstClass, classPCCText, source);
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			classPCCText, reconstClass.getPCCText());
@@ -233,9 +233,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability pObj = new Ability();
 		loader
 			.parseLine(
+				null,
 				pObj,
-				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3",
-				source);
+				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
@@ -272,9 +272,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability pObj = new Ability();
 		loader
 			.parseLine(
+				null,
 				pObj,
-				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3",
-				source);
+				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3", source);
 
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
@@ -362,9 +362,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 		RaceLoader loader = new RaceLoader();
 		loader
 			.parseLine(
+				null,
 				race,
-				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2",
-				source);
+				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = race.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));

@@ -197,7 +197,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final String spellFocusStr =
 				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
-		featLoader.parseLine(spellFocus, spellFocusStr, cse);
+		featLoader.parseLine(null, spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
 		spellFocus.addAssociated("Evocation");
 
@@ -241,7 +241,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final String spellFocusStr =
 				"Spell Focus	TYPE:FeatTest	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
-		featLoader.parseLine(spellFocus, spellFocusStr, cse);
+		featLoader.parseLine(null, spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
 		spellFocus.addAssociated("Evocation");
 

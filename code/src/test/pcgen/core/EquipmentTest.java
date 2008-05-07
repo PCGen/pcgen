@@ -31,6 +31,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.cdom.base.Constants;
 
 /**
  * Equipment Test

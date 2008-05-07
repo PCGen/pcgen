@@ -39,6 +39,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;

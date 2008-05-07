@@ -12,7 +12,8 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
-import pcgen.core.Constants;
+
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 
 /**

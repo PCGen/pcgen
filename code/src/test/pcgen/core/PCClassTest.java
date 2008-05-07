@@ -422,7 +422,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 					+ "SPELLS:"
 					+ "Humanoid|TIMES=1|CASTERLEVEL=var(\"TCL\")|Create undead,11+WIS";
 		PCClassLoader classLoader = new PCClassLoader();
-		classLoader.parseLine(humanoidClass, b, source);
+		classLoader.parseLine(null, humanoidClass, b, source);
 		classPCCText = humanoidClass.getPCCText();
 		assertNotNull("PCC Text for race should not be null", classPCCText);
 
@@ -506,9 +506,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		}
 		featLoader
 			.parseLine(
+				null,
 				casterFeat,
-				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1",
-				source);
+				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
 		casterFeat.setCategory("FEAT");
 		Globals.addAbility(casterFeat);
 
@@ -752,7 +752,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			{
 				System.out.println("Processing line:'" + line + "'.");
 				reconstClass =
-						pcClassLoader.parseLine(reconstClass, line, source);
+						pcClassLoader.parseLine(null, reconstClass, line, source);
 			}
 		}
 		return reconstClass;
@@ -792,13 +792,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 					+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
 					+ "MONNONSKILLHD:2|PRESIZEEQ:L";
 		PCClassLoader classLoader = new PCClassLoader();
-		humanoidClass = classLoader.parseLine(null, classDef, source);
+		humanoidClass = classLoader.parseLine(null, null, classDef, source);
 		Globals.getClassList().add(humanoidClass);
 
 		classDef =
 				"CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
-		nymphClass = classLoader.parseLine(null, classDef, source);
+		nymphClass = classLoader.parseLine(null, null, classDef, source);
 		Globals.getClassList().add(nymphClass);
 
 		// Create the large size mod

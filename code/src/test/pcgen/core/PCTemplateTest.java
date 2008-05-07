@@ -127,9 +127,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
+				null,
 				template,
-				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2",
-				source);
+				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
@@ -177,9 +177,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
+				null,
 				template,
-				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2",
-				source);
+				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
@@ -229,9 +229,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
+				null,
 				template,
-				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2",
-				source);
+				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
@@ -293,9 +293,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
+				null,
 				template,
-				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2",
-				source);
+				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));

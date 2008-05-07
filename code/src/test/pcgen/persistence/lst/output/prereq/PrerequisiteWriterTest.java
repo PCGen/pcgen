@@ -37,7 +37,7 @@ import java.io.Writer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;

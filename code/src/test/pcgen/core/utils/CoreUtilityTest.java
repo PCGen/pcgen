@@ -26,6 +26,7 @@
 package pcgen.core.utils;
 
 import pcgen.PCGenTestCase;
+import pcgen.base.lang.StringUtil;
 import pcgen.gui.PCGenProp;
 
 import java.util.ArrayList;
@@ -72,7 +73,7 @@ public class CoreUtilityTest extends PCGenTestCase
 	{
 		final String sep = "|";
 		final List<String> list = constructList();
-		final String result = CoreUtility.join(list, sep);
+		final String result = StringUtil.join(list, sep);
 		final String trueResult = "one|two|three|four";
 		assertTrue("join returned bad String: got '" + result
 			+ "' should be '" + trueResult + "'", trueResult.equals(result));

@@ -26,6 +26,8 @@ package pcgen.io.exporttoken;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -165,14 +167,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		WeaponProf wp = new WeaponProf();
 		wp.setName("DoubleWpn");
-		wp.setHands("1IFLARGERTHANWEAPON");
+		wp.put(IntegerKey.HANDS, Constants.HANDS_SIZEDEPENDENT);
 		Globals.addWeaponProf(wp);
 
 		wp = new WeaponProf();
 		wp.setName("Sword (Bastard/Martial)");
 		wp.setKeyName("KEY_Sword (Bastard/Martial)");
 		wp.setTypeInfo("MARTIAL");
-		wp.setHands("2");
+		wp.put(IntegerKey.HANDS, 2);
 		Globals.addWeaponProf(wp);
 		character.addWeaponProf(wp.getKeyName());
 

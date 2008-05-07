@@ -34,7 +34,7 @@ import java.util.Date;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
 

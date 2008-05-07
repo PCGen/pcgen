@@ -27,6 +27,7 @@
 package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 

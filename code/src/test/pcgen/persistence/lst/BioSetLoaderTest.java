@@ -33,8 +33,8 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
+import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 
 /**

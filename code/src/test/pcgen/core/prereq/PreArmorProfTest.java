@@ -273,7 +273,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Ability bar = new Ability();
 		final String barStr =
 			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
-		featLoader.parseLine(bar, barStr, cse);
+		featLoader.parseLine(null, bar, barStr, cse);
 		character.addFeat(bar, null);
 		
 		assertEquals("Character should have 50 bonus hp added.",
@@ -286,7 +286,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Ability foo = new Ability();
 		final String fooStr =
 			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREARMORPROF:1,Full Plate";
-		featLoader.parseLine(foo, fooStr, cse);
+		featLoader.parseLine(null, foo, fooStr, cse);
 		character.addFeat(foo, null);
 		
 		assertEquals("Character has the Full Plate proficiency so the bonus should be added",

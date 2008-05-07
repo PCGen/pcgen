@@ -7,7 +7,7 @@
 package pcgen;
 
 import gmgen.pluginmgr.PluginLoader;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
