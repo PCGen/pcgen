@@ -25,6 +25,8 @@ package pcgen.core;
 import java.text.ParseException;
 import java.util.Map;
 
+import pcgen.cdom.base.Constants;
+
 /**
  * This class represents the information about the source
  * of an objcet.

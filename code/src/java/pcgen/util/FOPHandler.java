@@ -25,7 +25,8 @@ import org.apache.fop.render.Renderer;
 import org.apache.fop.render.awt.AWTRenderer;
 import org.apache.fop.viewer.SecureResourceBundle;
 import org.xml.sax.XMLReader;
-import pcgen.core.Constants;
+
+import pcgen.cdom.base.Constants;
 
 import java.io.*;
 import java.util.HashMap;

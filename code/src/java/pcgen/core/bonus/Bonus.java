@@ -25,7 +25,7 @@
  */
 package pcgen.core.bonus;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj.StackType;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;

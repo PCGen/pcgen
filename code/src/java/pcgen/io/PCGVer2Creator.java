@@ -35,12 +35,13 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.CharacterDomain;
-import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Domain;
@@ -71,7 +72,6 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 
 /**
@@ -839,7 +839,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(pcClass.getSpellBaseStat()));
 				buffer.append('|');
 				buffer.append(TAG_CANCASTPERDAY).append(':');
-				buffer.append(CoreUtility.join(pcClass
+				buffer.append(StringUtil.join(pcClass
 					.getCastListForLevel(classLevel), ","));
 			}
 
@@ -849,7 +849,7 @@ final class PCGVer2Creator implements IOConstants
 			{
 				buffer.append('|');
 				buffer.append(TAG_PROHIBITED).append(':');
-				buffer.append(EntityEncoder.encode(CoreUtility.join(prohibited,
+				buffer.append(EntityEncoder.encode(StringUtil.join(prohibited,
 					",")));
 			}
 

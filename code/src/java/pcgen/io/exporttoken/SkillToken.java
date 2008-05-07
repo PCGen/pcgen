@@ -26,7 +26,7 @@ package pcgen.io.exporttoken;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;

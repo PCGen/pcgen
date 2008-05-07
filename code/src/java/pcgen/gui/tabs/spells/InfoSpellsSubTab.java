@@ -47,9 +47,10 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
-import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -62,7 +63,6 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfoTab;
@@ -776,7 +776,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 				b.appendLineBreak();
 				b.appendI18nElement("InfoSpells.prohibited.school", //$NON-NLS-1$ 
-					CoreUtility.join(aClass.getProhibitedSchools(), ",")); //$NON-NLS-1$ 
+					StringUtil.join(aClass.getProhibitedSchools(), ",")); //$NON-NLS-1$ 
 			}
 
 			String bString = aClass.getDefaultSourceString();

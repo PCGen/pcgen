@@ -22,10 +22,11 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.MapCollection;
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.utils.ChoiceList;
-import pcgen.core.utils.CoreUtility;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
@@ -205,10 +206,10 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		Map<AttackType, String> attackCycleMap = obj.getAttackCycle();
 		if (attackCycleMap != null) {
 			MapCollection mc = new MapCollection(attackCycleMap);
-			attackCycle.setText(CoreUtility.join(mc, Constants.PIPE));
+			attackCycle.setText(StringUtil.join(mc, Constants.PIPE));
 		}
 		hitDice.setText(String.valueOf(obj.getBaseHitDie()));
-		deity.setText(CoreUtility.join(obj.getDeityList(), Constants.PIPE));
+		deity.setText(StringUtil.join(obj.getDeityList(), Constants.PIPE));
 		itemCreate.setText(obj.getItemCreationMultiplier());
 		extraFeats.setText(String.valueOf(obj.getInitialFeats()));
 		if (obj.getLevelsPerFeat()!=null)
@@ -216,9 +217,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			levelsPerFeat.setText(obj.getLevelsPerFeat().toString());
 		}
 
-		knownSpells.setText(CoreUtility.join(obj.getKnownSpellsList(), "|"));
+		knownSpells.setText(StringUtil.join(obj.getKnownSpellsList(), "|"));
 		memorize.setSelected(obj.getMemorizeSpells());
-		prohibited.setText(CoreUtility.join(obj.getProhibitedSchools(), ","));
+		prohibited.setText(StringUtil.join(obj.getProhibitedSchools(), ","));
 
 //		StringBuffer specKnown = new StringBuffer();
 //		for (LevelProperty<String> lp : obj.getSpecialtyKnownList())

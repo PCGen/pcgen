@@ -42,8 +42,10 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -1949,7 +1951,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public String getType()
 	{
-		return CoreUtility.join(getTypeList(false), ".");
+		return StringUtil.join(getTypeList(false), ".");
 	}
 
 	/**
@@ -2861,13 +2863,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		List<String> ccSkillList = getCcSkillList();
 		if ((ccSkillList != null) && (ccSkillList.size() != 0))
 		{
-			txt.append("\tCCSKILL:").append(CoreUtility.join(ccSkillList, "|"));
+			txt.append("\tCCSKILL:").append(StringUtil.join(ccSkillList, "|"));
 		}
 
 		List<String> cSkillList = getCSkillList();
 		if ((cSkillList != null) && (cSkillList.size() != 0))
 		{
-			txt.append("\tCSKILL:").append(CoreUtility.join(cSkillList, "|"));
+			txt.append("\tCSKILL:").append(StringUtil.join(cSkillList, "|"));
 		}
 
 		aString = getChoiceString();
@@ -2911,7 +2913,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if (langList.size() != 0)
 		{
-			txt.append("\tLANGAUTO:").append(CoreUtility.join(langList, ","));
+			txt.append("\tLANGAUTO:").append(StringUtil.join(langList, ","));
 		}
 
 		if (movement != null && movement.getNumberOfMovements() > 0)

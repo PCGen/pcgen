@@ -9,7 +9,7 @@ package plugin.charactersheet.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 

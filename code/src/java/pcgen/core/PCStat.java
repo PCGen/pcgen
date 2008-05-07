@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;

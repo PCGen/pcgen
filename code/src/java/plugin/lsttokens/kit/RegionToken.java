@@ -28,7 +28,7 @@ package plugin.lsttokens.kit;
 import java.net.URI;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Kit;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;

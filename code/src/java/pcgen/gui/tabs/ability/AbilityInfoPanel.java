@@ -39,10 +39,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.CoreUtility;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
@@ -136,7 +136,7 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(END_BOLD).append(END_FONT).append(BR);
 		sb.append(PropertyFactory.getFormattedString(
 			"Ability.Info.Type", //$NON-NLS-1$
-			CoreUtility.join(theAbility.getTypeList(true), ". "))); //$NON-NLS-1$
+			StringUtil.join(theAbility.getTypeList(true), ". "))); //$NON-NLS-1$
 
 		final String costStr = theAbility.getCostString();
 		if (!costStr.equals("1")) //$NON-NLS-1$

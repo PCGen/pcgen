@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Constants;
 import pcgen.util.Logging;
 
 /**

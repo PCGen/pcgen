@@ -31,6 +31,7 @@ import pcgen.core.Kit;
 import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -53,7 +54,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 	}
 
 	@Override
-	public Kit parseLine(Kit target, String inputLine, CampaignSourceEntry source)
+	public Kit parseLine(LoadContext context, Kit target, String inputLine, CampaignSourceEntry source)
 			throws PersistenceLayerException {
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
@@ -129,9 +130,9 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 	}
 	
 	@Override
-	protected void loadLstFile(CampaignSourceEntry cse) {
+	protected void loadLstFile(LoadContext context, CampaignSourceEntry cse) {
 		clearGlobalTokens();
 		clearKitPrerequisites();
-		super.loadLstFile(cse);
+		super.loadLstFile(context, cse);
 	}
 }

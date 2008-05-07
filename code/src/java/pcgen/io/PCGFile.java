@@ -1,6 +1,6 @@
 package pcgen.io;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 
 import java.io.File;
 import java.net.URI;

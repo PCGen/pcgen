@@ -26,6 +26,7 @@
  */
 package pcgen.gui.tabs;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;

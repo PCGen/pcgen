@@ -97,7 +97,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.plaf.TabbedPaneUI;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.CustomData;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;

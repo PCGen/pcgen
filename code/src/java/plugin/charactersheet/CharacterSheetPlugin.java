@@ -30,7 +30,7 @@ import gmgen.pluginmgr.GMBMessage;
 import gmgen.pluginmgr.GMBPlugin;
 import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.*;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.TabbedPaneUtilities;
 import plugin.charactersheet.gui.PreferencesDisplayPanel;

@@ -22,8 +22,8 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;

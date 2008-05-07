@@ -20,6 +20,9 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.IntegerKey;
+
+
 
 /**
  * <code>WeaponProf</code>.
@@ -29,25 +32,6 @@ package pcgen.core;
  */
 public final class WeaponProf extends PObject implements Comparable<Object>
 {
-	static final int HANDS_SIZEDEPENDENT = -1;
-	private int hands = 1;
-
-	/**
-	 * Sets the number of hands.
-	 * @param argHands The string to parse for a hands value.
-	 */
-	public void setHands(final String argHands)
-	{
-		if (argHands.equals("1IFLARGERTHANWEAPON"))
-		{
-			hands = HANDS_SIZEDEPENDENT;
-		}
-		else
-		{
-			hands = Integer.parseInt(argHands);
-		}
-	}
-
 	/**
 	 * Compares keyName only.
 	 * @param o1
@@ -89,6 +73,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 
 	int getHands()
 	{
-		return hands;
+		Integer hands = get(IntegerKey.HANDS);
+		return hands == null ? 1 : hands;
 	}
 }

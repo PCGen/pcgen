@@ -33,8 +33,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
@@ -3393,18 +3395,18 @@ public class PCClass extends PObject
 		}
 
 		pccTxt.append("\tHD:").append(hitDie);
-		checkAdd(pccTxt, "ANY", "DEITY:", CoreUtility.join(deityList,
+		checkAdd(pccTxt, "ANY", "DEITY:", StringUtil.join(deityList,
 			Constants.PIPE));
 		if (attackCycleMap != null)
 		{
-			checkAdd(pccTxt, "", "ATTACKCYCLE", CoreUtility.join(
+			checkAdd(pccTxt, "", "ATTACKCYCLE", StringUtil.join(
 				new MapCollection(attackCycleMap), Constants.PIPE));
 		}
 
 		if (prohibitedSchools != null)
 		{
 			pccTxt.append('\t').append("PROHIBITED:");
-			pccTxt.append(CoreUtility.join(prohibitedSchools, ","));
+			pccTxt.append(StringUtil.join(prohibitedSchools, ","));
 		}
 
 		if (castInfo != null)
@@ -3462,7 +3464,7 @@ public class PCClass extends PObject
 		if (!getKnownSpellsList().isEmpty())
 		{
 			pccTxt.append("\tKNOWNSPELLS:");
-			pccTxt.append(CoreUtility.join(knownSpellsList, Constants.PIPE));
+			pccTxt.append(StringUtil.join(knownSpellsList, Constants.PIPE));
 		}
 
 		if (itemCreationMultiplier.length() != 0)
@@ -3483,7 +3485,7 @@ public class PCClass extends PObject
 		if (getWeaponProfBonus().size() != 0)
 		{
 			pccTxt.append("\tWEAPONBONUS:");
-			pccTxt.append(CoreUtility
+			pccTxt.append(StringUtil
 				.join(getWeaponProfBonus(), Constants.PIPE));
 		}
 

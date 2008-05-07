@@ -18,7 +18,7 @@
  *
  * $Id$
  */
-package pcgen.core;
+package pcgen.cdom.base;
 
 /**
  * This interface holds all global constants.
@@ -297,4 +297,8 @@ public interface Constants
 
 	/** Comma ',' character as a string */
 	String COMMA = ","; //$NON-NLS-1$
+	String LST_DOT_CLEAR = ".CLEAR";
+	String LST_TYPE_OLD = "TYPE.";
+	String LST_TYPE = "TYPE=";
+	int HANDS_SIZEDEPENDENT = -1;
 }

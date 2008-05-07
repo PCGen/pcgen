@@ -4,7 +4,7 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AutoLoader;
 import pcgen.persistence.lst.GlobalLstToken;

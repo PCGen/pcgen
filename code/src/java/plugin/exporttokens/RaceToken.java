@@ -28,7 +28,7 @@ package plugin.exporttokens;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;

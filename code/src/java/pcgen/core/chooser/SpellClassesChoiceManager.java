@@ -24,7 +24,8 @@
 package pcgen.core.chooser;
 
 import java.util.List;
-import pcgen.core.Constants;
+
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;

@@ -3,7 +3,7 @@ package pcgen.gui.utils.chooser;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.event.TableModelEvent;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 
 /**
  * This table model implements those methods required to support

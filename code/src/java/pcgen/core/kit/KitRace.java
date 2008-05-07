@@ -25,7 +25,7 @@ package pcgen.core.kit;
 import java.io.Serializable;
 import java.util.List;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;

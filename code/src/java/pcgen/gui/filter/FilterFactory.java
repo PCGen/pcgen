@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;

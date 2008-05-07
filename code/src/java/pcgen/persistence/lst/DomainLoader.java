@@ -25,12 +25,13 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -47,11 +48,11 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Domain parseLine(Domain aDomain, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public Domain parseLine(LoadContext context, Domain aDomain,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Domain domain = aDomain;
 

@@ -23,6 +23,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;

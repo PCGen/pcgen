@@ -39,7 +39,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import pcgen.base.lang.UnreachableError;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -53,6 +53,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
@@ -498,6 +499,7 @@ public class JARClassLoader extends ClassLoader
 		{
 			LstToken pl = (LstToken) clazz.newInstance();
 			TokenStore.inst().addToTokenMap(pl);
+			TokenLibrary.addToTokenMap(pl);
 		}
 	}
 
@@ -516,6 +518,7 @@ public class JARClassLoader extends ClassLoader
 			if(PrerequisiteParserInterface.class.isAssignableFrom(clazz)) {
 				PrerequisiteParserInterface parser = (PrerequisiteParserInterface) clazz.newInstance();
 				PreParserFactory.register(parser);
+				TokenLibrary.addToTokenMap(parser);
 			}
 			else if(PrerequisiteTest.class.isAssignableFrom(clazz)) {
 				PrerequisiteTest test = (PrerequisiteTest) clazz.newInstance();

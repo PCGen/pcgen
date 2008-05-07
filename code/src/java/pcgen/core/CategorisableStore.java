@@ -24,6 +24,8 @@ package pcgen.core;
 
 import java.util.*;
 
+import pcgen.cdom.base.Constants;
+
 /**
  * Implements a storage facility for objects which implement the Categorisable
  * interface.

@@ -2,8 +2,8 @@ package plugin.lsttokens.ability;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
-import pcgen.core.Constants;
 import pcgen.core.Description;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.AbilityLstToken;

@@ -57,7 +57,6 @@ public class TokenStore
 		tokenTypeList.add(SourceLstToken.class);
 		tokenTypeList.add(SubClassLstToken.class);
 		tokenTypeList.add(SubstitutionClassLstToken.class);
-		tokenTypeList.add(WeaponProfLstToken.class);
 		//Kits
 		tokenTypeList.add(KitLstToken.class);
 		tokenTypeList.add(BaseKitLstToken.class);

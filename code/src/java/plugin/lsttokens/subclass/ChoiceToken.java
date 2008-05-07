@@ -1,6 +1,6 @@
 package plugin.lsttokens.subclass;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SubClass;
 import pcgen.persistence.lst.SubClassLstToken;
 import pcgen.util.Logging;

@@ -32,6 +32,7 @@ import java.util.StringTokenizer;
 
 import org.apache.commons.lang.math.Fraction;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;

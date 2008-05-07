@@ -22,6 +22,7 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
 import pcgen.core.bonus.BonusObj;

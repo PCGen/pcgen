@@ -35,9 +35,10 @@ import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
-import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -642,17 +643,17 @@ public final class Spell extends PObject
 
 			if (classList.size() != 0)
 			{
-				txt.append("\tCLASSES:").append(CoreUtility.join(classList, "|"));
+				txt.append("\tCLASSES:").append(StringUtil.join(classList, "|"));
 			}
 
 			if (domainList.size() != 0)
 			{
-				txt.append("\tDOMAINS:").append(CoreUtility.join(domainList, "|"));
+				txt.append("\tDOMAINS:").append(StringUtil.join(domainList, "|"));
 			}
 
 			if (miscList.size() != 0)
 			{
-				txt.append("\tSPELLLEVEL:").append(CoreUtility.join(miscList, "|"));
+				txt.append("\tSPELLLEVEL:").append(StringUtil.join(miscList, "|"));
 			}
 		}
 
@@ -699,7 +700,7 @@ public final class Spell extends PObject
 
 		if ((variantList != null) && (variantList.size() != 0))
 		{
-			txt.append("\tVARIANTS:").append(CoreUtility.join(variantList, "|"));
+			txt.append("\tVARIANTS:").append(StringUtil.join(variantList, "|"));
 		}
 
 		if (getXPCost() != 0)

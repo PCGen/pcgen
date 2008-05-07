@@ -18,8 +18,8 @@
  */
 package pcgen.gui;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Constants;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.Logging;

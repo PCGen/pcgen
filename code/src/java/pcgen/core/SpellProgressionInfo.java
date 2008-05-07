@@ -28,7 +28,8 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
-import pcgen.core.utils.CoreUtility;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 
 /**
  * SpellProgressionInfo contains information about Spell Progression in support
@@ -994,7 +995,7 @@ public class SpellProgressionInfo implements Cloneable {
 						.entrySet()) {
 					sb.append(lineSep).append(me.getKey()).append("\t");
 					sb.append(tag).append(":");
-					sb.append(CoreUtility.join(me.getValue(), ","));
+					sb.append(StringUtil.join(me.getValue(), ","));
 				}
 				return sb.append(lineSep).toString();
 			}

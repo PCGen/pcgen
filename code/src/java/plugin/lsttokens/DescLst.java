@@ -8,7 +8,7 @@ package plugin.lsttokens;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Description;
 import pcgen.core.PObject;
 import pcgen.io.EntityEncoder;

@@ -117,7 +117,7 @@ public final class SubstitutionClass extends PCClass
 				// Now add in each new level line in turn.
 				for (String theLine: newLevels)
 				{
-					classLoader.parseLine(aClass, theLine, tempSource);
+					classLoader.parseLine(null, aClass, theLine, tempSource);
 				}
 			}
 		}
@@ -174,7 +174,7 @@ public final class SubstitutionClass extends PCClass
 		 
 		 try
 		{
-			classLoader.parseLine(dummyClass, aLine, tempSource);
+			classLoader.parseLine(null, dummyClass, aLine, tempSource);
 		}
 		catch (PersistenceLayerException e)
 		{

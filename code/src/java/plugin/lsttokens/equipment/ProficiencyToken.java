@@ -1,6 +1,6 @@
 package plugin.lsttokens.equipment;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.persistence.lst.EquipmentLstToken;
 import pcgen.util.Logging;

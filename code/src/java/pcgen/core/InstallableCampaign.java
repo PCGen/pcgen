@@ -23,6 +23,7 @@
 
 package pcgen.core;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 
 /**

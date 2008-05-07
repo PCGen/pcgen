@@ -73,7 +73,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.text.Position.Bias;
 import javax.swing.tree.TreePath;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
 import pcgen.core.GameMode;

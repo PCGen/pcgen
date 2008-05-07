@@ -1,7 +1,7 @@
 package plugin.exporttokens;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -36,7 +36,7 @@ public class SpecialListToken extends Token
 			delim = ", ";
 		}
 
-		return CoreUtility.join(pc.getSpecialAbilityTimesList(), delim);
+		return StringUtil.join(pc.getSpecialAbilityTimesList(), delim);
 	}
 
 }

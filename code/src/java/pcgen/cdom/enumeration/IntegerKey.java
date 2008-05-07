@@ -30,5 +30,5 @@ package pcgen.cdom.enumeration;
  */
 public enum IntegerKey
 {
-	ADD_SPELL_LEVEL, FORMAT_CAT, HIT_DIE, LEVEL, NUM_PAGES, RANK;
+	ADD_SPELL_LEVEL, FORMAT_CAT, HIT_DIE, LEVEL, NUM_PAGES, RANK, HANDS;
 }

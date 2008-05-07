@@ -25,6 +25,7 @@
  */
 package pcgen.io.exporttoken;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;

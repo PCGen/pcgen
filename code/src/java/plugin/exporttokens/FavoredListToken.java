@@ -25,8 +25,8 @@
  */
 package plugin.exporttokens;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -68,6 +68,6 @@ public class FavoredListToken extends Token
 	 */
 	public static String getFavoredListToken(PlayerCharacter pc)
 	{
-		return CoreUtility.join(pc.getFavoredClasses(), ", ");
+		return StringUtil.join(pc.getFavoredClasses(), ", ");
 	}
 }

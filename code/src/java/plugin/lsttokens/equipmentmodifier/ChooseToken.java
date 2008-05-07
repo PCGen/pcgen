@@ -7,9 +7,9 @@ package plugin.lsttokens.equipmentmodifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.Constants;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.ChooseLoader;
 import pcgen.persistence.lst.EquipmentModifierLstToken;
 import pcgen.util.Logging;
@@ -91,7 +91,7 @@ public class ChooseToken implements EquipmentModifierLstToken
 				break;
 			}
 		}
-		String prefixString = CoreUtility.join(prefixList, "|");
+		String prefixString = StringUtil.join(prefixList, "|");
 		if (ChooseLoader.isEqModChooseToken(key))
 		{
 			if (ChooseLoader.parseEqModToken(mod, prefixString, key, val))

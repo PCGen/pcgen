@@ -26,9 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.QualifiedObject;

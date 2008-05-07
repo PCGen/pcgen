@@ -20,7 +20,7 @@
  */
 package pcgen.gui.filter;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SourceEntry;

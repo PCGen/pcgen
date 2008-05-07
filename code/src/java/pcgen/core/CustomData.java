@@ -25,6 +25,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;

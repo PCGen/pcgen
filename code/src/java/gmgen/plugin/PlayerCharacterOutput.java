@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 import org.apache.commons.lang.math.Fraction;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -18,7 +19,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.AttackType;
 
@@ -313,7 +313,7 @@ public class PlayerCharacterOutput
 
 	public String getSpecialAbilities()
 	{
-		return CoreUtility.join(pc.getSpecialAbilityTimesList(), ", ");
+		return StringUtil.join(pc.getSpecialAbilityTimesList(), ", ");
 	}
 
 	public String getSpeed()

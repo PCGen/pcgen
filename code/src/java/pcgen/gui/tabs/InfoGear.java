@@ -27,6 +27,8 @@
  */
 package pcgen.gui.tabs;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
@@ -518,7 +520,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			b.appendLineBreak();
 			
 			b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
-					CoreUtility.join(aEq.getTypeList(true), ". "));
+					StringUtil.join(aEq.getTypeList(true), ". "));
 //			CoreUtility.join(aEq.getTypeList(true), '.'));
 
 			//

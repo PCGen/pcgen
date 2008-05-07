@@ -22,6 +22,8 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.Constants;
+
 
 /**
  * <code>PaperInfo</code>.

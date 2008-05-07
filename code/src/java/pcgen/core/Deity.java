@@ -28,12 +28,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
@@ -330,13 +331,13 @@ public final class Deity extends PObject
 		List<String> pantheonList = getPantheonList();
 		if (pantheonList.size() != 0)
 		{
-			txt.append("\tPANTHEON:").append(CoreUtility.join(pantheonList, "|"));
+			txt.append("\tPANTHEON:").append(StringUtil.join(pantheonList, "|"));
 		}
 
 		List<String> raceList = getRacePantheonList();
 		if (raceList.size() != 0)
 		{
-			txt.append("\tRACE:").append(CoreUtility.join(raceList, "|"));
+			txt.append("\tRACE:").append(StringUtil.join(raceList, "|"));
 		}
 
 		txt.append(super.getPCCText(false));

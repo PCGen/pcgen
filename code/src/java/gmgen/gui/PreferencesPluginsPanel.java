@@ -25,7 +25,7 @@
  */
 package gmgen.gui;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 
 import javax.swing.*;

@@ -30,11 +30,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -143,7 +143,7 @@ public class ClassToken extends Token {
 		if (pc.getClassList().size() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 			List<String> saList = getClassSpecialAbilityList(pcClass, pc);
-			return CoreUtility.join(saList, ", ");
+			return StringUtil.join(saList, ", ");
 		}
 
 		return "";

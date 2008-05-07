@@ -24,7 +24,7 @@ package plugin.lsttokens.equipmentmodifier.choose;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.lst.EqModChooseLstToken;
 import pcgen.util.Logging;

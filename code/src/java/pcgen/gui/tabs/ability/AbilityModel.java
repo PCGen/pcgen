@@ -33,6 +33,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -41,7 +42,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry.SourceFormat;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.core.utils.CoreUtility;
 import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
@@ -377,7 +377,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case TYPE:
 				if (ability != null)
 				{
-					retVal = CoreUtility.join(ability.getTypeList(true), ". ");
+					retVal = StringUtil.join(ability.getTypeList(true), ". ");
 //					retVal = CoreUtility.join(ability.getTypeList(true), '.');
 				}
 				break;

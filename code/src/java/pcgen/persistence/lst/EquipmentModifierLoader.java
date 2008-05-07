@@ -28,13 +28,14 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
-import pcgen.core.Constants;
 import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -61,8 +62,8 @@ public final class EquipmentModifierLoader extends
 	}
 
 	@Override
-	public EquipmentModifier parseLine(EquipmentModifier eqMod,
-			String inputLine, CampaignSourceEntry source)
+	public EquipmentModifier parseLine(LoadContext context,
+			EquipmentModifier eqMod, String inputLine, CampaignSourceEntry source)
 			throws PersistenceLayerException {
 		if (eqMod == null) {
 			eqMod = new EquipmentModifier();
@@ -139,7 +140,7 @@ public final class EquipmentModifierLoader extends
 		String aLine;
 		EquipmentModifier anObj = new EquipmentModifier();
 		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
-		parseLine(anObj, aLine, source);
+		parseLine(null, anObj, aLine, source);
 
 		//
 		// Add internal equipment modifier for adding weapon/armor types to
@@ -148,11 +149,11 @@ public final class EquipmentModifierLoader extends
 		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_WEAPON
 				+ "\tTYPE:Weapon\tVISIBLE:No\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		parseLine(anObj, aLine, source);
+		parseLine(null, anObj, aLine, source);
 
 		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
 				+ "\tTYPE:Armor\tVISIBLE:No\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		parseLine(anObj, aLine, source);
+		parseLine(null, anObj, aLine, source);
 	}
 }

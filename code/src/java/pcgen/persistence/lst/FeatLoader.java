@@ -25,11 +25,12 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -48,11 +49,11 @@ public final class FeatLoader extends AbilityLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Ability parseLine(Ability aFeat, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public Ability parseLine(LoadContext context, Ability aFeat,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Ability feat = aFeat;
 
@@ -63,16 +64,16 @@ public final class FeatLoader extends AbilityLoader
 
 		feat.setCategory(Constants.FEAT_CATEGORY);
 
-		return super.parseLine(feat, lstLine, source);
+		return super.parseLine(context, feat, lstLine, source);
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#loadLstFile(pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	protected void loadLstFile(CampaignSourceEntry sourceEntry)
+	protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)
 	{
-		super.loadLstFile(sourceEntry);
+		super.loadLstFile(context, sourceEntry);
 
 		if (!defaultFeatsLoaded)
 		{
@@ -102,7 +103,7 @@ public final class FeatLoader extends AbilityLoader
 						+ " hit penalty.\tSOURCELONG:PCGen Internal";
 			try
 			{
-				parseLine(null, aLine, firstSource);
+				parseLine(null, null, aLine, firstSource);
 			}
 			catch (PersistenceLayerException ple)
 			{

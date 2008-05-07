@@ -28,6 +28,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import pcgen.cdom.base.Constants;
+
 /**
  * This class represents the generally unchanging information about the source
  * of an objcet.

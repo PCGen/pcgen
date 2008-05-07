@@ -25,6 +25,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.system.GameModeRollMethod;

@@ -25,12 +25,13 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -50,11 +51,11 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Deity parseLine(Deity aDeity, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public Deity parseLine(LoadContext context, Deity aDeity,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Deity deity = aDeity;
 

@@ -48,9 +48,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.CharacterDomain;
-import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -65,7 +66,6 @@ import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.AddSpecialAbility;
@@ -237,7 +237,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 		if (specialAbilities.size() > 0)
 		{
-			saText.setText(CoreUtility.join(specialAbilities, ", "));
+			saText.setText(StringUtil.join(specialAbilities, ", "));
 		}
 		else
 		{
@@ -756,7 +756,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 								((PCClass) profBonusObject)
 									.getWeaponProfBonus();
 						((PCClass) profBonusObject).getChoices("WEAPONPROF|1|"
-							+ CoreUtility.join(profWeapons, "[WEAPONPROF]|")
+							+ StringUtil.join(profWeapons, "[WEAPONPROF]|")
 							+ PropertyFactory.getString("in_proficiency"), pc);
 					}
 					else if (profBonusObject instanceof Race)
@@ -764,7 +764,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 						profWeapons =
 								((Race) profBonusObject).getWeaponProfBonus();
 						((Race) profBonusObject).getChoices("WEAPONPROF|1|"
-							+ CoreUtility.join(profWeapons, "[WEAPONPROF]|")
+							+ StringUtil.join(profWeapons, "[WEAPONPROF]|")
 							+ PropertyFactory.getString("in_proficiency"), pc);
 					}
 					else if (profBonusObject instanceof PCTemplate)
@@ -774,7 +774,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 									.getWeaponProfBonus();
 						((PCTemplate) profBonusObject).getChoices(
 							"WEAPONPROF|1|"
-								+ CoreUtility
+								+ StringUtil
 									.join(profWeapons, "[WEAPONPROF]|")
 								+ PropertyFactory.getString("in_proficiency"),
 							pc);

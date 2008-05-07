@@ -20,7 +20,7 @@
  */
 package pcgen.gui.filter;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.util.PropertyFactory;
 
 import java.util.ArrayList;

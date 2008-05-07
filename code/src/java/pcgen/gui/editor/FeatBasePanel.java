@@ -37,9 +37,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
-import pcgen.core.Constants;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PObject;

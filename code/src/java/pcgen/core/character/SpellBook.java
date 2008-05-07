@@ -23,7 +23,7 @@
  */
 package pcgen.core.character;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;

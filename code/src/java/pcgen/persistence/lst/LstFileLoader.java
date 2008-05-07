@@ -31,7 +31,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;

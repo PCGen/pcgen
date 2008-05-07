@@ -23,7 +23,7 @@
 package pcgen.core.npcgen;
 
 import pcgen.base.util.WeightedList;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Race;
 import pcgen.util.Logging;

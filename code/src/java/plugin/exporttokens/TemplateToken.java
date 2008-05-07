@@ -29,12 +29,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -157,7 +157,7 @@ public class TemplateToken extends Token
 		List<String> fList =
 				template.feats(pc.getTotalLevels(), pc.totalHitDice(), pc,
 					false);
-		return CoreUtility.join(fList, ", ");
+		return StringUtil.join(fList, ", ");
 	}
 
 	/**
@@ -239,7 +239,7 @@ public class TemplateToken extends Token
 				saDescList.add(saText);
 			}
 		}
-		return CoreUtility.join(saDescList, ", ");
+		return StringUtil.join(saDescList, ", ");
 	}
 
 	/**

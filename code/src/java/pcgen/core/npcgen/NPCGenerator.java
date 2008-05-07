@@ -27,12 +27,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import pcgen.base.util.WeightedList;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Categorisable;
 import pcgen.core.CharacterDomain;
-import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;

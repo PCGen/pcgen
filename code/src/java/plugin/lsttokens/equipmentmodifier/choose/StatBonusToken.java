@@ -20,7 +20,7 @@ package plugin.lsttokens.equipmentmodifier.choose;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;

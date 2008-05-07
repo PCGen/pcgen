@@ -26,6 +26,8 @@
  */
 package pcgen.gui.tabs;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -2231,7 +2233,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				b.append(THREE_SPACES); 
 			}
 			b.append(PropertyFactory.getString("in_iskHtml_TYPE"))
-				.append(CoreUtility.join(aSkill.getTypeList(true), ". ")); //$NON-NLS-1$
+				.append(StringUtil.join(aSkill.getTypeList(true), ". ")); //$NON-NLS-1$
 
 			String aString = aSkill.getKeyStatFromStats();
 			if (aString.length() != 0)

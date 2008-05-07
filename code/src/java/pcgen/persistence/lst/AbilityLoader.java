@@ -29,12 +29,13 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -51,12 +52,12 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject,
-	 *      java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext,
+	 *      pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Ability parseLine(Ability ability, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public Ability parseLine(LoadContext context, Ability ability,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Ability anAbility = ability;
 

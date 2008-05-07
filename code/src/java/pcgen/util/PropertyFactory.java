@@ -20,7 +20,7 @@
  */
 package pcgen.util;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 
 import java.text.MessageFormat;

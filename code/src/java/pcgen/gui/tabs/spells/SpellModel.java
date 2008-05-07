@@ -27,8 +27,8 @@ import java.util.List;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.CharacterDomain;
-import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;

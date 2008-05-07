@@ -32,6 +32,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -861,7 +863,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				final List<String> metaFeats = getSpellMetafeats(listEntry);
 				if (!metaFeats.isEmpty())
 				{
-					aString.append('/').append(CoreUtility.join(metaFeats, "/"));
+					aString.append('/').append(StringUtil.join(metaFeats, "/"));
 				}
 
 				aString.append('/').append(getSpellCaster(listEntry));

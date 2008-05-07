@@ -25,6 +25,7 @@
  */
 package pcgen.gui;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;

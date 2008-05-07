@@ -26,13 +26,14 @@ import java.util.Date;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -49,11 +50,11 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Language parseLine(Language aLang, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public Language parseLine(LoadContext context, Language aLang,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Language lang = aLang;
 

@@ -22,11 +22,12 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;
@@ -131,7 +132,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				{
 					String b = lt.getLevel() + "\t" + lt.getTag() + ":" + lt.getValue();
 					PCClassLoader classLoader = new PCClassLoader();
-					classLoader.parseLine(object, b, tempSource);
+					classLoader.parseLine(null, object, b, tempSource);
 				}
 			}
 		}
@@ -212,7 +213,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			for (Entry<Integer, List<String>> me : obj.getCastProgression().entrySet())
 			{
-				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_CAST, CoreUtility.join(me.getValue(), ","));
+				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_CAST, StringUtil.join(me.getValue(), ","));
 				levelTagList.add(lt);
 			}
 		}
@@ -220,7 +221,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		if (obj.hasKnownList()) {
 			for (Entry<Integer, List<String>> me : obj.getKnownMap().entrySet())
 			{
-				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_KNOWN, CoreUtility.join(me.getValue(), ","));
+				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_KNOWN, StringUtil.join(me.getValue(), ","));
 				levelTagList.add(lt);
 			}
 		}

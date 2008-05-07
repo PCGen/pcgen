@@ -25,6 +25,7 @@ package pcgen.core.kit;
 import java.io.Serializable;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.prereq.PrereqHandler;
 

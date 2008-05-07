@@ -22,6 +22,7 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.PropertyFactory;

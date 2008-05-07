@@ -27,7 +27,7 @@
 package pcgen.core.character;
 
 import pcgen.base.lang.UnreachableError;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 
 /**

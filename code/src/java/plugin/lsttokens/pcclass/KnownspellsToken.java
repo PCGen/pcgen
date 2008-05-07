@@ -2,7 +2,7 @@ package plugin.lsttokens.pcclass;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.SpellFilter;
 import pcgen.persistence.lst.PCClassLstToken;

@@ -37,7 +37,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 import javax.swing.filechooser.FileFilter;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;

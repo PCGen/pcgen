@@ -24,7 +24,7 @@
 
 package pcgen.gui.editor;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;

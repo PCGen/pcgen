@@ -22,9 +22,9 @@
  */
 package pcgen.core.kit;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
-import pcgen.core.utils.CoreUtility;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -103,7 +103,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			info.append(choiceCount).append(" of ");
 		}
 
-		info.append(CoreUtility.join(profList, ", "));
+		info.append(StringUtil.join(profList, ", "));
 
 		return info.toString();
 	}

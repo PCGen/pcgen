@@ -52,6 +52,7 @@ import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability.Nature;
@@ -17463,12 +17464,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		int prevHashCode = -1;
 		int i=0;
-		while (prevHashCode != theAbilities.size() && i < 10)
+		while (prevHashCode != theAbilities.deepSize() && i < 10)
 		{
 //			Logging.log(Logging.ERROR, "Regen abilities pass #" + i + " prev:"
 //				+ prevHashCode + " curr:" + theAbilities.size() + " - "
 //				+ theAbilities /*, new Throwable()*/);
-			prevHashCode = theAbilities.size(); 
+			prevHashCode = theAbilities.deepSize(); 
 			i++;
 			List<? extends PObject> pobjectList = getPObjectList();
 			for (AbilityCategory cat : catSet)

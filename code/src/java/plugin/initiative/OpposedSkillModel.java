@@ -25,7 +25,7 @@ package plugin.initiative;
 
 import com.electronicmuse.djep.JEP;
 import gmgen.plugin.PcgCombatant;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;

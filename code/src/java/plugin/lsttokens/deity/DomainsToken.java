@@ -3,7 +3,7 @@ package plugin.lsttokens.deity;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Deity;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;

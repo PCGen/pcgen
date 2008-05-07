@@ -34,6 +34,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -59,8 +60,8 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 	}
 
 	@Override
-	public PCTemplate parseLine(PCTemplate template, String inputLine,
-			CampaignSourceEntry source) throws PersistenceLayerException {
+	public PCTemplate parseLine(LoadContext context, PCTemplate template,
+			String inputLine, CampaignSourceEntry source) throws PersistenceLayerException {
 		if (template == null) {
 			template = new PCTemplate();
 		}

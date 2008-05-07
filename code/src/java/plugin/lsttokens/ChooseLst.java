@@ -7,10 +7,10 @@ package plugin.lsttokens;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.Constants;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PObject;
-import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.ChooseLoader;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.util.Logging;
@@ -104,7 +104,7 @@ public class ChooseLst implements GlobalLstToken
 					break;
 				}
 			}
-			String prefixString = CoreUtility.join(prefixList, "|");
+			String prefixString = StringUtil.join(prefixList, "|");
 			boolean parse =
 					ChooseLoader.parseToken(obj, prefixString, key, val, anInt);
 			if (!parse)

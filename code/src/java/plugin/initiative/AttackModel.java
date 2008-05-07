@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.utils.CoreUtility;
+import pcgen.base.lang.StringUtil;
 
 /**
  * <p>Models an attack; that is a weapon or natural weapon with its
@@ -213,7 +213,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public String getCritMultiple()
 	{
-		return CoreUtility.join(critMultiple, "/");
+		return StringUtil.join(critMultiple, "/");
 	}
 
 	/**
@@ -301,7 +301,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public String getCritRange()
 	{
-		return CoreUtility.join(critRange, "/");
+		return StringUtil.join(critRange, "/");
 	}
 
 	/**
@@ -434,7 +434,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public String getDamage()
 	{
-		return CoreUtility.join(damage, "/");
+		return StringUtil.join(damage, "/");
 	}
 
 	/**

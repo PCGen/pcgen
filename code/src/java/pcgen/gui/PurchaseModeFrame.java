@@ -19,6 +19,7 @@
  */
 package pcgen.gui;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;

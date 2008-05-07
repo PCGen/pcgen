@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -502,5 +503,62 @@ public class Logging
 	{
 		Logger.getLogger("pcgen").setLevel(level);
 		Logger.getLogger("plugin").setLevel(level);
+	}
+
+	private static LinkedList<QueuedMessage> queuedMessages = new LinkedList<QueuedMessage>();
+
+	public static void addParseMessage(Level lvl, String msg)
+	{
+		queuedMessages.add(new QueuedMessage(lvl, msg));
+	}
+
+	private static int queuedMessageMark = -1;
+
+	public static void markParseMessages()
+	{
+		queuedMessageMark = queuedMessages.size();
+	}
+
+	public static void rewindParseMessages()
+	{
+		while (queuedMessageMark > -1
+				&& queuedMessages.size() > queuedMessageMark)
+		{
+			queuedMessages.removeLast();
+		}
+	}
+
+	public static void replayParsedMessages()
+	{
+		Logger l = getLogger();
+		for (QueuedMessage msg : queuedMessages)
+		{
+			if (l.isLoggable(msg.level))
+			{
+				l.log(msg.level, msg.message, msg.stackTrace);
+			}
+
+		}
+		queuedMessageMark = -1;
+	}
+
+	public static void clearParseMessages()
+	{
+		queuedMessageMark = -1;
+		queuedMessages.clear();
+	}
+
+	private static class QueuedMessage
+	{
+		public final Level level;
+		public final String message;
+		public final StackTraceElement[] stackTrace;
+
+		public QueuedMessage(Level lvl, String msg)
+		{
+			level = lvl;
+			message = msg;
+			stackTrace = Thread.currentThread().getStackTrace();
+		}
 	}
 }

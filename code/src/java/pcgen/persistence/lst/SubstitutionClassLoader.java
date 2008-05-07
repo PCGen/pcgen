@@ -29,6 +29,7 @@ import pcgen.core.PObject;
 import pcgen.core.SubstitutionClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -53,7 +54,7 @@ public final class SubstitutionClassLoader
 	 * @param source
 	 * @return PObject - substitutionclass
 	 * @throws PersistenceLayerException
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	public static PObject parseLine(PObject target, String lstLine,
 		CampaignSourceEntry source) throws PersistenceLayerException
@@ -104,7 +105,7 @@ public final class SubstitutionClassLoader
 			}
 			else
 			{
-				classLoader.parseLine(substitutionclass, colString, source);
+				classLoader.parseLine(null, substitutionclass, colString, source);
 			}
 		}
 

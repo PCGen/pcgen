@@ -7,7 +7,7 @@ import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.StateChangedMessage;
 import gmgen.pluginmgr.messages.TabAddMessage;
 import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.TabbedPaneUtilities;
 import plugin.overland.gui.OverPanel;

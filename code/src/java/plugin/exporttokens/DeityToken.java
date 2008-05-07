@@ -29,13 +29,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
@@ -257,7 +257,7 @@ public class DeityToken extends Token
 	 */
 	public static String getPantheonListToken(Deity deity)
 	{
-		return CoreUtility.join(deity.getPantheonList(), ", ");
+		return StringUtil.join(deity.getPantheonList(), ", ");
 	}
 
 	/**

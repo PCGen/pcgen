@@ -37,6 +37,7 @@ import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -94,7 +95,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @param fileList containing the list of files to read
 	 * @throws PersistenceLayerException 
 	 */
-	public void loadLstFiles(List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Track which sources have been loaded already
 		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
@@ -110,17 +111,17 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			// Check if the CSE has already been loaded before loading it
 			if (!loadedFiles.contains(sourceEntry))
 			{
-				loadLstFile(sourceEntry);
+				loadLstFile(context, sourceEntry);
 				loadedFiles.add(sourceEntry);
 			}
 		}
 
 		// Next we perform copy operations
-		processCopies();
+		processCopies(context);
 
 		// Now handle .MOD items
 		sourceMap = null;
-		processMods();
+		processMods(context);
 
 		// Finally, forget the .FORGET items
 		processForgets();
@@ -134,18 +135,19 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * method to return the new object.  Implementations of this method also
 	 * MUST call <code>completeObject</code> with the original target prior to 
 	 * returning the new value.
-	 *
-	 * @param lstLine String LST formatted line read from the source URL
+	 * @param context TODO
 	 * @param target PObject to apply the line to, barring the start of a
 	 *         new object
+	 * @param lstLine String LST formatted line read from the source URL
 	 * @param source CampaignSourceEntry indicating the file that the line was
 	 *         read from as well as the Campaign object that referenced the file
+	 *
 	 * @return PObject that was either created or modified by the provided
 	 *         LST line
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
-	public abstract T parseLine(T target, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException;
+	public abstract T parseLine(LoadContext context, T target,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException;
 
 	/**
 	 * This method is called by the loading framework to signify that the
@@ -341,7 +343,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @param sourceEntry CampaignSourceEntry containing the absolute file path
 	 * or the URL from which to read LST formatted data.
 	 */
-	protected void loadLstFile(CampaignSourceEntry sourceEntry)
+	protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
 		notifyObservers(sourceEntry.getURI());
@@ -445,7 +447,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			{
 				try
 				{
-					target = parseLine(target, line, sourceEntry);
+					target = parseLine(context, target, line, sourceEntry);
 					// TODO - This is kind of a hack but we need to make sure
 					// that classes get added.
 					completeObject(sourceEntry, target);
@@ -537,7 +539,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * .COPY operation
 	 * @throws PersistenceLayerException 
 	 */
-	private void performCopy(ModEntry me) throws PersistenceLayerException
+	private void performCopy(LoadContext context, ModEntry me) throws PersistenceLayerException
 	{
 		String lstLine = me.getLstLine();
 		int sepLoc = lstLine.indexOf(FIELD_SEPARATOR);
@@ -559,7 +561,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			if (sepLoc != -1)
 			{
 				String restOfLine = me.getLstLine().substring(nameEnd + 6);
-				parseLine(copy, restOfLine, me.getSource());
+				parseLine(context, copy, restOfLine, me.getSource());
 			}
 			completeObject(me.getSource(), copy);
 		}
@@ -573,7 +575,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * PObject.setName()
 	 * @param entryList
 	 */
-	private void performMod(List<ModEntry> entryList)
+	private void performMod(LoadContext context, List<ModEntry> entryList)
 	{
 		ModEntry entry = entryList.get(0);
 		// get the name of the object to modify, trimming off the .MOD
@@ -622,7 +624,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 						origCampaign = object.getSourceEntry().getSourceBook().getCampaign();
 					}
 
-					parseLine(object, element.getLstLine(), element.getSource());
+					parseLine(context, object, element.getLstLine(), element.getSource());
 
 					if ((noSource && object.getSourceEntry() != null)
 						|| (!noSource && hashCode != object.getSourceEntry()
@@ -673,11 +675,11 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * This method will process the lines containing a .COPY directive
 	 * @throws PersistenceLayerException 
 	 */
-	private void processCopies() throws PersistenceLayerException
+	private void processCopies(LoadContext context) throws PersistenceLayerException
 	{
 		for (ModEntry me : copyLineList)
 		{
-			performCopy(me);
+			performCopy(context, me);
 		}
 		copyLineList.clear();
 	}
@@ -712,11 +714,11 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	/**
 	 * This method will process the lines containing a .MOD directive
 	 */
-	private void processMods()
+	private void processMods(LoadContext context)
 	{
 		for (List<ModEntry> modEntry : modEntryList)
 		{
-			performMod(modEntry);
+			performMod(context, modEntry);
 		}
 		modEntryList.clear();
 	}

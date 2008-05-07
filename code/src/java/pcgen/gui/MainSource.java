@@ -72,9 +72,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.TreePath;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
 import pcgen.core.CampaignURL;
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;

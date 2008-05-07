@@ -25,7 +25,8 @@ package pcgen.core.utils;
 
 import java.util.List;
 
-import pcgen.core.Constants;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 
 public class ChoiceList<T> {
 
@@ -47,7 +48,7 @@ public class ChoiceList<T> {
 	}
 
 	public String toString() {
-		return count + Constants.PIPE + CoreUtility.join(list, Constants.PIPE);
+		return count + Constants.PIPE + StringUtil.join(list, Constants.PIPE);
 	}
 
 	public static <E> ChoiceList<E> getChoiceList(int choiceCount,

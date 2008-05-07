@@ -20,7 +20,7 @@
  */
 package pcgen.io;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 
 /**
  * <code>ParseException</code><br>

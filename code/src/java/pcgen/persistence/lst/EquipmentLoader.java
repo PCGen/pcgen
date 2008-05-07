@@ -33,6 +33,7 @@ import pcgen.core.EquipmentList;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -59,8 +60,8 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 	}
 
 	@Override
-	public Equipment parseLine(Equipment equipment, String inputLine,
-			CampaignSourceEntry source) throws PersistenceLayerException {
+	public Equipment parseLine(LoadContext context, Equipment equipment,
+			String inputLine, CampaignSourceEntry source) throws PersistenceLayerException {
 		if (equipment == null) {
 			equipment = new Equipment();
 		}

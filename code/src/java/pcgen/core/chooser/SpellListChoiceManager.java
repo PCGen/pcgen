@@ -26,9 +26,10 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AssociatedChoice;
-import pcgen.core.Constants;
 import pcgen.core.FeatMultipleChoice;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;

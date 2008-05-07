@@ -41,6 +41,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
@@ -2235,13 +2237,13 @@ public final class Equipment extends PObject implements Serializable,
 		removeCommonFromList(list2, comn,
 				"SPROP: eqMod expected but not found: ");
 
-		final String common = CoreUtility.join(
+		final String common = StringUtil.join(
 				getSpecialAbilityTimesList(getSpecialAbilityList(comn, aPC)),
 				", ");
-		final String saList1 = CoreUtility.join(
+		final String saList1 = StringUtil.join(
 				getSpecialAbilityTimesList(getSpecialAbilityList(list1, aPC)),
 				", ");
-		final String saList2 = CoreUtility.join(
+		final String saList2 = StringUtil.join(
 				getSpecialAbilityTimesList(getSpecialAbilityList(list2, aPC)),
 				", ");
 		final StringBuffer sp = new StringBuffer();
@@ -5836,7 +5838,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (wp != null) {
 			int iHands = wp.getHands();
 
-			if (iHands == WeaponProf.HANDS_SIZEDEPENDENT) {
+			if (iHands == Constants.HANDS_SIZEDEPENDENT) {
 				if (aPC.sizeInt() > sizeInt()) {
 					iHands = 1;
 				} else {

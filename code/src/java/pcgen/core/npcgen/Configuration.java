@@ -30,9 +30,9 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.WeightedList;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;

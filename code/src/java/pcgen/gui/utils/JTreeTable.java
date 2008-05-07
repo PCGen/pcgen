@@ -51,7 +51,7 @@ import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.utils.MessageType;

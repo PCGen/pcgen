@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.remove;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.RemoveLstToken;
 import pcgen.util.Logging;

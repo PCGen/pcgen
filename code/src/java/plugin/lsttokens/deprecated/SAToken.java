@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.deprecated;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AddLstToken;
 import pcgen.util.Logging;

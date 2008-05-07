@@ -22,7 +22,6 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
@@ -30,6 +29,7 @@ import pcgen.core.PObject;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -46,11 +46,11 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public WeaponProf parseLine(WeaponProf aWP, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public WeaponProf parseLine(LoadContext context, WeaponProf aWP,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		WeaponProf prof = aWP;
 
@@ -62,53 +62,48 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		int col = 0;
+		if (colToken.hasMoreTokens())
+		{
+			prof.setName(colToken.nextToken());
+			prof.setSourceCampaign(source.getCampaign());
+			prof.setSourceURI(source.getURI());
+		}
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(WeaponProfLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			WeaponProfLstToken token = (WeaponProfLstToken) tokenMap.get(key);
-
-			if (col == 0) // First column is name, without a tag
-			{
-				prof.setName(colString);
-				prof.setSourceCampaign(source.getCampaign());
-				prof.setSourceURI(source.getURI());
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, prof, value);
-				if (!token.parse(prof, value))
-				{
-					Logging.errorPrint("Error parsing skill "
-						+ prof.getDisplayName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(prof, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
-			{
-				Logging.errorPrint("Illegal weapon proficiency info '"
-					+ lstLine + "' in " + source.toString());
-			}
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
 
-			++col;
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(prof, key, value))
+			{
+				Logging.clearParseMessages();
+				context.commit();
+			}
+			else if (PObjectLoader.parseTag(prof, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 
 		// WeaponProfs are one line each;

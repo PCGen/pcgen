@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 public final class ArmorProfLoader extends LstObjectFileLoader<ArmorProf>
@@ -41,11 +42,11 @@ public final class ArmorProfLoader extends LstObjectFileLoader<ArmorProf>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public ArmorProf parseLine(ArmorProf aWP, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public ArmorProf parseLine(LoadContext context, ArmorProf aWP,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		ArmorProf prof = aWP;
 

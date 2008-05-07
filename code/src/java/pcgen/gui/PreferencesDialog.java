@@ -57,6 +57,7 @@ import gmgen.gui.PreferencesPluginsPanel;
 import gmgen.pluginmgr.GMBComponent;
 import gmgen.pluginmgr.GMBMessage;
 import gmgen.pluginmgr.messages.PreferencesPanelAddMessage;
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.core.utils.MessageType;

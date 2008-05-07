@@ -34,6 +34,7 @@ import pcgen.core.SubstitutionClass;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -50,11 +51,11 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PCClass parseLine(PCClass target, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public PCClass parseLine(LoadContext context, PCClass target,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		PCClass pcClass = target;
 

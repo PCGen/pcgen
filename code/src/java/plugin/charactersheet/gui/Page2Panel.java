@@ -17,8 +17,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
-import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;

@@ -25,9 +25,9 @@
  */
 package plugin.exporttokens;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -94,6 +94,6 @@ public class ProhibitedListToken extends Token
 			}
 		}
 
-		return CoreUtility.join(stringList, jointext);
+		return StringUtil.join(stringList, jointext);
 	}
 }

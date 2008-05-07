@@ -19,6 +19,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.chooser.ChooserUtilities;

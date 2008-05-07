@@ -22,12 +22,12 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.TokenStore;
@@ -198,7 +198,7 @@ class ClassBasePanel extends BasePanel
 			List<String> ol = dkm.get(Object.class, null);
 			if (ol != null && !ol.isEmpty())
 			{
-				qualify.setText(CoreUtility.join(ol, "|"));
+				qualify.setText(StringUtil.join(ol, "|"));
 			}
 		}
 		exClass.setText(obj.getExClass());

@@ -28,9 +28,9 @@
  *************************************************************************/
 package pcgen.core.character;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;

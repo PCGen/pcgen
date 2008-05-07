@@ -3,7 +3,7 @@ package pcgen.core.npcgen;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 import pcgen.util.PjepPool;

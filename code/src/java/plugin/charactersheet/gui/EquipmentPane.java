@@ -6,6 +6,7 @@
 
 package plugin.charactersheet.gui;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.*;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.TotalToken;

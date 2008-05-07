@@ -25,12 +25,13 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -46,11 +47,11 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Skill parseLine(Skill aSkill, String lstLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	public Skill parseLine(LoadContext context, Skill aSkill,
+		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Skill skill = aSkill;
 

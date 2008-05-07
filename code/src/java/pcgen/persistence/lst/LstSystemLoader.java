@@ -25,16 +25,6 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.base.lang.UnreachableError;
-import pcgen.core.*;
-import pcgen.core.spell.Spell;
-import pcgen.core.utils.CoreUtility;
-import pcgen.gui.pcGenGUI;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -43,7 +33,51 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Properties;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.Constants;
+import pcgen.core.Campaign;
+import pcgen.core.CustomData;
+import pcgen.core.Description;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.LevelInfo;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SourceEntry;
+import pcgen.core.SystemCollections;
+import pcgen.core.spell.Spell;
+import pcgen.gui.pcGenGUI;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 /**
  * ???
@@ -57,14 +91,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	// list of PObjects for character spells with subclasses
 	private static final List<PObject> pList = new ArrayList<PObject>();
 
-	/**
-	 * Define the order in which the file types are ordered
-	 * so we don't have to keep renumbering them
-	 * 
-	 * This can be removed after 5.14
-	 */
-	private static final int[] loadOrder =
-			{	LstConstants.CLASSSKILL_TYPE, LstConstants.CLASSSPELL_TYPE };
 	private static final int MODE_EXCLUDE = -1;
 	private static final int MODE_DEFAULT = 0;
 	private static final int MODE_INCLUDE = +1;
@@ -298,7 +324,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		chosenCampaignSourcefiles.addAll(l);
 		SettingsHandler.getOptions().setProperty(
 			"pcgen.files.chosenCampaignSourcefiles",
-			CoreUtility.join(chosenCampaignSourcefiles, ", "));
+			StringUtil.join(chosenCampaignSourcefiles, ", "));
 //		CoreUtility.join(chosenCampaignSourcefiles, ','));
 	}
 
@@ -441,74 +467,46 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// load ability categories first as they used to only be at the game mode
 			abilityCategoryLoader.loadLstFiles(abilityCategoryFileList);
 
+			LoadContext context = new RuntimeLoadContext();
+			
 			// load weapon profs first
-			wProfLoader.loadLstFiles(weaponProfFileList);
-			aProfLoader.loadLstFiles(armorProfFileList);
-			sProfLoader.loadLstFiles(shieldProfFileList);
+			wProfLoader.loadLstFiles(context, weaponProfFileList);
+			aProfLoader.loadLstFiles(context, armorProfFileList);
+			sProfLoader.loadLstFiles(context, shieldProfFileList);
 
 			// load skills before classes to handle class skills
-			skillLoader.loadLstFiles(skillFileList);
+			skillLoader.loadLstFiles(context, skillFileList);
 
 			// load before races to handle auto known languages
-			languageLoader.loadLstFiles(languageFileList);
+			languageLoader.loadLstFiles(context, languageFileList);
 
 			// load before race or class to handle abilities
-			abilityLoader.loadLstFiles(abilityFileList);
+			abilityLoader.loadLstFiles(context, abilityFileList);
 
 			// load before race or class to handle feats
-			featLoader.loadLstFiles(featFileList);
+			featLoader.loadLstFiles(context, featFileList);
 
-			raceLoader.loadLstFiles(raceFileList);
+			raceLoader.loadLstFiles(context, raceFileList);
 
 			//Domain must load before CLASS - thpr 10/29/06
-			domainLoader.loadLstFiles(domainFileList);
+			domainLoader.loadLstFiles(context, domainFileList);
 
-			spellLoader.loadLstFiles(spellFileList);
-			deityLoader.loadLstFiles(deityFileList);
+			spellLoader.loadLstFiles(context, spellFileList);
+			deityLoader.loadLstFiles(context, deityFileList);
 
-			classLoader.loadLstFiles(classFileList);
+			classLoader.loadLstFiles(context, classFileList);
 			
-			templateLoader.loadLstFiles(templateFileList);
+			templateLoader.loadLstFiles(context, templateFileList);
 			
 			// loaded before equipment (required)
-			eqModLoader.loadLstFiles(equipmodFileList);
+			eqModLoader.loadLstFiles(context, equipmodFileList);
 
-			equipmentLoader.loadLstFiles(equipmentFileList);
-			companionModLoader.loadLstFiles(companionmodFileList);
-			kitLoader.loadLstFiles(kitFileList);
+			equipmentLoader.loadLstFiles(context, equipmentFileList);
+			companionModLoader.loadLstFiles(context, companionmodFileList);
+			kitLoader.loadLstFiles(context, kitFileList);
 			
-			// TODO: Convert remaining items to new persistence framework!
-			// Process file content by load order [file type]
-			for (int loadIdx = 0; loadIdx < loadOrder.length; loadIdx++)
-			{
-				final int lineType = loadOrder[loadIdx];
-				List<CampaignSourceEntry> fileList = getFilesForType(lineType);
-
-				if ((fileList != null) && (!fileList.isEmpty()))
-				{
-					Logging.errorPrint("*WARNING*: You are using a file type that has been deprecated");
-					Logging.errorPrint(" The following file types will not be supported after 5.14:");
-					Logging.errorPrint("  Class Skill LST file");
-					Logging.errorPrint("  Class Spell LST file");
-					Logging.errorPrint("  Required Skill LST file");
-					Logging.errorPrint(" Function for these files has been provided in other LST files");
-					List<PObject> bArrayList = new ArrayList<PObject>();
-
-					// This relies on new items being added to the *end* of an ArrayList.
-					processFileList(lineType, fileList, bArrayList);
-				}
-			}
-			// end of load order loop
-
 			// Load the bio settings files
 			bioLoader.loadLstFiles(bioSetFileList);
-
-			// Check for the required skills
-			if (reqSkillFileList != null)
-			{
-				addToGlobals(LstConstants.REQSKILL_TYPE, reqSkillFileList);
-			}
-			checkRequiredSkills();
 
 			// Check for the default deities
 			checkRequiredDeities();
@@ -935,7 +933,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			for (String aLine : gDeities)
 			{
-				deityLoader.parseLine(null, aLine, globalCampaign);
+				deityLoader.parseLine(null, null, aLine, globalCampaign);
 			}
 		}
 	}
@@ -1158,7 +1156,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			chosenCampaignSourcefiles.add(sourceFile);
 			SettingsHandler.getOptions().setProperty(
 				"pcgen.files.chosenCampaignSourcefiles",
-				CoreUtility.join(chosenCampaignSourcefiles, ", "));
+				StringUtil.join(chosenCampaignSourcefiles, ", "));
 //			CoreUtility.join(chosenCampaignSourcefiles, ','));
 		}
 

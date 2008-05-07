@@ -25,9 +25,9 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.PCGIOHandler;
 
 /**
@@ -66,7 +66,7 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 			final List<String>            selectedList)
 	{
 		PCGIOHandler.buildSALIST("SALIST:"
-				+ CoreUtility.join(getChoiceList(), "|"), availableList,
+				+ StringUtil.join(getChoiceList(), "|"), availableList,
 				aBonusList, aPc);
 		pobject.addAssociatedTo(selectedList);
 		setPreChooserChoices(selectedList.size());

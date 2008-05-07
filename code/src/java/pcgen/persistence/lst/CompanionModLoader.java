@@ -35,6 +35,7 @@ import pcgen.core.PObject;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -65,8 +66,8 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 	}
 
 	@Override
-	public CompanionMod parseLine(CompanionMod cmpMod, String inputLine,
-			CampaignSourceEntry source) throws PersistenceLayerException {
+	public CompanionMod parseLine(LoadContext context, CompanionMod cmpMod,
+			String inputLine, CampaignSourceEntry source) throws PersistenceLayerException {
 		if (cmpMod == null) {
 			cmpMod = new CompanionMod();
 		}

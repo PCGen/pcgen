@@ -20,7 +20,7 @@
  */
 package pcgen.gui.utils;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 

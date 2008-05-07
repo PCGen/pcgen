@@ -25,7 +25,7 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;

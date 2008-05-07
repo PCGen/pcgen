@@ -37,8 +37,8 @@ import java.util.Set;
 
 import org.jdom.Element;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.CharacterDomain;
-import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;

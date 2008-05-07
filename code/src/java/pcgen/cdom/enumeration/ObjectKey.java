@@ -25,6 +25,7 @@ package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.net.URI;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -48,6 +49,8 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Boolean> USE_UNTRAINED = new ObjectKey<Boolean>();
 
 	public static final ObjectKey<Boolean> EXCLUSIVE = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<URI> SOURCE_URI = new ObjectKey<URI>();
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

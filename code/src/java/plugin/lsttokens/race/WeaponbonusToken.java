@@ -2,7 +2,7 @@ package plugin.lsttokens.race;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Race;
 import pcgen.persistence.lst.RaceLstToken;
 

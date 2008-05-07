@@ -19,7 +19,7 @@ package plugin.lsttokens.auto;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AutoLstToken;
 import pcgen.util.Logging;

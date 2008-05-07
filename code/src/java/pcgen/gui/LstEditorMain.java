@@ -54,9 +54,9 @@ import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
-import pcgen.core.Constants;
 import pcgen.core.CustomData;
 import pcgen.core.Deity;
 import pcgen.core.Domain;

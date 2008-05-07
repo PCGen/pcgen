@@ -25,7 +25,7 @@
  */
 package pcgen.gui.utils;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserRadio;

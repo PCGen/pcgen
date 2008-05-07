@@ -28,7 +28,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.PointBuyCost;
 import pcgen.core.PointBuyMethod;

@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.system.LoadInfo;
 
