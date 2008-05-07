@@ -749,7 +749,9 @@ pcgen.filepaths=user
 			<batchtest todir="${build.dir}/test-results/xml">
 				<fileset dir="${src.test.java.dir}">
 					<include name="**/*Test.java" />
+					<include name="**/*RoundRobin.java" />
 					<exclude name="**/AllJUnitTests.java" />
+					<exclude name="**/Abstract*.java" />
 					<exclude name="pcgen/core/Test.java" />
 				</fileset>
 			</batchtest>
