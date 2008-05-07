@@ -25,7 +25,6 @@
 <body>
 
 	<h1>Domain Files</h1>
-	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0">The Domain files are used to specify domain pertinent information.</p>
 	<p class="indent1">The following tags are described in this sections:</p>
 	<p class="indent2"><a href="#FEAT">FEAT</a></p>
@@ -54,11 +53,10 @@
 	<p class="indent0"><strong><a name="FEAT">Tag Name:</a></strong> FEAT:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent1">
-		<li>This is a comma (,) delimited list of feats granted to a Race.</li>
-		<li>The hyphen (-) is used only in the OUTPUTNAME of feats and should NOT be used in the feat list
-			for this tag. (See example below.)</li>
-	</ul>
+	<p class="indent1">This is a comma-delimited (,) list of feats granted to a character.</p>
+	<p class="sidebar1"><strong>Note:</strong> Use of the hyphen (-) in a feat name can cause 
+		problems within PCGen so its use is to be avoided. To use the hyphen for display purposes, it 
+		may be used in the <a href="../globalfilestagpages/globalfilesother.html#OUTPUTNAME">OUTPUTNAME</a> tag.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FEAT:Blind Fight,Alertness</code></p>
 	<p class="indent3">The &quot;Blind-Fight&quot; &amp; &quot;Alertness&quot; bonus feats are granted to clerics
