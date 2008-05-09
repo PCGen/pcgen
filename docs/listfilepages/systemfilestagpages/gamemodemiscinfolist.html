@@ -12,6 +12,7 @@
 	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 	Eddy Anthony - eddybaATmindspringDOTcom
 	Terry FitzSimons - fitzsimonsATmintelDOTnet
+	Eric C. Smith - mareduddATblackrootDOTorg
 
 	Description:
 	Provides information on the use of PCGen Game Mode: Misc Info List File.
@@ -817,16 +818,6 @@
 		<p class="indent2">In a <a href="#ROLLMETHOD">ROLLMETHOD</a> line.</p>
 
 		<p></p><hr>
-		<p class="new">*** Removed. This is now defined in the
-		<a href="listfilepages/systemfilestagpages/gamemodeunitset.html">unitSet.lst</a> file.</p>
-		<p class="indent0"><strong><a name="MOVEUNIT">Tag Name:</a></strong> MOVEUNIT:x</p>
-
-		<p></p><hr>
-		<p class="new">*** Removed. This is now defined in the
-		<a href="listfilepages/systemfilestagpages/gamemodeunitset.html">unitSet.lst</a> file.</p>
-		<p class="indent0"><strong><a name="MOVEUNITABBREV">Tag Name:</a></strong> MOVEUNITABBREV:x</p>
-
-		<p></p><hr>
 		<p class="indent0"><strong><a name="NAME">Tag Name:</a></strong> NAME:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like displayed as
 			the name of the tab).</p>
@@ -1217,17 +1208,18 @@
 		<p></p><hr>
 		<p class="new">*** Updated 5.11.1</p>
 		<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (YES, NO, or QUALIFY).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> YES (Default)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Turns the associated tab or sub-tab on or off in the GUI.</li>
-			<li>YES - Used to make the tab display in the GUI
-				(this is the default if a VISIBLE tag is not present).</li>
-			<li>NO - Used to keep the tab from displaying in the GUI.</li>
-			<li>QUALIFY - Ability category is only displayed if its total pool (spent + remaining) is not empty.</li>
-			<li>If the ability category is on its own subtab (see DISPLAYLOCATION) 
-			it will always be displayed. As a result it is recommended that these 
-			optional categories be grouped where possible.</li>
+			<li><code>YES</code> - Used to make the tab display in the GUI.</li>
+			<li><code>NO</code> - Used to keep the tab from displaying in the GUI.</li>
+			<li><code>QUALIFY</code> - Ability category is only displayed if its total pool (spent + remaining) is not empty.</li>
+			<li>If the ability category is on its own subtab (see <a href="#DISPLAYLOCATION">DISPLAYLOCATION</a>) 
+				it will always be displayed. As a result it is recommended that these 
+				optional categories be grouped where possible.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISIBLE:NO</code></p>

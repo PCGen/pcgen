@@ -12,7 +12,7 @@
 	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 	Eddy Anthony - eddybaATmindspringDOTcom
 	Terry FitzSimons - fitzsimonsATmintelDOTnet
-	Eric C Smith - mareduddATblackrootDOTorg
+	Eric C. Smith - mareduddATblackrootDOTorg
 
 	Description:
 	Provides information on the content of PCGen Template Files.
@@ -95,12 +95,6 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:LANGAUTO:Abyssal|Infernal</code></p>
 	<p class="indent3">&quot;Abyssal&quot; &amp; &quot;Infernal&quot; are granted as bonus languages.</p>
-	<p></p>
-
-<hr>
-
-	<p class="new">*** Deprecated 5.11.11 - Remove 6.0</p>
-	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
 	<p></p>
 
 <hr>
@@ -399,14 +393,6 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 4.3.8 - Remove 6.0 - Use
-		<a href="../globalfilestagpages/globalfilesbonus.html#MOVEADD">BONUS:MOVEADD</a> or
-		<a href="../globalfilestagpages/globalfilesbonus.html#POSTMOVEADD">BONUS:POSTMOVEADD</a></p>
-	<p class="indent0"><strong><a name="MOVEA">Tag Name:</a></strong> MOVEA:x,y</p>
-	<p></p>
-
-<hr>
-
 	<p class="new">*** Deprecated 5.11.13 - Remove 6.0 - Use <a href="../globalfilestagpages/globalfilesother.html#NATURALATTACKS">NATURALATTACKS</a> tag instead.</p>
 	<p class="indent0"><strong><a name="NATURALATTACKS">Tag Name:</a></strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>
@@ -691,14 +677,16 @@
 <hr>
 
 	<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (YES, NO, DISPLAY, EXPORT)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> YES (Default)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DISPLAY</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EXPORT</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>YES - Shows the Template name in PCGen and on export to a character sheet
-			(This is the default setting).</li>
-		<li>NO - Hides the Template name in PCGen and on export to a character sheet.</li>
-		<li>DISPLAY - Displays the Template name in PCGen but not on the character sheet.</li>
-		<li>EXPORT - Hides the Template name from PCGen but displays it on the character sheet.</li>
+		<li><code>YES</code> - Shows the Template name in PCGen and on export to a character sheet</li>
+		<li><code>NO</code> - Hides the Template name in PCGen and on export to a character sheet.</li>
+		<li><code>DISPLAY</code> - Displays the Template name in PCGen but not on the character sheet.</li>
+		<li><code>EXPORT</code> - Hides the Template name from PCGen but displays it on the character sheet.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>VISIBLE:YES</code></p>

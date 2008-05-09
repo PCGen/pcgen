@@ -11,6 +11,7 @@
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
+		Eric C. Smith - mareduddATblackrootDOTcom
 
 		Description:
 		Provides information on the content of PCGen Equipment Modification Files.
@@ -30,18 +31,6 @@
 	<p class="indent3">The item named &quot;SCP_STD&quot; is to be modified.</p>
 	<p class="indent2"><code>Autofire.FORGET</code></p>
 	<p class="indent3">The item named &quot;Autofire&quot; is to be forgotten.</p>
-	<p></p>
-
-<hr>
-
-	<p class="new">*** Deprecated 5.12 RC2 - Remove 6.0.</p>
-	<p class="indent0"><strong><a name="ADDPROF">Tag Name:</a></strong> ADDPROF:x.x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (proficiency name)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will take the base items required proficiency and assign it the type specified.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>ADDPROF:Exotic.Heavy</code></p>
-	<p class="indent3">Item requires the &quot;Exotic&quot; and &quot;Heavy&quot; proficiencies.</p>
 	<p></p>
 
 <hr>
@@ -364,19 +353,6 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.11.4 - Use <a href="#REPLACES">REPLACES</a> and <a href="#PRETYPE">PRETYPE</a> instead.</p>
-	<p class="indent0"><strong><a name="IGNORES">Tag Name:</a></strong> IGNORES:x,x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (List of Keys)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a comma (,) delimited list of Keys that the modifier will
-		ignore when making custom items.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>IGNORES:ARMRMW,WEAPWM</code></p>
-	<p class="indent3">The &quot;ARMRMW&quot; &amp; &quot;WEAPWM&quot; keys are ignored.</p>
-	<p></p>
-
-<hr>
-
 	<p class="indent0"><strong><a name="ITYPE">Tag Name:</a></strong> ITYPE:x.x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -534,18 +510,21 @@
 <hr>
 
 	<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes, No, or Qualify)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> YES (Default)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>YES - This will always show the modifier in the customizer window.</li>
-		<li>No - This will never show the modifier in the customizer window.</li>
-		<li>Qualify - This will always show the modifier in the customizer window
+		<li><code>YES</code> - This will always show the modifier in the customizer window.</li>
+		<li><code>NO</code> - This will never show the modifier in the customizer window.</li>
+		<li><code>QUALIFY</code> - This will always show the modifier in the customizer window
 			if the item meets the requirements to obtain this modifier.</li>
-		<li>The default for this tag is 'YES'.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>VISIBLE:Yes</code></p>
+	<p class="indent2"><code>VISIBLE:YES</code></p>
 	<p class="indent3">This will always show the modifier in the customizer window.</p>
+
+<hr>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
