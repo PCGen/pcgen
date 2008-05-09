@@ -275,7 +275,7 @@ CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Hum
 # Class Name	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:The Broken	TYPE:PC.Prestige	ABB:Brkn		MAXLEVEL:10	SOURCEPAGE:pg.80	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Reflex|CL/3	BONUS:COMBAT|BAB|CL-1
 # Class Name	Required AL		Req. Spell Type		Required Text
-CLASS:The Broken	PREALIGN:LE,NE,CE	PRESPELLTYPE:1,ANY=3	PRETEXT:Must find and enter the Broken One's hiden sanctum.
+CLASS:The Broken	PREALIGN:LE,NE,CE		PRESPELLTYPE:1,ANY=3	PRETEXT:See text.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Spellcraft
 ###Block: Class Features
@@ -283,15 +283,11 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 #1:REPEATLEVEL:1	BONUS:STAT|INT|1|PREMULT:3,[PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|WIS|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
-#1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
-2:REPEATLEVEL:2|MAX=8	ADD:FEAT|TYPE=Metamagic
 ###Block: Normal Progression
 1						AUTO:FEAT|The Wasting|No Pain
-2
+2:REPEATLEVEL:2|MAX=8	ADD:FEAT|TYPE=Metamagic
 3						AUTO:FEAT|Unnatural Drives
-4
 5	BONUS:VAR|KnowPainTimes|1	AUTO:FEAT|Know Pain
-6
 7						AUTO:FEAT|Divine Malice
 8	BONUS:VAR|KnowPainTimes|1
 9						AUTO:FEAT|Beyond Flesh

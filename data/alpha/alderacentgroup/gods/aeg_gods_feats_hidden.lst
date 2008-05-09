@@ -172,21 +172,21 @@ Eternitys Humble Offerings	TYPE:ClassFeature	VISIBLE:NO	SAB:Eternity's Humble Of
 # Feat Name		Type			Visible	Special ABility																												Define													Stackable?	Multiple?	Modify VAR
 Smite Humanoid	TYPE:ClassFeature	VISIBLE:NO	SAB:Smite Humanoid - may smite a humanoid with one normal melee attack % times/day with a % bonus to hit and % bonus to damage|HHSmiteTimes|HHSmiteToHitBonus|HHSmiteDamageBonus	DEFINE:HHSmiteTimes|0	DEFINE:HHSmiteToHitBonus|0	DEFINE:HHSmiteDamageBonus|0					BONUS:VAR|HHSmiteTimes|1	BONUS:VAR|HHSmiteTimes|1|PRECLASS:1,Humanoid Hunter=8	BONUS:VAR|HHSmiteToHitBonus|if(INT>=0,INT,0)	BONUS:VAR|HHSmiteDamageBonus|var("CLASSLEVEL=Humanoid Hunter")
 Hide the Beast	TYPE:ClassFeature	VISIBLE:NO	SAB:Hide the Beast (Su)
-Death Blow		TYPE:ClassFeature	VISIBLE:NO	SAB:Death Blow																																										STACK:NO	MULT:NO
+Death Blow		TYPE:ClassFeature	VISIBLE:NO	SAB:Death Blow
 
 ##
 ## Kobold Abilities
 ##
 
 ###Block: The Broken One Class Abilities
-# Feat Name		Type			Visible	Special ABility		Define			Stackable?	Multiple?
-The Wasting		TYPE:ClassFeature	VISIBLE:NO	SAB:The Wasting						STACK:NO	MULT:NO
-No Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:No Pain							STACK:NO	MULT:NO
-Unnatural Drives	TYPE:ClassFeature	VISIBLE:NO	SAB:Unnatural Drives					STACK:NO	MULT:NO
-Know Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:Know Pain		DEFINE:KnowPainTimes|0	STACK:NO	MULT:NO
-Divine Malice	TYPE:ClassFeature	VISIBLE:NO	SAB:Divine Malice						STACK:NO	MULT:NO
-Beyond Flesh	TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Flesh						STACK:NO	MULT:NO
-Beyond Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Pain						STACK:NO	MULT:NO
+# Feat Name		Type				Visible		Special ABility		Define						
+The Wasting		TYPE:ClassFeature	VISIBLE:NO	SAB:The Wasting
+No Pain			TYPE:ClassFeature	VISIBLE:NO	SAB:No Pain
+Unnatural Drives	TYPE:ClassFeature	VISIBLE:NO	SAB:Unnatural Drives
+Know Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:Know Pain - Share pain with another %/day (DC %)|KnowPainTimes|classlevel("The Broken")*2+15		DEFINE:KnowPainTimes|0
+Divine Malice	TYPE:ClassFeature	VISIBLE:NO	SAB:Divine Malice
+Beyond Flesh	TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Flesh
+Beyond Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Pain
 
 ##
 ## Lizardfolk Abilities
@@ -206,12 +206,12 @@ Power of Istos		TYPE:ClassFeature	VISIBLE:NO	SAB:Power of Istos																	
 
 ###Block: Black Nail Class Abilities
 # Feat Name			Type			Visible	Special ABility				Stackable?	Multiple?	Automaticaly Gained Weapon Prof.
-Oversize Greataxe		TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)	STACK:NO	MULT:NO	AUTO:WEAPONPROF|Weapon Focus(Greataxe)
-Thick Hide			TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide				STACK:NO	MULT:NO
-Battle Cry			TYPE:ClassFeature	VISIBLE:NO	SAB:Battle Cry				STACK:NO	MULT:NO
-Formation Fighting	TYPE:ClassFeature	VISIBLE:NO	SAB:Fighting Formation			STACK:NO	MULT:NO
-Oversize Longspear	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Longspear)	STACK:NO	MULT:NO	AUTO:WEAPONPROF|Weapon Focus(Longspear)
-Great Leadership		TYPE:ClassFeature	VISIBLE:NO	SAB:Great Leadership			STACK:NO	MULT:NO
+Oversize Greataxe		TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)	AUTO:WEAPONPROF|Weapon Focus(Greataxe)
+Thick Hide			TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide
+Battle Cry			TYPE:ClassFeature	VISIBLE:NO	SAB:Battle Cry
+Formation Fighting	TYPE:ClassFeature	VISIBLE:NO	SAB:Fighting Formation
+Oversize Longspear	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Longspear)	AUTO:WEAPONPROF|Weapon Focus(Longspear)
+Great Leadership		TYPE:ClassFeature	VISIBLE:NO	SAB:Great Leadership
 
 ###Block: Black Nail Class Abilities
 # Feat Name		Output Name						Type			Visible	Special ABility				Define				Innate Spells															Stackable?	Multiple?	Modify VAR
@@ -227,12 +227,12 @@ Dispel Good									TYPE:ClassFeature	VISIBLE:NO	SAB:Dispel Good									SPELLS:
 
 ###Block: Keeper of Secrets Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Add
-Shadow Walker	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow Walker - Gains luck bonus to Bluff checks when creating a diversion.																			STACK:NO	MULT:NO
+Shadow Walker	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow Walker - Gains luck bonus to Bluff checks when creating a diversion.
 Lore of Sathus	TYPE:ClassFeature	VISIBLE:NO	SAB:Lore of Sathus - Gains knowledge of extra arcane spells.																						STACK:YES	MULT:YES	ADD:ABILITY|3|KSKnownSpellBonus|AUTOMATIC|TYPE=KSBonusKnownSpell
-Envoy of Sathus	TYPE:ClassFeature	VISIBLE:NO	SAB:Envoy of Sathus - Gains an insight bonus to Diplomacy and Intimidation when dealing with Orcs.																STACK:NO	MULT:NO
-Arcane Seeker	TYPE:ClassFeature	VISIBLE:NO	SAB:Arcane Seeker - May cast Detect Magic at will									SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=classlevel("Keeper of Secrets")|Detect Magic,10+CHA	STACK:NO	MULT:NO
-Mind Delver		TYPE:ClassFeature	VISIBLE:NO	SAB:Mind Delver - May extract spells from a captured spellcasters mind.																					STACK:NO	MULT:NO
-Shadow Double	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow Double															SPELLS:Class|TIMES=1|CASTERLEVEL=20|Mislead,16+CHA							STACK:NO	MULT:NO
+Envoy of Sathus	TYPE:ClassFeature	VISIBLE:NO	SAB:Envoy of Sathus - Gains an insight bonus to Diplomacy and Intimidation when dealing with Orcs.
+Arcane Seeker	TYPE:ClassFeature	VISIBLE:NO	SAB:Arcane Seeker - May cast Detect Magic at will									SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=classlevel("Keeper of Secrets")|Detect Magic,10+CHA
+Mind Delver		TYPE:ClassFeature	VISIBLE:NO	SAB:Mind Delver - May extract spells from a captured spellcasters mind.
+Shadow Double	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow Double															SPELLS:Class|TIMES=1|CASTERLEVEL=20|Mislead,16+CHA
 
 ###Block: Underworld Druid of Thovis Class Abilities
 # Feat Name			Type			Visible	Special ABility																				Stackable?	Multiple?	Move			Vision
