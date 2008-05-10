@@ -254,7 +254,9 @@ public final class Skill extends PObject
 			}
 		}
 
-		for (Equipment eq : aPC.getEquipmentList())
+		final List<Equipment> eqList =
+			new ArrayList<Equipment>(aPC.getEquipmentList());
+		for (Equipment eq : eqList)
 		{
 			if (eq.isEquipped())
 			{

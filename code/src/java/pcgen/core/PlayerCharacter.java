@@ -4122,7 +4122,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void cacheOutputIndex(String key, int index)
 	{
-		Logging.errorPrint("Caching " + key + " - " + index + " direct");
+		Logging.debugPrint("Caching " + key + " - " + index + " direct");
 		autoEquipOutputOrderCache.put(key, index);
 	}
 
@@ -4134,7 +4134,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (item.isAutomatic())
 		{
-			Logging.errorPrint("Caching " + item.getKeyName() + " - "
+			Logging.debugPrint("Caching " + item.getKeyName() + " - "
 				+ item.getOutputIndex() + " item");
 			autoEquipOutputOrderCache.put(item.getKeyName(), item
 				.getOutputIndex());
@@ -12974,7 +12974,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Equipment
-		for (Equipment eq : getEquipmentList())
+		final List<Equipment> eqList =
+				new ArrayList<Equipment>(getEquipmentList());
+		for (Equipment eq : eqList)
 		{
 			// Include natural weapons by default as they have an effect even if
 			// not equipped.
@@ -17395,7 +17397,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			abilities = theAbilities.get(aCategory, Ability.Nature.VIRTUAL);
 		}
 
-		return Collections.unmodifiableList(abilities);
+		return abilities;
 	}
 
 	public List<Ability> featAutoList()
