@@ -39,27 +39,57 @@
 
 <hr>
 
-		<p class="indent0">This is a lesson to assist users in converting existing feats to the new 
-			ability object. Each section represents a different file and the tags used in that that 
-			you'll need. Provided with the included tags is a sample in each section. So if you copy 
-			these examples verbatim you'll have a good start. Above is referenced the actual tags for 
-			the full capabilities. Each new line should be considered a <code>&lt;TAB&gt;</code> in 
-			the actual file.</p>
-		<p class="indent1">So,</p>
-		<p class="indent2"><code>ABILITYCATEGORY:My Ability Category</code></p>
-		<p class="indent2"><code>CATEGORY:FEAT</code></p>
-		<p class="indent1">In the lst file becomes:</p>
-		<p class="indent2"><code>ABILITYCATEGORY:My Ability Category</code> &lt;tab&gt; <code>CATEGORY:FEAT</code></p>
+		<p class="indent0">Beginning with PCGen 5.12, and maturing in PCGen 5.14, the Ability 
+			object has been available to the lst monkey as a more flexible tool than the existing 
+			Feat object. Though it was originally conceived as a replacement for the Feat, it will 
+			still take quite some time before the Feat actually goes away, if it ever does.</p>
+		<p class="indent0">This lesson will assist users in converting their existing homebrew feats 
+			to the new Ability object. Each section represents a different LST file and will explain
+			the conversion, through discussion and examples of the tags used within each file, of your 
+			homebrew feats.</p>
+		<p class="indent0">For those of you that have gone through the previous LST Classes, some of 
+			the global tags will be repetitive. feel free to skip those portions if you like. These 
+			classes are being written for the new LST-Monkey, so there will be some overlap, but a 
+			student of the classes does not need to take them in order.</p>
+		<p class="indent0">Because HTML formatting cannot exactly replicate what you would see in a LST 
+  		file we are going to use certain conventions to convey these ideas:</p>
+		<p class="indent1">1) Angle brackets (&lt;&gt;) are used to indicate where your text will be 
+			entered when building your LST files. Unless explicitly stated in the text of my explanation, 
+			you will not include the angle brackets in your tags.</p>
+		<p class="indent1">2) Coding examples and PCGen tags are identified by <code>code</code> 
+			style.</p>
+		<p class="indent1">3) When referencing a specific PCGen object, i.e. domain, feat, weapon, etc., 
+			I have included the name as a <span class="lstobj">LST Object</span> text, except for when 
+			the object is part of a <code>&lt;code&gt;</code> example.</p>
+		<p class="indent1">4) Each new line should be considered a <code>&lt;TAB&gt;</code> in the actual file.</p>
+		<blockquote>
+			<p class="indent1">So examples in this lesson will appear as:</p>
+			<p class="indent2"><code>ABILITYCATEGORY:My Ability Category</code></p>
+			<p class="indent2"><code>CATEGORY:FEAT</code></p>
+			<p class="indent1">While in the LST file will appear as:</p>
+			<p class="indent2"><code>ABILITYCATEGORY:My Ability Category</code> &lt;tab&gt; <code>CATEGORY:FEAT</code></p>
+		</blockquote>
 
 <hr>
 
 		<h3>The PCC File</h3>
-		<p class="indent1">Abilities have a different file type from feats. Use <code>ABILITY:</code> to 
-			tell PCGen where to find the newly converted abilities, and we use <code>ABILITYCATEGORY:</code>
-			to tell PCGen where to find the new ability categories that our new abilities belong to.</p>
-		<p class="indent1">Example:</p>
-		<p class="indent2"><code>ABILITY:my_ability.lst</code></p>
-		<p class="indent2"><code>ABILITYCATEGORY:my_abilitycategory.lst</code></p>
+		<p class="indent0">PCGen uses the <code>ABILITY:ability.lst</code> tag to identify the files in 
+			which PCGen's new &quot;Ability&quot; objects can be found and loaded into PCGen. Likewise, 
+			PCGen uses the <code>ABILITYCATEGORY:abilitycategory.lst</code> tag to identify the files in 
+			which PCGen will find the &quot;Ability Categories&quot; required to implement the new abilities. 
+			More information can be found in the <a href="lfc_lesson01_pcc.html">PCC LST File Class</a></p>
+
+		<p class="indent0"><strong><code>ABILITY</code></strong></p>
+		<p class="indent0">PCGen uses the <code>ABILITY:ability.lst</code> tag to identify the files in 
+			which PCGen's new &quot;Ability&quot; objects can be found and loaded into PCGen.</p>
+
+		<p class="indent0"><strong><code>ABILITYCATEGORY</code></strong></p>
+		<p class="indent0">PCGen uses the <code>ABILITYCATEGORY:abilitycategory.lst</code> tag to identify 
+			the files in which PCGen will find the &quot;Ability Categories&quot; required to implement 
+			the new abilities.</p>
+		<p class="indent0"><strong>Example:</strong></p>
+		<p class="indent1"><code>ABILITY:my_ability.lst</code></p>
+		<p class="indent1"><code>ABILITYCATEGORY:my_abilitycategory.lst</code></p>
 		<p></p>
 
 <hr>
@@ -76,32 +106,38 @@
 		<p class="indent2"><code>FRACTIONALPOOL:NO</code></p>
 		<p class="indent2"><code>POOL:0</code></p>
 		<p class="indent2"><code>VISIBLE:YES</code></p>
-		<p class="indent1">--</p>
-		<p class="indent0">ABILITYCATEGORY</p>
-		<p class="indent1">This makes the Ability Category. This is what will show in the PCGen user interface, under the FEATs tab.</p>
-		<p class="indent0">CATEGORY</p>
-		<p class="indent1">This is a 'sub' category. You'll note we leave it the same for this example but you can have the same ability name as long as it has a different category name. For example: CATEGORY:Ambush could contain 'FooBarSneak' and then you could have CATEGORY:Rogue with 'FooBarSneak'</p>
-		<p class="indent2">NOTE:Categories may be different, you can make any category you want as long as 
+
+<hr>
+
+		<p class="indent0"><strong><code>ABILITYCATEGORY</code></strong></p>
+		<p class="indent1">This defines the Ability Category. This is what will show in the PCGen user interface, under the FEATs tab.</p>
+		<p class="indent0"><strong><code>CATEGORY</code></strong></p>
+		<p class="indent1">This is a 'sub-category'. You'll note we leave it the same for this example 
+			but you can have the same ability name as long as it has a different category name. As an 
+			example, you could have an ability <span class="lstobj">FooBarSneak</span> of 
+			<code>CATEGORY:Ambush</code>, and an ability <span class="lstobj">FooBarSneak</span> 
+			of <code>CATEGORY:Rogue</code> with no conflicts within PCGen.</p>
+		<p class="sidebar1">NOTE: Categories may be different, you can make any category you want as long as 
 			it is defined in either the <span class="lstfile">miscinfo.lst</span> or 
 			<span class="lstfile">miscinfo.lst</span> file.</p>
-		<p class="indent0">PLURAL</p>
+		<p class="indent0"><strong><code>PLURAL</code></strong></p>
 		<p class="indent1">This has to do with the internationalization. An example is: in_feats which sets the 
 			Category key to 'in_feats'. It also shows up with the 'Plural' of the name. Ex. Feat would be Feats 
 			(Feats would display in the drop down bar).</p>
-		<p class="indent0">EDITABLE</p>
+		<p class="indent0"><strong><code>EDITABLE</code></strong></p>
 		<p class="indent1">This defines whether a user can modify the abilities in the category. NO would be 
 			appropriate for class abilities which aren't chosen by the user.</p>
-		<p class="indent0">EDITPOOL</p>
+		<p class="indent0"><strong><code>EDITPOOL</code></strong></p>
 		<p class="indent1">This defines whether a user can modify the pool number or not. Each ability has a 
 			'cost' (Default is 1) if this option is set to 'NO' the user cannot add or subtract from the pool. 
 			For feats, the default is 'YES'.</p>
-		<p class="indent0">FRACTIONALPOOL</p>
+		<p class="indent0"><strong><code>FRACTIONALPOOL</code></strong></p>
 		<p class="indent1">This defines whether the pool must be a whole number or can be fractions. Some 
 			abilities may have a cost less than '1' like .5 or .25. &lt;YES / NO&gt;</p>
-		<p class="indent0">POOL</p>
+		<p class="indent0"><strong><code>POOL</code></strong></p>
 		<p class="indent1">0 unless you want a formula to determine the pool number. Example: TL/2 would 
 			grant one point every 2 levels to the character. </p>
-		<p class="indent0">VISIBLE</p>
+		<p class="indent0"><strong><code>VISIBLE</code></strong></p>
 		<p class="indent1">Defines whether this category is visible on the UI or hidden. Usefull for hidden 
 			abilities and class abilities that require no interaction from the user. &lt;Options are - YES, 
 			NO, QUALIFY&gt;</p>
@@ -117,24 +153,30 @@
 		<p class="indent2"><code>TYPE:General</code></p>
 		<p class="indent2"><code>VISIBLE:YES</code></p>
 		<p class="indent2"><code>DESC:&lt;appropriate description&gt;</code></p>
-		<p class="indent)">You may continue to use PREFEAT, but it is recommended that you use PREABILITY. See tag for details.</p>
+		<p class="indent)">You may continue to use 
+			<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>, 
+			but it is recommended that you use 
+			<a href="../globalfilestagpages/globalfilesprexxx.html#PREABILITY">PREABILITY</a> instead.</p>
 		<p></p>
-		<p class="indent0">--</p>
+
+<hr>
+
 		<p class="indent0">Ability Name</p>
 		<p class="indent1">The first line is the Name of the Ability, you can have any name you prefer 
 			that makes sense. In ths example we are using a shortened name to simplify the lesson.</p>
-		<p class="indent0">CATEGORY</p>
+		<p class="indent0"><strong><code>CATEGORY</code></strong></p>
 		<p class="indent1">This places the ability named in the 'FEAT' category.  Note the ALL CAPS if 
 			making an actual FEAT; other abilitiy categories can be whatever name you decide upon&gt;</p>
-		<p class="indent0">NOTE: Any category, besides 'FEAT', must have been defined in the miscinfo.lst 
+		<p class="sidebar1">NOTE: Any category, besides 'FEAT', must have been defined in the 
+			<span class="lstfile">miscinfo.lst</span> or <span class="lstfile">abilitycategory.lst</span> 
 			file to be valid.</p>
-		<p class="indent0">TYPE</p>
+		<p class="indent0"><strong><code>TYPE</code></strong></p>
 		<p class="indent1">We have a period '.' delimiter to give the ability more than one 'type'. In 
 			this case we have 'General' as a 'type'. Same as standard feats '.' period delimiter.</p>
-		<p class="indent0">VISIBLE</p>
+		<p class="indent0"><strong><code>VISIBLE</code></strong></p>
 		<p class="indent1">Setting the visible to YES (which is default) allows the user to see this 
 			on the GUI in PCGen. DISPLAY, NO, YES and QUALIFY are the valid entries.</p>
-		<p class="indent0">DESC</p>
+		<p class="indent0"><strong><code>DESC</code></strong></p>
 		<p class="indent1">This is where you type the text you want to appear with your chosen ability. 
 			This will be displayed on the character sheet UNLESS the ability is set to NO or DISPLAY. 
 			In that case you would skip this tag and may instead use 'SA:' tag 5.12 and earlier or 'SAB:' 
