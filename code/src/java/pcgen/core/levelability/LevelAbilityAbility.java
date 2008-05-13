@@ -664,7 +664,7 @@ public class LevelAbilityAbility extends LevelAbility
 
 				previousChoices.add(ab);
 
-				List<Ability> aList = aPC.getVirtualAbilityList(abilityCat);
+				List<Ability> aList = aPC.getDirectVirtualAbilities(abilityCat);
 				final Ability pcAbility = AbilityUtilities.addVirtualAbility(
 						ab,
 						choiceList,

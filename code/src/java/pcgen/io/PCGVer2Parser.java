@@ -2358,7 +2358,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				ability =
 						AbilityUtilities.addVirtualAbility(ability,
 							new ArrayList<String>(), thePC
-								.getVirtualAbilityList(category), null);
+								.getDirectVirtualAbilities(category), null);
 				if (ability == null)
 				{
 					Logging
@@ -4091,7 +4091,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			anAbility =
 					AbilityUtilities.addVirtualAbility(Constants.FEAT_CATEGORY,
-						abilityKey, thePC.getVirtualFeatList(), null);
+						abilityKey, thePC
+							.getDirectVirtualAbilities(AbilityCategory.FEAT),
+						null);
 			anAbility.setNeedsSaving(true);
 			thePC.setDirty(true);
 		}

@@ -297,9 +297,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * List of all directly assigned normal nature abilities split by category. 
 	 * These are abilities that are added directly to the character rather than 
-	 * being added to a class, tempalte etc that the character possesses. 
+	 * being added to a class, template etc that the character possesses. 
 	 */
 	private Map<AbilityCategory, List<Ability>> realAbilities =
+			new HashMap<AbilityCategory, List<Ability>>();
+
+	/**
+	 * List of all directly assigned virtual nature abilities split by category. 
+	 * These are abilities that are added directly to the character rather than 
+	 * being added to a class, template etc that the character possesses. 
+	 */
+	private Map<AbilityCategory, List<Ability>> virtualAbilities =
 			new HashMap<AbilityCategory, List<Ability>>();
 
 	/**
@@ -16625,6 +16633,36 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return abilities.remove(anAbility);
 	}
 
+	/**
+	 * Retrieve the list of directly added virtual abilities of a particular 
+	 * category.
+	 * @param aCategory The category of the abilities.
+	 * @return The list of abilities.
+	 */
+	public List<Ability> getDirectVirtualAbilities(
+		final AbilityCategory aCategory)
+	{
+		List<Ability> aList = virtualAbilities.get(aCategory);
+		if (aList == null)
+		{
+			aList = new ArrayList<Ability>();
+			virtualAbilities.put(aCategory, aList);
+		}
+		return aList;
+	}
+
+	/**
+	 * Set the list of directly added virtual abilities of a particular 
+	 * category.
+	 * @param aCategory The category of the abilities.
+	 * @param aList The list of abilities to set.
+	 */
+	public void setDirectVirtualAbilities(final AbilityCategory aCategory,
+		List<Ability> aList)
+	{
+		virtualAbilities.put(aCategory, aList);
+	}
+
 	public void adjustFeats(final double arg)
 	{
 		if (allowFeatPoolAdjustment)
@@ -17397,7 +17435,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			abilities = theAbilities.get(aCategory, Ability.Nature.VIRTUAL);
 		}
 
-		return abilities;
+		return Collections.unmodifiableList(abilities);
 	}
 
 	public List<Ability> featAutoList()
@@ -17458,6 +17496,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						&& realAbilities.get(cat) != null)
 					{
 						abilities.addAll(realAbilities.get(cat));
+					}
+					else if (nature == Ability.Nature.VIRTUAL)
+					{
+						for (Ability ability : getDirectVirtualAbilities(cat))
+						{
+							if (PrereqHandler.passesAll(
+								ability.getPreReqList(), this, ability))
+							{
+								abilities.add(ability);
+							}
+						}
 					}
 					theAbilities.put(cat, nature, abilities);
 				}
