@@ -316,7 +316,7 @@ final class PurchaseModeFrame extends JDialog
 		getContentPane().add(jPanel2, gridBagConstraints);
 
 		purchaseMethodPanel.setLayout(new GridBagLayout());
-		purchaseMethodPanel.setBorder(BorderFactory.createEtchedBorder());
+		purchaseMethodPanel.setBorder(BorderFactory.createTitledBorder("Allowed Points"));
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
