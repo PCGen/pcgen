@@ -12,7 +12,7 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
-		Eric C. Smith - mareduddATblackrootDOTorg
+		Eric C Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the content of PCGen Starting Kit Files.
@@ -553,7 +553,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Size category (F,D,T,S,M,L,H,G,C)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> PC (matches the equipment to the characters size)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Enlarges or reduces the GEAR item to the size specified. Optional, if not present the equipments size is unchanged.</p>
+	<p class="indent2">Enlarges or reduces the GEAR item to the size specified.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SIZE:S</code></p>
 	<p class="indent3">The item is set to size small.</p>
@@ -691,16 +691,15 @@
 -->
 <hr>
 
-	<p class="new">***Updated 5.9.2</p>
+	<p class="new">*** New 5.8, Updated 5.9.2</p>
 	<p class="indent0"><strong><a name="VISIBLE">Tag Name:</a></strong> VISIBLE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> YES (Default)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Property (YES or NO)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li><code>YES</code> - Displays the name of the KIT in the KIT selection window.</li>
-		<li><code>NO</code> - Hides the name of the KIT in the KIT selection window.</li>
-		<li><code>QUALIFY</code> - Displays the name of the KIT only if the character passes the prerequisites.</li>
+		<li>YES - Displays the name of the KIT in the KIT selection window.</li>
+		<li>NO - Hides the name of the KIT in the KIT selection window.</li>
+		<li>QUALIFY - Displays the name of the KIT only if the character passes the prerequisites.</li>
+		<li>This is an optional tag and if not used it will default to YES.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>VISIBLE:YES</code></p>
