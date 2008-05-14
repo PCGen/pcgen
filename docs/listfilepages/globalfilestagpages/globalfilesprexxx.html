@@ -346,23 +346,34 @@
 	<p class="indent3">Removes the character must have 1 level in SPELLCASTER.Arcane class. Can now be any Class</p>
 	<p class="indent2"><code>PRECLASS:1,SPELLCASTER.Divine=6,SPELLCASTER.Psionic=3.MOD &lt;tab&gt; PRECLASS:1,Rogue=6,Ranger=3.MOD</code></p>
 	<p class="indent3">Changes the character must have 6 levels in any divine spellcasting class or 3 levels in any psionic manifesting class, with a requirement for either Rogue at 6 levels or Ranger at 3 levels.</p>
-	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
-	<p class="indent2"><code>PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</code></p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <a href="#FPRECLASSOLD">PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</a></p>
 	<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="PRECLASSLEVELMAX">Tag Name:</a></strong>PRECLASSLEVELMAX:x,x=y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or names).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.ClassType (A Class type such as Base or Prestige).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> SPELLCASTER (Any spellcaster).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> SPELLCASTER.Type (A spellcaster type such as Arcane or Divine).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number
-		(The maximum number of levels in the specified classes allowed. If there is more than one class listed, it is treated as an AND statement).</p>
+	<p class="new">*** Deprecated - Remove 5.16 - Use <a href="#PRECLASS">PRECLASS:x,y=z,y=z</a></p>
+	<p class="indent0"><strong><a name="PRECLASSOLD">Tag Name:</a></strong> PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="PRECLASSLEVELMAX">Tag Name:</a></strong>PRECLASSLEVELMAX:x,y,y=z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of listed classes required)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Class type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER.Text (Spellcaster type)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum class level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets maximum class level limits.</p>
+	<ul class="indent2">
+		<li>Sets maximum class level limits.</li>
+		<li>Class types are defined in the loaded datasets.  Examples from the RSRD are &quot;Base&quot;, 
+			&quot;PC&quot;, or &quot;Prestige&quot;.</li>
+		<li><code>SPELLCATER</code> will check against all spellcasting classes.</li>
+		<li><code>SPELLCASTER.Text</code> will check against spellcaster types, e.g. Arcane or Divine.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRECLASSLEVELMAX:Fighter,SPELLCASTER=2</code></p>
+	<p class="indent2"><code>PRECLASSLEVELMAX:2,Fighter,SPELLCASTER=2</code></p>
 	<p class="indent3">Character cannot have more than 2 levels of fighter and cannot have more than 2 levels in any spellcasting class.</p>
 	<p></p>
 
@@ -1210,7 +1221,7 @@
 
 <hr>
 
-	<p class="new">*** NEW 5.11.6</p>
+	<p class="new">*** NEW 5.12</p>
 	<p class="indent0"><strong><a name="PRESPELLSCHOOL2">Tag Name:</a></strong> PRESPELLSCHOOL:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of a school of magic).</p>
@@ -1224,11 +1235,24 @@
 	<p class="indent2"><code>PRESPELLSCHOOL:3,Necromancy=2</code></p>
 	<p class="indent3">Character must have at least three 2nd level or higher Necromancy spells to meet
 		the requirement.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">*** Deprecated 5.11.6-5.12.0 - Remove 5.16</p>
+	<p class="indent2"><code>PRESPELLSCHOOL:x,y,z</code></p>
+	<p class="indent2">Variables Used (x): Text (The name of a school of magic).</p>
+	<p class="indent2">Variables Used (y): Number (The quantity of spells of the proper
+		school and level the character must know).</p>
+	<p class="indent2">Variables Used (z): Number (The minimum spell level of the school
+		of spells a character must know).</p>
+	<p class="indent2">What it does:</p>
+	<p class="indent3">Sets spell school requirements. Loremaster is a good example of this pre-requisite</p>
+	<p class="indent2">Example:</p>
+	<p class="indent3"><code>PRESPELLSCHOOL:Necromancy,3,2</code></p>
+	<p class="indent4">Character must have at least three 2nd level or higher &quot;Necromancy spells to meet
+		the requirement.</p>
 	<p></p>
 
 <hr>
 
-	<p class="new">*** Updated 5.11.6</p>
+	<p class="new">*** Updated 5.12</p>
 	<p class="indent0"><strong><a name="PRESPELLSCHOOLSUB2">Tag Name:</a></strong> PRESPELLSCHOOLSUB:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of sub-school of magic.)</p>
@@ -1241,6 +1265,19 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESPELLSCHOOLSUB:3,Creation=2</code></p>
 	<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
+		the requirement.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">*** Deprecated 5.11.6-5.12.0 - Remove 5.16</p>
+	<p class="indent2"><code>PRESPELLSCHOOLSUB:x,y,z</code></p>
+	<p class="indent2">Variables Used (x): Number (The quantity of spells of the proper
+		sub-school and level the character must know).</p>
+	<p class="indent2">Variables Used (y): Text (The name of a sub-school of magic).</p>
+	<p class="indent2">Variables Used (z): Number (Minimum spell level of the sub-school of
+		spells a character must know).</p>
+	<p class="indent2">What it does:</p>
+	<p class="indent3">Sets spell sub-school requirements.</p>
+	<p class="indent2">Example:</p>
+	<p class="indent3"><code>PRESPELLSCHOOLSUB:Creation,3,2</code></p>
+	<p class="indent4">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
 		the requirement.</p>
 	<p></p>
 
