@@ -12,7 +12,6 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
-		Eric C. Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the content of PCGen Equipment Files.
@@ -48,6 +47,10 @@
 		<li>Eqmods listed in the <code>EQMOD</code> tag are applied to the base item prior to the 
 			application of any other included tags.</li>
 	</ul>
+	<p class="sidebar1">NOTE: This tag will not copy any of the base item's existing tags so you will 
+		need to add them yourself. The <code>.COPY</code> tag will perform this same function but will 
+		copy all tags to the new item, verbatim, prior to adding any new tags. (See 
+		<a href="../listfilepages/globalfilestagpages/globalfilesother.html#COPY">.COPY</a> docs)</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<blockquote class="indent2">
 		<p class="tagindent1"><code>Davril's Longsword &lt;tab&gt; BONUS:COMBAT|DAMAGE,TOHIT|2 &lt;tab&gt; BASEITEM:Longsword &lt;tab&gt; EQMOD:BANE_M|Undead.HOLY_M.KEEN</code></p>
@@ -142,26 +145,30 @@
 			<em>rsrd_equipmods_enhancing.lst</em> for examples of eqmods.</li>
 		<li><code>EQMOD</code> is used in conjunction with <code>BASEITEM</code>. 
 			<ul>
-				<li>Without <code>BASEITEM</code>, no eqmod will be applied.</li>
 				<li>The eqmod is automatically applied to the base item.</li>
 				<li>The eqmod is applied before looking at other tags.</li>
 			</ul>
 		</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<blockquote class="indent2">
-		<p class="tagindent1"><code>Davril's Longsword &lt;tab&gt; BONUS:COMBAT|DAMAGE,TOHIT|2 &lt;tab&gt; BASEITEM:Longsword &lt;tab&gt; EQMOD:BANE_M|Undead.HOLY_M.KEEN</code></p>
-	</blockquote>
-	<p class="indent3">Creates a piece of equipment called &quot;Davril's Longsword&quot; that is 
-		a +2 weapon. The SPROPS and effects from the equipment modifiers &quot;Bane Undead&quot;, 
-		&quot;Holy&quot; and &quot;Keen&quot; will appear in the attack numbers and special properties 
-		as appropriate.</p>
 	<p class="indent2"><code>EQMOD:KEEN.BANE|Undead</code></p>
 	<p class="indent3">Creates a sword that is keen and also has Bane Undead.</p>
 	<p class="indent2"><code>EQMOD:ABILITYPLUS|STR+2</code></p>
 	<p class="indent3">Applies a +2 strength bonus to the character when using the item.</p>
 	<p class="indent2"><code>Leather Armor.MOD &lt;tab&gt; EQMOD:DR_CONVERSION_ARCHAIC|2</code></p>
 	<p class="indent3">Applies a damage reduction bonus of 2 to the character when using the item.</p>
+	<blockquote class="indent2">
+		<p class="tagindent1"><code>Rod (Absorption) &lt;TAB&gt; OUTPUTNAME:Rod of [NAME] &lt;TAB&gt; 
+			TYPE:Magic.Rod &lt;TAB&gt; COST:50000 &lt;TAB&gt; WT:5 &lt;TAB&gt; BASEITEM:Rod &lt;TAB&gt; 
+			EQMOD:CHARGED_ITEM_50|CHARGES[50] &lt;TAB&gt; SOURCEPAGE:MagicItemsIII.rtf</code></p>
+	</blockquote>
+	<p class="indent3">Creates a magical rod called &quot;Rod of Absorption&quot; with 50 charges.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated - Use the global <a href="../globalfilestagpages/globalfilesother.html#OUTPUTNAME">OUTPUTNAME</a></p>
+	<p class="indent0"><strong><a name="LONGNAME">Tag Name:</a></strong> LONGNAME:x</p>
 	<p></p>
 
 <hr>
@@ -362,6 +369,21 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ACCHECK:-6</code></p>
 	<p class="indent3">Item has an armor check penalty of -6.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated - Remove 5.16 - use <a href="#ALTCRITMULT">ALTCRITMULT</a></p>
+	<p class="indent0"><strong><a name="ALTCRITICAL">Tag Name:</a></strong> ALTCRITICAL:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Secondary attack's critical modifier)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>The secondary attack's critical multiplier as outputted to the character sheet.</li>
+		<li>This is used for double weapons only.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ALTCRITICAL:x3</code></p>
+	<p class="indent3">2nd head has a critical modifier of x3.</p>
 	<p></p>
 
 <hr>
