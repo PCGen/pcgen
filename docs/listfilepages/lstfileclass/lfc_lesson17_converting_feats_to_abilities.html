@@ -44,15 +44,17 @@
 			Feat object. Though it was originally conceived as a replacement for the Feat, it will 
 			take quite some time before the Feat actually goes away, if it ever does.</p>
 		<p class="indent0">This lesson will assist users in converting their existing homebrew 
-			feats to the new Ability object. To accomplish this, the lesson is broken into two parts. 
-			The Basic Conversion and the Advanced Conversion. Each part is subsequently broken into
-			separate sections for each file that must be modified, with each section presenting a the 
-			tags required to accomplish the conversion of your homebrew feats.</p>
-		<p class="indent0">This lesson will not tell you how to create either Feats or Abilities. 
-			For the former you can look up Lessons <a href="lfc_lesson12_feat1.html">#12</a> and 
-			<a href="lfc_lesson13_feat2.html">#13</a>. For the later, the task of explaining the 
-			creation of Abilities is to complicated for this lesson and will one day be covered 
-			in its own Lesson.</p>
+			feats to the new Ability object. To accomplish this, the lesson is broken into two 
+			sections, the Basic Conversion and the Advanced Conversion. Within each of these 
+			sections you will find discussion of each file that must be modified, and the tags 
+			required to accomplish the conversion of your homebrew feats.</p>
+		<p class="indent0">What this lesson will not tell you is how to create either Feats or Abilities. 
+			Both are very similar in construction, using the same set of general tags to provide the 
+			functionality required to implement varied game rules used. To get an idea of how to build 
+			feats you can look up <a href="lfc_lesson12_feat1.html">LST File Class #12</a> and 
+			<a href="lfc_lesson13_feat2.html">LST File Class #13</a>, Feat LST Classes parts 1 and 2. 
+			There will eventually be a LST FIle Class for Abilities so you can check back periodically 
+			to see if its been released yet.</p>
 		<p class="indent0">For those of you that have gone through the previous LST Classes, some of 
 			the global tags will be repetitive. feel free to skip those portions if you like. These 
 			classes are being written for the new LST-Monkey, so there will be some overlap, but a 
@@ -83,7 +85,7 @@
 
 <hr>
 
-		<h2>The Basic Conversion</h2>
+		<h2><a name="SECTION1">Section 1: The Basic Conversion</a></h2>
 		
 		<p class="indent1">The basic process of converting Feats to Abilities is to create a new file 
 			called the <span class="lstfile">abilities.lst</span> file and then copy the homebrew feats 
@@ -91,31 +93,36 @@
 			<span class="lstfile">feat.lst</span> file. You will then need to add the appropriate 
 			<code>CATEGORY</code> tag to the copied feats. The next step is to modify your hombrew 
 			<span class="lstfile">*.pcc</span> file by adding the <code>ABILITY</code> tag.</p>
-		<p class="indent1">The relevant tags are explained below.</p>
+		<p class="indent1">The relevant files and tags are explained below.</p>
 		<p></p>
 
 <hr>
 
 		<h3>Ability.lst File</h3>
-		<p class="indent1">This is where your feat will be placed. You will need to add 'CATEGORY' to your feat to make it an ability.</p>
+		<p class="indent0">This is where your feat will be placed. You will need to add 'CATEGORY' to your feat to make it an ability.</p>
 		<p></p>
-		<p class="indent1">Ability Name</p>
-		<p class="indent2">The first line is the Name of the Ability, you can have any name you prefer 
+		<p class="indent0"><strong>&lt;Ability Name&gt;</strong></p>
+		<p class="indent1">The first line is the Name of the Ability, you can have any name you prefer 
 			that makes sense. In ths example we are using a shortened name to simplify the lesson.</p>
-		<p class="indent1"><strong><code>CATEGORY</code></strong></p>
-		<p class="indent2">This places the ability named in the 'FEAT' category.  Note the ALL CAPS if 
+		<p class="indent0"><strong>CATEGORY</strong></p>
+		<p class="indent1"><strong>Tag Format:</strong> <code>CATEGORY:FEAT</code></p>
+		<p class="indent1">This places the ability named in the 'FEAT' category.  Note the ALL CAPS if 
 			making an actual FEAT; other abilitiy categories can be whatever name you decide upon&gt;</p>
 		<p class="sidebar1"><strong>NOTE:</strong> Any category, besides 'FEAT', must have been defined in the 
 			<span class="lstfile">miscinfo.lst</span> or <span class="lstfile">abilitycategory.lst</span> 
-			file to be valid.</p>
-		<p class="indent1"><strong><code>TYPE</code></strong></p>
-		<p class="indent2">We have a period '.' delimiter to give the ability more than one 'type'. In 
+			file to be valid. See the <a href="#SECTION2">Advanced Conversion</a> section for more 
+			information.</p>
+		<p class="indent0"><strong>TYPE</strong></p>
+		<p class="indent1"><strong>Tag Format:</strong> <code>TYPE:General</code></p>
+		<p class="indent1">We have a period '.' delimiter to give the ability more than one 'type'. In 
 			this case we have 'General' as a 'type'. Same as standard feats '.' period delimiter.</p>
-		<p class="indent1"><strong><code>VISIBLE</code></strong></p>
-		<p class="indent2">Setting the visible to YES (which is default) allows the user to see this 
+		<p class="indent0"><strong>VISIBLE</strong></p>
+		<p class="indent1"><strong>Tag Format:</strong> <code>VISIBLE:YES</code></p>
+		<p class="indent1">Setting the visible to YES (which is default) allows the user to see this 
 			on the GUI in PCGen. DISPLAY, NO, YES and QUALIFY are the valid entries.</p>
-		<p class="indent1"><strong><code>DESC</code></strong></p>
-		<p class="indent2">This is where you type the text you want to appear with your chosen ability. 
+		<p class="indent0"><strong><code>DESC</code></strong></p>
+		<p class="indent1"><strong>Tag Format:</strong> <code>DESC:&lt;appropriate description&gt;</code></p>
+		<p class="indent1">This is where you type the text you want to appear with your chosen ability. 
 			This will be displayed on the character sheet UNLESS the ability is set to NO or DISPLAY. 
 			In that case you would skip this tag and may instead use 'SA:' tag 5.12 and earlier or 'SAB:' 
 			tag (5.14) in it's place. You may also use %1, %2 for variables defined. See DESC tag for 
@@ -124,7 +131,7 @@
 			<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a>, 
 			when testing for the converted abilities, but it is recommended that you use 
 			<a href="../globalfilestagpages/globalfilesprexxx.html#PREABILITY">PREABILITY</a> instead.</p>
-		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent0"><strong>Example:</strong></p>
 		<p class="indent2"><code>My Feat</code></p>
 		<p class="indent2"><code>CATEGORY:FEAT</code></p>
 		<p class="indent2"><code>TYPE:General</code></p>
@@ -156,7 +163,7 @@
 
 <hr>
 
-		<h2>The Advanced Conversion</h2>
+		<h2><a name="SECTION2">Section 2: The Advanced Conversion</a></h2>
 		
 		<p class="indent1">TBD</p>
 		<p class="indent1">The relevant tags are explained below.</p>
@@ -211,11 +218,16 @@
 
 <hr>
 
+		<h2>Conclusion: The LST Files</h2>
+		
+<hr>
+
 		<h2>Final Thoughts</h2>
 		
-		<p class="indent0">Unless you've made a new ABILITYCATEGORY, all feats converted to Abilities 
-			will show up on the 'Feats' tab as normal. Great examples of new ABILITY CATEGORIES can 
-			be seen in the rsrd/srd for the Fighter, Wizard and Rogue class.</p>
+		<p class="indent0">Unless you've made a new Ability Category, all feats converted to abilities will 
+			show up on the 'Feats' tab as normal. Great examples of new ability categories can be seen in 
+			the RSRD/SRD for the <span class="lstobj">Fighter</span>, <span class="lstobj">Wizard</span> 
+			and <span class="lstobj">Rogue</span> class.</p>
 		<p class="indent0">Remember, miscinfo.lst is a gamemode file, to define new ability categories 
 			or subcategories you MUST create it there. There are entries about them in the docs if you 
 			want to read up on them.  To call the ability file it's (as you guessed), ABILITY:ability.lst, 
