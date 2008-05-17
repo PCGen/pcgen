@@ -76,8 +76,7 @@ public class SimpleReferenceContext
 	private <T extends CDOMObject> ReferenceSupport<T, CDOMSimpleSingleRef<T>> getRefSupport(
 			Class<T> cl)
 	{
-		ReferenceSupport<T, CDOMSimpleSingleRef<T>> ref = (ReferenceSupport<T, CDOMSimpleSingleRef<T>>) refMap
-				.get(cl);
+		ReferenceSupport ref = refMap.get(cl);
 		if (ref == null)
 		{
 			ref = new ReferenceSupport<T, CDOMSimpleSingleRef<T>>(
