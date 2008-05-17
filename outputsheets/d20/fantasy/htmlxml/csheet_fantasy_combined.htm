@@ -3454,39 +3454,39 @@ function RemoveStat (attribute) {
     </table>
    <span class="l2"><br /></span>
 |%|
-|%FOLLOWERTYPE.ANIMAL COMPANIONS|
-|FOR,%anm,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANIONS]-1,1,0|
+|%FOLLOWERTYPE.ANIMAL COMPANION|
+|FOR,%anm,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION]-1,1,0|
     <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Animal Companion Table">
      <tr>
-      <td class="l11swB" colspan="12">Animal Companion: |FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.NAME| (|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.RACE|)</td>
+      <td class="l11swB" colspan="12">Animal Companion: |FOLLOWERTYPE.ANIMAL COMPANION.%anm.NAME| (|FOLLOWERTYPE.ANIMAL COMPANION.%anm.RACE|)</td>
      </tr>
      <tr>
       <td width="8%" class="c8swB">FORT:</td>
-      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.CHECK.FORTITUDE.TOTAL|</td>
+      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.CHECK.FORTITUDE.TOTAL|</td>
       <td width="8%" class="c8swB">REF:</td>
-      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.CHECK.REFLEX.TOTAL|</td>
+      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.CHECK.REFLEX.TOTAL|</td>
       <td width="8%" class="c8swB">WILL:</td>
-      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.CHECK.2.TOTAL|</td>
+      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.CHECK.2.TOTAL|</td>
       <td width="8%" class="c8swB">HP:</td>
-      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.HP|</td>
+      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.HP|</td>
       <td width="8%" class="c8swB">AC:</td>
-      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.AC.Total|</td>
+      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.AC.Total|</td>
       <td width="8%" class="c8swB">INIT:</td>
-      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.INITIATIVEMOD|</td>
+      <td width="8%" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.INITIATIVEMOD|</td>
      </tr>
-|FOR,%wep,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.EQTYPE.WEAPON]-1,1,1|
+|FOR,%wep,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%anm.EQTYPE.WEAPON]-1,1,1|
      <tr>
-      <td colspan="2" class="c10swB">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.NAME|</td>
-      <td colspan="2" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.TOTALHIT|</td>
+      <td colspan="2" class="c10swB">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.WEAPON.%wep.NAME|</td>
+      <td colspan="2" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.WEAPON.%wep.TOTALHIT|</td>
       <td colspan="2" class="c9swB">DAMAGE:</td>
-      <td colspan="2" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.DAMAGE|</td>
+      <td colspan="2" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.WEAPON.%wep.DAMAGE|</td>
       <td colspan="2" class="c9swB">CRITICAL:</td>
-      <td colspan="2" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.CRIT|/x|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.MULT|</td>
+      <td colspan="2" class="c6s">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.WEAPON.%wep.CRIT|/x|FOLLOWERTYPE.ANIMAL COMPANION.%anm.WEAPON.%wep.MULT|</td>
       </tr>
 |ENDFOR|
      <tr>
       <td class="c9swB">Special:</td>
-      <td class="l9s" colspan="11">&nbsp;&nbsp;|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.SPECIALLIST|<br /></td>
+      <td class="l9s" colspan="11">&nbsp;&nbsp;|FOLLOWERTYPE.ANIMAL COMPANION.%anm.SPECIALLIST|<br /></td>
      </tr>
     </table>
    <span class="l2"><br /></span>
