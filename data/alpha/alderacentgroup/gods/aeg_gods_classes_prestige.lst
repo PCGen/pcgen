@@ -189,7 +189,7 @@ CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|In
 #Class:Exemplar (Complete except for 'Strength of Purpose' Class Feature which requires code work.)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus								Combat bonus
-CLASS:Exemplar	HD:8		TYPE:PC.Prestige	ABB:Explr		MAXLEVEL:10	EXCLASS:Ex Exemplar	SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
+CLASS:Exemplar	HD:8		TYPE:PC.Prestige	ABB:Explr		MAXLEVEL:10	EXCLASS:Ex Exemplar	SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
 # Class Name	Required AL			Required Check Base	Required Domain				Required Feat		Required Race	Required Text
 CLASS:Exemplar	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PREFEAT:1,Iron Will	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
