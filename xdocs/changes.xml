@@ -5,7 +5,9 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.14.0 RC1" date="In SVN" description="Release Candidate">
+    <release version="5.15.0" date="In SVN" description="Alpha Release">
+    </release> 
+    <release version="5.14.0 RC1" date="2008-05-04" description="Release Candidate">
     </release> 
     <release version="5.13.14" date="2008-04-22" description="Beta release">
       <action dev="thpr" type="fix" issue="1938396">HD triggering message about PREHD</action> 
