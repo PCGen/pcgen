@@ -18,7 +18,7 @@ Browning Model 1918		PROFICIENCY:WEAPON|Browning Model 1918			TYPE:Weapon.Ranged
 
 ###Block:Heavy Weapon
 # Equipment Name	Required Proficiency				Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
-French Window Gun	PROFICIENCY:WEAPON|French Window Gun	TYPE:Weapon.Ranged.Exotic.Firearm.HeavyWeapon.Ballistic.Container.Projectile	COST:23	WT:40		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:40	SIZE:H	SOURCEPAGE:p.13	SPROP:Lined ammunition	RATEOFFIRE:A
+French Window Gun	PROFICIENCY:WEAPON|French Window Gun	TYPE:Weapon.Ranged.Exotic.Firearm.HeavyWeapon.Ballistic.Container.Projectile	CONTAINS:1|Bullet=UNLIM	COST:23	WT:40		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:40	SIZE:H	SOURCEPAGE:p.13	SPROP:Lined ammunition	RATEOFFIRE:A
 
 ###Block:Civilian cars
 # Equipment Name	Type							Cost		Define																														Modifier		Size		Source Page		Modify VAR
