@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 29 16:39:52 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 
 # Template Name		Hit Dice Size	CR	Visible	Level Adjustment	Template																																										Source Page		Special Ability											Required AL	Combat bonus						Add to vision			Stat bonus											Removable?		Vision
@@ -35,7 +35,7 @@ Drow Male.MOD								SOURCEPAGE:p.27																																							BONUS
 Drow Female.MOD								SOURCEPAGE:p.27																																							BONUS:STAT|CHA|-2
 
 ###Block: Regions
-# Template Name	Visible	Template						Source Page		REGION
+# Template Name	Visible	Template						Source Page		Region
 DS Regions		VISIBLE:NO	TEMPLATE:CHOOSE:Dragon Empire|Outlands	SOURCEPAGE:p.
 Dragon Empire	VISIBLE:NO								SOURCEPAGE:p.	REGION:Yes
 Outlands		VISIBLE:NO								SOURCEPAGE:p.	REGION:Yes

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Apr  2 07:38:19 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 #Original Entry By: Knightcrawler	6/16/02 14:49
-SOURCELONG:Bastion Press - Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:www.bastionpress.com
+SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/
 
-# Equipment Name										Type									Cost		Weight	Slot Needed	Source Page		Bonus to skill
+# Equipment Name					Output Name				Type									Cost		Weight	Slot Needed	Source Page		Bonus to skill
 Abjurer's Chalk										TYPE:Goods.Alchemical.Consumable				COST:8000	WT:0				SOURCEPAGE:p.60
 Acid of Zarias										TYPE:Goods.Alchemical.Consumable				COST:750	WT:0				SOURCEPAGE:p.60
 Alchemist's Stone										TYPE:Goods.Alchemical.Consumable				COST:300000	WT:1				SOURCEPAGE:p.60

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
 # No description for the Nature domain is given in the book.
 
-# Deity Name	Product Identity?	Domains										Desciption of Deity/Title						Holy Item								Deity Weapon								ALIGN		PANTHEON			Source Page
+# Deity Name	Product Identity?	Domains										Desciption of Deity/Title						Holy Item								Deity Weapon								Alignment	Pantheon			Source Page
 Limpang-Lahai	NAMEISPI:YES	DOMAINS:Air,Good,Knowledge|PREALIGN:NG,CG,CN				DESC:Aaleear Goddess of art and music				SYMBOL:None								DEITYWEAP:None								ALIGN:CG	PANTHEON:Aaleear		SOURCEPAGE:p.7
 Tangled Woman	NAMEISPI:YES	DOMAINS:Animal,Nature,Plant|PREALIGN:LG,NG,TN,CG			DESC:Aaleear Goddess of nature					SYMBOL:None								DEITYWEAP:None								ALIGN:NG	PANTHEON:Aaleear		SOURCEPAGE:p.7
 Hollos the Archer	NAMEISPI:YES	DOMAINS:Destruction,Law,War|PREALIGN:LG,LN,NG				DESC:Aaleear God of war							SYMBOL:None								DEITYWEAP:Feybow								ALIGN:LG	PANTHEON:Aaleear		SOURCEPAGE:p.7

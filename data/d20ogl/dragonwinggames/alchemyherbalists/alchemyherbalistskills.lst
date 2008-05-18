@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 #Original Entry By: Knightcrawler
-SOURCELONG:Bastion Press - Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:www.bastionpress.com
+SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/
 
 # Skill Name			Define			Modify VAR
 Alchemy.MOD				DEFINE:AlchemyFeat|0	BONUS:VAR|AlchemyFeat|1|PRESKILLTOT:Alchemy=7|TYPE=NoStack	BONUS:VAR|AlchemyFeat|2|PRESKILLTOT:Alchemy=8|TYPE=NoStack	BONUS:VAR|AlchemyFeat|3|PRESKILLTOT:Alchemy=9|TYPE=NoStack

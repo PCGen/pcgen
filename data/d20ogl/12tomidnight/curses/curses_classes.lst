@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Jan  2 22:34:58 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
 # Original Entry by: Eddy Anthony (MoSaT)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	ABB:BldHx		MAXLEVEL:10	SOURCEPAGE:p. 14	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Feat							Required Skill						Req. Known Spell		Req. Casting Type
+# Class Name	Required AL		Required Feat							Required Skill						Req. Known Spell		PRESPELLCAST
 CLASS:Blood Hexer	PREALIGN:CG,CN,CE	PREFEAT:2,Curse of Blood,Curse of Blood - Greater	PRESKILL:1,Knowledge (Arcana),Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Perform|TYPE.Profession|Spellcraft|Use Magic Device
@@ -40,7 +40,7 @@ CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Hexomancer	HD:4		TYPE:PC.Prestige	ABB:Hexo		MAXLEVEL:10	SOURCEPAGE:p. 18	BONUS:CHECKS|BASE.Will|((CL+2)/2)+1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Feat												Required Skill														Req. Casting Type		Req. Spell Type
+# Class Name	Required AL		Required Feat												Required Skill														PRESPELLCAST		Req. Spell Type
 CLASS:Hexomancer	PREALIGN:LE,NE,CE	PREFEAT:5,Enlarge Spell,Extend Spell,Heighten Spell,Persistent Curse,Potent Curse	PRESKILL:1,Craft (Doll-Making)=5	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,Intimidate=6	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Intimidate|TYPE.Knowledge|TYPE.Profession|Spellcraft

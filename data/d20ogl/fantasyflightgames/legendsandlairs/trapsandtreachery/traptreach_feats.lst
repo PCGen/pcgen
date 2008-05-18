@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 22:34:15 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Feat Name				Type					Visible		Req. Att.	Required Class				Required Feat				Multiple Requirements								Req. Special Ability	Required Skill								Required Stat		Var. Min. Value			Special ABility			Description																																								Multiple?	Choose				Bonus to skill											Modify VAR									Class Skill	Source Page
 Acrobatic				TYPE:General																																													PRESTAT:1,DEX=15												DESC:+2 on Balance and Tumble																																												BONUS:SKILL|Balance,Tumble|2																					SOURCEPAGE:p.34
@@ -29,4 +29,4 @@ Truthtouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discree
 Paintouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																PRESTAT:1,DEX=15							SAB:Paintouch																																																																												SOURCEPAGE:p.22
 Magekiss				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SAB:Magekiss																																																																												SOURCEPAGE:p.22
 Siren's Song			TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																																									SAB:Siren's Song																																																																												SOURCEPAGE:p.23
-Caress of the Lost Hour		TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																		PRESA:1,Charmtouch												PRESTAT:2,DEX=15,CHA=15						SAB:Caress of the Lost Hour																																																																										SOURCEPAGE:p.23
+Caress of the Lost Hour		TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY			PRECLASS:1,Discreet Companion=1																		PRESA:1,Charmtouch											PRESTAT:2,DEX=15,CHA=15						SAB:Caress of the Lost Hour																																																																										SOURCEPAGE:p.23

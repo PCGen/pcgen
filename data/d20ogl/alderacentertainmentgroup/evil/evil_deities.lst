@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
-# Deity Name	Product Identity?	Domains									Desciption of Deity/Title			Holy Item	Deity Weapon				ALIGN		PANTHEON		Source Page
+# Deity Name	Product Identity?	Domains									Desciption of Deity/Title			Holy Item	Deity Weapon				Alignment	Pantheon		Source Page
 Saaneeraa		NAMEISPI:YES	DOMAINS:Evil,Law,Corruption|PREALIGN:LE,TN,NE,CN,CE		DESC:Lady of Corruption				SYMBOL:None	DEITYWEAP:Dagger|Dagger (Thrown)	ALIGN:LE	PANTHEON:Evil	SOURCEPAGE:p.41
 Menetor		NAMEISPI:YES	DOMAINS:Evil,Law,Pain|PREALIGN:LE,TN,NE,CN,CE			DESC:Lord of Pain, The Painbringer		SYMBOL:None	DEITYWEAP:Whip				ALIGN:LE	PANTHEON:Evil	SOURCEPAGE:p.41
 Draam			NAMEISPI:YES	DOMAINS:Evil,Law,Death|PREALIGN:LE,TN,NE,CN,CE			DESC:Lord of the Undead				SYMBOL:None	DEITYWEAP:Club|Club (Thrown)		ALIGN:LE	PANTHEON:Evil	SOURCEPAGE:p.41-42

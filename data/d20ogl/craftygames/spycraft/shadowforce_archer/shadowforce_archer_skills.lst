@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -7,7 +7,7 @@ SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://ww
 
 #### Additional Knowledges
 
-# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type									Required Feat				Source Page		Weapon prof. bonus					Automaticaly Added to Inventory
+# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type									Required Feat				Source Page		Automaticaly Added to Inventory			Weapon prof. bonus
 Knowledge (African History)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
 Knowledge (The Ancients)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
 Knowledge (Archaeology)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
@@ -45,17 +45,17 @@ SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54
 
 Focus the Mind				KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Mental.Psychoinventive	PREFEAT:1,Psychoinventive Basics	SOURCEPAGE:p.184
 Gadgeteer					KEYSTAT:INT	USEUNTRAINED:NO	ACHECK:YES			TYPE:Intelligence.Psionic.Mental.Psychoinventive	PREFEAT:1,Psychoinventive Basics	SOURCEPAGE:p.184
-Static Charge				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Psionic.Mental.Psychoinventive		PREFEAT:1,Psychoinventive Basics	SOURCEPAGE:p.184	BONUS:WEAPONPROF=Static Charge|TOHIT|INT-DEX	AUTO:EQUIP|Lightning Attack|Scramble Attack
+Static Charge				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Psionic.Mental.Psychoinventive		PREFEAT:1,Psychoinventive Basics	SOURCEPAGE:p.184	AUTO:EQUIP|Lightning Attack|Scramble Attack	BONUS:WEAPONPROF=Static Charge|TOHIT|INT-DEX
 
 # Psychokinetic Psion Skills
 
-Cryokinesis					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Mental.Psychokinetic		PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.185	BONUS:WEAPONPROF=Cryokinesis|TOHIT|INT-DEX	AUTO:EQUIP|Ice Attack
-Photokinesis				KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Mental.Psychokinetic			PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.186	BONUS:WEAPONPROF=Photokinesis|TOHIT|INT-DEX	AUTO:EQUIP|Laser Attack
-Pyrokinesis					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Mental.Psychokinetic		PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.187	BONUS:WEAPONPROF=Pyrokinesis|TOHIT|INT-DEX	AUTO:EQUIP|Fire Attack
+Cryokinesis					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Mental.Psychokinetic		PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.185	AUTO:EQUIP|Ice Attack					BONUS:WEAPONPROF=Cryokinesis|TOHIT|INT-DEX
+Photokinesis				KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Mental.Psychokinetic			PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.186	AUTO:EQUIP|Laser Attack					BONUS:WEAPONPROF=Photokinesis|TOHIT|INT-DEX
+Pyrokinesis					KEYSTAT:CHA	USEUNTRAINED:NO	ACHECK:YES			TYPE:Charisma.Psionic.Mental.Psychokinetic		PREFEAT:1,Psychokinetic Basics	SOURCEPAGE:p.187	AUTO:EQUIP|Fire Attack					BONUS:WEAPONPROF=Pyrokinesis|TOHIT|INT-DEX
 
 # Telekinetic Psion Skills
 
-Kinetic Shield				KEYSTAT:CON	USEUNTRAINED:NO	ACHECK:YES			TYPE:Constitution.Psionic.Mental.Telekinetic		PREFEAT:1,Telekinetic Basics		SOURCEPAGE:p.187	BONUS:WEAPONPROF=Poltergeist|TOHIT|INT-DEX	AUTO:EQUIP|Debris Attack
+Kinetic Shield				KEYSTAT:CON	USEUNTRAINED:NO	ACHECK:YES			TYPE:Constitution.Psionic.Mental.Telekinetic		PREFEAT:1,Telekinetic Basics		SOURCEPAGE:p.187	AUTO:EQUIP|Debris Attack				BONUS:WEAPONPROF=Poltergeist|TOHIT|INT-DEX
 Levitation					KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES			TYPE:Wisdom.Psionic.Mental.Telekinetic			PREFEAT:1,Telekinetic Basics		SOURCEPAGE:p.188
 Poltergeist					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Psionic.Mental.Telekinetic			PREFEAT:1,Telekinetic Basics		SOURCEPAGE:p.188
 

@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 22:20:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
-# Template Name			Visible	Damage Reduction	Source Page		Special ABility																															Required AL				Required Race		Save checks bonus					Combat bonus						Add to base move			Bonus to skill				Stat bonus														Class Skill			FAVOREDCLASS		Feat					Automaticaly Gained Weapon Prof.	Move				Removable?		SUBRACE
+# Template Name			Visible	Damage Reduction	Source Page		Special ABility																															Required AL				Required Race		Save checks bonus					Combat bonus						Add to base move			Bonus to skill				Stat bonus														Class Skill			FAVOREDCLASS		Feat					Automaticaly Gained Weapon Prof.	Move				Removable?		Subrace
 Fur					VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Fur)	SAB:+4 to saving throws vs. Cold																												PRERACE:1,Animan%																																																																					SUBRACE:Yes
 Inhuman Grace			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Inhuman Grace)																																PRERACE:1,Animan%		BONUS:CHECKS|Reflex|2|TYPE=Racial																																																														SUBRACE:Yes
 Steadfastness			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Steadfastness)																																PRERACE:1,Animan%		BONUS:CHECKS|Fortitude|2|TYPE=Racial																																																													SUBRACE:Yes
@@ -45,7 +45,7 @@ Verminous Traits	VISIBLE:NO	TEMPLATE:CHOOSE:Verminous Trait (Mandibles)|Verminou
 
 ###Block: Verminous Traits
 
-# Template Name				Visible	Source Page		Special ABility														Save checks bonus					Combat bonus				Bonus to skill				MOVECLONE			Innate Spells								Natural Attacks
+# Template Name				Visible	Source Page		Special ABility														Save checks bonus					Combat bonus				Bonus to skill				Clone Movement		Innate Spells								Natural Attacks
 Verminous Trait (Mandibles)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Mandibles																																															NATURALATTACKS:Mandibles,Weapon.Natural.Melee.Piercing,*1,1d4
 Verminous Trait (Chitin)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Chitin																						BONUS:COMBAT|AC|2|TYPE=Toughness
 Verminous Trait (Scurry)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Scurry															BONUS:CHECKS|Reflex|2|TYPE=Racial

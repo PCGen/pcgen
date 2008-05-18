@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan  5 00:35:51 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -21,7 +21,7 @@ CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher
 # Class Name		Substitution levels?
 CLASS:Elemental Theurge	HASSUBSTITUTIONLEVEL:YES
 SUBSTITUTIONCLASS:Lesser Elemental Theurge Option
-SUBSTITUTIONLEVEL:2	BONUS:VAR|DomainAccess|CL-1	ADD:SPELLCASTER|1|ANY	ABILITY:Special Ability|AUTOMATIC|Domain Access
+SUBSTITUTIONLEVEL:2	BONUS:VAR|DomainAccess|CL-1	ABILITY:Special Ability|AUTOMATIC|Domain Access	ADD:SPELLCASTER|1|ANY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -44,7 +44,7 @@ CLASS:Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher S
 # Class Name		Substitution levels?
 CLASS:Lord of Undeath	HASSUBSTITUTIONLEVEL:YES
 SUBSTITUTIONCLASS:Lesser Lord of Undeath Option
-SUBSTITUTIONLEVEL:1	BONUS:VAR|NegativeChannelLevel|CL	ADD:SPELLCASTER|1|ANY	ABILITY:Special Ability|AUTOMATIC|Theurgy|Negative Channel
+SUBSTITUTIONLEVEL:1	BONUS:VAR|NegativeChannelLevel|CL	ABILITY:Special Ability|AUTOMATIC|Theurgy|Negative Channel	ADD:SPELLCASTER|1|ANY
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
