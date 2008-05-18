@@ -287,7 +287,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @return boolean true if the object should be included, else false
 	 *         to exclude it
 	 */
-	protected final boolean includeObject(CampaignSourceEntry source, PObject parsedObject)
+	protected boolean includeObject(CampaignSourceEntry source, PObject parsedObject)
 	{
 		// Null check; never add nulls or objects without a name/key name
 		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)

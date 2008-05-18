@@ -353,16 +353,62 @@ public class CampaignSourceEntry
 			// Update the include or exclude items list, as appropriate
 			if (inExString.startsWith("INCLUDE:"))
 			{
-				cse.includeItems = CoreUtility.split(inExString.substring(8),
-						'|');
+				cse.includeItems = splitInExString(inExString);
 			}
 			else if (inExString.startsWith("EXCLUDE:"))
 			{
-				cse.excludeItems = CoreUtility.split(inExString.substring(8),
-						'|');
+				cse.excludeItems = splitInExString(inExString);
 			}
 		}
 		return cse;
+	}
+
+	/**
+	 * Split an include or exclude string accounting for the possible presence 
+	 * of a leading category.
+	 * @param inExString The string to be split
+	 * @return A list of keys, optionally with leading category keys
+	 */
+	private static List<String> splitInExString(String inExString)
+	{
+		boolean hasCategory = false;
+		boolean hasKeyOnly = false;
+		List<String> keyList = new ArrayList<String>(); 
+		List<String> catKeyList = new ArrayList<String>(); 
+		keyList = CoreUtility.split(inExString.substring(8),
+				'|');
+		for (String key : keyList)
+		{
+			if (key.startsWith("CATEGORY="))
+			{
+				hasCategory = true;
+				List<String> abilityKeyList =
+						CoreUtility.split(key.substring(9), ',');
+				String category = abilityKeyList.get(0);
+				abilityKeyList.remove(0);
+				for (String string : abilityKeyList)
+				{
+					catKeyList.add(category + ',' + string);
+				}
+			}
+			else
+			{
+				hasKeyOnly = true;
+				catKeyList.add(key);
+			}
+		}
+		if (hasKeyOnly && hasCategory)
+		{
+			Logging.log(Logging.LST_ERROR, "Invalid "
+				+ inExString.substring(0, 7)
+				+ " value. Abilities must always have categories (e.g. "
+				+ inExString.substring(0, 8)
+				+ "CATEGORY=cat1,key1,key2|CATEGORY=cat2,key1 ) and "
+				+ "other file types should never have categories (e.g. "
+				+ inExString.substring(0, 8) + "key1|key2 ).");
+		}
+
+		return catKeyList;
 	}
 
 }

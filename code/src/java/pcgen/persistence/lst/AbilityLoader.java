@@ -26,6 +26,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -202,5 +203,73 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	{
 		return Globals.getAbilityKeyed(((Ability) aKey).getCategory(), aKey
 			.getKeyName());
+	}
+	
+
+	/**
+	 * This method should be called by finishObject implementations in
+	 * order to check if the parsed object is affected by an INCLUDE or
+	 * EXCLUDE request.
+	 *
+	 * @param parsedObject PObject to determine whether to include in
+	 *         Globals etc.
+	 * @return boolean true if the object should be included, else false
+	 *         to exclude it
+	 */
+	protected final boolean includeObject(CampaignSourceEntry source, PObject parsedObject)
+	{
+		// Null check; never add nulls or objects without a name/key name
+		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)
+			|| (parsedObject.getDisplayName().trim().length() == 0)
+			|| (parsedObject.getKeyName() == null)
+			|| (parsedObject.getKeyName().trim().length() == 0))
+		{
+			return false;
+		}
+
+		Ability ability = (Ability) parsedObject;
+		// If includes were present, check includes for given object
+		List<String> includeItems = source.getIncludeItems();
+
+		if (!includeItems.isEmpty())
+		{
+			if (includeItems.contains(ability.getCategory() + "," + ability.getKeyName()))
+			{
+				return true;
+			}
+			if (includeItems.contains(ability.getKeyName()))
+			{
+				Logging.deprecationPrint("Deprecated INCLUDE value when loading "
+					+ source.getURI()
+					+ " . Abilities (including feats) must always have "
+					+ "categories (e.g. "
+					+ "INCLUDE:CATEGORY=cat1,key1,key2|CATEGORY=cat2,key3 ).");
+				
+				return true;
+			}
+			return false;
+		}
+		// If excludes were present, check excludes for given object
+		List<String> excludeItems = source.getExcludeItems();
+
+		if (!excludeItems.isEmpty())
+		{
+			if (excludeItems.contains(ability.getCategory() + "," + ability.getKeyName()))
+			{
+				return false;
+			}
+			if (excludeItems.contains(ability.getKeyName()))
+			{
+				Logging.deprecationPrint("Deprecated EXCLUDE value when loading "
+					+ source.getURI()
+					+ " . Abilities (including feats) must always have "
+					+ "categories (e.g. "
+					+ "EXCLUDE:CATEGORY=cat1,key1,key2|CATEGORY=cat2,key3 ).");
+				return false;
+			}
+			return true;
+		}
+
+		return true;
 	}
 }
