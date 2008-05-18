@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Kobold Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kobold]
@@ -226,7 +226,7 @@ FEAT:Improved Natural Attack(Bite)
 FEAT:Improved Natural Attack(Claw)
 GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
 GEAR:Glaive				SIZE:PC	LOCATION:Both Hands
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|1
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:BOWSTR|1
 
 STARTPACK:Lycanthrope (Werewolf) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]
 NAME:Werewolf
@@ -297,10 +297,10 @@ ABILITY:CATEGORY=Fighter Feat|Improved Critical(Bite)
 FEAT:Improved Natural Armor
 ABILITY:CATEGORY=Fighter Feat|Improved Natural Attack(Bite)
 FEAT:Weapon Focus(Bite)					FREE:YES
-GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped	EQMOD:MITHRAL_ARMR_LT.PLUS2A
-GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3S
+GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped		EQMOD:MITHRAL_ARMR_LT.PLUS2A
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3S
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS2W
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.BOWSTR|4
-GEAR:Gauntlets of Ogre Power	LOCATION:Equipped
-GEAR:Cloak of Resistance +2	LOCATION:Equipped
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|4
+GEAR:Gauntlets of Ogre Power			LOCATION:Equipped
+GEAR:Cloak of Resistance +2			LOCATION:Equipped
 

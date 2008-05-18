@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 #	DW2 & MSRD Melee Weapons
@@ -16,8 +16,8 @@ Knife.MOD																																								COST:2
 Metal Baton.MOD																																							COST:10
 Quarterstaff							PROFICIENCY:WEAPON|Quarterstaff		TYPE:Weapon.Melee.Simple.Double.Standard.Bludgeoning.Quarterstaff			ALTTYPE:Weapon.Melee.Bludgeoning							COST:1	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:WOOD	ALTEQMOD:WOOD				SIZE:L	SOURCEPAGE:p. 188
 Sap.MOD																																								COST:2
-Shock Gloves							PROFICIENCY:WEAPON|Shock Gloves		TYPE:Weapon.Melee.Simple.Electricity.Unarmed.Standard											CONTAINS:1|PwrCell=1			COST:500	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8													SIZE:S	SOURCEPAGE:p. 188	SPROP:Damage is in addition to normal unarmed damage
-Stun Baton								PROFICIENCY:WEAPON|Stun Baton			TYPE:Weapon.Simple.Melee.Electricity.Standard.Metal											CONTAINS:1|PwrBelt=1|PwrBack=1	COST:750	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:3d6*													SIZE:M	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack; 1d6 Damage when unpowered
+Shock Gloves							PROFICIENCY:WEAPON|Shock Gloves		TYPE:Weapon.Melee.Simple.Electricity.Unarmed.Standard.Container									CONTAINS:1|PwrCell=1			COST:500	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8													SIZE:S	SOURCEPAGE:p. 188	SPROP:Damage is in addition to normal unarmed damage
+Stun Baton								PROFICIENCY:WEAPON|Stun Baton			TYPE:Weapon.Simple.Melee.Electricity.Standard.Metal.Container									CONTAINS:1|PwrBelt=1|PwrBack=1	COST:750	WT:3		CRITMULT:x2			CRITRANGE:1												DAMAGE:3d6*													SIZE:M	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack; 1d6 Damage when unpowered
 Stun gun.MOD																																							COST:50
 Tonfa.MOD																																								COST:10
 
@@ -25,7 +25,7 @@ Tonfa.MOD																																								COST:10
 # Equipment Name		Output Name				Required Proficiency				Type													Alternative Type				Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Reach		Size		Source Page		Special Property
 Battleaxe								PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing																		COST:10	WT:7		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8													SIZE:M	SOURCEPAGE:p. 188
 Bayonet (Fixed).MOD																																						COST:12
-Energy Pike								PROFICIENCY:WEAPON|Energy Pike		TYPE:Weapon.Melee.Archaic.Standard.Piercing.Metal.Futuristic									CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:4		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d8											REACH:10	SIZE:L	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack; 30'Radius Glow
+Energy Pike								PROFICIENCY:WEAPON|Energy Pike		TYPE:Weapon.Melee.Archaic.Standard.Piercing.Metal.Futuristic.Container								CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:4		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d8											REACH:10	SIZE:L	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack; 30'Radius Glow
 Flail (Heavy)		OUTPUTNAME:Flail, [NAME]	PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:20	WT:20		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10													SIZE:L	SOURCEPAGE:p. 188
 Flail (Light)		OUTPUTNAME:Flail, [NAME]	PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:15	WT:5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8													SIZE:M	SOURCEPAGE:p. 188
 Greataxe								PROFICIENCY:WEAPON|Greataxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing.Axe																		COST:20	WT:20		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d12													SIZE:L	SOURCEPAGE:p. 188
@@ -34,10 +34,10 @@ Greatsword								PROFICIENCY:WEAPON|Greatsword			TYPE:Weapon.Melee.Archaic.Stan
 Hatchet.MOD																																								COST:5
 Longsword.MOD																																							COST:20
 Machete.MOD																																								COST:10
-Plasma Sword							PROFICIENCY:WEAPON|Plasma Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Energy.Sword.Futuristic								CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:1		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d8													SIZE:M	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack
+Plasma Sword							PROFICIENCY:WEAPON|Plasma Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Energy.Sword.Futuristic.Container							CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:1		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d8													SIZE:M	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack
 Pick									PROFICIENCY:WEAPON|Pick				TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick																	COST:5	WT:4		CRITMULT:x4			CRITRANGE:1												DAMAGE:1d4													SIZE:S	SOURCEPAGE:p. 188
 Pickaxe								PROFICIENCY:WEAPON|Pickaxe			TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick																	COST:10	WT:6		CRITMULT:x4			CRITRANGE:1												DAMAGE:1d6													SIZE:M	SOURCEPAGE:p. 188
-Power Sword								PROFICIENCY:WEAPON|Power Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal.Sword.Futuristic								CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:2		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d6													SIZE:M	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack
+Power Sword								PROFICIENCY:WEAPON|Power Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal.Sword.Futuristic.Container							CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:2		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d6													SIZE:M	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack
 Rapier.MOD																																								COST:30
 Spear.MOD																																								COST:10
 Straight Razor.MOD																																						COST:3
@@ -54,4 +54,4 @@ Katana.MOD																																								COST:200
 Kukri.MOD																																								COST:30
 Nunchaku.MOD																																							COST:20
 Three-Section Staff.MOD																																						COST:20
-Warp-Field Sword							PROFICIENCY:WEAPON|Warp-Field Sword		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Futuristic										CONTAINS:1|PwrMini=1			COST:15000	WT:3		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6													SIZE:M	SOURCEPAGE:p. 188	SPROP:Minifusion Cell
+Warp-Field Sword							PROFICIENCY:WEAPON|Warp-Field Sword		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Futuristic.Container								CONTAINS:1|PwrMini=1			COST:15000	WT:3		CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6													SIZE:M	SOURCEPAGE:p. 188	SPROP:Minifusion Cell

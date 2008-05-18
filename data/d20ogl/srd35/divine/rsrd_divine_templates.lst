@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 
@@ -43,7 +43,7 @@ Divine Rank (21+)	VISIBLE:NO	TEMPLATE:Overdeity					BONUS:VAR|DivineRank,Salient
 
 ###Block: Deity Types
 
-# Template Name		Visible	Damage Reduction	Special ABility																																																																																																																									Define							Modify VAR				SUBRACE				Innate Spells
+# Template Name		Visible	Damage Reduction	Special ABility																																																																																																																									Define							Modify VAR				Subrace				Innate Spells
 Quasideity			VISIBLE:NO	DR:10/Epic																																																																																																																																										SUBRACE:Quasideity
 Demigod			VISIBLE:NO	DR:15/Epic		SAB:Automatic Actions (2, max DC 15)	SAB:Divine Aura (% ft)|DivineAuraRadius	SAB:Remote Sensing (2 Locations)	SAB:Immunity to Disease (Ex)	SAB:Immunity to Poison (Ex)	SAB:Immunity to Stunning (Ex)	SAB:Immunity to Sleep (Ex)	SAB:Immunity to Paralysis (Ex)	SAB:Immunity to Death Effects (Ex)	SAB:Immunity to Disintegration (Ex)	SAB:Block Sensing (Ex) % Hours|DivineRank	SAB:Portfolio Sense (Ex)	SAB:Create Magic Items (Ex) 4,500 gp	SAB:Communication (Ex)	SAB:Godly Realm (Ex) % ft./% ft.|100*DivineRank|100*DivineRank	SAB:Spontaneous Casting (Ex)|PRECLASS:1,SPELLCASTER.Divine=1	SAB:Travel (Sp)	SAB:Familiar (Ex)|PRECLASS:1,Wizard=1,Sorcerer=1									DEFINE:DivineAuraRadius|(10*var("DivineRank"))	BONUS:VAR|SalientDivinePool|1	SUBRACE:Demigod			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Teleport (Greater)
 Lesser Deity		VISIBLE:NO	DR:20/Epic		SAB:Automatic Actions (5, max DC 20)	SAB:Divine Aura (% ft)|DivineAuraRadius	SAB:Remote Sensing (5 Locations)	SAB:Immunity to Disease (Ex)	SAB:Immunity to Poison (Ex)	SAB:Immunity to Stunning (Ex)	SAB:Immunity to Sleep (Ex)	SAB:Immunity to Paralysis (Ex)	SAB:Immunity to Death Effects (Ex)	SAB:Immunity to Disintegration (Ex)	SAB:Immunity to Banishment (Ex)	SAB:Block Sensing (Ex) % Hours|DivineRank	SAB:Portfolio Sense (Ex)	SAB:Create Magic Items (Ex) 30,000 gp	SAB:Communication (Ex)	SAB:Godly Realm (Ex) 1 mile/% ft.|100*DivineRank	SAB:Spontaneous Casting (Ex)|PRECLASS:1,SPELLCASTER.Divine=1	SAB:Travel (Sp)	SAB:Familiar (Ex)|PRECLASS:1,Wizard=1,Sorcerer=1					DEFINE:DivineAuraRadius|(100*var("DivineRank"))	BONUS:VAR|SalientDivinePool|2	SUBRACE:Lesser Deity		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Teleport (Greater)|Plane Shift

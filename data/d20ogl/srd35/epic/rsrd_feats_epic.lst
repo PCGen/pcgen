@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  1 21:32:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -88,7 +88,7 @@ Inspire Excellence										TYPE:Epic																									PRELEVEL:MIN=21			
 Instant Reload											TYPE:Epic												PREFEAT:3,Quick Draw,Rapid Reload,Weapon Focus						PRELEVEL:MIN=21																																										DESC:You may fire the selected type of crossbow at your full normal attack rate.														STACK:NO	MULT:YES	CHOOSE:FEAT=Epic Weapon Focus																																																																																			SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Epic Feats K-P
-# Feat Name				Output Name						Type		Req. Att.	Required Feat													PREHANDSGTEQ	Required Lvl	Multiple Requirements								Req. Special Ability						Required Skill						Req. Known Spell		Required Stat		Required Text							Var. Min. Value							Special ABility					Define				Description																											Stackable?	Multiple?	Choose																Combat bonus				Modify VAR				Source Page
+# Feat Name				Output Name						Type		Req. Att.	Required Feat													Min. nb of Hand	Required Lvl	Multiple Requirements								Req. Special Ability						Required Skill						Req. Known Spell		Required Stat		Required Text							Var. Min. Value							Special ABility					Define				Description																											Stackable?	Multiple?	Choose																Combat bonus				Modify VAR				Source Page
 Keen Strike											TYPE:Epic			PREFEAT:3,Improved Critical(Unarmed Strike),Improved Unarmed Strike,Stunning Fist					PRELEVEL:MIN=21												PRESA:1,Ki Strike (Magic and Lawful and Adamantine)													PRESTAT:2,STR=23,WIS=23																															DESC:Your unarmed strike has a critical threat range of 18-20 and deals slashing damage.																																														SOURCEPAGE:EpicFeats.rtf
 Lasting Inspiration									TYPE:Epic																					PRELEVEL:MIN=21																					PRESKILL:1,TYPE.Perform=25																					PREVARGTEQ:BardicMusicLvl,1																	DESC:The effects of your bardic music inspiration abilities last for ten times as long as normal after you stop singing																																									SOURCEPAGE:EpicFeats.rtf
 Legendary Climber										TYPE:Epic																					PRELEVEL:MIN=21																					PRESKILL:1,Balance=12	PRESKILL:1,Climb=24					PRESTAT:1,DEX=21																																DESC:You can ignore any check penalties applied for accelerated climbing or rapid climbing.																																													SOURCEPAGE:EpicFeats.rtf
@@ -195,7 +195,7 @@ Plant Wild Shape			TYPE:Wild.Epic	PRELEVEL:MIN=21							PRESKILL:1,Knowledge (Na
 Vermin Wild Shape			TYPE:Wild.Epic	PRELEVEL:MIN=21							PRESKILL:1,Knowledge (Nature)=24				PREVARGTEQ:WildShapeTimes,6		SAB:Wildshape (Vermin)		DESC:You can use your normal wild shape ability to take the form of a vermin. The size limitation is the same as your limitation on animal size.																							SOURCEPAGE:EpicFeats.rtf
 
 ###BLOCK: Non Epic Feats
-# Feat Name				Type			Req. Att.	Required Feat									PREHANDSGTEQ	Req. Movement	Required Stat	Description																																	Source Page
+# Feat Name				Type			Req. Att.	Required Feat									Min. nb of Hand	Req. Movement	Required Stat	Description																																	Source Page
 Greater Multiweapon Fighting	TYPE:General	PREATT:15	PREFEAT:2,Improved Multiweapon Fighting,Multiweapon Fighting	PREHANDSGTEQ:3				PRESTAT:1,DEX=19	DESC:You may make up to three extra attacks with each extra offhand weapon you wield, albeit at a -10 penalty on the third attack with each weapon.										SOURCEPAGE:EpicFeats.rtf
 Improved Flyby Attack		TYPE:General			PREFEAT:3,Dodge,Flyby Attack,Mobility								PREMOVE:1,Fly=1				DESC:If the standard action taken by you during a round in which you use your Flyby Attack is a melee attack, you provokes no attacks of opportunity from moving out of squares threatened by your target.	SOURCEPAGE:EpicFeats.rtf
 Improved Multiattack		TYPE:General			PREFEAT:1,Multiattack								PREHANDSGTEQ:3							DESC:Your secondary attacks with natural weapons have no penalty.																								SOURCEPAGE:EpicFeats.rtf

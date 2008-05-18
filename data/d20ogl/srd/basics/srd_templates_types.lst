@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Dec 14 21:04:49 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
@@ -36,7 +36,7 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:20/+1		SOURCEPAGE:srdbasicch
 Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps.rtf	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
 
 ###Block: Timeless Body For Druid and Monk
-# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
+# Template Name			Visible		Template																		Minimum Age			Maximum Age			Required Class			Multiple Requirements						Stat bonus
 Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17
 
 Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:1,Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:1,Middle Age],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:1,Venerable
@@ -73,8 +73,8 @@ Fighting Defensively	VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf	BONUS:COMBAT|TOH
 Total Defense		VISIBLE:NO	SOURCEPAGE:SRDCombatActions.rtf								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action
 
 ###Block: Awakened Animal
-# Template Name	Required Race					Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL		Add
-Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2	ADD:LANGUAGE|1|TYPE=Spoken
+# Template Name	Required Race					Add					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			ADDLEVEL
+Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|1|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
 
 ###Block: Diseases
 

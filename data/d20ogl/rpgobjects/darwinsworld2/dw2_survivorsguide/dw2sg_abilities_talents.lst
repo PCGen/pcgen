@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 18 12:53:45 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 #Original Entry by Arknight
 
@@ -61,7 +61,7 @@ Electronic Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	V
 Mechanical Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	VISIBLE:YES	PRECLASS:1,Mech=1	DEFINE:MasterMechanical|0	DESC:Mastercraft (Mechanical +%1)|MasterMechanical	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:p. 47
 
 ###Block: Medicine Man
-# Ability Name			Category of Ability	Type									Visible	Required Feat						Prohibited Feat						Req. Special Ability					!PRESA							Description								Virtual Feat					Add								Source Page
+# Ability Name			Category of Ability	Type									Visible	Required Feat						Prohibited Feat						Req. Special Ability					Prohibite Special Ability				Description								Virtual Feat					Add								Source Page
 Advanced Pharmaceuticals	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES									!PREFEAT:1,Advanced Pharmaceutical Discipline																	DESC:Ancient Drugs						VFEAT:Advanced Pharmaceutical Discipline									SOURCEPAGE:p. 48
 JuJu Doctor Feat I		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES	PREFEAT:1,Advanced Pharmaceutical Discipline																									DESC:Ancient Drugs													ADD:ABILITY|CATEGORY=Talent|NORMAL|TYPE=JujuDoc	SOURCEPAGE:p. 48
 JuJu Doctor Feat II		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																	PRESA:1,Juju Miracle,Minor Medical Miracle																									ADD:ABILITY|CATEGORY=Talent|NORMAL|TYPE=JujuDoc	SOURCEPAGE:p. 49

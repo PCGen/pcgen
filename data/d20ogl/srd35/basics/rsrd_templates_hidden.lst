@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Fri Mar  7 14:23:28 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -44,18 +44,18 @@ Total Defense			VISIBLE:NO	SOURCEPAGE:CombatI.rtf																								BONUS:V
 Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf	BONUS:COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary|PREAPPLY:PC	BONUS:COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary|PREAPPLY:PC																																									CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
 
 ###Block: Awakened Animal
-# Template Name			Visible	Template										Define		Required Class			Required Race					Apply Kit			Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL				Add
-Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will									PRERACE:1,RACETYPE=Animal,TYPE=Animal	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal						ADD:LANGUAGE|1|TYPE=Spoken
-Awakened Animal_Standard	VISIBLE:NO															PRECLASS:1,Animal=1																													ADDLEVEL:Animal|2
-Awakened Animal_Will		VISIBLE:NO															PRECLASS:1,Animal (Will)=1																												ADDLEVEL:Animal (Will)|2
-Awakened Tree																DEFINE:UNLOCK.INT						PRERACE:1,Animated Object%			KIT:1|Awakened Tree								RACETYPE:Plant												ADD:LANGUAGE|1|TYPE=Spoken
+# Template Name			Visible	Template										Define		Required Class			Required Race					Add					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			ADDLEVEL
+Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will									PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|1|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
+Awakened Animal_Standard	VISIBLE:NO															PRECLASS:1,Animal=1																																		ADDLEVEL:Animal|2
+Awakened Animal_Will		VISIBLE:NO															PRECLASS:1,Animal (Will)=1																																	ADDLEVEL:Animal (Will)|2
+Awakened Tree																DEFINE:UNLOCK.INT						PRERACE:1,Animated Object%			ADD:LANGUAGE|1|TYPE=Spoken	KIT:1|Awakened Tree								RACETYPE:Plant
 
 ###Block: Righteous Might spell workaround
 # Template Name	Visible	Special ABility										Define
 RighteousMightDR	VISIBLE:NO	SAB:DR %/Evil|RighteousMightDR_Evil	SAB:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
 
 ###Block: Timeless Body For Druid and Monk
-# Template Name			Visible		Template																		PREAGESET			!PREAGESET			Required Class			Multiple Requirements						Stat bonus
+# Template Name			Visible		Template																		Minimum Age			Maximum Age			Required Class			Multiple Requirements						Stat bonus
 Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable									PRECLASS:1,Druid=15,Monk=17
 
 Timeless Body ~ Adult		VISIBLE:NO																									!PREAGESET:1,Middle Age															BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:1,Middle Age],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:1,Venerable
@@ -83,7 +83,7 @@ Disease Damage (Slimy doom)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	B
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
-# Template Name	Visible	Define										ABILITY
+# Template Name	Visible	Define										Ability
 Uncanny Dodge	VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVAREQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 
 #

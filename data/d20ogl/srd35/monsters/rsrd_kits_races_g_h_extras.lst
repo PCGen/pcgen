@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Frost Giant Jarl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
@@ -23,11 +23,11 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Quick Draw
-GEAR:Greataxe					SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
-GEAR:Full Plate					SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
-GEAR:Ring (Energy Resistance/Fire/Minor)	LOCATION:Equipped
-GEAR:Cloak of Charisma +2			SIZE:PC	LOCATION:Equipped
-GEAR:Poison (Bloodroot)				QTY:2	LOCATION:Carried
+GEAR:Greataxe						SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
+GEAR:Full Plate						SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS2A
+GEAR:Ring (Energy Resistance/Fire/Minor)				LOCATION:Equipped
+GEAR:Cloak of Charisma +2				SIZE:PC	LOCATION:Equipped
+GEAR:Poison (Bloodroot)				QTY:2			LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Blackguard|Bull's Strength|Cause Fear|Doom|Magic Weapon
 
 STARTPACK:Harpy Archer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
@@ -51,16 +51,16 @@ FEAT:Rapid Shot
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Longbow)
 FEAT:Improved Critical(Longbow)
 ABILITY:CATEGORY=Fighter Feat|Manyshot
-GEAR:Studded Leather			SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
-GEAR:Longbow (Composite)		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FROST_R.BOWSTR|1
-GEAR:Arrow					QTY:10	SIZE:PC	LOCATION:Carried	EQMOD:C_IRON
-GEAR:Arrow					QTY:10	SIZE:PC	LOCATION:Carried	EQMOD:ALCHM
-GEAR:Arrow					QTY:5	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS2W
-GEAR:Bracers of Archery (Lesser)	SIZE:PC	LOCATION:Equipped
-GEAR:Potion (Cat's Grace)		SIZE:PC	LOCATION:Carried
-GEAR:Potion (Cure Moderate Wounds)	SIZE:PC	LOCATION:Carried
-GEAR:Cloak of Resistance +2		SIZE:PC	LOCATION:Equipped
-GEAR:Ring (Protection +1)		SIZE:PC	LOCATION:Equipped
+GEAR:Studded Leather					SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3A
+GEAR:Longbow (Composite)				SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FROST_R.BOWSTR|1
+GEAR:Arrow					QTY:10	SIZE:PC	LOCATION:Carried		EQMOD:C_IRON
+GEAR:Arrow					QTY:10	SIZE:PC	LOCATION:Carried		EQMOD:ALCHM
+GEAR:Arrow					QTY:5		SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.PLUS2W
+GEAR:Bracers of Archery (Lesser)			SIZE:PC	LOCATION:Equipped
+GEAR:Potion (Cat's Grace)				SIZE:PC	LOCATION:Carried
+GEAR:Potion (Cure Moderate Wounds)			SIZE:PC	LOCATION:Carried
+GEAR:Cloak of Resistance +2				SIZE:PC	LOCATION:Equipped
+GEAR:Ring (Protection +1)				SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Nessian Warhound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hell Hound]
 RACE:Hell Hound	!PRERACE:1,%

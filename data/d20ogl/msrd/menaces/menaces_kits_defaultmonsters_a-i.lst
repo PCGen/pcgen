@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by Frank Kliewe
 
@@ -354,9 +354,9 @@ ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
 FEAT:Weapon Focus (Knife)
 FEAT:Weapon Finesse (Knife)
 FEAT:Simple Weapons Proficiency
-GEAR:Leather Jacket		LOCATION:Armor
-GEAR:Clothing Outfit (Casual)	LOCATION:Torso
-GEAR:Knife				LOCATION:Primary Hand
+GEAR:Leather Jacket				LOCATION:Armor
+GEAR:Clothing Outfit (Casual)			LOCATION:Torso
+GEAR:Knife						LOCATION:Primary Hand
 GEAR:Knife				QTY:11	LOCATION:Carried
 
 STARTPACK:Fiend (Harriken (Headsnatcher Fiend)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Harriken (Headsnatcher Fiend))]

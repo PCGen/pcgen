@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -127,15 +127,15 @@ STARTPACK:Treasure Table 1/2 Coins CR1	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d6")*500	OPTION:15,29
 GEAR:Coin (Silver)	QTY:roll("1d8")*50	OPTION:30,52
-GEAR:Coin (Gold)		QTY:roll("2d8")*5	OPTION:53,95
-GEAR:Coin (Platinum)	QTY:roll("1d4")*5	OPTION:96,100
+GEAR:Coin (Gold)		QTY:roll("2d8")*5		OPTION:53,95
+GEAR:Coin (Platinum)	QTY:roll("1d4")*5		OPTION:96,100
 
 STARTPACK:Treasure Table 1/2 Coins CR2	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d10")*500	OPTION:14,23
 GEAR:Coin (Silver)	QTY:roll("2d10")*50	OPTION:24,43
 GEAR:Coin (Gold)		QTY:roll("4d10")*5	OPTION:44,95
-GEAR:Coin (Platinum)	QTY:roll("2d8")*5	OPTION:96,100
+GEAR:Coin (Platinum)	QTY:roll("2d8")*5		OPTION:96,100
 
 STARTPACK:Treasure Table 1/2 Coins CR3	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -149,7 +149,7 @@ SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("3d10")*500	OPTION:12,21
 GEAR:Coin (Silver)	QTY:roll("4d12")*500	OPTION:22,41
 GEAR:Coin (Gold)		QTY:roll("1d6")*50	OPTION:42,95
-GEAR:Coin (Platinum)	QTY:roll("1d8")*5	OPTION:96,100
+GEAR:Coin (Platinum)	QTY:roll("1d8")*5		OPTION:96,100
 
 STARTPACK:Treasure Table 1/2 Coins CR5	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -170,14 +170,14 @@ SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d10")*5000	OPTION:12,18
 GEAR:Coin (Silver)	QTY:roll("1d12")*500	OPTION:19,35
 GEAR:Coin (Gold)		QTY:roll("2d6")*50	OPTION:36,93
-GEAR:Coin (Platinum)	QTY:roll("3d4")*5	OPTION:94,100
+GEAR:Coin (Platinum)	QTY:roll("3d4")*5		OPTION:94,100
 
 STARTPACK:Treasure Table 1/2 Coins CR8	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d12")*5000	OPTION:11,15
 GEAR:Coin (Silver)	QTY:roll("2d6")*500	OPTION:16,29
 GEAR:Coin (Gold)		QTY:roll("2d8")*50	OPTION:30,87
-GEAR:Coin (Platinum)	QTY:roll("3d6")*5	OPTION:88,100
+GEAR:Coin (Platinum)	QTY:roll("3d6")*5		OPTION:88,100
 
 STARTPACK:Treasure Table 1/2 Coins CR9	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -190,7 +190,7 @@ STARTPACK:Treasure Table 1/2 Coins CR10	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Silver)	QTY:roll("2d10")*500	OPTION:11,24
 GEAR:Coin (Gold)		QTY:roll("6d4")*50	OPTION:35,79
-GEAR:Coin (Platinum)	QTY:roll("5d6")*5	OPTION:86,100
+GEAR:Coin (Platinum)	QTY:roll("5d6")*5		OPTION:86,100
 
 STARTPACK:Treasure Table 1/2 Coins CR11	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
@@ -248,76 +248,76 @@ STARTPACK:Treasure Table 1/10 Coins CR1	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d6")*100	OPTION:15,29
 GEAR:Coin (Silver)	QTY:roll("1d8")*10	OPTION:30,52
-GEAR:Coin (Gold)		QTY:roll("2d8")	OPTION:53,95
-GEAR:Coin (Platinum)	QTY:roll("1d4")	OPTION:96,100
+GEAR:Coin (Gold)		QTY:roll("2d8")		OPTION:53,95
+GEAR:Coin (Platinum)	QTY:roll("1d4")		OPTION:96,100
 
 STARTPACK:Treasure Table 1/10 Coins CR2	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d10")*100	OPTION:14,23
 GEAR:Coin (Silver)	QTY:roll("2d10")*10	OPTION:24,43
-GEAR:Coin (Gold)		QTY:roll("4d10")	OPTION:44,95
-GEAR:Coin (Platinum)	QTY:roll("2d8")	OPTION:96,100
+GEAR:Coin (Gold)		QTY:roll("4d10")		OPTION:44,95
+GEAR:Coin (Platinum)	QTY:roll("2d8")		OPTION:96,100
 
 STARTPACK:Treasure Table 1/10 Coins CR3	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("2d10")*100	OPTION:12,21
 GEAR:Coin (Silver)	QTY:roll("4d8")*10	OPTION:22,41
 GEAR:Coin (Gold)		QTY:roll("1d4")*10	OPTION:42,95
-GEAR:Coin (Platinum)	QTY:roll("1d10")	OPTION:96,100
+GEAR:Coin (Platinum)	QTY:roll("1d10")		OPTION:96,100
 
 STARTPACK:Treasure Table 1/10 Coins CR4	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("3d10")*100	OPTION:12,21
 GEAR:Coin (Silver)	QTY:roll("4d12")*100	OPTION:22,41
 GEAR:Coin (Gold)		QTY:roll("1d6")*10	OPTION:42,95
-GEAR:Coin (Platinum)	QTY:roll("1d8")	OPTION:96,100
+GEAR:Coin (Platinum)	QTY:roll("1d8")		OPTION:96,100
 
 STARTPACK:Treasure Table 1/10 Coins CR5	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d4")*1000	OPTION:11,19
 GEAR:Coin (Silver)	QTY:roll("1d6")*100	OPTION:20,38
 GEAR:Coin (Gold)		QTY:roll("1d8")*10	OPTION:39,95
-GEAR:Coin (Platinum)	QTY:roll("1d10")	OPTION:96,100
+GEAR:Coin (Platinum)	QTY:roll("1d10")		OPTION:96,100
 
 STARTPACK:Treasure Table 1/10 Coins CR6	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d6")*1000	OPTION:11,18
 GEAR:Coin (Silver)	QTY:roll("1d8")*100	OPTION:19,37
 GEAR:Coin (Gold)		QTY:roll("1d10")*10	OPTION:38,95
-GEAR:Coin (Platinum)	QTY:roll("1d12")	OPTION:96,100
+GEAR:Coin (Platinum)	QTY:roll("1d12")		OPTION:96,100
 
 STARTPACK:Treasure Table 1/10 Coins CR7	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d10")*1000	OPTION:12,18
 GEAR:Coin (Silver)	QTY:roll("1d12")*100	OPTION:19,35
 GEAR:Coin (Gold)		QTY:roll("2d6")*10	OPTION:36,93
-GEAR:Coin (Platinum)	QTY:roll("3d4")	OPTION:94,100
+GEAR:Coin (Platinum)	QTY:roll("3d4")		OPTION:94,100
 
 STARTPACK:Treasure Table 1/10 Coins CR8	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("1d12")*1000	OPTION:11,15
 GEAR:Coin (Silver)	QTY:roll("2d6")*100	OPTION:16,29
 GEAR:Coin (Gold)		QTY:roll("2d8")*10	OPTION:30,87
-GEAR:Coin (Platinum)	QTY:roll("3d6")	OPTION:88,100
+GEAR:Coin (Platinum)	QTY:roll("3d6")		OPTION:88,100
 
 STARTPACK:Treasure Table 1/10 Coins CR9	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Copper)	QTY:roll("2d6")*1000	OPTION:11,15
 GEAR:Coin (Silver)	QTY:roll("2d8")*100	OPTION:16,29
 GEAR:Coin (Gold)		QTY:roll("5d4")*10	OPTION:30,85
-GEAR:Coin (Platinum)	QTY:roll("2d12")	OPTION:86,100
+GEAR:Coin (Platinum)	QTY:roll("2d12")		OPTION:86,100
 
 STARTPACK:Treasure Table 1/10 Coins CR10	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Silver)	QTY:roll("2d10")*100	OPTION:11,24
 GEAR:Coin (Gold)		QTY:roll("6d4")*10	OPTION:35,79
-GEAR:Coin (Platinum)	QTY:roll("5d6")	OPTION:86,100
+GEAR:Coin (Platinum)	QTY:roll("5d6")		OPTION:86,100
 
 STARTPACK:Treasure Table 1/10 Coins CR11	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Coin (Silver)	QTY:roll("3d10")*100	OPTION:9,14
 GEAR:Coin (Gold)		QTY:roll("4d8")*10	OPTION:15,75
-GEAR:Coin (Platinum)	QTY:roll("4d10")	OPTION:76,100
+GEAR:Coin (Platinum)	QTY:roll("4d10")		OPTION:76,100
 
 STARTPACK:Treasure Table 1/10 Coins CR12	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")

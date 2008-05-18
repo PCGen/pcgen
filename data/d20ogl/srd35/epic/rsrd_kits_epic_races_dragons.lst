@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Dragon (Force Wyrmling) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Wyrmling)]
@@ -494,10 +494,10 @@ FEAT:Spell Knowledge(Sorcerer 5,Sorcerer 6)
 FEAT:Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Dancing Lights|Detect Magic|Flare|Ghost Sound|Light|Mending|Open/Close|Read Magic|Disguise Self|Comprehend Languages|Detect Secret Doors|Magic Missile|True Strike|Bull's Strength|Cat's Grace|Darkness|Locate Object|Mirror Image|Clairaudience/Clairvoyance|Fireball|Haste|Lightning Bolt|Charm Monster|Invisibility (Greater)|Scrying|Stoneskin|Contact Other Plane|Dream|Hold Monster|Teleport|Analyze Dweomer|Dispel Magic (Greater)|True Seeing|Forcecage|Spell Turning|Summon Monster VII|Polymorph Any Object|Protection from Spells|Time Stop
-GEAR:Crystal Ball (True Seeing)	LOCATION:Not Carried
-GEAR:Pearl of Power (7th Level)	LOCATION:Equipped
+GEAR:Crystal Ball (True Seeing)			LOCATION:Not Carried
+GEAR:Pearl of Power (7th Level)			LOCATION:Equipped
 GEAR:Coin (Gold)				QTY:8000	LOCATION:Not Carried
-GEAR:Circlet of Eyes			LOCATION:Equipped
+GEAR:Circlet of Eyes					LOCATION:Equipped
 
 STARTPACK:Dragon (Prismatic Wyrmling) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Wyrmling)]
 RACE:Dragon (Prismatic Wyrmling)	!PRERACE:1,%
@@ -1027,6 +1027,6 @@ FEAT:Weapon Focus(Claw)
 FEAT:Weapon Focus(Tail Slap)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Daze|Detect Magic|Ghost Sound|Light|Prestidigitation|Ray of Frost|Read Magic|Resistance|Enlarge Person|Mage Armor|Magic Missile|Shield|True Strike|Unseen Servant|Alter Self|Blur|Darkness|Detect Thoughts|Levitate|Blink|Fireball|Magic Weapon (Greater)|Haste|Tongues|Wind Wall|Confusion|Polymorph|Scrying|Stoneskin|Baleful Polymorph|Dismissal|Fabricate|Passwall|Wall of Force|Antimagic Field|Dispel Magic (Greater)|True Seeing|Forcecage|Sequester|Spell Turning|Teleport (Greater)|Planar Binding (Greater)|Charm Monster (Mass)|Symbol of Death|Temporal Stasis|Dominate Monster|Gate|Imprisonment|Time Stop|Wish
-GEAR:Staff (Cosmos)		LOCATION:Equipped
-GEAR:Ring (Regeneration)	LOCATION:Equipped
+GEAR:Staff (Cosmos)				LOCATION:Equipped
+GEAR:Ring (Regeneration)			LOCATION:Equipped
 GEAR:Coin (Gold)			QTY:15563	LOCATION:Not Carried

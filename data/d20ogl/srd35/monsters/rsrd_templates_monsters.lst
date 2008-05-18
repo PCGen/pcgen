@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 28 16:32:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
@@ -8,7 +8,7 @@ Drow Male		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:1,Elf (Drow)	FAVOREDCLA
 Drow Female		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:1,Elf (Drow)	FAVOREDCLASS:Cleric	GENDERLOCK:Female
 
 ###Block: Monstrous Spiders
-# Template Name	Visible	Source Page				Special ABility																						Define																		Add to base move			Bonus to skill										Modify VAR																																																																																																																																																											Removable?		SUBRACE	Temporary effect description
+# Template Name	Visible	Source Page				Special ABility																						Define																		Add to base move			Bonus to skill										Modify VAR																																																																																																																																																											Removable?		Subrace	Temporary effect description
 Hunting		VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf																																												BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Jump|10|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																																																													REMOVABLE:YES	SUBRACE:Yes
 Web Spinning	VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0						BONUS:SKILL|Hide,Move Silently|8|TYPE=Racial|PREAPPLY:PC			BONUS:VAR|MonstrousSpiderWebBreakDC|4|TYPE=Racial	BONUS:VAR|MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebHp|18|PRESIZEEQ:C	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|1|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|2|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|4|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|8|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|16|PRESIZEEQ:C	REMOVABLE:YES	SUBRACE:Yes	TEMPDESC:Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs
 
@@ -33,7 +33,7 @@ Male Only				VISIBLE:NO															GENDERLOCK:Male
 Female Only				VISIBLE:NO															GENDERLOCK:Female
 
 ###Block: Racial Variants
-# Template Name	Special ABility																						Required Race		Prohibited Template			Add to base move			Move			SUBRACE		Race Subtype		Nb Hands
+# Template Name	Special ABility																						Required Race		Prohibited Template			Add to base move			Move			Subrace		Race Subtype		Nb Hands
 Hydra (Pyrohydra)	SAB:Breath Fire ~ % heads every 1d4 rounds/3d6 Fire Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON	SAB:Immunity to Fire	PRERACE:1,Hydra%		!PRETEMPLATE:1,Hydra (Cryohydra)									SUBRACE:Pyrohydra	RACESUBTYPE:Fire
 Hydra (Cryohydra)	SAB:Breath Frost ~ % heads every 1d4 rounds/3d6 Cold Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON	SAB:Immunity to Cold	PRERACE:1,Hydra%		!PRETEMPLATE:1,Hydra (Pyrohydra)									SUBRACE:Cryohydra	RACESUBTYPE:Cold
 Sahuagin (Mutant)																									PRERACE:1,Sahuagin															SUBRACE:Mutant					HANDS:4

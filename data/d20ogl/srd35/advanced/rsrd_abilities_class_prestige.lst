@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr  4 09:32:51 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -18,7 +18,7 @@ Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAt
 # Not sure about Dragon Disciple stuff, so I'm commenting these out for now. - Tir Gwaith
 
 ###Block: Dragon Disciple Class Features
-# Ability Name		Category of Ability		Type						Visible		Required Ability								Required Class			Special ABility	Choose												MOVECLONE
+# Ability Name		Category of Ability		Type						Visible		Required Ability								Required Class			Special ABility	Choose												Clone Movement
 Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY																			CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 1									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 2									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]

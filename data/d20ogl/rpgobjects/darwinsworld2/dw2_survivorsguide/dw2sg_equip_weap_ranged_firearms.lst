@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 # DW2 Firearms & MSRD Mods
@@ -138,7 +138,7 @@ Sonic Rifle B				PROFICIENCY:WEAPON|Sonic Rifle		TYPE:Weapon.Ranged.Standard.Fir
 UH Radiation Rifle			PROFICIENCY:WEAPON|UH Radiation Rifle	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Radiation.Personal.Container.Futuristic						CONTAINS:1|PwrPlut=1						COST:25000	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:20	SIZE:L	SOURCEPAGE:p. 128	SPROP:Plutonium Chip; See Text									RATEOFFIRE:Single
 
 # Other Heavy Weapons
-AT-5 Spandrel (rocket launcher)	PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher											CONTAINS:1|AT5=1							COST:3000	WT:55		CRITMULT:-			CRITRANGE:0			DAMAGE:6d12		RANGE:400	SIZE:H	SOURCEPAGE:p. 126	SPROP:Internal 1												RATEOFFIRE:1
-Gyrojet Launcher (rocket launcher)	PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.Semiauto.Automatic.RocketLauncher								CONTAINS:1|Gyrojet=30						COST:3000	WT:15		CRITMULT:-			CRITRANGE:0			DAMAGE:3d10		RANGE:100	SIZE:L	SOURCEPAGE:p. 126	SPROP:Internal 30												RATEOFFIRE:S,A
-Hydra 70 (rocket launcher)		PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher											CONTAINS:1|Hydra70=19						COST:1000	WT:250	CRITMULT:-			CRITRANGE:0			DAMAGE:4d10		RANGE:125	SIZE:H	SOURCEPAGE:p. 126	SPROP:Internal 19												RATEOFFIRE:1
-TOW II (rocket launcher)		PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher											CONTAINS:1|TOWII=1						COST:1000	WT:65		CRITMULT:-			CRITRANGE:0			DAMAGE:6d12		RANGE:200	SIZE:H	SOURCEPAGE:p. 126	SPROP:Internal 1												RATEOFFIRE:1
+AT-5 Spandrel (rocket launcher)	PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher.Container									CONTAINS:1|AT5=1							COST:3000	WT:55		CRITMULT:-			CRITRANGE:0			DAMAGE:6d12		RANGE:400	SIZE:H	SOURCEPAGE:p. 126	SPROP:Internal 1												RATEOFFIRE:1
+Gyrojet Launcher (rocket launcher)	PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.Semiauto.Automatic.RocketLauncher.Container						CONTAINS:1|Gyrojet=30						COST:3000	WT:15		CRITMULT:-			CRITRANGE:0			DAMAGE:3d10		RANGE:100	SIZE:L	SOURCEPAGE:p. 126	SPROP:Internal 30												RATEOFFIRE:S,A
+Hydra 70 (rocket launcher)		PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher.Container									CONTAINS:1|Hydra70=19						COST:1000	WT:250	CRITMULT:-			CRITRANGE:0			DAMAGE:4d10		RANGE:125	SIZE:H	SOURCEPAGE:p. 126	SPROP:Internal 19												RATEOFFIRE:1
+TOW II (rocket launcher)		PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher.Container									CONTAINS:1|TOWII=1						COST:1000	WT:65		CRITMULT:-			CRITRANGE:0			DAMAGE:6d12		RANGE:200	SIZE:H	SOURCEPAGE:p. 126	SPROP:Internal 1												RATEOFFIRE:1

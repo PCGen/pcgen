@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Greater Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]
@@ -42,7 +42,7 @@ SKILL:Search				RANK:6
 SKILL:Survival				RANK:11
 FEAT:Cleave
 FEAT:Improved Natural Armor
-GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS1A
+GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS1A
 GEAR:Battleaxe	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W
 GEAR:Javelin	SIZE:PC	LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Entangle|Resist Energy

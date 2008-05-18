@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 19 13:16:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 STARTPACK:Mongoliant Raider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mongoliant],[!PRERACE:1,%]
@@ -14,7 +14,7 @@ SKILL:Spot		RANK:2
 SKILL:Survival	RANK:3
 ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
 ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:NO
-ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)	FREE:NO
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:NO
 ABILITY:CATEGORY=FEAT|Great Fortitude			FREE:NO
 ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)		FREE:NO
 ABILITY:CATEGORY=FEAT|Power Attack				FREE:NO
@@ -34,13 +34,13 @@ SKILL:Hide			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-ABILITY:CATEGORY=FEAT|Occupation (None)			FREE:YES
-ABILITY:CATEGORY=FEAT|Sandman				FREE:YES
-ABILITY:CATEGORY=FEAT|Blind-Fight				FREE:YES
-ABILITY:CATEGORY=FEAT|Multiattack				FREE:YES
-ABILITY:CATEGORY=FEAT|Improved Initiative		FREE:NO
-ABILITY:CATEGORY=FEAT|Cleave					FREE:NO
-ABILITY:CATEGORY=FEAT|Power Attack				FREE:NO
+ABILITY:CATEGORY=FEAT|Occupation (None)	FREE:YES
+ABILITY:CATEGORY=FEAT|Sandman			FREE:YES
+ABILITY:CATEGORY=FEAT|Blind-Fight		FREE:YES
+ABILITY:CATEGORY=FEAT|Multiattack		FREE:YES
+ABILITY:CATEGORY=FEAT|Improved Initiative	FREE:NO
+ABILITY:CATEGORY=FEAT|Cleave			FREE:NO
+ABILITY:CATEGORY=FEAT|Power Attack		FREE:NO
 
 STARTPACK:Shadow Person Psionic Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Shadow People],[!PRERACE:1,%]
 RACE:Shadow People	!PRERACE:1,%
@@ -80,11 +80,11 @@ SKILL:Hide		RANK:5
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:3
 SKILL:Survival	RANK:6
-ABILITY:CATEGORY=FEAT|Cleave				FREE:NO
-ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)		FREE:NO
-ABILITY:CATEGORY=FEAT|Forsaken			FREE:YES
-ABILITY:CATEGORY=FEAT|Iron Will			FREE:YES
-ABILITY:CATEGORY=FEAT|Toughness			FREE:YES
+ABILITY:CATEGORY=FEAT|Cleave			FREE:NO
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)	FREE:NO
+ABILITY:CATEGORY=FEAT|Forsaken		FREE:YES
+ABILITY:CATEGORY=FEAT|Iron Will		FREE:YES
+ABILITY:CATEGORY=FEAT|Toughness		FREE:YES
 GEAR:Shortspear	LOCATION:Primary Hand
 GEAR:Javelin	LOCATION:Carried
 
@@ -107,9 +107,9 @@ ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
 ABILITY:CATEGORY=FEAT|Troglodyte				FREE:YES
 ABILITY:CATEGORY=FEAT|Stealthy				FREE:NO
 ABILITY:CATEGORY=FEAT|Weapon Finesse			FREE:NO
-GEAR:Longspear		LOCATION:Both Hands
+GEAR:Longspear			LOCATION:Both Hands
 GEAR:Dart			QTY:4	LOCATION:Carried
-GEAR:Leather Armor	LOCATION:Equipped
+GEAR:Leather Armor		LOCATION:Equipped
 
 STARTPACK:Wild Man Fast Hero Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wild Man],[!PRERACE:1,%]
 RACE:Wild Man	!PRERACE:1,%
@@ -150,6 +150,6 @@ ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:NO
 ABILITY:CATEGORY=FEAT|Hover					FREE:NO
 ABILITY:CATEGORY=FEAT|Wingover				FREE:NO
 ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency	FREE:NO
-GEAR:Leather Armor					LOCATION:Equipped
-GEAR:Bushmaster M-17S (5.56mm assault rifle)	LOCATION:Both Hands
+GEAR:Leather Armor						LOCATION:Equipped
+GEAR:Bushmaster M-17S (5.56mm assault rifle)		LOCATION:Both Hands
 GEAR:Bullet (5.56mm/20)					QTY:2	LOCATION:Carried

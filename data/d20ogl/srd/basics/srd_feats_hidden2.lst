@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Jan 16 17:25:24 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 ###Comment: Low priority but start of bring srd closer to rsrd. -AM
 
 ###Block: 1/2 dragon template flight capability
-# Feat Name		Type			Visible	Minimum Size		Special ABility	MOVECLONE
+# Feat Name		Type			Visible	Minimum Size		Special ABility	Clone Movement
 Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SAB:Dragon Wings	MOVECLONE:Walk,Fly,0
 
 

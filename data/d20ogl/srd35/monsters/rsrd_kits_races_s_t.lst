@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Dec 28 00:33:46 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Sahuagin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
@@ -211,7 +211,7 @@ RACE:Skeleton (Ettin)	!PRERACE:1,%
 NAME:Skeleton (Ettin)
 ALIGN:NE
 FEAT:Improved Initiative
-GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
+GEAR:Morningstar		SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin	QTY:2	SIZE:PC	LOCATION:Carried
 
 STARTPACK:Skeleton (Advanced Megaraptor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Advanced Megaraptor)]
@@ -520,8 +520,8 @@ FEAT:Improved Bull Rush
 FEAT:Improved Sunder
 FEAT:Power Attack
 FEAT:Quicken Spell Like Ability(Chain Lightning)
-GEAR:Javelin	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS3W
-GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS4A
+GEAR:Javelin	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.PLUS3W
+GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS4A
 GEAR:Warhammer	SIZE:G	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.ADAMANT_WEAP
 
 STARTPACK:Tojanida (Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Adult)]

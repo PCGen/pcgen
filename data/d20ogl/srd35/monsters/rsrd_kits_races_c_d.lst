@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Nov 27 13:08:25 2005 -- reformated by prettylst.pl v1.35 (build 549)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Centaur Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centaur]
@@ -12,7 +12,7 @@ SKILL:Spot			RANK:2
 FEAT:Dodge
 FEAT:Weapon Focus(Hoof)
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:BOWSTR|4
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:BOWSTR|4
 GEAR:Longsword			SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Chaos Beast Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chaos Beast]
@@ -953,7 +953,7 @@ FEAT:Great Fortitude
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
-GEAR:Longbow	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW
+GEAR:Longbow	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW
 
 STARTPACK:Dwarf (Duergar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Duergar)]
 RACE:Dwarf (Duergar)	!PRERACE:1,%

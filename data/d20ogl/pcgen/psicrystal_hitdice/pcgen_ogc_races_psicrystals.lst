@@ -1,10 +1,10 @@
-# CVS $Revision: 2339 $ $Author: tir-gwaith $ -- Sun Apr 29 00:15:01 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision: 2339 $ $Author: tir-gwaith $ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../../docs/sourcehelp/pcgen_ogc_help.html
 # Original entry by: Arknight
 # TaluronIscandar - added sperate entries for each personality.
 
 ###Block: P
-# Race Name					MONSTERCLASS
+# Race Name					Monster Class Name and Starting Level
 Psicrystal (Artiste).MOD		MONSTERCLASS:Construct (Psicrystal):1
 Psicrystal (Bully).MOD			MONSTERCLASS:Construct (Psicrystal):1
 Psicrystal (Coward).MOD			MONSTERCLASS:Construct (Psicrystal):1

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 19 13:16:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 ###Block:Class Skill Templates for monsters with classes
@@ -36,16 +36,16 @@ Colossal Size Cockroach		CR:9	VISIBLE:NO	BONUS:SIZEMOD|NUMBER|4
 Intelligent Ooze	VISIBLE:NO	SAB:Immune to mind affecting effects,poison,sleep,paralysis,stunning,gaze attacks,visual illusions, and other attacks that rely on sight	SAB:Not subject to critical hits flanking, effects of massive damage	SAB:Blindsight(Ex)	BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|((SIZE-6)MAX0)*5	RACETYPE:Ooze	TYPE:Ooze
 
 ###Block: Plantman
-# Template Name		Visible	Level Adjustment	Special ABility	Bonus to HP												Class Skill	Main Race Type	Type		ABILITY
-Background (Plantman)	VISIBLE:NO																				CSKILL:Hide						ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:OCCUPATION|AUTOMATIC|None
-Spore Plantman		VISIBLE:NO	LEVELADJUSTMENT:2	SAB:Spores (Ex)	BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|((SIZE-6)MAX0)*5			RACETYPE:Ooze	TYPE:Ooze
+# Template Name		Visible	Level Adjustment	Special ABility	Bonus to HP												Class Skill	Ability														Main Race Type	Type
+Background (Plantman)	VISIBLE:NO																				CSKILL:Hide	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:OCCUPATION|AUTOMATIC|None
+Spore Plantman		VISIBLE:NO	LEVELADJUSTMENT:2	SAB:Spores (Ex)	BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|((SIZE-6)MAX0)*5																		RACETYPE:Ooze	TYPE:Ooze
 
 ###Block: Sandman
-# Template Name		Visible	Class Skill					ABILITY
+# Template Name		Visible	Class Skill					Ability
 Background (Sandman)	VISIBLE:NO	CSKILL:Hide|Listen|Move Silently	ABILITY:FEAT|AUTOMATIC|Blind-Fight|Multiattack	ABILITY:OCCUPATION|AUTOMATIC|None
 
 ###Block: Shadow People
-# Template Name			Visible	Bonus to Ability Pool			ABILITY
+# Template Name			Visible	Bonus to Ability Pool			Ability
 Background (Shadow People)	VISIBLE:NO							ABILITY:FEAT|AUTOMATIC|Primitive Technology	ABILITY:OCCUPATION|AUTOMATIC|None
 Shadow People Abilities		VISIBLE:NO	BONUS:ABILITYPOOL|Background|1	ABILITY:MUTATION|AUTOMATIC|Neural Mutation - Telepathy	ABILITY:FEAT|AUTOMATIC|Flight Trigger|Mental Communication|Mind Stun
 

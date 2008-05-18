@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Mon Mar  3 13:09:28 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RRPG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7xpx	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 #Subraces - Humans
-# Template Name			Product Identity?	Visible		Template																															Required Race	Automatic Languages	REGION	SUBRACE	Type			Add
-Chelaxian				NAMEISPI:YES	VISIBLE:EXPORT																																	PRERACE:1,Human	LANGAUTO:Chelaxian			SUBRACE:Yes
-Shoanti				NAMEISPI:YES	VISIBLE:NO		TEMPLATE:CHOOSE:Lyrune-Quah (Moon Clan)|Shadde-Quah (Axe Clan)|Shriikirri-Quah (Hawk Clan)|Shundar-Quah (Spire Clan)|Sklar-Quah (Sun Clan)|Skoan-Quah (Skull Clan)|Tamiir-Quah (Wind Clan)	PRERACE:1,Human	LANGAUTO:Shoanti				SUBRACE:Yes
-Varisian				NAMEISPI:YES	VISIBLE:EXPORT																																	PRERACE:1,Human	LANGAUTO:Varisian				SUBRACE:Yes
+# Template Name			Product Identity?	Visible		Template																															Required Race	Add				Automatic Languages	Region	Subrace	Type
+Chelaxian				NAMEISPI:YES	VISIBLE:EXPORT																																	PRERACE:1,Human					LANGAUTO:Chelaxian			SUBRACE:Yes
+Shoanti				NAMEISPI:YES	VISIBLE:NO		TEMPLATE:CHOOSE:Lyrune-Quah (Moon Clan)|Shadde-Quah (Axe Clan)|Shriikirri-Quah (Hawk Clan)|Shundar-Quah (Spire Clan)|Sklar-Quah (Sun Clan)|Skoan-Quah (Skull Clan)|Tamiir-Quah (Wind Clan)	PRERACE:1,Human					LANGAUTO:Shoanti				SUBRACE:Yes
+Varisian				NAMEISPI:YES	VISIBLE:EXPORT																																	PRERACE:1,Human					LANGAUTO:Varisian				SUBRACE:Yes
 
 # Shoanti Clan Templates		Visible  		Type
-Lyrune-Quah (Moon Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																												TYPE:ShoantiClan
-Shadde-Quah (Axe Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																												TYPE:ShoantiClan
-Shriikirri-Quah (Hawk Clan)	NAMEISPI:YES	VISIBLE:EXPORT																																												TYPE:ShoantiClan
-Shundar-Quah (Spire Clan)	NAMEISPI:YES	VISIBLE:EXPORT																																												TYPE:ShoantiClan
-Sklar-Quah (Sun Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																												TYPE:ShoantiClan
-Skoan-Quah (Skull Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																												TYPE:ShoantiClan
-Tamiir-Quah (Wind Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																												TYPE:ShoantiClan
+Lyrune-Quah (Moon Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																																TYPE:ShoantiClan
+Shadde-Quah (Axe Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																																TYPE:ShoantiClan
+Shriikirri-Quah (Hawk Clan)	NAMEISPI:YES	VISIBLE:EXPORT																																																TYPE:ShoantiClan
+Shundar-Quah (Spire Clan)	NAMEISPI:YES	VISIBLE:EXPORT																																																TYPE:ShoantiClan
+Sklar-Quah (Sun Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																																TYPE:ShoantiClan
+Skoan-Quah (Skull Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																																TYPE:ShoantiClan
+Tamiir-Quah (Wind Clan)		NAMEISPI:YES	VISIBLE:EXPORT																																																TYPE:ShoantiClan
 
 #Varisian Regional Templates
 #Template Name		Type   Region
-Varisia				NAMEISPI:YES	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Chelaxian|Shoanti|Varisian																																REGION:YES						ADD:FEAT|TYPE.Varisia
+Varisia				NAMEISPI:YES	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Chelaxian|Shoanti|Varisian																												ADD:FEAT|TYPE.Varisia					REGION:YES

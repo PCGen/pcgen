@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
 
@@ -439,9 +439,9 @@ ABILITY:CATEGORY=Fey Proficiency|Simple Weapons Proficiency
 FEAT:Archaic Weapons Proficiency	FREE:YES
 FEAT:Personal Firearms Proficiency
 FEAT:Great Fortitude
-GEAR:Colt Python (.357 revolver)	LOCATION:Primary Hand
+GEAR:Colt Python (.357 revolver)		LOCATION:Primary Hand
 GEAR:Bullet (.357)			QTY:6	LOCATION:Carried
-GEAR:Sword Cane				LOCATION:Carried
+GEAR:Sword Cane					LOCATION:Carried
 
 STARTPACK:Skunk Ape Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skunk Ape]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
@@ -814,11 +814,11 @@ SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Search		RANK:1
 FEAT:Personal Firearms Proficiency
-GEAR:Machete			LOCATION:Primary Hand
+GEAR:Machete				LOCATION:Primary Hand
 GEAR:Shuriken			QTY:6	LOCATION:Carried
-GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
-GEAR:Cell Phone			LOCATION:Carried
-GEAR:Flash Goggles		LOCATION:DEFAULT
+GEAR:Clothing Outfit (Casual)		LOCATION:DEFAULT
+GEAR:Cell Phone				LOCATION:Carried
+GEAR:Flash Goggles			LOCATION:DEFAULT
 
 STARTPACK:Dwarf (Shadowkind) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf]
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar  4 23:40:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 ###Block:Mod of msrd Feat types
@@ -151,7 +151,7 @@ Advanced Pharmaceutical Discipline	TYPE:TechCraft.JujuDoc.Scientist						VISIBLE
 Advanced Weapons Discipline		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES								PREFEAT:1,Advanced Electronics Discipline									PRESKILL:2,Craft (Electronic),Craft (Mechanical)=13	PRESKILL:1,Knowledge (Physical Sciences)=6	PRESKILL:1,Knowledge (Technology)=10							DESC:See Text.																	SOURCEPAGE:p. 71
 
 ###Block: Mutant Feats
-# Feat Name			Type			Visible	Required Ability																	Req. Att.	Required Feat					PREHANDSGTEQ	Req. Movement	Minimum Size	Required Stat	Required Text				Description		Combat bonus									Bonus to skill							Source Page
+# Feat Name			Type			Visible	Required Ability																	Req. Att.	Required Feat					Min. nb of Hand	Req. Movement	Minimum Size	Required Stat	Required Text				Description		Combat bonus									Bonus to skill							Source Page
 Aerial Maneuverability	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																												PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 91
 Awesome Blow		TYPE:MutantFeat	VISIBLE:YES																						PREFEAT:2,Power Attack,Improved Bull Rush							PRESIZEGTEQ:L	PRESTAT:1,STR=25							DESC:See Text.																					SOURCEPAGE:p. 91
 Constrict			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Gigantism																															PRESTAT:1,STR=18							DESC:See Text.																					SOURCEPAGE:p. 91

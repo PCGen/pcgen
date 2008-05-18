@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Wight Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wight]
@@ -114,8 +114,8 @@ FEAT:Improved Initiative
 FEAT:Multiweapon Fighting
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 GEAR:Longbow		QTY:2	SIZE:PC	LOCATION:Carried
-GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
-GEAR:Sword (Short)	SIZE:PC	LOCATION:Secondary Hand
+GEAR:Sword (Short)		SIZE:PC	LOCATION:Primary Hand
+GEAR:Sword (Short)		SIZE:PC	LOCATION:Secondary Hand
 
 STARTPACK:Xorn (Minor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xorn (Minor)]
 RACE:Xorn (Minor)	!PRERACE:1,%

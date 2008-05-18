@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Feb 24 01:22:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -121,20 +121,20 @@ GEAR:Shield (Tower/Wood)	SIZE:PC	EQMOD:MWORKA.PLUS5S	OPTION:96,100
 ##########################
 STARTPACK:Minor Specific Shield	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-GEAR:Darkwood Buckler		OPTION:1,30
+GEAR:Darkwood Buckler						OPTION:1,30
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:DARK	OPTION:31,80
-GEAR:Mithral Heavy Shield	OPTION:81,95
-GEAR:Caster's Shield		OPTION:96,100
+GEAR:Mithral Heavy Shield					OPTION:81,95
+GEAR:Caster's Shield						OPTION:96,100
 
 STARTPACK:Medium Specific Shield	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-GEAR:Darkwood Buckler		OPTION:1,20
+GEAR:Darkwood Buckler						OPTION:1,20
 GEAR:Shield (Heavy/Wood)	SIZE:PC	EQMOD:DARK	OPTION:21,45
-GEAR:Mithral Heavy Shield	OPTION:46,70
-GEAR:Caster's Shield		OPTION:71,85
-GEAR:Spined Shield		OPTION:86,90
-GEAR:Lion's Shield		OPTION:91,95
-GEAR:Winged Shield		OPTION:96,100
+GEAR:Mithral Heavy Shield					OPTION:46,70
+GEAR:Caster's Shield						OPTION:71,85
+GEAR:Spined Shield						OPTION:86,90
+GEAR:Lion's Shield						OPTION:91,95
+GEAR:Winged Shield						OPTION:96,100
 
 STARTPACK:Major Specific Shield	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Aboleth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
@@ -116,7 +116,7 @@ FEAT:Improved Sunder
 FEAT:Mobility
 FEAT:Power Attack
 FEAT:Track
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS2W.BOWSTR|5
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.PLUS2W.BOWSTR|5
 GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS5W.DANCE
 DEITY:None	DOMAIN:Air|War
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon|Banishment|Bear's Endurance=2|Bless=2|Break Enchantment|Bull's Strength=2|Cause Fear|Chain Lightning|Consecrate|Control Weather|Control Winds|Create Water|Cure Critical Wounds (Mass)=2|Cure Moderate Wounds (Mass)|Daylight|Death Ward=2|Destruction|Detect Magic|Dictum|Dismissal=2|Dispel Evil|Divine Favor=2|Divine Power|Eagle's Splendor|Elemental Swarm|Entropic Shield|Ethereal Jaunt|Etherealness|Fire Storm|Guidance=2|Heal (Mass)|Heroes' Feast|Holy Aura|Holy Word|Invisibility Purge|Magic Circle against Evil|Magic Vestment|Miracle|Neutralize Poison=2|Obscuring Mist|Plane Shift|Prayer=2|Protection from Energy|Regenerate|Resistance=2|Righteous Might=2|Shield of Faith|Spiritual Weapon|Storm of Vengeance|Symbol of Pain|Undeath to Death|Whirlwind|Wind Wall|Word of Recall
@@ -493,7 +493,7 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Improved Initiative
 STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS1W.HOLY_R.BOWSTR|4
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.PLUS1W.HOLY_R.BOWSTR|4
 GEAR:Scimitar			SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.HOLY_M
 
 STARTPACK:Bugbear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]

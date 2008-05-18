@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Aboleth Mage	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
@@ -54,7 +54,7 @@ FEAT:Ride By Attack
 FEAT:Track
 FEAT:Weapon Focus(Greatsword)
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.C_IRON
-GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS3A
+GEAR:Full Plate	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3A
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Paladin|Bull's Strength|Divine Favor|Eagle's Splendor|Protection from Evil
 
 #

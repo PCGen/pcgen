@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Mar  6 13:19:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 ###Block: Background and Occupation
@@ -25,7 +25,7 @@ Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|
 Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																KIT:1|Equipment_ArtifactOfAncientsIII			LANGAUTO:Ancient
 
 ###Block: Mutant
-# Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							SUBRACE
+# Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							Subrace
 Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:Yes
 Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|MUTATION|3	BONUS:ABILITYPOOL|DEFECT|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
 Mutant Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp

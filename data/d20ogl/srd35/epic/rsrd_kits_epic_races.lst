@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr 14 00:45:43 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Abomination (Anaxim) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Anaxim)]
@@ -153,7 +153,7 @@ FEAT:Superior Initiative
 FEAT:Weapon Focus(Boulder)
 FEAT:Weapon Focus(Greatsword)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
-GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS5A
+GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA.PLUS5A
 GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand
 GEAR:Greatsword	SIZE:PC	LOCATION:Secondary Hand
 GEAR:Greatsword	SIZE:PC	LOCATION:Secondary Hand2
@@ -1286,7 +1286,7 @@ FEAT:Weapon Focus(Javelin)
 FEAT:Weapon Focus(Warhammer)
 STAT:STR=11|CON=11|INT=11|WIS=11|DEX=10|CHA=10
 GEAR:Warhammer	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS5W
-GEAR:Javelin	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW.PLUS5W
+GEAR:Javelin	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.PLUS5W
 
 STARTPACK:Treant (Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treant (Elder)]
 RACE:Treant (Elder)	!PRERACE:1,%

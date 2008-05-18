@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 # MSRD Equipment in CP cost
@@ -66,32 +66,32 @@ Rad Tab		TYPE:Goods.Tools	COST:75			SOURCEPAGE:p. 140
 Ion Bonding Tape	TYPE:Goods.Tools	COST:100	WT:12		SOURCEPAGE:p. 140	SPROP:2000' of tape
 
 ###Block: Medical
-# Equipment Name				Type				Contains			Cost		Weight	Source Page		Bonus to skill						Special Property
-Antitox					TYPE:Goods.Medical.Drug					COST:375			SOURCEPAGE:p. 151									SPROP:Incompatibility (DC:20)
-Diagnostic Scanner			TYPE:Goods.Medical					COST:5000	WT:0.5	SOURCEPAGE:p. 151	BONUS:SKILL|Treat Injury|10|TYPE=Competence
-Filter Dose					TYPE:Goods.Medical.Drug					COST:400			SOURCEPAGE:p. 151									SPROP:Incompatibility (DC:30)
-First Aid Kit.MOD												COST:300
-Healing Pack				TYPE:Goods.Medical					COST:25000	WT:1		SOURCEPAGE:p. 152
-Hemochem					TYPE:Goods.Medical.Drug					COST:300			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:10)
-Hercurin					TYPE:Goods.Medical.Drug					COST:300			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:30)
-Juju Kit					TYPE:Goods.Medical					COST:200	WT:6		SOURCEPAGE:p. 152
-K-O Shot					TYPE:Goods.Medical.Drug					COST:250			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:10)
-Medi-Spray (Wound Healing)		TYPE:Goods.Medical					COST:1000	WT:0.5	SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:12)
-Medi-Spray (Spore Neutralization)	TYPE:Goods.Medical					COST:1000	WT:0.5	SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:12)
-Medical Kit.MOD												COST:900
-Pharmacist Kit.MOD											COST:900
-Pocket Nurse				TYPE:Goods.Medical	CONTAINS:UNLIM|Drug=3	COST:3000	WT:2		SOURCEPAGE:p. 152
-Proton Energy Pill			TYPE:Goods.Medical.Drug					COST:250			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:35)
-Rad-Purge Shot				TYPE:Goods.Medical.Drug					COST:100			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:22)
-Ready Syringe				TYPE:Goods.Medical	CONTAINS:UNLIM|Drug=1	COST:50			SOURCEPAGE:p. 153
-Regen Tank					TYPE:Goods.Medical					COST:100000	WT:2000	SOURCEPAGE:p. 153
-Stimshot A					TYPE:Goods.Medical.Drug					COST:500			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:15)
-Stimshot B					TYPE:Goods.Medical.Drug					COST:1000			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:18)
-Superegen					TYPE:Goods.Medical.Drug					COST:200			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:25)
-Sustainer Shot				TYPE:Goods.Medical.Drug					COST:300			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:10)
-Tailored Narcotics			TYPE:Goods.Medical.Drug					COST:25			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:--)
-Truth Serum					TYPE:Goods.Medical.Drug					COST:100			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:25)
-UV Sterilizer				TYPE:Goods.Medical					COST:1000	WT:2		SOURCEPAGE:p. 153
+# Equipment Name				Type					Contains			Cost		Weight	Source Page		Bonus to skill						Special Property
+Antitox					TYPE:Goods.Medical.Drug						COST:375			SOURCEPAGE:p. 151									SPROP:Incompatibility (DC:20)
+Diagnostic Scanner			TYPE:Goods.Medical						COST:5000	WT:0.5	SOURCEPAGE:p. 151	BONUS:SKILL|Treat Injury|10|TYPE=Competence
+Filter Dose					TYPE:Goods.Medical.Drug						COST:400			SOURCEPAGE:p. 151									SPROP:Incompatibility (DC:30)
+First Aid Kit.MOD													COST:300
+Healing Pack				TYPE:Goods.Medical						COST:25000	WT:1		SOURCEPAGE:p. 152
+Hemochem					TYPE:Goods.Medical.Drug						COST:300			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:10)
+Hercurin					TYPE:Goods.Medical.Drug						COST:300			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:30)
+Juju Kit					TYPE:Goods.Medical						COST:200	WT:6		SOURCEPAGE:p. 152
+K-O Shot					TYPE:Goods.Medical.Drug						COST:250			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:10)
+Medi-Spray (Wound Healing)		TYPE:Goods.Medical						COST:1000	WT:0.5	SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:12)
+Medi-Spray (Spore Neutralization)	TYPE:Goods.Medical						COST:1000	WT:0.5	SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:12)
+Medical Kit.MOD													COST:900
+Pharmacist Kit.MOD												COST:900
+Pocket Nurse				TYPE:Goods.Medical.Container	CONTAINS:UNLIM|Drug=3	COST:3000	WT:2		SOURCEPAGE:p. 152
+Proton Energy Pill			TYPE:Goods.Medical.Drug						COST:250			SOURCEPAGE:p. 152									SPROP:Incompatibility (DC:35)
+Rad-Purge Shot				TYPE:Goods.Medical.Drug						COST:100			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:22)
+Ready Syringe				TYPE:Goods.Medical.Container	CONTAINS:UNLIM|Drug=1	COST:50			SOURCEPAGE:p. 153
+Regen Tank					TYPE:Goods.Medical						COST:100000	WT:2000	SOURCEPAGE:p. 153
+Stimshot A					TYPE:Goods.Medical.Drug						COST:500			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:15)
+Stimshot B					TYPE:Goods.Medical.Drug						COST:1000			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:18)
+Superegen					TYPE:Goods.Medical.Drug						COST:200			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:25)
+Sustainer Shot				TYPE:Goods.Medical.Drug						COST:300			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:10)
+Tailored Narcotics			TYPE:Goods.Medical.Drug						COST:25			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:--)
+Truth Serum					TYPE:Goods.Medical.Drug						COST:100			SOURCEPAGE:p. 153									SPROP:Incompatibility (DC:25)
+UV Sterilizer				TYPE:Goods.Medical						COST:1000	WT:2		SOURCEPAGE:p. 153
 
 ###Block: Professional Equipment
 # Equipment Name				Output Name				Type			Cost		Weight	Source Page
@@ -197,23 +197,23 @@ Holster (Hip).MOD				TYPE:PistolHolster	COST:20
 Holster (Concealed carry).MOD		TYPE:PistolHolster	COST:30
 
 ###Block: Military Hardware
-# Equipment Name			Output Name				Type				Contains					Cost		Weight	Source Page		Damage Reduction	Combat bonus				Damage reduction					Special ABility
-Animatron (Weapon)		OUTPUTNAME:Animatron, [NAME]	TYPE:Goods.Military							COST:13000	WT:300	SOURCEPAGE:p. 145
-Auto-Mortar Platform							TYPE:Goods.Military							COST:22000	WT:300	SOURCEPAGE:p. 145
-Bollix Pack									TYPE:Goods.Military							COST:5000	WT:1		SOURCEPAGE:p. 145
-Control Rod									TYPE:Goods.Military							COST:500	WT:2		SOURCEPAGE:p. 145
-Energy Shield (Type A)							TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Energy								BONUS:DR|Energy|4|TYPE=EnergyShield
-Energy Shield (Type B)							TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:15000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Energy								BONUS:DR|Energy|9|TYPE=EnergyShield
-Energy Shield (Type C)							TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Energy								BONUS:DR|Energy|14|TYPE=EnergyShield
-Force Field Belt								TYPE:Goods.Military	CONTAINS:1|PwrPlut=1			COST:50000	WT:2		SOURCEPAGE:p. 145	DR:1/-		BONUS:COMBAT|AC|4|TYPE=Deflection	BONUS:DR|-|19|TYPE=EnergyShield		SAB:Resistance to Energy (all) 20
-Jetpack									TYPE:Goods.Military							COST:2000	WT:25		SOURCEPAGE:p. 145
-Magnetic Shield (Type A)						TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Kinetic							BONUS:DR|Kinetic|4|TYPE=EnergyShield
-Magnetic Shield (Type B)						TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:15000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Kinetic							BONUS:DR|Kinetic|9|TYPE=EnergyShield
-Magnetic Shield (Type C)						TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Kinetic							BONUS:DR|Kinetic|14|TYPE=EnergyShield
-Neural Control Pod							TYPE:Goods.Military							COST:18000	WT:4		SOURCEPAGE:p. 145
-Obedience Collar								TYPE:Goods.Military							COST:1000	WT:1		SOURCEPAGE:p. 145
-Pain Collar									TYPE:Goods.Military							COST:1000	WT:1		SOURCEPAGE:p. 145
-Power Fist									TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:8		SOURCEPAGE:p. 145
-Stealth Pack								TYPE:Goods.Military	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:3		SOURCEPAGE:p. 145
+# Equipment Name			Output Name				Type					Contains					Cost		Weight	Source Page		Damage Reduction	Combat bonus				Damage reduction					Special ABility
+Animatron (Weapon)		OUTPUTNAME:Animatron, [NAME]	TYPE:Goods.Military								COST:13000	WT:300	SOURCEPAGE:p. 145
+Auto-Mortar Platform							TYPE:Goods.Military								COST:22000	WT:300	SOURCEPAGE:p. 145
+Bollix Pack									TYPE:Goods.Military								COST:5000	WT:1		SOURCEPAGE:p. 145
+Control Rod									TYPE:Goods.Military								COST:500	WT:2		SOURCEPAGE:p. 145
+Energy Shield (Type A)							TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Energy								BONUS:DR|Energy|4|TYPE=EnergyShield
+Energy Shield (Type B)							TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:15000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Energy								BONUS:DR|Energy|9|TYPE=EnergyShield
+Energy Shield (Type C)							TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Energy								BONUS:DR|Energy|14|TYPE=EnergyShield
+Force Field Belt								TYPE:Goods.Military.Container	CONTAINS:1|PwrPlut=1			COST:50000	WT:2		SOURCEPAGE:p. 145	DR:1/-		BONUS:COMBAT|AC|4|TYPE=Deflection	BONUS:DR|-|19|TYPE=EnergyShield		SAB:Resistance to Energy (all) 20
+Jetpack									TYPE:Goods.Military								COST:2000	WT:25		SOURCEPAGE:p. 145
+Magnetic Shield (Type A)						TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Kinetic							BONUS:DR|Kinetic|4|TYPE=EnergyShield
+Magnetic Shield (Type B)						TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:15000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Kinetic							BONUS:DR|Kinetic|9|TYPE=EnergyShield
+Magnetic Shield (Type C)						TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:0.5	SOURCEPAGE:p. 145	DR:1/Kinetic							BONUS:DR|Kinetic|14|TYPE=EnergyShield
+Neural Control Pod							TYPE:Goods.Military								COST:18000	WT:4		SOURCEPAGE:p. 145
+Obedience Collar								TYPE:Goods.Military								COST:1000	WT:1		SOURCEPAGE:p. 145
+Pain Collar									TYPE:Goods.Military								COST:1000	WT:1		SOURCEPAGE:p. 145
+Power Fist									TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:8		SOURCEPAGE:p. 145
+Stealth Pack								TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:3		SOURCEPAGE:p. 145
 
 
