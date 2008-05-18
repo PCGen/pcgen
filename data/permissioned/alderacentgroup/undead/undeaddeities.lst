@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20
 
-# Deity Name	Product Identity?	Domains												Desciption of Deity/Title							Holy Item	Deity Weapon		ALIGN		PANTHEON				Source Page
+# Deity Name	Product Identity?	Domains												Desciption of Deity/Title							Holy Item	Deity Weapon		Alignment	Pantheon				Source Page
 Demortus		NAMEISPI:YES	DOMAINS:Evil,Undead,Spirit|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lord of Unlife, the Eternal One, Deathstealer			SYMBOL:None	DEITYWEAP:Dagger		ALIGN:LE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.68
 Gnawbone		NAMEISPI:YES	DOMAINS:Evil,Undead,Chaos|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Ghoul King, Deatheater						SYMBOL:None	DEITYWEAP:Club		ALIGN:CE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.68
 Lochai		NAMEISPI:YES	DOMAINS:Death,Destruction,War,Plague|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:Deathbringer, Lifescourge						SYMBOL:None	DEITYWEAP:Scythe		ALIGN:CN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.68

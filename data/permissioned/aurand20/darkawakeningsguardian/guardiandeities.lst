@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB:http://www.auran.com/d20
 
-# Deity Name	Domains												Desciption of Deity/Title					Holy Item							Deity Weapon		ALIGN		PANTHEON			Source Page
+# Deity Name	Domains												Desciption of Deity/Title					Holy Item							Deity Weapon		Alignment	Pantheon			Source Page
 Esmia			DOMAINS:Healing,Good,Law|PREALIGN:LG,LN,NG,TN,CG,CN					DESC:Goddess of Healing,The Lady of Unfettered Tears	SYMBOL:Tear-Drop shaped Amulet			DEITYWEAP:Unarmed		ALIGN:LG	PANTHEON:Eldorian		SOURCEPAGE:p.80
 Ormocea		DOMAINS:Good,Law,Protection|PREALIGN:LG,LN,NG,TN,CG,CN				DESC:God of Law,The Law Giver					SYMBOL:Balance						DEITYWEAP:Club		ALIGN:LG	PANTHEON:Eldorian		SOURCEPAGE:p.80
 Phelltar		DOMAINS:Knowledge,Protection,Law|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE		DESC:God of Sentience,The Maker				SYMBOL:Small Miror					DEITYWEAP:Dagger		ALIGN:LN	PANTHEON:Eldorian|Elven	SOURCEPAGE:p.80

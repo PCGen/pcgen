@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Malhavoc Press - Book of Eldritch Might II	SOURCESHORT:BoEM2	SOURCEWEB:http://www.montecook.com
 
-# Deity Name	Product Identity?	Domains								Desciption of Deity/Title		Holy Item	Deity Weapon		ALIGN		PANTHEON		Source Page
+# Deity Name	Product Identity?	Domains								Desciption of Deity/Title		Holy Item	Deity Weapon		Alignment	Pantheon		Source Page
 Jode			NAMEISPI:YES	DOMAINS:Air,Luck,Music,Protection|PREALIGN:NG,CG,CN	DESC:Bards, Song, Music, Poetry	SYMBOL:None	DEITYWEAP:Sword (Short)	ALIGN:CG	PANTHEON:BoEM2	SOURCEPAGE:p.7
