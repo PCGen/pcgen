@@ -70,7 +70,7 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assa
 5	CAST:0,3,2,0	KNOWN:0,4,3,2
 6	CAST:0,3,3,1	KNOWN:0,4,4,3
 7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
-8	CAST:0,3,3,3,1	KNOWN:0,4,4,3,3																											AUTO:FEAT|Hide in Plain Sight (Assassin)
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3																											AUTO:FEAT|Hide in Plain Sight (Assassin)
 9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
 10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4
 
