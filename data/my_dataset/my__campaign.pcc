@@ -42,7 +42,7 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 #HIDETYPE:FEAT|Leadership
 
 #Remove the '#' in front of those lines referring to files that you actually want to load
-#Remember to set the GAMEMODE to the one you really want. 
+#Remember to set the GAMEMODE to the one you really want.
 #Options in the Open Source data are 3e, 35e, Modern, Deadlands, Sidewinder, Spycraft, or Xcrawl.
 
 #If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
