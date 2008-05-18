@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  8 00:34:08 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
 ###Block: Occupations
@@ -16,11 +16,11 @@ Psychic/PR			OUTPUTNAME:Psychic	CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISP
 +1 bonus to Reputation	CATEGORY:Preferred Occupation Bonus	TYPE:PreferredOccupationBonus	VISIBLE:DISPLAY	BONUS:VAR|Reputation|1
 
 ###Block: Base Programming
-# Ability Name			Category of Ability		Type				Visible		Required Race			Modify VAR				ABILITY
-Laborer (Athlete)			CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Laborer)	BONUS:VAR|WealthBonus|-1	ABILITY:Occupation|AUTOMATIC|Athlete
-Laborer (Blue Collar)		CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Laborer)	BONUS:VAR|WealthBonus|-2	ABILITY:Occupation|AUTOMATIC|Blue Collar
-Laborer (Rural)			CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Laborer)	BONUS:VAR|WealthBonus|-1	ABILITY:Occupation|AUTOMATIC|Rural
-Pilot (Astronaut Trainee)	CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Pilot)	BONUS:VAR|WealthBonus|-1	ABILITY:Occupation|AUTOMATIC|Astronaut Trainee
+# Ability Name			Category of Ability		Type				Visible		Required Race			Ability							Modify VAR
+Laborer (Athlete)			CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Laborer)	ABILITY:Occupation|AUTOMATIC|Athlete		BONUS:VAR|WealthBonus|-1
+Laborer (Blue Collar)		CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Laborer)	ABILITY:Occupation|AUTOMATIC|Blue Collar		BONUS:VAR|WealthBonus|-2
+Laborer (Rural)			CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Laborer)	ABILITY:Occupation|AUTOMATIC|Rural			BONUS:VAR|WealthBonus|-1
+Pilot (Astronaut Trainee)	CATEGORY:Base Programming	TYPE:BaseProgramming	VISIBLE:DISPLAY	PRERACE:1,Android (Pilot)	ABILITY:Occupation|AUTOMATIC|Astronaut Trainee	BONUS:VAR|WealthBonus|-1
 
 
 ###Block: Occupation benefit MODs

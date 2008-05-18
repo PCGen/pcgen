@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 30 00:06:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -286,8 +286,8 @@ CLASS:Combat Style (Sword that Believes)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Di
 
 # Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Emerald Society Archaeologist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:ESArc		MAXLEVEL:6	SOURCEPAGE:p.185	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name				Required Feat							Req. Special Ability	!PRESA			Required Skill																														Required Template
-CLASS:Emerald Society Archaeologist	PREFEAT:2,Diligent,Skill Focus(Knowledge (History))	PRESA:1,Trapfinding	!PRESA:1,Illiterate	PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3	PRESKILL:1,Knowledge (Geography)=5	PRESKILL:1,Knowledge (History)=8	PRESKILL:3,Disable Device,Gather Information,Search=4	PRETEMPLATE:1,Emerald Society
+# Class Name				Required Feat							Req. Special Ability	Prohibite Special Ability	Required Skill																														Required Template
+CLASS:Emerald Society Archaeologist	PREFEAT:2,Diligent,Skill Focus(Knowledge (History))	PRESA:1,Trapfinding	!PRESA:1,Illiterate		PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3	PRESKILL:1,Knowledge (Geography)=5	PRESKILL:1,Knowledge (History)=8	PRESKILL:3,Disable Device,Gather Information,Search=4	PRETEMPLATE:1,Emerald Society
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Gather Information|Hide|TYPE.Knowledge|Listen|Open Locks|TYPE.Profession|Research|Ride|Search|Sense Motive|Survival|Swim|Use Magic Device|Use Rope
 1	SAB:Ancient Lore (Ex)	SAB:Subject Specialization (Ex)														ADD:FEAT|1|Emerald Proficiency	ADD:FEAT|1|Subject Specialization

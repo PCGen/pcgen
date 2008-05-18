@@ -1,5 +1,5 @@
-# CVS $Revision: 2792 $ $Author: tir-gwaith $ -- Fri Jan 25 00:46:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Huckster	SOURCESHORT:WotHuckster	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision: 2792 $ $Author: tir-gwaith $ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm
 
 ###Block: Diffusionist class abilities
 # Feat Name				Type			Visible	Special ABility				Multiple?	Choose											Source Page

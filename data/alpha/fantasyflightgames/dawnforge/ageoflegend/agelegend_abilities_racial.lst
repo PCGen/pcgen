@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 30 00:42:02 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -44,7 +44,7 @@ CATEGORY=Dawnforge Ability|Divine Mastery.MOD	TYPE:WoodElfRacialTalent
 ##################
 
 ###Block: Ghost Elf Racial Talents
-# Ability Name		Category of Ability		Type					Visible	Required Ability								Required Feat		Req. Casting Type			Req. Spell Type		Required Text									Special ABility										Define			Stackable?	Multiple?	Choose		Bonus to Ability Pool					Modify VAR				Source Page
+# Ability Name		Category of Ability		Type					Visible	Required Ability								Required Feat		PRESPELLCAST			Req. Spell Type		Required Text									Special ABility										Define			Stackable?	Multiple?	Choose		Bonus to Ability Pool					Modify VAR				Source Page
 Blessing of Life		CATEGORY:Dawnforge Ability	TYPE:GhostElfRacialTalent	VISIBLE:YES																																			SAB:Blessing of Life (Su)														MULT:NO																	SOURCEPAGE:p.24
 Catch the Winds		CATEGORY:Dawnforge Ability	TYPE:GhostElfRacialTalent	VISIBLE:YES																				PRESPELLTYPE:1,Any=1												SAB:Catch the Winds (Su) (% bags, % minutes/day)|CatchWindsBags|TL	DEFINE:CatchWindsBags|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|CatchWindsBags|1	SOURCEPAGE:p.25
 Dance of the Return	CATEGORY:Dawnforge Ability	TYPE:GhostElfRacialTalent	VISIBLE:YES																																			SAB:Dance of the Return (Ex)														MULT:NO																	SOURCEPAGE:p.25
@@ -417,7 +417,7 @@ Unblinking Gaze	CATEGORY:Dawnforge Ability	TYPE:OgreRacialTalent	VISIBLE:YES				
 ##TODO: Ox Back increase carrying capacity with 50%, possible???
 
 ###Block: Ogre Racial Transformations
-# Ability Name				Category of Ability		Type								Visible	Required Ability										Required AL		Special ABility								Multiple?	Move		MOVECLONE			Source Page
+# Ability Name				Category of Ability		Type								Visible	Required Ability										Required AL		Special ABility								Multiple?	Move		Clone Movement		Source Page
 Aquatic					CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Swimmer								SAB:Aquatic (Ex)								MULT:NO							SOURCEPAGE:p.66
 Awakening Magic (Charm Person)	CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:YES																SAB:Awakening Magic (Sp) Charm Person				MULT:NO							SOURCEPAGE:p.66
 Awakening Magic (Darkness)		CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation.AwakeningMagic	VISIBLE:YES																SAB:Awakening Magic (Sp) Darkness					MULT:NO							SOURCEPAGE:p.66

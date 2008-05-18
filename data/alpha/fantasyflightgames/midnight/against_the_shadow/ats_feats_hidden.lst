@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Mar  2 21:06:28 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
 
 ###Block: Elemental Aspects
 
-# Feat Name			Type				Visible	Prohibited Feat				Multiple Requirements										Required Template				Special ABility							Define				Stackable?	Multiple?	Choose		MOVECLONE			Combat bonus				Bonus to skill			Modify VAR
+# Feat Name			Type				Visible	Prohibited Feat				Multiple Requirements										Required Template				Special ABility							Define				Stackable?	Multiple?	Choose		Clone Movement		Combat bonus				Bonus to skill			Modify VAR
 Light Step			TYPE:ElementalAspect	VISIBLE:NO	!PREFEAT:5,CHECKMULT,Light Step	PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Air Elemental Taint]							SAB:Light Step (Su)											STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:SKILL|Move Silently|2
 Breathless			TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Air Elemental Taint]							SAB:Breathless (Ex)
 Acidic Secretions		TYPE:ElementalAspect	VISIBLE:NO							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Earth Elemental Taint]							SAB:Acidic Secretions (Ex)
@@ -22,18 +22,18 @@ Water Elemental Cohort	TYPE:ElementalCohort	VISIBLE:YES																				PRETE
 
 ###Block: Energy Resistances and Immunities
 
-# Feat Name				Type							Visible	Special ABility															Define					Modify VAR										Remove Object
+# Feat Name				Type							Visible	Special ABility															Define					Remove Object				Modify VAR
 Acid Resistance			TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SAB:Resistance to acid % (Ex)|AcidResistance|!PREFEAT:1,Energy Immunity (acid)				DEFINE:AcidResistance|0
 Cold Resistance			TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SAB:Resistance to cold % (Ex)|ColdResistance|!PREFEAT:1,Energy Immunity (cold)				DEFINE:ColdResistance|0
 Electricity Resistance		TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SAB:Resistance to electricity % (Ex)|ElectricityResistance|!PREFEAT:1,Energy Immunity (electricity)	DEFINE:ElectricityResistance|0
 Fire Resistance			TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SAB:Resistance to fire % (Ex)|FireResistance|!PREFEAT:1,Energy Immunity (fire)				DEFINE:FireResistance|0
 Sonic Resistance			TYPE:EnergyResistance.ElementalResistance	VISIBLE:NO	SAB:Resistance to sonic % (Ex)|SonicResistance|!PREFEAT:1,Energy Immunity (fire)				DEFINE:SonicResistance|0
 
-Energy Immunity (acid)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to acid (Ex)																				BONUS:VAR|AcidResistance|-(min(AcidResistance,100))			REMOVE:FEAT|Acid Resistance
-Energy Immunity (cold)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to cold (Ex)																				BONUS:VAR|ColdResistance|-(min(ColdResistance,100))			REMOVE:FEAT|Cold Resistance
-Energy Immunity (electricity)	TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to electricity (Ex)																		BONUS:VAR|ElectricityResistance|-(min(ElectricityResistance,100))	REMOVE:FEAT|Electricity Resistance
-Energy Immunity (fire)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to fire (Ex)																				BONUS:VAR|FireResistance|-(min(FireResistance,100))			REMOVE:FEAT|Fire Resistance
-Energy Immunity (sonic)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to sonic (Ex)																			BONUS:VAR|SonicResistance|-(min(SonicResistance,100))			REMOVE:FEAT|Sonic Resistance
+Energy Immunity (acid)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to acid (Ex)																				REMOVE:FEAT|Acid Resistance		BONUS:VAR|AcidResistance|-(min(AcidResistance,100))
+Energy Immunity (cold)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to cold (Ex)																				REMOVE:FEAT|Cold Resistance		BONUS:VAR|ColdResistance|-(min(ColdResistance,100))
+Energy Immunity (electricity)	TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to electricity (Ex)																		REMOVE:FEAT|Electricity Resistance	BONUS:VAR|ElectricityResistance|-(min(ElectricityResistance,100))
+Energy Immunity (fire)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to fire (Ex)																				REMOVE:FEAT|Fire Resistance		BONUS:VAR|FireResistance|-(min(FireResistance,100))
+Energy Immunity (sonic)		TYPE:Special.EnergyImmunity			VISIBLE:NO	SAB:Immune to sonic (Ex)																			REMOVE:FEAT|Sonic Resistance		BONUS:VAR|SonicResistance|-(min(SonicResistance,100))
 
 ###Block: Special Qualities
 

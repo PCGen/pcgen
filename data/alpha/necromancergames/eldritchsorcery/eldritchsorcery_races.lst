@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 22:33:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
-# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Required AL	Combat bonus						Stat bonus											Racial HD Class Skills	Virtual Feat		Nb Legs	Special ABility								Define				MONSTERCLASS				Main Race Type		CR	Source Page
-Dust Devil	STARTFEATS:1	SIZE:M	MOVE:Fly,100	FACE:5	REACH:5	VISION:Darkvision (60')	PREALIGN:TN	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|-6	MONCSKILL:Listen|Spot	VFEAT:Weapon Finesse	LEGS:0	SAB:Air Mastery (Ex)	SAB:Whirlwind (Su) DC %|WhirlwindDC	DEFINE:WhirlwindDC|11+STR	MONSTERCLASS:Elemental (Air/Fire):2	RACETYPE:Elemental	CR:2	SOURCEPAGE:p.120
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Required AL	Combat bonus						Stat bonus											Racial HD Class Skills	Virtual Feat		Nb Legs	Special ABility								Define				Monster Class Name and Starting Level	Main Race Type		CR	Source Page
+Dust Devil	STARTFEATS:1	SIZE:M	MOVE:Fly,100	FACE:5	REACH:5	VISION:Darkvision (60')	PREALIGN:TN	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|-6	MONCSKILL:Listen|Spot	VFEAT:Weapon Finesse	LEGS:0	SAB:Air Mastery (Ex)	SAB:Whirlwind (Su) DC %|WhirlwindDC	DEFINE:WhirlwindDC|11+STR	MONSTERCLASS:Elemental (Air/Fire):2		RACETYPE:Elemental	CR:2	SOURCEPAGE:p.120
 #
 # EoF
 #

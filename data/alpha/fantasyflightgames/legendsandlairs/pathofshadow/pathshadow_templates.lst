@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
@@ -101,7 +101,7 @@ Unfettered Falcon - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.158	SAB:Ligtning Esc
 #
 
 ###Block: Organizations
-# Template Name										Visible	Source Page		Required AL				Req. Att.	Required Feat	Required Lvl	Required Skill																!PRESKILL			Required Template												Bonus to skill							Feat											Removable?		Innate Spells
+# Template Name										Visible	Source Page		Required AL				Req. Att.	Required Feat	Required Lvl	Required Skill																Prohibited Skill		Required Template												Bonus to skill							Feat											Removable?		Innate Spells
 Assassin's Guild - Rank 1 - Bravo							VISIBLE:YES	SOURCEPAGE:p.158																																																																						REMOVABLE:YES
 Assassin's Guild - Rank 2 - Executioner						VISIBLE:YES	SOURCEPAGE:p.158						PREATT:2							PRESKILL:1,Disguise=1	PRESKILL:1,Hide,Move Silently=3													PRETEMPLATE:1,Assassin's Guild - Rank 1 - Bravo																											REMOVABLE:YES
 Assassin's Guild - Rank 3 - Assassin						VISIBLE:YES	SOURCEPAGE:p.158						PREATT:4							PRESKILL:1,Disguise=3	PRESKILL:1,Hide,Move Silently=5													PRETEMPLATE:1,Assassin's Guild - Rank 2 - Executioner																										REMOVABLE:YES

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 13:34:06 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 
 #MEDIUM ----------------------------------------------------------------------------------------------------------
-# Equipment Name		Required Proficiency			Type							Contains				Cost		Weight	Damage	Range		Size		Source Page		Special Property
-Combat Soaker		PROFICIENCY:WEAPON|Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:UNLIM|Holy Water=6	COST:120	WT:5		DAMAGE:0	RANGE:5	SIZE:M	SOURCEPAGE:94	SPROP:See Description for effects
-Combat Soaker (powered)	PROFICIENCY:WEAPON|Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash	CONTAINS:UNLIM|Holy Water=6	COST:220	WT:5		DAMAGE:0	RANGE:10	SIZE:M	SOURCEPAGE:94	SPROP:See Description for effects
+# Equipment Name		Required Proficiency			Type									Contains				Cost		Weight	Damage	Range		Size		Source Page		Special Property
+Combat Soaker		PROFICIENCY:WEAPON|Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash.Container	CONTAINS:UNLIM|Holy Water=6	COST:120	WT:5		DAMAGE:0	RANGE:5	SIZE:M	SOURCEPAGE:94	SPROP:See Description for effects
+Combat Soaker (powered)	PROFICIENCY:WEAPON|Combat Soaker	TYPE:Weapon.Simple.Ranged.Special.Splash.Container	CONTAINS:UNLIM|Holy Water=6	COST:220	WT:5		DAMAGE:0	RANGE:10	SIZE:M	SOURCEPAGE:94	SPROP:See Description for effects

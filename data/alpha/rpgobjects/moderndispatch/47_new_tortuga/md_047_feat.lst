@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern Dispatch #47 - New Tortuga	SOURCESHORT:MD47-NT	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053
 
 ###Block: standard
@@ -12,5 +12,5 @@ EVA Training			TYPE:General																											DESC:You have learned how 
 Extra Psycher			TYPE:General																							PREVARGTEQ:Psyche,1	DESC:You can use your psyche more often a day than normal						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|Psyche|4	SOURCEPAGE:p.5
 
 ###Block: hidden
-# Feat Name		Type			Visible	Define				SAB
-Empathic Surgery	TYPE:ClassAbility	VISIBLE:NO	DEFINE:EmpathicSurgery|0	SAB:Empathic Surgery +%d6|EmpathicSurgery
+# Feat Name		Type			Visible	Special ABility					Define
+Empathic Surgery	TYPE:ClassAbility	VISIBLE:NO	SAB:Empathic Surgery +%d6|EmpathicSurgery	DEFINE:EmpathicSurgery|0

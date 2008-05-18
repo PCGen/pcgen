@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Huckster	SOURCESHORT:WotHuckster	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Feat Name		Type			Req. Spell Type		Description																Source Page
 Arcane Prodigy	TYPE:Special	PRESPELLTYPE:1,Arcane=0	DESC:You learn a number of extra hexes equal to half your Intelligence bonus (rounded up) each level.	SOURCEPAGE:p.12

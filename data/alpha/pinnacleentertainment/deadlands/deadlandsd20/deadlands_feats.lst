@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr  3 00:05:25 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Feat Name						Type			Visible		Req. Att.	Required Class										Required Feat						Required Lvl	Required Non-Monster Lvl	Req. Special Ability	Required Skill			Required Stat	Var. Min. Value			Define		Description																																														Stackable?	Multiple?	Choose																																											Automaticaly Gained Weapon Prof.	Save checks bonus					Combat bonus		Bonus to skill						Add to vision			Stat bonus		Modify VAR			Weapon prof. bonus			Class Skill					Vision			Source Page
 Academic Mastery					TYPE:Special	VISIBLE:EXPORT			PRECLASS:1,Mad Scientist=5																																												DESC:You gain a +2 bonus on the chosen skill - does not stack.																																					STACK:NO	MULT:YES	CHOOSE:STRING|Demolitions|Disable Device|Knowledge (Anthropology)|Knowledge (Architecture and Engineering)|Knowledge (Biology)|Knowledge (Chemistry)|Knowledge (Engineering)|Knowledge (Geology)|Knowledge (Mathematics)|Knowledge (Meteorology)|Knowledge (Physics)																		BONUS:SKILL|LIST|2																																	SOURCEPAGE:p.33

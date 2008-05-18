@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
-# Deity Name	Product Identity?	Domains																				Deity Weapon							PANTHEON
+# Deity Name	Product Identity?	Domains																				Deity Weapon							Pantheon
 Althares		NAMEISPI:YES	DOMAINS:Artificer,Commerce,Divination,Holy,Knowledge|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE							DEITYWEAP:Warhammer|Altherian Flintlock (Pistol)	PANTHEON:Arcanis
 Anshar		NAMEISPI:YES	DOMAINS:Healing,Holy,Pain,Strength,Suffering,Travel|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE							DEITYWEAP:Unarmed Strike					PANTHEON:Arcanis
 Belisarda		NAMEISPI:YES	DOMAINS:Air,Animal,Earth,Fire,Healing,Holy,Plant,Protection,Refuge,Storm,Travel,Water|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DEITYWEAP:Longbow							PANTHEON:Arcanis

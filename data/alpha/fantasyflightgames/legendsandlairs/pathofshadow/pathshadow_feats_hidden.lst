@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -36,7 +36,7 @@ Insight into Deceit	TYPE:ConArtistSpecialAbilities	VISIBLE:NO	SAB:Insight into D
 ##########################
 
 ###Block:Acolyte of Chance special abilities (similar to the rogue)
-# Feat Name						Type					Visible	Required Feat			Prohibited Feat			!PRESA				Special ABility			Innate Spells				Stackable?	Multiple?	Choose		Add					Save checks bonus		Modify VAR				Source Page
+# Feat Name						Type					Visible	Required Feat			Prohibited Feat			Prohibite Special Ability	Special ABility			Innate Spells				Stackable?	Multiple?	Choose		Add					Save checks bonus		Modify VAR				Source Page
 Lucky Strike					TYPE:ChanceSpecialAbilities	VISIBLE:NO																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|LuckyStrike|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Close Call						TYPE:ChanceSpecialAbilities	VISIBLE:NO																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|CloseCall|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 One More Time					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:One More Time (Su)										MULT:NO																		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities

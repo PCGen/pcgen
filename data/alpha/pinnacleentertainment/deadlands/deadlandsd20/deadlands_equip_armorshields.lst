@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 20 12:37:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name			Required Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Light Leather			PROFICIENCY:ARMOR|Light Leather	TYPE:Armor.Light.Suit			COST:5	WT:10		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.66	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
 Cane Breastguard			PROFICIENCY:ARMOR|Cane Breastguard	TYPE:Armor.Light.Suit			COST:15	WT:5		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.66	SPELLFAILURE:0		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 #
 ###Block:Armor
 #
@@ -22,7 +22,7 @@ Silvered		KEY:DAGSLVR		TYPE:Dagger		COST:10	ITYPE:Silvered	SOURCEPAGE:p.113
 #EXCLUDEEQ_PHB	VISIBLE:NO	ITYPE:Masterwork.Adamantine
 
 ###Block:Weapon
-# Modifier Name				Type		Cost			Keys to replace	Source Page		Required Item		Required Type	BONUS:EQMWEAPON						Bonus to skill		Weapon prop. bonus
+# Modifier Name	Unique Key		Type		Cost			Keys to replace	Source Page		Required Item		Required Type	BONUS:EQMWEAPON						Bonus to skill		Weapon prop. bonus
 Engraved		KEY:ENGRAVED	TYPE:Weapon	COST:BASECOST/5				SOURCEPAGE:p.65					PRETYPE:1,Firearm
 Gold-inlaid		KEY:GOLD_INLAID	TYPE:Weapon	COST:BASECOST/4	REPLACES:ENGRAVED	SOURCEPAGE:p.65					PRETYPE:1,Firearm
 Hardin's Card	KEY:HARDINS_CARD	TYPE:Weapon	COST:0					SOURCEPAGE:p.197	PREITEM:1,Hardin's Card	PRETYPE:1,Pistol													BONUS:WEAPON|TOHIT|2|TYPE=ENHANCEMENT

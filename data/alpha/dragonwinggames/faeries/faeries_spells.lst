@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jun 27 19:28:34 2007 -- reformated by prettylst.pl v1.38 (build 2949)
-SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
 
 # Spell Name			Classes of caster								Domains granting the spell	School			Sub-School				Spell Descriptors			Type				Components			Casting Time				Range				Target Area or Effect												Duration									Save Info								Spell Resistance					Description																	Source Page
 Anchor Fey				CLASSES:Sorcerer,Wizard=5											SCHOOL:Abjuration												TYPE:Arcane			COMPS:V S			CASTTIME:1 action				RANGE:Medium		TARGETAREA:Ray													DURATION:(CASTERLEVEL) minutes					SAVEINFO:None							SPELLRES:Yes [object]				DESC:Prevents fey creatures from leaving plane											SOURCEPAGE:p.92

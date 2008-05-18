@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 30 00:06:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -46,7 +46,7 @@ Rebuke Aquatic Undead		TYPE:Special.Turning.TurnYarrisGood		VISIBLE:NO	PREALIGN:
 
 ###Block: Elorii Feats
 #Elorii Bloodline feats
-# Feat Name					Type						Visible		Multiple Requirements							Special ABility													Innate Spells										Description																																	Template				MOVECLONE			Caster level					Add to base move
+# Feat Name					Type						Visible		Multiple Requirements							Special ABility													Innate Spells										Description																																	Template				Clone Movement		Caster level					Add to base move
 Ardakene Bloodline			TYPE:Special.EloriiBloodline		VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Ardakene]																	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Cure Light Wounds (Bloodline)	DESC:As a spell-like ability, you may cast cure light wounds 1/day. You may ignore the +5 limit when using the blooline ability.																						BONUS:CASTERLEVEL|RACE.Elorii.RESET|TL
 Berokene Bloodline			TYPE:Special.EloriiBloodline		VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Berokene]																	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Water Breathing				DESC:As a spell-like ability, you may cast water breathing 1/day.																																	BONUS:CASTERLEVEL|RACE.Elorii.RESET|TL
 Kelekene Bloodline			TYPE:Special.EloriiBloodline		VISIBLE:EXPORT	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Kelekene]																													DESC:As a free action, 1/day, you may make one bonus attack at your highest attack bonus. You may only use this on your turn, and in a round when you are using an standard or full round attack action.										BONUS:CASTERLEVEL|RACE.Elorii.RESET|TL

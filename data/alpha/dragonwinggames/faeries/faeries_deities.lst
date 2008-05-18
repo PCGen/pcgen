@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
-# Deity Name	Domains															Desciption of Deity/Title																Holy Item	Deity Weapon	ALIGN		Source Page		Required Class
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
+# Deity Name	Domains															Desciption of Deity/Title																Holy Item	Deity Weapon	Alignment	Source Page		Required Class
 None (Faemancer)	DOMAINS:Air,Animal,Chaos,Dream,Fey,Luck,Magic,Plant,Protection,Travel,Trickery|PREALIGN:CG,CN	DESC:Grants access to the Air, Animal, Chaos, Dream, Fey, Luck, Magic, Plant, Protection, Travel, or Trickery domain.	SYMBOL:None	DEITYWEAP:None	ALIGN:CN	SOURCEPAGE:p.20	PRECLASS:1,Faemancer=1

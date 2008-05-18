@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Huckster	SOURCESHORT:WotHuckster	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Spell Name	Classes of caster		School			Sub-School			Type		Components	Casting Time		Range				Item		Target Area or Effect							Duration						Save Info				Spell Resistance	Description		Source Page
 Ace in the Hole	CLASSES:Huckster=4	SCHOOL:Transmutation					TYPE:Arcane	COMPS:F S	CASTTIME:10 minutes	RANGE:Touch					TARGETAREA:One small focus						DURATION:1 day/level				SAVEINFO:None			SPELLRES:No		DESC:See text	SOURCEPAGE:p.15

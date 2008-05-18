@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 01:10:13 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern Dispatch #47 - New Tortuga	SOURCESHORT:MD47-NT	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
@@ -7,10 +7,10 @@ CLASS:Psychic Healer	HD:4		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHEC
 CLASS:Psychic Healer	PREFEAT:2,Surgery,Telepathy	PRESKILL:2,Concentration,Treat Injury=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Healer	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Sense Motive|Spot|Treat Injury
-1	BONUS:VAR|EmpathicSurgery|(CL+1)/2	AUTO:FEAT|Empathic Surgery	SAB:Natural Endorphins
-2	BONUS:VAR|Psyche|CL/2
-3												SAB:Natural Stim Dose
-5												SAB:Mind Heals the Body
+1	SAB:Natural Endorphins	BONUS:VAR|EmpathicSurgery|(CL+1)/2	AUTO:FEAT|Empathic Surgery
+2					BONUS:VAR|Psyche|CL/2
+3	SAB:Natural Stim Dose
+5	SAB:Mind Heals the Body
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Psychic Pilot	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+2)/2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL/4)+2	BONUS:VAR|Action|CL*7
@@ -18,7 +18,7 @@ CLASS:Psychic Pilot	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECK
 CLASS:Psychic Pilot	PREFEAT:2,Precognition,Starship Operation (Ultralight)	PRESKILL:2,Concentration,Pilot=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Pilot	STARTSKILLPTS:2	CSKILL:Bluff|Computer Use|Concentration|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Pilot|Sense Motive|Spot
-1					SAB:Zen Piloting
-2	BONUS:VAR|Psyche|CL/2
-3					SAB:Empathic Dog Fighting
-5					SAB:Empathic Evasion
+1	SAB:Zen Piloting
+2						BONUS:VAR|Psyche|CL/2
+3	SAB:Empathic Dog Fighting
+5	SAB:Empathic Evasion

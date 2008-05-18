@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 00:46:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
 #Martial Ranged Weapons Name				TYPE												Cost		Weight	Weapon Size	Base Damage		Critical Range	Critical Multiplier	Range		Required Proficiency			Bonuses		# of Attacks		Source Material
 # Equipment Name						Required Proficiency				Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Bonus to skill
 American Pepperbox (Derringer/SA)										TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.CnB.Piercing	COST:12	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4+1	RANGE:15	SIZE:T	SOURCEPAGE:p.38

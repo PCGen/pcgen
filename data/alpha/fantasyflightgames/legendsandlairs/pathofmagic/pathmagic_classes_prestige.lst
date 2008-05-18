@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:32:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -9,7 +9,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Negotiator	HD:4		TYPE:PC.Prestige	ABB:ArN		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name		Required Feat				Required Skill											Req. Spell Type		PRESUBCLASS
+# Class Name		Required Feat				Required Skill											Req. Spell Type		Required Subclass
 CLASS:Arcane Negotiator	PREFEAT:1,Spell Focus (Conjuration)	PRESKILL:2,Diplomacy,Sense Motive=10	PRESKILL:1,Knowledge (The Planes)=5	PRESPELLTYPE:1,Arcane=5	PRESUBCLASS:1,Conjurer
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft

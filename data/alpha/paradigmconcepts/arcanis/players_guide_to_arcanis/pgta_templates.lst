@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #AUTHOR:Evan Miller, 2004
 
@@ -41,7 +41,7 @@ Mourners in Silence	NAMEISPI:YES	VISIBLE:YES
 
 #############################	REGIONAL TEMPLATES	###################################################
 ###Block: Regions
-# Template Name	Product Identity?	Visible	Template																				Required Race		Prohibited Race				Class Skill							Change Weapon Prof. Category		Automatic Languages						REGION
+# Template Name	Product Identity?	Visible	Template																				Required Race		Prohibited Race				Class Skill							Change Weapon Prof. Category		Automatic Languages						Region
 Altheria		NAMEISPI:YES	VISIBLE:YES																										!PRERACE:1,Elorii,Dwarf,Ss'ressen	CSKILL:Knowledge (History)|TYPE.Craft		CHANGEPROF:TYPE.Flintlock=Martial	LANGAUTO:Altherin (Ancient Imperial),Low Coryani	REGION:Altheria
 Elonbe		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Elorii								CSKILL:Survival																					REGION:Elonbe
 Hinterlands		NAMEISPI:YES	VISIBLE:YES	TEMPLATE:CHOOSE:The South|Mil Takara|The Pengik Peninsula|The Vanomir|Sicaris|The Northern Desert|She'Haulk Mountains|Censure					!PRERACE:1,Elorii,Dwarf,Ss'ressen															LANGAUTO:Low Coryani,Ying Hir					REGION:Hinterlands
@@ -57,7 +57,7 @@ Nol Dappa		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Dwarf,Gnome		
 Entaris		NAMEISPI:YES	VISIBLE:YES																						PRERACE:1,Elorii								CSKILL:Diplomacy																					REGION:Entaris
 
 ###Block: Subregions
-# Template Name		Product Identity?	Visible		Class Skill						Automatic Languages		SUBREGION
+# Template Name		Product Identity?	Visible		Class Skill						Automatic Languages		Subregion
 Annonica			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Appraise										SUBREGION:Annonica
 Balantica			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Survival										SUBREGION:Balantica
 Bhiharn			NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Sense Motive									SUBREGION:Bhiharn
@@ -93,7 +93,7 @@ Western Marches		NAMEISPI:YES	VISIBLE:EXPORT	CSKILL:Ride											SUBREGION:Wes
 
 #################################	ELORII TEMPLATES	############################################
 ###Block: Elorii Subraces
-# Template Name	Product Identity?	Visible	Special ABility							Save checks bonus		Bonus to skill							Stat bonus							FAVOREDCLASS		Automatic Languages			Move			Removable?		SUBRACE		Type		Innate Spells
+# Template Name	Product Identity?	Visible	Special ABility							Save checks bonus		Bonus to skill							Stat bonus							FAVOREDCLASS		Automatic Languages			Move			Removable?		Subrace		Type		Innate Spells
 Ardakene		NAMEISPI:YES	VISIBLE:YES	SAB:May not select any elemental domains.			BONUS:CHECKS|Will|2	BONUS:SKILL|Heal,Survival|2|TYPE=Racial			BONUS:STAT|WIS,CHA|2	BONUS:STAT|STR,CON|-2	FAVOREDCLASS:Cleric	LANGAUTO:Eloran,Low Coryani					REMOVABLE:NO	SUBRACE:Ardakene			SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Cleric")|Speak With Animals
 Berokene		NAMEISPI:YES	VISIBLE:YES	SAB:May not select any elemental domain except water.	BONUS:CHECKS|Will|2	BONUS:SKILL|Balance,Profession (Sailor)|2|TYPE=Racial	BONUS:STAT|WIS,DEX|2	BONUS:STAT|INT,CON|-2	FAVOREDCLASS:Rogue	LANGAUTO:Eloran,Low Coryani,Aquan	MOVE:Swim,30	REMOVABLE:NO	SUBRACE:Berokene
 Kelekene		NAMEISPI:YES	VISIBLE:YES	SAB:May not select any elemental domain except fire.	BONUS:CHECKS|Will|2	BONUS:SKILL|Intimidate|2|TYPE=Racial			BONUS:STAT|INT,DEX|2	BONUS:STAT|WIS,CON|-2	FAVOREDCLASS:Wizard	LANGAUTO:Eloran,Low Coryani,Ignan				REMOVABLE:NO	SUBRACE:Kelekene
@@ -120,7 +120,7 @@ PastDruid		VISIBLE:NO	FAVOREDCLASS:Druid	REMOVABLE:NO
 #############################	VAL TEMPLATES	################################################
 
 ###Block: Val Bloodlines
-# Template Name	Product Identity?	FAVOREDCLASS				SUBRACE
+# Template Name	Product Identity?	FAVOREDCLASS				Subrace
 Abebi			NAMEISPI:YES	FAVOREDCLASS:Expert			SUBRACE:Abebi
 Assante		NAMEISPI:YES	FAVOREDCLASS:Patrician			SUBRACE:Assante
 Baucisz		NAMEISPI:YES	FAVOREDCLASS:Rogue			SUBRACE:Baucisz
@@ -161,14 +161,14 @@ HolrynVirdan	NAMEISPI:YES	FAVOREDCLASS:Fighter			SUBRACE:Holryn
 
 
 ###Block: Bloodrank Levels
-# Template Name	Visible		Special ABility			Define										Required Race	Required Template				Modify VAR																Removable?		Add
-First Bloodrank	VISIBLE:DISPLAY	SAB:Val Bloorank %|ValBlood	DEFINE:ValBlood|0	DEFINE:BloodBonus|0	DEFINE:BloodTotal|0	PRERACE:1,Val							BONUS:VAR|ValBlood|1	BONUS:VAR|BloodTotal|ValBlood+BloodBonus	BONUS:VAR|BonusPowerPoints|ValBlood	REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne
-Second Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,First Bloodrank		BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne
-Third Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Second Bloodrank	BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo
-Fourth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Third Bloodrank		BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo
-Fifth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Fourth Bloodrank	BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree
-Sixth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Fifth Bloodrank		BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree
-Seventh Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Sixth Bloodrank		BONUS:VAR|ValBlood|1														REMOVABLE:NO	ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree,TYPE=BloodRankFour
+# Template Name	Visible		Special ABility			Define										Required Race	Required Template				Modify VAR																Add															Removable?
+First Bloodrank	VISIBLE:DISPLAY	SAB:Val Bloorank %|ValBlood	DEFINE:ValBlood|0	DEFINE:BloodBonus|0	DEFINE:BloodTotal|0	PRERACE:1,Val							BONUS:VAR|ValBlood|1	BONUS:VAR|BloodTotal|ValBlood+BloodBonus	BONUS:VAR|BonusPowerPoints|ValBlood	ADD:FEAT|1|TYPE=BloodRankOne											REMOVABLE:NO
+Second Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,First Bloodrank		BONUS:VAR|ValBlood|1														ADD:FEAT|1|TYPE=BloodRankOne											REMOVABLE:NO
+Third Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Second Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo								REMOVABLE:NO
+Fourth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Third Bloodrank		BONUS:VAR|ValBlood|1														ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo								REMOVABLE:NO
+Fifth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Fourth Bloodrank	BONUS:VAR|ValBlood|1														ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree				REMOVABLE:NO
+Sixth Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Fifth Bloodrank		BONUS:VAR|ValBlood|1														ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree				REMOVABLE:NO
+Seventh Bloodrank	VISIBLE:DISPLAY																	PRERACE:1,Val	PRETEMPLATE:1,Sixth Bloodrank		BONUS:VAR|ValBlood|1														ADD:FEAT|1|TYPE=BloodRankOne,TYPE=BloodRankTwo,TYPE=BloodRankThree,TYPE=BloodRankFour	REMOVABLE:NO
 
 
 
@@ -182,7 +182,7 @@ WickedSting		VISIBLE:NO		SAB:Poison Sting (Ex) - Fortitude Save DC % (Primary 1d
 
 
 ###Block: DWARF TEMPLATES	################################################
-# Template Name	Product Identity?	Visible	Special ABility																																				Bonus to skill					Stat bonus					FAVOREDCLASS			Automatic Languages		Bonus Languages									Removable?		SUBRACE
+# Template Name	Product Identity?	Visible	Special ABility																																				Bonus to skill					Stat bonus					FAVOREDCLASS			Automatic Languages		Bonus Languages									Removable?		Subrace
 Encalan		NAMEISPI:YES	VISIBLE:NO	SAB:+1 racial bonus on attack rolls against trolls.	SAB:+4 Dodge bonus to Armor Class against trolls.	SAB:+2 racial bonus on Appraise and Craft checks that are related to gemstones or precious metals.				BONUS:SKILL|TYPE.Craft|4|TYPE=Racial	BONUS:STAT|INT|2	BONUS:STAT|STR|-2	FAVOREDCLASS:Wizard.Conjurer						LANGBONUS:High Coryani,Altherin (Ancient Imperial),Infernal		REMOVABLE:NO	SUBRACE:Encali
 Nol Dappan		NAMEISPI:YES	VISIBLE:NO	SAB:Fire Resistance 10	SAB:+1 racial bonus on attack rolls against gnolls.	SAB:+4 Dodge bonus to Armor Class against gnolls.	SAB:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items.	BONUS:SKILL|TYPE.Craft|4|TYPE=Racial							FAVOREDCLASS:Barbarian							LANGBONUS:Yhing Hir,Cancerese							REMOVABLE:NO	SUBRACE:Nol Dappa
 Solani		NAMEISPI:YES	VISIBLE:NO	SAB:+1 racial bonus on attack rolls against giants.	SAB:+4 Dodge bonus to Armor Class against monsters of the giant type.	SAB:+2 racial bonus on Appraise and Craft checks that are related to stone or metal.			BONUS:SKILL|TYPE.Craft|4|TYPE=Racial	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2	FAVOREDCLASS:Fighter							LANGBONUS:High Coryani,Altherin (Ancient Imperial),Milandisian	REMOVABLE:NO	SUBRACE:Solanis Mor
@@ -191,7 +191,7 @@ Tultipetan		NAMEISPI:YES	VISIBLE:NO	SAB:+1 racial bonus on attack rolls against 
 
 
 ###Block: Ss'Ressen Templates	########################################
-# Template Name		Visible	Template		Combat bonus						Bonus to skill				Stat bonus						FAVOREDCLASS		Virtual Feat		Automatic Languages			Bonus Languages						Removable?		SUBRACE				GENDERLOCK
+# Template Name		Visible	Template		Combat bonus						Bonus to skill				Stat bonus						FAVOREDCLASS		Virtual Feat		Automatic Languages			Bonus Languages						Removable?		Subrace				GENDERLOCK
 Black Talon Male		VISIBLE:YES	TEMPLATE:Milandir	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Balance,Jump,Swim|2	BONUS:STAT|DEX|2	BONUS:STAT|INT|-2		FAVOREDCLASS:Ranger					LANGAUTO:Ss'ressen,Milandisian	LANGBONUS:Ssethric,Low Coryani,Cancerese		REMOVABLE:NO	SUBRACE:Black Talon Clutch	GENDERLOCK:Male
 Black Talon Female	VISIBLE:YES	TEMPLATE:Milandir	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Balance,Jump,Swim|2	BONUS:STAT|DEX|2	BONUS:STAT|INT|-2		FAVOREDCLASS:Ranger					LANGAUTO:Ss'ressen,Milandisian	LANGBONUS:Ssethric,Low Coryani,Cancerese		REMOVABLE:NO	SUBRACE:Black Talon Clutch	GENDERLOCK:Female
 Ashen Hide Male		VISIBLE:YES	TEMPLATE:Canceri	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE							BONUS:STAT|DEX|2	BONUS:STAT|INT,CHA|-2	FAVOREDCLASS:Barbarian	VFEAT:Dragon's Hide	LANGAUTO:Ss'ressen,Cancerese		LANGBONUS:Ssethric,Low Coryani,Milandisian	REMOVABLE:NO	SUBRACE:Ashen Hide Clutch	GENDERLOCK:Male

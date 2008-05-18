@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Dec 14 20:57:50 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 #Notes: Using VFEAT for Weapon Finesse - part of animal (animals don't get feats).
 # Race Name						Size		Move						Reach		Vision						Required AL	Combat bonus						Bonus to skill															Stat bonus														Virtual Feat				Natural Attacks																																	Special ABility																						Define			Main Race Type	Template		Hit Dice Advancement		CR	Source Page
 Zombie (Undead Ape)				SIZE:L	MOVE:Walk,30,Climb,30			REACH:5	VISION:Low-light					PREALIGN:CE	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE																		BONUS:STAT|STR|12	BONUS:STAT|DEX|5	BONUS:STAT|INT|-9	BONUS:STAT|WIS|1	BONUS:STAT|CHA|-7							NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,1,1d6														SAB:Scent(Ex)	SAB:Undead(Su)																			DEFINE:LOCK.CON|10	RACETYPE:Undead	TEMPLATE:Undead	HITDICEADVANCEMENT:8		CR:3	SOURCEPAGE:p.126

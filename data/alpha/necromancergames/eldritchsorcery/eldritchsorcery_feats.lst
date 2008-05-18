@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 30 00:32:25 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
@@ -35,7 +35,7 @@ Craft Magic Talisman	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCAST
 Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRESKILL:1,Craft (Alchemy)=15	PRESPELLTYPE:1,Arcane=4,Divine=4	PRESTAT:1,INT=15,CHA=15	DESC:You can easily identify and collect the herbs and materials necessary for your potions.													SOURCEPAGE:p.10
 
 ###Block: Metamagic Feats
-# Feat Name		Required Class							Req. Casting Type		Required Spell School		Req. Spell Type		Required Stat	Description													Add Spell Lvl	Source Page
+# Feat Name		Required Class							PRESPELLCAST		Required Spell School		Req. Spell Type		Required Stat	Description													Add Spell Lvl	Source Page
 Anchored Spell										PRESPELLCAST:MEMORIZE=Y													DESC:You can cast spells without material components by scribing them on your body.	ADDSPELLLEVEL:1	SOURCEPAGE:p.10
 Colorize Spell														PRESPELLSCHOOL:1,Illusion=1					PRESTAT:1,INT=13	DESC:You can add color to or change the colors of any visible spell effect.		ADDSPELLLEVEL:0	SOURCEPAGE:p.10
 Sacramental Magic																			PRESPELLTYPE:1,Divine=1				DESC:You imbue your damaging spells with divine essence.					ADDSPELLLEVEL:1	SOURCEPAGE:p.11

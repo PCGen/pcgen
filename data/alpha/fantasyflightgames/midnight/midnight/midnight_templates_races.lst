@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Nov 21 00:00:04 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Beaver
 
 ###Block: Dwarven clans
-# Template Name	Visible	Source Page		Automatic Languages	SUBRACE
+# Template Name	Visible	Source Page		Automatic Languages	Subrace
 Clan Thedron	VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Thedron		SUBRACE:Yes
 Clan Fodrin		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Fodrin		SUBRACE:Yes
 Clan Durgis		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Durgis		SUBRACE:Yes
@@ -11,14 +11,14 @@ Clan Gorand		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Gorand		SUBRACE:Yes
 Clan Black Blood	VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Black Blood	SUBRACE:Yes
 
 ###Block: Halfling cultures
-# Template Name	Visible	Source Page		Special ABility										Bonus to skill						SUBRACE
+# Template Name	Visible	Source Page		Special ABility										Bonus to skill						Subrace
 Nomadic Halfling	VISIBLE:NO	SOURCEPAGE:p.24	SAB:+2 racial bonus on Wilderness Lore checks in plains and grasslands	BONUS:SKILL|Handle Animal,Ride|2|TYPE=Racial	SUBRACE:Nomadic
 Agrarian Halfling	VISIBLE:NO	SOURCEPAGE:p.24	SAB:+2 racial bonus on all non-metal and non-wood Craft checks		BONUS:SKILL|Heal|2|TYPE=Racial			SUBRACE:Agrarian
 
 ###Block:Dwarrow raisings
-# Template Name		Visible	Source Page		Special ABility																																																																						Bonus to skill												Class Skill						FAVOREDCLASS		Change Weapon Prof. Category		Automatic Languages				Bonus Languages									Add
-Raised among Dwarves	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Stonecunning	SAB:+1 dodge bonus to Armor Class against orcs	SAB:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items	SAB:+2 racial bonus on Wilderness Lore checks in mountains and dwarven holdfasts																																	BONUS:SKILL|Climb|2											CSKILL:Knowledge (Kaladrun Mountains)	FAVOREDCLASS:Fighter	CHANGEPROF:DwarvenExotic=Martial	LANGAUTO:Old Dwarven Pidgin,Orcish Pidgin	LANGBONUS:Old Dwarven,Orcish,TYPE=ClanDialect,Trader's Tongue	ADD:LANGUAGE|1|TYPE=ClanDialect
-Raised among Gnomes	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Can hold breath for % rounds|3*(CONSCORE)	SAB:+2 racial bonus on Wilderness Lore checks when on rivers	SAB:+2 racial bonus on Appraise, Bluff, Diplomacy, and Profession checks when made during trading activities	SAB:+2 racial bonus on Bluff, Forgery, and Gather Information checks when made during smuggling activities	SAB:+2 racial bonus on Perform checks for singing, storytelling, or playing musical instruments	BONUS:SKILL|Profession (Boater),Profession (Sailor),Swim,Use Rope|2|TYPE=Racial	CSKILL:Knowledge (Eren River Valley)	FAVOREDCLASS:Rogue	CHANGEPROF:GnomeExotic=Martial	LANGAUTO:Trader's Tongue			LANGBONUS:ALL									ADD:LANGUAGE|1|Colonial Pidgin,Erenlander Pidgin,Halfling Pidgin,High Elven Pidgin,Norther Pidgin,Old Dwarven Pidgin,Orcish Pidgin
+# Template Name		Visible	Source Page		Special ABility																																																																						Bonus to skill												Class Skill						Add																						FAVOREDCLASS		Change Weapon Prof. Category		Automatic Languages				Bonus Languages
+Raised among Dwarves	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Stonecunning	SAB:+1 dodge bonus to Armor Class against orcs	SAB:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items	SAB:+2 racial bonus on Wilderness Lore checks in mountains and dwarven holdfasts																																	BONUS:SKILL|Climb|2											CSKILL:Knowledge (Kaladrun Mountains)	ADD:LANGUAGE|1|TYPE=ClanDialect																	FAVOREDCLASS:Fighter	CHANGEPROF:DwarvenExotic=Martial	LANGAUTO:Old Dwarven Pidgin,Orcish Pidgin	LANGBONUS:Old Dwarven,Orcish,TYPE=ClanDialect,Trader's Tongue
+Raised among Gnomes	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Can hold breath for % rounds|3*(CONSCORE)	SAB:+2 racial bonus on Wilderness Lore checks when on rivers	SAB:+2 racial bonus on Appraise, Bluff, Diplomacy, and Profession checks when made during trading activities	SAB:+2 racial bonus on Bluff, Forgery, and Gather Information checks when made during smuggling activities	SAB:+2 racial bonus on Perform checks for singing, storytelling, or playing musical instruments	BONUS:SKILL|Profession (Boater),Profession (Sailor),Swim,Use Rope|2|TYPE=Racial	CSKILL:Knowledge (Eren River Valley)	ADD:LANGUAGE|1|Colonial Pidgin,Erenlander Pidgin,Halfling Pidgin,High Elven Pidgin,Norther Pidgin,Old Dwarven Pidgin,Orcish Pidgin	FAVOREDCLASS:Rogue	CHANGEPROF:GnomeExotic=Martial	LANGAUTO:Trader's Tongue			LANGBONUS:ALL
 
 ###Block:Elfling raisings
 # Template Name	Visible	Source Page		Special ABility								Class Skill

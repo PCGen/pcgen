@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Mar  7 17:37:39 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
 ###Block:Armor
-# Modifier Name		Unique Key		Type			Plus		Visible		Source Page		Required Type			BONUS:EQMARMOR				Modify VAR										Special Property											Choose																																																																					ABILITY
+# Modifier Name		Unique Key		Type			Plus		Visible		Source Page		Required Type			BONUS:EQMARMOR				Modify VAR										Special Property											Choose																																																																					Ability
 Bane				KEY:BANE_AR		TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:2,Enhancement,Armor																		SPROP:+2 luck bonus to AC and saves vs. %|%CHOICE					CHOOSE:STRING|Aberrations|Animals|Constructs|Dragons|Elementals|Fey|Giants|Humanoids (aquatic)|Humanoids (dwarf)|Humanoids (elf)|Humanoids (gnoll)|Humanoids (gnome)|Humanoids (goblinoid)|Humanoids (halfling)|Humanoids (human)|Humanoids (reptilian)|Humanoids (orc)|Magical beasts|Monstrous humanoids|Oozes|Outsiders (chaotic)|Outsiders (evil)|Outsiders (good)|Outsiders (lawful)|Plants|Undead|Vermin|TITLE=Designated Foe
 Climbing			KEY:CLIMB		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:2,Enhancement,Armor																		SPROP:No armor penalties for all Climb checks
 Comfort			KEY:COMFORT		TYPE:Armor.Shield	PLUS:1/2	VISIBLE:QUALIFY	SOURCEPAGE:p.163	PRETYPE:2,Enhancement,Armor																		SPROP:Wearer can sleep in this armor

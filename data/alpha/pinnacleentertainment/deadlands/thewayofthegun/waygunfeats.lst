@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 00:46:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Pinnacle Entertainment - Deadlands D20 - The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
 
 # Feat Name			Type			Req. Att.	Required Class		Required Feat			Required Skill		Required Stat		Special ABility						Define			Description																										Stackable?	Multiple?	Choose		Modify VAR			Source Page
 Fill Yer Hand		TYPE:General												PRESKILL:1,Holdout=8	PRESTAT:1,DEX=16														DESC:You can draw and fire a derringer or other small pistol with a single motion, catching a nearby target unawares.																			SOURCEPAGE:p.13

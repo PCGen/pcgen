@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 01:15:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #Original Entry: Eddy Anthony
 
@@ -10,8 +10,8 @@ GEAR:Blastpowder (20)
 STARTPACK:Shining Patrol Service	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Scimitar				SIZE:PC
 GEAR:Outfit (Traveler's)		SIZE:PC
-GEAR:Altherian Flintlock (Rifle)	PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
-GEAR:Blastpowder (20)			PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
+GEAR:Altherian Flintlock (Rifle)			PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
+GEAR:Blastpowder (20)					PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
 
 
 STARTPACK:Soldier of Retribution	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
