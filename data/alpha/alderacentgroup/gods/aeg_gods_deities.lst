@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Apr 27 15:22:02 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 # Deity Name	Product Identity?	Domains																	Holy Item										Deity Weapon				Alignment	Pantheon		Deity Title										Usual Worshippers			Source Page		Required AL
-Ahroukin		NAMEISPI:YES	DOMAINS:Chaos|PREALIGN:CG,CN,CE	DOMAINS:Destruction,Hatred,War								SYMBOL:The Swallowed Sun							DEITYWEAP:Axe				ALIGN:CE	PANTHEON:AEG_Gods	TITLE:The Slayer of Heaven							WORSHIPPERS:Gnolls		SOURCEPAGE:pg.151	PREALIGN:NE,CE,CN
+Ahroukin		NAMEISPI:YES	DOMAINS:Chaos|PREALIGN:CG,CN,CE	DOMAINS:Destruction,Hatred,War							SYMBOL:The Swallowed Sun							DEITYWEAP:Axe				ALIGN:CE	PANTHEON:AEG_Gods	TITLE:The Slayer of Heaven							WORSHIPPERS:Gnolls		SOURCEPAGE:pg.151	PREALIGN:NE,CE,CN
 Aziel			NAMEISPI:YES	DOMAINS:Evil|PREALIGN:LE,NE,CE	DOMAINS:Law|PREALIGN:LG,LN,LE	DOMAINS:Conquest,Strength			SYMBOL:Hobgoblin in Shadow							DEITYWEAP:Greatsword			ALIGN:LE	PANTHEON:AEG_Gods	TITLE:Lord of Conquest								WORSHIPPERS:Hobgoblins		SOURCEPAGE:pg.151	PREALIGN:LN,LE,NE
 Barrachus		NAMEISPI:YES	DOMAINS:Chaos|PREALIGN:CG,CN,CE	DOMAINS:Evil|PREALIGN:LE,NE,CE	DOMAINS:Destruction,Power		SYMBOL:Two maces									DEITYWEAP:Greatclub			ALIGN:CE	PANTHEON:AEG_Gods	TITLE:The Savage Storm								WORSHIPPERS:Bugbears		SOURCEPAGE:pg.151	PREALIGN:NE,CE,CN
 Bonidin		NAMEISPI:YES	DOMAINS:Evil|PREALIGN:LE,NE,CE	DOMAINS:Death,Fear									SYMBOL:Bonidin's Teeth								DEITYWEAP:Halberd				ALIGN:LE	PANTHEON:AEG_Gods	TITLE:Mournbearer									WORSHIPPERS:Gnolls		SOURCEPAGE:pg.151	PREALIGN:LN,LE,NE

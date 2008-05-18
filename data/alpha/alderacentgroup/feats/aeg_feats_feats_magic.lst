@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:23:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
 
 # Original Entry: Andrew Maitland
@@ -225,7 +225,7 @@ Righteous Fury		TYPE:General					PREATT:6																																							
 Rite Master			TYPE:General																																																PRESKILL:1,Concentration=5											PRETEXT:ability to summon spirits.										DESC:You are a powerful shaman, capable of interacting with many spirits.																																									SOURCEPAGE:pg.125
 
 ###Block: S
-# Feat Name			Type			Required Class					Required Domain		Required Feat						Required Lvl	Required Non-Monster Lvl	Required Skill											Required Stat							PRESUBCLASS				Required Text					Special ABility		Innate Spells																		Description																																			Stackable?	Multiple?	Choose															Add Spell Lvl	Combat bonus				Damage reduction		Modify VAR				Damage Reduction	Source Page		Description of the Benefits
+# Feat Name			Type			Required Class					Required Domain		Required Feat						Required Lvl	Required Non-Monster Lvl	Required Skill											Required Stat							Required Subclass			Required Text					Special ABility		Innate Spells																		Description																																			Stackable?	Multiple?	Choose															Add Spell Lvl	Combat bonus				Damage reduction		Modify VAR				Damage Reduction	Source Page		Description of the Benefits
 The Sacred Hunt		TYPE:General	PRECLASS:1,SPELLCASTER.Divine=9																																																																																DESC:Your faith drives you to hunt a specific prey.																																																																					SOURCEPAGE:pg.125
 Sanctuary of the Sun	TYPE:General	PRECLASS:1,SPELLCASTER.Divine=15																																			PRESTAT:2,WIS=15,CHA=13																																										DESC:The sun god protects you from harm.																																																					BONUS:COMBAT|AC|3|TYPE=Deflection	BONUS:DR|-|max(WIS-CHA)						DR:0/-		SOURCEPAGE:pg.125
 #comment: Need To Test Dr Code

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr 27 15:37:41 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Weapon Proficiencies
@@ -11,8 +11,8 @@ Woodlands Stride		OUTPUTNAME:Woodland Stride	TYPE:ClassFeature	VISIBLE:NO	SAB:Wo
 AEG Trackless Step	OUTPUTNAME:Trackless Step	TYPE:ClassFeature	VISIBLE:NO	SAB:Trackless Step
 
 ###Block: Hidden Equipment Abilities - These abilities implement the abipities granted by magical equipment.
-# Feat Name			Type				Visible		
-Tooth of Steel		TYPE:WeaponAbility	VISIBLE:NO		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
+# Feat Name		Type				Visible	Natural Attacks
+Tooth of Steel	TYPE:WeaponAbility	VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
 
 ##
 ## Barbarian abilities (QC'd)
@@ -154,12 +154,12 @@ Exemplar Revealed		TYPE:ClassFeature	VISIBLE:NO	SAB:The Exemplar Reaevled
 ##
 
 ###Block: Servant of the One Class Abilities
-# Feat Name					Type				Visible		Special ABility				Stackable?	Multiple?
-Lost Souls					TYPE:ClassFeature	VISIBLE:NO	SAB:Lost Souls - Spells, spell-like abilities, supernatural abilities, extraordinary abilities and magic items that effect the sould have no effect.
+# Feat Name				Type			Visible	Special ABility																																		Innate Spells
+Lost Souls				TYPE:ClassFeature	VISIBLE:NO	SAB:Lost Souls - Spells, spell-like abilities, supernatural abilities, extraordinary abilities and magic items that effect the sould have no effect.
 One Heart Many Hands		TYPE:ClassFeature	VISIBLE:NO	SAB:One Heart, Many Hands - You may contact your fellow servants by sendings %/day.|var("CLASSLEVEL=Servants of the One")
-Hollow Heart				TYPE:ClassFeature	VISIBLE:NO	SAB:Hollow Heart - Resistant to effects that would sway the emotions.|!PRECLASS:1,Servants of the One=8		SAB:Hollow Heart - Immune to effects that would sway the emotions.|PRECLASS:1,Servants of the One=8
-The Flesh is Weak			TYPE:ClassFeature	VISIBLE:NO	SAB:The Flesh is Weak - Reduced need to eat, drink and sleep.|!PRECLASS:1,Servants of the One=7		SAB:The Flexh is Weak (Su) - Eating, drinking and sleeping are no longer necessary.|PRECLASS:1,Servants of the One=7
-The Hunger of the Damned	TYPE:ClassFeature	VISIBLE:NO	SAB:The Hunger of the Damned		SPELLS:Hunger of the Damned|TIMES=1|CASTERLEVEL=classlevel("Servants of the One")|Energy Drain,WIS+19
+Hollow Heart			TYPE:ClassFeature	VISIBLE:NO	SAB:Hollow Heart - Resistant to effects that would sway the emotions.|!PRECLASS:1,Servants of the One=8	SAB:Hollow Heart - Immune to effects that would sway the emotions.|PRECLASS:1,Servants of the One=8
+The Flesh is Weak			TYPE:ClassFeature	VISIBLE:NO	SAB:The Flesh is Weak - Reduced need to eat, drink and sleep.|!PRECLASS:1,Servants of the One=7	SAB:The Flexh is Weak (Su) - Eating, drinking and sleeping are no longer necessary.|PRECLASS:1,Servants of the One=7
+The Hunger of the Damned	TYPE:ClassFeature	VISIBLE:NO	SAB:The Hunger of the Damned																																SPELLS:Hunger of the Damned|TIMES=1|CASTERLEVEL=classlevel("Servants of the One")|Energy Drain,WIS+19
 Ensnare the Mind			TYPE:ClassFeature	VISIBLE:NO	SAB:Ensnare the Mind
 Many Bodies One Soul		TYPE:ClassFeature	VISIBLE:NO	SAB:Many Bodies, One Soul
 Eternitys Humble Offerings	TYPE:ClassFeature	VISIBLE:NO	SAB:Eternity's Humble Offerings
@@ -169,8 +169,8 @@ Eternitys Humble Offerings	TYPE:ClassFeature	VISIBLE:NO	SAB:Eternity's Humble Of
 ##
 
 ###Block: Humanoid Hunter Class Abilities (Complete)
-# Feat Name		Type			Visible	Special ABility																												Define													Stackable?	Multiple?	Modify VAR
-Smite Humanoid	TYPE:ClassFeature	VISIBLE:NO	SAB:Smite Humanoid - may smite a humanoid with one normal melee attack % times/day with a % bonus to hit and % bonus to damage|HHSmiteTimes|HHSmiteToHitBonus|HHSmiteDamageBonus	DEFINE:HHSmiteTimes|0	DEFINE:HHSmiteToHitBonus|0	DEFINE:HHSmiteDamageBonus|0					BONUS:VAR|HHSmiteTimes|1	BONUS:VAR|HHSmiteTimes|1|PRECLASS:1,Humanoid Hunter=8	BONUS:VAR|HHSmiteToHitBonus|if(INT>=0,INT,0)	BONUS:VAR|HHSmiteDamageBonus|var("CLASSLEVEL=Humanoid Hunter")
+# Feat Name		Type			Visible	Special ABility																												Define													Modify VAR
+Smite Humanoid	TYPE:ClassFeature	VISIBLE:NO	SAB:Smite Humanoid - may smite a humanoid with one normal melee attack % times/day with a % bonus to hit and % bonus to damage|HHSmiteTimes|HHSmiteToHitBonus|HHSmiteDamageBonus	DEFINE:HHSmiteTimes|0	DEFINE:HHSmiteToHitBonus|0	DEFINE:HHSmiteDamageBonus|0	BONUS:VAR|HHSmiteTimes|1	BONUS:VAR|HHSmiteTimes|1|PRECLASS:1,Humanoid Hunter=8	BONUS:VAR|HHSmiteToHitBonus|if(INT>=0,INT,0)	BONUS:VAR|HHSmiteDamageBonus|var("CLASSLEVEL=Humanoid Hunter")
 Hide the Beast	TYPE:ClassFeature	VISIBLE:NO	SAB:Hide the Beast (Su)
 Death Blow		TYPE:ClassFeature	VISIBLE:NO	SAB:Death Blow
 
@@ -179,11 +179,11 @@ Death Blow		TYPE:ClassFeature	VISIBLE:NO	SAB:Death Blow
 ##
 
 ###Block: The Broken One Class Abilities
-# Feat Name		Type				Visible		Special ABility		Define						
+# Feat Name		Type			Visible	Special ABility															Define
 The Wasting		TYPE:ClassFeature	VISIBLE:NO	SAB:The Wasting
-No Pain			TYPE:ClassFeature	VISIBLE:NO	SAB:No Pain
+No Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:No Pain
 Unnatural Drives	TYPE:ClassFeature	VISIBLE:NO	SAB:Unnatural Drives
-Know Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:Know Pain - Share pain with another %/day (DC %)|KnowPainTimes|classlevel("The Broken")*2+15		DEFINE:KnowPainTimes|0
+Know Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:Know Pain - Share pain with another %/day (DC %)|KnowPainTimes|classlevel("The Broken")*2+15	DEFINE:KnowPainTimes|0
 Divine Malice	TYPE:ClassFeature	VISIBLE:NO	SAB:Divine Malice
 Beyond Flesh	TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Flesh
 Beyond Pain		TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Pain
@@ -205,7 +205,7 @@ Power of Istos		TYPE:ClassFeature	VISIBLE:NO	SAB:Power of Istos																	
 ##
 
 ###Block: Black Nail Class Abilities
-# Feat Name			Type			Visible	Special ABility				Stackable?	Multiple?	Automaticaly Gained Weapon Prof.
+# Feat Name			Type			Visible	Special ABility				Automaticaly Gained Weapon Prof.
 Oversize Greataxe		TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)	AUTO:WEAPONPROF|Weapon Focus(Greataxe)
 Thick Hide			TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide
 Battle Cry			TYPE:ClassFeature	VISIBLE:NO	SAB:Battle Cry

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Mar 12 22:25:23 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision: $ $Author: $ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -185,7 +185,7 @@ CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disab
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:pg.54	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Check Base		Required Feat							Multiple Requirements										Required Skill									Req. Casting Type		Req. Spell Type
+# Class Name	Required Check Base		Required Feat							Multiple Requirements										Required Skill									PRESPELLCAST		Req. Spell Type
 CLASS:Aceldamist	PRECHECKBASE:1,Fortitude=4	PREFEAT:3,Combat Casting,Dodge,Improved Initiative	PREMULT:1,[PREARMORPROF:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Scry|Spellcraft

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
 # Original Entry by: Aaron Divinsky
 
@@ -49,7 +49,7 @@ CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|Survival|Swim
 
 ###Block: Proficiencies
-1	AUTO:FEAT|Martial Weapon Proficiency|All Martial Weapon Proficiencies	
+1	AUTO:FEAT|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 
 ###Block: Progression

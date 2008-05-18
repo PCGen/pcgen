@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
 #Original Entry by: Aaron Divinsky
 
 ###Block: Racial templates
 
-# Template Name	Visible	SUBRACE	GENDERLOCK
+# Template Name	Visible	Subrace	GENDERLOCK
 Bull Lord		VISIBLE:NO	SUBRACE:YES
 Minotaur		VISIBLE:NO			GENDERLOCK:Male
 Minotrice		VISIBLE:NO			GENDERLOCK:Female
@@ -15,19 +15,19 @@ Gore			VISIBLE:NO	TEMPLATE:CHOOSE:Gore (Fine)|Gore (Diminutive)|Gore (Tiny)|Gore
 Powerful Charge	VISIBLE:NO	TEMPLATE:CHOOSE:Powerful Charge (Medium)|Powerful Charge (Large)														AUTO:EQUIP|Powerful Charge
 
 ###Block: Natural Weapons
-# Template Name			Visible	Required Size	Weapon prof. bonus							Natural Attacks												SAB
-Gore (Fine)				VISIBLE:NO	PRESIZEEQ:F												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1
-Gore (Diminutive)			VISIBLE:NO	PRESIZEEQ:D												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d2
-Gore (Tiny)				VISIBLE:NO	PRESIZEEQ:T												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d3
-Gore (Small)			VISIBLE:NO	PRESIZEEQ:S												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
-Gore (Medium)			VISIBLE:NO	PRESIZEEQ:M												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
-Gore (Large)			VISIBLE:NO	PRESIZEEQ:L												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
-Gore (Huge)				VISIBLE:NO	PRESIZEEQ:H												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d6
-Gore (Gargantuan)			VISIBLE:NO	PRESIZEEQ:G												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,3d6
-Gore (Colossal)			VISIBLE:NO	PRESIZEEQ:C												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
+# Template Name			Visible	Special ABility			Required Size	Weapon prof. bonus							Natural Attacks
+Gore (Fine)				VISIBLE:NO						PRESIZEEQ:F												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1
+Gore (Diminutive)			VISIBLE:NO						PRESIZEEQ:D												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d2
+Gore (Tiny)				VISIBLE:NO						PRESIZEEQ:T												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d3
+Gore (Small)			VISIBLE:NO						PRESIZEEQ:S												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Gore (Medium)			VISIBLE:NO						PRESIZEEQ:M												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+Gore (Large)			VISIBLE:NO						PRESIZEEQ:L												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
+Gore (Huge)				VISIBLE:NO						PRESIZEEQ:H												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d6
+Gore (Gargantuan)			VISIBLE:NO						PRESIZEEQ:G												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,3d6
+Gore (Colossal)			VISIBLE:NO						PRESIZEEQ:C												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
 
-Powerful Charge (Medium)	VISIBLE:NO	PRESIZEEQ:M		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8	SAB:Powerful Charge (Ex)
-Powerful Charge (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6	SAB:Powerful Charge (Ex)
+Powerful Charge (Medium)	VISIBLE:NO	SAB:Powerful Charge (Ex)	PRESIZEEQ:M		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+Powerful Charge (Large)		VISIBLE:NO	SAB:Powerful Charge (Ex)	PRESIZEEQ:L		BONUS:WEAPONPROF=Powerful Charge|DAMAGE|max(0,floor(STR/2))	NATURALATTACKS:Powerful Charge,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
 
 ###Block: Favored Classes
 
@@ -46,11 +46,11 @@ Minotrice Maze Mage Favored Class (Monster)	VISIBLE:NO																										
 
 ###Block: Misc templates
 
-# Template Name	Visible	Level Adjustment				Define				Virtual Feat	SAB
-ECL Adjuster	VISIBLE:NO	LEVELADJUSTMENT:LevelAdjustment	DEFINE:LevelAdjustment|0
+# Template Name	Visible	Level Adjustment				Special ABility			Define				Virtual Feat
+ECL Adjuster	VISIBLE:NO	LEVELADJUSTMENT:LevelAdjustment						DEFINE:LevelAdjustment|0
 
 ### TODO: This should be a hidden feat but it doesn't add the feat if it is a feat
-Natural Cunning	VISIBLE:NO												VFEAT:Track		SAB:Natural Cunning (Ex)
+Natural Cunning	VISIBLE:NO							SAB:Natural Cunning (Ex)						VFEAT:Track
 
 #
 # End

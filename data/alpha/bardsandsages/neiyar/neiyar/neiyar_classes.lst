@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 21:49:29 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
@@ -239,7 +239,7 @@ CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Disable Device|Hide|Int
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus						Add domain number
 CLASS:Swan Bard	HD:6		TYPE:PC.Prestige	ABB:SB		MAXLEVEL:7	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|(CL-1)/2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+1	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
-# Class Name	Required AL		!PREDEITY			Required Feat											Required Skill			Required Stat	Required Text
+# Class Name	Required AL		Prohibited Deity		Required Feat											Required Skill			Required Stat	Required Text
 CLASS:Swan Bard	PREALIGN:CG,CN,CE	!PREDEITY:1,Adrienne	PREFEAT:1,Skill Focus(Bluff),Skill Focus(Diplomacy),Skill Focus(Perform%)	PRESKILL:1,TYPE.Perform=10	PRESTAT:1,CHA=16	PRETEXT:Ability to cast bardic spells or Attractive Human Male (GM Discretion)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Diplomacy|Gather Information|Listen|Move Silently|TYPE.Perform|Sense Motive|Spot|Tumble

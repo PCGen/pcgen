@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Thu Nov 22 21:39:23 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
 #Original Entry by: Aaron Divinsky
 
-# Feat Name		Type						Visible	Define			Template				Virtual Feat				Combat bonus				Temporary effect description															SAB
-Scent			TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	DEFINE:ScentRange|0																																					SAB:Scent %-ft. range (Ex)|ScentRange
-Onslaught		TYPE:SpecialQuality.Extraordinary	VISIBLE:NO																																									SAB:Onslaught (Ex)
-Freedom		TYPE:SpecialQuality.Supernatural	VISIBLE:NO																																									SAB:Freedom (Su)
-Natural Cunning	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO					TEMPLATE:Natural Cunning																																SAB:Natural Cunning (Ex)
-Pounce		TYPE:SpecialAttack.Extraordinary	VISIBLE:NO																																									SAB:Pounce (Ex)
+# Feat Name		Type						Visible	Special ABility					Define			Template				Virtual Feat				Combat bonus				Temporary effect description
+Scent			TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Scent %-ft. range (Ex)|ScentRange	DEFINE:ScentRange|0
+Onslaught		TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Onslaught (Ex)
+Freedom		TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Freedom (Su)
+Natural Cunning	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Natural Cunning (Ex)							TEMPLATE:Natural Cunning
+Pounce		TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Pounce (Ex)
 ### TODO: The VFEAT tag should be included but PREAPPLY doesn't work except on bonuses ?FREQ?.
-Pack Tactics	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO										VFEAT:Improved Trip|PREAPPLY:PC	BONUS:COMBAT|TOHIT|1|PREAPPLY:PC	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.	SAB:Pack Tactics (Ex)
+Pack Tactics	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pack Tactics (Ex)													VFEAT:Improved Trip|PREAPPLY:PC	BONUS:COMBAT|TOHIT|1|PREAPPLY:PC	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.
 
-Tunneling		TYPE:SpecialQuality.Extraordinary	VISIBLE:NO																																									SAB:Tunneling (Ex)
+Tunneling		TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tunneling (Ex)
