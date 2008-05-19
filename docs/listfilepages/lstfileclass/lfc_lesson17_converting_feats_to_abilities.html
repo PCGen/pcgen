@@ -143,7 +143,6 @@
 		<p class="indent1"><code>PREABILITY:My First Cool Ability</code></p>
 		<p></p>
 
-		
 <hr style="height:3px">
 
 		<h3>The PCC File</h3>
@@ -151,11 +150,13 @@
 			files to load as well as other information about the 'campaign'. Without these files and the
 			related information, PCGen would not be able to load any datafiles. For the purposes of this 
 			lesson, there are only two tags we need to cover. The <code>ABILITY</code> tag and the
-			<code>ABILITYCATEGORY</code> tag. Both of these tags will be covered in some detail below.</p>
-		<p class="sidebar1">More information about PCC files can be found in the <a href="lfc_lesson01_pcc.html">PCC LST File Class</a></p>
+			<code>ABILITYCATEGORY</code> tag. Both of these tags will be covered in some detail below. More 
+			general information about PCC files can be found in the <a href="lfc_lesson01_pcc.html">PCC LST 
+			File Class</a>.</p>
+		<p></p>
 
 <hr>
-		<p class="indent0"><strong><code>ABILITY</code></strong></p>
+		<p class="indent0"><strong>ABILITY</strong></p>
 		<p class="indent0">PCGen uses the <code>ABILITY:&lt;ability file&gt;</code> tag to identify 
 			the files in which PCGen's new &quot;Ability&quot; objects can be found and loaded into PCGen.</p>
 		<p class="indent0"><strong>Example:</strong></p>
@@ -164,7 +165,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>ABILITYCATEGORY</code></strong></p>
+		<p class="indent0"><strong>ABILITYCATEGORY</strong></p>
 		<p class="indent0">PCGen uses the <code>ABILITYCATEGORY:&lt;ability category file&gt;</code> 
 			tag to identify the files in which PCGen will find the &quot;Ability Categories&quot; 
 			required to implement the new abilities.</p>
@@ -183,12 +184,18 @@
 <hr style="height:3px">
 
 		<h3>Miscinfo.lst or Abilitycategory.lst  File</h3>
-		<p class="indent0">For Homebrews you'll need to set up any special &quot;abilities&quot; 
-			in their own pools. To demonstrate this, we'll use the sample ability category shown below:</p>
+		<p class="indent0">The previous section describes how to convert your homebrew feats to homebrew 
+			abilities of the <span class="lstobj">FEAT</span> category but you can convert your feats to 
+			abilities of any 'ability category'.  There are many different ability categories currently 
+			defined in PCGen with some good examples to be found in the 
+			<span class="lstobj">SRD</span>/<span class="lstobj">RSRD</span>/<span class="lstobj">MSRD</span> 
+			datasets. For homebrews, you'll need to set up any special &quot;abilities&quot; in their own pools. 
+			To demonstrate this, we'll use the sample ability category shown below:</p>
+		<p></p>
 
 <hr>
 
-		<p class="indent0"><strong><code>ABILITYCATEGORY</code></strong></p>
+		<p class="indent0"><strong>ABILITYCATEGORY</strong></p>
 		<p class="indent0">This defines the Ability Category. This is what will show in the PCGen user interface, under the FEATs tab.</p>
 		<p class="indent0"><strong>Example:</strong></p>
 		<p class="indent1"><code>ABILITYCATEGORY:My Ability Category</code></p>
@@ -196,7 +203,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>CATEGORY</code></strong></p>
+		<p class="indent0"><strong>CATEGORY</strong></p>
 		<p class="indent0">This is a 'sub-category'. You'll note we leave it the same for this example 
 			but you can have the same ability name as long as it has a different category name. As an 
 			example, you could have an ability <span class="lstobj">FooBarSneak</span> of 
@@ -211,7 +218,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>PLURAL</code></strong></p>
+		<p class="indent0"><strong>PLURAL</strong></p>
 		<p class="indent0">This has to do with the internationalization. An example is: in_feats which sets the 
 			Category key to 'in_feats'. It also shows up with the 'Plural' of the name. Ex. Feat would be Feats 
 			(Feats would display in the drop down bar).</p>
@@ -221,7 +228,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>EDITABLE</code></strong></p>
+		<p class="indent0"><strong>EDITABLE</strong></p>
 		<p class="indent0">This defines whether a user can modify the abilities in the category. NO would be 
 			appropriate for class abilities which aren't chosen by the user.</p>
 		<p class="indent0"><strong>Example:</strong></p>
@@ -230,7 +237,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>EDITPOOL</code></strong></p>
+		<p class="indent0"><strong>EDITPOOL</strong></p>
 		<p class="indent0">This defines whether a user can modify the pool number or not. Each ability has a 
 			'cost' (Default is 1) if this option is set to 'NO' the user cannot add or subtract from the pool. 
 			For feats, the default is 'YES'.</p>
@@ -240,7 +247,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>FRACTIONALPOOL</code></strong></p>
+		<p class="indent0"><strong>FRACTIONALPOOL</strong></p>
 		<p class="indent0">This defines whether the pool must be a whole number or can be fractions. Some 
 			abilities may have a cost less than '1' like .5 or .25. &lt;YES / NO&gt;</p>
 		<p class="indent0"><strong>Example:</strong></p>
@@ -249,7 +256,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>POOL</code></strong></p>
+		<p class="indent0"><strong>POOL</strong></p>
 		<p class="indent0">0 unless you want a formula to determine the pool number. Example: TL/2 would 
 			grant one point every 2 levels to the character. </p>
 		<p class="indent0"><strong>Example:</strong></p>
@@ -258,7 +265,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>VISIBLE</code></strong></p>
+		<p class="indent0"><strong>VISIBLE</strong></p>
 		<p class="indent0">Defines whether this category is visible on the UI or hidden. Usefull for hidden 
 			abilities and class abilities that require no interaction from the user. &lt;Options are - YES, 
 			NO, QUALIFY&gt;</p>
@@ -278,9 +285,9 @@
 			show up on the 'Feats' tab as normal. Great examples of new ability categories can be seen in 
 			the RSRD/SRD for the <span class="lstobj">Fighter</span>, <span class="lstobj">Wizard</span> 
 			and <span class="lstobj">Rogue</span> class.</p>
-		<p class="indent0">Remember, miscinfo.lst is a gamemode file, to define new ability categories 
-			or subcategories you MUST create it there. There are entries about them in the docs if you 
-			want to read up on them.  To call the ability file it's (as you guessed), ABILITY:ability.lst, 
+		<p class="indent0">Remember, <span class="lstobj">miscinfo.lst</span> is a gamemode file, to define 
+			new ability categories or subcategories you MUST create it there. There are entries about them in 
+			the docs if you want to read up on them.  To call the ability file it's (as you guessed), ABILITY:ability.lst, 
 			in the .pcc file. Basically pretend that an ability.lst is a feat file as far as what tags 
 			you can use in it and you'll be ok (fair warning though, there may be exceptions to that 
 			rule of thumb).</p>
