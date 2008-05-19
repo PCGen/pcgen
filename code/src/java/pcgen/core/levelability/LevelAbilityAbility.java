@@ -659,8 +659,15 @@ public class LevelAbilityAbility extends LevelAbility
 				final String  abilityKey = it.next();
 				final List<String>    choiceList = new ArrayList<String>();
 
-				final Ability ab = translation.get(abilityKey).getAbility();
-				choiceList.add(translation.get(abilityKey).getChoice());
+				final AbilityChoice abChoice = translation.get(abilityKey);
+				if (abChoice == null)
+				{
+					Logging.errorPrint("Error:" + abilityKey
+						+ " not added, abilitycould not be found in map");
+					continue;
+				}
+				final Ability ab = abChoice.getAbility();
+				choiceList.add(abChoice.getChoice());
 
 				previousChoices.add(ab);
 
