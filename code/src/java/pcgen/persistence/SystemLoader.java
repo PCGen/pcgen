@@ -28,7 +28,6 @@ import java.util.Observer;
 import java.util.Set;
 
 import pcgen.core.Campaign;
-import pcgen.core.PObject;
 
 /**
  * <code>SystemLoader</code> is an abstract factory class that hides
@@ -93,27 +92,6 @@ public interface SystemLoader
 	 */
 	public void loadCampaigns(List<Campaign> aSelectedCampaignsList)
 		throws PersistenceLayerException;
-
-	/**
-	 * Loads a file containing game system information and adds details
-	 * to an array. Eventually these end up in the various array list
-	 * properties of <code>Global</code>.
-	 * <p>
-	 * Different types of files are determined by the <code>type</code>
-	 * parameter. The valid <code>type</code>'s are in LstConstants.java
-	 * <p>
-	 * The file is opened and read. Lines are parsed by an object
-	 * of the relevant type (based on <code>type</code> above), and
-	 * then added to the array list.
-	 *
-	 * @param fileName    name of the file to load from
-	 * @param fileType    type of the file (see above for types).
-	 * @param aList       <code>ArrayList</code> with existing data.
-	 *                    The new data is appended to this.
-	 * @throws PersistenceLayerException
-	 */
-	public void loadFileIntoList(URI fileName, int fileType,
-		List<PObject> aList) throws PersistenceLayerException;
 
 	/**
 	 * This method loads the .MOD items

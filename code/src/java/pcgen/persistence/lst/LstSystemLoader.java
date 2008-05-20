@@ -29,15 +29,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -55,7 +52,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.Description;
-import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
@@ -64,14 +60,11 @@ import pcgen.core.LevelInfo;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
 import pcgen.core.SourceEntry;
 import pcgen.core.SystemCollections;
-import pcgen.core.spell.Spell;
 import pcgen.gui.pcGenGUI;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -88,12 +81,6 @@ import pcgen.util.PropertyFactory;
 public final class LstSystemLoader extends Observable implements SystemLoader,
 		Observer
 {
-	// list of PObjects for character spells with subclasses
-	private static final List<PObject> pList = new ArrayList<PObject>();
-
-	private static final int MODE_EXCLUDE = -1;
-	private static final int MODE_DEFAULT = 0;
-	private static final int MODE_INCLUDE = +1;
 	private static final FilenameFilter gameModeFileFilter =
 			new FilenameFilter()
 			{
@@ -130,7 +117,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				}
 			};
 
-	private static int lineNum = 0;
 	private AbilityCategoryLoader abilityCategoryLoader = new AbilityCategoryLoader();
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private CampaignLoader campaignLoader = new CampaignLoader();
@@ -257,7 +243,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	/////////////////////////////////////////////////////////////////
 	// Property(s)
 	/////////////////////////////////////////////////////////////////
-	private String skillReq = "";
 	private StringBuffer licensesToDisplayString = new StringBuffer();
 	private StringBuffer matureCampaigns = new StringBuffer();
 	private TraitLoader traitLoader = new TraitLoader();
@@ -369,7 +354,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		releaseFileData();
 		//bioSet.clearUserMap();
 
-		skillReq = "";
 		customItemsLoaded = false;
 	}
 
@@ -584,39 +568,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	}
 
 	/**
-	 * @see pcgen.persistence.SystemLoader#loadFileIntoList(String, int, List)
-	 * 
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	public void loadFileIntoList(URI fileName, int fileType,
-		List<PObject> aList) throws PersistenceLayerException
-	{
-		URL url = null;
-		try
-		{
-			url = fileName.toURL();
-		}
-		catch (MalformedURLException e)
-		{
-			try
-			{
-				setChanged();
-				notifyObservers("Unable to convert '" + fileName + "' to a URL");
-				url = new URL("http://g");
-			}
-			catch (MalformedURLException e1)
-			{
-				e1.printStackTrace();
-			}
-		}
-		setChanged();
-		notifyObservers(url);
-
-		initFile(fileName, fileType, aList);
-	}
-
-	/**
 	 * @see pcgen.persistence.SystemLoader#loadModItems(boolean)
 	 */
 	public void loadModItems(boolean flagDisplayError)
@@ -659,41 +610,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				SettingsHandler.setPCGenOption(key, value);
 			}
 		}
-	}
-
-	/**
-	 * This method gets the set of files to parse for a given object type.
-	 *
-	 * @param lineType int indicating the type of objects to retrieve the
-	 *                 LST source lines for
-	 * @return List containing the LST source lines for the requested
-	 *         object type
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private List<CampaignSourceEntry> getFilesForType(final int lineType)
-	{
-		List<CampaignSourceEntry> lineList = null;
-
-		switch (lineType)
-		{
-			case LstConstants.CLASSSKILL_TYPE:
-				lineList = classSkillFileList;
-
-				break;
-
-			case LstConstants.CLASSSPELL_TYPE:
-				lineList = classSpellFileList;
-
-				break;
-
-			default:
-				logError("Campaign list corrupt; no such lineType ("
-					+ lineType
-					+ ") exists. Stopped parsing campaigns, but not aborting program.");
-		}
-
-		return lineList;
 	}
 
 	/**
@@ -853,74 +769,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	}
 
 	/**
-	 * This method adds a given list of objects to the appropriate Globals
-	 * storage.
-	 *
-	 * @param lineType   int indicating the type of objects in the list
-	 * @param aArrayList List containing the objects to add to Globals
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private void addToGlobals(final int lineType, final List<?> aArrayList)
-	{
-		String aClassName = "";
-
-		for (int i = 0; i < aArrayList.size(); ++i)
-		{
-			switch (lineType)
-			{
-				case LstConstants.CLASSSKILL_TYPE:
-					parseClassSkillFrom(aArrayList.get(i).toString());
-
-					break;
-
-				case LstConstants.CLASSSPELL_TYPE:
-					aClassName =
-							parseClassSpellFrom(aArrayList.get(i).toString(),
-								aClassName);
-
-					break;
-
-				case LstConstants.REQSKILL_TYPE:
-
-					final String aString = aArrayList.get(i).toString();
-					if ("ALL".equals(aString) || "UNTRAINED".equals(aString))
-					{
-						skillReq = aString;
-					}
-					else
-					{
-						final Skill skillKeyed = Globals.getSkillKeyed(aString);
-
-						if (skillKeyed != null)
-						{
-							skillKeyed.setRequired(true);
-						}
-						else
-						{
-							logError("The skill " + aString
-								+ " defined as a REQSKILL could not be found."
-								+ " The skill could not be made required.");
-						}
-					}
-
-					break;
-
-				case -1:
-					break;
-
-				default:
-					logError("In LstSystemLoader.initValue the lineType "
-						+ lineType + " is not handled.");
-
-					break;
-			}
-		}
-
-		aArrayList.clear();
-	}
-
-	/**
 	 * This method checks to make sure that the deities required for
 	 * the current mode have been loaded into the Globals as Deities.
 	 * Prior to calling this method, deities are stored as simple String objects.
@@ -943,207 +791,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				deityLoader.parseLine(null, null, aLine, globalCampaign);
 			}
 		}
-	}
-
-	/**
-	 * This method ensures that the global required skills are loaded and marked as required.
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private void checkRequiredSkills()
-	{
-		if (skillReq.length() > 0)
-		{
-			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1
-				.hasNext();)
-			{
-				final Skill aSkill = e1.next();
-
-				if (("UNTRAINED".equals(skillReq) && aSkill.isUntrained())
-					|| skillReq.equals("ALL"))
-				{
-					aSkill.setRequired(true);
-				}
-			}
-		}
-	}
-
-	/**
-	 * This method counts the closing parens ')' in a given token.
-	 *
-	 * @param token String to count parens in.
-	 * @return int number of closing parens in the token
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private int countCloseParens(final String token)
-	{
-		String dString = token;
-		int parenCount = 0;
-
-		while (dString.lastIndexOf(')') >= 0)
-		{
-			++parenCount;
-			dString = dString.substring(0, dString.lastIndexOf(')'));
-		}
-
-		return parenCount;
-	}
-
-	/**
-	 * This method counts the opening parens '(' in a given token.
-	 *
-	 * @param token String to count parens in.
-	 * @return int number of opening parens in the token
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private int countOpenParens(final String token)
-	{
-		String dString = token;
-		int parenCount = 0;
-
-		while (dString.lastIndexOf('(') >= 0)
-		{
-			++parenCount;
-			dString = dString.substring(0, dString.lastIndexOf('('));
-		}
-
-		return parenCount;
-	}
-
-	/**
-	 * This method loads the contents of a file into the appropriate
-	 * line lists.
-	 *
-	 * @param argFileName    String file to load
-	 * @param fileType       int indicating the type of file
-	 * @param aList          List to load the lines into
-	 * @throws PersistenceLayerException
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private void initFile(URI argFileName, int fileType, List<PObject> aList)
-		throws PersistenceLayerException
-	{
-		if (lstExcludeFiles.contains(argFileName))
-		{
-			return;
-		}
-
-		final StringBuilder dataBuffer = LstFileLoader.readFromURI(argFileName);
-
-		/*
-		 * Need to keep the Windows line separator as newline
-		 * delimiter to ensure cross-platform portability.
-		 *
-		 * author: Thomas Behr 2002-11-13
-		 */
-		final Map<String, String> sourceMap = new HashMap<String, String>();
-		final String newlinedelim = "\r\n";
-		final String aString = dataBuffer.toString();
-		final StringTokenizer newlineStr =
-				new StringTokenizer(aString, newlinedelim);
-
-		String nameString = "";
-		String aLine = "";
-
-		while (newlineStr.hasMoreTokens())
-		{
-			boolean isModItem;
-			final boolean isForgetItem;
-			aLine = newlineStr.nextToken();
-			++lineNum;
-
-			if (aLine.startsWith("CAMPAIGN:") && (fileType != LstConstants.CAMPAIGN_TYPE)) // && fileType != -1 sage_sam 10 Sept 2003
-			{
-				continue;
-			}
-
-			//
-			// Ignore commented-out lines
-			// and empty lines
-			if (aLine.length() == 0)
-			{
-				continue;
-			}
-
-			if ((fileType != LstConstants.CAMPAIGN_TYPE)
-				&& (aLine.length() > 0) && (aLine.charAt(0) == '#'))
-			{
-				continue;
-			}
-
-			if (aLine.startsWith("SOURCE")
-				&& (fileType != LstConstants.CAMPAIGN_TYPE))
-			{
-				sourceMap.putAll(SourceLoader.parseLine(aLine, argFileName));
-
-				continue;
-			}
-
-			// check for special case of CLASS:name.MOD
-			isModItem = aLine.endsWith(".MOD");
-
-			if (isModItem && aLine.startsWith("CLASS:"))
-			{
-				nameString = aLine.substring(0, aLine.length() - 4);
-			}
-
-			isForgetItem = aLine.endsWith(".FORGET");
-
-			if (isForgetItem)
-			{
-				nameString = aLine.substring(0, aLine.length() - 7);
-			}
-
-			// first field is usually name
-			// (only exception is class-level lines)
-			// see if name ends with .MOD, if so, use
-			// existing item instead of creating a new one
-			if (aLine.indexOf('\t') > 2)
-			{
-				final StringTokenizer t = new StringTokenizer(aLine, "\t");
-				nameString = t.nextToken();
-				isModItem = nameString.endsWith(".MOD");
-
-				if (isModItem)
-				{
-					nameString =
-							nameString.substring(0, nameString.length() - 4);
-				}
-				else if (nameString.indexOf(".COPY=") > 0)
-				{
-					nameString =
-							nameString.substring(0, nameString
-								.indexOf(".COPY="));
-				}
-			}
-
-			switch (fileType)
-			{
-				case -1: // if we're in the process of loading campaigns/sources when
-
-					// another source is loaded via PCC:, then it's fileType=-1
-				case LstConstants.CLASSSKILL_TYPE:
-
-					//Deliberate fall-through
-				case LstConstants.CLASSSPELL_TYPE:
-					// boomer70 - hack for how
-					PObject pObj = new PObject();
-					pObj.setName(aLine);
-					aList.add(pObj);
-
-					break;
-
-				default:
-					logError("In LstSystemLoader.initValue the fileType "
-						+ fileType + " is not handled.");
-
-					break;
-			}
-		}
-
 	}
 
 	/**
@@ -1412,191 +1059,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	}
 
 	/**
-	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private static void parseClassSkillFrom(String aLine)
-	{
-		StringTokenizer aTok = new StringTokenizer(aLine, "\t");
-		String className = aTok.nextToken();
-		final PCClass aClass = Globals.getClassKeyed(className);
-		String aName = className;
-
-		if (aClass != null)
-		{
-			aName = aClass.getKeyName();
-		}
-
-		if (aTok.hasMoreTokens())
-		{
-			className = aTok.nextToken();
-			aTok = new StringTokenizer(className, "|");
-
-			String aString;
-			Skill aSkill;
-
-			while (aTok.hasMoreTokens())
-			{
-				aString = aTok.nextToken();
-
-				final String aStringParen = aString + "(";
-				aSkill = Globals.getSkillKeyed(aString);
-
-				if (aSkill != null)
-				{
-					aSkill.getClassList().add(aName);
-				}
-				else
-				{
-					for (Skill skill : Globals.getSkillList())
-					{
-						if (skill.getKeyName().startsWith(aStringParen))
-						{
-							skill.getClassList().add(aName);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private static String parseClassSpellFrom(String aLine, String aKey)
-	{
-		StringTokenizer aTok = new StringTokenizer(aLine, "\t");
-		final String aString = aTok.nextToken();
-
-		if (aString.startsWith("DOMAIN:"))
-		{
-			aKey = aString.substring(7);
-
-			final Domain aDom = Globals.getDomainKeyed(aKey);
-
-			if (aDom != null)
-			{
-				aKey = "DOMAIN|" + aKey;
-			}
-			else
-			{
-				aKey = "";
-			}
-		}
-
-		if (aString.startsWith("CLASS:"))
-		{
-			boolean isClass = true;
-			aKey = "";
-
-			if (aString.length() > 6)
-			{
-				aKey = aString.substring(6);
-			}
-
-			// first look for an actual class
-			PObject aClass = Globals.getClassKeyed(aKey);
-
-			//
-			// If the class does not have any spell-casting, then it must either
-			// be a domain or a subclass
-			//
-			if (aClass != null)
-			{
-				if (((PCClass) aClass).getSpellType().equalsIgnoreCase(
-					Constants.s_NONE))
-				{
-					aClass = null;
-				}
-			}
-
-			// then look for a domain
-			if (aClass == null)
-			{
-				aClass = Globals.getDomainKeyed(aKey);
-
-				if (aClass != null)
-				{
-					isClass = false;
-				}
-			}
-
-			// if it's not one of those, leave it since it might be a subclass
-			if (aClass != null)
-			{
-				aKey = aClass.getKeyName();
-			}
-
-			if (isClass)
-			{
-				aKey = "CLASS|" + aKey;
-			}
-			else
-			{
-				aKey = "DOMAIN|" + aKey;
-			}
-		}
-		else if (aTok.hasMoreTokens())
-		{
-			PObject owner;
-			final String key = aKey.substring(aKey.indexOf('|') + 1);
-
-			if (aKey.startsWith("DOMAIN|"))
-			{
-				owner = Globals.getDomainKeyed(key);
-			}
-			else if (aKey.startsWith("CLASS|"))
-			{
-				owner = Globals.getClassKeyed(key);
-			}
-			else
-			{
-				return aKey;
-			}
-
-			if (owner == null) // then it must be a subclass
-			{
-				for (Iterator<PObject> i = pList.iterator(); i.hasNext();)
-				{
-					owner = i.next();
-
-					if (owner.getKeyName().equals(key))
-					{
-						break;
-					}
-					owner = null;
-				}
-
-				if (owner == null)
-				{
-					owner = new PObject();
-					owner.setName(key);
-					owner.setKeyName(key);
-					pList.add(owner);
-				}
-			}
-
-			final int level = Integer.parseInt(aString);
-			final String bString = aTok.nextToken();
-			aTok = new StringTokenizer(bString, "|");
-
-			while (aTok.hasMoreTokens())
-			{
-				final Spell aSpell =
-						Globals.getSpellKeyed(aTok.nextToken().trim());
-
-				if (aSpell != null)
-				{
-					aSpell.setLevelInfo(aKey, level);
-				}
-			}
-		}
-
-		return aKey;
-	}
-
-	/**
 	 * Load a game mode file.
 	 * First try the game mode directory. If that fails, try
 	 * reading the file from the default game mode directory.
@@ -1757,201 +1219,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			loadGameModeLstFile(pointBuyLoader, gmName, gameFile,
 				"pointbuymethods.lst", false);
 		}
-	}
-
-	/**
-	 * This method processes extra info from a line in a PCC/LST file,
-	 * typically of the form INCLUDE or EXCLUDE.
-	 *
-	 * @param lineType    int indicating the type of line data
-	 * @param pObjectList List of PObjects created from the data file
-	 * @param extraInfo   String containing the extra info
-	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private void processExtraInfo(int lineType,
-		List<? extends PObject> pObjectList, String extraInfo)
-	{
-		final StringTokenizer infoTokenizer =
-				new StringTokenizer(extraInfo, "|");
-		int inMode = MODE_DEFAULT;
-		ArrayList<String> includeExcludeNames = new ArrayList<String>();
-
-		while (infoTokenizer.hasMoreTokens())
-		{
-			// Get the next token (duh)
-			String currentToken = infoTokenizer.nextToken();
-
-			// Count parens in the token for use in identifying the start/end of
-			// an include/exclude group
-			final int openParens = countOpenParens(currentToken);
-			final int closeParens = countCloseParens(currentToken);
-
-			boolean handled = false;
-
-			// Handle the start of an INCLUDE or EXCLUDE group
-			if (currentToken.startsWith("(EXCLUDE"))
-			{
-				String name = currentToken.substring(9);
-
-				if (name.endsWith(")"))
-				{
-					name = name.substring(0, name.length() - 1);
-				}
-
-				includeExcludeNames.add(name);
-				inMode = MODE_EXCLUDE;
-				handled = true;
-			}
-			else if (currentToken.startsWith("(INCLUDE"))
-			{
-				String name = currentToken.substring(9);
-
-				if (name.endsWith(")"))
-				{
-					name = name.substring(0, name.length() - 1);
-				}
-
-				includeExcludeNames.add(name);
-				inMode = MODE_INCLUDE;
-				handled = true;
-			}
-
-			// Handle the end of an INCLUDE or EXCLUDE group
-			if (currentToken.endsWith(")") && (closeParens > openParens))
-			{
-				if (!handled)
-				{
-					includeExcludeNames.add(currentToken.substring(0,
-						currentToken.length() - 1));
-				}
-
-				if (inMode == MODE_EXCLUDE)
-				{
-					// exclude
-					for (int k = pObjectList.size() - 1; k >= 0; --k)
-					{
-						PObject anObject = pObjectList.get(k);
-
-						if (includeExcludeNames.contains(anObject.getKeyName()))
-						{
-							pObjectList.remove(k);
-						}
-					}
-				}
-				else if (inMode == MODE_INCLUDE)
-				{
-					// include
-					for (int k = pObjectList.size() - 1; k >= 0; --k)
-					{
-						PObject anObject = pObjectList.get(k);
-
-						if (!includeExcludeNames
-							.contains(anObject.getKeyName()))
-						{
-							pObjectList.remove(k);
-						}
-					}
-				}
-
-				handled = true;
-				inMode = MODE_DEFAULT;
-			}
-
-			// If we get here without handling the token, we need to do something with it.
-			if (!handled)
-			{
-				// Assume it is part of a larger INCLUDE or EXCLUDE unless
-				// it is a REQSKILL or SPECIAL line.
-				if (lineType != LstConstants.SPECIAL_TYPE)
-				{
-					includeExcludeNames.add(currentToken);
-				}
-				else
-				{
-					// It is a REQSKILL or SPECIAL line; add it to the original list of info
-					// This will probably blow something up later via a ClassCastException.
-					// boomer70 - This will definately blow something up and can't
-					// work.  removing.
-					Logging.errorPrint("Unhandled INCLUDE/EXCLUDE: "
-						+ currentToken);
-					//					pObjectList.add(currentToken);
-				}
-			}
-		}
-		// end while (infoTokenizer.hasMoreTokens())
-	}
-
-	/**
-	 * This method processes a List of files of a given type, parsing
-	 * the content of each file into PCGen core objects.
-	 *
-	 * @param lineType   int representing the type of files
-	 * @param lineList   List containing the LST source lines
-	 * @param bArrayList List that will contain pcgen.core objects
-	 * @throws PersistenceLayerException if an error is found in the LST source
-	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	private void processFileList(final int lineType, List<CampaignSourceEntry> lineList,
-		List<PObject> bArrayList) throws PersistenceLayerException
-	{
-		//  Campaigns aren't processed here any more.
-		if (lineType == LstConstants.CAMPAIGN_TYPE)
-		{
-			logError("No longer processing campaigns in processFileList.");
-
-			return;
-		}
-
-		for (CampaignSourceEntry campaign : lineList)
-		{
-			URI uri = campaign.getURI();
-			// Check whether the file was already [completely] loaded
-			if (loadedFiles.contains(uri))
-			{
-				// if so, process next file (don't need to do this one again)
-				continue;
-			}
-
-			// 3. Parse the file into a list of PObjects/Strings
-			loadFileIntoList(uri, lineType, bArrayList);
-
-			// 4. Check for restrictions on loading the file.
-			List<String> excludeKeys = campaign.getExcludeItems();
-			for (int k = bArrayList.size() - 1; k >= 0; --k)
-			{
-				PObject anObject = bArrayList.get(k);
-
-				if (excludeKeys.contains(anObject.getKeyName()))
-				{
-					bArrayList.remove(k);
-				}
-			}
-			List<String> includeKeys = campaign.getIncludeItems();
-			for (int k = bArrayList.size() - 1; k >= 0; --k)
-			{
-				PObject anObject = bArrayList.get(k);
-
-				if (!includeKeys.contains(anObject.getKeyName()))
-				{
-					bArrayList.remove(k);
-				}
-			}
-
-			if (excludeKeys.size() == 0 && includeKeys.size() == 0)
-			{
-				// Using all data from the file.  Add it to the loaded list.
-				loadedFiles.add(uri);
-			}
-
-			// 5. Add the resulting information to Globals.
-			if (!bArrayList.isEmpty())
-			{
-				addToGlobals(lineType, bArrayList);
-			}
-		}
-		// end lineList loop
 	}
 
 	/**
@@ -2268,20 +1535,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// we have observers, so just pass them on
 		setChanged();
 		notifyObservers(arg);
-	}
-
-	/**
-	 * Logs an error taht has occured during data loading.
-	 * This will not only log the message to the system error log,
-	 * but it will also notify all observers of the error.
-	 * @param message the error to notify listeners about
-	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
-	 */
-	@Deprecated
-	public void logError(String message)
-	{
-		Logging.errorPrint(message);
-		setChanged();
 	}
 
 	/**
