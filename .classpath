@@ -3,6 +3,7 @@
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/build/src"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/java"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/test"/>
+	<classpathentry kind="src" path="code/src/utest"/>
 	<classpathentry kind="var" path="JRE_LIB" sourcepath="/JRE_SRC">
 		<attributes>
 			<attribute name="javadoc_location" value="http://java.sun.com/j2se/1.5.0/docs/api/"/>

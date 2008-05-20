@@ -55,6 +55,7 @@ These files can be renamed and used for releases.
 	<property name="etc.dir" value="${basedir}/code/etc" />
 	<property name="src.java.dir" value="${basedir}/code/src/java" />
 	<property name="src.test.java.dir" value="${basedir}/code/src/test" />
+	<property name="src.utest.java.dir" value="${basedir}/code/src/utest" />
 	<property name="lib.dir" value="lib" />
 	<property name="src.data.dir" value="${basedir}/data" />
 	<property name="src.docs.dir" value="${basedir}/docs" />
@@ -731,7 +732,7 @@ pcgen.filepaths=user
 	-->
 
 	<!-- Run the full test cycle -->
-	<target name="test" depends="dotest, failure.notice, success.notice" description="Run test suite (include lib/test/junit.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
+	<target name="test" depends="doquicktest, dotest, failure.notice, success.notice" description="Run test suite (include lib/test/junit.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
 	</target>
 
 	<!-- Run the tests -->
@@ -767,6 +768,27 @@ pcgen.filepaths=user
 		</junitreport>
 
 		<echo message="JUnit report output to ${build.rpt.dir}/test-results" />
+	</target>
+
+	<target name="doquicktest" depends="testclean, test.compile" >
+		<junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}" forkmode="perBatch">
+			<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+			<jvmarg value="-Demma.coverage.out.merge=true" />
+			<jvmarg value="-Xmx192M" />
+			<formatter type="plain" />
+			<formatter type="xml" />
+			<classpath>
+				<path refid="test.project.classpath" />
+				<path refid="emma.lib" />
+			</classpath>
+			<batchtest todir="${build.dir}/test-results/xml">
+				<fileset dir="${basedir}/code/src/utest">
+				  <include name="plugin/lsttokens/**/*.java"/>
+				  <exclude name="**/Abstract*.java"/>
+				  <exclude name="**/testsupport/*.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
 	</target>
 
 	<!-- Generate a failure notice if the junit tests failed -->
@@ -806,6 +828,9 @@ pcgen.filepaths=user
 	<!-- Compile the test classes -->
 	<target name="test.compile" depends="jar, jar-all-plugins">
 		<mkdir dir="${build.testclasses.dir}" />
+		<javac srcdir="${src.utest.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
+			<classpath refid="test.project.classpath" />
+		</javac>
 		<javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="test.project.classpath" />
 		</javac>
