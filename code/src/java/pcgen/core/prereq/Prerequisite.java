@@ -476,6 +476,90 @@ public class Prerequisite implements Cloneable
 		this.categoryName = categoryName;
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return (kind == null ? -1 : kind.hashCode())
+				^ (key == null ? 0 : key.hashCode());
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o == this)
+		{
+			return true;
+		}
+		if (!(o instanceof Prerequisite))
+		{
+			return false;
+		}
+		Prerequisite other = (Prerequisite) o;
+		if (kind == null)
+		{
+			if (other.kind != null)
+			{
+				return false;
+			}
+		}
+		if (key == null)
+		{
+			if (other.key != null)
+			{
+				return false;
+			}
+		}
+		if (subKey == null)
+		{
+			if (other.subKey != null)
+			{
+				return false;
+			}
+		}
+		if (categoryName == null)
+		{
+			if (other.categoryName != null)
+			{
+				return false;
+			}
+		}
+		boolean iHave = prerequisites != null && !prerequisites.isEmpty();
+		boolean otherHas =
+				other.prerequisites != null && !other.prerequisites.isEmpty();
+		if (iHave)
+		{
+			if (!otherHas)
+			{
+				return false;
+			}
+			List<Prerequisite> otherPRL = other.prerequisites;
+			if (otherPRL.size() != prerequisites.size())
+			{
+				return false;
+			}
+			ArrayList<Prerequisite> removed =
+					new ArrayList<Prerequisite>(prerequisites);
+			removed.removeAll(otherPRL);
+			if (!removed.isEmpty())
+			{
+				return false;
+			}
+		}
+		else if (otherHas)
+		{
+			return false;
+		}
+		return countMultiples == other.countMultiples
+			&& overrideQualify == other.overrideQualify
+			&& levelQualifier == other.levelQualifier
+			&& operator == other.operator
+			&& (kind == null || kind.equals(other.kind))
+			&& (key == null || key.equals(other.key))
+			&& (subKey == null || subKey.equals(other.subKey))
+			&& operand.equals(other.operand)
+			&& (categoryName == null || categoryName.equals(other.categoryName));
+	}
+
 	boolean deprecated = false;
 	
 	public void setDeprecated()

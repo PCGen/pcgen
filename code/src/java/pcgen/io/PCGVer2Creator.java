@@ -36,6 +36,7 @@ import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
@@ -57,7 +58,6 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
@@ -1045,22 +1045,15 @@ final class PCGVer2Creator implements IOConstants
 
 			String del = Constants.EMPTY_STRING;
 
-			for (QualifiedObject<Domain> qualDomain : aDeity.getDomainList())
+			for (CDOMReference<Domain> ref : aDeity.getSafeListMods(Deity.DOMAINLIST))
 			{
-				buffer.append(del);
-				buffer.append(TAG_DOMAIN).append(':');
-
-				if (qualDomain == null || qualDomain.getObject(null) == null)
+				for (Domain d : ref.getContainedObjects())
 				{
-					buffer.append(EntityEncoder.encode(Constants.s_NONE));
+					buffer.append(del);
+					buffer.append(TAG_DOMAIN).append(':');
+					buffer.append(EntityEncoder.encode(d.getKeyName()));
+					del = "|"; //$NON-NLS-1$
 				}
-				else
-				{
-					buffer.append(EntityEncoder.encode(qualDomain.getObject(
-						null).getKeyName()));
-				}
-
-				del = "|"; //$NON-NLS-1$
 			}
 
 			buffer.append(']');
@@ -1082,16 +1075,18 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(TAG_DEITYFAVWEAP).append(':');
 			buffer.append('[');
 
-			final StringTokenizer tokens =
-					new StringTokenizer(aDeity.getFavoredWeapon(), "|"); //$NON-NLS-1$
-			del = Constants.EMPTY_STRING;
-
-			while (tokens.hasMoreTokens())
+			List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(
+					ListKey.DEITYWEAPON);
+			if (dwp != null)
 			{
-				buffer.append(del);
-				buffer.append(TAG_WEAPON).append(':');
-				buffer.append(EntityEncoder.encode(tokens.nextToken()));
-				del = "|"; //$NON-NLS-1$
+				del = Constants.EMPTY_STRING;
+				for (CDOMReference<WeaponProf> ref : dwp)
+				{
+					buffer.append(del);
+					buffer.append(TAG_WEAPON).append(':');
+					buffer.append(EntityEncoder.encode(ref.getLSTformat()));
+					del = "|"; //$NON-NLS-1$
+				}
 			}
 
 			buffer.append(']');

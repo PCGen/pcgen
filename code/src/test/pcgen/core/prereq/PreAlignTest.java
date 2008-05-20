@@ -25,8 +25,10 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -167,7 +169,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	{
 		deity = new Deity();
 		deity.setName("TestDeity");
-		deity.setAlignment("NG");
+		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
 
 		super.setUp();
 	}

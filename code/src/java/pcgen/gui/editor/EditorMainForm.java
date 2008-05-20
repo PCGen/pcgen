@@ -22,9 +22,66 @@
  */
 package pcgen.gui.editor;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.*;
+import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.list.DomainList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.Ability;
+import pcgen.core.AbilityInfo;
+import pcgen.core.Categorisable;
+import pcgen.core.DamageReduction;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.Movement;
+import pcgen.core.PCClass;
+import pcgen.core.PCSpell;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.Race;
+import pcgen.core.Skill;
+import pcgen.core.SourceEntry;
+import pcgen.core.SpecialAbility;
+import pcgen.core.SpellSupport;
+import pcgen.core.SubClass;
+import pcgen.core.SubstitutionClass;
+import pcgen.core.Variable;
+import pcgen.core.Vision;
+import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -36,12 +93,6 @@ import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.StringWriter;
-import java.util.*;
-import java.util.List;
 
 /**
  * <code>EditorMainForm</code>
@@ -587,34 +638,37 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save granted domains
 				//
+				CDOMReference<DomainList> list = Deity.DOMAINLIST;
 				Deity deity = (Deity) thisPObject;
 				if (pnlDomains.getAvailableList().length == 0)
 				{
-					deity.setDomainList(null);
+					deity.removeAllFromList(list);
 				}
 				else
 				{
 					sel = pnlDomains.getSelectedList();
-					List<QualifiedObject<Domain>> qualDomains =
-						new ArrayList<QualifiedObject<Domain>>();
 					for (Object object : sel)
 					{
-						qualDomains.add(new QualifiedObject<Domain>(
-							(Domain) object));
+						Domain d = (Domain) object;
+						CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef
+							.getRef(d);
+						SimpleAssociatedObject sao = new SimpleAssociatedObject();
+						sao.setAssociation(AssociationKey.TOKEN, "DOMAINS");
+						deity.putToList(list, ref, sao);
 					}
-					deity.setDomainList(qualDomains);
 				}
 
 				//
-				// Save racial worshippers (no need to explicitly clear)
+				// Save racial worshippers
 				//
+				thisPObject.removeListFor(ListKey.RACEPANTHEON);
 				sel = pnlRaces.getSelectedList();
 				List<String> raceArray = new ArrayList<String>(sel.length);
 				for (int i = 0; i < sel.length; i++)
 				{
-					raceArray.add( ((Race)sel[i]).getKeyName() );
+					thisPObject.addToListFor(ListKey.RACEPANTHEON, ((Race) sel[i])
+						.getKeyName());
 				}
-				((Deity) thisPObject).setRacePantheonList(raceArray);
 
 				break;
 
@@ -1020,7 +1074,7 @@ public final class EditorMainForm extends JDialog
 		switch (editType)
 		{
 			case EditorConstants.EDIT_DEITY:
-				((Deity) thisPObject).getPantheonList().clear();
+				((Deity) thisPObject).getSafeListFor(ListKey.PANTHEON).clear();
 
 				break;
 
@@ -1088,7 +1142,8 @@ public final class EditorMainForm extends JDialog
 
 			if ((editType == EditorConstants.EDIT_DEITY) && (aString.startsWith("PANTHEON:")))
 			{
-				((Deity) thisPObject).addPantheon(aString.substring(9));
+				thisPObject.addToListFor(ListKey.PANTHEON, Pantheon
+						.getConstant(aString.substring(9)));
 			}
 		}
 	}
@@ -1151,7 +1206,7 @@ public final class EditorMainForm extends JDialog
 				List<Race>selectedRaceList = new ArrayList<Race>();
 				List<Race>availableRaceList = new ArrayList<Race>();
 
-				final List<String> raceList = ((Deity) thisPObject).getRacePantheonList();
+				final List<String> raceList = ((Deity) thisPObject).getSafeListFor(ListKey.RACEPANTHEON);
 
 				for ( final Race race : Globals.getAllRaces() )
 				{
@@ -2844,7 +2899,7 @@ public final class EditorMainForm extends JDialog
 		switch (anEditType)
 		{
 			case EditorConstants.EDIT_DEITY:
-				for (Iterator e = ((Deity) thisPObject).getPantheonList().iterator(); e.hasNext();)
+				for (Iterator e = ((Deity) thisPObject).getSafeListFor(ListKey.PANTHEON).iterator(); e.hasNext();)
 				{
 					selectedList.add("PANTHEON:" + e.next());
 				}

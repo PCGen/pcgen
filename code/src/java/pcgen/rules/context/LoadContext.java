@@ -17,14 +17,19 @@
  */
 package pcgen.rules.context;
 
+import java.io.StringWriter;
 import java.net.URI;
 import java.util.Collection;
+import java.util.TreeSet;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.persistence.TokenSupport;
 
 public abstract class LoadContext
@@ -134,7 +139,7 @@ public abstract class LoadContext
 
 	public void resolveReferences()
 	{
-
+		ref.resolveReferences();
 	}
 
 	public void resolveDeferredTokens()
@@ -226,5 +231,33 @@ public abstract class LoadContext
 		T newObj = obj.cloneConstructedCDOMObject(cdo, newName);
 		ref.importObject(newObj);
 		return newObj;
+	}
+
+	private static final PrerequisiteWriter prereqWriter =
+			new PrerequisiteWriter();
+
+	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
+	{
+		String prereqString = null;
+		if (prereqs != null && !prereqs.isEmpty())
+		{
+			TreeSet<String> list = new TreeSet<String>();
+			for (Prerequisite p : prereqs)
+			{
+				StringWriter swriter = new StringWriter();
+				try
+				{
+					prereqWriter.write(swriter, p);
+				}
+				catch (PersistenceLayerException e)
+				{
+					addWriteMessage("Error writing Prerequisite: " + e);
+					return null;
+				}
+				list.add(swriter.toString());
+			}
+			prereqString = StringUtil.join(list, Constants.PIPE);
+		}
+		return prereqString;
 	}
 }

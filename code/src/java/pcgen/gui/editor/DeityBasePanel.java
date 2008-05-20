@@ -37,6 +37,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Globals;
@@ -211,8 +216,10 @@ final class DeityBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		((Deity) thisPObject).setHolyItem(getHolyItemText());
-		((Deity) thisPObject).setAlignment(getDeityAlignment());
+		thisPObject.put(StringKey.HOLY_ITEM, getHolyItemText());
+		PCAlignment align = SettingsHandler.getGame().getAlignment(
+				getDeityAlignment());
+		thisPObject.put(ObjectKey.ALIGNMENT, align);
 
 		final String desc = getDescriptionText();
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
@@ -241,24 +248,27 @@ final class DeityBasePanel extends BasePanel
 		//
 		// Save favored weapon(s)
 		//
-		String aString;
-
+		thisPObject.removeListFor(ListKey.DEITYWEAPON);
 		if (getFavoredWeaponsAvailableList().length == 0)
 		{
-			aString = "Any";
+			thisPObject.addToListFor(ListKey.DEITYWEAPON,
+					Globals.getContext().ref
+							.getCDOMAllReference(WeaponProf.class));
 		}
 		else
 		{
-			Object[] sel = getFavoredWeaponsSelectedList();
-			aString = EditUtil.delimitArray(sel, '|');
+			for (Object o : getFavoredWeaponsSelectedList())
+			{
+				CDOMReference<WeaponProf> ref = CDOMDirectSingleRef
+						.getRef(Globals.getWeaponProfKeyed(o.toString()));
+				thisPObject.addToListFor(ListKey.DEITYWEAPON, ref);
+			}
 		}
-
-		((Deity) thisPObject).setFavoredWeapon(aString);
 	}
 
 	public void updateView(PObject thisPObject)
 	{
-		setHolyItemText(((Deity) thisPObject).getHolyItem());
+		setHolyItemText(thisPObject.get(StringKey.HOLY_ITEM));
 		final StringBuffer buf = new StringBuffer();
 		for ( final Description desc : thisPObject.getDescriptionList() )
 		{
@@ -281,22 +291,12 @@ final class DeityBasePanel extends BasePanel
 		//
 		List<WeaponProf> selectedList = new ArrayList<WeaponProf>();
 		List<WeaponProf> availableList = Globals.getWeaponProfArrayCopy();
-		final StringTokenizer aTok = new StringTokenizer(((Deity) thisPObject).getFavoredWeapon(), "|", false);
-
-		while (aTok.hasMoreTokens())
+		
+		List<CDOMReference<WeaponProf>> dwp = thisPObject
+				.getSafeListFor(ListKey.DEITYWEAPON);
+		for (CDOMReference<WeaponProf> ref : dwp)
 		{
-			String deityWeap = aTok.nextToken();
-
-			if (deityWeap.equalsIgnoreCase("ALL") || "ANY".equalsIgnoreCase(deityWeap))
-			{
-				selectedList.addAll(availableList);
-				availableList.clear();
-
-				break;
-			}
-
-			final WeaponProf wp = Globals.getWeaponProfKeyed(deityWeap);
-			if (wp != null)
+			for (WeaponProf wp : ref.getContainedObjects())
 			{
 				selectedList.add(wp);
 				availableList.remove(wp);

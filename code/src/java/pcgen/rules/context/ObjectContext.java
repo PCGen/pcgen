@@ -18,9 +18,6 @@
 package pcgen.rules.context;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Set;
@@ -31,7 +28,6 @@ import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -302,6 +298,11 @@ public class ObjectContext
 
 	private static class SimpleCDOMObject extends CDOMObject
 	{
+		@Override
+		public boolean isType(String str)
+		{
+			return false;
+		}
 	}
 
 	public static class TrackingObjectCommitStrategy implements

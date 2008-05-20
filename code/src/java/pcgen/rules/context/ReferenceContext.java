@@ -315,4 +315,9 @@ public class ReferenceContext
 	{
 		this.sourceURI = sourceURI;
 	}
+
+	public void resolveReferences()
+	{
+		simple.resolveReferences();
+	}
 }

@@ -45,6 +45,7 @@ import java.util.regex.Pattern;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -3443,26 +3444,21 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			{
 				if (aPC.getDeity() != null)
 				{
-					String weaponList = aPC.getDeity().getFavoredWeapon();
-
-					if (!("ALL".equalsIgnoreCase(weaponList) || "ANY"
-						.equalsIgnoreCase(weaponList)))
+					List<CDOMReference<WeaponProf>> weapons = aPC.getDeity()
+							.getSafeListFor(ListKey.DEITYWEAPON);
+					for (CDOMReference<WeaponProf> ref : weapons)
 					{
-						final StringTokenizer bTok =
-								new StringTokenizer(weaponList, "|");
-
-						while (bTok.hasMoreTokens())
+						if (!Constants.ALLREF_LST.equals(ref.getLSTformat()))
 						{
-							final String bString = bTok.nextToken();
-							final WeaponProf wp =
-									Globals.getWeaponProfKeyed(bString);
-							if (!wp.isType("Natural"))
+							for (WeaponProf wp : ref.getContainedObjects())
 							{
-								aList.add(bString);
+								if (!wp.isType("Natural"))
+								{
+									aList.add(wp.getKeyName());
+								}
 							}
 						}
 					}
-
 				}
 			}
 			else

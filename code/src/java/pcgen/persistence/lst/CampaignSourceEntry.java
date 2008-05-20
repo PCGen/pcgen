@@ -58,6 +58,7 @@ public class CampaignSourceEntry
 	private List<String> excludeItems = new ArrayList<String>();
 	private List<String> includeItems = new ArrayList<String>();
 	private URI uri = null;
+	private URI writeURI = null;
 	private URIFactory uriFac = null;
 	private String stringForm = null;
 
@@ -363,6 +364,16 @@ public class CampaignSourceEntry
 		return cse;
 	}
 
+	public URI getWriteURI()
+	{
+		return writeURI;
+	}
+
+	public void setWriteURI(URI writeURI)
+	{
+		this.writeURI = writeURI;
+	}
+
 	/**
 	 * Split an include or exclude string accounting for the possible presence 
 	 * of a leading category.
@@ -410,5 +421,4 @@ public class CampaignSourceEntry
 
 		return catKeyList;
 	}
-
 }

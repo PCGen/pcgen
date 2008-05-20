@@ -26,12 +26,18 @@
  */
 package plugin.pretokens.test;
 
-import pcgen.core.*;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.WeaponProf;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.core.utils.CoreUtility;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -87,10 +93,11 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
 		final String aString = prereq.getKey();
 		if ("DEITYWEAPON".equals(aString) && character.getDeity() != null) //$NON-NLS-1$
 		{
-			for (String weaponKey : CoreUtility.split(character.getDeity()
-				.getFavoredWeapon(), '|'))
+			List<CDOMReference<WeaponProf>> dwp = character.getDeity().getSafeListFor(
+					ListKey.DEITYWEAPON);
+			for (CDOMReference<WeaponProf> ref : dwp)
 			{
-				if (character.hasWeaponProfKeyed(weaponKey))
+				if (character.hasWeaponProfKeyed(ref.getLSTformat()))
 				{
 					runningTotal++;
 				}

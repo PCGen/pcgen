@@ -25,6 +25,32 @@
  */
 package pcgen.core;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.Random;
+import java.util.ResourceBundle;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.regex.Pattern;
+
+import javax.swing.JFrame;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
@@ -32,6 +58,8 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.persistence.PersistenceManager;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -42,15 +70,6 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
-
-import javax.swing.*;
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.text.Collator;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.regex.Pattern;
 
 /**
  * This is like the top level model container. However,
@@ -180,6 +199,7 @@ public final class Globals
 	private static final StringBuffer section15 = new StringBuffer(30000);
 	private static final String spellPoints = "0";
 
+	private static LoadContext context = new RuntimeLoadContext();
 	
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
@@ -2495,6 +2515,8 @@ public final class Globals
 		Equipment.clearEquipmentTypes();
 		PersistenceManager.getInstance().emptyLists();
 		SettingsHandler.getGame().clearLstAbilityCategories();
+		
+		context = new RuntimeLoadContext();
 	}
 
 	/**
@@ -3738,7 +3760,10 @@ public final class Globals
 	public static int getMinDieSize()
 	{
 		return SettingsHandler.getGame().getMinDieSize();
+	}
+
+	public static LoadContext getContext()
+	{
+		return context;
 	}	
-	
-	
 }

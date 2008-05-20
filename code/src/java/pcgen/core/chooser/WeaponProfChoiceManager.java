@@ -24,12 +24,13 @@
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -94,25 +95,12 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 			{
 				if (aPc.getDeity() != null)
 				{
-					String weaponList = aPc.getDeity().getFavoredWeapon();
-
-					if ("ALL".equalsIgnoreCase(weaponList) || "ANY".equalsIgnoreCase(weaponList))
+					List<CDOMReference<WeaponProf>> dwp = aPc.getDeity().getSafeListFor(
+							ListKey.DEITYWEAPON);
+					for (CDOMReference<WeaponProf> ref : dwp)
 					{
-						Collection<WeaponProf> wpList = Globals.getAllWeaponProfs();
-						availableList.addAll(wpList);
+						availableList.addAll(ref.getContainedObjects());
 					}
-					else
-					{
-						final StringTokenizer bTok = new StringTokenizer(weaponList, "|");
-
-						while (bTok.hasMoreTokens())
-						{
-							final String bString = bTok.nextToken();
-							final WeaponProf wp = Globals.getWeaponProfKeyed(bString);
-							availableList.add(wp);
-						}
-					}
-
 				}
 			}
 			else if ("SIZE.".regionMatches(true, 0, aString, 0, 5))

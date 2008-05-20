@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.WeightedList;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -35,7 +36,6 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
@@ -260,10 +260,11 @@ public class ClassData
 			domains = new WeightedList<Domain>();
 			
 			final Deity deity = Globals.getDeityKeyed(aDeityKey);
-			final List<QualifiedObject<Domain>> deityDomains = deity.getDomainList();
-			for ( final QualifiedObject<Domain> qualDomain : deityDomains )
+			for (CDOMReference<Domain> deityDomains : deity.getSafeListMods(Deity.DOMAINLIST))
 			{
-				domains.add(1, qualDomain.getObject(null));
+				domains.addAll(deity.getListAssociations(Deity.DOMAINLIST,
+						deityDomains).size(), deityDomains
+						.getContainedObjects());
 			}
 		}
 		return domains;

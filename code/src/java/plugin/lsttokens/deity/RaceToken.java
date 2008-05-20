@@ -1,31 +1,58 @@
 package plugin.lsttokens.deity;
 
-import pcgen.core.Deity;
-import pcgen.core.utils.CoreUtility;
-import pcgen.persistence.lst.DeityLstToken;
+import java.util.StringTokenizer;
 
-import java.util.List;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Deity;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with RACE Token
  */
-public class RaceToken implements DeityLstToken
+public class RaceToken extends AbstractToken implements CDOMPrimaryToken<Deity>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "RACE";
 	}
 
-	public boolean parse(Deity deity, String value)
+	public boolean parse(LoadContext context, Deity deity, String value)
 	{
-		if (value.length() > 0)
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			String[] races = value.split("\\|");
-			List<String> raceList = CoreUtility.arrayToList(races);
-			deity.setRacePantheonList(raceList);
-			return true;
+			return false;
 		}
-		return false;
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		while (tok.hasMoreTokens())
+		{
+			context.getObjectContext().addToList(deity, ListKey.RACEPANTHEON,
+					tok.nextToken());
+		}
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, Deity deity)
+	{
+		Changes<String> changes =
+				context.getObjectContext().getListChanges(deity,
+					ListKey.RACEPANTHEON);
+		if (changes == null || changes.isEmpty())
+		{
+			return null;
+		}
+		return new String[]{StringUtil.join(changes.getAdded(), Constants.PIPE)};
+	}
+
+	public Class<Deity> getTokenClass()
+	{
+		return Deity.class;
 	}
 }

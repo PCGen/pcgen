@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 
 public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
@@ -30,19 +31,19 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 
 	public CDOMAllRef(Class<T> cl)
 	{
-		super(cl, "ALL: " + cl.getSimpleName());
+		super(cl, Constants.ALLREF_LST + ": " + cl.getSimpleName());
 	}
 
 	@Override
 	public String getLSTformat()
 	{
-		return "ALL";
+		return Constants.ALLREF_LST;
 	}
 
 	@Override
 	public String getPrimitiveFormat()
 	{
-		return "ALL";
+		return Constants.ALLREF_LST;
 	}
 
 	@Override

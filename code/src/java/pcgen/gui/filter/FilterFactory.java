@@ -30,7 +30,22 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.*;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Pantheon;
+import pcgen.core.Ability;
+import pcgen.core.Campaign;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -1325,21 +1340,21 @@ final class PantheonFilter extends AbstractPObjectFilter
 		{
 			final Deity aDeity = (Deity) pObject;
 
-			if (pantheon.equals(ALL) && (aDeity.getPantheonList().size() == 0))
+			if (pantheon.equals(ALL) && (aDeity.getSafeListFor(ListKey.PANTHEON).size() == 0))
 			{
 				return true;
 			}
 
-			for ( final String panthName : aDeity.getPantheonList() )
+			for ( final Pantheon pantheon : aDeity.getSafeListFor(ListKey.PANTHEON) )
 			{
-				String tmp = panthName;
+				String tmp = pantheon.toString();
 
 				if (detailLevel == Detail.LOW)
 				{
-					tmp = normalizePantheon(panthName);
+					tmp = normalizePantheon(tmp);
 				}
 
-				if (pantheon.startsWith(tmp))
+				if (pantheon.toString().startsWith(tmp))
 				{
 					return true;
 				}

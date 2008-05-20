@@ -61,6 +61,7 @@ import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
@@ -75,7 +76,6 @@ import pcgen.gui.pcGenGUI;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -467,7 +467,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// load ability categories first as they used to only be at the game mode
 			abilityCategoryLoader.loadLstFiles(abilityCategoryFileList);
 
-			LoadContext context = new RuntimeLoadContext();
+			LoadContext context = Globals.getContext();
+			for (PCAlignment al : SettingsHandler.getGame()
+					.getUnmodifiableAlignmentList())
+			{
+				context.ref.registerAbbreviation(al, al.getKeyName());
+			}
 			
 			// load weapon profs first
 			wProfLoader.loadLstFiles(context, weaponProfFileList);
@@ -529,6 +534,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				EquipmentList.autoGenerateEquipment();
 			}
+			
+			context.resolveReferences();
 
 			//  Show the licenses
 			showLicensesIfNeeded();

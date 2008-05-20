@@ -15,10 +15,8 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.rules.persistence.TokenUtilities;
 
 public class ListContext
@@ -332,6 +330,12 @@ public class ListContext
 			public CDOMObject clone() throws CloneNotSupportedException
 			{
 				throw new CloneNotSupportedException();
+			}
+
+			@Override
+			public boolean isType(String str)
+			{
+				return false;
 			}
 		}
 

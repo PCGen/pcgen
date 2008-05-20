@@ -20,9 +20,9 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.base.CDOMObject;
 
-public class CDOMDirectSingleRef<T extends PrereqObject> extends
+public class CDOMDirectSingleRef<T extends CDOMObject> extends
 		CDOMSingleRef<T>
 {
 
@@ -30,7 +30,7 @@ public class CDOMDirectSingleRef<T extends PrereqObject> extends
 
 	public CDOMDirectSingleRef(T obj)
 	{
-		super((Class<T>) obj.getClass(), "*Direct");
+		super((Class<T>) obj.getClass(), obj.getLSTformat());
 		referencedObject = obj;
 	}
 
@@ -55,15 +55,15 @@ public class CDOMDirectSingleRef<T extends PrereqObject> extends
 	@Override
 	public String getLSTformat()
 	{
-		return getName();
+		return referencedObject.getLSTformat();
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
 		return o instanceof CDOMDirectSingleRef
-			&& getReferenceClass().equals(
-				((CDOMDirectSingleRef) o).getReferenceClass());
+			&& referencedObject.equals(
+				((CDOMDirectSingleRef) o).referencedObject);
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class CDOMDirectSingleRef<T extends PrereqObject> extends
 		return Collections.singleton(referencedObject);
 	}
 
-	public static <R extends PrereqObject> CDOMDirectSingleRef<R> getRef(R obj)
+	public static <R extends CDOMObject> CDOMDirectSingleRef<R> getRef(R obj)
 	{
 		return new CDOMDirectSingleRef<R>(obj);
 	}

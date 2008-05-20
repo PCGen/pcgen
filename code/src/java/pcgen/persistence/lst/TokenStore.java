@@ -45,7 +45,6 @@ public class TokenStore
 		tokenTypeList.add(CampaignLstToken.class);
 		tokenTypeList.add(PCClassLstToken.class);
 		tokenTypeList.add(CompanionModLstToken.class);
-		tokenTypeList.add(DeityLstToken.class);
 		tokenTypeList.add(DomainLstToken.class);
 		tokenTypeList.add(EquipmentLstToken.class);
 		tokenTypeList.add(EquipmentModifierLstToken.class);

@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import pcgen.base.lang.CaseInsensitiveString;
@@ -184,11 +185,6 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 		CaseInsensitiveString cis = new CaseInsensitiveString(forgetKey);
 		active.remove(cis);
 		duplicates.removeListFor(cis);
-	}
-
-	public Collection<T> getConstructedCDOMObjects()
-	{
-		return active.values();
 	}
 
 	public boolean containsConstructedCDOMObject(String key)
@@ -369,5 +365,17 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 		Set<T> set = new HashSet<T>();
 		set.addAll(active.values());
 		return set;
+	}
+
+	public void fillReferences()
+	{
+		for (Entry<CaseInsensitiveString, RT> me : referenced.entrySet())
+		{
+			T activeObj = active.get(me.getKey());
+			if (activeObj != null)
+			{
+				me.getValue().addResolution(activeObj);
+			}
+		}
 	}
 }

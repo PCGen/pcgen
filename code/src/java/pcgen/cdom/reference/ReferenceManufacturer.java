@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.PrereqObject;
 
-public interface ReferenceManufacturer<T extends CDOMObject, RT extends CDOMSingleRef<T>>
+public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSingleRef<T>>
 {
 	public RT getReference(String key);
 

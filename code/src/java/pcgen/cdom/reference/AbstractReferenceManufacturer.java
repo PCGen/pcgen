@@ -5,10 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.rules.context.ReferenceSupport;
 import pcgen.util.Logging;
 
-public class AbstractReferenceManufacturer<T extends PrereqObject>
+public class AbstractReferenceManufacturer<T extends CDOMObject>
 {
 	private final Class<T> refClass;
 
@@ -89,5 +90,30 @@ public class AbstractReferenceManufacturer<T extends PrereqObject>
 		return refClass;
 	}
 
-
+	public void resolveReferences(ReferenceSupport<T, ? extends CDOMSingleRef<T>> rs)
+	{
+		for (T obj : rs.getAllConstructedCDOMObjects())
+		{
+			if (allRef != null)
+			{
+				allRef.addResolution(obj);
+			}
+			for (Map.Entry<String[], CDOMTypeRef<T>> me : typeReferences.entrySet())
+			{
+				boolean typeOkay = true;
+				for (String type : me.getKey())
+				{
+					if (!obj.isType(type))
+					{
+						typeOkay = false;
+						break;
+					}
+				}
+				if (typeOkay)
+				{
+					me.getValue().addResolution(obj);
+				}
+			}
+		}
+	}
 }

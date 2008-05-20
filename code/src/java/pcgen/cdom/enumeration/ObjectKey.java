@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.core.PCAlignment;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -51,6 +52,8 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Boolean> EXCLUSIVE = new ObjectKey<Boolean>();
 
 	public static final ObjectKey<URI> SOURCE_URI = new ObjectKey<URI>();
+
+	public static final ObjectKey<PCAlignment> ALIGNMENT = new ObjectKey<PCAlignment>();
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

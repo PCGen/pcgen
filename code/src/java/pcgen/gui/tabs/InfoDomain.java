@@ -44,8 +44,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
@@ -73,7 +76,13 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -83,6 +92,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
+import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
@@ -358,9 +368,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					new StringBuffer().append(HTML).append(FONT_PLUS_1).append(BOLD).append(
 						aDeity.piSubString()).append(END_BOLD).append(END_FONT);
 
-			String aString = aDeity.getTitle();
+			String aString = aDeity.get(StringKey.TITLE);
 
-			if (aString.length() != 0)
+			if (aString != null)
 			{
 				infoText.append(THREE_SPACES).append("(").append(aString).append(")");
 			}
@@ -370,17 +380,18 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				"in_InfoDescription", //$NON-NLS-1$
 				aDeity.piDescString(pc)));
 
-			aString = aDeity.getFavoredWeapon();
-			if (aString.length() != 0)
+			List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(
+					ListKey.DEITYWEAPON);
+			if (dwp != null)
 			{
 				infoText.append(THREE_SPACES);
 				infoText.append(PropertyFactory.getFormattedString(
 					"in_deityFavWeap", //$NON-NLS-1$
-					aString));
+					ReferenceUtilities.joinLstFormat(dwp, "|")));
 			}
 
-			aString = aDeity.getHolyItem();
-			if (aString.length() != 0)
+			aString = aDeity.get(StringKey.HOLY_ITEM);
+			if (aString != null)
 			{
 				infoText.append(THREE_SPACES);
 				infoText.append(PropertyFactory.getFormattedString(
@@ -388,8 +399,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					aString));
 			}
 
-			aString = aDeity.getWorshippers();
-			if (aString.length() != 0)
+			aString = aDeity.get(StringKey.WORSHIPPERS);
+			if (aString != null)
 			{
 				infoText.append(THREE_SPACES);
 				infoText.append(PropertyFactory.getFormattedString(
@@ -491,13 +502,20 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (pcDeity != null)
 		{
-			for (QualifiedObject<Domain> qualDomain : pcDeity.getDomainList())
+			for (CDOMReference<Domain> domains : pcDeity.getSafeListMods(Deity.DOMAINLIST))
 			{
-				qualDomain.setObject(qualDomain.getObject(null).clone());
-
-				if (!isDomainInList(availDomainList, qualDomain.getObject(null)))
+				Collection<AssociatedPrereqObject> assoc = pcDeity.getListAssociations(Deity.DOMAINLIST, domains);
+				for (AssociatedPrereqObject apo : assoc)
 				{
-					availDomainList.add(qualDomain);
+					for (Domain d : domains.getContainedObjects())
+					{
+						d = d.clone();
+						if (!isDomainInList(availDomainList, d))
+						{
+							availDomainList.add(new QualifiedObject<Domain>(d,
+									apo.getPrerequisiteList()));
+						}
+					}
 				}
 			}
 		}
@@ -1984,10 +2002,30 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (fn.getItem() instanceof Deity)
 			{
-				Deity aDeity = (Deity) fn.getItem();
-				return aDeity.getDomainListPIString();
+				return getDomainListPIString((Deity) fn.getItem());
 			}
 			return null;
+		}
+		
+		/**
+		 * @return a comma-separated string of the PI-formatted domains this
+		 *         deity has
+		 */
+		public String getDomainListPIString(Deity aDeity)
+		{
+			Set<String> set = new TreeSet<String>();
+			for (CDOMReference<Domain> ref : aDeity.getSafeListMods(Deity.DOMAINLIST))
+			{
+				for (Domain d : ref.getContainedObjects())
+				{
+					set.add(d.piSubString());
+				}
+			}
+			final StringBuffer piString = new StringBuffer(100);
+			piString.append("<html>");
+			piString.append(StringUtil.joinToStringBuffer(set, ","));
+			piString.append("</html>");
+			return piString.toString();
 		}
 
 		private Object getColumnSource(PObjectNode fn)

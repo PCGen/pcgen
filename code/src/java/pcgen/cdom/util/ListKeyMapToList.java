@@ -317,4 +317,17 @@ public class ListKeyMapToList
 	{
 		return map.getKeySet();
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return map.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof ListKeyMapToList
+			&& map.equals(((ListKeyMapToList) o).map);
+	}
 }

@@ -19,6 +19,7 @@ package pcgen.cdom.base;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -44,33 +45,33 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * well, in one HashMap... this will control the size of CDOMObject.
 	 */
 	/** A map to hold items keyed by Integers for the object */
-	//TODO make this final once clone() is no longer required...
-	//TODO Make this private once PObject is cleaned up
+	// TODO make this final once clone() is no longer required...
+	// TODO Make this private once PObject is cleaned up
 	protected Map<IntegerKey, Integer> integerChar = new HashMap<IntegerKey, Integer>();
 
 	/** A map to hold items keyed by Strings for the object */
-	//TODO make this final once clone() is no longer required...
-	//TODO Make this private once PObject is cleaned up
+	// TODO make this final once clone() is no longer required...
+	// TODO Make this private once PObject is cleaned up
 	protected Map<StringKey, String> stringChar = new HashMap<StringKey, String>();
 
 	/** A map to hold items keyed by Strings for the object */
-	//TODO make this final once clone() is no longer required...
+	// TODO make this final once clone() is no longer required...
 	private Map<FormulaKey, Formula> formulaChar = new HashMap<FormulaKey, Formula>();
 
 	/** A map to hold items keyed by Strings for the object */
-	//TODO make this final once clone() is no longer required...
+	// TODO make this final once clone() is no longer required...
 	private Map<VariableKey, Formula> variableChar = new HashMap<VariableKey, Formula>();
 
 	/** A map to hold items keyed by Strings for the object */
-	//TODO make this final once clone() is no longer required...
+	// TODO make this final once clone() is no longer required...
 	private Map<ObjectKey<?>, Object> objectChar = new HashMap<ObjectKey<?>, Object>();
 
 	/** A map of Lists for the object */
-	//TODO make this final once clone() is no longer required...
-	//TODO Make this private once PObject is cleaned up
+	// TODO make this final once clone() is no longer required...
+	// TODO Make this private once PObject is cleaned up
 	protected ListKeyMapToList listChar = new ListKeyMapToList();
 
-	//TODO make this final once clone() is no longer required...
+	// TODO make this final once clone() is no longer required...
 	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends CDOMObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends CDOMObject>>, CDOMReference<?>, AssociatedPrereqObject>();
 
 	public final boolean containsKey(IntegerKey arg0)
@@ -328,16 +329,16 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		if (!cdomListMods.equals(cdo.cdomListMods))
 		{
-			// System.err.println("CDOM Inequality ListMods");
-			// System.err.println(cdomListMods + " " + cdo.cdomListMods);
-			// System.err.println(cdomListMods.getKeySet() + " "
-			// + cdo.cdomListMods.getKeySet());
-			// for (CDOMReference<? extends CDOMList<? extends CDOMObject>> key
-			// : cdomListMods.getKeySet())
-			// {
-			// System.err.println(cdomListMods.getSecondaryKeySet(key));
-			// System.err.println(cdo.cdomListMods.getSecondaryKeySet(key));
-			//			 }
+			 System.err.println("CDOM Inequality ListMods");
+			 System.err.println(cdomListMods + " " + cdo.cdomListMods);
+			 System.err.println(cdomListMods.getKeySet() + " "
+			 + cdo.cdomListMods.getKeySet());
+			 for (CDOMReference<? extends CDOMList<? extends CDOMObject>> key
+			 : cdomListMods.getKeySet())
+			 {
+			 System.err.println(cdomListMods.getSecondaryKeySet(key));
+			 System.err.println(cdo.cdomListMods.getSecondaryKeySet(key));
+			 }
 			return false;
 		}
 		return true;
@@ -349,7 +350,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		cdomListMods.addToListFor(list, granted, associations);
 	}
-	
+
 	public final <T extends CDOMObject> void removeFromList(
 			CDOMReference<? extends CDOMList<? extends CDOMObject>> list,
 			CDOMReference<T> granted)
@@ -374,6 +375,17 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		return set;
 	}
+	
+	public final <BT extends CDOMObject> Collection<CDOMReference<BT>> getSafeListMods(
+			CDOMReference<? extends CDOMList<BT>> list)
+	{
+		Collection<CDOMReference<BT>> set = getListMods(list);
+		if (set == null)
+		{
+			return Collections.emptySet();
+		}
+		return set;
+	}
 
 	public final Collection<AssociatedPrereqObject> getListAssociations(
 			CDOMReference<? extends CDOMList<? extends CDOMObject>> list,
@@ -389,7 +401,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final String getLSTformat()
 	{
-		return getKeyName();
+		String abb = get(StringKey.ABB);
+		if (abb == null)
+		{
+			return getKeyName();
+		}
+		return abb;
 	}
 
 	protected final void overlayCDOMObject(CDOMObject cdo)
@@ -420,5 +437,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return clone;
 	}
 
-	
+	public void removeAllFromList(CDOMReference<? extends CDOMList<?>> swl)
+	{
+		cdomListMods.removeListsFor(swl);
+	}
+
+	public abstract boolean isType(String str);
 }

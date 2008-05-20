@@ -301,4 +301,8 @@ public interface Constants
 	String LST_TYPE_OLD = "TYPE.";
 	String LST_TYPE = "TYPE=";
 	int HANDS_SIZEDEPENDENT = -1;
+	String LST_ALL = "ALL";
+	String LST_ANY = "ANY";
+	String LST_DOT_CLEAR_DOT = ".CLEAR.";
+	String ALLREF_LST = "ANY";
 }

@@ -169,5 +169,6 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	protected void addGlobalObject(final PObject pObj)
 	{
 		Globals.addDomain((Domain) pObj);
+		Globals.getContext().ref.importObject(pObj);
 	}
 }

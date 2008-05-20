@@ -22,10 +22,8 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -66,58 +64,48 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		boolean firstCol = true;
+		if (colToken.hasMoreTokens())
+		{
+			deity.setName(colToken.nextToken());
+			deity.setSourceCampaign(source.getCampaign());
+			deity.setSourceURI(source.getURI());
+		}
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(DeityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = Constants.EMPTY_STRING;
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			DeityLstToken token = (DeityLstToken) tokenMap.get(key);
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, deity, value);
-				if (!token.parse(deity, value))
-				{
-					Logging.errorPrint("Error parsing deity "
-						+ deity.getDisplayName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(deity, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else if (firstCol)
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
+			
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(deity, key, value))
 			{
-				if ((!colString.equals(deity.getKeyName()))
-					&& (colString.indexOf(".MOD") < 0))
-				{
-					completeObject(source, deity);
-					deity = new Deity();
-					deity.setName(colString);
-					deity.setSourceCampaign(source.getCampaign());
-					deity.setSourceURI(source.getURI());
-				}
-				firstCol = false;
+				Logging.clearParseMessages();
+				context.commit();
 			}
-			else
-			{
-				Logging.errorPrint("Illegal deity info '" + colString
-					+ "' for " + deity.getDisplayName() + " in "
-					+ source.getURI() + " of " + source.getCampaign() + ".");
-			}
+			else if (PObjectLoader.parseTag(deity, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 
 		completeObject(source, deity);

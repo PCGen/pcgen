@@ -26,13 +26,13 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.QualifiedObject;
 
 /**
  * This is the chooser that deals with choosing a domain.
@@ -120,10 +120,9 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 				Deity deity = Globals.getDeityKeyed(deityName);
 				if (deity != null)
 				{
-					for (QualifiedObject<Domain> qualDomain : deity
-						.getDomainList())
+					for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 					{
-						availableList.add(qualDomain.getObject(null));
+						availableList.addAll(ref.getContainedObjects());
 					}
 				}
 				break;

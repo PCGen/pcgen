@@ -90,5 +90,4 @@ public class SimpleReferenceManufacturer<T extends CDOMObject> extends
 
 		return new CDOMSimpleSingleRef<T>(getCDOMClass(), val);
 	}
-
 }

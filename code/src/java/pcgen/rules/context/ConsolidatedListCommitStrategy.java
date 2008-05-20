@@ -156,8 +156,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy
 	public void removeAllFromList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<?>> swl)
 	{
-		// TODO Auto-generated method stub
-
+		owner.removeAllFromList(swl);
 	}
 
 	public Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> getChangedLists(

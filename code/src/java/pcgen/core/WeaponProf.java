@@ -20,9 +20,8 @@
  */
 package pcgen.core;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.IntegerKey;
-
-
 
 /**
  * <code>WeaponProf</code>.
@@ -75,5 +74,17 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 	{
 		Integer hands = get(IntegerKey.HANDS);
 		return hands == null ? 1 : hands;
+	}
+
+	@Override
+	public String getPCCText()
+	{
+		final StringBuffer txt = new StringBuffer(200);
+		txt.append(getDisplayName());
+		txt.append("\t");
+		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
+		txt.append(super.getPCCText(false));
+		return txt.toString();
 	}
 }

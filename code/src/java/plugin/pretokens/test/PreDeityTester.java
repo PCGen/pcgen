@@ -9,6 +9,8 @@ package plugin.pretokens.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Pantheon;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -38,25 +40,54 @@ public class PreDeityTester extends AbstractPrerequisiteTest implements
 
 		if (prereq.getKey().startsWith("PANTHEON."))//$NON-NLS-1$
 		{
-			String pantheon = prereq.getKey().substring(9);
-			List<String> charDeityPantheon =
-					character.getDeity() != null ? character.getDeity()
-						.getPantheonList() : new ArrayList<String>();
-			if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
-				|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+			try
 			{
-				runningTotal = (charDeityPantheon.contains(pantheon)) ? 1 : 0;
+				Pantheon pantheon = Pantheon.valueOf(prereq.getKey().substring(9));
+				List<Pantheon> charDeityPantheon = character.getDeity() != null ? character
+						.getDeity().getSafeListFor(ListKey.PANTHEON)
+						: new ArrayList<Pantheon>();
+				if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
+						|| prereq.getOperator().equals(
+								PrerequisiteOperator.GTEQ))
+				{
+					runningTotal = (charDeityPantheon.contains(pantheon)) ? 1
+							: 0;
+				}
+				else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
+						|| prereq.getOperator().equals(PrerequisiteOperator.LT))
+				{
+					runningTotal = (charDeityPantheon.contains(pantheon)) ? 0
+							: 1;
+				}
+				else
+				{
+					throw new PrerequisiteException(
+							PropertyFactory
+									.getFormattedString(
+											"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+				}
 			}
-			else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
-				|| prereq.getOperator().equals(PrerequisiteOperator.LT))
+			catch (IllegalArgumentException e)
 			{
-				runningTotal = (charDeityPantheon.contains(pantheon)) ? 0 : 1;
-			}
-			else
-			{
-				throw new PrerequisiteException(PropertyFactory
-					.getFormattedString(
-						"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+				//This is okay, just indicates the Pantheon asked for can't exist in any PC
+				if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
+						|| prereq.getOperator().equals(
+								PrerequisiteOperator.GTEQ))
+				{
+					runningTotal = 0;
+				}
+				else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
+						|| prereq.getOperator().equals(PrerequisiteOperator.LT))
+				{
+					runningTotal = 1;
+				}
+				else
+				{
+					throw new PrerequisiteException(
+							PropertyFactory
+									.getFormattedString(
+											"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+				}
 			}
 		}
 		else

@@ -30,12 +30,15 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Deity;
-import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
+import pcgen.core.WeaponProf;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
@@ -94,11 +97,11 @@ public class DeityToken extends Token
 
 			if ("NAME".equals(subTag))
 			{
-				retString = getNameToken(deity);
+				retString = deity.getDisplayName();
 			}
 			else if ("OUTPUTNAME".equals(subTag))
 			{
-				retString = getOutputNameToken(deity);
+				retString = deity.getOutputName();
 			}
 			else if ("DOMAINLIST".equals(subTag))
 			{
@@ -111,31 +114,34 @@ public class DeityToken extends Token
 			}
 			else if ("ALIGNMENT".equals(subTag))
 			{
-				retString = getAlignmentToken(deity);
+				retString = deity.getAlignment();
 			}
 			else if ("APPEARANCE".equals(subTag))
 			{
-				retString = getAppearanceToken(deity);
+				String characteristic = deity.get(StringKey.APPEARANCE);
+				retString = characteristic == null ? "" : characteristic;
 			}
 			else if ("DESCRIPTION".equals(subTag))
 			{
-				retString = getDescriptionToken(pc, deity);
+				retString = deity.getDescription(pc);
 			}
 			else if ("HOLYITEM".equals(subTag))
 			{
-				retString = getHolyItemToken(deity);
+				retString = deity.getHolyItem();
 			}
 			else if ("FAVOREDWEAPON".equals(subTag))
 			{
-				retString = getFavoredWeaponToken(deity);
+				List<CDOMReference<WeaponProf>> dwp = deity
+						.getSafeListFor(ListKey.DEITYWEAPON);
+				retString = ReferenceUtilities.joinLstFormat(dwp, "|");
 			}
 			else if ("PANTHEONLIST".equals(subTag))
 			{
-				retString = getPantheonListToken(deity);
+				retString = StringUtil.join(deity.getSafeListFor(ListKey.PANTHEON), ", ");
 			}
 			else if ("SOURCE".equals(subTag))
 			{
-				retString = getSourceToken(deity);
+				retString = deity.getDefaultSourceString();
 			}
 			else if ("SA".equals(subTag))
 			{
@@ -143,46 +149,17 @@ public class DeityToken extends Token
 			}
 			else if ("TITLE".equals(subTag))
 			{
-				retString = getTitleToken(deity);
+				String characteristic = deity.get(StringKey.TITLE);
+				retString = characteristic == null ? "" : characteristic;
 			}
 			else if ("WORSHIPPERS".equals(subTag))
 			{
-				retString = getWorshippersToken(deity);
+				String characteristic = deity.get(StringKey.WORSHIPPERS);
+				retString = characteristic == null ? "" : characteristic;
 			}
 		}
 
 		return retString;
-	}
-
-	/**
-	 * Get Alignment Sub token
-	 * @param deity
-	 * @return Alignment Sub token
-	 */
-	public static String getAlignmentToken(Deity deity)
-	{
-		return deity.getAlignment();
-	}
-
-	/**
-	 * Get appearance sub token
-	 * @param deity
-	 * @return appearance sub token
-	 */
-	public static String getAppearanceToken(Deity deity)
-	{
-		return deity.getAppearance();
-	}
-
-	/**
-	 * Get description sub token
-	 * @param deity
-	 * @return description sub token
-	 */
-	public static String getDescriptionToken(final PlayerCharacter aPC,
-		Deity deity)
-	{
-		return deity.getDescription(aPC);
 	}
 
 	/**
@@ -192,72 +169,8 @@ public class DeityToken extends Token
 	 */
 	public static String getDomainListToken(Deity deity)
 	{
-		StringBuffer returnString = new StringBuffer();
-		boolean firstLine = true;
-
-		for (QualifiedObject<Domain> qualDomain : deity.getDomainList())
-		{
-			if (!firstLine)
-			{
-				returnString.append(", ");
-			}
-
-			firstLine = false;
-
-			returnString.append(qualDomain.getObject(null).getDisplayName());
-		}
-
-		return returnString.toString();
-	}
-
-	/**
-	 * Get favoured weapon token
-	 * @param deity
-	 * @return favoured weapon token
-	 */
-	public static String getFavoredWeaponToken(Deity deity)
-	{
-		return deity.getFavoredWeapon();
-	}
-
-	/**
-	 * Get holy item sub token
-	 * @param deity
-	 * @return holy item sub token
-	 */
-	public static String getHolyItemToken(Deity deity)
-	{
-		return deity.getHolyItem();
-	}
-
-	/**
-	 * Get the name sub token
-	 * @param deity
-	 * @return Get the name sub token
-	 */
-	public static String getNameToken(Deity deity)
-	{
-		return deity.getDisplayName();
-	}
-
-	/**
-	 * Get the output name sub token
-	 * @param deity
-	 * @return output name sub token
-	 */
-	public static String getOutputNameToken(Deity deity)
-	{
-		return deity.getOutputName();
-	}
-
-	/**
-	 * Get the pantheon list sub token
-	 * @param deity
-	 * @return the pantheon list sub token
-	 */
-	public static String getPantheonListToken(Deity deity)
-	{
-		return StringUtil.join(deity.getPantheonList(), ", ");
+		return ReferenceUtilities.joinDisplayFormat(deity
+				.getSafeListMods(Deity.DOMAINLIST), ", ");
 	}
 
 	/**
@@ -291,35 +204,5 @@ public class DeityToken extends Token
 		}
 
 		return returnString.toString();
-	}
-
-	/**
-	 * Get the source sub token
-	 * @param deity
-	 * @return the source sub token
-	 */
-	public static String getSourceToken(Deity deity)
-	{
-		return deity.getDefaultSourceString();
-	}
-
-	/**
-	 * Get the title sub token
-	 * @param deity
-	 * @return the title sub token
-	 */
-	public static String getTitleToken(Deity deity)
-	{
-		return deity.getTitle();
-	}
-
-	/**
-	 * Get the worshippers sub token
-	 * @param deity
-	 * @return the worshippers sub token
-	 */
-	public static String getWorshippersToken(Deity deity)
-	{
-		return deity.getWorshippers();
 	}
 }

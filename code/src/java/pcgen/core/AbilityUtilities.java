@@ -23,6 +23,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
@@ -835,22 +836,23 @@ public class AbilityUtilities
 
 					if ("DEITYWEAPON".equals(aString))
 					{
-						WeaponProf wp = null;
-
 						if (aPC.getDeity() != null)
 						{
-							wp = Globals.getWeaponProfKeyed(aPC.getDeity().getFavoredWeapon());
-						}
-
-						if (wp != null)
-						{
-							if (addIt)
+							List<CDOMReference<WeaponProf>> dwp = aPC
+									.getDeity().getSafeListFor(ListKey.DEITYWEAPON);
+							for (CDOMReference<WeaponProf> ref : dwp)
 							{
-								anAbility.addAssociated(wp.getKeyName());
-							}
-							else
-							{
-								anAbility.removeAssociated(wp.getKeyName());
+								for (WeaponProf wp : ref.getContainedObjects())
+								{
+									if (addIt)
+									{
+										anAbility.addAssociated(wp.getKeyName());
+									}
+									else
+									{
+										anAbility.removeAssociated(wp.getKeyName());
+									}
+								}
 							}
 						}
 					}

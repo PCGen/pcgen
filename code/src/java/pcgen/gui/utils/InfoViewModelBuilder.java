@@ -24,12 +24,15 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Pantheon;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
 import pcgen.gui.filter.Filterable;
 
@@ -69,60 +72,60 @@ public final class InfoViewModelBuilder
 	return root;
     }
 
-    public static PObjectNode buildDomainView(Filterable filter, PlayerCharacter pc, Collection<Deity> pobjects)
-    {
-	PObjectNode root = new PObjectNode();
-	Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
-	for (final Deity deity : pobjects)
+    public static PObjectNode buildDomainView(Filterable filter,
+			PlayerCharacter pc, Collection<Deity> pobjects)
 	{
-	    if (filter.accept(pc, deity) && !deity.getKeyName().equalsIgnoreCase("NONE"))
-	    {
-		for (QualifiedObject<Domain> qualDomain : deity.getDomainList())
+		PObjectNode root = new PObjectNode();
+		Map<Domain, PObjectNode> nodeMap = new HashMap<Domain, PObjectNode>();
+		for (final Deity deity : pobjects)
 		{
-		    String domain = qualDomain.getObject(null).getKeyName();
-		    if (domain != null && domain.length() > 0)
-		    {
-			PObjectNode node = nodeMap.get(domain);
-			if (node == null)
+			if (filter.accept(pc, deity)
+					&& !deity.getKeyName().equalsIgnoreCase("NONE"))
 			{
-			    node = new PObjectNode(domain);
-			    nodeMap.put(domain, node);
-			    root.addChild(node);
+				for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
+				{
+					for (Domain d : ref.getContainedObjects())
+					{
+						PObjectNode node = nodeMap.get(d);
+						if (node == null)
+						{
+							node = new PObjectNode(d);
+							nodeMap.put(d, node);
+							root.addChild(node);
+						}
+						node.addChild(new PObjectNode(deity));
+					}
+				}
 			}
-			node.addChild(new PObjectNode(deity));
-		    }
 		}
-	    }
+		return root;
 	}
-	return root;
-    }
 
-    public static PObjectNode buildPantheonView(Filterable filter, PlayerCharacter pc, Collection<Deity> pobjects)
-    {
-	PObjectNode root = new PObjectNode();
-	Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
-	for (final Deity deity : pobjects)
+    public static PObjectNode buildPantheonView(Filterable filter,
+			PlayerCharacter pc, Collection<Deity> pobjects)
 	{
-	    if (filter.accept(pc, deity))
-	    {
-		for (String pantheon : deity.getPantheonList())
+		PObjectNode root = new PObjectNode();
+		Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
+		for (final Deity deity : pobjects)
 		{
-		    if (pantheon != null && pantheon.length() > 0)
-		    {
-			PObjectNode node = nodeMap.get(pantheon);
-			if (node == null)
+			if (filter.accept(pc, deity))
 			{
-			    node = new PObjectNode(pantheon);
-			    nodeMap.put(pantheon, node);
-			    root.addChild(node);
+				for (Pantheon pantheon : deity.getSafeListFor(ListKey.PANTHEON))
+				{
+					String pan = pantheon.toString();
+					PObjectNode node = nodeMap.get(pan);
+					if (node == null)
+					{
+						node = new PObjectNode(pan);
+						nodeMap.put(pan, node);
+						root.addChild(node);
+					}
+					node.addChild(new PObjectNode(deity));
+				}
 			}
-			node.addChild(new PObjectNode(deity));
-		    }
 		}
-	    }
+		return root;
 	}
-	return root;
-    }
 
     public static PObjectNode buildNameView(Filterable filter, PlayerCharacter pc, Collection<? extends PObject> pobjects, String qFilter)
     {

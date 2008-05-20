@@ -123,7 +123,7 @@ public class SimpleReferenceContext
 	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
 			Class<T> name)
 	{
-		return getRefSupport(name).getConstructedCDOMObjects();
+		return getRefSupport(name).getAllConstructedCDOMObjects();
 	}
 
 	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
@@ -179,5 +179,22 @@ public class SimpleReferenceContext
 			set.addAll(ref.getAllConstructedCDOMObjects());
 		}
 		return set;
+	}
+
+	public void resolveReferences()
+	{
+		for (ReferenceSupport<?, ?> rs : refMap.values())
+		{
+			rs.fillReferences();
+		}
+		for (Class cl : refMap.keySet())
+		{
+			resolve(cl);
+		}
+	}
+
+	private <T extends CDOMObject> void resolve(Class<T> cl)
+	{
+		getManufacturer(cl).resolveReferences(getRefSupport(cl));
 	}
 }

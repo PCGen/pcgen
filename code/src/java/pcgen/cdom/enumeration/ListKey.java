@@ -25,12 +25,14 @@ package pcgen.cdom.enumeration;
 
 import java.net.URI;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
+import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
@@ -47,8 +49,6 @@ public final class ListKey<T> {
 	public static final ListKey<String> CLASS_SKILLS = new ListKey<String>();
 	/** CROSS_CLASS_SKILLS - a ListKey */
 	public static final ListKey<String> CROSS_CLASS_SKILLS = new ListKey<String>();
-	/** DOMAIN - a ListKey */
-	public static final ListKey<QualifiedObject<Domain>> DOMAIN = new ListKey<QualifiedObject<Domain>>();
 	/** FILE_ABILITY_CATEGORY - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_ABILITY_CATEGORY = new ListKey<CampaignSourceEntry>();
 	/** FILE_BIO_SET - a ListKey */
@@ -110,7 +110,7 @@ public final class ListKey<T> {
 	/** NATURAL_WEAPONS - a ListKey */
 	public static final ListKey<Equipment> NATURAL_WEAPONS = new ListKey<Equipment>();
 	/** PANTHEON - a ListKey */
-	public static final ListKey<String> PANTHEON = new ListKey<String>();
+	public static final ListKey<Pantheon> PANTHEON = new ListKey<Pantheon>();
 	/** RACE_PANTHEON - a ListKey */
 	public static final ListKey<String> RACEPANTHEON = new ListKey<String>();
 	/** REMOVE_STRING_LIST - a ListKey */
@@ -143,6 +143,7 @@ public final class ListKey<T> {
 //	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
 	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_SHIELD_PROF = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CDOMReference<WeaponProf>> DEITYWEAPON = new ListKey<CDOMReference<WeaponProf>>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

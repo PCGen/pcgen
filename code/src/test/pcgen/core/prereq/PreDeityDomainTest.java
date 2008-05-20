@@ -21,16 +21,19 @@
  */
 package pcgen.core.prereq;
 
-import java.util.ArrayList;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -132,8 +135,13 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 
 		deity = new Deity();
 		deity.setName("Test Deity");
-		deity.setAlignment("NG");
-		deity.addDomain("Good", new ArrayList<Prerequisite>());
-		deity.addDomain("Animal", new ArrayList<Prerequisite>());
+		PCAlignment ng = new PCAlignment();
+		ng.setKeyName("NG");
+		SettingsHandler.getGame().addToAlignmentList(ng);
+		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
+		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
+				.getRef(goodDomain), new SimpleAssociatedObject());
+		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
+				.getRef(animalDomain), new SimpleAssociatedObject());
 	}
 }

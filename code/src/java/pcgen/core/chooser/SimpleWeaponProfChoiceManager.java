@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
@@ -188,22 +189,13 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 	{
 		if (aPC.getDeity() != null)
 		{
-			String weaponList = aPC.getDeity().getFavoredWeapon();
-
-			if ("ALL".equalsIgnoreCase(weaponList)
-					|| "ANY".equalsIgnoreCase(weaponList))
+			List<CDOMReference<WeaponProf>> dwp = aPC.getDeity().getSafeListFor(
+					ListKey.DEITYWEAPON);
+			for (CDOMReference<WeaponProf> ref : dwp)
 			{
-				for (WeaponProf wp : getAllObjects())
+				for (WeaponProf wp : ref.getContainedObjects())
 				{
-					addtoToAvailableAndMap(unparsed, availableList, wp);
-				}
-			}
-			else
-			{
-				StringTokenizer bTok = new StringTokenizer(weaponList, "|");
-				while (bTok.hasMoreTokens())
-				{
-					addtoToAvailableAndMap(unparsed, availableList, bTok.nextToken());
+					addtoToAvailableAndMap(unparsed, availableList, wp.getKeyName());
 				}
 			}
 		}

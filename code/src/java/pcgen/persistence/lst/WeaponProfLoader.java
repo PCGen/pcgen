@@ -142,6 +142,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 	protected void addGlobalObject(final PObject pObj)
 	{
 		Globals.addWeaponProf((WeaponProf) pObj);
+		Globals.getContext().ref.importObject(pObj);
 		// TODO - What exactly is this doing?  Why would we set that it is not
 		// a new item when we just added it?
 		pObj.setNewItem(false);
