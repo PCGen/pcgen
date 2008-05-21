@@ -498,7 +498,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			bioLoader.loadLstFiles(bioSetFileList);
 
 			// Check for the default deities
-			checkRequiredDeities();
+			checkRequiredDeities(context);
 
 			// Add default EQ mods
 			eqModLoader.addDefaultEquipmentMods();
@@ -777,7 +777,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *                                   method being invoked more than once, a change to DeityLoader, or
 	 *                                   an invalid LST file containing the default deities.
 	 */
-	private void checkRequiredDeities() throws PersistenceLayerException
+	private void checkRequiredDeities(LoadContext context) throws PersistenceLayerException
 	{
 		//
 		// Add in the default deities (unless they're already there)
@@ -788,7 +788,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			for (String aLine : gDeities)
 			{
-				deityLoader.parseLine(null, null, aLine, globalCampaign);
+				deityLoader.parseLine(context, null, aLine, globalCampaign);
 			}
 		}
 	}
