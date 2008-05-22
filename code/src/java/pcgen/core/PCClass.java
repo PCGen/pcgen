@@ -38,6 +38,8 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.bonus.Bonus;
@@ -430,7 +432,7 @@ public class PCClass extends PObject
 	 * right?). To maintain the existing code function (always check on level
 	 * up) this becomes ALLCLASSLEVELS and gets passed into each PCClassLevel.
 	 */
-	private String preRaceType = null;
+	private RaceType preRaceType = null;
 
 	/*
 	 * FINALALLCLASSLEVELS Because this indicates prohibited Spell Schools and Spells
@@ -1478,9 +1480,9 @@ public class PCClass extends PObject
 	 * Trying to DELETEMETHOD by cleaning out PRERACETYPE - but need
 	 * some more guidance from Tir on how this should work - thpr 11/6/06
 	 */
-	public final void setPreRaceType(final String preRaceType)
+	public final void setPreRaceType(RaceType rt)
 	{
-		this.preRaceType = preRaceType.toUpperCase();
+		preRaceType = rt;
 	}
 
 	// public final void setSkillPool(final Integer argSkillPool)
@@ -3203,8 +3205,8 @@ public class PCClass extends PObject
 		// !contains(aPC.getCritterType(), preRaceType))
 		if (isMonster()
 			&& (preRaceType != null)
-			&& (!aPC.getRace().getRaceType().equalsIgnoreCase(preRaceType) && !(aPC
-				.getCritterType().indexOf(preRaceType) >= 0)))
+			&& (!preRaceType.equals(aPC.getRace().get(ObjectKey.RACETYPE)) && !(aPC
+				.getCritterType().indexOf(preRaceType.toString()) >= 0)))
 		// Move the check for type out of race and into PlayerCharacter to make
 		// it easier for a template to adjust it.
 		{

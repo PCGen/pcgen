@@ -54,6 +54,9 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
@@ -1098,7 +1101,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		String raceType = Constants.s_NONE;
 		if (race != null)
 		{
-			raceType = race.getRaceType();
+			RaceType rt = race.get(ObjectKey.RACETYPE);
+			if (rt != null)
+			{
+				raceType = rt.toString();
+			}
 		}
 		if (!companionModList.isEmpty())
 		{
@@ -1134,7 +1141,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<String> getRacialSubTypes()
 	{
 		final ArrayList<String> racialSubTypes =
-				new ArrayList<String>(race.getRacialSubTypes());
+				new ArrayList<String>();
+		for (RaceSubType st : race.getSafeListFor(ListKey.RACESUBTYPE))
+		{
+			racialSubTypes.add(st.toString());
+		}
 		if (!templateList.isEmpty())
 		{
 			final Set<String> added = new TreeSet<String>();
@@ -4693,7 +4704,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int attackCycle = 1;
 		int workingBAB = BAB + TOHITBonus;
 		int subTotal = BAB;
-		int raceBAB = getRace().getBAB(this);
+		int raceBAB = 0;
 
 		final List<Integer> ab = new ArrayList<Integer>(10);
 		final StringBuffer attackString = new StringBuffer();

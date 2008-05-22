@@ -73,6 +73,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
@@ -2668,7 +2669,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 		}
 
-		btnAddHD.setEnabled(pc.getRace().hasAdvancement() && (monsterHD >= 0));
+		btnAddHD.setEnabled(pc.getRace().containsListFor(ListKey.HITDICE_ADVANCEMENT)
+				&& (monsterHD >= 0));
 		btnRemoveHD.setEnabled(monsterHD > minLevel);
 
 		if (monsterHD < 0)

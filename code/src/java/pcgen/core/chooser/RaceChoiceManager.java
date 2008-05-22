@@ -28,6 +28,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -82,10 +86,11 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 
 			if (choice.startsWith("RACETYPE=") || choice.startsWith("RACETYPE."))
 			{
+				RaceType rt = RaceType.getConstant(choice.substring(9));
 				// Add all races matching this racetype
 				for ( Race race : races )
 				{
-					if (race.getRaceType().equals(choice.substring(9)))
+					if (rt.equals(race.get(ObjectKey.RACETYPE)))
 					{
 						availableList.add(race);
 					}
@@ -98,7 +103,8 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 				// Add all races matching this racetype
 				for ( Race race : races )
 				{
-					if (race.getRacialSubTypes().contains(choice.substring(9)))
+					if (race.containsInList(ListKey.RACESUBTYPE, RaceSubType
+							.getConstant(choice.substring(9))))
 					{
 						availableList.add(race);
 					}
@@ -154,8 +160,8 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 		Collection<Race> races,
 		String     choice)
 	{
-		ArrayList<String> raceTypes    = new ArrayList<String>();
-		ArrayList<String> raceSubTypes = new ArrayList<String>();
+		ArrayList<RaceType> raceTypes    = new ArrayList<RaceType>();
+		ArrayList<RaceSubType> raceSubTypes = new ArrayList<RaceSubType>();
 		ArrayList<String> types        = new ArrayList<String>();
 
 		choice = choice.substring(1, choice.length() - 1);
@@ -168,13 +174,13 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 
 			if (option.startsWith("RACETYPE=") || option.startsWith("RACETYPE."))
 			{
-				raceTypes.add(option.substring(9));
+				raceTypes.add(RaceType.getConstant(option.substring(9)));
 			}
 			else if (
 				option.startsWith("RACESUBTYPE=") ||
 				option.startsWith("RACESUBTYPE."))
 			{
-				raceSubTypes.add(option.substring(12));
+				raceSubTypes.add(RaceSubType.getConstant(option.substring(12)));
 			}
 			else if (option.startsWith("TYPE=") || option.startsWith("TYPE."))
 			{
@@ -203,21 +209,21 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 	 */
 	private static boolean checkRace(
 		Race race,
-		List<String> raceTypes,
-		List<String> raceSubTypes,
+		List<RaceType> raceTypes,
+		List<RaceSubType> raceSubTypes,
 		List<String> types)
 	{
-		for ( String raceType : raceTypes )
+		for ( RaceType raceType : raceTypes )
 		{
-			if (!race.getRaceType().equals(raceType))
+			if (!raceType.equals(race.get(ObjectKey.RACETYPE)))
 			{
 				return false;
 			}
 		}
 
-		for ( String raceSubType : raceSubTypes )
+		for ( RaceSubType raceSubType : raceSubTypes )
 		{
-			if (!race.getRacialSubTypes().contains(raceSubType))
+			if (!race.containsInList(ListKey.RACESUBTYPE, raceSubType))
 			{
 				return false;
 			}

@@ -28,12 +28,14 @@
  */
 package pcgen.core.prereq;
 
-import java.util.HashMap;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -200,15 +202,15 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race race = new Race();
 		race.setName("Human");
 		race.setTypeInfo("Outsider");
-		race.addRacialSubType("aqautic");
-		race.addRacialSubType("foo");
+		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("aquatic"));
+		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("foo"));
 		Globals.addRace(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.setTypeInfo("Humanoid");
-		fake.addRacialSubType("desert");
-		fake.addRacialSubType("none");
+		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("desert"));
+		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("none"));
 		Globals.addRace(fake);
 
 		fake.putServesAs(race.getDisplayName(), "");
@@ -216,7 +218,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("race");
-		prereq.setKey("RACESUBTYPE=aqautic");
+		prereq.setKey("RACESUBTYPE=aquatic");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
@@ -243,13 +245,13 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		race.setRaceType("Outsider");
+		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Outsider"));
 		race.setTypeInfo("Outsider");
 		Globals.addRace(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
-		fake.setRaceType("Humanoid");
+		fake.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
 		fake.setTypeInfo("Humanoid");
 		Globals.addRace(fake);
 

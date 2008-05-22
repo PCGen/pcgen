@@ -134,6 +134,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return formulaChar.get(arg0);
 	}
 
+	public final Formula getSafe(FormulaKey fk)
+	{
+		Formula f = get(fk);
+		return f == null ? Formula.ZERO : f;
+	}
+	
 	public final Formula put(FormulaKey arg0, Formula arg1)
 	{
 		return formulaChar.put(arg0, arg1);

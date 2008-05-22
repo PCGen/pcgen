@@ -32,6 +32,8 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
@@ -300,21 +302,11 @@ public final class FilterFactory implements FilterConstants
 			raceFilters.add(FilterFactory.createQualifyFilter());
 
 			// Create filters for race type and sub type
-			Set<String> racetypes = new HashSet<String>();
-			Set<String> raceSubTypes = new HashSet<String>();
-			for (final Race race : Globals.getAllRaces())
-			{
-				racetypes.add(race.getRaceType());
-				for (String subtype : race.getRacialSubTypes())
-				{
-					raceSubTypes.add(subtype);
-				}
-			}
-			for (String raceType : racetypes)
+			for (RaceType raceType : RaceType.getAllConstants())
 			{
 				raceFilters.add(FilterFactory.createRaceTypeFilter(raceType));
 			}
-			for (String raceSubType : raceSubTypes)
+			for (RaceSubType raceSubType : RaceSubType.getAllConstants())
 			{
 				raceFilters.add(FilterFactory.createRaceSubTypeFilter(raceSubType));
 			}
@@ -735,12 +727,12 @@ public final class FilterFactory implements FilterConstants
 		return new RaceFilter();
 	}
 
-	private static PObjectFilter createRaceSubTypeFilter(String subType)
+	private static PObjectFilter createRaceSubTypeFilter(RaceSubType subType)
 	{
 		return new RaceSubTypeFilter(subType);
 	}
 
-	private static PObjectFilter createRaceTypeFilter(String type)
+	private static PObjectFilter createRaceTypeFilter(RaceType type)
 	{
 		return new RaceTypeFilter(type);
 	}

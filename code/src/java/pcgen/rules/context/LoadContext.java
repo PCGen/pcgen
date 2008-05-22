@@ -31,6 +31,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.persistence.TokenSupport;
+import pcgen.util.Logging;
 
 public abstract class LoadContext
 {
@@ -201,6 +202,29 @@ public abstract class LoadContext
 			String typeStr, String argument) throws PersistenceLayerException
 	{
 		return support.processToken(this, derivative, typeStr, argument);
+	}
+
+		public <T extends CDOMObject> void unconditionallyProcess(T obj,
+			String key, String value)
+	{
+		try
+		{
+			if (processToken(obj, key, value))
+			{
+				Logging.clearParseMessages();
+				commit();
+			}
+			else
+			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging.errorPrint("Error in token parse: "
+					+ e.getLocalizedMessage());
+		}
 	}
 
 	public <T> String[] unparse(T cdo, String tokenName)

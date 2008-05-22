@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -63,7 +64,7 @@ public class PreLegsTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();
-		race.setLegs(2);
+		race.put(IntegerKey.LEGS, 2);
 
 		character.setRace(race);
 

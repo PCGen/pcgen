@@ -27,7 +27,10 @@ import java.util.Map;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -156,7 +159,8 @@ public final class InfoViewModelBuilder
 	{
 	    if (filter.accept(pc, race))
 	    {
-		final String raceType = race.getRaceType();
+    	RaceType rt = race.get(ObjectKey.RACETYPE);
+		String raceType = rt == null ? "" : rt.toString();
 		PObjectNode raceTypeNode = nodeMap.get(raceType);
 		if (raceTypeNode == null)
 		{
@@ -194,7 +198,8 @@ public final class InfoViewModelBuilder
 	{
 	    if (filter.accept(pc, race))
 	    {
-		String type = race.getRaceType();
+    	RaceType rt = race.get(ObjectKey.RACETYPE);
+		String type = rt == null ? "" : rt.toString();
 		PObjectNode typeNode = nodeMap.get(type);
 		if (typeNode == null)
 		{
@@ -221,7 +226,8 @@ public final class InfoViewModelBuilder
 	{
 	    if (filter.accept(pc, race))
 	    {
-		String type = race.getRaceType();
+    	RaceType rt = race.get(ObjectKey.RACETYPE);
+		String type = rt == null ? "" : rt.toString();
 		PObjectNode typeNode = nodeMap.get(type);
 		if (typeNode == null)
 		{
@@ -229,10 +235,10 @@ public final class InfoViewModelBuilder
 		    nodeMap.put(type, typeNode);
 		    root.addChild(typeNode);
 		}
-		List<String> raceSubTypes = race.getRacialSubTypes();
-		if (raceSubTypes.size() > 0)
+		List<RaceSubType> rst = race.getListFor(ListKey.RACESUBTYPE);
+		if (rst != null)
 		{
-		    for (String subtype : raceSubTypes)
+		    for (RaceSubType subtype : rst)
 		    {
 			String key = type + ":" + subtype;
 			PObjectNode subtypeNode = nodeMap.get(key);

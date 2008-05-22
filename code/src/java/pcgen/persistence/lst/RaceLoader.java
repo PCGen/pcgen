@@ -28,7 +28,7 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Race;
@@ -66,63 +66,64 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		int col = -1;
+
+		if (colToken.hasMoreTokens())
+		{
+			race.setName(colToken.nextToken());
+			race.setSourceCampaign(source.getCampaign());
+			race.setSourceURI(source.getURI());
+		}
 
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(RaceLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			++col;
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
+			}
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
 
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(race, key, value))
 			{
-				key = colString.substring(0, idxColon);
+				Logging.clearParseMessages();
+				context.commit();
 			}
-			catch (Exception e)
+			else if (tokenMap.containsKey(key))
 			{
-				// TODO Handle Exception
-			}
-			RaceLstToken token = (RaceLstToken) tokenMap.get(key);
-
-			// presence of : in column 1 means no required fields (good!)
-			if ((col < 10) && (colString.indexOf(':') >= 0))
-			{
-				col = 10;
-			}
-
-			if (col == 0)
-			{
-				race.setName(colString);
-				race.setSourceCampaign(source.getCampaign());
-				race.setSourceURI(source.getURI());
-			}
-			else if (colString.startsWith("CHOOSE:LANGAUTO:"))
-			{
-				race.setChooseLanguageAutos(colString.substring(16));
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, race, value);
-				if (!token.parse(race, value))
+				RaceLstToken tok = (RaceLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, race, value);
+				if (!tok.parse(race, value))
 				{
 					Logging.errorPrint("Error parsing race "
 						+ race.getDisplayName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
+						+ token + "\"");
 				}
+				Logging.clearParseMessages();
+ 				continue;
 			}
-			else if (PObjectLoader.parseTag(race, colString))
-			{
-				continue;
-			}
-			else
-			{
-				Logging.errorPrint("Illegal race tag '" + colString + "' in "
-					+ source.getURI());
-			}
+			else if (PObjectLoader.parseTag(race, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 
 		if ((race.getLevelAdjustment(null) != 0) && (race.getCR() == 0))
@@ -130,7 +131,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			race.setCR(race.getLevelAdjustment(null));
 		}
 
-		if (race.getRaceType().equals(Constants.s_NONE))
+		if (race.get(ObjectKey.RACETYPE) == null)
 		{
 			/** TODO Uncomment this once the data is updated. */
 			//			logError("Race " + race.getName() + " has no race type.");

@@ -37,7 +37,9 @@ import java.util.Set;
 
 import org.jdom.Element;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -1086,11 +1088,11 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(spell, spell.getDescription(aPC), cs.getOwner()));
 								spellBuff.append("\\");
-								spellBuff.append(spell.getRange());
+								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(spell.getCastingTime());
 								spellBuff.append("\\");
-								spellBuff.append(spell.getSaveInfo());
+								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.SAVE_INFO), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(spell, spell.getDuration(), cs.getOwner()));
 								spellBuff.append("\\");

@@ -1,5 +1,6 @@
 package plugin.lsttokens.pcclass;
 
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 
@@ -16,7 +17,7 @@ public class PreracetypeToken implements PCClassLstToken
 
 	public boolean parse(PCClass pcclass, String value, int level)
 	{
-		pcclass.setPreRaceType(value);
+		pcclass.setPreRaceType(RaceType.getConstant(value));
 		return true;
 	}
 }

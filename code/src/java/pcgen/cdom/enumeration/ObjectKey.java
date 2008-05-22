@@ -25,6 +25,7 @@ package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collection;
 import java.util.HashSet;
@@ -32,6 +33,8 @@ import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -54,6 +57,36 @@ public final class ObjectKey<T>
 	public static final ObjectKey<URI> SOURCE_URI = new ObjectKey<URI>();
 
 	public static final ObjectKey<PCAlignment> ALIGNMENT = new ObjectKey<PCAlignment>();
+
+	public static final ObjectKey<Visibility> VISIBILITY = new ObjectKey<Visibility>();
+
+	public static final ObjectKey<Boolean> REMOVABLE = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<SubRegion> SUBREGION = new ObjectKey<SubRegion>();
+
+	public static final ObjectKey<Region> REGION = new ObjectKey<Region>();
+
+	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBREGION = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> USETEMPLATENAMEFORREGION = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<Gender>();
+
+	public static final ObjectKey<BigDecimal> FACE_WIDTH = new ObjectKey<BigDecimal>();
+
+	public static final ObjectKey<BigDecimal> FACE_HEIGHT = new ObjectKey<BigDecimal>();
+
+	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBRACE = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<SubRace> SUBRACE = new ObjectKey<SubRace>();
+
+	public static final ObjectKey<BigDecimal> CR_MODIFIER = new ObjectKey<BigDecimal>();
+
+	public static final ObjectKey<RaceType> RACETYPE = new ObjectKey<RaceType>();
+
+	public static final ObjectKey<BigDecimal> COST = new ObjectKey<BigDecimal>();
+
+	public static final ObjectKey<PCStat> SPELL_STAT = new ObjectKey<PCStat>();
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

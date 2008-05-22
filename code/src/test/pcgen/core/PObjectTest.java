@@ -148,7 +148,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		Race reconstRace = new Race();
-		raceLoader.parseLine(null, reconstRace, racePCCText, source);
+		raceLoader.parseLine(Globals.getContext(), reconstRace, racePCCText, source);
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			racePCCText, reconstRace.getPCCText());
@@ -362,7 +362,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		RaceLoader loader = new RaceLoader();
 		loader
 			.parseLine(
-				null,
+				Globals.getContext(),
 				race,
 				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = race.getAbilityKeys(null, cat, Nature.AUTOMATIC);

@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -62,7 +63,7 @@ public class PreHandsTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();
-		race.setHands(2);
+		race.put(IntegerKey.HANDS, 2);
 
 		character.setRace(race);
 

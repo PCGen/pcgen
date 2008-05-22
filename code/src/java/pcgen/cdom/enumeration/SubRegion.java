@@ -28,62 +28,18 @@ import pcgen.base.util.CaseInsensitiveMap;
  * 
  * This Class is a Type Safe Constant.
  */
-public final class FormulaKey implements TypeSafeConstant
+public final class SubRegion implements TypeSafeConstant
 {
 
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<FormulaKey> typeMap;
+	private static CaseInsensitiveMap<SubRegion> typeMap;
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
 	 */
 	private static int ordinalCount = 0;
-
-	public static final FormulaKey LEVEL_ADJUSTMENT =
-			getConstant("LEVEL_ADJUSTMENT");
-
-	public static final FormulaKey START_SKILL_POINTS =
-			getConstant("START_SKILL_POINTS");
-
-	public static final FormulaKey COST = getConstant("COST");
-
-	public static final FormulaKey BASECOST = getConstant("BASECOST");
-
-	public static final FormulaKey PAGE_USAGE = getConstant("PAGE_USAGE");
-
-	public static final FormulaKey COMPANION_HP = getConstant("COMPANION_HP");
-
-	public static final FormulaKey COMPANION_BAB = getConstant("COMPANION_BAB");
-
-	public static final FormulaKey COMPANION_CHECK =
-			getConstant("COMPANION_CHECK");
-
-	public static final FormulaKey ITEM_CREATION_MULTIPLIER =
-			getConstant("ITEM_CREATION_MULTIPLIER");
-
-	public static final FormulaKey CR = getConstant("CR");
-
-	public static final FormulaKey MONSTER_SKILL_POINTS =
-			getConstant("MONSTER_SKILL_POINTS");
-
-	public static final FormulaKey MONSTER_NON_SKILL_HD =
-			getConstant("MONSTER_NON_SKILL_HD");
-
-	public static final FormulaKey SELECT = getConstant("SELECT");
-
-	public static final FormulaKey STAT_MOD = getConstant("STAT_MOD");
-
-	public static final FormulaKey POOL =  getConstant("POOL");
-
-	public static final FormulaKey MASTER_BAB = getConstant("MASTER_BAB");
-
-	public static final FormulaKey MASTER_HP = getConstant("MASTER_HP");
-
-	public static final FormulaKey MASTER_CHECK = getConstant("MASTER_CHECK");
-
-	public static final FormulaKey SIZE = getConstant("SIZE");
 
 	/**
 	 * The name of this Constant
@@ -95,7 +51,7 @@ public final class FormulaKey implements TypeSafeConstant
 	 */
 	private final transient int ordinal;
 
-	private FormulaKey(String name)
+	private SubRegion(String name)
 	{
 		ordinal = ordinalCount++;
 		fieldName = name;
@@ -129,16 +85,16 @@ public final class FormulaKey implements TypeSafeConstant
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static FormulaKey getConstant(String s)
+	public static SubRegion getConstant(String s)
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<FormulaKey>();
+			typeMap = new CaseInsensitiveMap<SubRegion>();
 		}
-		FormulaKey o = typeMap.get(s);
+		SubRegion o = typeMap.get(s);
 		if (o == null)
 		{
-			o = new FormulaKey(s);
+			o = new SubRegion(s);
 			typeMap.put(s, o);
 		}
 		return o;
@@ -153,13 +109,13 @@ public final class FormulaKey implements TypeSafeConstant
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
 	 */
-	public static FormulaKey valueOf(String s)
+	public static SubRegion valueOf(String s)
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<FormulaKey>();
+			typeMap = new CaseInsensitiveMap<SubRegion>();
 		}
-		FormulaKey o = typeMap.get(s);
+		SubRegion o = typeMap.get(s);
 		if (o == null)
 		{
 			throw new IllegalArgumentException(s);
@@ -176,7 +132,7 @@ public final class FormulaKey implements TypeSafeConstant
 	 * 
 	 * @return a Collection of all of the Constants in this Class.
 	 */
-	public static Collection<FormulaKey> getAllConstants()
+	public static Collection<SubRegion> getAllConstants()
 	{
 		if (typeMap == null)
 		{

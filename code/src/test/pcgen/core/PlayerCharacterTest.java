@@ -40,6 +40,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -49,7 +50,6 @@ import pcgen.core.spell.Spell;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
@@ -97,8 +97,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 	
-		final PreParserFactory factory = PreParserFactory.getInstance();
-	
 		// Human
 		human = new Race();
 		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
@@ -109,8 +107,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantRace.setName("Ogre");
 		giantRace.setMonsterClass("Giant");
 		giantRace.setMonsterClassLevels(4);
-		giantRace.setHitDiceAdvancement(new int[]{100});
-	
+		giantRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, 100);
+
 		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
 	
 		giantRace.setBonusInitialFeats(giantRaceFeatBonus);

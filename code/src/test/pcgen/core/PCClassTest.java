@@ -33,11 +33,14 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -813,16 +816,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bugbearRace.setName("Bugbear");
 		bugbearRace.setKeyName("KEY_Bugbear");
 		bugbearRace.setSize("M");
-		bugbearRace.setAdvancementUnlimited(true);
-		bugbearRace.setInitialSkillMultiplier(1);
+		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
+		bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
 		Globals.addRace(bugbearRace);
 
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
 		bigBugbearRace.setKeyName("KEY_BigBugbear");
 		bigBugbearRace.setSize("L");
-		bigBugbearRace.setAdvancementUnlimited(true);
-		bigBugbearRace.setInitialSkillMultiplier(1);
+		bigBugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
+		bigBugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
 		Globals.addRace(bigBugbearRace);
 
 		// Create the Nymph race
@@ -830,7 +833,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nymphRace.setName("Nymph");
 		nymphRace.setKeyName("KEY_Nymph");
 		nymphRace.setSize("M");
-		nymphRace.setAdvancementUnlimited(true);
+		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		nymphRace.setMonsterClass(nymphClass.getKeyName());
 		Globals.addRace(nymphRace);
 

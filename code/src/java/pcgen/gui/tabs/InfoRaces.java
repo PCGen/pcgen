@@ -68,7 +68,12 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
 import pcgen.core.PCClass;
@@ -401,24 +406,17 @@ public class InfoRaces extends BaseCharacterInfoTab
 			b.appendTitleElement(aRace.piSubString());
 
 			b.appendLineBreak();
-			b.appendI18nElement("in_irInfoRaceType",aRace.getRaceType()); //$NON-NLS-1$
-			
-			List<String> subTypes = aRace.getRacialSubTypes();
-			if (subTypes.size() > 0)
+			RaceType rt = aRace.get(ObjectKey.RACETYPE);
+			if (rt != null)
 			{
-				StringBuffer subtypes = new StringBuffer();
-				boolean first = true;
-				for (String s : subTypes)
-				{
-					if (!first)
-					{
-						subtypes.append(", ");
-					}
-					subtypes.append(s);
-					first = false;
-				}
+				b.appendI18nElement("in_irInfoRaceType", rt.toString()); //$NON-NLS-1$
+			}
+
+			List<RaceSubType> rst = aRace.getListFor(ListKey.RACESUBTYPE);
+			if (rst != null)
+			{
 				b.appendSpacer();
-				b.appendI18nElement("in_irInfoSubType", subtypes.toString()); //$NON-NLS-1$
+				b.appendI18nElement("in_irInfoSubType", StringUtil.join(rst, ", ")); //$NON-NLS-1$
 			}
 			if (aRace.getType().length() > 0)
 			{
@@ -901,7 +899,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 					monsterHD += aClass.getLevel();
 				}
 			}
-			btnAddHD.setEnabled(race.hasAdvancement() && (monsterHD >= 0));
+			btnAddHD.setEnabled(race.containsListFor(ListKey.HITDICE_ADVANCEMENT)
+					&& (monsterHD >= 0));
 		}
 
 		btnRemoveHD.setEnabled(monsterHD > minLevel);

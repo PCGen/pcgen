@@ -28,7 +28,6 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
@@ -36,6 +35,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -43,6 +43,7 @@ import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.gui.utils.JComboBoxEx;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -180,89 +181,20 @@ public class RaceBasePanel extends BasePanel
 
 	public void setHitDiceAdvancement(final Race thisRace)
 	{
-		if ((thisRace == null)
-			|| (thisRace.getNumberOfHitDiceAdvancements() == 0))
+		LoadContext context = Globals.getContext();
+		String[] hitdice = context.unparse(thisRace, "HITDICE");
+		if (hitdice != null)
 		{
-			txtHitDiceAdvancement.setText("");
-		}
-		else
-		{
-			StringBuffer adv = new StringBuffer();
-
-			for (int index = 0; index < thisRace
-				.getNumberOfHitDiceAdvancements(); index++)
+			if (hitdice.length == 1)
 			{
-				if (index > 0)
-				{
-					adv.append(',');
-				}
-
-				if ((thisRace.getHitDiceAdvancement(index) == -1)
-					&& thisRace.isAdvancementUnlimited())
-				{
-					adv.append('*');
-				}
-				else
-				{
-					adv.append(String.valueOf(thisRace
-						.getHitDiceAdvancement(index)));
-				}
-			}
-
-			txtHitDiceAdvancement.setText(adv.toString());
-		}
-	}
-
-	public int[] getHitDiceAdvancement()
-	{
-		if ((txtHitDiceAdvancement.getText() == null)
-			|| (txtHitDiceAdvancement.getText().trim().length() == 0))
-		{
-			return new int[]{};
-		}
-		final StringTokenizer advancement =
-				new StringTokenizer(txtHitDiceAdvancement.getText(), ",");
-		String temp;
-		int[] hitDiceAdvancement = new int[advancement.countTokens()];
-		for (int x = 0; x < hitDiceAdvancement.length; ++x)
-		{
-			temp = advancement.nextToken();
-			if ((temp.length() > 0) && (temp.charAt(0) == '*'))
-			{
-				hitDiceAdvancement[x] = -1;
+				txtHitDiceAdvancement.setText(hitdice[0]);
 			}
 			else
 			{
-				hitDiceAdvancement[x] = Integer.parseInt(temp);
+				Logging.errorPrint("Found more than one HITDICEADVANCEMENT in "
+						+ thisRace.getDisplayName());
 			}
 		}
-
-		return hitDiceAdvancement;
-	}
-
-	public boolean getHitDiceAdvancementUnlimited()
-	{
-		if ((txtHitDiceAdvancement.getText() != null)
-			&& (txtHitDiceAdvancement.getText().trim().length() > 0))
-		{
-			final StringTokenizer advancement =
-					new StringTokenizer(txtHitDiceAdvancement.getText(), ",");
-			String temp;
-
-			int[] hitDiceAdvancement = new int[advancement.countTokens()];
-
-			for (int x = 0; x < hitDiceAdvancement.length; ++x)
-			{
-				temp = advancement.nextToken();
-
-				if ((temp.length() > 0) && (temp.charAt(0) == '*'))
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
 	}
 
 	public void setHitDiceNumber(final int aNumber)
@@ -425,26 +357,19 @@ public class RaceBasePanel extends BasePanel
 		final BonusObj bon = Bonus.newBonus(sb.toString());
 		thisRace.setBonusInitialFeats(bon);
 
-		thisRace.setBonusSkillsPerLevel(getBonusSkillPoints());
+		thisRace.put(IntegerKey.SKILL_POINTS_PER_LEVEL, getBonusSkillPoints());
 		thisRace.setCR(getCR());
 		thisRace.setDisplayName(getDisplayName());
-		thisRace.setHands(getHands());
-		thisRace.setHitDiceAdvancement(getHitDiceAdvancement());
-		thisRace.setAdvancementUnlimited(getHitDiceAdvancementUnlimited());
-		thisRace.setLegs(getLegs());
+		thisRace.put(IntegerKey.HANDS, getHands());
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
+		thisRace.put(IntegerKey.LEGS, getLegs());
 		thisRace.setLevelAdjustment(getLevelAdjustment());
 		thisRace.setMonsterClass(getMonsterClass());
 		thisRace.setMonsterClassLevels(getMonsterLevel());
 		thisRace.setSize(getRaceSize());
-		thisRace.setReach(getReach());
-		if (getSkillMultiplier() == Globals.getSkillMultiplierForLevel(1))
-		{
-			thisRace.setInitialSkillMultiplier(null);
-		}
-		else
-		{
-			thisRace.setInitialSkillMultiplier(getSkillMultiplier());
-		}
+		thisRace.put(IntegerKey.REACH, getReach());
+		thisRace.put(IntegerKey.INITIAL_SKILL_MULT, getSkillMultiplier());
 		thisRace.setHitDice(getHitDiceNumber());
 		thisRace.setHitDiceSize(getHitDiceSize());
 
@@ -464,7 +389,6 @@ public class RaceBasePanel extends BasePanel
 	public void updateView(PObject thisPObject)
 	{
 		Iterator e;
-		String aString;
 		Race thisRace = (Race) thisPObject;
 
 		//

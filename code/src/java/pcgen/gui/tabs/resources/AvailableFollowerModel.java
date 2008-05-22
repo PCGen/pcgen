@@ -10,6 +10,8 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
@@ -279,7 +281,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 
 				if (race != null)
 				{
-					sRet = race.getRaceType();
+					RaceType rt = race.get(ObjectKey.RACETYPE);
+					sRet = rt == null ? "" : rt.toString();
 				}
 
 				break;
@@ -399,9 +402,10 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 										return -1;
 									}
 									final Collator col = Collator.getInstance();
+									RaceType rt1 = r1.get(ObjectKey.RACETYPE);
+									RaceType rt2 = r2.get(ObjectKey.RACETYPE);
 									final int diff =
-											col.compare(r1.getRaceType(), r2
-												.getRaceType());
+											col.compare(rt1.toString(), rt2.toString());
 									if (diff == 0)
 									{
 										return anO1.compareTo(anO2);
@@ -415,8 +419,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 				for (final FollowerOption follower : followers)
 				{
 					if (qFilter == null
-						|| (qFilter != null && follower.getRace()
-							.getDisplayName().toLowerCase().indexOf(qFilter) >= 0))
+						|| follower.getRace().getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
 					{
 						final PObjectNode fol = new PObjectNode(follower);
 						final StringBuffer buf = new StringBuffer();

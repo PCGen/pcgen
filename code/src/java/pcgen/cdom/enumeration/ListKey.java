@@ -26,11 +26,10 @@ package pcgen.cdom.enumeration;
 import java.net.URI;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.core.Ability;
-import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
-import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
@@ -144,6 +143,22 @@ public final class ListKey<T> {
 	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_SHIELD_PROF = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CDOMReference<WeaponProf>> DEITYWEAPON = new ListKey<CDOMReference<WeaponProf>>();
+	public static final ListKey<RaceSubType> RACESUBTYPE = new ListKey<RaceSubType>();
+	public static final ListKey<RaceSubType> REMOVED_RACESUBTYPE = new ListKey<RaceSubType>();
+	public static final ListKey<LevelCommandFactory> ADD_LEVEL = new ListKey<LevelCommandFactory>();
+	public static final ListKey<String> RANGE = new ListKey<String>();
+	public static final ListKey<String> SAVE_INFO = new ListKey<String>();
+	public static final ListKey<String> DURATION = new ListKey<String>();
+	public static final ListKey<String> COMPONENTS = new ListKey<String>();
+	public static final ListKey<String> CASTTIME = new ListKey<String>();
+	public static final ListKey<String> SPELL_RESISTANCE = new ListKey<String>();
+	public static final ListKey<String> VARIANTS = new ListKey<String>();
+	public static final ListKey<String> SPELL_SCHOOL = new ListKey<String>();
+	public static final ListKey<String> SPELL_SUBSCHOOL = new ListKey<String>();
+	public static final ListKey<String> SPELL_DESCRIPTOR = new ListKey<String>();
+	public static final ListKey<String> PROHIBITED_ITEM = new ListKey<String>();
+	public static final ListKey<String> ITEM = new ListKey<String>();
+	public static final ListKey<Integer> HITDICE_ADVANCEMENT = new ListKey<Integer>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

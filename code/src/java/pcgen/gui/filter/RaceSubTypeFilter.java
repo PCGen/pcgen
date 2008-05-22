@@ -20,6 +20,8 @@
  */
 package pcgen.gui.filter;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -36,16 +38,16 @@ import pcgen.util.PropertyFactory;
  */
 final class RaceSubTypeFilter extends AbstractPObjectFilter
 {
-	private String raceSubTypeName;
+	private RaceSubType raceSubType;
 
 	/**
 	 * Create a new RaceTypeFilter for a race type name
 	 * @param raceSubTypeName The name to be matched.
 	 */
-	RaceSubTypeFilter(String raceSubTypeName)
+	RaceSubTypeFilter(RaceSubType raceSubTypeName)
 	{
-		super(PropertyFactory.getString("in_filterRaceSubType"), raceSubTypeName); //$NON-NLS-1$
-		this.raceSubTypeName = raceSubTypeName;
+		super(PropertyFactory.getString("in_filterRaceSubType"), raceSubTypeName.toString()); //$NON-NLS-1$
+		raceSubType = raceSubTypeName;
 	}
 
 	
@@ -62,7 +64,7 @@ final class RaceSubTypeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Race)
 		{
-			return ((Race) pObject).getRacialSubTypes().contains(raceSubTypeName);
+			return pObject.containsInList(ListKey.RACESUBTYPE, raceSubType);
 		}
 
 		return true;

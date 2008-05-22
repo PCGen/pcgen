@@ -34,6 +34,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -155,21 +157,14 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 			}
 			if(runningTotal == 0)
 			{
-				boolean match  = false;
+				RaceSubType st = RaceSubType.getConstant(reqType);
 BREAKOUT:		for (Race imitator: servesAsRace.keySet())
 					{
 						for (Race mock: servesAsRace.get(imitator))
 						{
-							for(String subType: mock.getRacialSubTypes())
+							if (mock.containsInList(ListKey.RACESUBTYPE, st))
 							{
-								if (reqType.equalsIgnoreCase(subType))
-								{
-									match = true;
-									++runningTotal;
-								}
-							}
-							if (match)
-							{
+								++runningTotal;
 								break BREAKOUT;
 							}
 						}

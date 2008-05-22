@@ -24,7 +24,6 @@ package pcgen.core;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +32,8 @@ import java.util.StringTokenizer;
 import org.apache.commons.lang.math.Fraction;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
@@ -55,7 +56,6 @@ public final class Race extends PObject
 	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
 
-	//private String face = "5 ft. by 5 ft.";
 	private Point2D.Double face = new Point2D.Double(5, 0);
 	private String favoredClass = Constants.EMPTY_STRING;
 	// TODO - ABILITYOBJECT - Remove this.
@@ -67,34 +67,10 @@ public final class Race extends PObject
 	private String size = Constants.EMPTY_STRING;
 	private String weightString = Constants.EMPTY_STRING;
 
-	//private String type = "Humanoid";
-	private int[] hitDiceAdvancement;
-	private boolean unlimitedAdvancement = false;
-	//private int BAB = 0;
 	private float CR = 0;
-	private int bonusSkillsPerLevel = 0;
-	private int hands = 2;
 	private int hitDice = 0;
 	private int hitDiceSize = 0;
-	private Integer initialSkillMultiplier = null;
-	private int legs = 2;
 	private int monsterClassLevels = 0;
-	private int reach = 5;
-	private String raceType = Constants.s_NONE;
-	private List<String> racialSubTypes = new ArrayList<String>();
-
-	/**
-	 * Sets this races advancement to not be limited.
-	 * 
-	 * @param yesNo <tt>true</tt> if this race allows unlimited
-	 * advancement.
-	 * 
-	 * TODO - Why do we need a special flag for this?
-	 */
-	public void setAdvancementUnlimited(final boolean yesNo)
-	{
-		this.unlimitedAdvancement = yesNo;
-	}
 
 	/**
 	 * Checks if this race's advancement is limited.
@@ -103,18 +79,10 @@ public final class Race extends PObject
 	 */
 	public boolean isAdvancementUnlimited()
 	{
-		return unlimitedAdvancement;
+		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
+		return hda == null
+				|| Integer.MAX_VALUE == hda.get(hda.size() - 1).intValue();
 	}
-
-	//	public void setAgeString(final String aString)
-	//	{
-	//		ageString = aString;
-	//	}
-
-	//	public void setBAB(final int newBAB)
-	//	{
-	//		BAB = newBAB;
-	//	}
 
 	public void setBonusInitialFeats(final BonusObj bon)
 	{
@@ -126,14 +94,10 @@ public final class Race extends PObject
 		return 0;
 	}
 
-	public void setBonusSkillsPerLevel(final int i)
-	{
-		bonusSkillsPerLevel = i;
-	}
-
 	public int getBonusSkillsPerLevel()
 	{
-		return bonusSkillsPerLevel;
+		Integer sp = get(IntegerKey.SKILL_POINTS_PER_LEVEL);
+		return sp == null ? 0 : sp;
 	}
 
 	public void setCR(final float newCR)
@@ -224,11 +188,6 @@ public final class Race extends PObject
 		}
 	}
 
-	public void setHands(final int newHands)
-	{
-		hands = newHands;
-	}
-
 	/**
 	 * Made public for use on equipping tab -- bug 586332
 	 * sage_sam, 22 Nov 2002
@@ -236,7 +195,8 @@ public final class Race extends PObject
 	 */
 	public int getHands()
 	{
-		return hands;
+		Integer hands = get(IntegerKey.HANDS);
+		return hands == null ? 2 : hands;
 	}
 
 	public void setHeightString(final String aString)
@@ -256,20 +216,6 @@ public final class Race extends PObject
 		}
 
 		hitDice = newHitDice;
-	}
-
-	public void setHitDiceAdvancement(final int[] advancement)
-	{
-		hitDiceAdvancement = advancement;
-	}
-
-	//	public int[] getHitDiceAdvancement()
-	//	{
-	//		return hitDiceAdvancement;
-	//	}
-	public int getHitDiceAdvancement(final int index)
-	{
-		return hitDiceAdvancement[index];
 	}
 
 	public void setHitDiceSize(final int newHitDiceSize)
@@ -325,18 +271,6 @@ public final class Race extends PObject
 	}
 
 	/**
-	 * Set the initial skill multiplier that should be used for this
-	 * race. Use null to 'unset' the race's value and make it default
-	 * to the game mode value.
-	 * 
-	 * @param initialSkillMultiplier The initialSkillMultiplier to set, null if none.
-	 */
-	public void setInitialSkillMultiplier(final Integer initialSkillMultiplier)
-	{
-		this.initialSkillMultiplier = initialSkillMultiplier;
-	}
-
-	/**
 	 * Returns the initial skill multiplier that should be used for this 
 	 * race. Unless this has been explicitly set in the Race definition, 
 	 * this will default to the skill multiplier for first level defined 
@@ -346,22 +280,19 @@ public final class Race extends PObject
 	 */
 	public int getInitialSkillMultiplier()
 	{
-		if (initialSkillMultiplier == null)
+		Integer ism = get(IntegerKey.INITIAL_SKILL_MULT);
+		if (ism == null)
 		{
 			return Globals.getSkillMultiplierForLevel(1);
 		}
 
-		return initialSkillMultiplier;
-	}
-
-	public void setLegs(final int argLegs)
-	{
-		legs = argLegs;
+		return ism;
 	}
 
 	public int getLegs()
 	{
-		return legs;
+		Integer legs = get(IntegerKey.LEGS);
+		return legs == null ? 2 : legs;
 	}
 
 	public void setLevelAdjustment(final String newLevelAdjustment)
@@ -577,11 +508,6 @@ public final class Race extends PObject
 		return false;
 	}
 
-	public int getNumberOfHitDiceAdvancements()
-	{
-		return (hitDiceAdvancement != null) ? hitDiceAdvancement.length : 0;
-	}
-
 	/**
 	 * Retrieve Unarmed Damage according to the Race
 	 * @return UDAM damage die (ie 1d3)
@@ -599,36 +525,6 @@ public final class Race extends PObject
 				.getAbbreviation());
 		}
 		return "1d3";
-	}
-
-	public String getRaceType()
-	{
-		return raceType;
-	}
-
-	public void setRaceType(final String aType)
-	{
-		raceType = aType;
-	}
-
-	public void addRacialSubType(final String aSubType)
-	{
-		racialSubTypes.add(aSubType);
-	}
-
-	public void clearRacialSubTypes()
-	{
-		racialSubTypes.clear();
-	}
-
-	public boolean removeRacialSubType(final String aSubType)
-	{
-		return racialSubTypes.remove(aSubType);
-	}
-
-	public List<String> getRacialSubTypes()
-	{
-		return Collections.unmodifiableList(racialSubTypes);
 	}
 
 	/**
@@ -649,11 +545,6 @@ public final class Race extends PObject
 		if ((size != null) && (size.length() > 0))
 		{
 			txt.append("\tSIZE:").append(size);
-		}
-
-		if (reach != 5)
-		{
-			txt.append("\tREACH:").append(reach);
 		}
 
 		if ((getChooseLanguageAutos() != null)
@@ -699,16 +590,6 @@ public final class Race extends PObject
 		if ((mFeatList != null) && (mFeatList.length() > 0))
 		{
 			txt.append("\tMFEAT:").append(mFeatList);
-		}
-
-		if (legs != 2)
-		{
-			txt.append("\tLEGS:").append(legs);
-		}
-
-		if (hands != 2)
-		{
-			txt.append("\tHANDS:").append(hands);
 		}
 
 		if ((getNaturalWeapons() != null) && (getNaturalWeapons().size() > 0))
@@ -761,11 +642,6 @@ public final class Race extends PObject
 			txt.append("\tNATURALATTACKS:").append(buffer.toString());
 		}
 
-		if (initialSkillMultiplier != null)
-		{
-			txt.append("\tSKILLMULT:").append(initialSkillMultiplier);
-		}
-
 		if (monsterClass != null)
 		{
 			txt.append("\tMONSTERCLASS:").append(monsterClass);
@@ -778,29 +654,6 @@ public final class Race extends PObject
 			for (String template : templates)
 			{
 				txt.append("\tTEMPLATE:").append(template);
-			}
-		}
-
-		if ((hitDiceAdvancement != null) && (hitDiceAdvancement.length > 0))
-		{
-			txt.append("\tHITDICEADVANCEMENT:");
-
-			for (int index = 0; index < hitDiceAdvancement.length; index++)
-			{
-				if (index > 0)
-				{
-					txt.append(',');
-				}
-
-				if ((hitDiceAdvancement[index] == -1)
-					&& isAdvancementUnlimited())
-				{
-					txt.append('*');
-				}
-				else
-				{
-					txt.append(hitDiceAdvancement[index]);
-				}
 			}
 		}
 
@@ -875,23 +728,13 @@ public final class Race extends PObject
 			txt.append("\tOUTPUTNAME:").append(displayName);
 		}
 
-		if (bonusSkillsPerLevel != 0)
-		{
-			txt.append("\tXTRASKILLPTSPERLVL:").append(bonusSkillsPerLevel);
-		}
-
-		//		txt.append(super.getPCCText(false));
 		return txt.toString();
-	}
-
-	public void setReach(final int newReach)
-	{
-		reach = newReach;
 	}
 
 	public int getReach()
 	{
-		return reach;
+		Integer reach = get(IntegerKey.REACH);
+		return reach == null ? 5 : reach;
 	}
 
 	public void setSize(final String argSize)
@@ -913,25 +756,18 @@ public final class Race extends PObject
 		{
 			aRace = (Race) super.clone();
 			aRace.favoredClass = favoredClass;
-			aRace.bonusSkillsPerLevel = bonusSkillsPerLevel;
 			aRace.size = size;
 
 			aRace.ageString = ageString;
 			aRace.heightString = heightString;
 			aRace.weightString = weightString;
 			aRace.featList = featList;
-			aRace.initialSkillMultiplier = initialSkillMultiplier;
 			aRace.levelAdjustment = levelAdjustment;
 			aRace.CR = CR;
-			//			aRace.BAB = BAB;
 			aRace.hitDice = hitDice;
 			aRace.hitDiceSize = hitDiceSize;
 			aRace.hitPointMap = new HashMap<String, Integer>(hitPointMap);
-			aRace.hitDiceAdvancement = hitDiceAdvancement;
-			aRace.hands = hands;
-			aRace.reach = reach;
 			aRace.face = face;
-			aRace.racialSubTypes = new ArrayList<String>(racialSubTypes);
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -940,15 +776,6 @@ public final class Race extends PObject
 		}
 
 		return aRace;
-	}
-
-	/**
-	 * returns true if the race has HD advancement
-	 * @return true if the race has HD advancement
-	 */
-	public boolean hasAdvancement()
-	{
-		return hitDiceAdvancement != null;
 	}
 
 	/**
@@ -1028,23 +855,6 @@ public final class Race extends PObject
 	protected void doGlobalTypeUpdate(final String aString)
 	{
 		Globals.getRaceTypes().add(aString);
-	}
-
-	int getBAB(final PlayerCharacter aPC)
-	{
-		//		if ((aPC != null) && aPC.isMonsterDefault())
-		//		{
-		//			// "BAB" not being used on races any more; instead using a BONUS tag.
-		//			// This will fix a bug this causes for default monsters.  Bug #647163
-		//			// sage_sam 03 Dec 2002
-		//			if (BAB == 0)
-		//			{
-		//				BAB = (int) bonusTo("COMBAT", "BAB", aPC, aPC);
-		//			}
-		//
-		//			return BAB;
-		//		}
-		return 0;
 	}
 
 	String getHitDieLock()
@@ -1190,27 +1000,29 @@ public final class Race extends PObject
 
 	int maxHitDiceAdvancement()
 	{
-		if ((hitDiceAdvancement != null) && (hitDiceAdvancement.length >= 1))
-		{
-			return hitDiceAdvancement[hitDiceAdvancement.length - 1];
-		}
-		return 0;
+		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
+		return hda == null ? 0 : hda.get(hda.size() - 1);
 	}
 
 	int sizesAdvanced(final int HD)
 	{
-		if (hitDiceAdvancement != null)
+		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
+		if (hda == null)
 		{
-			for (int x = 0; x < hitDiceAdvancement.length; x++)
-			{
-				if ((HD <= hitDiceAdvancement[x])
-					|| (hitDiceAdvancement[x] == -1))
-				{
-					return x;
-				}
-			}
+			return 0;
 		}
-
-		return 0;
+		else
+		{
+			int steps = 0;
+			for (Integer hitDie : hda)
+			{
+				if (HD <= hitDie)
+				{
+					break;
+				}
+				steps++;
+			}
+			return steps;
+		}
 	}
 }

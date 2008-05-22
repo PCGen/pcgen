@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,32 +15,42 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.base.formula;
+package pcgen.cdom.base;
 
+import pcgen.base.formula.Formula;
 import pcgen.core.PlayerCharacter;
 
-/**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
- * A Formula is a mathematical formula which requires a context to resolve.
- */
-public interface Formula
+public class JEPFormula implements Formula
 {
 
-	/*
-	 * No implementation yet. Eventually, the idea is to hide JEP behind this
-	 * interface, so that Formula are type safe and other optimizations can be
-	 * performed that may help speed up PCGen... long way off, but at least the
-	 * type safety will help out.
-	 */
+	private final String formula;
 
-	public final Formula ZERO = new Formula()
+	public JEPFormula(String s)
 	{
-		public Integer resolve(PlayerCharacter pc, String source)
-		{
-			return Integer.valueOf(0);
-		}
-	};
+		formula = s;
+	}
 
-	public Number resolve(PlayerCharacter pc, String source);
+	@Override
+	public String toString()
+	{
+		return formula;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return formula.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof JEPFormula
+			&& ((JEPFormula) o).formula.equals(formula);
+	}
+
+	public Float resolve(PlayerCharacter character, String source)
+	{
+		return character.getVariableValue(formula, source);
+	}
 }

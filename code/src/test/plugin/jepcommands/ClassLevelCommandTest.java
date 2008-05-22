@@ -28,6 +28,7 @@ import java.util.Arrays;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Description;
 import pcgen.core.Globals;
@@ -84,7 +85,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		// Create the Nymph race
 		nymphRace = new Race();
 		nymphRace.setName("Nymph");
-		nymphRace.setAdvancementUnlimited(true);
+		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		nymphRace.setSize("M");
 		Globals.addRace(nymphRace);
 

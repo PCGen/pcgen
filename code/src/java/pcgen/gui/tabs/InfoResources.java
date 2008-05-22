@@ -74,6 +74,8 @@ import javax.swing.text.Position.Bias;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
 import pcgen.core.GameMode;
@@ -89,7 +91,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
-import pcgen.gui.HTMLUtils;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.TableColumnManager;
 import pcgen.gui.filter.FilterAdapterPanel;
@@ -1187,7 +1188,11 @@ public class InfoResources extends FilterAdapterPanel implements
 			{
 				b.append(sadj.getDisplayName());
 			}
-			b.append(" ").append(aRace.getRaceType()); //$NON-NLS-1$
+			RaceType rt = aRace.get(ObjectKey.RACETYPE);
+			if (rt != null)
+			{
+				b.append(" ").append(rt.toString()); //$NON-NLS-1$
+			}
 
 			b.appendLineBreak();
 			b.appendI18nElement("in_hdLabel", //$NON-NLS-1$

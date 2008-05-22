@@ -29,6 +29,8 @@ import java.util.HashSet;
 import java.util.List;
 
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceType;
 
 /**
  * This class represents a possible choice for a follower.  This is basically
@@ -107,11 +109,11 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 		if ( theRaceKey.startsWith( RACETYPE ) )
 		{
 			raceSet = new HashSet<Race>();
-			final String raceType = theRaceKey.substring(9);
+			RaceType raceType = RaceType.getConstant(theRaceKey.substring(9));
 			final Collection<Race> allRaces = Globals.getAllRaces();
 			for ( final Race r : allRaces )
 			{
-				if ( raceType.equalsIgnoreCase(r.getRaceType()) )
+				if (raceType.equals(r.get(ObjectKey.RACETYPE)))
 				{
 					raceSet.add( r );
 				}
