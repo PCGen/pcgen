@@ -69,41 +69,61 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 		final StringTokenizer colToken = new StringTokenizer(inputLine,
 				SystemLoader.TAB_DELIM);
 		
-		String name = colToken.nextToken();
-		template.setName(name);
-		template.setSourceCampaign(source.getCampaign());
-		template.setSourceURI(source.getURI());
+		if (colToken.hasMoreTokens())
+		{
+			template.setName(colToken.nextToken());
+			template.setSourceCampaign(source.getCampaign());
+			template.setSourceURI(source.getURI());
+		}
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				PCTemplateLstToken.class);
 		while (colToken.hasMoreTokens()) {
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try {
-				key = colString.substring(0, idxColon);
-			} catch (StringIndexOutOfBoundsException e) {
-				// TODO Handle Exception
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
 			}
-			PCTemplateLstToken token = (PCTemplateLstToken) tokenMap.get(key);
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
 
-			if (colString.startsWith("CHOOSE:LANGAUTO:")) {
-				template.setChooseLanguageAutos(colString.substring(16));
-			} else if (token != null) {
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, template, value);
-				if (!token.parse(template, value)) {
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(template, key, value))
+			{
+				Logging.clearParseMessages();
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				PCTemplateLstToken tok = (PCTemplateLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, template, value);
+				if (!tok.parse(template, value)) {
 					Logging.errorPrint("Error parsing template "
 							+ template.getDisplayName() + ':'
-							+ source.toString() + ':' + colString + "\"");
+							+ source.toString() + ':' + token + "\"");
 				}
-			} else if (PObjectLoader.parseTag(template, colString)) {
-				continue;
-			} else {
-				Logging.errorPrint("Unknown tag '" + colString + "' in "
-						+ source.toString());
+				Logging.clearParseMessages();
+ 				continue;
 			}
+			else if (PObjectLoader.parseTag(template, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 		
 		completeObject(source, template);

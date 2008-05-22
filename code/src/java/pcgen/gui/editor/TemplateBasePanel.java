@@ -25,6 +25,7 @@ package pcgen.gui.editor;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,10 +35,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SubRace;
+import pcgen.cdom.enumeration.SubRegion;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
+import pcgen.core.SizeAdjustment;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
@@ -197,9 +208,9 @@ public class TemplateBasePanel extends BasePanel
 	 * Set the level adjustment
 	 * @param levelAdj
 	 */
-	public void setLevelAdjustment(final String levelAdj)
+	public void setLevelAdjustment(final Formula levelAdj)
 	{
-		txtLevelAdj.setText(levelAdj);
+		txtLevelAdj.setText(levelAdj == null ? "" : levelAdj.toString());
 	}
 
 	/**
@@ -317,13 +328,13 @@ public class TemplateBasePanel extends BasePanel
 	 * Set the template size
 	 * @param aString
 	 */
-	public void setTemplateSize(final String aString)
+	public void setTemplateSize(final Formula aString)
 	{
 		cmbSize.setSelectedIndex(0);
 
 		for (int index = 0; index < sizeAbbrev.length; index++)
 		{
-			if (sizeAbbrev[index].equals(aString))
+			if (sizeAbbrev[index].equals(aString.toString()))
 			{
 				cmbSize.setSelectedIndex(index);
 
@@ -398,17 +409,58 @@ public class TemplateBasePanel extends BasePanel
 	public void updateData(PObject thisPObject)
 	{
 		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
-		thisPCTemplate.setRemovable(getIsRemovable());
-		thisPCTemplate.setGenderLock(getGenderLock());
+		thisPCTemplate.put(ObjectKey.REMOVABLE, getIsRemovable());
+		try
+		{
+			Gender gender = Gender.valueOf(getGenderLock());
+			thisPCTemplate.put(ObjectKey.GENDER_LOCK, gender);
+		}
+		catch (IllegalArgumentException e)
+		{
+			//This is okay, just indicates it wasn't a Gender
+		}
 		thisPCTemplate.setVisibility(getVisible());
-		thisPCTemplate.setSubRegion(getSubRegion());
-		thisPCTemplate.setSubRace(getSubRace());
-		thisPCTemplate.setBonusSkillsPerLevel(getBonusSkillPoints());
-		thisPCTemplate.setBonusInitialFeats(getBonusFeats());
-		thisPCTemplate.setCR(getCR());
-		thisPCTemplate.setLevelAdjustment(getLevelAdjustment());
-		thisPCTemplate.setNonProficiencyPenalty(getNonProficiencyPenalty());
-		thisPCTemplate.setTemplateSize(getTemplateSize());
+		String subRegion = getSubRegion();
+		if (subRegion.equals(thisPCTemplate.getDisplayName()))
+		{
+			thisPCTemplate.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
+			thisPCTemplate.put(ObjectKey.SUBREGION, null);
+		}
+		else
+		{
+			thisPCTemplate.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, null);
+			thisPCTemplate.put(ObjectKey.SUBREGION, SubRegion
+					.getConstant(subRegion));
+		}
+		String subRace = getSubRace();
+		if (subRace.equals(thisPCTemplate.getDisplayName()))
+		{
+			thisPCTemplate.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
+			thisPCTemplate.put(ObjectKey.SUBRACE, null);
+		}
+		else
+		{
+			thisPCTemplate.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, null);
+			thisPCTemplate.put(ObjectKey.SUBRACE, SubRace.getConstant(subRace));
+		}
+		thisPCTemplate.put(IntegerKey.BONUS_CLASS_SKILL_POINTS, getBonusSkillPoints());
+		thisPCTemplate.put(IntegerKey.BONUS_FEATS, getBonusFeats());
+		thisPCTemplate.put(ObjectKey.CR_MODIFIER, new BigDecimal(getCR()));
+		thisPCTemplate.put(FormulaKey.LEVEL_ADJUSTMENT, FormulaFactory.getFormulaFor(getLevelAdjustment()));
+		thisPCTemplate.put(IntegerKey.NONPP, getNonProficiencyPenalty());
+		String sz = getTemplateSize();
+		SizeAdjustment size = Globals.getContext().ref.getAbbreviatedObject(
+				SizeAdjustment.class, sz);
+		Formula sizeFormula;
+		if (size == null)
+		{
+			sizeFormula = FormulaFactory.getFormulaFor(sz);
+		}
+		else
+		{
+			sizeFormula = new FixedSizeFormula(size);
+		}
+		thisPCTemplate.put(FormulaKey.SIZE, sizeFormula);
 
 		//
 		// Save types
@@ -463,16 +515,24 @@ public class TemplateBasePanel extends BasePanel
 		setTypesSelectedList(selectedList, true);
 
 		setIsRemovable(thisPCTemplate.isRemovable());
-		setGenderLock(thisPCTemplate.getGenderLock());
+		Gender genderLock = thisPCTemplate.get(ObjectKey.GENDER_LOCK);
+		if (genderLock == null)
+		{
+			setGenderLock("None");
+		}
+		else
+		{
+			setGenderLock(genderLock.toString());
+		}
 		setVisible(thisPCTemplate.getVisibility());
 		setSubRegion(thisPCTemplate.getSubRegion());
 		setSubRace(thisPCTemplate.getSubRace());
 		setBonusSkillPoints(thisPCTemplate.getBonusSkillsPerLevel());
-		setNonProficiencyPenalty(thisPCTemplate.getNonProficiencyPenalty());
+		setNonProficiencyPenalty(thisPCTemplate.get(IntegerKey.NONPP));
 		setBonusFeats(thisPCTemplate.getBonusInitialFeats());
 		setCR(thisPCTemplate.getCR(-1, -1));
-		setLevelAdjustment(thisPCTemplate.getLevelAdjustmentFormula());
-		setTemplateSize(thisPCTemplate.getTemplateSize());
+		setLevelAdjustment(thisPCTemplate.get(FormulaKey.LEVEL_ADJUSTMENT));
+		setTemplateSize(thisPCTemplate.get(FormulaKey.SIZE));
 	}
 
 	private void initComponentContents()

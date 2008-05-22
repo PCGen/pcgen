@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
@@ -50,9 +51,14 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -1122,11 +1128,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (PCTemplate t : templateList)
 			{
-				final String aType = t.getRaceType();
-
-				if (!Constants.EMPTY_STRING.equals(aType))
+				RaceType rt = t.get(ObjectKey.RACETYPE);
+				if (rt != null)
 				{
-					raceType = aType;
+					raceType = rt.toString();
 				}
 			}
 		}
@@ -1138,7 +1143,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return A unmodifiable <tt>List</tt> of subtypes.
 	 */
-	public List<String> getRacialSubTypes()
+	public Collection<String> getRacialSubTypes()
 	{
 		final ArrayList<String> racialSubTypes =
 				new ArrayList<String>();
@@ -1148,23 +1153,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		if (!templateList.isEmpty())
 		{
-			final Set<String> added = new TreeSet<String>();
-			final Set<String> removed = new TreeSet<String>();
+			List<RaceSubType> added = new ArrayList<RaceSubType>();
+			List<RaceSubType> removed = new ArrayList<RaceSubType>();
 			for (PCTemplate aTemplate : templateList)
 			{
-				added.addAll(aTemplate.getAddedSubTypes());
-				removed.addAll(aTemplate.getRemovedSubTypes());
+				added.addAll(aTemplate.getSafeListFor(ListKey.RACESUBTYPE));
+				removed.addAll(aTemplate.getSafeListFor(ListKey.REMOVED_RACESUBTYPE));
 			}
-			for (final String subType : added)
+			for (RaceSubType st : added)
 			{
-				if (!racialSubTypes.contains(subType))
-				{
-					racialSubTypes.add(subType);
-				}
+				racialSubTypes.add(st.toString());
 			}
-			for (String s : removed)
+			for (RaceSubType st : removed)
 			{
-				racialSubTypes.remove(s);
+				racialSubTypes.remove(st.toString());
 			}
 		}
 
@@ -2603,8 +2605,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate t : templateList)
 		{
-			final int temp = t.getNonProficiencyPenalty();
-			if (temp <= 0)
+			Integer temp = t.get(IntegerKey.NONPP);
+			if (temp != null)
 			{
 				npp = temp;
 			}
@@ -4508,18 +4510,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// with something like SIZE:L
 			for (PCTemplate template : getTemplateList())
 			{
-				final String templateSize = template.getTemplateSize();
-
-				if (templateSize.length() != 0)
+				Formula sizeFormula = template.get(FormulaKey.SIZE);
+				if (sizeFormula != null)
 				{
-					iSize = Globals.sizeInt(templateSize);
-					if (iSize == 0 && !templateSize.equals("F"))
-					{
-						// We failed to get a size try and parse it as JEP
-						iSize =
-								getVariableValue(templateSize,
-									template.getKeyName()).intValue();
-					}
+					iSize = sizeFormula.resolve(this, template.getKeyName())
+							.intValue();
 				}
 			}
 		}
@@ -5829,7 +5824,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate template : templateList)
 		{
-			levelAdj += template.getLevelAdjustment(aPC);
+			levelAdj += template.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(
+					aPC, "").intValue();
 		}
 
 		return levelAdj;
@@ -8269,40 +8265,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// character so don't apply them again.
 		if (!isImporting())
 		{
-			for (String modString : inTemplate.getLevelMods())
+			for (LevelCommandFactory lcf : inTemplate
+					.getSafeListFor(ListKey.ADD_LEVEL))
 			{
-				StringTokenizer tok = new StringTokenizer(modString, "|");
-				while (tok.hasMoreTokens())
-				{
-					final String colString = tok.nextToken();
-					if (colString.startsWith("ADD"))
-					{
-						final String classKey = tok.nextToken();
-						final int level =
-								getVariableValue(tok.nextToken(), "")
-									.intValue();
-
-						PCClass aClass = Globals.getClassKeyed(classKey);
-
-						boolean tempShowHP =
-								SettingsHandler.getShowHPDialogAtLevelUp();
-						SettingsHandler.setShowHPDialogAtLevelUp(false);
-						boolean tempFeatDlg =
-								SettingsHandler.getShowFeatDialogAtLevelUp();
-						SettingsHandler.setShowFeatDialogAtLevelUp(false);
-						int tempChoicePref =
-								SettingsHandler.getSingleChoicePreference();
-						SettingsHandler
-							.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-
-						incrementClassLevel(level, aClass, true, true);
-
-						SettingsHandler
-							.setSingleChoicePreference(tempChoicePref);
-						SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
-						SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-					}
-				}
+				lcf.add(this);
 			}
 		}
 		this.setArmorProfListStable(false);
@@ -10736,39 +10702,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		removeNaturalWeapons(inTmpl);
 
 		PCTemplate t = this.getTemplateKeyed(inTmpl.getKeyName());
-		for (int i = inTmpl.getLevelMods().size() - 1; i >= 0; i--)
+		List<LevelCommandFactory> lcfList = t.getSafeListFor(ListKey.ADD_LEVEL);
+		for (ListIterator<LevelCommandFactory> it = lcfList
+				.listIterator(lcfList.size()); it.hasPrevious();)
 		{
-			String modString = (inTmpl.getLevelMods().get(i));
-			StringTokenizer tok = new StringTokenizer(modString, "|");
-			while (tok.hasMoreTokens())
-			{
-				final String colString = tok.nextToken();
-				if (colString.startsWith("ADD"))
-				{
-					final String classKey = tok.nextToken();
-					final int level =
-							getVariableValue(tok.nextToken(), "").intValue();
-
-					PCClass aClass = this.getClassKeyed(classKey);
-
-					boolean tempShowHP =
-							SettingsHandler.getShowHPDialogAtLevelUp();
-					SettingsHandler.setShowHPDialogAtLevelUp(false);
-					boolean tempFeatDlg =
-							SettingsHandler.getShowFeatDialogAtLevelUp();
-					SettingsHandler.setShowFeatDialogAtLevelUp(false);
-					int tempChoicePref =
-							SettingsHandler.getSingleChoicePreference();
-					SettingsHandler
-						.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-
-					incrementClassLevel(-level, aClass, true, true);
-
-					SettingsHandler.setSingleChoicePreference(tempChoicePref);
-					SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
-					SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-				}
-			}
+			it.previous().remove(this);
 		}
 
 		// It is hard to tell if removeTemplate() modifies
@@ -13929,32 +13867,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private String findTemplateGender()
 	{
-		String templateGender = Constants.s_NONE;
+		Gender g = null;
 
 		for (PCTemplate template : templateList)
 		{
-			final String aString = template.getGenderLock();
-
-			if (!aString.equals(Constants.s_NONE))
+			Gender lock = template.get(ObjectKey.GENDER_LOCK);
+			if (lock != null)
 			{
-				templateGender = aString;
+				g = lock;
 			}
 		}
 
-		return templateGender;
-	}
-
-	private PCClass getClassDisplayNamed(final String aString)
-	{
-		for (PCClass pcClass : classList)
-		{
-			if (pcClass.getDisplayClassName().equalsIgnoreCase(aString))
-			{
-				return pcClass;
-			}
-		}
-
-		return null;
+		return g == null ? "None" : g.toString();
 	}
 
 	private void setEarnedXP(final int argEarnedXP)
@@ -17798,9 +17722,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Scan templates for any overrides
 		for (PCTemplate template : getTemplateList())
 		{
-			if (template.getHands() != null)
+			Integer h = template.get(IntegerKey.HANDS);
+			if (h != null)
 			{
-				hands = template.getHands();
+				hands = h;
 			}
 		}
 		return hands;
@@ -17824,9 +17749,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Scan templates for any overrides
 		for (PCTemplate template : getTemplateList())
 		{
-			if (template.getLegs() != null)
+			Integer l = template.get(IntegerKey.LEGS);
+			if (l != null)
 			{
-				legs = template.getLegs();
+				legs = l;
 			}
 		}
 		return legs;
@@ -17850,9 +17776,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Scan templates for any overrides
 		for (PCTemplate template : getTemplateList())
 		{
-			if (template.getReach() != null)
+			Integer r = template.get(IntegerKey.REACH);
+			if (r != null)
 			{
-				reach = template.getReach();
+				reach = r;
 			}
 		}
 		reach += (int) getTotalBonusTo("COMBAT", "REACH");

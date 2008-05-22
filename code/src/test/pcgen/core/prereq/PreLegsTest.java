@@ -87,7 +87,7 @@ public class PreLegsTest extends AbstractCharacterTestCase
 			.passes(prereq, character, null));
 
 		PCTemplate tmpl = new PCTemplate();
-		tmpl.setLegs(3);
+		tmpl.put(IntegerKey.LEGS, 3);
 
 		character.addTemplate(tmpl);
 		assertTrue("Character does have more than 2 legs", PrereqHandler

@@ -615,8 +615,7 @@ public class CountCommand extends PCGenCommand
 
 					protected void getData(final PlayerCharacter pc)
 					{
-						final List<String> racialSubTypes = pc.getRacialSubTypes();
-						objdata.addAll(racialSubTypes);
+						objdata.addAll(pc.getRacialSubTypes());
 					}
 
 					public Object count(

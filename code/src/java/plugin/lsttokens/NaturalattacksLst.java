@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -72,7 +74,18 @@ public class NaturalattacksLst implements GlobalLstToken
 
 		if (obj instanceof PCTemplate)
 		{
-			aSize = ((PCTemplate) obj).getTemplateSize();
+			/*
+			 * TODO This is actually broken - This is accidentally(?) order
+			 * dependent, meaning if SIZE appears after NATURALATTACKS this will
+			 * have bad problems vs. if it appears before. This order dependence
+			 * should be removed, but that really requires the Formula for Size
+			 * be projected into both Race and Equipment
+			 */
+			Formula f = obj.get(FormulaKey.SIZE);
+			if (f != null)
+			{
+				aSize = f.toString();
+			}
 		}
 		else if (obj instanceof Race)
 		{

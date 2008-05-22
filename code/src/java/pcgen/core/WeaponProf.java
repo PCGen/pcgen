@@ -84,6 +84,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 		txt.append("\t");
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
+		txt.append("\t");
 		txt.append(super.getPCCText(false));
 		return txt.toString();
 	}

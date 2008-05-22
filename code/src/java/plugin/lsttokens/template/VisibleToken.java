@@ -1,14 +1,16 @@
 package plugin.lsttokens.template;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken implements PCTemplateLstToken
+public class VisibleToken implements CDOMPrimaryToken<PCTemplate>
 {
 
 	/*
@@ -21,42 +23,71 @@ public class VisibleToken implements PCTemplateLstToken
 		return "VISIBLE";
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.PCTemplateLstToken#parse(pcgen.core.PCTemplate,
-	 *      java.lang.String)
-	 */
-	public boolean parse(PCTemplate template, String value)
+	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		Visibility vis;
 		if (value.equals("DISPLAY"))
 		{
-			template.setVisibility(Visibility.DISPLAY_ONLY);
+			vis = Visibility.DISPLAY_ONLY;
 		}
 		else if (value.equals("EXPORT"))
 		{
+			vis = Visibility.OUTPUT_ONLY;
 		}
 		else if (value.equals("NO"))
 		{
-			template.setVisibility(Visibility.HIDDEN);
+			vis = Visibility.HIDDEN;
+		}
+		else if (value.equals("YES"))
+		{
+			vis = Visibility.DEFAULT;
 		}
 		else
 		{
-			if (!value.equals("ALWAYS") && !value.equals("YES"))
-			{
-				StringBuffer buff = new StringBuffer();
-				buff.append("In template ");
-				buff.append(template.getDisplayName());
-				buff.append(", token ");
-				buff.append(getTokenName());
-				buff.append(", use of '");
-				buff.append(value);
-				buff.append("' is not valid, please use DISPLAY, EXPORT, NO, YES or ALWAYS (exact String, upper case)");
-				Logging.errorPrint(buff.toString());
-				return false;
-			}
-			template.setVisibility(Visibility.DEFAULT);
+			Logging.errorPrint("Can't understand Visibility: " + value);
+			return false;
 		}
+		context.getObjectContext().put(template, ObjectKey.VISIBILITY, vis);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCTemplate template)
+	{
+		Visibility vis =
+				context.getObjectContext().getObject(template,
+					ObjectKey.VISIBILITY);
+		if (vis == null)
+		{
+			return null;
+		}
+		String visString;
+		if (vis.equals(Visibility.DEFAULT))
+		{
+			visString = "YES";
+		}
+		else if (vis.equals(Visibility.DISPLAY_ONLY))
+		{
+			visString = "DISPLAY";
+		}
+		else if (vis.equals(Visibility.OUTPUT_ONLY))
+		{
+			visString = "EXPORT";
+		}
+		else if (vis.equals(Visibility.HIDDEN))
+		{
+			visString = "NO";
+		}
+		else
+		{
+			context.addWriteMessage("Visibility " + vis
+				+ " is not a valid Visibility for a PCTemplate");
+			return null;
+		}
+		return new String[]{visString};
+	}
+
+	public Class<PCTemplate> getTokenClass()
+	{
+		return PCTemplate.class;
 	}
 }

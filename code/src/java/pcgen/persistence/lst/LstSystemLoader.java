@@ -63,6 +63,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.SourceEntry;
 import pcgen.core.SystemCollections;
 import pcgen.gui.pcGenGUI;
@@ -456,6 +457,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					.getUnmodifiableAlignmentList())
 			{
 				context.ref.registerAbbreviation(al, al.getKeyName());
+			}
+			for (SizeAdjustment sz : SettingsHandler.getGame()
+					.getUnmodifiableSizeAdjustmentList())
+			{
+				context.ref.registerAbbreviation(sz, sz.getAbbreviation());
 			}
 			
 			// load weapon profs first

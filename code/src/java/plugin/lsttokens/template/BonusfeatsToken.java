@@ -1,13 +1,15 @@
 package plugin.lsttokens.template;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with BONUSFEATS Token
  */
-public class BonusfeatsToken implements PCTemplateLstToken
+public class BonusfeatsToken implements CDOMPrimaryToken<PCTemplate>
 {
 
 	public String getTokenName()
@@ -15,8 +17,7 @@ public class BonusfeatsToken implements PCTemplateLstToken
 		return "BONUSFEATS";
 	}
 
-	// number of additional feats to spend
-	public boolean parse(PCTemplate template, String value)
+	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
 		try
 		{
@@ -24,17 +25,40 @@ public class BonusfeatsToken implements PCTemplateLstToken
 			if (featCount <= 0)
 			{
 				Logging.errorPrint("Invalid integer in " + getTokenName()
-					+ ": must be greater than zero");
+						+ ": must be greater than zero");
 				return false;
 			}
-			template.setBonusInitialFeats(featCount);
+			context.getObjectContext().put(template, IntegerKey.BONUS_FEATS,
+					featCount);
+			return true;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Invalid " + getTokenName()
-				+ ": must be an integer (greater than zero)");
+			Logging.errorPrint(getTokenName()
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
 			return false;
 		}
-		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+		Integer featCount = context.getObjectContext().getInteger(pct,
+				IntegerKey.BONUS_FEATS);
+		if (featCount == null)
+		{
+			return null;
+		}
+		if (featCount.intValue() <= 0)
+		{
+			context.addWriteMessage(getTokenName() + " must be an integer > 0");
+			return null;
+		}
+		return new String[] { featCount.toString() };
+	}
+
+	public Class<PCTemplate> getTokenClass()
+	{
+		return PCTemplate.class;
 	}
 }

@@ -25,10 +25,13 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -218,7 +221,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		race.setName("Human");
 		race.setSize("M");
 		Globals.addRace(race);
-
-		template.setTemplateSize("L");
+		
+		template.put(FormulaKey.SIZE, new FixedSizeFormula(SettingsHandler.getGame().getSizeAdjustmentNamed("L")));
 	}
 }

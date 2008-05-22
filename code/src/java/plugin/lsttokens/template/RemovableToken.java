@@ -1,13 +1,15 @@
 package plugin.lsttokens.template;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with REMOVABLE Token
  */
-public class RemovableToken implements PCTemplateLstToken
+public class RemovableToken implements CDOMPrimaryToken<PCTemplate>
 {
 
 	public String getTokenName()
@@ -15,32 +17,53 @@ public class RemovableToken implements PCTemplateLstToken
 		return "REMOVABLE";
 	}
 
-	public boolean parse(PCTemplate template, String value)
+	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
-		boolean set;
+		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+				Logging.errorPrint("You should use 'YES' as the "
+					+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = true;
+			set = Boolean.TRUE;
 		}
 		else
 		{
-			if (firstChar != 'N' && firstChar != 'n'
-				&& !value.equalsIgnoreCase("NO"))
+			if (firstChar != 'N' && firstChar != 'n')
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+						+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = false;
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
+			}
+			set = Boolean.FALSE;
 		}
-		template.setRemovable(set);
+		context.getObjectContext().put(template, ObjectKey.REMOVABLE, set);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+		Boolean b =
+				context.getObjectContext().getObject(pct, ObjectKey.REMOVABLE);
+		if (b == null)
+		{
+			return null;
+		}
+		return new String[]{b.booleanValue() ? "YES" : "NO"};
+	}
+
+	public Class<PCTemplate> getTokenClass()
+	{
+		return PCTemplate.class;
 	}
 }

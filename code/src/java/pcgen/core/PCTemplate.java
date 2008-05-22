@@ -26,6 +26,7 @@
 package pcgen.core;
 
 import java.awt.geom.Point2D;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,16 +35,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.SubRace;
+import pcgen.cdom.enumeration.SubRegion;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Visibility;
@@ -77,36 +80,7 @@ public final class PCTemplate extends PObject
 	private List<String> templatesAdded = null;
 
 	private String favoredClass = "";
-
-	// If set these two will override any other choices.
-	private String gender = Constants.s_NONE;
-	private String handed = Constants.s_NONE;
-
-	private String levelAdjustment = "0"; // now a string so that we can
-	// handle
-	// formulae
-	private String region = Constants.s_NONE;
-	private String subRace = Constants.s_NONE;
-	private String subregion = Constants.s_NONE;
-	private String templateSize = "";
-	private boolean removable = true;
-	private float challengeRating = 0;
-	private int bonusInitialFeats = 0;
-	private int bonusSkillsPerLevel = 0;
 	private String hitDieLock = "";
-	private int nonProficiencyPenalty = 1;
-	private String raceType = "";
-	private Integer hands;
-	private Integer legs;
-	private Integer reach;
-
-	private List<String> addedSubTypes = new ArrayList<String>();
-
-	private Point2D.Double face = null;
-
-	private List<String> removedSubTypes = new ArrayList<String>();
-
-	private List<String> levelMods = new ArrayList<String>();
 
 	/**
 	 * A DoubleKeyMap storing abilities to be granted at a certain level. The
@@ -124,18 +98,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Set the number of Bonus feats that this template grants the character it
-	 * is applied to at level 0 (i.e. before classes are added).
-	 * 
-	 * @param argBonusInitialFeats
-	 *            Number of Bonus feats gained
-	 */
-	public void setBonusInitialFeats(final int argBonusInitialFeats)
-	{
-		bonusInitialFeats = argBonusInitialFeats;
-	}
-
-	/**
 	 * Get the number of Bonus feats that this template grants the character it
 	 * is applied to at level 0
 	 * 
@@ -143,19 +105,8 @@ public final class PCTemplate extends PObject
 	 */
 	public int getBonusInitialFeats()
 	{
-		return bonusInitialFeats;
-	}
-
-	/**
-	 * Set a Bonus to the number of skill points per level that this template
-	 * grants the character it is applied to.
-	 * 
-	 * @param argBonusSkillsPerLevel
-	 *            Number of bonus skill points per level.
-	 */
-	public void setBonusSkillsPerLevel(final int argBonusSkillsPerLevel)
-	{
-		bonusSkillsPerLevel = argBonusSkillsPerLevel;
+		Integer feats = get(IntegerKey.BONUS_FEATS);
+		return feats == null ? 0 : feats;
 	}
 
 	/**
@@ -167,20 +118,8 @@ public final class PCTemplate extends PObject
 	 */
 	public int getBonusSkillsPerLevel()
 	{
-		return bonusSkillsPerLevel;
-	}
-
-	/**
-	 * Set an adjustment to the Challenge rating of a Character that this
-	 * Template is added to. This adjustment is independent of and additional to
-	 * any adjustment made with LEVEL:<num>:CR and HD:<num>:CR tags
-	 * 
-	 * @param argCR
-	 *            The adjustment to challenge rating
-	 */
-	public void setCR(final float argCR)
-	{
-		challengeRating = argCR;
+		Integer points = get(IntegerKey.BONUS_CLASS_SKILL_POINTS);
+		return points == null ? 0 : points;
 	}
 
 	/**
@@ -197,7 +136,8 @@ public final class PCTemplate extends PObject
 	 */
 	public float getCR(final int level, final int hitdice)
 	{
-		float localCR = challengeRating;
+		BigDecimal cr = get(ObjectKey.CR_MODIFIER);
+		float localCR = cr == null ? 0 : cr.floatValue();
 
 		if (theLevelAbilities != null)
 		{
@@ -273,45 +213,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * <code>setGenderLock</code> locks gender to appropriate PropertyFactory
-	 * setting if String matches 'Male','Female', or 'Neuter'.
-	 * 
-	 * author arcady <arcady@users.sourceforge.net>
-	 * 
-	 * @param genderString
-	 */
-	public void setGenderLock(final String genderString)
-	{
-		if ("Female".equalsIgnoreCase(genderString))
-		{
-			gender = PropertyFactory.getString("in_genderFemale");
-		}
-		else if ("Male".equalsIgnoreCase(genderString))
-		{
-			gender = PropertyFactory.getString("in_genderMale");
-		}
-		else if ("Neuter".equalsIgnoreCase(genderString))
-		{
-			gender = PropertyFactory.getString("in_genderNeuter");
-		}
-		else
-		{
-			Logging.errorPrint("Unsure what to do with GENDERLOCK: "
-				+ genderString + " should be FEMALE, MALE, or NEUTER");
-		}
-	}
-
-	/**
-	 * Get the gender that Characters this Template is applied to are locked at.
-	 * 
-	 * @return the gender at which to lock the character
-	 */
-	public String getGenderLock()
-	{
-		return gender;
-	}
-
-	/**
 	 * Set a lock on the hitdie size of a character that this template is
 	 * applied to. Possible formats for the lock include
 	 * 
@@ -352,63 +253,6 @@ public final class PCTemplate extends PObject
 	protected String getHitDieLock()
 	{
 		return hitDieLock;
-	}
-
-	/**
-	 * Set a formula for level adjustment (jep) to be applied to any creature
-	 * this template is applied to.
-	 * 
-	 * @param argLevelAdjustment
-	 *            The formula for the level adjustment
-	 */
-	public void setLevelAdjustment(final String argLevelAdjustment)
-	{
-		levelAdjustment = argLevelAdjustment;
-	}
-
-	/**
-	 * Calculate the level adjustment using the variable parser of the PC object
-	 * passed in. If no PC is passed, attempts to convert the string to an int.
-	 * 
-	 * @param aPC
-	 *            the PC to get the details of the varible parser from
-	 * 
-	 * @return a level adjustment
-	 */
-	public int getLevelAdjustment(final PlayerCharacter aPC)
-	{
-		int lvlAdjust;
-
-		// if there's a current PC, go ahead and evaluate the formula
-		if (aPC != null)
-		{
-			return aPC.getVariableValue(levelAdjustment, "").intValue();
-		}
-
-		// otherwise do what we can
-		try
-		{
-			// try to convert the string to an int to return
-			lvlAdjust = Integer.parseInt(levelAdjustment);
-		}
-		catch (NumberFormatException nfe)
-		{
-			// if the parseInt failed then just punt... return 0
-			lvlAdjust = 0;
-		}
-
-		return lvlAdjust;
-	}
-
-	/**
-	 * Get the formula that would be used to calculate a Level adjustment for
-	 * creatures this Template is applied to.
-	 * 
-	 * @return DOCUMENT ME!
-	 */
-	public String getLevelAdjustmentFormula()
-	{
-		return levelAdjustment;
 	}
 
 	/**
@@ -491,31 +335,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Set up a penalty for being non=proficient with a weapon
-	 * 
-	 * @param npp
-	 *            the amount of penalty to apply to weapons that the creature
-	 *            this template was applied to is not proficient with.
-	 */
-	public void setNonProficiencyPenalty(final int npp)
-	{
-		nonProficiencyPenalty = npp;
-	}
-
-	/**
-	 * Get the amount of penalty to apply to weapons that the creature this
-	 * template was applied to is not proficient with.
-	 * 
-	 * author: arcady June 4, 2002
-	 * 
-	 * @return nonProficiencyPenalty
-	 */
-	public int getNonProficiencyPenalty()
-	{
-		return nonProficiencyPenalty;
-	}
-
-	/**
 	 * Produce a tailored PCC output, used for saving custom templates.
 	 * 
 	 * @return PCC Text
@@ -525,26 +344,15 @@ public final class PCTemplate extends PObject
 	{
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
-
-		if (bonusInitialFeats != 0)
-		{
-			txt.append("\tBONUSFEATS:").append(bonusInitialFeats);
-		}
-
-		if (bonusSkillsPerLevel != 0)
-		{
-			txt.append("\tBONUSSKILLPOINTS:").append(bonusSkillsPerLevel);
-		}
+		txt.append("\t");
+		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
+		txt.append("\t");
 
 		if ((getChooseLanguageAutos() != null)
 			&& (getChooseLanguageAutos().length() > 0))
 		{
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
-		}
-
-		if (challengeRating != 0)
-		{
-			txt.append("\tCR:").append(challengeRating);
 		}
 
 		if ((favoredClass != null) && (favoredClass.length() > 0))
@@ -567,16 +375,6 @@ public final class PCTemplate extends PObject
 			}
 
 			txt.append("\tFEAT:").append(buffer.toString());
-		}
-
-		if (!Constants.s_NONE.equals(gender))
-		{
-			txt.append("\tGENDERLOCK:").append(gender);
-		}
-
-		if (!Constants.s_NONE.equals(handed))
-		{
-			txt.append("\tHANDEDLOCK:").append(handed);
 		}
 
 		if (getListSize(hitDiceStrings) > 0)
@@ -613,68 +411,6 @@ public final class PCTemplate extends PObject
 		for (final String la : las)
 		{
 			txt.append("\t").append(la);
-		}
-
-		if (!"0".equals(levelAdjustment))
-		{
-			txt.append("\tLEVELADJUSTMENT:").append(levelAdjustment);
-		}
-
-		if (nonProficiencyPenalty <= 0)
-		{
-			txt.append("\tNONPP:").append(nonProficiencyPenalty);
-		}
-
-		if ((templateSize != null) && (templateSize.length() > 0))
-		{
-			txt.append("\tSIZE:").append(templateSize);
-		}
-
-		if (!Constants.s_NONE.equals(region))
-		{
-			txt.append("\tREGION:");
-
-			if (region.equals(getDisplayName()))
-			{
-				txt.append("Yes");
-			}
-			else
-			{
-				txt.append(region);
-			}
-		}
-
-		if (!removable)
-		{
-			txt.append("\tREMOVABLE:No");
-		}
-
-		if (!Constants.s_NONE.equals(subRace))
-		{
-			txt.append("\tSUBRACE:");
-
-			if (subRace.equals(getDisplayName()))
-			{
-				txt.append("Yes");
-			}
-			else
-			{
-				txt.append(subRace);
-			}
-		}
-
-		if (!Constants.s_NONE.equals(subregion))
-		{
-			txt.append("\tSUBREGION:");
-
-			if (subregion.equals(getDisplayName()))
-			{
-				txt.append("Yes");
-			}
-			else
-			{
-				txt.append(subregion);
-			}
 		}
 
 		if (getListSize(templates) > 0)
@@ -725,33 +461,6 @@ public final class PCTemplate extends PObject
 			txt.append("\tWEAPONBONUS:").append(buffer.toString());
 		}
 
-		if (face != null)
-		{
-			if (CoreUtility.doublesEqual(face.getY(), 0.0))
-			{
-				txt.append("\tFACE:").append(face.getX());
-			}
-			else
-			{
-				txt.append("\tFACE:").append(face.getX() + "," + face.getY());
-			}
-		}
-
-		if (hands != null)
-		{
-			txt.append("\tHANDS:").append(hands);
-		}
-
-		if (legs != null)
-		{
-			txt.append("\tLEGS:").append(legs);
-		}
-
-		if (reach != null)
-		{
-			txt.append("\tREACH:").append(reach);
-		}
-
 		txt.append(super.getPCCText(false));
 
 		return txt.toString();
@@ -777,56 +486,23 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Get the override that this template applies to racetype
-	 * 
-	 * @return The new racetype
-	 */
-	public String getRaceType()
-	{
-		return raceType;
-	}
-
-	/**
-	 * Set the override that this template applies to racetype
-	 * 
-	 * @param aType
-	 *            The new racetype
-	 */
-	public void setRaceType(final String aType)
-	{
-		raceType = aType;
-	}
-
-	/**
 	 * Get the override that this template applies to subracetype
 	 * 
 	 * @return The new subracetype
 	 */
 	public String getSubRace()
 	{
-		return subRace;
-	}
-
-	/**
-	 * Set the override that this template applies to subracetype
-	 * 
-	 * @param argSubRace
-	 *            The new subrace type
-	 */
-	public void setSubRace(final String argSubRace)
-	{
-		subRace = argSubRace;
-	}
-
-	/**
-	 * Set the override that this template applies to Region
-	 * 
-	 * @param argRegion
-	 *            The new Region
-	 */
-	public void setRegion(final String argRegion)
-	{
-		region = argRegion;
+		SubRace sr = get(ObjectKey.SUBRACE);
+		if (sr == null)
+		{
+			Boolean useName = get(ObjectKey.USETEMPLATENAMEFORSUBRACE);
+			if (useName != null && useName)
+			{
+				return this.getDisplayName();
+			}
+			return "None";
+		}
+		return sr.toString();
 	}
 
 	/**
@@ -836,18 +512,17 @@ public final class PCTemplate extends PObject
 	 */
 	public String getRegion()
 	{
-		return region;
-	}
-
-	/**
-	 * Set the override that this template applies to SubRegion
-	 * 
-	 * @param argSubregion
-	 *            The new SubRegion
-	 */
-	public void setSubRegion(final String argSubregion)
-	{
-		subregion = argSubregion;
+		Region sr = get(ObjectKey.REGION);
+		if (sr == null)
+		{
+			Boolean useName = get(ObjectKey.USETEMPLATENAMEFORREGION);
+			if (useName != null && useName)
+			{
+				return this.getDisplayName();
+			}
+			return "None";
+		}
+		return sr.toString();
 	}
 
 	/**
@@ -857,18 +532,17 @@ public final class PCTemplate extends PObject
 	 */
 	public String getSubRegion()
 	{
-		return subregion;
-	}
-
-	/**
-	 * Set the property that controls whether this Template is removable
-	 * 
-	 * @param argRemovable
-	 *            Whether this Template is removable
-	 */
-	public void setRemovable(final boolean argRemovable)
-	{
-		removable = argRemovable;
+		SubRegion sr = get(ObjectKey.SUBREGION);
+		if (sr == null)
+		{
+			Boolean useName = get(ObjectKey.USETEMPLATENAMEFORSUBREGION);
+			if (useName != null && useName)
+			{
+				return this.getDisplayName();
+			}
+			return "None";
+		}
+		return sr.toString();
 	}
 
 	/**
@@ -884,7 +558,8 @@ public final class PCTemplate extends PObject
 		if ((getVisibility() == Visibility.DEFAULT)
 			|| (getVisibility() == Visibility.DISPLAY_ONLY))
 		{
-			result = removable;
+			Boolean remove = get(ObjectKey.REMOVABLE);
+			result = remove == null || remove.booleanValue();
 		}
 
 		return result;
@@ -941,55 +616,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Manipulate the list of subTypes that this Template add or removes from
-	 * the creature it is applied to.
-	 * 
-	 * Takes a | separated list of subtypes to add. may optionally be prefaced
-	 * with .REMOVE. in which case the subtype is removed.
-	 * 
-	 * @param aString
-	 *            the string to process
-	 */
-	public void addSubTypeString(final String aString)
-	{
-		StringTokenizer tok = new StringTokenizer(aString, "|");
-
-		while (tok.hasMoreTokens())
-		{
-			String aType = tok.nextToken();
-
-			if (aType.startsWith(".REMOVE."))
-			{
-				removedSubTypes.add(aType.substring(8));
-			}
-			else
-			{
-				addedSubTypes.add(aType);
-			}
-		}
-	}
-
-	/**
-	 * Get the list of added SubTypes
-	 * 
-	 * @return the Subtypes added.
-	 */
-	public List<String> getAddedSubTypes()
-	{
-		return Collections.unmodifiableList(addedSubTypes);
-	}
-
-	/**
-	 * Get the list of removed SubTypes
-	 * 
-	 * @return the Subtypes removed.
-	 */
-	public List<String> getRemovedSubTypes()
-	{
-		return Collections.unmodifiableList(removedSubTypes);
-	}
-
-	/**
 	 * Method getTemplateList. Returns an array list containing the raw
 	 * templates granted by this template. This includes CHOOSE: strings which
 	 * list templates a user will be asked to choose from.
@@ -1000,27 +626,6 @@ public final class PCTemplate extends PObject
 	public List<String> getTemplateList()
 	{
 		return templates;
-	}
-
-	/**
-	 * Set the override that this template applies to size
-	 * 
-	 * @param argSize
-	 *            the size of the creature this Template is applied to
-	 */
-	public void setTemplateSize(final String argSize)
-	{
-		templateSize = argSize;
-	}
-
-	/**
-	 * Get the override that this template applies to size
-	 * 
-	 * @return the size of the creature this Template is applied to
-	 */
-	public String getTemplateSize()
-	{
-		return templateSize;
 	}
 
 	/**
@@ -1391,9 +996,11 @@ public final class PCTemplate extends PObject
 
 		if (aPC == null)
 		{
-			if (challengeRating != 0)
+			BigDecimal cr = get(ObjectKey.CR_MODIFIER);
+
+			if (cr != null)
 			{
-				mods.append("CR:").append(challengeRating).append(' ');
+				mods.append("CR:").append(cr).append(' ');
 			}
 
 			final int x = getSR(aPC);
@@ -1982,103 +1589,29 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Set face
-	 * 
-	 * @param width
-	 * @param height
-	 */
-	public void setFace(final double width, final double height)
-	{
-		face = new Point2D.Double(width, height);
-	}
-
-	/**
 	 * Get face
 	 * 
 	 * @return face
 	 */
 	public Point2D.Double getFace()
 	{
-		return face;
+		BigDecimal width = get(ObjectKey.FACE_WIDTH);
+		BigDecimal height = get(ObjectKey.FACE_HEIGHT);
+		if (width == null && height == null)
+		{
+			return null;
+		}
+		return new Point2D.Double(width.doubleValue(), height.doubleValue());
 	}
 
 	/**
-	 * Set hands
-	 * 
-	 * @param newHands
+	 * Retrieve this object's visibility in the GUI and on the output sheet
+	 * @return Visibility in the GUI and on the output sheet 
 	 */
-	public void setHands(final int newHands)
+	@Override
+	public Visibility getVisibility()
 	{
-		hands = Integer.valueOf(newHands);
-	}
-
-	/**
-	 * Made public for use on equipping tab -- bug 586332 sage_sam, 22 Nov 2002
-	 * 
-	 * @return hands
-	 */
-	public Integer getHands()
-	{
-		return hands;
-	}
-
-	/**
-	 * Set Legs
-	 * 
-	 * @param argLegs
-	 */
-	public void setLegs(final int argLegs)
-	{
-		legs = Integer.valueOf(argLegs);
-	}
-
-	/**
-	 * Get Legs
-	 * 
-	 * @return legs
-	 */
-	public Integer getLegs()
-	{
-		return legs;
-	}
-
-	/**
-	 * Set reach
-	 * 
-	 * @param newReach
-	 */
-	public void setReach(final int newReach)
-	{
-		reach = Integer.valueOf(newReach);
-	}
-
-	/**
-	 * Get reach
-	 * 
-	 * @return reach
-	 */
-	public Integer getReach()
-	{
-		return reach;
-	}
-
-	/**
-	 * Add level modifier
-	 * 
-	 * @param aMod
-	 */
-	public void addLevelMod(final String aMod)
-	{
-		levelMods.add(aMod);
-	}
-
-	/**
-	 * Get level modifiers
-	 * 
-	 * @return level modifiers
-	 */
-	public List<String> getLevelMods()
-	{
-		return Collections.unmodifiableList(levelMods);
+		Visibility vis = get(ObjectKey.VISIBILITY);
+		return vis == null ? Visibility.DEFAULT : vis;
 	}
 }

@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -73,7 +74,7 @@ public class RaceSubTypeToken extends Token
 	private static String getRaceSubTypeToken(PlayerCharacter pc, int index)
 	{
 		//CONSIDER Why is this necessary to protect the index?  Calling code should be more careful
-		List<String> subTypes = pc.getRacialSubTypes();
+		List<String> subTypes = new ArrayList<String>(pc.getRacialSubTypes());
 		if (index >= 0 && index < subTypes.size())
 		{
 			return subTypes.get(index);

@@ -1,13 +1,15 @@
 package plugin.lsttokens.template;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with BONUSSKILLPOINTS Token
  */
-public class BonusskillpointsToken implements PCTemplateLstToken
+public class BonusskillpointsToken implements CDOMPrimaryToken<PCTemplate>
 {
 
 	public String getTokenName()
@@ -15,24 +17,47 @@ public class BonusskillpointsToken implements PCTemplateLstToken
 		return "BONUSSKILLPOINTS";
 	}
 
-	// additional skill points per level
-	public boolean parse(PCTemplate template, String value)
+	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
 		try
 		{
 			int skillCount = Integer.parseInt(value);
-			if (skillCount <= 0) 
+			if (skillCount <= 0)
 			{
 				Logging.errorPrint(getTokenName()
-					+ " must be an integer greater than zero");
+						+ " must be an integer greater than zero");
 				return false;
 			}
-			template.setBonusSkillsPerLevel(skillCount);
+			context.getObjectContext().put(template,
+					IntegerKey.BONUS_CLASS_SKILL_POINTS, skillCount);
+			return true;
 		}
 		catch (NumberFormatException nfe)
 		{
+			Logging.errorPrint("Invalid Number in " + getTokenName() + ": "
+					+ value);
 			return false;
 		}
-		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+		Integer points = context.getObjectContext().getInteger(pct,
+				IntegerKey.BONUS_CLASS_SKILL_POINTS);
+		if (points == null)
+		{
+			return null;
+		}
+		if (points.intValue() <= 0)
+		{
+			context.addWriteMessage(getTokenName() + " must be an integer > 0");
+			return null;
+		}
+		return new String[] { points.toString() };
+	}
+
+	public Class<PCTemplate> getTokenClass()
+	{
+		return PCTemplate.class;
 	}
 }

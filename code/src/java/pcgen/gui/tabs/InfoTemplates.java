@@ -67,7 +67,11 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -676,9 +680,13 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		if ((temp != null))
 		{
 			b.appendTitleElement(temp.piSubString());
-
 			b.appendLineBreak();
-			b.appendI18nElement("in_irInfoRaceType",temp.getRaceType()); //$NON-NLS-1$
+
+			RaceType rt = temp.get(ObjectKey.RACETYPE);
+			if (rt != null)
+			{
+				b.appendI18nElement("in_irInfoRaceType",rt.toString()); //$NON-NLS-1$
+			}
 
 			if (temp.getType().length() > 0)
 			{
@@ -1160,8 +1168,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 						return template.toString();
 
 					case COL_LEVEL:
-						return Integer.valueOf(template
-							.getLevelAdjustment(getPc()));
+						return template.getSafe(FormulaKey.LEVEL_ADJUSTMENT)
+							.resolve(getPc(), "");
 
 					case COL_MODIFIER:
 						return template.modifierString(getPc());

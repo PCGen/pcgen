@@ -2759,6 +2759,11 @@ public final class GameMode implements Comparable<Object>
 		return sizeAdjustmentList.size();
 	}
 
+	public List<SizeAdjustment> getUnmodifiableSizeAdjustmentList()
+	{
+		return Collections.unmodifiableList(sizeAdjustmentList);
+	}
+
 	/**
 	 * Returns the requested size adjustment.
 	 * @param aName

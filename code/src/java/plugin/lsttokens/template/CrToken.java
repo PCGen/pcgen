@@ -1,12 +1,17 @@
 package plugin.lsttokens.template;
 
+import java.math.BigDecimal;
+
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken implements PCTemplateLstToken
+public class CrToken implements CDOMPrimaryToken<PCTemplate>
 {
 
 	public String getTokenName()
@@ -14,16 +19,34 @@ public class CrToken implements PCTemplateLstToken
 		return "CR";
 	}
 
-	public boolean parse(PCTemplate template, String value)
+	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
 		try
 		{
-			template.setCR(Float.parseFloat(value));
+			context.getObjectContext().put(template, ObjectKey.CR_MODIFIER,
+					new BigDecimal(value));
+			return true;
 		}
 		catch (NumberFormatException nfe)
 		{
+			Logging.errorPrint("Misunderstood Double in Tag: " + value);
 			return false;
 		}
-		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+		BigDecimal mod = context.getObjectContext().getObject(pct,
+				ObjectKey.CR_MODIFIER);
+		if (mod == null)
+		{
+			return null;
+		}
+		return new String[] { mod.toString() };
+	}
+
+	public Class<PCTemplate> getTokenClass()
+	{
+		return PCTemplate.class;
 	}
 }

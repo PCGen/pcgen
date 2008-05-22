@@ -27,6 +27,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -36,6 +37,7 @@ import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCTemplateLoader;
+import pcgen.rules.context.RuntimeLoadContext;
 
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
@@ -127,7 +129,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-				null,
+				new RuntimeLoadContext(),
 				template,
 				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
@@ -177,7 +179,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-				null,
+					new RuntimeLoadContext(),
 				template,
 				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
@@ -229,7 +231,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-				null,
+					new RuntimeLoadContext(),
 				template,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
@@ -293,7 +295,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-				null,
+					new RuntimeLoadContext(),
 				template,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
