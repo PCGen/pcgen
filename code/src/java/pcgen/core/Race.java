@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 
 import org.apache.commons.lang.math.Fraction;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -537,6 +538,11 @@ public final class Race extends PObject
 		// 29 July 2003 : sage_sam corrected order
 		final StringBuffer txt = new StringBuffer(super.getPCCText());
 
+		txt.append("\t");
+		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
+		txt.append("\t");
+
 		if ((favoredClass != null) && (favoredClass.length() > 0))
 		{
 			txt.append("\tFAVCLASS:").append(favoredClass);
@@ -585,11 +591,6 @@ public final class Race extends PObject
 			}
 
 			txt.append("\tWEAPONBONUS:").append(buffer.toString());
-		}
-
-		if ((mFeatList != null) && (mFeatList.length() > 0))
-		{
-			txt.append("\tMFEAT:").append(mFeatList);
 		}
 
 		if ((getNaturalWeapons() != null) && (getNaturalWeapons().size() > 0))
@@ -642,7 +643,7 @@ public final class Race extends PObject
 			txt.append("\tNATURALATTACKS:").append(buffer.toString());
 		}
 
-		if (monsterClass != null)
+		if (monsterClass != null && !"(None)".equals(monsterClass))
 		{
 			txt.append("\tMONSTERCLASS:").append(monsterClass);
 			txt.append(':').append(monsterClassLevels);
@@ -699,23 +700,16 @@ public final class Race extends PObject
 
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
-			txt.append("\tFACE:").append(face.getX() + " ft.");
+			txt.append("\tFACE:").append(face.getX());
 		}
 		else
 		{
-			txt.append("\tFACE:").append(
-				face.getX() + " ft. by " + face.getY() + " ft.");
+			txt.append("\tFACE:").append(face.getX() + "," + face.getY());
 		}
 
 		if ((featList != null) && (featList.length() > 0))
 		{
 			txt.append("\tFEAT:").append(featList);
-		}
-
-		if ((hitDice != 0) || (hitDiceSize != 0))
-		{
-			txt.append("\tHITDICE:").append(hitDice).append(',').append(
-				hitDiceSize);
 		}
 
 		if (!"0".equals(levelAdjustment))
