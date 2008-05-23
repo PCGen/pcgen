@@ -26,7 +26,9 @@ package pcgen.core.levelability;
 
 import java.awt.HeadlessException;
 import java.util.List;
+
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -63,14 +65,14 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase
 
 			pcClass = new PCClass();
 
-			TestHelper.makeSkill("Bluff", "Charisma", "CHA", true, "NO");
-			TestHelper.makeSkill("Listen", "Wisdom", "WIS", true, "NO");
+			TestHelper.makeSkill("Bluff", "Charisma", "CHA", true, SkillArmorCheck.NONE);
+			TestHelper.makeSkill("Listen", "Wisdom", "WIS", true, SkillArmorCheck.NONE);
 			TestHelper.makeSkill("Move Silently", "Dexterity", "DEX", true,
-				"YES");
+					SkillArmorCheck.YES);
 			TestHelper.makeSkill("Knowledge (Arcana)",
-				"Intelligence.Knowledge", "INT", false, "NO");
+				"Intelligence.Knowledge", "INT", false, SkillArmorCheck.NONE);
 			TestHelper.makeSkill("Knowledge (Dungeoneering)",
-				"Intelligence.Knowledge", "INT", false, "NO");
+				"Intelligence.Knowledge", "INT", false, SkillArmorCheck.NONE);
 		}
 
 		final PlayerCharacter character = getCharacter();

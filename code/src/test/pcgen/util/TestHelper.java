@@ -25,9 +25,33 @@
 package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
+
+import java.lang.reflect.Field;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
-import pcgen.core.*;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Campaign;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
+import pcgen.core.SystemCollections;
+import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -37,12 +61,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.EquipmentLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-
-import java.lang.reflect.Field;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.StringTokenizer;
 
 /**
  * Helps Junit tests
@@ -182,15 +200,19 @@ public class TestHelper
             final String type,
             final String stat,
 		    final boolean untrained,
-            final String armorCheck)
+            final SkillArmorCheck armorCheck)
 	{
+		GameMode gamemode = SettingsHandler.getGame();
+		List<PCStat> statList = gamemode.getUnmodifiableStatList();
+		int intLoc = gamemode.getStatFromAbbrev(stat);
+		PCStat intStat = statList.get(intLoc);
 		final Skill aSkill = new Skill();
 		aSkill.setName(name);
 		aSkill.setKeyName("KEY_" + name);
 		aSkill.setTypeInfo(type);
-		aSkill.setKeyStat(stat);
-		aSkill.setUntrained(untrained);
-		aSkill.setACheck(armorCheck);
+		aSkill.put(ObjectKey.KEY_STAT, intStat);
+		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
+		aSkill.put(ObjectKey.ARMOR_CHECK, armorCheck);
 		Globals.getSkillList().add(aSkill);
 	}
 

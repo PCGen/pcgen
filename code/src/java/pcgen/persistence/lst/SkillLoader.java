@@ -22,10 +22,8 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Skill;
@@ -58,61 +56,54 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 		if (skill == null)
 		{
 			skill = new Skill();
-			skill.setSourceCampaign(source.getCampaign());
-			skill.setSourceURI(source.getURI());
 		}
 
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		// first column is the name; after that are LST tags
-		skill.setName(colToken.nextToken());
+		if (colToken.hasMoreTokens())
+		{
+			skill.setName(colToken.nextToken());
+			skill.setSourceCampaign(source.getCampaign());
+			skill.setSourceURI(source.getURI());
+		}
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(SkillLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = Constants.EMPTY_STRING;
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			SkillLstToken token = (SkillLstToken) tokenMap.get(key);
-
-			if ("REQ".equals(colString))
-			{
-				Logging.errorPrint("You are using a deprecated tag "
-						+ "(REQ) in Skills " + skill.getDisplayName() + ':'
-						+ source.getURI() + ':' + colString);
-				Logging.errorPrint("  Use USEUNTRAINED instead");
-				skill.setRequired(true);
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, skill, value);
-				if (!token.parse(skill, value))
-				{
-					Logging.errorPrint("Error parsing skill "
-						+ skill.getDisplayName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(skill, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(skill, key, value))
 			{
-				Logging.errorPrint("Illegal skill info '" + lstLine + "' in "
-					+ source.toString());
+				Logging.clearParseMessages();
+				context.commit();
 			}
+			else if (PObjectLoader.parseTag(skill, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 
 		completeObject(source, skill);

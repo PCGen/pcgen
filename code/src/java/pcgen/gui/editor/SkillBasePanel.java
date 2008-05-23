@@ -22,21 +22,28 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.*;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>SkillBasePanel</code>
@@ -120,16 +127,16 @@ final class SkillBasePanel extends BasePanel
 		}
 	}
 
-	public String getKeyStat()
+	public PCStat getKeyStat()
 	{
 		final int idx = cmbKeyStat.getSelectedIndex() - 1;
 
 		if (idx < 0)
 		{
-			return "";
+			return null;
 		}
 
-		return (SettingsHandler.getGame().getUnmodifiableStatList().get(idx)).getAbb();
+		return SettingsHandler.getGame().getUnmodifiableStatList().get(idx);
 	}
 
 	public void setTypesAvailableList(final List<String> aList, final boolean sort)
@@ -158,10 +165,10 @@ final class SkillBasePanel extends BasePanel
 			thisSkill.setTypeInfo(sel[i].toString());
 		}
 
-		thisSkill.setUntrained(getIsUntrained());
-		thisSkill.setIsExclusive(getIsExclusive());
-		thisSkill.setKeyStat(getKeyStat());
-		thisSkill.setACheck(getArmorCheck());
+		thisSkill.put(ObjectKey.USE_UNTRAINED, getIsUntrained());
+		thisSkill.put(ObjectKey.EXCLUSIVE, getIsExclusive());
+		thisSkill.put(ObjectKey.KEY_STAT, getKeyStat());
+		thisSkill.put(ObjectKey.ARMOR_CHECK, SkillArmorCheck.values()[getArmorCheck()]);
 	}
 
 	public void updateView(PObject thisPObject)
@@ -207,10 +214,14 @@ final class SkillBasePanel extends BasePanel
 		setTypesAvailableList(availableList, true);
 		setTypesSelectedList(selectedList, true);
 
-		setKeyStat(thisSkill.getKeyStat());
-		setArmorCheck(thisSkill.getACheck());
+		setKeyStat(thisSkill.getKeyStatAbb());
+		setArmorCheck(thisSkill.getACheck().ordinal());
 		setIsExclusive(thisSkill.isExclusive());
-		setIsUntrained(thisSkill.isUntrained());
+		Boolean untrained = thisSkill.get(ObjectKey.USE_UNTRAINED);
+		if (untrained != null)
+		{
+			setIsUntrained(untrained);
+		}
 	}
 
 	private void initComponentContents()

@@ -26,32 +26,129 @@
  */
 package pcgen.gui.tabs;
 
+import static pcgen.gui.HTMLUtils.BOLD;
+import static pcgen.gui.HTMLUtils.BR;
+import static pcgen.gui.HTMLUtils.END_BOLD;
+import static pcgen.gui.HTMLUtils.END_FONT;
+import static pcgen.gui.HTMLUtils.END_HTML;
+import static pcgen.gui.HTMLUtils.FONT_PLUS_1;
+import static pcgen.gui.HTMLUtils.HTML;
+import static pcgen.gui.HTMLUtils.THREE_SPACES;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.EventObject;
+import java.util.Iterator;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.InputVerifier;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import javax.swing.tree.TreePath;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.core.*;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SkillComparator;
+import pcgen.core.SkillUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.*;
-import pcgen.gui.filter.*;
-import static pcgen.gui.HTMLUtils.*;
+import pcgen.gui.CharacterInfoTab;
+import pcgen.gui.GuiConstants;
+import pcgen.gui.InfoSkillsSorter;
+import pcgen.gui.InfoSkillsSorters;
+import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
+import pcgen.gui.filter.AbstractPObjectFilter;
+import pcgen.gui.filter.FilterAdapterPanel;
+import pcgen.gui.filter.FilterConstants;
+import pcgen.gui.filter.FilterFactory;
+import pcgen.gui.filter.PObjectFilter;
 import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.utils.*;
-import pcgen.util.*;
+import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableMouseAdapter;
+import pcgen.gui.utils.JTreeTableSorter;
+import pcgen.gui.utils.LabelTreeCellRenderer;
+import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.ResizeColumnListener;
+import pcgen.gui.utils.TreeTableModel;
+import pcgen.gui.utils.Utility;
+import pcgen.gui.utils.WholeNumberField;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
+import pcgen.util.ResetableListIterator;
+import pcgen.util.StringIgnoreCaseComparator;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.*;
-import javax.swing.table.*;
-import javax.swing.tree.TreePath;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import java.util.List;
 
 /**
  * @author Bryan McRoberts (merton_monk@yahoo.com)
@@ -899,7 +996,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		if (theSkill.isReadOnly())
+		Boolean readOnly = theSkill.get(ObjectKey.READ_ONLY);
+		if (readOnly != null && readOnly.booleanValue())
 		{
 			ShowMessageDelegate.showMessageDialog("You cannot "
 				+ (points < 0 ? "remove" : "add") + " ranks for this skill: "

@@ -23,14 +23,16 @@
 
 package plugin.initiative;
 
-import com.electronicmuse.djep.JEP;
 import gmgen.plugin.PcgCombatant;
-import pcgen.cdom.base.Constants;
+
+import java.util.List;
+
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-import java.util.List;
+import com.electronicmuse.djep.JEP;
 
 /**
  * <p>
@@ -110,8 +112,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 					skill = Globals.getSkillKeyed(aSkillKey);
 					if (skill != null
 						&& skill.isUntrained()
-						&& skill.getKeyStat().compareToIgnoreCase(
-							Constants.s_NONE) != 0)
+						&& skill.get(ObjectKey.KEY_STAT) != null)
 					{
 						returnValue =
 								Integer.valueOf(skill.modifier(pc).intValue());

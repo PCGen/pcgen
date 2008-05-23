@@ -1,6 +1,6 @@
 package plugin.exporttokens;
 
-import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.io.ExportHandler;
@@ -37,12 +37,12 @@ public class SkillListModsToken extends Token
 		{
 			int modSkill = -1;
 
-			if (aSkill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
+			if (aSkill.get(ObjectKey.KEY_STAT) != null)
 			{
 				modSkill =
 						aSkill.modifier(pc).intValue()
 							- pc.getStatList().getStatModFor(
-								aSkill.getKeyStat());
+								aSkill.getKeyStatAbb());
 			}
 
 			if ((aSkill.getTotalRank(pc).intValue() > 0) || (modSkill > 0))

@@ -1,13 +1,15 @@
 package plugin.lsttokens.skill;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
-import pcgen.persistence.lst.SkillLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with EXCLUSIVE Token
  */
-public class ExclusiveToken implements SkillLstToken
+public class ExclusiveToken implements CDOMPrimaryToken<Skill>
 {
 
 	public String getTokenName()
@@ -15,7 +17,7 @@ public class ExclusiveToken implements SkillLstToken
 		return "EXCLUSIVE";
 	}
 
-	public boolean parse(Skill skill, String value)
+	public boolean parse(LoadContext context, Skill skill, String value)
 	{
 		boolean set;
 		char firstChar = value.charAt(0);
@@ -40,7 +42,24 @@ public class ExclusiveToken implements SkillLstToken
 			}
 			set = false;
 		}
-		skill.setIsExclusive(set);
+		context.getObjectContext().put(skill, ObjectKey.EXCLUSIVE, set);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Skill skill)
+	{
+		Boolean exclusive =
+				context.getObjectContext()
+					.getObject(skill, ObjectKey.EXCLUSIVE);
+		if (exclusive == null)
+		{
+			return null;
+		}
+		return new String[]{exclusive.booleanValue() ? "YES" : "NO"};
+	}
+
+	public Class<Skill> getTokenClass()
+	{
+		return Skill.class;
 	}
 }

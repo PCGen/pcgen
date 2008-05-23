@@ -22,8 +22,19 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.regex.Pattern;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
@@ -35,14 +46,6 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.Visibility;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.regex.Pattern;
 
 /**
  * <code>Skill</code>.
@@ -61,31 +64,9 @@ public final class Skill extends PObject
     public static final String COST_EXCL = "EXCLUSIVE";
 
 	private static final String COST_UNK = "UNKNOWN";
-	private static final int ACHECK_NONE = 0; // No
-	private static final int ACHECK_YES = 1; // Yes
-	private static final int ACHECK_NONPROF = 2; // Only if not proficient
-	private static final int ACHECK_WEIGHT = 3; // -1 per 5 lbs carried or equipped
-	private static final int ACHECK_DOUBLE = 4; // Double penalty (e.g. for D&D 3.5 swim skill)
-	/** Include No skills = 0 */
-    public static final int INCLUDE_SKILLS_NONE = 0;
-    /** Include Untrained skills = 1 */
-    public static final int INCLUDE_SKILLS_UNTRAINED = 1;
-    /** Include All skills = 2 */
-    public static final int INCLUDE_SKILLS_ALL = 2;
-    /** Include skills as per UI choice = 3 */
-    public static final int INCLUDE_SKILLS_AS_UI = 3;
 
-	private List<String> classList = new ArrayList<String>(); // list of classes with class-access to this skill
 	private List<String> rankList = new ArrayList<String>();
-	private String keyStat = "";
-	private String rootName = "";
 
-	private boolean skillReadOnly = false;
-
-	private boolean canUseUntrained = true;
-	private boolean isExclusive = false;
-	private boolean required = false;
-	private int aCheck = ACHECK_NONE;
 	private int outputIndex = 0;
 
     /** Constructor */
@@ -95,71 +76,13 @@ public final class Skill extends PObject
 	}
 
     /**
-     * Set what armor/encumerance check is applied
-     * @param aString
-     */
-	public void setACheck(final String aString)
-	{
-		if (aString.length() != 0)
-		{
-			switch (aString.charAt(0))
-			{
-				case 'N':
-					aCheck = ACHECK_NONE;
-
-					break;
-
-				case 'Y':
-					aCheck = ACHECK_YES;
-
-					break;
-
-				case 'P':
-					aCheck = ACHECK_NONPROF;
-
-					break;
-
-				case 'D':
-					aCheck = ACHECK_DOUBLE;
-
-					break;
-
-				case 'W':
-					aCheck = ACHECK_WEIGHT;
-
-					break;
-
-				default:
-					break;
-			}
-		}
-	}
-
-    /**
-     * Set Armor/encumerance check
-     * @param argACheck
-     */
-	public void setACheck(final int argACheck)
-	{
-		aCheck = argACheck;
-	}
-
-    /**
      * Get armor/encumberance check
      * @return check
      */
-	public int getACheck()
+	public SkillArmorCheck getACheck()
 	{
-		return aCheck;
-	}
-
-	/**
-     * Get a list of classes
-     * @return classList
-     */
-	public List<String> getClassList()
-	{
-		return classList;
+		SkillArmorCheck aCk = get(ObjectKey.ARMOR_CHECK);
+		return aCk == null ? SkillArmorCheck.NONE : aCk;
 	}
 
 	/**
@@ -207,23 +130,39 @@ public final class Skill extends PObject
 			}
 		}
 
-		for (String aString : classList)
+		List<CDOMReference<ClassSkillList>> prev = getListFor(ListKey.PREVENTED_CLASSES);
+		if (prev != null)
 		{
-			if ((aString.length() > 0) && (aString.charAt(0) == '!')
-				&& (aString.substring(1).equalsIgnoreCase(aClass.getKeyName())
-				|| aString.substring(1).equalsIgnoreCase(aClass.getSubClassKey())))
+			for (CDOMReference<ClassSkillList> ref : prev)
 			{
-				return false; // this is an excluded-from-class-skill list
-			}
-
-			if ("ALL".equals(aString) || aString.equalsIgnoreCase(aClass.getKeyName())
-				|| aString.equalsIgnoreCase(aClass.getSubClassKey())
-				|| ((aClass.getClassSkillList() != null) && aClass.getClassSkillList().contains(aString)))
-			{
-				return true;
+				/*
+				 * Should be direct reference comparison, but for now, fall back
+				 * to String
+				 */
+				String aString = ref.getLSTformat();
+				if (aString.equalsIgnoreCase(aClass.getKeyName())
+						|| aString.equalsIgnoreCase(aClass.getSubClassKey()))
+				{
+					return false; // this is an excluded-from-class-skill list
+				}
 			}
 		}
-
+   		List<CDOMReference<ClassSkillList>> classes = getListFor(ListKey.CLASSES);
+		if (classes != null)
+		{
+			for (CDOMReference<ClassSkillList> ref : classes)
+			{
+				String aString = ref.getLSTformat();
+				if (Constants.ALLREF_LST.equals(aString)
+						|| aString.equalsIgnoreCase(aClass.getKeyName())
+						|| aString.equalsIgnoreCase(aClass.getSubClassKey())
+						|| ((aClass.getClassSkillList() != null) && aClass
+								.getClassSkillList().contains(aString)))
+				{
+					return true;
+				}
+			}
+		}
 		for (CharacterDomain aCD : aPC.getCharacterDomainList())
 		{
 			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getKeyName()) && aCD.getDomain().hasCSkill(keyName))
@@ -294,49 +233,14 @@ public final class Skill extends PObject
 		return false;
 	}
 
-	// Convenience methods
-    /**
-     * @return "Y" if skill is exclusive 
-     */
-	public String getExclusive()
-	{
-		return isExclusive ? "Y" : "N";
-	}
-
     /**
      * Return true if exclusive
      * @return true if exclusive
      */
 	public boolean isExclusive()
 	{
-		return isExclusive;
-	}
-
-	/**
-     * Set whether skill is exclusive or not 
-     * @param argExclusive
-	 */
-    public void setIsExclusive(final boolean argExclusive)
-	{
-		isExclusive = argExclusive;
-	}
-
-	/**
-     * Set key stat for the skill 
-     * @param aString
-	 */
-    public void setKeyStat(final String aString)
-	{
-		keyStat = aString;
-	}
-
-	/**
-     * Get the key stat for a skill 
-     * @return key stat
-	 */
-    public String getKeyStat()
-	{
-		return keyStat;
+		Boolean exclusive = get(ObjectKey.EXCLUSIVE);
+		return exclusive != null && exclusive.booleanValue();
 	}
 
 	/**
@@ -371,97 +275,15 @@ public final class Skill extends PObject
 	 * Made public on 10 Dec 2002 by sage_sam to match PObject method
 	 * @return String
 	 */
+	@Override
 	public String getPCCText()
 	{
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
-
-		if (keyStat.length() != 0)
-		{
-			txt.append("\tKEYSTAT:").append(keyStat);
-		}
-
-		if (isExclusive)
-		{
-			txt.append("\tEXCLUSIVE:YES");
-		}
-
-		if (!isUntrained())
-		{
-			txt.append("\tUSEUNTRAINED:NO");
-		}
-
-		final StringBuffer aString = new StringBuffer(100);
-
-		for (String s : getClassList())
-		{
-			if (aString.length() != 0)
-			{
-				aString.append('|');
-			}
-
-			aString.append(s);
-		}
-
-		if (aString.length() != 0)
-		{
-			txt.append("\tCLASSES:").append(aString);
-		}
-
-		if (aCheck != ACHECK_NONE)
-		{
-			txt.append("\tACHECK:");
-
-			switch (aCheck)
-			{
-				case ACHECK_YES: // Yes
-					txt.append("YES");
-
-					break;
-
-				case ACHECK_NONPROF: // Only if not proficient
-					txt.append("PROFICIENT");
-
-					break;
-
-				case ACHECK_WEIGHT: // -1 per 5 lbs carried or equipped
-					txt.append("WEIGHT");
-
-					break;
-
-				case ACHECK_DOUBLE: // Double penalty
-					txt.append("DOUBLE");
-
-					break;
-
-				default:
-					txt.append("ERROR");
-
-					break;
-			}
-		}
-
-		if (getVisibility() != Visibility.DEFAULT)
-		{
-			txt.append("\tVISIBLE:");
-			switch (getVisibility())
-			{
-				case OUTPUT_ONLY:
-					txt.append("EXPORT");
-					break;
-
-				case DISPLAY_ONLY:
-					txt.append("GUI");
-					break;
-
-				default:
-					txt.append("YES");
-					break;
-			}
-		}
-
+		txt.append("\t");
+		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
 		txt.append(super.getPCCText(false));
-
 		return txt.toString();
 	}
 
@@ -495,15 +317,6 @@ public final class Skill extends PObject
 		return rankList;
 	}
 
-    /**
-     * Set required attribute
-     * @param argRequired
-     */
-	public void setRequired(final boolean argRequired)
-	{
-		required = argRequired;
-	}
-
 	/**
      * Get the type of cost for a skill 
      * @param aClass
@@ -522,7 +335,7 @@ public final class Skill extends PObject
 		{
 			return COST_XCLASS;
 		}
-		else if (isExclusive)
+		else if (isExclusive())
 		{
 			return COST_EXCL;
 		}
@@ -556,9 +369,13 @@ public final class Skill extends PObject
 
 		if (it.hasNext())
 		{
-			if (keyStat.length() != 0)
+			if (get(ObjectKey.KEY_STAT) != null)
 			{
 				it.next(); // skip first entry, the keystat
+				/*
+				 * TODO This is magic, and makes tremendous assumptions about
+				 * the DATA - BAD BAD BAD
+				 */
 			}
 		}
 
@@ -577,7 +394,8 @@ public final class Skill extends PObject
 	public Float getTotalRank(final PlayerCharacter aPC)
 	{
 		double baseRanks = getRank().doubleValue();
-		double ranks = baseRanks + getRankAdj(aPC).doubleValue();
+		double ranks = baseRanks
+				+ (aPC == null ? 0.0 : getSkillRankBonusTo(aPC));
 		if (!Globals.checkRule(RuleConstants.SKILLMAX)
 			&& aPC.getClassList().size() > 0)
 		{
@@ -588,24 +406,6 @@ public final class Skill extends PObject
 			ranks = Math.min(maxRanks, ranks);
 		}
 		return new Float(ranks);
-	}
-
-    /*
-     * Set whether skill can be used untrined or not
-     * @param yesNo
-     */
-	public void setUntrained(final boolean yesNo)
-	{
-		canUseUntrained = yesNo;
-	}
-
-    /**
-     * Return true if skill can be used untrained
-     * @return true if skill can be used untrained
-     */
-	public boolean isUntrained()
-	{
-		return canUseUntrained;
 	}
 
 	/** Set the ranks for the specified class to zero
@@ -651,31 +451,6 @@ public final class Skill extends PObject
 		{
 			// error or debug? XXX
 			Logging.debugPrint(aResp);
-		}
-	}
-
-    /**
-     * Add to the list of classes
-     * @param aString
-     */
-	public void addClassList(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			final String bString = aTok.nextToken();
-
-			// could be "ALL", "some_class_name" or "!some_class_name"
-			// sort the !some_class_name to the front of classList
-			if ((bString.length() > 0) && (bString.charAt(0) == '!') && (classList.size() > 0))
-			{
-				classList.add(0, bString);
-			}
-			else
-			{
-				classList.add(bString);
-			}
 		}
 	}
 
@@ -867,24 +642,6 @@ public final class Skill extends PObject
 		return false;
 	}
 
-    /**
-     * Set read only attribute for skill
-     * @param argReadOnly
-     */
-	public void setReadOnly(final boolean argReadOnly)
-	{
-		skillReadOnly = argReadOnly;
-	}
-	
-    /**
-     * Return true if skill is read only
-     * @return true if skill is read only
-     */
-	public boolean isReadOnly()
-	{
-		return skillReadOnly;
-	}
-
 	@Override
 	public Skill clone()
 	{
@@ -893,15 +650,7 @@ public final class Skill extends PObject
 		try
 		{
 			newSkill = (Skill) super.clone();
-			newSkill.required = required;
-			newSkill.setKeyStat(getKeyStat());
-			newSkill.setIsExclusive(isExclusive());
 			newSkill.rankList = new ArrayList<String>(rankList);
-			newSkill.setUntrained(isUntrained());
-			newSkill.classList = new ArrayList<String>(classList);
-			newSkill.aCheck = aCheck;
-			newSkill.skillReadOnly = skillReadOnly;
-
 			newSkill.outputIndex = outputIndex;
 		}
 		catch (CloneNotSupportedException exc)
@@ -921,16 +670,11 @@ public final class Skill extends PObject
 	public int costForPCClass(final PCClass aClass, final PlayerCharacter aPC)
 	{
 		int anInt;
-		/*
-		if (!PrereqHandler.passesAll(getPreReqList(), aPC, this))
-		{
-			anInt = Globals.getGameModeSkillCost_Exclusive();	// treat cost of unqualified skills as exclusive
-		}
-		else*/ if (isClassSkill(aClass, aPC))
+		if (isClassSkill(aClass, aPC))
 		{
 			anInt = Globals.getGameModeSkillCost_Class();
 		}
-		else if (!isCrossClassSkill(aClass, aPC) && isExclusive)
+		else if (!isCrossClassSkill(aClass, aPC) && isExclusive())
 		{
 			anInt = Globals.getGameModeSkillCost_Exclusive();
 		}
@@ -1107,11 +851,11 @@ public final class Skill extends PObject
 			return Integer.valueOf(0);
 		}
 
-		final int stat = SettingsHandler.getGame().getStatFromAbbrev(keyStat);
-		if (stat >= 0)
+		PCStat stat = get(ObjectKey.KEY_STAT);
+		if (stat != null)
 		{
-			bonus = aPC.getStatList().getStatModFor(keyStat);
-			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + keyStat);
+			bonus = aPC.getStatList().getStatModFor(stat.getAbb());
+			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
 		}
 		bonus += aPC.getTotalBonusTo("SKILL", keyName);
 
@@ -1156,8 +900,7 @@ public final class Skill extends PObject
 
 		// the above two if-blocks try to get
 		// BONUS:[C]CSKILL|TYPE=xxx|y to function
-
-		final int aCheckBonus = calcACheckBonus(aPC);
+		final int aCheckBonus = getACheck().calculateBonus(aPC);
 		bonus += aCheckBonus;
 
 		String aString = Globals.getGameModeRankModFormula();
@@ -1169,99 +912,6 @@ public final class Skill extends PObject
 		}
 
 		return bonus;
-	}
-
-	/**
-	 * Calculate the modifier to this skill due to armour check and encumbrance
-	 * for the specified character.
-	 *
-	 * @param aPC The character to be checked.
-	 * @return The skill modifier.
-	 */
-	private int calcACheckBonus(final PlayerCharacter aPC)
-	{
-		if (aCheck == ACHECK_NONE)
-		{
-			return 0;
-		}
-
-		int minBonus = 0;
-		int maxBonus = 0;
-		final Float totalWeight = aPC.totalWeight();
-
-		if (!Globals.checkRule(RuleConstants.SYS_WTPSK))
-		{
-			//Do nothing. This is to simulate taking everything off before going swimming. Freq #505977
-		}
-		else if ((aCheck == ACHECK_WEIGHT) && Globals.checkRule(RuleConstants.SYS_WTPSK))
-		{
-			maxBonus = -(int) (totalWeight.doubleValue() / 5.0);
-		}
-		else if (aCheck == ACHECK_WEIGHT)
-		{
-			//Do nothing. This is to simulate taking everything off before going swimming. Freq #505977
-		}
-		else
-		{
-			if ((aCheck != ACHECK_NONPROF) && Globals.checkRule(RuleConstants.SYS_LDPACSK))
-			{
-				final Load load = Globals.loadTypeForLoadScore(aPC
-					.getVariableValue("LOADSCORE", "").intValue(), aPC
-					.totalWeight(), aPC);
-
-				int penalty = 0;
-				switch (load)
-				{
-					case LIGHT:
-						penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty("LIGHT");
-						break;
-
-					case MEDIUM:
-						penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty("MEDIUM");
-						break;
-
-					case HEAVY:
-					case OVERLOAD:
-						penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty("HEAVY");
-						break;
-
-					default:
-						Logging.errorPrint(getDisplayName()
-							+ ":in Skill.modifier the load " + load	+ " is not supported.");
-						break;
-				}
-				minBonus = (aCheck == ACHECK_DOUBLE) ? 2 * penalty : penalty;
-			}
-
-			final List<Equipment> itemList = aPC.getEquipmentOfType("Armor", 1);
-			for ( Equipment eq : aPC.getEquipmentOfType("Shield", 1) )
-			{
-				if (!itemList.contains(eq))
-				{
-					itemList.add(eq);
-				}
-			}
-			for ( Equipment eq : itemList )
-			{
-				// For when the new BONUS'es are implmented
-				/*
-				 String qsString = "EQ:" + eq.getName();
-				 maxBonus += aPC.getVariableValue(Globals.getNonProfPenaltyFormula(), eqString);
-				 */
-				if ((aCheck == ACHECK_YES)
-					|| ((aCheck == ACHECK_NONPROF) && !aPC.isProficientWith(eq)))
-				{
-					maxBonus += eq.acCheck(aPC).intValue();
-				}
-				else if (aCheck == ACHECK_DOUBLE)
-				{
-					maxBonus += 2 * eq.acCheck(aPC).intValue();
-				}
-			}
-		}
-		maxBonus += (int) aPC.getTotalBonusTo("MISC", "ACCHECK");
-
-		return Math.min(maxBonus, minBonus);
 	}
 
     /**
@@ -1314,11 +964,6 @@ public final class Skill extends PObject
 		}
 
 		return false;
-	}
-
-	boolean isRequired()
-	{
-		return required;
 	}
 
 	/**
@@ -1488,20 +1133,6 @@ public final class Skill extends PObject
 		return false;
 	}
 
-	/** returns the adjustments to rank
-	 * @param currentPC TODO
-	 *
-	 * @return the adjustments to rank
-	 */
-	private Float getRankAdj(final PlayerCharacter currentPC)
-	{
-		if (currentPC == null)
-		{
-			return Float.valueOf(0);
-		}
-		return new Float(getSkillRankBonusTo(currentPC));
-	}
-
 	private double modRanks2(double g, final int idx, String bSkill, final PlayerCharacter aPC)
 	{
 		final int iOffs = bSkill.indexOf(':');
@@ -1626,10 +1257,11 @@ public final class Skill extends PObject
 		//       - familiars, racial, feats - and add them to bonusObjTotal
 
 		double bonus;
-		if (SettingsHandler.getGame().getStatFromAbbrev(keyStat) >= 0)
+		PCStat stat = get(ObjectKey.KEY_STAT);
+		if (stat != null)
 		{
-			bonus = aPC.getStatList().getStatModFor(keyStat);
-			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + keyStat);
+			bonus = aPC.getStatList().getStatModFor(stat.getAbb());
+			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
 			appendBonusDesc(bonusDetails, bonus, "STAT");
 		}
 
@@ -1686,7 +1318,7 @@ public final class Skill extends PObject
 		}
 
 		// Encumbrance
-		final int aCheckMod = calcACheckBonus(aPC);
+		final int aCheckMod = getACheck().calculateBonus(aPC);
 		appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
 
 		String aString = Globals.getGameModeRankModFormula();
@@ -1830,21 +1462,33 @@ public final class Skill extends PObject
 	 */
 	public String getKeyStatFromStats()
 	{
-		String aKeyStat = getKeyStat();
-		if ((aKeyStat.length() == 0) && Globals.getGameModeHasPointPool())
+		PCStat stat = get(ObjectKey.KEY_STAT);
+		if (stat == null)
 		{
-			List<PCStat> statList = getKeyStatList(null);
-			for (int i = 0; i < statList.size(); ++i)
+			if (Globals.getGameModeHasPointPool())
 			{
-				PCStat stat = statList.get(i);
-				if (aKeyStat.length() != 0)
+				List<PCStat> statList = getKeyStatList(null);
+				StringBuilder sb = new StringBuilder();
+				boolean needSlash = false;
+				for (PCStat s : statList)
 				{
-					aKeyStat += '/';
+					if (needSlash)
+					{
+						sb.append('/');
+					}
+					sb.append(s.getAbb());
 				}
-				aKeyStat += stat.getAbb();
+				return sb.toString();
+			}
+			else
+			{
+				return "";
 			}
 		}
-		return aKeyStat;
+		else
+		{
+			return stat.getAbb();
+		}
 	}
 
 	/**
@@ -1854,23 +1498,25 @@ public final class Skill extends PObject
 	 */
 	public int getStatMod(final PlayerCharacter pc)
 	{
-		String myKeyStat = getKeyStat();
-		if (myKeyStat.length() != 0)
+		PCStat stat = get(ObjectKey.KEY_STAT);
+		if (stat == null)
 		{
-			return pc.getStatList().getStatModFor(myKeyStat);
-		}
-
-		int statMod = 0;
-		if (Globals.getGameModeHasPointPool())
-		{
-			ArrayList<String> typeList = new ArrayList<String>();
-			getKeyStatList(typeList);
-			for (int i = 0; i < typeList.size(); ++i)
+			int statMod = 0;
+			if (Globals.getGameModeHasPointPool())
 			{
-				statMod += pc.getTotalBonusTo("SKILL", "TYPE." + typeList.get(i));
+				ArrayList<String> typeList = new ArrayList<String>();
+				getKeyStatList(typeList);
+				for (int i = 0; i < typeList.size(); ++i)
+				{
+					statMod += pc.getTotalBonusTo("SKILL", "TYPE." + typeList.get(i));
+				}
 			}
+			return statMod;
 		}
-		return statMod;
+		else
+		{
+			return pc.getStatList().getStatModFor(stat.getAbb());
+		}
 	}
 
 	/**
@@ -1915,7 +1561,7 @@ public final class Skill extends PObject
 	//
 	// Get a list of all BonusObj's from passed stat that apply a bonus of the passed type and name
 	//
-	private List<BonusObj> getBonusListOfType(final PCStat aStat, final int iType, final String aName)
+	private static List<BonusObj> getBonusListOfType(final PCStat aStat, final int iType, final String aName)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
@@ -1952,6 +1598,18 @@ public final class Skill extends PObject
 	boolean isTypeHidden(final String type)
 	{
 		return Globals.isSkillTypeHidden(type);
+	}
+
+	public boolean isUntrained()
+	{
+		Boolean untrained = get(ObjectKey.USE_UNTRAINED);
+		return untrained == null || untrained.booleanValue();
+	}
+
+	public String getKeyStatAbb()
+	{
+		PCStat keyStat = get(ObjectKey.KEY_STAT);
+		return keyStat == null ? "" : keyStat.getAbb();
 	}
 
 }

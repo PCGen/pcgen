@@ -1,13 +1,15 @@
 package plugin.lsttokens.skill;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
-import pcgen.persistence.lst.SkillLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with USEUNTRAINED Token
  */
-public class UseuntrainedToken implements SkillLstToken
+public class UseuntrainedToken implements CDOMPrimaryToken<Skill>
 {
 
 	public String getTokenName()
@@ -15,32 +17,54 @@ public class UseuntrainedToken implements SkillLstToken
 		return "USEUNTRAINED";
 	}
 
-	public boolean parse(Skill skill, String value)
+	public boolean parse(LoadContext context, Skill skill, String value)
 	{
-		boolean set;
+		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+				Logging.errorPrint("You should use 'YES' as the "
+					+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = true;
+			set = Boolean.TRUE;
 		}
 		else
 		{
-			if (firstChar != 'N' && firstChar != 'n'
-				&& !value.equalsIgnoreCase("NO"))
+			if (firstChar != 'N' && firstChar != 'n')
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+						+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = false;
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
+			}
+			set = Boolean.FALSE;
 		}
-		skill.setUntrained(set);
+		context.getObjectContext().put(skill, ObjectKey.USE_UNTRAINED, set);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Skill skill)
+	{
+		Boolean useUntrained =
+				context.getObjectContext().getObject(skill,
+					ObjectKey.USE_UNTRAINED);
+		if (useUntrained == null)
+		{
+			return null;
+		}
+		return new String[]{useUntrained.booleanValue() ? "YES" : "NO"};
+	}
+
+	public Class<Skill> getTokenClass()
+	{
+		return Skill.class;
 	}
 }

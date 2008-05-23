@@ -32,6 +32,10 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -73,8 +77,11 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		final PCClass myClass = new PCClass();
 		myClass.setName("My Class");
 
+		ClassSkillList csl = new ClassSkillList();
+		csl.put(StringKey.NAME, "MyClass");
+		
 		knowledge = new Skill();
-		knowledge.addClassList("My Class");
+		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		knowledge.setTypeInfo("KNOWLEDGE.INT");
 		knowledge.modRanks(8.0, myClass, true, character);
@@ -82,7 +89,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		Globals.getSkillList().add((Skill) knowledge);
 
 		tumble = new Skill();
-		tumble.addClassList("My Class");
+		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
 		tumble.setTypeInfo("DEX");
 		tumble.modRanks(8.0, myClass, true, character);
@@ -90,7 +97,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		Globals.getSkillList().add((Skill) tumble);
 
 		balance = new Skill();
-		balance.addClassList("My Class");
+		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
 		balance.setTypeInfo("DEX");
 		balance.modRanks(4.0, myClass, true, character);
@@ -98,7 +105,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		Globals.getSkillList().add((Skill) balance);
 		
 		fake = new Skill();
-		fake.addClassList("My Class");
+		fake.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		fake.setName("Fake");
 		fake.setTypeInfo("WIS");
 		fake.modRanks(6.0, myClass, true, character);
@@ -106,7 +113,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		Globals.getSkillList().add((Skill) fake);
 		
 		fake2 = new Skill();
-		fake2.addClassList("My Class");
+		fake2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		fake2.setName("Fake 2");
 		fake2.setTypeInfo("INT");
 		fake2.modRanks(8.0, myClass, true, character);
@@ -114,13 +121,13 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		Globals.getSkillList().add((Skill) fake2);
 		
 		target = new Skill();
-		target.addClassList("My Class");
+		target.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		target.setName("Target");
 		target.setTypeInfo("STR");
 		Globals.getSkillList().add((Skill) target);
 		
 		target2 = new Skill();
-		target2.addClassList("My Class");
+		target2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		target2.setName("Target2");
 		target2.setTypeInfo("STR");
 		Globals.getSkillList().add((Skill) target2);

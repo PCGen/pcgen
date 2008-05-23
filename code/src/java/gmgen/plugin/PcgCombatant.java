@@ -39,6 +39,7 @@ import org.jdom.Element;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -815,12 +816,12 @@ public class PcgCombatant extends Combatant
 
 				int modSkill;
 
-				if (skill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
+				if (skill.get(ObjectKey.KEY_STAT) != null)
 				{
 					modSkill =
 							skill.modifier(pc).intValue()
 								- pc.getStatList().getStatModFor(
-									skill.getKeyStat());
+									skill.getKeyStatAbb());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 

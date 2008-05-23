@@ -26,7 +26,7 @@ package pcgen.io.exporttoken;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -295,7 +295,7 @@ public class SkillToken extends Token
 		StringBuffer retValue = new StringBuffer();
 
 		if (((property == SKILL_ABMOD) || (property == SKILL_MISC))
-			&& aSkill.getKeyStat().equals(Constants.s_NONE))
+			&& false)//&& aSkill.get(ObjectKey.KEY_STAT) == null)
 		{
 			retValue.append("n/a");
 		}
@@ -341,17 +341,14 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_ABILITY:
-					//					retValue.append(getKeyStat(aSkill));
 					retValue.append(aSkill.getKeyStatFromStats());
 					break;
 
 				case SKILL_ABMOD:
-					//					retValue.append(Integer.toString(getStatMod(pc, aSkill)));
 					retValue.append(Integer.toString(aSkill.getStatMod(pc)));
 					break;
 
 				case SKILL_MISC:
-					//					retValue.append(Integer.toString(aSkill.modifier(pc).intValue() - getStatMod(pc, aSkill)));
 					retValue.append(Integer.toString(aSkill.modifier(pc)
 						.intValue()
 						- aSkill.getStatMod(pc)));
@@ -362,7 +359,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_EXCLUSIVE:
-					retValue.append(aSkill.getExclusive());
+					retValue.append(aSkill.isExclusive() ? "Y" : "N");
 					break;
 
 				case SKILL_UNTRAINED_EXTENDED:
@@ -376,11 +373,11 @@ public class SkillToken extends Token
 				case SKILL_EXCLUSIVE_TOTAL:
 					retValue
 						.append(Integer
-							.toString(((aSkill.getExclusive().equalsIgnoreCase(
-								"Y") || !aSkill.isUntrained()) && (aSkill
-								.getTotalRank(pc).intValue() == 0)) ? 0
+							.toString(((aSkill.isExclusive() || !aSkill
+								.isUntrained()) && (aSkill.getTotalRank(pc)
+								.intValue() == 0)) ? 0
 								: (aSkill.getTotalRank(pc).intValue() + aSkill
-									.modifier(pc).intValue())));
+										.modifier(pc).intValue())));
 					break;
 
 				case SKILL_TRAINED_TOTAL:
@@ -481,7 +478,7 @@ public class SkillToken extends Token
 		final StringTokenizer aTok =
 				new StringTokenizer(property.substring(3), ",");
 		int numArgs = aTok.countTokens();
-		int acp = aSkill.getACheck();
+		int acp = aSkill.getACheck().ordinal();
 		String acpText[] = new String[numArgs]; 
 				
 		for (int i = 0; aTok.hasMoreTokens(); i++) {

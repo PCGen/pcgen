@@ -28,7 +28,9 @@ package pcgen.core.chooser;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.EquipmentList;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -66,14 +68,14 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 		{
 			firstTime = false;
 
-			TestHelper.makeSkill("Bluff", "Charisma", "CHA", true, "NO");
-			TestHelper.makeSkill("Listen", "Wisdom", "WIS", true, "NO");
+			TestHelper.makeSkill("Bluff", "Charisma", "CHA", true, SkillArmorCheck.NONE);
+			TestHelper.makeSkill("Listen", "Wisdom", "WIS", true, SkillArmorCheck.NONE);
 			TestHelper.makeSkill("Move Silently", "Dexterity", "DEX", true,
-				"YES");
+					SkillArmorCheck.YES);
 			TestHelper.makeSkill("Knowledge (Arcana)",
-				"Intelligence.Knowledge", "INT", false, "NO");
+				"Intelligence.Knowledge", "INT", false, SkillArmorCheck.NONE);
 			TestHelper.makeSkill("Knowledge (Dungeoneering)",
-				"Intelligence.Knowledge", "INT", false, "NO");
+				"Intelligence.Knowledge", "INT", false, SkillArmorCheck.NONE);
 
 			pcClass = new PCClass();
 			pcClass.addCSkill("KEY_Bluff");

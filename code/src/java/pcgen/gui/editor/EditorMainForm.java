@@ -55,6 +55,7 @@ import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
@@ -823,19 +824,28 @@ public final class EditorMainForm extends JDialog
 					}
 				}
 
-				((Skill) thisPObject).getClassList().clear();
+				((Skill) thisPObject).removeListFor(ListKey.CLASSES);
+				((Skill) thisPObject).removeListFor(ListKey.PREVENTED_CLASSES);
 				sel = pnlClasses.getSelectedList2();
 
 				for (int i = 0; i < sel.length; ++i)
 				{
-					((Skill) thisPObject).addClassList('!' + sel[i].toString());
+					ClassSkillList cl = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(ClassSkillList.class,
+								sel[i].toString());
+					((Skill) thisPObject).addToListFor(ListKey.PREVENTED_CLASSES,
+						CDOMDirectSingleRef.getRef(cl));
 				}
 
 				sel = pnlClasses.getSelectedList();
 
 				for (int i = 0; i < sel.length; ++i)
 				{
-					((Skill) thisPObject).addClassList(sel[i].toString());
+					ClassSkillList cl = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(ClassSkillList.class,
+								sel[i].toString());
+					((Skill) thisPObject).addToListFor(ListKey.CLASSES,
+							CDOMDirectSingleRef.getRef(cl));
 				}
 
 				break;
@@ -1639,45 +1649,29 @@ public final class EditorMainForm extends JDialog
 					availableSkillList.add(aClass.getKeyName());
 				}
 
-				boolean negate;
-
-				for (Iterator<String> e = ((Skill) thisPObject).getClassList().iterator(); e.hasNext();)
+				Collection<CDOMReference<ClassSkillList>> added = ((Skill) thisPObject)
+					.getListFor(ListKey.CLASSES);
+				if (added != null)
 				{
-					aString = e.next();
-
-					if (aString.length() > 0)
+					for (CDOMReference<ClassSkillList> ref : added)
 					{
-						if (aString.charAt(0) == '!')
-						{
-							aString = aString.substring(1);
-							negate = true;
-						}
-						else
-						{
-							negate = false;
-						}
-
-						final int idx = availableSkillList.indexOf(aString);
-
-						if (idx < 0)
-						{
-							Logging.errorPrint("Unknown class: " + aString);
-
-							continue;
-						}
-
-						availableSkillList.remove(idx);
-
-						if (negate)
-						{
-							selectedSkillList2.add(aString);
-						}
-						else
-						{
-							selectedSkillList.add(aString);
-						}
+						String className = ref.getLSTformat();
+						selectedSkillList.add(className);
+						availableSkillList.remove(className);
 					}
 				}
+				Collection<CDOMReference<ClassSkillList>> prevented = ((Skill) thisPObject)
+					.getListFor(ListKey.PREVENTED_CLASSES);
+				if (prevented != null)
+				{
+					for (CDOMReference<ClassSkillList> ref : prevented)
+					{
+						String className = ref.getLSTformat();
+						selectedSkillList2.add(className);
+						availableSkillList.remove(className);
+					}
+				}
+
 
 				pnlClasses.setAvailableList(availableSkillList, true);
 				pnlClasses.setSelectedList(selectedSkillList, true);

@@ -1861,7 +1861,7 @@ final class StatFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Skill)
 		{
-			return ((Skill) pObject).getKeyStat().toUpperCase().equals(getName(aPC));
+			return ((Skill) pObject).getKeyStatAbb().toUpperCase().equals(getName(aPC));
 		}
 
 		return true;

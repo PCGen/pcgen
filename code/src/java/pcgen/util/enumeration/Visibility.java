@@ -21,6 +21,11 @@ public enum Visibility
 	{
 		return text;
 	}
+	
+	public String getLSTFormat()
+	{
+		return text.toUpperCase();
+	}
 
 	/**
 	 * Determine if this visibility can be seen in the supplied view level.

@@ -14047,7 +14047,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return (level == 2)
-			|| skill.isRequired()
 			|| (skill.getTotalRank(this).floatValue() > 0)
 			|| ((level == 1) && skill.isUntrained() && IsQualified && !skill
 				.isExclusive()) || ((level == 1) && UntrainedExclusiveClass);

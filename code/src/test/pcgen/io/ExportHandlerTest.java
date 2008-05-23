@@ -27,9 +27,16 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -42,7 +49,6 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.character.EquipSet;
-import pcgen.util.Logging;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the
@@ -96,7 +102,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		levelInfo.setLevelString("LEVEL");
 		levelInfo.setMaxClassSkillString("LEVEL+3");
 		levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
-		SettingsHandler.getGame().addLevelInfo(levelInfo);
+		GameMode gamemode = SettingsHandler.getGame();
+		gamemode.addLevelInfo(levelInfo);
 
 		//Stats
 		setPCStat(character, "DEX", 16);
@@ -115,43 +122,52 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		myClass.setSkillPointFormula("3");
 		character.incrementClassLevel(5, myClass, true);
 
-		//Skills
+		ClassSkillList csl = new ClassSkillList();
+		csl.put(StringKey.NAME, "MyClass");
+
+		List<PCStat> statList = gamemode.getUnmodifiableStatList();
+		int intLoc = gamemode.getStatFromAbbrev("INT");
+		PCStat intStat = statList.get(intLoc);
+		int dexLoc = gamemode.getStatFromAbbrev("DEX");
+		PCStat dexStat = statList.get(dexLoc);
+
+		// Skills
 		knowledge = new Skill[2];
 		knowledge[0] = new Skill();
-		knowledge[0].addClassList("My Class");
+		knowledge[0].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		knowledge[0].setTypeInfo("KNOWLEDGE.INT");
-		knowledge[0].setKeyStat("INT");
+		knowledge[0].put(ObjectKey.KEY_STAT, intStat);
 		knowledge[0].modRanks(8.0, myClass, true, character);
 		knowledge[0].setOutputIndex(2);
 		Globals.getSkillList().add(knowledge[0]);
 		character.addSkill(knowledge[0]);
 
 		knowledge[1] = new Skill();
-		knowledge[1].addClassList("My Class");
+		knowledge[1].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		knowledge[1].setTypeInfo("KNOWLEDGE.INT");
-		knowledge[1].setKeyStat("INT");
+		knowledge[1].put(ObjectKey.KEY_STAT, intStat);
 		knowledge[1].modRanks(5.0, myClass, true, character);
 		knowledge[1].setOutputIndex(3);
 		Globals.getSkillList().add(knowledge[1]);
 		character.addSkill(knowledge[1]);
 
 		tumble = new Skill();
-		tumble.addClassList("My Class");
+		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
 		tumble.setTypeInfo("DEX");
-		tumble.setKeyStat("DEX");
+		tumble.put(ObjectKey.KEY_STAT, dexStat);
 		tumble.modRanks(7.0, myClass, true, character);
 		tumble.setOutputIndex(4);
 		Globals.getSkillList().add(tumble);
 		character.addSkill(tumble);
 
 		balance = new Skill();
-		balance.addClassList("My Class");
+		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
 		balance.setTypeInfo("DEX");
-		balance.setKeyStat("DEX");
+		balance.put(ObjectKey.KEY_STAT, dexStat);
 		balance.modRanks(4.0, myClass, true, character);
 		balance.setOutputIndex(1);
 		balance

@@ -58,6 +58,12 @@ public final class ObjectKey<T>
 
 	public static final ObjectKey<PCAlignment> ALIGNMENT = new ObjectKey<PCAlignment>();
 
+	public static final ObjectKey<Boolean> READ_ONLY = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<PCStat> KEY_STAT = new ObjectKey<PCStat>();
+
+	public static final ObjectKey<SkillArmorCheck> ARMOR_CHECK = new ObjectKey<SkillArmorCheck>();
+
 	public static final ObjectKey<Visibility> VISIBILITY = new ObjectKey<Visibility>();
 
 	public static final ObjectKey<Boolean> REMOVABLE = new ObjectKey<Boolean>();

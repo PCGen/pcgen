@@ -41,6 +41,9 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -497,22 +500,24 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Skill guiSkill = new Skill();
 		Skill outputSkill = new Skill();
 		Skill defaultSkill = new Skill();
+		ClassSkillList csl = new ClassSkillList();
+		csl.put(StringKey.NAME, "MyClass");
 
-		guiSkill.addClassList("MyClass");
+		guiSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		guiSkill.setName("GUI");
 		guiSkill.setTypeInfo("INT");
 		guiSkill.setVisibility(Visibility.DISPLAY_ONLY);
 		guiSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(guiSkill);
 
-		outputSkill.addClassList("MyClass");
+		outputSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		outputSkill.setName("Output");
 		outputSkill.setTypeInfo("INT");
 		outputSkill.setVisibility(Visibility.OUTPUT_ONLY);
 		outputSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(outputSkill);
 
-		defaultSkill.addClassList("MyClass");
+		defaultSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		defaultSkill.setName("Default");
 		defaultSkill.setTypeInfo("INT");
 		defaultSkill.setVisibility(Visibility.DEFAULT);

@@ -51,7 +51,6 @@ public class TokenStore
 		tokenTypeList.add(LanguageLstToken.class);
 		tokenTypeList.add(RaceLstToken.class);
 		tokenTypeList.add(PCTemplateLstToken.class);
-		tokenTypeList.add(SkillLstToken.class);
 		tokenTypeList.add(SpellLstToken.class);
 		tokenTypeList.add(SourceLstToken.class);
 		tokenTypeList.add(SubClassLstToken.class);

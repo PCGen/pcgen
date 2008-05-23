@@ -24,10 +24,15 @@
 package pcgen.core.prereq;
 
 import java.util.Arrays;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -77,8 +82,11 @@ public class PreMultTest extends AbstractCharacterTestCase
 		myClass = new PCClass();
 		myClass.setName("My Class");
 
+		ClassSkillList csl = new ClassSkillList();
+		csl.put(StringKey.NAME, "MyClass");
+
 		knowledge = new Skill();
-		knowledge.addClassList("My Class");
+		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		knowledge.setTypeInfo("KNOWLEDGE.INT");
 		knowledge.modRanks(8.0, myClass, true, character);
@@ -238,8 +246,11 @@ public class PreMultTest extends AbstractCharacterTestCase
 		assertFalse("Should not pass 2 knowledge skill test with 1 skill",
 			passes);
 
+		ClassSkillList csl = new ClassSkillList();
+		csl.put(StringKey.NAME, "MyClass");
+
 		final Skill extraKnow = new Skill();
-		extraKnow.addClassList("My Class");
+		extraKnow.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		extraKnow.setName("KNOWLEDGE (RELIGION)");
 		extraKnow.setTypeInfo("KNOWLEDGE.INT");
 		extraKnow.modRanks(5.0, myClass, true, character);
