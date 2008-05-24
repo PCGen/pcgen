@@ -375,7 +375,8 @@ public class EqContainersToken extends Token
 	 */
 	public static String getCritRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getCritRange(pc);
+		int critRange = pc.getCritRange(eq, true);
+		return critRange == 0 ? "" : Integer.toString(critRange);
 	}
 
 	/**

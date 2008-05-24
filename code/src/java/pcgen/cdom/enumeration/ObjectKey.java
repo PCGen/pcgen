@@ -34,6 +34,7 @@ import java.util.Map;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
+import pcgen.core.character.WieldCategory;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -93,6 +94,10 @@ public final class ObjectKey<T>
 	public static final ObjectKey<BigDecimal> COST = new ObjectKey<BigDecimal>();
 
 	public static final ObjectKey<PCStat> SPELL_STAT = new ObjectKey<PCStat>();
+
+	public static final ObjectKey<Boolean> ATTACKS_PROGRESS = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<WieldCategory> WIELD = new ObjectKey<WieldCategory>();
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

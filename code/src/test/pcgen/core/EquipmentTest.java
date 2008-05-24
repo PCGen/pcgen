@@ -32,6 +32,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 
 /**
  * Equipment Test
@@ -288,7 +289,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testResizeItem()
 	{
 		// Make it a weapon
-		eq.setDamage("1d6");
+		eq.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		eq.setTypeInfo("WEAPON");
 
 		// Create a base item

@@ -46,7 +46,7 @@ public class PreWieldTester extends AbstractPrerequisiteTest implements
 		PlayerCharacter aPC)
 	{
 		int runningTotal = 0;
-		if (equipment.getWield().equalsIgnoreCase(prereq.getKey()))
+		if (equipment.getWieldName().equalsIgnoreCase(prereq.getKey()))
 		{
 			runningTotal++;
 		}

@@ -1,12 +1,15 @@
 package plugin.lsttokens.equipment;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.persistence.lst.EquipmentLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
- * Deals with SLOTS token 
+ * Deals with SLOTS token
  */
-public class SlotsToken implements EquipmentLstToken
+public class SlotsToken implements CDOMPrimaryToken<Equipment>
 {
 
 	public String getTokenName()
@@ -14,16 +17,46 @@ public class SlotsToken implements EquipmentLstToken
 		return "SLOTS";
 	}
 
-	public boolean parse(Equipment eq, String value)
+	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
 		try
 		{
-			eq.setSlots(Integer.parseInt(value));
+			Integer hands = Integer.valueOf(value);
+			if (hands.intValue() < 0)
+			{
+				Logging.errorPrint(getTokenName() + " must be an integer > 0");
+				return false;
+			}
+			context.getObjectContext().put(eq, IntegerKey.SLOTS, hands);
 			return true;
 		}
 		catch (NumberFormatException nfe)
 		{
+			Logging.errorPrint(getTokenName()
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
 			return false;
 		}
+	}
+
+	public String[] unparse(LoadContext context, Equipment eq)
+	{
+		Integer hands = context.getObjectContext().getInteger(eq,
+				IntegerKey.SLOTS);
+		if (hands == null)
+		{
+			return null;
+		}
+		if (hands.intValue() < 0)
+		{
+			context.addWriteMessage(getTokenName() + " must be an integer > 0");
+			return null;
+		}
+		return new String[] { hands.toString() };
+	}
+
+	public Class<Equipment> getTokenClass()
+	{
+		return Equipment.class;
 	}
 }

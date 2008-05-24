@@ -340,7 +340,8 @@ public class EqToken extends Token
 	 */
 	public static String getAltCritRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getAltCritRange(pc);
+		int critRange = pc.getCritRange(eq, false);
+		return critRange == 0 ? "" : Integer.toString(critRange);
 	}
 
 	/**
@@ -557,7 +558,8 @@ public class EqToken extends Token
 	 */
 	public static String getCritRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getCritRange(pc);
+		int critRange = pc.getCritRange(eq, true);
+		return critRange == 0 ? "" : Integer.toString(critRange);
 	}
 
 	/**

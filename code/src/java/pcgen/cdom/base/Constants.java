@@ -234,7 +234,7 @@ public interface Constants
 	int INVALID_LEVEL = 9999;
 
 	/** The highest possible maxDex value. */
-	int MAX_MAXDEX = 100;
+	Integer MAX_MAXDEX = Integer.valueOf(100);
 	/** 5 */
 	int MAX_OPEN_RECENT_ENTRIES = 5;
 	/** The highest spell level we are catering for. */

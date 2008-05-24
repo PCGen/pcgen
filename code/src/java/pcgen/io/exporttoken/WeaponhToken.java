@@ -25,13 +25,18 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
-
 import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.EquipmentHead;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.character.WieldCategory;
+import pcgen.io.ExportHandler;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -118,12 +123,13 @@ public class WeaponhToken extends WeaponToken
 		eq.setOutputName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq
 			.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
-		eq.setWield("Light");
+		eq.put(ObjectKey.WIELD, WieldCategory.findByName("Light"));
 		eq.setCost("0", true);
 		eq.setWeight("0");
-		eq.setDamage("1d1");
-		eq.setCritMult(2);
-		eq.setCritRange("1");
+		EquipmentHead head = eq.getEquipmentHead(1);
+		head.put(StringKey.DAMAGE, "1d1");
+		head.put(IntegerKey.CRIT_MULT, 2);
+		head.put(IntegerKey.CRIT_RANGE, 1);
 		eq.setModifiersAllowed(false);
 		eq.setModifiersRequired(false);
 		eq.setSize(pc.getSize(), true);

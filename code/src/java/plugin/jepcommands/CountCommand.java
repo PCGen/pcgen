@@ -456,7 +456,7 @@ public class CountCommand extends PCGenCommand
 								while (It.hasNext())
 								{
 									final Equipment e = (Equipment) It.next();
-									if (!e.getWield().equalsIgnoreCase(keyValue[1]))
+									if (!e.getWieldName().equalsIgnoreCase(keyValue[1]))
 									{
 										It.remove();
 									}

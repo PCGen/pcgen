@@ -64,6 +64,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -878,7 +879,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						if (eq.isWeapon())
 						{
-							eq.setSlots(0);
+							eq.put(IntegerKey.SLOTS, 0);
 							eq.setCost("0");
 							eq.setWeight("0");
 							eq.setLocation(anEquip.getLocation());
@@ -5587,9 +5588,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				eqm.removeType("Double");
 				eqm.setTypeInfo("Head2");
-				eqm.setDamage(eqm.getAltDamage(this));
-				eqm.setCritMult(eqm.getRawAltCritMult());
-				eqm.setCritRange(Integer.toString(eqm.getRawCritRange(false)));
+				EquipmentHead head = eqm.getEquipmentHead(1);
+				String altDamage = eqm.getAltDamage(this);
+				if (altDamage.length() != 0)
+				{
+					head.put(StringKey.DAMAGE, altDamage);
+				}
+				head.put(IntegerKey.CRIT_MULT, eqm.getAltCritMultiplier());
+				head.put(IntegerKey.CRIT_RANGE, eqm.getRawCritRange(false));
 				eqm.getEqModifierList(true).clear();
 				eqm.getEqModifierList(true)
 					.addAll(eqm.getEqModifierList(false));
@@ -5623,7 +5629,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Equipment eqm = equip.clone();
 				eqm.setTypeInfo("Both");
 				eqm.removeType("Ranged.Thrown");
-				eqm.setRange("0");
+				eqm.put(IntegerKey.RANGE, 0);
 				PlayerCharacterUtilities.setProf(equip, eqm);
 				weapList.set(idx, eqm);
 
@@ -17848,4 +17854,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// {
 	// return TypedBonus.totalBonuses(getBonusesTo(aBonusType, aBonusName));
 	// }
+	
+	public int getCritRange(Equipment e, boolean primary)
+	{
+		if (!primary && !e.isDouble())
+		{
+			return 0;
+		}
+		int raw = e.getRawCritRange(primary);
+		int add = (int) e.bonusTo(this, "EQMWEAPON", "CRITRANGEADD", primary);
+		int dbl = 1 + (int) e.bonusTo(this, "EQMWEAPON", "CRITRANGEDOUBLE",
+				primary);
+		return raw * dbl + add;
+
+	}
 }

@@ -1,32 +1,63 @@
 package plugin.lsttokens.equipment;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
-import pcgen.persistence.lst.EquipmentLstToken;
+import pcgen.core.character.WieldCategory;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
- * Deals with WIELD token 
+ * Deals with WIELD token
  */
-public class WieldToken implements EquipmentLstToken
+public class WieldToken implements CDOMPrimaryToken<Equipment>
 {
 
 	/**
 	 * Get token name
-	 * @return token name 
+	 * 
+	 * @return token name
 	 */
 	public String getTokenName()
 	{
 		return "WIELD";
 	}
 
-	/**
-	 * Parse WIELD token
-	 * @param eq 
-	 * @param value 
-	 * @return true
-	 */
-	public boolean parse(Equipment eq, String value)
+	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
-		eq.setWield(value);
+		try
+		{
+			WieldCategory wc = WieldCategory.findByName(value);
+			if (wc.equals(WieldCategory.DEFAULT_UNUSABLE))
+			{
+				Logging.errorPrint("In " + getTokenName()
+						+ " unable to find WieldCategory for " + value);
+				return false;
+			}
+			context.getObjectContext().put(eq, ObjectKey.WIELD, wc);
+		}
+		catch (IllegalArgumentException iae)
+		{
+			Logging.errorPrint("Invalid Wield provided in " + getTokenName()
+					+ ": " + value);
+			return false;
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Equipment eq)
+	{
+		WieldCategory w = context.getObjectContext().getObject(eq,
+				ObjectKey.WIELD);
+		if (w == null)
+		{
+			return null;
+		}
+		return new String[] { w.getName() };
+	}
+
+	public Class<Equipment> getTokenClass()
+	{
+		return Equipment.class;
 	}
 }

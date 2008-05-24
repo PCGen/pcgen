@@ -26,6 +26,7 @@ package plugin.exporttokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
@@ -88,7 +89,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		chainShirt.setName("Chain Shirt");
 		chainShirt.setKeyName("KEY_Chain_Shirt");
 		chainShirt.setTypeInfo("Armor.Light.Suit.Standard");
-		chainShirt.setACCheck("-2");
+		chainShirt.put(IntegerKey.AC_CHECK, -2);
 		chainShirt.addBonusList("COMBAT|AC|4|TYPE=Armor.REPLACE");
 
 		// Create magic armor enhancement

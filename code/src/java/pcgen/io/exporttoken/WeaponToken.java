@@ -26,6 +26,7 @@
 package pcgen.io.exporttoken;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.*;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -723,14 +724,20 @@ public class WeaponToken extends Token
 						WPTYPEBONUS_PC);
 
 		int critMult = eq.getCritMultiplier();
-
-		sb.append((critMult + mult) + "");
+		if (critMult <= 0)
+		{
+			sb.append(mult);
+		}
+		else
+		{
+			sb.append(critMult + mult);
+		}
 
 		int altCrit = eq.getAltCritMultiplier();
 
 		if (isDouble && (altCrit > 0))
 		{
-			sb.append("/" + (altCrit + mult));
+			sb.append("/").append(altCrit + mult);
 		}
 		return sb.toString();
 	}
@@ -745,7 +752,7 @@ public class WeaponToken extends Token
 	public static String getRangeListToken(Equipment eq, int range,
 		PlayerCharacter aPC)
 	{
-		List<String> rangeList = eq.getRangeList(true, aPC);
+		List<String> rangeList = getRangeList(eq, true, aPC);
 
 		if (range < rangeList.size())
 		{
@@ -1111,7 +1118,8 @@ public class WeaponToken extends Token
 	 */
 	public static String getRateOfFireToken(Equipment eq)
 	{
-		return eq.getRateOfFire();
+		String rof = eq.get(StringKey.RATE_OF_FIRE);
+		return rof == null ? "" : rof;
 	}
 
 	/**
@@ -1170,7 +1178,7 @@ public class WeaponToken extends Token
 		StringBuffer sb = new StringBuffer();
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
-		int rawCritRange = eq.getRawCritRange();
+		int rawCritRange = eq.getRawCritRange(true);
 
 		// see if the weapon has any crit range
 		if (rawCritRange == 0)
@@ -1192,22 +1200,22 @@ public class WeaponToken extends Token
 					"CRITRANGEADD")
 					+ getWeaponProfTypeBonuses(pc, eq, "CRITRANGEADD",
 						WPTYPEBONUS_PC);
-		int eqDbl = eq.getCritRangeDouble(pc, true) + dbl;
-		int critrange = eq.getRawCritRange() * (eqDbl + 1);
-		critrange = 21 - (critrange + iAdd + eq.getCritRangeAdd(pc, true));
+		int eqDbl = dbl + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEDOUBLE", true);
+		int critrange = eq.getRawCritRange(true) * (eqDbl + 1);
+		critrange = 21 - (critrange + iAdd + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEADD", true));
 		sb.append(critrange + "");
 		if (critrange < 20)
 		{
 			sb.append("-20");
 		}
 
-		if (isDouble && (eq.getAltCritRange(pc).length() > 0))
+		if (isDouble && (pc.getCritRange(eq, false) > 0))
 		{
-			eqDbl = eq.getCritRangeDouble(pc, false) + dbl;
+			eqDbl = dbl + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEDOUBLE", false);
 
 			int altCritRange = eq.getRawCritRange(false) * (eqDbl + 1);
 			altCritRange =
-					21 - (altCritRange + iAdd + eq.getCritRangeAdd(pc, false));
+					21 - (altCritRange + iAdd + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEADD", false));
 
 			if (altCritRange != critrange)
 			{
@@ -1975,9 +1983,9 @@ public class WeaponToken extends Token
 
 		if (range > -1)
 		{
-			int rangeSize = eq.getRangeList(true, pc).size();
+			int rangeSize = getRangeList(eq, true, pc).size();
 			int thisRange =
-					Integer.parseInt(eq.getRangeList(true, pc).get(range));
+					Integer.parseInt(getRangeList(eq, true, pc).get(range));
 			int shortRange = SettingsHandler.getGame().getShortRangeDistance();
 
 			/* range here is an index that represents a number of range
@@ -2505,10 +2513,10 @@ public class WeaponToken extends Token
 		// If at short range, add SHORTRANGE bonus
 		if (range > -1)
 		{
-			int rangeSize = eq.getRangeList(true, pc).size();
+			int rangeSize = getRangeList(eq, true, pc).size();
 
 			if ((range < rangeSize)
-				&& (Integer.parseInt(eq.getRangeList(true, pc).get(range)) <= SettingsHandler
+				&& (Integer.parseInt(getRangeList(eq, true, pc).get(range)) <= SettingsHandler
 					.getGame().getShortRangeDistance()))
 			{
 				bonus +=
@@ -2541,10 +2549,10 @@ public class WeaponToken extends Token
 		// If at short range, add SHORTRANGE bonus
 		if (range > -1)
 		{
-			int rangeSize = eq.getRangeList(true, pc).size();
+			int rangeSize = getRangeList(eq, true, pc).size();
 
 			if ((range < rangeSize)
-				&& (Integer.parseInt(eq.getRangeList(true, pc).get(range)) <= SettingsHandler
+				&& (Integer.parseInt(getRangeList(eq, true, pc).get(range)) <= SettingsHandler
 					.getGame().getShortRangeDistance()))
 			{
 				weaponProfBonus +=
@@ -2952,5 +2960,52 @@ public class WeaponToken extends Token
 			return false;
 		}
 		return true;
+	}
+
+
+	/**
+	 * Gets the range list of the Equipment object, adding the 30' range, if not present and required
+	 *
+	 * @param addShortRange boolean
+	 * @param aPC
+	 * @return The range list
+	 */
+	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
+	{
+		final List<String> aList = new ArrayList<String>();
+		final int baseRange = eq.getRange(aPC).intValue();
+		int aRange = baseRange;
+		int maxIncrements = 0;
+
+		if (eq.isRanged())
+		{
+			if (eq.isThrown())
+			{
+				maxIncrements = 5;
+			}
+			else
+			{
+				maxIncrements = 10;
+			}
+		}
+
+		for (int numIncrements = 0; numIncrements < maxIncrements; ++numIncrements)
+		{
+			if (aRange == SettingsHandler.getGame().getShortRangeDistance())
+			{
+				addShortRange = false;
+			}
+
+			if ((aRange > SettingsHandler.getGame().getShortRangeDistance()) && addShortRange)
+			{
+				aList.add(Integer.toString(SettingsHandler.getGame().getShortRangeDistance()));
+				addShortRange = false;
+			}
+
+			aList.add(Integer.toString(aRange));
+			aRange += baseRange;
+		}
+
+		return aList;
 	}
 }

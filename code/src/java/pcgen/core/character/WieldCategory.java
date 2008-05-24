@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -74,7 +75,7 @@ public final class WieldCategory
 	private static WieldCategory DEFAULT_ONEHANDED = null;
 	private static WieldCategory DEFAULT_TWOHANDED = null;
 	private static WieldCategory DEFAULT_TOOLARGE = null;
-	private static WieldCategory DEFAULT_UNUSABLE = null;
+	public static WieldCategory DEFAULT_UNUSABLE = null;
 
 	/**
 	 * New constructor
@@ -173,7 +174,7 @@ public final class WieldCategory
 	public WieldCategory adjustForSize(final PlayerCharacter aPC,
 									   final Equipment eq)
 	{
-		if (aPC == null || eq == null || !eq.hasWield())
+		if (aPC == null || eq == null || eq.get(ObjectKey.WIELD) == null)
 		{
 			return this;
 		}
@@ -187,7 +188,7 @@ public final class WieldCategory
 			if (aPC.sizeInt() != eq.sizeInt())
 			{
 				int aBump = 0;
-				aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", eq.getWield());
+				aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", eq.getWieldName());
 				aBump += (int) aPC.getTotalBonusTo("WIELDCATEGORY", "ALL");
 				if (aBump != 0)
 				{

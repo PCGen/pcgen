@@ -127,7 +127,7 @@ public class TestHelper
 			{
 				throw new UnreachableError(e);
 			}
-			eqLoader.parseLine(null, eq, input, source);
+			eqLoader.parseLine(Globals.getContext(), eq, input, source);
 			EquipmentList.addEquipment(eq);
 			return true;
 		}

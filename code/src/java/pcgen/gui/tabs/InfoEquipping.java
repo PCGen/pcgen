@@ -97,6 +97,7 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
@@ -116,7 +117,6 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
-import pcgen.gui.HTMLUtils;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.TableColumnManager;
 import pcgen.gui.TableColumnManagerModel;
@@ -629,7 +629,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			// Should only be meaningful for weapons, but if included on some other piece of
 			// equipment, show it anyway
 			//
-			if (eqI.isWeapon() || eqI.hasWield())
+			if (eqI.isWeapon() || eqI.get(ObjectKey.WIELD) != null)
 			{
 				WieldCategory wCat = eqI.getEffectiveWieldCategory(pc);
 				b.appendSpacer();
@@ -734,32 +734,33 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				}
 			}
 
-			bString = eqI.getCritRange(pc);
+			int critrange = pc.getCritRange(eqI, true);
+			int altcritrange = pc.getCritRange(eqI, false);
+			bString = critrange == 0 ? "" : Integer.toString(critrange);
+			if (eqI.isDouble() && critrange != altcritrange)
+			{
+				bString += "/"
+						+ (altcritrange == 0 ? "" : Integer
+								.toString(altcritrange));
+			}
 
 			if (bString.length() > 0)
 			{
 				b.appendSpacer();
 				b.appendI18nElement("in_ieInfoLabelTextCritRange",bString); //$NON-NLS-1$
-
-				if (eqI.isDouble()
-					&& !eqI.getCritRange(pc).equals(eqI.getAltCritRange(pc)))
-				{
-					b.append('/').append(eqI.getAltCritRange(pc));
-				}
 			}
 
 			bString = eqI.getCritMult();
+			if (eqI.isDouble()
+					&& !(eqI.getCritMultiplier() == eqI.getAltCritMultiplier()))
+			{
+				bString += "/" + eqI.getAltCritMult();
+			}
 
 			if (bString.length() > 0)
 			{
 				b.appendSpacer();
 				b.appendI18nElement("in_ieInfoLabelTextCritMult",bString); //$NON-NLS-1$
-
-				if (eqI.isDouble()
-					&& !(eqI.getCritMultiplier() == eqI.getAltCritMultiplier()))
-				{
-					b.append('/').append(eqI.getAltCritMult());
-				}
 			}
 
 			if (eqI.isWeapon())

@@ -68,62 +68,63 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 		
 		final StringTokenizer colToken = new StringTokenizer(inputLine,
 				SystemLoader.TAB_DELIM);
-		
-		String name = colToken.nextToken();
-		equipment.setName(name);
-		equipment.setSourceCampaign(source.getCampaign());
-		equipment.setSourceURI(source.getURI());
+
+		if (colToken.hasMoreTokens())
+		{
+			equipment.setName(colToken.nextToken());
+			equipment.setSourceCampaign(source.getCampaign());
+			equipment.setSourceURI(source.getURI());
+		}
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				EquipmentLstToken.class);
 		while (colToken.hasMoreTokens()) {
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			EquipmentLstToken token = (EquipmentLstToken) tokenMap.get(key);
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, equipment, value);
-				if (!token.parse(equipment, value))
-				{
-					Logging.errorPrint("Error parsing Equipment "
-						+ equipment.getName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
-				}
-			}
-			else if (colString.startsWith("Cost:"))
-			{
-				Logging.errorPrint("Cost deprecated, use COST "
-					+ equipment.getName() + ':' + source.getURI() + ':'
-					+ colString + "\"");
-				token = (EquipmentLstToken) tokenMap.get("COST");
-				final String value = colString.substring(idxColon + 1);
-				if (!token.parse(equipment, value))
-				{
-					Logging.errorPrint("Error parsing Equipment "
-						+ equipment.getName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(equipment, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(equipment, key, value))
 			{
-				Logging.errorPrint("Illegal Equipment info "
-					+ source.toString() + ":" + " \"" + colString + "\"");
+				Logging.clearParseMessages();
+				context.commit();
 			}
+			else if (tokenMap.containsKey(key))
+			{
+				EquipmentLstToken tok = (EquipmentLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, equipment, value);
+				if (!tok.parse(equipment, value))
+				{
+					Logging.errorPrint("Error parsing Equipment "
+						+ equipment.getName() + ':' + source.getURI() + ':'
+						+ token + "\"");
+				}
+				Logging.clearParseMessages();
+ 				continue;
+			}
+			else if (PObjectLoader.parseTag(equipment, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 		
 		completeObject(source, equipment);

@@ -598,7 +598,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendSpacer();
 				b.appendI18nElement("in_itmInfoLabelTextCritMult",eqI.getCritMult()); //$NON-NLS-1$
 				b.appendSpacer();
-				b.appendI18nElement("in_itmInfoLabelTextCritRange",eqI.getCritRange(pc)); //$NON-NLS-1$
+				int critRange = pc.getCritRange(eqI, true);
+				b.appendI18nElement("in_itmInfoLabelTextCritRange",critRange == 0 ? "" : Integer.toString(critRange)); //$NON-NLS-1$
 
 				bString = eqI.getRange(pc).toString();
 				if (bString.length() > 0)

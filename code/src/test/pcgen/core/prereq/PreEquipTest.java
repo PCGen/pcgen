@@ -21,9 +21,11 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.character.WieldCategory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -152,12 +154,12 @@ public class PreEquipTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		// Test 3.5 style
-		longsword.setWield("TwoHanded");
+		longsword.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
 
 		assertFalse("Weapon is TwoHanded", PrereqHandler.passes(prereq,
 			character, null));
 
-		longsword.setWield("OneHanded");
+		longsword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
 
 		assertTrue("Weapon is OneHanded", PrereqHandler.passes(prereq,
 			character, null));

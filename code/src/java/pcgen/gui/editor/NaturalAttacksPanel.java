@@ -22,21 +22,11 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.Equipment;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.utils.IconUtilitities;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -44,6 +34,32 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.EquipmentHead;
+import pcgen.core.Equipment;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>NaturalAttacksPanel</code>
@@ -132,7 +148,8 @@ final class NaturalAttacksPanel extends JPanel
 			}
 
 			// Set the damage dice
-			anEquip.setDamage(natWpn.nextToken());
+			EquipmentHead head = anEquip.getEquipmentHead(1);
+			head.put(StringKey.DAMAGE, natWpn.nextToken());
 
 			// Set the number of hands
 			String handsTxt = natWpn.nextToken();
@@ -148,10 +165,10 @@ final class NaturalAttacksPanel extends JPanel
 				hands = 0;
 			}
 
-			anEquip.setHands(hands);
+			anEquip.put(IntegerKey.SLOTS, hands);
 
 			// Set attacks progress - for now, always set to false, need to get more info on attacks progress
-			anEquip.setAttacksProgress(false);
+			anEquip.put(ObjectKey.ATTACKS_PROGRESS, false);
 
 			naturalWeapons.add(anEquip);
 		}

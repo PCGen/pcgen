@@ -11,6 +11,10 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -205,9 +209,10 @@ public class NaturalattacksLst implements GlobalLstToken
 			anEquip.setOnlyNaturalWeapon(true);
 		}
 
-		anEquip.setDamage(aTok.nextToken());
-		anEquip.setCritRange("1");
-		anEquip.setCritMult(2);
+		EquipmentHead head = anEquip.getEquipmentHead(1);
+		head.put(StringKey.DAMAGE, aTok.nextToken());
+		head.put(IntegerKey.CRIT_RANGE, 1);
+		head.put(IntegerKey.CRIT_MULT, 2);
 		anEquip.setProfName(attackName);
 
 		// sage_sam 02 Dec 2002 for Bug #586332
@@ -229,12 +234,12 @@ public class NaturalattacksLst implements GlobalLstToken
 			}
 		}
 
-		anEquip.setSlots(handsRequired);
+		anEquip.put(IntegerKey.SLOTS, handsRequired);
 
 		//these values need to be locked.
 		anEquip.setQty(new Float(1));
 		anEquip.setNumberCarried(new Float(1));
-		anEquip.setAttacksProgress(attacksProgress);
+		anEquip.put(ObjectKey.ATTACKS_PROGRESS, attacksProgress);
 
 		// Check if the proficiency needs created
 		WeaponProf prof = Globals.getWeaponProfKeyed(attackName);

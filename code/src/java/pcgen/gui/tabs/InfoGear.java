@@ -27,35 +27,115 @@
  */
 package pcgen.gui.tabs;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.EventObject;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.InputVerifier;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableColumn;
+import javax.swing.tree.TreePath;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.core.*;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.AbilityCategory;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.*;
+import pcgen.gui.CharacterInfoTab;
+import pcgen.gui.EQFrame;
+import pcgen.gui.GuiConstants;
+import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.utils.*;
-import pcgen.util.*;
+import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.InfoLabelTextBuilder;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableMouseAdapter;
+import pcgen.gui.utils.JTreeTableSorter;
+import pcgen.gui.utils.LabelTreeCellRenderer;
+import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.ResizeColumnListener;
+import pcgen.gui.utils.TreeTableModel;
+import pcgen.gui.utils.Utility;
+import pcgen.util.BigDecimalHelper;
+import pcgen.util.InputFactory;
+import pcgen.util.InputInterface;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.*;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableColumn;
-import javax.swing.tree.TreePath;
-import java.awt.*;
-import java.awt.event.*;
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.List;
 
 /**
  *
@@ -527,7 +607,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			// Should only be meaningful for weapons, but if included on some other piece of
 			// equipment, show it anyway
 			//
-			if (aEq.isWeapon() || aEq.hasWield())
+			if (aEq.isWeapon() || aEq.get(ObjectKey.WIELD) != null)
 			{
 				b.appendSpacer();
 				final WieldCategory wCat = aEq.getEffectiveWieldCategory(pc);
@@ -660,32 +740,31 @@ public final class InfoGear extends FilterAdapterPanel implements
 				b.appendI18nElement("in_igInfoLabelTextDamage",bString); //$NON-NLS-1$
 			}
 
-			bString = aEq.getCritRange(pc);
+			int critrange = pc.getCritRange(aEq, true);
+			int altcritrange = pc.getCritRange(aEq, false);
+			bString = critrange == 0 ? "" : Integer.toString(critrange);
+			if (aEq.isDouble() && critrange != altcritrange)
+			{
+				bString += "/"
+						+ (altcritrange == 0 ? "" : Integer
+								.toString(altcritrange));
+			}
 
 			if (bString.length() > 0)
 			{
-
-				if (aEq.isDouble()
-					&& !aEq.getCritRange(pc).equals(aEq.getAltCritRange(pc)))
-				{
-					bString += "/" + aEq.getAltCritRange(pc); //$NON-NLS-1$
-				}
-				
 				b.appendSpacer();
-				b.appendI18nElement("in_igInfoLabelTextCritRange" , bString); //$NON-NLS-1$
+				b.appendI18nElement("in_ieInfoLabelTextCritRange",bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getCritMult();
+			if (aEq.isDouble()
+					&& !(aEq.getCritMultiplier() == aEq.getAltCritMultiplier()))
+			{
+				bString += "/" + aEq.getAltCritMult(); //$NON-NLS-1$
+			}
 
 			if (bString.length() > 0)
 			{
-				
-				if (aEq.isDouble()
-					&& !(aEq.getCritMultiplier() == aEq.getAltCritMultiplier()))
-				{
-					bString += "/" + aEq.getAltCritMult(); //$NON-NLS-1$
-				}
-				
 				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextCritMult" , bString ); //$NON-NLS-1$
 			}

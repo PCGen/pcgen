@@ -44,7 +44,9 @@ import java.util.regex.Pattern;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
@@ -202,18 +204,12 @@ public final class Equipment extends PObject implements Serializable,
 
 	private boolean d_acceptsChildren = false;
 
-	private Integer acCheck = Integer.valueOf(0);
-
 	private String fumbleRange = "";
 
 	// effective DR vales for Armor
 	private Integer eDR = Integer.valueOf(-1);
 
-	private Integer maxDex = Integer.valueOf(100);
-
 	private Integer spellFailure = Integer.valueOf(0);
-
-	private WeaponEquipment theWeaponStats = null;
 
 	private boolean isOnlyNaturalWeapon = false;
 
@@ -269,8 +265,6 @@ public final class Equipment extends PObject implements Serializable,
 	private int outputIndex = 0;
 
 	private int outputSubindex = 0;
-
-	private int slots = 1;
 
 	private int baseQuantity = 1;
 
@@ -649,29 +643,6 @@ public final class Equipment extends PObject implements Serializable,
 	//
 	// Misc properties
 	//
-
-	/**
-	 * Sets the acCheck attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new acCheck value
-	 */
-	public void setACCheck(final String aString) {
-		try {
-			acCheck = Integer.valueOf(aString);
-		} catch (NumberFormatException nfe) {
-			acCheck = Integer.valueOf(0);
-		}
-	}
-
-	/**
-	 * Get ACCheck
-	 * 
-	 * @return AC Check
-	 */
-	public Integer getAcCheck() {
-		return acCheck;
-	}
 
 	/**
 	 * Returns the fumbleRange for this item.
@@ -1070,15 +1041,6 @@ public final class Equipment extends PObject implements Serializable,
 		typeListCachePrimary = null;
 		getEqModifierList(bPrimary).add(eqMod);
 		setDirty(true);
-	}
-
-	/**
-	 * Set hands
-	 * 
-	 * @param argHands
-	 */
-	public void setHands(final int argHands) {
-		slots = argHands;
 	}
 
 	/**
@@ -1533,20 +1495,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the maxDex attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new maxDex value
-	 */
-	public void setMaxDex(final String aString) {
-		try {
-			maxDex = Delta.decode(aString);
-		} catch (NumberFormatException ignore) {
-			// ignore
-		}
-	}
-
-	/**
 	 * Gets the maxDex attribute of the Equipment object
 	 * 
 	 * @param aPC
@@ -1554,18 +1502,22 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The maxDex value
 	 */
 	public Integer getMaxDex(final PlayerCharacter aPC) {
-		int mdex = maxDex.intValue()
-				+ (int) bonusTo(aPC, "EQMARMOR", "MAXDEX", true);
+		Integer mdex = get(IntegerKey.MAX_DEX);
+		if (mdex == null)
+		{
+			mdex = Constants.MAX_MAXDEX;
+		}
+		mdex += (int) bonusTo(aPC, "EQMARMOR", "MAXDEX", true);
 
 		if (mdex > Constants.MAX_MAXDEX) {
 			mdex = Constants.MAX_MAXDEX;
 		}
 
 		if (mdex < 0) {
-			mdex = 0;
+			mdex = Integer.valueOf(0);
 		}
 
-		return Integer.valueOf(mdex);
+		return mdex;
 	}
 
 	/**
@@ -1947,66 +1899,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the range attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new range value
-	 */
-	public void setRange(final String aString) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setRange(aString);
-	}
-
-	/**
-	 * Gets the range attribute of the Equipment object
-	 * 
-	 * @return The range value
-	 * @param aPC
-	 */
-	public Integer getRange(final PlayerCharacter aPC) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getRange(aPC);
-		}
-		return 0;
-	}
-
-	/**
-	 * Set the weapon's rate of fire
-	 * 
-	 * @param rateOfFire
-	 *            A free-format string.
-	 */
-	public void setRateOfFire(final String rateOfFire) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setRateOfFire(rateOfFire);
-	}
-
-	/**
-	 * Returns the weapon's rate of fire Defaults to empty string
-	 * 
-	 * @return The weapon's rate of fire
-	 */
-	public String getRateOfFire() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getRateOfFire();
-		}
-		return "";
-	}
-
-	/**
-	 * Gets the rawCritRange attribute of the Equipment object
-	 * 
-	 * @return The rawCritRange value
-	 */
-	public int getRawCritRange() {
-		return getRawCritRange(true);
-	}
-
-	/**
 	 * Gets the rawCritRange attribute of the Equipment object
 	 * 
 	 * @param bPrimary
@@ -2014,10 +1906,23 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The rawCritRange value
 	 */
 	public int getRawCritRange(final boolean bPrimary) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getRawCritRange(bPrimary);
+		int range = getHeadInfo(bPrimary ? 1 : 2, IntegerKey.CRIT_RANGE);
+		if (range == 0)
+		{
+			String cr = getWeaponInfo("CRITRANGE", bPrimary);
+			if (cr.length() != 0)
+			{
+				try
+				{
+					range = Integer.parseInt(cr);
+				}
+				catch (NumberFormatException ignore)
+				{
+					//ignore
+				}
+			}
 		}
-		return 0;
+		return range;
 	}
 
 	/**
@@ -2040,41 +1945,13 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the reach attribute of the Equipment object.
-	 * 
-	 * @param newReach
-	 *            The new reach value
-	 */
-	public void setReach(final int newReach) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setReach(newReach);
-	}
-
-	/**
 	 * Gets the reach attribute of the Equipment object.
 	 * 
 	 * @return The reach value
 	 */
 	public int getReach() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getReach();
-		}
-		return 0;
-	}
-
-	/**
-	 * Sets the reach multiplier attribute of the Equipment object
-	 * 
-	 * @param i
-	 *            the new reach multiplier
-	 */
-	public void setReachMult(int i) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setReachMult(i);
+		Integer reach = get(IntegerKey.REACH);
+		return reach == null ? 0 : reach;
 	}
 
 	/**
@@ -2083,10 +1960,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return the reach multiplier value
 	 */
 	public int getReachMult() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getReachMult();
-		}
-		return 0;
+		Integer mult = get(IntegerKey.REACH_MULT);
+		return mult == null ? 1 : mult;
 	}
 
 	/**
@@ -2156,15 +2031,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Set the number of "Slots" required to equip this item
-	 * 
-	 * @param i
-	 */
-	public void setSlots(final int i) {
-		slots = i;
-	}
-
-	/**
 	 * The number of "Slots" that this item requires The slot type is derived
 	 * from system/special/equipmentslot.lst
 	 * 
@@ -2172,7 +2038,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return slots
 	 */
 	public int getSlots(final PlayerCharacter aPC) {
-		int iSlots = slots;
+		int iSlots = getSlots();
 
 		for (EquipmentModifier eqMod : eqModifierList) {
 			iSlots += (int) eqMod.bonusTo(aPC, "EQM", "HANDS", this);
@@ -2525,52 +2391,13 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Set damage (this is used to overide default equipment)
-	 * 
-	 * @param aString
-	 *            The new damage value
-	 */
-	public void setDamageMod(final String aString) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setDamageMod(aString);
-	}
-
-	/**
-	 * Get damage mod
-	 * 
-	 * @return damage mod
-	 */
-	public String getDamageMod() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getDamageMod();
-		}
-		return "";
-	}
-
-	/**
-	 * new 3.5 Wield Category
-	 * 
-	 * @param aString
-	 */
-	public void setWield(final String aString) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setWield(aString);
-	}
-
-	/**
 	 * Get weild
 	 * 
 	 * @return weild
 	 */
-	public String getWield() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getWield();
-		}
-		return "";
+	public String getWieldName() {
+		WieldCategory wield = get(ObjectKey.WIELD);
+		return wield == null ? "" : wield.getName();
 	}
 
 	/**
@@ -2581,8 +2408,12 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 */
 	public Integer acCheck(final PlayerCharacter aPC) {
-		int check = acCheck.intValue()
-				+ (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true);
+		int check = (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true);
+		Integer acCheck = get(IntegerKey.AC_CHECK);
+		if (acCheck != null)
+		{
+			check += acCheck;
+		}
 
 		if (check > 0) {
 			check = 0;
@@ -2639,7 +2470,7 @@ public final class Equipment extends PObject implements Serializable,
 
 			if (eqModKey.equals(EQMOD_DAMAGE)) {
 				if (aTok.hasMoreTokens()) {
-					setDamageMod(aTok.nextToken());
+					put(StringKey.DAMAGE_OVERRIDE, aTok.nextToken());
 				}
 				return;
 			}
@@ -3103,13 +2934,12 @@ public final class Equipment extends PObject implements Serializable,
 
 			// set DR
 			eq.seteDR(eDR.toString());
-			eq.setACCheck(acCheck.toString());
 			eq.setSpellFailure(spellFailure.toString());
-			eq.setMaxDex(maxDex.toString());
 
-			if (theWeaponStats != null) {
-				eq.theWeaponStats = theWeaponStats.clone();
-				eq.theWeaponStats.setOwner(eq);
+			eq.heads = new ArrayList<EquipmentHead>();
+			for (EquipmentHead head : heads)
+			{
+				eq.heads.add((EquipmentHead) head.clone());
 			}
 
 			//
@@ -3121,7 +2951,6 @@ public final class Equipment extends PObject implements Serializable,
 			eq.carried = carried;
 			eq.equipped = equipped;
 			eq.location = location;
-			eq.slots = slots;
 			eq.bonusType = bonusType;
 			eq.numberEquipped = numberEquipped;
 			eq.qty = qty;
@@ -3299,22 +3128,11 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Returns TRUE true if it is weildable
-	 * 
-	 * @return true if it is weildable
-	 */
-	public boolean hasWield() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.hasWield();
-		}
-		return false;
-	}
-
-	/**
 	 * Description of the Method
 	 * 
 	 * @return Description of the Return Value
 	 */
+	@Override
 	public int hashCode() {
 		return getName().hashCode();
 	}
@@ -3747,18 +3565,21 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (iNewSize != iOldSize) {
 			setSize(newSize);
-
 			final Equipment eq = EquipmentList.getEquipmentKeyed(baseItem);
 
 			if (eq != null) {
 				setCost(eq.getCostAdjustedForSize(aPC, newSize).toString());
 				setWeight(eq.getWeightAdjustedForSize(aPC, newSize).toString());
 				adjustACForSize(aPC, eq, newSize);
-				if (eq.theWeaponStats != null) {
-					setDamage(eq.theWeaponStats
-							.getDamageAdjustedForSize(newSize));
-					setAltDamage(eq.theWeaponStats
-							.getAltDamageAdjustedForSize(newSize));
+				String dam = eq.getDamageAdjustedForSize(newSize, true);
+				if (dam != null && dam.length() > 0)
+				{
+					getEquipmentHead(1).put(StringKey.DAMAGE, dam);
+				}
+				String adam = eq.getDamageAdjustedForSize(newSize, false);
+				if (adam != null && adam.length() > 0)
+				{
+					getEquipmentHead(2).put(StringKey.DAMAGE, adam);
 				}
 				//
 				// Adjust the capacity of the container (if it is one)
@@ -4029,12 +3850,12 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	private void setDefaultCrit(final PlayerCharacter aPC) {
 		if (isWeapon()) {
-			if (getCritRange(aPC).length() == 0) {
-				setCritRange("1");
+			if (aPC.getCritRange(this, true) == 0) {
+				getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 			}
 
-			if (getCritMult().length() == 0) {
-				setCritMult(2);
+			if (getCritMultiplier() == 0) {
+				getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 			}
 		}
 	}
@@ -4330,14 +4151,13 @@ public final class Equipment extends PObject implements Serializable,
 					weightMod.toString().replace('.', ','));
 		}
 
-		if (theWeaponStats != null) {
-			if (theWeaponStats.getDamageMod().length() != 0) {
-				if (aString.length() != 0) {
-					aString.append('.');
-				}
-				aString.append(EQMOD_DAMAGE).append('|').append(
-						theWeaponStats.getDamageMod().replace('.', ','));
+		String dmg = get(StringKey.DAMAGE_OVERRIDE);
+		if (dmg != null) {
+			if (aString.length() != 0) {
+				aString.append('.');
 			}
+			aString.append(EQMOD_DAMAGE).append('|').append(
+					dmg.replace('.', ','));
 		}
 		return aString.toString();
 	}
@@ -5326,7 +5146,8 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	int getSlots() {
-		return slots;
+		Integer slots = get(IntegerKey.SLOTS);
+		return slots == null ? 1 : slots;
 	}
 
 	Integer getSpellFailure() {
@@ -5334,10 +5155,8 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	Integer getRange() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getRange();
-		}
-		return 0;
+		Integer range = get(IntegerKey.RANGE);
+		return range == null ? 0 : range;
 	}
 
 	/**
@@ -5585,53 +5404,12 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the critMult attribute of the Equipment object
-	 * 
-	 * @param aMult
-	 *            The new critMult value
-	 */
-	public void setCritMult(final int aMult) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setCritMult(aMult);
-	}
-
-	/**
 	 * Gets the critMult attribute of the Equipment object
 	 * 
 	 * @return The critMult value
 	 */
 	public String getCritMult() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getCritMult();
-		}
-		return "";
-	}
-
-	/**
-	 * Gets the unmodified crit multiplier for the weapon.
-	 * 
-	 * @return the crit multiplier
-	 */
-	public int getRawCritMult() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getRawCritMult();
-		}
-		return 0;
-	}
-
-	/**
-	 * Sets the altCritMult attribute of the Equipment object
-	 * 
-	 * @param aMult
-	 *            The new altCritMult value
-	 */
-	public void setAltCritMult(final int aMult) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setAltCritMult(aMult);
+		return multAsString(getCritMultiplier());
 	}
 
 	/**
@@ -5640,22 +5418,27 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The altCritMult value
 	 */
 	public String getAltCritMult() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getAltCritMult();
-		}
-		return "";
+		return multAsString(getAltCritMultiplier());
 	}
 
 	/**
-	 * Gets the unmodified alt crit multiplier for the weapon.
-	 * 
-	 * @return the alt crit multiplier
+	 * Description of the Method
+	 *
+	 * @param mult Description of the Parameter
+	 * @return    Description of the Return Value
 	 */
-	public int getRawAltCritMult() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getRawAltCritMult();
+	private static String multAsString(final int mult)
+	{
+		if (mult == 0)
+		{
+			return "";
 		}
-		return 0;
+		else if (mult < 0)
+		{
+			return "-";
+		}
+
+		return "x" + Integer.toString(mult);
 	}
 
 	/**
@@ -5664,10 +5447,17 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The critMultiplier value
 	 */
 	public int getCritMultiplier() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getCritMultiplier();
+		int mult = getHeadInfo(1, IntegerKey.CRIT_MULT);
+		if (mult == 0)
+		{
+			final String cm = getWeaponInfo("CRITMULT", true);
+
+			if (cm.length() != 0)
+			{
+				mult = Integer.parseInt(cm);
+			}
 		}
-		return 0;
+		return mult;
 	}
 
 	/**
@@ -5676,10 +5466,32 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The altCritMultiplier value
 	 */
 	public int getAltCritMultiplier() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getAltCritMultiplier();
+		int mult = getHeadInfo(2, IntegerKey.CRIT_MULT);
+		if (mult == 0)
+		{
+			final String cm = getWeaponInfo("CRITMULT", false);
+
+			if (cm.length() != 0)
+			{
+				mult = Integer.parseInt(cm);
+			}
 		}
-		return 0;
+		return mult;
+	}
+
+	private int getHeadInfo(int headnum, IntegerKey ik)
+	{
+		EquipmentHead head = getEquipmentHeadReference(headnum);
+		int mult = 0;
+		if (head != null)
+		{
+			Integer headmult = head.get(ik);
+			if (headmult != null)
+			{
+				mult = headmult;
+			}
+		}
+		return mult;
 	}
 
 	/**
@@ -5795,14 +5607,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The minimum WieldCategory required to use the weapon.
 	 */
 	public WieldCategory getEffectiveWieldCategory(final PlayerCharacter aPC) {
-		WieldCategory wCat = null;
-
 		WeaponProf wp = getExpandedWeaponProf(aPC);
-
-		// Get this equipments WieldCategory from gameMode
-		wCat = WieldCategory.findByName(getWield());
-
-		if (hasWield() && !Globals.checkRule(RuleConstants.SIZEOBJ)) {
+		WieldCategory wCat = get(ObjectKey.WIELD);
+		if (wCat != null && !Globals.checkRule(RuleConstants.SIZEOBJ)) {
 			// Get the starting effective wield category
 			wCat = wCat.adjustForSize(aPC, this);
 		} else {
@@ -5992,79 +5799,6 @@ public final class Equipment extends PObject implements Serializable,
 	//
 
 	/**
-	 * Sets the critRange attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new critRange value
-	 */
-	public void setCritRange(final String aString) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setCritRange(aString);
-	}
-
-	/**
-	 * Gets the critRange attribute of the Equipment object
-	 * 
-	 * @param aPC
-	 * 
-	 * @return The critRange value
-	 */
-	public String getCritRange(final PlayerCharacter aPC) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getCritRange(aPC);
-		}
-		return "";
-	}
-
-	/**
-	 * Gets the critRangeAdd attribute of the Equipment object
-	 * 
-	 * @param aPC
-	 * 
-	 * @param bPrimary
-	 *            Description of the Parameter
-	 * @return The critRangeAdd value
-	 */
-	public int getCritRangeAdd(final PlayerCharacter aPC, final boolean bPrimary) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getCritRangeAdd(aPC, bPrimary);
-		}
-		return 0;
-	}
-
-	/**
-	 * Gets the critRangeDouble attribute of the Equipment object
-	 * 
-	 * @param aPC
-	 * 
-	 * @param bPrimary
-	 *            Description of the Parameter
-	 * @return The critRangeDouble value
-	 */
-	public int getCritRangeDouble(final PlayerCharacter aPC,
-			final boolean bPrimary) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getCritRangeDouble(aPC, bPrimary);
-		}
-		return 0;
-	}
-
-	/**
-	 * Sets the damage attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new damage value
-	 */
-	public void setDamage(final String aString) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setDamage(aString);
-	}
-
-	/**
 	 * Gets the damage attribute of the Equipment object
 	 * 
 	 * @param aPC
@@ -6072,54 +5806,60 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The damage value
 	 */
 	public String getDamage(final PlayerCharacter aPC) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getDamage(aPC);
-		}
-		return "";
+		return getDamage(aPC, true);
 	}
 
-	/**
-	 * Sets the altCritRange attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new altCritRange value
-	 */
-	public void setAltCritRange(final String aString) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
+	private String getDamage(PlayerCharacter apc, boolean bPrimary)
+	{
+		int headnum = bPrimary ? 1 : 2;
+		EquipmentHead head = getEquipmentHeadReference(headnum);
+		if (head == null)
+		{
+			return "";
 		}
-		theWeaponStats.setAltCritRange(aString);
-	}
-
-	//
-	// This can be different if one head is Keen and the other is not
-	//
-
-	/**
-	 * Gets the altCritRange attribute of the Equipment object
-	 * 
-	 * @param aPC
-	 * 
-	 * @return The altCritRange value
-	 */
-	public String getAltCritRange(final PlayerCharacter aPC) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getAltCritRange(aPC);
+		String dam = head.get(StringKey.DAMAGE);
+		if (!isWeapon() || (!bPrimary && !isDouble()))
+		{
+			return dam == null ? "" : dam;
 		}
-		return "";
-	}
-
-	/**
-	 * Sets the alternate damage for this item.
-	 * 
-	 * @param aString
-	 *            the alternate damage for this item.
-	 */
-	public void setAltDamage(final String aString) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
+		if (bPrimary && dam == null)
+		{
+			// No need to grab reference, always exists due to if above
+			EquipmentHead altHead = getEquipmentHead(2);
+			dam = altHead.get(StringKey.DAMAGE);
 		}
-		theWeaponStats.setAltDamage(aString);
+		String override = get(StringKey.DAMAGE_OVERRIDE);
+		if (bPrimary && override != null)
+		{
+			// this overides the base damage
+			dam = override;
+		}
+
+		if (dam == null)
+		{
+			dam = getWeaponInfo("DAMAGE", bPrimary);
+		}
+
+		final int iSize = sizeInt();
+		int iMod = iSize + (int) bonusTo(apc, "EQMWEAPON", "DAMAGESIZE", bPrimary);
+		iMod += (int) bonusTo(apc, "WEAPON", "DAMAGESIZE", bPrimary);
+
+		if (iMod < 0)
+		{
+			iMod = 0;
+		}
+		else if (iMod >= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1))
+		{
+			iMod = SettingsHandler.getGame().getSizeAdjustmentListSize() - 1;
+		}
+
+		final SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(iMod);
+		String adjAbbrev = "";
+		if (sadj != null)
+		{
+			adjAbbrev = sadj.getAbbreviation();
+		}
+		return adjustDamage(dam, adjAbbrev);
 	}
 
 	/**
@@ -6130,23 +5870,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return the alternate damage for this item.
 	 */
 	public String getAltDamage(final PlayerCharacter aPC) {
-		if (theWeaponStats != null) {
-			theWeaponStats.getAltDamage(aPC);
-		}
-		return "";
-	}
-
-	/**
-	 * Returns whether to give several attacks
-	 * 
-	 * @param argAttacksProgress
-	 *            whether to give several attacks.
-	 */
-	public void setAttacksProgress(final boolean argAttacksProgress) {
-		if (theWeaponStats == null) {
-			theWeaponStats = new WeaponEquipment(this);
-		}
-		theWeaponStats.setAttacksProgress(argAttacksProgress);
+		return getDamage(aPC, false);
 	}
 
 	/**
@@ -6155,10 +5879,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return whether it gives several attacks
 	 */
 	public boolean isAttacksProgress() {
-		if (theWeaponStats != null) {
-			return theWeaponStats.isAttacksProgress();
-		}
-		return false;
+		Boolean ap = get(ObjectKey.ATTACKS_PROGRESS);
+		return ap == null || ap;
 	}
 
 	/**
@@ -6172,10 +5894,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int getBonusToDamage(final PlayerCharacter aPC,
 			final boolean bPrimary) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getBonusToDamage(aPC, bPrimary);
-		}
-		return 0;
+		return (int) bonusTo(aPC, "WEAPON", "DAMAGE", bPrimary);
 	}
 
 	/**
@@ -6188,27 +5907,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The bonusToHit value
 	 */
 	public int getBonusToHit(final PlayerCharacter aPC, final boolean bPrimary) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getBonusToHit(aPC, bPrimary);
-		}
-		return 0;
-	}
-
-	/**
-	 * Gets the range list of the Equipment object, adding the 30' range, if not
-	 * present and required
-	 * 
-	 * @param addShortRange
-	 *            boolean
-	 * @param aPC
-	 * @return The range list
-	 */
-	public List<String> getRangeList(boolean addShortRange,
-			final PlayerCharacter aPC) {
-		if (theWeaponStats != null) {
-			return theWeaponStats.getRangeList(addShortRange, aPC);
-		}
-		return new ArrayList<String>();
+		return (int) bonusTo(aPC, "WEAPON", "TOHIT", bPrimary);
 	}
 
 	// ---------------------------
@@ -6689,4 +6388,180 @@ public final class Equipment extends PObject implements Serializable,
 		shieldProf = prof;
 	}
 
+	List<EquipmentHead> heads = new ArrayList<EquipmentHead>();
+
+	public EquipmentHead getEquipmentHead(int index)
+	{
+		EquipmentHead head;
+		if (index <= 0)
+		{
+			throw new IndexOutOfBoundsException(Integer.toString(index));
+		}
+		else
+		{
+			int headsIndex = index - 1;
+			int currentSize = heads.size();
+			if (headsIndex >= currentSize)
+			{
+				for (int i = 0; i < headsIndex - currentSize; i++)
+				{
+					heads.add(null);
+				}
+				head = new EquipmentHead(this, index);
+				heads.add(head);
+			}
+			else
+			{
+				head = heads.get(headsIndex);
+				if (head == null)
+				{
+					head = new EquipmentHead(this, index);
+					heads.add(headsIndex, head);
+				}
+			}
+		}
+		return head;
+	}
+
+	public EquipmentHead getEquipmentHeadReference(int index)
+	{
+		if (index <= 0)
+		{
+			throw new IndexOutOfBoundsException(Integer.toString(index));
+		}
+		else if (index <= heads.size())
+		{
+			return heads.get(index - 1);
+		}
+		return null;
+	}
+
+	/**
+	 * Reduce/increase damage for modified size as per DMG p.162
+	 *
+	 * @param aDamage The base damage
+	 * @param aSize   The size to adjust for
+	 * @return     The adjusted damage
+	 */
+	private String adjustDamage(final String aDamage, final String aSize)
+	{
+		if (aDamage == null)
+		{
+			return null;
+		}
+		if (!"special".equalsIgnoreCase(aDamage) && !"-".equals(aDamage))
+		{
+			return Globals.adjustDamage(aDamage, getSize(), aSize);
+		}
+
+		return aDamage;
+	}
+
+	/**
+	 * Gets the damageAdjustedForSize attribute of the Equipment object
+	 *
+	 * @param aSize The size to adjust for
+	 * @param bPrimary
+	 * @return     The damageAdjustedForSize value
+	 */
+	private String getDamageAdjustedForSize(final String aSize, final boolean bPrimary)
+	{
+		int headnum = bPrimary ? 1 : 2;
+		EquipmentHead head = getEquipmentHeadReference(headnum);
+		if (head == null)
+		{
+			return null;
+		}
+		String dam = head.get(StringKey.DAMAGE);
+		if (!isWeapon() || (!bPrimary && !isDouble()))
+		{
+			return dam;
+		}
+		if (dam == null)
+		{
+			dam = getWeaponInfo("DAMAGE", bPrimary);
+		}
+		return adjustDamage(dam, aSize);
+	}
+
+	/**
+	 * Gets the range attribute of the Equipment object
+	 *
+	 * @return The range value
+	 * @param aPC
+	 */
+	public Integer getRange(final PlayerCharacter aPC)
+	{
+		Integer range = getRange();
+
+		if (range == 0)
+		{
+			final String aRange = getWeaponInfo("RANGE", true);
+
+			if (aRange.length() != 0)
+			{
+				range = Integer.valueOf(aRange);
+			}
+		}
+
+		int r = range.intValue() + (int) bonusTo(aPC, "EQMWEAPON", "RANGEADD", true);
+		final int i = (int) bonusTo(aPC, "EQMWEAPON", "RANGEMULT", true);
+		double rangeMult = 1.0;
+
+		if (i > 0)
+		{
+			rangeMult += (i - 1);
+		}
+
+		int postAdd = 0;
+
+		if (aPC != null)
+		{
+			if (isThrown())
+			{
+				r += (int) aPC.getTotalBonusTo("RANGEADD", "THROWN");
+				postAdd = (int) aPC.getTotalBonusTo("POSTRANGEADD", "THROWN");
+				rangeMult += ((int) aPC.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
+			}
+			else if (isProjectile())
+			{
+				r += (int) aPC.getTotalBonusTo("RANGEADD", "PROJECTILE");
+				postAdd = (int) aPC.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
+				rangeMult += ((int) aPC.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
+			}
+		}
+
+		r *= rangeMult;
+		r += postAdd;
+
+		// If it's a ranged, thrown or projectile, it must have a range
+		if ((isRanged() || isThrown() || isProjectile()) && (r <= 0))
+		{
+			r = 10;
+		}
+
+		return Integer.valueOf(r);
+	}
+
+	String getWeaponInfo(final String infoType, final boolean bPrimary)
+	{
+		final String it = infoType + "|";
+		final EquipmentModifier eqMod = getEqModifierKeyed(
+				Constants.s_INTERNAL_EQMOD_WEAPON, bPrimary);
+
+		if (eqMod != null)
+		{
+			for (int i = 0; i < eqMod.getAssociatedCount(); ++i)
+			{
+				final String aString = eqMod.getAssociated(i);
+
+				if (aString.startsWith(it))
+				{
+					return aString.substring(it.length());
+				}
+			}
+		}
+
+		return "";
+	}
 }

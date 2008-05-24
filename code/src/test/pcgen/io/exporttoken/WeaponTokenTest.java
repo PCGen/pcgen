@@ -28,6 +28,8 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -135,14 +137,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn.setKeyName("KEY_DOUBLE_WPN");
 		dblWpn
 			.setTypeInfo("Weapon.Melee.Martial.Double.Standard.Bludgeoning.Flail");
-		dblWpn.setDamage("1d10");
-		dblWpn.setAltDamage("1d6");
-		dblWpn.setCritMult(2);
-		dblWpn.setAltCritMult(2);
-		dblWpn.setCritRange("1");
-		dblWpn.setAltCritRange("1");
-		dblWpn.setSlots(2);
-		dblWpn.setWield("TwoHanded");
+		dblWpn.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
+		dblWpn.getEquipmentHead(2).put(StringKey.DAMAGE, "1d6");
+		dblWpn.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		dblWpn.getEquipmentHead(2).put(IntegerKey.CRIT_MULT, 2);
+		dblWpn.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
+		dblWpn.getEquipmentHead(2).put(IntegerKey.CRIT_RANGE, 1);
+		dblWpn.put(IntegerKey.SLOTS, 2);
+		dblWpn.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
 		dblWpn.setSize("M", true);
 		character.addEquipment(dblWpn);
 		EquipSet def = new EquipSet("0.1", "Default");
@@ -159,10 +161,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.setProfName("KEY_Sword (Bastard/[Hands])");
 		bastardSword
 			.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
-		bastardSword.setDamage("1d10");
-		bastardSword.setCritMult(2);
-		bastardSword.setCritRange("2");
-		bastardSword.setWield("TwoHanded");
+		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
+		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
+		bastardSword.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
 		bastardSword.setSize("M", true);
 
 		WeaponProf wp = new WeaponProf();
@@ -190,10 +192,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.setOutputName("Longsword (Large)");
 		largeSword.setProfName("KEY_Longsword");
 		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
-		largeSword.setDamage("1d10");
-		largeSword.setCritMult(2);
-		largeSword.setCritRange("2");
-		largeSword.setWield("OneHanded");
+		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
+		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
+		largeSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
 		largeSword.setSize("L", true);
 
 		wp = new WeaponProf();
@@ -210,10 +212,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.setProfName("KEY_Longsword");
 		fineSword
 			.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
-		fineSword.setDamage("1d10");
-		fineSword.setCritMult(2);
-		fineSword.setCritRange("2");
-		fineSword.setWield("OneHanded");
+		fineSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
+		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
+		fineSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
 		fineSword.setSize("M", true);
 
 		longSpear = new Equipment();
@@ -222,12 +224,12 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.setOutputName("Longspear");
 		longSpear.setProfName("MARTIAL");
 		longSpear.setTypeInfo("Weapon.Melee.Martial.Standard.Piercing.Spear");
-		longSpear.setDamage("1d6");
-		longSpear.setCritMult(2);
-		longSpear.setCritRange("1");
-		longSpear.setWield("TwoHanded");
+		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
+		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
+		longSpear.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
 		longSpear.setSize("M", true);
-		longSpear.setReach(10);
+		longSpear.put(IntegerKey.REACH, 10);
 
 		GameMode gm = SettingsHandler.getGame();
 		RuleCheck rc = new RuleCheck();
@@ -247,14 +249,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.setSize("M", true);
 		bite.addBonusList("WEAPON|ATTACKS|" + 7);
 		bite.setOnlyNaturalWeapon(false);
-		bite.setSlots(0);
+		bite.put(IntegerKey.SLOTS, 0);
 		bite.setQty(Float.valueOf(1));
 		bite.setNumberCarried(Float.valueOf(1));
-		bite.setAttacksProgress(false);
-		bite.setDamage("1d10");
-		bite.setCritMult(2);
-		bite.setCritRange("2");
-		bite.setWield("OneHanded");
+		bite.put(ObjectKey.ATTACKS_PROGRESS, false);
+		bite.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
+		bite.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		bite.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
+		bite.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
 		bite.setProfName("SillyBite");
 
 		wp = new WeaponProf();
@@ -652,7 +654,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			"10", token.getToken("WEAPON.3.REACH", character, null));
 
 		// set reach multiplier on the large sword to 2 and retest
-		largeSword.setReachMult(2);
+		largeSword.put(IntegerKey.REACH_MULT, 2);
 		assertEquals(
 			"Reach for a reach multiple weapon on a character with normal reach",
 			"10", token.getToken("WEAPON.4.REACH", character, null));

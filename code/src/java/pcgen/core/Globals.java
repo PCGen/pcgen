@@ -2291,7 +2291,6 @@ public final class Globals
 	{
 		String result = aDamage;
 		int multiplier = 1;
-
 		int direction = 0;
 		String parseString = Constants.EMPTY_STRING;
 		if (baseSize < finalSize)
@@ -3283,7 +3282,6 @@ public final class Globals
 		{
 			return aDamage;
 		}
-
 		return adjustDamage(aDamage, sizeInt(sBaseSize), sizeInt(sNewSize));
 	}
 

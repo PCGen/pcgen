@@ -28,6 +28,7 @@
 package pcgen.gui;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.*;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
@@ -1415,8 +1416,7 @@ final class EqBuilder extends JPanel
 		if (selectedValue != null)
 		{
 			String aString = ((String) selectedValue).trim();
-
-			aNewEq.setDamageMod(aString);
+			aNewEq.put(StringKey.DAMAGE_OVERRIDE, aString);
 			showItemInfo(aPC);
 		}
 	}
@@ -1856,7 +1856,7 @@ final class EqBuilder extends JPanel
 						}
 					}
 
-					final int critRange = 21 - Integer.parseInt(aNewEq.getCritRange(aPlayerCharacter));
+					final int critRange = 21 - aPlayerCharacter.getCritRange(aNewEq, true);
 					aInfo.append(" (").append(String.valueOf(critRange));
 
 					if (critRange < 20)
@@ -1870,13 +1870,7 @@ final class EqBuilder extends JPanel
 					{
 						aInfo.append('/');
 
-						int altCritRange = 21;
-						final String aCrit = aNewEq.getAltCritRange(aPlayerCharacter);
-
-						if (aCrit.length() > 0)
-						{
-							altCritRange = 21 - Integer.parseInt(aCrit);
-						}
+						int altCritRange = 21 - aPlayerCharacter.getCritRange(aNewEq, false);
 
 						if (altCritRange != critRange)
 						{

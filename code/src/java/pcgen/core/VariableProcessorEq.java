@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
@@ -211,7 +212,8 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else if ("EQACCHECK".equals(valString))
 		{
-			retVal = eq.getAcCheck().toString();
+			Integer acCheck = eq.get(IntegerKey.AC_CHECK);
+			retVal = acCheck == null ? "0" : acCheck.toString();
 		}
 		else if ("EQHANDS".equals(valString))
 		{

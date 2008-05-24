@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.CategorisableStore;
@@ -41,6 +42,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.character.WieldCategory;
 
 /**
  * <code>SimpleWeaponProfChoiceManager</code>
@@ -301,9 +303,8 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 			for ( String wield : wieldList )
 			{
-				if (
-					!aEq.hasWield() ||
-					!aEq.getWield().equalsIgnoreCase(wield))
+				WieldCategory ew = aEq.get(ObjectKey.WIELD);
+				if (ew == null || !ew.getName().equalsIgnoreCase(wield))
 				{
 					break;
 				}
