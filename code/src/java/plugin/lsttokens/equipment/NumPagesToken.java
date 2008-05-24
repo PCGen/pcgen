@@ -23,19 +23,22 @@
  */
 package plugin.lsttokens.equipment;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.persistence.lst.EquipmentLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * <code>NumPagesToken</code> deals with NUMPAGES token
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
+ * 
+ * Last Editor: $Author$ Last Edited: $Date: 2006-03-14 18:16:52 -0400
+ * (Tue, 14 Mar 2006) $
+ * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class NumPagesToken implements EquipmentLstToken
+public class NumPagesToken implements CDOMPrimaryToken<Equipment>
 {
 
 	/**
@@ -46,19 +49,46 @@ public class NumPagesToken implements EquipmentLstToken
 		return "NUMPAGES";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.EquipmentLstToken#parse(pcgen.core.Equipment, java.lang.String)
-	 */
-	public boolean parse(Equipment eq, String value)
+	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
 		try
 		{
-			eq.setNumPages(Integer.parseInt(value));
+			Integer pages = Integer.valueOf(value);
+			if (pages.intValue() <= 0)
+			{
+				Logging.errorPrint(getTokenName() + " must be an integer > 0");
+				return false;
+			}
+			context.getObjectContext().put(eq, IntegerKey.NUM_PAGES, pages);
 			return true;
 		}
 		catch (NumberFormatException nfe)
 		{
+			Logging.errorPrint(getTokenName()
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
 			return false;
 		}
+	}
+
+	public String[] unparse(LoadContext context, Equipment eq)
+	{
+		Integer pages = context.getObjectContext().getInteger(eq,
+				IntegerKey.NUM_PAGES);
+		if (pages == null)
+		{
+			return null;
+		}
+		if (pages.intValue() <= 0)
+		{
+			context.addWriteMessage(getTokenName() + " must be an integer > 0");
+			return null;
+		}
+		return new String[] { pages.toString() };
+	}
+
+	public Class<Equipment> getTokenClass()
+	{
+		return Equipment.class;
 	}
 }

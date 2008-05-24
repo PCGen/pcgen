@@ -27,9 +27,56 @@
  */
 package pcgen.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTable;
+import javax.swing.JTextPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableColumn;
+
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.*;
+import pcgen.core.Ability;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SpecialProperty;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -38,19 +85,11 @@ import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JTableEx;
 import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.Utility;
-import pcgen.util.*;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableColumn;
-import java.awt.*;
-import java.awt.event.*;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import pcgen.util.Delta;
+import pcgen.util.InputFactory;
+import pcgen.util.InputInterface;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 /**
  * Item customizer main panel. Allows a user to customize an item and
@@ -1141,7 +1180,7 @@ final class EqBuilder extends JPanel
 		}
 
 
-		if (aNewEq.getModifiersRequired() &&
+		if (aNewEq.getModControl().getModifiersRequired() &&
 				(aNewEq.getEqModifierList(true).size() == 0) &&
 				(aNewEq.getEqModifierList(false).size() == 0))
 			{
@@ -1388,9 +1427,10 @@ final class EqBuilder extends JPanel
 					return;
 				}
 
-				aNewEq.setWeightMod("0");
-				newWeight = newWeight.subtract(new BigDecimal(aNewEq.getWeightAsDouble(aPC)));
-				aNewEq.setWeightMod(newWeight.toString());
+				aNewEq.put(ObjectKey.WEIGHT_MOD, BigDecimal.ZERO);
+				aNewEq.put(ObjectKey.WEIGHT_MOD,
+						newWeight.subtract(new BigDecimal(aNewEq
+								.getWeightAsDouble(aPC))));
 				showItemInfo(aPC);
 			}
 			catch (Exception e)

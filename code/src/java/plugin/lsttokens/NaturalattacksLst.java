@@ -4,6 +4,7 @@
  */
 package plugin.lsttokens;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -175,7 +176,7 @@ public class NaturalattacksLst implements GlobalLstToken
 
 		anEquip.setName(attackName);
 		anEquip.setTypeInfo(profType);
-		anEquip.setWeight("0");
+		anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 		anEquip.setSize(aSize, true);
 
 		String numAttacks = aTok.nextToken();
@@ -213,7 +214,7 @@ public class NaturalattacksLst implements GlobalLstToken
 		head.put(StringKey.DAMAGE, aTok.nextToken());
 		head.put(IntegerKey.CRIT_RANGE, 1);
 		head.put(IntegerKey.CRIT_MULT, 2);
-		anEquip.setProfName(attackName);
+		anEquip.setWeaponProf(attackName);
 
 		// sage_sam 02 Dec 2002 for Bug #586332
 		// allow hands to be required to equip natural weapons

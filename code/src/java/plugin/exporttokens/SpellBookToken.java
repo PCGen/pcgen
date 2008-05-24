@@ -100,7 +100,7 @@ public class SpellBookToken extends Token
 			}
 			else if ("PAGEFORMULA".equals(aLabel))
 			{
-				retString = book.getPageFormula();
+				retString = book.getPageFormula().toString();
 			}
 			else if ("TYPE".equals(aLabel))
 			{

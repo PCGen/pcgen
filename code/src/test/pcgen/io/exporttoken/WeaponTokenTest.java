@@ -23,6 +23,8 @@
  */
 package pcgen.io.exporttoken;
 
+import java.math.BigDecimal;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -158,7 +160,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword = new Equipment();
 		bastardSword.setName("Sword, Bastard");
 		bastardSword.setKeyName("BASTARD_SWORD");
-		bastardSword.setProfName("KEY_Sword (Bastard/[Hands])");
+		bastardSword.setWeaponProf("KEY_Sword (Bastard/[Hands])");
 		bastardSword
 			.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
 		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
@@ -190,7 +192,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.setName("Longsword (Large)");
 		largeSword.setKeyName("KEY_LONGSWORD_LARGE");
 		largeSword.setOutputName("Longsword (Large)");
-		largeSword.setProfName("KEY_Longsword");
+		largeSword.setWeaponProf("KEY_Longsword");
 		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
 		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -209,7 +211,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.setName("Longsword (Fine)");
 		fineSword.setKeyName("KEY_LONGSWORD_FINE");
 		fineSword.setOutputName("Longsword (Fine)");
-		fineSword.setProfName("KEY_Longsword");
+		fineSword.setWeaponProf("KEY_Longsword");
 		fineSword
 			.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
 		fineSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
@@ -222,7 +224,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.setName("Longspear");
 		longSpear.setKeyName("KEY_LONGSPEAR");
 		longSpear.setOutputName("Longspear");
-		longSpear.setProfName("MARTIAL");
+		longSpear.setWeaponProf("MARTIAL");
 		longSpear.setTypeInfo("Weapon.Melee.Martial.Standard.Piercing.Spear");
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -245,7 +247,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.setOutputName("Silly Bite (For Test)");
 		bite
 			.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
-		bite.setWeight("0");
+		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 		bite.setSize("M", true);
 		bite.addBonusList("WEAPON|ATTACKS|" + 7);
 		bite.setOnlyNaturalWeapon(false);
@@ -257,7 +259,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		bite.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
-		bite.setProfName("SillyBite");
+		bite.setWeaponProf("SillyBite");
 
 		wp = new WeaponProf();
 		wp.setName("Silly Bite");

@@ -20,6 +20,8 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
+
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -182,15 +184,17 @@ public class VariableProcessorEq extends VariableProcessor
 			}
 			else
 			{
+				BigDecimal weightInPounds = eq.getWeightInPounds();
 				if (eq.isCalculatingCost() && eq.isAmmunition())
 				{
-					final Float unitWeight = new Float(eq.getWeightInPounds()
-						/ eq.getBaseQty());
+					final Float unitWeight = new Float(weightInPounds
+							.floatValue()
+							/ eq.getBaseQty());
 					retVal = unitWeight.toString();
 				}
 				else
 				{
-					retVal = String.valueOf(eq.getWeightInPounds());
+					retVal = weightInPounds.toString();
 				}
 
 				eq.setWeightAlreadyUsed(true);

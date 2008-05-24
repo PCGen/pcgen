@@ -23,19 +23,23 @@
  */
 package plugin.lsttokens.equipment;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
-import pcgen.persistence.lst.EquipmentLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * <code>PageUsageToken</code> deals with PAGEUSAGE token
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
+ * 
+ * Last Editor: $Author$ Last Edited: $Date: 2006-03-14 18:16:52 -0400
+ * (Tue, 14 Mar 2006) $
+ * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PageUsageToken implements EquipmentLstToken
+public class PageUsageToken implements CDOMPrimaryToken<Equipment>
 {
 
 	/**
@@ -46,12 +50,26 @@ public class PageUsageToken implements EquipmentLstToken
 		return "PAGEUSAGE";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.EquipmentLstToken#parse(pcgen.core.Equipment, java.lang.String)
-	 */
-	public boolean parse(Equipment eq, String value)
+	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
-		eq.setPageUsage(value);
+		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE,
+				FormulaFactory.getFormulaFor(value));
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Equipment eq)
+	{
+		Formula f = context.getObjectContext().getFormula(eq,
+				FormulaKey.PAGE_USAGE);
+		if (f == null)
+		{
+			return null;
+		}
+		return new String[] { f.toString() };
+	}
+
+	public Class<Equipment> getTokenClass()
+	{
+		return Equipment.class;
 	}
 }

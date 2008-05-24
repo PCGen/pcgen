@@ -880,8 +880,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						if (eq.isWeapon())
 						{
 							eq.put(IntegerKey.SLOTS, 0);
-							eq.setCost("0");
-							eq.setWeight("0");
+							eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
+							eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 							eq.setLocation(anEquip.getLocation());
 						}
 						else
@@ -900,8 +900,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					}
 					else
 					{
-						eq.setCost("0");
-						eq.setWeight("0");
+						eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
+						eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 						eq.setLocation(Equipment.EQUIPPED_TEMPBONUS);
 						eq.setIsEquipped(false, this);
 					}
@@ -7984,9 +7984,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// or prepared spells, then let them add spells up to
 			// the page limit of the book.
 			setSpellLevelTemp(spellLevel);
+			/*
+			 * TODO Need to understand more about this context of formula
+			 * resolution (in context of a spell??) in order to understand how
+			 * to put this method into the Formula interface
+			 */
 			numPages =
 					getVariableValue(acs.getSpell(),
-						spellBook.getPageFormula(), "").intValue();
+						spellBook.getPageFormula().toString(), "").intValue();
 			// Check number of pages remaining in the book
 			if (numPages + spellBook.getNumPagesUsed() > spellBook
 				.getNumPages())

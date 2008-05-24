@@ -23,7 +23,9 @@
  */
 package pcgen.core.character;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -57,7 +59,7 @@ public class SpellBook implements Cloneable
 	private int numPages;
 	private int numPagesUsed;
 	private int numSpells;
-	private String pageFormula;
+	private Formula pageFormula;
 	private String description;
 	private Equipment equip;
 
@@ -125,7 +127,7 @@ public class SpellBook implements Cloneable
 	{
 		this.equip = equip;
 		this.setNumPages(equip.getNumPages());
-		this.setPageFormula(equip.getPageUsage());
+		this.setPageFormula(equip.getSafe(FormulaKey.PAGE_USAGE));
 	}
 
 	/**
@@ -166,7 +168,7 @@ public class SpellBook implements Cloneable
 	 * Get the pageFormula
 	 * @return Returns the pageFormula.
 	 */
-	public final String getPageFormula()
+	public final Formula getPageFormula()
 	{
 		return pageFormula;
 	}
@@ -175,7 +177,7 @@ public class SpellBook implements Cloneable
 	 * Set the page formula
 	 * @param pageFormula The pageFormula to set.
 	 */
-	public final void setPageFormula(String pageFormula)
+	public final void setPageFormula(Formula pageFormula)
 	{
 		this.pageFormula = pageFormula;
 	}

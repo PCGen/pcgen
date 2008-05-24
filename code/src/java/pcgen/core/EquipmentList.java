@@ -814,7 +814,7 @@ public class EquipmentList {
 		try {
 			// Armor without an armor bonus is an exception
 			//
-			if (!eq.getModifiersAllowed()
+			if (!eq.getModControl().getModifiersAllowed()
 					|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0) && ((eqMod != null) && !eqMod.getDisplayName()
 							.equalsIgnoreCase("MASTERWORK")))) { return; }
 

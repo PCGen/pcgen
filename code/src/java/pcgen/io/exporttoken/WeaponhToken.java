@@ -25,8 +25,10 @@
  */
 package pcgen.io.exporttoken;
 
+import java.math.BigDecimal;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.EqModControl;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -119,19 +121,19 @@ public class WeaponhToken extends WeaponToken
 		Equipment eq = new Equipment();
 		eq.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq.setKeyName("KEY_Unarmed Strike");
-		eq.setProfName("Unarmed Strike");
+		eq.setWeaponProf("Unarmed Strike");
 		eq.setOutputName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq
 			.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
 		eq.put(ObjectKey.WIELD, WieldCategory.findByName("Light"));
-		eq.setCost("0", true);
-		eq.setWeight("0");
+		eq.put(ObjectKey.COST, BigDecimal.ZERO);
+		eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
+		eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 		EquipmentHead head = eq.getEquipmentHead(1);
 		head.put(StringKey.DAMAGE, "1d1");
 		head.put(IntegerKey.CRIT_MULT, 2);
 		head.put(IntegerKey.CRIT_RANGE, 1);
-		eq.setModifiersAllowed(false);
-		eq.setModifiersRequired(false);
+		eq.put(ObjectKey.MOD_CONTROL, EqModControl.NO);
 		eq.setSize(pc.getSize(), true);
 
 		return eq;

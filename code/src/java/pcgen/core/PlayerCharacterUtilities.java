@@ -25,7 +25,10 @@
 package pcgen.core;
 
 
+import java.math.BigDecimal;
 import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.ObjectKey;
 
 /**
  * Utilities class for PlayerCharacter.  Holds various static methods.
@@ -144,11 +147,11 @@ public class PlayerCharacterUtilities
 			profName = equip.getName();
 		}
 
-		eqm.setProfName(profName);
+		eqm.setWeaponProf(profName);
 
 		// In case this is used somewhere it shouldn't be used,
 		// set weight and cost to 0
-		eqm.setWeight("0");
-		eqm.setCost("0");
+		eqm.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
+		eqm.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
 	}
 }

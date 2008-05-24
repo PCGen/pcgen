@@ -40,6 +40,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSkillList;
@@ -607,7 +608,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			response);
 
 		book.setType(SpellBook.TYPE_SPELL_BOOK);
-		book.setPageFormula("SPELLLEVEL");
+		book.setPageFormula(FormulaFactory.getFormulaFor("SPELLLEVEL"));
 		book.setNumPages(3);
 		character.addSpellBook(spellBookName);
 		response =

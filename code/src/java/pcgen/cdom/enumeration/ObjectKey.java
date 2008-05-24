@@ -32,8 +32,12 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.ArmorProf;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
+import pcgen.core.ShieldProf;
+import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
 import pcgen.util.enumeration.Visibility;
 
@@ -98,6 +102,20 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Boolean> ATTACKS_PROGRESS = new ObjectKey<Boolean>();
 
 	public static final ObjectKey<WieldCategory> WIELD = new ObjectKey<WieldCategory>();
+
+	public static final ObjectKey<BigDecimal> WEIGHT = new ObjectKey<BigDecimal>();
+
+	public static final ObjectKey<BigDecimal> WEIGHT_MOD = new ObjectKey<BigDecimal>();
+
+	public static final ObjectKey<CDOMSingleRef<WeaponProf>> WEAPON_PROF = new ObjectKey<CDOMSingleRef<WeaponProf>>();
+
+	public static final ObjectKey<CDOMSingleRef<ArmorProf>> ARMOR_PROF = new ObjectKey<CDOMSingleRef<ArmorProf>>();
+
+	public static final ObjectKey<CDOMSingleRef<ShieldProf>> SHIELD_PROF = new ObjectKey<CDOMSingleRef<ShieldProf>>();
+
+	public static final ObjectKey<EqModControl> MOD_CONTROL = new ObjectKey<EqModControl>();
+
+	public static final ObjectKey<BigDecimal> CURRENT_COST = new ObjectKey<BigDecimal>();
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

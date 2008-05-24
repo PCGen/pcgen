@@ -43,6 +43,7 @@ import java.util.regex.Pattern;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.EqModControl;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -56,7 +57,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.FileAccess;
 import pcgen.util.BigDecimalHelper;
-import pcgen.util.Delta;
 import pcgen.util.JEPResourceChecker;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
@@ -166,23 +166,13 @@ public final class Equipment extends PObject implements Serializable,
 		locationStringList[NOT_CARRIED] = NOT_CARRIED_STR;
 	}
 
-	private BigDecimal baseCost = BigDecimal.ZERO;
-
-	private BigDecimal cost = BigDecimal.ZERO;
-
 	private BigDecimal costMod = BigDecimal.ZERO;
-
-	private BigDecimal weightMod = BigDecimal.ZERO;
 
 	private String baseItem = Constants.EMPTY_STRING;
 
 	private List<EquipmentModifier> eqModifierList = new ArrayList<EquipmentModifier>();
 
 	private List<SpecialProperty> specialPropertyList = new ArrayList<SpecialProperty>();
-
-	private boolean modifiersAllowed = true;
-
-	private boolean modifiersRequired = false;
 
 	private EquipmentCollection d_parent = null;
 
@@ -203,13 +193,6 @@ public final class Equipment extends PObject implements Serializable,
 	private boolean containerConstantWeight = false;
 
 	private boolean d_acceptsChildren = false;
-
-	private String fumbleRange = "";
-
-	// effective DR vales for Armor
-	private Integer eDR = Integer.valueOf(-1);
-
-	private Integer spellFailure = Integer.valueOf(0);
 
 	private boolean isOnlyNaturalWeapon = false;
 
@@ -259,14 +242,10 @@ public final class Equipment extends PObject implements Serializable,
 
 	private double qty = 0.0;
 
-	private double weightInPounds = 0.0;
-
 	// private Integer acMod = Integer.valueOf(0);
 	private int outputIndex = 0;
 
 	private int outputSubindex = 0;
-
-	private int baseQuantity = 1;
 
 	private List<String> typeListCachePrimary = null;
 
@@ -664,17 +643,8 @@ public final class Equipment extends PObject implements Serializable,
 				return eqMod.getFumbleRange();
 		}
 
-		return fumbleRange;
-	}
-
-	/**
-	 * Sets the fumbleRange for this item.
-	 * 
-	 * @param aString
-	 *            the fumbleRange for this item.
-	 */
-	public void setFumbleRange(final String aString) {
-		fumbleRange = aString;
+		String fr = get(StringKey.FUMBLE_RANGE);
+		return fr == null ? "" : fr;
 	}
 
 	public boolean isAutomatic() {
@@ -710,36 +680,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		return baseItem;
-	}
-
-	/**
-	 * Sets the cost attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new cost value
-	 */
-	public void setCost(final String aString) {
-		setCost(aString, false);
-	}
-
-	/**
-	 * Sets the cost attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new cost value
-	 * @param bBase
-	 *            if true, set the base cost along with the cost
-	 */
-	public void setCost(final String aString, final boolean bBase) {
-		try {
-			cost = new BigDecimal(aString);
-
-			if (bBase) {
-				baseCost = cost;
-			}
-		} catch (NumberFormatException ignore) {
-			// ignore
-		}
 	}
 
 	/**
@@ -806,7 +746,12 @@ public final class Equipment extends PObject implements Serializable,
 //
 //		c = c.multiply(new BigDecimal(mult));
 
-		BigDecimal itemCost = cost.add(c);
+		BigDecimal currentcost = get(ObjectKey.CURRENT_COST);
+		if (currentcost == null)
+		{
+			currentcost = getBaseCost();
+		}
+		BigDecimal itemCost = currentcost.add(c);
 
 		final List<BigDecimal> modifierCosts = new ArrayList<BigDecimal>();
 
@@ -1559,33 +1504,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Set modifiers allowed
-	 * 
-	 * @param argModifiersAllowed
-	 */
-	public void setModifiersAllowed(final boolean argModifiersAllowed) {
-		modifiersAllowed = argModifiersAllowed;
-	}
-
-	/**
-	 * Set modifiers required
-	 * 
-	 * @param argModifiersRequired
-	 */
-	public void setModifiersRequired(final boolean argModifiersRequired) {
-		modifiersRequired = argModifiersRequired;
-	}
-
-	/**
-	 * Gets the modifiersRequired attribute of the Equipment object.
-	 * 
-	 * @return The modifiersRequired value
-	 */
-	public boolean getModifiersRequired() {
-		return modifiersRequired;
-	}
-
-	/**
 	 * Sets the moveString attribute of the Equipment object
 	 * 
 	 * @param aString
@@ -2162,20 +2080,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the spellFailure attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new spellFailure value
-	 */
-	public void setSpellFailure(final String aString) {
-		try {
-			spellFailure = Delta.decode(aString);
-		} catch (NumberFormatException ignore) {
-			// ignore
-		}
-	}
-
-	/**
 	 * Gets the uberParent attribute of the Equipment object
 	 * 
 	 * @return The uberParent value
@@ -2295,26 +2199,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the weight attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new weight value
-	 */
-	public void setWeight(final String aString)
-	{
-		try
-		{
-			weightInPounds = Double.parseDouble(aString);
-		}
-		catch (NumberFormatException ignore)
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid Weight in Equipment: "
-				+ aString + " item was " + getDisplayName() + " from "
-				+ getDefaultSourceString());
-		}
-	}
-
-	/**
 	 * Gets the weight attribute of the Equipment object.
 	 * 
 	 * @param aPC
@@ -2333,13 +2217,17 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return base weight (as a double)
 	 */
-	public double getBaseWeightAsDouble() {
+	public BigDecimal getBaseWeight() {
 		if (this.isVirtual()) {
-			return 0.0;
+			return BigDecimal.ZERO;
 		}
 
-		double aWeight = weightInPounds;
-		aWeight += weightMod.doubleValue();
+		BigDecimal aWeight = getWeightInPounds();
+		BigDecimal mod = get(ObjectKey.WEIGHT_MOD);
+		if (mod != null)
+		{
+			aWeight = aWeight.add(mod);
+		}
 
 		return aWeight;
 	}
@@ -2357,37 +2245,26 @@ public final class Equipment extends PObject implements Serializable,
 
 		double f = bonusTo(aPC, "EQM", "WEIGHTMULT", true);
 
-		if (CoreUtility.doublesEqual(f, 0.0)) {
-			f = 1.0;
+		double aWeight = getWeightInPounds().doubleValue();
+		
+		if (!CoreUtility.doublesEqual(f, 0.0)) {
+			aWeight *= f;
 		}
-
-		double aWeight = weightInPounds * f;
 
 		f = bonusTo(aPC, "EQM", "WEIGHTDIV", true);
 
-		if (CoreUtility.doublesEqual(f, 0)) {
-			f = 1;
+		if (!CoreUtility.doublesEqual(f, 0)) {
+			aWeight /= f;
 		}
-
-		aWeight /= f;
 
 		aWeight += bonusTo(aPC, "EQM", "WEIGHTADD", true);
-		aWeight += weightMod.doubleValue();
+		BigDecimal mod = get(ObjectKey.WEIGHT_MOD);
+		if (mod != null)
+		{
+			aWeight += mod.doubleValue();
+		}
 
 		return aWeight;
-	}
-
-	/**
-	 * Set weight mod
-	 * 
-	 * @param aString
-	 */
-	public void setWeightMod(final String aString) {
-		try {
-			weightMod = new BigDecimal(aString);
-		} catch (NumberFormatException e) {
-			weightMod = BigDecimal.ZERO;
-		}
 	}
 
 	/**
@@ -2463,7 +2340,8 @@ public final class Equipment extends PObject implements Serializable,
 		if (eqMod == null) {
 			if (eqModKey.equals(EQMOD_WEIGHT)) {
 				if (aTok.hasMoreTokens()) {
-					setWeightMod(aTok.nextToken().replace(',', '.'));
+					put(ObjectKey.WEIGHT_MOD, new BigDecimal(aTok.nextToken()
+							.replace(',', '.')));
 				}
 				return;
 			}
@@ -2856,7 +2734,7 @@ public final class Equipment extends PObject implements Serializable,
 		// Make sure we are qualified
 		bonusPrimary = bPrimary;
 
-		if (!modifiersAllowed || !eqMod.passesPreReqToGain(this, null)) {
+		if (!getModControl().getModifiersAllowed() || !eqMod.passesPreReqToGain(this, null)) {
 			return false;
 		}
 
@@ -2932,10 +2810,6 @@ public final class Equipment extends PObject implements Serializable,
 		try {
 			eq = (Equipment) super.clone();
 
-			// set DR
-			eq.seteDR(eDR.toString());
-			eq.setSpellFailure(spellFailure.toString());
-
 			eq.heads = new ArrayList<EquipmentHead>();
 			for (EquipmentHead head : heads)
 			{
@@ -2979,8 +2853,6 @@ public final class Equipment extends PObject implements Serializable,
 
 			eq.eqModifierList = cloneEqModList(true);
 			eq.altEqModifierList = cloneEqModList(false);
-			eq.modifiersAllowed = modifiersAllowed;
-			eq.modifiersRequired = modifiersRequired;
 
 			// Make sure any lists aren't shared
 			eq.specialPropertyList = new ArrayList<SpecialProperty>();
@@ -3028,8 +2900,12 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Integer
 	 */
 	public Integer eDR(final PlayerCharacter aPC) {
-		int check = eDR.intValue()
-				+ (int) bonusTo(aPC, "EQMARMOR", "EDR", true);
+		int check = (int) bonusTo(aPC, "EQMARMOR", "EDR", true);
+		Integer edr = get(IntegerKey.EDR);
+		if (edr != null)
+		{
+			check += edr;
+		}
 
 		if (check < 0) {
 			check = 0;
@@ -3270,7 +3146,7 @@ public final class Equipment extends PObject implements Serializable,
 			} else if (aString.startsWith("COSTMOD" + endPart)) {
 				setCostMod(aString.substring(7 + endPartLen));
 			} else if (aString.startsWith("WEIGHTMOD" + endPart)) {
-				setWeightMod(aString.substring(9 + endPartLen));
+				put(ObjectKey.WEIGHT_MOD, new BigDecimal(aString.substring(9 + endPartLen)));
 			}
 		}
 		resizeItem(aPC, newSize);
@@ -3568,8 +3444,8 @@ public final class Equipment extends PObject implements Serializable,
 			final Equipment eq = EquipmentList.getEquipmentKeyed(baseItem);
 
 			if (eq != null) {
-				setCost(eq.getCostAdjustedForSize(aPC, newSize).toString());
-				setWeight(eq.getWeightAdjustedForSize(aPC, newSize).toString());
+				put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(aPC, newSize));
+				put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(aPC, newSize));
 				adjustACForSize(aPC, eq, newSize);
 				String dam = eq.getDamageAdjustedForSize(newSize, true);
 				if (dam != null && dam.length() > 0)
@@ -3644,22 +3520,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the acCheck attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The new acCheck value
-	 */
-	public void seteDR(final String aString) {
-		try {
-			eDR = Integer.valueOf(aString);
-		} catch (NumberFormatException nfe) {
-			eDR = Integer.valueOf(0);
-
-			// ignore
-		}
-	}
-
-	/**
 	 * Get the int size of the Equipment object
 	 * 
 	 * @return size as int
@@ -3676,7 +3536,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 */
 	public Integer spellFailure(final PlayerCharacter aPC) {
-		int fail = spellFailure.intValue()
+		int fail = getSpellFailure()
 				+ (int) bonusTo(aPC, "EQMARMOR", "SPELLFAILURE", true);
 
 		if (fail < 0) {
@@ -3877,15 +3737,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the modifiersAllowed attribute of the Equipment object.
-	 * 
-	 * @return The modifiersAllowed value
-	 */
-	boolean getModifiersAllowed() {
-		return modifiersAllowed;
-	}
-
-	/**
 	 * Get the type list as a period-delimited string
 	 * 
 	 * @param bPrimary
@@ -4041,7 +3892,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The baseCost value
 	 */
 	BigDecimal getBaseCost() {
-		return baseCost;
+		BigDecimal cost = get(ObjectKey.COST);
+		return cost == null ? BigDecimal.ZERO : cost;
 	}
 
 	/**
@@ -4142,13 +3994,19 @@ public final class Equipment extends PObject implements Serializable,
 				aString.append('|').append(strMod.replace('|', '='));
 			}
 		}
-
-		if (bPrimary && (weightMod.compareTo(BigDecimal.ZERO) != 0)) {
-			if (aString.length() != 0) {
-				aString.append('.');
+		
+		if (bPrimary)
+		{
+			BigDecimal mod = get(ObjectKey.WEIGHT_MOD);
+			if (mod != null)
+			{
+				if (aString.length() != 0)
+				{
+					aString.append('.');
+				}
+				aString.append(EQMOD_WEIGHT).append('|').append(
+						mod.toString().replace('.', ','));
 			}
-			aString.append(EQMOD_WEIGHT).append('|').append(
-					weightMod.toString().replace('.', ','));
 		}
 
 		String dmg = get(StringKey.DAMAGE_OVERRIDE);
@@ -4388,10 +4246,10 @@ public final class Equipment extends PObject implements Serializable,
 	 *            the size to adjust for
 	 * @return The weightAdjustedForSize value
 	 */
-	private Float getWeightAdjustedForSize(final PlayerCharacter aPC,
+	private BigDecimal getWeightAdjustedForSize(final PlayerCharacter aPC,
 			final String aSize) {
 		if (this.isVirtual()) {
-			return new Float(0.0);
+			return BigDecimal.ZERO;
 		}
 
 		final SizeAdjustment newSA = SettingsHandler.getGame()
@@ -4400,14 +4258,14 @@ public final class Equipment extends PObject implements Serializable,
 				.getSizeAdjustmentNamed(getSize());
 
 		if ((newSA == null) || (currSA == null)) {
-			return new Float(getBaseWeightAsDouble());
+			return getBaseWeight();
 		}
 
 		final double mult = newSA
 				.getBonusTo(aPC, "ITEMWEIGHT", typeList(), 1.0)
 				/ currSA.getBonusTo(aPC, "ITEMWEIGHT", typeList(), 1.0);
 
-		return new Float(getBaseWeightAsDouble() * mult);
+		return getBaseWeight().multiply(new BigDecimal(mult));
 	}
 
 	/**
@@ -5133,12 +4991,12 @@ public final class Equipment extends PObject implements Serializable,
 		return weightAlreadyUsed;
 	}
 
-	double getWeightInPounds() {
-		if (this.isVirtual()) {
-			return 0.0;
+	BigDecimal getWeightInPounds() {
+		BigDecimal weight = get(ObjectKey.WEIGHT);
+		if (isVirtual() || weight == null) {
+			return BigDecimal.ZERO;
 		}
-
-		return weightInPounds;
+		return weight;
 	}
 
 	void setWeightAlreadyUsed(boolean weightAlreadyUsed) {
@@ -5151,7 +5009,8 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	Integer getSpellFailure() {
-		return spellFailure;
+		Integer sf = get(IntegerKey.SPELL_FAILURE);
+		return sf == null ? 0 : sf;
 	}
 
 	Integer getRange() {
@@ -5190,26 +5049,13 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Set base quantity
-	 * 
-	 * @param aString
-	 */
-	public final void setBaseQty(final String aString) {
-		try {
-			baseQuantity = Integer.parseInt(aString);
-		} catch (NumberFormatException e) {
-			baseQuantity = 0;
-			Logging.errorPrint("Badly formed BaseQty string: " + aString);
-		}
-	}
-
-	/**
 	 * Get base quantity
 	 * 
 	 * @return base quantity
 	 */
 	public final int getBaseQty() {
-		return baseQuantity;
+		Integer bq = get(IntegerKey.BASE_QUANTITY);
+		return bq == null ? 1 : bq;
 	}
 
 	/**
@@ -5724,41 +5570,13 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Set the number of pages for this object
-	 * 
-	 * @param value
-	 */
-	public final void setNumPages(final int value) {
-		integerChar.put(IntegerKey.NUM_PAGES, value);
-	}
-
-	/**
 	 * Get the number of pages of this object
 	 * 
 	 * @return the number of pages of this object
 	 */
 	public final int getNumPages() {
-		Integer characteristic = integerChar.get(IntegerKey.NUM_PAGES);
+		Integer characteristic = get(IntegerKey.NUM_PAGES);
 		return characteristic == null ? 0 : characteristic.intValue();
-	}
-
-	/**
-	 * Set the page usage formula for this object
-	 * 
-	 * @param aString
-	 */
-	public final void setPageUsage(final String aString) {
-		stringChar.put(StringKey.PAGE_USAGE, aString);
-	}
-
-	/**
-	 * Get the page usage formula of this object
-	 * 
-	 * @return the page usage formula of this object
-	 */
-	public final String getPageUsage() {
-		String characteristic = stringChar.get(StringKey.PAGE_USAGE);
-		return characteristic == null ? "" : characteristic;
 	}
 
 	//
@@ -6089,11 +5907,11 @@ public final class Equipment extends PObject implements Serializable,
 
 			if (anEquip.getContainedEquipmentCount() > 0) {
 				total = new Float(total.floatValue()
-						+ anEquip.getBaseWeightAsDouble()
+						+ anEquip.getBaseWeight().floatValue()
 						+ anEquip.getBaseContainedWeight().floatValue());
 			} else {
 				total = new Float(total.floatValue()
-						+ (anEquip.getBaseWeightAsDouble() * anEquip
+						+ (anEquip.getBaseWeight().floatValue() * anEquip
 								.getCarried().floatValue()));
 			}
 		}
@@ -6563,5 +6381,11 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		return "";
+	}
+	
+	public EqModControl getModControl()
+	{
+		EqModControl mc = get(ObjectKey.MOD_CONTROL);
+		return mc == null ? EqModControl.YES : mc;
 	}
 }
