@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
 
 public enum ProhibitedSpellType
@@ -13,7 +14,7 @@ public enum ProhibitedSpellType
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
-			return s.getDescriptorList();
+			return s.getSafeListFor(ListKey.SPELL_DESCRIPTOR);
 		}
 		@Override
 		public int getRequiredCount(List<String> l)
@@ -26,7 +27,7 @@ public enum ProhibitedSpellType
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
-			return s.getDescriptorList();
+			return s.getSafeListFor(ListKey.SPELL_DESCRIPTOR);
 		}
 		@Override
 		public int getRequiredCount(List<String> l)
@@ -39,7 +40,7 @@ public enum ProhibitedSpellType
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
-			return s.getSchools();
+			return s.getSafeListFor(ListKey.SPELL_SCHOOL);
 		}
 		@Override
 		public int getRequiredCount(List<String> l)
@@ -52,7 +53,7 @@ public enum ProhibitedSpellType
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
-			return s.getSubschools();
+			return s.getSafeListFor(ListKey.SPELL_SUBSCHOOL);
 		}
 		@Override
 		public int getRequiredCount(List<String> l)

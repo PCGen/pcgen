@@ -23,7 +23,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -107,7 +106,7 @@ public class PCClass extends PObject
 	 * leveling up at a certain point. Therefore this gets moved to PCClassLevel =
 	 * byproduct of addLevel
 	 */
-	private List<String> specialtyList = null;
+	private String specialty = null;
 
 	/*
 	 * STRINGREFACTOR This is currently taking in a delimited String and should
@@ -1068,7 +1067,7 @@ public class PCClass extends PObject
 		int adj = 0;
 
 		if (includeAdj && !bookName.equals(Globals.getDefaultSpellBook())
-			&& (hasSpecialtyList() || aPC.hasCharacterDomainList()))
+			&& (hasSpecialty() || aPC.hasCharacterDomainList()))
 		{
 			// We need to do this for EVERY spell level up to the
 			// one really under consideration, because if there
@@ -1526,22 +1525,17 @@ public class PCClass extends PObject
 	/*
 	 * FINALPCCLASSLEVELONLY created during PCClassLevel creation (in the factory)
 	 */
-	public final Collection<String> getSpecialtyList()
+	public final String getSpecialty()
 	{
-		if (specialtyList == null)
-		{
-			final List<String> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
-		}
-		return Collections.unmodifiableList(specialtyList);
+		return specialty;
 	}
 
 	/*
 	 * FINALPCCLASSLEVELONLY For boolean testing of possession
 	 */
-	public final boolean hasSpecialtyList()
+	public final boolean hasSpecialty()
 	{
-		return specialtyList != null && specialtyList.size() > 0;
+		return specialty != null;
 	}
 
 	/*
@@ -1549,11 +1543,7 @@ public class PCClass extends PObject
 	 */
 	public final void addSpecialty(final String aSpecialty)
 	{
-		if (specialtyList == null)
-		{
-			specialtyList = new ArrayList<String>();
-		}
-		specialtyList.add(aSpecialty);
+		specialty = aSpecialty;
 	}
 
 	/*
@@ -2390,7 +2380,7 @@ public class PCClass extends PObject
 		if (getCastForLevel(spellLevel, bookName, true, true, aPC) > 0)
 		{
 			// if this class has a specialty, return +1
-			if (hasSpecialtyList())
+			if (hasSpecialty())
 			{
 				PCClass target = this;
 				if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
@@ -4277,10 +4267,6 @@ public class PCClass extends PObject
 			}
 			aClass.modToSkills = modToSkills;
 			aClass.initMod = initMod;
-			if (specialtyList != null)
-			{
-				aClass.specialtyList = new ArrayList<String>(specialtyList);
-			}
 
 			// aClass.ageSet = ageSet;
 			if (domainList != null)
@@ -4405,15 +4391,13 @@ public class PCClass extends PObject
 	 */
 	public boolean isSpecialtySpell(final Spell aSpell)
 	{
-		final Collection<String> aList = getSpecialtyList();
-
-		if ((aList == null) || (aList.size() == 0))
+		if (hasSpecialty())
 		{
-			return false;
+			return aSpell.containsInList(ListKey.SPELL_SCHOOL, specialty)
+					|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, specialty)
+					|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, specialty);
 		}
-
-		return (aSpell.descriptorListContains(aList)
-			|| aSpell.schoolContains(aList) || aSpell.subschoolContains(aList));
+		return false;
 	}
 
 	/*
@@ -5016,8 +5000,8 @@ public class PCClass extends PObject
 		{
 			for (String school : prohibitedSchools)
 			{
-				if (aSpell.getSchools().contains(school)
-					|| aSpell.getSubschools().contains(school))
+				if (aSpell.containsInList(ListKey.SPELL_SCHOOL, school)
+					|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, school))
 				{
 					return true;
 				}
@@ -6692,7 +6676,7 @@ public class PCClass extends PObject
 			/*
 			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
 			 */
-			specialtyList = null;
+			specialty = null;
 
 			SubClass sc = (SubClass) subselected;
 

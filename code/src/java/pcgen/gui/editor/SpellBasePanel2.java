@@ -23,6 +23,7 @@
 package pcgen.gui.editor;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
@@ -73,21 +74,17 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		s.setTypeInfo(EditUtil.delimitArray(sel, '.'));
 
 		sel = ((JListModel) lstVariants.getModel()).getElements();
-		s.clearVariants();
+		s.removeListFor(ListKey.VARIANTS);
 		for (int i=0 ; i<sel.length ; i++)
 		{
-			s.addVariant(sel[i].toString());
+			s.addToListFor(ListKey.VARIANTS, sel[i].toString());
 		}
 	}
 
 	public void updateView(PObject thisPObject)
 	{
-		Iterator e;
-		String aString;
-
-		final List variants = ((Spell) thisPObject).getVariants();
-
-		if (variants.size() != 0)
+		List<String> variants = thisPObject.getListFor(ListKey.VARIANTS);
+		if (variants != null)
 		{
 			((JListModel) lstVariants.getModel()).setData(variants);
 		}
@@ -98,7 +95,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for (e = Globals.getSpellMap().values().iterator(); e.hasNext();)
+		for (Iterator e = Globals.getSpellMap().values().iterator(); e.hasNext();)
 		{
 			final Object obj = e.next();
 

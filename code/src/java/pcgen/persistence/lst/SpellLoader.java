@@ -67,66 +67,67 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			spell = new Spell();
 		}
 
-		int i = 0;
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+
+		if (colToken.hasMoreTokens())
+		{
+			spell.setName(colToken.nextToken());
+			spell.setSourceCampaign(source.getCampaign());
+			spell.setSourceURI(source.getURI());
+		}
 
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(SpellLstToken.class);
 
 		while (colToken.hasMoreElements())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			SpellLstToken token = (SpellLstToken) tokenMap.get(key);
-
-			// The very first one is the Name
-			if (i == 0)
-			{
-				if ((!colString.equals(spell.getKeyName()))
-					&& (colString.indexOf(".MOD") < 0))
-				{
-					completeObject(source, spell);
-					spell = new Spell();
-					spell.setName(colString);
-					spell.setSourceCampaign(source.getCampaign());
-					spell.setSourceURI(source.getURI());
-				}
-
-				i++;
-
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
 
-			else if (token != null)
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(spell, key, value))
 			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, spell, value);
-				if (!token.parse(spell, value))
+				Logging.clearParseMessages();
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				SpellLstToken tok = (SpellLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, spell, value);
+				if (!tok.parse(spell, value))
 				{
 					Logging.errorPrint("Error parsing spell "
 						+ spell.getDisplayName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
+						+ token + "\"");
 				}
+				Logging.clearParseMessages();
+ 				continue;
 			}
-			else if (PObjectLoader.parseTag(spell, colString))
-			{
-				continue;
-			}
-			else
-			{
-				Logging.errorPrint("Illegal spell info '" + colString + "' in "
-					+ source.getURI());
-			}
+			else if (PObjectLoader.parseTag(spell, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 
 		completeObject(source, spell);

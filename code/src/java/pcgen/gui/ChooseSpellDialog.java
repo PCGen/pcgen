@@ -25,8 +25,46 @@
  */
 package pcgen.gui;
 
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import pcgen.cdom.base.Constants;
-import pcgen.core.*;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Ability;
+import pcgen.core.Categorisable;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -34,16 +72,6 @@ import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.*;
-import java.io.*;
-import java.util.*;
 
 /**
  * <code>ChooseSpellDialog</code>
@@ -259,10 +287,7 @@ final class ChooseSpellDialog extends JDialog
 
 				if (subType.startsWith("SCHOOL."))
 				{
-					List<String> school = new ArrayList<String>();
-					school.add(subType.substring(7));
-
-					if (!aSpell.schoolContains(school))
+					if (!aSpell.containsInList(ListKey.SPELL_SCHOOL, subType.substring(7)))
 					{
 						isOfType = false;
 
@@ -272,10 +297,7 @@ final class ChooseSpellDialog extends JDialog
 
 				if (subType.startsWith("SUBSCHOOL."))
 				{
-					List<String> subSchool = new ArrayList<String>();
-					subSchool.add(subType.substring(10));
-
-					if (!aSpell.subschoolContains(subSchool))
+					if (!aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, subType.substring(10)))
 					{
 						isOfType = false;
 
@@ -287,7 +309,7 @@ final class ChooseSpellDialog extends JDialog
 				{
 					String descriptor = subType.substring(11);
 
-					if (!aSpell.getDescriptorList().contains(descriptor))
+					if (!aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, descriptor))
 					{
 						isOfType = false;
 
@@ -423,7 +445,6 @@ final class ChooseSpellDialog extends JDialog
 	@SuppressWarnings("fallthrough")
     private boolean canCreateItem(Spell aSpell)
 	{
-		boolean canCreate = true;
 		String itemType;
 
 		switch (eqType)
@@ -431,16 +452,10 @@ final class ChooseSpellDialog extends JDialog
 			case EqBuilder.EQTYPE_NONE:
 				return true;
 
+			// fall-through intentional
 			case EqBuilder.EQTYPE_POTION:
-				canCreate = false;
-
-			// fall-through intentional
 			case EqBuilder.EQTYPE_SCROLL:
-
-			// fall-through intentional
 			case EqBuilder.EQTYPE_WAND:
-
-			// fall-through intentional
 			case EqBuilder.EQTYPE_RING:
 				itemType = EqBuilder.validEqTypes[eqType];
 
@@ -450,18 +465,7 @@ final class ChooseSpellDialog extends JDialog
 				return false;
 		}
 
-		final String items = aSpell.getCreatableItem().toLowerCase();
-
-		if (items.indexOf("[" + itemType + "]") >= 0)
-		{
-			canCreate = false;
-		}
-		else if (items.indexOf(itemType) >= 0)
-		{
-			canCreate = true;
-		}
-
-		return canCreate;
+		return aSpell.isAllowed(itemType);
 	}
 
 	/**
@@ -698,14 +702,14 @@ final class ChooseSpellDialog extends JDialog
 
 			if (theSpell != null)
 			{
-				variants = theSpell.getVariants();
+				variants = theSpell.getSafeListFor(ListKey.VARIANTS);
 			}
 			else
 			{
 				variants = new ArrayList<String>();
 			}
 
-			isEnabled = (variants.size() != 0);
+			isEnabled = !variants.isEmpty();
 
 			if (isEnabled || (!isEnabled && lblSpellVariant.isEnabled()))
 			{

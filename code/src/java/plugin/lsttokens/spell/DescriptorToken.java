@@ -2,31 +2,91 @@ package plugin.lsttokens.spell;
 
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.lst.SpellLstToken;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with DESCRIPTOR Token
  */
-public class DescriptorToken implements SpellLstToken
+public class DescriptorToken extends AbstractToken implements
+		CDOMPrimaryToken<Spell>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "DESCRIPTOR";
 	}
 
-	public boolean parse(Spell spell, String value)
+	public boolean parse(LoadContext context, Spell spell, String value)
 	{
-		final StringTokenizer tok = new StringTokenizer(value, "|", false);
-
-		while (tok.hasMoreTokens())
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			String token = tok.nextToken();
-			spell.addDescriptor(token);
-			Globals.addSpellDescriptorSet(token);
+			return false;
+		}
+
+		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
+
+		boolean first = true;
+		while (aTok.hasMoreTokens())
+		{
+			String tokString = aTok.nextToken();
+			if (Constants.LST_DOT_CLEAR.equals(tokString))
+			{
+				if (!first)
+				{
+					Logging.errorPrint("  Non-sensical " + getTokenName()
+							+ ": .CLEAR was not the first list item: " + value);
+					return false;
+				}
+				context.getObjectContext().removeList(spell,
+						ListKey.SPELL_DESCRIPTOR);
+			}
+			else
+			{
+				context.getObjectContext().addToList(spell,
+						ListKey.SPELL_DESCRIPTOR, tokString);
+				Globals.addSpellDescriptorSet(tokString);
+			}
 		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Spell spell)
+	{
+		Changes<String> changes = context.getObjectContext().getListChanges(
+				spell, ListKey.SPELL_DESCRIPTOR);
+		if (changes == null || changes.isEmpty())
+		{
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		if (changes.includesGlobalClear())
+		{
+			sb.append(Constants.LST_DOT_CLEAR);
+		}
+		if (changes.hasAddedItems())
+		{
+			if (sb.length() != 0)
+			{
+				sb.append(Constants.PIPE);
+			}
+			sb.append(StringUtil.joinToStringBuffer(changes.getAdded(),
+					Constants.PIPE));
+		}
+		return new String[] { sb.toString() };
+	}
+
+	public Class<Spell> getTokenClass()
+	{
+		return Spell.class;
 	}
 }

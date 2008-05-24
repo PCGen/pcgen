@@ -742,18 +742,15 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			b.appendLineBreak();
 			b.appendI18nElement("InfoSpells.stat.bonus", aClass.getSpellBaseStat()); //$NON-NLS-1$ 
 
-			if (aClass.hasSpecialtyList() || pc.hasCharacterDomainList())
+			if (aClass.hasSpecialty() || pc.hasCharacterDomainList())
 			{
 				boolean needComma = false;
 				StringBuffer schoolInfo = new StringBuffer(); 
-				for (final String spec : aClass.getSpecialtyList())
+				String spec = aClass.getSpecialty();
+				if (spec != null)
 				{
-					if (needComma)
-					{
-						schoolInfo.append(',');
-					}
-					needComma = true;
 					schoolInfo.append(spec);
+					needComma = true;
 				}
 
 				for (CharacterDomain cd : pc.getCharacterDomainList())
@@ -859,7 +856,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					aSpell.getSaveInfo(),
 					aSpell.getSpellResistance()}));
 			
-			if (Spell.hasPPCost())
+			if (Globals.hasSpellPPCost())
 			{
 				b.appendSpacer();
 				b.appendI18nElement("InfoSpellsSubTab.PPCost", String //$NON-NLS-1$

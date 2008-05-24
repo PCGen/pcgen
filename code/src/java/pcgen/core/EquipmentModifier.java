@@ -1277,7 +1277,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 				if (aSpell != null)
 				{
-					modChoice = aSpell.getXPCost() + "";
+					modChoice = Integer.toString(aSpell.getXPCost());
 				}
 			}
 

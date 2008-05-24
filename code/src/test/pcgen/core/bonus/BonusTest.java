@@ -26,6 +26,7 @@ package pcgen.core.bonus;
 import java.util.ArrayList;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -33,7 +34,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
 import plugin.bonustokens.Var;
 
 /**
@@ -181,7 +181,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		Spell sp = new Spell();
 		sp.setName("Test");
-		sp.addSchool("INFUSE");
+		sp.addToListFor(ListKey.SPELL_SCHOOL, "INFUSE");
 		sp.setParsedSpellPointCost("Duration", 4);
 		sp.setParsedSpellPointCost("Infuse Fire", 4);
 		

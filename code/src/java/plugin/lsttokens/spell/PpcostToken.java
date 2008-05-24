@@ -1,13 +1,16 @@
 package plugin.lsttokens.spell;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.lst.SpellLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with PPCOST Token
  */
-public class PpcostToken implements SpellLstToken
+public class PpcostToken implements CDOMPrimaryToken<Spell>
 {
 
 	public String getTokenName()
@@ -15,25 +18,49 @@ public class PpcostToken implements SpellLstToken
 		return "PPCOST";
 	}
 
-	public boolean parse(Spell spell, String value)
+	public boolean parse(LoadContext context, Spell spell, String value)
 	{
 		try
 		{
-			int ppCost = Integer.parseInt(value);
-			if (ppCost < 0)
+			Integer ppCost = Integer.valueOf(value);
+			if (ppCost.intValue() < 0)
 			{
 				Logging.errorPrint(getTokenName()
-					+ " can not have a negative value");
+						+ " requires a positive Integer");
 				return false;
 			}
-			spell.setPPCost(ppCost);
+			context.getObjectContext().put(spell, IntegerKey.PP_COST, ppCost);
+			Globals.setSpellPPCost(true);
+			return true;
 		}
-		catch (NumberFormatException ignore)
+		catch (NumberFormatException nfe)
 		{
 			Logging.errorPrint(getTokenName()
-				+ " must be an integer (greater than or equal to zero)");
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
 			return false;
 		}
-		return true;
+	}
+
+	public String[] unparse(LoadContext context, Spell spell)
+	{
+		Integer i = context.getObjectContext().getInteger(spell,
+				IntegerKey.PP_COST);
+		if (i == null)
+		{
+			return null;
+		}
+		if (i.intValue() < 0)
+		{
+			context.addWriteMessage(getTokenName()
+					+ " requires a positive Integer");
+			return null;
+		}
+		return new String[] { i.toString() };
+	}
+
+	public Class<Spell> getTokenClass()
+	{
+		return Spell.class;
 	}
 }

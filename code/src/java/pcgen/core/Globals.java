@@ -190,7 +190,6 @@ public final class Globals
 	private static SortedSet<String> rangesSet        = new TreeSet<String>();
 	private static SortedSet<String> saveInfoSet      = new TreeSet<String>();
 	private static SortedSet<String> srSet            = new TreeSet<String>();
-	private static SortedSet<String> statSet          = new TreeSet<String>();
 	private static SortedSet<String> targetSet        = new TreeSet<String>();
 
 	// end of filter creation sets
@@ -1950,15 +1949,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get stat set
-	 * @return stat set
-	 */
-	public static SortedSet<String> getStatSet()
-	{
-		return statSet;
-	}
-
-	/**
 	 * Get sub schools
 	 * @return sub schools
 	 */
@@ -2215,15 +2205,6 @@ public final class Globals
 	}
 
 	/**
-	 * Add to spell stat set
-	 * @param aString
-	 */
-	public static void addSpellStatSet(final String aString)
-	{
-		statSet.add(aString);
-	}
-
-	/**
 	 * Add to spell target set
 	 * @param aString
 	 */
@@ -2390,6 +2371,7 @@ public final class Globals
 		emptyLists();
 		campaignMap.clear();
 		campaignList.clear();
+		hasSpellPPCost = false;
 	}
 
 	/**
@@ -3628,7 +3610,6 @@ public final class Globals
 		rangesSet.clear();
 		saveInfoSet.clear();
 		srSet.clear();
-		statSet.clear();
 		targetSet.clear();
 	}
 
@@ -3763,5 +3744,17 @@ public final class Globals
 	public static LoadContext getContext()
 	{
 		return context;
+	}
+
+	private static boolean hasSpellPPCost;
+	
+	public static boolean hasSpellPPCost()
+	{
+		return hasSpellPPCost;
+	}
+
+	public static void setSpellPPCost(boolean b)
+	{
+		hasSpellPPCost = b;
 	}	
 }

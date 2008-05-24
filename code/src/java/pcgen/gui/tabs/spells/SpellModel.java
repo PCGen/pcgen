@@ -27,7 +27,9 @@ import java.util.List;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -127,7 +129,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 		// at the begining of this file
 		//
 
-		if (Spell.hasPPCost())
+		if (Globals.hasSpellPPCost())
 		{
 			colTranslateList =
 					new int[]{COL_NAME, COL_SCHOOL, COL_SUBSCHOOL,
@@ -260,7 +262,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				false))); //COL_SUBSCHOOL
 			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++],
 				false))); //COL_DESCRIPTOR
-			if (Spell.hasPPCost())
+			if (Globals.hasSpellPPCost())
 			{
 				retList.add(Boolean.valueOf(getColumnViewOption(
 					colNameList[i++], true))); //COL_PPCOST
@@ -299,7 +301,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				true))); //COL_SUBSCHOOL
 			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++],
 				true))); //COL_DESCRIPTOR
-			if (Spell.hasPPCost())
+			if (Globals.hasSpellPPCost())
 			{
 				retList.add(Boolean.valueOf(getColumnViewOption(
 					colNameList[i++], true))); //COL_PPCOST
@@ -453,7 +455,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				return (aSpell != null) ? aSpell.getCastingTime() : null;
 
 			case COL_RANGE:
-				return (aSpell != null) ? aSpell.getRange() : null;
+				return (aSpell != null) ? StringUtil.joinToStringBuffer(aSpell.getListFor(ListKey.RANGE), ", ") : null;
 
 			case COL_DESCRIPTION:
 
@@ -824,7 +826,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR: // By Descriptor
 							primaryMatch =
-									spell.getDescriptorList().contains(
+									spell.containsInList(ListKey.SPELL_DESCRIPTOR,
 										primaryNode.toString());
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_RANGE: // By Range
@@ -842,7 +844,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_SCHOOL: // By Type
 							primaryMatch =
-									spell.getSchools().contains(
+									spell.containsInList(ListKey.SPELL_SCHOOL, 
 										primaryNode.toString());
 							break;
 					}
@@ -921,10 +923,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR: // By Descriptor
 								spellMatch =
 										primaryMatch
-											&& spell.getDescriptorList()
-												.contains(
-													secondaryNodes[sindex]
-														.toString());
+											&& spell.containsInList(ListKey.SPELL_DESCRIPTOR,
+													secondaryNodes[sindex].toString());
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_RANGE: // By Range
 								spellMatch =
@@ -953,7 +953,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							case GuiConstants.INFOSPELLS_VIEW_SCHOOL: // By Type
 								spellMatch =
 										primaryMatch
-											&& spell.getSchools().contains(
+											&& spell.containsInList(ListKey.SPELL_SCHOOL,
 												secondaryNodes[sindex]
 													.toString());
 								break;

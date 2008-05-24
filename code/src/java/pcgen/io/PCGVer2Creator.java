@@ -855,14 +855,13 @@ final class PCGVer2Creator implements IOConstants
 
 			buffer.append(LINE_SEP);
 
-			String key;
-			key = pcClass.getKeyName() + TAG_SPECIALTY + '0';
-
-			for (String special : pcClass.getSpecialtyList())
+			String spec = pcClass.getSpecialty();
+			if (spec != null)
 			{
-				specials.put(key, special);
+				specials.put(pcClass.getKeyName() + TAG_SPECIALTY + '0', spec);
 			}
 
+			String key;
 			key = pcClass.getKeyName() + TAG_SAVE + '0';
 
 			for (String save : pcClass.getSafeListFor(ListKey.SAVE))
@@ -2144,7 +2143,7 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append('|');
 					buffer.append(TAG_SPELLLEVEL).append(':');
 					buffer.append(spellInfo.getActualLevel());
-					if (Spell.hasPPCost())
+					if (Globals.hasSpellPPCost())
 					{
 						buffer.append('|');
 						buffer.append(TAG_SPELLPPCOST).append(':');

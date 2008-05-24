@@ -2001,7 +2001,7 @@ final class DescriptorFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			return ((Spell) pObject).getDescriptorList().contains(descriptor);
+			return pObject.containsInList(ListKey.SPELL_DESCRIPTOR, descriptor);
 		}
 
 		return true;

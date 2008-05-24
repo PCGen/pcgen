@@ -7314,7 +7314,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 		}
 
-		for (String school : aSpell.getSchools())
+		/*
+		 * This wraps in TreeSet because it looks to me like this is ordered
+		 * (given .RESET)
+		 */
+		for (String school : new TreeSet<String>(aSpell.getSafeListFor(ListKey.SPELL_SCHOOL)))
 		{
 			tStr = "SCHOOL." + school;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
@@ -7341,7 +7345,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (String subschool : aSpell.getSubschools())
+		for (String subschool : new TreeSet<String>(aSpell.getSafeListFor(ListKey.SPELL_SUBSCHOOL)))
 		{
 			tStr = "SUBSCHOOL." + subschool;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
@@ -7368,7 +7372,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (String desc : aSpell.getDescriptorList())
+		//Not wrapped because it wasn't in 5.14
+		for (String desc : aSpell.getSafeListFor(ListKey.SPELL_DESCRIPTOR))
 		{
 			tStr = "DESCRIPTOR." + desc;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
@@ -8139,7 +8144,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			//
 			//
-			if (Spell.hasPPCost())
+			if (Globals.hasSpellPPCost())
 			{
 				final Spell theSpell = acs.getSpell();
 				int ppCost = theSpell.getPPCost();
@@ -8558,12 +8563,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						final Spell aSpell = cs.getSpell();
 
-						if ((((school.length() == 0) || aSpell.getSchools()
-							.contains(school))
-							|| ((subschool.length() == 0) || aSpell
-								.getSubschools().contains(subschool)) || ((descriptor
-							.length() == 0) || aSpell
-							.descriptorContains(descriptor))))
+						if (       (school.length() == 0)
+								|| aSpell.containsInList(ListKey.SPELL_SCHOOL,school)
+								|| (subschool.length() == 0)
+								|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL,subschool)
+								|| (descriptor.length() == 0)
+								|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR,descriptor)
+							)
 						{
 							retList.add(aSpell);
 						}

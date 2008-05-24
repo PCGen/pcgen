@@ -24,24 +24,27 @@ package pcgen.core.spell;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
@@ -51,7 +54,6 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
@@ -64,35 +66,13 @@ import pcgen.util.Logging;
  */
 public final class Spell extends PObject
 {
-	private BigDecimal cost = BigDecimal.ZERO;
 	private HashMap<String, Integer> levelInfo = null;
-	private List<String> descriptorList = new ArrayList<String>();
-	private List<String> variantList = null; //Lazy initialization, it's rarely, if ever, used.
 	private Map<String, Prerequisite> preReqMap = null;
-	private SortedSet<String> castingTime = new TreeSet<String>();
-	private SortedSet<String> componentList = new TreeSet<String>();
-	private SortedSet<String> duration = new TreeSet<String>();
-	private SortedSet<String> range = new TreeSet<String>();
-	private SortedSet<String> saveInfo = new TreeSet<String>();
-	private SortedSet<String> school = new TreeSet<String>();
-	private SortedSet<String> spellResistance = new TreeSet<String>();
-	private SortedSet<String> subschool = new TreeSet<String>();
 	private String fixedCasterLevel = null;
 	private String fixedDC = null;
 
-
-	//private int minLVL = 0;
-	//private int maxLVL = 9;
-	private String creatableItem = Constants.EMPTY_STRING;
-	private String spellStat = Constants.EMPTY_STRING;
-	private String target = Constants.EMPTY_STRING;
-	private int castingThreshold = 0;
-	private int xpCost = 0;
-	private int ppCost = 0;
-
 	private HashMap<String, Integer> spellPointCost = new HashMap<String,  Integer>();
 
-	static boolean hasPPCost = false;
 	static boolean hasSpellPointCost = false;
 
 	/** An enumeration of &quot;Standard&quot; spell components */
@@ -162,11 +142,6 @@ public final class Spell extends PObject
 		}
 	}
 	
-	public static boolean hasPPCost()
-	{
-		return hasPPCost;
-	}
-
 	///////////////////////////////////////////////////////////////////////////
 	// Constructor(s)
 	///////////////////////////////////////////////////////////////////////////
@@ -175,91 +150,20 @@ public final class Spell extends PObject
 		super();
 	}
 
-	public void setCastingThreshold(final int arg)
-	{
-		castingThreshold = arg;
-	}
-
-	public int getCastingThreshold()
-	{
-		return castingThreshold;
-	}
-
-	public void setCastingTime(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			castingTime.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				castingTime.add(aString);
-				Globals.addSpellCastingTimesSet(aString);
-			}
-		}
-	}
-
 	public String getCastingTime()
 	{
-		final String s = castingTime.toString();
-
-		return s.substring(1, s.length() - 1);
-	}
-
-	public void setComponentList(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			componentList.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				componentList.add(aString);
-				Globals.addSpellComponentSet(aString);
-			}
-		}
+		return StringUtil.join(getListFor(ListKey.CASTTIME), ", ");
 	}
 
 	public String getComponentList()
 	{
-		final String s = componentList.toString();
-
-		return s.substring(1, s.length() - 1);
-	}
-
-	public void setCost(final String aString)
-	{
-		try
-		{
-			cost = new BigDecimal(aString);
-		}
-		catch (NumberFormatException ignore)
-		{
-			// ignore
-		}
-		catch (StringIndexOutOfBoundsException ignore)
-		{
-			//thrown when aString is ""
-		}
+		return StringUtil.join(getListFor(ListKey.COMPONENTS), ", ");
 	}
 
 	public BigDecimal getCost()
 	{
-		return cost;
-	}
-
-	public void setCreatableItem(final String creatableItem)
-	{
-		this.creatableItem = creatableItem;
-	}
-
-	public String getCreatableItem()
-	{
-		return creatableItem;
+		BigDecimal cost = get(ObjectKey.COST);
+		return cost == null ? BigDecimal.ZERO : cost;
 	}
 
 	/**
@@ -404,11 +308,10 @@ public final class Spell extends PObject
 		if (spellIndex == -2)
 		{
 			// get the BASESPELLSTAT from the spell itself
-			final String statName = getStat();
-
-			if (statName.length() > 0)
+			PCStat stat = get(ObjectKey.SPELL_STAT);
+			if (stat != null)
 			{
-				dc += aPC.getStatList().getStatModFor(statName);
+				dc += aPC.getStatList().getStatModFor(stat.getAbb());
 			}
 		}
 
@@ -439,17 +342,17 @@ public final class Spell extends PObject
 			}
 		}
 
-		for (String aType : school)
+		for (String aType : getSafeListFor(ListKey.SPELL_SCHOOL))
 		{
 			dc += (int) aPC.getTotalBonusTo("DC", "SCHOOL." + aType);
 		}
 
-		for (String aType : subschool)
+		for (String aType : getSafeListFor(ListKey.SPELL_SUBSCHOOL))
 		{
 			dc += (int) aPC.getTotalBonusTo("DC", "SUBSCHOOL." + aType);
 		}
 
-		for (String aType : descriptorList)
+		for (String aType : getSafeListFor(ListKey.SPELL_DESCRIPTOR))
 		{
 			dc += (int) aPC.getTotalBonusTo("DC", "DESCRIPTOR." + aType);
 		}
@@ -459,32 +362,9 @@ public final class Spell extends PObject
 		return dc;
 	}
 
-	public List<String> getDescriptorList()
-	{
-		return descriptorList;
-	}
-
-	public void setDuration(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			duration.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				duration.add(aString);
-				Globals.addDurationSet(aString);
-			}
-		}
-	}
-
 	public String getDuration()
 	{
-		final String s = duration.toString();
-
-		return s.substring(1, s.length() - 1);
+		return StringUtil.join(getListFor(ListKey.DURATION), ", ");
 	}
 
 	public int getFirstLevelForKey(final String key, final PlayerCharacter aPC)
@@ -605,15 +485,9 @@ public final class Spell extends PObject
 
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
-
-		appendPCCText(txt, castingTime, "CASTTIME");
-
-		appendPCCText(txt, componentList, "COMPS");
-
-		if (getCost().compareTo(BigDecimal.ZERO) != 0)
-		{
-			txt.append("\tCOST:").append(getCost().toString());
-		}
+		txt.append("\t");
+		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
 
 		//CLASSES:
 		//DOMAINS:
@@ -657,61 +531,6 @@ public final class Spell extends PObject
 			}
 		}
 
-		if (getCastingThreshold() != 0)
-		{
-			txt.append("\tCT:").append(getCastingThreshold());
-		}
-
-		aString = getDescriptor("|");
-
-		if (aString.length() != 0)
-		{
-			txt.append("\tDESCRIPTOR:").append(aString);
-		}
-
-		appendPCCText(txt, duration, "DURATION");
-
-		aString = getCreatableItem();
-
-		if (aString.length() != 0)
-		{
-			txt.append("\tITEM:").append(aString);
-		}
-
-		appendPCCText(txt, range, "RANGE");
-		appendPCCText(txt, saveInfo, "SAVEINFO");
-		appendPCCText(txt, school, "SCHOOL");
-
-		aString = getStat();
-		if (aString.length() != 0)
-		{
-			txt.append("\tSTAT:").append(aString);
-		}
-
-		appendPCCText(txt, spellResistance, "SPELLRES");
-		appendPCCText(txt, subschool, "SUBSCHOOL");
-
-		aString = getTarget();
-
-		if (aString.length() != 0)
-		{
-			txt.append("\tTARGETAREA:").append(aString);
-		}
-
-		if ((variantList != null) && (variantList.size() != 0))
-		{
-			txt.append("\tVARIANTS:").append(StringUtil.join(variantList, "|"));
-		}
-
-		if (getXPCost() != 0)
-		{
-			txt.append("\tXPCOST:").append(getXPCost());
-		}
-
-		if (getPPCost() != 0)
-		{
-			txt.append("\tPPCOST:").append(getPPCost());
-		}
 		if (hasSpellPointCost())
 		{
 			txt.append(getSpellPointCostActual());
@@ -722,207 +541,47 @@ public final class Spell extends PObject
 		return txt.toString();
 	}
 
-	public void setRange(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			range.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				range.add(aString);
-				Globals.addSpellRangesSet(aString);
-			}
-		}
-	}
-
 	public String getRange()
 	{
-		final String s = range.toString();
-
-		return s.substring(1, s.length() - 1);
-	}
-
-	public void setSaveInfo(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			saveInfo.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				saveInfo.add(aString);
-				Globals.addSpellSaveInfoSet(aString);
-			}
-		}
+		return StringUtil.join(getListFor(ListKey.RANGE), ", ");
 	}
 
 	public String getSaveInfo()
 	{
-		final String s = saveInfo.toString();
-
-		return s.substring(1, s.length() - 1);
-	}
-
-	public void addSchool(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			school.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				school.add(aString);
-			}
-		}
+		return StringUtil.join(getListFor(ListKey.SAVE_INFO), ", ");
 	}
 
 	public String getSchool()
 	{
-		final String s = school.toString();
-
-		return s.substring(1, s.length() - 1);
-	}
-
-	public SortedSet<String> getSchools()
-	{
-		return school;
-	}
-
-	public void setSpellResistance(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			spellResistance.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				spellResistance.add(aString);
-				Globals.addSpellSrSet(aString);
-			}
-		}
+		return StringUtil.join(getListFor(ListKey.SPELL_SCHOOL), ", ");
 	}
 
 	public String getSpellResistance()
 	{
-		final String s = spellResistance.toString();
-
-		return s.substring(1, s.length() - 1);
-	}
-
-	public void setStat(final String aStat)
-	{
-		spellStat = aStat;
-		Globals.addSpellStatSet(aStat);
-	}
-
-	public String getStat()
-	{
-		return spellStat;
-	}
-
-	public void addSubschool(final String aString)
-	{
-		if (aString.equals(".CLEAR"))
-		{
-			subschool.clear();
-		}
-		else
-		{
-			if (aString.length() != 0)
-			{
-				subschool.add(aString);
-
-				if (aString.length() != 0)
-				{
-					Globals.getSubschools().add(aString);
-				}
-			}
-		}
+		return StringUtil.join(getListFor(ListKey.SPELL_RESISTANCE), ", ");
 	}
 
 	public String getSubschool()
 	{
-		final String s = subschool.toString();
-
-		return s.substring(1, s.length() - 1);
-	}
-
-	public SortedSet<String> getSubschools()
-	{
-		return subschool;
-	}
-
-	public void setTarget(final String aString)
-	{
-		target = aString;
-
-		if (aString.length() != 0)
-		{
-			Globals.addSpellTargetSet(aString);
-		}
-
-//		hmmm.... not sure what to do with effectTypes (merton_monk@yahoo.com, 12/10/02)
-//		Globals.getEffectTypes().add(aString);
+		return StringUtil.join(getListFor(ListKey.SPELL_SUBSCHOOL), ", ");
 	}
 
 	public String getTarget()
 	{
-		return target;
-	}
-
-
-	public List<String> getVariants()
-	{
-		//Initialize lazily
-		if (variantList == null)
-		{
-			variantList = new ArrayList<String>();
-		}
-
-		return variantList;
-	}
-
-	public void setXPCost(int cost)
-	{
-		xpCost = cost;
+		String target = get(StringKey.TARGET_AREA);
+		return target == null ? Constants.EMPTY_STRING : target;
 	}
 
 	public int getXPCost()
 	{
-		return xpCost;
-	}
-
-	public void setPPCost(final int argCost)
-	{
-		hasPPCost = true;
-
-		ppCost = argCost;
+		Integer xpCost = get(IntegerKey.XP_COST);
+		return xpCost == null ? 0 : xpCost.intValue();
 	}
 
 	public int getPPCost()
 	{
-		return ppCost;
-	}
-
-	public void addDescriptor(final String descriptor)
-	{
-		if (descriptor.equals(".CLEAR"))
-		{
-			descriptorList.clear();
-		}
-		else
-		{
-			descriptorList.add(descriptor);
-		}
+		Integer ppCost = get(IntegerKey.PP_COST);
+		return ppCost == null ? 0 : ppCost.intValue();
 	}
 
 	public void addPreReqMapEntry(final String type, final Prerequisite preReq)
@@ -936,24 +595,6 @@ public final class Spell extends PObject
 
 	}
 
-	public void addVariant(final String variant)
-	{
-		if (variantList == null)
-		{
-			variantList = new ArrayList<String>();
-		}
-
-		if (variant.length() != 0)
-		{
-			variantList.add(variant);
-		}
-	}
-
-	public void clearVariants()
-	{
-		variantList = null;
-	}
-
 	////////////////////////////////////////////////////////////
 	// Public method(s)
 	////////////////////////////////////////////////////////////
@@ -965,22 +606,7 @@ public final class Spell extends PObject
 		try
 		{
 			aSpell = (Spell) super.clone();
-			aSpell.school = new TreeSet<String>(school);
-			aSpell.subschool = new TreeSet<String>(subschool);
-			aSpell.componentList = new TreeSet<String>(componentList);
-			aSpell.castingTime = new TreeSet<String>(castingTime);
-			aSpell.range = new TreeSet<String>(range);
-			aSpell.duration = new TreeSet<String>(duration);
-			aSpell.saveInfo = new TreeSet<String>(saveInfo);
-			aSpell.spellResistance = new TreeSet<String>(spellResistance);
-			aSpell.descriptorList = new ArrayList<String>(descriptorList);
-			aSpell.ppCost = new Integer(ppCost);
 
-			if (variantList != null)
-			{
-				aSpell.variantList = new ArrayList<String>();
-				aSpell.variantList.addAll(variantList);
-			}
 			if (spellPointCost != null)
 			{
 				aSpell.spellPointCost = new HashMap<String,Integer>(spellPointCost);
@@ -1002,12 +628,7 @@ public final class Spell extends PObject
 
 	public String descriptor()
 	{
-		return getDescriptor(", ");
-	}
-
-	public boolean descriptorListContains(final Collection<String> aList)
-	{
-		return CoreUtility.containsAny(descriptorList, aList);
+		return StringUtil.join(getListFor(ListKey.SPELL_DESCRIPTOR), ", ");
 	}
 
 	public String getLevelString()
@@ -1187,46 +808,6 @@ public final class Spell extends PObject
 		return false;
 	}
 
-	public boolean schoolContains(final Collection<String> aList)
-	{
-		return CoreUtility.containsAny(school, aList);
-	}
-
-	public boolean subschoolContains(final Collection<String> aList)
-	{
-		return CoreUtility.containsAny(subschool, aList);
-	}
-
-	public boolean descriptorContains(final String descriptor)
-	{
-		return descriptorList.contains(descriptor);
-	}
-
-	private String getDescriptor(final String delimiter)
-	{
-		final StringBuffer retVal = new StringBuffer(descriptorList.size() * 5);
-
-		for ( String desc : descriptorList )
-		{
-			if (retVal.length() > 0)
-			{
-				retVal.append(delimiter);
-			}
-
-			retVal.append(desc);
-		}
-
-		return retVal.toString();
-	}
-
-	private void appendPCCText(final StringBuffer sb, final Set<String> ts, final String tag)
-	{
-		for (String s : ts)
-		{
-			sb.append('\t').append(tag).append(':').append(s);
-		}
-	}
-	
 	/**
 	 * Tests to see if two Spell objects are equal.
 	 * 
@@ -1464,11 +1045,11 @@ public final class Spell extends PObject
 		final String aComponent)
 	{
 		int aBonus = 0;
-		for (String school: getSchools())
+		for (String school: getSafeListFor(ListKey.SPELL_SCHOOL))
 		{
 			aBonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SCHOOL." + school.toUpperCase() +";"+ aComponent.toUpperCase());
 		}
-		for (String subSchool: getSubschools())
+		for (String subSchool: getSafeListFor(ListKey.SPELL_SUBSCHOOL))
 		{
 			aBonus += (int)aPC.getTotalBonusTo("SPELLPOINTCOST", "SUBSCHOOL." + subSchool.toUpperCase() +";"+ aComponent.toUpperCase());
 		}
@@ -1515,17 +1096,17 @@ public final class Spell extends PObject
 							boolean getBonus = false;
 							if(info.getSpellPointPartFilter() == SpellPointFilterType.SCHOOL)
 							{
-								for (String aSchool: this.getSchools())
+								for (String aSchool: getSafeListFor(ListKey.SPELL_SCHOOL))
 								{
-									if (info.getSpellPointPartFilterValue().toUpperCase().equalsIgnoreCase(aSchool))
+									if (info.getSpellPointPartFilterValue().equalsIgnoreCase(aSchool))
 									getBonus = true;
 								}
 							}
 							else if(info.getSpellPointPartFilter() == SpellPointFilterType.SUBSCHOOL)
 							{
-								for (String aSchool: this.getSubschools())
+								for (String aSchool: getSafeListFor(ListKey.SPELL_SUBSCHOOL))
 								{
-									if (info.getSpellPointPartFilterValue().toUpperCase().equalsIgnoreCase(aSchool))
+									if (info.getSpellPointPartFilterValue().equalsIgnoreCase(aSchool))
 									getBonus = true;
 								}
 							}
@@ -1585,5 +1166,34 @@ public final class Spell extends PObject
 		}
 		
 		return "";
-	}	
+	}
+
+	public boolean isAllowed(String string)
+	{
+		/*
+		 * Due to case insensitivity and lack of type safety so far on ITEM &
+		 * PROHIBITED_ITEM we need this method in order to properly calculate
+		 * what is allowed
+		 */
+		for (String s : getSafeListFor(ListKey.ITEM))
+		{
+			if (s.equalsIgnoreCase(string))
+			{
+				return true;
+			}
+		}
+		if ("potion".equalsIgnoreCase(string))
+		{
+			return false;
+		}
+		for (String s : getSafeListFor(ListKey.PROHIBITED_ITEM))
+		{
+			if (s.equalsIgnoreCase(string))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
 }

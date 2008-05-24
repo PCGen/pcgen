@@ -1086,7 +1086,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		createFeatList();
 
 		ChooserInterface c = ChooserFactory.getChooserInstance();
-		if (Spell.hasPPCost())
+		if (Globals.hasSpellPPCost())
 		{
 			//
 			// Does feat apply a BONUS:PPCOST to this spell, all spells, or all spells of

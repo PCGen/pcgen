@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -499,7 +500,7 @@ public class SpellsChoiceManager extends
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 				List<Spell> availableList)
 		{
-			if (spell.getSchools().contains(school))
+			if (spell.containsInList(ListKey.SPELL_SCHOOL, school))
 			{
 				availableList.add(spell);
 			}
@@ -518,7 +519,7 @@ public class SpellsChoiceManager extends
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 				List<Spell> availableList)
 		{
-			if (spell.getSubschools().contains(subschool))
+			if (spell.containsInList(ListKey.SPELL_SUBSCHOOL, subschool))
 			{
 				availableList.add(spell);
 			}
@@ -537,7 +538,7 @@ public class SpellsChoiceManager extends
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 				List<Spell> availableList)
 		{
-			if (spell.descriptorContains(descriptor))
+			if (spell.containsInList(ListKey.SPELL_DESCRIPTOR, descriptor))
 			{
 				availableList.add(spell);
 			}

@@ -31,8 +31,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -49,8 +49,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Description;
 import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
@@ -60,6 +66,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.DecimalNumberField;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -145,113 +152,76 @@ public class SpellBasePanel extends BasePanel
 		}
 		s.setDescIsPI(pnlDescription.getDescIsPI());
 
-		s.setComponentList(".CLEAR");
-		aString = (String) cmbComponents.getSelectedItem();
-
-		if (aString != null)
+		LoadContext context = Globals.getContext();
+		s.removeListFor(ListKey.COMPONENTS);
+		context.unconditionallyProcess(s, "COMPS", (String) cmbComponents
+				.getSelectedItem());
+		s.removeListFor(ListKey.CASTTIME);
+		context.unconditionallyProcess(s, "CASTTIME", (String) cmbCastingTime
+				.getSelectedItem());
+		s.removeListFor(ListKey.RANGE);
+		context.unconditionallyProcess(s, "RANGE", (String) cmbRange
+				.getSelectedItem());
+		s.removeListFor(ListKey.SAVE_INFO);
+		context.unconditionallyProcess(s, "SAVEINFO", (String) cmbSavingThrow
+				.getSelectedItem());
+		s.removeListFor(ListKey.SPELL_RESISTANCE);
+		context.unconditionallyProcess(s, "SPELLRES", (String) cmbSpellRes
+				.getSelectedItem());
+		s.removeListFor(ListKey.DURATION);
+		context.unconditionallyProcess(s, "DURATION", (String) cmbDuration
+				.getSelectedItem());
+		s.removeListFor(ListKey.SPELL_SCHOOL);
+		context.unconditionallyProcess(s, "SCHOOL", (String) cmbSchool
+				.getSelectedItem());
+		
+		s.removeListFor(ListKey.SPELL_SUBSCHOOL);
+		aString = (String) cmbSubschool.getSelectedItem();
+		if ((aString != null) && !aString.equals("(None)"))
 		{
-			s.setComponentList(aString);
-		}
-
-		s.setCastingTime(".CLEAR");
-		aString = (String) cmbCastingTime.getSelectedItem();
-
-		if (aString != null)
-		{
-			s.setCastingTime(aString);
-		}
-
-		s.setRange(".CLEAR");
-		aString = (String) cmbRange.getSelectedItem();
-
-		if (aString != null)
-		{
-			s.setRange(aString);
+			context.unconditionallyProcess(s, "SUBSCHOOL", (String) cmbSchool
+					.getSelectedItem());
 		}
 
 		aString = (String) cmbTarget.getSelectedItem();
-		s.setTarget(aString);
-
-		s.setDuration(".CLEAR");
-		aString = (String) cmbDuration.getSelectedItem();
-
-		if (aString != null)
-		{
-			s.setDuration(aString);
-		}
-
-		s.setSaveInfo(".CLEAR");
-		aString = (String) cmbSavingThrow.getSelectedItem();
-
-		if (aString != null)
-		{
-			s.setSaveInfo(aString);
-		}
-
-		s.setSpellResistance(".CLEAR");
-		aString = (String) cmbSpellRes.getSelectedItem();
-
-		if (aString != null)
-		{
-			s.setSpellResistance(aString);
-		}
-
-		s.addSchool(".CLEAR");
-		aString = (String) cmbSchool.getSelectedItem();
-
-		if (aString != null)
-		{
-			s.addSchool(aString);
-		}
-
-		s.addSubschool(".CLEAR");
-		aString = (String) cmbSubschool.getSelectedItem();
-
-		if ((aString != null) && !aString.equals("(None)"))
-		{
-			s.addSubschool(aString);
-		}
+		s.put(StringKey.TARGET_AREA, aString);
 
 		// Added to support spell descriptors, Michael Osterlie
-		s.addDescriptor(".CLEAR");
+		s.removeListFor(ListKey.SPELL_DESCRIPTOR);
 		aString = txtDescriptor.getText();
 		StringTokenizer tokenizer = new StringTokenizer(aString, ",");
 		while(tokenizer.hasMoreTokens())
 		{
-			String descriptor = tokenizer.nextToken();
-			s.addDescriptor(descriptor);
+			s.addToListFor(ListKey.SPELL_DESCRIPTOR, tokenizer.nextToken());
 		}
-
-		s.setCost(Double.toString(txtCost.getValue()));
-		s.setXPCost(txtXpCost.getValue());
-		s.setStat((String) cmbStat.getSelectedItem());
+		s.put(ObjectKey.COST, new BigDecimal(txtCost.getValue()));
+		s.put(IntegerKey.XP_COST, txtXpCost.getValue());
+		s.put(ObjectKey.SPELL_STAT, (PCStat) cmbStat.getSelectedItem());
 
 		//
 		// potion defaults to not-creatable if not in list; scroll and wand to creatable
 		//
-		StringBuffer sb = new StringBuffer();
-
+		s.removeListFor(ListKey.ITEM);
+		s.removeListFor(ListKey.PROHIBITED_ITEM);
 		if (chkPotionAllowed.isSelected())
 		{
-			sb.append("potion");
+			s.addToListFor(ListKey.ITEM, "potion");
 		}
 
 		if (!chkRingAllowed.isSelected())
 		{
-			sb.append("[ring]");
+			s.addToListFor(ListKey.PROHIBITED_ITEM, "ring");
 		}
 
 		if (!chkScrollAllowed.isSelected())
 		{
-			sb.append("[scroll]");
+			s.addToListFor(ListKey.PROHIBITED_ITEM, "scroll");
 		}
 
 		if (!chkWandAllowed.isSelected())
 		{
-			sb.append("[wand]");
+			s.addToListFor(ListKey.PROHIBITED_ITEM, "wand");
 		}
-
-		s.setCreatableItem(sb.toString());
 	}
 
 	public void updateView(PObject thisPObject)
@@ -277,57 +247,23 @@ public class SpellBasePanel extends BasePanel
 		cmbSpellRes.setSelectedItem(thisSpell.getSpellResistance());
 		cmbSchool.setSelectedItem(thisSpell.getSchool());
 		cmbSubschool.setSelectedItem(thisSpell.getSubschool());
-
-		//Populate the Descriptor field with comma-delimited list
-		List descriptorList = thisSpell.getDescriptorList();
-		StringBuffer descriptor = new StringBuffer();
-		if(descriptorList.size() > 0)
-		{
-			for( Iterator it = descriptorList.iterator(); it.hasNext();)
-			{
-				descriptor.append(it.next()).append(",");
-			}
-			descriptor = descriptor.deleteCharAt(descriptor.length() - 1);
-		}
-		txtDescriptor.setText(descriptor.toString());
+		txtDescriptor.setText(StringUtil.join(thisSpell
+				.getListFor(ListKey.SPELL_DESCRIPTOR), ","));
 
 		if (cmbSubschool.getSelectedIndex() < 0)
 		{
 			cmbSubschool.setSelectedIndex(0);
 		}
 
-		cmbStat.setSelectedItem(thisSpell.getStat());
+		cmbStat.setSelectedItem(thisSpell.get(ObjectKey.SPELL_STAT));
 
 		txtCost.setValue(thisSpell.getCost().doubleValue());
 		txtXpCost.setValue(thisSpell.getXPCost());
 
-		final String items = thisSpell.getCreatableItem().toLowerCase();
-
-		chkPotionAllowed.setSelected(canCreateItem("potion", items));
-		chkRingAllowed.setSelected(canCreateItem("ring", items));
-		chkScrollAllowed.setSelected(canCreateItem("scroll", items));
-		chkWandAllowed.setSelected(canCreateItem("wand", items));
-	}
-
-	private static boolean canCreateItem(final String itemType, final String items)
-	{
-		boolean canCreate = true;
-
-		if (itemType.equals("potion"))
-		{
-			canCreate = false;
-		}
-
-		if (items.indexOf("[" + itemType + "]") >= 0)
-		{
-			canCreate = false;
-		}
-		else if (items.indexOf(itemType) >= 0)
-		{
-			canCreate = true;
-		}
-
-		return canCreate;
+		chkPotionAllowed.setSelected(thisSpell.isAllowed("potion"));
+		chkRingAllowed.setSelected(thisSpell.isAllowed( "ring"));
+		chkScrollAllowed.setSelected(thisSpell.isAllowed("scroll"));
+		chkWandAllowed.setSelected(thisSpell.isAllowed("wand"));
 	}
 
 	private void initComponentContents()
@@ -340,7 +276,7 @@ public class SpellBasePanel extends BasePanel
 		cmbTarget.setModel(new DefaultComboBoxModel(Globals.getTargetSet().toArray()));
 		cmbComponents.setModel(new DefaultComboBoxModel(Globals.getComponentSet().toArray()));
 		cmbDuration.setModel(new DefaultComboBoxModel(Globals.getDurationSet().toArray()));
-		cmbStat.setModel(new DefaultComboBoxModel(Globals.getStatSet().toArray()));
+		cmbStat.setModel(new DefaultComboBoxModel(SettingsHandler.getGame().getUnmodifiableStatList().toArray()));
 
 		List<String> subschools = new ArrayList<String>(10);
 		subschools.add("(None)");
