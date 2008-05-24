@@ -2706,7 +2706,7 @@
 			<stat value="STR" weight="1"/>
 		</stats>
 		<subclasses>
-			<subclass value="Wizard" weight="100" />
+			<subclass value="" weight="100" />
 			<subclass value="Abjurer" weight="5" />
 			<subclass value="Conjurer" weight="10" />
 			<subclass value="Diviner" weight="3" />
