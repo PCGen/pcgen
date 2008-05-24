@@ -17695,15 +17695,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Point2D.Double face = new Point2D.Double(5, 0);
 		if (aRace != null)
 		{
-			face = aRace.getFace();
+			Point2D.Double rf = aRace.getFace();
+			if (rf != null)
+			{
+				face = rf;
+			}
 		}
 
 		// Scan templates for any overrides
 		for (PCTemplate template : getTemplateList())
 		{
-			if (template.getFace() != null)
+			Point2D.Double tf = template.getFace();
+			if (tf != null)
 			{
-				face = template.getFace();
+				face = tf;
 			}
 		}
 		return face;

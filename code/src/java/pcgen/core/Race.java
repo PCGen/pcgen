@@ -23,6 +23,7 @@
 package pcgen.core;
 
 import java.awt.geom.Point2D;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,9 +36,9 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 
@@ -57,7 +58,6 @@ public final class Race extends PObject
 	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
 
-	private Point2D.Double face = new Point2D.Double(5, 0);
 	private String favoredClass = Constants.EMPTY_STRING;
 	// TODO - ABILITYOBJECT - Remove this.
 	private String featList = Constants.EMPTY_STRING;
@@ -138,14 +138,15 @@ public final class Race extends PObject
 		return visionString.toString();
 	}
 
-	public void setFace(final double width, final double height)
-	{
-		face = new Point2D.Double(width, height);
-	}
-
 	public Point2D.Double getFace()
 	{
-		return face;
+		BigDecimal width = get(ObjectKey.FACE_WIDTH);
+		BigDecimal height = get(ObjectKey.FACE_HEIGHT);
+		if (width == null && height == null)
+		{
+			return null;
+		}
+		return new Point2D.Double(width.doubleValue(), height.doubleValue());
 	}
 
 	public void setFavoredClass(final String newClass)
@@ -698,15 +699,6 @@ public final class Race extends PObject
 			txt.append(retString);
 		}
 
-		if (CoreUtility.doublesEqual(face.getY(), 0.0))
-		{
-			txt.append("\tFACE:").append(face.getX());
-		}
-		else
-		{
-			txt.append("\tFACE:").append(face.getX() + "," + face.getY());
-		}
-
 		if ((featList != null) && (featList.length() > 0))
 		{
 			txt.append("\tFEAT:").append(featList);
@@ -761,7 +753,6 @@ public final class Race extends PObject
 			aRace.hitDice = hitDice;
 			aRace.hitDiceSize = hitDiceSize;
 			aRace.hitPointMap = new HashMap<String, Integer>(hitPointMap);
-			aRace.face = face;
 		}
 		catch (CloneNotSupportedException exc)
 		{
