@@ -132,7 +132,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				{
 					String b = lt.getLevel() + "\t" + lt.getTag() + ":" + lt.getValue();
 					PCClassLoader classLoader = new PCClassLoader();
-					classLoader.parseLine(null, object, b, tempSource);
+					classLoader.parseLine(Globals.getContext(), object, b, tempSource);
 				}
 			}
 		}

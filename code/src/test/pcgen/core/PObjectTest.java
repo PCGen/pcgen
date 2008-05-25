@@ -164,7 +164,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		PCClass reconstClass = new PCClass();
 		reconstClass =
-				classLoader.parseLine(null, reconstClass, classPCCText, source);
+				classLoader.parseLine(Globals.getContext(), reconstClass, classPCCText, source);
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			classPCCText, reconstClass.getPCCText());

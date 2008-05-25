@@ -23,6 +23,7 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -36,9 +37,11 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.bonus.Bonus;
@@ -7456,4 +7459,61 @@ public class PCClass extends PObject
 	//		theAutoAbilities.put(aCategory, aLevel, null);
 	//	}
 
+	Map<Integer, PCClassLevel> levelMap = new HashMap<Integer, PCClassLevel>();
+//	List<PCClassLevel> repeatLevelObjects = new ArrayList<PCClassLevel>();
+
+	public PCClassLevel getClassLevel(int lvl)
+	{
+		if (!levelMap.containsKey(lvl))
+		{
+			PCClassLevel classLevel = new PCClassLevel();
+			classLevel.put(IntegerKey.LEVEL, Integer.valueOf(lvl));
+			classLevel.setName(getDisplayName() + "(" + lvl + ")");
+			classLevel.put(ObjectKey.PARENT, this);
+			levelMap.put(lvl, classLevel);
+		}
+		return levelMap.get(lvl);
+	}
+
+	public int getClassLevelCount()
+	{
+		return levelMap.size();
+	}
+
+	public Collection<PCClassLevel> getClassLevelCollection()
+	{
+		return Collections.unmodifiableCollection(levelMap.values());
+	}
+
+	public int getPCClassLevel(PCClassLevel pcl)
+	{
+		if (this.equals(pcl.get(ObjectKey.PARENT)))
+		{
+			for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
+			{
+				if (me.getValue().equals(pcl))
+				{
+					return me.getKey().intValue();
+				}
+			}
+		}
+		return -1;
+	}
+
+//	public PCClassLevel getRepeatLevel(int level, String objectName)
+//	{
+//		PCClassLevel pcl = new PCClassLevel();
+//		repeatLevelObjects.add(pcl);
+//		pcl.put(ObjectKey.PARENT, this);
+//		pcl.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+//		String originalLevels = level + ":" + objectName;
+//		pcl.put(StringKey.REPEAT, originalLevels);
+//		pcl.setName(getDisplayName() + "(" + originalLevels + ")");
+//		return pcl;
+//	}
+//	
+//	public Collection<PCClassLevel> getRepeatLevels()
+//	{
+//		return Collections.unmodifiableList(repeatLevelObjects);
+//	}
 }

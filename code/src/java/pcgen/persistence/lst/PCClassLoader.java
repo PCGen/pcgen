@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -109,7 +110,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 			if (subClass != null)
 			{
-				SubClassLoader.parseLine(subClass, lstLine, source);
+				SubClassLoader.parseLine(context, subClass, lstLine, source);
 			}
 
 			return pcClass;
@@ -149,11 +150,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					&& !pcClass.getSubstitutionClassList().isEmpty()
 					&& lstLine.length() > 18)
 				{
-					substitutionClass =
-							(SubstitutionClass) pcClass
-								.getSubstitutionClassList()
-								.get(
-									pcClass.getSubstitutionClassList().size() - 1);
+					substitutionClass = pcClass.getSubstitutionClassList().get(
+							pcClass.getSubstitutionClassList().size() - 1);
 					substitutionClass.addToLevelArray(lstLine.substring(18));
 
 					return pcClass;
@@ -162,179 +160,252 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 			if (substitutionClass != null)
 			{
-				SubstitutionClassLoader.parseLine(substitutionClass, lstLine,
+				SubstitutionClassLoader.parseLine(context, substitutionClass, lstLine,
 					source);
 			}
 
 			return pcClass;
 		}
 
-		return parseClassLine(lstLine, source, pcClass, false);
+		return parseClassLine(context, lstLine, source, pcClass);
 	}
 
-	private PCClass parseClassLine(String lstLine, CampaignSourceEntry source,
-		PCClass pcClass, boolean bRepeating) throws PersistenceLayerException
+	private PCClass parseClassLine(LoadContext context, String lstLine,
+			CampaignSourceEntry source, PCClass pcClass)
+			throws PersistenceLayerException
 	{
+		int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
+		String lineIdentifier;
+		String restOfLine;
+		if (tabLoc == -1)
+		{
+			lineIdentifier = lstLine;
+			restOfLine = null;
+		}
+		else
+		{
+			lineIdentifier = lstLine.substring(0, tabLoc);
+			restOfLine = lstLine.substring(tabLoc + 1);
+		}
+		
+		if (lineIdentifier.startsWith("CLASS:"))
+		{
+			String name = lineIdentifier.substring(6);
 
+			if (!name.equals(pcClass.getKeyName())
+					&& (name.indexOf(".MOD") < 0))
+			{
+				completeObject(source, pcClass);
+				pcClass = new PCClass();
+				pcClass.setName(name);
+				pcClass.setSourceURI(source.getURI());
+				pcClass.setSourceCampaign(source.getCampaign());
+			}
+			// need to grab PCClass instance for this .MOD minus the .MOD part of the name
+			else if (name.endsWith(".MOD"))
+			{
+				pcClass =
+						Globals.getClassKeyed(name.substring(0, name
+							.length() - 4));
+			}
+			parseLineIntoClass(context, pcClass, source, restOfLine);
+		}
+		else 
+		{
+			try
+			{
+				String repeatTag = null;
+				String thisLevel;
+				int rlLoc = lineIdentifier.indexOf(":REPEATLEVEL:");
+				if (rlLoc == -1)
+				{
+					thisLevel = lineIdentifier;
+				}
+				else
+				{
+					thisLevel = lineIdentifier.substring(0, rlLoc);
+					repeatTag = lineIdentifier.substring(rlLoc + 13);
+				}
+				int iLevel = Integer.parseInt(thisLevel);
+				if (iLevel == 0)
+				{
+					/*
+					 * This is for backwards compatibility with PCGen 5.14
+					 * getPCCText which writes out things to level 0 :P
+					 */
+					parseLineIntoClass(context, pcClass, source, restOfLine);
+				}
+				else if (iLevel > 0)
+				{
+					parseClassLevelLine(context, pcClass, iLevel, source, restOfLine);
+					if (repeatTag != null)
+					{
+						parseRepeatClassLevel(context, restOfLine, source, pcClass, iLevel, repeatTag);
+					}
+				}
+				else
+				{
+					Logging.errorPrint("Invalid Level Identifier: " + thisLevel
+							+ " for " + pcClass.getDisplayName()
+							+ ". Value must be greater than zero");
+				}
+			}
+			catch (NumberFormatException nfe)
+			{
+				// I think we can ignore this, as
+				// it's supposed to be the level #
+				// but could be almost anything else
+				Logging.errorPrint("Expected a level value, but got '"
+					+ lineIdentifier + "' instead in " + source.getURI(), nfe);
+			}
+
+		}
+		return pcClass;
+	}
+
+	private void parseClassLevelLine(LoadContext context, PCClass pcClass,
+			int lvl, CampaignSourceEntry source,
+			String restOfLine) throws PersistenceLayerException
+	{
+		PCClassLevel classlevel = pcClass.getClassLevel(lvl);
+		final StringTokenizer colToken = new StringTokenizer(restOfLine,
+				SystemLoader.TAB_DELIM);
+
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				PCClassLstToken.class);
+		// loop through all the tokens and parse them
+		while (colToken.hasMoreTokens())
+		{
+			String token = colToken.nextToken().trim();
+			int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
+			}
+			else if (colonLoc == 0)
+			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(classlevel, key, value))
+			{
+				Logging.clearParseMessages();
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				PCClassLstToken tok = (PCClassLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, pcClass, value);
+				if (!tok.parse(pcClass, value, lvl))
+				{
+					Logging.errorPrint("Error parsing class "
+							+ pcClass.getDisplayName() + ':' + source.getURI()
+							+ ':' + token + "\"");
+				}
+				Logging.clearParseMessages();
+				continue;
+			}
+			else if (PObjectLoader.parseTagLevel(pcClass, token, lvl))
+			{
+				Logging.clearParseMessages();
+				continue;
+			}
+			else
+			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+			}
+		}
+	}
+
+	public void parseLineIntoClass(LoadContext context, PCClass pcClass,
+			CampaignSourceEntry source, String restOfLine) throws PersistenceLayerException
+	{
 		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		int iLevel = 0;
-		boolean isNumber = true;
-
-		String repeatTag = null;
+				new StringTokenizer(restOfLine, SystemLoader.TAB_DELIM);
 
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(PCClassLstToken.class);
 		// loop through all the tokens and parse them
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			String token = colToken.nextToken().trim();
+			if (token.startsWith("CHECK"))
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			PCClassLstToken token = (PCClassLstToken) tokenMap.get(key);
-
-			if (colString.startsWith("CLASS:"))
-			{
-				isNumber = false;
-
-				String name = colString.substring(6);
-
-				if ((!name.equals(pcClass.getKeyName()))
-					&& (name.indexOf(".MOD") < 0))
-				{
-					// TODO - This should never happen
-					completeObject(source, pcClass);
-					pcClass = new PCClass();
-					pcClass.setName(name);
-					pcClass.setSourceURI(source.getURI());
-					pcClass.setSourceCampaign(source.getCampaign());
-				}
-				// need to grab PCClass instance for this .MOD minus the .MOD part of the name
-				else if (name.endsWith(".MOD"))
-				{
-					pcClass =
-							Globals.getClassKeyed(name.substring(0, name
-								.length() - 4));
-				}
-			}
-			else if (!(pcClass instanceof SubClass)
-				&& !(pcClass instanceof SubstitutionClass) && (isNumber))
-			{
-				try
-				{
-					String thisLevel;
-					int rlLoc = colString.indexOf(":REPEATLEVEL:");
-					if (rlLoc == -1)
-					{
-						thisLevel = colString;
-					}
-					else
-					{
-						thisLevel = colString.substring(0, rlLoc);
-						repeatTag = colString.substring(rlLoc + 13);
-					}
-					iLevel = Integer.parseInt(thisLevel);
-				}
-				catch (NumberFormatException nfe)
-				{
-					// I think we can ignore this, as
-					// it's supposed to be the level #
-					// but could be almost anything else
-					Logging.errorPrint("Expected a level value, but got '"
-						+ colString + "' instead in " + source.getURI(), nfe);
-				}
-
-				isNumber = false;
-
+				Logging.deprecationPrint("Class " + pcClass.getDisplayName()
+						+ " has token " + token + " which is ignored");
 				continue;
 			}
-			else if (colString.startsWith("CHECK"))
+			else if (token.equals("HASSUBCLASS"))
 			{
-				continue;
-			}
-			else if (colString.equals("HASSUBCLASS"))
-			{
+				Logging.deprecationPrint("Class " + pcClass.getDisplayName()
+						+ " has token HASSUBCLASS which should be "
+						+ "changed to HASSUBCLASS:YES");
 				pcClass.setHasSubClass(true);
 			}
-			else if (colString.equals("HASSUBSTITUTIONLEVEL"))
+			else if (token.equals("HASSUBSTITUTIONLEVEL"))
 			{
+				Logging.deprecationPrint("Class " + pcClass.getDisplayName()
+						+ " has token HASSUBSTITUTIONLEVEL which should be "
+						+ "changed to HASSUBSTITUTIONLEVEL:YES");
 				pcClass.setHasSubstitutionClass(true);
 			}
-			else if (colString.startsWith("MULTIPREREQS"))
+			int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				//Deprecated in 5.11 Alpha cycle - thpr 12/7/06
-				Logging
-					.errorPrint("In: "
-						+ pcClass.getDisplayName()
-						+ ':'
-						+ source.getURI()
-						+ ':'
-						+ colString
-						+ ", The MULTIPREREQS tag has been deprecated.  "
-						+ "Use PREMULT with !PRECLASS:1,Any instead. "
-						+ "(e.g. PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,Any] )");
-				pcClass.setMultiPreReqs(true);
-			}
-			else if (colString.startsWith("REPEATLEVEL:"))
-			{
-				Logging.deprecationPrint("REPEATLEVEL: should be attached to the level identifier\n Floating REPEATLEVEL: syntax has been deprecated");
-				if (!bRepeating)
-				{
-					repeatTag = colString.substring(12);
-				}
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, pcClass, value);
-				if (!token.parse(pcClass, value, iLevel))
-				{
-					Logging.errorPrint("Error parsing ability "
-						+ pcClass.getDisplayName() + ':' + source.getURI()
-						+ ':' + colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTagLevel(pcClass, colString, iLevel))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else if (colString.trim().length() == 0)
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(pcClass, key, value))
 			{
-				Logging.log(Logging.LST_ERROR, "Ignoring space in class line '"
-					+ pcClass.getDisplayName() + "' in " + source.getURI());
+				Logging.clearParseMessages();
+				context.commit();
 			}
-			else
+			else if (tokenMap.containsKey(key))
 			{
-				if (!(pcClass instanceof SubClass)
-					&& !(pcClass instanceof SubstitutionClass))
+				PCClassLstToken tok = (PCClassLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, pcClass, value);
+				if (!tok.parse(pcClass, value, 0))
 				{
-					Logging.log(Logging.LST_ERROR, "Illegal class info tag '"
-						+ colString + "' in " + source.getURI());
+					Logging.errorPrint("Error parsing class "
+						+ pcClass.getDisplayName() + ':' + source.getURI() + ':'
+						+ token + "\"");
 				}
+				Logging.clearParseMessages();
+ 				continue;
 			}
-
-			isNumber = false;
+			else if (PObjectLoader.parseTagLevel(pcClass, token, 0))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
-
-		//
-		// Process after all other tokens so 'order' is preserved
-		//
-		if ((repeatTag != null) && (iLevel > 0))
-		{
-			parseRepeatClassLevel(lstLine, source, pcClass, iLevel, repeatTag);
-		}
-		return pcClass;
 	}
 
-	private void parseRepeatClassLevel(String lstLine,
+	private void parseRepeatClassLevel(LoadContext context, String restOfLine,
 		CampaignSourceEntry source, PCClass pcClass, int iLevel,
 		String colString) throws PersistenceLayerException
 	{
@@ -429,15 +500,13 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 		}
 
-		final int tabIndex = lstLine.indexOf(SystemLoader.TAB_DELIM);
 		int count = consecutive - 1; // first one already added by processing of lstLine, so skip it
 		for (int lvl = iLevel + lvlIncrement; lvl <= maxLevel; lvl +=
 				lvlIncrement)
 		{
 			if ((consecutive == 0) || (count != 0))
 			{
-				parseClassLine(Integer.toString(lvl)
-					+ lstLine.substring(tabIndex), source, pcClass, true);
+				parseClassLevelLine(context, pcClass, lvl, source, restOfLine);
 			}
 			if (consecutive != 0)
 			{

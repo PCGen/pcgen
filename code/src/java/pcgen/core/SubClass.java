@@ -164,7 +164,7 @@ public final class SubClass extends PCClass
 			for ( String line : levelArray )
 			{
 				final PCClassLoader classLoader = new PCClassLoader();
-				classLoader.parseLine(null, aClass, line, tempSource);
+				classLoader.parseLine(Globals.getContext(), aClass, line, tempSource);
 			}
 		}
 		catch (PersistenceLayerException exc)

@@ -35,6 +35,7 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.ArmorProf;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
@@ -124,6 +125,12 @@ public final class ObjectKey<T>
 	public static final ObjectKey<EqModControl> MOD_CONTROL = new ObjectKey<EqModControl>();
 
 	public static final ObjectKey<BigDecimal> CURRENT_COST = new ObjectKey<BigDecimal>();
+
+	/*
+	 * This MUST Stay Object! Otherwise the code hierarchy ends up with circular
+	 * references/tangles
+	 */
+	public static final ObjectKey<Object> PARENT = new ObjectKey<Object>();
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

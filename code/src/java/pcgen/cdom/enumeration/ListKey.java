@@ -25,6 +25,7 @@ package pcgen.cdom.enumeration;
 
 import java.net.URI;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.list.ClassSkillList;
@@ -170,6 +171,9 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMSingleRef<EquipmentModifier>> REPLACED_KEYS = new ListKey<CDOMSingleRef<EquipmentModifier>>();
 	public static final ListKey<SpecialProperty> SPECIAL_PROPERTIES = new ListKey<SpecialProperty>();
 	public static final ListKey<ChangeArmorType> ARMORTYPE = new ListKey<ChangeArmorType>();
+	public static final ListKey<Formula> SPECIALTYKNOWN = new ListKey<Formula>();
+	public static final ListKey<Formula> KNOWN = new ListKey<Formula>();
+	public static final ListKey<Formula> CAST = new ListKey<Formula>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

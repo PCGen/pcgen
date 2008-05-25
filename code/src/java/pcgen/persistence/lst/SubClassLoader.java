@@ -56,7 +56,7 @@ public final class SubClassLoader
 	 * @throws PersistenceLayerException
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public static PObject parseLine(PObject target, String lstLine,
+	public static PObject parseLine(LoadContext context, PObject target, String lstLine,
 		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		SubClass subclass = (SubClass) target;
@@ -104,7 +104,7 @@ public final class SubClassLoader
 			}
 			else
 			{
-				classLoader.parseLine(null, subclass, colString, source);
+				classLoader.parseLineIntoClass(context, subclass, source, colString);
 			}
 		}
 

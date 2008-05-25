@@ -56,7 +56,7 @@ public final class SubstitutionClassLoader
 	 * @throws PersistenceLayerException
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public static PObject parseLine(PObject target, String lstLine,
+	public static PObject parseLine(LoadContext context, PObject target, String lstLine,
 		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		SubstitutionClass substitutionclass = (SubstitutionClass) target;
@@ -105,7 +105,7 @@ public final class SubstitutionClassLoader
 			}
 			else
 			{
-				classLoader.parseLine(null, substitutionclass, colString, source);
+				classLoader.parseLineIntoClass(context, substitutionclass, source, colString);
 			}
 		}
 
