@@ -1,7 +1,9 @@
 package plugin.lsttokens.equipmentmodifier;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.lst.EquipmentModifierLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
@@ -15,7 +17,7 @@ import pcgen.util.enumeration.Visibility;
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisibleToken implements EquipmentModifierLstToken
+public class VisibleToken implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	/**
@@ -26,33 +28,63 @@ public class VisibleToken implements EquipmentModifierLstToken
 		return "VISIBLE";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.EquipmentModifierLstToken#parse(pcgen.core.EquipmentModifier, java.lang.String)
-	 */
-	public boolean parse(EquipmentModifier mod, String value)
+	public boolean parse(LoadContext context, EquipmentModifier eqm,
+			String value)
 	{
-		if (value.equalsIgnoreCase("YES"))
+		Visibility vis;
+		if (value.equals("QUALIFY"))
 		{
-			mod.setVisibility(Visibility.DEFAULT);
+			vis = Visibility.QUALIFY;
 		}
-		else if (value.equalsIgnoreCase("QUALIFY"))
+		else if (value.equals("NO"))
 		{
-			mod.setVisibility(Visibility.QUALIFY);
+			vis = Visibility.HIDDEN;
 		}
-		else if (value.equalsIgnoreCase("NO"))
+		else if (value.equals("YES"))
 		{
-			mod.setVisibility(Visibility.HIDDEN);
+			vis = Visibility.DEFAULT;
 		}
 		else
 		{
-			Logging.errorPrint("Unexpected value used in "
-					+ getTokenName() + " in EqMod");
-				Logging.errorPrint(" " + value
-					+ " is not a valid value for " + getTokenName());
-				Logging
-					.errorPrint(" Valid values in EqMod are YES, QUALIFY, NO");
-				return false;
+			Logging.errorPrint("Can't understand Visibility: " + value);
+			return false;
 		}
+		context.getObjectContext().put(eqm, ObjectKey.VISIBILITY, vis);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, EquipmentModifier eqm)
+	{
+		Visibility vis = context.getObjectContext().getObject(eqm,
+				ObjectKey.VISIBILITY);
+		if (vis == null)
+		{
+			return null;
+		}
+		String visString;
+		if (vis.equals(Visibility.DEFAULT))
+		{
+			visString = "YES";
+		}
+		else if (vis.equals(Visibility.QUALIFY))
+		{
+			visString = "QUALIFY";
+		}
+		else if (vis.equals(Visibility.HIDDEN))
+		{
+			visString = "NO";
+		}
+		else
+		{
+			context.addWriteMessage("Visibility " + vis
+					+ " is not a valid Visibility for a EqMod");
+			return null;
+		}
+		return new String[] { visString };
+	}
+
+	public Class<EquipmentModifier> getTokenClass()
+	{
+		return EquipmentModifier.class;
 	}
 }

@@ -44,10 +44,14 @@ import java.util.regex.Pattern;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EqModControl;
+import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.modifier.ChangeArmorType;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
@@ -262,7 +266,7 @@ public final class Equipment extends PObject implements Serializable,
 	private String weaponProf;
 	private String shieldProf;
 	private String armorProf;
-	
+
 	{
 		final SizeAdjustment sizeAdj = SettingsHandler.getGame()
 				.getDefaultSizeAdjustment();
@@ -634,13 +638,19 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getFumbleRange() {
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
-			if (eqMod.getFumbleRange().length() > 0)
-				return eqMod.getFumbleRange();
+			String fr = eqMod.get(StringKey.FUMBLE_RANGE);
+			if (fr != null)
+			{
+				return fr;
+			}
 		}
 
 		for (EquipmentModifier eqMod : getEqModifierList(false)) {
-			if (eqMod.getFumbleRange().length() > 0)
-				return eqMod.getFumbleRange();
+			String fr = eqMod.get(StringKey.FUMBLE_RANGE);
+			if (fr != null)
+			{
+				return fr;
+			}
 		}
 
 		String fr = get(StringKey.FUMBLE_RANGE);
@@ -1197,10 +1207,11 @@ public final class Equipment extends PObject implements Serializable,
 		final StringBuffer itemName = new StringBuffer();
 
 		// Add in front eq mods
+		int fcf = EqModFormatCat.FRONT.ordinal();
 		String eqmodDesc = buildEqModDesc(
-				commonListByFC[EquipmentModifier.FORMATCAT_FRONT],
-				modListByFC[EquipmentModifier.FORMATCAT_FRONT],
-				altModListByFC[EquipmentModifier.FORMATCAT_FRONT]);
+				commonListByFC[fcf],
+				modListByFC[fcf],
+				altModListByFC[fcf]);
 		itemName.append(eqmodDesc);
 		if (itemName.length() > 0) {
 			itemName.append(' ');
@@ -1218,10 +1229,11 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// Add in middle mods
+		int fcm = EqModFormatCat.MIDDLE.ordinal();
 		eqmodDesc = buildEqModDesc(
-				commonListByFC[EquipmentModifier.FORMATCAT_MIDDLE],
-				modListByFC[EquipmentModifier.FORMATCAT_MIDDLE],
-				altModListByFC[EquipmentModifier.FORMATCAT_MIDDLE]);
+				commonListByFC[fcm],
+				modListByFC[fcm],
+				altModListByFC[fcm]);
 		if (eqmodDesc.length() > 0) {
 			itemName.append(' ').append(eqmodDesc);
 		}
@@ -1257,10 +1269,11 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// Put in parens mods
+		int fcp = EqModFormatCat.PARENS.ordinal();
 		eqmodDesc = buildEqModDesc(
-				commonListByFC[EquipmentModifier.FORMATCAT_PARENS],
-				modListByFC[EquipmentModifier.FORMATCAT_PARENS],
-				altModListByFC[EquipmentModifier.FORMATCAT_PARENS]);
+				commonListByFC[fcp],
+				modListByFC[fcp],
+				altModListByFC[fcp]);
 		itemName.append(eqmodDesc);
 
 		//
@@ -1429,10 +1442,10 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int getMaxCharges() {
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
-			final int maxCharges = eqMod.getMaxCharges();
-
-			if (maxCharges > 0) {
-				return maxCharges;
+			Integer max = eqMod.get(IntegerKey.MAX_CHARGES);
+			if (max != null && max > 0)
+			{
+				return max;
 			}
 		}
 
@@ -1472,10 +1485,10 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int getMinCharges() {
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
-			final int minCharges = eqMod.getMinCharges();
-
-			if (minCharges > 0) {
-				return minCharges;
+			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
+			if (min != null)
+			{
+				return min;
 			}
 		}
 
@@ -1889,7 +1902,8 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public void setRemainingCharges(final int remainingCharges) {
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
-			if (eqMod.getMinCharges() > 0) {
+			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
+			if (min != null && min > 0) {
 				eqMod.setRemainingCharges(remainingCharges);
 			}
 		}
@@ -1902,7 +1916,8 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int getRemainingCharges() {
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
-			if (eqMod.getMinCharges() > 0) {
+			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
+			if (min != null && min > 0) {
 				return eqMod.getRemainingCharges();
 			}
 		}
@@ -2105,7 +2120,8 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int getUsedCharges() {
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
-			if (eqMod.getMinCharges() > 0) {
+			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
+			if (min != null && min > 0) {
 				return eqMod.getUsedCharges();
 			}
 		}
@@ -2375,8 +2391,9 @@ public final class Equipment extends PObject implements Serializable,
 		if (eqMod.getChoiceString().length() != 0) {
 			while (aTok.hasMoreTokens()) {
 				final String x = aTok.nextToken();
-				if (eqMod.getMinCharges() > 0
-					|| (eqMod.getChoiceString().startsWith("EQBUILDER") && !isLoading))
+				Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
+				if (min != null && min > 0
+						|| (eqMod.getChoiceString().startsWith("EQBUILDER") && !isLoading))
 				{
 					// We clear the associated info to avoid a buildup of info
 					// like number of charges.
@@ -2436,22 +2453,31 @@ public final class Equipment extends PObject implements Serializable,
 			return;
 		}
 
-		//
-		// Remove any modifiers that this one will replace
-		//
+		List<CDOMSingleRef<EquipmentModifier>> replaces = eqMod.getListFor(ListKey.REPLACED_KEYS);
 		List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
-		for (int i = eqModList.size() - 1; i >= 0; --i) {
-			final EquipmentModifier aMod = eqModList.get(i);
-
-			if (eqMod.willReplace(aMod.getKeyName())) {
-				eqModList.remove(i);
-				if (bPrimary) {
-					typeListCachePrimary = null;
-				} else {
-					typeListCacheSecondary = null;
+		if (replaces != null)
+		{
+			//
+			// Remove any modifiers that this one will replace
+			//
+			for (CDOMSingleRef<EquipmentModifier> ref : replaces)
+			{
+				EquipmentModifier mod = ref.resolvesTo();
+				String key = mod.getKeyName();
+				for (int i = eqModList.size() - 1; i >= 0; --i) {
+					final EquipmentModifier aMod = eqModList.get(i);
+					if (key.equalsIgnoreCase(aMod.getKeyName()))
+					{
+						eqModList.remove(i);
+						if (bPrimary) {
+							typeListCachePrimary = null;
+						} else {
+							typeListCacheSecondary = null;
+						}
+						setDirty(true);
+					}
 				}
-				setDirty(true);
 			}
 		}
 
@@ -2670,12 +2696,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
 		for (EquipmentModifier eqMod : eqModList) {
-			// Only add bonuses for items that are not ignored.
-			// eg. Masterwork is ignored for Adamantine
-			//
-			if (!willIgnore(eqMod.getKeyName(), bPrimary)) {
-				eqMod.bonusTo(aPC, aType, aName, this);
-			}
+			eqMod.bonusTo(aPC, aType, aName, this);
 		}
 
 		for (String key : getBonusMap().keySet()) {
@@ -4666,7 +4687,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return An array of equipmod lists.
 	 */
 	private List<EquipmentModifier>[] initSplitModList() {
-		List<EquipmentModifier>[] modListArray = new List[EquipmentModifier.FORMATCAT_PARENS + 1];
+		List<EquipmentModifier>[] modListArray = new List[EqModFormatCat.values().length];
 
 		for (int i = 0; i < modListArray.length; i++) {
 			modListArray[i] = new ArrayList<EquipmentModifier>();
@@ -4850,42 +4871,45 @@ public final class Equipment extends PObject implements Serializable,
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
 		for (EquipmentModifier eqMod : eqModList) {
-			if (!willIgnore(eqMod.getKeyName(), bPrimary)) {
-				//
-				// If we've just replaced the armor type, then make sure it is
-				// not in the equipment modifier list
-				//
-				final String armorType = eqMod
-						.replaceArmorType(calculatedTypeList);
+			//
+			// If we've just replaced the armor type, then make sure it is
+			// not in the equipment modifier list
+			//
+			List<String> newTypeList = new ArrayList<String>(calculatedTypeList);
+			for (ChangeArmorType cat : eqMod.getSafeListFor(ListKey.ARMORTYPE))
+			{
+				List<String> tempTypeList = cat.applyModifier(newTypeList);
+				boolean noMatch = newTypeList.size() != tempTypeList.size()
+						|| tempTypeList.equals(newTypeList);
+				newTypeList = tempTypeList;
+				if (!noMatch)
+				{
+					break;
+				}
+			}
+			List<String> removedTypeList = new ArrayList<String>(calculatedTypeList);
+			removedTypeList.removeAll(newTypeList);
+			modTypeList.removeAll(removedTypeList);
 
-				if (armorType != null) {
-					final int idx = modTypeList.indexOf(armorType);
+			for (String aType : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
+			{
+				aType = aType.toUpperCase();
 
-					if (idx >= 0) {
-						modTypeList.remove(idx);
-					}
+				// If it's BOTH & MELEE, we cannot add RANGED or THROWN to
+				// it
+				// BOTH is only used after the split of a Thrown weapon in 2
+				// (melee and ranged)
+				if (calculatedTypeList.contains("BOTH")
+						&& calculatedTypeList.contains("MELEE")
+						&& ("RANGED".equals(aType) || "THROWN".equals(aType)))
+				{
+					continue;
 				}
 
-				final List<String> eqModTypeList = eqMod.getItemType();
-
-				for (String aType : eqModTypeList) {
-					aType = aType.toUpperCase();
-
-					// If it's BOTH & MELEE, we cannot add RANGED or THROWN to
-					// it
-					// BOTH is only used after the split of a Thrown weapon in 2
-					// (melee and ranged)
-					if (calculatedTypeList.contains("BOTH")
-							&& calculatedTypeList.contains("MELEE")
-							&& ("RANGED".equals(aType) || "THROWN"
-									.equals(aType))) {
-						continue;
-					}
-
-					if (!calculatedTypeList.contains(aType)
-							&& !modTypeList.contains(aType)) {
-						modTypeList.add(aType);
-					}
+				if (!calculatedTypeList.contains(aType)
+						&& !modTypeList.contains(aType))
+				{
+					modTypeList.add(aType);
 				}
 			}
 		}
@@ -4943,24 +4967,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		containerCapacityString = tempStringBuffer.toString();
-	}
-
-	/**
-	 * Description of the Method
-	 * 
-	 * @param eqModKey
-	 *            Description of the Parameter
-	 * @param bPrimary
-	 *            Description of the Parameter
-	 * @return Description of the Return Value
-	 */
-	private boolean willIgnore(final String eqModKey, final boolean bPrimary) {
-		for (EquipmentModifier eqMod : getEqModifierList(bPrimary)) {
-			if (eqMod.willIgnore(eqModKey)) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**

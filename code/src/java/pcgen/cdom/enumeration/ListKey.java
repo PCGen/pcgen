@@ -28,10 +28,14 @@ import java.net.URI;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.modifier.ChangeArmorType;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.Language;
 import pcgen.core.SpecialAbility;
+import pcgen.core.SpecialProperty;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -162,6 +166,10 @@ public final class ListKey<T> {
 	public static final ListKey<String> PROHIBITED_ITEM = new ListKey<String>();
 	public static final ListKey<String> ITEM = new ListKey<String>();
 	public static final ListKey<Integer> HITDICE_ADVANCEMENT = new ListKey<Integer>();
+	public static final ListKey<String> ITEM_TYPES = new ListKey<String>();
+	public static final ListKey<CDOMSingleRef<EquipmentModifier>> REPLACED_KEYS = new ListKey<CDOMSingleRef<EquipmentModifier>>();
+	public static final ListKey<SpecialProperty> SPECIAL_PROPERTIES = new ListKey<SpecialProperty>();
+	public static final ListKey<ChangeArmorType> ARMORTYPE = new ListKey<ChangeArmorType>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

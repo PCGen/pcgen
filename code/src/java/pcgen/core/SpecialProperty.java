@@ -20,12 +20,13 @@
  */
 package pcgen.core;
 
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * <code>SpecialProperty</code>.
@@ -45,17 +46,12 @@ public final class SpecialProperty extends TextProperty
 		super(name);
 	}
 
-	public SpecialProperty(final String name, final String propDesc)
-	{
-		super(name, propDesc);
-	}
-
 	//DJ: This will be the same everywhere this gets used....and currently that is spread across the code.
 	//It really shouldn't be in the core layer, but it's this, or have the same code in 10 places.....
 	//TODO: get this into the persistance layer
 	public static SpecialProperty createFromLst(final String input)
 	{
-		final StringTokenizer tok = new StringTokenizer(input, "|", true);
+		final StringTokenizer tok = new StringTokenizer(input, Constants.PIPE, false);
 		final SpecialProperty sp = new SpecialProperty();
 
 		if (!tok.hasMoreTokens())
@@ -64,7 +60,15 @@ public final class SpecialProperty extends TextProperty
 		}
 
 		String spName = tok.nextToken();
+		if (PreParserFactory.isPreReqString(spName))
+		{
+			Logging.errorPrint("Leading PRExxx found in SPROP: "
+					+ input);
+			return null;
+		}
 
+		StringBuilder sb = new StringBuilder();
+		sb.append(spName);
 		while (tok.hasMoreTokens())
 		{
 			final String cString = tok.nextToken();
@@ -81,11 +85,13 @@ public final class SpecialProperty extends TextProperty
 				catch (PersistenceLayerException ple)
 				{
 					Logging.errorPrint(ple.getMessage(), ple);
+					return null;
 				}
 			}
 			else
 			{
-				spName += cString;
+				sb.append(Constants.PIPE);
+				sb.append(cString);
 			}
 
 			if (".CLEAR".equals(cString))
@@ -96,7 +102,7 @@ public final class SpecialProperty extends TextProperty
 			}
 		}
 
-		sp.setName(spName);
+		sp.setName(sb.toString());
 		return sp;
 	}
 }

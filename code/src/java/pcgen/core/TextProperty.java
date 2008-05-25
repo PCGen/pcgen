@@ -33,8 +33,6 @@ import java.util.StringTokenizer;
  */
 public abstract class TextProperty extends PObject implements Serializable, Comparable<Object>
 {
-	protected String propDesc = "";
-
 	/** Constructor */
 	public TextProperty()
 	{
@@ -50,35 +48,13 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		setName(name);
 	}
 
-	/**
-	 * Constructor
-	 * @param name
-	 * @param propDesc
-	 */
-	public TextProperty(final String name, final String propDesc)
-	{
-		setName(name);
-		this.propDesc = propDesc;
-	}
-
-	/**
-	 * Set the property description
-	 * @param propDesc
-	 */
-	public void setPropDesc(final String propDesc)
-	{
-		this.propDesc = propDesc;
-	}
-
+	@Override
 	public int compareTo(final Object obj)
 	{
 		if (obj instanceof TextProperty)
 		{
 			TextProperty tp = (TextProperty)obj;
-			if (keyName.equalsIgnoreCase(tp.getKeyName()))
-			{
-				return propDesc.compareToIgnoreCase(((TextProperty) obj).propDesc);
-			}
+			return keyName.compareTo(tp.getKeyName());
 		}
 		else if (obj instanceof PObject)
 		{
@@ -89,14 +65,10 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		return keyName.compareToIgnoreCase(obj.toString());
 	}
 
+	@Override
 	public String toString()
 	{
 		return displayName;
-	}
-
-	String getPropDesc()
-	{
-		return propDesc;
 	}
 
 	boolean pcQualifiesFor(final PlayerCharacter pc)
@@ -114,16 +86,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	 */
 	public String getText()
 	{
-		final String text;
-		if ((getPropDesc() == null) || "".equals(getPropDesc()))
-		{
-			text = getDisplayName();
-		}
-		else
-		{
-			text = getDisplayName() + " (" + getPropDesc() + ")";
-		}
-		return text;
+		return getDisplayName();
 	}
 
 	/**

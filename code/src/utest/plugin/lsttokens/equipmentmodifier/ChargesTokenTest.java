@@ -1,0 +1,121 @@
+/*
+ * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.equipmentmodifier;
+
+import org.junit.Test;
+
+import pcgen.core.EquipmentModifier;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.CDOMLoader;
+import pcgen.rules.persistence.CDOMTokenLoader;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+
+public class ChargesTokenTest extends AbstractTokenTestCase<EquipmentModifier>
+{
+
+	static ChargesToken token = new ChargesToken();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>(
+			EquipmentModifier.class);
+
+	@Override
+	public Class<EquipmentModifier> getCDOMClass()
+	{
+		return EquipmentModifier.class;
+	}
+
+	@Override
+	public CDOMLoader<EquipmentModifier> getLoader()
+	{
+		return loader;
+	}
+
+	@Override
+	public CDOMPrimaryToken<EquipmentModifier> getToken()
+	{
+		return token;
+	}
+
+	@Test
+	public void testInvalidEmpty() throws PersistenceLayerException
+	{
+		assertFalse(parse(""));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoPipe() throws PersistenceLayerException
+	{
+		assertFalse(parse("4"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTwoPipe() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|5|6"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMinNaN() throws PersistenceLayerException
+	{
+		assertFalse(parse("String|4"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMaxNaN() throws PersistenceLayerException
+	{
+		assertFalse(parse("3|Str"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMinNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("-4|5"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMaxNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("6|-7"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMaxLTMin() throws PersistenceLayerException
+	{
+		assertFalse(parse("7|3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinSimple() throws PersistenceLayerException
+	{
+		runRoundRobin("4|10");
+	}
+
+	@Test
+	public void testRoundRobinMatching() throws PersistenceLayerException
+	{
+		runRoundRobin("10|10");
+	}
+}

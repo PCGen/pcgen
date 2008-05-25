@@ -23,16 +23,19 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import pcgen.cdom.enumeration.EqModFormatCat;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.lst.EquipmentModifierLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
- * Deals with FORMATCAT token, which indicates where the name of the 
- * equipment modifier should be added in the name of any equipment item
- * the eqmod is added to.   
+ * Deals with FORMATCAT token, which indicates where the name of the equipment
+ * modifier should be added in the name of any equipment item the eqmod is added
+ * to.
  */
-public class FormatcatToken implements EquipmentModifierLstToken
+public class FormatcatToken implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	/**
@@ -44,30 +47,36 @@ public class FormatcatToken implements EquipmentModifierLstToken
 		return "FORMATCAT";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.EquipmentModifierLstToken#parse(pcgen.core.EquipmentModifier, java.lang.String)
-	 * @Override
-	 */
-	public boolean parse(EquipmentModifier mod, String value)
+	public boolean parse(LoadContext context, EquipmentModifier mod,
+			String value)
 	{
-		if ("FRONT".equalsIgnoreCase(value))
+		try
 		{
-			mod.setFormatCat(EquipmentModifier.FORMATCAT_FRONT);
+			context.getObjectContext().put(mod, ObjectKey.FORMAT,
+					EqModFormatCat.valueOf(value));
 		}
-		else if ("MIDDLE".equalsIgnoreCase(value))
+		catch (IllegalArgumentException iae)
 		{
-			mod.setFormatCat(EquipmentModifier.FORMATCAT_MIDDLE);
-		}
-		else if ("PARENS".equalsIgnoreCase(value))
-		{
-			mod.setFormatCat(EquipmentModifier.FORMATCAT_PARENS);
-		}
-		else
-		{
-			Logging.errorPrint("Ignoring unrecognized format category " + value
-				+ " for EqMod " + mod.getKeyName());
+			Logging.errorPrint("Invalid Format provided in " + getTokenName()
+					+ ": " + value);
 			return false;
 		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, EquipmentModifier mod)
+	{
+		EqModFormatCat fc = context.getObjectContext().getObject(mod,
+				ObjectKey.FORMAT);
+		if (fc == null)
+		{
+			return null;
+		}
+		return new String[] { fc.toString() };
+	}
+
+	public Class<EquipmentModifier> getTokenClass()
+	{
+		return EquipmentModifier.class;
 	}
 }

@@ -99,6 +99,14 @@ public final class ObjectKey<T>
 
 	public static final ObjectKey<PCStat> SPELL_STAT = new ObjectKey<PCStat>();
 
+	public static final ObjectKey<Boolean> COST_DOUBLE = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> ASSIGN_TO_ALL = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<EqModNameOpt> NAME_OPT = new ObjectKey<EqModNameOpt>();
+
+	public static final ObjectKey<EqModFormatCat> FORMAT = new ObjectKey<EqModFormatCat>();
+
 	public static final ObjectKey<Boolean> ATTACKS_PROGRESS = new ObjectKey<Boolean>();
 
 	public static final ObjectKey<WieldCategory> WIELD = new ObjectKey<WieldCategory>();

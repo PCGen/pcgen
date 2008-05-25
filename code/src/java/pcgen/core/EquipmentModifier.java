@@ -32,21 +32,21 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.EqModFormatCat;
+import pcgen.cdom.enumeration.EqModNameOpt;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;
-import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-import pcgen.util.enumeration.Visibility;
 
 /**
  * Definition and games rules for an equipment modifier.
@@ -56,33 +56,9 @@ import pcgen.util.enumeration.Visibility;
  */
 public final class EquipmentModifier extends PObject implements Comparable<Object>
 {
-	private static final int NAMINGOPTION_NORMAL  = 0;
-	private static final int NAMINGOPTION_NONAME  = 1;
-	private static final int NAMINGOPTION_NOLIST  = 2;
-	private static final int NAMINGOPTION_NOTHING = 3;
-	private static final int NAMINGOPTION_SPELL   = 4;
-	private static final int NAMINGOPTION_TEXT    = 5;
-
-	public static final int FORMATCAT_FRONT  = 0;
-	public static final int FORMATCAT_MIDDLE  = 1;
-	public static final int FORMATCAT_PARENS  = 2;
-
 	private static final String s_CHARGES           = "CHARGES";
-	private List<String>                ignores             = new ArrayList<String>();
-	private List<String>                itemType            = new ArrayList<String>();
-	private List<String>                replaces            = new ArrayList<String>();
-	private List<SpecialProperty>                specialPropertyList = new ArrayList<SpecialProperty>();
-	private List<String>                armorType           = new ArrayList<String>();
 	private String              cost                = "0";
 	private String              preCost             = "0";
-	private boolean             assignToAll         = false;
-	private int                 costDouble          = -1;
-	private int                 maxCharges          = 0;
-	private int                 minCharges          = 0;
-	private int                 namingOption        = NAMINGOPTION_NORMAL;
-	private String              namingOptionText    = "";
-	private int                 plus                = 0;
-	private String              fumbleRange         = "";
 
 	/**
 	 * returns all BonusObj's that are "active", for example, ones that pass all
@@ -101,12 +77,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		for ( BonusObj bonus : getBonusList() )
 		{
-			// TODO - This is either wrong or doesn't need to be in the loop.
-			if (willIgnore(getKeyName()))
-			{
-				continue;
-			}
-
 			if (caller instanceof Equipment)
 			{
 				if ( bonus.passesPreReqToGain((Equipment)caller, aPC) )
@@ -126,34 +96,14 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Add a type to the collection of Armour Types
-	 *
-	 * @param  aString  the type to add to the collection of Armour Types
-	 */
-	public void setArmorType(final String aString)
-	{
-		armorType.add(aString.toUpperCase().trim());
-	}
-
-	/**
 	 * Should this enhancement be applied to both ends of a double weapon?
 	 *
 	 * @return  boolean whether to apply to both ends of a double weapon.
 	 */
 	public boolean getAssignToAll()
 	{
-		return assignToAll;
-	}
-
-	/**
-	 * Set the assign to all property.  When true this object will be applied to
-	 * all heads of a multi headed weapon
-	 *
-	 * @param  aString  a string beginning with Y to set the property true
-	 */
-	public void setAssignment(final String aString)
-	{
-		assignToAll = (aString.length() > 0) && (aString.charAt(0) == 'Y');
+		Boolean assignToAll = get(ObjectKey.ASSIGN_TO_ALL);
+		return assignToAll == null ? false : assignToAll;
 	}
 
 	/**
@@ -231,8 +181,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		{
 			if (
 				(bonus.getTypeOfBonus().indexOf(aType) >= 0) &&
-				(bonus.getBonusInfo().indexOf(aName) >= 0) &&
-				(!willIgnore(getKeyName())))
+				(bonus.getBonusInfo().indexOf(aName) >= 0))
 			{
 				aList.add(bonus);
 			}
@@ -263,47 +212,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Takes a string represnting the number of charges.  The string is split on
-	 * | and then the first section is converted to an int.  The minimum number
-	 * of charges is then set to this int or 0, whichever is greater.  If the
-	 * string has a second protion, this is converted to an int and the maximum
-	 * number of charges is set to this second int or it is set the same as the
-	 * minimum charges, whichever is greater
-	 *
-	 * @param  charges  a string in the form "min" or "min|max"
-	 */
-	public void setChargeInfo(final String charges)
-	{
-		final StringTokenizer aTok = new StringTokenizer(charges, "|", false);
-
-		try
-		{
-			minCharges = Integer.parseInt(aTok.nextToken());
-
-			if (minCharges < 0)
-			{
-				minCharges = 0;
-			}
-
-			maxCharges = minCharges;
-
-			if (aTok.hasMoreTokens())
-			{
-				maxCharges = Integer.parseInt(aTok.nextToken());
-			}
-
-			if (maxCharges < minCharges)
-			{
-				maxCharges = minCharges;
-			}
-		}
-		catch (NumberFormatException exc)
-		{
-			Logging.errorPrint("Invalid " + s_CHARGES + " tag value: " + charges);
-		}
-	}
-
-	/**
 	 * set the cost of this object
 	 *
 	 * @param  aString  representing the cost
@@ -324,90 +232,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Set cost double
-	 * @param costDoubles
-	 */
-	public void setCostDouble(final boolean costDoubles)
-	{
-		costDouble = costDoubles ? 1 : 0;
-	}
-
-	/**
-	 * Returns the fumbleRange for this item.
-	 *
-	 * @return  the fumbleRange for this item.
-	 */
-	public String getFumbleRange()
-	{
-		return fumbleRange;
-	}
-
-	/**
-	 * Sets the fumbleRange for this item.
-	 *
-	 * @param  aString  the fumbleRange for this item.
-	 */
-	public void setFumbleRange(final String aString)
-	{
-		fumbleRange = aString;
-	}
-
-	/**
-	 * Set the list of things to ignore
-	 *
-	 * @param  aString  a comma separated list of things to ignore
-	 */
-	public void setIgnores(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(
-				aString.toUpperCase().trim(),
-				",");
-		ignores.clear();
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aReplace = aTok.nextToken();
-
-			if (!ignores.contains(aReplace))
-			{
-				ignores.add(aReplace);
-			}
-		}
-	}
-
-	/**
-	 * Add one or more types to the object
-	 *
-	 * @param  aString  a "." separated listof types to add
-	 */
-	public void setItemType(final String aString)
-	{
-		final String          typeString = aString.toUpperCase().trim();
-		final StringTokenizer aTok       = new StringTokenizer(typeString, ".");
-		itemType.clear();
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aType = aTok.nextToken();
-
-			if (!itemType.contains(aType))
-			{
-				itemType.add(aType);
-			}
-		}
-	}
-
-	/**
-	 * return a list of types
-	 *
-	 * @return  a list of this object's types
-	 */
-	public List<String> getItemType()
-	{
-		return itemType;
-	}
-
-	/**
 	 * Does this Equipment Modifier add aType to the equipment it is applied
 	 * to? If aType begins with an &#34; (Exclamation Mark) the &#34; will
 	 * be removed before checking the type.
@@ -417,101 +241,14 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public boolean isIType(final String aType)
 	{
-		final String myType;
-
-		if ((aType.length() > 0) && (aType.charAt(0) == '!'))
+		for (String s : getSafeListFor(ListKey.ITEM_TYPES))
 		{
-			myType = aType.substring(1).toUpperCase();
+			if (aType.equalsIgnoreCase(s))
+			{
+				return true;
+			}
 		}
-		else
-		{
-			myType = aType.toUpperCase();
-		}
-
-		return itemType.contains(myType);
-	}
-
-
-	/**
-	 * Get the maximum number of charges added by this object
-	 *
-	 * @return  the maximum number of charges
-	 */
-	public int getMaxCharges()
-	{
-		return maxCharges;
-	}
-
-	/**
-	 * Get the minimum number of charges added by this object
-	 *
-	 * @return  the minimum number of charges
-	 */
-	public int getMinCharges()
-	{
-		return minCharges;
-	}
-
-	/**
-	 * Set the format of the string that this object will stringify to.  Valid
-	 * options are "NOLIST", "NONAME", "NOTHING" and "SPELL".  If the option
-	 * does not match one of these, then the standard naming convention is
-	 * used.
-	 *
-	 *  Standard:  the name with a list of choices in parenthesis
-	 *  NOTHING:   a blank string
-	 *  NOLIST:    just the name of the object
-	 *  NONAME:    just the list of choices
-	 *  SPELL:     treats the first entry in associated as a spell, outputs
-	 *             the details
-	 *
-	 * @param  option  a symbolic constant representing the style of
-	 *                 stringification.
-	 */
-	public void setNamingOption(final String option)
-	{
-		namingOptionText = "";
-		if ("NOLIST".equalsIgnoreCase(option))
-		{
-			namingOption = NAMINGOPTION_NOLIST;
-		}
-		else if ("NONAME".equalsIgnoreCase(option))
-		{
-			namingOption = NAMINGOPTION_NONAME;
-		}
-		else if ("NOTHING".equalsIgnoreCase(option))
-		{
-			namingOption = NAMINGOPTION_NOTHING;
-		}
-		else if ("SPELL".equalsIgnoreCase(option))
-		{
-			namingOption = NAMINGOPTION_SPELL;
-		}
-		else if (option != null && option.toUpperCase().startsWith("TEXT="))
-		{
-			namingOption = NAMINGOPTION_TEXT;
-			namingOptionText = option.substring(5);
-		}
-		else
-		{
-			namingOption = NAMINGOPTION_NORMAL;
-		}
-	}
-
-	/**
-	 * Set plus
-	 * @param aString
-	 */
-	public void setPlus(final String aString)
-	{
-		try
-		{
-			plus = Integer.parseInt(aString);
-		}
-		catch (NumberFormatException nfe)
-		{
-			// Ignore
-		}
+		return false;
 	}
 
 	/**
@@ -520,7 +257,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public int getPlus()
 	{
-		return plus;
+		Integer plus = get(IntegerKey.PLUS);
+		return plus == null ? 0 : plus;
 	}
 
 	/**
@@ -543,58 +281,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Set replacement
-	 * @param aString
-	 */
-	public void setReplacement(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(
-				aString.toUpperCase().trim(),
-				",");
-		replaces.clear();
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aReplace = aTok.nextToken();
-
-			if (!replaces.contains(aReplace))
-			{
-				replaces.add(aReplace);
-			}
-		}
-	}
-
-	/**
-	 * Add special property
-	 * @param sprop
-	 */
-	public void addSpecialProperty(final SpecialProperty sprop)
-	{
-		specialPropertyList.add(sprop);
-	}
-	
-	public void clearSpecialProperties()
-	{
-		specialPropertyList.clear();
-	}
-
-	/**
-	 * Get raw special properties
-	 * @return raw special properties
-	 */
-	public List<String> getRawSpecialProperties()
-	{
-		final List<String> retList = new ArrayList<String>();
-
-		for ( SpecialProperty sprop : specialPropertyList )
-		{
-			retList.add(sprop.getText());
-		}
-
-		return retList;
-	}
-
-	/**
 	 * A list of Special properties tailored to the PC and the piece of
 	 * equipment passed as arguments.
 	 *
@@ -607,10 +293,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	public List<String> getSpecialProperties(final Equipment caller, final PlayerCharacter pc)
 	{
 		final List<String> retList = new ArrayList<String>();
-
-		for (int i = 0; i < specialPropertyList.size(); i++)
+		for (SpecialProperty sp : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
-			String propName = specialPropertyList.get(i).getParsedText(pc, caller);
+			String propName = sp.getParsedText(pc, caller);
 
 			// TODO WTF is this loop doing? how many times does it expect "%CHOICE" to
 			// appear in the special property?
@@ -701,11 +386,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		addAssociated(spellInfo.toString());
 	}
 
-	public void setVisible(Visibility v)
-	{
-		visibility = v;
-	}
-
 	/**
 	 * Add bonus to
 	 * @param aPC
@@ -782,11 +462,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		try
 		{
 			aObj                     = (EquipmentModifier) super.clone();
-			aObj.itemType            = new ArrayList<String>(itemType);
-			aObj.specialPropertyList = new ArrayList<SpecialProperty>(specialPropertyList);
-			aObj.replaces            = new ArrayList<String>(replaces);
-			aObj.ignores             = new ArrayList<String>(ignores);
-			aObj.armorType           = new ArrayList<String>(armorType);
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -805,6 +480,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  a String representation of the EquipmentModifier
 	 */
+	@Override
 	public String toString()
 	{
 		return getEquipNamePortion();
@@ -818,94 +494,12 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public String getEquipNamePortion()
 	{
-		if (namingOption == NAMINGOPTION_NOTHING)
+		EqModNameOpt nameopt = get(ObjectKey.NAME_OPT);
+		if (nameopt == null)
 		{
-			return "";
+			nameopt = EqModNameOpt.NORMAL;
 		}
-		if (namingOption == NAMINGOPTION_TEXT)
-		{
-			return namingOptionText;
-		}
-
-		final StringBuffer aString = new StringBuffer(getDisplayName().length());
-
-		if (namingOption == NAMINGOPTION_SPELL)
-		{
-			for (int i=0;i<getAssociatedCount();i++)
-			{
-				if (i>0)
-				{
-					aString.append(", ");
-				}
-				final String listEntry = getAssociated(i);
-
-				String     spellName = getSpellName(listEntry);
-
-				if (SettingsHandler.guiUsesOutputNameSpells())
-				{
-					final Spell aSpell = Globals.getSpellKeyed(spellName);
-
-					if (aSpell != null)
-					{
-						spellName = aSpell.getOutputName();
-					}
-				}
-
-				aString.append(spellName);
-
-				final String info = getSpellVariant(listEntry);
-
-				if (info.length() != 0)
-				{
-					aString.append(" (").append(info).append(')');
-				}
-
-				final List<String> metaFeats = getSpellMetafeats(listEntry);
-				if (!metaFeats.isEmpty())
-				{
-					aString.append('/').append(StringUtil.join(metaFeats, "/"));
-				}
-
-				aString.append('/').append(getSpellCaster(listEntry));
-				aString.append('/').append(
-					CoreUtility.ordinal(getSpellCasterLevel(listEntry)));
-			}
-		}
-		else
-		{
-			if (namingOption != NAMINGOPTION_NONAME)
-			{
-				aString.append(getDisplayName());
-			}
-
-			if ((namingOption != NAMINGOPTION_NOLIST) && (getAssociatedCount() > 0))
-			{
-				if (namingOption != NAMINGOPTION_NONAME)
-				{
-					aString.append(" (");
-				}
-
-				boolean bFirst = true;
-
-				for (int e = 0; e < getAssociatedCount(); e++)
-				{
-					if (!bFirst)
-					{
-						aString.append(", ");
-					}
-
-					aString.append(getAssociated(e));
-					bFirst = false;
-				}
-
-				if (namingOption != NAMINGOPTION_NONAME)
-				{
-					aString.append(")");
-				}
-			}
-		}
-
-		return aString.toString().trim().replace('|', ' ');
+		return nameopt.returnName(this);
 	}
 
 	protected int getSR(final PlayerCharacter aPC)
@@ -1080,35 +674,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return equipChoice;
 	}
 
-	private String replaceCostSpellLevel(String costFormula, final String listEntry)
-	{
-		String modChoice = "";
-
-		while (costFormula.indexOf("%SPELLLEVEL") >= 0)
-		{
-			final int idx = costFormula.indexOf("%SPELLLEVEL");
-
-			if (modChoice.length() == 0)
-			{
-				final int iLevel = getSpellLevel(listEntry);
-
-				if (iLevel == 0)
-				{
-					modChoice = "0.5";
-				}
-				else
-				{
-					modChoice = Integer.toString(iLevel);
-				}
-			}
-
-			costFormula = costFormula.substring(0, idx) + modChoice +
-				costFormula.substring(idx + 11);
-		}
-
-		return costFormula;
-	}
-
 	private String replaceCostCasterLevel(String costFormula, final String listEntry)
 	{
 		String modChoice = "";
@@ -1119,13 +684,13 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 			if (modChoice.length() == 0)
 			{
-				final int iCasterLevel = getSpellCasterLevel(listEntry);
+				final int iCasterLevel = getSpellInfo(listEntry, "CASTERLEVEL");
 				modChoice = Integer.toString(iCasterLevel);
 
 				//
 				// Tack on the item creation multiplier, if there is one
 				//
-				final String castClassKey = getSpellCaster(listEntry);
+				final String castClassKey = getSpellInfoString(listEntry, "CASTER");
 
 				if (castClassKey.length() != 0)
 				{
@@ -1194,7 +759,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 			if (modChoice.length() == 0)
 			{
-				modChoice = Integer.toString(getSpellCharges(listEntry));
+				modChoice = Integer.toString(getSpellInfo(listEntry, s_CHARGES));
 			}
 
 			costFormula = costFormula.substring(0, idx) + modChoice +
@@ -1214,7 +779,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 			if (modChoice.length() == 0)
 			{
-				final String spellName = getSpellName(listEntry);
+				final String spellName = getSpellInfoString(listEntry, "SPELLNAME");
 				final Spell  aSpell    = Globals.getSpellKeyed(spellName);
 
 				if (aSpell != null)
@@ -1272,7 +837,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 			if (modChoice.length() == 0)
 			{
-				final String spellName = getSpellName(listEntry);
+				final String spellName = getSpellInfoString(listEntry, "SPELLNAME");
 				final Spell  aSpell    = Globals.getSpellKeyed(spellName);
 
 				if (aSpell != null)
@@ -1292,8 +857,32 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		final String listEntry   = getAssociated(eqIdx);
 		String       costFormula = cost;
+		String costFormula1 = costFormula;
+		String modChoice = "";
+		
+		while (costFormula1.indexOf("%SPELLLEVEL") >= 0)
+		{
+			final int idx = costFormula1.indexOf("%SPELLLEVEL");
+		
+			if (modChoice.length() == 0)
+			{
+				final int iLevel = getSpellInfo(listEntry, "SPELLLEVEL");
+		
+				if (iLevel == 0)
+				{
+					modChoice = "0.5";
+				}
+				else
+				{
+					modChoice = Integer.toString(iLevel);
+				}
+			}
+		
+			costFormula1 = costFormula1.substring(0, idx) + modChoice +
+				costFormula1.substring(idx + 11);
+		}
 
-		costFormula = replaceCostSpellLevel(costFormula, listEntry);
+		costFormula = costFormula1;
 		costFormula = replaceCostSpellCost(costFormula, listEntry);
 		costFormula = replaceCostSpellXPCost(costFormula, listEntry);
 		costFormula = replaceCostCasterLevel(costFormula, listEntry);
@@ -1308,14 +897,15 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		//
 		// Uninitialized?
 		//
-		if (costDouble < 0)
+		Boolean costdouble = get(ObjectKey.COST_DOUBLE);
+		if (costdouble == null)
 		{
 			if (isType("MagicalEnhancement") || isType("BaseMaterial"))
 			{
 				return false;
 			}
 
-			if (itemType.contains("MAGIC"))
+			if (isIType("MAGIC"))
 			{
 				return true;
 			}
@@ -1334,9 +924,10 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					return true;
 				}
 			}
+			return false;
 		}
 
-		return costDouble == 1;
+		return costdouble;
 	}
 
 	void setRemainingCharges(final int remainingCharges)
@@ -1363,7 +954,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		if (getAssociatedCount() > 0)
 		{
-			return getSpellCharges(getAssociated(0));
+			return getSpellInfo(getAssociated(0), s_CHARGES);
 		}
 
 		return 0;
@@ -1371,58 +962,10 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 	int getUsedCharges()
 	{
-		return maxCharges - getRemainingCharges();
+		return get(IntegerKey.MAX_CHARGES) - getRemainingCharges();
 	}
 
-	String replaceArmorType(final List<String> aTypes)
-	{
-		for (int z = 0; z < armorType.size(); z++)
-		{
-			final StringTokenizer aTok = new StringTokenizer(
-					armorType.get(z), "|");
-
-			if (aTok.hasMoreTokens())
-			{
-				final int idx = aTypes.indexOf(aTok.nextToken());
-
-				if (idx >= 0)
-				{
-					if (aTok.hasMoreTokens())
-					{
-						final String newArmorType = aTok.nextToken();
-						aTypes.set(idx, newArmorType);
-
-						return newArmorType;
-					}
-					aTypes.remove(idx);
-				}
-			}
-		}
-
-		return null;
-	}
-
-	boolean willIgnore(final String aString)
-	{
-		return ignores.contains(aString.toUpperCase().trim());
-	}
-
-	boolean willReplace(final String aString)
-	{
-		return replaces.contains(aString.toUpperCase().trim());
-	}
-
-	private static String getSpellCaster(final String listEntry)
-	{
-		return getSpellInfoString(listEntry, "CASTER");
-	}
-
-	private static int getSpellCasterLevel(final String listEntry)
-	{
-		return getSpellInfo(listEntry, "CASTERLEVEL");
-	}
-
-	private static int getSpellInfo(final String listEntry, final String desiredInfo)
+	public static int getSpellInfo(final String listEntry, final String desiredInfo)
 	{
 		int          modValue = 0;
 		final String info     = getSpellInfoString(listEntry, desiredInfo);
@@ -1442,7 +985,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return modValue;
 	}
 
-	private static String getSpellInfoString(
+	public static String getSpellInfoString(
 		final String listEntry,
 		final String desiredInfo)
 	{
@@ -1455,36 +998,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		}
 
 		return "";
-	}
-
-	private static int getSpellLevel(final String listEntry)
-	{
-		return getSpellInfo(listEntry, "SPELLLEVEL");
-	}
-
-	private int getSpellCharges(final String listEntry)
-	{
-		return getSpellInfo(listEntry, s_CHARGES);
-	}
-
-	/* this is only used by toString, there is no point adding Category
-	 * information since it is not needed by the toString function and
-	 * these ability objects do actually represent Feats */
-	private static List<String> getSpellMetafeats(final String listEntry)
-	{
-		final String metaFeat = getSpellInfoString(listEntry, "METAFEATS");
-
-		return CoreUtility.split(metaFeat, ',');
-	}
-
-	private static String getSpellName(final String listEntry)
-	{
-		return getSpellInfoString(listEntry, "SPELLNAME");
-	}
-
-	private static String getSpellVariant(final String listEntry)
-	{
-		return getSpellInfoString(listEntry, "VARIANT");
 	}
 
 	/**
@@ -1549,22 +1062,17 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Set the eqmod's format category.
-	 * @param cat
-	 */
-	public void setFormatCat(int cat)
-	{
-		integerChar.put(IntegerKey.FORMAT_CAT, cat);
-	}
-	
-	/**
 	 * Retrieve the eqmod's format category. Defaults to parens.
 	 * @return The format category for this eqmod.
 	 */
 	public int getFormatCat()
 	{
-		final Integer characteristic = integerChar.get(IntegerKey.FORMAT_CAT);
-		return characteristic == null ? FORMATCAT_PARENS : characteristic.intValue();
+		EqModFormatCat format = get(ObjectKey.FORMAT);
+		if (format == null)
+		{
+			format = EqModFormatCat.PARENS;
+		}
+		return format.ordinal();
 	}
 	
 	/**

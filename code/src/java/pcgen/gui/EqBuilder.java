@@ -66,6 +66,8 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumn;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
@@ -292,7 +294,7 @@ final class EqBuilder extends JPanel
 					continue;
 				}
 
-				for (String type : eqMod.getItemType())
+				for (String type : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
 				{
 					if (aEq.isEitherType(type.toUpperCase()))
 					{
@@ -1336,23 +1338,24 @@ final class EqBuilder extends JPanel
 
 			int charges = -1;
 
-			if (eqMod.getMinCharges() > 0)
+			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
+			if (min != null && min > 0)
 			{
+				Integer max = eqMod.get(IntegerKey.MAX_CHARGES);
 				for (;;)
 				{
 					InputInterface ii = InputFactory.getInputInstance();
 
 					String toPrint    = "Enter Number of Charges (" +
-										Integer.toString(eqMod.getMinCharges()) +
-										"-" +
-										Integer.toString(eqMod.getMaxCharges()) + ")";
+										Integer.toString(min) + "-" +
+										Integer.toString(max) + ")";
 
 					Object selectedValue = ii.showInputDialog(null,
 											toPrint,
 											Constants.s_APPNAME,
 											MessageType.INFORMATION,
 											null,
-											Integer.toString(eqMod.getMaxCharges()));
+											Integer.toString(max));
 
 					if (selectedValue != null)
 					{
@@ -1361,12 +1364,12 @@ final class EqBuilder extends JPanel
 							final String aString = ((String) selectedValue).trim();
 							charges = Integer.parseInt(aString);
 
-							if (charges < eqMod.getMinCharges())
+							if (charges < min)
 							{
 								continue;
 							}
 
-							if (charges > eqMod.getMaxCharges())
+							if (charges > max)
 							{
 								continue;
 							}
@@ -2110,22 +2113,18 @@ final class EqBuilder extends JPanel
 		 * @return Object
 		 */
 		protected Object getSaValue(EquipmentModifier e) {
-			Object sRet;
-			final List<String> aSA = e.getRawSpecialProperties();
-			StringBuffer aBuf = new StringBuffer(aSA.size() * 50);
-
-			for (String sa : aSA)
+			StringBuilder sb = new StringBuilder();
+			boolean first = true;
+			for (SpecialProperty sp : e.getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 			{
-				if (aBuf.length() > 0)
+				if (!first)
 				{
-					aBuf.append(", ");
+					sb.append(", ");
 				}
-
-				aBuf.append(sa);
+				first = false;
+				sb.append(sp.getDisplayName());
 			}
-
-			sRet = aBuf.toString();
-			return sRet;
+			return sb.toString();
 		}
 
 		/**

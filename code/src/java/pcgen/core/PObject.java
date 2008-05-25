@@ -926,6 +926,38 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 	}
+	
+	public String associatedList()
+	{
+		if (associatedList == null)
+		{
+			return Constants.EMPTY_STRING;
+		}
+		else
+		{
+			StringBuilder sb = new StringBuilder();
+			boolean first = true;
+			for (AssociatedChoice<String> choice : associatedList)
+			{
+				if (!first)
+				{
+					sb.append(", ");
+				}
+				first = false;
+				final String choiceStr = choice.getDefaultChoice();
+				if (choiceStr.equals(Constants.EMPTY_STRING))
+				{
+					sb.append('*');
+				}
+				else
+				{
+					sb.append(choiceStr);
+				}
+			}
+			return sb.toString();
+		}
+	}
+
 
 	/**
 	 * Add to the 'save' for the character list

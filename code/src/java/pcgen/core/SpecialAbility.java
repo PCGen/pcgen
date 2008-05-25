@@ -34,6 +34,7 @@ import pcgen.util.Logging;
 public final class SpecialAbility extends TextProperty
 {
 	protected String saSource = ""; //$NON-NLS-1$
+	private String propDesc = "";
 
 	/** Default constructor */
 	public SpecialAbility()
@@ -77,8 +78,9 @@ public final class SpecialAbility extends TextProperty
 	public SpecialAbility(final String name, final String saSource,
 		final String propDesc)
 	{
-		super(name, propDesc);
+		super(name);
 		this.saSource = saSource;
+		this.propDesc = propDesc;
 	}
 
 	/**
@@ -172,6 +174,10 @@ public final class SpecialAbility extends TextProperty
 			SpecialAbility sa = (SpecialAbility) obj;
 			if (keyName.equals(sa.getKeyName()))
 			{
+//				if (keyName.equalsIgnoreCase(tp.getKeyName()))
+//				{
+//					return propDesc.compareToIgnoreCase(((TextProperty) obj).propDesc);
+//				}
 				return saSource.compareToIgnoreCase(sa.saSource);
 			}
 		}
@@ -245,5 +251,34 @@ public final class SpecialAbility extends TextProperty
 
 		// Otherwise by default we check against the total level
 		return aPC.getTotalLevels() >= level;
+	}
+	
+	/**
+	 * Set the property description
+	 * @param propDesc
+	 */
+	public void setPropDesc(final String propDesc)
+	{
+		this.propDesc = propDesc;
+	}
+
+	String getPropDesc()
+	{
+		return propDesc;
+	}
+
+	@Override
+	public String getText()
+	{
+		final String text;
+		if ((getPropDesc() == null) || "".equals(getPropDesc()))
+		{
+			text = super.getText();
+		}
+		else
+		{
+			text = super.getText() + " (" + getPropDesc() + ")";
+		}
+		return text;
 	}
 }

@@ -513,7 +513,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			checkRequiredDeities(context);
 
 			// Add default EQ mods
-			eqModLoader.addDefaultEquipmentMods();
+			eqModLoader.addDefaultEquipmentMods(context);
 			
 			// Load custom items
 			loadCustomItems();

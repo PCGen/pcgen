@@ -1918,8 +1918,7 @@ public final class Globals
 			{
 				for (Spell aSpell : (ArrayList<Spell>)obj)
 				{
-					if (aSpell.levelForKeyContains(aBuf.toString(), level, currentPC)
-						&& (aSpell.getType().indexOf(spellType.toUpperCase()) >= 0))
+					if (aSpell.levelForKeyContains(aBuf.toString(), level, currentPC))
 					{
 						aList.add(aSpell);
 					}

@@ -35,6 +35,11 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 
 	public abstract ListKey<?> getListKey();
 
+	public boolean clearsByDefault()
+	{
+		return false;
+	}
+
 	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
@@ -123,9 +128,12 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
 			+ "Rheinhessen"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		assertEquals(clearsByDefault() ? 2 : 4, coll.size());
+		if (!clearsByDefault())
+		{
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
+			assertTrue(coll.contains(getConstant("Finger Lakes")));
+		}
 		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 		assertTrue(coll.contains(getConstant("Rheinhessen")));
 		assertTrue(primaryContext.ref.validate());

@@ -27,6 +27,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
@@ -97,7 +98,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		masterwork.setName("Masterwork");
 		masterwork.setKeyName("MWORKA");
 		masterwork.setTypeInfo("Armor.Shield");
-		masterwork.setItemType("Masterwork");
+		masterwork.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
 		masterwork.addBonusList("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
 		EquipmentList.addEquipmentModifier(masterwork);
 
@@ -105,8 +106,10 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		plus1.setName("Plus 1 Enhancement");
 		plus1.setKeyName("PLUS1A");
 		plus1.setTypeInfo("Armor.Shield");
-		plus1.setPlus("1");
-		plus1.setItemType("Enhancement.Magic.Plus1");
+		plus1.put(IntegerKey.PLUS, 1);
+		plus1.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
+		plus1.addToListFor(ListKey.ITEM_TYPES, "Magic");
+		plus1.addToListFor(ListKey.ITEM_TYPES, "Plus1");
 		plus1.addBonusList("COMBAT|AC|1|TYPE=Armor.REPLACE");
 		EquipmentList.addEquipmentModifier(plus1);
 

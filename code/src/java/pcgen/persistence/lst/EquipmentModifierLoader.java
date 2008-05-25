@@ -72,42 +72,63 @@ public final class EquipmentModifierLoader extends
 		final StringTokenizer colToken = new StringTokenizer(inputLine,
 				SystemLoader.TAB_DELIM);
 
-		String name = colToken.nextToken();
-		eqMod.setName(name.replace('|', ' '));
-		eqMod.setSourceCampaign(source.getCampaign());
-		eqMod.setSourceURI(source.getURI());
+		if (colToken.hasMoreTokens())
+		{
+			eqMod.setName(colToken.nextToken().replace('|', ' '));
+			eqMod.setSourceCampaign(source.getCampaign());
+			eqMod.setSourceURI(source.getURI());
+		}
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				EquipmentModifierLstToken.class);
 		while (colToken.hasMoreTokens()) {
-			while (colToken.hasMoreTokens()) {
-				final String colString = colToken.nextToken().trim();
-
-				final int idxColon = colString.indexOf(':');
-				String key = "";
-				try {
-					key = colString.substring(0, idxColon);
-				} catch (Exception e) {
-					// TODO Handle Exception
-				}
-
-				EquipmentModifierLstToken token = (EquipmentModifierLstToken) tokenMap
-						.get(key);
-				if (token != null) {
-					final String value = colString.substring(idxColon + 1);
-					LstUtils.deprecationCheck(token, eqMod, value);
-					if (!token.parse(eqMod, value)) {
-						Logging.errorPrint("Error parsing EqMod "
-								+ eqMod.getDisplayName() + ':'
-								+ source.getURI() + ':' + colString + "\"");
-					}
-				} else if (PObjectLoader.parseTag(eqMod, colString)) {
-					continue;
-				} else {
-					Logging.errorPrint("Illegal equipment modifier info "
-							+ source + ":" + " \"" + colString + "\"");
-				}
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
 			}
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(eqMod, key, value))
+			{
+				Logging.clearParseMessages();
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				EquipmentModifierLstToken tok = (EquipmentModifierLstToken) tokenMap
+						.get(key);
+				LstUtils.deprecationCheck(tok, eqMod, value);
+				if (!tok.parse(eqMod, value))
+				{
+					Logging.errorPrint("Error parsing EqMod "
+							+ eqMod.getDisplayName() + ':' + source.getURI()
+							+ ':' + token + "\"");
+				}
+				Logging.clearParseMessages();
+ 				continue;
+			}
+			else if (PObjectLoader.parseTag(eqMod, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 
 		completeObject(source, eqMod);
@@ -129,7 +150,7 @@ public final class EquipmentModifierLoader extends
 	 *             if some bizarre error occurs, likely due to a change in
 	 *             EquipmentModifierLoader
 	 */
-	public void addDefaultEquipmentMods() throws PersistenceLayerException {
+	public void addDefaultEquipmentMods(LoadContext context) throws PersistenceLayerException {
 		CampaignSourceEntry source;
 		try {
 			source = new CampaignSourceEntry(new Campaign(),
@@ -140,7 +161,7 @@ public final class EquipmentModifierLoader extends
 		String aLine;
 		EquipmentModifier anObj = new EquipmentModifier();
 		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
-		parseLine(null, anObj, aLine, source);
+		parseLine(context, anObj, aLine, source);
 
 		//
 		// Add internal equipment modifier for adding weapon/armor types to
@@ -148,12 +169,12 @@ public final class EquipmentModifierLoader extends
 		//
 		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_WEAPON
-				+ "\tTYPE:Weapon\tVISIBLE:No\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		parseLine(null, anObj, aLine, source);
+				+ "\tTYPE:Weapon\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
+		parseLine(context, anObj, aLine, source);
 
 		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
-				+ "\tTYPE:Armor\tVISIBLE:No\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		parseLine(null, anObj, aLine, source);
+				+ "\tTYPE:Armor\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
+		parseLine(context, anObj, aLine, source);
 	}
 }
