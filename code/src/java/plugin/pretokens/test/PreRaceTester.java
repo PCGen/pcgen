@@ -35,6 +35,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -134,7 +135,8 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 					{
 						for (Race mock: servesAsRace.get(imitators))
 						{
-							if(raceType.equalsIgnoreCase(raceToMatch))
+							if (mock.get(ObjectKey.RACETYPE).toString()
+								.equalsIgnoreCase(raceToMatch))
 							{
 								return 1;
 							}
