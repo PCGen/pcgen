@@ -39,12 +39,15 @@ import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.DomainList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
@@ -82,6 +85,9 @@ import pcgen.util.enumeration.VisionType;
 public class PCClass extends PObject
 {
 	public static final int NO_LEVEL_LIMIT = -1;
+
+	public static final CDOMReference<DomainList> ALLOWED_DOMAINS = CDOMDirectSingleRef
+			.getRef(new DomainList());
 
 	/*
 	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
@@ -144,12 +150,6 @@ public class PCClass extends PObject
 	 * heck, it's in a LevelProperty, so that should be pretty obvious :)
 	 */
 	private List<LevelProperty<Load>> encumberedArmorMove = null;
-
-	/*
-	 * FINALALLCLASSLEVELS Since this seems to allow for class dependent additions of
-	 * Domains, this needs to occur in each class level as appropriate.
-	 */
-	private List<LevelProperty<Domain>> addDomains = null;
 
 	/*
 	 * FINALALLCLASSLEVELS This is pretty obvious, as these are already in a
@@ -749,47 +749,6 @@ public class PCClass extends PObject
 	public String getQualifiedKey()
 	{
 		return classKey;
-	}
-
-	/**
-	 * Returns the list of domains that this class grants access to for ONLY the
-	 * specifically given level
-	 * 
-	 * @return List of Domain choices for the given level of this class.
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public final List<Domain> getAddDomains(int domainLevel)
-	{
-		if (addDomains == null)
-		{
-			final List<Domain> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
-		}
-		List<Domain> returnList = new ArrayList<Domain>();
-		for (LevelProperty<Domain> prop : addDomains)
-		{
-			if (prop.getLevel() == domainLevel)
-			{
-				returnList.add(prop.getObject());
-			}
-		}
-		return returnList;
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is only for editing of a PCClass; therefore
-	 * not required for a PCClassLevel
-	 */
-	public List<LevelProperty<Domain>> getAddDomains()
-	{
-		if (addDomains == null)
-		{
-			return null;
-		}
-		return Collections.unmodifiableList(addDomains);
 	}
 
 	/**
@@ -1519,19 +1478,6 @@ public class PCClass extends PObject
 	public final void addSpecialty(final String aSpecialty)
 	{
 		specialty = aSpecialty;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method (of course, a level independent version for PCClassLevel
-	 */
-	public void addAddDomain(final int aLevel, final Domain aDomain)
-	{
-		if (addDomains == null)
-		{
-			addDomains = new ArrayList<LevelProperty<Domain>>();
-		}
-		addDomains.add(LevelProperty.getLevelProperty(aLevel, aDomain));
 	}
 
 	/*
@@ -3543,16 +3489,6 @@ public class PCClass extends PObject
 				sa.toString());
 		}
 
-		if (addDomains != null)
-		{
-			for (LevelProperty<Domain> domainLP : addDomains)
-			{
-				pccTxt.append(lineSep).append(domainLP.getLevel());
-				pccTxt.append("\tADDDOMAINS:").append(
-					domainLP.getObject().getKeyName());
-			}
-		}
-
 		// TODO - Add ABILITY tokens.
 
 		List<String> udamList = getListFor(ListKey.UDAM);
@@ -4133,12 +4069,6 @@ public class PCClass extends PObject
 			aClass.modToSkills = modToSkills;
 			aClass.initMod = initMod;
 
-			if (addDomains != null)
-			{
-				//This is ok as a shallow copy - contract on readers of domainList
-				aClass.addDomains =
-						new ArrayList<LevelProperty<Domain>>(addDomains);
-			}
 			if (hitPointMap != null)
 			{
 				aClass.hitPointMap = new HashMap<Integer, Integer>(hitPointMap);

@@ -180,39 +180,24 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		levelTagList.clear();
 		obj = (PCClass) po;
 
-		List aList = obj.getLevelAbilityList();
+		List<LevelAbility> aList = obj.getLevelAbilityList();
 
 		if (aList != null)
 		{
-			for (Iterator i = aList.iterator(); i.hasNext();)
+			for (Iterator<LevelAbility> i = aList.iterator(); i.hasNext();)
 			{
-				LevelAbility la = (LevelAbility) i.next();
+				LevelAbility la = i.next();
 				LevelTag lt = new LevelTag(la.level(), LevelTag.TAG_ADD, la.getTagData());
 				levelTagList.add(lt);
 			}
 		}
 
-		aList = obj.getAddDomains();
-
-		if (aList != null)
-		{
-			for (Iterator i = aList.iterator(); i.hasNext();)
-			{
-				String v = (String) i.next();
-				final int sepPos = v.indexOf('|');
-				String l = v.substring(0, sepPos);
-				String t = v.substring(sepPos + 1);
-				LevelTag lt = new LevelTag(l, LevelTag.TAG_ADDDOMAINS, t);
-				levelTagList.add(lt);
-			}
-		}
-
-		final Iterator bonusIter = obj.getBonusList().iterator();
+		final Iterator<BonusObj> bonusIter = obj.getBonusList().iterator();
 
 		while (bonusIter.hasNext())
 		{
 			// updated 29 Jul 2003 -- sage_sam
-			BonusObj bonus = (BonusObj) bonusIter.next();
+			BonusObj bonus = bonusIter.next();
 			String bonusValue = bonus.toString();
 			final String levelString = String.valueOf(bonus.getPCLevel());
 
@@ -253,13 +238,13 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		// Output the list of spells associated with the class.
 		for (int i=0;i<=obj.getSpellSupport().getMaxSpellListLevel();i++)
 		{
-			final List spellList = obj.getSpellSupport().getSpellListForLevel(i);
+			final List<PCSpell> spellList = obj.getSpellSupport().getSpellListForLevel(i);
 
 			if (spellList != null)
 			{
-				for (Iterator li = spellList.iterator(); li.hasNext();)
+				for (Iterator<PCSpell> li = spellList.iterator(); li.hasNext();)
 				{
-					String src = ((PCSpell) li.next()).getPCCText();
+					String src = li.next().getPCCText();
 					LevelTag lt = new LevelTag(String.valueOf(i), LevelTag.TAG_SPELLS, src);
 					levelTagList.add(lt);
 				}
@@ -267,14 +252,14 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		}
 
-		List drList = obj.getDRList();
-		for (Iterator i = drList.iterator(); i.hasNext();)
+		List<DamageReduction> drList = obj.getDRList();
+		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext();)
 		{
-			DamageReduction dr = (DamageReduction) i.next();
-			List preList = dr.getPreReqList();
-			for (Iterator j = preList.iterator(); j.hasNext();)
+			DamageReduction dr = i.next();
+			List<Prerequisite> preList = dr.getPreReqList();
+			for (Iterator<Prerequisite> j = preList.iterator(); j.hasNext();)
 			{
-				Prerequisite prereq = (Prerequisite) j.next();
+				Prerequisite prereq = j.next();
 				if (DamageReduction.isPrereqForClassLevel(prereq, obj
 					.getKeyName()))
 				{
@@ -286,13 +271,13 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 		
-		aList = obj.getListFor(ListKey.SPECIAL_ABILITY);
+		List<SpecialAbility> saList = obj.getListFor(ListKey.SPECIAL_ABILITY);
 
-		if ((aList != null) && (aList.size() != 0))
+		if ((saList != null) && (saList.size() != 0))
 		{
-			for (Iterator se = aList.iterator(); se.hasNext();)
+			for (Iterator<SpecialAbility> se = saList.iterator(); se.hasNext();)
 			{
-				final SpecialAbility sa = (SpecialAbility) se.next();
+				final SpecialAbility sa = se.next();
 				String src = sa.getSASource();
 				String lev = src.substring(src.lastIndexOf('|') + 1);
 
@@ -301,12 +286,12 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		aList = new ArrayList<SpecialAbility>();
-		obj.addSABToList(aList, null);
+		saList = new ArrayList<SpecialAbility>();
+		obj.addSABToList(saList, null);
 
-		if (!aList.isEmpty())
+		if (!saList.isEmpty())
 		{
-			for (Iterator<SpecialAbility> e = aList.iterator(); e.hasNext();)
+			for (Iterator<SpecialAbility> e = saList.iterator(); e.hasNext();)
 			{
 				SpecialAbility sa = e.next();
 				String src = sa.getSASource();
@@ -337,9 +322,9 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		   }
 		 */
 
-		for (Iterator it = obj.getSafeListFor(ListKey.KITS).iterator(); it.hasNext();)
+		for (Iterator<String> it = obj.getSafeListFor(ListKey.KITS).iterator(); it.hasNext();)
 		{
-			String s = (String) it.next();
+			String s = it.next();
 			int y = s.indexOf('|');
 			String l = "1";
 
@@ -376,26 +361,26 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(lt);
 		}
 
-		aList = obj.getListFor(ListKey.UMULT);
+		List<String> sList = obj.getListFor(ListKey.UMULT);
 
-		if ((aList != null) && (aList.size() != 0))
+		if ((sList != null) && (sList.size() != 0))
 		{
-			for (Iterator se = aList.iterator(); se.hasNext();)
+			for (Iterator<String> se = sList.iterator(); se.hasNext();)
 			{
-				String c = (String) se.next();
+				String c = se.next();
 				int y = c.indexOf('|');
 				LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_UMULT, c.substring(y + 1));
 				levelTagList.add(lt);
 			}
 		}
 
-		aList = obj.getListFor(ListKey.UDAM);
+		sList = obj.getListFor(ListKey.UDAM);
 
-		if (aList != null)
+		if (sList != null)
 		{
-			for (int x = 0; x < aList.size(); ++x)
+			for (int x = 0; x < sList.size(); ++x)
 			{
-				String c = (String) aList.get(x);
+				String c = sList.get(x);
 
 				if (!c.equals(""))
 				{
@@ -421,25 +406,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			tagList.addItem(LevelTag.validTags[i]);
 		}
 
-/*        tagList.addItem("ADD");
-   tagList.addItem("ADDOMAINS");
-   tagList.addItem("BONUS");
-   tagList.addItem("DEFINE");
-   tagList.addItem("CAST");
-   tagList.addItem("KNOWN");
-   tagList.addItem("SPELL");
-   tagList.addItem("DR");
-   tagList.addItem("SA");
-   tagList.addItem("SR");
-   tagList.addItem("FEAT");
-   tagList.addItem("FEATAUTO");
-   tagList.addItem("VFEAT");
-   tagList.addItem("KIT");
-   tagList.addItem("REGION");
-   tagList.addItem("TEMPLATE");
-   tagList.addItem("UMULT");
-   tagList.addItem("UDAM");
- */
 		/*
 		 * CONSIDER TODO Need to add SpecialtyKnown to the above list...
 		 * and add the functionality to this class - thpr 10/31/06
@@ -593,22 +559,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 						break;
 
-					case LevelTag.TAG_ADDDOMAINS:
-					case LevelTag.TAG_BONUS:
-					case LevelTag.TAG_CAST:
-					case LevelTag.TAG_DEFINE:
-					case LevelTag.TAG_DR:
-					case LevelTag.TAG_FEAT:
-					case LevelTag.TAG_KIT:
-					case LevelTag.TAG_KNOWN:
-					case LevelTag.TAG_REGION:
-					case LevelTag.TAG_SAB:
-					case LevelTag.TAG_SPELLS:
-					case LevelTag.TAG_SR:
-					case LevelTag.TAG_TEMPLATE:
-					case LevelTag.TAG_UDAM:
-					case LevelTag.TAG_UMULT:
-					case LevelTag.TAG_VFEAT:default:
+					default:
 						break;
 				}
 
@@ -914,26 +865,29 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 	{
 		static final String[] validTags =
 		{
-			"ADD", "ADDDOMAINS", "BONUS", "CAST", "DEFINE", "DR", "FEAT", "AUTO:FEAT", "KIT", "KNOWN", "REGION", 
-			"SAB", "SPELLS", "SR", "TEMPLATE", "UDAM", "UMULT", "VFEAT"
+			"ADD", "ADDDOMAINS", "BONUS", "CAST", "DEFINE", "DOMAIN", "DR", "FEAT", "AUTO:FEAT", "KIT", "KNOWN", "REGION", 
+			"SAB", "SPECIALTYKNOWN", "SPELLS", "SR", "TEMPLATE", "UDAM", "UMULT", "VFEAT"
 		};
 		private static final int TAG_ADD = 0;
 		private static final int TAG_ADDDOMAINS = 1;
 		private static final int TAG_BONUS = 2;
 		private static final int TAG_CAST = 3;
 		private static final int TAG_DEFINE = 4;
-		private static final int TAG_DR = 5;
-		private static final int TAG_FEAT = 6;
-		private static final int TAG_KIT = 8;
-		private static final int TAG_KNOWN = 9;
-		private static final int TAG_REGION = 10;
-		private static final int TAG_SAB = 11;
-		private static final int TAG_SPELLS = 12;
-		private static final int TAG_SR = 13;
-		private static final int TAG_TEMPLATE = 14;
-		private static final int TAG_UDAM = 15;
-		private static final int TAG_UMULT = 16;
-		private static final int TAG_VFEAT = 17;
+		private static final int TAG_DOMAIN = 5;
+		private static final int TAG_DR = 6;
+		private static final int TAG_FEAT = 7;
+		private static final int TAG_AUTOFEAT = 8;
+		private static final int TAG_KIT = 9;
+		private static final int TAG_KNOWN = 10;
+		private static final int TAG_REGION = 11;
+		private static final int TAG_SAB = 12;
+		private static final int TAG_SPECIALTYKNOWN = 13;
+		private static final int TAG_SPELLS = 14;
+		private static final int TAG_SR = 15;
+		private static final int TAG_TEMPLATE = 16;
+		private static final int TAG_UDAM = 17;
+		private static final int TAG_UMULT = 18;
+		private static final int TAG_VFEAT = 19;
 		private String value;
 		private boolean needsSaving;
 		private int level;

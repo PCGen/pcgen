@@ -27,7 +27,14 @@
  */
 package pcgen.gui.tabs;
 
-import static pcgen.gui.HTMLUtils.*;
+import static pcgen.gui.HTMLUtils.BOLD;
+import static pcgen.gui.HTMLUtils.BR;
+import static pcgen.gui.HTMLUtils.END_BOLD;
+import static pcgen.gui.HTMLUtils.END_FONT;
+import static pcgen.gui.HTMLUtils.END_HTML;
+import static pcgen.gui.HTMLUtils.FONT_PLUS_1;
+import static pcgen.gui.HTMLUtils.HTML;
+import static pcgen.gui.HTMLUtils.THREE_SPACES;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -78,10 +85,12 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.CharacterDomain;
@@ -490,17 +499,17 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	/**
-	 * This method adds all available domains to the given list, without
-	 * filtering.
-	 * @param availDomainList
-	 *
-	 * @param pcDeity Deity selected for the current character
+	 * This method returns all available domains, without filtering.
+	 * 
+	 * @param pcDeity
+	 *            Deity selected for the current character
+	 *            
+	 * @return availDomainList
 	 */
-	private final void addUnfilteredDomains(final List<QualifiedObject<Domain>> availDomainList,
-		final Deity pcDeity)
+	private final List<QualifiedObject<Domain>> getUnfilteredDomains(final Deity pcDeity)
 	{
-		availDomainList.clear();
-
+		List<QualifiedObject<Domain>> availDomainList = new ArrayList<QualifiedObject<Domain>>();
+		
 		if (pcDeity != null)
 		{
 			for (CDOMReference<Domain> domains : pcDeity.getSafeListMods(Deity.DOMAINLIST))
@@ -528,46 +537,59 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			 * Need to do for the class, for compatibility, since level 0 is
 			 * loaded into the class itself
 			 */
-			for (QualifiedObject<CDOMSingleRef<Domain>> qo : aClass
-					.getSafeListFor(ListKey.DOMAIN))
-			{
-				CDOMSingleRef<Domain> ref = qo.getObject(null);
-				Domain domain = ref.resolvesTo();
-				if (!isDomainInList(availDomainList, domain))
-				{
-					availDomainList.add(new QualifiedObject<Domain>(domain
-							.clone(), qo.getPreReqList()));
-				}
-			}
+			processDomainList(aClass, availDomainList);
+			processAddDomains(aClass, availDomainList);
 			for (int lvl = 0; lvl <= aClass.getLevel(); lvl++)
 			{
-				for (Domain prestigeDomain : aClass.getAddDomains(aClass
-					.getLevel()))
-				{
-					// CONSIDER Should this be gated by null? - thpr 10/26/06
-					if (prestigeDomain != null)
-					{
-						prestigeDomain = prestigeDomain.clone();
-					}
-					QualifiedObject<Domain> qualDomain =
-						new QualifiedObject<Domain>(prestigeDomain);
+				PCClassLevel cl = aClass.getClassLevel(lvl);
+				processAddDomains(cl, availDomainList);
+				processDomainList(cl, availDomainList);
+			}
+		}
+		return availDomainList;
+	}
 
-					if (!isDomainInList(availDomainList, qualDomain.getObject(null)))
-					{
-						availDomainList.add(qualDomain);
-					}
-				}
-				for (QualifiedObject<CDOMSingleRef<Domain>> qo : aClass
-						.getClassLevel(lvl).getSafeListFor(ListKey.DOMAIN))
+	private void processAddDomains(CDOMObject cdo,
+			final List<QualifiedObject<Domain>> availDomainList)
+	{
+		Collection<CDOMReference<Domain>> domains = cdo.getListMods(PCClass.ALLOWED_DOMAINS);
+		if (domains != null)
+		{
+			for (CDOMReference<Domain> ref : domains)
+			{
+				Collection<AssociatedPrereqObject> assoc = cdo
+						.getListAssociations(PCClass.ALLOWED_DOMAINS, ref);
+				for (AssociatedPrereqObject apo : assoc)
 				{
-					CDOMSingleRef<Domain> ref = qo.getObject(null);
-					Domain domain = ref.resolvesTo();
-					if (!isDomainInList(availDomainList, domain))
+					for (Domain d : ref.getContainedObjects())
 					{
-						availDomainList.add(new QualifiedObject<Domain>(domain
-								.clone(), qo.getPreReqList()));
+						/*
+						 * TODO This gate produces a rather interesting, and
+						 * potentially wrong situation. What if two ADDDOMAINS
+						 * exist with different PRE? Doesn't this fail?
+						 */
+						if (!isDomainInList(availDomainList, d))
+						{
+							availDomainList.add(new QualifiedObject<Domain>(d
+									.clone(), apo.getPrerequisiteList()));
+						}
 					}
 				}
+			}
+		}
+	}
+
+	private void processDomainList(CDOMObject obj,
+			final List<QualifiedObject<Domain>> availDomainList)
+	{
+		for (QualifiedObject<CDOMSingleRef<Domain>> qo : obj.getSafeListFor(ListKey.DOMAIN))
+		{
+			CDOMSingleRef<Domain> ref = qo.getObject(null);
+			Domain domain = ref.resolvesTo();
+			if (!isDomainInList(availDomainList, domain))
+			{
+				availDomainList.add(new QualifiedObject<Domain>(domain
+						.clone(), qo.getPreReqList()));
 			}
 		}
 	}
@@ -1146,8 +1168,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		List<QualifiedObject<Domain>> potentialDomains = new ArrayList<QualifiedObject<Domain>>();
-		addUnfilteredDomains(potentialDomains, aDeity);
+		List<QualifiedObject<Domain>> potentialDomains = getUnfilteredDomains(aDeity);
 
 		// Validate that no domains will be lost when changing deities
 		boolean allDomainsAvailable = true;
@@ -1236,13 +1257,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	private void buildDomainLists()
 	{
 		// Init the lists
-		List<QualifiedObject<Domain>> availDomainList =
-				domainModel.getAvailDomainList();
 		selectedDomainList.clear();
-		availDomainList.clear();
 
 		// Get all available domains and filter them
-		addUnfilteredDomains(availDomainList, pc.getDeity());
+		List<QualifiedObject<Domain>> availDomainList = getUnfilteredDomains(pc.getDeity());
+		domainModel.setAvailDomainList(availDomainList);
 
 		// Loop through the character's selected domains
 		for (CharacterDomain aCD : pc.getCharacterDomainList())
@@ -2198,14 +2217,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				domainColList[1], true)));
 		}
 
-		/**
-		 * return list of domains associated with the current deity
-		 * sets the list of appropriate choices
-		 * @return the list of selections in order of selection
-		 */
-		private List<QualifiedObject<Domain>> getAvailDomainList()
+		public void setAvailDomainList(List<QualifiedObject<Domain>> dl)
 		{
-			return availDomainList;
+			availDomainList = dl;
 		}
 
 		@Override
