@@ -267,6 +267,10 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			int lvl, CampaignSourceEntry source,
 			String restOfLine) throws PersistenceLayerException
 	{
+		if (restOfLine == null)
+		{
+			return;
+		}
 		PCClassLevel classlevel = pcClass.getClassLevel(lvl);
 		final StringTokenizer colToken = new StringTokenizer(restOfLine,
 				SystemLoader.TAB_DELIM);
