@@ -1,83 +1,170 @@
 package plugin.lsttokens.pcclass;
 
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.QualifiedObject;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with DOMAIN Token
  */
-public class DomainToken implements PCClassLstToken
+public class DomainToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
+	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+
+	@Override
 	public String getTokenName()
 	{
 		return "DOMAIN";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level)
+	public boolean parse(LoadContext context, PCClass po, String value)
 	{
-		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
-
-		while (aTok.hasMoreTokens())
+		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			final String aString = aTok.nextToken();
+			context.getObjectContext().removeList(po, ListKey.DOMAIN);
+			return true;
+		}
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
+
+		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
+
+		while (pipeTok.hasMoreTokens())
+		{
+			String tok = pipeTok.nextToken();
+			// Note: May contain PRExxx
 			String domainKey;
-			String prereq = null; //Do not initialize, null is significant!
+			Prerequisite prereq = null;
 
-			//Note: May contain PRExxx
-			if (aString.indexOf("[") == -1)
+			int openBracketLoc = tok.indexOf('[');
+			if (openBracketLoc == -1)
 			{
-				domainKey = aString;
-			}
-			else
-			{
-				int openBracketLoc = aString.indexOf("[");
-				domainKey = aString.substring(0, openBracketLoc);
-				if (!aString.endsWith("]"))
+				if (tok.indexOf(']') != -1)
 				{
-					Logging.errorPrint("Unresolved Prerequisite on Domain "
-						+ aString + " in " + getTokenName());
+					Logging.errorPrint("Invalid " + getTokenName()
+							+ " must have '[' if it contains a PREREQ tag");
+					return false;
 				}
-				prereq =
-						aString.substring(openBracketLoc + 1, aString.length()
-							- openBracketLoc - 2);
-			}
-
-			Domain thisDomain = Globals.getDomainKeyed(domainKey);
-
-			if (thisDomain == null)
-			{
-				Logging.errorPrint("Unresolved Domain " + domainKey + " in "
-					+ getTokenName());
+				domainKey = tok;
 			}
 			else
 			{
-				Domain clonedDomain = thisDomain.clone();
-				if (prereq != null)
+				if (tok.indexOf(']') != tok.length() - 1)
 				{
+					Logging.errorPrint("Invalid " + getTokenName()
+							+ " must end with ']' if it contains a PREREQ tag");
+					return false;
+				}
+				domainKey = tok.substring(0, openBracketLoc);
+				String prereqString = tok.substring(openBracketLoc + 1, tok
+						.length() - 1);
+				if (prereqString.length() == 0)
+				{
+					Logging.errorPrint(getTokenName()
+							+ " cannot have empty prerequisite : " + value);
+					return false;
+				}
+				prereq = getPrerequisite(prereqString);
+			}
+			CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(
+					DOMAIN_CLASS, domainKey);
+
+			QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
+					domain);
+			if (prereq != null)
+			{
+				qo.addPrerequisite(prereq);
+			}
+			context.getObjectContext().addToList(po, ListKey.DOMAIN, qo);
+		}
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCClass po)
+	{
+		Changes<QualifiedObject<CDOMSingleRef<Domain>>> changes = context
+				.getObjectContext().getListChanges(po, ListKey.DOMAIN);
+		List<String> list = new ArrayList<String>();
+		if (changes.includesGlobalClear())
+		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		Collection<QualifiedObject<CDOMSingleRef<Domain>>> removedItems = changes
+				.getRemoved();
+		if (removedItems != null && !removedItems.isEmpty())
+		{
+			context.addWriteMessage(getTokenName()
+					+ " does not support .CLEAR.");
+			return null;
+		}
+		Collection<QualifiedObject<CDOMSingleRef<Domain>>> added = changes
+				.getAdded();
+		if (added != null && !added.isEmpty())
+		{
+			PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+			for (QualifiedObject<CDOMSingleRef<Domain>> qo : added)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(qo.getObject(null).getLSTformat());
+				if (qo.hasPrerequisites())
+				{
+					List<Prerequisite> prereqs = qo.getPrerequisiteList();
+					if (prereqs.size() > 1)
+					{
+						context.addWriteMessage("Incoming Edge to "
+								+ po.getKeyName() + " had more than one "
+								+ "Prerequisite: " + prereqs.size());
+						return null;
+					}
+					sb.append('[');
+					StringWriter swriter = new StringWriter();
 					try
 					{
-						clonedDomain.addPreReq(PreParserFactory.getInstance()
-							.parse(prereq));
+						prereqWriter.write(swriter, prereqs.get(0));
 					}
 					catch (PersistenceLayerException e)
 					{
-						Logging.errorPrint("Error generating Prerequisite "
-							+ prereq + " in " + getTokenName());
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
 					}
+					sb.append(swriter.toString());
+					sb.append(']');
 				}
-				pcclass.addDomain(level, clonedDomain);
+				list.add(sb.toString());
 			}
 		}
+		if (list.isEmpty())
+		{
+			return null;
+		}
+		return new String[] { StringUtil.join(list, Constants.PIPE) };
+	}
 
-		return true;
+	public Class<PCClass> getTokenClass()
+	{
+		return PCClass.class;
 	}
 }

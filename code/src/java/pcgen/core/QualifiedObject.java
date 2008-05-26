@@ -23,16 +23,15 @@
  */
 package pcgen.core;
 
-import java.util.List;
-import pcgen.core.prereq.Prerequisite;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import java.util.Iterator;
+import java.util.List;
+
+import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.core.prereq.PrereqHandler;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * This class stores an association between an object and a set of prereqs.
@@ -41,11 +40,10 @@ import pcgen.core.prereq.PrereqHandler;
  * @author Aaron Divinsky <boomer70@yahoo.com>
  * @param <T> 
  */
-public class QualifiedObject<T>
+public class QualifiedObject<T> extends ConcretePrereqObject
 {
 
 	private T theObject = null;
-	private List<Prerequisite> thePrereqs = null;
 
 	private static final String angleSplit = "[<>\\|]";
 	private static final String squareSplit = "[\\[\\]\\|]";
@@ -73,7 +71,7 @@ public class QualifiedObject<T>
     public QualifiedObject( final T anObj, final List<Prerequisite> aPrereqList )
 	{
 		theObject = anObj;
-		thePrereqs = new ArrayList<Prerequisite>( aPrereqList );
+		addAllPrerequisites(aPrereqList);
 	}
 
 	/**
@@ -92,19 +90,6 @@ public class QualifiedObject<T>
 		return null;
 	}
 
-    /**
-     * Get an unmodifiable copy of the list of prereqs.
-     * @return The prereqs.
-     */
-    public List<Prerequisite> getPrereqs()
-    {
-		if ( thePrereqs == null )
-		{
-			return Collections.emptyList();
-		}
-    	return Collections.unmodifiableList(thePrereqs);
-    }
-    
 	/**
      * Set qualifying object 
      * @param anObject
@@ -112,47 +97,6 @@ public class QualifiedObject<T>
     public void setObject( final T anObject )
 	{
 		theObject = anObject;
-	}
-
-	/**
-	 * Adds the supplied PreReq to the list of prerequisites. 
-	 * @param prereq The prerequisite to be added.
-	 */
-	public void addPrerequisite(final Prerequisite prereq)
-	{
-		if (thePrereqs == null)
-		{
-			thePrereqs = new ArrayList<Prerequisite>(1);
-		}
-		thePrereqs.add(prereq);
-	}
-
-	/**
-     * Add PreReqs 
-     * @param prereqs
-	 */
-    public void addPrerequisites( final List<Prerequisite> prereqs )
-	{
-		if ( thePrereqs == null )
-		{
-			thePrereqs = new ArrayList<Prerequisite>(prereqs.size());
-		}
-		thePrereqs.addAll( prereqs );
-	}
-
-	/**
-     * Return true if the object qualifies for all of the Pre Reqs 
-     * @param aPC
-     * @return true if the object qualifies for all of the Pre Reqs
-	 */
-    public boolean qualifies( final PlayerCharacter aPC)
-	{
-		if (thePrereqs == null)
-		{
-			return true;
-		}
-
-		return PrereqHandler.passesAll(thePrereqs, aPC, null);
 	}
 
     /* (non-Javadoc)
@@ -165,7 +109,7 @@ public class QualifiedObject<T>
 		result.append("Object:");
 		result.append(theObject.toString());
 		result.append(", Prereq:");
-		result.append(thePrereqs.toString());
+		result.append(getPreReqList().toString());
 		// TODO Auto-generated method stub
 		return result.toString();
 	}
@@ -241,4 +185,32 @@ public class QualifiedObject<T>
 			level = lvl;
 		}
     }
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof QualifiedObject)
+		{
+			QualifiedObject<?> other = (QualifiedObject<?>) obj;
+			if (!equalsPrereqObject(other))
+			{
+				return false;
+			}
+			if (other.theObject == null)
+			{
+				return theObject == null;
+			}
+			return other.theObject.equals(theObject);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getPreReqCount() * 23
+				+ (theObject == null ? -1 : theObject.hashCode());
+	}
+    
+    
 }

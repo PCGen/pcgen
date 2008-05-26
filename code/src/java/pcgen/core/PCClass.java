@@ -31,7 +31,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
@@ -43,6 +45,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.bonus.Bonus;
@@ -79,11 +82,6 @@ import pcgen.util.enumeration.VisionType;
 public class PCClass extends PObject
 {
 	public static final int NO_LEVEL_LIMIT = -1;
-
-	/*
-	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
-	 */
-	private List<LevelProperty<Domain>> domainList = null;
 
 	/*
 	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
@@ -1230,35 +1228,6 @@ public class PCClass extends PObject
 	public final List<String> getDeityList()
 	{
 		return deityList;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	/**
-	 * Returns the Domains provided to a character by ONLY the given level
-	 * 
-	 * There is a contract on the users of getDomainList: If you take 
-	 * a Domain out of the List returned, you MUST clone the Domain or you 
-	 * can cause problems for PCClass.  This is allowed for speed today and
-	 * in the hopes that Domain and the PObjects become immutable soon :)
-	 */
-	public final List<Domain> getDomainList(int domainLevel)
-	{
-		if (domainList == null)
-		{
-			return Collections.emptyList();
-		}
-		List<Domain> returnList = new ArrayList<Domain>();
-		for (LevelProperty<Domain> prop : domainList)
-		{
-			if (prop.getLevel() == domainLevel)
-			{
-				returnList.add(prop.getObject());
-			}
-		}
-		return returnList;
 	}
 
 	/*
@@ -3584,16 +3553,6 @@ public class PCClass extends PObject
 			}
 		}
 
-		if (domainList != null)
-		{
-			for (LevelProperty<Domain> domainLP : domainList)
-			{
-				pccTxt.append(lineSep).append(domainLP.getLevel());
-				pccTxt.append("\tDOMAIN:").append(
-					domainLP.getObject().getKeyName());
-			}
-		}
-
 		// TODO - Add ABILITY tokens.
 
 		List<String> udamList = getListFor(ListKey.UDAM);
@@ -3791,19 +3750,6 @@ public class PCClass extends PObject
 	public void clearClassSpellList()
 	{
 		classSpellList = null;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public void addDomain(int domainLevel, final Domain domain)
-	{
-		if (domainList == null)
-		{
-			domainList = new ArrayList<LevelProperty<Domain>>();
-		}
-		domainList.add(LevelProperty.getLevelProperty(domainLevel, domain));
 	}
 
 	/*
@@ -4187,13 +4133,6 @@ public class PCClass extends PObject
 			aClass.modToSkills = modToSkills;
 			aClass.initMod = initMod;
 
-			// aClass.ageSet = ageSet;
-			if (domainList != null)
-			{
-				//This is ok as a shallow copy - contract on readers of domainList
-				aClass.domainList =
-						new ArrayList<LevelProperty<Domain>>(domainList);
-			}
 			if (addDomains != null)
 			{
 				//This is ok as a shallow copy - contract on readers of domainList
@@ -6912,39 +6851,58 @@ public class PCClass extends PObject
 		 * only applied at the time of level increase, but I think that quirk
 		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
 		 */
-		List<Domain> domList = new ArrayList<Domain>();
-		for (int lvl = 0; lvl <= aLevel; lvl++)
+		for (QualifiedObject<CDOMSingleRef<Domain>> qo : getSafeListFor(ListKey.DOMAIN))
 		{
-			for (Domain dom : getDomainList(lvl))
+			CDOMSingleRef<Domain> ref = qo.getObject(aPC);
+			if (ref != null)
 			{
-				domList.add(dom);
+				addDomain(aPC, ref.resolvesTo(), adding);
 			}
 		}
-		for (final Domain dom : domList)
+		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 		{
-			if (dom.qualifies(aPC))
+			if (me.getKey() > aLevel)
 			{
-				String domKey = dom.getKeyName();
-				if (adding)
+				break;
+			}
+			PCClassLevel pcl = me.getValue();
+			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
+					.getSafeListFor(ListKey.DOMAIN))
+			{
+				CDOMSingleRef<Domain> ref = qo.getObject(aPC);
+				if (ref != null)
 				{
-					if (!aPC.containsCharacterDomain(this.getKeyName(), domKey))
-					{
-						Domain aDomain = dom.clone();
-
-						final CharacterDomain aCD =
-								aPC.getNewCharacterDomain(getKeyName());
-						aCD.setDomain(aDomain, aPC);
-						aPC.addCharacterDomain(aCD);
-						aDomain = aCD.getDomain();
-						aDomain.setIsLocked(true, aPC);
-					}
+					addDomain(aPC, ref.resolvesTo(), adding);
 				}
-				else
+			}
+		}
+	}
+
+	private void addDomain(final PlayerCharacter aPC, Domain d,
+			final boolean adding)
+	{
+		if (d.qualifies(aPC))
+		{
+			String domKey = d.getKeyName();
+			if (adding)
+			{
+				if (!aPC.containsCharacterDomain(this.getKeyName(), domKey))
 				{
-					if (aPC.containsCharacterDomain(domKey))
-					{
-						aPC.removeCharacterDomain(domKey);
-					}
+					Domain aDomain = d.clone();
+
+					final CharacterDomain aCD =
+							aPC.getNewCharacterDomain(getKeyName());
+					aCD.setDomain(aDomain, aPC);
+					aPC.addCharacterDomain(aCD);
+					aDomain = aCD.getDomain();
+					aDomain.setIsLocked(true, aPC);
+				}
+			}
+			else
+			{
+				if (aPC.containsCharacterDomain(domKey))
+				{
+					aPC.removeCharacterDomain(domKey);
 				}
 			}
 		}
@@ -7340,7 +7298,7 @@ public class PCClass extends PObject
 	//		theAutoAbilities.put(aCategory, aLevel, null);
 	//	}
 
-	Map<Integer, PCClassLevel> levelMap = new HashMap<Integer, PCClassLevel>();
+	SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();
 //	List<PCClassLevel> repeatLevelObjects = new ArrayList<PCClassLevel>();
 
 	public PCClassLevel getClassLevel(int lvl)

@@ -32,9 +32,11 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Language;
+import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
 import pcgen.core.WeaponProf;
@@ -174,6 +176,7 @@ public final class ListKey<T> {
 	public static final ListKey<Formula> SPECIALTYKNOWN = new ListKey<Formula>();
 	public static final ListKey<Formula> KNOWN = new ListKey<Formula>();
 	public static final ListKey<Formula> CAST = new ListKey<Formula>();
+	public static final ListKey<QualifiedObject<CDOMSingleRef<Domain>>> DOMAIN = new ListKey<QualifiedObject<CDOMSingleRef<Domain>>>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

@@ -82,6 +82,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
@@ -523,6 +524,21 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Loop through the available prestige domains
 		for (PCClass aClass : pc.getClassList())
 		{
+			/*
+			 * Need to do for the class, for compatibility, since level 0 is
+			 * loaded into the class itself
+			 */
+			for (QualifiedObject<CDOMSingleRef<Domain>> qo : aClass
+					.getSafeListFor(ListKey.DOMAIN))
+			{
+				CDOMSingleRef<Domain> ref = qo.getObject(null);
+				Domain domain = ref.resolvesTo();
+				if (!isDomainInList(availDomainList, domain))
+				{
+					availDomainList.add(new QualifiedObject<Domain>(domain
+							.clone(), qo.getPreReqList()));
+				}
+			}
 			for (int lvl = 0; lvl <= aClass.getLevel(); lvl++)
 			{
 				for (Domain prestigeDomain : aClass.getAddDomains(aClass
@@ -541,20 +557,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 						availDomainList.add(qualDomain);
 					}
 				}
-				for (Domain prestigeDomain : aClass.getDomainList(lvl))
+				for (QualifiedObject<CDOMSingleRef<Domain>> qo : aClass
+						.getClassLevel(lvl).getSafeListFor(ListKey.DOMAIN))
 				{
-					// CONSIDER Should this be gated by null? - thpr
-					// 10/23/06
-					if (prestigeDomain != null)
+					CDOMSingleRef<Domain> ref = qo.getObject(null);
+					Domain domain = ref.resolvesTo();
+					if (!isDomainInList(availDomainList, domain))
 					{
-						prestigeDomain = prestigeDomain.clone();
-					}
-					QualifiedObject<Domain> qualDomain =
-						new QualifiedObject<Domain>(prestigeDomain.clone());
-
-					if (!isDomainInList(availDomainList, qualDomain.getObject(null)))
-					{
-						availDomainList.add(qualDomain);
+						availDomainList.add(new QualifiedObject<Domain>(domain
+								.clone(), qo.getPreReqList()));
 					}
 				}
 			}
@@ -2437,7 +2448,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						final Domain aDomain =
 								Globals.getDomainKeyed(domainKey);
-						setDomainInfoText(aDomain, qualDomain.getPrereqs());
+						setDomainInfoText(aDomain, qualDomain.getPreReqList());
 					}
 
 					break;
