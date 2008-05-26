@@ -32,6 +32,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
 import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -53,7 +54,7 @@ public final class EquipmentModifierLoader extends
 		if (aTemplate == null) {
 			EquipmentList.addEquipmentModifier((EquipmentModifier) pObj);
 		}
-
+		Globals.getContext().ref.importObject(pObj);
 	}
 
 	@Override
