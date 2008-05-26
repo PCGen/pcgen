@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
@@ -1658,17 +1659,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Since this is altering (or controlling the behavior of) 
-	 * the castMap, this has to be both at the PCClass domain (since it's a tag)
-	 * and at the PCClassLevel domain (since that is where the castMap is 
-	 * active)
-	 */
-	public final void setHasSpellFormula(final boolean arg)
-	{
-		getConstructingSpellProgressionInfo().setContainsSpellFormula(arg);
-	}
-
-	/*
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass because it
 	 * is a Tag
 	 */
@@ -2114,7 +2104,7 @@ public class PCClass extends PObject
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since
 	 * it is a Tag [with level dependent differences, of course)
 	 */
-	public void setCast(final int aLevel, final List<String> cast)
+	public void setCast(final int aLevel, final List<Formula> cast)
 	{
 		getConstructingSpellProgressionInfo().setCast(aLevel, cast);
 	}
@@ -2126,7 +2116,7 @@ public class PCClass extends PObject
 	 * May also be required in the Factory for PCClassLevels, so might
 	 * also appear in PCClass.
 	 */
-	public List<String> getCastListForLevel(int aLevel)
+	public List<Formula> getCastListForLevel(int aLevel)
 	{
 		if (castInfo == null)
 		{
@@ -2143,7 +2133,7 @@ public class PCClass extends PObject
 	/*
 	 * PCCLASSONLY For editing a PCClass and Global checks...
 	 */
-	public Map<Integer, List<String>> getCastProgression()
+	public Map<Integer, List<Formula>> getCastProgression()
 	{
 		if (castInfo == null)
 		{
@@ -2251,7 +2241,7 @@ public class PCClass extends PObject
 	/*
 	 * PCCLASSONLY This is for PCClass construction and Global queries
 	 */
-	public Map<Integer, List<String>> getKnownMap()
+	public Map<Integer, List<Formula>> getKnownMap()
 	{
 		if (castInfo == null)
 		{
@@ -2291,7 +2281,7 @@ public class PCClass extends PObject
 	 * DELETEMETHOD - this isn't used??? Or perhaps that indicates 
 	 * that the GUI LST CLASS editor is incomplete :)
 	 */
-	public final Map<Integer, List<String>> getSpecialtyKnownList()
+	public final Map<Integer, List<Formula>> getSpecialtyKnownList()
 	{
 		if (castInfo == null)
 		{
@@ -2314,7 +2304,7 @@ public class PCClass extends PObject
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public final void addSpecialtyKnown(int aLevel, List<String> aList)
+	public final void addSpecialtyKnown(int aLevel, List<Formula> aList)
 	{
 		getConstructingSpellProgressionInfo().setSpecialtyKnown(aLevel, aList);
 	}
@@ -2343,31 +2333,12 @@ public class PCClass extends PObject
 			return -1;
 		}
 
-		List<String> castListForLevel = getCastListForLevel(iCasterLevel);
+		List<Formula> castListForLevel = getCastListForLevel(iCasterLevel);
 		if (castListForLevel == null || iSpellLevel >= castListForLevel.size())
 		{
 			return -1;
 		}
-		String aString = castListForLevel.get(iSpellLevel);
-
-		int aNum;
-		if ((aPC != null) && hasSpellFormula())
-		{
-			aNum = aPC.getVariableValue(aString, "").intValue();
-		}
-		else
-		{
-			try
-			{
-				aNum = Integer.parseInt(aString);
-			}
-			catch (NumberFormatException ex)
-			{
-				// ignore
-				aNum = 0;
-			}
-		}
-		return aNum;
+		return castListForLevel.get(iSpellLevel).resolve(aPC, "").intValue();
 	}
 
 	/*
@@ -2479,24 +2450,13 @@ public class PCClass extends PObject
 
 		if (castInfo != null)
 		{
-			List<String> specKnown =
+			List<Formula> specKnown =
 					castInfo.getSpecialtyKnownForLevel(pcLevel);
 			if (specKnown != null)
 			{
 				if (specKnown.size() > spellLevel)
 				{
-					int t;
-					if (castInfo.containsSpellFormula())
-					{
-						t =
-								aPC.getVariableValue(specKnown.get(spellLevel),
-									"").intValue();
-					}
-					else
-					{
-						t = Integer.parseInt(specKnown.get(spellLevel));
-					}
-					total += t;
+					total += specKnown.get(spellLevel).resolve(aPC, "").intValue();
 				}
 			}
 
@@ -3925,7 +3885,7 @@ public class PCClass extends PObject
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void setKnown(final int iLevel, final List<String> aList)
+	public void setKnown(final int iLevel, final List<Formula> aList)
 	{
 		getConstructingSpellProgressionInfo().setKnown(iLevel, aList);
 	}
@@ -4306,17 +4266,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Since this is altering (or controlling the behavior of) 
-	 * the castMap, this has to be both at the PCClass domain (since it's a tag)
-	 * and at the PCClassLevel domain (since that is where the castMap is 
-	 * active)
-	 */
-	public final boolean hasSpellFormula()
-	{
-		return castInfo != null && castInfo.containsSpellFormula();
-	}
-
-	/*
 	 * PCCLASSANDLEVEL Since this (or a new boolean identifier, perhaps, to
 	 * avoid confusion) is both a tag and an identifier for each class level as
 	 * to whether the subclass is activated, this is required in both locations.
@@ -4687,13 +4636,13 @@ public class PCClass extends PObject
 		 * May not be a big issue other than a poorly named method, but
 		 * need to check what is really required here
 		 */
-		for (List<String> l : castInfo.getCastProgression().values())
+		for (List<Formula> l : castInfo.getCastProgression().values())
 		{
-			for (String st : l)
+			for (Formula st : l)
 			{
 				try
 				{
-					if (Integer.parseInt(st) > 0)
+					if (Integer.parseInt(st.toString()) > 0)
 					{
 						return false;
 					}
@@ -4910,31 +4859,12 @@ public class PCClass extends PObject
 			return total;
 		}
 
-		boolean psiSpecialty = false;
-
 		if (castInfo.hasKnownProgression())
 		{
-			List<String> knownList = castInfo.getKnownForLevel(pcLevel);
+			List<Formula> knownList = castInfo.getKnownForLevel(pcLevel);
 			if (spellLevel >= 0 && spellLevel < knownList.size())
 			{
-				String spells = knownList.get(spellLevel);
-
-				if (spells.endsWith("+d"))
-				{
-					psiSpecialty = true;
-					spells = spells.substring(0, spells.length() - 2);
-				}
-
-				int t;
-				if (castInfo.containsSpellFormula())
-				{
-					t = aPC.getVariableValue(spells, "").intValue();
-				}
-				else
-				{
-					t = Integer.parseInt(spells);
-				}
-				total += (t * mult);
+				total += mult * knownList.get(spellLevel).resolve(aPC, "").intValue();
 
 				// add Stat based bonus
 				final String bonusSpell =
@@ -4954,17 +4884,12 @@ public class PCClass extends PObject
 						total += Math.max(0, (stat - base + range) / range);
 					}
 				}
-
-				if (psiSpecialty)
-				{
-					total += castInfo.getKnownSpellsFromSpecialty();
-				}
 			}
 		}
 
 		// if we have known spells (0==no known spells recorded)
 		// or a psi specialty.
-		if (((total > 0) && (spellLevel > 0)) && !psiSpecialty)
+		if ((total > 0) && (spellLevel > 0))
 		{
 			// make sure any slots due from specialties
 			// (including domains) are added

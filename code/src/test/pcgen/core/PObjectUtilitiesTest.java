@@ -23,8 +23,9 @@
  */
 package pcgen.core;
 
-import java.util.Arrays;
 import pcgen.AbstractCharacterTestCase;
+import plugin.lsttokens.pcclass.CastToken;
+import plugin.lsttokens.pcclass.KnownToken;
 
 /**
  * <code>PObjectUtilitiesTest</code> verifies that the PObjectUtilities
@@ -39,6 +40,8 @@ import pcgen.AbstractCharacterTestCase;
 @SuppressWarnings("nls")
 public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 {
+	private static final KnownToken KNOWN_TOKEN = new KnownToken();
+	private static final CastToken CAST_TOKEN = new CastToken();
 	private PCClass arcaneClass = null;
 	private PCClass divineClass = null;
 	private PCClass psionicClass = null;
@@ -65,12 +68,12 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		arcaneClass.setSpellBaseStat("CHA");
 		arcaneClass.setSpellBookUsed(false);
 		arcaneClass.setMemorizeSpells(false);
-		arcaneClass.setKnown(1, Arrays.asList("4,2".split(",")));
-		arcaneClass.setCast(1, Arrays.asList("3,1".split(",")));
-		arcaneClass.setKnown(2, Arrays.asList("4,3,1".split(",")));
-		arcaneClass.setCast(2, Arrays.asList("3,2,1".split(",")));
-		arcaneClass.setKnown(3, Arrays.asList("5,5,2,1".split(",")));
-		arcaneClass.setCast(3, Arrays.asList("5,5,3,1".split(",")));
+		assertTrue(KNOWN_TOKEN.parse(arcaneClass, "4,2", 1));
+		assertTrue(CAST_TOKEN.parse(arcaneClass, "3,1", 1));
+		assertTrue(KNOWN_TOKEN.parse(arcaneClass, "4,3,1", 2));
+		assertTrue(CAST_TOKEN.parse(arcaneClass, "3,2,1", 2));
+		assertTrue(KNOWN_TOKEN.parse(arcaneClass, "5,5,2,1", 3));
+		assertTrue(CAST_TOKEN.parse(arcaneClass, "5,5,3,1", 3));
 		Globals.getClassList().add(arcaneClass);
 
 		divineClass = new PCClass();
@@ -80,7 +83,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		divineClass.setSpellBaseStat("WIS");
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
-		divineClass.setCast(1, Arrays.asList("3,1,0".split(",")));
+		assertTrue(CAST_TOKEN.parse(divineClass, "3,1,0", 1));
 		Globals.getClassList().add(divineClass);
 
 		psionicClass = new PCClass();
@@ -90,11 +93,11 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		psionicClass.setSpellBaseStat("CHA");
 		psionicClass.setSpellBookUsed(false);
 		psionicClass.setMemorizeSpells(false);
-		psionicClass.setKnown(1, Arrays.asList("0,3".split(",")));
-		psionicClass.setKnown(2, Arrays.asList("0.5".split(",")));
-		psionicClass.setKnown(3, Arrays.asList("0,5,2".split(",")));
-		psionicClass.setKnown(4, Arrays.asList("0,5,4".split(",")));
-		psionicClass.setKnown(5, Arrays.asList("0,5,4,2".split(",")));
+		assertTrue(KNOWN_TOKEN.parse(psionicClass, "0,3", 1));
+		assertTrue(KNOWN_TOKEN.parse(psionicClass,  "0,5", 2));
+		assertTrue(KNOWN_TOKEN.parse(psionicClass,  "0,5,2", 3));
+		assertTrue(KNOWN_TOKEN.parse(psionicClass, "0,5,4", 4));
+		assertTrue(KNOWN_TOKEN.parse(psionicClass, "0,5,4,2", 5));
 		Globals.getClassList().add(psionicClass);
 
 		super.setUp();

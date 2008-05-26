@@ -30,7 +30,6 @@ package pcgen.core;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -49,6 +48,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
+import plugin.lsttokens.pcclass.CastToken;
+import plugin.lsttokens.pcclass.KnownToken;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
@@ -57,6 +58,8 @@ import plugin.pretokens.parser.PreVariableParser;
 @SuppressWarnings("nls")
 public class PCClassTest extends AbstractCharacterTestCase
 {
+	private static final KnownToken KNOWN_TOKEN = new KnownToken();
+	private static final CastToken CAST_TOKEN = new CastToken();
 
 	PCClass humanoidClass;
 	SizeAdjustment sizeL;
@@ -462,12 +465,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		megaCasterClass.setSpellBaseStat("CHA");
 		megaCasterClass.setSpellBookUsed(false);
 		megaCasterClass.setMemorizeSpells(false);
-		megaCasterClass.setKnown(1, Arrays.asList("4,2,2,3,4,5".split(",")));
-		megaCasterClass.setCast(1, Arrays.asList("3,1,2,3,4,5".split(",")));
-		megaCasterClass.setKnown(2, Arrays.asList("4,2,2,3,4,5,6,7,8,9,10"
-			.split(",")));
-		megaCasterClass.setCast(2, Arrays.asList("3,1,2,3,4,5,6,7,8,9,10"
-			.split(",")));
+		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5", 1));
+		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5", 1));
+		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5,6,7,8,9,10", 2));
+		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5,6,7,8,9,10", 2));
 		Globals.getClassList().add(megaCasterClass);
 
 		assertEquals("Highest spell level for class", 10, megaCasterClass
@@ -535,13 +536,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		megaCasterClass.setSpellBaseStat("CHA");
 		megaCasterClass.setSpellBookUsed(false);
 		megaCasterClass.setMemorizeSpells(false);
-		megaCasterClass
-			.setKnown(1, Arrays.asList("4,2,2,3,4,5+d,0".split(",")));
-		megaCasterClass.setCast(1, Arrays.asList("3,1,2,3,4,5,0,0".split(",")));
-		megaCasterClass.setKnown(2, Arrays.asList("4,2,2,3,4,5,6,7,8,9,10"
-			.split(",")));
-		megaCasterClass.setCast(2, Arrays.asList("3,1,2,3,4,5,6,7,8,9,10"
-			.split(",")));
+		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5,0", 1));
+		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5,0,0", 1));
+		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5,6,7,8,9,10", 2));
+		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5,6,7,8,9,10", 2));
 		Globals.getClassList().add(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();
@@ -584,7 +582,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 			.getKnownForLevel(3, character));
 		assertEquals("Known 4th level for character's class", 4, charClass
 			.getKnownForLevel(4, character));
-		charClass.setHasSpellFormula(true);
 		charClass.setKnownSpellsFromSpecialty(1);
 		assertEquals("Known 5th level for character's class", 6, charClass
 			.getKnownForLevel(5, character));
@@ -865,16 +862,5 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nqClass.addVariable(0, "Foo", "1");
 		nqClass.addVariable(2, "Foo", "2");
 
-	}
-
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
-	@Override
-	protected void tearDown() throws Exception
-	{
-
-		// TODO Auto-generated method stub
-		super.tearDown();
 	}
 }

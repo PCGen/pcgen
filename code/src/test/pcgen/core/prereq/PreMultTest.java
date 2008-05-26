@@ -23,7 +23,7 @@
  */
 package pcgen.core.prereq;
 
-import java.util.Arrays;
+import java.util.Map;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -37,6 +37,9 @@ import pcgen.core.Ability;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.persistence.lst.TokenStore;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreFeatParser;
 import plugin.pretokens.parser.PreSkillParser;
@@ -117,14 +120,14 @@ public class PreMultTest extends AbstractCharacterTestCase
 		pcClass.setAbbrev("My");
 		pcClass.setSpellBaseStat("CHA");
 		pcClass.setSpellType("ARCANE");
-		pcClass.setCast(1, Arrays.asList("5,4".split(",")));
+		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
 		pcClass2.setSpellBaseStat("INT");
 		pcClass2.setSpellType("ARCANE");
-		pcClass2.setCast(1, Arrays.asList("5,4".split(",")));
+		assertTrue(callToken(pcClass2, 1, "CAST", "5,4"));
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -262,5 +265,13 @@ public class PreMultTest extends AbstractCharacterTestCase
 		character.getSkillList().remove(knowledge);
 		character.calcActiveBonuses();
 
+	}
+
+	public boolean callToken(PCClass cl, int lvl, String key, String value)
+	{
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				PCClassLstToken.class);
+		return tokenMap.containsKey(key)
+				&& ((PCClassLstToken) tokenMap.get(key)).parse(cl, value, lvl);
 	}
 }

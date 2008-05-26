@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 
@@ -121,13 +122,6 @@ public class SpellProgressionInfo implements Cloneable {
 	 */
 	private String bonusSpellBaseStatAbbr = Constants.s_DEFAULT;
 
-	/**
-	 * This indicates whether the knownMap, specialtyKnownMap and castMap are
-	 * allowed to contain a Formula. This is used to accelerate processing of
-	 * non-Formula Spell lists.
-	 */
-	private boolean hasSpellFormulas = false;
-
 	/*
 	 * CONSIDER This gets VERY interesting as far as prerequisite checking.
 	 * There is a PRESPELLCASTMEMORIZE tag (or some such) that tests how many
@@ -179,7 +173,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 * @return The previously set KNOWN spell progression for the given class
 	 *         level; null if no KNOWN spell progression was previously set.
 	 */
-	public List<String> setKnown(int iLevel, List<String> aList) {
+	public List<Formula> setKnown(int iLevel, List<Formula> aList) {
 		if (knownProgression == null) {
 			knownProgression = new Progression();
 		}
@@ -213,7 +207,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 * 
 	 * @return The known spell progression for this SpellProgression object.
 	 */
-	public Map<Integer, List<String>> getKnownProgression() {
+	public Map<Integer, List<Formula>> getKnownProgression() {
 		return knownProgression == null ? null : knownProgression
 				.getProgression();
 	}
@@ -234,7 +228,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 * @return The known spell progression for the given class level, or null if
 	 *         there is no known spell progression for the given class level.
 	 */
-	public List<String> getKnownForLevel(int aLevel) {
+	public List<Formula> getKnownForLevel(int aLevel) {
 		return knownProgression == null ? null : knownProgression
 				.getProgressionForLevel(aLevel);
 	}
@@ -294,7 +288,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 *         given class level; null if no KNOWN SPECIALTY spell progression
 	 *         was previously set.
 	 */
-	public List<String> setSpecialtyKnown(int aLevel, List<String> aList) {
+	public List<Formula> setSpecialtyKnown(int aLevel, List<Formula> aList) {
 		if (specialtyKnownProgression == null) {
 			specialtyKnownProgression = new Progression();
 		}
@@ -329,7 +323,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 * @return The known specialty spell progression for this SpellProgression
 	 *         object.
 	 */
-	public Map<Integer, List<String>> getSpecialtyKnownMap() {
+	public Map<Integer, List<Formula>> getSpecialtyKnownMap() {
 		return specialtyKnownProgression == null ? null
 				: specialtyKnownProgression.getProgression();
 	}
@@ -351,7 +345,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 *         or null if there is no known specialty spell progression for the
 	 *         given class level.
 	 */
-	public List<String> getSpecialtyKnownForLevel(int aLevel) {
+	public List<Formula> getSpecialtyKnownForLevel(int aLevel) {
 		return specialtyKnownProgression == null ? null
 				: specialtyKnownProgression.getProgressionForLevel(aLevel);
 	}
@@ -388,7 +382,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 * @return The previously set CAST spell progression for the given class
 	 *         level; null if no CAST spell progression was previously set.
 	 */
-	public List<String> setCast(int aLevel, List<String> aList) {
+	public List<Formula> setCast(int aLevel, List<Formula> aList) {
 		if (castProgression == null) {
 			castProgression = new Progression();
 		}
@@ -420,7 +414,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 * 
 	 * @return The CAST spell progression for this SpellProgression object.
 	 */
-	public Map<Integer, List<String>> getCastProgression() {
+	public Map<Integer, List<Formula>> getCastProgression() {
 		return castProgression == null ? null : castProgression
 				.getProgression();
 	}
@@ -441,7 +435,7 @@ public class SpellProgressionInfo implements Cloneable {
 	 * @return The CAST spell progression for the given class level, or null if
 	 *         there is no CAST spell progression for the given class level.
 	 */
-	public List<String> getCastForLevel(int aLevel) {
+	public List<Formula> getCastForLevel(int aLevel) {
 		return castProgression == null ? null : castProgression
 				.getProgressionForLevel(aLevel);
 	}
@@ -513,28 +507,6 @@ public class SpellProgressionInfo implements Cloneable {
 			return Constants.s_NONE;
 		}
 		return spellType;
-	}
-
-	/**
-	 * Sets whether this SpellProgression contains Formula in the any of the
-	 * Spell Progressions (KNOWN, CAST, or SPECIALTYKNOWN)
-	 * 
-	 * @param containsFormula
-	 *            true if the SpellProgression can contain a Formula in any of
-	 *            the Spell Progressions; false otherwise
-	 */
-	public void setContainsSpellFormula(boolean containsFormula) {
-		hasSpellFormulas = containsFormula;
-	}
-
-	/**
-	 * Returns true if this SpellProgression contains a Formula in any of the
-	 * Spell Progressions.
-	 * 
-	 * @return true if this SpellProgression contains Formulae; false otherwise
-	 */
-	public boolean containsSpellFormula() {
-		return hasSpellFormulas;
 	}
 
 	/**
@@ -766,14 +738,14 @@ public class SpellProgressionInfo implements Cloneable {
 		 * that situation.
 		 */
 		if (castProgression != null) {
-			List<String> knownList = castProgression
+			List<Formula> knownList = castProgression
 					.getProgressionForLevel(classLevel);
 			if (knownList != null) {
 				return knownList.size() - 1;
 			}
 		}
 		if (knownProgression != null) {
-			List<String> knownList = knownProgression
+			List<Formula> knownList = knownProgression
 					.getProgressionForLevel(classLevel);
 			if (knownList != null) {
 				return knownList.size() - 1;
@@ -839,7 +811,7 @@ public class SpellProgressionInfo implements Cloneable {
 		 * 
 		 * The progressionMap must not contain any null values.
 		 */
-		private TreeMap<Integer, List<String>> progressionMap = null;
+		private TreeMap<Integer, List<Formula>> progressionMap = null;
 
 		/**
 		 * Sets the spells for the given class level for this Progression. The
@@ -857,7 +829,7 @@ public class SpellProgressionInfo implements Cloneable {
 		 * @return The previously set spell progression for the given class
 		 *         level; null if no spell progression was previously set.
 		 */
-		public List<String> setProgression(int iLevel, List<String> aList) {
+		public List<Formula> setProgression(int iLevel, List<Formula> aList) {
 			if (iLevel < 1) {
 				throw new IllegalArgumentException(
 						"Level must be >= 1 in spell progression");
@@ -878,14 +850,14 @@ public class SpellProgressionInfo implements Cloneable {
 								+ iLevel);
 			}
 			if (progressionMap == null) {
-				progressionMap = new TreeMap<Integer, List<String>>();
+				progressionMap = new TreeMap<Integer, List<Formula>>();
 			}
-			return progressionMap.put(iLevel, new ArrayList<String>(aList));
+			return progressionMap.put(iLevel, new ArrayList<Formula>(aList));
 		}
 
 		public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus) {
-			for (Entry<Integer, List<String>> me : progressionMap.entrySet()) {
-				List<String> progressionList = me.getValue();
+			for (Entry<Integer, List<Formula>> me : progressionMap.entrySet()) {
+				List<Formula> progressionList = me.getValue();
 				for (int lvl = spellLevel; lvl < progressionList.size(); lvl++) {
 					/*
 					 * This for loop is to protect against a (admittedly
@@ -897,7 +869,7 @@ public class SpellProgressionInfo implements Cloneable {
 					 * 11/9/06
 					 */
 					if (allowBonus
-							|| Integer.parseInt(progressionList.get(lvl)) != 0) {
+							|| Integer.parseInt(progressionList.get(lvl).toString()) != 0) {
 						return me.getKey();
 					}
 				}
@@ -929,7 +901,7 @@ public class SpellProgressionInfo implements Cloneable {
 		 * 
 		 * @return The spell progression for this Progression object.
 		 */
-		public Map<Integer, List<String>> getProgression() {
+		public Map<Integer, List<Formula>> getProgression() {
 			if (progressionMap == null) {
 				return null;
 			}
@@ -952,8 +924,8 @@ public class SpellProgressionInfo implements Cloneable {
 		 * @return The spell progression for the given class level, or null if
 		 *         there is no spell progression for the given class level.
 		 */
-		public List<String> getProgressionForLevel(int classLevel) {
-			List<String> spellProgression = null;
+		public List<Formula> getProgressionForLevel(int classLevel) {
+			List<Formula> spellProgression = null;
 			boolean found = false;
 			if(progressionMap != null) {
 				Integer key = Integer.valueOf(classLevel);
@@ -967,8 +939,8 @@ public class SpellProgressionInfo implements Cloneable {
 					found = true;
 				}
 				if(found) {
-					List<String> list = progressionMap.get(key);
-					spellProgression = new ArrayList<String>(list);
+					List<Formula> list = progressionMap.get(key);
+					spellProgression = new ArrayList<Formula>(list);
 				}
 			}
 			return spellProgression;
@@ -991,7 +963,7 @@ public class SpellProgressionInfo implements Cloneable {
 			}
 			if (progressionMap != null) {
 				StringBuffer sb = new StringBuffer();
-				for (Entry<Integer, List<String>> me : progressionMap
+				for (Entry<Integer, List<Formula>> me : progressionMap
 						.entrySet()) {
 					sb.append(lineSep).append(me.getKey()).append("\t");
 					sb.append(tag).append(":");
@@ -1022,7 +994,7 @@ public class SpellProgressionInfo implements Cloneable {
 		public int getHighestSpellLevel() {
 			if (progressionMap != null) {
 				int highest = -1;
-				for (List<String> list : progressionMap.values()) {
+				for (List<Formula> list : progressionMap.values()) {
 					highest = Math.max(highest, list.size() - 1);
 				}
 				return highest;
@@ -1050,7 +1022,7 @@ public class SpellProgressionInfo implements Cloneable {
 		public Progression clone() throws CloneNotSupportedException {
 			Progression p = (Progression) super.clone();
 			if (progressionMap != null) {
-				p.progressionMap = new TreeMap<Integer, List<String>>(
+				p.progressionMap = new TreeMap<Integer, List<Formula>>(
 						progressionMap);
 			}
 			return p;

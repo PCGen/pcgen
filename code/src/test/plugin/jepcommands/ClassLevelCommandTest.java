@@ -23,8 +23,6 @@
  */
 package plugin.jepcommands;
 
-import java.util.Arrays;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -36,6 +34,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import plugin.lsttokens.pcclass.CastToken;
+import plugin.lsttokens.pcclass.KnownToken;
 
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
@@ -109,9 +109,8 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		megaCasterClass.setSpellBaseStat("CHA");
 		megaCasterClass.setSpellBookUsed(false);
 		megaCasterClass.setMemorizeSpells(false);
-		megaCasterClass
-				.setKnown(1, Arrays.asList("4,2,2,3,4,5+d,0".split(",")));
-		megaCasterClass.setCast(1, Arrays.asList("3,1,2,3,4,5,0,0".split(",")));
+		assertTrue(new KnownToken().parse(megaCasterClass, "4,2,2,3,4,5,0", 1));
+		assertTrue(new CastToken().parse(megaCasterClass, "3,1,2,3,4,5,0,0", 1));
 		Globals.getClassList().add(megaCasterClass);
 
 	}

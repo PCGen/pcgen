@@ -1,11 +1,12 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
 import junit.framework.TestCase;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 
 public class SpellProgressionInfoTest extends TestCase
 {
@@ -24,78 +25,78 @@ public class SpellProgressionInfoTest extends TestCase
 		assertFalse(spi.hasKnownProgression());
 		// Test no NPE triggered even if no KNOWN is loaded
 		assertNull(spi.getKnownForLevel(1));
-		List<String> l = new ArrayList<String>();
-		l.add("60");
-		l.add("61");
-		l.add("62");
+		List<Formula> l = new ArrayList<Formula>();
+		l.add(FormulaFactory.getFormulaFor("60"));
+		l.add(FormulaFactory.getFormulaFor("61"));
+		l.add(FormulaFactory.getFormulaFor("62"));
 		spi.setKnown(2, l);
 		assertTrue(spi.hasKnownProgression());
 		// Test for loaded values
 		// implicitly tests that known doesn't require loading in level order
 		assertEquals(3, spi.getKnownForLevel(2).size());
-		assertEquals("60", spi.getKnownForLevel(2).get(0));
-		assertEquals("61", spi.getKnownForLevel(2).get(1));
-		assertEquals("62", spi.getKnownForLevel(2).get(2));
+		assertEquals("60", spi.getKnownForLevel(2).get(0).toString());
+		assertEquals("61", spi.getKnownForLevel(2).get(1).toString());
+		assertEquals("62", spi.getKnownForLevel(2).get(2).toString());
 		l.clear();
 		// Ensure still true (ensures that setKnown copied the list)
 		assertTrue(spi.hasKnownProgression());
 		assertEquals(3, spi.getKnownForLevel(2).size());
-		assertEquals("60", spi.getKnownForLevel(2).get(0));
-		assertEquals("61", spi.getKnownForLevel(2).get(1));
-		assertEquals("62", spi.getKnownForLevel(2).get(2));
+		assertEquals("60", spi.getKnownForLevel(2).get(0).toString());
+		assertEquals("61", spi.getKnownForLevel(2).get(1).toString());
+		assertEquals("62", spi.getKnownForLevel(2).get(2).toString());
 		// No known at levels below the loaded level
 		assertNull(spi.getKnownForLevel(1));
 		// Levels above loaded level return values of lower levels
 		assertEquals(3, spi.getKnownForLevel(3).size());
-		assertEquals("60", spi.getKnownForLevel(3).get(0));
-		assertEquals("61", spi.getKnownForLevel(3).get(1));
-		assertEquals("62", spi.getKnownForLevel(3).get(2));
+		assertEquals("60", spi.getKnownForLevel(3).get(0).toString());
+		assertEquals("61", spi.getKnownForLevel(3).get(1).toString());
+		assertEquals("62", spi.getKnownForLevel(3).get(2).toString());
 		// Ensure we are transferred ownership of returned list
-		List<String> returnList = spi.getKnownForLevel(2);
+		List<Formula> returnList = spi.getKnownForLevel(2);
 		returnList.clear();
 		assertTrue(spi.hasKnownProgression());
 		assertEquals(3, spi.getKnownForLevel(2).size());
-		assertEquals("60", spi.getKnownForLevel(2).get(0));
-		assertEquals("61", spi.getKnownForLevel(2).get(1));
-		assertEquals("62", spi.getKnownForLevel(2).get(2));
+		assertEquals("60", spi.getKnownForLevel(2).get(0).toString());
+		assertEquals("61", spi.getKnownForLevel(2).get(1).toString());
+		assertEquals("62", spi.getKnownForLevel(2).get(2).toString());
 		// Ensure SET is a SET not an ADD
 		l.clear();
-		l.add("51");
-		l.add("50");
+		l.add(FormulaFactory.getFormulaFor("51"));
+		l.add(FormulaFactory.getFormulaFor("50"));
 		spi.setKnown(2, l);
 		assertEquals(2, spi.getKnownForLevel(2).size());
-		assertEquals("51", spi.getKnownForLevel(2).get(0));
-		assertEquals("50", spi.getKnownForLevel(2).get(1));
+		assertEquals("51", spi.getKnownForLevel(2).get(0).toString());
+		assertEquals("50", spi.getKnownForLevel(2).get(1).toString());
 		// Some advanced testing (skipped levels)
 		l.clear();
-		l.add("43");
-		l.add("42");
-		l.add("41");
-		l.add("40");
+		l.add(FormulaFactory.getFormulaFor("43"));
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		l.add(FormulaFactory.getFormulaFor("40"));
 		spi.setKnown(4, l);
 		assertEquals(4, spi.getKnownForLevel(4).size());
-		assertEquals("43", spi.getKnownForLevel(4).get(0));
-		assertEquals("42", spi.getKnownForLevel(4).get(1));
-		assertEquals("41", spi.getKnownForLevel(4).get(2));
-		assertEquals("40", spi.getKnownForLevel(4).get(3));
+		assertEquals("43", spi.getKnownForLevel(4).get(0).toString());
+		assertEquals("42", spi.getKnownForLevel(4).get(1).toString());
+		assertEquals("41", spi.getKnownForLevel(4).get(2).toString());
+		assertEquals("40", spi.getKnownForLevel(4).get(3).toString());
 		assertEquals(4, spi.getKnownForLevel(5).size());
-		assertEquals("43", spi.getKnownForLevel(5).get(0));
-		assertEquals("42", spi.getKnownForLevel(5).get(1));
-		assertEquals("41", spi.getKnownForLevel(5).get(2));
-		assertEquals("40", spi.getKnownForLevel(5).get(3));
+		assertEquals("43", spi.getKnownForLevel(5).get(0).toString());
+		assertEquals("42", spi.getKnownForLevel(5).get(1).toString());
+		assertEquals("41", spi.getKnownForLevel(5).get(2).toString());
+		assertEquals("40", spi.getKnownForLevel(5).get(3).toString());
 		assertEquals(2, spi.getKnownForLevel(2).size());
-		assertEquals("51", spi.getKnownForLevel(2).get(0));
-		assertEquals("50", spi.getKnownForLevel(2).get(1));
+		assertEquals("51", spi.getKnownForLevel(2).get(0).toString());
+		assertEquals("50", spi.getKnownForLevel(2).get(1).toString());
 		assertEquals(2, spi.getKnownForLevel(3).size());
-		assertEquals("51", spi.getKnownForLevel(3).get(0));
-		assertEquals("50", spi.getKnownForLevel(3).get(1));
+		assertEquals("51", spi.getKnownForLevel(3).get(0).toString());
+		assertEquals("50", spi.getKnownForLevel(3).get(1).toString());
 		// Highest Known Spell Level
 		assertEquals(3, spi.getHighestKnownSpellLevel());
 	}
 
 	public void testSetKnownErrors()
 	{
-		List<String> l = new ArrayList<String>();
+		List<Formula> l = new ArrayList<Formula>();
 		try
 		{
 			spi.setKnown(1, null);
@@ -114,7 +115,7 @@ public class SpellProgressionInfoTest extends TestCase
 		{
 			// OK
 		}
-		l.add("60");
+		l.add(FormulaFactory.getFormulaFor("60"));
 		try
 		{
 			spi.setKnown(0, l);
@@ -151,76 +152,76 @@ public class SpellProgressionInfoTest extends TestCase
 		assertFalse(spi.hasSpecialtyKnownProgression());
 		// Test no NPE triggered even if no KNOWN is loaded
 		assertNull(spi.getSpecialtyKnownForLevel(1));
-		List<String> l = new ArrayList<String>();
-		l.add("60");
-		l.add("61");
-		l.add("62");
+		List<Formula> l = new ArrayList<Formula>();
+		l.add(FormulaFactory.getFormulaFor("60"));
+		l.add(FormulaFactory.getFormulaFor("61"));
+		l.add(FormulaFactory.getFormulaFor("62"));
 		spi.setSpecialtyKnown(2, l);
 		assertTrue(spi.hasSpecialtyKnownProgression());
 		// Test for loaded values
 		// implicitly tests that known doesn't require loading in level order
 		assertEquals(3, spi.getSpecialtyKnownForLevel(2).size());
-		assertEquals("60", spi.getSpecialtyKnownForLevel(2).get(0));
-		assertEquals("61", spi.getSpecialtyKnownForLevel(2).get(1));
-		assertEquals("62", spi.getSpecialtyKnownForLevel(2).get(2));
+		assertEquals("60", spi.getSpecialtyKnownForLevel(2).get(0).toString());
+		assertEquals("61", spi.getSpecialtyKnownForLevel(2).get(1).toString());
+		assertEquals("62", spi.getSpecialtyKnownForLevel(2).get(2).toString());
 		l.clear();
 		// Ensure still true (ensures that setKnown copied the list)
 		assertTrue(spi.hasSpecialtyKnownProgression());
 		assertEquals(3, spi.getSpecialtyKnownForLevel(2).size());
-		assertEquals("60", spi.getSpecialtyKnownForLevel(2).get(0));
-		assertEquals("61", spi.getSpecialtyKnownForLevel(2).get(1));
-		assertEquals("62", spi.getSpecialtyKnownForLevel(2).get(2));
+		assertEquals("60", spi.getSpecialtyKnownForLevel(2).get(0).toString());
+		assertEquals("61", spi.getSpecialtyKnownForLevel(2).get(1).toString());
+		assertEquals("62", spi.getSpecialtyKnownForLevel(2).get(2).toString());
 		// No known at levels below the loaded level
 		assertNull(spi.getSpecialtyKnownForLevel(1));
 		// Levels above loaded level return values of lower levels
 		assertEquals(3, spi.getSpecialtyKnownForLevel(3).size());
-		assertEquals("60", spi.getSpecialtyKnownForLevel(3).get(0));
-		assertEquals("61", spi.getSpecialtyKnownForLevel(3).get(1));
-		assertEquals("62", spi.getSpecialtyKnownForLevel(3).get(2));
+		assertEquals("60", spi.getSpecialtyKnownForLevel(3).get(0).toString());
+		assertEquals("61", spi.getSpecialtyKnownForLevel(3).get(1).toString());
+		assertEquals("62", spi.getSpecialtyKnownForLevel(3).get(2).toString());
 		// Ensure we are transferred ownership of returned list
-		List<String> returnList = spi.getSpecialtyKnownForLevel(2);
+		List<Formula> returnList = spi.getSpecialtyKnownForLevel(2);
 		returnList.clear();
 		assertTrue(spi.hasSpecialtyKnownProgression());
 		assertEquals(3, spi.getSpecialtyKnownForLevel(2).size());
-		assertEquals("60", spi.getSpecialtyKnownForLevel(2).get(0));
-		assertEquals("61", spi.getSpecialtyKnownForLevel(2).get(1));
-		assertEquals("62", spi.getSpecialtyKnownForLevel(2).get(2));
+		assertEquals("60", spi.getSpecialtyKnownForLevel(2).get(0).toString());
+		assertEquals("61", spi.getSpecialtyKnownForLevel(2).get(1).toString());
+		assertEquals("62", spi.getSpecialtyKnownForLevel(2).get(2).toString());
 		// Ensure SET is a SET not an ADD
 		l.clear();
-		l.add("51");
-		l.add("50");
+		l.add(FormulaFactory.getFormulaFor("51"));
+		l.add(FormulaFactory.getFormulaFor("50"));
 		spi.setSpecialtyKnown(2, l);
 		assertEquals(2, spi.getSpecialtyKnownForLevel(2).size());
-		assertEquals("51", spi.getSpecialtyKnownForLevel(2).get(0));
-		assertEquals("50", spi.getSpecialtyKnownForLevel(2).get(1));
+		assertEquals("51", spi.getSpecialtyKnownForLevel(2).get(0).toString());
+		assertEquals("50", spi.getSpecialtyKnownForLevel(2).get(1).toString());
 		// Some advanced testing (skipped levels)
 		l.clear();
-		l.add("43");
-		l.add("42");
-		l.add("41");
-		l.add("40");
+		l.add(FormulaFactory.getFormulaFor("43"));
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		l.add(FormulaFactory.getFormulaFor("40"));
 		spi.setSpecialtyKnown(4, l);
 		assertEquals(4, spi.getSpecialtyKnownForLevel(4).size());
-		assertEquals("43", spi.getSpecialtyKnownForLevel(4).get(0));
-		assertEquals("42", spi.getSpecialtyKnownForLevel(4).get(1));
-		assertEquals("41", spi.getSpecialtyKnownForLevel(4).get(2));
-		assertEquals("40", spi.getSpecialtyKnownForLevel(4).get(3));
+		assertEquals("43", spi.getSpecialtyKnownForLevel(4).get(0).toString());
+		assertEquals("42", spi.getSpecialtyKnownForLevel(4).get(1).toString());
+		assertEquals("41", spi.getSpecialtyKnownForLevel(4).get(2).toString());
+		assertEquals("40", spi.getSpecialtyKnownForLevel(4).get(3).toString());
 		assertEquals(4, spi.getSpecialtyKnownForLevel(5).size());
-		assertEquals("43", spi.getSpecialtyKnownForLevel(5).get(0));
-		assertEquals("42", spi.getSpecialtyKnownForLevel(5).get(1));
-		assertEquals("41", spi.getSpecialtyKnownForLevel(5).get(2));
-		assertEquals("40", spi.getSpecialtyKnownForLevel(5).get(3));
+		assertEquals("43", spi.getSpecialtyKnownForLevel(5).get(0).toString());
+		assertEquals("42", spi.getSpecialtyKnownForLevel(5).get(1).toString());
+		assertEquals("41", spi.getSpecialtyKnownForLevel(5).get(2).toString());
+		assertEquals("40", spi.getSpecialtyKnownForLevel(5).get(3).toString());
 		assertEquals(2, spi.getSpecialtyKnownForLevel(2).size());
-		assertEquals("51", spi.getSpecialtyKnownForLevel(2).get(0));
-		assertEquals("50", spi.getSpecialtyKnownForLevel(2).get(1));
+		assertEquals("51", spi.getSpecialtyKnownForLevel(2).get(0).toString());
+		assertEquals("50", spi.getSpecialtyKnownForLevel(2).get(1).toString());
 		assertEquals(2, spi.getSpecialtyKnownForLevel(3).size());
-		assertEquals("51", spi.getSpecialtyKnownForLevel(3).get(0));
-		assertEquals("50", spi.getSpecialtyKnownForLevel(3).get(1));
+		assertEquals("51", spi.getSpecialtyKnownForLevel(3).get(0).toString());
+		assertEquals("50", spi.getSpecialtyKnownForLevel(3).get(1).toString());
 	}
 
 	public void testSetSpecialtyKnownErrors()
 	{
-		List<String> l = new ArrayList<String>();
+		List<Formula> l = new ArrayList<Formula>();
 		try
 		{
 			spi.setSpecialtyKnown(1, null);
@@ -239,7 +240,7 @@ public class SpellProgressionInfoTest extends TestCase
 		{
 			// OK
 		}
-		l.add("60");
+		l.add(FormulaFactory.getFormulaFor("60"));
 		try
 		{
 			spi.setSpecialtyKnown(0, l);
@@ -276,78 +277,78 @@ public class SpellProgressionInfoTest extends TestCase
 		assertFalse(spi.hasCastProgression());
 		// Test no NPE triggered even if no Cast is loaded
 		assertNull(spi.getCastForLevel(1));
-		List<String> l = new ArrayList<String>();
-		l.add("60");
-		l.add("61");
-		l.add("62");
+		List<Formula> l = new ArrayList<Formula>();
+		l.add(FormulaFactory.getFormulaFor("60"));
+		l.add(FormulaFactory.getFormulaFor("61"));
+		l.add(FormulaFactory.getFormulaFor("62"));
 		spi.setCast(2, l);
 		assertTrue(spi.hasCastProgression());
 		// Test for loaded values
 		// implicitly tests that Cast doesn't require loading in level order
 		assertEquals(3, spi.getCastForLevel(2).size());
-		assertEquals("60", spi.getCastForLevel(2).get(0));
-		assertEquals("61", spi.getCastForLevel(2).get(1));
-		assertEquals("62", spi.getCastForLevel(2).get(2));
+		assertEquals("60", spi.getCastForLevel(2).get(0).toString());
+		assertEquals("61", spi.getCastForLevel(2).get(1).toString());
+		assertEquals("62", spi.getCastForLevel(2).get(2).toString());
 		l.clear();
 		// Ensure still true (ensures that setCast copied the list)
 		assertTrue(spi.hasCastProgression());
 		assertEquals(3, spi.getCastForLevel(2).size());
-		assertEquals("60", spi.getCastForLevel(2).get(0));
-		assertEquals("61", spi.getCastForLevel(2).get(1));
-		assertEquals("62", spi.getCastForLevel(2).get(2));
+		assertEquals("60", spi.getCastForLevel(2).get(0).toString());
+		assertEquals("61", spi.getCastForLevel(2).get(1).toString());
+		assertEquals("62", spi.getCastForLevel(2).get(2).toString());
 		// No Cast at levels below the loaded level
 		assertNull(spi.getCastForLevel(1));
 		// Levels above loaded level return values of lower levels
 		assertEquals(3, spi.getCastForLevel(3).size());
-		assertEquals("60", spi.getCastForLevel(3).get(0));
-		assertEquals("61", spi.getCastForLevel(3).get(1));
-		assertEquals("62", spi.getCastForLevel(3).get(2));
+		assertEquals("60", spi.getCastForLevel(3).get(0).toString());
+		assertEquals("61", spi.getCastForLevel(3).get(1).toString());
+		assertEquals("62", spi.getCastForLevel(3).get(2).toString());
 		// Ensure we are transferred ownership of returned list
-		List<String> returnList = spi.getCastForLevel(2);
+		List<Formula> returnList = spi.getCastForLevel(2);
 		returnList.clear();
 		assertTrue(spi.hasCastProgression());
 		assertEquals(3, spi.getCastForLevel(2).size());
-		assertEquals("60", spi.getCastForLevel(2).get(0));
-		assertEquals("61", spi.getCastForLevel(2).get(1));
-		assertEquals("62", spi.getCastForLevel(2).get(2));
+		assertEquals("60", spi.getCastForLevel(2).get(0).toString());
+		assertEquals("61", spi.getCastForLevel(2).get(1).toString());
+		assertEquals("62", spi.getCastForLevel(2).get(2).toString());
 		// Ensure SET is a SET not an ADD
 		l.clear();
-		l.add("51");
-		l.add("50");
+		l.add(FormulaFactory.getFormulaFor("51"));
+		l.add(FormulaFactory.getFormulaFor("50"));
 		spi.setCast(2, l);
 		assertEquals(2, spi.getCastForLevel(2).size());
-		assertEquals("51", spi.getCastForLevel(2).get(0));
-		assertEquals("50", spi.getCastForLevel(2).get(1));
+		assertEquals("51", spi.getCastForLevel(2).get(0).toString());
+		assertEquals("50", spi.getCastForLevel(2).get(1).toString());
 		// Some advanced testing (skipped levels)
 		l.clear();
-		l.add("43");
-		l.add("42");
-		l.add("41");
-		l.add("40");
+		l.add(FormulaFactory.getFormulaFor("43"));
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		l.add(FormulaFactory.getFormulaFor("40"));
 		spi.setCast(4, l);
 		assertEquals(4, spi.getCastForLevel(4).size());
-		assertEquals("43", spi.getCastForLevel(4).get(0));
-		assertEquals("42", spi.getCastForLevel(4).get(1));
-		assertEquals("41", spi.getCastForLevel(4).get(2));
-		assertEquals("40", spi.getCastForLevel(4).get(3));
+		assertEquals("43", spi.getCastForLevel(4).get(0).toString());
+		assertEquals("42", spi.getCastForLevel(4).get(1).toString());
+		assertEquals("41", spi.getCastForLevel(4).get(2).toString());
+		assertEquals("40", spi.getCastForLevel(4).get(3).toString());
 		assertEquals(4, spi.getCastForLevel(5).size());
-		assertEquals("43", spi.getCastForLevel(5).get(0));
-		assertEquals("42", spi.getCastForLevel(5).get(1));
-		assertEquals("41", spi.getCastForLevel(5).get(2));
-		assertEquals("40", spi.getCastForLevel(5).get(3));
+		assertEquals("43", spi.getCastForLevel(5).get(0).toString());
+		assertEquals("42", spi.getCastForLevel(5).get(1).toString());
+		assertEquals("41", spi.getCastForLevel(5).get(2).toString());
+		assertEquals("40", spi.getCastForLevel(5).get(3).toString());
 		assertEquals(2, spi.getCastForLevel(2).size());
-		assertEquals("51", spi.getCastForLevel(2).get(0));
-		assertEquals("50", spi.getCastForLevel(2).get(1));
+		assertEquals("51", spi.getCastForLevel(2).get(0).toString());
+		assertEquals("50", spi.getCastForLevel(2).get(1).toString());
 		assertEquals(2, spi.getCastForLevel(3).size());
-		assertEquals("51", spi.getCastForLevel(3).get(0));
-		assertEquals("50", spi.getCastForLevel(3).get(1));
+		assertEquals("51", spi.getCastForLevel(3).get(0).toString());
+		assertEquals("50", spi.getCastForLevel(3).get(1).toString());
 		// Highest Cast Spell Level
 		assertEquals(3, spi.getHighestCastSpellLevel());
 	}
 
 	public void testSetCastErrors()
 	{
-		List<String> l = new ArrayList<String>();
+		List<Formula> l = new ArrayList<Formula>();
 		try
 		{
 			spi.setCast(1, null);
@@ -366,7 +367,7 @@ public class SpellProgressionInfoTest extends TestCase
 		{
 			// OK
 		}
-		l.add("60");
+		l.add(FormulaFactory.getFormulaFor("60"));
 		try
 		{
 			spi.setCast(0, l);
@@ -400,26 +401,26 @@ public class SpellProgressionInfoTest extends TestCase
 	public void testGetMinLevelForSpellLevel()
 	{
 		// Works for known
-		List<String> l = new ArrayList<String>();
-		l.add("51");
-		l.add("50");
+		List<Formula> l = new ArrayList<Formula>();
+		l.add(FormulaFactory.getFormulaFor("51"));
+		l.add(FormulaFactory.getFormulaFor("50"));
 		spi.setKnown(2, l);
 		l.clear();
-		l.add("42");
-		l.add("41");
-		l.add("40");
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		l.add(FormulaFactory.getFormulaFor("40"));
 		spi.setKnown(3, l);
 		l.clear();
-		l.add("33");
-		l.add("32");
-		l.add("31");
-		l.add("0");
+		l.add(FormulaFactory.getFormulaFor("33"));
+		l.add(FormulaFactory.getFormulaFor("32"));
+		l.add(FormulaFactory.getFormulaFor("31"));
+		l.add(FormulaFactory.getFormulaFor("0"));
 		spi.setKnown(4, l);
 		l.clear();
-		l.add("23");
-		l.add("22");
-		l.add("21");
-		l.add("20");
+		l.add(FormulaFactory.getFormulaFor("23"));
+		l.add(FormulaFactory.getFormulaFor("22"));
+		l.add(FormulaFactory.getFormulaFor("21"));
+		l.add(FormulaFactory.getFormulaFor("20"));
 		spi.setKnown(5, l);
 		assertEquals(2, spi.getMinLevelForSpellLevel(0, false));
 		assertEquals(3, spi.getMinLevelForSpellLevel(2, false));
@@ -433,25 +434,25 @@ public class SpellProgressionInfoTest extends TestCase
 		// Works for cast too
 		SpellProgressionInfo spi2 = new SpellProgressionInfo();
 		l.clear();
-		l.add("51");
-		l.add("50");
+		l.add(FormulaFactory.getFormulaFor("51"));
+		l.add(FormulaFactory.getFormulaFor("50"));
 		spi2.setCast(2, l);
 		l.clear();
-		l.add("42");
-		l.add("41");
-		l.add("40");
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		l.add(FormulaFactory.getFormulaFor("40"));
 		spi2.setCast(3, l);
 		l.clear();
-		l.add("33");
-		l.add("32");
-		l.add("31");
-		l.add("0");
+		l.add(FormulaFactory.getFormulaFor("33"));
+		l.add(FormulaFactory.getFormulaFor("32"));
+		l.add(FormulaFactory.getFormulaFor("31"));
+		l.add(FormulaFactory.getFormulaFor("0"));
 		spi2.setCast(4, l);
 		l.clear();
-		l.add("23");
-		l.add("22");
-		l.add("21");
-		l.add("20");
+		l.add(FormulaFactory.getFormulaFor("23"));
+		l.add(FormulaFactory.getFormulaFor("22"));
+		l.add(FormulaFactory.getFormulaFor("21"));
+		l.add(FormulaFactory.getFormulaFor("20"));
 		spi2.setCast(5, l);
 		assertEquals(2, spi2.getMinLevelForSpellLevel(0, false));
 		assertEquals(3, spi2.getMinLevelForSpellLevel(2, false));
@@ -466,27 +467,27 @@ public class SpellProgressionInfoTest extends TestCase
 	public void testMaxSpellLevelForClassLevel()
 	{
 		// Works for known
-		List<String> l = new ArrayList<String>();
-		l.add("51");
-		l.add("50");
+		List<Formula> l = new ArrayList<Formula>();
+		l.add(FormulaFactory.getFormulaFor("51"));
+		l.add(FormulaFactory.getFormulaFor("50"));
 		spi.setKnown(2, l);
 		l.clear();
-		l.add("42");
-		l.add("41");
-		l.add("40");
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		l.add(FormulaFactory.getFormulaFor("40"));
 		spi.setKnown(3, l);
 		l.clear();
-		l.add("33");
-		l.add("32");
-		l.add("31");
-		l.add("0");
+		l.add(FormulaFactory.getFormulaFor("33"));
+		l.add(FormulaFactory.getFormulaFor("32"));
+		l.add(FormulaFactory.getFormulaFor("31"));
+		l.add(FormulaFactory.getFormulaFor("0"));
 		spi.setKnown(4, l);
 		l.clear();
-		l.add("23");
-		l.add("22");
-		l.add("21");
-		l.add("20");
-		l.add("19");
+		l.add(FormulaFactory.getFormulaFor("23"));
+		l.add(FormulaFactory.getFormulaFor("22"));
+		l.add(FormulaFactory.getFormulaFor("21"));
+		l.add(FormulaFactory.getFormulaFor("20"));
+		l.add(FormulaFactory.getFormulaFor("19"));
 		spi.setKnown(5, l);
 		assertEquals(-1, spi.getMaxSpellLevelForClassLevel(1));
 		assertEquals(1, spi.getMaxSpellLevelForClassLevel(2));
@@ -498,26 +499,26 @@ public class SpellProgressionInfoTest extends TestCase
 		// Works for cast too
 		SpellProgressionInfo spi2 = new SpellProgressionInfo();
 		l.clear();
-		l.add("51");
-		l.add("50");
+		l.add(FormulaFactory.getFormulaFor("51"));
+		l.add(FormulaFactory.getFormulaFor("50"));
 		spi2.setCast(2, l);
 		l.clear();
-		l.add("42");
-		l.add("41");
-		l.add("40");
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		l.add(FormulaFactory.getFormulaFor("40"));
 		spi2.setCast(3, l);
 		l.clear();
-		l.add("33");
-		l.add("32");
-		l.add("31");
-		l.add("0");
+		l.add(FormulaFactory.getFormulaFor("33"));
+		l.add(FormulaFactory.getFormulaFor("32"));
+		l.add(FormulaFactory.getFormulaFor("31"));
+		l.add(FormulaFactory.getFormulaFor("0"));
 		spi2.setCast(4, l);
 		l.clear();
-		l.add("23");
-		l.add("22");
-		l.add("21");
-		l.add("20");
-		l.add("19");
+		l.add(FormulaFactory.getFormulaFor("23"));
+		l.add(FormulaFactory.getFormulaFor("22"));
+		l.add(FormulaFactory.getFormulaFor("21"));
+		l.add(FormulaFactory.getFormulaFor("20"));
+		l.add(FormulaFactory.getFormulaFor("19"));
 		spi2.setCast(5, l);
 		assertEquals(-1, spi2.getMaxSpellLevelForClassLevel(1));
 		assertEquals(1, spi2.getMaxSpellLevelForClassLevel(2));
@@ -533,19 +534,28 @@ public class SpellProgressionInfoTest extends TestCase
 		assertFalse(spi.hasCastProgression());
 		assertFalse(spi.hasSpecialtyKnownProgression());
 
-		spi.setKnown(1, Arrays.asList("22,21".split(",")));
+		List<Formula> l = new ArrayList<Formula>();
+		l.add(FormulaFactory.getFormulaFor("22"));
+		l.add(FormulaFactory.getFormulaFor("21"));
+		spi.setKnown(1, l);
 		assertTrue(spi.hasKnownProgression());
 		assertFalse(spi.hasCastProgression());
 		assertFalse(spi.hasSpecialtyKnownProgression());
 
 		SpellProgressionInfo spi2 = new SpellProgressionInfo();
-		spi2.setSpecialtyKnown(3, Arrays.asList("42,41".split(",")));
+		l.clear();
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		spi2.setSpecialtyKnown(3, l);
 		assertFalse(spi2.hasKnownProgression());
 		assertFalse(spi2.hasCastProgression());
 		assertTrue(spi2.hasSpecialtyKnownProgression());
 
 		SpellProgressionInfo spi3 = new SpellProgressionInfo();
-		spi3.setCast(1, Arrays.asList("1,0".split(",")));
+		l.clear();
+		l.add(FormulaFactory.getFormulaFor("1"));
+		l.add(FormulaFactory.getFormulaFor("0"));
+		spi3.setCast(1, l);
 		assertFalse(spi3.hasKnownProgression());
 		assertTrue(spi3.hasCastProgression());
 		assertFalse(spi3.hasSpecialtyKnownProgression());
@@ -553,34 +563,52 @@ public class SpellProgressionInfoTest extends TestCase
 
 	public void testClone()
 	{
-		spi.setKnown(1, Arrays.asList("22,21".split(",")));
-		spi.setSpecialtyKnown(3, Arrays.asList("42,41".split(",")));
-		spi.setCast(1, Arrays.asList("1,0".split(",")));
+		List<Formula> l = new ArrayList<Formula>();
+		l.add(FormulaFactory.getFormulaFor("22"));
+		l.add(FormulaFactory.getFormulaFor("21"));
+		spi.setKnown(1, l);
+		l.clear();
+		l.add(FormulaFactory.getFormulaFor("42"));
+		l.add(FormulaFactory.getFormulaFor("41"));
+		spi.setSpecialtyKnown(3, l);
+		l.clear();
+		l.add(FormulaFactory.getFormulaFor("1"));
+		l.add(FormulaFactory.getFormulaFor("0"));
+		spi.setCast(1, l);
 		try
 		{
 			SpellProgressionInfo spi2 = spi.clone();
 			// Ensure deep enough copy
-			spi.setKnown(1, Arrays.asList("77,78".split(",")));
+			l.clear();
+			l.add(FormulaFactory.getFormulaFor("77"));
+			l.add(FormulaFactory.getFormulaFor("78"));
+			spi.setKnown(1, l);
 			assertEquals(2, spi.getKnownForLevel(1).size());
-			assertEquals("77", spi.getKnownForLevel(1).get(0));
-			assertEquals("78", spi.getKnownForLevel(1).get(1));
+			assertEquals("77", spi.getKnownForLevel(1).get(0).toString());
+			assertEquals("78", spi.getKnownForLevel(1).get(1).toString());
 			assertEquals(2, spi2.getKnownForLevel(1).size());
-			assertEquals("22", spi2.getKnownForLevel(1).get(0));
-			assertEquals("21", spi2.getKnownForLevel(1).get(1));
-			spi.setSpecialtyKnown(3, Arrays.asList("74,75,76".split(",")));
+			assertEquals("22", spi2.getKnownForLevel(1).get(0).toString());
+			assertEquals("21", spi2.getKnownForLevel(1).get(1).toString());
+			l.clear();
+			l.add(FormulaFactory.getFormulaFor("74"));
+			l.add(FormulaFactory.getFormulaFor("75"));
+			l.add(FormulaFactory.getFormulaFor("76"));
+			spi.setSpecialtyKnown(3, l);
 			assertEquals(3, spi.getSpecialtyKnownForLevel(3).size());
-			assertEquals("74", spi.getSpecialtyKnownForLevel(3).get(0));
-			assertEquals("75", spi.getSpecialtyKnownForLevel(3).get(1));
-			assertEquals("76", spi.getSpecialtyKnownForLevel(3).get(2));
+			assertEquals("74", spi.getSpecialtyKnownForLevel(3).get(0).toString());
+			assertEquals("75", spi.getSpecialtyKnownForLevel(3).get(1).toString());
+			assertEquals("76", spi.getSpecialtyKnownForLevel(3).get(2).toString());
 			assertEquals(2, spi2.getSpecialtyKnownForLevel(3).size());
-			assertEquals("42", spi2.getSpecialtyKnownForLevel(3).get(0));
-			assertEquals("41", spi2.getSpecialtyKnownForLevel(3).get(1));
-			spi.setCast(1, Arrays.asList("71".split(",")));
+			assertEquals("42", spi2.getSpecialtyKnownForLevel(3).get(0).toString());
+			assertEquals("41", spi2.getSpecialtyKnownForLevel(3).get(1).toString());
+			l.clear();
+			l.add(FormulaFactory.getFormulaFor("71"));
+			spi.setCast(1, l);
 			assertEquals(1, spi.getCastForLevel(1).size());
-			assertEquals("71", spi.getCastForLevel(1).get(0));
+			assertEquals("71", spi.getCastForLevel(1).get(0).toString());
 			assertEquals(2, spi2.getCastForLevel(1).size());
-			assertEquals("1", spi2.getCastForLevel(1).get(0));
-			assertEquals("0", spi2.getCastForLevel(1).get(1));
+			assertEquals("1", spi2.getCastForLevel(1).get(0).toString());
+			assertEquals("0", spi2.getCastForLevel(1).get(1).toString());
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -624,10 +652,6 @@ public class SpellProgressionInfoTest extends TestCase
 
 	public void testBooleanFields()
 	{
-		// Defaults to false
-		assertFalse(spi.containsSpellFormula());
-		spi.setContainsSpellFormula(true);
-		assertTrue(spi.containsSpellFormula());
 		// Defaults to true
 		assertTrue(spi.memorizesSpells());
 		spi.setMemorizeSpells(false);

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.util.Logging;
@@ -25,15 +27,16 @@ public class KnownToken implements PCClassLstToken
 		{
 			StringTokenizer st = new StringTokenizer(value, ",");
 
-			List<String> knownList = new ArrayList<String>(st.countTokens());
+			List<Formula> knownList = new ArrayList<Formula>();
 			while (st.hasMoreTokens())
 			{
 				String nextToken = st.nextToken();
 				if (nextToken.endsWith("+d")) {
 					Logging.errorPrint("+d use in KNOWN has been deprecated.  " +
 							"Use SPECIALTYKNOWN instead");
+					return false;
 				}
-				knownList.add(nextToken);
+				knownList.add(FormulaFactory.getFormulaFor(nextToken));
 			}
 
 			pcclass.setKnown(level, knownList);

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 
@@ -21,11 +23,10 @@ public class SpecialtyknownToken implements PCClassLstToken
 	public boolean parse(PCClass pcclass, String value, int level)
 	{
 		StringTokenizer st = new StringTokenizer(value, ",");
-		List<String> list = new ArrayList<String>(st.countTokens());
-
+		List<Formula> list = new ArrayList<Formula>();
 		while (st.hasMoreTokens())
 		{
-			list.add(st.nextToken());
+			list.add(FormulaFactory.getFormulaFor(st.nextToken()));
 		}
 
 		pcclass.addSpecialtyKnown(level, list);

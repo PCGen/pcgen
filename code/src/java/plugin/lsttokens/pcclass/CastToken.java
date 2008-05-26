@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.util.Logging;
@@ -25,10 +27,10 @@ public class CastToken implements PCClassLstToken
 		{
 			StringTokenizer st = new StringTokenizer(value, ",");
 
-			List<String> castList = new ArrayList<String>(st.countTokens());
+			List<Formula> castList = new ArrayList<Formula>();
 			while (st.hasMoreTokens())
 			{
-				castList.add(st.nextToken());
+				castList.add(FormulaFactory.getFormulaFor(st.nextToken()));
 			}
 
 			pcclass.setCast(level, castList);

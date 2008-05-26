@@ -22,12 +22,48 @@
  */
 package pcgen.gui.editor;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map.Entry;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.*;
+import pcgen.core.Campaign;
+import pcgen.core.CustomData;
+import pcgen.core.DamageReduction;
+import pcgen.core.Description;
+import pcgen.core.Globals;
+import pcgen.core.LevelProperty;
+import pcgen.core.PCClass;
+import pcgen.core.PCSpell;
+import pcgen.core.PObject;
+import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;
@@ -40,20 +76,6 @@ import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map.Entry;
-
-import pcgen.core.prereq.Prerequisite;
 
 /**
  * <code>ClassLevelPanel</code>
@@ -211,7 +233,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		if (obj.hasCastList())
 		{
-			for (Entry<Integer, List<String>> me : obj.getCastProgression().entrySet())
+			for (Entry<Integer, List<Formula>> me : obj.getCastProgression().entrySet())
 			{
 				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_CAST, StringUtil.join(me.getValue(), ","));
 				levelTagList.add(lt);
@@ -219,7 +241,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		}
 		
 		if (obj.hasKnownList()) {
-			for (Entry<Integer, List<String>> me : obj.getKnownMap().entrySet())
+			for (Entry<Integer, List<Formula>> me : obj.getKnownMap().entrySet())
 			{
 				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_KNOWN, StringUtil.join(me.getValue(), ","));
 				levelTagList.add(lt);
