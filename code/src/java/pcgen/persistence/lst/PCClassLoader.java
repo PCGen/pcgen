@@ -579,5 +579,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	{
 		// TODO - Create Globals.addClass( final PCClass aClass )
 		Globals.getClassList().add((PCClass) pObj);
+		Globals.getContext().ref.importObject(pObj);
 	}
 }
