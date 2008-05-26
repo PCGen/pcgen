@@ -152,9 +152,10 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 				if (lt.needsSaving())
 				{
-					String b = lt.getLevel() + "\t" + lt.getTag() + ":" + lt.getValue();
 					PCClassLoader classLoader = new PCClassLoader();
-					classLoader.parseLine(Globals.getContext(), object, b, tempSource);
+					classLoader.parseClassLevelLine(Globals.getContext(),
+							object, lt.getLevel(), tempSource, lt.getTag()
+									+ ":" + lt.getValue());
 				}
 			}
 		}
@@ -166,6 +167,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			Logging.errorPrint(exc.getMessage());
 		}
+		object.updateSpellCache(true);
 	}
 
 	public void updateView(PObject po)

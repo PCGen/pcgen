@@ -1,0 +1,140 @@
+/*
+ * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.pcclass.level;
+
+import org.junit.Test;
+
+import pcgen.persistence.PersistenceLayerException;
+
+public abstract class AbstractSpellCastingTokenTestCase extends
+		AbstractPCClassLevelTokenTestCase
+{
+
+	@Override
+	public void runRoundRobin(String... str) throws PersistenceLayerException
+	{
+		// Default is not to write out anything
+		assertNull(getToken().unparse(primaryContext, primaryProf1));
+		assertNull(getToken().unparse(primaryContext, primaryProf2));
+		assertNull(getToken().unparse(primaryContext, primaryProf3));
+
+		// Set value
+		for (String s : str)
+		{
+			assertTrue(parse(s, 2));
+		}
+		// Doesn't pollute other levels
+		assertNull(getToken().unparse(primaryContext, primaryProf1));
+		// Get back the appropriate token:
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
+
+		assertEquals(str.length, unparsed.length);
+
+		for (int i = 0; i < str.length; i++)
+		{
+			assertEquals("Expected " + i + " item to be equal", str[i],
+					unparsed[i]);
+		}
+
+		// And fails for subsequent levels
+		assertNull(getToken().unparse(primaryContext, primaryProf3));
+
+		// Do round Robin
+		StringBuilder unparsedBuilt = new StringBuilder();
+		for (String s : unparsed)
+		{
+			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
+					s).append('\t');
+		}
+		loader.parseLine(secondaryContext, secondaryProf2, unparsedBuilt
+				.toString(), testCampaign.getURI());
+
+		// Ensure the objects are the same
+		assertEquals(primaryProf, secondaryProf);
+
+		// And that it comes back out the same again
+		// Doesn't pollute other levels
+		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
+		String[] sUnparsed = getToken().unparse(secondaryContext,
+				secondaryProf2);
+		assertEquals(unparsed.length, sUnparsed.length);
+
+		for (int i = 0; i < unparsed.length; i++)
+		{
+			assertEquals("Expected " + i + " item to be equal", unparsed[i],
+					sUnparsed[i]);
+		}
+		assertEquals(0, primaryContext.getWriteMessageCount());
+		assertEquals(0, secondaryContext.getWriteMessageCount());
+	}
+
+	@Test
+	public void testInvalidListEmpty() throws PersistenceLayerException
+	{
+		assertFalse(parse("", 2));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidListEnd() throws PersistenceLayerException
+	{
+		assertFalse(parse("1,", 2));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidListStart() throws PersistenceLayerException
+	{
+		assertFalse(parse(",1", 2));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	{
+		assertFalse(parse("1,,2", 2));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidListNegativeNumber()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("1,-2", 2));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinSimple() throws PersistenceLayerException
+	{
+		runRoundRobin("3");
+	}
+
+	@Test
+	public void testRoundRobinList() throws PersistenceLayerException
+	{
+		runRoundRobin("3,2,1");
+	}
+
+	@Test
+	public void testRoundRobinFormula() throws PersistenceLayerException
+	{
+		runRoundRobin("Form,Form2+Form3,1");
+	}
+
+}

@@ -194,6 +194,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		SettingsHandler.getGame().addAbilityCategory(specialAbilityCat);
 	}
 
+	@Override
 	protected void tearDown()
 	{
 		Logging.setDebugMode(false);

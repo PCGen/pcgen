@@ -23,9 +23,7 @@
  */
 package pcgen.io.exporttoken;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -39,9 +37,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.LoadContext;
 import plugin.exporttokens.SpellMemToken;
 
 /**
@@ -85,6 +81,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		LoadContext context = Globals.getContext();
 
 		// Human
 		human = new Race();
@@ -107,8 +104,8 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass.setSpellBaseStat("CHA");
 		arcaneClass.setSpellBookUsed(false);
 		arcaneClass.setMemorizeSpells(false);
-		assertTrue(callToken(arcaneClass, 1, "KNOWN", "4,2,1"));
-		assertTrue(callToken(arcaneClass, 1, "CAST", "3,1,0"));
+		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
+		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
 		Globals.getClassList().add(arcaneClass);
 		CharacterSpell aCharacterSpell =
 				new CharacterSpell(arcaneClass, testSpell);
@@ -123,7 +120,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass.setSpellBaseStat("WIS");
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
-		assertTrue(callToken(divineClass, 1, "CAST", "3,1,0"));
+		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
 		Globals.getClassList().add(divineClass);
 		aCharacterSpell = new CharacterSpell(divineClass, testSpell);
 		aCharacterSpell.addInfo(1, 1, null);
@@ -219,13 +216,5 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		assertEquals("Retrieve spell from prepared list of divine caster.",
 			"Test Spell", token.getToken("SPELLMEM.0.2.1.0.NAME", character,
 				null));
-	}
-
-	public boolean callToken(PCClass cl, int lvl, String key, String value)
-	{
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				PCClassLstToken.class);
-		return tokenMap.containsKey(key)
-				&& ((PCClassLstToken) tokenMap.get(key)).parse(cl, value, lvl);
 	}
 }

@@ -661,6 +661,8 @@ public class PCClass extends PObject
 	private HashMap<AttackType, String> attackCycleMap = null;
 
 	private SpellProgressionInfo castInfo = null;
+	private SpellProgressionCache spellCache = null;
+	private boolean spellCacheValid = false;
 	private boolean allowBaseClass = true;
 
 	//	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
@@ -2101,15 +2103,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since
-	 * it is a Tag [with level dependent differences, of course)
-	 */
-	public void setCast(final int aLevel, final List<Formula> cast)
-	{
-		getConstructingSpellProgressionInfo().setCast(aLevel, cast);
-	}
-
-	/*
 	 * PCCLASSLEVELONLY Since this is the PCClassLevel specific version
 	 * of getCastList, it is only appropriate for the class levels.
 	 * 
@@ -2118,16 +2111,16 @@ public class PCClass extends PObject
 	 */
 	public List<Formula> getCastListForLevel(int aLevel)
 	{
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return null;
 		}
-		return castInfo.getCastForLevel(aLevel);
+		return spellCache.getCastForLevel(aLevel);
 	}
 
 	public boolean hasCastList()
 	{
-		return castInfo != null && castInfo.hasCastProgression();
+		return updateSpellCache(false) && spellCache.hasCastProgression();
 	}
 
 	/*
@@ -2135,11 +2128,11 @@ public class PCClass extends PObject
 	 */
 	public Map<Integer, List<Formula>> getCastProgression()
 	{
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return null;
 		}
-		return castInfo.getCastProgression();
+		return spellCache.getCastProgression();
 	}
 
 	/**
@@ -2149,11 +2142,11 @@ public class PCClass extends PObject
 	 */
 	public int getHighestLevelSpell()
 	{
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return -1;
 		}
-		return Math.max(castInfo.getHighestCastSpellLevel(), castInfo
+		return Math.max(spellCache.getHighestCastSpellLevel(), spellCache
 			.getHighestKnownSpellLevel());
 	}
 
@@ -2243,11 +2236,11 @@ public class PCClass extends PObject
 	 */
 	public Map<Integer, List<Formula>> getKnownMap()
 	{
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return null;
 		}
-		return castInfo.getKnownProgression();
+		return spellCache.getKnownProgression();
 	}
 
 	/*
@@ -2255,7 +2248,7 @@ public class PCClass extends PObject
 	 */
 	public boolean hasKnownList()
 	{
-		return castInfo != null && castInfo.hasKnownProgression();
+		return updateSpellCache(false) && spellCache.hasKnownProgression();
 	}
 
 	/**
@@ -2283,30 +2276,11 @@ public class PCClass extends PObject
 	 */
 	public final Map<Integer, List<Formula>> getSpecialtyKnownList()
 	{
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return null;
 		}
-		return castInfo.getSpecialtyKnownMap();
-	}
-
-	/**
-	 * Adds the numeric value given to the number of specialty school spells
-	 * that the class can cast per spell level.
-	 * 
-	 * <p>
-	 * If not listed, the default value is 0.
-	 * 
-	 * @param aNumber
-	 *            String version of the number of bonus spells.
-	 */
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public final void addSpecialtyKnown(int aLevel, List<Formula> aList)
-	{
-		getConstructingSpellProgressionInfo().setSpecialtyKnown(aLevel, aList);
+		return spellCache.getSpecialtyKnownMap();
 	}
 
 	/**
@@ -2448,20 +2422,20 @@ public class PCClass extends PObject
 			}
 		}
 
-		if (castInfo != null)
+		if (updateSpellCache(false))
 		{
 			List<Formula> specKnown =
-					castInfo.getSpecialtyKnownForLevel(pcLevel);
-			if (specKnown != null)
+				spellCache.getSpecialtyKnownForLevel(pcLevel);
+			if (specKnown != null && specKnown.size() > spellLevel)
 			{
-				if (specKnown.size() > spellLevel)
-				{
-					total += specKnown.get(spellLevel).resolve(aPC, "").intValue();
-				}
+				total += specKnown.get(spellLevel).resolve(aPC, "").intValue();
 			}
+		}
 
-			// make sure any slots due from specialties (including domains) are
-			// added
+		// make sure any slots due from specialties (including domains) are
+		// added
+		if (castInfo != null)
+		{
 			total += castInfo.getKnownSpellsFromSpecialty();
 		}
 
@@ -3474,19 +3448,13 @@ public class PCClass extends PObject
 			}
 		}
 
-		if (castInfo != null && castInfo.hasSpecialtyKnownProgression())
+		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
+		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 		{
-			pccTxt.append(castInfo.getSpecialtyKnownPCC(lineSep));
-		}
-
-		if (castInfo != null && castInfo.hasCastProgression())
-		{
-			pccTxt.append(castInfo.getCastPCC(lineSep));
-		}
-
-		if (castInfo != null && castInfo.hasKnownProgression())
-		{
-			pccTxt.append(castInfo.getKnownPCC(lineSep));
+			pccTxt.append(lineSep).append(me.getKey()).append('\t');
+			pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext()
+					.unparse(me.getValue()), "\t"));
 		}
 
 		// Output the level based DR only
@@ -3882,15 +3850,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public void setKnown(final int iLevel, final List<Formula> aList)
-	{
-		getConstructingSpellProgressionInfo().setKnown(iLevel, aList);
-	}
-
-	/*
 	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
@@ -4172,20 +4131,17 @@ public class PCClass extends PObject
 			aClass = (PCClass) super.clone();
 			aClass.setSubClassKey(getSubClassKey());
 
-			// aClass.setSubClassString(getSubClassString());
 			if (prohibitedSchools != null)
 			{
 				aClass.prohibitedSchools =
 						new ArrayList<String>(prohibitedSchools);
 			}
-			// aClass.setSkillPoints(skillPoints);
-			// aClass.setAttackBonusType(attackBonusType);
 			if (castInfo != null)
 			{
 				aClass.castInfo = castInfo.clone();
 			}
-			// aClass.acList = new ArrayList<String>(acList);
-			// aClass.vFeatList = (ArrayList) vFeatList.clone();
+			spellCache = null;
+			spellCacheValid = false;
 			if (vFeatList != null)
 			{
 				//I guess a shallow clone is OK???? already was that way ... - thpr 11/2/06
@@ -4625,7 +4581,7 @@ public class PCClass extends PObject
 	 */
 	public boolean zeroCastSpells()
 	{
-		if (castInfo == null || !castInfo.hasCastProgression())
+		if (!updateSpellCache(false) || !spellCache.hasCastProgression())
 		{
 			return true;
 		}
@@ -4636,7 +4592,7 @@ public class PCClass extends PObject
 		 * May not be a big issue other than a poorly named method, but
 		 * need to check what is really required here
 		 */
-		for (List<Formula> l : castInfo.getCastProgression().values())
+		for (List<Formula> l : spellCache.getCastProgression().values())
 		{
 			for (Formula st : l)
 			{
@@ -4779,7 +4735,7 @@ public class PCClass extends PObject
 		/*
 		 * CONSIDER Why is known testing getNumFromCastList??? - thpr 11/8/06
 		 */
-		if ((castInfo != null) && castInfo.hasCastProgression()
+		if (updateSpellCache(false) && spellCache.hasCastProgression()
 			&& (getNumFromCastList(pcLevel, spellLevel, aPC) < 0))
 		{
 			// Don't know any spells of this level
@@ -4854,14 +4810,14 @@ public class PCClass extends PObject
 			mult = 1;
 		}
 
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return total;
 		}
 
-		if (castInfo.hasKnownProgression())
+		if (spellCache.hasKnownProgression())
 		{
-			List<Formula> knownList = castInfo.getKnownForLevel(pcLevel);
+			List<Formula> knownList = spellCache.getKnownForLevel(pcLevel);
 			if (spellLevel >= 0 && spellLevel < knownList.size())
 			{
 				total += mult * knownList.get(spellLevel).resolve(aPC, "").intValue();
@@ -4889,7 +4845,7 @@ public class PCClass extends PObject
 
 		// if we have known spells (0==no known spells recorded)
 		// or a psi specialty.
-		if ((total > 0) && (spellLevel > 0))
+		if ((total > 0) && (spellLevel > 0) && castInfo != null)
 		{
 			// make sure any slots due from specialties
 			// (including domains) are added
@@ -7157,20 +7113,20 @@ public class PCClass extends PObject
 
 	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
 	{
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return -1;
 		}
-		return castInfo.getMinLevelForSpellLevel(spellLevel, allowBonus);
+		return spellCache.getMinLevelForSpellLevel(spellLevel, allowBonus);
 	}
 
 	public int getMaxSpellLevelForClassLevel(int classLevel)
 	{
-		if (castInfo == null)
+		if (!updateSpellCache(false))
 		{
 			return -1;
 		}
-		return castInfo.getMaxSpellLevelForClassLevel(classLevel);
+		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
 	}
 
 	public void setKnownSpellsFromSpecialty(int i)
@@ -7441,4 +7397,40 @@ public class PCClass extends PObject
 //	{
 //		return Collections.unmodifiableList(repeatLevelObjects);
 //	}
+
+	public boolean updateSpellCache(boolean force)
+	{
+		if (force || !spellCacheValid)
+		{
+			SpellProgressionCache cache = new SpellProgressionCache();
+			for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
+			{
+				Integer lvl = me.getKey();
+				PCClassLevel cl = me.getValue();
+				List<Formula> cast = cl.getListFor(ListKey.CAST);
+				if (cast != null)
+				{
+					cache.setCast(lvl, cast);
+				}
+				List<Formula> known = cl.getListFor(ListKey.KNOWN);
+				if (known != null)
+				{
+					cache.setKnown(lvl, known);
+				}
+				List<Formula> spec = cl.getListFor(ListKey.SPECIALTYKNOWN);
+				if (spec != null)
+				{
+					cache.setSpecialtyKnown(lvl, spec);
+				}
+			}
+			if (!cache.isEmpty())
+			{
+				spellCache = cache;
+			}
+			spellCacheValid = true;
+		}
+		return spellCache != null;
+	}
+
+
 }

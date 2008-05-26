@@ -263,7 +263,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		return pcClass;
 	}
 
-	private void parseClassLevelLine(LoadContext context, PCClass pcClass,
+	public void parseClassLevelLine(LoadContext context, PCClass pcClass,
 			int lvl, CampaignSourceEntry source,
 			String restOfLine) throws PersistenceLayerException
 	{

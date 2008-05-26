@@ -39,7 +39,7 @@ public class ClassTypeTest extends PCGenTestCase
 	public void testClone() throws Exception
 	{
 		final ClassType expected = new ClassType();
-		final ClassType actual = (ClassType) expected.clone();
+		final ClassType actual = expected.clone();
 
 		assertEquals(expected.getCRFormula(), actual.getCRFormula());
 		assertEquals(expected.getXPPenalty(), actual.getXPPenalty());

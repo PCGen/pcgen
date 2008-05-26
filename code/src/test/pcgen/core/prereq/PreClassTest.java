@@ -28,18 +28,15 @@
  */
 package pcgen.core.prereq;
 
-import java.util.Map;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
 import plugin.pretokens.test.PreClassTester;
 
@@ -187,19 +184,20 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 */
 	public void testCharWithMultipleSpellClasses() throws Exception
 	{
+		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellBaseStat("CHA");
 		pcClass.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
 		pcClass.setSpellBaseStat("INT");
 		pcClass2.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass2, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -225,19 +223,20 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 */
 	public void testFromParserCharWithMultipleSpellClasses() throws Exception
 	{
+		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellBaseStat("CHA");
 		pcClass.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
 		pcClass.setSpellBaseStat("INT");
 		pcClass2.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass2, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -264,19 +263,20 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 */
 	public void testFromParserAny() throws Exception
 	{
+		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellBaseStat("CHA");
 		pcClass.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
 		pcClass.setSpellBaseStat("INT");
 		pcClass2.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass2, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -374,9 +374,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellcaster() throws Exception
 	{
+		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
 		pcClass.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 		pcClass.setSpellBaseStat("CHA");
 
 		final PlayerCharacter character = getCharacter();
@@ -425,9 +426,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellcasterTypePass() throws Exception
 	{
+		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
 		pcClass.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 		pcClass.setSpellBaseStat("CHA");
 
 		final PlayerCharacter character = getCharacter();
@@ -450,9 +452,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellcasterTypeWrongCasePass() throws Exception
 	{
+		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
 		pcClass.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 		pcClass.setSpellBaseStat("CHA");
 
 		final PlayerCharacter character = getCharacter();
@@ -737,13 +740,5 @@ public class PreClassTest extends AbstractCharacterTestCase
 
 		character.incrementClassLevel(1, pcClass2);
 		assertEquals(true, PrereqHandler.passes(prereq, character, null));
-	}
-
-	public boolean callToken(PCClass cl, int lvl, String key, String value)
-	{
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				PCClassLstToken.class);
-		return tokenMap.containsKey(key)
-				&& ((PCClassLstToken) tokenMap.get(key)).parse(cl, value, lvl);
 	}
 }

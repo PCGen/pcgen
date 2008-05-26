@@ -23,8 +23,6 @@
  */
 package pcgen.core.prereq;
 
-import java.util.Map;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -34,12 +32,11 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.LoadContext;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreFeatParser;
 import plugin.pretokens.parser.PreSkillParser;
@@ -115,19 +112,20 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 */
 	public void testCharWithMultipleSpellClasses() throws Exception
 	{
+		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellBaseStat("CHA");
 		pcClass.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
 		pcClass2.setSpellBaseStat("INT");
 		pcClass2.setSpellType("ARCANE");
-		assertTrue(callToken(pcClass2, 1, "CAST", "5,4"));
+		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -265,13 +263,5 @@ public class PreMultTest extends AbstractCharacterTestCase
 		character.getSkillList().remove(knowledge);
 		character.calcActiveBonuses();
 
-	}
-
-	public boolean callToken(PCClass cl, int lvl, String key, String value)
-	{
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				PCClassLstToken.class);
-		return tokenMap.containsKey(key)
-				&& ((PCClassLstToken) tokenMap.get(key)).parse(cl, value, lvl);
 	}
 }

@@ -48,8 +48,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
-import plugin.lsttokens.pcclass.CastToken;
-import plugin.lsttokens.pcclass.KnownToken;
+import pcgen.rules.context.LoadContext;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
@@ -58,9 +57,6 @@ import plugin.pretokens.parser.PreVariableParser;
 @SuppressWarnings("nls")
 public class PCClassTest extends AbstractCharacterTestCase
 {
-	private static final KnownToken KNOWN_TOKEN = new KnownToken();
-	private static final CastToken CAST_TOKEN = new CastToken();
-
 	PCClass humanoidClass;
 	SizeAdjustment sizeL;
 	Race bugbearRace;
@@ -458,6 +454,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testGetHighestLevelSpell() throws PersistenceLayerException
 	{
+		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
 		megaCasterClass.setAbbrev("MC");
@@ -465,10 +462,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		megaCasterClass.setSpellBaseStat("CHA");
 		megaCasterClass.setSpellBookUsed(false);
 		megaCasterClass.setMemorizeSpells(false);
-		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5", 1));
-		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5", 1));
-		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5,6,7,8,9,10", 2));
-		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5,6,7,8,9,10", 2));
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "KNOWN", "4,2,2,3,4,5");
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5");
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getClassList().add(megaCasterClass);
 
 		assertEquals("Highest spell level for class", 10, megaCasterClass
@@ -529,6 +526,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 	public void testGetKnownForLevel()
 	{
+		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
 		megaCasterClass.setAbbrev("MC");
@@ -536,10 +534,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		megaCasterClass.setSpellBaseStat("CHA");
 		megaCasterClass.setSpellBookUsed(false);
 		megaCasterClass.setMemorizeSpells(false);
-		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5,0", 1));
-		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5,0,0", 1));
-		assertTrue(KNOWN_TOKEN.parse(megaCasterClass, "4,2,2,3,4,5,6,7,8,9,10", 2));
-		assertTrue(CAST_TOKEN.parse(megaCasterClass, "3,1,2,3,4,5,6,7,8,9,10", 2));
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "KNOWN", "4,2,2,3,4,5,0");
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getClassList().add(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();

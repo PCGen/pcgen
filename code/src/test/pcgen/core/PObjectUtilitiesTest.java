@@ -24,8 +24,7 @@
 package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
-import plugin.lsttokens.pcclass.CastToken;
-import plugin.lsttokens.pcclass.KnownToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PObjectUtilitiesTest</code> verifies that the PObjectUtilities
@@ -40,8 +39,6 @@ import plugin.lsttokens.pcclass.KnownToken;
 @SuppressWarnings("nls")
 public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 {
-	private static final KnownToken KNOWN_TOKEN = new KnownToken();
-	private static final CastToken CAST_TOKEN = new CastToken();
 	private PCClass arcaneClass = null;
 	private PCClass divineClass = null;
 	private PCClass psionicClass = null;
@@ -60,7 +57,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 	@Override
 	protected void setUp() throws Exception
 	{
-
+		LoadContext context = Globals.getContext();
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
 		arcaneClass.setAbbrev("TA");
@@ -68,12 +65,12 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		arcaneClass.setSpellBaseStat("CHA");
 		arcaneClass.setSpellBookUsed(false);
 		arcaneClass.setMemorizeSpells(false);
-		assertTrue(KNOWN_TOKEN.parse(arcaneClass, "4,2", 1));
-		assertTrue(CAST_TOKEN.parse(arcaneClass, "3,1", 1));
-		assertTrue(KNOWN_TOKEN.parse(arcaneClass, "4,3,1", 2));
-		assertTrue(CAST_TOKEN.parse(arcaneClass, "3,2,1", 2));
-		assertTrue(KNOWN_TOKEN.parse(arcaneClass, "5,5,2,1", 3));
-		assertTrue(CAST_TOKEN.parse(arcaneClass, "5,5,3,1", 3));
+		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2");
+		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1");
+		context.unconditionallyProcess(arcaneClass.getClassLevel(2), "KNOWN", "4,3,1");
+		context.unconditionallyProcess(arcaneClass.getClassLevel(2), "CAST", "3,2,1");
+		context.unconditionallyProcess(arcaneClass.getClassLevel(3), "KNOWN", "5,5,2,1");
+		context.unconditionallyProcess(arcaneClass.getClassLevel(3), "CAST", "5,5,3,1");
 		Globals.getClassList().add(arcaneClass);
 
 		divineClass = new PCClass();
@@ -83,7 +80,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		divineClass.setSpellBaseStat("WIS");
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
-		assertTrue(CAST_TOKEN.parse(divineClass, "3,1,0", 1));
+		context.unconditionallyProcess(divineClass.getClassLevel(3), "CAST", "3,1,0");
 		Globals.getClassList().add(divineClass);
 
 		psionicClass = new PCClass();
@@ -93,11 +90,11 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		psionicClass.setSpellBaseStat("CHA");
 		psionicClass.setSpellBookUsed(false);
 		psionicClass.setMemorizeSpells(false);
-		assertTrue(KNOWN_TOKEN.parse(psionicClass, "0,3", 1));
-		assertTrue(KNOWN_TOKEN.parse(psionicClass,  "0,5", 2));
-		assertTrue(KNOWN_TOKEN.parse(psionicClass,  "0,5,2", 3));
-		assertTrue(KNOWN_TOKEN.parse(psionicClass, "0,5,4", 4));
-		assertTrue(KNOWN_TOKEN.parse(psionicClass, "0,5,4,2", 5));
+		context.unconditionallyProcess(psionicClass.getClassLevel(1), "KNOWN", "0,3");
+		context.unconditionallyProcess(psionicClass.getClassLevel(2), "KNOWN", "0,5");
+		context.unconditionallyProcess(psionicClass.getClassLevel(3), "KNOWN", "0,5,2");
+		context.unconditionallyProcess(psionicClass.getClassLevel(4), "KNOWN", "0,5,4");
+		context.unconditionallyProcess(psionicClass.getClassLevel(5), "KNOWN", "0,5,4,2");
 		Globals.getClassList().add(psionicClass);
 
 		super.setUp();

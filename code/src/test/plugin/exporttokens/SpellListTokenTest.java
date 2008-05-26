@@ -26,14 +26,11 @@ package plugin.exporttokens;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
-import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -44,10 +41,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.BonusSpellLoader;
-import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>SpellListTokenTest</code> is ...
@@ -89,6 +83,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		LoadContext context = Globals.getContext();
 
 		SettingsHandler.getGame().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
 
@@ -118,8 +113,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		arcaneClass.setSpellBaseStat("CHA");
 		arcaneClass.setSpellBookUsed(false);
 		arcaneClass.setMemorizeSpells(false);
-		assertTrue(callToken(arcaneClass, 1, "KNOWN", "4,2,1"));
-		assertTrue(callToken(arcaneClass, 1, "CAST", "3,1,0"));
+		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
+		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
 		Globals.getClassList().add(arcaneClass);
 
 		divineClass = new PCClass();
@@ -129,7 +124,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		divineClass.setSpellBaseStat("WIS");
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
-		assertTrue(callToken(divineClass, 1, "CAST", "4,2,1"));
+		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
 		divineClass.getSpellSupport().addSpellLevel("CLASS",
 			"SPELLCASTER.Divine", "Cure Light Wounds", "1",
 			new ArrayList<Prerequisite>());
@@ -278,13 +273,5 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 			.getToken("SPELLLISTTYPE.0.1", character, null));
 		assertEquals("testSpellListTypeToken(1lv TD)", "DIVINE", token
 			.getToken("SPELLLISTTYPE.1.1", character, null));
-	}
-
-	public boolean callToken(PCClass cl, int lvl, String key, String value)
-	{
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				PCClassLstToken.class);
-		return tokenMap.containsKey(key)
-				&& ((PCClassLstToken) tokenMap.get(key)).parse(cl, value, lvl);
 	}
 }
