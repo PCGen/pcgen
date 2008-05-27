@@ -15,15 +15,49 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.content;
+package pcgen.cdom.modifier;
 
-public interface Modifier<T>
+import pcgen.cdom.content.AbstractHitDieModifier;
+import pcgen.cdom.content.HitDie;
+
+public class HitDieLock extends AbstractHitDieModifier
 {
 
-	public T applyModifier(T obj, Object context);
+	private final HitDie hitDie;
 
-	public Class<T> getModifiedClass();
+	public HitDieLock(HitDie die)
+	{
+		super();
+		if (die == null)
+		{
+			throw new IllegalArgumentException("Die for HitDieLock cannot be null");
+		}
+		hitDie = die;
+	}
 
-	public String getLSTformat();
+	@Override
+	public HitDie applyModifier(HitDie hd, Object context)
+	{
+		return hitDie;
+	}
+
+	@Override
+	public String getLSTformat()
+	{
+		return Integer.toString(hitDie.getDie());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return hitDie.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof HitDieLock
+			&& ((HitDieLock) o).hitDie.equals(hitDie);
+	}
 
 }

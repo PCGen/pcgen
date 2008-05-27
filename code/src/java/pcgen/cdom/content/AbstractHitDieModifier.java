@@ -17,13 +17,19 @@
  */
 package pcgen.cdom.content;
 
-public interface Modifier<T>
+import pcgen.cdom.base.ConcretePrereqObject;
+
+public abstract class AbstractHitDieModifier extends ConcretePrereqObject
+		implements Modifier<HitDie>
 {
 
-	public T applyModifier(T obj, Object context);
+	public abstract HitDie applyModifier(HitDie hd, Object context);
 
-	public Class<T> getModifiedClass();
+	public Class<HitDie> getModifiedClass()
+	{
+		return HitDie.class;
+	}
 
-	public String getLSTformat();
+	public abstract String getLSTformat();
 
 }

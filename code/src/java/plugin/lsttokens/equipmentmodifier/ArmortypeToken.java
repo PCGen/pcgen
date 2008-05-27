@@ -1,13 +1,9 @@
 package plugin.lsttokens.equipmentmodifier;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.TreeMap;
-import java.util.Map.Entry;
+import java.util.TreeSet;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.core.EquipmentModifier;
@@ -85,28 +81,12 @@ public class ArmortypeToken extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		TreeMap<String, String> m = new TreeMap<String, String>();
-		for (LSTWriteable ab : added)
+		TreeSet<String> set = new TreeSet<String>();
+		for (ChangeArmorType cat : added)
 		{
-			ChangeArmorType cat = (ChangeArmorType) ab;
-			String source = cat.getSourceType();
-			String result = cat.getResultType();
-			m.put(source, result);
+			set.add(cat.getLSTformat());
 		}
-		List<String> list = new ArrayList<String>();
-		for (Entry<String, String> me : m.entrySet())
-		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(me.getKey());
-			String value = me.getValue();
-			if (value != null)
-			{
-				sb.append(Constants.PIPE);
-				sb.append(value);
-			}
-			list.add(sb.toString());
-		}
-		return list.toArray(new String[list.size()]);
+		return set.toArray(new String[set.size()]);
 	}
 
 	public Class<EquipmentModifier> getTokenClass()

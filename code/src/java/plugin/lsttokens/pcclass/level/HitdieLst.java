@@ -1,34 +1,34 @@
-package plugin.lsttokens.template;
+/*
+ * Created on Sep 2, 2005
+ *
+ */
+package plugin.lsttokens.pcclass.level;
 
 import pcgen.base.formula.AddingFormula;
 import pcgen.base.formula.DividingFormula;
 import pcgen.base.formula.MultiplyingFormula;
 import pcgen.base.formula.SubtractingFormula;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.AbstractHitDieModifier;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.modifier.ContextModifier;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.modifier.HitDieFormula;
 import pcgen.cdom.modifier.HitDieLock;
 import pcgen.cdom.modifier.HitDieStep;
-import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
- * Class deals with HITDIE Token
+ * @author djones4
+ * 
  */
-public class HitdieToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+public class HitdieLst extends AbstractToken implements
+		CDOMPrimaryToken<PCClassLevel>
 {
-
-	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
 	@Override
 	public String getTokenName()
@@ -36,63 +36,18 @@ public class HitdieToken extends AbstractToken implements
 		return "HITDIE";
 	}
 
-	public boolean parse(LoadContext context, PCTemplate template, String value)
+	public boolean parse(LoadContext context, PCClassLevel pcl, String value)
 	{
 		try
 		{
 			String lock = value;
 			int pipeLoc = lock.indexOf(Constants.PIPE);
-			if (pipeLoc != lock.lastIndexOf(Constants.PIPE))
-			{
-				Logging.errorPrint(getTokenName() + " has more than one pipe, "
-						+ "is not of format: <int>[|<prereq>]");
-				return false;
-			}
-			// Do not initialize, null is significant
-			CDOMReference<PCClass> owner = null;
 			if (pipeLoc != -1)
 			{
-				// Has a limitation
-				String lockPre = lock.substring(pipeLoc + 1);
-				if (lockPre.startsWith("CLASS.TYPE="))
-				{
-					String substring = lock.substring(pipeLoc + 12);
-					if (substring.length() == 0)
-					{
-						Logging
-								.errorPrint("Cannot have Empty Type Limitation in "
-										+ getTokenName() + ": " + value);
-						return false;
-					}
-					if (hasIllegalSeparator('.', substring))
-					{
-						return false;
-					}
-					owner = context.ref.getCDOMTypeReference(PCCLASS_CLASS,
-							substring.split("\\."));
-				}
-				else if (lockPre.startsWith("CLASS="))
-				{
-					String substring = lock.substring(pipeLoc + 7);
-					if (substring.length() == 0)
-					{
-						Logging
-								.errorPrint("Cannot have Empty Class Limitation in "
-										+ getTokenName() + ": " + value);
-						return false;
-					}
-					owner = context.ref.getCDOMReference(PCCLASS_CLASS,
-							substring);
-				}
-				else
-				{
-					Logging.errorPrint("Invalid Limitation in HITDIE: "
-							+ lockPre);
-					return false;
-				}
-				lock = lock.substring(0, pipeLoc);
+				Logging.errorPrint(getTokenName() + " is invalid has a pipe: "
+						+ value);
+				return false;
 			}
-
 			AbstractHitDieModifier hdm;
 			if (lock.startsWith("%/"))
 			{
@@ -176,7 +131,8 @@ public class HitdieToken extends AbstractToken implements
 			else if (lock.startsWith("%Hup"))
 			{
 				// HITDIE:%upnum --- moves the hit die num steps up the die size
-				// No limit.
+				// list d4,d6,d8,d10,d12. Stops at d12.
+
 				int steps = Integer.parseInt(lock.substring(4));
 				if (steps <= 0)
 				{
@@ -235,9 +191,7 @@ public class HitdieToken extends AbstractToken implements
 				hdm = new HitDieLock(new HitDie(i));
 			}
 
-			Modifier<HitDie> mod = owner == null ? hdm
-					: new ContextModifier<HitDie, PCClass>(hdm, owner);
-			context.getObjectContext().put(template, ObjectKey.HITDIE, mod);
+			context.getObjectContext().put(pcl, ObjectKey.HITDIE, hdm);
 			return true;
 		}
 		catch (NumberFormatException nfe)
@@ -249,7 +203,7 @@ public class HitdieToken extends AbstractToken implements
 		}
 	}
 
-	public String[] unparse(LoadContext context, PCTemplate pcl)
+	public String[] unparse(LoadContext context, PCClassLevel pcl)
 	{
 		Modifier<HitDie> hdcf = context.getObjectContext().getObject(pcl,
 				ObjectKey.HITDIE);
@@ -260,8 +214,8 @@ public class HitdieToken extends AbstractToken implements
 		return new String[] { hdcf.getLSTformat() };
 	}
 
-	public Class<PCTemplate> getTokenClass()
+	public Class<PCClassLevel> getTokenClass()
 	{
-		return PCTemplate.class;
+		return PCClassLevel.class;
 	}
 }

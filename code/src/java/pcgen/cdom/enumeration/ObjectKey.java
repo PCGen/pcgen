@@ -24,7 +24,6 @@
 package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collection;
@@ -32,10 +31,11 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.Modifier;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.ArmorProf;
 import pcgen.core.PCAlignment;
-import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
@@ -132,6 +132,8 @@ public final class ObjectKey<T>
 	 */
 	public static final ObjectKey<Object> PARENT = new ObjectKey<Object>();
 
+	public static final ObjectKey<Modifier<HitDie>> HITDIE = new ObjectKey<Modifier<HitDie>>();
+
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 
 	private ObjectKey()
@@ -176,8 +178,9 @@ public final class ObjectKey<T>
 		{
 			int mod = fields[i].getModifiers();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (java.lang.reflect.Modifier.isStatic(mod)
+					&& java.lang.reflect.Modifier.isFinal(mod)
+					&& java.lang.reflect.Modifier.isPublic(mod))
 			{
 				try
 				{

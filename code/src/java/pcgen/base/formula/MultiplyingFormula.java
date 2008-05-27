@@ -1,0 +1,104 @@
+/*
+ * Copyright (c) 2006 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.base.formula;
+
+/**
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ * 
+ * A MultiplyingFormula represents a 'deferred calculation' of sorts, designed
+ * to be stored and capable of multiplying a predetermined value with a given
+ * input number.
+ * 
+ * A MultiplyingFormula will always return an Integer
+ */
+public class MultiplyingFormula implements ReferenceFormula<Integer>
+{
+
+	/**
+	 * The value to be multiplied with the value input into the resolve method
+	 */
+	private final int mult;
+
+	/**
+	 * Creates a new MultiplyingFormula with the given int as the value to be
+	 * multiplied with the input to the resolve method
+	 * 
+	 * @param multiplier
+	 *            the int to be multiplied with the input when this
+	 *            MultiplyingFormula is used
+	 */
+	public MultiplyingFormula(int multiplier)
+	{
+		mult = multiplier;
+	}
+
+	/**
+	 * Executes this MultiplyingFormula, multiplying the number provided in the
+	 * constructor of this SubtractingFormula with the given Number. Only one
+	 * input Number is permitted.
+	 * 
+	 * @return the result of the multiplication
+	 * @throws IllegalArgumentException
+	 *             if more than one Number is provided as an argument
+	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
+	 */
+	public Integer resolve(Number... nums)
+	{
+		if (nums == null || nums.length != 1)
+		{
+			throw new IllegalArgumentException(
+				"MultiplyingFormula only has one backreference");
+		}
+		// TODO May not be correct (order of rounding op)
+		return Integer.valueOf(nums[0].intValue() * mult);
+	}
+
+	/**
+	 * Returns a String representation of this MultiplyingFormula
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "*" + mult;
+	}
+
+	/**
+	 * Consistent-with-equals hashCode method
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		return mult;
+	}
+
+	/**
+	 * Returns true if this MultiplyingFormula is equal to the given Object.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof MultiplyingFormula
+			&& ((MultiplyingFormula) o).mult == mult;
+	}
+}

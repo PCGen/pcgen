@@ -80,7 +80,6 @@ public final class PCTemplate extends PObject
 	private List<String> templatesAdded = null;
 
 	private String favoredClass = "";
-	private String hitDieLock = "";
 
 	/**
 	 * A DoubleKeyMap storing abilities to be granted at a certain level. The
@@ -213,49 +212,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Set a lock on the hitdie size of a character that this template is
-	 * applied to. Possible formats for the lock include
-	 * 
-	 * 12 The character now has a Hit Dice of 12.
-	 * 
-	 * %+2 Adds 2 to the current Hit Dice size.
-	 * 
-	 * %-4 Subtracts 4 from the current Hit Dice size.
-	 * 
-	 * %*3 Multiplies the current Hit Dice size by 3.
-	 * 
-	 * %/2 Divides the current Hit Dice size by 2.
-	 * 
-	 * %up2 Steps up the Hit Dice size by two steps. If the creature has a Hit
-	 * Die of d6 it will be stepped up to d10.
-	 * 
-	 * %down1 Steps down the Hit Dice size by one step. If the creature has a
-	 * Hit Die of d6 it will be stepped down to d4.
-	 * 
-	 * %up1|CLASS.TYPE=Monster Steps up the Hit Dice size by one step for any
-	 * Monster class levels the creature has. If the creature has a Monster
-	 * class Hit Die of d8 it will be stepped up to d10.
-	 * 
-	 * @param hitDieLock
-	 *            the sting to lock to
-	 */
-	public void setHitDieLock(final String hitDieLock)
-	{
-		this.hitDieLock = hitDieLock;
-	}
-
-	/**
-	 * Get a string that will be used to manipulate the hit die of any creature
-	 * this template is applied to
-	 * 
-	 * @return the hit die manipulation string
-	 */
-	protected String getHitDieLock()
-	{
-		return hitDieLock;
-	}
-
-	/**
 	 * Takes an integer input which it uses to access Games mode's "statlist"
 	 * array. If that stat has been locked at 10 then it is considered a
 	 * non-ability. 
@@ -383,11 +339,6 @@ public final class PCTemplate extends PObject
 			{
 				txt.append("\tHD:").append(s);
 			}
-		}
-
-		if (!hitDieLock.equals(""))
-		{
-			txt.append("\tHITDIE:").append(hitDieLock);
 		}
 
 		if ((getLanguageBonus() != null) && !getLanguageBonus().isEmpty())
@@ -981,11 +932,6 @@ public final class PCTemplate extends PObject
 						.append(' ');
 				}
 			}
-		}
-
-		if (!hitDieLock.equals(""))
-		{
-			mods.append("HITDIE:" + hitDieLock);
 		}
 
 		if (getDRList().size() != 0)

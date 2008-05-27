@@ -47,7 +47,7 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 		source = sourceType;
 	}
 
-	public String applyModifier(String obj)
+	public String applyModifier(String obj, Object context)
 	{
 		return source.equals(obj) ? result : obj;
 	}
@@ -92,23 +92,22 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 		return result.equals(other.result) && source.equals(other.source);
 	}
 
-	public String getLSTformat()
-	{
-		// TODO Don't like this = fix Generics in GraphChanges
-		return "";
-	}
-
 	public List<String> applyModifier(List<String> calculatedTypeList)
 	{
 		List<String> returnList = new ArrayList<String>();
 		for (String type : calculatedTypeList)
 		{
-			String mod = applyModifier(type);
+			String mod = applyModifier(type, null);
 			if (mod != null)
 			{
 				returnList.add(mod);
 			}
 		}
 		return returnList;
+	}
+
+	public String getLSTformat()
+	{
+		return source + (result == null ? "" : "|" + result);
 	}
 }

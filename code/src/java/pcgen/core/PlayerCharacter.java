@@ -55,7 +55,9 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -8387,7 +8389,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			//
 			if (!isImporting())
 			{
-				if (inTemplate.getHitDieLock().length() != 0)
+				Modifier<HitDie> dieLock = inTemplate.get(ObjectKey.HITDIE);
+				if (dieLock != null)
 				{
 					for (int level = 1; level <= pcClass.getLevel(); level++)
 					{

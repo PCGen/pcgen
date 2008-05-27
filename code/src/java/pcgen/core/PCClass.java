@@ -41,6 +41,8 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -206,31 +208,6 @@ public class PCClass extends PObject
 	 */
 	private DoubleKeyMap<AbilityCategory, Integer, List<Ability>> vAbilityMap =
 			null;
-
-	/*
-	 * STRINGREFACTOR This is actually some form of HITDIE formula, not
-	 * necessarily a number; however, the complex processing that takes place on
-	 * it is NOT a Formula, per se. Therefore, the processing can be done either
-	 * at import of the Tag, or at least before a PCClassLevel is created.
-	 * 
-	 * This is, unfortunately, a bit more difficult than it looks, since it is
-	 * processing based on currently known data (the hit die size).  This makes
-	 * it a bit more complicated to get the formula processing correct.
-	 * 
-	 * Note hat .MOD processing needs to be considered here - what happens when 
-	 * a later .MOD copies a class and changes the HITDIE?  This can't be 
-	 * completely pre-processed or it won't work
-	 */
-	/*
-	 * REFACTOR This name??? Lock what? It is really a modification of the HITDIE
-	 * that can take place in at each class level
-	 */
-	/*
-	 * ALLCLASSLEVELS This is modifications of the Hit Die and therefore, needs
-	 * to be placed into all of the ClassLevels, so that the PC can have HPs
-	 * based on the ClassLevel.
-	 */
-	private List<LevelProperty<String>> hitDieLockList = null;
 
 	/*
 	 * ALLCLASSLEVELS skillPool is part each PCClassLevel and what that level
@@ -1227,40 +1204,6 @@ public class PCClass extends PObject
 
 	/*
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method (with PCClassLevel not having the level argument, of
-	 * course)
-	 */
-	public void putHitDieLock(final String hitDieLock, final int aLevel)
-	{
-		if (hitDieLockList == null)
-		{
-			hitDieLockList = new ArrayList<LevelProperty<String>>();
-		}
-		hitDieLockList.add(LevelProperty.getLevelProperty(aLevel, hitDieLock));
-	}
-
-	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory) (with level dependent
-	 * differences, of course)
-	 */
-	protected String getHitDieLock(final int aLevel)
-	{
-		if (hitDieLockList != null)
-		{
-			for (LevelProperty<String> lp : hitDieLockList)
-			{
-				if (lp.getLevel() == aLevel)
-				{
-					return lp.getObject();
-				}
-			}
-		}
-		return null;
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
 	public final void setInitialFeats(final int feats)
@@ -1621,11 +1564,11 @@ public class PCClass extends PObject
 		// Class Base Hit Die
 		int currHitDie = getBaseHitDie();
 
-		// Race
-		String dieLock = aPC.getRace().getHitDieLock();
-		if (dieLock.length() != 0)
+		HitDie currDie = new HitDie(currHitDie);
+		Modifier<HitDie> dieLock = aPC.getRace().get(ObjectKey.HITDIE);
+		if (dieLock != null)
 		{
-			currHitDie = calcHitDieLock(dieLock, currHitDie);
+			currDie = dieLock.applyModifier(currDie, this);
 		}
 
 		// Templates
@@ -1633,233 +1576,26 @@ public class PCClass extends PObject
 		{
 			if (template != null)
 			{
-				dieLock = template.getHitDieLock();
-				if (dieLock.length() != 0)
+				Modifier<HitDie> lock = template.get(ObjectKey.HITDIE);
+				if (lock != null)
 				{
-					currHitDie = calcHitDieLock(dieLock, currHitDie);
+					currDie = lock.applyModifier(currDie, this);
 				}
 			}
 		}
 
 		// Levels
-		dieLock = getHitDieLock(classLevel);
-		if (dieLock != null && dieLock.length() != 0)
+		PCClassLevel cl = levelMap.get(classLevel);
+		if (cl != null)
 		{
-			currHitDie = calcHitDieLock(dieLock, currHitDie);
-		}
-
-		return currHitDie;
-	}
-
-	// HITDIE:num --- sets the hit die to num regardless of class.
-	// HITDIE:%/num --- divides the classes hit die by num.
-	// HITDIE:%*num --- multiplies the classes hit die by num.
-	// HITDIE:%+num --- adds num to the classes hit die.
-	// HITDIE:%-num --- subtracts num from the classes hit die.
-	// HITDIE:%upnum --- moves the hit die num steps up the die size list
-	// d4,d6,d8,d10,d12. Stops at d12.
-	// HITDIE:%downnum --- moves the hit die num steps down the die size list
-	// d4,d6,d8,d10,d12. Stops at d4.
-	// Regardless of num it will never allow a hit die below 1.
-	/*
-	 * PCCLASSLEVELONLY This is an active level calculation, and is therefore
-	 * only appropriate in the PCClassLevel that has the particular Hit Die for
-	 * which the calculation is required.
-	 */
-	/*
-	 * REFACTOR I think this should be a separate Class. Since this modification
-	 * can't be done before it is time to do it "on the fly", we can at least
-	 * "compile" the Die Lock, so that this string parsing doesn't happen every
-	 * time. The question is: Is this an enumeration, Interface with
-	 * implementations, or what is the best method for getting this effect
-	 * without making the system far too complicated for something that really
-	 * is very simple. - thpr 11/6/06
-	 */
-	private int calcHitDieLock(String dieLock, final int currDie)
-	{
-		final int[] dieSizes = Globals.getDieSizes();
-		final int maxDie = Globals.getMaxDieSize();
-		final int minDie = Globals.getMinDieSize();
-		int diedivide;
-
-		int minIndex = 0;
-		int maxIndex = 0;
-
-		for (int i = 0; i < dieSizes.length; i++)
-		{
-			if (dieSizes[i] == minDie)
+			Modifier<HitDie> lock = cl.get(ObjectKey.HITDIE);
+			if (lock != null)
 			{
-				minIndex = i;
-			}
-			else if (dieSizes[i] == maxDie)
-			{
-				maxIndex = i;
+				currDie = lock.applyModifier(currDie, this);
 			}
 		}
 
-		StringTokenizer tok = new StringTokenizer(dieLock, Constants.PIPE);
-		dieLock = tok.nextToken();
-		String prereq = null;
-		if (tok.hasMoreTokens())
-		{
-			prereq = tok.nextToken();
-		}
-
-		if (prereq != null)
-		{
-			if (prereq.startsWith("CLASS.TYPE"))
-			{
-				if (!isType(prereq.substring(prereq.indexOf("=") + 1, prereq
-					.length())))
-				{
-					return currDie;
-				}
-			}
-			else if (prereq.startsWith("CLASS="))
-			{
-				if (!getKeyName().equals(
-					prereq.substring(prereq.indexOf("=") + 1, prereq.length())))
-				{
-					return currDie;
-				}
-			}
-		}
-
-		if (dieLock.startsWith("%/"))
-		{
-			diedivide = Integer.parseInt(dieLock.substring(2));
-
-			if (diedivide <= 0)
-			{
-				diedivide = 1; // Idiot proof it. Stop Divide by zero errors.
-			}
-
-			diedivide = currDie / diedivide;
-		}
-		else if (dieLock.startsWith("%*"))
-		{
-			diedivide = Integer.parseInt(dieLock.substring(2));
-			diedivide *= currDie;
-		}
-		else if (dieLock.startsWith("%+"))
-		{ // possibly redundant with
-			// BONUS:HD MAX|num
-			diedivide = Integer.parseInt(dieLock.substring(2));
-			diedivide += currDie;
-		}
-		else if (dieLock.startsWith("%-"))
-		{ // possibly redundant with
-			// BONUS:HD MAX|num if that will
-			// take negative numbers.
-			diedivide = Integer.parseInt(dieLock.substring(2));
-			diedivide = currDie - diedivide;
-		}
-		else if (dieLock.startsWith("%up"))
-		{
-			diedivide = Integer.parseInt(dieLock.substring(3));
-
-			if (diedivide < 0)
-			{
-				return currDie;
-			}
-
-			for (int i = 0; i <= dieSizes.length; ++i)
-			{
-				if (currDie == dieSizes[i])
-				{
-					if ((i + diedivide) > maxIndex)
-					{
-						return maxDie;
-					}
-					else
-					{
-						return dieSizes[i + diedivide];
-					}
-				}
-			}
-		}
-		else if (dieLock.startsWith("%Hup"))
-		{
-			diedivide = Integer.parseInt(dieLock.substring(4));
-
-			if (diedivide < 0)
-			{
-				return currDie;
-			}
-
-			for (int i = 0; i <= dieSizes.length; ++i)
-			{
-				if (currDie == dieSizes[i])
-				{
-					if ((i + diedivide) > dieSizes.length - 1)
-					{
-						return dieSizes[dieSizes.length - 1];
-					}
-					else
-					{
-						return dieSizes[i + diedivide];
-					}
-				}
-			}
-
-		}
-		else if (dieLock.startsWith("%down"))
-		{
-			diedivide = Integer.parseInt(dieLock.substring(5));
-
-			if (diedivide < 0)
-			{
-				return currDie;
-			}
-
-			for (int i = 0; i <= dieSizes.length; ++i)
-			{
-				if (currDie == dieSizes[i])
-				{
-					if ((i - diedivide) < minIndex)
-					{
-						return minDie;
-					}
-					else
-					{
-						return dieSizes[i - diedivide];
-					}
-				}
-			}
-		}
-		else if (dieLock.startsWith("%Hdown"))
-		{
-			diedivide = Integer.parseInt(dieLock.substring(6));
-			if (diedivide < 0)
-			{
-				return currDie;
-			}
-
-			for (int i = 0; i <= dieSizes.length; ++i)
-			{
-				if (currDie == dieSizes[i])
-				{
-					if ((i - diedivide) < 0)
-					{
-						return dieSizes[0];
-					}
-					else
-					{
-						return dieSizes[i - diedivide];
-					}
-				}
-			}
-		}
-		else
-		{
-			diedivide = Integer.parseInt(dieLock);
-		}
-
-		if (diedivide <= 0)
-		{
-			diedivide = 1; // Idiot proof it.
-		}
-		return diedivide;
+		return currDie.getDie();
 	}
 
 	/*
@@ -4035,11 +3771,6 @@ public class PCClass extends PObject
 				aClass.vAbilityMap =
 						new DoubleKeyMap<AbilityCategory, Integer, List<Ability>>(
 							vAbilityMap);
-			}
-			if (hitDieLockList != null)
-			{
-				aClass.hitDieLockList =
-						new ArrayList<LevelProperty<String>>(hitDieLockList);
 			}
 			//			if ( theAutoAbilities != null )
 			//			{

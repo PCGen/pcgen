@@ -55,7 +55,6 @@ public final class Race extends PObject
 	private List<String> monCSkillList = null;
 	// TODO - Why do we need a hit point map in the race?
 	private Map<String, Integer> hitPointMap = new HashMap<String, Integer>();
-	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
 
 	private String favoredClass = Constants.EMPTY_STRING;
@@ -237,11 +236,6 @@ public final class Race extends PObject
 			return hitDiceSize;
 		}
 		return 0;
-	}
-
-	public void setHitDieLock(final String hitDieLock)
-	{
-		this.hitDieLock = hitDieLock;
 	}
 
 	public void setHitPoint(final int aLevel, final Integer iRoll)
@@ -840,11 +834,6 @@ public final class Race extends PObject
 	protected void doGlobalTypeUpdate(final String aString)
 	{
 		Globals.getRaceTypes().add(aString);
-	}
-
-	String getHitDieLock()
-	{
-		return hitDieLock;
 	}
 
 	String getMonsterClass(final PlayerCharacter aPC)

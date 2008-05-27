@@ -15,15 +15,44 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.content;
+package pcgen.cdom.modifier;
 
-public interface Modifier<T>
+import pcgen.base.formula.ReferenceFormula;
+import pcgen.cdom.content.AbstractHitDieModifier;
+import pcgen.cdom.content.HitDie;
+
+public class HitDieFormula extends AbstractHitDieModifier
 {
 
-	public T applyModifier(T obj, Object context);
+	private final ReferenceFormula<Integer> f;
 
-	public Class<T> getModifiedClass();
+	public HitDieFormula(ReferenceFormula<Integer> formula)
+	{
+		super();
+		f = formula;
+	}
 
-	public String getLSTformat();
+	@Override
+	public HitDie applyModifier(HitDie hd, Object context)
+	{
+		return new HitDie(f.resolve(Integer.valueOf(hd.getDie())).intValue());
+	}
 
+	@Override
+	public String getLSTformat()
+	{
+		return '%' + f.toString();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return f.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof HitDieFormula && ((HitDieFormula) o).f.equals(f);
+	}
 }

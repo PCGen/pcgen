@@ -90,7 +90,6 @@ public class HitDiceToken extends Token
 			ret.append(")");
 			del = "+";
 		}
-
 		for (PCClass pcClass : pc.getClassList())
 		{
 			HashMap<Integer, Integer> hdMap =

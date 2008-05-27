@@ -1,0 +1,508 @@
+/*
+ * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.race;
+
+import org.junit.Test;
+
+import pcgen.core.PCClass;
+import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.CDOMLoader;
+import pcgen.rules.persistence.CDOMTokenLoader;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+
+public class HitDieTokenTest extends AbstractTokenTestCase<Race>
+{
+
+	static HitdieToken token = new HitdieToken();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+
+	@Override
+	public Class<Race> getCDOMClass()
+	{
+		return Race.class;
+	}
+
+	@Override
+	public CDOMLoader<Race> getLoader()
+	{
+		return loader;
+	}
+
+	@Override
+	public CDOMPrimaryToken<Race> getToken()
+	{
+		return token;
+	}
+
+	@Test
+	public void testInvalidInputTooManyLimits()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("15|CLASS=Fighter|CLASS.TYPE=Base"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputNotALimit() throws PersistenceLayerException
+	{
+		assertFalse(parse("15|PRECLASS:1,Fighter"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputEmptyLimit() throws PersistenceLayerException
+	{
+		assertFalse(parse("15|CLASS="));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputEmptyTypeLimit()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("15|CLASS.TYPE="));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputStartDotTypeLimit()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("15|CLASS.TYPE=.Strange"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputEndDotTypeLimit()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("15|CLASS.TYPE=Strange."));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDoubleDotTypeLimit()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("15|CLASS.TYPE=Prestige..Strange"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputDivideNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("%/-2"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputDivideZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%/0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputDivide() throws PersistenceLayerException
+	{
+		assertTrue(parse("%/4"));
+	}
+
+	@Test
+	public void testInvalidInputAddNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("%+-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputAddZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%+0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputAdd() throws PersistenceLayerException
+	{
+		assertTrue(parse("%+4"));
+	}
+
+	@Test
+	public void testInvalidInputMultiplyNegative()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("%*-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputMultiplyZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%*0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputMultiply() throws PersistenceLayerException
+	{
+		assertTrue(parse("%*4"));
+	}
+
+	@Test
+	public void testInvalidInputSubtractNegative()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("%--3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputSubtractZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%-0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputSubtract() throws PersistenceLayerException
+	{
+		assertTrue(parse("%-4"));
+	}
+
+	@Test
+	public void testInvalidInputUpNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("%up-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputUpZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%up0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputUp() throws PersistenceLayerException
+	{
+		assertTrue(parse("%up4"));
+	}
+
+	@Test
+	public void testInvalidInputUpTooBig() throws PersistenceLayerException
+	{
+		assertFalse(parse("%up5"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputUpReallyTooBig()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("%up15"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputHUpNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("%Hup-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputHUpZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%Hup0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputHUp() throws PersistenceLayerException
+	{
+		assertTrue(parse("%Hup4"));
+	}
+
+	@Test
+	public void testInvalidInputDownNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("%down-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDownZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%down0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputDown() throws PersistenceLayerException
+	{
+		assertTrue(parse("%down4"));
+	}
+
+	@Test
+	public void testInvalidInputHdownNegative()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("%Hdown-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputHdownZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("%Hdown0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputHdown() throws PersistenceLayerException
+	{
+		assertTrue(parse("%Hdown4"));
+	}
+
+	@Test
+	public void testInvalidInputDownTooBig() throws PersistenceLayerException
+	{
+		assertFalse(parse("%down5"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDownReallyTooBig()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("%down15"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDecimal() throws PersistenceLayerException
+	{
+		assertFalse(parse("3.5"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputMisspell() throws PersistenceLayerException
+	{
+		assertFalse(parse("%upn5"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinInteger() throws PersistenceLayerException
+	{
+		runRoundRobin("2");
+	}
+
+	@Test
+	public void testRoundRobinIntegerClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinIntegerType() throws PersistenceLayerException
+	{
+		runRoundRobin("2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinAdd() throws PersistenceLayerException
+	{
+		runRoundRobin("%+2");
+	}
+
+	@Test
+	public void testRoundRobinAddClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%+2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinAddType() throws PersistenceLayerException
+	{
+		runRoundRobin("%+2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinSubtract() throws PersistenceLayerException
+	{
+		runRoundRobin("%-2");
+	}
+
+	@Test
+	public void testRoundRobinSubtractClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%-2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinSubtractType() throws PersistenceLayerException
+	{
+		runRoundRobin("%-2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinMultiply() throws PersistenceLayerException
+	{
+		runRoundRobin("%*2");
+	}
+
+	@Test
+	public void testRoundRobinMultiplyClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%*2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinMultiplyType() throws PersistenceLayerException
+	{
+		runRoundRobin("%*2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinDivide() throws PersistenceLayerException
+	{
+		runRoundRobin("%/2");
+	}
+
+	@Test
+	public void testRoundRobinDivideClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%/2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinDivideType() throws PersistenceLayerException
+	{
+		runRoundRobin("%/2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinUp() throws PersistenceLayerException
+	{
+		runRoundRobin("%up2");
+	}
+
+	@Test
+	public void testRoundRobinUpClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%up2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinUpType() throws PersistenceLayerException
+	{
+		runRoundRobin("%up2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinHup() throws PersistenceLayerException
+	{
+		runRoundRobin("%Hup2");
+	}
+
+	@Test
+	public void testRoundRobinHupClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%Hup2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinHupType() throws PersistenceLayerException
+	{
+		runRoundRobin("%Hup2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinDown() throws PersistenceLayerException
+	{
+		runRoundRobin("%down2");
+	}
+
+	@Test
+	public void testRoundRobinDownClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%down2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinDownType() throws PersistenceLayerException
+	{
+		runRoundRobin("%down2|CLASS.TYPE=Base");
+	}
+
+	@Test
+	public void testRoundRobinHdown() throws PersistenceLayerException
+	{
+		runRoundRobin("%Hdown2");
+	}
+
+	@Test
+	public void testRoundRobinHdownClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("%Hdown2|CLASS=Fighter");
+	}
+
+	@Test
+	public void testRoundRobinHdownType() throws PersistenceLayerException
+	{
+		runRoundRobin("%Hdown2|CLASS.TYPE=Base");
+	}
+}
