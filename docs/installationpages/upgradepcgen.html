@@ -24,29 +24,107 @@
 	<body>
 		<h1>Upgrading PCGen</h1>
 		
-		<p>If you have PCGen Currently installed on your system, you can overwrite it with a 
-			newer version to maintain your settings and the location of your characters. This 
-			will unfortunately also overwrite your homebrew and custom datasets unless you 
-			have taken precautions against it. This page provides some guidance in how best 
-			to prepare your homebrew and custom data for transfer into an updated version of 
-			PCGen.</p>
-		
-		<p><strong>CAUTION! UPGRADING IS NOT FOOLPROOF!</strong></p>
-		
-		<p>Installing a new version over an old version of PCGen may cause the new version to not run well. 
-		If you experience some unexpected behavior of the application after upgrading, please try deleting 
-		options.ini (or renaming it if you want to preserve the file). 
-		Options.ini contains information on structure and contents that may have changed with the new version 
-		rendering it useless if different implementations become mixed in the file.</p>
-		
-		<h2>To upgrade:</h2>
-		
-		<p>1. Locate your PCGen directory. e.g. C:\PCGen</p>
-		
-		<p>2. Make a backup of all files in case something goes wrong!</p>
-		
-		<p>3. Unzip the pcgenXXX_full.zip over your previous PCGen installation.</p>
+		<p>If you have PCGen Currently installed on your system, you can overwrite it with a newer version 
+			to maintain your settings and the location of your characters. This will unfortunately, unless 
+			you have taken precautions against it, also overwrite your homebrew and custom datasets as well 
+			as your homebrew gamemode folder. This page provides some guidance in how best to avoid these 
+			problems by helping you prepare your homebrew and custom data for transfer into an updated 
+			version of PCGen.</p>
 
+		<p class="sidebar1">WARNING: The data syntax for the old version of PCGen may be incorrect 
+			for the new version so before you start up PCGen you should verify your data's compatibility 
+			with the new version of PCGen. You can check with the PCGen community forums to find out what 
+			tools may be available to help you with this task.</p>
+
+<hr>
+		
+		<h2>The Windows Platform</h2>
+
+		<h3>Preparing for the Upgrade</h3>
+		
+		<p class="indent0">Copy the following files to a protected location just in case you need to 
+			restore them after the upgrade.</p>
+		<dl class="indent1">
+			<dt><span class="lstfile">filepaths.ini</span></dt>
+			<dd>This file tells PCGen the location of the other ini files so you can change the 
+				<span class="lstfile">filepaths.ini</span> to point to the folder which 
+				contains the <span class="lstfile">options.ini</span> and 
+				<span class="lstfile">filter.ini</span> that you want to use.</dd>
+			<dt><span class="lstfile">options.ini</span></dt>
+			<dd>This file holds your PCGen Preferences such as file paths so if you are going to 
+				point to your old one you may need to correct various paths to things such as the 
+				location of the output sheets.</dd>
+			<p class="sidebar1">WARNING: Installing a new version of PCGen over an old version may cause the 
+				new version to not run well. If you experience some unexpected behavior after upgrading, please 
+				try deleting the <span class="lstfile">options.ini</span> file, or you may choose to rename it 
+				in order to preserve the file. The <span class="lstfile">options.ini</span> file contains 
+				information on structure and contents that may have changed with the new version, rendering 
+				it useless if different implementations become mixed in the file.</p>
+		
+			<dt><span class="lstfile">filter.ini</span></dt>
+			<dd>This file holds the various filters on each of the tabs. (See the filter button in the docs)</dd>
+			<dt>Custom Datasets</dt>
+				<dd>Custom datasets are datasets that are created and maintained by PCGen through 
+					the use of the PCGen's built-in LST File Editors. If you have used the built-in LST 
+					file editors, these files should be backed up as part of your upgrade preparations. 
+					Once upgrading has been completed, these files can be copied over the new files in 
+					the $PCEGN_HOME/data/customsources folder.</dd>
+			<dt>Homebrew Datasets</dt>
+			<dd>Homebrew datasets are files that are created and maintained by the user and are generally 
+				stored in the $PCGEN_HOME/data/<your campaign> folder. If you have have any homebrew LST 
+				files, these files should be backed up as part of your upgrade preparations. Once upgrading 
+				has been completed, these files can be copied into the new $PCGEN_HOME/data/<your campaign> 
+				folder.</dd>
+			<p class="sidebar1">NOTE: Homebrew LST files copied from older versions of PCGen may contain 
+				obsolete or deprecated tags or tag syntax. This means you may have to review and update 
+				any LST objects contained in such files to the latest standard.</p>
+			<dt>Homebrew Gamemode Files</dt>
+			<dd>If you're using your own gamemode files, you'll need to back-up the <my campaign> gamemode 
+				folder as part of the upgrade preparations. Once upgrading is complete this folder can be 
+				copied into $PCGEN_HOME/system/gamemode folder.</dd>
+			<p class="sidebar1">NOTE: Homebrew LST files copied from older versions of PCGen may contain 
+				obsolete or deprecated tags or tag syntax. This means you may have to review and update 
+				any LST objects contained in such files to the latest standard.</p>
+		</dl>
+
+		<h3>Installing the Upgrade:</h3>
+		
+		<p class="indent1">1. Locate your PCGen directory. e.g. C:\PCGen</p>
+		
+		<p class="indent1">2. Unzip the pcgenXXX_full.zip over your previous PCGen installation.</p>
+
+		<p class="indent1">3. Copy the old <span class="lstfile">*.ini</span> files, custom datasets, 
+			homebrew datasets, and homebrew gamemode files, as required, back to your PCGen directory.</p>
+		<p></p>
+<!--
+<hr>
+
+		<h2>The Macintosh Platform</h2>
+
+		<h4>A Few Important Things to Keep In Mind</h4>
+				
+		<h4>Custom Datasets</h4>
+
+		<h4>Homebrew Datasets</h4>
+
+		<h4>Homebrew Gamemode Files</h4>
+
+		<h4>Installing the Upgrade:</h4>
+
+<hr>
+
+		<h2>The Unix/Linux Platform</h2>
+
+		<h4>A Few Important Things to Keep In Mind</h4>
+				
+		<h4>Custom Datasets</h4>
+
+		<h4>Homebrew Datasets</h4>
+
+		<h4>Homebrew Gamemode Files</h4>
+
+		<h4>Installing the Upgrade:</h4>
+-->
 <hr>
 
 	<p>
