@@ -156,8 +156,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/** List of followers of a type allowed to be selected. */
 	private Map<String, List<FollowerOption>> theAvailableFollowers = null;
 
-	private List<String> weaponProfBonus = null;
-
 	private List<Description> theDescriptions = null;
 	
 	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
@@ -1397,11 +1395,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			retVal.theAvailableFollowers = new HashMap<String, List<FollowerOption>>( theAvailableFollowers );
 		}
 
-		if ( weaponProfBonus != null )
-		{
-			retVal.weaponProfBonus = new ArrayList<String>(weaponProfBonus);
-		}
-		
 		if ( this.theDescriptions != null )
 		{
 			retVal.theDescriptions = new ArrayList<Description>();
@@ -4115,44 +4108,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
-
-	/**
-	 * Clear out the list of bonus weapon proficiency keys that 
-	 * this object will grant to characters. 
-	 */
-	public void clearWeaponProfBonus()
-	{
-		weaponProfBonus = null;
-	}
-
-	/**
-	 * Add an entry to the list of bonus weapon proficiency keys that 
-	 * this object will grant to characters. 
-	 * @param aString The key of the weapon proficiency to be added.
-	 */
-	public void addWeaponProfBonus(final String aString)
-	{
-		if ( weaponProfBonus == null )
-		{
-			weaponProfBonus = new ArrayList<String>();
-		}
-		weaponProfBonus.add( aString );
-	}
-
-	/**
-	 * Get a list of Weapon Proficiency keys that this object will grant to
-	 * characters.
-	 *
-	 * @return a list of weapon proficiency keys
-	 */
-	public List<String> getWeaponProfBonus()
-	{
-		if ( weaponProfBonus == null )
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(weaponProfBonus);
-	}
 
 	/**
 	 * Adds a formula to use to calculate the maximum number of followers of a

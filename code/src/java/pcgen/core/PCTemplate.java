@@ -378,23 +378,6 @@ public final class PCTemplate extends PObject
 				break;
 		}
 
-		if (getWeaponProfBonus().size() > 0)
-		{
-			final StringBuffer buffer = new StringBuffer();
-
-			for (final String profKey : getWeaponProfBonus())
-			{
-				if (buffer.length() != 0)
-				{
-					buffer.append('|');
-				}
-
-				buffer.append(profKey);
-			}
-
-			txt.append("\tWEAPONBONUS:").append(buffer.toString());
-		}
-
 		txt.append(super.getPCCText(false));
 
 		return txt.toString();

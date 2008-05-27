@@ -21,7 +21,10 @@
 package pcgen.core;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.list.WeaponProfList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 
 /**
  * <code>WeaponProf</code>.
@@ -31,6 +34,9 @@ import pcgen.cdom.enumeration.IntegerKey;
  */
 public final class WeaponProf extends PObject implements Comparable<Object>
 {
+	public static final CDOMReference<WeaponProfList> STARTING_LIST = new CDOMDirectSingleRef<WeaponProfList>(
+			new WeaponProfList());
+
 	/**
 	 * Compares keyName only.
 	 * @param o1

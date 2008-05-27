@@ -3062,13 +3062,6 @@ public class PCClass extends PObject
 			checkAdd(pccTxt, "", "SKILLLIST:", classSkillChoices.toString());
 		}
 
-		if (getWeaponProfBonus().size() != 0)
-		{
-			pccTxt.append("\tWEAPONBONUS:");
-			pccTxt.append(StringUtil
-				.join(getWeaponProfBonus(), Constants.PIPE));
-		}
-
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 

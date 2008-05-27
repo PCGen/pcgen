@@ -1044,11 +1044,9 @@ public final class EditorMainForm extends JDialog
 				if (editType == EditorConstants.EDIT_CLASS
 				  || editType == EditorConstants.EDIT_RACE)
 				{
-					thisPObject.clearWeaponProfBonus();
-					for ( int i = 0; i < sel.length; i++ )
-					{
-						thisPObject.addWeaponProfBonus( (String)sel[i] );
-					}
+					thisPObject.removeAllFromList(WeaponProf.STARTING_LIST);
+					Globals.getContext().unconditionallyProcess(thisPObject,
+							"LANGBONUS", EditUtil.delimitArray(sel, ','));
 				}
 			}
 		}
@@ -2042,28 +2040,15 @@ public final class EditorMainForm extends JDialog
 			{
 				moveProfToSelectedList(availableWeaponProfList, selectedWPList, e.next());
 			}
-			Iterator<String> e = null;
-			if (editType == EditorConstants.EDIT_CLASS)
-			{
-				e = ((PCClass) thisPObject).getWeaponProfBonus().iterator();
-			}
-			else if (editType == EditorConstants.EDIT_RACE)
-			{
-				e = ((Race) thisPObject).getWeaponProfBonus().iterator();
-			}
-			else
-			{
-				e = null;
-			}
-
-			if (e != null)
+			Collection<CDOMReference<WeaponProf>> wplist = thisPObject
+					.getListMods(WeaponProf.STARTING_LIST);
+			if (wplist != null)
 			{
 				List<String> selectedWPList2 = new ArrayList<String>();
-
-				while (e.hasNext())
+				for (CDOMReference<WeaponProf> ref : wplist)
 				{
 					moveProfToSelectedList(availableWeaponProfList, selectedWPList2,
-						e.next());
+							ref.getLSTformat());
 				}
 
 				pnlWeapons.setSelectedList2(selectedWPList2, true);

@@ -23,11 +23,17 @@
 package pcgen.core.kit;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.*;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -40,10 +46,12 @@ import java.util.StringTokenizer;
  */
 public final class KitProf extends BaseKit implements Serializable, Cloneable
 {
+	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+
 	// Only change the UID when the serialized form of the class has also changed
 	private static final long serialVersionUID = 1;
 
-	private final List<String> profList = new ArrayList<String>();
+	private final List<CDOMSingleRef<WeaponProf>> profList = new ArrayList<CDOMSingleRef<WeaponProf>>();
 	private boolean racialProf = false;
 
 	// These members store the state of an instance of this class.  They are
@@ -57,21 +65,22 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 	 */
 	public KitProf(final String argProfList)
 	{
-		final StringTokenizer aTok = new StringTokenizer(argProfList, "|");
-
-		while (aTok.hasMoreTokens())
+		StringTokenizer tok = new StringTokenizer(argProfList, Constants.PIPE);
+		LoadContext context = Globals.getContext();
+		while (tok.hasMoreTokens())
 		{
-			profList.add(aTok.nextToken());
+			String tokText = tok.nextToken();
+			CDOMSingleRef<WeaponProf> ref = context.ref.getCDOMReference(
+					WEAPONPROF_CLASS, tokText);
+			if (ref == null)
+			{
+				Logging
+						.errorPrint("  Error was encountered while parsing KitProf.  "
+								+ tokText + " is not a valid WeaponProf");
+				continue;
+			}
+			profList.add(ref);
 		}
-	}
-
-	/**
-	 * Get the proficiency list for this kit
-	 * @return the proficiency list for this kit
-	 */
-	public List<String> getProfList()
-	{
-		return profList;
 	}
 
 	/**
@@ -115,7 +124,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 		ListKey<String> weaponProfKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
 
-		List<String> bonusList = null;
+		Collection<CDOMReference<WeaponProf>> wpBonus = null;
 		if (isRacial())
 		{
 			final Race pcRace = aPC.getRace();
@@ -134,7 +143,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 				return false;
 			}
 			thePObject = pcRace;
-			bonusList = pcRace.getWeaponProfBonus();
+			wpBonus = pcRace.getListMods(WeaponProf.STARTING_LIST);
 		}
 		else
 		{
@@ -151,8 +160,8 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext(); )
 			{
 				pcClass = i.next();
-				bonusList = pcClass.getWeaponProfBonus();
-				if (bonusList != null && bonusList.size() > 0)
+				wpBonus = pcClass.getListMods(WeaponProf.STARTING_LIST);
+				if (wpBonus != null && wpBonus.size() > 0)
 				{
 					break;
 				}
@@ -166,7 +175,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 				return false;
 			}
 		}
-		if ((bonusList == null) || (bonusList.size() == 0))
+		if ((wpBonus == null) || (wpBonus.size() == 0))
 		{
 			warnings.add("PROF: No optional weapon proficiencies");
 
@@ -175,27 +184,25 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 		final List<String> aProfList = new ArrayList<String>();
 
-		for ( String profKey : getProfList() )
+		for ( CDOMSingleRef<WeaponProf> profKey : profList )
 		{
-			if (!bonusList.contains(profKey))
+			WeaponProf wp = profKey.resolvesTo();
+			boolean found = false;
+			for (CDOMReference<WeaponProf> ref : wpBonus)
 			{
-				warnings.add(
-					"PROF: Weapon proficiency \"" + profKey +
-					"\" is not in list of choices");
-				continue;
+				if (ref.contains(wp))
+				{
+					found = true;
+					aProfList.add(wp.getKeyName());
+					break;
+				}
 			}
-
-			final WeaponProf aProf = Globals.getWeaponProfKeyed(profKey);
-
-			if (aProf != null)
+			if (!found)
 			{
-				aProfList.add(profKey);
+				warnings.add("PROF: Weapon proficiency \"" + wp.getKeyName()
+						+ "\" is not in list of choices");
 			}
-			else
-			{
-				warnings.add(
-					"PROF: Non-existant proficiency \"" + profKey + "\"");
-			}
+			
 		}
 
 		int numberOfChoices = getChoiceCount();

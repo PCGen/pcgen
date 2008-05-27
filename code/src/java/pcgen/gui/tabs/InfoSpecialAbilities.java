@@ -37,6 +37,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.SortedSet;
@@ -49,8 +50,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
@@ -58,6 +61,7 @@ import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleConstants;
@@ -265,7 +269,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			if (pcRace != null)
 			{
-				if (pcRace.getWeaponProfBonus().size() != 0)
+				if (pcRace.getListMods(WeaponProf.STARTING_LIST) != null)
 				{
 					bonusCategory.add(pcRace);
 				}
@@ -273,7 +277,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			for (PCClass aClass : pc.getClassList())
 			{
-				if (aClass.getWeaponProfBonus().size() != 0)
+				if (aClass.getListMods(WeaponProf.STARTING_LIST) != null)
 				{
 					bonusCategory.add(aClass);
 				}
@@ -281,7 +285,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			for (PCTemplate aTemplate : pc.getTemplateList())
 			{
-				if (aTemplate.getWeaponProfBonus().size() != 0)
+				if (aTemplate.getListMods(WeaponProf.STARTING_LIST) != null)
 				{
 					bonusCategory.add(aTemplate);
 				}
@@ -748,36 +752,18 @@ public final class InfoSpecialAbilities extends JPanel implements
 				}
 				else
 				{
-					List<String> profWeapons;
-
-					if (profBonusObject instanceof PCClass)
+					if (profBonusObject instanceof PCClass
+							|| profBonusObject instanceof Race
+							|| profBonusObject instanceof PCTemplate)
 					{
-						profWeapons =
-								((PCClass) profBonusObject)
-									.getWeaponProfBonus();
-						((PCClass) profBonusObject).getChoices("WEAPONPROF|1|"
-							+ StringUtil.join(profWeapons, "[WEAPONPROF]|")
-							+ PropertyFactory.getString("in_proficiency"), pc);
-					}
-					else if (profBonusObject instanceof Race)
-					{
-						profWeapons =
-								((Race) profBonusObject).getWeaponProfBonus();
-						((Race) profBonusObject).getChoices("WEAPONPROF|1|"
-							+ StringUtil.join(profWeapons, "[WEAPONPROF]|")
-							+ PropertyFactory.getString("in_proficiency"), pc);
-					}
-					else if (profBonusObject instanceof PCTemplate)
-					{
-						profWeapons =
-								((PCTemplate) profBonusObject)
-									.getWeaponProfBonus();
-						((PCTemplate) profBonusObject).getChoices(
-							"WEAPONPROF|1|"
-								+ StringUtil
-									.join(profWeapons, "[WEAPONPROF]|")
+						PObject po = (PObject) profBonusObject;
+						Collection<CDOMReference<WeaponProf>> wplist = po
+								.getListMods(WeaponProf.STARTING_LIST);
+						po.getChoices("WEAPONPROF|1|"
+								+ ReferenceUtilities.joinLstFormat(wplist,
+										"[WEAPONPROF]|")
 								+ PropertyFactory.getString("in_proficiency"),
-							pc);
+								pc);
 					}
 				}
 
