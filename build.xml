@@ -391,6 +391,18 @@ pcgen.filepaths=user
 		</antcall>
 	</target>
 
+	<target name="build-optimize" depends="compile-optimize, jar, jar-all-plugins, build-extra" description="Do an [incremental] build (compile, jar) with optimization on.">
+		<!-- fix for UNIXen; harmless on Windows -->
+		<copy todir="${basedir}">
+			<fileset dir="${bin.dir}" includes="**/*.jar" />
+			<fileset dir="${bin.dir}" includes="**/*.bat" />
+			<fileset dir="${bin.dir}" includes="**/*.sh" />
+		</copy>
+		<chmod file="pcgen.sh" perm="a+rx" />
+		<chmod file="pcgendev.sh" perm="a+rx" />
+		<echo>Run pcgendev.bat (or pcgendev.sh) to run build.</echo>
+	</target>
+
 	<!-- Deploy PCGen as various archives -->
 	<target name="deploy" depends="jar.src, zip.bins, zip.resources, zip.jars, zip.manual" description="Ship the jars, wars, whatever to the execution system.">
 	</target>
