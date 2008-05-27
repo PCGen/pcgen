@@ -12,7 +12,7 @@
 	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 	Eddy Anthony - eddybaATmindspringDOTcom
 	Terry FitzSimons - fitzsimonsATmintelDOTnet
-	Eric C. Smith - mareduddATblackrootDOTorg
+	Eric C Smith - mareduddATblackrootDOTorg
 
 	Description:
 	Provides information on the content of PCGen Spell Files.
@@ -178,7 +178,7 @@
 		does not otherwise have a spell progression.</p>
 	<p class="indent2"><code>Misdirection.MOD &lt;tab&gt; CLASSES:Circle Walker=2</code></p>
 	<p class="indent3">Indicates this spell is modified to 2nd Level for Circle Walker classes.</p>
-	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent1">Deprecated Syntax:</p>
 	<p class="indent2"><code>CLASSES:.CLEAR</code> replaced by <code>CLASSES:.CLEARALL.</code></p>
 	<p class="indent3">This is done due to the past side-effects between the <code>CLASSES</code> and 
 		<code>DOMAINS</code> tags. Note that any single <code>.CLEAR</code> is equivalent to both 
@@ -202,6 +202,18 @@
 <hr>
 
 	<p class="new">*** Updated</p>
+	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Component Cost)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">This is the cost of the spells components.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>COST:300</code></p>
+	<p class="indent3">This spell's components cost 300 gold.</p>
+	<p></p>
+<!--
+<hr>
+
+	<p class="new">*** Updated</p>
 	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x|y,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Component Cost)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of Class, optional)</p>
@@ -214,7 +226,7 @@
 	<p class="indent3">This spell's components cost 0 for a Druid, 100 for a Cleric and 1000 for everyone
 		else.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="new">*** New 5.11.6</p>
@@ -231,7 +243,7 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.11.13 - Remove 6.0 - Use <a href="../globalfilestagpages/globalfilesother.html#DESCISPI">DESCISPI</a> tag instead.</p>
+	<p class="new">*** Deprecated 5.11.13 - Remove 5.16 - Use <a href="../globalfilestagpages/globalfilesother.html#DESCISPI">DESCISPI</a> tag instead.</p>
 	<p class="indent0"><strong><a name="DESCISPI">Tag Name:</a></strong> DESCISPI:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -284,7 +296,7 @@
 		prestige class.</p>
 	<p class="indent2"><code>Binding.MOD &lt;tab&gt; DOMAINS:Fate=8</code></p>
 	<p class="indent3">Indicates that this is a 8th level spell for the Fate domain.</p>
-	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent1">Deprecated Syntax:</p>
 	<p class="indent2"><code>DOMAINS:.CLEAR</code> replaced by <code>DOMAINS:.CLEARALL.</code></p>
 	<p class="indent3">This is done due to the past side-effects between the <code>CLASSES</code> and 
 		<code>DOMAINS</code> tags. Note that any single <code>.CLEAR</code> is equivalent to both 
@@ -311,13 +323,13 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#DESC">DESC</a> tag instead.</p>
+	<p class="new">*** Deprecated 5.11.11 - Remove 5.16 - Use <a href="#DESC">DESC</a> tag instead.</p>
 	<p class="indent0"><strong><a name="EFFECTS">Tag Name:</a></strong> EFFECTS:x</p>
 	<p></p>
 
 <hr>
 
-	<p class="new">*** Deprecated 5.11.11 - Remove 6.0 - Use <a href="#TARGETAREA">TARGETAREA</a> tag instead.</p>
+	<p class="new">*** Deprecated 5.11.11 - Remove 5.16 - Use <a href="#TARGETAREA">TARGETAREA</a> tag instead.</p>
 	<p class="indent0"><strong><a name="EFFECTTYPE">Tag Name:</a></strong> EFFECTTYPE:x</p>
 	<p></p>
 
@@ -378,7 +390,7 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.6</p>
+	<p class="new">*** Updated 5.7.3*** Updated 5.11.4*** Updated 5.11.13*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="SCHOOL">Tag Name:</a></strong> SCHOOL:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell School Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -394,6 +406,18 @@
 	<p class="indent3">For the Class Channeler of level 7 the spell Summon Monster VII is modified, moving it from whatever schools it was in to just &quot;Greater Conjuration&quot;.</p>
 	<p class="indent2"><code>SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Illusion</code></p>
 	<p class="indent3">This clears the schools list and replaces with &quot;Illusion&quot; schools.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated 5.11.11 - Remove 5.16 - Use <a href="../globalfilestagpages/globalfilesother.html#SPELLLEVEL">SPELLLEVEL</a> tag instead</p>
+	<p class="indent0"><strong><a name="SPELLLEVEL">Tag Name:</a></strong> SPELLLEVEL:CLASS|x|DOMAIN|x</p>
+	<p></p>
+
+<hr>
+
+	<p class="new">*** Deprecated 5.11.11 - Remove 5.16 - Use <a href="#CLASSES">CLASSES</a> or <a href="#DOMAINS">DOMAINS</a> tags instead</p>
+	<p class="indent0"><strong><a name="SPELLLEVELCLASS">Tag Name:</a></strong> SPELLLEVEL:CLASS|x|DOMAIN|x</p>
 	<p></p>
 
 <hr>
@@ -478,7 +502,7 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.13</p>
+	<p class="new">*** New	*** Updated 5.11.13</p>
 	<p class="indent0"><strong><a name="VARIANTS">Tag Name:</a></strong> VARIANTS:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Variant)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -511,8 +535,6 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>XPCOST:1250</code></p>
 	<p class="indent3">Spell costs 1250 Experience points to cast.</p>
-
-<hr>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
