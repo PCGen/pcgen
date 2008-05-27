@@ -48,7 +48,6 @@ public class TokenStore
 		tokenTypeList.add(DomainLstToken.class);
 		tokenTypeList.add(EquipmentLstToken.class);
 		tokenTypeList.add(EquipmentModifierLstToken.class);
-		tokenTypeList.add(LanguageLstToken.class);
 		tokenTypeList.add(RaceLstToken.class);
 		tokenTypeList.add(PCTemplateLstToken.class);
 		tokenTypeList.add(SpellLstToken.class);

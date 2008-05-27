@@ -38,7 +38,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -151,7 +150,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private List<DamageReduction> drList = new ArrayList<DamageReduction>();
 
 	private String chooseLanguageAutos = Constants.EMPTY_STRING;
-	private TreeSet<Language> theBonusLangs = null;
 
 	/** Number of followers of each type allowed */
 	private Map<String, List<String>> followerNumbers = null;
@@ -1399,11 +1397,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			retVal.theAvailableFollowers = new HashMap<String, List<FollowerOption>>( theAvailableFollowers );
 		}
 
-		if ( theBonusLangs != null )
-		{
-			retVal.theBonusLangs = new TreeSet<Language>( theBonusLangs );
-		}
-		
 		if ( weaponProfBonus != null )
 		{
 			retVal.weaponProfBonus = new ArrayList<String>(weaponProfBonus);
@@ -4122,57 +4115,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
-
-	/**
-	 * Get a comma delimited list of the languages a character can choose from
-	 * based upon their Intelligence stat
-	 *
-	 * @return A collection of languages
-	 */
-	public Set<Language> getLanguageBonus()
-	{
-		if ( theBonusLangs == null )
-		{
-			final Set<Language> ret = Collections.emptySet();
-			return Collections.unmodifiableSet( ret );
-		}
-		return Collections.unmodifiableSortedSet(theBonusLangs);
-	}
-
-	/**
-	 * Set a comma delimited list of the languages a character can choose from
-	 * based upon their Intelligence stat
-	 *
-	 * @param  aString A string of langages
-	 */
-	public void setLanguageBonus( final String aString )
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, ",", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String token = aTok.nextToken();
-
-			if (".CLEAR".equals(token))
-			{
-				theBonusLangs = null;
-			}
-			else
-			{
-				if ( theBonusLangs == null )
-				{
-					theBonusLangs = new TreeSet<Language>();
-				}
-				
-				Collection<Language> ll = Globals.getLanguagesFromString(token);
-				
-				if (ll != null)
-				{
-					theBonusLangs.addAll(ll);
-				}
-			}
-		}
-	}
 
 	/**
 	 * Clear out the list of bonus weapon proficiency keys that 

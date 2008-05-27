@@ -341,23 +341,6 @@ public final class PCTemplate extends PObject
 			}
 		}
 
-		if ((getLanguageBonus() != null) && !getLanguageBonus().isEmpty())
-		{
-			final StringBuffer buffer = new StringBuffer();
-
-			for (Language lang : getLanguageBonus())
-			{
-				if (buffer.length() != 0)
-				{
-					buffer.append(',');
-				}
-
-				buffer.append(lang);
-			}
-
-			txt.append("\tLANGBONUS:").append(buffer.toString());
-		}
-
 		final List<String> las = getLevelAbilities();
 		for (final String la : las)
 		{

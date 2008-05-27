@@ -554,23 +554,6 @@ public final class Race extends PObject
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
 		}
 
-		if ((getLanguageBonus() != null) && !getLanguageBonus().isEmpty())
-		{
-			final StringBuffer buffer = new StringBuffer();
-
-			for (Language lang : getLanguageBonus())
-			{
-				if (buffer.length() != 0)
-				{
-					buffer.append(',');
-				}
-
-				buffer.append(lang.toString());
-			}
-
-			txt.append("\tLANGBONUS:").append(buffer.toString());
-		}
-
 		if ((getWeaponProfBonus().size() > 0))
 		{
 			final StringBuffer buffer = new StringBuffer();

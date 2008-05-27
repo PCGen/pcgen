@@ -54,6 +54,8 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -8300,7 +8302,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		templateAutoLanguages.addAll(inTmpl
 			.getSafeListFor(ListKey.AUTO_LANGUAGES));
-		templateLanguages.addAll(inTmpl.getLanguageBonus());
+		addStartingLanguages(inTmpl, templateLanguages);
 		getAutoLanguages();
 		addNaturalWeapons(inTmpl.getNaturalWeapons());
 
@@ -10718,7 +10720,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// of multiple
 		// templates.
 
-		templateLanguages.removeAll(inTmpl.getLanguageBonus());
+		Collection<CDOMReference<Language>> langCollection = inTmpl
+				.getListMods(Language.STARTING_LIST);
+		if (langCollection != null)
+		{
+			for (CDOMReference<Language> ref : langCollection)
+			{
+				templateLanguages.removeAll(ref.getContainedObjects());
+			}
+		}
+
 		removeNaturalWeapons(inTmpl);
 
 		PCTemplate t = this.getTemplateKeyed(inTmpl.getKeyName());
@@ -14947,20 +14958,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Set<Language> getLanguageBonusSelectionList()
 	{
 		Set<Language> languageList = new HashSet<Language>();
-
-		// Race
-		languageList.addAll(race.getLanguageBonus());
-
+		addStartingLanguages(race, languageList);
+		
 		// Templates
 		for (PCTemplate template : templateList)
 		{
-			languageList.addAll(template.getLanguageBonus());
+			addStartingLanguages(template, languageList);
 		}
 
 		// Classes
 		for (PCClass pcClass : classList)
 		{
-			languageList.addAll(pcClass.getLanguageBonus());
+			addStartingLanguages(pcClass, languageList);
 		}
 
 		// Scan for the ALL language and if found replace it with all languages
@@ -14980,6 +14989,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return languageList;
+	}
+
+	private void addStartingLanguages(CDOMObject cdo, Set<Language> languageList)
+	{
+		Collection<CDOMReference<Language>> racemods = cdo
+				.getListMods(Language.STARTING_LIST);
+		if (racemods != null)
+		{
+			for (CDOMReference<Language> ref : racemods)
+			{
+				languageList.addAll(ref.getContainedObjects());
+			}
+		}
 	}
 
 	/**

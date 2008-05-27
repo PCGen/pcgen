@@ -788,10 +788,10 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save bonus languages
 				//
-				thisRace.setLanguageBonus(".CLEAR");
+				thisRace.removeAllFromList(Language.STARTING_LIST);
 				sel = pnlBonusLang.getSelectedList();
 				aString = EditUtil.delimitArray(sel, ',');
-				thisRace.setLanguageBonus(aString);
+				Globals.getContext().unconditionallyProcess(thisRace, "LANGBONUS", aString);
 
 				break;
 
@@ -947,10 +947,10 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save bonus languages
 				//
-				thisPCTemplate.setLanguageBonus(".CLEAR");
+				thisPCTemplate.removeAllFromList(Language.STARTING_LIST);
 				sel = pnlBonusLang.getSelectedList();
 				aString = EditUtil.delimitArray(sel, ',');
-				thisPCTemplate.setLanguageBonus(aString);
+				Globals.getContext().unconditionallyProcess(thisPCTemplate, "LANGBONUS", aString);
 
 				//
 				// Save level and hit dice abilities
@@ -1491,21 +1491,17 @@ public final class EditorMainForm extends JDialog
 				//
 				List<Language> availableRaceLangList = new ArrayList<Language>();
 				List<Language> selectedRaceLangList = new ArrayList<Language>();
-				final Set<Language> langs = thisPObject.getLanguageBonus();
-
-				for (Iterator<Language> e = Globals.getLanguageList().iterator(); e.hasNext();)
+				Collection<CDOMReference<Language>> langCollection = thisPObject
+					.getListMods(Language.STARTING_LIST);
+				if (langCollection != null)
 				{
-					final Language aLang = e.next();
-
-					if (langs.contains(aLang))
+					for (CDOMReference<Language> ref : langCollection)
 					{
-						selectedRaceLangList.add(aLang);
-					}
-					else
-					{
-						availableRaceLangList.add(aLang);
+						selectedRaceLangList.addAll(ref.getContainedObjects());
 					}
 				}
+				availableRaceLangList.addAll(Globals.getLanguageList());
+				availableRaceLangList.removeAll(selectedRaceLangList);
 
 				pnlBonusLang.setAvailableList(availableRaceLangList, true);
 				pnlBonusLang.setSelectedList(selectedRaceLangList, true);
@@ -1934,21 +1930,17 @@ public final class EditorMainForm extends JDialog
 				List<Language> availableBonusLangList = new ArrayList<Language>();
 				List<Language> selectedBonusLangList = new ArrayList<Language>();
 
-				final Set aSet = ((PCTemplate) thisPObject).getLanguageBonus();
-
-				for (Iterator<Language> e = Globals.getLanguageList().iterator(); e.hasNext();)
+				Collection<CDOMReference<Language>> langColl = thisPObject
+					.getListMods(Language.STARTING_LIST);
+				if (langColl != null)
 				{
-					final Language aLang = e.next();
-
-					if (aSet.contains(aLang))
+					for (CDOMReference<Language> ref : langColl)
 					{
-						selectedBonusLangList.add(aLang);
-					}
-					else
-					{
-						availableBonusLangList.add(aLang);
+						selectedBonusLangList.addAll(ref.getContainedObjects());
 					}
 				}
+				availableBonusLangList.addAll(Globals.getLanguageList());
+				availableBonusLangList.removeAll(selectedBonusLangList);
 
 				pnlBonusLang.setAvailableList(availableBonusLangList, true);
 				pnlBonusLang.setSelectedList(selectedBonusLangList, true);

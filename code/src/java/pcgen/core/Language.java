@@ -25,6 +25,10 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.list.LanguageList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+
 
 /**
  * <code>Language</code>.
@@ -34,6 +38,9 @@ package pcgen.core;
  */
 public final class Language extends PObject implements Comparable<Object>
 {
+	public static final CDOMReference<LanguageList> STARTING_LIST = new CDOMDirectSingleRef<LanguageList>(
+			new LanguageList());
+
 	/** Does this language indicate access to all languages. */
 	private boolean isAllLang = false;
 

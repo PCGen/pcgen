@@ -23,10 +23,8 @@
 package pcgen.persistence.lst;
 
 import java.util.Date;
-import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
@@ -66,53 +64,48 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		int col = 0;
+		if (colToken.hasMoreTokens())
+		{
+			lang.setName(colToken.nextToken());
+			lang.setSourceCampaign(source.getCampaign());
+			lang.setSourceURI(source.getURI());
+		}
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(LanguageLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = Constants.EMPTY_STRING;
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
 			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			LanguageLstToken token = (LanguageLstToken) tokenMap.get(key);
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
 
-			if (col == 0)
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(lang, key, value))
 			{
-				lang.setName(colString);
-				lang.setSourceCampaign(source.getCampaign());
-				lang.setSourceURI(source.getURI());
+				Logging.clearParseMessages();
+				context.commit();
 			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, lang, value);
-				if (!token.parse(lang, value))
-				{
-					Logging.errorPrint("Error parsing language "
-						+ lang.getDisplayName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
-				}
-			}
-			else
-			{
-				if (PObjectLoader.parseTag(lang, colString))
-				{
-					continue;
-				}
-				Logging.errorPrint("Unknown tag '" + colString + "' in "
-					+ source.getURI());
-			}
-
-			++col;
+			else if (PObjectLoader.parseTag(lang, token))
+ 			{
+				Logging.clearParseMessages();
+ 				continue;
+ 			}
+ 			else
+ 			{
+				Logging.rewindParseMessages();
+				Logging.replayParsedMessages();
+ 			}
 		}
 
 		completeObject(source, lang);
@@ -145,6 +138,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	{
 		// TODO - Create Globals.addLanguage( final Language aLang )
 		Globals.getLanguageList().add((Language) pObj);
+		Globals.getContext().ref.importObject(pObj);
 	}
 
 	@Override
