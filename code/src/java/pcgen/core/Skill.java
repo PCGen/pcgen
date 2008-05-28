@@ -56,14 +56,6 @@ import pcgen.util.chooser.ChooserInterface;
  */
 public final class Skill extends PObject
 {
-	//constants for Cost Type String
-    /** Cost is CLASS cost */
-	public static final String COST_CLASS = "CLASS";
-    /** Cost is CROSS-CLASS cost */
-    public static final String COST_XCLASS = "CROSS-CLASS";
-    /** Cost is Exclusive cost */
-    public static final String COST_EXCL = "EXCLUSIVE";
-
 	private List<String> rankList = new ArrayList<String>();
 
 	private int outputIndex = 0;
