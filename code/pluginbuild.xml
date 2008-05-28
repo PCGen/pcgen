@@ -3075,13 +3075,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/ClassLstToken-HASSPELLFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/pcclass/HasspellformulaToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/ClassLstToken-HASSUBCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6263,6 +6256,13 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 
 	<target name="jar-deprecated-plugin" depends="manifest" description="Build (Link) plugin jar files">
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-HASSPELLFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/HasspellformulaToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 
 	<target name="manifest" description="Write the Java manifest">

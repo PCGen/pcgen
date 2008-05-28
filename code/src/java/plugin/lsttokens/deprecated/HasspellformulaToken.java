@@ -1,4 +1,4 @@
-package plugin.lsttokens.pcclass;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
