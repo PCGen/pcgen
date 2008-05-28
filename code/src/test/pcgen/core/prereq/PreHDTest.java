@@ -25,6 +25,9 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -73,7 +76,9 @@ public class PreHDTest extends AbstractCharacterTestCase
 	public void testHD() throws Exception
 	{
 		race.setName("Human");
-		race.setSize("M");
+		GameMode gamemode = SettingsHandler.getGame();
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Medium")));
 		race.setHitDice(3);
 		Globals.addRace(race);
 
@@ -123,9 +128,11 @@ public class PreHDTest extends AbstractCharacterTestCase
 		monClass.setName("Humanoid");
 		monClass.setMonsterFlag(true);
 		Globals.getClassList().add(monClass);
+		GameMode gamemode = SettingsHandler.getGame();
 
 		race1.setName("Bugbear");
-		race1.setSize("L");
+		race1.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Large")));
 		race1.setMonsterClass("Humanoid");
 		race1.setMonsterClassLevels(3);
 		Globals.addRace(race1);

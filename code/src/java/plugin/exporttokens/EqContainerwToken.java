@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -391,9 +392,8 @@ public class EqContainerwToken extends Token
 
 		if ((pc != null) && (eq.isNatural()))
 		{
-			retString =
-					Globals.adjustDamage(retString, Globals.sizeInt(pc
-						.getRace().getSize()), pc.sizeInt());
+			retString = Globals.adjustDamage(retString, pc.getRace().getSafe(
+					FormulaKey.SIZE).resolve(pc, "").intValue(), pc.sizeInt());
 		}
 
 		return retString;

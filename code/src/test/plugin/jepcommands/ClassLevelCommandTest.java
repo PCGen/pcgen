@@ -26,9 +26,12 @@ package plugin.jepcommands;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Campaign;
 import pcgen.core.Description;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -76,15 +79,17 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		customCampaign.addDescription(new Description("Unit Test data"));
 
 		// Create the monseter class type
-		SettingsHandler.getGame().addClassType(
+		GameMode gamemode = SettingsHandler.getGame();
+		gamemode.addClassType(
 				"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
-		SettingsHandler.getGame().setSkillMultiplierLevels("4");
+		gamemode.setSkillMultiplierLevels("4");
 
 		// Create the Nymph race
 		nymphRace = new Race();
 		nymphRace.setName("Nymph");
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
-		nymphRace.setSize("M");
+		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Medium")));
 		Globals.addRace(nymphRace);
 
 		// Create the humanoid class

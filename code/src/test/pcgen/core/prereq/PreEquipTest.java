@@ -21,10 +21,14 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Equipment;
+import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -126,7 +130,9 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Test Race");
-		race.setSize("M");
+		GameMode gamemode = SettingsHandler.getGame();
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Medium")));
 
 		character.setRace(race);
 

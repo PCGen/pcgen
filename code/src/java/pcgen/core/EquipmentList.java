@@ -36,6 +36,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -690,7 +691,11 @@ public class EquipmentList {
 
 			for ( final Race race : Globals.getAllRaces() )
 			{
-				final int iSize = Globals.sizeInt(race.getSize());
+				/*
+				 * TODO This has pc == null, which could be a problem
+				 */
+				final int iSize = race.getSafe(
+						FormulaKey.SIZE).resolve(null, "").intValue();
 				final int flag = 1;
 
 				gensizes[iSize] |= flag;

@@ -9,7 +9,9 @@ import java.util.List;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.FollowerOption;
@@ -234,7 +236,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 
 				if (race != null)
 				{
-					sRet = race.getSize();
+					Formula sz = race.get(FormulaKey.SIZE);
+					sRet = sz == null ? "" : sz.toString();
 				}
 
 				break;

@@ -72,7 +72,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -906,7 +908,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 
 			b.appendSpacer();
-			b.appendI18nElement("in_sumSize", aRace.getSize()); //$NON-NLS-1
+			Formula sz = aRace.get(FormulaKey.SIZE);
+			b.appendI18nElement("in_sumSize", sz == null ? "" : sz.toString()); //$NON-NLS-1
 
 			List<Movement> movements = aRace.getMovements();
 			if (movements != null && !movements.isEmpty())

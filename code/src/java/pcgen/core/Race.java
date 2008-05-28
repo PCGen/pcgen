@@ -24,19 +24,24 @@ package pcgen.core;
 
 import java.awt.geom.Point2D;
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import org.apache.commons.lang.math.Fraction;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
@@ -51,26 +56,22 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Race extends PObject
 {
-	private List<String> monCCSkillList = null;
-	private List<String> monCSkillList = null;
-	// TODO - Why do we need a hit point map in the race?
-	private Map<String, Integer> hitPointMap = new HashMap<String, Integer>();
-	private String ageString = Constants.EMPTY_STRING;
-
 	private String favoredClass = Constants.EMPTY_STRING;
 	// TODO - ABILITYOBJECT - Remove this.
 	private String featList = Constants.EMPTY_STRING;
-	private String heightString = Constants.EMPTY_STRING;
 	private String levelAdjustment = "0"; //now a string so that we can handle formulae
-	private String mFeatList = Constants.EMPTY_STRING;
 	private String monsterClass = null;
-	private String size = Constants.EMPTY_STRING;
-	private String weightString = Constants.EMPTY_STRING;
-
+	private int monsterClassLevels = 0;
 	private float CR = 0;
+	
+	/*
+	 * TODO These four items are Deprecated, Default Monster Mode
+	 */
+	private String mFeatList = Constants.EMPTY_STRING;
 	private int hitDice = 0;
 	private int hitDiceSize = 0;
-	private int monsterClassLevels = 0;
+	private Map<String, Integer> hitPointMap = new HashMap<String, Integer>();
+
 
 	/**
 	 * Checks if this race's advancement is limited.
@@ -198,11 +199,6 @@ public final class Race extends PObject
 	{
 		Integer hands = get(IntegerKey.HANDS);
 		return hands == null ? 2 : hands;
-	}
-
-	public void setHeightString(final String aString)
-	{
-		heightString = aString;
 	}
 
 	public void setHitDice(final int newHitDice)
@@ -336,74 +332,6 @@ public final class Race extends PObject
 		return mFeatList;
 	}
 
-	public void setMonCCSkillList(final String aString)
-	{
-		if (monCCSkillList == null)
-		{
-			monCCSkillList = new ArrayList<String>();
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String bString = aTok.nextToken();
-
-			if (".CLEAR".equals(bString))
-			{
-				monCCSkillList.clear();
-			}
-			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
-			{
-				for (Skill skill : Globals.getSkillList())
-				{
-					if (skill.isType(bString.substring(5)))
-					{
-						monCCSkillList.add(skill.getKeyName());
-					}
-				}
-			}
-			else
-			{
-				monCCSkillList.add(bString);
-			}
-		}
-	}
-
-	public void setMonCSkillList(final String aString)
-	{
-		if (monCSkillList == null)
-		{
-			monCSkillList = new ArrayList<String>();
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String bString = aTok.nextToken();
-
-			if (".CLEAR".equals(bString))
-			{
-				monCSkillList.clear();
-			}
-			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
-			{
-				for (Skill skill : Globals.getSkillList())
-				{
-					if (skill.isType(bString.substring(5)))
-					{
-						monCSkillList.add(skill.getKeyName());
-					}
-				}
-			}
-			else
-			{
-				monCSkillList.add(bString);
-			}
-		}
-	}
-
 	public void setMonsterClass(final String string)
 	{
 		monsterClass = string;
@@ -510,7 +438,10 @@ public final class Race extends PObject
 	 */
 	public String getUdam()
 	{
-		final int iSize = Globals.sizeInt(getSize());
+		/*
+		 * TODO This has pc == null, which could be a problem
+		 */
+		final int iSize = getSafe(FormulaKey.SIZE).resolve(null, "").intValue();
 		final SizeAdjustment defAdj =
 				SettingsHandler.getGame().getDefaultSizeAdjustment();
 		final SizeAdjustment sizAdj =
@@ -541,11 +472,6 @@ public final class Race extends PObject
 		if ((favoredClass != null) && (favoredClass.length() > 0))
 		{
 			txt.append("\tFAVCLASS:").append(favoredClass);
-		}
-
-		if ((size != null) && (size.length() > 0))
-		{
-			txt.append("\tSIZE:").append(size);
 		}
 
 		if ((getChooseLanguageAutos() != null)
@@ -683,16 +609,6 @@ public final class Race extends PObject
 		return reach == null ? 5 : reach;
 	}
 
-	public void setSize(final String argSize)
-	{
-		this.size = argSize;
-	}
-
-	public String getSize()
-	{
-		return size;
-	}
-
 	@Override
 	public Race clone()
 	{
@@ -702,11 +618,7 @@ public final class Race extends PObject
 		{
 			aRace = (Race) super.clone();
 			aRace.favoredClass = favoredClass;
-			aRace.size = size;
 
-			aRace.ageString = ageString;
-			aRace.heightString = heightString;
-			aRace.weightString = weightString;
 			aRace.featList = featList;
 			aRace.levelAdjustment = levelAdjustment;
 			aRace.CR = CR;
@@ -869,72 +781,53 @@ public final class Race extends PObject
 		return true;
 	}
 
-	boolean hasMonsterCCSkill(final String aName)
+	boolean hasMonsterCCSkill(Skill s)
 	{
-		if ((monCCSkillList == null) || monCCSkillList.isEmpty())
+		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
+		Collection<CDOMReference<Skill>> mods = getListMods(mList);
+		if (mods == null)
 		{
 			return false;
 		}
-
-		if (monCCSkillList.contains(aName))
+		for (CDOMReference<Skill> ref : mods)
 		{
-			return true;
-		}
-
-		for (String mSkill : monCCSkillList)
-		{
-			if (mSkill.lastIndexOf('%') >= 0)
+			for (AssociatedPrereqObject apo : getListAssociations(mList, ref))
 			{
-				mSkill = mSkill.substring(0, mSkill.length() - 1);
-
-				if (aName.startsWith(mSkill))
+				if (SkillCost.CROSS_CLASS.equals(apo
+						.getAssociation(AssociationKey.SKILL_COST)))
 				{
-					return true;
+					if (ref.contains(s))
+					{
+						return true;
+					}
 				}
 			}
 		}
-
 		return false;
 	}
 
-	boolean hasMonsterCSkill(final String aName)
+	boolean hasMonsterCSkill(Skill s)
 	{
-		if ((monCSkillList == null) || monCSkillList.isEmpty())
+		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
+		Collection<CDOMReference<Skill>> mods = getListMods(mList);
+		if (mods == null)
 		{
 			return false;
 		}
-
-		if (monCSkillList.contains(aName))
+		for (CDOMReference<Skill> ref : mods)
 		{
-			return true;
-		}
-
-		if (monCSkillList.contains("LIST"))
-		{
-			for (int e = 0; e < getAssociatedCount(); ++e)
+			for (AssociatedPrereqObject apo : getListAssociations(mList, ref))
 			{
-				final String aString = getAssociated(e);
-
-				if (aName.startsWith(aString) || aString.startsWith(aName))
+				if (SkillCost.CLASS.equals(apo
+						.getAssociation(AssociationKey.SKILL_COST)))
 				{
-					return true;
+					if (ref.contains(s))
+					{
+						return true;
+					}
 				}
 			}
 		}
-
-		for (String mSkill : monCSkillList)
-		{
-			if (mSkill.lastIndexOf('%') >= 0)
-			{
-				mSkill = mSkill.substring(0, mSkill.length() - 1);
-
-				if (aName.startsWith(mSkill))
-				{
-					return true;
-				}
-			}
-		}
-
 		return false;
 	}
 

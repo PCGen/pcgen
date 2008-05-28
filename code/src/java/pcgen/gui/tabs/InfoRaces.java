@@ -70,6 +70,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -1171,7 +1172,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				return race.getSize();
+				return race.get(FormulaKey.SIZE);
 			}
 			return null;
 		}

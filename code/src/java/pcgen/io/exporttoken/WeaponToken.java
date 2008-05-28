@@ -25,20 +25,27 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.*;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Deal with the WEAPON Token
@@ -2604,7 +2611,8 @@ public class WeaponToken extends Token
 	{
 		if (eq.isMonk() && eq.isUnarmed())
 		{
-			int eqSize = Globals.sizeInt(pc.getRace().getSize());
+			int eqSize = pc.getRace().getSafe(FormulaKey.SIZE).resolve(pc, "")
+					.intValue();
 			int iMod = pc.sizeInt();
 
 			/* This modifies damage (by size) from the default when the race is

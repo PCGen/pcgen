@@ -34,12 +34,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.gui.utils.JComboBoxEx;
@@ -281,10 +285,11 @@ public class RaceBasePanel extends BasePanel
 		return cmbMonsterLevel.getSelectedIndex();
 	}
 
-	public void setRaceSize(final String aString)
+	public void setRaceSize(final Formula f)
 	{
 		cmbSize.setSelectedIndex(0);
 
+		String aString = f.toString();
 		for (int index = 0; index < sizeAbbrev.length; index++)
 		{
 			if (sizeAbbrev[index].equals(aString))
@@ -296,15 +301,17 @@ public class RaceBasePanel extends BasePanel
 		}
 	}
 
-	public String getRaceSize()
+	public SizeAdjustment getRaceSize()
 	{
 		int index = cmbSize.getSelectedIndex();
 
 		if ((index >= 0) && (index < sizeAbbrev.length))
 		{
-			return sizeAbbrev[index];
+			String abb = sizeAbbrev[index];
+			return Globals.getContext().ref.getAbbreviatedObject(
+					SizeAdjustment.class, abb);
 		}
-		return "";
+		return null;
 	}
 
 	public void setReach(final int aNumber)
@@ -367,7 +374,7 @@ public class RaceBasePanel extends BasePanel
 		thisRace.setLevelAdjustment(getLevelAdjustment());
 		thisRace.setMonsterClass(getMonsterClass());
 		thisRace.setMonsterClassLevels(getMonsterLevel());
-		thisRace.setSize(getRaceSize());
+		thisRace.put(FormulaKey.SIZE, new FixedSizeFormula(getRaceSize()));
 		thisRace.put(IntegerKey.REACH, getReach());
 		thisRace.put(IntegerKey.INITIAL_SKILL_MULT, getSkillMultiplier());
 		thisRace.setHitDice(getHitDiceNumber());
@@ -452,7 +459,7 @@ public class RaceBasePanel extends BasePanel
 		setLevelAdjustment(thisRace.getLevelAdjustmentFormula());
 		setMonsterClass(thisRace.getMonsterClass(null, false));
 		setMonsterLevel(thisRace.getMonsterClassLevels(null, false));
-		setRaceSize(thisRace.getSize());
+		setRaceSize(thisRace.get(FormulaKey.SIZE));
 		setReach(thisRace.getReach());
 		setSkillMultiplier(thisRace.getInitialSkillMultiplier());
 		setHitDiceNumber(thisRace.hitDice(null, false));

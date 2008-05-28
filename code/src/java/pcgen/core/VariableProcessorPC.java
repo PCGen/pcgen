@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.character.Follower;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -655,7 +656,8 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("RACESIZE".equals(valString))
 		{
-			valString = String.valueOf(Globals.sizeInt(getPc().getRace().getSize()));
+			valString = getPc().getRace().getSafe(
+					FormulaKey.SIZE).resolve(getPc(), "").toString();
 		}
 		else if ("ENCUMBERANCE".equals(valString))
 		{

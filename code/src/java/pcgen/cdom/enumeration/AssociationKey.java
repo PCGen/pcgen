@@ -48,6 +48,8 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<String> TOKEN = new AssociationKey<String>();
 
+	public static final AssociationKey<SkillCost> SKILL_COST = new AssociationKey<SkillCost>();
+
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
 	private AssociationKey()

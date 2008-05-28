@@ -22,14 +22,14 @@ package pcgen.gui.filter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -2461,7 +2461,8 @@ final class SizeFilter extends AbstractPObjectFilter
 		}
 		else if (pObject instanceof Race)
 		{
-			final String aRaceSize = ((Race) pObject).getSize();
+			Formula sz = pObject.get(FormulaKey.SIZE);
+			final String aRaceSize = sz == null ? "" : sz.toString();
 
 			return aRaceSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getAbbreviation())
 			|| aRaceSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getDisplayName());

@@ -4508,7 +4508,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (race != null)
 		{
 			// get the base size for the race
-			iSize = Globals.sizeInt(race.getSize());
+			iSize = race.getSafe(FormulaKey.SIZE).resolve(this, "").intValue();
 
 			// now check and see if a template has set the
 			// size of the character in question

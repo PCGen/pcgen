@@ -25,15 +25,16 @@
  */
 package plugin.exporttokens;
 
+import java.math.BigDecimal;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
-
-import java.math.BigDecimal;
-import java.util.StringTokenizer;
 
 /**
  * Deal with EQCONTAINER Token
@@ -391,8 +392,8 @@ public class EqContainerToken extends Token
 		if ((pc != null) && (eq.isNatural()))
 		{
 			retString =
-					Globals.adjustDamage(retString, Globals.sizeInt(pc
-						.getRace().getSize()), pc.sizeInt());
+					Globals.adjustDamage(retString, pc.getRace().getSafe(
+					FormulaKey.SIZE).resolve(pc, "").intValue(), pc.sizeInt());
 		}
 
 		return retString;

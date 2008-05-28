@@ -27,6 +27,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -219,7 +220,9 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		super.setUp();
 
 		race.setName("Human");
-		race.setSize("M");
+		GameMode gamemode = SettingsHandler.getGame();
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Medium")));
 		Globals.addRace(race);
 		
 		template.put(FormulaKey.SIZE, new FixedSizeFormula(SettingsHandler.getGame().getSizeAdjustmentNamed("L")));

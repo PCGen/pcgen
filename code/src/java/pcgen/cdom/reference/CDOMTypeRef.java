@@ -68,7 +68,7 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	{
 		if (o instanceof CDOMTypeRef)
 		{
-			CDOMTypeRef<?> ref = (CDOMTypeRef) o;
+			CDOMTypeRef<?> ref = (CDOMTypeRef<?>) o;
 			return getReferenceClass().equals(ref.getReferenceClass())
 				&& getName().equals(ref.getName())
 				&& Arrays.deepEquals(types, ref.types);

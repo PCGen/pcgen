@@ -306,4 +306,6 @@ public interface Constants
 	String LST_DOT_CLEAR_DOT = ".CLEAR.";
 	String ALLREF_LST = "ANY";
 	String DOT = ".";
+	String LST_LIST = "LIST";
+	String LST_PATTERN = "%";
 }

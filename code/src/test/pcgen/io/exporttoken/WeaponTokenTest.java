@@ -29,10 +29,12 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -97,6 +99,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		GameMode gamemode = SettingsHandler.getGame();
 		PlayerCharacter character = getCharacter();
 
 		//Stats
@@ -119,7 +122,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Race testRace = new Race();
 		testRace.setName("TestRace");
 		testRace.setKeyName("KEY_TEST_RACE");
-		testRace.setSize("M");
+		testRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Medium")));
 		character.setRace(testRace);
 
 		// Class

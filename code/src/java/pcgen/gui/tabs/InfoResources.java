@@ -73,7 +73,9 @@ import javax.swing.table.TableColumn;
 import javax.swing.text.Position.Bias;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Equipment;
@@ -1181,12 +1183,17 @@ public class InfoResources extends FilterAdapterPanel implements
 			final InfoLabelTextBuilder b =
 					new InfoLabelTextBuilder(aRace.getDisplayName());
 			b.append(": "); //$NON-NLS-1$
-			final SizeAdjustment sadj =
-					SettingsHandler.getGame().getSizeAdjustmentNamed(
-						aRace.getSize());
-			if (sadj != null)
+			Formula sz = aRace.get(FormulaKey.SIZE);
+			if (sz != null)
 			{
-				b.append(sadj.getDisplayName());
+				String str = sz.toString();
+				final SizeAdjustment sadj = SettingsHandler.getGame()
+						.getSizeAdjustmentNamed(str);
+				if (sadj != null)
+				{
+					str = sadj.getDisplayName();
+				}
+				b.append(str);
 			}
 			RaceType rt = aRace.get(ObjectKey.RACETYPE);
 			if (rt != null)

@@ -38,8 +38,10 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -780,9 +782,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		}
 
 		// Create the monseter class type
-		SettingsHandler.getGame().addClassType(
+		GameMode gamemode = SettingsHandler.getGame();
+		gamemode.addClassType(
 			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
-		SettingsHandler.getGame().setSkillMultiplierLevels("4");
+		gamemode.setSkillMultiplierLevels("4");
 
 		// Create the humanoid class
 		String classDef =
@@ -790,13 +793,14 @@ public class PCClassTest extends AbstractCharacterTestCase
 					+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
 					+ "MONNONSKILLHD:2|PRESIZEEQ:L";
 		PCClassLoader classLoader = new PCClassLoader();
-		humanoidClass = classLoader.parseLine(Globals.getContext(), null, classDef, source);
+		LoadContext context = Globals.getContext();
+		humanoidClass = classLoader.parseLine(context, null, classDef, source);
 		Globals.getClassList().add(humanoidClass);
 
 		classDef =
 				"CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
-		nymphClass = classLoader.parseLine(Globals.getContext(), null, classDef, source);
+		nymphClass = classLoader.parseLine(context, null, classDef, source);
 		Globals.getClassList().add(nymphClass);
 
 		// Create the large size mod
@@ -804,13 +808,14 @@ public class PCClassTest extends AbstractCharacterTestCase
 		sizeL.setName("Large");
 		sizeL.setAbbreviation("L");
 		sizeL.setIsDefaultSize(false);
-		SettingsHandler.getGame().addToSizeAdjustmentList(sizeL);
+		gamemode.addToSizeAdjustmentList(sizeL);
 
 		// Create the BugBear race
 		bugbearRace = new Race();
 		bugbearRace.setName("Bugbear");
 		bugbearRace.setKeyName("KEY_Bugbear");
-		bugbearRace.setSize("M");
+		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Medium")));
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
 		Globals.addRace(bugbearRace);
@@ -818,7 +823,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
 		bigBugbearRace.setKeyName("KEY_BigBugbear");
-		bigBugbearRace.setSize("L");
+		bigBugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Large")));
 		bigBugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bigBugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
 		Globals.addRace(bigBugbearRace);
@@ -827,7 +833,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nymphRace = new Race();
 		nymphRace.setName("Nymph");
 		nymphRace.setKeyName("KEY_Nymph");
-		nymphRace.setSize("M");
+		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
+				.getSizeAdjustmentNamed("Medium")));
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		nymphRace.setMonsterClass(nymphClass.getKeyName());
 		Globals.addRace(nymphRace);
@@ -838,7 +845,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		classPreRule = new RuleCheck();
 		classPreRule.setName("CLASSPRE");
 		classPreRule.setDefault("N");
-		GameMode gameMode = SettingsHandler.getGame();
+		GameMode gameMode = gamemode;
 		gameMode.addRule(classPreRule);
 
 		prClass = new PCClass();

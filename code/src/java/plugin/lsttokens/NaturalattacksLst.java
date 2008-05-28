@@ -77,7 +77,7 @@ public class NaturalattacksLst implements GlobalLstToken
 		// - their unarmed stuff won't be affected.
 		String aSize = "M";
 
-		if (obj instanceof PCTemplate)
+		if (obj instanceof PCTemplate || obj instanceof Race)
 		{
 			/*
 			 * TODO This is actually broken - This is accidentally(?) order
@@ -91,10 +91,6 @@ public class NaturalattacksLst implements GlobalLstToken
 			{
 				aSize = f.toString();
 			}
-		}
-		else if (obj instanceof Race)
-		{
-			aSize = ((Race) obj).getSize();
 		}
 
 		if (aSize == null)

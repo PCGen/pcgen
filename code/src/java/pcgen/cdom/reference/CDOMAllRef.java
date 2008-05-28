@@ -61,7 +61,7 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	public boolean equals(Object o)
 	{
 		return o instanceof CDOMAllRef
-			&& getReferenceClass().equals(((CDOMAllRef) o).getReferenceClass());
+			&& getReferenceClass().equals(((CDOMAllRef<?>) o).getReferenceClass());
 	}
 
 	@Override

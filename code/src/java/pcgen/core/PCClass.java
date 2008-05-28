@@ -43,11 +43,13 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -86,6 +88,10 @@ import pcgen.util.enumeration.VisionType;
  */
 public class PCClass extends PObject
 {
+
+	public static final CDOMReference<ClassSkillList> MONSTER_SKILL_LIST = new CDOMDirectSingleRef<ClassSkillList>(
+			new ClassSkillList());
+
 	public static final int NO_LEVEL_LIMIT = -1;
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS = CDOMDirectSingleRef
@@ -5434,7 +5440,8 @@ public class PCClass extends PObject
 	private static int getExtraHD(final PlayerCharacter aPC, final int hdTotal)
 	{
 		// Determine the EHD modifier based on the size category
-		final int sizeInt = Globals.sizeInt(aPC.getRace().getSize());
+		final int sizeInt = aPC.getRace().getSafe(
+				FormulaKey.SIZE).resolve(aPC, "").intValue();
 		final int ehdMod;
 
 		switch (sizeInt)

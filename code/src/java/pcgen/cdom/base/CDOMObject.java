@@ -449,4 +449,5 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	public abstract boolean isType(String str);
+
 }

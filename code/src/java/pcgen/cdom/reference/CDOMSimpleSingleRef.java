@@ -72,7 +72,7 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 	{
 		if (o instanceof CDOMSimpleSingleRef)
 		{
-			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef) o;
+			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef<?>) o;
 			return getReferenceClass().equals(ref.getReferenceClass())
 				&& getName().equals(ref.getName());
 		}

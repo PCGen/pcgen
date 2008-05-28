@@ -136,5 +136,6 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 	{
 		// TODO - Create Globals.addSkill(pObj);
 		Globals.getSkillList().add((Skill) pObj);
+		Globals.getContext().ref.importObject(pObj);
 	}
 }

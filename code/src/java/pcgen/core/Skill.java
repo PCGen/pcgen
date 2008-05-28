@@ -124,7 +124,7 @@ public final class Skill extends PObject
 
 		if (aClass.isMonster())
 		{
-			if (aPC.getRace().hasMonsterCSkill(keyName))
+			if (aPC.getRace().hasMonsterCSkill(this))
 			{
 				return true;
 			}
@@ -1052,7 +1052,7 @@ public final class Skill extends PObject
 
 		if (aClass.isMonster())
 		{
-			if (aPC.getRace().hasMonsterCCSkill(keyName))
+			if (aPC.getRace().hasMonsterCCSkill(this))
 			{
 				return true;
 			}
