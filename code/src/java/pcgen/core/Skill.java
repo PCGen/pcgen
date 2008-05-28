@@ -34,6 +34,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -62,8 +63,6 @@ public final class Skill extends PObject
     public static final String COST_XCLASS = "CROSS-CLASS";
     /** Cost is Exclusive cost */
     public static final String COST_EXCL = "EXCLUSIVE";
-
-	private static final String COST_UNK = "UNKNOWN";
 
 	private List<String> rankList = new ArrayList<String>();
 
@@ -323,24 +322,24 @@ public final class Skill extends PObject
      * @param aPC
      * @return CLASS, CROSS-CLASS or Exclusive
 	 */
-    public String getSkillCostType(final PCClass aClass, final PlayerCharacter aPC)
+    public SkillCost getSkillCostType(final PCClass aClass, final PlayerCharacter aPC)
 	{
 		// This is dippy!  So if the user sets costs to something non-standard, the matching no longer works.  XXX
 		// isCrossClassSkill() doesn't appear to work, so just go by actual cost values
 		if (costForPCClass(aClass, aPC) == Globals.getGameModeSkillCost_Class())
 		{
-			return COST_CLASS;
+			return SkillCost.CLASS;
 		}
 		else if (costForPCClass(aClass, aPC) == Globals.getGameModeSkillCost_CrossClass())
 		{
-			return COST_XCLASS;
+			return SkillCost.CROSS_CLASS;
 		}
 		else if (isExclusive())
 		{
-			return COST_EXCL;
+			return SkillCost.EXCLUSIVE;
 		}
 
-		return COST_UNK;
+		return null;
 	}
 
     /**

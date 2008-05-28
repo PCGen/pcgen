@@ -20,6 +20,7 @@
  */
 package pcgen.gui;
 
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -37,7 +38,8 @@ public final class InfoSkillsSorters
 {
 	private static boolean costsMatch(PObjectNode node, Skill skill, InfoSkills tab)
 	{
-		return node.toString().equals(skill.getSkillCostType(tab.getSelectedPCClass(), tab.getPc()));
+		return node.getItem().equals(
+				skill.getSkillCostType(tab.getSelectedPCClass(), tab.getPc()));
 	}
 
 	private static boolean keystatsMatch(PObjectNode node, Skill skill)
@@ -135,7 +137,7 @@ public final class InfoSkillsSorters
 
 		public Object whatPart(boolean available, Skill skill, PlayerCharacter pc)
 		{
-			final String[] costs = { Skill.COST_CLASS, Skill.COST_XCLASS, Skill.COST_EXCL };
+			final SkillCost[] costs = { SkillCost.CLASS, SkillCost.CROSS_CLASS, SkillCost.EXCLUSIVE};
 
 			return costs[n++];
 		}
