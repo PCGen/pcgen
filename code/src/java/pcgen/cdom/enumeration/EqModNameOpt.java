@@ -163,7 +163,13 @@ public enum EqModNameOpt
 		{
 			buildMap();
 		}
-		return typeMap.get(s);
+		EqModNameOpt eqmno = typeMap.get(s);
+		if (eqmno == null)
+		{
+			throw new IllegalArgumentException(s
+					+ " is not a valid EqModNameOpt");
+		}
+		return eqmno;
 	}
 	
 	private static CaseInsensitiveMap<EqModNameOpt> typeMap = null;
@@ -188,7 +194,7 @@ public enum EqModNameOpt
 				try
 				{
 					Object o = f.get(null);
-					if (cl.equals(o.getClass()))
+					if (cl.isAssignableFrom(o.getClass()))
 					{
 						EqModNameOpt tObj = cl.cast(o);
 						if (typeMap.containsKey(name))
