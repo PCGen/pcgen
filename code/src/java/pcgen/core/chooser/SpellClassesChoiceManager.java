@@ -25,7 +25,7 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -67,7 +67,7 @@ public class SpellClassesChoiceManager extends AbstractBasicStringChoiceManager 
 
 		for ( PCClass pcClass : aPc.getClassList() )
 		{
-			if (!pcClass.getSpellBaseStat().equals(Constants.s_NONE))
+			if (pcClass.get(ObjectKey.USE_SPELL_SPELL_STAT) != null)
 			{
 				availableList.add(pcClass.getKeyName());
 			}

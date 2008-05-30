@@ -55,36 +55,10 @@ public class SpellProgressionInfoTest extends TestCase
 		assertTrue(spi.memorizesSpells());
 		spi.setMemorizeSpells(false);
 		assertFalse(spi.memorizesSpells());
-		// Defaults to false
-		assertFalse(spi.usesSpellBook());
-		spi.setSpellBookUsed(true);
-		assertTrue(spi.usesSpellBook());
 	}
 
 	public void testBaseStats()
 	{
-		try
-		{
-			spi.setSpellBaseStatAbbr("");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
-			spi.setSpellBaseStatAbbr(" ");
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		assertEquals(Constants.s_NONE, spi.getSpellBaseStatAbbr());
-		spi.setSpellBaseStatAbbr("INT");
-		assertEquals("INT", spi.getSpellBaseStatAbbr());
-
 		// Bonus
 		try
 		{

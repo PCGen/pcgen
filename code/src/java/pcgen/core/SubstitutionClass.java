@@ -45,7 +45,6 @@ public final class SubstitutionClass extends PCClass
 	public SubstitutionClass()
 	{
 		setKnownSpellsFromSpecialty(0);
-		setSpellBaseStat(null);
 	}
 
 	/**

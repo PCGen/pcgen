@@ -1218,7 +1218,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				return Integer.valueOf(race.getLevelAdjustment(getPc()));
+				return race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(getPc(), "");
 			}
 			return null;
 		}

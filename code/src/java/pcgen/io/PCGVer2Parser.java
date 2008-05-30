@@ -1888,14 +1888,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				final String spellBase =
 						EntityEncoder.decode(element.getText());
-
-				if ((SettingsHandler.getGame().getStatFromAbbrev(
-					spellBase.toUpperCase()) > -1)
-					|| Constants.s_NONE.equalsIgnoreCase(spellBase)
-					|| "Any".equalsIgnoreCase(spellBase) //$NON-NLS-1$
-					|| TAG_SPELL.equalsIgnoreCase(spellBase))
+				if (!Constants.s_NONE.equals(spellBase))
 				{
-					aPCClass.setSpellBaseStat(spellBase);
+					Globals.getContext().unconditionallyProcess(aPCClass, "SPELLSTAT", spellBase);
 				}
 			}
 			else if (TAG_PROHIBITED.equals(tag))

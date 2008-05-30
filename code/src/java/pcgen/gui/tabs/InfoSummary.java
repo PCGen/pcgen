@@ -76,6 +76,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
@@ -947,10 +948,11 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				b.appendI18nElement("in_sumFavoredClass", favClassName); //$NON-NLS-1
 			}
 
-			if (aRace.getLevelAdjustment(pc) > 0)
+			Number la = aRace.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(pc, "");
+			if (la.floatValue() > 0)
 			{
 				b.appendSpacer();
-				b.appendI18nElement("in_sumLevelAdj", String.valueOf(aRace.getLevelAdjustment(pc))); //$NON-NLS-1
+				b.appendI18nElement("in_sumLevelAdj", la.toString()); //$NON-NLS-1
 			}
 
 			String bString = aRace.getDefaultSourceString();

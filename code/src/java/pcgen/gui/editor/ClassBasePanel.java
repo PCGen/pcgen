@@ -22,9 +22,23 @@
  */
 package pcgen.gui.editor;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -34,16 +48,6 @@ import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
-
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <code>ClassBasePanel</code>
@@ -111,7 +115,12 @@ class ClassBasePanel extends BasePanel
 		obj.setAbbrev(abbreviation.getText().trim());
 		obj.setLevelExchange(exchangeLevel.getText().trim());
 //		obj.setSkillPoints(Integer.parseInt(startSkillPoints.getText().trim()));
-		obj.setSkillPointFormula(startSkillPoints.getText().trim());
+		String form = startSkillPoints.getText().trim();
+		if (form.length() > 0)
+		{
+			Formula f = FormulaFactory.getFormulaFor(form);
+			obj.put(FormulaKey.START_SKILL_POINTS, f);
+		}
 		obj.clearQualify();
 		if (qualify.getText().trim().length() > 0)
 		{
@@ -190,8 +199,8 @@ class ClassBasePanel extends BasePanel
 		txtDisplayName.setText(obj.getOutputName());
 		abbreviation.setText(obj.getAbbrev());
 		exchangeLevel.setText(obj.getLevelExchange());
-//		startSkillPoints.setText(String.valueOf(obj.getSkillPoints()));
-		startSkillPoints.setText(obj.getSkillPointFormula());
+		Formula spf = obj.get(FormulaKey.START_SKILL_POINTS);
+		startSkillPoints.setText(spf == null ? "" : spf.toString());
 		DoubleKeyMap<Class, String, List<String>> dkm = obj.getQualifyMap();
 		if (dkm != null)
 		{

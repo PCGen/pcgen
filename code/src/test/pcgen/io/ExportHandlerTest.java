@@ -32,6 +32,8 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -119,7 +121,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		// Class
 		PCClass myClass = new PCClass();
 		myClass.setName("My Class");
-		myClass.setSkillPointFormula("3");
+		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		character.incrementClassLevel(5, myClass, true);
 
 		ClassSkillList csl = new ClassSkillList();

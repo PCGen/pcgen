@@ -1,13 +1,17 @@
 package plugin.encounter;
 
 import gmgen.io.ReadXML;
+
+import java.io.File;
+import java.lang.reflect.Array;
+
+import javax.swing.DefaultListModel;
+
+import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-
-import javax.swing.DefaultListModel;
-import java.io.File;
-import java.lang.reflect.Array;
 
 /**
  * This <code>class</code> holds all the necessary data in order to have
@@ -58,15 +62,14 @@ public class EncounterModel extends DefaultListModel
 		for (i = 0; i < size(); i++)
 		{
 			Race aRace = Globals.getRaceKeyed((String) elementAt(i));
-			float curCR = aRace.getCR();
-
-			if (curCR < 0)
+			ChallengeRating rcr = aRace.get(ObjectKey.CHALLENGE_RATING);
+			if (rcr != null)
 			{
-				curCR *= -1;
-				curCR = 1 / curCR;
+				/*
+				 * TODO null may be a problem here?
+				 */
+				cr += mCRtoPL(rcr.getRating().resolve(null, "").floatValue());
 			}
-
-			cr += mCRtoPL(curCR);
 		}
 
 		cr = mPLtoCR(cr);

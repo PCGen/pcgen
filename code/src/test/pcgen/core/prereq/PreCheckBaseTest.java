@@ -25,6 +25,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -143,7 +145,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 
 		myClass.setName("My Class");
 		myClass.setAbbrev("Myc");
-		myClass.setSkillPointFormula("3");
+		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj fortRefBonus =
 				Bonus.newBonus("1|CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
 		myClass.addBonusList(fortRefBonus);

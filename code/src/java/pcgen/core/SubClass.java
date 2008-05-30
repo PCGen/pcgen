@@ -56,7 +56,6 @@ public final class SubClass extends PCClass
 	public SubClass()
 	{
 		setKnownSpellsFromSpecialty(0);
-		setSpellBaseStat(null);
 	}
 
 	/**

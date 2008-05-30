@@ -24,6 +24,7 @@
 package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -62,8 +63,8 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		arcaneClass.setName("TestArcane");
 		arcaneClass.setAbbrev("TA");
 		arcaneClass.setSpellType("ARCANE");
-		arcaneClass.setSpellBaseStat("CHA");
-		arcaneClass.setSpellBookUsed(false);
+		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
+		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.setMemorizeSpells(false);
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1");
@@ -77,8 +78,8 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		divineClass.setName("TestDivine");
 		divineClass.setAbbrev("TD");
 		divineClass.setSpellType("DIVINE");
-		divineClass.setSpellBaseStat("WIS");
-		divineClass.setSpellBookUsed(false);
+		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
+		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.setMemorizeSpells(true);
 		context.unconditionallyProcess(divineClass.getClassLevel(3), "CAST", "3,1,0");
 		Globals.getClassList().add(divineClass);
@@ -87,8 +88,8 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		psionicClass.setName("TestPsion");
 		psionicClass.setAbbrev("TP");
 		psionicClass.setSpellType("PSIONIC");
-		psionicClass.setSpellBaseStat("CHA");
-		psionicClass.setSpellBookUsed(false);
+		context.unconditionallyProcess(psionicClass, "SPELLSTAT", "CHA");
+		psionicClass.put(ObjectKey.SPELLBOOK, false);
 		psionicClass.setMemorizeSpells(false);
 		context.unconditionallyProcess(psionicClass.getClassLevel(1), "KNOWN", "0,3");
 		context.unconditionallyProcess(psionicClass.getClassLevel(2), "KNOWN", "0,5");

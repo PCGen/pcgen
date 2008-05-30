@@ -25,6 +25,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -234,7 +236,7 @@ public class PreLevelTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.setKeyName("MY_CLASS");
 		myClass.setAbbrev("Myc");
-		myClass.setSkillPointFormula("3");
+		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		Globals.getClassList().add(myClass);
 	}
 }

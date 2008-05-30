@@ -57,6 +57,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
@@ -532,10 +533,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		int baseSpellStat = 0;
-		final String statString = aClass.getSpellBaseStat();
+		PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
 
-		if (!statString.equals(Constants.s_NONE))
+		if (ss != null)
 		{
+			String statString = ss.getAbb();
 			final int statIndex = getStatList().getIndexOfStatFor(statString);
 			if (statIndex >= 0)
 			{
@@ -5830,7 +5832,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int getLevelAdjustment(final PlayerCharacter aPC)
 	{
-		int levelAdj = race.getLevelAdjustment(aPC);
+		int levelAdj = race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(aPC,
+				"").intValue();
 
 		for (PCTemplate template : templateList)
 		{
@@ -8890,7 +8893,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Calculate and add the CR from race
-		final float raceCR = race.getCR();
+		ChallengeRating cr = race.get(ObjectKey.CHALLENGE_RATING);
+		final float raceCR = cr == null ? 0.0f : cr.getRating().resolve(this, "").floatValue();
 		// If the total CR to date is 0 then add race CR, e.g.  A Lizard has CR of 1/2
 		if (CR == 0)
 		{
@@ -14218,7 +14222,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// If not importing, add extra feats
 				if (!isImporting() && classList.isEmpty())
 				{
-					adjustFeats(pcClassClone.getInitialFeats());
+					Integer sf = pcClassClone.get(IntegerKey.START_FEATS);
+					if (sf != null)
+					{
+						adjustFeats(sf);
+					}
 				}
 
 				// Add the class to the character classes as level 0

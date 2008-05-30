@@ -56,23 +56,6 @@ public class SpellProgressionInfo implements Cloneable {
 	private String spellType = null;
 
 	/*
-	 * FUTURETYPESAFETY If this really is a Base stat, then this should be
-	 * storing that Stat in a type safe form.... which is a really great idea,
-	 * except for the fact that PCStat actually is SPECIFIC to the
-	 * PlayerCharacter, is cloned as a result, and therefore, storing a PCStat
-	 * here doesn't store the PCStat from the PlayerCharacter, and is therefore
-	 * wrong. Fixing this has a prerequisite of actually 'fixing' PCStat to also
-	 * be Involatile.
-	 */
-	/**
-	 * This is the abbreviation of the base PCStat used to the attribute on
-	 * which a Spell caster casts spells. It may also indicate the attribute
-	 * used to determine bonus spells, if bonusSpellBaseStatAbbr is set to
-	 * DEFAULT
-	 */
-	private String spellBaseStatAbbr = Constants.s_NONE;
-
-	/*
 	 * FUTURETYPESAFETY This should really be storing a PCStat or something else
 	 * that is type safe, not simply a String.... which is a really great idea,
 	 * except for the fact that PCStat actually is SPECIFIC to the
@@ -114,20 +97,6 @@ public class SpellProgressionInfo implements Cloneable {
 	 * Indicates if this Spell Progression represents memorized spells.
 	 */
 	private boolean memorizeSpells = true;
-
-	/*
-	 * CONSIDER This gets VERY interesting as far as prerequisite checking.
-	 * There is a PRESPELLBOOKTESTER tag (or some such) that tests how many
-	 * classes the character has that memorizes spells. That test gets MUCH more
-	 * complicated in a PCClassLevel world, since there will be multiple
-	 * PCClassLevels that use a spell book; all of which will use the same
-	 * PCClass as a base (therefore does the PREREQ need to keep track of the
-	 * matching keys?)
-	 */
-	/**
-	 * Indicates if this SpellProgression is associated with using a Spell Book
-	 */
-	private boolean usesSpellBook = false;
 
 	/**
 	 * Indicates the number of KNOWN spells from a Specialty (such as a
@@ -187,59 +156,6 @@ public class SpellProgressionInfo implements Cloneable {
 	 */
 	public boolean memorizesSpells() {
 		return memorizeSpells;
-	}
-
-	/**
-	 * Used to indicate if the spells in this SpellProgression use spell books.
-	 * 
-	 * @param usesBook
-	 *            true if the spells in this SpellProgression use spell books;
-	 *            false otherwise.
-	 */
-	public void setSpellBookUsed(boolean usesBook) {
-		usesSpellBook = usesBook;
-	}
-
-	/**
-	 * Returns true if the spells in this SpellProgression use spell books.
-	 * 
-	 * @return true if the spells in this SpellProgression use spell books;
-	 *         false otherwise.
-	 */
-	public boolean usesSpellBook() {
-		return usesSpellBook;
-	}
-
-	/**
-	 * Sets the Base Spell Stat (using the Stat's abbreviation)
-	 * 
-	 * @param baseStat
-	 *            The abbreviation of the Stat to be used as the base spell stat
-	 *            for this SpellProgression.
-	 */
-	public void setSpellBaseStatAbbr(String baseStat) {
-		/*
-		 * CONSIDER This null test today CANNOT be performed, because a null set
-		 * is AUTOMATICALLY performed by a SubClass or SubstitutionClass. - thpr
-		 * 11/9/06
-		 * 
-		 * if (baseStat == null) { throw new IllegalArgumentException("Cannot
-		 * set Spell Base Stat to null"); }
-		 */
-		if (baseStat != null && baseStat.trim().length() == 0) {
-			throw new IllegalArgumentException(
-					"Cannot set Spell Base Stat to an empty String.");
-		}
-		spellBaseStatAbbr = baseStat == null ? null : baseStat.trim();
-	}
-
-	/**
-	 * Returns the abbreviation of the Base Spell Stat for this SpellProgression
-	 * 
-	 * @return The abbreviation of the Base Spell Stat for this SpellProgression
-	 */
-	public String getSpellBaseStatAbbr() {
-		return spellBaseStatAbbr;
 	}
 
 	/**

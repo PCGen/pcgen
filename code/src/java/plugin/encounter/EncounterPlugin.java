@@ -38,6 +38,8 @@ import javax.swing.ListModel;
 import javax.swing.filechooser.FileFilter;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -852,8 +854,6 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
 		List<Race> critters = new ArrayList<Race>();
-		String cr;
-		String[] crSplit;
 		float crNum;
 
 		if (!f.exists())
@@ -876,11 +876,10 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		f = null;
 
 		// verrify values on the table.
-		cr = (String) table41.crossReference(totalEL, size);
-
+		String crs = (String) table41.crossReference(totalEL, size);
+		
 		table41 = null;
-
-		if (cr == null)
+		if (crs == null)
 		{
 			Logging.errorPrint("Tables do not match the given parameters ("
 				+ totalEL + ", " + size + ")");
@@ -888,26 +887,12 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			return;
 		}
 
-		crSplit = cr.split("/");
-
-		try
-		{
-			//	FIX: for tracker 1472565 - Kevin F. - 07/21/2007
-			//	check that the cr has a "/" in order to use the second element
-			//	of crSplit.  There might be a better way to do this?
-			if (cr.indexOf("/") >= 0)
-				crNum = -1 * Integer.parseInt(crSplit[1]);
-			else crNum = Integer.parseInt(cr);
-		}
-		catch (NumberFormatException e)
-		{
-			crNum = Integer.parseInt(cr);
-		}
+		ChallengeRating cr = new ChallengeRating(crs);
 
 		// populate critters with a list of matching monsters with the right CR.
 		for (final Race race : Globals.getAllRaces())
 		{
-			if (race.getCR() == crNum)
+			if (cr.equals(race.get(ObjectKey.CHALLENGE_RATING)))
 			{
 				critters.add(race);
 			}

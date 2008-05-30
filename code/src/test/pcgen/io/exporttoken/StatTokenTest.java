@@ -24,6 +24,8 @@
 package pcgen.io.exporttoken;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -263,7 +265,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		PCClass myClass = new PCClass();
 		myClass.setName("My Class");
-		myClass.setSkillPointFormula("3");
+		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		pc.incrementClassLevel(1, myClass, true);
 
 		pc.incrementClassLevel(1, myClass, true);

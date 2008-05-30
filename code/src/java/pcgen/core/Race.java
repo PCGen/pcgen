@@ -59,10 +59,8 @@ public final class Race extends PObject
 	private String favoredClass = Constants.EMPTY_STRING;
 	// TODO - ABILITYOBJECT - Remove this.
 	private String featList = Constants.EMPTY_STRING;
-	private String levelAdjustment = "0"; //now a string so that we can handle formulae
 	private String monsterClass = null;
 	private int monsterClassLevels = 0;
-	private float CR = 0;
 	
 	/*
 	 * TODO These four items are Deprecated, Default Monster Mode
@@ -99,16 +97,6 @@ public final class Race extends PObject
 	{
 		Integer sp = get(IntegerKey.SKILL_POINTS_PER_LEVEL);
 		return sp == null ? 0 : sp;
-	}
-
-	public void setCR(final float newCR)
-	{
-		CR = newCR;
-	}
-
-	public float getCR()
-	{
-		return CR;
 	}
 
 	public String getDisplayVision(final PlayerCharacter aPC)
@@ -285,41 +273,6 @@ public final class Race extends PObject
 	{
 		Integer legs = get(IntegerKey.LEGS);
 		return legs == null ? 2 : legs;
-	}
-
-	public void setLevelAdjustment(final String newLevelAdjustment)
-	{
-		levelAdjustment = newLevelAdjustment;
-	}
-
-	public int getLevelAdjustment(final PlayerCharacter aPC)
-	{
-		int lvlAdjust;
-
-		//if there's a current PC, go ahead and evaluate the formula
-		if (aPC != null)
-		{
-			return aPC.getVariableValue(levelAdjustment, "").intValue();
-		}
-
-		//otherwise do what we can
-		try
-		{
-			//try to convert the string to an int to return
-			lvlAdjust = Integer.parseInt(levelAdjustment);
-		}
-		catch (NumberFormatException nfe)
-		{
-			//if the parseInt failed then just punt... return 0
-			lvlAdjust = 0;
-		}
-
-		return lvlAdjust;
-	}
-
-	public String getLevelAdjustmentFormula()
-	{
-		return levelAdjustment;
 	}
 
 	public void setMFeatList(final String mFeatList)
@@ -545,54 +498,9 @@ public final class Race extends PObject
 			}
 		}
 
-		/*
-		 * TODO Much of this code is repeated in CRToken, Race, XMLCombatant and PlayerCharacterOutput
-		 */
-		if (CR != 0)
-		{
-			txt.append("\tCR:");
-
-			String retString = "";
-			String crAsString = Float.toString(CR);
-			String decimalPlaceValue =
-					crAsString.substring(crAsString.length() - 2);
-
-			// If the CR is a fractional CR then we convert to a 1/x format
-			if (CR > 0 && CR < 1)
-			{
-				Fraction fraction = Fraction.getFraction(CR);// new Fraction(CR);
-				int denominator = fraction.getDenominator();
-				int numerator = fraction.getNumerator();
-				retString = numerator + "/" + denominator;
-			}
-			else if (CR >= 1 || CR == 0)
-			{
-				int newCr = -99;
-				if (decimalPlaceValue.equals(".0"))
-				{
-					newCr = (int) CR;
-				}
-
-				if (newCr > -99)
-				{
-					retString = retString + newCr;
-				}
-				else
-				{
-					retString = retString + CR;
-				}
-			}
-			txt.append(retString);
-		}
-
 		if ((featList != null) && (featList.length() > 0))
 		{
 			txt.append("\tFEAT:").append(featList);
-		}
-
-		if (!"0".equals(levelAdjustment))
-		{
-			txt.append("\tLEVELADJUSTMENT:").append(levelAdjustment);
 		}
 
 		if (!Constants.s_NONE.equals(displayName))
@@ -620,8 +528,6 @@ public final class Race extends PObject
 			aRace.favoredClass = favoredClass;
 
 			aRace.featList = featList;
-			aRace.levelAdjustment = levelAdjustment;
-			aRace.CR = CR;
 			aRace.hitDice = hitDice;
 			aRace.hitDiceSize = hitDiceSize;
 			aRace.hitPointMap = new HashMap<String, Integer>(hitPointMap);

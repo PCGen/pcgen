@@ -537,17 +537,6 @@ public class PCClass extends PObject
 	private int initMod = 0;
 
 	/*
-	 * LEVELONEONLY This is (by definition) how many additional feats the Class
-	 * gets at level one. Therefore, this is only relevant for the first level
-	 * of a PCClass.
-	 */
-	/*
-	 * BUG This value is NOT ACTUALLY processed at all (today) in PCClass, and
-	 * needs to be correctly processed in the future
-	 */
-	private int initialFeats = 0;
-
-	/*
 	 * ALLCLASSLEVELS Well, technically, NOT all classes, because this should
 	 * only put the Feat into class levels that actually gain them. But
 	 * theoretically, this is possible to have a value of 1 and thus place a new
@@ -579,20 +568,6 @@ public class PCClass extends PObject
 	 * PCClassLevel, but that is TBD
 	 */
 	private int maxLevel = NO_LEVEL_LIMIT;
-
-	/*
-	 * FORMULAREFACTOR This is currently processed elsewhere - should be
-	 * processed as a Formula, not a String...
-	 */
-	/*
-	 * FINALALLCLASSLEVELS The RESULT of this formula - at least I think it's the
-	 * result - need to check on what's legal in the formula and whether this
-	 * must be calculated on the fly or not - can be placed into each
-	 * PCClassLevel. NOTE: This placement into the PCClassLevel needs to be
-	 * AFTER the SKILLMULTIPLIER from GameMode is properly handled... or perhaps
-	 * PCClassLevel is GameMode aware??
-	 */
-	private String skillPointFormula = "0";
 
 	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
@@ -992,14 +967,17 @@ public class PCClass extends PObject
 
 		if ((index > -2) && limitByStat)
 		{
-			String spellStatString = getSpellBaseStat();
-			final int maxSpellLevel =
-					aPC.getVariableValue("MAXLEVELSTAT=" + spellStatString, "")
+			PCStat ss = get(ObjectKey.SPELL_STAT);
+			if (ss != null)
+			{
+				final int maxSpellLevel =
+					aPC.getVariableValue("MAXLEVELSTAT=" + ss.getAbb(), "")
 						.intValue();
 
-			if ((maxSpellLevel + bonusStat) < spellLevel)
-			{
-				return total;
+				if ((maxSpellLevel + bonusStat) < spellLevel)
+				{
+					return total;
+				}
 			}
 		}
 
@@ -1206,24 +1184,6 @@ public class PCClass extends PObject
 	public int getBaseHitDie()
 	{
 		return hitDie;
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public final void setInitialFeats(final int feats)
-	{
-		initialFeats = feats;
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public final int getInitialFeats()
-	{
-		return initialFeats;
 	}
 
 	/*
@@ -1618,42 +1578,26 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL Since this is a tag, and also impacts the number of
-	 * skills at a particular level, this (or perhaps just the result?) needs to
-	 * be in both PCClass and PCClassLevel
-	 */
-	public final void setSkillPointFormula(final String argFormula)
-	{
-		skillPointFormula = argFormula;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL Since this is a tag, and also impacts the number of
-	 * skills at a particular level, this (or perhaps just the result?) needs to
-	 * be in both PCClass and PCClassLevel
-	 */
-	public String getSkillPointFormula()
-	{
-		return skillPointFormula;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public final void setSpellBaseStat(final String baseStat)
-	{
-		getConstructingSpellProgressionInfo().setSpellBaseStatAbbr(baseStat);
-	}
-
-	/*
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellBaseStat()
 	{
-		return castInfo == null ? Constants.s_NONE : castInfo
-			.getSpellBaseStatAbbr();
+		Boolean useStat = get(ObjectKey.USE_SPELL_SPELL_STAT);
+		if (useStat == null)
+		{
+			return "None";
+		}
+		else if (useStat)
+		{
+			return "SPELL";
+		}
+		Boolean otherCaster = get(ObjectKey.CASTER_WITHOUT_SPELL_STAT);
+		if (otherCaster)
+		{
+			return "OTHER";
+		}
+		return get(ObjectKey.SPELL_STAT).getAbb();
 	}
 
 	/*
@@ -2924,18 +2868,10 @@ public class PCClass extends PObject
 	 * FINALPCCLASSANDLEVEL Since this is in the PCClass (from a Tag) and
 	 * PCClassLevel (as an indication of the spells granted by the PCClassLevel)
 	 */
-	public final void setSpellBookUsed(final boolean argUseBook)
-	{
-		getConstructingSpellProgressionInfo().setSpellBookUsed(argUseBook);
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL Since this is in the PCClass (from a Tag) and
-	 * PCClassLevel (as an indication of the spells granted by the PCClassLevel)
-	 */
 	public final boolean getSpellBookUsed()
 	{
-		return castInfo != null && castInfo.usesSpellBook();
+		Boolean sbu = get(ObjectKey.SPELLBOOK);
+		return sbu != null && sbu;
 	}
 
 	public void setCRFormula(final String argCRFormula)
@@ -2997,33 +2933,8 @@ public class PCClass extends PObject
 
 		if (castInfo != null)
 		{
-			checkAdd(pccTxt, Constants.s_NONE, "SPELLSTAT:", castInfo
-				.getSpellBaseStatAbbr());
 			checkAdd(pccTxt, Constants.s_NONE, "SPELLTYPE:", castInfo
 				.getSpellType());
-			if (castInfo.usesSpellBook())
-			{
-				pccTxt.append("\tSPELLBOOK:Y");
-			}
-		}
-
-		// if (skillPoints != 0)
-		// {
-		// pccTxt.append("\tSTARTSKILLPTS:").append(skillPoints);
-		// }
-		if (skillPointFormula.length() != 0)
-		{
-			pccTxt.append("\tSTARTSKILLPTS:").append(skillPointFormula);
-		}
-
-		if (!getVisibility().equals(Visibility.DEFAULT))
-		{
-			pccTxt.append("\tVISIBLE:" + getVisibility().toString());
-		}
-
-		if (initialFeats != 0)
-		{
-			pccTxt.append("\tXTRAFEATS:").append(initialFeats);
 		}
 
 		if (levelsPerFeat != null)
@@ -3098,6 +3009,7 @@ public class PCClass extends PObject
 			}
 		}
 
+		pccTxt.append('\t');
 		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
 		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
@@ -3632,11 +3544,24 @@ public class PCClass extends PObject
 	 */
 	public int baseSpellIndex()
 	{
-		String tmpSpellBaseStat = getSpellBaseStat();
-
-		return "SPELL".equals(tmpSpellBaseStat) || tmpSpellBaseStat == null
-			? (-2 // means base spell stat is based upon spell itself
-			) : SettingsHandler.getGame().getStatFromAbbrev(tmpSpellBaseStat);
+		Boolean usbs = get(ObjectKey.USE_SPELL_SPELL_STAT);
+		if (usbs != null && usbs)
+		{
+			return -2;
+		}
+		Boolean cwss = get(ObjectKey.CASTER_WITHOUT_SPELL_STAT);
+		if (cwss != null && cwss)
+		{
+			return -1;
+		}
+		PCStat ss = get(ObjectKey.SPELL_STAT);
+		if (ss != null)
+		{
+			return SettingsHandler.getGame().getStatFromAbbrev(ss.getAbb());
+		}
+		Logging.errorPrint("Found Class: " + getDisplayName()
+				+ " that did not have any SPELLSTAT defined");
+		return -1;
 	}
 
 	/**
@@ -3667,12 +3592,7 @@ public class PCClass extends PObject
 		}
 		else if (tmpSpellBaseStat.equals(Constants.s_DEFAULT))
 		{
-			/*
-			 * CONSIDER I agree with the todo that this seems fuzzy logic
-			 */
-			// TODO - Shouldn't this return baseSpellIndex so that
-			// the "logic" in that method gets executed?
-			tmpSpellBaseStat = getSpellBaseStat();
+			return baseSpellIndex();
 		}
 
 		return SettingsHandler.getGame().getStatFromAbbrev(tmpSpellBaseStat);
@@ -4364,6 +4284,7 @@ public class PCClass extends PObject
 					+ allSpellLevel);
 
 		final int index = baseSpellIndex();
+		System.err.println(baseSpellIndex());
 		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
 			final PCStat aStat = aPC.getStatList().getStatAt(index);
@@ -5551,10 +5472,8 @@ public class PCClass extends PObject
 		{
 			if (getExtraHD(aPC, total) > 0)
 			{
-				// spMod = getSkillPoints();
-				spMod =
-						aPC.getVariableValue(getSkillPointFormula(), classKey)
-							.intValue();
+				spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
+						classKey).intValue();
 				if (lockedMonsterSkillPoints == 0)
 				{
 					spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
@@ -5585,9 +5504,8 @@ public class PCClass extends PObject
 	{
 		// int spMod = getSkillPoints();
 		int lockedMonsterSkillPoints;
-		int spMod =
-				aPC.getVariableValue(getSkillPointFormula(), classKey)
-					.intValue();
+		int spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
+				classKey).intValue();
 
 		spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
 
@@ -6389,9 +6307,20 @@ public class PCClass extends PObject
 			setBonusSpellBaseStat(otherClass.getBonusSpellBaseStat());
 		}
 
-		if (otherClass.getSpellBaseStat() != null)
+		Boolean usbs = otherClass.get(ObjectKey.USE_SPELL_SPELL_STAT);
+		if (usbs != null)
 		{
-			setSpellBaseStat(otherClass.getSpellBaseStat());
+			put(ObjectKey.USE_SPELL_SPELL_STAT, usbs);
+		}
+		Boolean cwss = otherClass.get(ObjectKey.CASTER_WITHOUT_SPELL_STAT);
+		if (cwss != null)
+		{
+			put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, cwss);
+		}
+		PCStat ss = otherClass.get(ObjectKey.SPELL_STAT);
+		if (ss != null)
+		{
+			put(ObjectKey.SPELL_STAT, ss);
 		}
 
 		classSpellChoices = otherClass.classSpellChoices;
@@ -7051,5 +6980,15 @@ public class PCClass extends PObject
 		return spellCache != null;
 	}
 
+	/**
+	 * Retrieve this object's visibility in the GUI and on the output sheet
+	 * @return Visibility in the GUI and on the output sheet 
+	 */
+	@Override
+	public Visibility getVisibility()
+	{
+		Visibility vis = get(ObjectKey.VISIBILITY);
+		return vis == null ? Visibility.DEFAULT : vis;
+	}
 
 }

@@ -31,6 +31,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -110,8 +111,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		arcaneClass.setName("TestArcane");
 		arcaneClass.setAbbrev("TA");
 		arcaneClass.setSpellType("ARCANE");
-		arcaneClass.setSpellBaseStat("CHA");
-		arcaneClass.setSpellBookUsed(false);
+		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
+		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.setMemorizeSpells(false);
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
@@ -121,8 +122,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		divineClass.setName("TestDivine");
 		divineClass.setAbbrev("TD");
 		divineClass.setSpellType("DIVINE");
-		divineClass.setSpellBaseStat("WIS");
-		divineClass.setSpellBookUsed(false);
+		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
+		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.setMemorizeSpells(true);
 		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
 		divineClass.getSpellSupport().addSpellLevel("CLASS",

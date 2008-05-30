@@ -27,6 +27,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.character.Follower;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -287,11 +288,14 @@ public class VariableProcessorPC extends VariableProcessor
 
 			if (aClass != null)
 			{
-				valString = aClass.getSpellBaseStat() + "SCORE";
-
-				if ("SPELLSCORE".equals(valString))
+				PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
+				if (ss == null)
 				{
 					valString = "10";
+				}
+				else
+				{
+					valString = ss.getAbb() + "SCORE";
 				}
 			}
 			else
@@ -305,11 +309,14 @@ public class VariableProcessorPC extends VariableProcessor
 
 			if (aClass != null)
 			{
-				valString = aClass.getSpellBaseStat();
-
-				if ("SPELL".equals(valString))
+				PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
+				if (ss == null)
 				{
 					valString = "0";
+				}
+				else
+				{
+					valString = ss.getAbb();
 				}
 			}
 			else

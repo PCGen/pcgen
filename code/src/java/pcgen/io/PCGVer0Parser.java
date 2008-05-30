@@ -621,20 +621,10 @@ final class PCGVer0Parser implements PCGParser
 			{
 				aString = aTok.nextToken();
 
-				if ((SettingsHandler.getGame().getStatFromAbbrev(
-					aString.toUpperCase()) > -1)
-					|| aString.equalsIgnoreCase(Constants.s_NONE)
-					|| "Any".equalsIgnoreCase(aString)
-					|| "SPELL".equalsIgnoreCase(aString))
+				if (aClass != null && !Constants.s_NONE.equals(aString))
 				{
-					if (aClass != null)
-					{
-						aClass.setSpellBaseStat(aString);
-					}
-				}
-				else
-				{
-					getNext = false;
+					Globals.getContext().unconditionallyProcess(aClass,
+							"SPELLSTAT", aString);
 				}
 			}
 		}

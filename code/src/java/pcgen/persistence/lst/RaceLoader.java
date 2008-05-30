@@ -28,6 +28,8 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -126,9 +128,18 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
  			}
 		}
 
-		if ((race.getLevelAdjustment(null) != 0) && (race.getCR() == 0))
+		try
 		{
-			race.setCR(race.getLevelAdjustment(null));
+			Number la = race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(null, "");
+			ChallengeRating cr = race.get(ObjectKey.CHALLENGE_RATING);
+			if ((la.floatValue() != 0) && cr == null)
+			{
+				race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(la.toString()));
+			}
+		}
+		catch (NullPointerException soWhat)
+		{
+			//Nothing to do here, matches 5.14 behavior
 		}
 
 		if (race.get(ObjectKey.RACETYPE) == null)

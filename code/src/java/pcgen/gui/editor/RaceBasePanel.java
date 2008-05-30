@@ -36,8 +36,11 @@ import javax.swing.JTextField;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -125,12 +128,16 @@ public class RaceBasePanel extends BasePanel
 		return cmbBonusSkillPoints.getSelectedIndex();
 	}
 
-	public void setCR(final float argCR)
+	public void setCR(ChallengeRating argCR)
 	{
-		cmbCR.setSelectedItem(Float.toString(argCR));
+		if (argCR != null)
+		{
+			cmbCR.setSelectedItem(argCR.getRating().resolve(null, "")
+					.toString());
+		}
 	}
 
-	public float getCR()
+	public ChallengeRating getCR()
 	{
 		String txtCR = null;
 
@@ -140,16 +147,9 @@ public class RaceBasePanel extends BasePanel
 
 			if (txtCR == null)
 			{
-				return 0;
+				return null;
 			}
-
-			if (txtCR.startsWith("1/"))
-			{
-				float fraction = Float.parseFloat(txtCR.substring(2));
-				return 1 / fraction;
-			}
-			// Default else
-			return Float.parseFloat(txtCR);
+			return new ChallengeRating(txtCR);
 		}
 		catch (NumberFormatException e)
 		{
@@ -157,7 +157,7 @@ public class RaceBasePanel extends BasePanel
 				+ " means, returning CR of 0.");
 		}
 
-		return 0;
+		return null;
 	}
 
 	public void setDisplayName(final String dislayName)
@@ -245,9 +245,9 @@ public class RaceBasePanel extends BasePanel
 		txtLevelAdj.setText(levelAdj);
 	}
 
-	public String getLevelAdjustment()
+	public Formula getLevelAdjustment()
 	{
-		return txtLevelAdj.getText();
+		return FormulaFactory.getFormulaFor(txtLevelAdj.getText());
 	}
 
 	public void setMonsterClass(final String aString)
@@ -365,13 +365,13 @@ public class RaceBasePanel extends BasePanel
 		thisRace.setBonusInitialFeats(bon);
 
 		thisRace.put(IntegerKey.SKILL_POINTS_PER_LEVEL, getBonusSkillPoints());
-		thisRace.setCR(getCR());
+		thisRace.put(ObjectKey.CHALLENGE_RATING, getCR());
 		thisRace.setDisplayName(getDisplayName());
 		thisRace.put(IntegerKey.HANDS, getHands());
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
 		thisRace.put(IntegerKey.LEGS, getLegs());
-		thisRace.setLevelAdjustment(getLevelAdjustment());
+		thisRace.put(FormulaKey.LEVEL_ADJUSTMENT, getLevelAdjustment());
 		thisRace.setMonsterClass(getMonsterClass());
 		thisRace.setMonsterClassLevels(getMonsterLevel());
 		thisRace.put(FormulaKey.SIZE, new FixedSizeFormula(getRaceSize()));
@@ -451,12 +451,12 @@ public class RaceBasePanel extends BasePanel
 
 		setBonusFeats(0);
 		setBonusSkillPoints(thisRace.getBonusSkillsPerLevel());
-		setCR(thisRace.getCR());
+		setCR(thisRace.get(ObjectKey.CHALLENGE_RATING));
 		setDisplayName(thisRace.getDisplayName());
 		setHands(thisRace.getHands());
 		setHitDiceAdvancement(thisRace);
 		setLegs(thisRace.getLegs());
-		setLevelAdjustment(thisRace.getLevelAdjustmentFormula());
+		setLevelAdjustment(thisRace.getSafe(FormulaKey.LEVEL_ADJUSTMENT).toString());
 		setMonsterClass(thisRace.getMonsterClass(null, false));
 		setMonsterLevel(thisRace.getMonsterClassLevels(null, false));
 		setRaceSize(thisRace.get(FormulaKey.SIZE));

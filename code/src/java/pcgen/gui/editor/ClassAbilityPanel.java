@@ -22,17 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.base.lang.StringUtil;
-import pcgen.base.util.MapCollection;
-import pcgen.cdom.base.Constants;
-import pcgen.core.*;
-import pcgen.core.utils.ChoiceList;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
-import pcgen.util.enumeration.AttackType;
-
-import javax.swing.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -41,6 +30,29 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.MapCollection;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.ChoiceList;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.enumeration.AttackType;
 
 /**
  * <code>ClassAbilityPanel</code>
@@ -114,7 +126,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setInitialFeats(Integer.parseInt(a));
+			obj.put(IntegerKey.START_FEATS, Integer.valueOf(a));
 		}
 
 		a = levelsPerFeat.getText().trim();
@@ -144,31 +156,18 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			token.parse(obj, a, -9);
 		}
 
-		obj.setSpellBookUsed(spellBook.getSelectedObjects() != null);
+		obj.put(ObjectKey.SPELLBOOK, spellBook.getSelectedObjects() != null);
 		
 		PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
 				.getTokenMap(PCClassLstToken.class).get("SPELLLIST");
 		token.parse(obj, spellList.getText().trim(), -9);
 
-		//a = spellStat.getText().trim();
-		//if (a.length() > 0)
-		//{
-		//	obj.setSpellBaseStat(a);
-		//}
-		//a = spellType.getText().trim();
-		//if (a.length() > 0)
-		//{
-		//	obj.setSpellType(a);
-		//}
-		if (!Constants.s_NONE.equals(obj.getSpellBaseStat())) {
-			//This IF gate exists to prevent useless instantiation of SpellProgressionInfo
-			obj.setSpellBaseStat(Constants.s_NONE);
-		}
+		LoadContext context = Globals.getContext();
 		a = (String) spellStat.getSelectedItem();
 
 		if ((a != null) && (a.length() > 0) && !Constants.s_NONE.equals(a))
 		{
-			obj.setSpellBaseStat(a);
+			context.unconditionallyProcess(obj, "SPELLSTAT", a);
 		}
 
 		/*
@@ -211,7 +210,8 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		hitDice.setText(String.valueOf(obj.getBaseHitDie()));
 		deity.setText(StringUtil.join(obj.getDeityList(), Constants.PIPE));
 		itemCreate.setText(obj.getItemCreationMultiplier());
-		extraFeats.setText(String.valueOf(obj.getInitialFeats()));
+		Integer sf = obj.get(IntegerKey.START_FEATS);
+		extraFeats.setText(sf == null ? "" : sf.toString());
 		if (obj.getLevelsPerFeat()!=null)
 		{
 			levelsPerFeat.setText(obj.getLevelsPerFeat().toString());
@@ -232,7 +232,8 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 //			specKnown.append('=');
 //			specKnown.append(lp.getObject());
 //		}
-		spellBook.setSelected(obj.getSpellBookUsed());
+		Boolean sb = obj.get(ObjectKey.SPELLBOOK);
+		spellBook.setSelected(sb != null && sb);
 		ChoiceList<String> classSpellChoices = obj.getClassSpellChoices();
 		if (classSpellChoices != null) {
 			spellList.setText(classSpellChoices.toString());

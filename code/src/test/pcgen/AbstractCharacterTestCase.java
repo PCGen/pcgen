@@ -95,7 +95,18 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		SettingsHandler.setGame("3.5");
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
-
+		
+		for (PCStat stat : gamemode.getUnmodifiableStatList())
+		{
+			Globals.getContext().ref.importObject(stat);
+			Globals.getContext().ref.registerAbbreviation(stat, stat.getAbb());
+		}
+		for (PCAlignment al : gamemode.getUnmodifiableAlignmentList())
+		{
+			Globals.getContext().ref.importObject(al);
+			Globals.getContext().ref.registerAbbreviation(al, al.getKeyName());
+		}
+		
 		character = new PlayerCharacter();
 	}
 

@@ -308,4 +308,5 @@ public interface Constants
 	String DOT = ".";
 	String LST_LIST = "LIST";
 	String LST_PATTERN = "%";
+	String COLON = ":";
 }

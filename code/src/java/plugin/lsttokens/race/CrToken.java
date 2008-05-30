@@ -1,12 +1,16 @@
 package plugin.lsttokens.race;
 
+import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
-import pcgen.persistence.lst.RaceLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken implements RaceLstToken
+public class CrToken implements CDOMPrimaryToken<Race>
 {
 
 	public String getTokenName()
@@ -14,25 +18,36 @@ public class CrToken implements RaceLstToken
 		return "CR";
 	}
 
-	public boolean parse(Race race, String value)
+	public boolean parse(LoadContext context, Race race, String value)
 	{
 		try
 		{
-			String floatValue = value;
-			if (floatValue.startsWith("1/"))
-			{
-				float fraction = Float.parseFloat(floatValue.substring(2));
-				race.setCR(1 / fraction);
-			}
-			else
-			{
-				race.setCR(Float.parseFloat(floatValue));
-			}
+			ChallengeRating cr = new ChallengeRating(value);
+			context.getObjectContext().put(race, ObjectKey.CHALLENGE_RATING, cr);
 			return true;
 		}
-		catch (NumberFormatException nfe)
+		catch (IllegalArgumentException e)
 		{
+			Logging.errorPrint(getTokenName() + " encountered error: "
+					+ e.getLocalizedMessage());
 			return false;
 		}
+	}
+
+	public String[] unparse(LoadContext context, Race race)
+	{
+		ChallengeRating cr = context.getObjectContext().getObject(race,
+				ObjectKey.CHALLENGE_RATING);
+		if (cr == null)
+		{
+			// indicates no Token present
+			return null;
+		}
+		return new String[] { cr.getLSTformat() };
+	}
+
+	public Class<Race> getTokenClass()
+	{
+		return Race.class;
 	}
 }

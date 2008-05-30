@@ -29,6 +29,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -131,7 +132,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.setKeyName("KEY_MY_CLASS");
 		myClass.setAbbrev("Myc");
-		myClass.setSkillPointFormula("3");
+		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
 		myClass.addBonusList(babClassBonus);
 		Globals.getClassList().add(myClass);

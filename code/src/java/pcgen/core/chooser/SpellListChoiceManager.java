@@ -28,11 +28,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.FeatMultipleChoice;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
@@ -322,11 +324,15 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 					}
 				}
 
-				int statMod = aPC.getStatList().getStatModFor(aClass.getSpellBaseStat());
-
-				if (statMod > 0)
+				PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
+				if (ss != null)
 				{
-					maxSpellListSelections = statMod;
+					int statMod = aPC.getStatList().getStatModFor(ss.getAbb());
+
+					if (statMod > 0)
+					{
+						maxSpellListSelections = statMod;
+					}
 				}
 			}
 

@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -133,6 +134,14 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Object> PARENT = new ObjectKey<Object>();
 
 	public static final ObjectKey<Modifier<HitDie>> HITDIE = new ObjectKey<Modifier<HitDie>>();
+
+	public static final ObjectKey<ChallengeRating> CHALLENGE_RATING = new ObjectKey<ChallengeRating>();
+
+	public static final ObjectKey<Boolean> USE_SPELL_SPELL_STAT = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> CASTER_WITHOUT_SPELL_STAT = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> SPELLBOOK = new ObjectKey<Boolean>();
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

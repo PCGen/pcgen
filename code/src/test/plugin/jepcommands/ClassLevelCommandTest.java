@@ -28,6 +28,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Campaign;
 import pcgen.core.Description;
@@ -109,8 +110,8 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		megaCasterClass.setName("MegaCaster");
 		megaCasterClass.setAbbrev("MC");
 		megaCasterClass.setSpellType("ARCANE");
-		megaCasterClass.setSpellBaseStat("CHA");
-		megaCasterClass.setSpellBookUsed(false);
+		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
+		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.setMemorizeSpells(false);
 		Globals.getClassList().add(megaCasterClass);
 

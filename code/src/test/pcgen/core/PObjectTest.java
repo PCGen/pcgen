@@ -26,11 +26,14 @@ package pcgen.core;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -132,7 +135,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	{
 		Race race = new Race();
 		race.setName("TestRace");
-		race.setCR(5);
+		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating("5"));
 		String racePCCText = race.getPCCText();
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
@@ -153,7 +156,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 			"getPCCText should be the same after being encoded and reloaded",
 			racePCCText, reconstRace.getPCCText());
 		assertEquals("Racial CR was not restored after saving and reloading.",
-			race.getCR(), reconstRace.getCR());
+				race.get(ObjectKey.CHALLENGE_RATING), reconstRace
+						.get(ObjectKey.CHALLENGE_RATING));
 
 		PCClass aClass = new PCClass();
 		aClass.setName("TestClass");
