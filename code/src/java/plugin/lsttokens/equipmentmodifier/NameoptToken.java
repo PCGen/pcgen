@@ -43,7 +43,7 @@ public class NameoptToken implements CDOMPrimaryToken<EquipmentModifier>
 		try
 		{
 			context.getObjectContext().put(mod, ObjectKey.NAME_OPT,
-					EqModNameOpt.valueOf(optString));
+					EqModNameOpt.valueOfIgnoreCase(optString));
 			return true;
 		}
 		catch (IllegalArgumentException iae)

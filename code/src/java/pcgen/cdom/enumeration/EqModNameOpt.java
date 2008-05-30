@@ -17,9 +17,13 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.EquipmentModifier;
@@ -152,4 +156,61 @@ public enum EqModNameOpt
 	};
 
 	public abstract String returnName(EquipmentModifier mod);
+	
+	public static EqModNameOpt valueOfIgnoreCase(String s)
+	{
+		if (typeMap == null)
+		{
+			buildMap();
+		}
+		return typeMap.get(s);
+	}
+	
+	private static CaseInsensitiveMap<EqModNameOpt> typeMap = null;
+	
+	/**
+	 * Actually build the set of Constants, using any "public static final"
+	 * constants within the child (extending) class as initial values in the
+	 * Constant pool.
+	 */
+	private static void buildMap()
+	{
+		typeMap = new CaseInsensitiveMap<EqModNameOpt>();
+		Class<EqModNameOpt> cl = EqModNameOpt.class;
+		for (Field f : cl.getDeclaredFields())
+		{
+			int mod = f.getModifiers();
+			String name = f.getName();
+			
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
+				&& Modifier.isPublic(mod))
+			{
+				try
+				{
+					Object o = f.get(null);
+					if (cl.equals(o.getClass()))
+					{
+						EqModNameOpt tObj = cl.cast(o);
+						if (typeMap.containsKey(name))
+						{
+							throw new UnreachableError(
+								"Attempt to redefine constant value " + name
+									+ ", value was " + typeMap.get(name));
+						}
+						typeMap.put(name, tObj);
+					}
+				}
+				catch (IllegalArgumentException e)
+				{
+					throw new InternalError();
+				}
+				catch (IllegalAccessException e)
+				{
+					throw new InternalError();
+				}
+			}
+		}
+	}
+
+	
 }
