@@ -332,6 +332,10 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	public void parseLineIntoClass(LoadContext context, PCClass pcClass,
 			CampaignSourceEntry source, String restOfLine) throws PersistenceLayerException
 	{
+		if (restOfLine == null)
+		{
+			return;
+		}
 		final StringTokenizer colToken =
 				new StringTokenizer(restOfLine, SystemLoader.TAB_DELIM);
 
