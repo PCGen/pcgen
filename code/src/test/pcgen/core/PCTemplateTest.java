@@ -373,7 +373,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		testClass = new PCClass();
 		testClass.setName("TestClass");
 		testClass.setKeyName("KEY_TestClass");
-		testClass.setAbbrev("TC");
 		Globals.getClassList().add(testClass);
 
 	}

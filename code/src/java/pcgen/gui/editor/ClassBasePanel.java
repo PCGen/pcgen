@@ -39,6 +39,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -59,7 +60,6 @@ class ClassBasePanel extends BasePanel
 	private JCheckBox chkVisible;
 	private JCheckBox hasSubClass;
 	private JCheckBox modToSkills;
-	private JCheckBox multiPreReq;
 	private JTextField abbreviation;
 	private JTextField exClass;
 	private JTextField exchangeLevel;
@@ -112,9 +112,8 @@ class ClassBasePanel extends BasePanel
 
 		PCClass obj = (PCClass) thisPObject;
 		obj.setOutputName(txtDisplayName.getText().trim());
-		obj.setAbbrev(abbreviation.getText().trim());
+		Globals.getContext().ref.registerAbbreviation(obj, abbreviation.getText().trim());
 		obj.setLevelExchange(exchangeLevel.getText().trim());
-//		obj.setSkillPoints(Integer.parseInt(startSkillPoints.getText().trim()));
 		String form = startSkillPoints.getText().trim();
 		if (form.length() > 0)
 		{
@@ -138,8 +137,7 @@ class ClassBasePanel extends BasePanel
 		}
 		obj.setExClass(exClass.getText().trim());
 		obj.setHasSubClass(hasSubClass.getSelectedObjects() != null);
-		obj.setModToSkills(modToSkills.getSelectedObjects() != null);
-		obj.setMultiPreReqs(multiPreReq.getSelectedObjects() != null);
+		obj.put(ObjectKey.MOD_TO_SKILLS, modToSkills.getSelectedObjects() != null);
 		obj.setVisibility(chkVisible.getSelectedObjects() == null ? Visibility.HIDDEN : Visibility.DEFAULT);
 
 		Object[] sel = getTypesSelectedList();
@@ -212,8 +210,8 @@ class ClassBasePanel extends BasePanel
 		}
 		exClass.setText(obj.getExClass());
 		hasSubClass.setSelected(obj.hasSubClass());
-		modToSkills.setSelected(obj.getModToSkills());
-		multiPreReq.setSelected(obj.multiPreReqs());
+		Boolean mts = obj.get(ObjectKey.MOD_TO_SKILLS);
+		modToSkills.setSelected(mts == null ? true : mts);
 		chkVisible.setSelected(obj.getVisibility().equals(Visibility.DEFAULT));
 	}
 
@@ -249,7 +247,6 @@ class ClassBasePanel extends BasePanel
 		hasSubClass = new JCheckBox();
 		modToSkills = new JCheckBox();
 		chkVisible = new JCheckBox();
-		multiPreReq = new JCheckBox();
 
 		//pnlTemplateTypes = new AvailableSelectedPanel();
 		pnlTemplateTypes = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
@@ -325,8 +322,7 @@ class ClassBasePanel extends BasePanel
 		gridBagConstraints = buildConstraints(gridBagConstraints, 2, 3, true);
 		add(tempLabel, gridBagConstraints);
 
-		gridBagConstraints = buildConstraints(gridBagConstraints, 3, 3, true);
-		add(multiPreReq, gridBagConstraints);
+		//gridBagConstraints = buildConstraints(gridBagConstraints, 3, 3, true);
 
 		tempLabel = new JLabel("Visible:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 4, 3, true);

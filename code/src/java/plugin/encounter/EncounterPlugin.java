@@ -935,9 +935,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 		else
 		{
-			//SettingsHandler.setMonsterDefault(false);
-			monsterClass.setMonsterFlag(true);
-
+			monsterClass.put(ObjectKey.IS_MONSTER, true);
+			
 			int levels = race.getMonsterClassLevels(aPC, false);
 			Logging.debugPrint("Monster Class: "
 				+ monsterClass.getDisplayName() + " Level: " + levels);
@@ -1348,7 +1347,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 						(int) aPC.getTotalBonusTo("HD", "MIN")
 							+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS."
 								+ pcClass.getKeyName());
-				int size = pcClass.getLevelHitDie(aPC, j + 1);
+				int size = pcClass.getLevelHitDie(aPC, j + 1).getDie();
 				pcClass.setHitPoint(j, Integer.valueOf(new Dice(1, size, bonus)
 					.roll()));
 			}

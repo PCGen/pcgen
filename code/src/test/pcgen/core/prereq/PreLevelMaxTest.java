@@ -151,7 +151,6 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 
 		myClass.setName("My Class");
 		myClass.setKeyName("MY_CLASS");
-		myClass.setAbbrev("Myc");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		Globals.getClassList().add(myClass);
 	}

@@ -25,17 +25,18 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <code>Domain</code>.
@@ -116,7 +117,7 @@ public final class Domain extends PObject
 								{
 									if (aClass.getKnownSpellsFromSpecialty() == 0)
 									{
-										aClass.setKnownSpellsFromSpecialty(1);
+										aClass.put(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, 1);
 										break;
 									}
 								}

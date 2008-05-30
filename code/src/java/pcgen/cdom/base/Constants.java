@@ -309,4 +309,5 @@ public interface Constants
 	String LST_LIST = "LIST";
 	String LST_PATTERN = "%";
 	String COLON = ":";
+	String LST_NONE = "NONE";
 }

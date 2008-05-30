@@ -31,6 +31,7 @@ import java.util.List;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.DomainList;
@@ -172,11 +173,19 @@ public final class Deity extends PObject
 		while (classList.hasNext() && !flag)
 		{
 			final PCClass aClass = classList.next();
-			for ( String deity : aClass.getDeityList() )
+			List<CDOMReference<Deity>> deityList = aClass.getListFor(ListKey.DEITY);
+			if (deityList == null)
 			{
-				if ("ANY".equals(deity) || "ALL".equals(deity) || getKeyName().equals(deity))
+				flag = true;
+			}
+			else
+			{
+				for ( CDOMReference<Deity> deity : deityList )
 				{
-					flag = true;
+					if (deity.contains(this))
+					{
+						flag = true;
+					}
 				}
 			}
 		}

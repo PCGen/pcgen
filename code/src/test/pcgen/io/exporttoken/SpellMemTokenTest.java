@@ -100,11 +100,10 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
 		arcaneClass.setKeyName("KEY_TEST_ARCANE");
-		arcaneClass.setAbbrev("TA");
 		arcaneClass.setSpellType("ARCANE");
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
-		arcaneClass.setMemorizeSpells(false);
+		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
 		Globals.getClassList().add(arcaneClass);
@@ -116,11 +115,10 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
 		divineClass.setKeyName("KEY_TEST_DIVINE");
-		divineClass.setAbbrev("TD");
 		divineClass.setSpellType("DIVINE");
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
-		divineClass.setMemorizeSpells(true);
+		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
 		Globals.getClassList().add(divineClass);
 		aCharacterSpell = new CharacterSpell(divineClass, testSpell);

@@ -991,7 +991,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 
 			b.appendSpacer();
-			b.appendI18nElement("in_sumHD", "d"+aClass.getBaseHitDie()); //$NON-NLS-1
+			b.appendI18nElement("in_sumHD", "d"+aClass.getBaseHitDie().getDie()); //$NON-NLS-1
 
 			if (Globals.getGameModeShowSpellTab())
 			{

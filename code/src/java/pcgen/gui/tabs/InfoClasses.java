@@ -48,7 +48,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.InputVerifier;
-import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -61,6 +60,7 @@ import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -73,11 +73,12 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.HitDie;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
@@ -89,9 +90,9 @@ import pcgen.gui.CharacterInfo;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
-import pcgen.gui.pcGenGUI;
 import pcgen.gui.TableColumnManager;
 import pcgen.gui.TableColumnManagerModel;
+import pcgen.gui.pcGenGUI;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
@@ -108,8 +109,8 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
-import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.TreeTableModel;
+import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -398,15 +399,15 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			//
 			// Hit Die
 			//
-			int hitDie = aClass.getBaseHitDie();
-			if (isSubClass && (hitDie == 0))
+			HitDie hitDie = aClass.getBaseHitDie();
+			if (isSubClass && HitDie.ZERO.equals(hitDie))
 			{
 				hitDie = lastClass.getBaseHitDie();
 			}
-			if (hitDie != 0)
+			if (!HitDie.ZERO.equals(hitDie))
 			{
 				b.appendSpacer();
-				b.appendI18nElement("in_clInfoHD", "d" + hitDie); //$NON-NLS-1$  //$NON-NLS-2$
+				b.appendI18nElement("in_clInfoHD", "d" + hitDie.getDie()); //$NON-NLS-1$  //$NON-NLS-2$
 			}
 
 			if (Globals.getGameModeShowSpellTab())
@@ -1850,7 +1851,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				case COL_HD:
 					if (pcclass != null)
 					{
-						int hitDie = pcclass.getBaseHitDie();
+						int hitDie = pcclass.getBaseHitDie().getDie();
 						retString = "1d" + hitDie;
 					}
 					return retString;

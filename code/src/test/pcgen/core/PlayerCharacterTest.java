@@ -126,7 +126,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Giant Class
 		giantClass = new PCClass();
 		giantClass.setName("Giant");
-		giantClass.setAbbrev("Gnt");
 		giantClass.addMyType("MONSTER");
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
 		giantClass.addBonusList(babClassBonus);
@@ -134,13 +133,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
 		Globals.getClassList().add(pcClass);
 	
 		classWarmind = new PCClass();
 		classWarmind.setName("Warmind");
-		classWarmind.setAbbrev("WM");
 		Globals.getClassList().add(classWarmind);
 	
 		toughness = new Ability();
@@ -666,7 +663,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// do so setup that is specific to testing this method
 		arClass = new PCClass();
 		arClass.setName("AbilityRichClass");
-		arClass.setAbbrev("ARc");
 		arClass.setSpellType("ARCANE");
 	
 		Globals.getClassList().add(arClass);

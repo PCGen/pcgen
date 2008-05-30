@@ -24,6 +24,8 @@ import pcgen.util.Logging;
 public class HitDie extends ConcretePrereqObject
 {
 
+	public static final HitDie ZERO = new HitDie(0);
+
 	private int die;
 
 	public HitDie(int i)
@@ -42,11 +44,12 @@ public class HitDie extends ConcretePrereqObject
 		int length = dieSizes.length;
 		for (int i = 0; i < length; ++i)
 		{
- 			if (die == dieSizes[i])
+			if (die == dieSizes[i])
 			{
 				if (i == length - 1)
 				{
-					Logging.debugPrint("Hit Die: " + die + " is Highest Hit Die in Die Sizes");
+					Logging.debugPrint("Hit Die: " + die
+							+ " is Highest Hit Die in Die Sizes");
 					return this;
 				}
 				else
@@ -55,7 +58,8 @@ public class HitDie extends ConcretePrereqObject
 				}
 			}
 		}
-		Logging.errorPrint("Cannot find Hit Die: " + die + " in Global Die Sizes");
+		Logging.errorPrint("Cannot find Hit Die: " + die
+				+ " in Global Die Sizes");
 		return this;
 	}
 
@@ -65,11 +69,12 @@ public class HitDie extends ConcretePrereqObject
 		int length = dieSizes.length;
 		for (int i = 0; i < length; ++i)
 		{
- 			if (die == dieSizes[i])
+			if (die == dieSizes[i])
 			{
 				if (i == 0)
 				{
-					Logging.debugPrint("Hit Die: " + die + " is Lowest Hit Die in Die Sizes");
+					Logging.debugPrint("Hit Die: " + die
+							+ " is Lowest Hit Die in Die Sizes");
 				}
 				else
 				{
@@ -77,7 +82,8 @@ public class HitDie extends ConcretePrereqObject
 				}
 			}
 		}
-		Logging.errorPrint("Cannot find Hit Die: " + die + " in Global Die Sizes");
+		Logging.errorPrint("Cannot find Hit Die: " + die
+				+ " in Global Die Sizes");
 		return this;
 	}
 
@@ -100,6 +106,5 @@ public class HitDie extends ConcretePrereqObject
 	{
 		return "HitDie: " + die;
 	}
-	
-	
+
 }

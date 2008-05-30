@@ -32,6 +32,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
@@ -177,6 +178,7 @@ public final class ListKey<T> {
 	public static final ListKey<Formula> KNOWN = new ListKey<Formula>();
 	public static final ListKey<Formula> CAST = new ListKey<Formula>();
 	public static final ListKey<QualifiedObject<CDOMSingleRef<Domain>>> DOMAIN = new ListKey<QualifiedObject<CDOMSingleRef<Domain>>>();
+	public static final ListKey<CDOMReference<Deity>> DEITY = new ListKey<CDOMReference<Deity>>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

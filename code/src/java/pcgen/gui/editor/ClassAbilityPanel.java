@@ -40,7 +40,9 @@ import javax.swing.JTextField;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -107,16 +109,14 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setHitDie(Integer.parseInt(a));
+			obj.put(ObjectKey.LEVEL_HITDIE, new HitDie(Integer.parseInt(a)));
 		}
 
 		a = deity.getText().trim();
 
 		if (a.length() > 0)
 		{
-			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
-					.getTokenMap(PCClassLstToken.class).get("DEITY");
-			token.parse(obj, a, -9);
+			Globals.getContext().unconditionallyProcess(obj, "DEITY", a);
 		}
 
 		a = itemCreate.getText().trim();
@@ -133,7 +133,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setLevelsPerFeat(Integer.valueOf(a));
+			obj.put(IntegerKey.LEVELS_PER_FEAT, Integer.valueOf(a));
 		}
 
 		a = knownSpells.getText().trim();
@@ -146,7 +146,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			token.parse(obj, a, -9);
 		}
 
-		obj.setMemorizeSpells(memorize.getSelectedObjects() != null);
+		obj.put(ObjectKey.MEMORIZE_SPELLS, memorize.getSelectedObjects() != null);
 		a = prohibited.getText().trim();
 
 		if (a.length() > 0)
@@ -190,7 +190,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setMaxLevel(Integer.parseInt(a));
+			obj.put(IntegerKey.LEVEL_LIMIT, Integer.parseInt(a));
 		}
 	}
 
@@ -207,14 +207,15 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			MapCollection mc = new MapCollection(attackCycleMap);
 			attackCycle.setText(StringUtil.join(mc, Constants.PIPE));
 		}
-		hitDice.setText(String.valueOf(obj.getBaseHitDie()));
-		deity.setText(StringUtil.join(obj.getDeityList(), Constants.PIPE));
+		hitDice.setText(String.valueOf(obj.getBaseHitDie().getDie()));
+		deity.setText(StringUtil.join(obj.getSafeListFor(ListKey.DEITY), Constants.PIPE));
 		itemCreate.setText(obj.getItemCreationMultiplier());
 		Integer sf = obj.get(IntegerKey.START_FEATS);
 		extraFeats.setText(sf == null ? "" : sf.toString());
-		if (obj.getLevelsPerFeat()!=null)
+		Integer lpf = obj.get(IntegerKey.LEVELS_PER_FEAT);
+		if (lpf != null)
 		{
-			levelsPerFeat.setText(obj.getLevelsPerFeat().toString());
+			levelsPerFeat.setText(lpf.toString());
 		}
 
 		knownSpells.setText(StringUtil.join(obj.getKnownSpellsList(), "|"));

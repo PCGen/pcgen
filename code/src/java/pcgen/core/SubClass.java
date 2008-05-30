@@ -55,7 +55,6 @@ public final class SubClass extends PCClass
 	/** Constructor */
 	public SubClass()
 	{
-		setKnownSpellsFromSpecialty(0);
 	}
 
 	/**

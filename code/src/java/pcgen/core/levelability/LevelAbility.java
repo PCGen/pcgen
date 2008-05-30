@@ -524,15 +524,6 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			{
 				aPC.adjustFeats(-1);
 			}
-			else if (thisString.startsWith("INIT|"))
-			{
-				if (owner instanceof PCClass)
-				{
-					// is this necessary? is initMod even used?
-					((PCClass) owner).addInitMod(
-						-Integer.parseInt(thisString.substring(5)));
-				}
-			}
 		}
 
 		clearAssociated();

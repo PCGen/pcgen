@@ -26,6 +26,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -126,7 +127,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 	public void testClassLevels() throws Exception
 	{
 		monClass.setName("Humanoid");
-		monClass.setMonsterFlag(true);
+		monClass.put(ObjectKey.IS_MONSTER, true);
 		Globals.getClassList().add(monClass);
 		GameMode gamemode = SettingsHandler.getGame();
 

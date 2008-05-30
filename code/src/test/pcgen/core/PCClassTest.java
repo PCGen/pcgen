@@ -223,20 +223,17 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.setKeyName("KEY_PreReqClass");
-		aPrClass.setAbbrev("PCl");
 		aPrClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
 		aPrClass.addPreReq(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
-		aQClass.setAbbrev("QC1");
 		aQClass.putQualifyString(PCClass.class, null, "KEY_PreReqClass");
 		//aQClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
 		aNqClass.setKeyName("KEY_NonQualClass");
-		aNqClass.setAbbrev("NQC");
 		aNqClass.addVariable(0, "Foo", "1");
 		aNqClass.addVariable(2, "Foo", "2");
 
@@ -297,20 +294,17 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.setKeyName("KEY_PreReqClass");
-		aPrClass.setAbbrev("PCl");
 		aPrClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
 		aPrClass.addPreReq(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
-		aQClass.setAbbrev("QC1");
 		aQClass.putQualifyString(Object.class, null, "KEY_PreReqClass");
 		aQClass.putQualifyString(Object.class, null, "PreReqVar");
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
 		aNqClass.setKeyName("KEY_NonQualClass");
-		aNqClass.setAbbrev("NQC");
 		aNqClass.addVariable(0, "Foo", "1");
 		aNqClass.addVariable(2, "Foo", "2");
 
@@ -460,11 +454,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.setAbbrev("MC");
 		megaCasterClass.setSpellType("ARCANE");
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
-		megaCasterClass.setMemorizeSpells(false);
+		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "KNOWN", "4,2,2,3,4,5");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
@@ -532,11 +525,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.setAbbrev("MC");
 		megaCasterClass.setSpellType("ARCANE");
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
-		megaCasterClass.setMemorizeSpells(false);
+		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "KNOWN", "4,2,2,3,4,5,0");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
@@ -583,7 +575,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			.getKnownForLevel(3, character));
 		assertEquals("Known 4th level for character's class", 4, charClass
 			.getKnownForLevel(4, character));
-		charClass.setKnownSpellsFromSpecialty(1);
+		charClass.put(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, 1);
 		assertEquals("Known 5th level for character's class", 6, charClass
 			.getKnownForLevel(5, character));
 		assertEquals("Known 6th level for character's class", 0, charClass
@@ -685,7 +677,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
-		nymphClass.setLevelsPerFeat(4);
+		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = nymphClass.getBonusList();
 		assertEquals("Bonus list empty", 0, bonusList.size());
 
@@ -722,7 +714,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
-		humanoidClass.setLevelsPerFeat(4);
+		humanoidClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = humanoidClass.getBonusList();
 		assertEquals("Bonus list starting size", 3, bonusList.size());
 
@@ -852,19 +844,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");
 		prClass.setKeyName("KEY_PreReqClass");
-		prClass.setAbbrev("PCl");
 		prClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
 		prClass.addPreReq(prereq);
 		qClass = new PCClass();
 		qClass.setName("QualClass");
 		qClass.setKeyName("KEY_QualClass");
-		qClass.setAbbrev("QC1");
 		qClass.putQualifyString(PCClass.class, null, "KEY_PreReqClass");
 		//qClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");
 		nqClass.setKeyName("KEY_NonQualClass");
-		nqClass.setAbbrev("NQC");
 		nqClass.addVariable(0, "Foo", "1");
 		nqClass.addVariable(2, "Foo", "2");
 

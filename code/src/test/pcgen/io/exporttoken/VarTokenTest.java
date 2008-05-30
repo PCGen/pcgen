@@ -61,7 +61,6 @@ public class VarTokenTest extends AbstractCharacterTestCase
 
 		final PCClass varClass = new PCClass();
 		varClass.setName("varClass");
-		varClass.setAbbrev("VRC");
 		varClass.addVariable(1, "Pos", "100.35");
 		varClass.addVariable(1, "Neg", "-555.55");
 		varClass.addVariable(1, "PosInt", "105");

@@ -131,7 +131,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		PCClass myClass = new PCClass();
 		myClass.setName("My Class");
 		myClass.setKeyName("KEY_MY_CLASS");
-		myClass.setAbbrev("Myc");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
 		myClass.addBonusList(babClassBonus);

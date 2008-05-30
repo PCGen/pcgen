@@ -102,7 +102,6 @@ public class PreHPTest extends AbstractCharacterTestCase
 		super.setUp();
 
 		myClass.setName("My Class");
-		myClass.setAbbrev("Myc");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		Globals.getClassList().add(myClass);
 	}

@@ -144,7 +144,6 @@ public class PreCheckTest extends AbstractCharacterTestCase
 		SettingsHandler.getGame().addToCheckList(obj);
 
 		myClass.setName("My Class");
-		myClass.setAbbrev("Myc");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj fortRefBonus =
 				Bonus.newBonus("1|CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");

@@ -161,7 +161,6 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		PCClass aClass = new PCClass();
 		aClass.setName("TestClass");
-		aClass.setAbbrev("TC");
 		String classPCCText = aClass.getPCCText();
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 

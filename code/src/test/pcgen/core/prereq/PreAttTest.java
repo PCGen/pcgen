@@ -98,7 +98,6 @@ public class PreAttTest extends AbstractCharacterTestCase
 		super.setUp();
 
 		myClass.setName("My Class");
-		myClass.setAbbrev("Myc");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+5");
 		myClass.addBonusList(babClassBonus);

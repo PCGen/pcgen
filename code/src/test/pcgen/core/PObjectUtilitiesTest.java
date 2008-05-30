@@ -61,11 +61,10 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
-		arcaneClass.setAbbrev("TA");
 		arcaneClass.setSpellType("ARCANE");
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
-		arcaneClass.setMemorizeSpells(false);
+		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(2), "KNOWN", "4,3,1");
@@ -76,21 +75,19 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
-		divineClass.setAbbrev("TD");
 		divineClass.setSpellType("DIVINE");
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
-		divineClass.setMemorizeSpells(true);
+		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getClassLevel(3), "CAST", "3,1,0");
 		Globals.getClassList().add(divineClass);
 
 		psionicClass = new PCClass();
 		psionicClass.setName("TestPsion");
-		psionicClass.setAbbrev("TP");
 		psionicClass.setSpellType("PSIONIC");
 		context.unconditionallyProcess(psionicClass, "SPELLSTAT", "CHA");
 		psionicClass.put(ObjectKey.SPELLBOOK, false);
-		psionicClass.setMemorizeSpells(false);
+		psionicClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(psionicClass.getClassLevel(1), "KNOWN", "0,3");
 		context.unconditionallyProcess(psionicClass.getClassLevel(2), "KNOWN", "0,5");
 		context.unconditionallyProcess(psionicClass.getClassLevel(3), "KNOWN", "0,5,2");

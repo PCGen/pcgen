@@ -44,7 +44,6 @@ public final class SubstitutionClass extends PCClass
 	/** Constructor */
 	public SubstitutionClass()
 	{
-		setKnownSpellsFromSpecialty(0);
 	}
 
 	/**

@@ -473,7 +473,7 @@ final class MainHP extends JPanel
 					if (aClass != null)
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(rowIndex);
-						final int baseSides = aClass.getLevelHitDie(aPC, lvl);
+						final int baseSides = aClass.getLevelHitDie(aPC, lvl).getDie();
 						iHp = aClass.getHitPoint(lvl - 1);
 						iSides = baseSides + (int) aClass.getBonusTo("HD", "MAX", lvl, aPC);
 

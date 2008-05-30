@@ -97,22 +97,19 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		humanoidClass = new PCClass();
 		humanoidClass.setName("Humanoid");
 		humanoidClass.setTypeInfo("Monster");
-		humanoidClass.setAbbrev("HM");
 		Globals.getClassList().add(humanoidClass);
 
 		nymphClass = new PCClass();
 		nymphClass.setName("Nymph");
 		nymphClass.setTypeInfo("Monster");
-		nymphClass.setAbbrev("NM");
 		Globals.getClassList().add(nymphClass);
 
 		megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.setAbbrev("MC");
 		megaCasterClass.setSpellType("ARCANE");
 		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
-		megaCasterClass.setMemorizeSpells(false);
+		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		Globals.getClassList().add(megaCasterClass);
 
 	}

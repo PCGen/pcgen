@@ -8399,8 +8399,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					for (int level = 1; level <= pcClass.getLevel(); level++)
 					{
-						int baseHD = pcClass.getBaseHitDie();
-						if (baseHD != pcClass.getLevelHitDie(this, level))
+						HitDie baseHD = pcClass.getBaseHitDie();
+						if (!baseHD.equals(pcClass.getLevelHitDie(this, level)))
 						{
 							// If the HD has changed from base reroll
 							pcClass.rollHP(this, level, first);

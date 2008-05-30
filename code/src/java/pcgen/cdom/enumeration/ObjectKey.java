@@ -143,6 +143,20 @@ public final class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> SPELLBOOK = new ObjectKey<Boolean>();
 
+	public static final ObjectKey<Boolean> MOD_TO_SKILLS = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> MEMORIZE_SPELLS = new  ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> IS_MONSTER = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> ALLOWBASECLASS = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<Boolean> HAS_BONUS_SPELL_STAT = new ObjectKey<Boolean>();
+
+	public static final ObjectKey<PCStat> BONUS_SPELL_STAT = new ObjectKey<PCStat>();
+
+	public static final ObjectKey<HitDie> LEVEL_HITDIE = new ObjectKey<HitDie>();
+
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 
 	private ObjectKey()

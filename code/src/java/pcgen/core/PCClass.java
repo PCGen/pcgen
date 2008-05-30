@@ -41,6 +41,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -48,6 +49,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
@@ -268,24 +270,6 @@ public class PCClass extends PObject
 	private List<LevelProperty<Vision>> visionList = null;
 
 	/*
-	 * UNKNOWNDESTINATION Actually, the question becomes: Does the CR simply get
-	 * added to each PCClassLevel in order to be incremented (in which case the
-	 * GAMEMODE files need to change to be incremental, not Formula based - and
-	 * 35e NPC will break!) or whether this is stored elsewhere. Does this
-	 * require a PCClassLevel0 that holds stuff like this? I don't want a
-	 * contract in place to handle these types of things, but it's looking like
-	 * a contract may be an efficient way to do this??
-	 */
-	private String CRFormula = null; // null or formula
-
-	/*
-	 * FINALALLCLASSLEVELS The abbrev simply needs to be directly loaded into each
-	 * individual PCClassLevel. No modification or level dependency on the way
-	 * there.
-	 */
-	private String abbrev = Constants.EMPTY_STRING;
-
-	/*
 	 * FINALPCCLASSONLY The selected delegate skill lists [see classSkillList]
 	 * (not the raw classSkillChoices) need to be stored in EACH individual
 	 * PCClassLevel. This is the case because each individual PCClassLevel will
@@ -332,17 +316,6 @@ public class PCClass extends PObject
 	 * PCClassLevel.
 	 */
 	private ChoiceList<String> classSpellChoices = null;
-
-	/*
-	 * FUTURETYPESAFETY The Deity List should be something other than Strings
-	 * 
-	 * Question: How to do this with the 'Magical' ANY Deity?
-	 */
-	/*
-	 * FINALALLCLASSLEVELS Might as well place this into all PCCLassLevels, since it
-	 * does seem to apply to all of them individually
-	 */
-	private List<String> deityList = new ArrayList<String>();
 
 	/*
 	 * FUTURETYPESAFETY This should not be a String, but a member of a Typesafe
@@ -398,15 +371,6 @@ public class PCClass extends PObject
 	 * unrepeatable.
 	 */
 	private String levelExchange = Constants.EMPTY_STRING;
-
-	/*
-	 * TYPESAFETY Should this be a tri-state?
-	 */
-	/*
-	 * ALLCLASSLEVELS Because this indicates a Class characteristic, it needs to
-	 * be passed into each and every PCClassLevel created from this PCClass.
-	 */
-	private Boolean monsterFlag = null;
 
 	/*
 	 * UNKNOWNDESTINATION This is (yet again) a bit complicated due to the fact
@@ -480,94 +444,12 @@ public class PCClass extends PObject
 	private boolean hasSubstitutionClass = false;
 
 	/*
-	 * UNKNOWNDESTINATION This seems initially to be part of the Factory that
-	 * creates the PCClassLevels, and not something that would end up in
-	 * PCClassLevel. This should NOT need to be added to the PCClassLevel since
-	 * the addition of Skill points is not retroactive (once a level is
-	 * achieved, the bonus skills from INT (or the Stat in general) are not
-	 * changed if the stat changes)
-	 * 
-	 * However, there is also a VERY weird call to getModToSkills() over in the
-	 * KitStat class, and I CAN'T for the life of me figure out why it's there??
-	 * I think what it's doing is going back and violating the rules and
-	 * providing retroactive skill point increases based on the STAT... but I
-	 * can't be sure of that.
-	 */
-	/*
-	 * MONSTERONLY Should some special architecture be present for the
-	 * subcomponents of PCClass/PCClassLevel that are only related to Monster
-	 * Classes?
-	 */
-	private boolean modToSkills = true; // stat bonus applied to skills per
-	// level
-
-	/*
-	 * ALLCLASSLEVELS Because this indicates prerequisites for a given
-	 * PCClassLevel (though it's dependent upon the existing classes of the
-	 * PlayerCharacter), it must be passed in to the PCClassLevel. This is not
-	 * completely intuitive (it could be tested inside of the Factory that
-	 * creates the PCClassLevel), but the system should also be able to do
-	 * "post-hoc" verifications (to find cases later invalidated due to Data
-	 * updates or code fixes) and therefore it should be stored in the
-	 * PCClassLevel
-	 * 
-	 * I really want to DELETEVARIABLE
-	 */
-	private boolean multiPreReqs = false;
-
-	/*
 	 * LEVELONEONLY Because this indicates a set of prohibitions, it only needs
 	 * to be inside one of the PCClassLevels. This is true because the
 	 * prohibitions are based on School, Spell Name, etc. and are not specific
 	 * to any particular level (they are in the Class line)
 	 */
 	private List<SpellProhibitor> prohibitSpellDescriptorList = null;
-
-	/*
-	 * ALLCLASSLEVELS This is the Hit Die and therefore, needs to be placed into
-	 * all of the ClassLevels, so that the PC can have HPs based on the
-	 * ClassLevel.
-	 */
-	private int hitDie = 0;
-
-	/*
-	 * DELETEVARIABLE This variable is set and never read.  Is there some unknown 
-	 * use for this, such that this is a bug and not a delete?
-	 */
-	private int initMod = 0;
-
-	/*
-	 * ALLCLASSLEVELS Well, technically, NOT all classes, because this should
-	 * only put the Feat into class levels that actually gain them. But
-	 * theoretically, this is possible to have a value of 1 and thus place a new
-	 * feat at every level. Note that addLevel currently adds these as a BONUS
-	 * item (so the source can be tracked??)
-	 */
-	/*
-	 * MONSTERONLY This is a tag/function that is only relevant for Monster
-	 * classes and should therefore be in a separate sub-object that is only
-	 * relevant to Monster Classes?
-	 */
-	/*
-	 * REFACTOR can this use an int or is null significant?
-	 * 
-	 * Well, it looks like null is at least marginally significant, but nothing
-	 * that a special (perhaps negative) value couldn't fix. The key here is in
-	 * getting the legal parameters of this method established. The setter is
-	 * gating the possible values (yea!) but then there are later assumptions in
-	 * other parts of the code that the value can be anything, and they retest
-	 * the value. Make consistent and eliminate useless code - thpr 11/6/06
-	 */
-	private Integer levelsPerFeat = null;
-
-	/*
-	 * PCCLASSONLY This is ONLY required in the construction of a PCClassLevel -
-	 * it never needs (or shouldn't need) to be exported into the PCClassLevel.
-	 * 
-	 * Note: It is possibly useful to have a boolean isMaxLevel() available in a
-	 * PCClassLevel, but that is TBD
-	 */
-	private int maxLevel = NO_LEVEL_LIMIT;
 
 	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
@@ -619,7 +501,6 @@ public class PCClass extends PObject
 	private SpellProgressionInfo castInfo = null;
 	private SpellProgressionCache spellCache = null;
 	private boolean spellCacheValid = false;
-	private boolean allowBaseClass = true;
 
 	//	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
 
@@ -629,26 +510,6 @@ public class PCClass extends PObject
 	public PCClass()
 	{
 		super();
-		deityList.add("ANY");
-	}
-
-	/**
-	 * Sets the abbreviation used for this class.
-	 * 
-	 * <p>
-	 * There are no constraints placed on what the allowable abbreviation can
-	 * be.
-	 * 
-	 * @param argAbbrev
-	 *            The abbreviation to use.
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClassLevel since
-	 * it is a Tag
-	 */
-	public final void setAbbrev(final String argAbbrev)
-	{
-		abbrev = argAbbrev;
 	}
 
 	/**
@@ -662,7 +523,13 @@ public class PCClass extends PObject
 	 */
 	public final String getAbbrev()
 	{
-		return abbrev;
+		String abb = get(StringKey.ABB);
+		if (abb == null)
+		{
+			String name = getDisplayName();
+			abb = name.substring(0, Math.min(3, name.length()));
+		}
+		return abb;
 	}
 
 	/**
@@ -707,44 +574,6 @@ public class PCClass extends PObject
 	public String getQualifiedKey()
 	{
 		return classKey;
-	}
-
-	/**
-	 * Method sets the bonusSpellBaseStat which will be used to determine the
-	 * number of bonus spells that a character can cast.
-	 * 
-	 * @author David Wilson <eldiosyeldiablo@users.sourceforge.net>
-	 * @param baseStat
-	 *            Stat abbreviation to use as bonus spell stat.
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL Since this comes from a tag and is requried by at least
-	 * some PCClassLevels in order to calculate bonus spells, this must appear
-	 * in both PCClass and PCClassLevel
-	 */
-	public final void setBonusSpellBaseStat(final String baseStat)
-	{
-		getConstructingSpellProgressionInfo().setBonusSpellBaseStatAbbr(
-			baseStat);
-	}
-
-	/**
-	 * Method gets the bonusSpellBaseStat which will be used to determine the
-	 * number of bonus spells that a character can cast.
-	 * 
-	 * @author David Wilson <eldiosyeldiablo@users.sourceforge.net>
-	 * 
-	 * @return Stat abbreviation that should be used to calculate bonus spells.
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL Since this comes from a tag and is requried by at least
-	 * some PCClassLevels in order to calculate bonus spells, this must appear
-	 * in both PCClass and PCClassLevel
-	 */
-	public final String getBonusSpellBaseStat()
-	{
-		return castInfo == null ? Constants.s_DEFAULT : castInfo
-			.getBonusSpellBaseStatAbbr();
 	}
 
 	/**
@@ -1125,32 +954,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL This is appropriate for both PCClassLevel and 
-	 * PCClass since it is a Tag
-	 */
-	public final void addDeity(String aDeity)
-	{
-		deityList.add(aDeity);
-	}
-
-	/*
-	 * FINALPCCLASSONLY Since this is for constructing a PCClass
-	 */
-	public final void clearDeityList()
-	{
-		deityList.clear();
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public final List<String> getDeityList()
-	{
-		return deityList;
-	}
-
-	/*
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass since it
 	 * is a Tag
 	 */
@@ -1172,18 +975,10 @@ public class PCClass extends PObject
 	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public final void setHitDie(final int dice)
+	public HitDie getBaseHitDie()
 	{
-		hitDie = dice;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public int getBaseHitDie()
-	{
-		return hitDie;
+		HitDie hd = get(ObjectKey.LEVEL_HITDIE);
+		return hd == null ? HitDie.ZERO : hd;
 	}
 
 	/*
@@ -1260,18 +1055,10 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY maxLevel is only required for factory creation/verification
 	 * of a PCClassLevel
 	 */
-	public final void setMaxLevel(final int maxLevel)
-	{
-		this.maxLevel = maxLevel;
-	}
-
-	/*
-	 * PCCLASSLEVELONLY maxLevel is only required for factory creation/verification
-	 * of a PCClassLevel
-	 */
 	public final int getMaxLevel()
 	{
-		return maxLevel;
+		Integer ll = get(IntegerKey.LEVEL_LIMIT);
+		return ll == null ? NO_LEVEL_LIMIT : ll;
 	}
 
 	/**
@@ -1281,16 +1068,8 @@ public class PCClass extends PObject
 	 */
 	public final boolean hasMaxLevel()
 	{
-		return maxLevel != NO_LEVEL_LIMIT;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is a characteristic of both the PCClass and
-	 * the individual PCClassLevels (because they grant spells)
-	 */
-	public final void setMemorizeSpells(final boolean memorizeSpells)
-	{
-		getConstructingSpellProgressionInfo().setMemorizeSpells(memorizeSpells);
+		Integer ll = get(IntegerKey.LEVEL_LIMIT);
+		return ll != null && ll != NO_LEVEL_LIMIT;
 	}
 
 	/*
@@ -1300,18 +1079,8 @@ public class PCClass extends PObject
 	public final boolean getMemorizeSpells()
 	{
 		//Defaults to true, so null returns true
-		return castInfo == null || castInfo.memorizesSpells();
-	}
-
-	/*
-	 * PCCLASSANDLEVEL This is a characteristic of both the PCClass and
-	 * the individual PCClassLevels (for later verification)
-	 * 
-	 * I am trying to DELETEMETHOD by deletign multipreqs - thpr 11/6/06
-	 */
-	public final void setMultiPreReqs(final boolean multiPreReqs)
-	{
-		this.multiPreReqs = multiPreReqs;
+		Boolean ms = get(ObjectKey.MEMORIZE_SPELLS);
+		return ms == null || ms;
 	}
 
 	/*
@@ -1525,12 +1294,10 @@ public class PCClass extends PObject
 	 * only appropriate in the PCClassLevel that has the particular Hit Die for
 	 * which the calculation is required.
 	 */
-	public int getLevelHitDie(final PlayerCharacter aPC, final int classLevel)
+	public HitDie getLevelHitDie(final PlayerCharacter aPC, final int classLevel)
 	{
 		// Class Base Hit Die
-		int currHitDie = getBaseHitDie();
-
-		HitDie currDie = new HitDie(currHitDie);
+		HitDie currDie = getBaseHitDie();
 		Modifier<HitDie> dieLock = aPC.getRace().get(ObjectKey.HITDIE);
 		if (dieLock != null)
 		{
@@ -1561,20 +1328,13 @@ public class PCClass extends PObject
 			}
 		}
 
-		return currDie.getDie();
-	}
-
-	/*
-	 * sets whether stat modifier is applied to skill points at level-up time
-	 */
-	public final void setModToSkills(final boolean bool)
-	{
-		modToSkills = bool;
+		return currDie;
 	}
 
 	public final boolean getModToSkills()
 	{
-		return modToSkills;
+		Boolean mts = get(ObjectKey.MOD_TO_SKILLS);
+		return mts == null || mts;
 	}
 
 	/*
@@ -1794,31 +1554,6 @@ public class PCClass extends PObject
 		return getKnownForLevel(spellLevel, "null", aPC);
 	}
 
-	/*
-	 * PCCLASSANDLEVEL Some variant of this needs to be in both the PCClass
-	 * (since it it from a tag) and PCClassLevel (since those will 'own' the
-	 * feats).
-	 */
-	public void setLevelsPerFeat(final Integer newLevels)
-	{
-		if (newLevels.intValue() < 0)
-		{
-			return;
-		}
-
-		levelsPerFeat = newLevels;
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Some variant of this needs to be in both the PCClass
-	 * (since it it from a tag) and PCClassLevel (since those will 'own' the
-	 * feats).
-	 */
-	public final Integer getLevelsPerFeat()
-	{
-		return levelsPerFeat;
-	}
-
 	/**
 	 * if castAs has been set, return knownList from that class
 	 * 
@@ -2035,10 +1770,7 @@ public class PCClass extends PObject
 
 		// make sure any slots due from specialties (including domains) are
 		// added
-		if (castInfo != null)
-		{
-			total += castInfo.getKnownSpellsFromSpecialty();
-		}
+		total += getKnownSpellsFromSpecialty();
 
 		return total;
 	}
@@ -2354,7 +2086,7 @@ public class PCClass extends PObject
 							aPC.getRace().getMonsterClass(aPC, false) != null
 								&& aPC.getRace().getMonsterClass(aPC, false)
 									.equalsIgnoreCase(this.getKeyName());
-					Integer mLevPerFeat = getLevelsPerFeat();
+					Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
 					int startLevel;
 					int rangeLevel;
 					int divisor;
@@ -2613,9 +2345,10 @@ public class PCClass extends PObject
 	 */
 	public boolean isMonster()
 	{
-		if (monsterFlag != null)
+		Boolean mon = get(ObjectKey.IS_MONSTER);
+		if (mon != null)
 		{
-			return monsterFlag.booleanValue();
+			return mon.booleanValue();
 		}
 
 		if (getMyTypeCount() == 0)
@@ -2739,11 +2472,6 @@ public class PCClass extends PObject
 		// it easier for a template to adjust it.
 		{
 			return false;
-		}
-
-		if (multiPreReqs && aPC.getClassList().isEmpty())
-		{
-			return true;
 		}
 
 		if (!PrereqHandler.passesAll(getPreReqList(), aPC, this))
@@ -2874,35 +2602,12 @@ public class PCClass extends PObject
 		return sbu != null && sbu;
 	}
 
-	public void setCRFormula(final String argCRFormula)
-	{
-		CRFormula = argCRFormula;
-	}
-
-	/**
-	 * Sets this class as a "monster" class.
-	 * <p>
-	 * Monster classes have special behaviour in certain cases.
-	 * 
-	 * @param aFlag
-	 *            true if this is a monster class.
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass since
-	 * it is a Tag
-	 */
-	public void setMonsterFlag(final boolean aFlag)
-	{
-		monsterFlag = aFlag;
-	}
-
 	@Override
 	public String getPCCText()
 	{
 		final StringBuffer pccTxt = new StringBuffer(200);
 		pccTxt.append("CLASS:").append(getDisplayName());
 		pccTxt.append(super.getPCCText(false));
-		pccTxt.append("\tABB:").append(getAbbrev());
 		checkAdd(pccTxt, "", "EXCLASS:", exClass);
 
 		checkAdd(pccTxt, "", "EXCHANGELEVEL:", levelExchange);
@@ -2916,9 +2621,6 @@ public class PCClass extends PObject
 			pccTxt.append("\tHASSUBSTITUTIONLEVEL:Y");
 		}
 
-		pccTxt.append("\tHD:").append(hitDie);
-		checkAdd(pccTxt, "ANY", "DEITY:", StringUtil.join(deityList,
-			Constants.PIPE));
 		if (attackCycleMap != null)
 		{
 			checkAdd(pccTxt, "", "ATTACKCYCLE", StringUtil.join(
@@ -2935,27 +2637,6 @@ public class PCClass extends PObject
 		{
 			checkAdd(pccTxt, Constants.s_NONE, "SPELLTYPE:", castInfo
 				.getSpellType());
-		}
-
-		if (levelsPerFeat != null)
-		{
-			pccTxt.append("\tLEVELSPERFEAT:").append(levelsPerFeat.intValue());
-		}
-
-		if (maxLevel != 0)
-		{
-			pccTxt.append("\tMAXLEVEL:").append(maxLevel);
-		}
-
-		if (castInfo != null)
-		{
-			pccTxt.append("\tMEMORIZE:"
-				+ (castInfo.memorizesSpells() ? "Y" : "N"));
-		}
-
-		if (multiPreReqs)
-		{
-			pccTxt.append("\tMULTIPREREQS:Y");
 		}
 
 		if (!getKnownSpellsList().isEmpty())
@@ -3043,9 +2724,9 @@ public class PCClass extends PObject
 
 		// Output the list of spells associated with the class.
 		int cap = getSpellSupport().getMaxSpellListLevel();
-		if (hasMaxLevel() && cap > maxLevel)
+		if (hasMaxLevel() && cap > getMaxLevel())
 		{
-			cap = maxLevel;
+			cap = getMaxLevel();
 		}
 		for (int i = 0; i <= cap; i++)
 		{
@@ -3348,7 +3029,7 @@ public class PCClass extends PObject
 		}
 
 		sClass.setHitPointMap(hitPointMap);
-		sClass.setHitDie(hitDie);
+		sClass.put(ObjectKey.LEVEL_HITDIE, get(ObjectKey.LEVEL_HITDIE));
 		subClassList.add(sClass);
 	}
 
@@ -3365,7 +3046,7 @@ public class PCClass extends PObject
 		}
 
 		sClass.setHitPointMap(hitPointMap);
-		sClass.setHitDie(hitDie);
+		sClass.put(ObjectKey.LEVEL_HITDIE, get(ObjectKey.LEVEL_HITDIE));
 		substitutionClassList.add(sClass);
 	}
 
@@ -3559,7 +3240,7 @@ public class PCClass extends PObject
 		{
 			return SettingsHandler.getGame().getStatFromAbbrev(ss.getAbb());
 		}
-		Logging.errorPrint("Found Class: " + getDisplayName()
+		Logging.debugPrint("Found Class: " + getDisplayName()
 				+ " that did not have any SPELLSTAT defined");
 		return -1;
 	}
@@ -3584,18 +3265,20 @@ public class PCClass extends PObject
 	 */
 	public int bonusSpellIndex()
 	{
-		String tmpSpellBaseStat = getBonusSpellBaseStat();
-
-		if (tmpSpellBaseStat.equals(Constants.s_NONE))
-		{
-			return -1;
-		}
-		else if (tmpSpellBaseStat.equals(Constants.s_DEFAULT))
+		Boolean hbss = get(ObjectKey.HAS_BONUS_SPELL_STAT);
+		if (hbss == null)
 		{
 			return baseSpellIndex();
 		}
-
-		return SettingsHandler.getGame().getStatFromAbbrev(tmpSpellBaseStat);
+		else if (hbss)
+		{
+			PCStat bss = get(ObjectKey.BONUS_SPELL_STAT);
+			return SettingsHandler.getGame().getStatFromAbbrev(bss.getAbb());
+		}
+		else
+		{
+			return -1;
+		}
 	}
 
 	/*
@@ -3612,28 +3295,25 @@ public class PCClass extends PObject
 	 */
 	public float calcCR(final PlayerCharacter aPC)
 	{
-		String wCRFormula = "0";
-
-		if (CRFormula != null)
-		{
-			wCRFormula = CRFormula;
-		}
-		else
+		Formula cr = get(FormulaKey.CR);
+		if (cr == null)
 		{
 			for (String type : getTypeList(false))
 			{
 				final ClassType aClassType =
 						SettingsHandler.getGame().getClassTypeByName(type);
-
-				if ((aClassType != null)
-					&& !"0".equals(aClassType.getCRFormula()))
+				if (aClassType != null)
 				{
-					wCRFormula = aClassType.getCRFormula();
+					String crf = aClassType.getCRFormula();
+					if (!"0".equals(crf))
+					{
+						cr = FormulaFactory.getFormulaFor(crf);
+					}
 				}
 			}
 		}
 
-		return aPC.getVariableValue(wCRFormula, classKey).floatValue();
+		return cr == null ? 0 : cr.resolve(aPC, classKey).floatValue();
 	}
 
 	/*
@@ -3704,8 +3384,6 @@ public class PCClass extends PObject
 
 			aClass.setLevelExchange(levelExchange);
 
-			aClass.multiPreReqs = multiPreReqs;
-			aClass.deityList = new ArrayList<String>(deityList);
 			if (knownSpellsList != null)
 			{
 				aClass.knownSpellsList =
@@ -3716,8 +3394,6 @@ public class PCClass extends PObject
 				aClass.attackCycleMap =
 						new HashMap<AttackType, String>(attackCycleMap);
 			}
-			aClass.modToSkills = modToSkills;
-			aClass.initMod = initMod;
 
 			if (hitPointMap != null)
 			{
@@ -3762,15 +3438,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is a characteristic of both the PCClass and
-	 * the individual PCClassLevels (because they grant spells)
-	 */
-	public final boolean multiPreReqs()
-	{
-		return multiPreReqs;
-	}
-
-	/*
 	 * PCCLASSANDLEVEL Since this is required in both places...
 	 */
 	@Override
@@ -3789,19 +3456,6 @@ public class PCClass extends PObject
 	public void setName(final String newName)
 	{
 		super.setName(newName);
-
-		int i = 3;
-
-		if ("".equals(abbrev))
-		{
-			if (newName.length() < 3)
-			{
-				i = newName.length();
-			}
-
-			abbrev = newName.substring(0, i);
-		}
-
 		/*
 		 * CONSIDER This (below) is a bit of a confusing side effect - needs to be
 		 * far more explicit that stableSpellKey is a cache, and that there are 
@@ -4365,11 +4019,11 @@ public class PCClass extends PObject
 
 		// if we have known spells (0==no known spells recorded)
 		// or a psi specialty.
-		if ((total > 0) && (spellLevel > 0) && castInfo != null)
+		if (total > 0 && spellLevel > 0)
 		{
 			// make sure any slots due from specialties
 			// (including domains) are added
-			total += castInfo.getKnownSpellsFromSpecialty();
+			total += getKnownSpellsFromSpecialty();
 		}
 
 		return total;
@@ -4543,19 +4197,6 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Increases or decreases the initiative modifier by the given value.
-	 * 
-	 * @param initModDelta
-	 */
-	/*
-	 * DELETEMETHOD for an unused variable
-	 */
-	public void addInitMod(final int initModDelta)
-	{
-		initMod += initModDelta;
-	}
-
-	/**
 	 * Adds a level of this class to the character.
 	 * 
 	 * TODO: Split the PlayerCharacter code out of PCClass (i.e. the level
@@ -4623,13 +4264,13 @@ public class PCClass extends PObject
 			levelMax = false;
 		}
 
-		if (hasMaxLevel() && (newLevel > maxLevel) && levelMax)
+		if (hasMaxLevel() && (newLevel > getMaxLevel()) && levelMax)
 		{
 			if (!bSilent)
 			{
 				ShowMessageDelegate.showMessageDialog(
 					"This class cannot be raised above level "
-						+ Integer.toString(maxLevel), Constants.s_APPNAME,
+						+ Integer.toString(getMaxLevel()), Constants.s_APPNAME,
 					MessageType.ERROR);
 			}
 
@@ -6008,7 +5649,7 @@ public class PCClass extends PObject
 		});
 
 		// add base class to the chooser at the TOP
-		if (this.allowBaseClass)
+		if (getAllowBaseClass())
 		{
 			final List<Object> columnList2 = new ArrayList<Object>(3);
 			columnList2.add(this);
@@ -6046,7 +5687,7 @@ public class PCClass extends PObject
 		}
 
 		List<List<PCClass>> selectedList;
-		if (!allowBaseClass)
+		if (!getAllowBaseClass())
 		{
 			while (c.getSelectedList().size() == 0)
 			{
@@ -6302,9 +5943,15 @@ public class PCClass extends PObject
 	 */
 	private void inheritAttributesFrom(final PCClass otherClass)
 	{
-		if (otherClass.getBonusSpellBaseStat() != null)
+		Boolean hbss = otherClass.get(ObjectKey.HAS_BONUS_SPELL_STAT);
+		if (hbss != null)
 		{
-			setBonusSpellBaseStat(otherClass.getBonusSpellBaseStat());
+			put(ObjectKey.HAS_BONUS_SPELL_STAT, hbss);
+			PCStat bss = otherClass.get(ObjectKey.BONUS_SPELL_STAT);
+			if (bss != null)
+			{
+				put(ObjectKey.BONUS_SPELL_STAT, bss);
+			}
 		}
 
 		Boolean usbs = otherClass.get(ObjectKey.USE_SPELL_SPELL_STAT);
@@ -6419,7 +6066,7 @@ public class PCClass extends PObject
 						otherClass.naturalWeapons);
 		}
 
-		hitDie = otherClass.hitDie;
+		put(ObjectKey.LEVEL_HITDIE, otherClass.get(ObjectKey.LEVEL_HITDIE));
 	}
 
 	private void modDomainsForLevel(final int aLevel, final boolean adding,
@@ -6519,7 +6166,7 @@ public class PCClass extends PObject
 				1 + (int) aPC.getTotalBonusTo("HD", "MIN")
 					+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + keyName);
 		final int max =
-				getLevelHitDie(aPC, aLevel)
+				getLevelHitDie(aPC, aLevel).getDie()
 					+ (int) aPC.getTotalBonusTo("HD", "MAX")
 					+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + keyName);
 
@@ -6554,7 +6201,7 @@ public class PCClass extends PObject
 		// apprentice class)
 		final int skillMin = (spMod > 0) ? 1 : 0;
 
-		if (modToSkills)
+		if (getModToSkills())
 		{
 			spMod += (int) aPC.getStatBonusTo("MODSKILLPOINTS", "NUMBER");
 
@@ -6677,19 +6324,10 @@ public class PCClass extends PObject
 		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
 	}
 
-	public void setKnownSpellsFromSpecialty(int i)
-	{
-		if (castInfo == null && i == 0)
-		{
-			//Avoid useless construction of castInfo
-			return;
-		}
-		getConstructingSpellProgressionInfo().setKnownSpellsFromSpecialty(i);
-	}
-
 	public int getKnownSpellsFromSpecialty()
 	{
-		return castInfo == null ? 0 : castInfo.getKnownSpellsFromSpecialty();
+		Integer kss = get(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
+		return kss == null ? 0 : kss;
 	}
 
 	@Override
@@ -6796,15 +6434,8 @@ public class PCClass extends PObject
 	 */
 	public boolean getAllowBaseClass()
 	{
-		return allowBaseClass;
-	}
-
-	/**
-	 * @param allowBaseClass the allowBaseClass to set
-	 */
-	public void setAllowBaseClass(final boolean allowBaseClass)
-	{
-		this.allowBaseClass = allowBaseClass;
+		Boolean abc = get(ObjectKey.ALLOWBASECLASS);
+		return abc == null ? true : abc;
 	}
 
 	public void removeAllAutoAbilites(final int alevel)
