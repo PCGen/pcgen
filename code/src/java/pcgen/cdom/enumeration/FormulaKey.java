@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import pcgen.base.enumeration.TypeSafeConstant;
+import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
@@ -90,15 +91,18 @@ public final class FormulaKey implements TypeSafeConstant
 	 */
 	private final String fieldName;
 
+	private final Formula defaultValue;
+	
 	/**
 	 * The ordinal of this Constant
 	 */
 	private final transient int ordinal;
 
-	private FormulaKey(String name)
+	private FormulaKey(String name, Formula def)
 	{
 		ordinal = ordinalCount++;
 		fieldName = name;
+		defaultValue = def;
 	}
 
 	/**
@@ -119,6 +123,11 @@ public final class FormulaKey implements TypeSafeConstant
 	{
 		return ordinal;
 	}
+	
+	public Formula getDefault()
+	{
+		return defaultValue;
+	}
 
 	/**
 	 * Returns the constant for the given String (the search for the constant is
@@ -138,7 +147,34 @@ public final class FormulaKey implements TypeSafeConstant
 		FormulaKey o = typeMap.get(s);
 		if (o == null)
 		{
-			o = new FormulaKey(s);
+			o = new FormulaKey(s, Formula.ZERO);
+			typeMap.put(s, o);
+		}
+		return o;
+	}
+
+	/**
+	 * Returns the constant for the given String (the search for the constant is
+	 * case insensitive). If the constant does not already exist, a new Constant
+	 * is created with the given String as the name of the Constant.
+	 * 
+	 * @param s
+	 *            The name of the constant to be returned
+	 * @param f
+	 *            The Formula to be used as the default value if the FormulaKey
+	 *            is not set
+	 * @return The Constant for the given name
+	 */
+	public static FormulaKey getConstant(String s, Formula f)
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<FormulaKey>();
+		}
+		FormulaKey o = typeMap.get(s);
+		if (o == null)
+		{
+			o = new FormulaKey(s, f);
 			typeMap.put(s, o);
 		}
 		return o;
