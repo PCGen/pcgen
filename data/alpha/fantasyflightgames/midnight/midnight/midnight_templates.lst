@@ -35,8 +35,8 @@ Heroic Path (Warg)		OUTPUTNAME:Warg Heroic Path								VISIBLE:YES				TEMPLATE:C
 # Template Name			Visible	Special ABility	Required Vision			Prohibited Vision				Add to vision			Vision
 Fey Vision (Normal)		VISIBLE:NO									!PREVISION:1,Low-light,Darkvision						VISION:Low-light
 Fey Vision (Low Light)		VISIBLE:NO				PREVISION:1,Low-light													VISION:Darkvision (60')
-Fey Vision (Darkvision 60)	VISIBLE:NO				PREVISION:1,Darkvision (60')							BONUS:VISION|DarkVision|60
-Fey Vision (Darkvision 120)	VISIBLE:NO				PREVISION:1,Darkvision (120')							BONUS:VISION|DarkVision|120
+Fey Vision (Darkvision 60)	VISIBLE:NO				PREVISION:1,Darkvision=60							BONUS:VISION|DarkVision|60
+Fey Vision (Darkvision 120)	VISIBLE:NO				PREVISION:1,Darkvision=120							BONUS:VISION|DarkVision|120
 
 Warg Wild Sense (Scent)		VISIBLE:NO	SAB:Scent (Ex)
 Warg Wild Sense (Low Light)	VISIBLE:NO									!PREVISION:1,Low-light								VISION:Low-light
