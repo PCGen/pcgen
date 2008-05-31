@@ -12,8 +12,12 @@ public interface ListCommitStrategy
 {
 
 	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(String tokenName,
-		CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
-		T allowed);
+			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
+			T allowed);
+
+	public <T extends CDOMObject> void removeFromMasterList(String tokenName,
+			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
+			T allowed);
 
 	public Changes<CDOMReference> getMasterListChanges(
 		String tokenName, CDOMObject owner, Class<? extends CDOMList<?>> cl);

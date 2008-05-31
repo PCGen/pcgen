@@ -14,6 +14,17 @@ public abstract class CDOMListObject<T extends CDOMObject> extends CDOMObject
 	@Override
 	public boolean equals(Object o)
 	{
-		return o != null && o.getClass().equals(getClass());
+		if (o == this)
+		{
+			return true;
+		}
+		if (o instanceof CDOMListObject)
+		{
+			CDOMListObject<?> other = (CDOMListObject<?>) o;
+			return o.getClass().equals(getClass())
+					&& other.getListClass().equals(getListClass())
+					&& getKeyName().equals(other.getKeyName());
+		}
+		return false;
 	}
 }

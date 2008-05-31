@@ -327,12 +327,15 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 		}
 		for (CaseInsensitiveString s : referenced.keySet())
 		{
-			if (!active.containsKey(s) && !deferred.contains(s)
-					&& !s.toString().startsWith("*"))
+			if (!active.containsKey(s) && !deferred.contains(s))
 			{
-				Logging.errorPrint("Unconstructed Reference: "
-						+ baseClass.getSimpleName() + " " + s);
-				returnGood = false;
+				if (!s.toString().startsWith("*"))
+				{
+					Logging.errorPrint("Unconstructed Reference: "
+							+ baseClass.getSimpleName() + " " + s);
+					returnGood = false;
+				}
+				constructCDOMObject(s.toString());
 			}
 		}
 		return returnGood;

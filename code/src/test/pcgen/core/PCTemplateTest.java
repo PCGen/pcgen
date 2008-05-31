@@ -37,6 +37,7 @@ import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCTemplateLoader;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.RuntimeLoadContext;
 
 /**
@@ -129,7 +130,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-				new RuntimeLoadContext(),
+				new RuntimeLoadContext(new ConsolidatedListCommitStrategy()),
 				template,
 				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
@@ -179,7 +180,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-					new RuntimeLoadContext(),
+					new RuntimeLoadContext(new ConsolidatedListCommitStrategy()),
 				template,
 				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
@@ -231,7 +232,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-					new RuntimeLoadContext(),
+					new RuntimeLoadContext(new ConsolidatedListCommitStrategy()),
 				template,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
@@ -295,7 +296,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		}
 		loader
 			.parseLine(
-					new RuntimeLoadContext(),
+					new RuntimeLoadContext(new ConsolidatedListCommitStrategy()),
 				template,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);

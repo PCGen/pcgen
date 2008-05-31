@@ -821,11 +821,15 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			if (cs.getOwner() != null)
 			{
 
-				int[] levels =
+				Integer[] levels =
 						aSpell.levelForKey(cs.getOwner().getSpellKey(), pc);
 
 				for (int index = 0; index < levels.length; ++index)
 				{
+					if (levels[index] == -1)
+					{
+						continue;
+					}
 					if (index > 0)
 					{
 						levelString.append(',');

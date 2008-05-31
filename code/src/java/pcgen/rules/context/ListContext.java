@@ -72,6 +72,13 @@ public class ListContext
 		return edits.addToMasterList(tokenName, owner, list, allowed);
 	}
 
+	public <T extends CDOMObject> void removeFromMasterList(
+			String tokenName, CDOMObject owner,
+			CDOMReference<? extends CDOMList<T>> list, T allowed)
+	{
+		edits.removeFromMasterList(tokenName, owner, list, allowed);
+	}
+
 	public void clearAllMasterLists(String tokenName, CDOMObject owner)
 	{
 		edits.clearAllMasterLists(tokenName, owner);
@@ -167,6 +174,10 @@ public class ListContext
 		{
 			commitDirect(list);
 		}
+		for (CDOMReference list : edits.negativeMasterMap.getKeySet())
+		{
+			removeDirect(list);
+		}
 		for (URI uri : edits.globalClearSet.getKeySet())
 		{
 			for (CDOMObject owner : edits.globalClearSet
@@ -235,6 +246,23 @@ public class ListContext
 					setAssoc(assoc, edge, ak);
 				}
 				edge.addAllPrerequisites(assoc.getPrerequisiteList());
+			}
+		}
+	}
+
+	private <T extends CDOMObject> void removeDirect(
+			CDOMReference<? extends CDOMList<T>> list)
+	{
+		for (OwnerURI ou : edits.negativeMasterMap.getSecondaryKeySet(list))
+		{
+			for (CDOMObject child : edits.negativeMasterMap.getTertiaryKeySet(
+					list, ou))
+			{
+				AssociatedPrereqObject assoc = edits.positiveMasterMap.get(
+						list, ou, child);
+				commit.removeFromMasterList(assoc
+						.getAssociation(AssociationKey.TOKEN), ou.owner, list,
+						(T) child);
 			}
 		}
 	}
@@ -369,6 +397,8 @@ public class ListContext
 		 */
 		private TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
 
+		private TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
+		
 		private HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI> masterClearSet = new HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI>();
 
 		private HashMapToList<String, OwnerURI> masterAllClear = new HashMapToList<String, OwnerURI>();
@@ -383,6 +413,17 @@ public class ListContext
 			positiveMasterMap.put(list, new OwnerURI(sourceURI, owner),
 					allowed, a);
 			return a;
+		}
+
+		public <T extends CDOMObject> void removeFromMasterList(
+				String tokenName, CDOMObject owner,
+				CDOMReference<? extends CDOMList<T>> list, T allowed)
+		{
+			SimpleAssociatedObject a = new SimpleAssociatedObject();
+			a.setAssociation(AssociationKey.OWNER, owner);
+			a.setAssociation(AssociationKey.TOKEN, tokenName);
+			negativeMasterMap.put(list, new OwnerURI(sourceURI, owner),
+					allowed, a);
 		}
 
 		public Changes<CDOMReference> getMasterListChanges(String tokenName,

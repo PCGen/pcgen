@@ -52,12 +52,14 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.MasterListInterface;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.persistence.PersistenceManager;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.util.InputFactory;
@@ -198,7 +200,8 @@ public final class Globals
 	private static final StringBuffer section15 = new StringBuffer(30000);
 	private static final String spellPoints = "0";
 
-	private static LoadContext context = new RuntimeLoadContext();
+	private static ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
+	private static LoadContext context = new RuntimeLoadContext(masterLCS);
 	
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
@@ -1904,7 +1907,6 @@ public final class Globals
 
 			spellType = "DIVINE";
 		}
-
 		for (String aKey : spellMap.keySet())
 		{
 			final Object obj = spellMap.get(aKey);
@@ -2491,7 +2493,8 @@ public final class Globals
 		PersistenceManager.getInstance().emptyLists();
 		SettingsHandler.getGame().clearLstAbilityCategories();
 		
-		context = new RuntimeLoadContext();
+		masterLCS = new ConsolidatedListCommitStrategy();
+		context = new RuntimeLoadContext(masterLCS);
 	}
 
 	/**
@@ -3738,6 +3741,11 @@ public final class Globals
 	public static LoadContext getContext()
 	{
 		return context;
+	}
+
+	public static MasterListInterface getMasterLists()
+	{
+		return masterLCS;
 	}
 
 	private static boolean hasSpellPPCost;

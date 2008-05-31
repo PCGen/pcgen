@@ -257,7 +257,7 @@ public class SpellBasePanel extends BasePanel
 
 		cmbStat.setSelectedItem(thisSpell.get(ObjectKey.SPELL_STAT));
 
-		txtCost.setValue(thisSpell.getCost().doubleValue());
+		txtCost.setValue(thisSpell.getSafe(ObjectKey.COST).doubleValue());
 		txtXpCost.setValue(thisSpell.getSafe(IntegerKey.XP_COST));
 
 		chkPotionAllowed.setSelected(thisSpell.isAllowed("potion"));

@@ -25,6 +25,7 @@ package plugin.exporttokens;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
@@ -251,7 +252,7 @@ public class SpellMemToken extends Token
 						}
 						else if ("COST".equals(aLabel))
 						{
-							retValue.append(aSpell.getCost().toString());
+							retValue.append(aSpell.getSafe(ObjectKey.COST).toString());
 						}
 						else if ("DC".equals(aLabel))
 						{

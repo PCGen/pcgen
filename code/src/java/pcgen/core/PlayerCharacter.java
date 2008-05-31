@@ -13918,7 +13918,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final List<CharacterSpell> aList =
 					aObject.getSpellSupport().getCharacterSpell(null, bookName,
 						levelNum);
-
 			return aList.size();
 		}
 

@@ -13,11 +13,13 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.rules.persistence.TokenUtilities;
 
-public class ConsolidatedListCommitStrategy implements ListCommitStrategy
+public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
+		MasterListInterface
 {
 	private URI sourceURI;
 
@@ -46,15 +48,22 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy
 	private final DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject> masterList =
 			new DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject>();
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(String tokenName,
-		CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
-		T allowed)
+	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
+			String tokenName, CDOMObject owner,
+			CDOMReference<? extends CDOMList<T>> list, T allowed)
 	{
 		SimpleAssociatedObject a = new SimpleAssociatedObject();
 		a.setAssociation(AssociationKey.OWNER, owner);
 		a.setAssociation(AssociationKey.TOKEN, tokenName);
 		masterList.addToListFor(list, allowed, a);
 		return a;
+	}
+
+	public <T extends CDOMObject> void removeFromMasterList(String tokenName,
+			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
+			T allowed)
+	{
+		masterList.removeListFor(list, allowed);
 	}
 
 	public Changes<CDOMReference> getMasterListChanges(String tokenName,
@@ -182,4 +191,30 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy
 		// TODO Deal with matching the token... :/
 		return new ListChanges<T>(tokenName, owner, null, swl, false);
 	}
+	
+	public <T extends CDOMObject> Set<CDOMReference> getActiveLists()
+	{
+		return masterList.getKeySet();
+	}
+
+	public <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(
+			CDOMReference<? extends CDOMList<T>> key1, T key2)
+	{
+		return masterList.getListFor(key1, key2);
+	}
+
+	public <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(
+			CDOMList<T> key1, T key2)
+	{
+		List<AssociatedPrereqObject> list = new ArrayList<AssociatedPrereqObject>();
+		for (CDOMReference ref : masterList.getKeySet())
+		{
+			if (ref.contains(key1))
+			{
+				list.addAll(masterList.getListFor(ref, key2));
+			}
+		}
+		return list;
+	}
+
 }

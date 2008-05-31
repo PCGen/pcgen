@@ -34,6 +34,8 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.ArmorProf;
 import pcgen.core.PCAlignment;
@@ -156,6 +158,10 @@ public final class ObjectKey<T>
 	public static final ObjectKey<PCStat> BONUS_SPELL_STAT = new ObjectKey<PCStat>(null);
 
 	public static final ObjectKey<HitDie> LEVEL_HITDIE = new ObjectKey<HitDie>(HitDie.ZERO);
+
+	public static final ObjectKey<ClassSpellList> CLASS_SPELLLIST = new ObjectKey<ClassSpellList>(null);
+
+	public static final ObjectKey<DomainSpellList> DOMAIN_SPELLLIST = new ObjectKey<DomainSpellList>(null);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

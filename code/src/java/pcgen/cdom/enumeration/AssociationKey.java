@@ -38,17 +38,13 @@ import pcgen.cdom.base.CDOMObject;
 public final class AssociationKey<T>
 {
 
-	/*
-	 * TODO Should ObjectKey take in the Class in order to be able to cast to
-	 * the given class?
-	 * 
-	 * have a .cast(Object o) method on ObjectKey???
-	 */
 	public static final AssociationKey<CDOMObject> OWNER = new AssociationKey<CDOMObject>();
 
 	public static final AssociationKey<String> TOKEN = new AssociationKey<String>();
 
 	public static final AssociationKey<SkillCost> SKILL_COST = new AssociationKey<SkillCost>();
+
+	public static final AssociationKey<Integer> SPELL_LEVEL = new AssociationKey<Integer>();
 
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 

@@ -33,7 +33,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.bonus.Bonus;

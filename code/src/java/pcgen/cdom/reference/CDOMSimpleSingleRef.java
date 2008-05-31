@@ -38,8 +38,9 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 	{
 		if (referencedObject == null)
 		{
-			throw new IllegalStateException(
-				"Cannot ask for contains: Reference has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: "
+					+ getReferenceClass().getName() + " Reference " + getName()
+					+ " has not been resolved");
 		}
 		return referencedObject.equals(obj);
 	}

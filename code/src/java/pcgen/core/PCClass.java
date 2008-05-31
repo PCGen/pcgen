@@ -2157,10 +2157,14 @@ public class PCClass extends PObject
 			final Spell aSpell = charSpell.getSpell();
 
 			// Check that the character can still cast spells of this level.
-			final int[] spellLevels = aSpell.levelForKey(spellKey, aPC);
-			for (int i = 0; i < spellLevels.length; i++)
+			final Integer[] spellLevels = aSpell.levelForKey(spellKey, aPC);
+			for (Integer i = 0; i < spellLevels.length; i++)
 			{
 				final int spellLevel = spellLevels[i];
+				if (spellLevel == -1)
+				{
+					continue;
+				}
 
 				final boolean isKnownAtThisLevel =
 						isAutoKnownSpell(aSpell.getKeyName(), spellLevel, true,
@@ -2211,11 +2215,14 @@ public class PCClass extends PObject
 			for (Spell spell : cspelllist)
 			{
 				// For each spell level that this class can cast this spell at
-				final int[] spellLevels = spell.levelForKey(spellKey, aPC);
-				for (int si = 0; si < spellLevels.length; ++si)
+				final Integer[] spellLevels = spell.levelForKey(spellKey, aPC);
+				for (Integer si = 0; si < spellLevels.length; ++si)
 				{
 					final int spellLevel = spellLevels[si];
-
+					if (spellLevel == -1)
+					{
+						continue;
+					}
 					if (spellLevel <= _maxLevel)
 					{
 						// If the spell is autoknown at this level
@@ -3887,7 +3894,7 @@ public class PCClass extends PObject
 					+ allSpellLevel);
 
 		final int index = baseSpellIndex();
-		System.err.println(baseSpellIndex());
+
 		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
 			final PCStat aStat = aPC.getStatList().getStatAt(index);

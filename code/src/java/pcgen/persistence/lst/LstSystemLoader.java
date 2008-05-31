@@ -533,6 +533,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				EquipmentList.autoGenerateEquipment();
 			}
 			
+			context.ref.buildDerivedObjects();
+			context.ref.validate();
 			context.resolveReferences();
 
 			//  Show the licenses

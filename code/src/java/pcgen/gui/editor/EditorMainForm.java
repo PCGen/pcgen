@@ -92,6 +92,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -632,6 +633,7 @@ public final class EditorMainForm extends JDialog
 		thisPObject.clearAutoMap();
 
 		SpellSupport spellSupport = thisPObject.getSpellSupport();
+		LoadContext context;
 		switch (editType)
 		{
 			case EditorConstants.EDIT_DEITY:
@@ -852,36 +854,17 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_SPELL:
 				((SpellBasePanel2) pnlBase2).updateData(thisPObject);
-				((Spell) thisPObject).clearLevelInfo("CLASS");
-				((Spell) thisPObject).clearLevelInfo("DOMAIN");
-				sel = pnlQClasses.getSelectedList();
-
-				for (int i = 0; i < sel.length; ++i)
+				context = Globals.getContext();
+				Spell sp = (Spell) thisPObject;
+				context.getListContext().clearAllMasterLists("CLASSES", sp);
+				context.getListContext().clearAllMasterLists("DOMAINS", sp);
+				for (Object o : pnlQClasses.getSelectedList())
 				{
-					aString = sel[i].toString();
-
-					final int idx = aString.indexOf('=');
-
-					if (idx > 0)
-					{
-						((Spell) thisPObject).setLevelInfo("CLASS|" + aString.substring(0, idx),
-							aString.substring(idx + 1));
-					}
+					context.unconditionallyProcess(sp, "CLASSES", o.toString());
 				}
-
-				sel = pnlQDomains.getSelectedList();
-
-				for (int i = 0; i < sel.length; ++i)
+				for (Object o : pnlQDomains.getSelectedList())
 				{
-					aString = sel[i].toString();
-
-					final int idx = aString.indexOf('=');
-
-					if (idx > 0)
-					{
-						((Spell) thisPObject).setLevelInfo("DOMAIN|" + aString.substring(0, idx),
-							aString.substring(idx + 1));
-					}
+					context.unconditionallyProcess(sp, "DOMAINS", o.toString());
 				}
 
 				break;

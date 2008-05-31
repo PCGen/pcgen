@@ -32,11 +32,9 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -140,6 +138,16 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	@Override
 	protected Spell getObjectKeyed(final String aKey)
 	{
+		/*
+		 * TODO Wowzers.  This means that the MasterList info needs to be "cloned" when this is .COPY'd
+		 * 
+		 * This is from Spell.java
+		 */
+//		if (levelInfo != null)
+//		{
+//			aSpell.levelInfo = new HashMap<String, Integer>(levelInfo);
+//		}
+
 		return Globals.getSpellKeyed(aKey);
 	}
 
@@ -206,78 +214,6 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	protected void performForget(final Spell objToForget)
 	{
 		Globals.removeFromSpellMap(objToForget.getKeyName());
-	}
-
-	/**
-	 * @param spell
-	 * @param typeString should be CLASS or DOMAIN
-	 * @param listString should be name,name,name=level|name,name=level|etc
-	 * where name is the name of a class or domain and
-	 * level is an integer for this spell's level for the named class/domain
-	 * @throws PersistenceLayerException
-	 */
-	public static void setLevelList(Spell spell, final String typeString,
-		String listString) throws PersistenceLayerException
-	{
-		String preReqTag = null;
-		final int i = listString.lastIndexOf('[');
-		int j = listString.lastIndexOf(']');
-
-		if (j < i)
-		{
-			Logging.errorPrint("Warning: Close Bracket before Open Bracket in Level List: " + listString);
-			j = listString.length();
-		}
-
-		if (i >= 0)
-		{
-			preReqTag = listString.substring(i + 1, j);
-			if (preReqTag.length() == 0) {
-				Logging.errorPrint("Warning: Empty Prerequisite in Level List: " + listString);
-			}
-			listString = listString.substring(0, i);
-		}
-
-		final StringTokenizer aTok =
-				new StringTokenizer(listString, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aList = aTok.nextToken(); // could be name=x or name,name=x
-
-			final StringTokenizer bTok = new StringTokenizer(aList, "=", false);
-
-			while (bTok.hasMoreTokens())
-			{
-				final String nameList = bTok.nextToken();
-
-				if (!bTok.hasMoreTokens())
-				{
-					throw new PersistenceLayerException("Badly formed spell "
-						+ typeString + " data: " + listString);
-				}
-
-				final String aLevel = bTok.nextToken();
-				final StringTokenizer cTok =
-						new StringTokenizer(nameList, ",", false);
-
-				while (cTok.hasMoreTokens())
-				{
-					final String aClass = cTok.nextToken();
-
-					if (preReqTag != null)
-					{
-						PreParserFactory preFactory =
-								PreParserFactory.getInstance();
-						Prerequisite prerequisite = preFactory.parse(preReqTag);
-						spell.addPreReqMapEntry(typeString + "|" + aClass,
-							prerequisite);
-					}
-
-					spell.setLevelInfo(typeString + "|" + aClass, aLevel);
-				}
-			}
-		}
 	}
 
 	/**

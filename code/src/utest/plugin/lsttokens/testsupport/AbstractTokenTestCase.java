@@ -33,6 +33,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstToken;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -70,8 +71,8 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext();
-		secondaryContext = new RuntimeLoadContext();
+		primaryContext = new RuntimeLoadContext(new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(new ConsolidatedListCommitStrategy());
 		URI testURI = testCampaign.getURI();
 		primaryContext.getObjectContext().setSourceURI(testURI);
 		primaryContext.getObjectContext().setExtractURI(testURI);

@@ -445,20 +445,6 @@ public class SpellSupport implements Cloneable
 	}
 
     /**
-     * Add a list of spells to the character spell list
-     * @param l
-     */
-    public final void addAllCharacterSpells(final List<CharacterSpell> l)
-	{
-		if (characterSpellList == null)
-		{
-			characterSpellList = new ArrayList<CharacterSpell>();
-		}
-
-		characterSpellList.addAll(l);
-	}
-
-	/**
      * Add a spell to the character spell list 
      * @param spell
 	 */
@@ -468,7 +454,6 @@ public class SpellSupport implements Cloneable
 		{
 			characterSpellList = new ArrayList<CharacterSpell>();
 		}
-
 		characterSpellList.add(spell);
 	}
 

@@ -1,5 +1,4 @@
 /*
- * Spell.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,11 +21,10 @@
  */
 package pcgen.core.spell;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -34,11 +32,18 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -53,9 +58,9 @@ import pcgen.core.bonus.util.SpellPointCostInfo.SpellPointFilterType;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -66,8 +71,6 @@ import pcgen.util.Logging;
  */
 public final class Spell extends PObject
 {
-	private HashMap<String, Integer> levelInfo = null;
-	private Map<String, Prerequisite> preReqMap = null;
 	private String fixedCasterLevel = null;
 	private String fixedDC = null;
 
@@ -158,12 +161,6 @@ public final class Spell extends PObject
 	public String getComponentList()
 	{
 		return StringUtil.join(getListFor(ListKey.COMPONENTS), ", ");
-	}
-
-	public BigDecimal getCost()
-	{
-		BigDecimal cost = get(ObjectKey.COST);
-		return cost == null ? BigDecimal.ZERO : cost;
 	}
 
 	/**
@@ -369,7 +366,7 @@ public final class Spell extends PObject
 
 	public int getFirstLevelForKey(final String key, final PlayerCharacter aPC)
 	{
-		final int[] levelInt = levelForKey(key, aPC);
+		final Integer[] levelInt = levelForKey(key, aPC);
 		int result = -1;
 
 		if (levelInt.length > 0)
@@ -388,64 +385,6 @@ public final class Spell extends PObject
 	}
 
 	/**
-	 * appends aString to the existing levelString
-	 * if key=".CLEAR" then clear the levelString
-	 * else levelString should be in form of source|name|level
-	 * where source is CLASS or DOMAIN
-	 * name is the name of the CLASS or DOMAIN
-	 * and level is an integer representing the level of the spell for the named CLASS or DOMAIN
-	 * @param key
-	 * @param aLevel
-	 */
-	public void setLevelInfo(final String key, final String aLevel)
-	{
-		try
-		{
-			setLevelInfo(key, Integer.parseInt(aLevel));
-		}
-		catch (NumberFormatException exc)
-		{
-			Logging.errorPrint("Could not set level info.", exc);
-		}
-	}
-
-	public void clearLevelInfo(String type)
-	{
-		if (levelInfo != null)
-		{
-			String typeBar = type + "|";
-			for (Iterator<String> it = levelInfo.keySet().iterator(); it
-				.hasNext();)
-			{
-				if (it.next().startsWith(typeBar))
-				{
-					it.remove();
-				}
-			}
-		}
-	}
-
-	public void setLevelInfo(final String key, final int level)
-	{
-		if (level == -1)
-		{
-			if (levelInfo != null)
-			{
-				levelInfo.remove(key);
-			}
-		}
-		else
-		{
-			if (levelInfo == null)
-			{
-				levelInfo = new HashMap<String, Integer>();
-			}
-
-			levelInfo.put(key, Integer.valueOf(level));
-		}
-	}
-
-	/**
 	 * This method gets the information about the levels at which classes
 	 * and domains may cast the spell.
 	 *
@@ -457,24 +396,30 @@ public final class Spell extends PObject
 	 */
 	public Map<String, Integer> getLevelInfo(final PlayerCharacter aPC)
 	{
-		Map<String, Integer> wLevelInfo = null;
+		Map<String, Integer> wLevelInfo = new HashMap<String, Integer>();
 
-		if (levelInfo != null)
+		MasterListInterface masterLists = Globals.getMasterLists();
+		for (CDOMReference list : masterLists.getActiveLists())
 		{
-			wLevelInfo = new HashMap<String, Integer>(levelInfo);
+			Collection<AssociatedPrereqObject> assoc = masterLists
+					.getAssociations(list, this);
+			String type = ClassSpellList.class.equals(list.getReferenceClass()) ? "CLASS"
+					: "DOMAIN";
+			if (assoc != null)
+			{
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					Integer lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
+					wLevelInfo.put(type + "|" + list.getLSTformat(), lvl);
+				}
+			}
 		}
 
 		if (aPC != null)
 		{
-			if (wLevelInfo == null)
-			{
-				wLevelInfo = new HashMap<String, Integer>();
-			}
-
 			wLevelInfo.putAll(aPC.getSpellInfoMap("CLASS", getKeyName()));
 			wLevelInfo.putAll(aPC.getSpellInfoMap("DOMAIN", getKeyName()));
 		}
-
 		return wLevelInfo;
 	}
 
@@ -488,48 +433,6 @@ public final class Spell extends PObject
 		txt.append("\t");
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
-
-		//CLASSES:
-		//DOMAINS:
-		if (getLevelInfo(null) != null)
-		{
-			final List<String> classList = new ArrayList<String>();
-			final List<String> domainList = new ArrayList<String>();
-			final List<String> miscList = new ArrayList<String>();
-
-			for ( Map.Entry<String, Integer> entry : getLevelInfo(null).entrySet() )
-			{
-				aString = entry.getKey();
-
-				if (aString.startsWith("CLASS|"))
-				{
-					classList.add(aString.substring(6) + '=' + entry.getValue().toString());
-				}
-				else if (aString.startsWith("DOMAIN|"))
-				{
-					domainList.add(aString.substring(7) + '=' + entry.getValue().toString());
-				}
-				else
-				{
-					miscList.add(aString + '|' + entry.getValue().toString());
-				}
-			}
-
-			if (classList.size() != 0)
-			{
-				txt.append("\tCLASSES:").append(StringUtil.join(classList, "|"));
-			}
-
-			if (domainList.size() != 0)
-			{
-				txt.append("\tDOMAINS:").append(StringUtil.join(domainList, "|"));
-			}
-
-			if (miscList.size() != 0)
-			{
-				txt.append("\tSPELLLEVEL:").append(StringUtil.join(miscList, "|"));
-			}
-		}
 
 		if (hasSpellPointCost())
 		{
@@ -572,17 +475,6 @@ public final class Spell extends PObject
 		return target == null ? Constants.EMPTY_STRING : target;
 	}
 
-	public void addPreReqMapEntry(final String type, final Prerequisite preReq)
-	{
-		if (preReqMap == null)
-		{
-			preReqMap = new HashMap<String, Prerequisite>();
-		}
-
-		preReqMap.put(type, preReq);
-
-	}
-
 	////////////////////////////////////////////////////////////
 	// Public method(s)
 	////////////////////////////////////////////////////////////
@@ -601,10 +493,6 @@ public final class Spell extends PObject
 				
 			}
 
-			if (levelInfo != null)
-			{
-				aSpell.levelInfo = new HashMap<String, Integer>(levelInfo);
-			}
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -621,20 +509,28 @@ public final class Spell extends PObject
 
 	public String getLevelString()
 	{
-		if (levelInfo == null)
-			return "";
-		StringBuffer s = new StringBuffer();
-		for (String key : levelInfo.keySet())
+		StringBuilder sb = new StringBuilder();
+		boolean needsComma = false;
+		MasterListInterface masterLists = Globals.getMasterLists();
+		for (CDOMReference list : masterLists.getActiveLists())
 		{
-			String val = levelInfo.get(key).toString();
-			StringTokenizer aTok = new StringTokenizer(key, "|", false);
-			aTok.nextToken();
-			if (s.toString().length()>0)
-				s.append(", ");
-			s.append(aTok.nextToken()).append(" ");
-			s.append(val);
+			Collection<AssociatedPrereqObject> assoc = masterLists
+					.getAssociations(list, this);
+			if (assoc != null)
+			{
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					if (needsComma)
+					{
+						sb.append(", ");
+					}
+					needsComma = true;
+					sb.append(list.getLSTformat());
+					sb.append(apo.getAssociation(AssociationKey.SPELL_LEVEL));
+				}
+			}
 		}
-		return s.toString();
+		return sb.toString();
 	}
 
 	/**
@@ -646,23 +542,39 @@ public final class Spell extends PObject
 	 */
 	public boolean isLevel(final int aLevel, final PlayerCharacter aPC)
 	{
-		if (levelInfo == null)
+		Integer levelKey = Integer.valueOf(aLevel);
+		MasterListInterface masterLists = Globals.getMasterLists();
+		for (PCClass pcc : aPC.getClassList())
 		{
-			return false;
-		}
-		final Integer levelKey = Integer.valueOf(aLevel);
-		for (PCClass cls : aPC.getClassList())
-		{
-			if (levelKey.equals(levelInfo.get("CLASS|" + cls.getKeyName())))
+			ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);
+			Collection<AssociatedPrereqObject> assoc = masterLists
+					.getAssociations(csl, this);
+			if (assoc != null)
 			{
-				return true;
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					if (levelKey.equals(apo.getAssociation(AssociationKey.SPELL_LEVEL)))
+					{
+						return true;
+					}
+				}
 			}
 		}
 		for (CharacterDomain domain : aPC.getCharacterDomainList())
 		{
-			if (levelKey.equals(levelInfo.get("DOMAIN|" + domain.getDomain().getKeyName())))
+			DomainSpellList dsl = domain.getDomain().get(ObjectKey.DOMAIN_SPELLLIST);
+			Collection<AssociatedPrereqObject> assoc = masterLists
+					.getAssociations(dsl, this);
+			if (assoc != null)
 			{
-				return true;
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					if (levelKey.equals(apo
+							.getAssociation(AssociationKey.SPELL_LEVEL)))
+					{
+						return true;
+					}
+				}
 			}
 		}
 		return false;
@@ -675,15 +587,20 @@ public final class Spell extends PObject
 	 */
 	public boolean isLevel(final int level)
 	{
-		if (levelInfo == null)
+		MasterListInterface masterLists = Globals.getMasterLists();
+		for (CDOMReference list : masterLists.getActiveLists())
 		{
-			return false;
-		}
-		for (String key : levelInfo.keySet())
-		{
-			if (level == levelInfo.get(key))
+			Collection<AssociatedPrereqObject> assoc = masterLists
+					.getAssociations(list, this);
+			if (assoc != null)
 			{
-				return true;
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					if (level == apo.getAssociation(AssociationKey.SPELL_LEVEL))
+					{
+						return true;
+					}
+				}
 			}
 		}
 		return false;
@@ -693,7 +610,6 @@ public final class Spell extends PObject
 	{
 		int result = -1;
 		final Map<String, Integer> wLevelInfo = getLevelInfo(aPC);
-
 		if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
 		{
 			Integer lvl = wLevelInfo.get(mType + "|" + sType);
@@ -727,28 +643,22 @@ public final class Spell extends PObject
 		return result;
 	}
 
-	public int[] levelForKey(final String key, final PlayerCharacter aPC)
+	public Integer[] levelForKey(final String key, final PlayerCharacter aPC)
 	{
-		if ((levelInfo == null) || (levelInfo.size() == 0))
-		{
-			final int[] temp = new int[1];
+		List<Integer> list = new ArrayList<Integer>();
 
-			//If it's not regularly on the list, check if some SPELLLEVEL tag added it.
-			if (aPC != null)
-			{
-				temp[0] = aPC.getSpellLevelforKey(key + "|" + getKeyName(), -1);
-			}
-			else
-			{
-				temp[0] = -1;
-			}
-			return temp;
+		//If it's not regularly on the list, check if some SPELLLEVEL tag added it.
+		if (aPC != null)
+		{
+			list.add(aPC.getSpellLevelforKey(key + "|" + getKeyName(), -1));
+		}
+		else
+		{
+			list.add(-1);
 		}
 
 		// should consist of CLASS|name and DOMAIN|name pairs
 		final StringTokenizer aTok = new StringTokenizer(key, "|", false);
-		final int[] levelInt = new int[aTok.countTokens() / 2];
-		int i = 0;
 
 		while (aTok.hasMoreTokens())
 		{
@@ -756,28 +666,106 @@ public final class Spell extends PObject
 
 			if (aTok.hasMoreTokens())
 			{
-				final String objectName = aTok.nextToken();
-				levelInt[i++] = levelForKey(objectType, objectName, aPC);
+				list.add(levelForKey(objectType, aTok.nextToken(), aPC));
 			}
 		}
 
-		return levelInt;
+		return list.toArray(new Integer[list.size()]);
 	}
 
 	public boolean levelForKeyContains(final String key, final int levelMatch, final PlayerCharacter aPC)
 	{
-		if ((preReqMap != null) && preReqMap.containsKey(key))
+		// should consist of CLASS|name and DOMAIN|name pairs
+		final StringTokenizer aTok = new StringTokenizer(key, "|", false);
+		final int[] levelInt1 = new int[aTok.countTokens() / 2];
+		int i1 = 0;
+		
+		while (aTok.hasMoreTokens())
 		{
-			final List<Prerequisite> qList = new ArrayList<Prerequisite>();
-			qList.add(preReqMap.get(key));
-
-			if (!PrereqHandler.passesAll(qList, aPC, this))
+			final String objectType = aTok.nextToken();
+			Class<? extends CDOMObject> listClass = "CLASS".equals(objectType) ? ClassSpellList.class
+					: DomainSpellList.class;
+			LoadContext context = Globals.getContext();
+			if (!aTok.hasMoreTokens())
 			{
-				return false;
+				Logging.errorPrint("SEVERE: Key " + key + " had even number of |");
+				Thread.dumpStack();
+				break;
 			}
+			final String objectName = aTok.nextToken();
+			CDOMObject spellList = context.ref
+					.silentlyGetConstructedCDOMObject(listClass, objectName);
+			int result = -1;
+			if (spellList == null)
+			{
+				System.err.println("Skipping " + objectType + " " + objectName);
+			}
+			else
+			{
+				MasterListInterface masterLists = Globals.getMasterLists();
+				for (CDOMReference list : masterLists.getActiveLists())
+				{
+					if (list.contains(spellList))
+					{
+						Collection<AssociatedPrereqObject> assoc = masterLists
+								.getAssociations(list, this);
+						if (assoc != null)
+						{
+							for (AssociatedPrereqObject apo : assoc)
+							{
+								if (PrereqHandler.passesAll(apo
+										.getPrerequisiteList(), aPC, this))
+								{
+									result = apo
+											.getAssociation(AssociationKey.SPELL_LEVEL);
+								}
+							}
+						}
+					}
+				}
+
+				if (aPC != null && result == -1)
+				{
+					HashMap<String, Integer> wLevelInfo = new HashMap<String, Integer>();
+					wLevelInfo.putAll(aPC.getSpellInfoMap("CLASS", getKeyName()));
+					wLevelInfo.putAll(aPC.getSpellInfoMap("DOMAIN", getKeyName()));
+					if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
+					{
+						Integer lvl = wLevelInfo.get(objectType + "|" + objectName);
+
+						if (lvl == null)
+						{
+							lvl = wLevelInfo.get(objectType + "|ALL");
+						}
+
+						if ((lvl == null) && objectType.equals("CLASS"))
+						{
+							final PCClass aClass = Globals.getClassKeyed(objectName);
+
+							if (aClass != null)
+							{
+								final StringTokenizer aTok1 = new StringTokenizer(aClass.getType(), ".", false);
+
+								while (aTok1.hasMoreTokens() && (lvl == null))
+								{
+									lvl = wLevelInfo.get(objectType + "|TYPE." + aTok1.nextToken());
+								}
+							}
+						}
+
+						if (lvl != null)
+						{
+							result = lvl.intValue();
+						}
+					}
+
+				}
+			}
+
+			levelInt1[i1++] = result;
 		}
 
-		final int[] levelInt = levelForKey(key, aPC);
+		final int[] levelInt = levelInt1;
 
 		for (int i = 0; i < levelInt.length; ++i)
 		{
@@ -820,8 +808,7 @@ public final class Spell extends PObject
 		final Spell otherSpell = (Spell)other;
 		if ( getKeyName().equals( otherSpell.getKeyName() ) )
 		{
-			return levelInfo == null && otherSpell.levelInfo == null
-				|| levelInfo != null && levelInfo.equals(otherSpell.levelInfo);
+			return isCDOMEqual(otherSpell);
 		}
 		return false;
 	}

@@ -3695,7 +3695,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// valid spell has a non-negative spell level
 				if ((spell != null)
-					&& (spell.levelForKey(source.getSpellKey(), thePC)[0] >= 0))
+					&& (spell.getFirstLevelForKey(source.getSpellKey(), thePC) >= 0))
 				{
 					aSpell = spell;
 					break;
@@ -3720,7 +3720,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		thePC.addSpellBook(spellBook);
 		final SpellBook book = thePC.getSpellBookByName(spellBook);
 
-		final int[] spellLevels =
+		final Integer[] spellLevels =
 				aSpell.levelForKey(source.getSpellKey(), thePC);
 		boolean found = false;
 
