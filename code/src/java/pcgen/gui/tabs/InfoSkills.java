@@ -996,8 +996,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		Boolean readOnly = theSkill.get(ObjectKey.READ_ONLY);
-		if (readOnly != null && readOnly.booleanValue())
+		if (theSkill.getSafe(ObjectKey.READ_ONLY))
 		{
 			ShowMessageDelegate.showMessageDialog("You cannot "
 				+ (points < 0 ? "remove" : "add") + " ranks for this skill: "
@@ -1963,7 +1962,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			// just set the rank to zero and it is not untrained
 			//
 			if (CoreUtility.doublesEqual(bSkill.getRank().doubleValue(), 0.0)
-				&& !bSkill.isUntrained())
+				&& !bSkill.getSafe(ObjectKey.USE_UNTRAINED))
 			{
 				pc.getSkillList().remove(bSkill);
 			}
@@ -2339,9 +2338,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
 			}
 			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")) //$NON-NLS-1$
-				.append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
+				.append(aSkill.getSafe(ObjectKey.USE_UNTRAINED) ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
 			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")) //$NON-NLS-1$
-				.append(aSkill.isExclusive() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
+				.append(aSkill.getSafe(ObjectKey.EXCLUSIVE) ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
 
 			String bString = aSkill.preReqHTMLStrings(pc, false);
 
@@ -3658,7 +3657,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				Skill aSkill = (Skill) pObject;
 
 				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC)
-					&& !aSkill.isExclusive();
+					&& !aSkill.getSafe(ObjectKey.EXCLUSIVE);
 			}
 
 			return true;
@@ -3704,7 +3703,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				Skill aSkill = (Skill) pObject;
 
 				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC)
-					&& aSkill.isExclusive();
+					&& aSkill.getSafe(ObjectKey.EXCLUSIVE);
 			}
 
 			return true;
@@ -3745,7 +3744,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				Skill aSkill = (Skill) pObject;
 
 				return (pcClass != null)
-					&& !(aSkill.isExclusive() && !aSkill.isClassSkill(pcClass,
+					&& !(aSkill.getSafe(ObjectKey.EXCLUSIVE) && !aSkill.isClassSkill(pcClass,
 						aPC));
 			}
 
@@ -4281,7 +4280,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					//
 					if ((CoreUtility.doublesEqual(aSkill.getRank()
 						.doubleValue(), 0.0))
-						&& !aSkill.isUntrained())
+						&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 					{
 						pc.getSkillList().remove(aSkill);
 					}

@@ -6,6 +6,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -45,7 +46,7 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 
 		for (PCClass aClass : character.getClassList())
 		{
-			if (aClass.getMemorizeSpells() == prereqMemorized)
+			if (aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) == prereqMemorized)
 			{
 				runningTotal++;
 			}

@@ -196,6 +196,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return arg0.cast(objectChar.get(arg0));
 	}
 
+	public final <OT> OT getSafe(ObjectKey<OT> arg0)
+	{
+		OT obj = arg0.cast(objectChar.get(arg0));
+		return obj == null ? arg0.getDefault() : obj;
+	}
+
 	public final <OT> OT put(ObjectKey<OT> arg0, OT arg1)
 	{
 		return arg0.cast(objectChar.put(arg0, arg1));

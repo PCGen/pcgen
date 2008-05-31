@@ -759,7 +759,7 @@ public final class Equipment extends PObject implements Serializable,
 		BigDecimal currentcost = get(ObjectKey.CURRENT_COST);
 		if (currentcost == null)
 		{
-			currentcost = getBaseCost();
+			currentcost = getSafe(ObjectKey.COST);
 		}
 		BigDecimal itemCost = currentcost.add(c);
 
@@ -2176,15 +2176,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (this.isVirtual()) {
 			return BigDecimal.ZERO;
 		}
-
-		BigDecimal aWeight = getWeightInPounds();
-		BigDecimal mod = get(ObjectKey.WEIGHT_MOD);
-		if (mod != null)
-		{
-			aWeight = aWeight.add(mod);
-		}
-
-		return aWeight;
+		return getWeightInPounds().add(getSafe(ObjectKey.WEIGHT_MOD));
 	}
 
 	/**
@@ -2213,11 +2205,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		aWeight += bonusTo(aPC, "EQM", "WEIGHTADD", true);
-		BigDecimal mod = get(ObjectKey.WEIGHT_MOD);
-		if (mod != null)
-		{
-			aWeight += mod.doubleValue();
-		}
+		aWeight += getSafe(ObjectKey.WEIGHT_MOD).doubleValue();
 
 		return aWeight;
 	}
@@ -2684,7 +2672,7 @@ public final class Equipment extends PObject implements Serializable,
 		// Make sure we are qualified
 		bonusPrimary = bPrimary;
 
-		if (!getModControl().getModifiersAllowed() || !eqMod.passesPreReqToGain(this, null)) {
+		if (!getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed() || !eqMod.passesPreReqToGain(this, null)) {
 			return false;
 		}
 
@@ -3813,16 +3801,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the baseCost attribute of the Equipment object
-	 * 
-	 * @return The baseCost value
-	 */
-	BigDecimal getBaseCost() {
-		BigDecimal cost = get(ObjectKey.COST);
-		return cost == null ? BigDecimal.ZERO : cost;
-	}
-
-	/**
 	 * Gets the baseSize attribute of the Equipment object
 	 * 
 	 * @return The baseSize value
@@ -3869,7 +3847,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	private BigDecimal getCostAdjustedForSize(final PlayerCharacter aPC,
 			final String aSize) {
-		BigDecimal c = getBaseCost();
+		BigDecimal c = getSafe(ObjectKey.COST);
 
 		//
 		// Scale everything to medium before conversion
@@ -4004,7 +3982,7 @@ public final class Equipment extends PObject implements Serializable,
 				sMod.append('/');
 			}
 
-			sMod.append(eqMod.getEquipNamePortion());
+			sMod.append(eqMod.getSafe(ObjectKey.NAME_OPT).returnName(eqMod));
 		}
 
 		return sMod.toString();
@@ -4054,7 +4032,7 @@ public final class Equipment extends PObject implements Serializable,
 				myParser = PjepPool.getInstance().aquire();
 				myParser.addVariable("PLUS", iPlus);
 				myParser.addVariable("ALTPLUS", altPlus);
-				myParser.addVariable("BASECOST", getBaseCost().doubleValue());
+				myParser.addVariable("BASECOST", getSafe(ObjectKey.COST).doubleValue());
 
 				if (isAmmunition()) {
 					myParser.addVariable("BASEQTY", getSafe(IntegerKey.BASE_QUANTITY));
@@ -4398,7 +4376,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (int i = extractList.size() - 1; i >= 0; --i) {
 			final EquipmentModifier eqMod = extractList.get(i);
 
-			if (!eqMod.getAssignToAll()) {
+			if (!eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL)) {
 				continue;
 			}
 
@@ -4571,7 +4549,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (int i = altList.size() - 1; i >= 0; --i) {
 			final EquipmentModifier eqMod = altList.get(i);
 
-			if (!eqMod.getAssignToAll()) {
+			if (!eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL)) {
 				continue;
 			}
 
@@ -4614,7 +4592,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (Iterator<EquipmentModifier> iter = modList.iterator(); iter
 				.hasNext();) {
 			EquipmentModifier eqMod = iter.next();
-			splitModList[eqMod.getFormatCat()].add(eqMod);
+			splitModList[eqMod.getSafe(ObjectKey.FORMAT).ordinal()].add(eqMod);
 
 		}
 	}
@@ -4903,11 +4881,7 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	BigDecimal getWeightInPounds() {
-		BigDecimal weight = get(ObjectKey.WEIGHT);
-		if (isVirtual() || weight == null) {
-			return BigDecimal.ZERO;
-		}
-		return weight;
+		return isVirtual() ? BigDecimal.ZERO : getSafe(ObjectKey.WEIGHT);
 	}
 
 	void setWeightAlreadyUsed(boolean weightAlreadyUsed) {
@@ -5514,16 +5488,6 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getAltDamage(final PlayerCharacter aPC) {
 		return getDamage(aPC, false);
-	}
-
-	/**
-	 * if true a BAB of 13 yields 13/8/3, if false, merely 13
-	 * 
-	 * @return whether it gives several attacks
-	 */
-	public boolean isAttacksProgress() {
-		Boolean ap = get(ObjectKey.ATTACKS_PROGRESS);
-		return ap == null || ap;
 	}
 
 	/**
@@ -6206,11 +6170,5 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		return "";
-	}
-	
-	public EqModControl getModControl()
-	{
-		EqModControl mc = get(ObjectKey.MOD_CONTROL);
-		return mc == null ? EqModControl.YES : mc;
 	}
 }

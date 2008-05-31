@@ -67,16 +67,6 @@ public final class Skill extends PObject
 	}
 
     /**
-     * Get armor/encumberance check
-     * @return check
-     */
-	public SkillArmorCheck getACheck()
-	{
-		SkillArmorCheck aCk = get(ObjectKey.ARMOR_CHECK);
-		return aCk == null ? SkillArmorCheck.NONE : aCk;
-	}
-
-	/**
      * Returns true if it is a CLASS skill
      *  
      * @param aClass
@@ -225,16 +215,6 @@ public final class Skill extends PObject
 	}
 
     /**
-     * Return true if exclusive
-     * @return true if exclusive
-     */
-	public boolean isExclusive()
-	{
-		Boolean exclusive = get(ObjectKey.EXCLUSIVE);
-		return exclusive != null && exclusive.booleanValue();
-	}
-
-	/**
 	 * Set this skill's output index, which controls the order
 	 * in which the skills appear on a character sheet.
 	 * Note: -1 means hidden and 0 means nto set
@@ -326,7 +306,7 @@ public final class Skill extends PObject
 		{
 			return SkillCost.CROSS_CLASS;
 		}
-		else if (isExclusive())
+		else if (getSafe(ObjectKey.EXCLUSIVE))
 		{
 			return SkillCost.EXCLUSIVE;
 		}
@@ -665,7 +645,7 @@ public final class Skill extends PObject
 		{
 			anInt = Globals.getGameModeSkillCost_Class();
 		}
-		else if (!isCrossClassSkill(aClass, aPC) && isExclusive())
+		else if (!isCrossClassSkill(aClass, aPC) && getSafe(ObjectKey.EXCLUSIVE))
 		{
 			anInt = Globals.getGameModeSkillCost_Exclusive();
 		}
@@ -876,7 +856,7 @@ public final class Skill extends PObject
 			bonus += aPC.getTotalBonusTo("CSKILL", "LIST");
 		}
 
-		if (!isClassSkill(aPC.getClassList(), aPC) && !isExclusive())
+		if (!isClassSkill(aPC.getClassList(), aPC) && !getSafe(ObjectKey.EXCLUSIVE))
 		{
 			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
 
@@ -891,7 +871,7 @@ public final class Skill extends PObject
 
 		// the above two if-blocks try to get
 		// BONUS:[C]CSKILL|TYPE=xxx|y to function
-		final int aCheckBonus = getACheck().calculateBonus(aPC);
+		final int aCheckBonus = getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
 		bonus += aCheckBonus;
 
 		String aString = Globals.getGameModeRankModFormula();
@@ -1292,7 +1272,7 @@ public final class Skill extends PObject
 			appendBonusDesc(bonusDetails, bonus, "CSKILL");
 		}
 
-		if (!isClassSkill(aPC.getClassList(), aPC) && !isExclusive())
+		if (!isClassSkill(aPC.getClassList(), aPC) && !getSafe(ObjectKey.EXCLUSIVE))
 		{
 			bonus = aPC.getTotalBonusTo("CCSKILL", keyName);
 			appendBonusDesc(bonusDetails, bonus, "CCSKILL");
@@ -1309,7 +1289,7 @@ public final class Skill extends PObject
 		}
 
 		// Encumbrance
-		final int aCheckMod = getACheck().calculateBonus(aPC);
+		final int aCheckMod = getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
 		appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
 
 		String aString = Globals.getGameModeRankModFormula();
@@ -1589,12 +1569,6 @@ public final class Skill extends PObject
 	boolean isTypeHidden(final String type)
 	{
 		return Globals.isSkillTypeHidden(type);
-	}
-
-	public boolean isUntrained()
-	{
-		Boolean untrained = get(ObjectKey.USE_UNTRAINED);
-		return untrained == null || untrained.booleanValue();
 	}
 
 	public String getKeyStatAbb()

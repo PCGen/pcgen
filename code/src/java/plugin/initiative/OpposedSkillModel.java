@@ -111,7 +111,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				{
 					skill = Globals.getSkillKeyed(aSkillKey);
 					if (skill != null
-						&& skill.isUntrained()
+						&& skill.getSafe(ObjectKey.USE_UNTRAINED)
 						&& skill.get(ObjectKey.KEY_STAT) != null)
 					{
 						returnValue =

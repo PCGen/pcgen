@@ -31,6 +31,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
@@ -40,6 +41,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
@@ -1214,7 +1216,8 @@ final class DeityAlignmentFilter extends AlignmentFilter
 
 		if (pObject instanceof Deity)
 		{
-			final String deityAlign = ((Deity) pObject).getAlignment();
+			PCAlignment al = pObject.get(ObjectKey.ALIGNMENT);
+			String deityAlign = al == null ? "" : al.getKeyName();
 
 			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
 				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
@@ -1434,7 +1437,8 @@ final class PCAlignmentFilter extends AlignmentFilter
 
 		if (pObject instanceof Deity)
 		{
-			final String deityAlign = ((Deity) pObject).getAlignment();
+			PCAlignment al = pObject.get(ObjectKey.ALIGNMENT);
+			String deityAlign = al == null ? "" : al.getKeyName();
 
 			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
 				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
@@ -1890,7 +1894,7 @@ final class UntrainedSkillFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Skill)
 		{
-			return ((Skill) pObject).isUntrained();
+			return ((Skill) pObject).getSafe(ObjectKey.USE_UNTRAINED);
 		}
 
 		return true;

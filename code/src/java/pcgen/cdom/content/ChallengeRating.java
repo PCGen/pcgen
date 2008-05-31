@@ -26,6 +26,8 @@ public class ChallengeRating extends ConcretePrereqObject implements
 		LSTWriteable
 {
 
+	public static final ChallengeRating ZERO = new ChallengeRating("0");
+	
 	private final Formula rating;
 
 	public ChallengeRating(String string)

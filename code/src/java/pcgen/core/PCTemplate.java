@@ -110,8 +110,7 @@ public final class PCTemplate extends PObject
 	 */
 	public float getCR(final int level, final int hitdice)
 	{
-		BigDecimal cr = get(ObjectKey.CR_MODIFIER);
-		float localCR = cr == null ? 0 : cr.floatValue();
+		float localCR = getSafe(ObjectKey.CR_MODIFIER).floatValue();
 
 		if (theLevelAbilities != null)
 		{
@@ -387,8 +386,7 @@ public final class PCTemplate extends PObject
 		SubRace sr = get(ObjectKey.SUBRACE);
 		if (sr == null)
 		{
-			Boolean useName = get(ObjectKey.USETEMPLATENAMEFORSUBRACE);
-			if (useName != null && useName)
+			if (getSafe(ObjectKey.USETEMPLATENAMEFORSUBRACE))
 			{
 				return this.getDisplayName();
 			}
@@ -407,8 +405,7 @@ public final class PCTemplate extends PObject
 		Region sr = get(ObjectKey.REGION);
 		if (sr == null)
 		{
-			Boolean useName = get(ObjectKey.USETEMPLATENAMEFORREGION);
-			if (useName != null && useName)
+			if (getSafe(ObjectKey.USETEMPLATENAMEFORREGION))
 			{
 				return this.getDisplayName();
 			}
@@ -427,8 +424,7 @@ public final class PCTemplate extends PObject
 		SubRegion sr = get(ObjectKey.SUBREGION);
 		if (sr == null)
 		{
-			Boolean useName = get(ObjectKey.USETEMPLATENAMEFORSUBREGION);
-			if (useName != null && useName)
+			if (getSafe(ObjectKey.USETEMPLATENAMEFORSUBREGION))
 			{
 				return this.getDisplayName();
 			}
@@ -450,8 +446,7 @@ public final class PCTemplate extends PObject
 		if ((getVisibility() == Visibility.DEFAULT)
 			|| (getVisibility() == Visibility.DISPLAY_ONLY))
 		{
-			Boolean remove = get(ObjectKey.REMOVABLE);
-			result = remove == null || remove.booleanValue();
+			result = getSafe(ObjectKey.REMOVABLE);
 		}
 
 		return result;
@@ -1498,7 +1493,6 @@ public final class PCTemplate extends PObject
 	@Override
 	public Visibility getVisibility()
 	{
-		Visibility vis = get(ObjectKey.VISIBILITY);
-		return vis == null ? Visibility.DEFAULT : vis;
+		return getSafe(ObjectKey.VISIBILITY);
 	}
 }

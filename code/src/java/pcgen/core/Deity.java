@@ -67,15 +67,6 @@ public final class Deity extends PObject
 	}
 
 	/**
-	 * @return this deity's alignment
-	 */
-	public String getAlignment()
-	{
-		PCAlignment align = get(ObjectKey.ALIGNMENT);
-		return align == null ? "" : align.getKeyName();
-	}
-
-	/**
 	 * @return the name of the holy item of this deity
 	 */
 	public String getHolyItem()

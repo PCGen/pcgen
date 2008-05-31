@@ -23,6 +23,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -79,7 +80,7 @@ public class SpellListMemorizeToken extends SpellListToken
 
 			if (aClass != null)
 			{
-				retValue.append(aClass.getMemorizeSpells());
+				retValue.append((boolean) aClass.getSafe(ObjectKey.MEMORIZE_SPELLS));
 			}
 		}
 

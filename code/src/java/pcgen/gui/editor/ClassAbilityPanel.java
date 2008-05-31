@@ -207,7 +207,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			MapCollection mc = new MapCollection(attackCycleMap);
 			attackCycle.setText(StringUtil.join(mc, Constants.PIPE));
 		}
-		hitDice.setText(String.valueOf(obj.getBaseHitDie().getDie()));
+		hitDice.setText(String.valueOf(obj.getSafe(ObjectKey.LEVEL_HITDIE).getDie()));
 		deity.setText(StringUtil.join(obj.getSafeListFor(ListKey.DEITY), Constants.PIPE));
 		itemCreate.setText(obj.getItemCreationMultiplier());
 		Integer sf = obj.get(IntegerKey.START_FEATS);
@@ -219,7 +219,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 
 		knownSpells.setText(StringUtil.join(obj.getKnownSpellsList(), "|"));
-		memorize.setSelected(obj.getMemorizeSpells());
+		memorize.setSelected(obj.getSafe(ObjectKey.MEMORIZE_SPELLS));
 		prohibited.setText(StringUtil.join(obj.getProhibitedSchools(), ","));
 
 //		StringBuffer specKnown = new StringBuffer();

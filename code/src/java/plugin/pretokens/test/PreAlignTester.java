@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -92,9 +93,9 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 			else if ((desiredAlignment.equalsIgnoreCase("Deity"))
 				&& (character.getDeity() != null))
 			{
-				final String deityAlignStr =
-						character.getDeity().getAlignment();
-				if (deityAlignStr.equalsIgnoreCase(charAlignment))
+				final PCAlignment deityAlignStr =
+						character.getDeity().get(ObjectKey.ALIGNMENT);
+				if (charAlignment.equalsIgnoreCase(deityAlignStr.getKeyName()))
 				{
 					runningTotal = 1;
 				}

@@ -1095,7 +1095,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 	{
 		try
 		{
-			if (selectedEquipment.getModControl().getModifiersRequired())
+			if (selectedEquipment.getSafe(ObjectKey.MOD_CONTROL).getModifiersRequired())
 			{
 				if ((selectedEquipment.getEqModifierList(true).size() == 0)
 					&& (selectedEquipment.getEqModifierList(false).size() == 0))

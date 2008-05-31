@@ -94,8 +94,6 @@ public class PCClass extends PObject
 	public static final CDOMReference<ClassSkillList> MONSTER_SKILL_LIST = new CDOMDirectSingleRef<ClassSkillList>(
 			new ClassSkillList());
 
-	public static final int NO_LEVEL_LIMIT = -1;
-
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS = CDOMDirectSingleRef
 			.getRef(new DomainList());
 
@@ -972,16 +970,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public HitDie getBaseHitDie()
-	{
-		HitDie hd = get(ObjectKey.LEVEL_HITDIE);
-		return hd == null ? HitDie.ZERO : hd;
-	}
-
-	/*
 	 * PCCLASSONLY Since this is a reference variable, it will likely
 	 * only appear in PCCLASS
 	 */
@@ -1059,18 +1047,7 @@ public class PCClass extends PObject
 	public final boolean hasMaxLevel()
 	{
 		Integer ll = get(IntegerKey.LEVEL_LIMIT);
-		return ll != null && ll != NO_LEVEL_LIMIT;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is a characteristic of both the PCClass and
-	 * the individual PCClassLevels (because they grant spells)
-	 */
-	public final boolean getMemorizeSpells()
-	{
-		//Defaults to true, so null returns true
-		Boolean ms = get(ObjectKey.MEMORIZE_SPELLS);
-		return ms == null || ms;
+		return ll != null && ll != Constants.NO_LEVEL_LIMIT;
 	}
 
 	/*
@@ -1287,7 +1264,7 @@ public class PCClass extends PObject
 	public HitDie getLevelHitDie(final PlayerCharacter aPC, final int classLevel)
 	{
 		// Class Base Hit Die
-		HitDie currDie = getBaseHitDie();
+		HitDie currDie = getSafe(ObjectKey.LEVEL_HITDIE);
 		Modifier<HitDie> dieLock = aPC.getRace().get(ObjectKey.HITDIE);
 		if (dieLock != null)
 		{
@@ -1319,12 +1296,6 @@ public class PCClass extends PObject
 		}
 
 		return currDie;
-	}
-
-	public final boolean getModToSkills()
-	{
-		Boolean mts = get(ObjectKey.MOD_TO_SKILLS);
-		return mts == null || mts;
 	}
 
 	/*
@@ -2582,16 +2553,6 @@ public class PCClass extends PObject
 		return null;
 	}
 
-	/*
-	 * FINALPCCLASSANDLEVEL Since this is in the PCClass (from a Tag) and
-	 * PCClassLevel (as an indication of the spells granted by the PCClassLevel)
-	 */
-	public final boolean getSpellBookUsed()
-	{
-		Boolean sbu = get(ObjectKey.SPELLBOOK);
-		return sbu != null && sbu;
-	}
-
 	@Override
 	public String getPCCText()
 	{
@@ -3215,13 +3176,11 @@ public class PCClass extends PObject
 	 */
 	public int baseSpellIndex()
 	{
-		Boolean usbs = get(ObjectKey.USE_SPELL_SPELL_STAT);
-		if (usbs != null && usbs)
+		if (getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
 		{
 			return -2;
 		}
-		Boolean cwss = get(ObjectKey.CASTER_WITHOUT_SPELL_STAT);
-		if (cwss != null && cwss)
+		if (getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT))
 		{
 			return -1;
 		}
@@ -5639,7 +5598,7 @@ public class PCClass extends PObject
 		});
 
 		// add base class to the chooser at the TOP
-		if (getAllowBaseClass())
+		if (getSafe(ObjectKey.ALLOWBASECLASS))
 		{
 			final List<Object> columnList2 = new ArrayList<Object>(3);
 			columnList2.add(this);
@@ -5677,7 +5636,7 @@ public class PCClass extends PObject
 		}
 
 		List<List<PCClass>> selectedList;
-		if (!getAllowBaseClass())
+		if (!getSafe(ObjectKey.ALLOWBASECLASS))
 		{
 			while (c.getSelectedList().size() == 0)
 			{
@@ -6191,7 +6150,7 @@ public class PCClass extends PObject
 		// apprentice class)
 		final int skillMin = (spMod > 0) ? 1 : 0;
 
-		if (getModToSkills())
+		if (getSafe(ObjectKey.MOD_TO_SKILLS))
 		{
 			spMod += (int) aPC.getStatBonusTo("MODSKILLPOINTS", "NUMBER");
 
@@ -6413,15 +6372,6 @@ public class PCClass extends PObject
 		return returnList;
 	}
 
-	/**
-	 * @return the allowBaseClass
-	 */
-	public boolean getAllowBaseClass()
-	{
-		Boolean abc = get(ObjectKey.ALLOWBASECLASS);
-		return abc == null ? true : abc;
-	}
-
 	public void removeAllAutoAbilites(final int alevel)
 	{
 		for (AbilityCategory category : getAbilityCategories())
@@ -6602,8 +6552,7 @@ public class PCClass extends PObject
 	@Override
 	public Visibility getVisibility()
 	{
-		Visibility vis = get(ObjectKey.VISIBILITY);
-		return vis == null ? Visibility.DEFAULT : vis;
+		return getSafe(ObjectKey.VISIBILITY);
 	}
 
 }

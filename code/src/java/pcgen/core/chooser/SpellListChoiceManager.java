@@ -283,7 +283,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 
 			if (
 				(aClass instanceof PCClass) &&
-				(((PCClass) aClass).getSpellBookUsed() == needSpellbook))
+				(((PCClass) aClass).getSafe(ObjectKey.SPELLBOOK) == needSpellbook))
 			{
 				if (classes == null)
 				{

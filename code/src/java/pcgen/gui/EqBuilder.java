@@ -465,7 +465,7 @@ final class EqBuilder extends JPanel
 				setEquipment(aNewEq, true);
 				updateDisplay(bPrimary);
 
-				if (aNewEq.isDouble() && eqMod.getAssignToAll())
+				if (aNewEq.isDouble() && eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL))
 				{
 					aNewEq.addEqModifier(eqMod, !bPrimary, aPC);
 					updateDisplay(!bPrimary);
@@ -1182,7 +1182,7 @@ final class EqBuilder extends JPanel
 		}
 
 
-		if (aNewEq.getModControl().getModifiersRequired() &&
+		if (aNewEq.getSafe(ObjectKey.MOD_CONTROL).getModifiersRequired() &&
 				(aNewEq.getEqModifierList(true).size() == 0) &&
 				(aNewEq.getEqModifierList(false).size() == 0))
 			{
@@ -1684,7 +1684,7 @@ final class EqBuilder extends JPanel
 			setEquipment(aNewEq, true);
 			updateDisplay(bPrimary);
 
-			if (aNewEq.isDouble() && eqMod.getAssignToAll())
+			if (aNewEq.isDouble() && eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL))
 			{
 				aNewEq.removeEqModifier(eqMod, !bPrimary, aPC);
 				updateDisplay(!bPrimary);

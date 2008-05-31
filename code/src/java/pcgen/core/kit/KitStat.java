@@ -26,6 +26,7 @@ import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -140,7 +141,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 			for ( PCClass pcClass : classes )
 			{
 				pcClass.setSkillPool(0);
-				if (aPC.getLevelInfoSize() > 0 && pcClass.getModToSkills())
+				if (aPC.getLevelInfoSize() > 0 && pcClass.getSafe(ObjectKey.MOD_TO_SKILLS))
 				{
 					final List<PCLevelInfo> pclList = aPC.getLevelInfo();
 					for (int j = 0; j < pclList.size(); j++)

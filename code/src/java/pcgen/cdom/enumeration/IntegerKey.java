@@ -29,7 +29,6 @@ import java.util.Collections;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
-import pcgen.core.PCClass;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -38,6 +37,12 @@ import pcgen.core.PCClass;
  */
 public class IntegerKey
 {
+
+	/**
+	 * This Map contains the mappings from Strings to the Type Safe Constant
+	 */
+	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<IntegerKey>();
+
 	public static final IntegerKey AC_CHECK = getConstant("AC_CHECK");
 
 	public static final IntegerKey ADD_SPELL_LEVEL = getConstant("ADD_SPELL_LEVEL");
@@ -66,7 +71,7 @@ public class IntegerKey
 
 	public static final IntegerKey LEVEL = getConstant("LEVEL");
 
-	public static final IntegerKey LEVEL_LIMIT = getConstant("LEVEL_LIMIT", PCClass.NO_LEVEL_LIMIT);
+	public static final IntegerKey LEVEL_LIMIT = getConstant("LEVEL_LIMIT", Constants.NO_LEVEL_LIMIT);
 
 	public static final IntegerKey LEVELS_PER_FEAT = getConstant("LEVELS_PER_FEAT");
 
@@ -108,21 +113,21 @@ public class IntegerKey
 	 * This works, but really doesn't meet the prescription of what one would
 	 * expect out of an IntegerKey
 	 */
-	public static final IntegerKey INITIAL_SKILL_MULT = new IntegerKey(
-			"INITIAL_SKILL_MULT", 0)
+	public static final IntegerKey INITIAL_SKILL_MULT;
+	
+	static
 	{
-		@Override
-		public int getDefault()
+		INITIAL_SKILL_MULT = new IntegerKey("INITIAL_SKILL_MULT", 0)
 		{
-			return Globals.getSkillMultiplierForLevel(1);
-		}
-		
-	};
+			@Override
+			public int getDefault()
+			{
+				return Globals.getSkillMultiplierForLevel(1);
+			}
 
-	/**
-	 * This Map contains the mappings from Strings to the Type Safe Constant
-	 */
-	private static CaseInsensitiveMap<IntegerKey> typeMap;
+		};
+		typeMap.put(INITIAL_SKILL_MULT.toString(), INITIAL_SKILL_MULT);
+	}
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
@@ -183,10 +188,6 @@ public class IntegerKey
 	 */
 	public static IntegerKey getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<IntegerKey>();
-		}
 		IntegerKey o = typeMap.get(s);
 		if (o == null)
 		{
@@ -210,10 +211,6 @@ public class IntegerKey
 	 */
 	public static IntegerKey getConstant(String s, int i)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<IntegerKey>();
-		}
 		IntegerKey o = typeMap.get(s);
 		if (o == null)
 		{
@@ -234,10 +231,6 @@ public class IntegerKey
 	 */
 	public static IntegerKey valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<IntegerKey>();
-		}
 		IntegerKey o = typeMap.get(s);
 		if (o == null)
 		{
@@ -257,10 +250,6 @@ public class IntegerKey
 	 */
 	public static Collection<IntegerKey> getAllConstants()
 	{
-		if (typeMap == null)
-		{
-			return null;
-		}
 		return Collections.unmodifiableCollection(typeMap.values());
 	}
 
@@ -276,9 +265,6 @@ public class IntegerKey
 	 */
 	public static void clearConstants()
 	{
-		if (typeMap != null)
-		{
-			typeMap.clear();
-		}
+		typeMap.clear();
 	}
 }

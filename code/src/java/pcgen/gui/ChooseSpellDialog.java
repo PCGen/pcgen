@@ -57,6 +57,7 @@ import javax.swing.event.ListSelectionListener;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.Domain;
@@ -1159,14 +1160,14 @@ final class ChooseSpellDialog extends JDialog
 
 				if (spellBooks < 0) // can't have books
 				{
-					if ((obj instanceof PCClass) && ((PCClass) obj).getSpellBookUsed())
+					if ((obj instanceof PCClass) && ((PCClass) obj).getSafe(ObjectKey.SPELLBOOK))
 					{
 						classWithSpell.remove(i);
 					}
 				}
 				else // must have books
 				{
-					if (!(obj instanceof PCClass) || !((PCClass) obj).getSpellBookUsed())
+					if (!(obj instanceof PCClass) || !((PCClass) obj).getSafe(ObjectKey.SPELLBOOK))
 					{
 						classWithSpell.remove(i);
 					}

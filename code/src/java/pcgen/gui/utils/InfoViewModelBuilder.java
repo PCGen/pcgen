@@ -34,6 +34,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -50,30 +51,32 @@ public final class InfoViewModelBuilder
     {
     }
 
-    public static PObjectNode buildAlignmentView(Filterable filter, PlayerCharacter pc, Collection<Deity> pobjects)
-    {
-	PObjectNode root = new PObjectNode();
-	Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
-	for (final Deity deity : pobjects)
+    public static PObjectNode buildAlignmentView(Filterable filter,
+			PlayerCharacter pc, Collection<Deity> pobjects)
 	{
-	    if (filter.accept(pc, deity))
-	    {
-		String align = deity.getAlignment();
-		if (align != null && align.length() > 0)
+		PObjectNode root = new PObjectNode();
+		Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
+		for (final Deity deity : pobjects)
 		{
-		    PObjectNode node = nodeMap.get(align);
-		    if (node == null)
-		    {
-			node = new PObjectNode(align);
-			nodeMap.put(align, node);
-			root.addChild(node);
-		    }
-		    node.addChild(new PObjectNode(deity));
+			if (filter.accept(pc, deity))
+			{
+				PCAlignment al = deity.get(ObjectKey.ALIGNMENT);
+				if (al != null)
+				{
+					String align = al.getKeyName();
+					PObjectNode node = nodeMap.get(align);
+					if (node == null)
+					{
+						node = new PObjectNode(align);
+						nodeMap.put(align, node);
+						root.addChild(node);
+					}
+					node.addChild(new PObjectNode(deity));
+				}
+			}
 		}
-	    }
+		return root;
 	}
-	return root;
-    }
 
     public static PObjectNode buildDomainView(Filterable filter,
 			PlayerCharacter pc, Collection<Deity> pobjects)

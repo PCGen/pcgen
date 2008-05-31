@@ -25,6 +25,8 @@ package pcgen.core.chooser;
 
 import java.util.List;
 import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -82,7 +84,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 		{
 			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
 			{
-				if ((skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class()) || skill.isExclusive())
+				if ((skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class()) || skill.getSafe(ObjectKey.EXCLUSIVE))
 				{
 					continue; // builds a list of Cross class skills
 				}

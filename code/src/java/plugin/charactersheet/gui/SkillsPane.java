@@ -15,6 +15,7 @@ import java.awt.GridBagConstraints;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -371,11 +372,11 @@ public class SkillsPane extends javax.swing.JPanel
 			Skill skill = skillList.get(i);
 
 			String check = BLANK;
-			if (skill.isUntrained())
+			if (skill.getSafe(ObjectKey.USE_UNTRAINED))
 			{
 				check = STAR;
 			}
-			else if (skill.isExclusive())
+			else if (skill.getSafe(ObjectKey.EXCLUSIVE))
 			{
 				check = X;
 			}

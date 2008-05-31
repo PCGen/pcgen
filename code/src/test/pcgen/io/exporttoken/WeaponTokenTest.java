@@ -165,7 +165,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword = new Equipment();
 		bastardSword.setName("Sword, Bastard");
 		bastardSword.setKeyName("BASTARD_SWORD");
-		bastardSword.setWeaponProf("KEY_Sword (Bastard/[Hands])");
+		bastardSword.setWeaponProf("KEY_Sword (Bastard)");
 		bastardSword
 			.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
 		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
@@ -180,18 +180,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Globals.addWeaponProf(wp);
 
 		wp = new WeaponProf();
-		wp.setName("Sword (Bastard/Martial)");
-		wp.setKeyName("KEY_Sword (Bastard/Martial)");
-		wp.setTypeInfo("MARTIAL");
-		wp.put(IntegerKey.HANDS, 2);
+		wp.setName("Sword (Bastard)");
+		wp.setKeyName("KEY_Sword (Bastard)");
+		wp.setTypeInfo("MARTIAL.EXOTIC");
 		Globals.addWeaponProf(wp);
 		character.addWeaponProf(wp.getKeyName());
-
-		wp = new WeaponProf();
-		wp.setName("Sword (Bastard/Exotic)");
-		wp.setKeyName("KEY_Sword (Bastard/Exotic)");
-		wp.setTypeInfo("EXOTIC");
-		Globals.addWeaponProf(wp);
 
 		largeSword = new Equipment();
 		largeSword.setName("Longsword (Large)");
@@ -473,7 +466,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("2-handed prof should be martial",
-			"KEY_Sword (Bastard/Martial)", bastardSword.profKey(character));
+			"KEY_Sword (Bastard)", bastardSword.profKey(character));
 
 		EquipSet es =
 				new EquipSet("0.1.2", "Sword (Bastard)",

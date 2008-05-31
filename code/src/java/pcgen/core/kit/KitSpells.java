@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -195,7 +196,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			{
 				List<KitSpellBookEntry> aSpellList = new ArrayList<KitSpellBookEntry>();
 				final String bookName = sb.getName();
-				if (!aClass.getMemorizeSpells() &&
+				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) &&
 					!bookName.equals(Globals.getDefaultSpellBook()))
 				{
 					warnings.add("SPELLS: " + aClass.getDisplayName()

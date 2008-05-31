@@ -35,18 +35,16 @@ public final class FormulaKey implements TypeSafeConstant
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<FormulaKey> typeMap;
+	private static CaseInsensitiveMap<FormulaKey> typeMap = new CaseInsensitiveMap<FormulaKey>();
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
 	 */
 	private static int ordinalCount = 0;
 
-	public static final FormulaKey LEVEL_ADJUSTMENT =
-			getConstant("LEVEL_ADJUSTMENT");
+	public static final FormulaKey LEVEL_ADJUSTMENT = getConstant("LEVEL_ADJUSTMENT");
 
-	public static final FormulaKey START_SKILL_POINTS =
-			getConstant("START_SKILL_POINTS");
+	public static final FormulaKey START_SKILL_POINTS = getConstant("START_SKILL_POINTS");
 
 	public static final FormulaKey COST = getConstant("COST");
 
@@ -58,25 +56,21 @@ public final class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey COMPANION_BAB = getConstant("COMPANION_BAB");
 
-	public static final FormulaKey COMPANION_CHECK =
-			getConstant("COMPANION_CHECK");
+	public static final FormulaKey COMPANION_CHECK = getConstant("COMPANION_CHECK");
 
-	public static final FormulaKey ITEM_CREATION_MULTIPLIER =
-			getConstant("ITEM_CREATION_MULTIPLIER");
+	public static final FormulaKey ITEM_CREATION_MULTIPLIER = getConstant("ITEM_CREATION_MULTIPLIER");
 
 	public static final FormulaKey CR = getConstant("CR");
 
-	public static final FormulaKey MONSTER_SKILL_POINTS =
-			getConstant("MONSTER_SKILL_POINTS");
+	public static final FormulaKey MONSTER_SKILL_POINTS = getConstant("MONSTER_SKILL_POINTS");
 
-	public static final FormulaKey MONSTER_NON_SKILL_HD =
-			getConstant("MONSTER_NON_SKILL_HD");
+	public static final FormulaKey MONSTER_NON_SKILL_HD = getConstant("MONSTER_NON_SKILL_HD");
 
 	public static final FormulaKey SELECT = getConstant("SELECT");
 
 	public static final FormulaKey STAT_MOD = getConstant("STAT_MOD");
 
-	public static final FormulaKey POOL =  getConstant("POOL");
+	public static final FormulaKey POOL = getConstant("POOL");
 
 	public static final FormulaKey MASTER_BAB = getConstant("MASTER_BAB");
 
@@ -92,7 +86,7 @@ public final class FormulaKey implements TypeSafeConstant
 	private final String fieldName;
 
 	private final Formula defaultValue;
-	
+
 	/**
 	 * The ordinal of this Constant
 	 */
@@ -123,7 +117,7 @@ public final class FormulaKey implements TypeSafeConstant
 	{
 		return ordinal;
 	}
-	
+
 	public Formula getDefault()
 	{
 		return defaultValue;
@@ -140,10 +134,6 @@ public final class FormulaKey implements TypeSafeConstant
 	 */
 	public static FormulaKey getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<FormulaKey>();
-		}
 		FormulaKey o = typeMap.get(s);
 		if (o == null)
 		{
@@ -167,10 +157,6 @@ public final class FormulaKey implements TypeSafeConstant
 	 */
 	public static FormulaKey getConstant(String s, Formula f)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<FormulaKey>();
-		}
 		FormulaKey o = typeMap.get(s);
 		if (o == null)
 		{
@@ -191,10 +177,6 @@ public final class FormulaKey implements TypeSafeConstant
 	 */
 	public static FormulaKey valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<FormulaKey>();
-		}
 		FormulaKey o = typeMap.get(s);
 		if (o == null)
 		{
@@ -214,10 +196,6 @@ public final class FormulaKey implements TypeSafeConstant
 	 */
 	public static Collection<FormulaKey> getAllConstants()
 	{
-		if (typeMap == null)
-		{
-			return null;
-		}
 		return Collections.unmodifiableCollection(typeMap.values());
 	}
 
@@ -233,10 +211,7 @@ public final class FormulaKey implements TypeSafeConstant
 	 */
 	public static void clearConstants()
 	{
-		if (typeMap != null)
-		{
-			typeMap.clear();
-		}
+		typeMap.clear();
 	}
 
 }

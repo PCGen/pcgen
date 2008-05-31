@@ -42,7 +42,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -85,19 +84,11 @@ final class DeityBasePanel extends BasePanel
 	 * Set deity alignment
 	 * @param aString
 	 */
-	public void setDeityAlignment(String aString)
+	public void setDeityAlignment(PCAlignment al)
 	{
-		for (Iterator e = SettingsHandler.getGame().getUnmodifiableAlignmentList().iterator(); e.hasNext();)
+		if (al.isValidForDeity())
 		{
-			final PCAlignment anAlignment = (PCAlignment) e.next();
-
-			if (anAlignment.isValidForDeity())
-			{
-				if (anAlignment.getKeyName().equals(aString))
-				{
-					cmbDeityAlignment.setSelectedItem(anAlignment.getKeyName());
-				}
-			}
+			cmbDeityAlignment.setSelectedItem(al.getKeyName());
 		}
 	}
 
@@ -284,7 +275,7 @@ final class DeityBasePanel extends BasePanel
 		//
 		// Initialize the contents of the deity's alignment combo
 		//
-		setDeityAlignment(((Deity) thisPObject).getAlignment());
+		setDeityAlignment(thisPObject.get(ObjectKey.ALIGNMENT));
 
 		//
 		// Initialize the contents of the available and selected favored weapons lists

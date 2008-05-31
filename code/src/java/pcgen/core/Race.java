@@ -424,7 +424,7 @@ public final class Race extends PObject
 				buffer.append(eqName).append(',');
 				buffer.append(natEquip.getType(false)).append(',');
 
-				if (!natEquip.isAttacksProgress())
+				if (!natEquip.getSafe(ObjectKey.ATTACKS_PROGRESS))
 				{
 					buffer.append('*');
 				}

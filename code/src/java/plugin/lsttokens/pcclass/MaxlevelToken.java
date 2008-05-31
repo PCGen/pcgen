@@ -1,5 +1,6 @@
 package plugin.lsttokens.pcclass;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
@@ -22,7 +23,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 		Integer lim;
 		if ("NOLIMIT".equalsIgnoreCase(value))
 		{
-			lim = PCClass.NO_LEVEL_LIMIT;
+			lim = Constants.NO_LEVEL_LIMIT;
 		}
 		else
 		{
@@ -56,7 +57,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 			return null;
 		}
 		String returnString = lim.toString();
-		if (lim.equals(PCClass.NO_LEVEL_LIMIT))
+		if (lim.equals(Constants.NO_LEVEL_LIMIT))
 		{
 			returnString = "NOLIMIT";
 		}

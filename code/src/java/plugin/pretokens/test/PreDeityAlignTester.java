@@ -6,8 +6,10 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -46,37 +48,28 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 			final GameMode gm = SettingsHandler.getGame();
 			final String[] aligns = gm.getAlignmentListStrings(false);
 
-			String deityAlign = ""; //$NON-NLS-1$
+			PCAlignment deityAlign = null; //$NON-NLS-1$
 			if (character.getDeity() != null)
 			{
+				deityAlign = character.getDeity().get(ObjectKey.ALIGNMENT);
+			}
+			if (deityAlign != null)
+			{
+				String desiredAlign = prereq.getOperand();
 				try
 				{
-					final int align =
-							Integer.parseInt(character.getDeity()
-								.getAlignment());
-					deityAlign = aligns[align];
+					final int align = Integer.parseInt(prereq.getOperand());
+					desiredAlign = aligns[align];
 				}
 				catch (NumberFormatException e)
 				{
 					// If it isn't a number, we expect the exception 
-					deityAlign = character.getDeity().getAlignment();
 				}
-			}
 
-			String desiredAlign = prereq.getOperand();
-			try
-			{
-				final int align = Integer.parseInt(prereq.getOperand());
-				desiredAlign = aligns[align];
-			}
-			catch (NumberFormatException e)
-			{
-				// If it isn't a number, we expect the exception 
-			}
-
-			if (desiredAlign.equalsIgnoreCase(deityAlign))
-			{
-				runningTotal = 1;
+				if (desiredAlign.equalsIgnoreCase(deityAlign.getKeyName()))
+				{
+					runningTotal = 1;
+				}
 			}
 		}
 

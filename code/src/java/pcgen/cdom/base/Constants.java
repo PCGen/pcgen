@@ -310,4 +310,5 @@ public interface Constants
 	String LST_PATTERN = "%";
 	String COLON = ":";
 	String LST_NONE = "NONE";
+	public static final int NO_LEVEL_LIMIT = -1;
 }

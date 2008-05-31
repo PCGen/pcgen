@@ -42,6 +42,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -476,13 +477,13 @@ public final class ExportHandler
 				}
 
 				if ("!Prepare".equalsIgnoreCase(cs)
-				    && aClass.getMemorizeSpells())
+				    && aClass.getSafe(ObjectKey.MEMORIZE_SPELLS))
 				{
 					return true;
 				}
 
 				if ("Prepare".equalsIgnoreCase(cs)
-				    && (!aClass.getMemorizeSpells()))
+				    && (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)))
 				{
 					return true;
 				}
@@ -502,13 +503,13 @@ public final class ExportHandler
 					}
 
 					if ("!Prepare".equalsIgnoreCase(fString)
-					    && pcClass.getMemorizeSpells())
+					    && pcClass.getSafe(ObjectKey.MEMORIZE_SPELLS))
 					{
 						return true;
 					}
 
 					if ("Prepare".equalsIgnoreCase(fString)
-					    && (!pcClass.getMemorizeSpells()))
+					    && (!pcClass.getSafe(ObjectKey.MEMORIZE_SPELLS)))
 					{
 						return true;
 					}
@@ -555,7 +556,7 @@ public final class ExportHandler
 			{
 				return false;
 			}
-			else if (aSkill.isUntrained())
+			else if (aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 			{
 				return true;
 			}

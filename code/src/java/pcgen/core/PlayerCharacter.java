@@ -1803,15 +1803,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setGender(final String argGender)
 	{
-		final String templateGender = findTemplateGender();
+		final Gender g = findTemplateGender();
 
-		if (templateGender.equals(Constants.s_NONE))
+		if (g == null)
 		{
 			gender = argGender;
 		}
 		else
 		{
-			gender = templateGender;
+			gender = g.toString();
 		}
 
 		setDirty(true);
@@ -1830,9 +1830,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getGender()
 	{
-		final String tGender = findTemplateGender();
+		final Gender tGender = findTemplateGender();
 
-		return tGender.equals(Constants.s_NONE) ? gender : tGender;
+		return tGender == null ? gender : tGender.toString();
 	}
 
 	/**
@@ -1846,9 +1846,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean canSetGender()
 	{
-		final String tGender = findTemplateGender();
-
-		return tGender.equals(Constants.s_NONE);
+		return findTemplateGender() == null;
 	}
 
 	/**
@@ -5961,7 +5959,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return 0.0f;
 		}
 
-		if (aSkill.isExclusive())
+		if (aSkill.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			// Exclusive skills only count levels in classes which give access
 			// to the skill
@@ -7923,7 +7921,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return "No class keyed " + classKey;
 		}
 
-		if (!aClass.getMemorizeSpells()
+		if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
 			&& !bookName.equals(Globals.getDefaultSpellBook()))
 		{
 			return aClass.getDisplayName() + " can only add to "
@@ -8008,7 +8006,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			spellBook.setNumPagesUsed(numPages + spellBook.getNumPagesUsed());
 			spellBook.setNumSpells(spellBook.getNumSpells() + 1);
 		}
-		else if (!aClass.getMemorizeSpells()
+		else if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
 			&& !availableSpells(adjSpellLevel, aClass, bookName, true, acs
 				.isSpecialtySpell()))
 		{
@@ -8044,7 +8042,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			return ret;
 		}
-		else if (aClass.getMemorizeSpells()
+		else if (aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
 			&& !isDefault
 			&& !availableSpells(adjSpellLevel, aClass, bookName, false, acs
 				.isSpecialtySpell()))
@@ -8399,7 +8397,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					for (int level = 1; level <= pcClass.getLevel(); level++)
 					{
-						HitDie baseHD = pcClass.getBaseHitDie();
+						HitDie baseHD = pcClass.getSafe(ObjectKey.LEVEL_HITDIE);
 						if (!baseHD.equals(pcClass.getLevelHitDie(this, level)))
 						{
 							// If the HD has changed from base reroll
@@ -8893,8 +8891,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Calculate and add the CR from race
-		ChallengeRating cr = race.get(ObjectKey.CHALLENGE_RATING);
-		final float raceCR = cr == null ? 0.0f : cr.getRating().resolve(this, "").floatValue();
+		ChallengeRating cr = race.getSafe(ObjectKey.CHALLENGE_RATING);
+		final float raceCR = cr.getRating().resolve(this, "").floatValue();
 		// If the total CR to date is 0 then add race CR, e.g.  A Lizard has CR of 1/2
 		if (CR == 0)
 		{
@@ -9087,7 +9085,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// If they don't memorise spells and don't have
 				// a CastList then they use something funky
 				// like Power Points (psionic)
-				if (!aClass.getMemorizeSpells() && !aClass.hasKnownList()
+				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) && !aClass.hasKnownList()
 					&& aClass.zeroCastSpells())
 				{
 					return true;
@@ -13927,7 +13925,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return 0;
 	}
 
-	private String findTemplateGender()
+	private Gender findTemplateGender()
 	{
 		Gender g = null;
 
@@ -13940,7 +13938,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return g == null ? "None" : g.toString();
+		return g;
 	}
 
 	private void setEarnedXP(final int argEarnedXP)
@@ -14093,7 +14091,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		boolean UntrainedExclusiveClass = false;
 		boolean IsQualified = true;
 
-		if (skill.isUntrained() && skill.isExclusive())
+		if (skill.getSafe(ObjectKey.USE_UNTRAINED) && skill.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			if (skill.isClassSkill(classList, this)
 				|| skill.isCrossClassSkill(classList, this))
@@ -14101,7 +14099,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				UntrainedExclusiveClass = true;
 			}
 		}
-		else if (skill.isUntrained())
+		else if (skill.getSafe(ObjectKey.USE_UNTRAINED))
 		{
 			IsQualified =
 					PrereqHandler.passesAll((skill).getPreReqList(), this,
@@ -14110,8 +14108,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		return (level == 2)
 			|| (skill.getTotalRank(this).floatValue() > 0)
-			|| ((level == 1) && skill.isUntrained() && IsQualified && !skill
-				.isExclusive()) || ((level == 1) && UntrainedExclusiveClass);
+			|| ((level == 1) && skill.getSafe(ObjectKey.USE_UNTRAINED) && IsQualified && !skill.getSafe(ObjectKey.EXCLUSIVE)) || ((level == 1) && UntrainedExclusiveClass);
 	}
 
 	private void increaseMoveArray(final Double moveRate,

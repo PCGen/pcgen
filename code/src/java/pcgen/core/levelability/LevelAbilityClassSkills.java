@@ -22,6 +22,7 @@
  */
 package pcgen.core.levelability;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.util.Logging;
@@ -171,7 +172,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 				{
 					case CHOICETYPE_UNTRAINED:
 
-						if (skill.isUntrained())
+						if (skill.getSafe(ObjectKey.USE_UNTRAINED))
 						{
 							break;
 						}
@@ -180,7 +181,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_TRAINED:
 
-						if (!skill.isUntrained())
+						if (!skill.getSafe(ObjectKey.USE_UNTRAINED))
 						{
 							break;
 						}
@@ -189,7 +190,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_EXCLUSIVE:
 
-						if (skill.isExclusive())
+						if (skill.getSafe(ObjectKey.EXCLUSIVE))
 						{
 							break;
 						}
@@ -198,7 +199,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_NONEXCLUSIVE:
 
-						if (!skill.isExclusive())
+						if (!skill.getSafe(ObjectKey.EXCLUSIVE))
 						{
 							break;
 						}
@@ -207,7 +208,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_CROSSCLASS:
 
-						if (!skill.isExclusive())
+						if (!skill.getSafe(ObjectKey.EXCLUSIVE))
 						{
 							break;
 						}

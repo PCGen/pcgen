@@ -215,8 +215,8 @@ final class SkillBasePanel extends BasePanel
 		setTypesSelectedList(selectedList, true);
 
 		setKeyStat(thisSkill.getKeyStatAbb());
-		setArmorCheck(thisSkill.getACheck().ordinal());
-		setIsExclusive(thisSkill.isExclusive());
+		setArmorCheck(thisSkill.getSafe(ObjectKey.ARMOR_CHECK).ordinal());
+		setIsExclusive(thisSkill.getSafe(ObjectKey.EXCLUSIVE));
 		Boolean untrained = thisSkill.get(ObjectKey.USE_UNTRAINED);
 		if (untrained != null)
 		{

@@ -28,6 +28,7 @@ import java.util.List;
 
 import pcgen.base.util.WeightedList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -167,7 +168,7 @@ public class NPCGenerator
 					{
 						weightedList.add(8, new SkillChoice(skill.getKeyName()));
 					}
-					else if (!skill.isExclusive())
+					else if (!skill.getSafe(ObjectKey.EXCLUSIVE))
 					{
 						weightedList.add(1, new SkillChoice(skill.getKeyName()));
 					}

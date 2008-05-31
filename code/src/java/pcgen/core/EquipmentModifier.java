@@ -33,7 +33,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.EqModNameOpt;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -93,17 +92,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		}
 
 		return aList;
-	}
-
-	/**
-	 * Should this enhancement be applied to both ends of a double weapon?
-	 *
-	 * @return  boolean whether to apply to both ends of a double weapon.
-	 */
-	public boolean getAssignToAll()
-	{
-		Boolean assignToAll = get(ObjectKey.ASSIGN_TO_ALL);
-		return assignToAll == null ? false : assignToAll;
 	}
 
 	/**
@@ -473,23 +461,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public String toString()
 	{
-		return getEquipNamePortion();
-	}
-
-	/**
-	 * Returns the name that should be added to the equipment item as
-	 * a result of the presence of this equipment modifier.
-	 *
-	 * @return The text to be added to the equipment name.
-	 */
-	public String getEquipNamePortion()
-	{
-		EqModNameOpt nameopt = get(ObjectKey.NAME_OPT);
-		if (nameopt == null)
-		{
-			nameopt = EqModNameOpt.NORMAL;
-		}
-		return nameopt.returnName(this);
+		return getSafe(ObjectKey.NAME_OPT).returnName(this);
 	}
 
 	protected int getSR(final PlayerCharacter aPC)
@@ -1051,20 +1023,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return new BigDecimal(val * qty);
 	}
 
-	/**
-	 * Retrieve the eqmod's format category. Defaults to parens.
-	 * @return The format category for this eqmod.
-	 */
-	public int getFormatCat()
-	{
-		EqModFormatCat format = get(ObjectKey.FORMAT);
-		if (format == null)
-		{
-			format = EqModFormatCat.PARENS;
-		}
-		return format.ordinal();
-	}
-	
 	/**
 	 * lets this object compare to others.
 	 *

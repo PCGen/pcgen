@@ -75,6 +75,7 @@ import javax.swing.tree.TreePath;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -400,10 +401,10 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			//
 			// Hit Die
 			//
-			HitDie hitDie = aClass.getBaseHitDie();
+			HitDie hitDie = aClass.getSafe(ObjectKey.LEVEL_HITDIE);
 			if (isSubClass && HitDie.ZERO.equals(hitDie))
 			{
-				hitDie = lastClass.getBaseHitDie();
+				hitDie = lastClass.getSafe(ObjectKey.LEVEL_HITDIE);
 			}
 			if (!HitDie.ZERO.equals(hitDie))
 			{
@@ -1852,7 +1853,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				case COL_HD:
 					if (pcclass != null)
 					{
-						int hitDie = pcclass.getBaseHitDie().getDie();
+						int hitDie = pcclass.getSafe(ObjectKey.LEVEL_HITDIE).getDie();
 						retString = "1d" + hitDie;
 					}
 					return retString;

@@ -23,6 +23,7 @@ package pcgen.core;
 import java.math.BigDecimal;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
@@ -202,7 +203,7 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else if ("BASECOST".equals(valString))
 		{
-			retVal = eq.getBaseCost().toString();
+			retVal = eq.getSafe(ObjectKey.COST).toString();
 		}
 		else if ("DMGDIE".equals(valString))
 		{

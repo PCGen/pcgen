@@ -89,6 +89,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -98,6 +99,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
@@ -2025,7 +2027,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (fn.getItem() instanceof Deity)
 			{
 				Deity aDeity = (Deity) fn.getItem();
-				return aDeity.getAlignment();
+				PCAlignment al = aDeity.get(ObjectKey.ALIGNMENT);
+				return al == null ? "" : al.getKeyName();
 			}
 			return null;
 		}

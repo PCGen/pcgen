@@ -57,111 +57,118 @@ public final class ObjectKey<T>
 	 * 
 	 * have a .cast(Object o) method on ObjectKey???
 	 */
-	public static final ObjectKey<Boolean> USE_UNTRAINED = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> USE_UNTRAINED = new ObjectKey<Boolean>(Boolean.TRUE);
 
-	public static final ObjectKey<Boolean> EXCLUSIVE = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> EXCLUSIVE = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<URI> SOURCE_URI = new ObjectKey<URI>();
+	public static final ObjectKey<URI> SOURCE_URI = new ObjectKey<URI>(null);
 
-	public static final ObjectKey<PCAlignment> ALIGNMENT = new ObjectKey<PCAlignment>();
+	public static final ObjectKey<PCAlignment> ALIGNMENT = new ObjectKey<PCAlignment>(null);
 
-	public static final ObjectKey<Boolean> READ_ONLY = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> READ_ONLY = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<PCStat> KEY_STAT = new ObjectKey<PCStat>();
+	public static final ObjectKey<PCStat> KEY_STAT = new ObjectKey<PCStat>(null);
 
-	public static final ObjectKey<SkillArmorCheck> ARMOR_CHECK = new ObjectKey<SkillArmorCheck>();
+	public static final ObjectKey<SkillArmorCheck> ARMOR_CHECK = new ObjectKey<SkillArmorCheck>(SkillArmorCheck.NONE);
 
-	public static final ObjectKey<Visibility> VISIBILITY = new ObjectKey<Visibility>();
+	public static final ObjectKey<Visibility> VISIBILITY = new ObjectKey<Visibility>(Visibility.DEFAULT);
 
-	public static final ObjectKey<Boolean> REMOVABLE = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> REMOVABLE = new ObjectKey<Boolean>(Boolean.TRUE);
 
-	public static final ObjectKey<SubRegion> SUBREGION = new ObjectKey<SubRegion>();
+	public static final ObjectKey<SubRegion> SUBREGION = new ObjectKey<SubRegion>(null);
 
-	public static final ObjectKey<Region> REGION = new ObjectKey<Region>();
+	public static final ObjectKey<Region> REGION = new ObjectKey<Region>(null);
 
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBREGION = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBREGION = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORREGION = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> USETEMPLATENAMEFORREGION = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<Gender>();
+	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<Gender>(null);
 
-	public static final ObjectKey<BigDecimal> FACE_WIDTH = new ObjectKey<BigDecimal>();
+	public static final ObjectKey<BigDecimal> FACE_WIDTH = new ObjectKey<BigDecimal>(null);
 
-	public static final ObjectKey<BigDecimal> FACE_HEIGHT = new ObjectKey<BigDecimal>();
+	public static final ObjectKey<BigDecimal> FACE_HEIGHT = new ObjectKey<BigDecimal>(null);
 
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBRACE = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBRACE = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<SubRace> SUBRACE = new ObjectKey<SubRace>();
+	public static final ObjectKey<SubRace> SUBRACE = new ObjectKey<SubRace>(null);
 
-	public static final ObjectKey<BigDecimal> CR_MODIFIER = new ObjectKey<BigDecimal>();
+	public static final ObjectKey<BigDecimal> CR_MODIFIER = new ObjectKey<BigDecimal>(BigDecimal.ZERO);
 
-	public static final ObjectKey<RaceType> RACETYPE = new ObjectKey<RaceType>();
+	public static final ObjectKey<RaceType> RACETYPE = new ObjectKey<RaceType>(null);
 
-	public static final ObjectKey<BigDecimal> COST = new ObjectKey<BigDecimal>();
+	public static final ObjectKey<BigDecimal> COST = new ObjectKey<BigDecimal>(BigDecimal.ZERO);
 
-	public static final ObjectKey<PCStat> SPELL_STAT = new ObjectKey<PCStat>();
+	public static final ObjectKey<PCStat> SPELL_STAT = new ObjectKey<PCStat>(null);
 
-	public static final ObjectKey<Boolean> COST_DOUBLE = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> COST_DOUBLE = new ObjectKey<Boolean>(null);
 
-	public static final ObjectKey<Boolean> ASSIGN_TO_ALL = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> ASSIGN_TO_ALL = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<EqModNameOpt> NAME_OPT = new ObjectKey<EqModNameOpt>();
+	public static final ObjectKey<EqModNameOpt> NAME_OPT = new ObjectKey<EqModNameOpt>(EqModNameOpt.NORMAL);
 
-	public static final ObjectKey<EqModFormatCat> FORMAT = new ObjectKey<EqModFormatCat>();
+	public static final ObjectKey<EqModFormatCat> FORMAT = new ObjectKey<EqModFormatCat>(EqModFormatCat.PARENS);
 
-	public static final ObjectKey<Boolean> ATTACKS_PROGRESS = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> ATTACKS_PROGRESS = new ObjectKey<Boolean>(Boolean.TRUE);
 
-	public static final ObjectKey<WieldCategory> WIELD = new ObjectKey<WieldCategory>();
+	public static final ObjectKey<WieldCategory> WIELD = new ObjectKey<WieldCategory>(null);
 
-	public static final ObjectKey<BigDecimal> WEIGHT = new ObjectKey<BigDecimal>();
+	public static final ObjectKey<BigDecimal> WEIGHT = new ObjectKey<BigDecimal>(BigDecimal.ZERO);
 
-	public static final ObjectKey<BigDecimal> WEIGHT_MOD = new ObjectKey<BigDecimal>();
+	public static final ObjectKey<BigDecimal> WEIGHT_MOD = new ObjectKey<BigDecimal>(BigDecimal.ZERO);
 
-	public static final ObjectKey<CDOMSingleRef<WeaponProf>> WEAPON_PROF = new ObjectKey<CDOMSingleRef<WeaponProf>>();
+	public static final ObjectKey<CDOMSingleRef<WeaponProf>> WEAPON_PROF = new ObjectKey<CDOMSingleRef<WeaponProf>>(null);
 
-	public static final ObjectKey<CDOMSingleRef<ArmorProf>> ARMOR_PROF = new ObjectKey<CDOMSingleRef<ArmorProf>>();
+	public static final ObjectKey<CDOMSingleRef<ArmorProf>> ARMOR_PROF = new ObjectKey<CDOMSingleRef<ArmorProf>>(null);
 
-	public static final ObjectKey<CDOMSingleRef<ShieldProf>> SHIELD_PROF = new ObjectKey<CDOMSingleRef<ShieldProf>>();
+	public static final ObjectKey<CDOMSingleRef<ShieldProf>> SHIELD_PROF = new ObjectKey<CDOMSingleRef<ShieldProf>>(null);
 
-	public static final ObjectKey<EqModControl> MOD_CONTROL = new ObjectKey<EqModControl>();
+	public static final ObjectKey<EqModControl> MOD_CONTROL = new ObjectKey<EqModControl>(EqModControl.YES);
 
-	public static final ObjectKey<BigDecimal> CURRENT_COST = new ObjectKey<BigDecimal>();
+	public static final ObjectKey<BigDecimal> CURRENT_COST = new ObjectKey<BigDecimal>(null);
 
 	/*
 	 * This MUST Stay Object! Otherwise the code hierarchy ends up with circular
 	 * references/tangles
 	 */
-	public static final ObjectKey<Object> PARENT = new ObjectKey<Object>();
+	public static final ObjectKey<Object> PARENT = new ObjectKey<Object>(null);
 
-	public static final ObjectKey<Modifier<HitDie>> HITDIE = new ObjectKey<Modifier<HitDie>>();
+	public static final ObjectKey<Modifier<HitDie>> HITDIE = new ObjectKey<Modifier<HitDie>>(null);
 
-	public static final ObjectKey<ChallengeRating> CHALLENGE_RATING = new ObjectKey<ChallengeRating>();
+	public static final ObjectKey<ChallengeRating> CHALLENGE_RATING = new ObjectKey<ChallengeRating>(ChallengeRating.ZERO);
 
-	public static final ObjectKey<Boolean> USE_SPELL_SPELL_STAT = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> USE_SPELL_SPELL_STAT = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<Boolean> CASTER_WITHOUT_SPELL_STAT = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> CASTER_WITHOUT_SPELL_STAT = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<Boolean> SPELLBOOK = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> SPELLBOOK = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<Boolean> MOD_TO_SKILLS = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> MOD_TO_SKILLS = new ObjectKey<Boolean>(Boolean.TRUE);
 
-	public static final ObjectKey<Boolean> MEMORIZE_SPELLS = new  ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> MEMORIZE_SPELLS = new ObjectKey<Boolean>(Boolean.TRUE);
 
-	public static final ObjectKey<Boolean> IS_MONSTER = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> IS_MONSTER = new ObjectKey<Boolean>(null);
 
-	public static final ObjectKey<Boolean> ALLOWBASECLASS = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> ALLOWBASECLASS = new ObjectKey<Boolean>(Boolean.TRUE);
 
-	public static final ObjectKey<Boolean> HAS_BONUS_SPELL_STAT = new ObjectKey<Boolean>();
+	public static final ObjectKey<Boolean> HAS_BONUS_SPELL_STAT = new ObjectKey<Boolean>(null);
 
-	public static final ObjectKey<PCStat> BONUS_SPELL_STAT = new ObjectKey<PCStat>();
+	public static final ObjectKey<PCStat> BONUS_SPELL_STAT = new ObjectKey<PCStat>(null);
 
-	public static final ObjectKey<HitDie> LEVEL_HITDIE = new ObjectKey<HitDie>();
+	public static final ObjectKey<HitDie> LEVEL_HITDIE = new ObjectKey<HitDie>(HitDie.ZERO);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 
-	private ObjectKey()
+	private final T defaultValue;
+	
+	private ObjectKey(T def)
 	{
-		// Only allow instantation here
+		defaultValue = def;
+	}
+
+	public T getDefault()
+	{
+		return defaultValue;
 	}
 
 	public T cast(Object o)
@@ -187,7 +194,7 @@ public final class ObjectKey<T>
 		ObjectKey<OT> o = (ObjectKey<OT>) map.get(s);
 		if (o == null)
 		{
-			o = new ObjectKey<OT>();
+			o = new ObjectKey<OT>(null);
 			map.put(s, o);
 		}
 		return o;

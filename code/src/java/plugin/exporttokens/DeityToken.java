@@ -33,9 +33,11 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Deity;
+import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
@@ -114,7 +116,8 @@ public class DeityToken extends Token
 			}
 			else if ("ALIGNMENT".equals(subTag))
 			{
-				retString = deity.getAlignment();
+				PCAlignment al = deity.get(ObjectKey.ALIGNMENT);
+				retString = al == null ? "" : al.getKeyName();
 			}
 			else if ("APPEARANCE".equals(subTag))
 			{

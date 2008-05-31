@@ -32,6 +32,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -2105,7 +2106,7 @@ public class WeaponToken extends Token
 			newAttack.append(attack).append("/");
 		}
 
-		boolean progress = eq.isAttacksProgress();
+		boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);
 		int bonusProgress = (int)eq.bonusTo(pc, "WEAPON", "ATTACKSPROGRESS", true);
 		if (bonusProgress != 0)
 		{

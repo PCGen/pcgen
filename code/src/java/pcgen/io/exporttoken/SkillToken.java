@@ -355,11 +355,11 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_UNTRAINED:
-					retValue.append(aSkill.isUntrained() ? "Y" : "NO");
+					retValue.append(aSkill.getSafe(ObjectKey.USE_UNTRAINED) ? "Y" : "NO");
 					break;
 
 				case SKILL_EXCLUSIVE:
-					retValue.append(aSkill.isExclusive() ? "Y" : "N");
+					retValue.append(aSkill.getSafe(ObjectKey.EXCLUSIVE) ? "Y" : "N");
 					break;
 
 				case SKILL_UNTRAINED_EXTENDED:
@@ -373,8 +373,7 @@ public class SkillToken extends Token
 				case SKILL_EXCLUSIVE_TOTAL:
 					retValue
 						.append(Integer
-							.toString(((aSkill.isExclusive() || !aSkill
-								.isUntrained()) && (aSkill.getTotalRank(pc)
+							.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED)) && (aSkill.getTotalRank(pc)
 								.intValue() == 0)) ? 0
 								: (aSkill.getTotalRank(pc).intValue() + aSkill
 										.modifier(pc).intValue())));
@@ -382,7 +381,7 @@ public class SkillToken extends Token
 
 				case SKILL_TRAINED_TOTAL:
 					retValue.append(Integer
-						.toString((!aSkill.isUntrained() && (aSkill
+						.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED) && (aSkill
 							.getTotalRank(pc).intValue() == 0)) ? 0 : (aSkill
 							.getTotalRank(pc).intValue() + aSkill.modifier(pc)
 							.intValue())));
@@ -450,7 +449,7 @@ public class SkillToken extends Token
 			trained_tok = "";
 		}
 
-		if (aSkill.isUntrained())
+		if (aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 		{
 			return untrained_tok;
 		}
@@ -478,7 +477,7 @@ public class SkillToken extends Token
 		final StringTokenizer aTok =
 				new StringTokenizer(property.substring(3), ",");
 		int numArgs = aTok.countTokens();
-		int acp = aSkill.getACheck().ordinal();
+		int acp = aSkill.getSafe(ObjectKey.ARMOR_CHECK).ordinal();
 		String acpText[] = new String[numArgs]; 
 				
 		for (int i = 0; aTok.hasMoreTokens(); i++) {

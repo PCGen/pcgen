@@ -39,6 +39,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -53,6 +54,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -1092,7 +1094,12 @@ final class PCGVer2Creator implements IOConstants
 
 			buffer.append('|');
 			buffer.append(TAG_DEITYALIGN).append(':');
-			buffer.append(aDeity.getAlignment());
+			PCAlignment al = aDeity.get(ObjectKey.ALIGNMENT);
+			if (al != null)
+			{
+				buffer.append(al.getKeyName());
+			}
+
 			buffer.append(LINE_SEP);
 		}
 	}

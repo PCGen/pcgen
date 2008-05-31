@@ -54,7 +54,7 @@ public class PreSpellBookTester extends AbstractPrerequisiteTest implements
 
 		for (PCClass spellClass : character.getClassList())
 		{
-			if (spellClass.getSpellBookUsed() == prereqUsesBook)
+			if (spellClass.getSafe(ObjectKey.SPELLBOOK) == prereqUsesBook)
 			{
 				runningTotal++;
 			}

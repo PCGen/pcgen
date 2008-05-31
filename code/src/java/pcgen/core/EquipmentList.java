@@ -37,6 +37,7 @@ import java.util.TreeMap;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -321,7 +322,7 @@ public class EquipmentList {
 				if (eqMod != null) {
 					eq.addEqModifier(eqMod, true, aPC);
 
-					if (eqMod.getAssignToAll() && eq.isDouble()) {
+					if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) && eq.isDouble()) {
 						eq.addEqModifier(eqMod, false, aPC);
 						bModified = true;
 					}
@@ -819,7 +820,7 @@ public class EquipmentList {
 		try {
 			// Armor without an armor bonus is an exception
 			//
-			if (!eq.getModControl().getModifiersAllowed()
+			if (!eq.getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()
 					|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0) && ((eqMod != null) && !eqMod.getDisplayName()
 							.equalsIgnoreCase("MASTERWORK")))) { return; }
 

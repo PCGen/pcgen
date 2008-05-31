@@ -50,6 +50,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.Description;
@@ -1518,7 +1519,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				String subclass = cl.substring(dotLoc + 1);
 				if (parent.equals(subclass))
 				{
-					if(pcclass.getAllowBaseClass() == false)
+					if(pcclass.getSafe(ObjectKey.ALLOWBASECLASS) == false)
 					{
 						Logging.errorPrint("Invalid Class entry in " + tag
 							+ " token in " + type + " " + key + ": " + cl
