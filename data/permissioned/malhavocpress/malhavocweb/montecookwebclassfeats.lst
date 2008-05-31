@@ -2,8 +2,8 @@
 SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com
 
 # Feat Name			Clear Prereq.	Required Class						Required Feat											Prohibited Feat
-Favored Enemy I.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=1															!PREFEAT:1,Favored Enemy I
-Favored Enemy II.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=5		PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
-Favored Enemy III.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=10	PREFEAT:2,Favored Enemy I,Favored Enemy II						!PREFEAT:1,Favored Enemy III
-Favored Enemy IV.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=15	PREFEAT:3,Favored Enemy I,Favored Enemy II,Favored Enemy III			!PREFEAT:1,Favored Enemy IV
-Favored Enemy V.MOD	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (Monte Cook's)=20	PREFEAT:4,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	!PREFEAT:1,Favored Enemy V
+Favored Enemy I.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=1,Ranger (Monte Cook's)=1															!PREFEAT:1,Favored Enemy I
+Favored Enemy II.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=5,Ranger (Monte Cook's)=5	PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
+Favored Enemy III.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=10,Ranger (Monte Cook's)=10	PREFEAT:2,Favored Enemy I,Favored Enemy II						!PREFEAT:1,Favored Enemy III
+Favored Enemy IV.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=15,Ranger (Monte Cook's)=15	PREFEAT:3,Favored Enemy I,Favored Enemy II,Favored Enemy III			!PREFEAT:1,Favored Enemy IV
+Favored Enemy V.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=20,Ranger (Monte Cook's)=20	PREFEAT:4,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	!PREFEAT:1,Favored Enemy V
