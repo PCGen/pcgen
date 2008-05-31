@@ -1,13 +1,15 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCClass;
-import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with HASSPELLFORMULA Token
  */
-public class HasspellformulaToken implements PCClassLstToken
+public class HasspellformulaToken implements CDOMPrimaryToken<PCClass>
 {
 
 	public String getTokenName()
@@ -15,7 +17,18 @@ public class HasspellformulaToken implements PCClassLstToken
 		return "HASSPELLFORMULA";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level)
+	public String[] unparse(LoadContext context, PCClass obj)
+	{
+		return null;
+	}
+
+	public Class<PCClass> getTokenClass()
+	{
+		return PCClass.class;
+	}
+
+	public boolean parse(LoadContext context, PCClass obj, String value)
+			throws PersistenceLayerException
 	{
 		Logging.deprecationPrint("Ignoring HASSPELLFORMULA: "
 				+ "No longer required in PCGen 5.15+ ");

@@ -1138,6 +1138,10 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return item name based off the modifiers
 	 */
 	public String getItemNameFromModifiers() {
+		if (baseItem.length() == 0) {
+			return getName();
+		}
+
 		final List<EquipmentModifier> modList = new ArrayList<EquipmentModifier>(
 				eqModifierList);
 		final List<EquipmentModifier> altModList = new ArrayList<EquipmentModifier>(
@@ -1150,44 +1154,21 @@ public final class Equipment extends PObject implements Serializable,
 		final List<EquipmentModifier> altModListByFC[] = initSplitModList();
 		final List<EquipmentModifier> commonListByFC[] = initSplitModList();
 
+		final Equipment baseEquipment = EquipmentList
+				.getEquipmentKeyed(baseItem);
 		//
 		// Remove any modifiers on the base item so they don't confuse the
 		// naming
 		//
-		if (baseItem.length() == 0) {
-			return getName();
-		}
-
-		final Equipment baseEquipment = EquipmentList
-				.getEquipmentKeyed(baseItem);
-
 		if (baseEquipment != null) {
-			for (EquipmentModifier eqMod : baseEquipment
-					.getEqModifierList(true)) {
-				final int idx = modList.indexOf(eqMod);
-
-				if (idx >= 0) {
-					modList.remove(idx);
-				}
-			}
-
-			for (EquipmentModifier eqMod : baseEquipment
-					.getEqModifierList(false)) {
-				final int idx = altModList.indexOf(eqMod);
-
-				if (idx >= 0) {
-					altModList.remove(idx);
-				}
-			}
+			modList.removeAll(baseEquipment.getEqModifierList(true));
+			altModList.removeAll(baseEquipment.getEqModifierList(false));
 		}
-
-		for (int i = modList.size() - 1; i >= 0; --i) {
-			final EquipmentModifier eqMod = modList.get(i);
-
+		for (Iterator<EquipmentModifier> it = modList.iterator(); it.hasNext();)
+		{
+			EquipmentModifier eqMod = it.next();
 			if (eqMod.getVisibility().equals(Visibility.HIDDEN)) {
-				modList.remove(i);
-
-				continue;
+				it.remove();
 			}
 		}
 
@@ -1776,24 +1757,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		return isType(aType, bonusPrimary);
-	}
-
-	/**
-	 * Set proficiency name
-	 * 
-	 * @param aString
-	 */
-	public void setProfName(final String aString) {
-		profName = aString;
-	}
-
-	/**
-	 * Get proficiency name
-	 * 
-	 * @return proficiency name
-	 */
-	public String getProfName() {
-		return profName;
 	}
 
 	/**
@@ -2842,7 +2805,6 @@ public final class Equipment extends PObject implements Serializable,
 
 			// eq.setTypeString(super.getType());
 			// none of the types associated with modifiers
-			eq.profName = profName;
 			eq.carried = carried;
 			eq.equipped = equipped;
 			eq.location = location;
@@ -3324,7 +3286,7 @@ public final class Equipment extends PObject implements Serializable,
 				}
 				Logging
 						.debugPrint("Could not find weapon proficiency with key '"
-								+ profName + "'.");
+								+ getExpandedWeaponProf(aPC) + "'.");
 			}
 			String prof = rawProfName();
 			if (prof == null || prof.length() == 0) {
@@ -3336,7 +3298,7 @@ public final class Equipment extends PObject implements Serializable,
 		} catch (RuntimeException e) {
 			Logging.errorPrint("Problem with: " + this.getDisplayName(), e);
 		}
-		return profName;
+		return "";
 	}
 
 	/**
@@ -3803,7 +3765,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			return shieldProf;
 		}
-		return profName;
+		return "";
 	}
 
 	boolean save(final BufferedWriter output) {
@@ -3891,13 +3853,6 @@ public final class Equipment extends PObject implements Serializable,
 				else if (eq.isShield() && eq.shieldProf != null)
 				{
 					shieldProf = eq.shieldProf;
-				}
-				else
-				{
-					profName = eq.profName;
-					if (profName == null || profName.length() == 0) {
-						profName = eq.getName();
-					}
 				}
 			}
 		}
@@ -5358,9 +5313,7 @@ public final class Equipment extends PObject implements Serializable,
 			return true;
 		}
 
-		final WieldCategory wCat = getEffectiveWieldCategory(aPC);
-
-		return (wCat.isFinessable());
+		return getEffectiveWieldCategory(aPC).isFinessable();
 	}
 
 	/**
@@ -5375,9 +5328,7 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		final WieldCategory wCat = getEffectiveWieldCategory(pc);
-
-		return (wCat.getName().equals("Light"));
+		return WieldCategory.findByName("Light").equals(getEffectiveWieldCategory(pc));
 	}
 
 	/**
@@ -5392,9 +5343,7 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		final WieldCategory wCat = getEffectiveWieldCategory(pc);
-
-		return wCat.getHands() == 1;
+		return getEffectiveWieldCategory(pc).getHands() == 1;
 	}
 
 	/**
@@ -5427,9 +5376,7 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		final WieldCategory wCat = getEffectiveWieldCategory(pc);
-
-		return (wCat.getHands() > 2);
+		return getEffectiveWieldCategory(pc).getHands() > 2;
 	}
 
 	/**
@@ -5444,9 +5391,7 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		final WieldCategory wCat = getEffectiveWieldCategory(pc);
-
-		return wCat.getHands() == 2;
+		return getEffectiveWieldCategory(pc).getHands() == 2;
 	}
 
 	/**
@@ -5534,44 +5479,12 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The WeaponProf required to use the weapon.
 	 */
 	public WeaponProf getExpandedWeaponProf(final PlayerCharacter aPC) {
-		String aWProf;
-		if (weaponProf != null)
-		{
-			aWProf = weaponProf;
-		}
-		else
-		{
-			aWProf = profName;
-		}
+		String aWProf = weaponProf;
 
-		if (aWProf.length() == 0) {
+		if (aWProf == null || aWProf.length() == 0) {
 			aWProf = getName();
 		}
 
-		final int iOffs = aWProf.indexOf("[Hands]");
-
-		if (iOffs >= 0) {
-			// "Sword (Bastard/[Hands])"
-			// expands to:
-			// "Sword (Bastard/Exotic)"
-			// or
-			// "Sword (Bastard/Martial)"
-			//
-			final String sExotic = aWProf.substring(0, iOffs) + "Exotic"
-					+ aWProf.substring(iOffs + 7);
-			final String sMartial = aWProf.substring(0, iOffs) + "Martial"
-					+ aWProf.substring(iOffs + 7);
-
-			final WeaponProf wpExotic = Globals.getWeaponProfKeyed(sExotic);
-			final WeaponProf wpMartial = Globals.getWeaponProfKeyed(sMartial);
-
-			if (wpMartial != null && wpExotic != null) {
-				if (aPC.hasWeaponProfKeyed(sExotic)) {
-					return wpExotic;
-				}
-				return wpMartial;
-			}
-		}
 		return Globals.getWeaponProfKeyed(aWProf);
 	}
 

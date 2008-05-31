@@ -255,16 +255,6 @@ public final class Domain extends PObject
 	}
 
 	/**
-	 * Returns TRUE if PC qualifies for a domain
-	 * @param pc
-	 * @return TRUE if PC qualifies for a domain
-	 */
-	public boolean qualifiesForDomain(final PlayerCharacter pc)
-	{
-		return PrereqHandler.passesAll(this.getPreReqList(), pc, this);
-	}
-
-	/**
 	 * Get an iterator for the AbilityInfo objects that hold represent
 	 * the Feats granted by this domain
 	 *

@@ -41,48 +41,6 @@ public final class Language extends PObject implements Comparable<Object>
 	public static final CDOMReference<LanguageList> STARTING_LIST = new CDOMDirectSingleRef<LanguageList>(
 			new LanguageList());
 
-	/** Does this language indicate access to all languages. */
-	private boolean isAllLang = false;
-
-	/** The language instance representing access to all bonus languages.
-	 * We keep this outside of the global language list so that it does
-	 * not appear as a real language. */
-	private static Language allLanguage;
-
-	/**
-	 * Default constructor.
-	 */
-	public Language()
-	{
-		super();
-	}
-
-	/**
-	 * Constructor for use when creating the ALL placehoder language.
-	 *
-	 * @param isAllLang Is this the access to all languages placeholder.
-	 */
-	public Language(boolean isAllLang)
-	{
-		super();
-		this.isAllLang = isAllLang;
-	}
-
-	/**
-	 * Retrieve the language instance representing access to all bonus languages.
-	 * @return Returns the allLanguage.
-	 */
-	public static final synchronized Language getAllLanguage()
-	{
-		if (allLanguage == null)
-		{
-			allLanguage = new Language(true);
-			allLanguage.setName("ALL");
-			allLanguage.setKeyName("ALL");
-		}
-		return allLanguage;
-	}
-
 	/**
 	 * Compares keyName only
 	 * @param o1
@@ -131,14 +89,6 @@ public final class Language extends PObject implements Comparable<Object>
 		}
 
 		return keyName.equals(((Language) o1).keyName);
-	}
-
-	/**
-	 * @return Returns the isAllLang.
-	 */
-	public final boolean isAllLang()
-	{
-		return isAllLang;
 	}
 
 	/**

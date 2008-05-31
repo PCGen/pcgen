@@ -422,7 +422,7 @@ public class NPCGenerator
 			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
 			{
 				Domain domain = (Domain) iterator.next();
-				if (! domain.qualifiesForDomain(aPC))
+				if (! PrereqHandler.passesAll(domain.getPreReqList(), aPC, domain))
 				{
 					iterator.remove();
 				}

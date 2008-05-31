@@ -2809,7 +2809,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public String getPCCText()
 	{
-		return getPCCText(true);
+		final StringBuffer txt = new StringBuffer(200);
+		txt.append(getDisplayName());
+		txt.append("\t");
+		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
+		txt.append(getPCCText(false));
+		return txt.toString();
 	}
 
 	/**

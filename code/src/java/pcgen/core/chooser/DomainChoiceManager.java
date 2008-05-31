@@ -33,6 +33,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.PrereqHandler;
 
 /**
  * This is the chooser that deals with choosing a domain.
@@ -85,7 +86,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 				// but does not have.
 				for ( Domain domain : Globals.getDomainList() )
 				{
-					if (domain.qualifiesForDomain(aPc))
+					if (PrereqHandler.passesAll(domain.getPreReqList(), aPc, domain))
 					{
 						boolean found = false;
 						for ( CharacterDomain cd : aPc.getCharacterDomainList())

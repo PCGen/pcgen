@@ -9098,14 +9098,51 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return false;
 	}
 
+	/**
+	 * Check whether a deity can be selected by this character
+	 * 
+	 * @return <code>true</code> means the deity can be a selected by a
+	 *         character with the given properties; <code>false</code> means
+	 *         the character cannot.
+	 */
 	public boolean canSelectDeity(final Deity aDeity)
 	{
 		if (aDeity == null)
 		{
 			return false;
 		}
+		boolean result;
+		if (classList.isEmpty())
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+			CLASS: for (PCClass aClass : classList)
+			{
+				List<CDOMReference<Deity>> deityList = aClass
+						.getListFor(ListKey.DEITY);
+				if (deityList == null)
+				{
+					result = true;
+					break;
+				}
+				else
+				{
+					for (CDOMReference<Deity> deity : deityList)
+					{
+						if (deity.contains(aDeity))
+						{
+							result = true;
+							break CLASS;
+						}
+					}
+				}
+			}
+		}
 
-		return aDeity.canBeSelectedBy(classList, alignment, this);
+		return result && PrereqHandler.passesAll(aDeity.getPreReqList(), this, aDeity);
 	}
 
 	public int classAC()
@@ -11408,16 +11445,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		this.languages.add(aLang);
 		++freeLangs;
 		setDirty(true);
-	}
-
-	void addFreeLanguageKeyed(final String aKey)
-	{
-		final Language aLang = Globals.getLanguageKeyed(aKey);
-
-		if (aLang != null)
-		{
-			addFreeLanguage(aLang);
-		}
 	}
 
 	boolean removeFavoredClass(final String aString)
@@ -14979,23 +15006,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			addStartingLanguages(pcClass, languageList);
 		}
-
-		// Scan for the ALL language and if found replace it with all languages
-		boolean addAll = false;
-		for (Iterator<Language> iter = languageList.iterator(); iter.hasNext();)
-		{
-			final Language lang = iter.next();
-			if (lang.isAllLang())
-			{
-				iter.remove();
-				addAll = true;
-			}
-		}
-		if (addAll)
-		{
-			languageList.addAll(Globals.getLanguageList());
-		}
-
 		return languageList;
 	}
 

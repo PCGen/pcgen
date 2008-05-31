@@ -1448,11 +1448,6 @@ public final class Globals
 	 */
 	public static Language getLanguageKeyed(final String aKey)
 	{
-		// TODO - Fix this.
-		if (aKey.equalsIgnoreCase("ALL") || aKey.equalsIgnoreCase("ANY"))
-		{
-			return Language.getAllLanguage();
-		}
 		for (Language aLang : getLanguageList())
 		{
 			if (aLang.getKeyName().equalsIgnoreCase(aKey))

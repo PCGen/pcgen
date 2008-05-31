@@ -23,6 +23,7 @@
 package pcgen.core.kit;
 
 import pcgen.core.*;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
 
@@ -238,7 +239,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 			Domain domain = Globals.getDomainKeyed(domainKey);
 			if (domain != null)
 			{
-				if (!domain.qualifiesForDomain(aPC))
+				if (!PrereqHandler.passesAll(domain.getPreReqList(), aPC, domain))
 				{
 					warnings.add("DEITY: Not qualified for domain \"" +
 								 domain.getDisplayName() + "\"");

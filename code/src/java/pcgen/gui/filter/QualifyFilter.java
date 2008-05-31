@@ -56,7 +56,8 @@ final class QualifyFilter extends AbstractPObjectFilter
 		}
 		else if (pObject instanceof Domain)
 		{
-			return ((Domain) pObject).qualifiesForDomain(aPC);
+			Domain r = ((Domain) pObject);
+			return PrereqHandler.passesAll(r.getPreReqList(), aPC, r);
 		}
 		else if (pObject instanceof Equipment)
 		{

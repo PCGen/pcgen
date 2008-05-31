@@ -103,6 +103,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
@@ -1355,7 +1356,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// Make sure a valid domain was selected
-		if (!addedDomain.qualifiesForDomain(pc) || !qualDomain.qualifies(pc))
+		if (!PrereqHandler.passesAll(addedDomain.getPreReqList(), pc, addedDomain)
+				|| !qualDomain.qualifies(pc))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("in_qualifyMess",
@@ -2300,7 +2302,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 							.append(aDomain.piSubString()).append(
 								"*</b></html>");
 					}
-					else if (!aDomain.qualifiesForDomain(pc)
+					else if (!PrereqHandler.passesAll(aDomain.getPreReqList(), pc, aDomain)
 						|| !aQualDomain.qualifies(pc))
 					{
 						retVal.append("<html>").append(
