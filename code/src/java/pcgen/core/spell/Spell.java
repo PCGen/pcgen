@@ -42,6 +42,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
@@ -73,8 +74,6 @@ public final class Spell extends PObject
 {
 	private String fixedCasterLevel = null;
 	private String fixedDC = null;
-
-	private HashMap<String, Integer> spellPointCost = new HashMap<String,  Integer>();
 
 	static boolean hasSpellPointCost = false;
 
@@ -486,13 +485,6 @@ public final class Spell extends PObject
 		try
 		{
 			aSpell = (Spell) super.clone();
-
-			if (spellPointCost != null)
-			{
-				aSpell.spellPointCost = new HashMap<String,Integer>(spellPointCost);
-				
-			}
-
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -822,38 +814,21 @@ public final class Spell extends PObject
 		return getKeyName().hashCode();
 	}
 	
-	public void clearSpellPointCost()
-	{
-		spellPointCost.clear();
-	}
-	
-	public void setParsedSpellPointCost(String component, final int value)
-	{
-		hasSpellPointCost = true;
-		if (spellPointCost.containsKey(component))
-		{
-			int val = spellPointCost.get(component);
-			spellPointCost.put(component, value + val);
-		}
-		else
-		{
-			spellPointCost.put(component, value);
-		}
-	}
 	public static boolean hasSpellPointCost()
 	{
 		return hasSpellPointCost;
 	}
 	public Map<String,Integer> getSpellPointCostActualParts()
 	{
+		/*
+		 * TODO Emulating the old form here until I understand how some items
+		 * (e.g. TOTAL) are resolved in .MOD situations
+		 */
 		Map<String,Integer> spCost = new HashMap<String, Integer>();
-		int RunningTotal =0;
 				
-		for (String spComponent: spellPointCost.keySet())
+		for (PointCost pc: getSafeListFor(ListKey.SPELL_POINT_COST))
 		{
-			int value = spellPointCost.get(spComponent);
-			int translatedValue =  value;
-			spCost.put(spComponent, translatedValue);
+			spCost.put(pc.getType(), pc.getCost());
 		}
 		return spCost;		
 	}

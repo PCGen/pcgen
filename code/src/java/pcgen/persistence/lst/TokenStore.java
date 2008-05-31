@@ -50,7 +50,6 @@ public class TokenStore
 		tokenTypeList.add(EquipmentModifierLstToken.class);
 		tokenTypeList.add(RaceLstToken.class);
 		tokenTypeList.add(PCTemplateLstToken.class);
-		tokenTypeList.add(SpellLstToken.class);
 		tokenTypeList.add(SourceLstToken.class);
 		tokenTypeList.add(SubClassLstToken.class);
 		tokenTypeList.add(SubstitutionClassLstToken.class);

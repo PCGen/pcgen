@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.PointCost;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -182,8 +183,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		Spell sp = new Spell();
 		sp.setName("Test");
 		sp.addToListFor(ListKey.SPELL_SCHOOL, "INFUSE");
-		sp.setParsedSpellPointCost("Duration", 4);
-		sp.setParsedSpellPointCost("Infuse Fire", 4);
+		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Duration", 4));
+		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Infuse Fire", 4));
 		
 		int spCosts = sp.getSpellPointCostActual();
 		

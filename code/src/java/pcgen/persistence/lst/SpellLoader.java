@@ -27,7 +27,6 @@ package pcgen.persistence.lst;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
@@ -75,9 +74,6 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			spell.setSourceURI(source.getURI());
 		}
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(SpellLstToken.class);
-
 		while (colToken.hasMoreElements())
 		{
 			final String token = colToken.nextToken().trim();
@@ -102,19 +98,6 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			{
 				Logging.clearParseMessages();
 				context.commit();
-			}
-			else if (tokenMap.containsKey(key))
-			{
-				SpellLstToken tok = (SpellLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, spell, value);
-				if (!tok.parse(spell, value))
-				{
-					Logging.errorPrint("Error parsing spell "
-						+ spell.getDisplayName() + ':' + source.getURI() + ':'
-						+ token + "\"");
-				}
-				Logging.clearParseMessages();
- 				continue;
 			}
 			else if (PObjectLoader.parseTag(spell, token))
  			{

@@ -28,6 +28,7 @@ import java.net.URI;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -179,6 +180,7 @@ public final class ListKey<T> {
 	public static final ListKey<Formula> CAST = new ListKey<Formula>();
 	public static final ListKey<QualifiedObject<CDOMSingleRef<Domain>>> DOMAIN = new ListKey<QualifiedObject<CDOMSingleRef<Domain>>>();
 	public static final ListKey<CDOMReference<Deity>> DEITY = new ListKey<CDOMReference<Deity>>();
+	public static final ListKey<PointCost> SPELL_POINT_COST = new ListKey<PointCost>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {
