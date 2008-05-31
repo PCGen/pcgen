@@ -54,7 +54,7 @@ CLASS:Mounted Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|Handle Animal|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Multiple Requirements
-CLASS:Noble		PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,Any]
+CLASS:Noble		PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,ANY=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Urban Lore|Handle Animal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Literacy|Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
 ###Block:Proficiencies

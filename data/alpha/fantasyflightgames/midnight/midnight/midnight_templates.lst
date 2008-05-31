@@ -3,7 +3,7 @@ SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.f
 #Original Entry By: Eddy Anthony
 
 # Template Name				Visible		Define										Stat bonus											Modify VAR
-Maximum Spell Level			VISIBLE:NO		DEFINE:MaximumSpellLevel|0	DEFINE:MaximumSpellLevelBonus|0	BONUS:STAT|BASESPELLSTAT|(MageStat-INT)*2|!PRECLASS:1,Channeler,Legate	BONUS:VAR|MaximumSpellLevel|(TL+MaximumSpellLevelBonus)/2
+Maximum Spell Level			VISIBLE:NO		DEFINE:MaximumSpellLevel|0	DEFINE:MaximumSpellLevelBonus|0	BONUS:STAT|BASESPELLSTAT|(MageStat-INT)*2|!PRECLASS:1,Channeler=1,Legate=1	BONUS:VAR|MaximumSpellLevel|(TL+MaximumSpellLevelBonus)/2
 Unlock Midnight Spell Prerequisites	VISIBLE:DISPLAY	DEFINE:UnlimitedSpells|1	DEFINE:MaximumSpellLevel|9
 
 ###Block: Heroic Paths

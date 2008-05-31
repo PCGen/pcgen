@@ -11,7 +11,7 @@ CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:STAT|DEX|INT|WIS|CH
 # Feat Name						Type			Visible	Prohibited Class					Special ABility
 Power Source (Crusaders)			TYPE:Special	VISIBLE:NO	!PRECLASS:1,Crusader=1				SAB:Power Source (Crusaders)
 Power Source (Druids/Minstrels)		TYPE:Special	VISIBLE:NO	!PRECLASS:2,Druid,Minstrel=1			SAB:Power Source (Druids/Minstrels)
-Power Source (Hedge Mage/Enchantress)	TYPE:Special	VISIBLE:NO	!PRECLASS:2,Hedge Mage,Enchantress=1	SAB:Power Source (Hedge Mage/Enchantress)
+Power Source (Hedge Mage/Enchantress)	TYPE:Special	VISIBLE:NO	!PRECLASS:2,Hedge Mage=1,Enchantress=1	SAB:Power Source (Hedge Mage/Enchantress)
 Power Source (Hermits)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Hermit=1				SAB:Power Source (Hermits)
 Power Source (Priest)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Priest=1				SAB:Power Source (Priest)
 
