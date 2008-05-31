@@ -22,6 +22,7 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
@@ -181,7 +182,7 @@ class SourceBasePanel extends BasePanel
 		theCampaign = (Campaign) thisPObject;
 		sourceModel.setLists(theCampaign.getOptionsList(), theCampaign.getLicenses(),
 		    theCampaign.getSection15s());
-		rank.setValue(Integer.valueOf(theCampaign.getRank()));
+		rank.setValue(Integer.valueOf(theCampaign.getSafe(IntegerKey.CAMPAIGN_RANK)));
 		game = theCampaign.getGameModeString();
 
 		final StringTokenizer aTok = new StringTokenizer(game, ", ");

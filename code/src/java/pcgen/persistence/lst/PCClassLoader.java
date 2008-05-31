@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -427,7 +428,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		int maxLevel = 100; // an arbitrarily large number...
 		if (pcClass.hasMaxLevel())
 		{
-			maxLevel = pcClass.getMaxLevel();
+			maxLevel = pcClass.getSafe(IntegerKey.LEVEL_LIMIT);
 		}
 		if (tokenCount > 0)
 		{

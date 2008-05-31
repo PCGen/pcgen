@@ -1051,16 +1051,6 @@ public class PCClass extends PObject
 		level = arg;
 	}
 
-	/*
-	 * PCCLASSLEVELONLY maxLevel is only required for factory creation/verification
-	 * of a PCClassLevel
-	 */
-	public final int getMaxLevel()
-	{
-		Integer ll = get(IntegerKey.LEVEL_LIMIT);
-		return ll == null ? NO_LEVEL_LIMIT : ll;
-	}
-
 	/**
 	 * Identify if this class has a cap on the number of levels it is 
 	 * possible to take.
@@ -1770,7 +1760,7 @@ public class PCClass extends PObject
 
 		// make sure any slots due from specialties (including domains) are
 		// added
-		total += getKnownSpellsFromSpecialty();
+		total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 
 		return total;
 	}
@@ -2724,9 +2714,9 @@ public class PCClass extends PObject
 
 		// Output the list of spells associated with the class.
 		int cap = getSpellSupport().getMaxSpellListLevel();
-		if (hasMaxLevel() && cap > getMaxLevel())
+		if (hasMaxLevel() && cap > getSafe(IntegerKey.LEVEL_LIMIT))
 		{
-			cap = getMaxLevel();
+			cap = getSafe(IntegerKey.LEVEL_LIMIT);
 		}
 		for (int i = 0; i <= cap; i++)
 		{
@@ -4023,7 +4013,7 @@ public class PCClass extends PObject
 		{
 			// make sure any slots due from specialties
 			// (including domains) are added
-			total += getKnownSpellsFromSpecialty();
+			total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 		}
 
 		return total;
@@ -4264,13 +4254,13 @@ public class PCClass extends PObject
 			levelMax = false;
 		}
 
-		if (hasMaxLevel() && (newLevel > getMaxLevel()) && levelMax)
+		if (hasMaxLevel() && (newLevel > getSafe(IntegerKey.LEVEL_LIMIT)) && levelMax)
 		{
 			if (!bSilent)
 			{
 				ShowMessageDelegate.showMessageDialog(
 					"This class cannot be raised above level "
-						+ Integer.toString(getMaxLevel()), Constants.s_APPNAME,
+						+ Integer.toString(getSafe(IntegerKey.LEVEL_LIMIT)), Constants.s_APPNAME,
 					MessageType.ERROR);
 			}
 
@@ -4557,7 +4547,7 @@ public class PCClass extends PObject
 						if (hasMaxLevel())
 						{
 							iMaxDonation =
-									Math.min(iMaxDonation, getMaxLevel() - 1);
+									Math.min(iMaxDonation, getSafe(IntegerKey.LEVEL_LIMIT) - 1);
 						}
 
 						if (iMaxDonation > 0)
@@ -5191,7 +5181,7 @@ public class PCClass extends PObject
 				aPC.setPoolAmount(0);
 			}
 
-			spMod *= aPC.getRace().getInitialSkillMultiplier();
+			spMod *= aPC.getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
 			Globals.getBioSet().randomize("AGE", aPC);
 		}
 		else
@@ -6212,7 +6202,7 @@ public class PCClass extends PObject
 		}
 
 		// Race modifiers apply after Intellegence. BUG 577462
-		spMod += aPC.getRace().getBonusSkillsPerLevel();
+		spMod += aPC.getRace().getSafe(IntegerKey.SKILL_POINTS_PER_LEVEL);
 		spMod = Math.max(skillMin, spMod); // Minimum 1, not sure if bonus
 		// skills per
 
@@ -6221,7 +6211,7 @@ public class PCClass extends PObject
 		{
 			for (PCTemplate template : aPC.getTemplateList())
 			{
-				spMod += template.getBonusSkillsPerLevel();
+				spMod += template.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS);
 			}
 		}
 
@@ -6322,12 +6312,6 @@ public class PCClass extends PObject
 			return -1;
 		}
 		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
-	}
-
-	public int getKnownSpellsFromSpecialty()
-	{
-		Integer kss = get(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
-		return kss == null ? 0 : kss;
 	}
 
 	@Override

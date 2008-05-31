@@ -55,6 +55,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
@@ -550,7 +551,7 @@ final class ChooseSpellDialog extends JDialog
 			{
 				for (int i = 0; i < selectedMetamagicFeats.length; i++)
 				{
-					levelAdjust += ((Ability) selectedMetamagicFeats[i]).getAddSpellLevel();
+					levelAdjust += ((Ability) selectedMetamagicFeats[i]).getSafe(IntegerKey.ADD_SPELL_LEVEL);
 				}
 			}
 		}
@@ -590,7 +591,7 @@ final class ChooseSpellDialog extends JDialog
 				minLevel = aClass.getMinLevelForSpellLevel(baseSpellLevel + levelAdjust, true);
 				if (aClass.hasMaxLevel())
 				{
-					maxClassLevel = aClass.getMaxLevel();
+					maxClassLevel = aClass.getSafe(IntegerKey.LEVEL_LIMIT);
 				}
 			}
 			else

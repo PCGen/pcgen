@@ -252,16 +252,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Get Plus
-	 * @return plus
-	 */
-	public int getPlus()
-	{
-		Integer plus = get(IntegerKey.PLUS);
-		return plus == null ? 0 : plus;
-	}
-
-	/**
 	 * Set pre cost
 	 *
 	 * @param aString
@@ -842,7 +832,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 				if (aSpell != null)
 				{
-					modChoice = Integer.toString(aSpell.getXPCost());
+					modChoice = Integer.toString(aSpell.getSafe(IntegerKey.XP_COST));
 				}
 			}
 

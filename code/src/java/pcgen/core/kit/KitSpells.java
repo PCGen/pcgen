@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -413,7 +414,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			Ability anAbility = pc.getFeatNamed(featName);
 			if (anAbility != null)
 			{
-				adjustedLevel += anAbility.getAddSpellLevel();
+				adjustedLevel += anAbility.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 				metamagicFeatList.add(anAbility);
 			}
 		}

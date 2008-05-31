@@ -97,31 +97,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Get the number of Bonus feats that this template grants the character it
-	 * is applied to at level 0
-	 * 
-	 * @return the number of Bonus feats
-	 */
-	public int getBonusInitialFeats()
-	{
-		Integer feats = get(IntegerKey.BONUS_FEATS);
-		return feats == null ? 0 : feats;
-	}
-
-	/**
-	 * Get the Bonus to the number of skill points per level that this template
-	 * grants the character it is applied to.
-	 * 
-	 * @return the number of bonus skill points per level granted by this
-	 *         template
-	 */
-	public int getBonusSkillsPerLevel()
-	{
-		Integer points = get(IntegerKey.BONUS_CLASS_SKILL_POINTS);
-		return points == null ? 0 : points;
-	}
-
-	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
 	 * level (Class and Hit Dice). This will include the absolute adjustment
 	 * made with CR:, LEVEL:<num>:CR and HD:<num>:CR tags

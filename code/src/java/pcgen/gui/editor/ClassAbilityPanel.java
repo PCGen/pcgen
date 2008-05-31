@@ -244,7 +244,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		//spellType.setText(obj.getSpellType());
 		spellStat.setSelectedItem(obj.getSpellBaseStat());
 		spellType.setSelectedItem(obj.getSpellType());
-		maxLevel.setText(String.valueOf(obj.getMaxLevel()));
+		maxLevel.setText(String.valueOf(obj.getSafe(IntegerKey.LEVEL_LIMIT)));
 	}
 
 	private static GridBagConstraints buildConstraints(GridBagConstraints gridBagConstraints, int gridx, int gridy,

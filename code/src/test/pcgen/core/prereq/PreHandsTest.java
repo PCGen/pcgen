@@ -63,7 +63,7 @@ public class PreHandsTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();
-		race.put(IntegerKey.HANDS, 2);
+		race.put(IntegerKey.CREATURE_HANDS, 2);
 
 		character.setRace(race);
 

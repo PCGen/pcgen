@@ -38,6 +38,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.Description;
@@ -269,7 +270,7 @@ public class FeatBasePanel extends BasePanel
 		thisFeat.setStacks(getStacks() ? "Y" : "N");
 		thisFeat.setVisibility(getVisible());
 		thisFeat.setCost(Double.toString(getCost()));
-		thisFeat.setAddSpellLevel(getSpellLevels());
+		thisFeat.put(IntegerKey.ADD_SPELL_LEVEL, getSpellLevels());
 
 		Object[] sel = getTypesSelectedList();
 		thisFeat.setTypeInfo(".CLEAR");
@@ -336,7 +337,7 @@ public class FeatBasePanel extends BasePanel
 		setMultiples(thisFeat.isMultiples());
 		setStacks(thisFeat.isStacks());
 		setCost(thisFeat.getCost());
-		setSpellLevels(thisFeat.getAddSpellLevel());
+		setSpellLevels(thisFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL));
 	}
 
 	private void initComponentContents()

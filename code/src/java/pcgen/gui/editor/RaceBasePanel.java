@@ -367,7 +367,7 @@ public class RaceBasePanel extends BasePanel
 		thisRace.put(IntegerKey.SKILL_POINTS_PER_LEVEL, getBonusSkillPoints());
 		thisRace.put(ObjectKey.CHALLENGE_RATING, getCR());
 		thisRace.setDisplayName(getDisplayName());
-		thisRace.put(IntegerKey.HANDS, getHands());
+		thisRace.put(IntegerKey.CREATURE_HANDS, getHands());
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
 		thisRace.put(IntegerKey.LEGS, getLegs());
@@ -450,18 +450,18 @@ public class RaceBasePanel extends BasePanel
 		setMonsterClassList(availableList);
 
 		setBonusFeats(0);
-		setBonusSkillPoints(thisRace.getBonusSkillsPerLevel());
+		setBonusSkillPoints(thisRace.getSafe(IntegerKey.SKILL_POINTS_PER_LEVEL));
 		setCR(thisRace.get(ObjectKey.CHALLENGE_RATING));
 		setDisplayName(thisRace.getDisplayName());
-		setHands(thisRace.getHands());
+		setHands(thisRace.getSafe(IntegerKey.CREATURE_HANDS));
 		setHitDiceAdvancement(thisRace);
-		setLegs(thisRace.getLegs());
+		setLegs(thisRace.getSafe(IntegerKey.LEGS));
 		setLevelAdjustment(thisRace.getSafe(FormulaKey.LEVEL_ADJUSTMENT).toString());
 		setMonsterClass(thisRace.getMonsterClass(null, false));
 		setMonsterLevel(thisRace.getMonsterClassLevels(null, false));
 		setRaceSize(thisRace.get(FormulaKey.SIZE));
 		setReach(thisRace.getReach());
-		setSkillMultiplier(thisRace.getInitialSkillMultiplier());
+		setSkillMultiplier(thisRace.getSafe(IntegerKey.INITIAL_SKILL_MULT));
 		setHitDiceNumber(thisRace.hitDice(null, false));
 		setHitDiceSize(thisRace.getHitDiceSize(null, false));
 	}

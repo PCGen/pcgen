@@ -84,6 +84,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return integerChar.get(arg0);
 	}
 
+	public final int getSafe(IntegerKey arg0)
+	{
+		Integer ic = integerChar.get(arg0);
+		return ic == null ? arg0.getDefault() : ic;
+	}
+
 	public final Integer put(IntegerKey arg0, Integer arg1)
 	{
 		return integerChar.put(arg0, arg1);

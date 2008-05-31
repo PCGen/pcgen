@@ -55,6 +55,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -1170,7 +1171,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		for (int i = 0; i < fList.size(); ++i)
 		{
 			Ability aFeat = pc.getFeatNamed(fList.get(i));
-			realLevel += aFeat.getAddSpellLevel();
+			realLevel += aFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 			selFeatList.add(aFeat);
 		}
 

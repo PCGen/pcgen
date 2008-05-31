@@ -49,6 +49,7 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.Description;
@@ -1414,7 +1415,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			public int compare(Campaign c1, Campaign c2)
 			{
-				return c1.getRank() - c2.getRank();
+				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
 			}
 		});
 

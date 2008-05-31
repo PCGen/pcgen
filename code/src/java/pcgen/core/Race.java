@@ -91,12 +91,6 @@ public final class Race extends PObject
 		return 0;
 	}
 
-	public int getBonusSkillsPerLevel()
-	{
-		Integer sp = get(IntegerKey.SKILL_POINTS_PER_LEVEL);
-		return sp == null ? 0 : sp;
-	}
-
 	public String getDisplayVision(final PlayerCharacter aPC)
 	{
 		if (vision == null)
@@ -176,17 +170,6 @@ public final class Race extends PObject
 		}
 	}
 
-	/**
-	 * Made public for use on equipping tab -- bug 586332
-	 * sage_sam, 22 Nov 2002
-	 * @return hands
-	 */
-	public int getHands()
-	{
-		Integer hands = get(IntegerKey.HANDS);
-		return hands == null ? 2 : hands;
-	}
-
 	public void setHitDice(final int newHitDice)
 	{
 		if (newHitDice < 0)
@@ -246,31 +229,6 @@ public final class Race extends PObject
 	public int getHitPointMapSize()
 	{
 		return hitPointMap.size();
-	}
-
-	/**
-	 * Returns the initial skill multiplier that should be used for this 
-	 * race. Unless this has been explicitly set in the Race definition, 
-	 * this will default to the skill multiplier for first level defined 
-	 * by the game mode. 
-	 * 
-	 * @return The skill multiplier to be used first level for this race.
-	 */
-	public int getInitialSkillMultiplier()
-	{
-		Integer ism = get(IntegerKey.INITIAL_SKILL_MULT);
-		if (ism == null)
-		{
-			return Globals.getSkillMultiplierForLevel(1);
-		}
-
-		return ism;
-	}
-
-	public int getLegs()
-	{
-		Integer legs = get(IntegerKey.LEGS);
-		return legs == null ? 2 : legs;
 	}
 
 	public void setMFeatList(final String mFeatList)

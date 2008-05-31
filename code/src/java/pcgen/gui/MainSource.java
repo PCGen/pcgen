@@ -73,6 +73,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.core.CampaignURL;
 import pcgen.core.Globals;
@@ -463,7 +464,7 @@ public class MainSource extends FilterAdapterPanel
 				.append("&nbsp; ");
 		}
 		sb.append("<b>RANK</b>: ")
-			.append(aCamp.getRank());
+			.append(aCamp.getSafe(IntegerKey.CAMPAIGN_RANK));
 		if (aCamp.getGameModeString().length() > 0)
 		{
 			sb.append("&nbsp; <b>GAME MODE</b>: ")

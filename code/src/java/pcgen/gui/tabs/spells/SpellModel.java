@@ -29,6 +29,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -501,7 +502,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				return (spellA != null) ? aSpell.getSpellPointCostActual(pc): null;
 
 			case COL_PPCOST:
-				return (spellA != null) ? aSpell.getPPCost(): null; 
+				return (spellA != null) ? aSpell.getSafe(IntegerKey.PP_COST): null; 
 				
 			default:
 				return fn.getItem();

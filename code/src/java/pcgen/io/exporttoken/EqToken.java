@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
@@ -817,7 +818,7 @@ public class EqToken extends Token
 			return getQtyDoubleToken(eq);
 		}
 
-		return getQtyDoubleToken(eq) * eq.getBaseQty();
+		return getQtyDoubleToken(eq) * eq.getSafe(IntegerKey.BASE_QUANTITY);
 	}
 
 	/**

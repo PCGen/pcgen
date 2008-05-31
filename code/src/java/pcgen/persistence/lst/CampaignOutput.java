@@ -20,6 +20,7 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Source;
@@ -69,7 +70,7 @@ public final class CampaignOutput
 						new FileOutputStream(outFile), "UTF-8"));
 			FileAccess.write(out, "CAMPAIGN:" + campaign.getKeyName());
 			FileAccess.newLine(out);
-			FileAccess.write(out, "RANK:" + campaign.getRank());
+			FileAccess.write(out, "RANK:" + campaign.getSafe(IntegerKey.CAMPAIGN_RANK));
 			FileAccess.newLine(out);
 			FileAccess.write(out, "GAMEMODE:");
 

@@ -189,7 +189,7 @@ public class VariableProcessorEq extends VariableProcessor
 				{
 					final Float unitWeight = new Float(weightInPounds
 							.floatValue()
-							/ eq.getBaseQty());
+							/ eq.getSafe(IntegerKey.BASE_QUANTITY));
 					retVal = unitWeight.toString();
 				}
 				else
@@ -216,20 +216,19 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else if ("EQACCHECK".equals(valString))
 		{
-			Integer acCheck = eq.get(IntegerKey.AC_CHECK);
-			retVal = acCheck == null ? "0" : acCheck.toString();
+			retVal = Integer.toString(eq.getSafe(IntegerKey.AC_CHECK));
 		}
 		else if ("EQHANDS".equals(valString))
 		{
-			retVal = Integer.toString(eq.getSlots());
+			retVal = Integer.toString(eq.getSafe(IntegerKey.SLOTS));
 		}
 		else if ("EQSPELLFAIL".equals(valString))
 		{
-			retVal = eq.getSpellFailure().toString();
+			retVal = Integer.toString(eq.getSafe(IntegerKey.SPELL_FAILURE));
 		}
 		else if ("RANGE".equals(valString))
 		{
-			retVal = eq.getRange().toString();
+			retVal = Integer.toString(eq.getSafe(IntegerKey.RANGE));
 		}
 		else if ("CRITMULT".equals(valString))
 		{
@@ -248,11 +247,11 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else if ("REACH".equals(valString))
 		{
-			retVal = Integer.toString(eq.getReach());
+			retVal = Integer.toString(eq.getSafe(IntegerKey.REACH));
 		}
 		else if ("REACHMULT".equals(valString))
 		{
-			retVal = Integer.toString(eq.getReachMult());
+			retVal = Integer.toString(eq.getSafe(IntegerKey.REACH_MULT));
 		}
 		else
 		{

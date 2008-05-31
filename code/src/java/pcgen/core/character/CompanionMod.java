@@ -96,7 +96,7 @@ public final class CompanionMod extends PObject
 			final CompanionMod cmpMod = (CompanionMod) obj;
 
 			if (classMap.entrySet().equals(cmpMod.classMap.entrySet())
-				&& getLevel() == cmpMod.getLevel())
+				&& getSafe(IntegerKey.LEVEL) == cmpMod.getSafe(IntegerKey.LEVEL))
 			{
 				result = 1;
 			}
@@ -120,7 +120,7 @@ public final class CompanionMod extends PObject
 			final CompanionMod cmpMod = (CompanionMod) obj;
 
 			if (classMap.entrySet().equals(cmpMod.classMap.entrySet())
-				&& getLevel() == cmpMod.getLevel())
+				&& getSafe(IntegerKey.LEVEL) == cmpMod.getSafe(IntegerKey.LEVEL))
 			{
 				result = true;
 			}
@@ -166,16 +166,6 @@ public final class CompanionMod extends PObject
 	{
 		final String characteristic = stringChar.get(StringKey.MASTER_HP_FORMULA);
 		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get Hit die
-	 * @return Hit Die
-	 */
-	public int getHitDie()
-	{
-		final Integer characteristic = integerChar.get(IntegerKey.HIT_DIE);
-		return characteristic == null ? 0 : characteristic.intValue();
 	}
 
 	/**
@@ -297,11 +287,5 @@ public final class CompanionMod extends PObject
 	public void setUseMasterSkill(final boolean useMasterSkill)
 	{
 		this.useMasterSkill = useMasterSkill;
-	}
-
-	private int getLevel()
-	{
-		final Integer characteristic = integerChar.get(IntegerKey.LEVEL);
-		return characteristic == null ? 0 : characteristic.intValue();
 	}
 }

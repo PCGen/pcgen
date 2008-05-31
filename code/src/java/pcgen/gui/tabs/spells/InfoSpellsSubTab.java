@@ -49,6 +49,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -860,7 +861,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 				b.appendSpacer();
 				b.appendI18nElement("InfoSpellsSubTab.PPCost", String //$NON-NLS-1$
-					.valueOf(aSpell.getPPCost()));
+					.valueOf(aSpell.getSafe(IntegerKey.PP_COST)));
 			}
 			if (Spell.hasSpellPointCost())
 			{

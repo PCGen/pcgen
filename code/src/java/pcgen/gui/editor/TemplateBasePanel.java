@@ -527,9 +527,9 @@ public class TemplateBasePanel extends BasePanel
 		setVisible(thisPCTemplate.getVisibility());
 		setSubRegion(thisPCTemplate.getSubRegion());
 		setSubRace(thisPCTemplate.getSubRace());
-		setBonusSkillPoints(thisPCTemplate.getBonusSkillsPerLevel());
+		setBonusSkillPoints(thisPCTemplate.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS));
 		setNonProficiencyPenalty(thisPCTemplate.get(IntegerKey.NONPP));
-		setBonusFeats(thisPCTemplate.getBonusInitialFeats());
+		setBonusFeats(thisPCTemplate.getSafe(IntegerKey.BONUS_FEATS));
 		setCR(thisPCTemplate.getCR(-1, -1));
 		setLevelAdjustment(thisPCTemplate.get(FormulaKey.LEVEL_ADJUSTMENT));
 		setTemplateSize(thisPCTemplate.get(FormulaKey.SIZE));

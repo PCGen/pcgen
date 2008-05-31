@@ -2213,7 +2213,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							newCompanionMods.add(cMod);
 						}
 						addCompanionMod(cMod);
-						addHD += cMod.getHitDie();
+						addHD += cMod.getSafe(IntegerKey.HIT_DIE);
 					}
 				}
 			}
@@ -2234,7 +2234,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							newCompanionMods.add(cMod);
 						}
 						addCompanionMod(cMod);
-						addHD += cMod.getHitDie();
+						addHD += cMod.getSafe(IntegerKey.HIT_DIE);
 					}
 				}
 			}
@@ -8159,7 +8159,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (Globals.hasSpellPPCost())
 			{
 				final Spell theSpell = acs.getSpell();
-				int ppCost = theSpell.getPPCost();
+				int ppCost = theSpell.getSafe(IntegerKey.PP_COST);
 				for (Ability feat : aFeatList)
 				{
 					ppCost +=
@@ -11284,9 +11284,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Will take destination class over maximum?
 		if (toClass.hasMaxLevel()
-			&& (toClass.getLevel() + iCount) > toClass.getMaxLevel())
+			&& (toClass.getLevel() + iCount) > toClass.getSafe(IntegerKey.LEVEL_LIMIT))
 		{
-			iCount = toClass.getMaxLevel() - toClass.getLevel();
+			iCount = toClass.getSafe(IntegerKey.LEVEL_LIMIT) - toClass.getLevel();
 		}
 
 		// Enough levels to move?
@@ -14249,11 +14249,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// If not importing, add extra feats
 				if (!isImporting() && classList.isEmpty())
 				{
-					Integer sf = pcClassClone.get(IntegerKey.START_FEATS);
-					if (sf != null)
-					{
-						adjustFeats(sf);
-					}
+					adjustFeats(pcClassClone.getSafe(IntegerKey.START_FEATS));
 				}
 
 				// Add the class to the character classes as level 0
@@ -17780,13 +17776,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int hands = 0;
 		if (aRace != null)
 		{
-			hands = aRace.getHands();
+			hands = aRace.getSafe(IntegerKey.CREATURE_HANDS);
 		}
 
 		// Scan templates for any overrides
 		for (PCTemplate template : getTemplateList())
 		{
-			Integer h = template.get(IntegerKey.HANDS);
+			Integer h = template.get(IntegerKey.CREATURE_HANDS);
 			if (h != null)
 			{
 				hands = h;
@@ -17807,7 +17803,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int legs = 0;
 		if (aRace != null)
 		{
-			legs = aRace.getLegs();
+			legs = aRace.getSafe(IntegerKey.LEGS);
 		}
 
 		// Scan templates for any overrides

@@ -721,9 +721,9 @@ public final class Equipment extends PObject implements Serializable,
 			final BigDecimal eqModCost = new BigDecimal(getVariableValue(
 					eqMod.getPreCost(), "", true, aPC).toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
-					.toString(getBaseQty() * iCount))));
+					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
 			c = c.add(eqMod.addItemCosts(aPC, "ITEMCOST",
-					getBaseQty() * iCount, this));
+					getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
 		}
 
 		for (EquipmentModifier eqMod : altEqModifierList) {
@@ -736,7 +736,7 @@ public final class Equipment extends PObject implements Serializable,
 			final BigDecimal eqModCost = new BigDecimal(getVariableValue(
 					eqMod.getPreCost(), "", false, aPC).toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
-					.toString(getBaseQty() * iCount))));
+					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
 			c = c.add(eqMod.addItemCosts(aPC, "ITEMCOST", iCount, this));
 		}
 
@@ -792,7 +792,7 @@ public final class Equipment extends PObject implements Serializable,
 
 				for (int idx = 0; idx < eqMod.getAssociatedCount(); ++idx) {
 					mat = pat.matcher(eqMod.getCost(idx));
-					costFormula = mat.replaceAll("(BASECOST/" + getBaseQty()
+					costFormula = mat.replaceAll("(BASECOST/" + getSafe(IntegerKey.BASE_QUANTITY)
 							+ ")");
 
 					final BigDecimal thisModCost = new BigDecimal(
@@ -811,7 +811,7 @@ public final class Equipment extends PObject implements Serializable,
 				iCount = 1;
 			} else {
 				mat = pat.matcher(eqMod.getCost());
-				costFormula = mat.replaceAll("(BASECOST/" + getBaseQty() + ")");
+				costFormula = mat.replaceAll("(BASECOST/" + getSafe(IntegerKey.BASE_QUANTITY) + ")");
 
 				eqModCost = new BigDecimal(getVariableValue(costFormula, "",
 						true, aPC).toString());
@@ -825,10 +825,10 @@ public final class Equipment extends PObject implements Serializable,
 
 			// Per D20 FAQ adjustments for special materials are per piece;
 			if (eqMod.isType("BaseMaterial")) {
-				eqModCost = eqModCost.multiply(new BigDecimal(getBaseQty()));
+				eqModCost = eqModCost.multiply(new BigDecimal(getSafe(IntegerKey.BASE_QUANTITY)));
 			}
 			c = c.add(eqModCost);
-			iPlus += (eqMod.getPlus() * iCount);
+			iPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
 		}
 
 		//
@@ -849,8 +849,8 @@ public final class Equipment extends PObject implements Serializable,
 			final BigDecimal eqModCost = new BigDecimal(getVariableValue(
 					costFormula, "", false, aPC).toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
-					.toString(getBaseQty() * iCount))));
-			altPlus += (eqMod.getPlus() * iCount);
+					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
+			altPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
 		}
 
 		calculatingCost = false;
@@ -1441,11 +1441,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The maxDex value
 	 */
 	public Integer getMaxDex(final PlayerCharacter aPC) {
-		Integer mdex = get(IntegerKey.MAX_DEX);
-		if (mdex == null)
-		{
-			mdex = Constants.MAX_MAXDEX;
-		}
+		Integer mdex = getSafe(IntegerKey.MAX_DEX);
 		mdex += (int) bonusTo(aPC, "EQMARMOR", "MAXDEX", true);
 
 		if (mdex > Constants.MAX_MAXDEX) {
@@ -1839,26 +1835,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the reach attribute of the Equipment object.
-	 * 
-	 * @return The reach value
-	 */
-	public int getReach() {
-		Integer reach = get(IntegerKey.REACH);
-		return reach == null ? 0 : reach;
-	}
-
-	/**
-	 * Gets the reach multiplier attribute of the Equipment Object
-	 * 
-	 * @return the reach multiplier value
-	 */
-	public int getReachMult() {
-		Integer mult = get(IntegerKey.REACH_MULT);
-		return mult == null ? 1 : mult;
-	}
-
-	/**
 	 * Set the remaining charges
 	 * 
 	 * @param remainingCharges
@@ -1934,7 +1910,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return slots
 	 */
 	public int getSlots(final PlayerCharacter aPC) {
-		int iSlots = getSlots();
+		int iSlots = getSafe(IntegerKey.SLOTS);
 
 		for (EquipmentModifier eqMod : eqModifierList) {
 			iSlots += (int) eqMod.bonusTo(aPC, "EQM", "HANDS", this);
@@ -2264,18 +2240,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 */
 	public Integer acCheck(final PlayerCharacter aPC) {
-		int check = (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true);
-		Integer acCheck = get(IntegerKey.AC_CHECK);
-		if (acCheck != null)
-		{
-			check += acCheck;
-		}
-
-		if (check > 0) {
-			check = 0;
-		}
-
-		return Integer.valueOf(check);
+		return Math.min(getSafe(IntegerKey.AC_CHECK)
+				+ (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true), 0);
 	}
 
 	/**
@@ -2687,7 +2653,7 @@ public final class Equipment extends PObject implements Serializable,
 				iCount = 1;
 			}
 
-			iPlus += (iCount * eqMod.getPlus());
+			iPlus += (iCount * eqMod.getSafe(IntegerKey.PLUS));
 		}
 
 		for (EquipmentModifier eqMod : altEqModifierList) {
@@ -2697,7 +2663,7 @@ public final class Equipment extends PObject implements Serializable,
 				iCount = 1;
 			}
 
-			iPlus += (iCount * eqMod.getPlus());
+			iPlus += (iCount * eqMod.getSafe(IntegerKey.PLUS));
 		}
 
 		return iPlus;
@@ -2883,18 +2849,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Integer
 	 */
 	public Integer eDR(final PlayerCharacter aPC) {
-		int check = (int) bonusTo(aPC, "EQMARMOR", "EDR", true);
-		Integer edr = get(IntegerKey.EDR);
-		if (edr != null)
-		{
-			check += edr;
-		}
-
-		if (check < 0) {
-			check = 0;
-		}
-
-		return Integer.valueOf(check);
+		return Math.max(0, getSafe(IntegerKey.EDR)
+				+ (int) bonusTo(aPC, "EQMARMOR", "EDR", true));
 	}
 
 	/**
@@ -3519,14 +3475,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 */
 	public Integer spellFailure(final PlayerCharacter aPC) {
-		int fail = getSpellFailure()
-				+ (int) bonusTo(aPC, "EQMARMOR", "SPELLFAILURE", true);
-
-		if (fail < 0) {
-			fail = 0;
-		}
-
-		return Integer.valueOf(fail);
+		return Math.max(0, getSafe(IntegerKey.SPELL_FAILURE)
+				+ (int) bonusTo(aPC, "EQMARMOR", "SPELLFAILURE", true));
 	}
 
 	/**
@@ -4107,7 +4057,7 @@ public final class Equipment extends PObject implements Serializable,
 				myParser.addVariable("BASECOST", getBaseCost().doubleValue());
 
 				if (isAmmunition()) {
-					myParser.addVariable("BASEQTY", getBaseQty());
+					myParser.addVariable("BASEQTY", getSafe(IntegerKey.BASE_QUANTITY));
 				}
 
 				String typeMatched;
@@ -4964,21 +4914,6 @@ public final class Equipment extends PObject implements Serializable,
 		this.weightAlreadyUsed = weightAlreadyUsed;
 	}
 
-	int getSlots() {
-		Integer slots = get(IntegerKey.SLOTS);
-		return slots == null ? 1 : slots;
-	}
-
-	Integer getSpellFailure() {
-		Integer sf = get(IntegerKey.SPELL_FAILURE);
-		return sf == null ? 0 : sf;
-	}
-
-	Integer getRange() {
-		Integer range = get(IntegerKey.RANGE);
-		return range == null ? 0 : range;
-	}
-
 	/**
 	 * Get non headed name
 	 * 
@@ -5007,16 +4942,6 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public final void setWholeItemName(String wholeItemName) {
 		this.wholeItemName = wholeItemName;
-	}
-
-	/**
-	 * Get base quantity
-	 * 
-	 * @return base quantity
-	 */
-	public final int getBaseQty() {
-		Integer bq = get(IntegerKey.BASE_QUANTITY);
-		return bq == null ? 1 : bq;
 	}
 
 	/**
@@ -5289,16 +5214,7 @@ public final class Equipment extends PObject implements Serializable,
 	private int getHeadInfo(int headnum, IntegerKey ik)
 	{
 		EquipmentHead head = getEquipmentHeadReference(headnum);
-		int mult = 0;
-		if (head != null)
-		{
-			Integer headmult = head.get(ik);
-			if (headmult != null)
-			{
-				mult = headmult;
-			}
-		}
-		return mult;
+		return head == null ? 0 : head.getSafe(ik);
 	}
 
 	/**
@@ -5486,16 +5402,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		return Globals.getWeaponProfKeyed(aWProf);
-	}
-
-	/**
-	 * Get the number of pages of this object
-	 * 
-	 * @return the number of pages of this object
-	 */
-	public final int getNumPages() {
-		Integer characteristic = get(IntegerKey.NUM_PAGES);
-		return characteristic == null ? 0 : characteristic.intValue();
 	}
 
 	//
@@ -6229,7 +6135,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public Integer getRange(final PlayerCharacter aPC)
 	{
-		Integer range = getRange();
+		int range = getSafe(IntegerKey.RANGE);
 
 		if (range == 0)
 		{
@@ -6241,7 +6147,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
-		int r = range.intValue() + (int) bonusTo(aPC, "EQMWEAPON", "RANGEADD", true);
+		int r = range + (int) bonusTo(aPC, "EQMWEAPON", "RANGEADD", true);
 		final int i = (int) bonusTo(aPC, "EQMWEAPON", "RANGEMULT", true);
 		double rangeMult = 1.0;
 

@@ -2133,7 +2133,7 @@ final class EqBuilder extends JPanel
 		 */
 		protected Object getCostValue(EquipmentModifier e) {
 			Object sRet;
-			int iPlus = e.getPlus();
+			int iPlus = e.getSafe(IntegerKey.PLUS);
 			StringBuffer eCost = new StringBuffer(20);
 
 			if (iPlus != 0)

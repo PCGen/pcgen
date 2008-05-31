@@ -1,5 +1,6 @@
 package plugin.lsttokens.ability;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.persistence.lst.AbilityLstToken;
 import pcgen.util.Delta;
@@ -20,7 +21,7 @@ public class AddspelllevelToken implements AbilityLstToken
 	{
 		try
 		{
-			ability.setAddSpellLevel(Delta.parseInt(value));
+			ability.put(IntegerKey.ADD_SPELL_LEVEL, Delta.parseInt(value));
 			return true;
 		}
 		catch (NumberFormatException nfe)

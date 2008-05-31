@@ -954,15 +954,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * @return the 'load rank' of the campaign.
-	 */
-	public int getRank()
-	{
-		Integer characteristic = integerChar.get(IntegerKey.RANK);
-		return characteristic == null ? 9 : characteristic.intValue();
-	}
-
-	/**
 	 * Returns the reqSkillList.
 	 * @return List
 	 */
@@ -1188,7 +1179,7 @@ public class Campaign extends PObject
 	 */
 	public void setRank(final int rank)
 	{
-		integerChar.put(IntegerKey.RANK, rank);
+		integerChar.put(IntegerKey.CAMPAIGN_RANK, rank);
 	}
 
 	/**

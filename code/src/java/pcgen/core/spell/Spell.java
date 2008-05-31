@@ -256,7 +256,7 @@ public final class Spell extends PObject
 			{
 				for ( Ability metaFeat : si.getFeatList() )
 				{
-					spellLevel -= metaFeat.getAddSpellLevel();
+					spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 					metaDC += metaFeat.bonusTo("DC", "FEATBONUS", aPC, aPC);
 				}
 			}
@@ -570,18 +570,6 @@ public final class Spell extends PObject
 	{
 		String target = get(StringKey.TARGET_AREA);
 		return target == null ? Constants.EMPTY_STRING : target;
-	}
-
-	public int getXPCost()
-	{
-		Integer xpCost = get(IntegerKey.XP_COST);
-		return xpCost == null ? 0 : xpCost.intValue();
-	}
-
-	public int getPPCost()
-	{
-		Integer ppCost = get(IntegerKey.PP_COST);
-		return ppCost == null ? 0 : ppCost.intValue();
 	}
 
 	public void addPreReqMapEntry(final String type, final Prerequisite preReq)

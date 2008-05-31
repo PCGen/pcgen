@@ -27,7 +27,7 @@ public class HandsToken implements CDOMPrimaryToken<Race>
 				Logging.errorPrint(getTokenName() + " must be an integer >= 0");
 				return false;
 			}
-			context.getObjectContext().put(race, IntegerKey.HANDS, in);
+			context.getObjectContext().put(race, IntegerKey.CREATURE_HANDS, in);
 			return true;
 		}
 		catch (NumberFormatException nfe)
@@ -42,7 +42,7 @@ public class HandsToken implements CDOMPrimaryToken<Race>
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Integer hands = context.getObjectContext().getInteger(race,
-				IntegerKey.HANDS);
+				IntegerKey.CREATURE_HANDS);
 		if (hands == null)
 		{
 			return null;

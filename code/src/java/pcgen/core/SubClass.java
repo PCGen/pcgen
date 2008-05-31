@@ -24,6 +24,8 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
@@ -174,9 +176,9 @@ public final class SubClass extends PCClass
 	public String getSupplementalDisplayInfo() {
 		boolean added = false;
 		StringBuffer displayInfo = new StringBuffer();
-		if (getKnownSpellsFromSpecialty() != 0) {
+		if (getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) != 0) {
 			displayInfo.append("SPECIALTY SPELLS:").append(
-					getKnownSpellsFromSpecialty());
+					getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY));
 			added = true;
 		}
 

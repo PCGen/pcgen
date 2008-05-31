@@ -54,7 +54,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<PCTemplate>
 	@Override
 	public IntegerKey getIntegerKey()
 	{
-		return IntegerKey.HANDS;
+		return IntegerKey.CREATURE_HANDS;
 	}
 
 	@Override

@@ -75,6 +75,7 @@ import javax.swing.table.TableColumn;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.GameMode;
@@ -1180,14 +1181,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		
 		if (!Globals.checkRule(RuleConstants.LEVELCAP)
 			&& theClass.hasMaxLevel()
-			&& ((levels > theClass.getMaxLevel()) || ((aClass != null) && ((aClass
-				.getLevel() + levels) > aClass.getMaxLevel()))))
+			&& ((levels > theClass.getSafe(IntegerKey.LEVEL_LIMIT)) || ((aClass != null) && ((aClass
+				.getLevel() + levels) > aClass.getSafe(IntegerKey.LEVEL_LIMIT)))))
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
 					PropertyFactory
 						.getFormattedString(
-							"in_sumMaximumLevelIs", String.valueOf(theClass.getMaxLevel())), //$NON-NLS-1$
+							"in_sumMaximumLevelIs", String.valueOf(theClass.getSafe(IntegerKey.LEVEL_LIMIT))), //$NON-NLS-1$
 					Constants.s_APPNAME, MessageType.INFORMATION);
 
 			return;

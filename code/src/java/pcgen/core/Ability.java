@@ -74,30 +74,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	// Constructor
 	/* default constructor only */
 
-	// /////////////////////////////////////
-	// Methods - Accessors
-	/**
-	 * Set the increase in spell level that this metamagic feat costs to apply
-	 *
-	 * @param  addSpellLevel  the increase to apply
-	 */
-	public void setAddSpellLevel(final int addSpellLevel)
-	{
-		integerChar.put(IntegerKey.ADD_SPELL_LEVEL, addSpellLevel);
-	}
-
-	/**
-	 * for metamagic feats increase in spelllevel
-	 *
-	 * @return  The number of levels that this Ability increases the level of a
-	 *          spell it is applied to
-	 */
-	public int getAddSpellLevel()
-	{
-		final Integer characteristic = integerChar.get(IntegerKey.ADD_SPELL_LEVEL);
-		return characteristic == null ? 0 : characteristic;
-	}
-
 	/**
 	 * Set the attribute that controls what this ability adds, e.g. WEAPONPROF,
 	 * TEMPLATE, etc.
@@ -491,9 +467,9 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			txt.append("\tSTACK:Y");
 		}
 
-		if (getAddSpellLevel() != 0)
+		if (getSafe(IntegerKey.ADD_SPELL_LEVEL) != 0)
 		{
-			txt.append("\tADDSPELLLEVEL:").append(getAddSpellLevel());
+			txt.append("\tADDSPELLLEVEL:").append(getSafe(IntegerKey.ADD_SPELL_LEVEL));
 		}
 
 		if (getAddString().length() != 0)

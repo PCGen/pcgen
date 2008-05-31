@@ -27,7 +27,7 @@ public class HandsToken implements CDOMPrimaryToken<PCTemplate>
 				Logging.errorPrint(getTokenName() + " must be an integer >= 0");
 				return false;
 			}
-			context.getObjectContext().put(template, IntegerKey.HANDS, in);
+			context.getObjectContext().put(template, IntegerKey.CREATURE_HANDS, in);
 			return true;
 		}
 		catch (NumberFormatException nfe)
@@ -42,7 +42,7 @@ public class HandsToken implements CDOMPrimaryToken<PCTemplate>
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		Integer hands =
-				context.getObjectContext().getInteger(pct, IntegerKey.HANDS);
+				context.getObjectContext().getInteger(pct, IntegerKey.CREATURE_HANDS);
 		if (hands == null)
 		{
 			return null;

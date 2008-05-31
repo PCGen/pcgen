@@ -74,6 +74,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -572,7 +573,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			|| (aClass == null)
 			|| Globals.checkRule(RuleConstants.LEVELCAP)
 			|| (!Globals.checkRule(RuleConstants.LEVELCAP) && (!aClass
-				.hasMaxLevel() || aClass.getLevel() < aClass.getMaxLevel())))
+				.hasMaxLevel() || aClass.getLevel() < aClass.getSafe(IntegerKey.LEVEL_LIMIT))))
 		{
 			pc.incrementClassLevel(levels, theClass);
 		}
