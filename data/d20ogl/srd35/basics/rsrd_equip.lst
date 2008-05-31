@@ -138,7 +138,7 @@ Whetstone				TYPE:Goods.General															COST:.02	WT:1		SOURCEPAGE:Equipmen
 # Barding is in armor .LST file
 # Equipment Name			Type								Contains				Cost		Weight	Size		Source Page				Special Property
 Bit and Bridle			TYPE:Goods.Mount.Resizable									COST:2	WT:1				SOURCEPAGE:Equipment.rtf
-Dog (Guard)				TYPE:Goods.Mount											COST:25	WT:0				SOURCEPAGE:Equipment.rtf
+Dog (Guard)				TYPE:Goods.Mount.Container				CONTAINS:*300|Any=UNLIM		COST:25	WT:0				SOURCEPAGE:Equipment.rtf
 Dog (Riding)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=UNLIM		COST:150	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Donkey				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM		COST:8	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Mule					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM		COST:8	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
