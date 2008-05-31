@@ -127,7 +127,7 @@ CLASS:Escaped Slave	!PRECLASS:1,Priest=1	PRELEVEL:MIN=1
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
 CLASS:Carpenter	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Car		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Reflex|2
 # Class Name	Prohibited Class			Required Lvl
-CLASS:Carpenter	!PRECLASS:1,Priest,Noble=1	PRELEVEL:MIN=1
+CLASS:Carpenter	!PRECLASS:1,Priest=1,Noble=1	PRELEVEL:MIN=1
 1	SAB:Damage Control (Ex)	BONUS:SKILL|Balance,Climb|2|TYPE=Class	BONUS:SKILL|Craft (Carpentry)|4|TYPE=Class	AUTO:FEAT|Amputate
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus

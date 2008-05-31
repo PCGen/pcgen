@@ -8,7 +8,7 @@ Occupation.MOD				TEMPLATE:ADDCHOICE:PApocSkills	BONUS:ABILITYPOOL|Occupation|-1
 
 ###Block: Assigned for Occupation prerequisites, it's how we know what class was taken first and thus which skills are 1st level class skills --Eddy
 # Template Name	Visible	Required Class
-PApocSkills		VISIBLE:NO	PRECLASS:1,Post Apocalyptic Hero
+PApocSkills		VISIBLE:NO	PRECLASS:1,Post Apocalyptic Hero=1
 
 ###Block: Backgrounds
 # Template Name				Visible	Bonus to Ability Pool																			Automaticaly Gained Feat			Apply Kit								Automatic Languages

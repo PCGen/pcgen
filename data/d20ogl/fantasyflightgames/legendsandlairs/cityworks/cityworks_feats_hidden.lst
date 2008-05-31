@@ -11,7 +11,7 @@ Large Weapon Mastery	TYPE:AssassinSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Ass
 ###Block:Speaker of the City special ability, Note- the SpeakerSpells feat is used as a prerequisite for the Prestige Spells, it has no other purpose.
 
 # Feat Name		Type				Visible	Required Class
-SpeakerSpells	TYPE:SpeakerOfTheCity	VISIBLE:NO	PRECLASS:1,Speaker of the City
+SpeakerSpells	TYPE:SpeakerOfTheCity	VISIBLE:NO	PRECLASS:1,Speaker of the City=1
 
 ###Block:Temporary Bonuses
 # Feat Name						Type				Visible	Required Class				Damage reduction									Misc bonus											Bonus to skill																										Spell Res.	Damage Reduction

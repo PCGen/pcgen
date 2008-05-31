@@ -114,12 +114,12 @@ CLASS:Metamind	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psionics)
 CLASS:Metamind	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft|Remote View
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:Metamind	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Metamind|CL	SPELLLIST:1|Psion
-SUBCLASS:Metamind(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion]
-SUBCLASS:Metamind(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion]
-SUBCLASS:Metamind(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion]
-SUBCLASS:Metamind(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion]
-SUBCLASS:Metamind(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion]
-SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion]
+SUBCLASS:Metamind(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion=1]
+SUBCLASS:Metamind(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion=1]
+SUBCLASS:Metamind(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion=1]
+SUBCLASS:Metamind(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion=1]
+SUBCLASS:Metamind(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion=1]
+SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion=1]
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1																																									AUTO:FEAT|PsionicClass
 1	BONUS:VAR|MetamindML|CL	BONUS:VAR|MetamindML|var("BL=Metamind")																										DEFINE:MetamindML|0
@@ -152,12 +152,12 @@ CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:2,Alchemy,Knowledge (Psionics)=1
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Pyrokineticist	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Pyrokineticist|CL	SPELLLIST:1|Psion
-SUBCLASS:Pyrokineticist(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion]
-SUBCLASS:Pyrokineticist(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion]
-SUBCLASS:Pyrokineticist(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion]
-SUBCLASS:Pyrokineticist(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion]
-SUBCLASS:Pyrokineticist(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion]
-SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion]
+SUBCLASS:Pyrokineticist(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion=1]
+SUBCLASS:Pyrokineticist(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion=1]
+SUBCLASS:Pyrokineticist(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion=1]
+SUBCLASS:Pyrokineticist(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion=1]
+SUBCLASS:Pyrokineticist(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion=1]
+SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion=1]
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1																																														AUTO:FEAT|PsionicClass
 1	BONUS:VAR|PyrokineticistML|CL	BONUS:VAR|PyrokineticistML|var("BL=Pyrokineticist")																											DEFINE:PyrokineticistML|0
@@ -225,12 +225,12 @@ CLASS:Soulknife	PREATT:3	PRESKILL:2,Move Silently,Knowledge (Psionics)=3	PREVARG
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Concentration|Hide|Knowledge (Psionics)|Move Silently|Sense Motive|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Soulknife	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Soulknife|CL	SPELLLIST:1|Psion
-SUBCLASS:Soulknife(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion]
-SUBCLASS:Soulknife(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion]
-SUBCLASS:Soulknife(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion]
-SUBCLASS:Soulknife(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion]
-SUBCLASS:Soulknife(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion]
-SUBCLASS:Soulknife(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion]
+SUBCLASS:Soulknife(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion=1]
+SUBCLASS:Soulknife(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion=1]
+SUBCLASS:Soulknife(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion=1]
+SUBCLASS:Soulknife(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion=1]
+SUBCLASS:Soulknife(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion=1]
+SUBCLASS:Soulknife(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion=1]
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1																																									AUTO:FEAT|PsionicClass
 1	BONUS:VAR|SoulknifeML|CL	BONUS:VAR|SoulknifeML|var("BL=Soulknife")																									DEFINE:SoulknifeML|0

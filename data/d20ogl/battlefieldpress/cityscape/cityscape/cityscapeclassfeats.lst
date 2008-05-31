@@ -2,11 +2,11 @@
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 # Feat Name				Output Name				Type				Visible	Clear Prereq.	Required Class				Required Feat											Prohibited Feat			Special ABility							Define									Description		Stackable?	Multiple?	Choose																												Automaticaly Gained Weapon Prof.	Weapon prof. bonus				Source Page
-Favored Enemy I.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=1														!PREFEAT:1,Favored Enemy I
-Favored Enemy II.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=5	PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
-Favored Enemy III.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=10	PREFEAT:2,Favored Enemy I,Favored Enemy II						!PREFEAT:1,Favored Enemy III
-Favored Enemy IV.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=15	PREFEAT:3,Favored Enemy I,Favored Enemy II,Favored Enemy III			!PREFEAT:1,Favored Enemy IV
-Favored Enemy V.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger,Ranger (CS)=20	PREFEAT:4,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	!PREFEAT:1,Favored Enemy V
+Favored Enemy I.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger=1,Ranger (CS)=1														!PREFEAT:1,Favored Enemy I
+Favored Enemy II.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger=5,Ranger (CS)=5	PREFEAT:1,Favored Enemy I									!PREFEAT:1,Favored Enemy II
+Favored Enemy III.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger=10,Ranger (CS)=10	PREFEAT:2,Favored Enemy I,Favored Enemy II						!PREFEAT:1,Favored Enemy III
+Favored Enemy IV.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger=15,Ranger (CS)=15	PREFEAT:3,Favored Enemy I,Favored Enemy II,Favored Enemy III			!PREFEAT:1,Favored Enemy IV
+Favored Enemy V.MOD											VISIBLE:NO	PRE:.CLEAR		PRECLASS:1,Ranger=20,Ranger (CS)=20	PREFEAT:4,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	!PREFEAT:1,Favored Enemy V
 
 # Contacts
 Underworld Contact (Low)						TYPE:Contact		VISIBLE:NO																												SAB:Underworld Contact (Low)

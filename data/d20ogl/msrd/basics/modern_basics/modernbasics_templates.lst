@@ -14,12 +14,12 @@ Occupation		VISIBLE:NO	TEMPLATE:CHOOSE:StrongSkills|FastSkills|ToughSkills|Smart
 
 ###Block: Assigned for Occupation prerequisites, it's how we know what class was taken first and thus which skills are 1st level class skills --Eddy
 # Template Name	Visible	Required Class
-StrongSkills	VISIBLE:NO	PRECLASS:1,Strong
-FastSkills		VISIBLE:NO	PRECLASS:1,Fast
-ToughSkills		VISIBLE:NO	PRECLASS:1,Tough
-SmartSkills		VISIBLE:NO	PRECLASS:1,Smart
-DedicatedSkills	VISIBLE:NO	PRECLASS:1,Dedicated
-CharismaticSkills	VISIBLE:NO	PRECLASS:1,Charismatic
+StrongSkills	VISIBLE:NO	PRECLASS:1,Strong=1
+FastSkills		VISIBLE:NO	PRECLASS:1,Fast=1
+ToughSkills		VISIBLE:NO	PRECLASS:1,Tough=1
+SmartSkills		VISIBLE:NO	PRECLASS:1,Smart=1
+DedicatedSkills	VISIBLE:NO	PRECLASS:1,Dedicated=1
+CharismaticSkills	VISIBLE:NO	PRECLASS:1,Charismatic=1
 
 
 ###Block: Temporary Bonus Templates

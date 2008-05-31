@@ -38,14 +38,14 @@ CLASS:Animal	MODTOSKILLS:NO			MONSKILL:10
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus								Combat bonus					Modify VAR
 CLASS:Construct	HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL
 # Class Name	Prohibited Class				Reg. Race Type
-CLASS:Construct	!PRECLASS:1,Construct (Possessed)	PRERACETYPE:Construct
+CLASS:Construct	!PRECLASS:1,Construct (Possessed)=1	PRERACETYPE:Construct
 # Class Name	Add INT to Skill Points?
 CLASS:Construct	MODTOSKILLS:NO
 
 # Class Name			Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus								Combat bonus					BONUS:FEAT								Modify VAR
 CLASS:Construct (Possessed)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|(var("CL=Construct (Possessed)")-1)/4	BONUS:VAR|MonsterLevel|CL
 # Class Name			Prohibited Class		Reg. Race Type
-CLASS:Construct (Possessed)	!PRECLASS:1,Construct	PRERACETYPE:Construct
+CLASS:Construct (Possessed)	!PRECLASS:1,Construct=1	PRERACETYPE:Construct
 # Class Name			Skill Pts/Lvl
 CLASS:Construct (Possessed)	STARTSKILLPTS:8
 
@@ -68,14 +68,14 @@ CLASS:Dragon (True)	STARTSKILLPTS:6	MODTOSKILLS:YES
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					BONUS:FEAT										Modify VAR
 CLASS:Elemental (Air/Fire)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(var("CL=Elemental (Air/Fire)")-1)/4	BONUS:VAR|MonsterLevel|CL
 # Class Name			Prohibited Class				Reg. Race Type
-CLASS:Elemental (Air/Fire)	!PRECLASS:1,Elemental (Earth/Water)	PRERACETYPE:Elemental
+CLASS:Elemental (Air/Fire)	!PRECLASS:1,Elemental (Earth/Water)=1	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT											Modify VAR
 CLASS:Elemental (Earth/Water)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(var("CL=Elemental (Earth/Water)")-1)/4	BONUS:VAR|MonsterLevel|CL
 # Class Name			Prohibited Class				Reg. Race Type
-CLASS:Elemental (Earth/Water)	!PRECLASS:1,Elemental (Air/Fire)	PRERACETYPE:Elemental
+CLASS:Elemental (Earth/Water)	!PRECLASS:1,Elemental (Air/Fire)=1	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
 
@@ -103,7 +103,7 @@ CLASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+max(1,INT)
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					BONUS:FEAT						Modify VAR
 CLASS:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|(var("CL=Humanoid")-1)/4	BONUS:VAR|MonsterLevel|CL
 # Class Name	Prohibited Class							Reg. Race Type
-CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude),Humanoid (Will)=1	PRERACETYPE:Humanoid
+CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude)=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Humanoid	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
 2	BONUS:ABILITYPOOL|Humanoid Proficiency|1
@@ -119,7 +119,7 @@ CLASS:Humanoid (Fortitude)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
 # Class Name		Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus		BONUS:FEAT							Modify VAR
 CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:FEAT|POOL|(var("CL=Humanoid (Will)")-1)/4	BONUS:VAR|MonsterLevel|CL
 # Class Name		Prohibited Class						Reg. Race Type
-CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
+CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid=1,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Humanoid (Will)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+INT
 2	BONUS:ABILITYPOOL|Humanoid Proficiency|1
@@ -177,34 +177,34 @@ CLASS:Plant		MODTOSKILLS:NO
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Bonus to Ability Pool				Save checks bonus											Combat bonus					BONUS:FEAT							Modify VAR
 CLASS:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:ABILITYPOOL|Undead Proficiency|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|INT+(var("CL=Undead")-1)/4	BONUS:VAR|MonsterLevel|CL
 # Class Name	Prohibited Class				Reg. Race Type
-CLASS:Undead	!PRECLASS:1,Undead (unintelligent)	PRERACETYPE:Undead
+CLASS:Undead	!PRECLASS:1,Undead (unintelligent)=1	PRERACETYPE:Undead
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Undead	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
 
 # Class Name		Output Name		Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT								Modify VAR
 CLASS:Undead (Basic)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|INT+(var("CL=Undead (Basic)")-1)/4	BONUS:VAR|MonsterLevel|CL
 # Class Name		Prohibited Class				Reg. Race Type
-CLASS:Undead (Basic)	!PRECLASS:1,Undead (unintelligent)	PRERACETYPE:Undead
+CLASS:Undead (Basic)	!PRECLASS:1,Undead (unintelligent)=1	PRERACETYPE:Undead
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Undead (Basic)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
 
 # Class Name			Output Name		Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Undead (unintelligent)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL
 # Class Name			Prohibited Class		Reg. Race Type
-CLASS:Undead (unintelligent)	!PRECLASS:1,Undead	PRERACETYPE:Undead
+CLASS:Undead (unintelligent)	!PRECLASS:1,Undead=1	PRERACETYPE:Undead
 # Class Name			Add INT to Skill Points?
 CLASS:Undead (unintelligent)	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Vermin	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL
 # Class Name	Prohibited Class				Reg. Race Type
-CLASS:Vermin	!PRECLASS:1,Vermin (Sentient Swarm)	PRERACETYPE:Vermin
+CLASS:Vermin	!PRECLASS:1,Vermin (Sentient Swarm)=1	PRERACETYPE:Vermin
 # Class Name	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Vermin	MODTOSKILLS:NO			MONSKILL:10
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Vermin (Sentient Swarm)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL
 # Class Name			Prohibited Class		Reg. Race Type
-CLASS:Vermin (Sentient Swarm)	!PRECLASS:1,Vermin	PRERACETYPE:Vermin
+CLASS:Vermin (Sentient Swarm)	!PRECLASS:1,Vermin=1	PRERACETYPE:Vermin
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Vermin (Sentient Swarm)	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
