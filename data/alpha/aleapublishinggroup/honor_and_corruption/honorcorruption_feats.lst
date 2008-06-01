@@ -17,7 +17,7 @@ Rogue Specialization							TYPE:Rogue					PREFEAT:1,Sneak Attack																
 Rogue Swiftness								TYPE:Rogue					PREFEAT:1,Sneak Attack																						DESC:Your speed, rather than your dagger, has allowed you to escape many "unhealthy" situations.		SOURCEPAGE:p.28
 Silver Tongue		OUTPUTNAME:Silver-Tongue		TYPE:General																								PREVARLTEQ:HonorScore,-5	DESC:Your words can divert and bend the will of the most honorable.							SOURCEPAGE:p.29
 Silver Tongue Magus	OUTPUTNAME:Silver-Tongue Magus	TYPE:General																								PREVARLTEQ:HonorScore,-6	DESC:Your spells can divert and bend the will of the most honorable.							SOURCEPAGE:p.29
-Swift Footed		OUTPUTNAME:Swift-Footed			TYPE:General				PREFEAT:1,Sneak Attack				PRESKILL:2,Hide,Move Silently=1													DESC:Without the restrictions of armor and being heavily encumbered, you are quick and deadly.			SOURCEPAGE:p.29
+Swift Footed		OUTPUTNAME:Swift-Footed			TYPE:General				PREFEAT:1,Sneak Attack				PRESKILL:2,Hide=1,Move Silently=1													DESC:Without the restrictions of armor and being heavily encumbered, you are quick and deadly.			SOURCEPAGE:p.29
 
 #
 ## EOF

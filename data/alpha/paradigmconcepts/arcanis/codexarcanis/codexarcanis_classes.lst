@@ -31,7 +31,7 @@ CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentra
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	ABB:DoE		MAXLEVEL:5	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Feat															Required Race	Required Skill
-CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:7,Evasion,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform,Jump,Tumble=4
+CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:7,Evasion,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform=4,Jump=4,Tumble=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silently|Perform|Tumble
 1																																	AUTO:WEAPONPROF|TYPE.Martial
@@ -45,7 +45,7 @@ CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silen
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blight Bearer	HD:8		TYPE:PC.Prestige	ABB:BlB		MAXLEVEL:4	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Deity	Required Domain		Required Feat				Required Skill					Req. Spell Type
-CLASS:Blight Bearer	PREALIGN:LE,NE,CE	PREDEITY:1,Neroth	PREDOMAIN:1,Disease	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion),Heal=5	PRESPELLTYPE:1,Divine=3
+CLASS:Blight Bearer	PREALIGN:LE,NE,CE	PREDEITY:1,Neroth	PREDOMAIN:1,Disease	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion)=5,Heal=5	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blight Bearer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
 1																																				AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE.Simple|Scythe
@@ -58,7 +58,7 @@ CLASS:Blight Bearer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowled
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Blight Apostle	HD:8		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:1	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Class			Required Feat			Required Skill								Req. Spell Type
-CLASS:Blight Apostle	PRECLASS:1,Blight Bearer=4	PREFEAT:1,Great Fortitude	PRESKILL:3,Knowledge (Religion),Knowledge (Disease),Heal=10	PRESPELLTYPE:1,Divine=5
+CLASS:Blight Apostle	PRECLASS:1,Blight Bearer=4	PREFEAT:1,Great Fortitude	PRESKILL:3,Knowledge (Religion)=10,Knowledge (Disease)=10,Heal=10	PRESPELLTYPE:1,Divine=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blight Apostle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
 1	SAB:Touch of Disease V	SAB:Improved Touch II	SAB:Neroth's Will	BONUS:VAR|TaintedAppearance|15	ADD:SPELLCASTER|1|Divine
@@ -67,7 +67,7 @@ CLASS:Blight Apostle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowle
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:val'Mehan Emissary	HD:6		TYPE:PC.Prestige	ABB:vME		MAXLEVEL:5	SOURCEPAGE:p.169	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|2+((CL/7)*5)	BONUS:CHECKS|BASE.Will|2+((CL/5)*3)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required Skill													Required Stat
-CLASS:val'Mehan Emissary	PRESKILL:1,Knowledge (Nobility and Royalty)=8	PRESKILL:3,Diplomacy,Sense Motive,Bluff=4	PRESTAT:1,CHA=16
+CLASS:val'Mehan Emissary	PRESKILL:4,Knowledge (Nobility and Royalty)=8,Diplomacy=4,Sense Motive=4,Bluff=4	PRESTAT:1,CHA=16
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Move Silently|Perform|TYPE.Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
 1																	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial
@@ -81,7 +81,7 @@ CLASS:val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentratio
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
 CLASS:Order of the Emerald Flame	HD:4		TYPE:PC.Prestige	ABB:OEF		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/10)*3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name				Required AL				Required Check Base		Required Feat						Required Skill											Req. Spell Type
-CLASS:Order of the Emerald Flame	PREALIGN:NG,TN,NE,CG,CN,CE	PRECHECKBASE:1,Fortitude=8	PREFEAT:2,Spell Focus (Evocation),Toughness	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana),Spellcraft=4	PRESPELLTYPE:1,Arcane=4
+CLASS:Order of the Emerald Flame	PREALIGN:NG,TN,NE,CG,CN,CE	PRECHECKBASE:1,Fortitude=8	PREFEAT:2,Spell Focus (Evocation),Toughness	PRESKILL:3,Concentration=8,Knowledge (Arcana)=4,Spellcraft=4	PRESPELLTYPE:1,Arcane=4
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Emerald Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Ride|Scry|Spellcraft
 1																															AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE.Simple
@@ -100,7 +100,7 @@ CLASS:Order of the Emerald Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TY
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Ordained Seekers	HD:4		TYPE:PC.Prestige	ABB:OrS		MAXLEVEL:5	SOURCEPAGE:p.171	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Feat			Required Skill								Req. Spell Type
-CLASS:Ordained Seekers	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,TYPE=Metamagic	PRESKILL:3,Concentration,Knowledge (Arcana),Spellcraft=8	PRESPELLTYPE:1,Arcane=4
+CLASS:Ordained Seekers	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,TYPE=Metamagic	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ordained Seekers	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Ride|Scry|Spellcraft
 1	SAB:Absorb Spell (%)|AbsorbSpell	SAB:Power Metamagic	BONUS:VAR|AbsorbSpell|3	BONUS:SPELLKNOWN|TYPE=Arcane;Level=1|3								DEFINE:AbsorbSpell|0
@@ -113,7 +113,7 @@ CLASS:Ordained Seekers	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|D
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Wine Drinker	HD:8		TYPE:PC.Prestige	ABB:WnD		MAXLEVEL:5	SOURCEPAGE:p.172	BONUS:CHECKS|BASE.Fortitude|(CL+3)*(1/2)	BONUS:CHECKS|BASE.Reflex,BASE.Will|(9/10)+((CL-1)/10)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL				Prohibited Class				Required Skill
-CLASS:Wine Drinker	PREALIGN:LN,LE,TN,NE,CN,CE	!PRECLASS:1,SPELLCASTER.Arcane=1	PRESKILL:2,Alchemy,Knowledge (Arcana)=4
+CLASS:Wine Drinker	PREALIGN:LN,LE,TN,NE,CN,CE	!PRECLASS:1,SPELLCASTER.Arcane=1	PRESKILL:2,Alchemy=4,Knowledge (Arcana)=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE.Profession|Sense Motive
 # Class Name		Spell Stat		Spell Type		Caster level
@@ -152,7 +152,7 @@ CLASS:Warriors of the Eternal Flame	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Ehtzara	HD:6		TYPE:PC.Prestige	ABB:Eht		MAXLEVEL:10	SOURCEPAGE:p.174	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Feat													Required Skill															Required Stat
-CLASS:Ehtzara	PREALIGN:CG,CN,CE	PREFEAT:1,Iron Will	PREFEAT:1,Skill Focus (Scry),Skill Focus (Knowledge (Arcana))	PRESKILL:1,Knowledge (Arcana),Spellcraft=8	PRESKILL:1,Alchemy,Scry=4	PRESKILL:1,TYPE.Craft=1	PRESTAT:1,INT=14,WIS=14
+CLASS:Ehtzara	PREALIGN:CG,CN,CE	PREFEAT:1,Iron Will	PREFEAT:1,Skill Focus (Scry),Skill Focus (Knowledge (Arcana))	PREMULT:3,[PRESKILL:1,Knowledge (Arcana)=8,Spellcraft=8],[PRESKILL:1,Alchemy=4,Scry=4],[PRESKILL:1,TYPE.Craft=1]	PRESTAT:1,INT=14,WIS=14
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ehtzara	STARTSKILLPTS:3	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Decipher Script|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (The Planes)|Knowledge (Religion)|TYPE.Profession|Scry|Spellcraft|Spot|Use Magic Device|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -173,7 +173,7 @@ CLASS:Ehtzara	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Ehtza
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
 CLASS:Blackchanter	HD:6		TYPE:PC.Prestige	ABB:Blc		MAXLEVEL:5	SOURCEPAGE:Compendium p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL				Required Skill																Req. Spell Type		Required Stat	Var. Min. Value
-CLASS:Blackchanter	PREALIGN:LG,LN,LE,NG,TN,NE	PRESKILL:4,Concentration,Knowledge (Heraldry),Knowledge (Thanatology),Spellcraft=4	PRESKILL:1,Perform=8	PRESPELLTYPE:1,Arcane=4	PRESTAT:1,INT=14	PREVARGTEQ:BardicMusic,1
+CLASS:Blackchanter	PREALIGN:LG,LN,LE,NG,TN,NE	PRESKILL:5,Concentration=4,Knowledge (Heraldry)=4,Knowledge (Thanatology)=4,Spellcraft=4,Perform=8	PRESPELLTYPE:1,Arcane=4	PRESTAT:1,INT=14	PREVARGTEQ:BardicMusic,1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blackchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Jump|TYPE.Knowledge|Perform|TYPE.Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
 # Class Name		Spell Stat		Spell Type		Caster level

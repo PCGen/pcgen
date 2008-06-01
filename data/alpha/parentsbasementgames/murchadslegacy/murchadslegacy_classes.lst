@@ -22,7 +22,7 @@ CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Jump|Listen|Mov
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Homefront Guardian	HD:6		TYPE:PC.Prestige	ABB:HfG		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL-1|TYPE=Base.REPLACE
 # Class Name			Required Feat	Required Skill					Required Text
-CLASS:Homefront Guardian	PREFEAT:1,Home	PRESKILL:3,Bluff,Hide,Move Silently=8	PRETEXT:Must have slain one person with the Remarian cultural feat.
+CLASS:Homefront Guardian	PREFEAT:1,Home	PRESKILL:3,Bluff=8,Hide=8,Move Silently=8	PRETEXT:Must have slain one person with the Remarian cultural feat.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -37,7 +37,7 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|D
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Imperial Legionnaire	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL-1)/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat		Required Skill														Required Stat						Required Text																												Req. Weapond Prof.
-CLASS:Imperial Legionnaire	PREATT:6	PREFEAT:1,Remarian	PRESKILL:1,Knowledge (Local/Remaria)=8	PRESKILL:1,Knowledge (History),Knowledge (War)=5	PRESTAT:6,STR=8,DEX=8,CON=8,INT=8,CHA=8,WIS=8	PRETEXT:You must swear an oath to serve in the Army. When taking this prestige class, the character must advance to level 4 before being eligible to advance in any other class.	PREWEAPONPROF:1,Longsword
+CLASS:Imperial Legionnaire	PREATT:6	PREFEAT:1,Remarian	PREMULT:2,[PRESKILL:1,Knowledge (Local/Remaria)=8],[PRESKILL:1,Knowledge (History)=5,Knowledge (War)=5]	PRESTAT:6,STR=8,DEX=8,CON=8,INT=8,CHA=8,WIS=8	PRETEXT:You must swear an oath to serve in the Army. When taking this prestige class, the character must advance to level 4 before being eligible to advance in any other class.	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
@@ -55,7 +55,7 @@ CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE.Craft|Handle Animal
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL-1)/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Skill			Required Text												Req. Weapond Prof.
-CLASS:Knight of Pure Heart	PREATT:5	PRESKILL:2,Diplomacy,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PREWEAPONPROF:1,Longsword
+CLASS:Knight of Pure Heart	PREATT:5	PRESKILL:2,Diplomacy=5,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|Knowledge (Local/Calisia)|TYPE.Perform|Ride|Speak Language
 1	SAB:Nobility	ADD:FEAT|1|TYPE.Passion
@@ -106,7 +106,7 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Save checks bonus											Combat bonus
 CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Race					Required Skill												Req. Spell Type
-CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:3,Concentration,Knowledge (Astronomy),Spellcraft=7	PRESKILL:1,Survival=4	PRESPELLTYPE:1,Divine=3
+CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:4,Concentration=7,Knowledge (Astronomy)=7,Spellcraft=7,Survival=4	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stargazer	STARTSKILLPTS:3	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Heal|Knowledge (Astronomy)|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft
 SUBCLASS:Stargazer (Bonfire)			COST:0
@@ -143,7 +143,7 @@ SUBCLASSLEVEL:1	SAB:Opposing Sign - The Blacksmith	SAB:May not cast Spells from 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Steadfast Knight	HD:10		TYPE:PC.Prestige	ABB:SfKnt		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat				Required Skill					Required Text						Req. Weapond Prof.
-CLASS:Steadfast Knight	PREATT:3	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:2,Knowledge (Nature),Survival=10	PRETEXT:You must impress two Steadfast Knights	PREWEAPONPROF:1,Longbow
+CLASS:Steadfast Knight	PREATT:3	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:2,Knowledge (Nature=10),Survival=10	PRETEXT:You must impress two Steadfast Knights	PREWEAPONPROF:1,Longbow
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steadfast Knight	STARTSKILLPTS:4	CSKILL:Handle Animal|Climb|Heal|Knowledge (Local/Launhym)|Knowledge (Nature)|Ride|Swim|Use Rope|Survival
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level					Use Spell List
@@ -168,7 +168,7 @@ CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Steel Dragons	HD:12		TYPE:PC.Prestige	ABB:StDrg		MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat		Required Skill
-CLASS:Steel Dragons	PREATT:3	PREFEAT:1,Galkarnan	PRESKILL:1,Craft (Alchemy)=8	PRESKILL:4,Craft (Gunsmithing),Listen,Spot,Tumble=4	PRESKILL:2,Knowledge (Architecture and Engineering),Spellcraft=2
+CLASS:Steel Dragons	PREATT:3	PREFEAT:1,Galkarnan	PRESKILL:7,Craft (Alchemy)=8,Craft (Gunsmithing)=4,Listen=4,Spot=4,Tumble=4,Knowledge (Architecture and Engineering)=2,Spellcraft=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowledge|Listen|Spellcraft|Spot|Tumble
 ###Block: Proficiencies
@@ -187,7 +187,7 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE.Craft|Disable Device|TYPE.Knowle
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|min(3,(var("CL=Shadowtamer")-1))|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat	Required Skill																					Required Spell School
-CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=8	PRESKILL:1,Knowledge (Nature)=4	PRESKILL:1,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:1,Necromancy=3
+CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:4,Knowledge (Arcana)=8,Knowledge (The Planes)=8,Knowledge (Nature)=4,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:1,Necromancy=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE.Craft|Gather Information|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft
 1	SAB:Lure of the Dammed	BONUS:VAR|ShadowBeast|CL							ADD:SPELLCASTER|1|ANY							AUTO:FEAT|Summon Shadow Beast

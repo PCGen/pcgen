@@ -458,7 +458,7 @@ SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex) (Water Only)																									
 2	CAST:4,2
 3	CAST:4,2,1				SAB:Divine Health (Ex)
 4	CAST:5,3,2
-5	CAST:5,3,2,1			SAB:Dogma (Ex)	SAB:Sermon (Inspire the Faithful) (Su)|PRESKILL:2,TYPE.Religion,Perform (Oratory)=8			BONUS:DOMAIN|NUMBER|1
+5	CAST:5,3,2,1			SAB:Dogma (Ex)	SAB:Sermon (Inspire the Faithful) (Su)|PRESKILL:2,TYPE.Religion=8,Perform (Oratory)=8			BONUS:DOMAIN|NUMBER|1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2

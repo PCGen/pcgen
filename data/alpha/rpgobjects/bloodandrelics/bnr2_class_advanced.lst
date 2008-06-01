@@ -64,7 +64,7 @@ CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimid
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
 CLASS:Grave Robber	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Feat				Required Skill			Required Text
-CLASS:Grave Robber	PREATT:1	PREFEAT:1,Conviction (Avarice)	PRESKILL:2,Bluff,Forgery=6	PRETEXT:Avarice Allegiance
+CLASS:Grave Robber	PREATT:1	PREFEAT:1,Conviction (Avarice)	PRESKILL:2,Bluff=6,Forgery=6	PRETEXT:Avarice Allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Grave Robber	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Intimidate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (History)|Knowledge (Streetwise)|Move Silently|Navigate|Search
 1	SAB:Ends Justify the Means %/day|EndsJustify	BONUS:VAR|EndsJustify|(CL+3)/4	DEFINE:EndsJustify|0
@@ -91,7 +91,7 @@ CLASS:Monitor	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Jump|Knowledge (Arcane
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
 CLASS:Relic Seeker	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat		Required Skill
-CLASS:Relic Seeker	PREFEAT:1,Studious	PRESKILL:3,Knowledge (Arcane Lore),Knowledge (Art),Knowledge (History)=6
+CLASS:Relic Seeker	PREFEAT:1,Studious	PRESKILL:3,Knowledge (Arcane Lore)=6,Knowledge (Art)=6,Knowledge (History)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Relic Seeker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable Device|Escape Artist|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (History)|Listen|Move Silently|Navigate|Research|Ride|Search|Spot|Survival|Swim|Tumble
 1	SAB:Evasion
@@ -108,7 +108,7 @@ CLASS:Relic Seeker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Modify VAR
 CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical),Knowledge (Arcane Lore)=6
+CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical)=6,Knowledge (Arcane Lore)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Sense Motive|Spot|Survival|Treat Injury
 1													BONUS:VAR|FMLevel|CL						AUTO:FEAT|Summon Familiar

@@ -44,7 +44,7 @@ CLASS:Super Soldier	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|J
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus						Modify VAR
 CLASS:Eldritch Monk	HD:8		TYPE:Advanced.PC	ABB:EldMk		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name		Req. Att.	Required Feat					Required Skill									Required Text
-CLASS:Eldritch Monk	PREATT:2	PREFEAT:2,Combat Martial Arts,Focused	PRESKILL:1,Knowledge (Arcane Lore)=3	PRESKILL:1,Tumble=6	PRETEXT:Must be inducted into an order or monastery that ritually marks the character with the proper tattoos or scars to cast spells without foci.
+CLASS:Eldritch Monk	PREATT:2	PREFEAT:2,Combat Martial Arts,Focused	PRESKILL:2,Knowledge (Arcane Lore)=3,Tumble=6	PRETEXT:Must be inducted into an order or monastery that ritually marks the character with the proper tattoos or scars to cast spells without foci.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Monk	STARTSKILLPTS:3	CSKILL:Balance|Climb|Concentration|Craft (Visual Art)|Escape Artist|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Theology and Philosophy)|Move Silently|Profession|Read/Write Language|Spot|Swim|Tumble|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
@@ -66,7 +66,7 @@ CLASS:Eldritch Monk	SPELLSTAT:CHA	SPELLTYPE:Any	BONUS:CASTERLEVEL|Eldritch Monk|
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Explorer (Dk_Inh)	OUTPUTNAME:Explorer	HD:10		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name		Req. Att.	Required Feat		Required Skill
-CLASS:Explorer (Dk_Inh)	PREATT:2	PREFEAT:1,Athletic	PRESKILL:1,Gather Information=3	PRESKILL:1,Survival=6
+CLASS:Explorer (Dk_Inh)	PREATT:2	PREFEAT:1,Athletic	PRESKILL:2,Gather Information=3,Survival=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Explorer (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Balance|Climb|Decipher Script|Drive|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Listen|Pilot|Profession|Read/Write Language|Search|Speak Language|Spot|Survival|Treat Injury
 1	SAB:Survive Extremes
@@ -83,7 +83,7 @@ CLASS:Explorer (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Balance|Climb|Decipher Script|Dri
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Initiate	HD:6		TYPE:Advanced.PC	ABB:Init		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Required Feat		Required Skill									Required Text
-CLASS:Initiate	PREFEAT:1,Educated	PRESKILL:3,Decipher Script,Knowledge (Arcane Lore),Research=6	PRETEXT:Must be accepted as a novitiate into a magical order.
+CLASS:Initiate	PREFEAT:1,Educated	PRESKILL:3,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6	PRETEXT:Must be accepted as a novitiate into a magical order.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Initiate	STARTSKILLPTS:7	CSKILL:Computer Use|Concentration|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Search|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level			Use Spell List
@@ -102,7 +102,7 @@ CLASS:Initiate	SPELLSTAT:INT	SPELLTYPE:Any	SPELLBOOK:YES	BONUS:CASTERLEVEL|Initi
 # Class Name		Output Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Mystic (Dk_Inh)	OUTPUTNAME:Mystic	HD:6		TYPE:Advanced.PC	ABB:Myst		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3+1
 # Class Name		Required Ability					Required Skill
-CLASS:Mystic (Dk_Inh)	PREABILITY:1,CATEGORY=Talent,Empathy	PRESKILL:2,Knowledge (Arcane Lore),Sense Motive=6	PRESKILL:2,Knowledge (History),Knowledge (Theology and Philosophy)=4
+CLASS:Mystic (Dk_Inh)	PREABILITY:1,CATEGORY=Talent,Empathy	PRESKILL:4,Knowledge (Arcane Lore)=6,Sense Motive=6,Knowledge (History)=4,Knowledge (Theology and Philosophy)=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Concentration|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spellcraft|Treat Injury
 # Class Name		Spell Stat		Spell Type		Spell Scoll Prohibited									Caster level					Use Spell List
@@ -121,7 +121,7 @@ CLASS:Mystic (Dk_Inh)	SPELLSTAT:WIS	SPELLTYPE:Any	PROHIBITED:Conjuration,Evocati
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Crusading Advocate	HD:8		TYPE:Advanced.PC	ABB:CrAdv		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name			Required Feat		Required Skill
-CLASS:Crusading Advocate	PREFEAT:1,Iron Will	PRESKILL:1,Diplomacy=6	PRESKILL:1,TYPE.Knowledge,TYPE.Craft=6
+CLASS:Crusading Advocate	PREFEAT:1,Iron Will	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Knowledge=6,TYPE.Craft=6]
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE.Craft|Diplomacy|Gather Information|Investigate|TYPE.Knowledge|Profession|Read/Write Language|Research|Sense Motive|Speak Language
 1											ADD:FEAT|1|Driven
@@ -140,7 +140,7 @@ CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE.Craft|Di
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus					Modify VAR
 CLASS:Spec Ops	HD:10		TYPE:Advanced.PC	ABB:SpOps		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL)/3
 # Class Name	Required Ability					Req. Att.	Required Class									Required Feat																											Required Skill
-CLASS:Spec Ops	PREABILITY:1,CATEGORY=Occupation,Military	PREATT:7	PRECLASS:1,Infiltrator=1,Soldier=1,Stim Freak=1,Super Soldier=1	PREFEAT:7,Advanced Firearms Proficiency,Armor Proficiency (Light),Armor Proficiency (Medium),Burst Fire,Improved Damage Threshold,Personal Firearms Proficiency,Stealthy	PRESKILL:1,Spot=10	PRESKILL:3,Demolitions,Hide,Move Silently=6
+CLASS:Spec Ops	PREABILITY:1,CATEGORY=Occupation,Military	PREATT:7	PRECLASS:1,Infiltrator=1,Soldier=1,Stim Freak=1,Super Soldier=1	PREFEAT:7,Advanced Firearms Proficiency,Armor Proficiency (Light),Armor Proficiency (Medium),Burst Fire,Improved Damage Threshold,Personal Firearms Proficiency,Stealthy	PRESKILL:4,Spot=10,Demolitions=6,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spec Ops	STARTSKILLPTS:5	CSKILL:Balance|Climb|Demolitions|Disable Device|Drive|Escape Artist|Hide|Intimidate|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival|Swim|Treat Injury|Tumble
 1	SAB:Team Leader %/day|max(1,var("CL=Spec Ops")/2)
@@ -152,7 +152,7 @@ CLASS:Spec Ops	STARTSKILLPTS:5	CSKILL:Balance|Climb|Demolitions|Disable Device|D
 # Class Name			Output Name					Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Two Fisted God of Guns	OUTPUTNAME:Two-Fisted God of Guns	HD:8		TYPE:Advanced.PC	ABB:TFGoG		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name			Req. Att.	Required Feat																	Required Skill					Required Text
-CLASS:Two Fisted God of Guns	PREATT:5	PREFEAT:5,Advanced Firearms Proficiency,Dodge,Personal Firearms Proficiency,Precise Shot,Two-Weapon Fighting	PRESKILL:2,Sleight of Hand,Tumble=10	PRETEXT:You must possess the ability to make ranged attacks with a Medium-size or smaller firearm while in a threatened area without provoking an attack of opportunity.
+CLASS:Two Fisted God of Guns	PREATT:5	PREFEAT:5,Advanced Firearms Proficiency,Dodge,Personal Firearms Proficiency,Precise Shot,Two-Weapon Fighting	PRESKILL:2,Sleight of Hand=10,Tumble=10	PRETEXT:You must possess the ability to make ranged attacks with a Medium-size or smaller firearm while in a threatened area without provoking an attack of opportunity.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Two Fisted God of Guns	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Demolitions|Drive|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Scrounge|Sense Motive|Speak Language
 1	SAB:Gun-Fu		AUTO:FEAT|Blind Shot

@@ -6,7 +6,7 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 # Feat Name				Type				Req. Att.	Required Class				Required Feat					Required Race		Required Skill					Required Stat	Stackable?	Multiple?	Choose		Add Spell Lvl	% bonus to range			Bonus to skill					Modify VAR			Weapon prof. bonus						Source Page
 Archer's Eyes			TYPE:General																																														BONUS:SKILL|Craft (Bowmaking),Spot|2														SOURCEPAGE:p.8
 Arrow Component			TYPE:General																					PRESKILL:1,Knowledge (Arcana)=6																																								SOURCEPAGE:p.8
-Arrow Spell				TYPE:Metamagic																					PRESKILL:2,Craft (Bowmaking),Spellcraft=6											ADDSPELLLEVEL:2																										SOURCEPAGE:p.8
+Arrow Spell				TYPE:Metamagic																					PRESKILL:2,Craft (Bowmaking)=6,Spellcraft=6											ADDSPELLLEVEL:2																										SOURCEPAGE:p.8
 Cunning Archery			TYPE:General.Fighter	PREATT:1																																																						BONUS:WEAPONPROF=TYPE.Longbow|TOHIT|max(INT,DEX)-DEX	SOURCEPAGE:p.8
 Flames of Magic			TYPE:General										PREFEAT:1,Enhance Arrow															PRESTAT:1,CHA=13																																				SOURCEPAGE:p.8
 Improved Arrow Component	TYPE:General										PREFEAT:1,Arrow Component							PRESKILL:1,Knowledge (Arcana)=9																																								SOURCEPAGE:p.8

@@ -4,7 +4,7 @@ SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.c
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill
-CLASS:Bounty Hunter	PREATT:6	PRESKILL:1,Gather Information=6	PRESKILL:1,Wilderness Lore=6
+CLASS:Bounty Hunter	PREATT:6	PRESKILL:2,Gather Information=6,Wilderness Lore=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Gather Information|Gunplay|Hide|Holdout|Intimidate|TYPE.Knowledge|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Speed Load|Wilderness Lore
 1																							AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
@@ -22,7 +22,7 @@ CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Gather Informa
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	ABB:Cds		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill
-CLASS:Card Sharp	PREATT:4	PRESKILL:1,Bluff=6	PRESKILL:1,Gamblin'=9	PRESKILL:1,Sleight o' Hand=9	PRESKILL:1,Spot=6
+CLASS:Card Sharp	PREATT:4	PRESKILL:4,Bluff=6,Gamblin'=9,Sleight o' Hand=9,Spot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Card Sharp	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Gamblin'|Gather Information|Holdout|TYPE.Knowledge|Listen|Perform|Pick Pocket|Ridicule|Search|Sense Motive|Sleight o' Hand|Spot|Tale Tellin'
 1																						AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
@@ -60,7 +60,7 @@ CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Gunplay|Holdout|Int
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Desperado	HD:8		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL			Req. Att.	Required Skill
-CLASS:Desperado	PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Ride=6	PRESKILL:1,Wilderness Lore=4
+CLASS:Desperado	PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:3,Gunplay=4,Ride=6,Wilderness Lore=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Forgery|Gamblin'|Gunplay|Hide|Holdout|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|Move Silently|Open Lock|TYPE.Profession|Ride|Search|Speed Load|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
@@ -76,7 +76,7 @@ CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Forger
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																			Combat bonus
 CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill
-CLASS:Gunsmith	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Tinkerin'=9
+CLASS:Gunsmith	PREATT:6	PRESKILL:2,Gunplay=4,Tinkerin'=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunsmith	STARTSKILLPTS:4	CSKILL:Alchemy|TYPE.Craft|Demolitions|Disable Device|TYPE.Drivin'|Gunplay|Holdout|TYPE.Knowledge|Mad Science|Open Lock|TYPE.Profession|Ride|Speak Language|Speed Load|Tinkerin'
 1	SAB:Weaponsmithin' +%|WeapSmithin	SAB:Mad Science					DEFINE:FieldMs|0	DEFINE:WeapSmithin|1	AUTO:FEAT|Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)
@@ -93,7 +93,7 @@ CLASS:Gunsmith	STARTSKILLPTS:4	CSKILL:Alchemy|TYPE.Craft|Demolitions|Disable Dev
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Law Dog	HD:8		TYPE:PC.Prestige	ABB:Lwd		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Skill
-CLASS:Law Dog	PREALIGN:LG,NG,CG	PREATT:6	PRESKILL:1,Diplomacy=4	PRESKILL:1,Gunplay=6	PRESKILL:1,Ride=6
+CLASS:Law Dog	PREALIGN:LG,NG,CG	PREATT:6	PRESKILL:3,Diplomacy=4,Gunplay=6,Ride=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Law Dog	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Gamblin'|Gather Information|Gunplay|Holdout|Intimidate|TYPE.Knowledge|TYPE.Profession|Ride|Ridicule|Search|Sense Motive|Speed Load|Spot|Use Rope
 1																						AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun
@@ -120,7 +120,7 @@ CLASS:Rifleman	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Gunplay|Hide|Intimi
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automaticaly Gained Weapon Prof.						Save checks bonus																	Combat bonus
 CLASS:Spy		HD:6		TYPE:PC.Prestige	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL			Req. Att.	Required Skill
-CLASS:Spy		PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:1,Gunplay=4	PRESKILL:1,Ride=6	PRESKILL:1,Wilderness Lore=4
+CLASS:Spy		PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:3,Gunplay=4,Ride=6,Wilderness Lore=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spy		STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Diplomacy|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gamblin'|Gather Information|Hide|Holdout|Innuendo|TYPE.Knowledge|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Sleight o' Hand|Speak Language|Spot
 1	SAB:Informants (+%)|Informants	SAB:Cover Identity	BONUS:VAR|Informants|(CL+2)/3	BONUS:SKILL|Gather Information|Informants	DEFINE:Informants|0					AUTO:FEAT|Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)

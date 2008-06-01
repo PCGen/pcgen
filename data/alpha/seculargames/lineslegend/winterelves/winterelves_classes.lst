@@ -5,7 +5,7 @@ SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://pa
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Heir of Balyk	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required AL	Required Feat		Required Race		Required Skill								Req. Spell Type
-CLASS:Heir of Balyk	PREALIGN:LE	PREFEAT:1,Endurance	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Religion),Knowledge (The Planes)=11	PRESPELLTYPE:1,Divine=4
+CLASS:Heir of Balyk	PREALIGN:LE	PREFEAT:1,Endurance	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Religion)=11,Knowledge (The Planes)=11	PRESPELLTYPE:1,Divine=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Intimidate|TYPE.Knowledge|TYPE.Profession|Ride|Sense Motive|Spellcraft
 ###Block: Domain stuff
@@ -27,7 +27,7 @@ CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Scr
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name		Required Class				Required Feat											Required Race		Required Skill								Req. Known Spell
-CLASS:Keeper of the Ice	PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:2,Spell Focus(Evocation),Endurance	PREFEAT:2,TYPE.Metamagic	PRERACE:1,Elf (Winter)	PRESKILL:1,Knowledge (Arcana)=10	PRESKILL:1,Survival=4	PRESPELL:1,Ice Storm
+CLASS:Keeper of the Ice	PRECLASS:1,SPELLCASTER.Arcane=1	PREMULT:2,[PREFEAT:2,Spell Focus(Evocation),Endurance],[PREFEAT:2,TYPE.Metamagic]	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Survival=4	PRESPELL:1,Ice Storm
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
 1	ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Cold Spell Mastery
@@ -43,7 +43,7 @@ CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Frostfang	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name			Req. Att.	Required Feat							Required Race		Required Skill
-CLASS:Knight of the Frostfang	PREATT:9	PREFEAT:3,Mounted Combat,Ride By Attack,Wild Empathy	PRERACE:1,Elf (Winter)	PRESKILL:2,Ride,Survival=9
+CLASS:Knight of the Frostfang	PREATT:9	PREFEAT:3,Mounted Combat,Ride By Attack,Wild Empathy	PRERACE:1,Elf (Winter)	PRESKILL:2,Ride=9,Survival=9
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies
@@ -58,7 +58,7 @@ CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Ani
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2
 # Class Name			Required AL		Required Race		Required Skill								Req. Known Spell			Required Spell School
-CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana),Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:2,Conjuration=3	PRESPELLSCHOOL:3,Conjuration=2
+CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:2,Conjuration=3	PRESPELLSCHOOL:3,Conjuration=2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Gaulgardos	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
 1													AUTO:FEAT|Bloodbond|Demon Ally I
@@ -72,7 +72,7 @@ CLASS:Thrall of Gaulgardos	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name			Req. Att.	Required Feat							Required Race		Required Skill
-CLASS:Wayjik Demon Hunter	PREATT:7	PREFEAT:3,Strength of Margalthas,Weapon Focus,Track	PRERACE:1,Elf (Winter)	PRESKILL:1,Knowledge (The Planes)=4	PRESKILL:1,Survival=6
+CLASS:Wayjik Demon Hunter	PREATT:7	PREFEAT:3,Strength of Margalthas,Weapon Focus,Track	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (The Planes)=4,Survival=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Wayjik Demon Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Decipher Script|Gather Information|Hide|Intimidate|Jump|Knowledge (The Planes)|Knowledge (Arcana)|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spellcraft|Spot|Survival
 # Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level

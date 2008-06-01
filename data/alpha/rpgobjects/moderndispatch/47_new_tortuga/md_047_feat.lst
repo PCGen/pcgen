@@ -3,7 +3,7 @@ SOURCELONG:Modern Dispatch #47 - New Tortuga	SOURCESHORT:MD47-NT	SOURCEWEB:http:
 
 ###Block: standard
 # Feat Name				Type					Required Skill																		Var. Min. Value		Description														Stackable?	Multiple?	Choose		Modify VAR			Source Page
-Advanced Starship Design	TYPE:General			PRESKILL:2,Craft (Mechanical),Craft (Electronic)=10	PRESKILL:2,Knowledge (Physical Sciences),Knowledge (Technology)=8					DESC:You are able to design and build futuristic starships																	SOURCEPAGE:p.5
+Advanced Starship Design	TYPE:General			PRESKILL:4,Craft (Mechanical)=10,Craft (Electronic)=10,Knowledge (Physical Sciences)=8,Knowledge (Technology)=8						DESC:You are able to design and build futuristic starships																	SOURCEPAGE:p.5
 Cybermonger				TYPE:General.Charismatic																									DESC:You have access to sophisticated cyberware.																		SOURCEPAGE:p.5
 
 # not sure how to do this line: you gain a +2 bonus to three skills while in EVA: Computer Use, Demolitions, Knowledge (tactics), Navigate, Survival and Tumble.

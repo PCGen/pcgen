@@ -20,14 +20,14 @@ CLASS:Ranger.MOD	CSKILL:Drive
 CLASS:Rogue.MOD	CSKILL:Drive|Perform
 
 # Class Name		Multiple Requirements
-CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
+CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Astronomy)=2]
 1	KIT:1|MageGuild
 
 # Class Name		Removed Class Skill	Class Skill
 CLASS:Sorcerer.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|TYPE.Knowledge|Perform
 
 # Class Name	Multiple Requirements
-CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana),Knowledge (Astronomy)=2]
+CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Astronomy)=2]
 1	KIT:1|MageGuild
 
 # Class Name	Removed Class Skill	Class Skill
@@ -51,7 +51,7 @@ CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Int
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Master Celebrity	HD:4		TYPE:PC.Prestige	ABB:MCe		MAXLEVEL:5	SOURCEPAGE:138	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL+4)/3|TYPE=Base.REPLACE
 # Class Name		Required Skill
-CLASS:Master Celebrity	PRESKILL:2,Perform,Sense Motive=10	PRESKILL:1,Bluff=5
+CLASS:Master Celebrity	PRESKILL:3,Perform=10,Sense Motive=10,Bluff=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|Innuendo|Intimidate|Perform|TYPE.Profession|Sense Motive
 ###Block: Proficiencies
@@ -66,7 +66,7 @@ CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat	Required Skill
-CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:1,Handle Animal=6	PRESKILL:1,Knowledge (Monster Lore)=4	PRESKILL:2,Move Silently,Wilderness Lore=8
+CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Handle Animal=6,Knowledge (Monster Lore)=4,Move Silently=8,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hide|Intuit Direction|Knowledge (Monster Lore)|Listen|Move Silently|Search|Sense Motive|Spot|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -86,7 +86,7 @@ CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hid
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/3)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat		Required Skill
-CLASS:Guild DJ	PREATT:3	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=10	PRESKILL:1,Knowledge (Dungeon Crawl)=8
+CLASS:Guild DJ	PREATT:3	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=10,Knowledge (Dungeon Crawl)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guild DJ	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Knowledge (Dungeon Crawl)|Perform|Sense Motive
 ###Block: Proficiencies

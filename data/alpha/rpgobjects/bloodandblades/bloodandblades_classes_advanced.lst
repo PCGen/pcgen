@@ -8,7 +8,7 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 # Class Name			Output Name				Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus			Modify VAR
 CLASS:Bounty Hunter (BNB)	OUTPUTNAME:Bounty Hunter	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|CL/2+1	BONUS:VAR|Reputation|CL/3+1	BONUS:VAR|Action|CL*6
 # Class Name			Req. Att.	Required Skill
-CLASS:Bounty Hunter (BNB)	PREATT:2	PRESKILL:3,Investigate,Listen,Sense Motive=6
+CLASS:Bounty Hunter (BNB)	PREATT:2	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter (BNB)	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
 1															AUTO:FEAT|Track
@@ -25,7 +25,7 @@ CLASS:Bounty Hunter (BNB)	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|Disable Devi
 # Class Name		Output Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Profiler (BNB)	OUTPUTNAME:Profiler	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/3+1	BONUS:VAR|Reputation|CL/3+2	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat		Required Skill
-CLASS:Profiler (BNB)	PREFEAT:1,Attentive	PRESKILL:3,Knowledge (Bahvioral),Sense Motive=6	PRESKILL:1,Gather Information=3
+CLASS:Profiler (BNB)	PREFEAT:1,Attentive	PRESKILL:3,Knowledge (Bahvioral)=6,Sense Motive=6,Gather Information=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Profiler (BNB)	STARTSKILLPTS:7	CSKILL:Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
 1	SAB:Profile(Ex)
@@ -106,7 +106,7 @@ CLASS:Mad Genius	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimid
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Psychogene	HD:4		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/2+1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|6
 # Class Name	Required Feat																																	Required Skill						Var. Max. Value
-CLASS:Psychogene	PREFEAT:1,Wild Talent,Wild Talent (Burst),Wild Talent (Daze),Wild Talent (Detect Psionics),Wild Talent (Far Hand),Wild Talent (Far Punch),Wild Talent (Finger of Fire),Wild Talent (Missive),Wild Talent (Verve)	PRESKILL:3,Bluff,Diplomacy,Gather Information=6	PREVARLTEQ:CurrentSanity,-10
+CLASS:Psychogene	PREFEAT:1,Wild Talent,Wild Talent (Burst),Wild Talent (Daze),Wild Talent (Detect Psionics),Wild Talent (Far Hand),Wild Talent (Far Punch),Wild Talent (Finger of Fire),Wild Talent (Missive),Wild Talent (Verve)	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Psychogene	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Sense Motive|Speak Language
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -140,7 +140,7 @@ CLASS:Psychogene	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|6
 # Class Name	Req. Att.	Required Skill				Var. Max. Value
-CLASS:Stalker	PREATT:2	PRESKILL:2,Hide,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
+CLASS:Stalker	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
 1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				AUTO:FEAT|Sneak Attack

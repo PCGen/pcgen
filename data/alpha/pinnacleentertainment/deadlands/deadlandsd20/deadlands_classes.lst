@@ -4,7 +4,7 @@ SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.pe
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
 CLASS:Agency Operative	HD:8		TYPE:PC.Prestige	ABB:AOp		MAXLEVEL:10	SOURCEPAGE:p.90	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill
-CLASS:Agency Operative	PREATT:5	PRESKILL:1,Knowledge (Law)=4	PRESKILL:1,Knowledge (Occult)=3	PRESKILL:1,Spot=8
+CLASS:Agency Operative	PREATT:5	PRESKILL:3,Knowledge (Law)=4,Knowledge (Occult)=3,Spot=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Agency Operative	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Holdout|Innuendo|Knowledge (Law)|Knowledge (Occult)|Listen|Move Silently|Open Lock|Ridicule|Search|Sense Motive|TYPE.Language|Spot
 1	AUTO:FEAT|Simple Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Automatic Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Pistol|TYPE.Rifle|TYPE.Shotgun|TYPE.Automatic
@@ -262,7 +262,7 @@ CLASS:Shaman (DL)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
 CLASS:Texas Ranger	HD:10		TYPE:PC.Prestige	ABB:TxR		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|floor((CL+3)*2/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat	Required Skill
-CLASS:Texas Ranger	PREATT:6	PREFEAT:1,Track	PRESKILL:1,Gather Information=4	PRESKILL:1,Wilderness Lore=5
+CLASS:Texas Ranger	PREATT:6	PREFEAT:1,Track	PRESKILL:2,Gather Information=4,Wilderness Lore=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Texas Ranger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Demolitions|Gunplay|Handle Animal|Hide|Gather Information|Intimidate|Intuit Direction|Holdout|Knowledge (Local)|Knowledge (Occult)|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|TYPE.Language|Speed Load|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies

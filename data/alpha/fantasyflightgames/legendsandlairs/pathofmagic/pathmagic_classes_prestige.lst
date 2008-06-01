@@ -10,7 +10,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Negotiator	HD:4		TYPE:PC.Prestige	ABB:ArN		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Skill											Req. Spell Type		Required Subclass
-CLASS:Arcane Negotiator	PREFEAT:1,Spell Focus (Conjuration)	PRESKILL:2,Diplomacy,Sense Motive=10	PRESKILL:1,Knowledge (The Planes)=5	PRESPELLTYPE:1,Arcane=5	PRESUBCLASS:1,Conjurer
+CLASS:Arcane Negotiator	PREFEAT:1,Spell Focus (Conjuration)	PRESKILL:3,Diplomacy=10,Sense Motive=10,Knowledge (The Planes)=5	PRESPELLTYPE:1,Arcane=5	PRESUBCLASS:1,Conjurer
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 1	SAB:Summon Ally I|PREVARLT:CL,4													ADD:SPELLCASTER|1|Arcane
@@ -30,7 +30,7 @@ CLASS:Arcane Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Di
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Chanter	HD:6		TYPE:PC.Prestige	ABB:Cha		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat			Required Skill				Required Stat	Var. Min. Value
-CLASS:Chanter	PREFEAT:1,Great Fortitude	PRESKILL:2,Concentration,Perform=8	PRESTAT:1,CON=13	PREVARGTEQ:BardicMusic,1
+CLASS:Chanter	PREFEAT:1,Great Fortitude	PRESKILL:2,Concentration=8,Perform=8	PRESTAT:1,CON=13	PREVARGTEQ:BardicMusic,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Escape Artist|Gather Information|Intuit Direction|Jump|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Sense Motive|Spellcraft|Tumble|Use Magic Device
 1	AUTO:FEAT|Simple Weapon Proficiency						WEAPONBONUS:Greatclub|Flail (Heavy)|Flail (Light)|Hammer (Light)|Warhammer
@@ -52,7 +52,7 @@ CLASS:Chanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concen
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Force Weaver	HD:6		TYPE:PC.Prestige	ABB:FoW		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Skill								Req. Spell Type		Required Text
-CLASS:Force Weaver	PREFEAT:1,Spell Focus(Evocation)	PRESKILL:1,Spellcraft=6	PRESKILL:1,Knowledge (Arcana)=3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Must know three spells with the Force descriptor.
+CLASS:Force Weaver	PREFEAT:1,Spell Focus(Evocation)	PRESKILL:2,Spellcraft=6,Knowledge (Arcana)=3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Must know three spells with the Force descriptor.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Force Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
 1	SAB:Weapon of Force|PREVARLT:CL,7														ADD:SPELLCASTER|1|Arcane
@@ -70,7 +70,7 @@ CLASS:Force Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Grand Diva	HD:6		TYPE:PC.Prestige	ABB:GrD		MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Gender	Required Skill										Required Text
-CLASS:Grand Diva	PREFEAT:1,Skill Focus(Perform)	PREGENDER:F		PRESKILL:2,Gather Information,Sense Motive=3	PRESKILL:1,Perform=8	PRETEXT:The character must earn a position of notoriety within an area of public musical performance.
+CLASS:Grand Diva	PREFEAT:1,Skill Focus(Perform)	PREGENDER:F		PRESKILL:3,Gather Information=3,Sense Motive=3,Perform=8	PRETEXT:The character must earn a position of notoriety within an area of public musical performance.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grand Diva	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Gather Information|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Sense Motive|Spellcraft
 1	SAB:Experienced Performer	BONUS:SKILL|Perform (Sing),Profession (Singer)|4								ADD:SPELLCASTER|1|ANY
@@ -88,7 +88,7 @@ CLASS:Grand Diva	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Jester	HD:6		TYPE:PC.Prestige	ABB:Jes		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Feat			Required Skill														Var. Min. Value
-CLASS:Jester	PREALIGN:CG,CN,CE	PREFEAT:1,Improved Initiative	PRESKILL:2,Escape Artist,Jump=4	PRESKILL:1,Perform (Juggling/Wit)=8	PRESKILL:1,Tumble=4	PREVARGTEQ:BardicMusic,1
+CLASS:Jester	PREALIGN:CG,CN,CE	PREFEAT:1,Improved Initiative	PRESKILL:4,Escape Artist=4,Jump=4,Perform (Juggling/Wit)=8,Tumble=4	PREVARGTEQ:BardicMusic,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Jester	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spellcraft|Tumble|Use Magic Device
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -110,7 +110,7 @@ CLASS:Jester	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|T
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Ring Sage	HD:6		TYPE:PC.Prestige	ABB:RiS		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Skill						Req. Spell Type		Required Text
-CLASS:Ring Sage	PRESKILL:2,Knowledge (Arcana),Spellcraft=10	PRESPELLTYPE:1,Arcane=5	PRETEXT:A character must study a magic ring, experiment with it, and attempt to understand its power.
+CLASS:Ring Sage	PRESKILL:2,Knowledge (Arcana)=10,Spellcraft=10	PRESPELLTYPE:1,Arcane=5	PRETEXT:A character must study a magic ring, experiment with it, and attempt to understand its power.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ring Sage	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	SAB:Extra Ring		BONUS:SLOTS|RING|1	ADD:SPELLCASTER|1|ANY
@@ -129,7 +129,7 @@ CLASS:Ring Sage	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE.Craft|TYPE.Kn
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat							Required Skill								Required Text
-CLASS:Spellbinder	PREFEAT:2,Spell Focus(Enchantment),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Perform=5	PRETEXT:Ability to cast arcane Enchantment spells as a bard or sorcerer.
+CLASS:Spellbinder	PREFEAT:2,Spell Focus(Enchantment),Spell Penetration	PRESKILL:2,Knowledge (Arcana)=8,Perform=5	PRETEXT:Ability to cast arcane Enchantment spells as a bard or sorcerer.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellbinder	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|Perform|TYPE.Profession|Scry|Spellcraft
 1	AUTO:FEAT|Wizard Weapon Proficiencies
@@ -151,7 +151,7 @@ CLASS:Spellbinder	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.K
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat							Required Skill										Required Spell School
-CLASS:Summoner	PREFEAT:2,Spell Focus(Conjuration),Heighten Spell	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Outsiders)=6	PRESPELLSCHOOL:1,Conjuration=1
+CLASS:Summoner	PREFEAT:2,Spell Focus(Conjuration),Heighten Spell	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Outsiders)=6	PRESPELLSCHOOL:1,Conjuration=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	AUTO:FEAT|Wizard Weapon Proficiencies
@@ -172,7 +172,7 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Know
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Swamp Witch	HD:4		TYPE:PC.Prestige	ABB:Sww		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill							Required Spell School
-CLASS:Swamp Witch	PREFEAT:1,Brew Potion	PRESKILL:1,Scry=10	PRESKILL:1,Wilderness Lore=6	PRESPELLSCHOOL:7,Divination=1
+CLASS:Swamp Witch	PREFEAT:1,Brew Potion	PRESKILL:2,Scry=10,Wilderness Lore=6	PRESPELLSCHOOL:7,Divination=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swamp Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency

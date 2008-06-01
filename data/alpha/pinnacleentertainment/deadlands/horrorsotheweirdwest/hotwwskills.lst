@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 # Skill Name			Key Stat	Untrained?		Type					Bonus to skill																																													Source Page
-Knowledge (Anthropology)	KEYSTAT:INT				TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Anthropology)|SynergyBonus|PRESKILL:1,Knowledge (Architecture and Engineering),Knowledge (Biology),Knowledge (Chemistry),Knowledge (Engineering),Knowledge (Geology),Knowledge (Mathematics),Knowledge (Meteorology),Knowledge (Physics)=5|TYPE=Synergy.STACK	SOURCEPAGE:p.35
+Knowledge (Anthropology)	KEYSTAT:INT				TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Anthropology)|SynergyBonus|PRESKILL:1,Knowledge (Architecture and Engineering)=5,Knowledge (Biology)=5,Knowledge (Chemistry)=5,Knowledge (Engineering)=5,Knowledge (Geology)=5,Knowledge (Mathematics)=5,Knowledge (Meteorology)=5,Knowledge (Physics)=5|TYPE=Synergy.STACK	SOURCEPAGE:p.35
 Profession (Lawyer)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		BONUS:SKILL|Profession (Lawyer)|SynergyBonus|PRESKILL:1,Knowledge (Law)=5|TYPE=Synergy.STACK																																SOURCEPAGE:p.53

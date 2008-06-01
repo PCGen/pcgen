@@ -10,7 +10,7 @@ SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.h
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Faemancer	HD:4		TYPE:PC.Prestige	ABB:Fmc		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Deities allowed		Required AL		Required Feat		Required Skill					Required Text
-CLASS:Faemancer	DEITY:None (Faemancer)	PREALIGN:CG,CN	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy,Knowledge (Fey)=8	PRETEXT:The character must have been chosen by the fey to become a faemancer.
+CLASS:Faemancer	DEITY:None (Faemancer)	PREALIGN:CG,CN	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=8,Knowledge (Fey)=8	PRETEXT:The character must have been chosen by the fey to become a faemancer.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faemancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Fey)|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level				Use Spell List
@@ -53,7 +53,7 @@ CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Faerier	HD:4		TYPE:PC.Prestige	ABB:Frr		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Language	Multiple Requirements																											Maximum Size	Required Skill
-CLASS:Faerier	PREFEAT:1,Alertness	PRELANG:1,Fae	PREMULT:2,[PREMULT:1,[PRESKILL:1,Knowledge (Fey),Knowledge (Nature)=8],[PREVARGTEQ:BardicKnowledge,6]],[PREMULT:1,[PRESKILL:1,Use Magic Device=1],[PRESPELLTYPE:1,Arcane|Divine=1]]	PRESIZELTEQ:M	PRESKILL:3,Diplomacy,TYPE.Perform,Sense Motive=8
+CLASS:Faerier	PREFEAT:1,Alertness	PRELANG:1,Fae	PREMULT:2,[PREMULT:1,[PRESKILL:1,Knowledge (Fey)=8,Knowledge (Nature)=8],[PREVARGTEQ:BardicKnowledge,6]],[PREMULT:1,[PRESKILL:1,Use Magic Device=1],[PRESPELLTYPE:1,Arcane|Divine=1]]	PRESIZELTEQ:M	PRESKILL:3,Diplomacy=8,TYPE.Perform=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
 1	SAB:Fey Sense (Su)			ADD:FEAT|1|TYPE.FeyArts
@@ -70,7 +70,7 @@ CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Inf
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat					Required Skill
-CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently,Hide,Knowledge (Fey)=8
+CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently=8,Hide=8,Knowledge (Fey)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|Pick Pocket|TYPE.Profession|Search|Spot|Tumble|Use Rope
 1				SAB:Step Sideways % (Su)|StepSideways						DEFINE:StepSideways|1	ADD:FEAT|1|Evasion
@@ -87,7 +87,7 @@ CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|E
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey Guardian	HD:4		TYPE:PC.Prestige	ABB:FGd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat							Required Skill													Req. Spell Type
-CLASS:Fey Guardian	PREFEAT:3,Fey Magic,TYPE.Metamagic,TYPE.Metamagic	PRESKILL:1,Knowledge (Religion)=5	PRESKILL:2,Knowledge (Arcana),Knowledge (Fey)=12	PRESPELLTYPE:1,Divine=1
+CLASS:Fey Guardian	PREFEAT:3,Fey Magic,TYPE.Metamagic,TYPE.Metamagic	PRESKILL:3,Knowledge (Religion)=5,Knowledge (Arcana)=12,Knowledge (Fey)=12	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Fey)|Knowledge (Nature)|Spellcraft
 1	SAB:Luck of the Fey (Ex)	SAB:Will of the Fey (Ex)	ADD:SPELLCASTER|1|ANY
@@ -151,7 +151,7 @@ CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL			Req. Att.	Required Feat												Required Skill														Required Type
-CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRESKILL:2,Diplomacy,Ride=4	PRESKILL:2,Knowledge (Fey),Knowledge (Nobility and Royalty)=5	PRETYPE:1,Fey
+CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRESKILL:4,Diplomacy=4,Ride=4,Knowledge (Fey)=5,Knowledge (Nobility and Royalty)=5	PRETYPE:1,Fey
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Fey)|Knowledge (Nobility and Royalty)|Ride|Spot
 ###Block: Proficiencies
@@ -173,7 +173,7 @@ CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (F
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mage of the Circle	HD:4		TYPE:PC.Prestige	ABB:MoC		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat							Required Skill						Req. Spell Type
-CLASS:Mage of the Circle	PREFEAT:3,Fey Magic,Craft Wondrous Item,Scribe Scroll	PRESKILL:2,Knowledge (Arcana),Knowledge (Fey)=8	PRESPELLTYPE:1,Arcane=3
+CLASS:Mage of the Circle	PREFEAT:3,Fey Magic,Craft Wondrous Item,Scribe Scroll	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Fey)=8	PRESPELLTYPE:1,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Mage of the Circle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Fey)|Knowledge (Nature)|Spellcraft
 1	SAB:Encircle %|Encircle	BONUS:VAR|Encircle|(CL+2)/3	DEFINE:Encircle|0	ADD:SPELLCASTER|1|ANY
@@ -190,7 +190,7 @@ CLASS:Mage of the Circle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mortal Slayer	HD:10		TYPE:PC.Prestige	ABB:MSl		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat								Required Skill							Required Type
-CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRESKILL:2,Knowledge (Fey),Knowledge (Folk Tales)=8	PRETYPE:1,Fey
+CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Folk Tales)=8	PRETYPE:1,Fey
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mortal Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level

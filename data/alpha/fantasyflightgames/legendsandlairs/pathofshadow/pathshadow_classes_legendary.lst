@@ -5,7 +5,7 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Abyssal Infiltrator	HD:6		TYPE:PC.Legendary	ABB:Aby		MAXLEVEL:5	SOURCEPAGE:Chap.2, Abyssal Infiltrator	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+3	BONUS:CHECKS|BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
 # Class Name			Required AL		Req. Att.	Req. Special Ability	Required Skill
-CLASS:Abyssal Infiltrator	PREALIGN:LE,NE,CE	PREATT:8	PRESA:1,Death Attack	PRESKILL:1,Knowledge (Arcana)=7	PRESKILL:1,Intimidate=10	PRESKILL:3,Hide,Move Silently,Open Lock=15
+CLASS:Abyssal Infiltrator	PREALIGN:LE,NE,CE	PREATT:8	PRESA:1,Death Attack	PRESKILL:5,Knowledge (Arcana)=7,Intimidate=10,Hide=15,Move Silently=15,Open Lock=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Abyssal Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|1|TYPE=AbyssalInfiltratorLAPL1,Enhanced Dexterity I,Enhanced Strength I
@@ -17,7 +17,7 @@ CLASS:Abyssal Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TY
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Blood Thief	HD:6		TYPE:PC.Legendary	ABB:Blo		MAXLEVEL:5	SOURCEPAGE:Chap.2, Blood Thief	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Restricted AL		Required Feat										Req. Special Ability		Required Skill
-CLASS:Blood Thief	!PREALIGN:LG,NG,CG	PREFEAT:4,Improved Critical(TYPE=Slashing),Endurance,Toughness,Track	PRESA:1,Crippling Strike	PRESKILL:3,Concentration,Heal,Wilderness Lore=7	PRESKILL:1,Intimidate=15
+CLASS:Blood Thief	!PREALIGN:LG,NG,CG	PREFEAT:4,Improved Critical(TYPE=Slashing),Endurance,Toughness,Track	PRESA:1,Crippling Strike	PRESKILL:4,Concentration=7,Heal=7,Wilderness Lore=7,Intimidate=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Thief	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -33,7 +33,7 @@ CLASS:Blood Thief	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentrat
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Fortune's Fool	HD:6		TYPE:PC.Legendary	ABB:FoF		MAXLEVEL:5	SOURCEPAGE:Chap.2, Fortune's Fool	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Restricted AL		Required Feat											Required Skill																				Prohibited Stat
-CLASS:Fortune's Fool	!PREALIGN:LG,LN,LE	PREFEAT:5,Alertness,Combat Reflexes,Dodge,Improved Initiative,Quick Draw	PRESKILL:1,Tumble=8	PRESKILL:3,Balance,Escape Artist,Spot=10	PRESKILL:2,Diplomacy,Sense Motive=12	PRESKILL:1,Bluff=15	!PRESTAT:1,WIS=14
+CLASS:Fortune's Fool	!PREALIGN:LG,LN,LE	PREFEAT:5,Alertness,Combat Reflexes,Dodge,Improved Initiative,Quick Draw	PRESKILL:6,Tumble=8,Balance=10,Escape Artist=10,Spot=10,Diplomacy=12,Sense Motive=12,Bluff=15	!PRESTAT:1,WIS=14
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fortune's Fool	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -48,7 +48,7 @@ CLASS:Fortune's Fool	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, Grey Hand	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
 # Class Name	Req. Att.	Required Feat							Req. Special Ability	Required Skill										Var. Min. Value
-CLASS:Grey Hand	PREATT:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:2,Disguise,Intimidate=10	PRESKILL:2,Hide,Move Silently=15	PREVARGTEQ:SneakAttack,5
+CLASS:Grey Hand	PREATT:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:4,Disguise=10,Intimidate=10,Hide=15,Move Silently=15	PREVARGTEQ:SneakAttack,5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -63,7 +63,7 @@ CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher S
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Hand of the Reaper	HD:6		TYPE:PC.Legendary	ABB:HaRe		MAXLEVEL:5	SOURCEPAGE:Chap.2, Hand of the Reaper	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
 # Class Name			Restricted AL		Req. Att.	Req. Special Ability	Required Skill
-CLASS:Hand of the Reaper	!PREALIGN:LG,NG,CG	PREATT:8	PRESA:1,Death Attack	PRESKILL:4,Bluff,Diplomacy,Forgery,Gather Information=5	PRESKILL:2,Intimidate,Open Lock=10	PRESKILL:2,Hide,Move Silently=15
+CLASS:Hand of the Reaper	!PREALIGN:LG,NG,CG	PREATT:8	PRESA:1,Death Attack	PRESKILL:6,Bluff=5,Diplomacy=5,Forgery=5,Gather Information=5,Intimidate=10,Open Lock=10,Hide=15,Move Silently=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hand of the Reaper	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -80,7 +80,7 @@ CLASS:Hand of the Reaper	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYP
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Incantator	HD:6		TYPE:PC.Legendary	ABB:Inc		MAXLEVEL:5	SOURCEPAGE:Chap.2, Incantator	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat																Required Skill
-CLASS:Incantator	PREFEAT:4,Iron Will,Skill Focus(Concentration),Skill Focus(Knowledge (Arcana)),Skill Focus(Spellcraft)	PRESKILL:3,Concentration,Knowledge (Arcana),Spellcraft=8	PRESKILL:2,Hide,Move Silently=15
+CLASS:Incantator	PREFEAT:4,Iron Will,Skill Focus(Concentration),Skill Focus(Knowledge (Arcana)),Skill Focus(Spellcraft)	PRESKILL:5,Concentration=8,Knowledge (Arcana)=8,Spellcraft=8,Hide=15,Move Silently=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Incantator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|Climb|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Arcana)|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -103,7 +103,7 @@ CLASS:Incantator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|Cli
 # Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Jack of Knives	OUTPUTNAME:Jack-of-Knives	HD:6		TYPE:PC.Legendary	ABB:JaKn		MAXLEVEL:5	SOURCEPAGE:Chap.2, Jack of Knives	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required Feat												Required Skill
-CLASS:Jack of Knives	PREFEAT:5,Dodge,Mobility,Point Blank Shot,Two-Weapon Fighting,Weapon Focus(Dagger)	PRESKILL:3,Balance,Jump,Tumble=15
+CLASS:Jack of Knives	PREFEAT:5,Dodge,Mobility,Point Blank Shot,Two-Weapon Fighting,Weapon Focus(Dagger)	PRESKILL:3,Balance=15,Jump=15,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jack of Knives	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -120,7 +120,7 @@ CLASS:Jack of Knives	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Jack o' the Green	HD:6		TYPE:PC.Legendary	ABB:JaGr		MAXLEVEL:5	SOURCEPAGE:Chap.2, Jack o' the Green	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required AL			Required Feat				Required Skill															Required Stat
-CLASS:Jack o' the Green	PREALIGN:NG,TN,CG,CN	PREFEAT:2,Track,Lightning Reflexes	PRESKILL:3,Gather Information,Knowledge (Local),Wilderness Lore=8	PRESKILL:2,Hide,Move Silently=15	PRESTAT:1,WIS=15
+CLASS:Jack o' the Green	PREALIGN:NG,TN,CG,CN	PREFEAT:2,Track,Lightning Reflexes	PRESKILL:5,Gather Information=8,Knowledge (Local)=8,Wilderness Lore=8,Hide=15,Move Silently=15	PRESTAT:1,WIS=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jack o' the Green	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|Pick Pocket|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -139,7 +139,7 @@ CLASS:Jack o' the Green	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|B
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Master Burglar	HD:6		TYPE:PC.Legendary	ABB:MaBu		MAXLEVEL:5	SOURCEPAGE:Chap.2, Master Burglar	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+3	BONUS:CHECKS|BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Required Feat						Required Skill
-CLASS:Master Burglar	PREFEAT:3,Alertness,Dodge,Improved Initiative	PRESKILL:1,Climb=10	PRESKILL:4,Hide,Move Silently,Open Lock,Tumble=15
+CLASS:Master Burglar	PREFEAT:3,Alertness,Dodge,Improved Initiative	PRESKILL:5,Climb=10,Hide=15,Move Silently=15,Open Lock=15,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|1|TYPE=MasterBurglarLAPL1,Enhanced Dexterity I,Enhanced Wisdom I
@@ -154,7 +154,7 @@ CLASS:Master Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cr
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Queen of Shadows	HD:6		TYPE:PC.Legendary	ABB:QSh		MAXLEVEL:5	SOURCEPAGE:Chap.2, Queen of Shadows	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3+1	BONUS:COMBAT|BAB|CL*3/4+1
 # Class Name		Req. Att.	Required Class			Required Feat					Required Skill
-CLASS:Queen of Shadows	PREATT:8	PRECLASS:1,Shadowdancer=1	PREFEAT:3,Dodge,Mobility,Spring Attack	PRESKILL:1,Perform=10	PRESKILL:2,Hide,Move Silently=15
+CLASS:Queen of Shadows	PREATT:8	PRECLASS:1,Shadowdancer=1	PREFEAT:3,Dodge,Mobility,Spring Attack	PRESKILL:3,Perform=10,Hide=15,Move Silently=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Queen of Shadows	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|1|TYPE=QueenShadowsLAPL1,Enhanced Dexterity I,Enhanced Charisma I
@@ -170,7 +170,7 @@ CLASS:Queen of Shadows	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus												Combat bonus
 CLASS:Rogue Prince	HD:6		TYPE:PC.Legendary	ABB:RoPr		MAXLEVEL:5	SOURCEPAGE:Chap.2, Rogue Prince	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3+1	BONUS:COMBAT|BAB|CL*3/4+1
 # Class Name		Req. Att.	Required Feat				Required Skill
-CLASS:Rogue Prince	PREATT:8	PREFEAT:2,Expertise,Improved Disarm	PRESKILL:1,Search=10	PRESKILL:3,Bluff,Pick Pocket,Tumble=15
+CLASS:Rogue Prince	PREATT:8	PREFEAT:2,Expertise,Improved Disarm	PRESKILL:4,Search=10,Bluff=15,Pick Pocket=15,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rogue Prince	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|1|TYPE=RoguePrinceLAPL1,Enhanced Dexterity I,Enhanced Charisma I
@@ -182,7 +182,7 @@ CLASS:Rogue Prince	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craf
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Savant	HD:6		TYPE:PC.Legendary	ABB:Sav		MAXLEVEL:5	SOURCEPAGE:Chap.2, Savant	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat																																										Req. Special Ability	Required Skill
-CLASS:Savant	PREFEAT:2,Alertness,Skill Focus(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)	PREFEAT:2,Skill Mastery(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)|CHECKMULT	PRESA:1,Slippery Mind	PRESKILL:4,Decipher Script,Diplomacy,Disguise,Gather Information=8	PRESKILL:3,Bluff,Search,Spot=10	PRESKILL:2,Innuendo,Sense Motive=15
+CLASS:Savant	PREFEAT:2,Alertness,Skill Focus(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)	PREFEAT:2,Skill Mastery(Decipher Script,Diplomacy,Disguise,Gather Information,Bluff,Search,Spot,Innuendo,Sense Motive)|CHECKMULT	PRESA:1,Slippery Mind	PRESKILL:9,Decipher Script=8,Diplomacy=8,Disguise=8,Gather Information=8,Bluff=10,Search=10,Spot=10,Innuendo=15,Sense Motive=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Savant	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|TYPE.Knowledge|Listen|Mimic Voice|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Urban Lore|Use Magic Device|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -198,7 +198,7 @@ CLASS:Savant	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Silver-Tongued Devil	HD:6		TYPE:PC.Legendary	ABB:SDev		MAXLEVEL:5	SOURCEPAGE:Chap.2, Silver-Tongued Devil	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name			Required Feat									Required Skill													Required Stat
-CLASS:Silver-Tongued Devil	PREFEAT:3,Alertness,Skill Focus(Bluff),Skill Focus(Sense Motive)	PRESKILL:1,Concentration=7	PRESKILL:5,Bluff,Diplomacy,Listen,Sense Motive,Spot=15	PRESTAT:1,CHA=13
+CLASS:Silver-Tongued Devil	PREFEAT:3,Alertness,Skill Focus(Bluff),Skill Focus(Sense Motive)	PRESKILL:6,Concentration=7,Bluff=15,Diplomacy=15,Listen=15,Sense Motive=15,Spot=15	PRESTAT:1,CHA=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Silver-Tongued Devil	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency

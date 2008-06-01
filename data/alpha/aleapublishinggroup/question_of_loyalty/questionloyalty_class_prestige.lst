@@ -5,7 +5,7 @@ SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:Gui
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight Commander	HD:10		TYPE:PC.Prestige	ABB:KnCmdr		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Knight Commander	PREATT:7	PREFEAT:1,Banneret,Preceptor,Leadership	PRESKILL:1,Diplomacy=13	PRESKILL:1,Knowledge (Nobility and Royalty)=5
+CLASS:Knight Commander	PREATT:7	PREFEAT:1,Banneret,Preceptor,Leadership	PRESKILL:2,Diplomacy=13,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight Commander	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Ride|Sense Motive
 ### CLass Ability Block

@@ -13,7 +13,7 @@ SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Dawn Archer	HD:10		TYPE:PC.Prestige	ABB:DaA		MAXLEVEL:5	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat																								Required Skill
-CLASS:Dawn Archer	PREFEAT:3,Improved Precise Shot,Far Shot,Rapid Shot	PREFEAT:1,Weapon Focus(Shortbow),Weapon Focus(Longbow)	PREFEAT:1,Path of the Swift 5th Circle	PRESKILL:2,Listen,Move Silently=5	PRESKILL:2,Hide,Spot=8
+CLASS:Dawn Archer	PREMULT:3,[PREFEAT:3,Improved Precise Shot,Far Shot,Rapid Shot],[PREFEAT:1,Weapon Focus(Shortbow),Weapon Focus(Longbow)],[PREFEAT:1,Path of the Swift 5th Circle]	PRESKILL:4,Listen=5,Move Silently=5,Hide=8,Spot=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dawn Archer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Hide|Jump|Listen|Move Silently|TYPE.Profession|Spot|Swim
 1	ADD:FEAT|1|TYPE=DawnArcherLPL1,Enhanced Dexterity I,Enhanced Wisdom I		AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|Shortbow|Longbow
@@ -25,7 +25,7 @@ CLASS:Dawn Archer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Hide|Jump|List
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Fleetwind	HD:8		TYPE:PC.Prestige	ABB:Fle		MAXLEVEL:5	SOURCEPAGE:p.77	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat									Required Skill
-CLASS:Fleetwind	PREFEAT:2,Endurance,Run	PREFEAT:1,Path of the Swift 5th Circle	PRESKILL:1,Balance=4	PRESKILL:2,Climb,Jump=8
+CLASS:Fleetwind	PREMULT:2,[PREFEAT:2,Endurance,Run],[PREFEAT:1,Path of the Swift 5th Circle]	PRESKILL:3,Balance=4,Climb=8,Jump=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fleetwind	STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|1|TYPE=FleetwindLPL1,Enhanced Dexterity I,Enhanced Constitution I		AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency
@@ -37,7 +37,7 @@ CLASS:Fleetwind	STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE.Craft|Diplomacy|Disgui
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Epic General	HD:10		TYPE:PC.Prestige	ABB:EpG		MAXLEVEL:5	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Feat																						Required Skill
-CLASS:Epic General	PREFEAT:3,Improved Initiative,Leadership,Weapon Specialization	PREFEAT:2,Path of the Persuasive 3rd Circle,Path of the Mighty 1st Circle	PRESKILL:1,Diplomacy=8	PRESKILL:1,Intimidate=12	PRESKILL:1,Knowledge (War)=2
+CLASS:Epic General	PREFEAT:3,Improved Initiative,Leadership,Weapon Specialization	PREFEAT:2,Path of the Persuasive 3rd Circle,Path of the Mighty 1st Circle	PRESKILL:3,Diplomacy=8,Intimidate=12,Knowledge (War)=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic General	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (War)|Listen|Ride|Spot|Swim
 1	ADD:FEAT|1|TYPE=EpicGeneralLPL1,Enhanced Charisma I,Enhanced Strength I		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
@@ -49,7 +49,7 @@ CLASS:Epic General	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Anim
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Icon		HD:8		TYPE:PC.Prestige	ABB:Ico		MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat												Required Skill
-CLASS:Icon		PREFEAT:2,Leadership,Persuasive	PREFEAT:1,Path of the Persuasive 5th Circle	PRESKILL:1,Diplomacy=10	PRESKILL:2,Intimidate,Sense Motive=8
+CLASS:Icon		PREFEAT:2,Leadership,Persuasive	PREFEAT:1,Path of the Persuasive 5th Circle	PRESKILL:3,Diplomacy=10,Intimidate=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Icon		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disguise|Gather Information|TYPE.Knowledge|Listen|TYPE.Perform|TYPE.Profession|Sense Motive|Speak Language|Spellcraft|Swim|Use Magic Device
 1	ADD:FEAT|1|TYPE=IconLPL1,Enhanced Charisma I,Enhanced Intelligence I		AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency
@@ -61,7 +61,7 @@ CLASS:Icon		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE.Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Master Arcanist	HD:6		TYPE:PC.Prestige	ABB:MaA		MAXLEVEL:5	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat																Required Skill						Required Text
-CLASS:Master Arcanist	PREFEAT:2,Improved Counterspell,Skill Focus(Knowledge (Arcana))	PREFEAT:1,Path of the Learned 5th Circle	PRESKILL:2,Knowledge (Arcana),Spellcraft=15	PRETEXT:The character must have bonded to an arcane aspect
+CLASS:Master Arcanist	PREFEAT:2,Improved Counterspell,Skill Focus(Knowledge (Arcana))	PREFEAT:1,Path of the Learned 5th Circle	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRETEXT:The character must have bonded to an arcane aspect
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Arcanist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
 1	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=MasterArcanistLPL1,Enhanced Intelligence I,Enhanced Wisdom I		AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff

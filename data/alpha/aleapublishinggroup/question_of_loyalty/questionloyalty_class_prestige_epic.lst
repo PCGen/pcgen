@@ -5,7 +5,7 @@ SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:Gui
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page
 CLASS:Grandmaster	HD:10		TYPE:PC.Prestige	ABB:GrMstr		MAXLEVEL:10	SOURCEPAGE:p.27
 # Class Name	Req. Att.	Required Feat	Required Skill
-CLASS:Grandmaster	PREATT:15	PREFEAT:1,Marshal	PRESKILL:1,Diplomacy=24	PRESKILL:1,Knowledge (Nobility and Royalty)=15
+CLASS:Grandmaster	PREATT:15	PREFEAT:1,Marshal	PRESKILL:2,Diplomacy=24,Knowledge (Nobility and Royalty)=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grandmaster	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Ride|Sense Motive
 1	SAB:Sphere of Influence % ft.|SphereInfluenceAreaGM																		BONUS:VAR|SphereInfluenceAreaGM|(CL*100)	DEFINE:SphereInfluenceAreaGM|0

@@ -137,7 +137,7 @@ CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Jump|Knowle
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																		Combat bonus
 CLASS:Chosen of Agri	HD:8		TYPE:PC.Prestige	ABB:CA		MAXLEVEL:6	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude|(CL+2)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/2-CL==1	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Deity	Required Skill					Required Stat		Required Text
-CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREATT:5	PREDEITY:1,Agri	PRESKILL:2,Survival,Knowledge (Nature)=8	PRESTAT:2,WIS=15,CON=12	PRETEXT:Ability to cast Speak with Plants
+CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREATT:5	PREDEITY:1,Agri	PRESKILL:2,Survival=8,Knowledge (Nature)=8	PRESTAT:2,WIS=15,CON=12	PRETEXT:Ability to cast Speak with Plants
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Religion)|Listen|Search|Spot|Spellcraft|Survival
 ###Block: Caster Level
@@ -174,7 +174,7 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Healer	HD:6		TYPE:PC.Prestige	ABB:HLR		MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude|(CL-1)/2	BONUS:CHECKS|BASE.Reflex|(CL-1)*2/3	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity	Required Feat					Required Skill											Required Stat	Required Text
-CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PREFEAT:2,Brew Potion,Skill Focus(Heal)	PRESKILL:3,Heal,Knowledge (Nature)=8,Craft (Alchemy),Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
+CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PREFEAT:2,Brew Potion,Skill Focus(Heal)	PRESKILL:3,Heal=8,Knowledge (Nature)=8,Craft (Alchemy)=4,Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Nature)|Knowledge (Anatomy)|Profession (Doctor)|Spellcraft|Survival
 ###Block: Special Abilities:
@@ -189,7 +189,7 @@ CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Nat
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Prankmaster	HD:6		TYPE:PC.Prestige	ABB:PRM		MAXLEVEL:6	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|(CL-1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+2)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat					Required Skill						Required Stat		Required Text
-CLASS:Prankmaster	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:2,Alertness,Improved Initiative	PRESKILL:3,Bluff,Knowledge (Traps)=8,Rope Use=4	PRESTAT:2,INT=14,CHA=12	PRETEXT:Must either Amphikin or have Sophia Groa as patron deity
+CLASS:Prankmaster	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:2,Alertness,Improved Initiative	PRESKILL:3,Bluff=8,Knowledge (Traps)=8,Rope Use=4	PRESTAT:2,INT=14,CHA=12	PRETEXT:Must either Amphikin or have Sophia Groa as patron deity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Prankmaster	STARTSKILLPTS:8	CSKILL:Bluff|Decipher Script|Disguise|Escape Artist|Forgery|Gather Information|Hide|Listen|Move Silently|Sleight of Hand|Search|Sense Motive
 #Pick Pockets Read Lips
@@ -223,7 +223,7 @@ CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Soulreaper	HD:6		TYPE:PC.Prestige	ABB:SHBL		MAXLEVEL:7	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Restricted AL		Req. Att.	Required Feat				Required Skill					Required Stat				Required Text
-CLASS:Soulreaper	!PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:3,Power Attack,Cleave,Track	PRESKILL:3,Intimidate,Survival=8,Listen=4	PRESTAT:3,STR=14,DEX=12,CON=14	PRETEXT:By appointment of the Devi of Sophia Kalla only
+CLASS:Soulreaper	!PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:3,Power Attack,Cleave,Track	PRESKILL:3,Intimidate=8,Survival=8,Listen=4	PRESTAT:3,STR=14,DEX=12,CON=14	PRETEXT:By appointment of the Devi of Sophia Kalla only
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Disable Device|Hide|Intimidate|Knowlege (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
 ###Block: Special Abilities:

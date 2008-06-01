@@ -82,7 +82,7 @@ CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:C
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat								Required Skill							Required Spell School
-CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:1,Diplomacy=10	PRESKILL:1,Sense Motive=8	PRESPELLSCHOOL:5,Enchantment=1
+CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:2,Diplomacy=10,Sense Motive=8	PRESPELLSCHOOL:5,Enchantment=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|TYPE.Knowledge|Listen|Search|Sense Motive|Spellcraft|Spot
 1	SAB:Charm																																													ADD:SPELLCASTER|1|ANY	SPELLS:Class|TIMES=1|Charm
@@ -99,7 +99,7 @@ CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Dip
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:1,Craft (Alchemy)=3	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Spellcraft=1
+CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Arcana)=3,Spellcraft=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency					AUTO:WEAPONPROF|TYPE.Martial
@@ -155,7 +155,7 @@ CLASS:Graven One	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (Arca
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat				Multiple Requirements								Required Skill
-CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PREMULT:1,[PREVARGTEQ:Spellsong,2],[PRESPELL:1,Sculpt Sound]	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform (Sing)=9
+CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PREMULT:1,[PREVARGTEQ:Spellsong,2],[PRESPELL:1,Sculpt Sound]	PRESKILL:2,Knowledge (Arcana)=3,Perform (Sing)=9
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|Ride|Sense Motive|Speak Language|Spellcraft|Use Magic Device
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency					AUTO:WEAPONPROF|TYPE.Martial
@@ -176,7 +176,7 @@ CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mirror Master	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat						Required Skill										Req. Spell Type
-CLASS:Mirror Master	PREFEAT:2,Craft Wondrous Item,Mirror Sight	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Craft (Glassmaking)=5	PRESPELLTYPE:1,Arcane=3
+CLASS:Mirror Master	PREFEAT:2,Craft Wondrous Item,Mirror Sight	PRESKILL:2,Knowledge (Arcana)=5,Craft (Glassmaking)=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (The Planes)|TYPE.Profession|Search|Sense Motive|Spellcraft|Spot|Survival
 ###Block: Spells
@@ -202,7 +202,7 @@ CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Knowledge (A
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat							Required Skill									Var. Min. Value
-CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PREFEAT:1,TYPE.Song	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform (Sing)=8	PREVARGTEQ:Spellsong,2
+CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PREFEAT:1,TYPE.Song	PRESKILL:2,Knowledge (Arcana)=3,Perform (Sing)=8	PREVARGTEQ:Spellsong,2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Song Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|Listen|TYPE.Perform|Speak Language|Spellcraft|Spot|Use Magic Device
 1	SAB:Song Magic (%/day)|SongMagic	BONUS:VAR|SongMagic|1										DEFINE:SongMagic|0	ADD:SPELLCASTER|1|ANY
@@ -220,7 +220,7 @@ CLASS:Song Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Scr
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Starlight Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Race	Required Skill										Req. Known Spell
-CLASS:Starlight Mage	PREFEAT:2,Alertness,Spell Focus	PRERACE:1,Elf%	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Astronomy)=8	PRESPELL:3,Dancing Lights,Glitterdust,Temporal Venom
+CLASS:Starlight Mage	PREFEAT:2,Alertness,Spell Focus	PRERACE:1,Elf%	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Astronomy)=8	PRESPELL:3,Dancing Lights,Glitterdust,Temporal Venom
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starlight Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|Search|Spellcraft|Spot
 1	SAB:Spell Appearance Change	SAB:Handle Starlight (Ex)	SAB:Radiance (Su)											ADD:SPELLCASTER|1|ANY
