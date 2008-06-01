@@ -114,7 +114,7 @@ CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Spider Warrior	HD:10		TYPE:PC.Prestige	ABB:SpdrWr		MAXLEVEL:10	SOURCEPAGE:pg.26	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Req. Att.	Required Race		Required Skill
-CLASS:Spider Warrior	PREATT:6	PRERACE:1,Elf (Drow)	PRESKILL:2,Animal Empathy,Ride=6
+CLASS:Spider Warrior	PREATT:6	PRERACE:1,Elf (Drow)	PRESKILL:2,Animal Empathy=6,Ride=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Handle Animal|Hide|Jump|Move Silently|Ride
 ###Block: Proficiencies
@@ -224,8 +224,8 @@ CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidat
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPAGE:pg.64	BONUS:CHECKS|Fortitude|CL/3	BONUS:CHECKS|Reflex,Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
-# Class Name			Required AL	Required Domain		Required Feat			Required Race		Required Skill							Req. Spell Type		Required Text
-CLASS:Servants of the One	PREALIGN:LE	PREDOMAIN:1,Conquest	PREFEAT:2,Iron Will,Toughness	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=3	PRETEXT:See text
+# Class Name			Required AL	Required Domain		Required Feat			Required Race		Required Skill								Req. Spell Type		Required Text
+CLASS:Servants of the One	PREALIGN:LE	PREDOMAIN:1,Conquest	PREFEAT:2,Iron Will,Toughness	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=3	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
 ###Block: Class Features

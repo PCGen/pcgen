@@ -7,7 +7,7 @@ CLASS:Medicine Man.MOD	PRE:.CLEAR		PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:3,Great Fo
 CLASS:Medicine Man.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE.Perform|Ride|Search|Sense Motive|Spellcraft|Spot|Survival|Swim|Tumble|Use Rope
 
 # Class Name	Clear Prereq.	Required Feat					Required Skill							Required Text
-CLASS:Hunter.MOD	PRE:.CLEAR		PREFEAT:2,Track,Weapon Focus(TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently,Spot=6,Survival=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
+CLASS:Hunter.MOD	PRE:.CLEAR		PREFEAT:2,Track,Weapon Focus(TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently=6,Spot=6,Survival=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
 # Class Name	Removed Class Skill	Class Skill
 CLASS:Hunter.MOD	CSKILL:.CLEAR		CSKILL:Climb|Hide|Jump|Listen|Move Silently|Search|Spot|Survival|Use Rope
 
