@@ -1,0 +1,108 @@
+
+
+###Block:Arcane Arranger ---------------------------------------------------------------------------------------------------------------------------------
+Word on the Street		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Word on the Street
+False Allegiance			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:False Allegiance
+Shadow Resources			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Resources
+Pack Rat				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Pack Rat
+Expert in Your Field		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
+Up My Sleeve			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Up My Sleeve - one object up to Small size|PREVAREQ:UpMySleeveLvl,1	SAB:Up My Sleeve - one object up to Large, or three up to Small|PREVAREQ:UpMySleeveLvl,2		DEFINE:UpMySleeveLvl|0
+
+
+###Block:Archaic Weaponsmaster ---------------------------------------------------------------------------------------------------------------------------------
+Imbue Weapon			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imbue Weapon +%|ImbueWeapon		DEFINE:ImbueWeapon|0
+Quick Weapon Draw			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Quick Weapon Draw
+Expert in Your Field		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
+Weapon Stun				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Weapon Stun
+
+
+###Block:Glamourist ---------------------------------------------------------------------------------------------------------------------------------
+Self Confidence			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Self Confidence
+Hidden Motives			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Hidden Motives
+Hidden Allegiance			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Hidden Allegiance
+Audience				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Audience
+Daze					CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Daze								
+Utterly Convincing		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Utterly Convincing
+Charm Person			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Charm Person							
+
+
+###Block:Mystic ---------------------------------------------------------------------------------------------------------------------------------
+Combat Casting			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Combat Casting
+Discern Lie				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Discern Lie
+
+
+###Block:Shadow Hunter ---------------------------------------------------------------------------------------------------------------------------------
+Target Bonus			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Target Bonus +%|TargetBonus		DEFINE:TargetBonus|0
+Swift Track				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Swift Track
+No Trace				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:No Trace
+Play a Hunch			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Play a Hunch
+Detect Magical Aura		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Detect Magical Aura
+Locate Target			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Locate Target				
+
+
+###Block:Shadowjack ---------------------------------------------------------------------------------------------------------------------------------
+Read/Write Code			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Read/Write Code
+Online Presence			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Online Presence
+Electronic Empathy		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Electronic Empathy	
+Careful Progress			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Careful Progress
+False Trail				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:False Trail	
+Install Backdoor			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Install Backdoor
+Online Spell Resistance		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Online Spell Resistance %|OnlineSpellResistance		DEFINE:OnlineSpellResistance|0
+Improved Degradation		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improved Degradation
+Passfirewall			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Passfirewall	
+Walking Database			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Walking Database
+Virtual Incantations		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Virtual Incantations
+
+
+###Block:Speed Demon ---------------------------------------------------------------------------------------------------------------------------------
+Hit the Weak Spot			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Hit the Weak Spot
+Vehicle Empathy			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Vehicle Empathy		
+Need for Speed			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Need for Speed
+Nursing the Turns			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Nursing the Turns
+Commandeer				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Commandeer			
+Leadfoot				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Leadfoot
+Redlining the Needle		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Redlining the Needle
+Restore Vehicle			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Restore Vehicle		
+One with the Machine		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:One with the Machine
+
+
+###Block:Street Warrior ---------------------------------------------------------------------------------------------------------------------------------
+Urban Survival				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Urban Survival
+Improvised Weapons			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapons
+Street Cred					CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Street Cred
+Improved Streetfighting			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improved Streetfighting
+Improvised Weapon Damage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapon Damage
+Advanced Streetfighting			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Advanced Streetfighting
+
+
+###Block:Swashbuckler ---------------------------------------------------------------------------------------------------------------------------------
+Quick Weapon Draw			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Quick Weapon Draw
+Deflect Missiles			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Deflect Missiles
+Touche				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Touche
+
+
+###Block:Techno Mage ---------------------------------------------------------------------------------------------------------------------------------
+Arcane Skills			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Skills		BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
+Machine Empathy			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Machine Empathy
+Program Spell			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Program Spell																																																											ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
+Create Homunculus			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Create Homunculus
+Online Casting			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Online Casting
+
+
+###Block:Thrasher ---------------------------------------------------------------------------------------------------------------------------------
+Tough Defense			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Tough Defense					BONUS:COMBAT|AC|CON-DEX
+Ability Surge			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Ability Surge %/day|AbilitySurge	DEFINE:AbilitySurge|0
+
+
+###Block:Wildlord ---------------------------------------------------------------------------------------------------------------------------------
+Animal Empathy			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Animal Empathy
+Animal Companion			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Animal Companion										
+Fast Climb				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Fast Climb					
+Resist Venom			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Resist Venom	
+Call Companion			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Call Companion
+Skill Mastery			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery					
+#Expert in Your Field		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
+Transform Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Transform Companion				
+
+
+###EOF
