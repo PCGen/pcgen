@@ -26,6 +26,7 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
 
 import java.util.*;
 
@@ -199,7 +200,9 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
 			}
 			catch (PersistenceLayerException e)
 			{
-				e.printStackTrace();
+				Logging.errorPrint("Failed to parse prereq of " + keyName
+					+ " in category " + category + " due to :", e);
+				Logging.errorPrint("Ignoring further prereqs for this object.");
 			}
 		}
 	}
