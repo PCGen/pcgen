@@ -77,6 +77,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -236,7 +237,7 @@ public class PCClass extends PObject
 	 * selections the character takes at a given level) - triggered by
 	 * addLevel
 	 */
-	private List<String> classSkillList = null;
+	private List<ClassSkillList> classSkillList = null;
 
 	/*
 	 * FUTURETYPESAFETY Dependent upon classSpellChoices being type safe, which
@@ -270,23 +271,6 @@ public class PCClass extends PObject
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
 	private List<LevelProperty<Vision>> visionList = null;
-
-	/*
-	 * FINALPCCLASSONLY The selected delegate skill lists [see classSkillList]
-	 * (not the raw classSkillChoices) need to be stored in EACH individual
-	 * PCClassLevel. This is the case because each individual PCClassLevel will
-	 * be capable of granting skills, and this is the delegate to determine what
-	 * is appropriate (skill-wise) for any given PCClassLevel.
-	 */
-	/*
-	 * FUTURETYPESAFETY This should be better than a String... the problem here
-	 * is that this is dependent upon the Choice system being type safe. While
-	 * it doesn't LOOK type-hostile, it is using a LOT of unchecked Objects,
-	 * which makes me sensitive to the fact that it may NOT be entirely type
-	 * safe. Better to rebuild that at some point to be Java 1.5 friendly and
-	 * then have this as a later dependency.
-	 */
-	private ChoiceList<String> classSkillChoices = null;
 
 	/*
 	 * FUTURETYPESAFETY This should not be a String, but a member of a Typesafe
@@ -903,16 +887,6 @@ public class PCClass extends PObject
 		}
 
 		return total;
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is required in PCClass since it is 
-	 * a Tag, but is used for construction of PCClassLevels and therefore
-	 * not passed into a PCCLassLevel
-	 */
-	public void setClassSkillChoices(int choiceCount, List<String> choices)
-	{
-		classSkillChoices = ChoiceList.getChoiceList(choiceCount, choices);
 	}
 
 	/*
@@ -2553,11 +2527,6 @@ public class PCClass extends PObject
 			pccTxt.append("\tITEMCREATE:").append(itemCreationMultiplier);
 		}
 
-		if (classSkillChoices != null)
-		{
-			checkAdd(pccTxt, "", "SKILLLIST:", classSkillChoices.toString());
-		}
-
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 
@@ -2860,13 +2829,13 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public void addClassSkill(final String tok)
+	public void addClassSkill(ClassSkillList csl)
 	{
 		if (classSkillList == null)
 		{
-			classSkillList = new ArrayList<String>();
+			classSkillList = new ArrayList<ClassSkillList>();
 		}
-		classSkillList.add(tok);
+		classSkillList.add(csl);
 	}
 
 	/*
@@ -3491,9 +3460,9 @@ public class PCClass extends PObject
 			return false;
 		}
 
-		for (String key : classSkillList)
+		for (ClassSkillList key : classSkillList)
 		{
-			final PCClass pcClass = Globals.getClassKeyed(key);
+			final PCClass pcClass = Globals.getClassKeyed(key.getLSTformat());
 
 			if ((pcClass != null) && pcClass.hasCSkill(aString))
 			{
@@ -3773,9 +3742,32 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	final List<String> getClassSkillList()
+	final List<ClassSkillList> getClassSkillList()
 	{
-		return classSkillList;
+		if (classSkillList == null)
+		{
+			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
+			ReferenceContext ref = Globals.getContext().ref;
+			Class<ClassSkillList> cl = ClassSkillList.class;
+			ClassSkillList l = ref.silentlyGetConstructedCDOMObject(cl, getKeyName());
+			if (l != null)
+			{
+				returnList.add(l);
+			}
+			if (subClassKey != null)
+			{
+				l = ref.silentlyGetConstructedCDOMObject(cl, subClassKey);
+				if (l != null)
+				{
+					returnList.add(l);
+				}
+			}
+			return returnList;
+		}
+		else
+		{
+			return classSkillList;
+		}
 	}
 
 	/**
@@ -5763,32 +5755,34 @@ public class PCClass extends PObject
 	 */
 	private void chooseClassSkillList()
 	{
+		TransitionChoice<ClassSkillList> csc = get(ObjectKey.SKILLLIST_CHOICE);
 		// if no entry or no choices, just return
-		if (classSkillChoices == null)
+		if (csc == null || (level < 1))
 		{
 			return;
 		}
 
 		clearClassSkillList();
 
-		List<String> classSkillChoiceList = classSkillChoices.getList();
-		if (classSkillChoiceList.size() == 1)
+		ChoiceSet<? extends ClassSkillList> choiceSet = csc.getChoices();
+		Set<? extends ClassSkillList> lists = choiceSet.getSet(null);
+		if (lists.size() == 1)
 		{
-			addClassSkill(classSkillChoiceList.get(0));
+			addClassSkill(lists.iterator().next());
 			return;
 		}
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Select class whose class-skills this class will inherit");
-		c.setTotalChoicesAvail(classSkillChoices.getCount());
+		c.setTotalChoicesAvail(csc.getCount());
 		c.setPoolFlag(false);
-		c.setAvailableList(classSkillChoiceList);
+		c.setAvailableList(new ArrayList<ClassSkillList>(lists));
 		c.setVisible(true);
 
-		final List<String> selectedList = c.getSelectedList();
-		for (String sel : selectedList)
+		List<ClassSkillList> selectedList = c.getSelectedList();
+		for (ClassSkillList st : selectedList)
 		{
-			addClassSkill(sel);
+			addClassSkill(st);
 		}
 	}
 

@@ -133,14 +133,12 @@ public final class Skill extends PObject
 		{
 			for (CDOMReference<ClassSkillList> ref : classes)
 			{
-				String aString = ref.getLSTformat();
-				if (Constants.ALLREF_LST.equals(aString)
-						|| aString.equalsIgnoreCase(aClass.getKeyName())
-						|| aString.equalsIgnoreCase(aClass.getSubClassKey())
-						|| ((aClass.getClassSkillList() != null) && aClass
-								.getClassSkillList().contains(aString)))
+				for (ClassSkillList csl : aClass.getClassSkillList())
 				{
-					return true;
+					if (ref.contains(csl))
+					{
+						return true;
+					}
 				}
 			}
 		}

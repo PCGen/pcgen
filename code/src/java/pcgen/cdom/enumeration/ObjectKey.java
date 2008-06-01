@@ -36,6 +36,7 @@ import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.content.TransitionChoice;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -167,6 +168,8 @@ public final class ObjectKey<T>
 	public static final ObjectKey<DomainSpellList> DOMAIN_SPELLLIST = new ObjectKey<DomainSpellList>(null);
 
 	public static final ObjectKey<TransitionChoice<CDOMListObject<Spell>>> SPELLLIST_CHOICE = new ObjectKey<TransitionChoice<CDOMListObject<Spell>>>(null);
+
+	public static final ObjectKey<TransitionChoice<ClassSkillList>> SKILLLIST_CHOICE = new ObjectKey<TransitionChoice<ClassSkillList>>(null);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

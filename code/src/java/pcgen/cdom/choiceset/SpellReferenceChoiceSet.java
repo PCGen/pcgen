@@ -13,13 +13,14 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.TokenUtilities;
 
-public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObject>
+public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObject<Spell>>
 {
-	private final Set<CDOMReference<? extends CDOMListObject>> set;
+	private final Set<CDOMReference<? extends CDOMListObject<Spell>>> set;
 
-	public SpellReferenceChoiceSet(Collection<CDOMReference<? extends CDOMListObject>> col)
+	public SpellReferenceChoiceSet(Collection<CDOMReference<? extends CDOMListObject<Spell>>> col)
 	{
 		if (col == null)
 		{
@@ -31,7 +32,7 @@ public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObjec
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new HashSet<CDOMReference<? extends CDOMListObject>>(col);
+		set = new HashSet<CDOMReference<? extends CDOMListObject<Spell>>>(col);
 	}
 
 	public String getLSTformat()
@@ -76,10 +77,10 @@ public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObjec
 		return CDOMListObject.class;
 	}
 
-	public Set<CDOMListObject> getSet(PlayerCharacter pc)
+	public Set<CDOMListObject<Spell>> getSet(PlayerCharacter pc)
 	{
-		Set<CDOMListObject> returnSet = new HashSet<CDOMListObject>();
-		for (CDOMReference<? extends CDOMListObject> ref : set)
+		Set<CDOMListObject<Spell>> returnSet = new HashSet<CDOMListObject<Spell>>();
+		for (CDOMReference<? extends CDOMListObject<Spell>> ref : set)
 		{
 			returnSet.addAll(ref.getContainedObjects());
 		}
