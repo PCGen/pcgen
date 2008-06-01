@@ -102,7 +102,7 @@ CLASS:Blessed Prelate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Hallowed Mage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:HMa		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
 # Class Name		Required AL		Required Feat					Required Skill							Req. Spell Type
-CLASS:Hallowed Mage	PREALIGN:LG,NG,CG	PREFEAT:2,Devout Faith,Vow of Obedience	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=8	PRESPELLTYPE:1,Arcane=3	PRESPELLTYPE:1,Divine=3
+CLASS:Hallowed Mage	PREALIGN:LG,NG,CG	PREFEAT:2,Devout Faith,Vow of Obedience	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Religion)=8	PRESPELLTYPE:1,Arcane=3	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hallowed Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels					Caster level

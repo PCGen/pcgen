@@ -5,7 +5,7 @@ SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MP
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
 CLASS:Corporate Fixer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name		Required Feat										Required Skill
-CLASS:Corporate Fixer	PREFEAT:2,Track,Urban Tracking	PREFEAT:1,Sneak Attack,Swift Strike	PRESKILL:2,Investigate,Survival=10	PRESKILL:3,Craft (Chemical),Demolitions,Knowledge (Streetwise)=6
+CLASS:Corporate Fixer	PREMULT:2,[PREFEAT:2,Track,Urban Tracking],[PREFEAT:1,Sneak Attack,Swift Strike]	PRESKILL:5,Investigate=10,Survival=10,Craft (Chemical)=6,Demolitions=6,Knowledge (Streetwise)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Corporate Fixer	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Craft (Chemical)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Listen|Move Silently|Navigate|Pilot|Research|Sense Motive|Spot|Survival
 ###Block:Sneak Attack

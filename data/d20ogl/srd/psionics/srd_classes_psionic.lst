@@ -109,7 +109,7 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 # Class Name	Hit Dice	Type					Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus														Combat bonus					Modify VAR
 CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
 # Class Name	Required Feat			Required Skill						Req. Spell Type
-CLASS:Metamind	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
+CLASS:Metamind	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metamind	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft|Remote View
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
@@ -147,7 +147,7 @@ SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUB
 # Class Name		Hit Dice	Type					Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus														Combat bonus
 CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Skill					Req. Known Spell			Required Text											Var. Min. Value
-CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:2,Alchemy,Knowledge (Psionics)=1	PRESPELL:1,Control Flames	PRETEXT:Must have set fire to a structure of any size just to watch it burn	PREVARGTEQ:BasePowerPoints,10
+CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:2,Alchemy=1,Knowledge (Psionics)=1	PRESPELL:1,Control Flames	PRETEXT:Must have set fire to a structure of any size just to watch it burn	PREVARGTEQ:BasePowerPoints,10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
@@ -185,7 +185,7 @@ SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[
 # Class Name	Hit Dice	Type					Max Level	Source Page					Save checks bonus														Combat bonus
 CLASS:Slayer	HD:10		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat	Required Skill											Required Text																		Var. Min. Value
-CLASS:Slayer	PREATT:3	PREFEAT:1,Track	PRESKILL:1,Knowledge (Mortal Enemy Lore)=1	PRESKILL:1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PREVARGTEQ:BasePowerPoints,3
+CLASS:Slayer	PREATT:3	PREFEAT:1,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
@@ -220,7 +220,7 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 # Class Name	Hit Dice	Type					Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus															Combat bonus
 CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill						Var. Min. Value
-CLASS:Soulknife	PREATT:3	PRESKILL:2,Move Silently,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
+CLASS:Soulknife	PREATT:3	PRESKILL:2,Move Silently=3,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Concentration|Hide|Knowledge (Psionics)|Move Silently|Sense Motive|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List

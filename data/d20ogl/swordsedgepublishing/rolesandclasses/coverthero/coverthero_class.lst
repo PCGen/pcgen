@@ -4,7 +4,7 @@ SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
 CLASS:Covert Hero	HD:6		TYPE:PC.Specialized	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Required Feat						Required Skill
-CLASS:Covert Hero	PREFEAT:1,Alertness,Deceptive,Nimble,Stealthy	PRESKILL:1,Hide,Move Silently=4
+CLASS:Covert Hero	PREFEAT:1,Alertness,Deceptive,Nimble,Stealthy	PRESKILL:1,Hide=4,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Covert Hero	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Drive|Escape Artist|Forgery|Gamble|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|Profession|Read/Write Language|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Swim|Tumble
 1	BONUS:ABILITYPOOL|Covert Hero Talent|1

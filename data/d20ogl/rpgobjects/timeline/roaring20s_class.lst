@@ -30,7 +30,7 @@ CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|D
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Intrepid Reporter	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name		Required Feat		Required Skill
-CLASS:Intrepid Reporter	PREFEAT:1,Trustworthy	PRESKILL:2,Gather Information,Knowledge (Current Events)=6
+CLASS:Intrepid Reporter	PREFEAT:1,Trustworthy	PRESKILL:2,Gather Information=6,Knowledge (Current Events)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Intrepid Reporter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Diplomacy|Drive|Forgery|Gather Information|Investigate|Knowledge (Current Events)|Knowledge (Popular Culture)|Listen|Research|Search|Sense Motive|Spot
 1				BONUS:VAR|ReliableSources|CL	AUTO:FEAT|Reliable Sources
@@ -43,7 +43,7 @@ CLASS:Intrepid Reporter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Diplomac
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Mob Boss	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
 # Class Name	Required Feat		Required Skill
-CLASS:Mob Boss	PREFEAT:1,Henchmen	PRESKILL:2,Bluff,Knowledge (Streetwise)=6
+CLASS:Mob Boss	PREFEAT:1,Henchmen	PRESKILL:2,Bluff=6,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mob Boss	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Sense Motive
 1				BONUS:VAR|UndueInfluence|CL	AUTO:FEAT|Undue Influence
@@ -57,7 +57,7 @@ CLASS:Mob Boss	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gamble|Gathe
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat			Required Skill
-CLASS:Mystery Man	PREATT:2	PREFEAT:1,Secret Identity	PRESKILL:2,Intimidate,Knowledge (Streetwise)=6
+CLASS:Mystery Man	PREATT:2	PREFEAT:1,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
 1					BONUS:VAR|Persona|CL	AUTO:FEAT|Persona

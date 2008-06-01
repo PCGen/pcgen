@@ -4,7 +4,7 @@ SOURCELONG:Modern Dispatch #115 - Airborne Legionnaire	SOURCESHORT:MD115	SOURCEW
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
 CLASS:Airborne Legionnaire	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
 # Class Name			Req. Att.	Multiple Requirements								Required Stat
-CLASS:Airborne Legionnaire	PREATT:8	PREMULT:1,[PRESKILL:1,Ride=4],[PRESKILL:2,Pilot,Handle Animal=4]	PRESTAT:1,DEX=13
+CLASS:Airborne Legionnaire	PREATT:8	PREMULT:1,[PRESKILL:1,Ride=4],[PRESKILL:2,Pilot=4,Handle Animal=4]	PRESTAT:1,DEX=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Airborne Legionnaire	STARTSKILLPTS:4	CSKILL:Balance|Climb|Listen|Jump|Spot|Navigate|Tumble|Ride|Handle Animal|Bluff|Concentration|Profession|Survival
 1	SAB:Share Spells									VFEAT:Flyby Attack

@@ -4,7 +4,7 @@ SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://w
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Demagogue	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill
-CLASS:Demagogue	PREFEAT:3,Conviction,Enemy,Leadership	PRESKILL:2,Bluff,Intimidate=5	PRESKILL:2,Craft (Writing),Diplomacy=10
+CLASS:Demagogue	PREFEAT:3,Conviction,Enemy,Leadership	PRESKILL:4,Bluff=5,Intimidate=5,Craft (Writing)=10,Diplomacy=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Demagogue	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Writing)|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Sense Motive
 1	SAB:Cult of Personality
@@ -19,7 +19,7 @@ CLASS:Demagogue	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Writing)|Diplomacy|Disguise|
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Guerilla	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat				Required Skill
-CLASS:Guerilla	PREATT:3	PREFEAT:2,Conviction,Home Turf	PRESKILL:2,Knowledge (Current Events),Knowledge (Tactics)=3
+CLASS:Guerilla	PREATT:3	PREFEAT:2,Conviction,Home Turf	PRESKILL:2,Knowledge (Current Events)=3,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guerilla	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Drive|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Spot
 1	SAB:Guerilla Warfare
@@ -36,7 +36,7 @@ CLASS:Guerilla	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electr
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Organizer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name	Required Feat					Required Skill
-CLASS:Organizer	PREFEAT:3,Conviction,Leadership,Windfall	PRESKILL:3,Computer Use,Gather Information,Knowledge (Business)=5	PRESKILL:1,Diplomacy=10
+CLASS:Organizer	PREFEAT:3,Conviction,Leadership,Windfall	PRESKILL:4,Computer Use=5,Gather Information=5,Knowledge (Business)=5,Diplomacy=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Organizer	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Writing)|Computer Use|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Sense Motive
 1	SAB:Wealth +%|OrganizerWealth		BONUS:VAR|OrganizerWealth|CL/3+1	DEFINE:OrganizerWealth|0	ADD:FEAT|1|Windfall
@@ -53,7 +53,7 @@ CLASS:Organizer	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Writing)|Computer Use|Diplom
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Psyop		HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name	Required Feat																					Required Skill							Required Text
-CLASS:Psyop		PREFEAT:6,Interrogation,Psychological Warfare,Personal Firearms Proficiency,MOS Intelligence 3,Jump School,Defense Language Institute	PRESKILL:3,Craft (Writing),Diplomacy,Intimidate=5	PRETEXT:Active or Reserve Duty (US Army)
+CLASS:Psyop		PREFEAT:6,Interrogation,Psychological Warfare,Personal Firearms Proficiency,MOS Intelligence 3,Jump School,Defense Language Institute	PRESKILL:3,Craft (Writing)=5,Diplomacy,Intimidate=5	PRETEXT:Active or Reserve Duty (US Army)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Psyop		STARTSKILLPTS:8	CSKILL:Bluff|Climb|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Tactics)|Move Silently|Paradrop|Read/Write Language|Sense Motive|Speak Language
 1	SAB:Talk Down One Opponent within 15 ft, Will DC %|10+CL+CHA|PREVARLT:CL,5
@@ -68,7 +68,7 @@ CLASS:Psyop		STARTSKILLPTS:8	CSKILL:Bluff|Climb|Craft (Writing)|Decipher Script|
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:SWAT		HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name	Req. Att.	Required Feat							Required Skill								Required Text
-CLASS:SWAT		PREATT:5	PREFEAT:2,Personal Firearms Proficiency,Teamwork	PRESKILL:4,Climb,Hide,Intimidate,Knowledge (Tactics)=5	PRETEXT:Active Duty (one police force)
+CLASS:SWAT		PREATT:5	PREFEAT:2,Personal Firearms Proficiency,Teamwork	PRESKILL:4,Climb=5,Hide=5,Intimidate=5,Knowledge (Tactics)=5	PRETEXT:Active Duty (one police force)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:SWAT		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Hide|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Tactics)|Move Silently|Sense Motive|Spot|Swim
 1	SAB:Quick Response +%|QuickResponse	BONUS:VAR|QuickResponse|1	BONUS:COMBAT|INITIATIVE|QuickResponse	BONUS:SKILL|Intimidate|QuickResponse				DEFINE:QuickResponse|0
@@ -85,7 +85,7 @@ CLASS:SWAT		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Hide|Intimidate|Investi
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Terrorist	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
 # Class Name	Req. Att.	Required Feat					Required Skill								Required Text
-CLASS:Terrorist	PREATT:7	PREFEAT:3,Antithesis,Conviction,Enemy	PRESKILL:4,Demolitions,Disable Device,Hide,Move Silently=8	PRETEXT:One group or cause related to Enemy and Antithesis feats
+CLASS:Terrorist	PREATT:7	PREFEAT:3,Antithesis,Conviction,Enemy	PRESKILL:4,Demolitions=8,Disable Device=8,Hide=8,Move Silently=8	PRETEXT:One group or cause related to Enemy and Antithesis feats
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Intimidate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Read/Write Language|Search|Sense Motive|Speak Language|Survival
 1	SAB:Suicidal Attack
@@ -103,7 +103,7 @@ CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Elect
 # Class Name					Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:US Secret Service Protective Detail	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name					Req. Att.	Required Feat								Required Skill											Required Text
-CLASS:US Secret Service Protective Detail	PREATT:5	PREFEAT:3,Personal Firearms Proficiency,Alertness,Teamwork	PRESKILL:1,Knowledge (Tactics)=5	PRESKILL:3,Listen,Sense Motive,Spot=8	PRETEXT:Active Duty (US Secret Service)
+CLASS:US Secret Service Protective Detail	PREATT:5	PREFEAT:3,Personal Firearms Proficiency,Alertness,Teamwork	PRESKILL:4,Knowledge (Tactics)=5,Listen=8,Sense Motive=8,Spot=8	PRETEXT:Active Duty (US Secret Service)
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:US Secret Service Protective Detail	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Tactics)|Listen|Sense Motive|Spot
 1	SAB:Harms Way
@@ -118,7 +118,7 @@ CLASS:US Secret Service Protective Detail	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus		Modify VAR
 CLASS:Y12 SRT	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name	Req. Att.	Required Feat																Required Skill					Required Text
-CLASS:Y12 SRT	PREATT:8	PREFEAT:7,Personal Firearms Proficiency,Teamwork,Point Blank Shot,Dodge,Mobility,Shot on the Run,MOS NBC 1	PRESKILL:3,Investigate,Listen,Spot=8	PRETEXT:Active Duty (Depart of Energy)
+CLASS:Y12 SRT	PREATT:8	PREFEAT:7,Personal Firearms Proficiency,Teamwork,Point Blank Shot,Dodge,Mobility,Shot on the Run,MOS NBC 1	PRESKILL:3,Investigate=8,Listen,Spot=8	PRETEXT:Active Duty (Depart of Energy)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Y12 SRT	STARTSKILLPTS:6	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|Drive|Hide|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Tactics)|Listen|Move Silently|Sense Motive|Spot
 1	SAB:Mental Toughness
@@ -134,7 +134,7 @@ CLASS:Y12 SRT	STARTSKILLPTS:6	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus		Modify VAR
 CLASS:Zealot	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat			Required Skill				Required Text
-CLASS:Zealot	PREATT:2	PREFEAT:1,Enemy,Conviction	PRESKILL:2,Demolitions,Intimidate=3	PRETEXT:One group or cause related to Enemy and Antithesis feats
+CLASS:Zealot	PREATT:2	PREFEAT:1,Enemy,Conviction	PRESKILL:2,Demolitions=3,Intimidate=3	PRETEXT:One group or cause related to Enemy and Antithesis feats
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Zealot	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Drive|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Spot
 ### need help on how to do Fanaticism...just like the Terrorist

@@ -4,7 +4,8 @@ SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFn
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Operations Expert	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Skill
-CLASS:Operations Expert	PRESKILL:4,Craft (Electronic),Craft (Mechanical),Craft (Structural),Repair
+CLASS:Operations Expert	PRESKILL:4,Craft (Electronic)=1,Craft (Mechanical)=1,Craft (Structural)=1,Repair=1
+#COMMENT: NO RANK GIVEN PRESKILL:4,Craft (Electronic),Craft (Mechanical),Craft (Structural),Repair  FIXING TO =1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Operations Expert	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Knowledge (Physical Sciences)|Knowledge (Technology)|Pilot|Repair
 1	SAB:Emergency Power +%|EmergencyPower					BONUS:VAR|EmergencyPower|(CL/4)+1			DEFINE:EmergencyPower|0
@@ -34,7 +35,7 @@ CLASS:Starship Gunner	STARTSKILLPTS:2	CSKILL:Computer Use|Demolitions|Disable De
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Starship Marine	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Feat							Required Skill
-CLASS:Starship Marine	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,Teamwork	PRESKILL:2,Intimidate,Survival=3
+CLASS:Starship Marine	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,Teamwork	PRESKILL:2,Intimidate=3,Survival=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starship Marine	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Gamble|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Repair|Spot|Survival|Tumble
 1	SAB:Beachhead +%|Beachhead	BONUS:VAR|Beachhead|1							DEFINE:Beachhead|0
@@ -51,7 +52,7 @@ CLASS:Starship Marine	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolition
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Starship Navigator	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name			Required Feat				Required Skill
-CLASS:Starship Navigator	PREFEAT:2,Spacer,Improved Slingshot	PRESKILL:2,Computer Use,Navigate=6
+CLASS:Starship Navigator	PREFEAT:2,Spacer,Improved Slingshot	PRESKILL:2,Computer Use=6,Navigate=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Starship Navigator	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Pilot|Repair|Search|Spot
 1	SAB:Slingshot +%|Slingshot	BONUS:VAR|Slingshot|(CL/5)+1	DEFINE:Slingshot|0

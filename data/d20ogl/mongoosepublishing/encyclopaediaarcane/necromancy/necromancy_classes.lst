@@ -6,8 +6,8 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:N
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Spectral Loremaster	HD:4		TYPE:PC.Prestige	ABB:SpL		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name			Required Feat		Required Skill							Required Spell School		Prohibited Sub-school			Req. Spell Type
-CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana),Knowledge (Necrology)=7	PRESPELLSCHOOL:1,Necromancy=1	!PRESPELLSCHOOLSUB:1,Divination=1	PRESPELLTYPE:1,Arcane=1
+# Class Name			Required Feat		Required Skill								Required Spell School		Prohibited Sub-school			Req. Spell Type
+CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana)=7,Knowledge (Necrology)=7	PRESPELLSCHOOL:1,Necromancy=1	!PRESPELLSCHOOLSUB:1,Divination=1	PRESPELLTYPE:1,Arcane=1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Spectral Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
 1	SAB:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																		ADD:SPELLCASTER|1|Arcane												SPELLS:Class|TIMES=1|Speak with Dead
@@ -40,8 +40,8 @@ CLASS:Deathseeker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.K
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Necrophage	HD:4		TYPE:PC.Prestige	ABB:Ncp		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required AL				Required Skill													Req. Spell Type
-CLASS:Necrophage	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:1,Knowledge (Necrology)=10	PRESKILL:2,Knowledge (Anatomy),Knowledge (Arcana)=7	PRESPELLTYPE:1,Arcane=0
+# Class Name	Required AL				Required Skill												Req. Spell Type
+CLASS:Necrophage	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:3,Knowledge (Necrology)=10,Knowledge (Anatomy)=7,Knowledge (Arcana)=7	PRESPELLTYPE:1,Arcane=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Necrophage	STARTSKILLPTS:2	CSKILL:Alchemy|TYPE.Craft|TYPE.Knowledge|Heal|Spellcraft
 1	SAB:Grafting			ADD:SPELLCASTER|1|Arcane

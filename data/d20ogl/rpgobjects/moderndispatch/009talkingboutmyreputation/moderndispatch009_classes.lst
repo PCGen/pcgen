@@ -5,7 +5,7 @@ SOURCELONG:Modern Dispatch #9 - Talking 'bout my Reputation	SOURCESHORT:MD09-TBM
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Mystery Man	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat						Required Skill
-CLASS:Mystery Man	PREATT:2	PREFEAT:2,Low Profile,Secret Identity (RPGO)	PRESKILL:2,Intimidate,Knowledge (Streetwise)=6
+CLASS:Mystery Man	PREATT:2	PREFEAT:2,Low Profile,Secret Identity (RPGO)	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystery Man	STARTSKILLPTS:7	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
 1	SAB:Persona

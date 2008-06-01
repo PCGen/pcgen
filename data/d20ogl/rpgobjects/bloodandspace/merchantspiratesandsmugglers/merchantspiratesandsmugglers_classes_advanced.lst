@@ -4,7 +4,7 @@ SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MP
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Mercenary	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat											Required Skill
-CLASS:Mercenary	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PREFEAT:1,Brawl,Combat Martial Arts	PRESKILL:1,Knowledge (Tactics)=3
+CLASS:Mercenary	PREATT:3	PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,Brawl,Combat Martial Arts]	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|Read/Write Language|Speak Language|Spot|Survival|Swim
 ###Block: Rage variables
@@ -24,7 +24,7 @@ CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowled
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Merchant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Merchant	PREFEAT:1,Trustworthy	PRESKILL:2,Bluff,Diplomacy=6
+CLASS:Merchant	PREFEAT:1,Trustworthy	PRESKILL:2,Bluff=6,Diplomacy=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE.Perform|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language
 1	SAB:1st Market
@@ -41,7 +41,7 @@ CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Inform
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
 CLASS:Pirate	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat						Required Skill
-CLASS:Pirate	PREATT:2	PREFEAT:2,Starship Operation,Zero G Training	PRESKILL:2,Pilot,Tumble=6
+CLASS:Pirate	PREATT:2	PREFEAT:2,Starship Operation,Zero G Training	PRESKILL:2,Pilot=6,Tumble=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|Read/Write Language|Speak Language|Tumble
 ###Block:Sneak Attack
@@ -58,7 +58,7 @@ CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Devic
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
 CLASS:Smuggler	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat			Required Skill
-CLASS:Smuggler	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot,Knowledge (Streetwise)=6
+CLASS:Smuggler	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot=6,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Smuggler	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Disguise|Forgery|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Navigate|Pilot|Sense Motive
 1	SAB:Concealed Cargo

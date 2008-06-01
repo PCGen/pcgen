@@ -4,7 +4,7 @@ SOURCELONG:Modern Dispatch #67 - The Precinct	SOURCESHORT:MD67-Precinct	SOURCEWE
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Bad Cop	HD:10		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Bad Cop	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6	PRESKILL:1,Knowledge (Streetwise)=3
+CLASS:Bad Cop	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Repair|Sense Motive|Swim
 1	SAB:Bad Cop (Unfriendly Persuasion) +%|Reputation
@@ -20,7 +20,7 @@ CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Kno
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Good Cop	HD:8		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name	Required Feat		Required Skill
-CLASS:Good Cop	PREFEAT:1,Trustworthy	PRESKILL:3,Bluff,Diplomacy,Gather Information=6
+CLASS:Good Cop	PREFEAT:1,Trustworthy	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Good Cop	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Drive|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Investigate|Listen|Sense Motive|Spot
 1	SAB:Good Cop (Friendly Persuasion) +%|Reputation

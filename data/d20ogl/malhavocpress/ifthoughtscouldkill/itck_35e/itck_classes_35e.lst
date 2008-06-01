@@ -26,7 +26,7 @@ CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Cra
 # Class Name		Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Feat			Required Skill								Req. Spell Type
-CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:1,Psicraft=4	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
+CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Psicraft=4,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
 ###Block: Psicrystal info

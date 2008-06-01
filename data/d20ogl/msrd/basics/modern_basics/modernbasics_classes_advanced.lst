@@ -53,7 +53,7 @@ CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Int
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	ABB:Guns		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Gunslinger	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand,Tumble=6
+CLASS:Gunslinger	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand=6,Tumble=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival|Tumble
 1	SAB:Close Combat Shot
@@ -70,7 +70,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Ga
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	ABB:Infi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Skill
-CLASS:Infiltrator	PREATT:2	PRESKILL:2,Hide,Move Silently=6
+CLASS:Infiltrator	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Investigate|Jump|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
 1	SAB:Sweep|PREVARLT:CL,8		BONUS:CHECKS|BASE.Reflex|var("CL=Infiltrator")/2+2
@@ -87,7 +87,7 @@ CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|E
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Daredevil	HD:10		TYPE:Advanced.PC	ABB:Dare		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat		Required Skill
-CLASS:Daredevil	PREATT:2	PREFEAT:1,Endurance	PRESKILL:2,Concentration,Drive=6
+CLASS:Daredevil	PREATT:2	PREFEAT:1,Endurance	PRESKILL:2,Concentration=6,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Daredevil	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Demolitions|Drive|Escape Artist|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Pilot|Profession|Read/Write Language|Ride|Speak Language|Spot|Swim|Tumble
 1	SAB:Fearless
@@ -104,7 +104,7 @@ CLASS:Daredevil	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Demolitions|D
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Bodyguard	HD:12		TYPE:Advanced.PC	ABB:Body		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Bodyguard	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Concentration,Intimidate=6
+CLASS:Bodyguard	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Concentration=6,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Search|Sense Motive|Speak Language|Spot
 1	SAB:Harm's Way
@@ -121,7 +121,7 @@ CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gath
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
 CLASS:Field Scientist	HD:8		TYPE:Advanced.PC	ABB:Fiel		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Skill
-CLASS:Field Scientist	PRESKILL:1,Craft (Chemical),Craft (Electronic)=6	PRESKILL:1,Knowledge (Earth and Life Sciences),Knowledge (Physical Sciences),Knowledge (Technology)=6	PRESKILL:1,Research=6
+CLASS:Field Scientist	PREMULT:3,[PRESKILL:1,Craft (Chemical)=6,Craft (Electronic)=6],[PRESKILL:1,Knowledge (Earth and Life Sciences)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6],[PRESKILL:1,Research=6]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Field Scientist	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Drive|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Research|Search|Speak Language
 1	SAB:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
@@ -138,7 +138,7 @@ CLASS:Field Scientist	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Chemical)|Craft
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Techie	HD:6		TYPE:Advanced.PC	ABB:Techi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
-CLASS:Techie	PRESKILL:1,Computer Use=6	PRESKILL:1,Craft (Electronic),Craft (Mechanical)=6	PRESKILL:1,Disable Device=6
+CLASS:Techie	PREMULT:3,[PRESKILL:2,Computer Use=6,Disable Device=6],[PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
 1	SAB:Jury Rig +%|TechieRig					DEFINE:TechieRig|2
@@ -156,7 +156,7 @@ CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mecha
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
 CLASS:Field Medic	HD:8		TYPE:Advanced.PC	ABB:Fiel		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat	Required Skill
-CLASS:Field Medic	PREATT:2	PREFEAT:1,Surgery	PRESKILL:2,Treat Injury,Spot=6
+CLASS:Field Medic	PREATT:2	PREFEAT:1,Surgery	PRESKILL:2,Treat Injury=6,Spot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Field Medic	STARTSKILLPTS:4	CSKILL:Computer Use|Concentration|Craft (Pharmaceutical)|Diplomacy|Drive|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Pilot|Profession|Read/Write Language|Research|Speak Language|Spot|Treat Injury
 1	SAB:Medical Specialist +%|MedicalSpec					DEFINE:MedicalSpec|1
@@ -173,7 +173,7 @@ CLASS:Field Medic	STARTSKILLPTS:4	CSKILL:Computer Use|Concentration|Craft (Pharm
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Investigator	HD:6		TYPE:Advanced.PC	ABB:Inve		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Skill
-CLASS:Investigator	PREATT:2	PRESKILL:3,Investigate,Listen,Sense Motive=6
+CLASS:Investigator	PREATT:2	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Investigator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
 1	SAB:Profile
@@ -190,7 +190,7 @@ CLASS:Investigator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Disable Device|Driv
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
 CLASS:Personality	HD:6		TYPE:Advanced.PC	ABB:Pers		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill
-CLASS:Personality	PREFEAT:1,Renown	PRESKILL:2,Diplomacy,TYPE.Perform=6
+CLASS:Personality	PREFEAT:1,Renown	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Perform=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Speak Language
 1	SAB:Unlimited Access
@@ -207,7 +207,7 @@ CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Negotiator	HD:8		TYPE:Advanced.PC	ABB:Nego		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Negotiator	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy,Bluff=6
+CLASS:Negotiator	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=6,Bluff=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Drive|Gamble|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Sense Motive|Speak Language|Spot
 1	SAB:Conceal Motive

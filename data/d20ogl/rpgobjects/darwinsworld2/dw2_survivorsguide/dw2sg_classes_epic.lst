@@ -4,7 +4,7 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Champion	HD:12		TYPE:Base.Epic	ABB:Chm		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 44	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL+1)/2)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat			Req. Special Ability	Required Skill
-CLASS:Champion	PREATT:10	PREFEAT:2,Iron Will,Toughness	PRESA:1,Defender%		PRESKILL:1,Knowledge (Tactics)=8	PRESKILL:1,Intimidate=10
+CLASS:Champion	PREATT:10	PREFEAT:2,Iron Will,Toughness	PRESA:1,Defender%		PRESKILL:2,Knowledge (Tactics)=8,Intimidate=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Search|Spot|Survival
 
@@ -21,7 +21,7 @@ CLASS:Champion	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidat
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Mech		HD:6		TYPE:Base.Epic	ABB:Mec		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 46	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Required Feat		Required Skill
-CLASS:Mech		PREFEAT:1,Gearhead	PRESKILL:2,Craft (Electronic),Knowledge (Technology)=10	PRESKILL:1,Craft (Mechanical)=12	PRESKILL:1,Repair=13
+CLASS:Mech		PREFEAT:1,Gearhead	PRESKILL:4,Craft (Electronic)=10,Knowledge (Technology)=10,Craft (Mechanical)=12,Repair=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mech		STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Decipher Script|Demolitions|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Ancient Lore)|Navigate|Read/Write Language|Repair|Research|Speak Language|Spot
 
@@ -37,7 +37,7 @@ CLASS:Mech		STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechan
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Medicine Man	HD:8		TYPE:Base.Epic	ABB:Med		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 46	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name		Required Feat				Required Skill
-CLASS:Medicine Man	PREFEAT:2,Surgery,Medical Expert	PRESKILL:1,Treat Injury=13	PRESKILL:1,Craft (Pharmaceutical)=8	PRESKILL:3,Knowledge (Earth and Life Sciences),Knowledge (Mutant Lore),Knowledge (Technology)=6
+CLASS:Medicine Man	PREFEAT:2,Surgery,Medical Expert	PRESKILL:5,Treat Injury=13,Craft (Pharmaceutical)=8,Knowledge (Earth and Life Sciences)=6,Knowledge (Mutant Lore)=6,Knowledge (Technology)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Medicine Man	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Ancient Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Knowledge (Technology)|Listen|Read/Write Language|Research|Speak Language|Spot|Treat Injury
 
@@ -71,7 +71,7 @@ CLASS:Mutant Hunter	STARTSKILLPTS:5	CSKILL:Disguise|Escape Artist|Gather Informa
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Scientist	HD:6		TYPE:Base.Epic	ABB:Sci		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 51	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Required Skill
-CLASS:Scientist	PRESKILL:2,Knowledge (Technology),Research=13	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Earth and Life Sciences),Knowledge (Physical Sciences)=13
+CLASS:Scientist	PREMULT:2,[PRESKILL:2,Knowledge (Technology)=13,Research=13],[PRESKILL:1,Knowledge (Behavioral Sciences)=13,Knowledge (Earth and Life Sciences)=13,Knowledge (Physical Sciences)=13]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE.Craft|Decipher Script|Disable Device|Drive|TYPE.Knowledge|Navigate|Read/Write Language|Research|Search|Speak Language|Spot
 
@@ -89,7 +89,7 @@ CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE.Craft|Decipher Script|D
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus			Modify VAR
 CLASS:Tech Looter	HD:8		TYPE:Base.Epic	ABB:TLtr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 54	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat			Required Skill
-CLASS:Tech Looter	PREATT:6	PREFEAT:1,Advanced Technology	PRESKILL:1,Knowledge (Technology)=13	PRESKILL:2,Disable Device,Knowledge (Ancient Lore)=8	PRESKILL:1,Gather Information=10	PRESKILL:2,Computer Use,Repair=6
+CLASS:Tech Looter	PREATT:6	PREFEAT:1,Advanced Technology	PRESKILL:6,Knowledge (Technology)=13,Disable Device=8,Knowledge (Ancient Lore)=8,Gather Information=10,Computer Use=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tech Looter	STARTSKILLPTS:5	CSKILL:Computer Use|Decipher Script|Disable Device|Drive|Gather Information|Hide|Knowledge (Ancient Lore)|Knowledge (Technology)|Listen|Move Silently|Navigate|Repair|Search|Sleight of Hand|Spot|Survival
 
@@ -105,7 +105,7 @@ CLASS:Tech Looter	STARTSKILLPTS:5	CSKILL:Computer Use|Decipher Script|Disable De
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Trade Master	HD:6		TYPE:Base.Epic	ABB:TMstr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 55	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|((CL-1)/3)+2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name		Required Feat			Required Skill
-CLASS:Trade Master	PREFEAT:2,Leadership,Market	PRESKILL:1,Bluff=10	PRESKILL:1,Diplomacy=13	PRESKILL:1,Gather Information=8
+CLASS:Trade Master	PREFEAT:2,Leadership,Market	PRESKILL:3,Bluff=10,Diplomacy=13,Gather Information=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Trade Master	STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gather Information|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (Business)|Navigate|Ride|Search|Sense Motive|Speak Language|Spot
 

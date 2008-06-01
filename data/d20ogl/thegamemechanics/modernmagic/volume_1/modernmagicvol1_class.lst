@@ -9,7 +9,7 @@ SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.theg
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:The Ritualist	HD:6		TYPE:PC.Advanced	ABB:Rit		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Skill
-CLASS:The Ritualist	PRESKILL:2,Knowledge (Arcane Lore),Knowledge (Theology and Philosophy)=6	PRESKILL:1,Research=4
+CLASS:The Ritualist	PRESKILL:3,Knowledge (Arcane Lore)=6,Knowledge (Theology and Philosophy)=6,Research=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Ritualist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Knowledge (Arcane Lore)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
 1	SAB:Summon Familiar	SAB:Create Magic Circle
@@ -23,7 +23,7 @@ CLASS:The Ritualist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Magic Grunt	HD:6		TYPE:PC.Advanced	ABB:MGrnt		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat					Required Skill								Required Stat
-CLASS:Magic Grunt	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Knowledge (Tactics),Knowledge (Arcane Lore)=3	PRESTAT:1,INT=10
+CLASS:Magic Grunt	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Knowledge (Tactics)=3,Knowledge (Arcane Lore)=3	PRESTAT:1,INT=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magic Grunt	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Craft (Chemical)|Decipher Script|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Move Silently|Navigate|Profession|Read/Write Language|Speak Language|Spellcraft|Spot|Survival|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level				Use Spell List
@@ -52,7 +52,7 @@ CLASS:Magic Grunt	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Arcane Spec Op	HD:8		TYPE:PC.Prestige	ABB:ASOp		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name		Req. Att.	Required Feat																	Multiple Requirements														Required Skill								Req. Spell Type
-CLASS:Arcane Spec Op	PREATT:6	PREFEAT:6,Advanced Firearms Proficiency,Athletic,Endurance,Personal Firearms Proficiency,Stealthy,Weapon Focus	PREMULT:1,[PRESKILL:1,Treat Injury=5],[PRESKILL:1,Knowledge (Tactics)=10],[PREFEAT:1,Burst Fire]	PRESKILL:2,Knowledge (Tactics),Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,ANY=3
+CLASS:Arcane Spec Op	PREATT:6	PREFEAT:6,Advanced Firearms Proficiency,Athletic,Endurance,Personal Firearms Proficiency,Stealthy,Weapon Focus	PREMULT:1,[PRESKILL:1,Treat Injury=5,Knowledge (Tactics)=10],[PREFEAT:1,Burst Fire]	PRESKILL:2,Knowledge (Tactics)=6,Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,ANY=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Spec Op	STARTSKILLPTS:6	CSKILL:Climb|Craft (Chemical)|Diplomacy|Demolitions|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Jump|Listen|Move Silently|Navigate|Read/Write Language|Speak Language|Spellcraft|Spot|Survival|Swim|Treat Injury|Use Magic Device
 1:REPEATLEVEL:1				ADD:SPELLCASTER|1|Mage
@@ -66,7 +66,7 @@ CLASS:Arcane Spec Op	STARTSKILLPTS:6	CSKILL:Climb|Craft (Chemical)|Diplomacy|Dem
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
 CLASS:Thaumaturgical Specialist	HD:6		TYPE:PC.Prestige	ABB:ThSp		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name				Req. Att.	Required Check Base	Required Feat									Required Skill								Req. Spell Type
-CLASS:Thaumaturgical Specialist	PREATT:6	PRECHECKBASE:1,Will=6	PREFEAT:3,Combat Casting,Fork Spell,Personal Firearms Proficiency	PRESKILL:2,Knowledge (Tactics),Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,Arcane=3
+CLASS:Thaumaturgical Specialist	PREATT:6	PRECHECKBASE:1,Will=6	PREFEAT:3,Combat Casting,Fork Spell,Personal Firearms Proficiency	PRESKILL:2,Knowledge (Tactics)=6,Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,Arcane=3
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Thaumaturgical Specialist	STARTSKILLPTS:6	CSKILL:Climb|Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Profession|Read/Write Language|Search|Speak Language|Spellcraft|Survival|Swim|Use Magic Device
 1:REPEATLEVEL:1	ADD:SPELLCASTER|1|Mage

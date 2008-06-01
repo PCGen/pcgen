@@ -22,7 +22,7 @@ CLASS:Shadow Slayer	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Gather Informat
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Occultist	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/3)	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat			Required Skill
-CLASS:Occultist	PREFEAT:2,Educated,Studious	PRESKILL:3,Decipher Script,Knowledge (Arcane Lore),Research=6
+CLASS:Occultist	PREFEAT:2,Educated,Studious	PRESKILL:3,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Occultist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Drive|Investigate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
@@ -41,7 +41,7 @@ CLASS:Occultist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:N
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Telepath	HD:6		TYPE:Advanced.PC	ABB:Tele		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Telepath	PREFEAT:1,Wild Talent	PRESKILL:3,Bluff,Diplomacy,Gather Information=6
+CLASS:Telepath	PREFEAT:1,Wild Talent	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Telepath	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Sense Motive|Speak Language
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -112,7 +112,7 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Mage		HD:6		TYPE:Advanced.PC	ABB:Mage		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FMLevel|CL	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
-CLASS:Mage		PRESKILL:4,Craft (Chemical),Decipher Script,Knowledge (Arcane Lore),Research=6
+CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
@@ -132,7 +132,7 @@ CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	B
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus						Modify VAR
 CLASS:Acolyte	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Skill
-CLASS:Acolyte	PREATT:2	PRESKILL:3,Knowledge (Theology and Philosophy),Listen,Sense Motive=6
+CLASS:Acolyte	PREATT:2	PRESKILL:3,Knowledge (Theology and Philosophy)=6,Listen=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spellcraft|Treat Injury
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level

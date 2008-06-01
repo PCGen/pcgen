@@ -4,7 +4,7 @@ SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.co
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Armorer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat				Required Skill
-CLASS:Armorer	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:3,Craft (Mechanical),Knowledge (Physical Sciences),Knowledge (Technology)=6
+CLASS:Armorer	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:3,Craft (Mechanical)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Armorer	STARTSKILLPTS:4	CSKILL:Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Intimidate|Knowledge (Business)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Repair|Research
 1	SAB:Armor Affinity +%|ArmorAffinity		BONUS:VAR|ArmorAffinity|CL/5+1	DEFINE:ArmorAffinity|0
@@ -17,7 +17,7 @@ CLASS:Armorer	STARTSKILLPTS:4	CSKILL:Craft (Electronic)|Craft (Mechanical)|Craft
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Arsenal	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill
-CLASS:Arsenal	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:3,Craft (Mechanical),Knowledge (Physical Sciences),Knowledge (Technology)=6
+CLASS:Arsenal	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:3,Craft (Mechanical)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Arsenal	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Repair|Research|Spot
 1	SAB:Weapon Affinity +%|WeaponAffinity		BONUS:VAR|WeaponAffinity|CL/5+1								DEFINE:WeaponAffinity|0
@@ -30,7 +30,7 @@ CLASS:Arsenal	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Chemical)|Craft (Electr
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Combat Engineer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat	Required Skill
-CLASS:Combat Engineer	PREFEAT:1,Builder	PRESKILL:3,Craft (Chemical),Craft (Structural),Demolitions=6
+CLASS:Combat Engineer	PREFEAT:1,Builder	PRESKILL:3,Craft (Chemical)=6,Craft (Structural)=6,Demolitions=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Combat Engineer	STARTSKILLPTS:4	CSKILL:Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Repair|Research|Survival|Swim
 1	SAB:Hasty Construction (Combat Engineer) +%d6|HastyConstructionCE	BONUS:VAR|HastyConstructionCE|CL/5+1	DEFINE:HastyConstructionCE|0
@@ -43,7 +43,7 @@ CLASS:Combat Engineer	STARTSKILLPTS:4	CSKILL:Craft (Chemical)|Craft (Electronic)
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Gadgeteer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill
-CLASS:Gadgeteer	PREFEAT:1,Builder	PRESKILL:2,TYPE.Craft=6	PRESKILL:1,TYPE.Knowledge=6
+CLASS:Gadgeteer	PREFEAT:1,Builder	PREMULT:2,[PRESKILL:2,TYPE.Craft=6],[PRESKILL:1,TYPE.Knowledge=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gadgeteer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Forgery|Knowledge (Physical Sciences)|Knowledge (Technology)|Repair|Research|Sleight of Hand
 1	SAB:Mother of Invention % points|MotherOfInvention	BONUS:VAR|MotherOfInvention|50						DEFINE:MotherOfInvention|0
@@ -58,7 +58,7 @@ CLASS:Gadgeteer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Chemical)|Craft
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Grease Monkey	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat			Required Skill
-CLASS:Grease Monkey	PREFEAT:1,Combat Driving	PRESKILL:2,Craft (Mechanical),Drive=6	PRESKILL:1,Knowledge (Physical Sciences)=3
+CLASS:Grease Monkey	PREFEAT:1,Combat Driving	PRESKILL:3,Craft (Mechanical)=6,Drive=6,Knowledge (Physical Sciences)=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Grease Monkey	STARTSKILLPTS:4	CSKILL:Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Intimidate|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Repair|Research
 1	SAB:Vehicle Affinity +%|VehicleAffinity		BONUS:VAR|VehicleAffinity|CL/5+1	DEFINE:VehicleAffinity|0
@@ -71,7 +71,7 @@ CLASS:Grease Monkey	STARTSKILLPTS:4	CSKILL:Craft (Electronic)|Craft (Mechanical)
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Inventor	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Inventor	PREFEAT:1,Educated	PRESKILL:1,TYPE.Craft=6	PRESKILL:2,Knowledge (Physical Sciences),Knowledge (Technology)=6
+CLASS:Inventor	PREFEAT:1,Educated	PREMULT:2,[PRESKILL:1,TYPE.Craft=6],[PRESKILL:2,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inventor	STARTSKILLPTS:8	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Pilot|Repair|Research
 1	SAB:Magnum Opus +%|MagnumOpus			BONUS:VAR|MagnumOpus|CL/5+1							DEFINE:MagnumOpus|0

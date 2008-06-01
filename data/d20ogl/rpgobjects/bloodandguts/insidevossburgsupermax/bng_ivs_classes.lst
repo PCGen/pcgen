@@ -19,7 +19,7 @@ CLASS:Banger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Gamble|Intimidate|Jump|Kno
 # Class Name						Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:US Marshals Special Operations Group	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
 # Class Name						Req. Att.	Required Feat								Required Skill
-CLASS:US Marshals Special Operations Group	PREATT:5	PREFEAT:3,Alertness,Personal Firearms Proficiency,Teamwork	PRESKILL:1,Investigate=5	PRESKILL:2,Spot,Gather Information=3
+CLASS:US Marshals Special Operations Group	PREATT:5	PREFEAT:3,Alertness,Personal Firearms Proficiency,Teamwork	PRESKILL:3,Investigate=5,Spot=3,Gather Information=3
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:US Marshals Special Operations Group	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Diplomacy|Disguise|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Research|Search|Sense Motive|Spot
 1	SAB:Federal Jurisdiction

@@ -7,7 +7,7 @@ Craft Token			TYPE:ItemCreation										PRESKILL:1,Knowledge (Reverie)=4			DESC
 Fey Blooded			TYPE:General					PREPCLEVEL:MAX=1											DESC:You are a changling, born of fey and human blood									MULT:NO																	SOURCEPAGE:p.34
 Fey Gift			TYPE:Special										PRESKILL:1,Knowledge (Reverie)=1			DESC:You have focused the Reverie within yourself to call upon additional natural gifts	STACK:NO	MULT:YES	CHOOSE:USERINPUT|100|TITLE="Choose a 0 through 3rd level Druid Spell"					SOURCEPAGE:p.34
 #TODO: Fey Gift is not working as it should - until we get a spell chooser it will not be fully functional
-Forge Bond			TYPE:ItemCreation										PRESKILL:2,Knowledge (Reverie),Animal Empathy=4	DESC:You can use the Reverie to forge a mystical bond with an animal companion				MULT:NO																	SOURCEPAGE:p.34
+Forge Bond			TYPE:ItemCreation										PRESKILL:2,Knowledge (Reverie)=4,Animal Empathy=4	DESC:You can use the Reverie to forge a mystical bond with an animal companion				MULT:NO																	SOURCEPAGE:p.34
 Mark of the Fey		TYPE:General					PREPCLEVEL:MAX=1											DESC:You have been marked as one of the champions of the fey							MULT:NO																	SOURCEPAGE:p.34
 Resist Fey			TYPE:General																		DESC:You have builf up a resistance to the enchantments of the fey						MULT:NO																	SOURCEPAGE:p.34
 Waking Dreamer		TYPE:General										PRESKILL:1,Knowledge (Reverie)=12			DESC:You can call upon the powers of the Reverie while you are still awake					MULT:NO																	SOURCEPAGE:p.34
