@@ -6,17 +6,20 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.PCClass;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.ClassWrappedToken;
 import pcgen.rules.persistence.token.PreCompatibilityToken;
 import pcgen.rules.persistence.util.TokenFamily;
 
 public class TokenLibrary
 {
-//	private static final Class<CDOMPCClass> PCCLASS_CLASS = CDOMPCClass.class;
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
 	static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 
@@ -133,11 +136,11 @@ public class TokenLibrary
 		{
 			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;
 			TokenFamily.CURRENT.putToken(tok);
-//			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
-//			{
-//				addToTokenMap(new ClassWrappedToken(
-//						(CDOMPrimaryToken<CDOMPCClass>) tok));
-//			}
+			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
+			{
+				addToTokenMap(new ClassWrappedToken(
+						(CDOMPrimaryToken<PCClass>) tok));
+			}
 		}
 		if (newToken instanceof CDOMSecondaryToken)
 		{
@@ -167,20 +170,20 @@ public class TokenLibrary
 				TokenFamily.CURRENT.putSubToken(neg);
 			}
 		}
-//		if (newToken instanceof CDOMCompatibilityToken)
-//		{
-//			CDOMCompatibilityToken<?> tok = (CDOMCompatibilityToken<?>) newToken;
-//			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
-//					tok.compatibilitySubLevel(), tok.compatibilityPriority());
-//			fam.putToken(tok);
-//			tokenSources.add(fam);
-//			if (fam.compareTo(TokenFamily.REV514) <= 0
-//					&& PCCLASS_CLASS.equals(tok.getTokenClass()))
-//			{
-//				addToTokenMap(new ClassWrappedToken(
-//						(CDOMCompatibilityToken<CDOMPCClass>) tok));
-//			}
-//		}
+		if (newToken instanceof CDOMCompatibilityToken)
+		{
+			CDOMCompatibilityToken<?> tok = (CDOMCompatibilityToken<?>) newToken;
+			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
+					tok.compatibilitySubLevel(), tok.compatibilityPriority());
+			fam.putToken(tok);
+			tokenSources.add(fam);
+			if (fam.compareTo(TokenFamily.REV514) <= 0
+					&& PCCLASS_CLASS.equals(tok.getTokenClass()))
+			{
+				addToTokenMap(new ClassWrappedToken(
+						(CDOMCompatibilityToken<PCClass>) tok));
+			}
+		}
 //		if (newToken instanceof CDOMCompatibilitySubToken)
 //		{
 //			CDOMCompatibilitySubToken<?> tok = (CDOMCompatibilitySubToken<?>) newToken;

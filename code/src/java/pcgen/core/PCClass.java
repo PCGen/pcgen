@@ -38,13 +38,13 @@ import java.util.TreeMap;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -53,6 +53,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
@@ -70,7 +71,6 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.ChoiceList;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MapKey;
 import pcgen.core.utils.MessageType;
@@ -106,15 +106,6 @@ public class PCClass extends PObject
 	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
 	 */
 	private List<LevelProperty<Movement>> movementList = null;
-
-	/*
-	 * LEVELONEONLY This variable (automatically known spells) only needs to be
-	 * loaded into the first PCClassLevel returned by PCClass, because the data
-	 * is static (doesn't change by level) and because it will be tested
-	 * dynamically (does the PCClassLevel automatically know spell A?), it only
-	 * needs to appear on one of the PlayerCharacter's PCClassLevels.
-	 */
-	private List<SpellFilter> knownSpellsList = null;
 
 	/*
 	 * FUTURETYPESAFETY This is an interesting case of Type Safety, that may not be
@@ -399,14 +390,6 @@ public class PCClass extends PObject
 	private boolean hasSubstitutionClass = false;
 
 	/*
-	 * LEVELONEONLY Because this indicates a set of prohibitions, it only needs
-	 * to be inside one of the PCClassLevels. This is true because the
-	 * prohibitions are based on School, Spell Name, etc. and are not specific
-	 * to any particular level (they are in the Class line)
-	 */
-	private List<SpellProhibitor> prohibitSpellDescriptorList = null;
-
-	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
 	 * but it gets VERY complicated to do that, since the keys are widely used
 	 * in the variable processor.
@@ -431,27 +414,6 @@ public class PCClass extends PObject
 	 * and stored information
 	 */
 	protected int level = 0; // TODO - This should be moved.
-
-	/*
-	 * attackCycleMap is part of PCClass (not PCClassLevel) because it is loaded
-	 * from the LST file. attackCycleMap should NOT be loaded into ANY
-	 * PCClassLevel as this is an IMPLICIT part of the Attack Bonuses of a
-	 * PCClassLevel.
-	 * 
-	 * ALLCLASSLEVELS PCClassLevel will have a BONUS to COMBAT|BAB for each
-	 * level where a BAB is added (these will have to stack) - is this 
-	 * appropriate, and will the bonus correctly trigger the appropriate 
-	 * attack cycle when additional attacks are gained?
-	 */
-	/*
-	 * MEMORYREFACTOR This attackCycleMap can be MUCH smaller if it is not a
-	 * HashMap. This gets into tiny levels of memory optimization, but it may
-	 * make sense going forward to have a TinyMap class (which directly stores
-	 * two arrays and searches through the first one to grab the appropriate
-	 * item from the second one. For small maps, this can be > 50% memory
-	 * savings.
-	 */
-	private HashMap<AttackType, String> attackCycleMap = null;
 
 	private SpellProgressionInfo castInfo = null;
 	private SpellProgressionCache spellCache = null;
@@ -1467,23 +1429,6 @@ public class PCClass extends PObject
 		return updateSpellCache(false) && spellCache.hasKnownProgression();
 	}
 
-	/**
-	 * @return The list of automatically known spells.
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public List<SpellFilter> getKnownSpellsList()
-	{
-		if (knownSpellsList == null)
-		{
-			final List<SpellFilter> ret = Collections.emptyList();
-			return ret;
-		}
-		return Collections.unmodifiableList(knownSpellsList);
-	}
-
 	/*
 	 * PCCLASSONLY This is required in PCClass for PCClass editing
 	 * 
@@ -1871,20 +1816,6 @@ public class PCClass extends PObject
 		}
 	}
 
-	/*
-	 * PCCLASSANDLEVEL Since this is set in Level one of a PCClassLevel, it
-	 * will need to be present in the PCClass (to handle import from the Tag) 
-	 * and PCClassLevel
-	 */
-	public void setProhibitSpell(SpellProhibitor prohibitor)
-	{
-		if (prohibitSpellDescriptorList == null)
-		{
-			prohibitSpellDescriptorList = new ArrayList<SpellProhibitor>();
-		}
-		prohibitSpellDescriptorList.add(prohibitor);
-	}
-
 	/**
 	 * we over ride the PObject setVision() function to keep track of what
 	 * levels this VISION: tag should take effect
@@ -2056,8 +1987,8 @@ public class PCClass extends PObject
 	{
 		final String spellKey = getSpellKey();
 
-		if (((knownSpellsList != null) && (knownSpellsList.size() == 0))
-			|| aPC.isImporting() || !aPC.getAutoSpells())
+		if (!containsListFor(ListKey.KNOWN_SPELLS) || aPC.isImporting()
+				|| !aPC.getAutoSpells())
 		{
 			return;
 		}
@@ -2108,8 +2039,8 @@ public class PCClass extends PObject
 	{
 		// If this class has at least one entry in the "Known spells" tag
 		// And we aer set up to automatically assign known spells...
-		if (knownSpellsList != null && (knownSpellsList.size() > 0)
-			&& !aPC.isImporting() && aPC.getAutoSpells())
+		if (containsListFor(ListKey.KNOWN_SPELLS) && !aPC.isImporting()
+				&& aPC.getAutoSpells())
 		{
 			// Get every spell that can be cast by this class.
 			final List<Spell> cspelllist =
@@ -2498,12 +2429,6 @@ public class PCClass extends PObject
 			pccTxt.append("\tHASSUBSTITUTIONLEVEL:Y");
 		}
 
-		if (attackCycleMap != null)
-		{
-			checkAdd(pccTxt, "", "ATTACKCYCLE", StringUtil.join(
-				new MapCollection(attackCycleMap), Constants.PIPE));
-		}
-
 		if (prohibitedSchools != null)
 		{
 			pccTxt.append('\t').append("PROHIBITED:");
@@ -2514,12 +2439,6 @@ public class PCClass extends PObject
 		{
 			checkAdd(pccTxt, Constants.s_NONE, "SPELLTYPE:", castInfo
 				.getSpellType());
-		}
-
-		if (!getKnownSpellsList().isEmpty())
-		{
-			pccTxt.append("\tKNOWNSPELLS:");
-			pccTxt.append(StringUtil.join(knownSpellsList, Constants.PIPE));
 		}
 
 		if (itemCreationMultiplier.length() != 0)
@@ -2926,27 +2845,6 @@ public class PCClass extends PObject
 		return castInfo;
 	}
 
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public void addKnownSpell(final SpellFilter aFilter)
-	{
-		if (knownSpellsList == null)
-		{
-			knownSpellsList = new ArrayList<SpellFilter>();
-		}
-		knownSpellsList.add(aFilter);
-	}
-
-	/*
-	 * FINALPCCLASSONLY - for class construction
-	 */
-	public void clearKnownSpellsList()
-	{
-		knownSpellsList = null;
-	}
-
 	/**
 	 * Add a level of this class to the character. Note this call is assumed to
 	 * only be used when loading characters, and some behaviour is tailored for
@@ -3052,13 +2950,11 @@ public class PCClass extends PObject
 	 */
 	public int attackCycle(final AttackType at)
 	{
-		if (attackCycleMap != null)
+		for (AttackCycle ac : getSafeListFor(ListKey.ATTACK_CYCLE))
 		{
-			final String aString = attackCycleMap.get(at);
-
-			if (aString != null)
+			if (at.equals(ac.getAttackType()))
 			{
-				return Integer.parseInt(aString);
+				return ac.getValue();
 			}
 		}
 		return SettingsHandler.getGame().getBabAttCyc();
@@ -3249,15 +3145,23 @@ public class PCClass extends PObject
 
 			aClass.setLevelExchange(levelExchange);
 
-			if (knownSpellsList != null)
+			List<KnownSpellIdentifier> ksl = getListFor(ListKey.KNOWN_SPELLS);
+			if (ksl != null)
 			{
-				aClass.knownSpellsList =
-						new ArrayList<SpellFilter>(knownSpellsList);
+				aClass.removeListFor(ListKey.KNOWN_SPELLS);
+				for (KnownSpellIdentifier ksi : ksl)
+				{
+					aClass.addToListFor(ListKey.KNOWN_SPELLS, ksi);
+				}
 			}
-			if (attackCycleMap != null)
+			List<AttackCycle> acList = getListFor(ListKey.ATTACK_CYCLE);
+			if (acList != null)
 			{
-				aClass.attackCycleMap =
-						new HashMap<AttackType, String>(attackCycleMap);
+				aClass.removeListFor(ListKey.ATTACK_CYCLE);
+				for (AttackCycle ac : acList)
+				{
+					aClass.addToListFor(ListKey.ATTACK_CYCLE, ac);
+				}
 			}
 
 			if (hitPointMap != null)
@@ -3931,14 +3835,11 @@ public class PCClass extends PObject
 			return true;
 		}
 
-		if (prohibitSpellDescriptorList != null)
+		for (SpellProhibitor prohibit : getSafeListFor(ListKey.SPELL_PROHIBITOR))
 		{
-			for (SpellProhibitor prohibit : prohibitSpellDescriptorList)
+			if (prohibit.isProhibited(aSpell, aPC))
 			{
-				if (prohibit.isProhibited(aSpell, aPC))
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 
@@ -4933,7 +4834,8 @@ public class PCClass extends PObject
 	private boolean isAutoKnownSpell(final String aSpellKey,
 		final int spellLevel, final boolean useMap, final PlayerCharacter aPC)
 	{
-		if (knownSpellsList == null || knownSpellsList.size() == 0)
+		List<KnownSpellIdentifier> knownSpellsList = getListFor(ListKey.KNOWN_SPELLS);
+		if (knownSpellsList == null)
 		{
 			return false;
 		}
@@ -4960,9 +4862,9 @@ public class PCClass extends PObject
 		}
 
 		// iterate through the KNOWNSPELLS: tag
-		for (SpellFilter filter : knownSpellsList)
+		for (KnownSpellIdentifier filter : knownSpellsList)
 		{
-			if (filter.matchesFilter(aSpellKey, spellLevel))
+			if (filter.matchesFilter(aSpell, spellLevel))
 			{
 				return true;
 			}
@@ -6169,38 +6071,6 @@ public class PCClass extends PObject
 	public List<PCSpell> getSpellList()
 	{
 		return getSpellSupport().getSpellList(getLevel());
-	}
-
-	/**
-	 * Parse the ATTACKCYCLE: string and build HashMap Only allowed values in
-	 * attackCycle are: BAB, RAB or UAB
-	 * 
-	 * @param aString
-	 *            Unparsed ATTACKCYCLE string.
-	 */
-	/*
-	 * PCCLASSANDLEVEL since this is from a TAG and also is required in 
-	 * the PCClassLevel
-	 */
-	public final void setAttackCycle(AttackType at, String aString)
-	{
-		if (attackCycleMap == null)
-		{
-			attackCycleMap = new HashMap<AttackType, String>();
-		}
-		attackCycleMap.put(at, aString);
-	}
-
-	/*
-	 * PCCLASSONLY Only for editing classes
-	 */
-	public final Map<AttackType, String> getAttackCycle()
-	{
-		if (attackCycleMap == null)
-		{
-			return null;
-		}
-		return Collections.unmodifiableMap(attackCycleMap);
 	}
 
 	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)

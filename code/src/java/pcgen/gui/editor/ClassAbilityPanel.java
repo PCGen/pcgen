@@ -29,7 +29,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
@@ -38,7 +37,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
@@ -56,7 +54,6 @@ import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.enumeration.AttackType;
 
 /**
  * <code>ClassAbilityPanel</code>
@@ -138,14 +135,13 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			obj.put(IntegerKey.LEVELS_PER_FEAT, Integer.valueOf(a));
 		}
 
+		LoadContext context = Globals.getContext();
 		a = knownSpells.getText().trim();
 
 		if (a.length() > 0)
 		{
-			obj.clearKnownSpellsList();
-			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
-					.getTokenMap(PCClassLstToken.class).get("KNOWNSPELLS");
-			token.parse(obj, a, -9);
+			obj.removeListFor(ListKey.KNOWN_SPELLS);
+			context.unconditionallyProcess(obj, "KNOWNSPELLS", a);
 		}
 
 		obj.put(ObjectKey.MEMORIZE_SPELLS, memorize.getSelectedObjects() != null);
@@ -164,7 +160,6 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 				.getTokenMap(PCClassLstToken.class).get("SPELLLIST");
 		token.parse(obj, spellList.getText().trim(), -9);
 
-		LoadContext context = Globals.getContext();
 		a = (String) spellStat.getSelectedItem();
 
 		if ((a != null) && (a.length() > 0) && !Constants.s_NONE.equals(a))
@@ -204,11 +199,8 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 
 		PCClass obj = (PCClass) po;
-		Map<AttackType, String> attackCycleMap = obj.getAttackCycle();
-		if (attackCycleMap != null) {
-			MapCollection mc = new MapCollection(attackCycleMap);
-			attackCycle.setText(StringUtil.join(mc, Constants.PIPE));
-		}
+		attackCycle.setText(StringUtil.join(obj
+				.getSafeListFor(ListKey.ATTACK_CYCLE), Constants.PIPE));
 		hitDice.setText(String.valueOf(obj.getSafe(ObjectKey.LEVEL_HITDIE).getDie()));
 		deity.setText(StringUtil.join(obj.getSafeListFor(ListKey.DEITY), Constants.PIPE));
 		itemCreate.setText(obj.getItemCreationMultiplier());
@@ -220,7 +212,11 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			levelsPerFeat.setText(lpf.toString());
 		}
 
-		knownSpells.setText(StringUtil.join(obj.getKnownSpellsList(), "|"));
+		String[] known = Globals.getContext().unparse(obj, "KNOWNSPELLS");
+		if (known != null && known.length > 0)
+		{
+			knownSpells.setText(known[0]);
+		}
 		memorize.setSelected(obj.getSafe(ObjectKey.MEMORIZE_SPELLS));
 		prohibited.setText(StringUtil.join(obj.getProhibitedSchools(), ","));
 

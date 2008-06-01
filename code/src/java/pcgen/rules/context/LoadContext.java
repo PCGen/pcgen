@@ -29,7 +29,6 @@ import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.persistence.TokenSupport;
 import pcgen.util.Logging;

@@ -34,18 +34,19 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * @author stefan
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * 
+ * TODO To change the template for this generated type comment go to Window -
+ * Preferences - Java - Code Style - Code Templates
  */
-public class SpellProhibitor extends ConcretePrereqObject {
+public class SpellProhibitor extends ConcretePrereqObject
+{
 
 	private ProhibitedSpellType type = null;
 	private List<String> valueList = null;
 
 	public SpellProhibitor()
 	{
-		//Empty Construtor
+		// Empty Construtor
 	}
 
 	public ProhibitedSpellType getType()
@@ -58,7 +59,7 @@ public class SpellProhibitor extends ConcretePrereqObject {
 		return valueList;
 	}
 
-	public void setType(ProhibitedSpellType prohibitedType) 
+	public void setType(ProhibitedSpellType prohibitedType)
 	{
 		type = prohibitedType;
 	}
@@ -71,7 +72,7 @@ public class SpellProhibitor extends ConcretePrereqObject {
 		}
 		valueList.add(value);
 	}
-	
+
 	public boolean isProhibited(Spell s, PlayerCharacter aPC)
 	{
 		/*
@@ -84,14 +85,14 @@ public class SpellProhibitor extends ConcretePrereqObject {
 		{
 			return false;
 		}
-		
+
 		if (!qualifies(aPC))
 		{
 			return false;
 		}
-		
+
 		int hits = 0;
-		
+
 		for (String typeDesc : type.getCheckList(s))
 		{
 			for (String prohib : valueList)
@@ -102,7 +103,35 @@ public class SpellProhibitor extends ConcretePrereqObject {
 				}
 			}
 		}
-		
+
 		return hits == type.getRequiredCount(valueList);
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return type.hashCode() ^ valueList.size();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof SpellProhibitor))
+		{
+			return false;
+		}
+		SpellProhibitor other = (SpellProhibitor) o;
+		if ((type == null && other.type == null)
+				|| (type != null && type.equals(other.type)))
+		{
+			return (other.valueList == null && valueList == null)
+					|| valueList != null && valueList.equals(other.valueList);
+		}
+		return false;
+	}
+
 }

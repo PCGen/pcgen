@@ -220,5 +220,6 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			}
 			spellList.add((Spell) pObj);
 		}
+		Globals.getContext().ref.importObject(pObj);
 	}
 }

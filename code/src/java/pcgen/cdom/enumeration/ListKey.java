@@ -27,7 +27,9 @@ import java.net.URI;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
@@ -41,6 +43,7 @@ import pcgen.core.Language;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -181,6 +184,9 @@ public final class ListKey<T> {
 	public static final ListKey<QualifiedObject<CDOMSingleRef<Domain>>> DOMAIN = new ListKey<QualifiedObject<CDOMSingleRef<Domain>>>();
 	public static final ListKey<CDOMReference<Deity>> DEITY = new ListKey<CDOMReference<Deity>>();
 	public static final ListKey<PointCost> SPELL_POINT_COST = new ListKey<PointCost>();
+	public static final ListKey<AttackCycle> ATTACK_CYCLE = new ListKey<AttackCycle>();
+	public static final ListKey<KnownSpellIdentifier> KNOWN_SPELLS = new ListKey<KnownSpellIdentifier>();
+	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<SpellProhibitor>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {
