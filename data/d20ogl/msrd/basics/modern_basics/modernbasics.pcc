@@ -24,7 +24,7 @@ ABILITYCATEGORY:modernbasics_ability_categories_core.lst
 
 ABILITY:modernbasics_abilities_occupations.lst
 ABILITY:modernbasics_abilities_talents.lst
-
+ABILITY:modernbasics_abilities_class.lst
 
 CLASS:modernbasics_classes_pc.lst
 CLASS:modernbasics_classes_npc.lst

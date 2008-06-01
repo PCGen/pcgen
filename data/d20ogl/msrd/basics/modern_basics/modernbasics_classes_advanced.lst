@@ -12,14 +12,14 @@ CLASS:Soldier	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowle
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Speak Language|Spot|Survival|Swim
 1																						ADD:FEAT|Weapon Focus
 2					BONUS:VAR|WeapSpecQualify|1								DEFINE:WeapSpecQualify|0	ADD:FEAT|Weapon Specialization
-3					BONUS:VAR|WeapSpecQualify|-1													ADD:FEAT|TYPE=Soldier
-4	SAB:Tactical Aid
+3					BONUS:VAR|WeapSpecQualify|-1													BONUS:ABILITYPOOL|Soldier Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Tactical Aid
 5																						ADD:FEAT|Improved Critical
-6																						ADD:FEAT|TYPE=Soldier
-7	SAB:Improved Reaction						BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+6																						BONUS:ABILITYPOOL|Soldier Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Improved Reaction						BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
 8																						ADD:FEAT|Greater Weapon Specialization
-9																						ADD:FEAT|TYPE=Soldier
-10	SAB:Critical Strike
+9																						BONUS:ABILITYPOOL|Soldier Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Critical Strike
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	ABB:Mart		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -39,16 +39,16 @@ CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Int
 9	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 10	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 ###Block: Normal progression
-1	SAB:Living Weapon 1d%|LivingWeaponDie	BONUS:CHECKS|BASE.Reflex|var("CL=Martial Artist")/2+2	DEFINE:LivingWeaponDie|6
-2	SAB:Flying Kick
-3																						ADD:FEAT|TYPE=MartialArtist
-4																	DEFINE:LivingWeaponDie|8
-5	SAB:Iron Fist (one attack)|PREVARLT:CL,10
-6																						ADD:FEAT|TYPE=MartialArtist
-7	SAB:Flurry of Blows
-8																	DEFINE:LivingWeaponDie|10
-9																						ADD:FEAT|TYPE=MartialArtist
-10	SAB:Iron Fist (all attacks)
+1	ABILITY:Special Ability|AUTOMATIC|Living Weapon		BONUS:VAR|LivingWeaponDie|6	BONUS:CHECKS|BASE.Reflex|var("CL=Martial Artist")/2+2	
+2	ABILITY:Special Ability|AUTOMATIC|Flying Kick
+3																					BONUS:ABILITYPOOL|Martial Artist Feat|1
+4										BONUS:VAR|LivingWeaponDie|2
+5	ABILITY:Special Ability|AUTOMATIC|Iron Fist		BONUS:VAR|IronFistLvl|1
+6																					BONUS:ABILITYPOOL|Martial Artist Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
+8										BONUS:VAR|LivingWeaponDie|2
+9										BONUS:VAR|IronFistLvl|1								BONUS:ABILITYPOOL|Martial Artist Feat|1
+10	
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	ABB:Guns		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -56,16 +56,16 @@ CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	ABB:Guns		MAXLEVEL:10	BONUS:CHECKS|BASE
 CLASS:Gunslinger	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand=6,Tumble=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival|Tumble
-1	SAB:Close Combat Shot
+1	ABILITY:Special Ability|AUTOMATIC|Close Combat Shot
 2					ADD:FEAT|Weapon Focus
-3					ADD:FEAT|TYPE=Gunslinger
-4	SAB:Defensive Position
-5	SAB:Lightning Shot
-6					ADD:FEAT|TYPE=Gunslinger
-7	SAB:Sharp Shooting
+3					BONUS:ABILITYPOOL|Gunslinger Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Defensive Position
+5	ABILITY:Special Ability|AUTOMATIC|Lightning Shot
+6					BONUS:ABILITYPOOL|Gunslinger Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Sharp Shooting
 8					ADD:FEAT|Greater Weapon Focus
-9					ADD:FEAT|TYPE=Gunslinger
-10	SAB:Bullseye
+9					BONUS:ABILITYPOOL|Gunslinger Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Bullseye
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	ABB:Infi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
@@ -73,16 +73,16 @@ CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	ABB:Infi		MAXLEVEL:10	BONUS:CHECKS|BASE
 CLASS:Infiltrator	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Investigate|Jump|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1	SAB:Sweep|PREVARLT:CL,8		BONUS:CHECKS|BASE.Reflex|var("CL=Infiltrator")/2+2
-2	SAB:Improvised Implements
-3															ADD:FEAT|TYPE=Infiltrator
-4	SAB:Improved Evasion
-5	SAB:Skill Mastery
-6															ADD:FEAT|TYPE=Infiltrator
-7	SAB:Improvised Weapon Damage
-8	SAB:Improved Sweep
-9															ADD:FEAT|TYPE=Infiltrator
-10	SAB:Without a Trace
+1	ABILITY:Special Ability|AUTOMATIC|Sweep				BONUS:VAR|SweepLvl|1					BONUS:CHECKS|BASE.Reflex|var("CL=Infiltrator")/2+2
+2	ABILITY:Special Ability|AUTOMATIC|Improvised Implements
+3															BONUS:ABILITYPOOL|Infiltrator Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+5	ABILITY:Special Ability|AUTOMATIC|Skill Mastery
+6															BONUS:ABILITYPOOL|Infiltrator Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Improvised Weapon Damage
+8											BONUS:VAR|SweepLvl|1
+9															BONUS:ABILITYPOOL|Infiltrator Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Without a Trace
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Daredevil	HD:10		TYPE:Advanced.PC	ABB:Dare		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -90,16 +90,16 @@ CLASS:Daredevil	HD:10		TYPE:Advanced.PC	ABB:Dare		MAXLEVEL:10	BONUS:CHECKS|BASE.
 CLASS:Daredevil	PREATT:2	PREFEAT:1,Endurance	PRESKILL:2,Concentration=6,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Daredevil	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Demolitions|Drive|Escape Artist|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Pilot|Profession|Read/Write Language|Ride|Speak Language|Spot|Swim|Tumble
-1	SAB:Fearless
-2	SAB:Nip Up
-3										ADD:FEAT|TYPE=Daredevil
-4	SAB:Action Boost
-5	SAB:Adrenaline Rush (one ability score)|PREVARLT:CL,8
-6										ADD:FEAT|TYPE=Daredevil
-7	SAB:Delay Damage
-8	SAB:Adrenaline Rush (two ability scores)
-9										ADD:FEAT|TYPE=Daredevil
-10	SAB:Damage Threshold
+1	ABILITY:Special Ability|AUTOMATIC|Fearless
+2	ABILITY:Special Ability|AUTOMATIC|Nip Up
+3										BONUS:ABILITYPOOL|Daredevil Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Action Boost
+5	ABILITY:Special Ability|AUTOMATIC|Adrenaline Rush	BONUS:VAR|AdrenalineRushLvl|1
+6										BONUS:ABILITYPOOL|Daredevil Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Delay Damage
+8										BONUS:VAR|AdrenalineRushLvl|1
+9										BONUS:ABILITYPOOL|Daredevil Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Damage Threshold
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Bodyguard	HD:12		TYPE:Advanced.PC	ABB:Body		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -107,16 +107,16 @@ CLASS:Bodyguard	HD:12		TYPE:Advanced.PC	ABB:Body		MAXLEVEL:10	BONUS:CHECKS|BASE.
 CLASS:Bodyguard	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Concentration=6,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Search|Sense Motive|Speak Language|Spot
-1	SAB:Harm's Way
-2	SAB:Combat Sense +%|CombatSense					DEFINE:CombatSense|1
-3															ADD:FEAT|TYPE=Bodyguard
-4	SAB:Sudden Action
-5	SAB:Improved Charge
-6															ADD:FEAT|TYPE=Bodyguard
-7	SAB:Defensive Strike
-8							BONUS:VAR|CombatSense|1
-9															ADD:FEAT|TYPE=Bodyguard
-10	SAB:Blanket Protection
+1	ABILITY:Special Ability|AUTOMATIC|Harm's Way
+2	ABILITY:Special Ability|AUTOMATIC|Combat Sense		BONUS:VAR|CombatSense|1
+3															BONUS:ABILITYPOOL|Bodyguard Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Sudden Action
+5	ABILITY:Special Ability|AUTOMATIC|Improved Charge
+6															BONUS:ABILITYPOOL|Bodyguard Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Defensive Strike
+8										BONUS:VAR|CombatSense|1
+9															BONUS:ABILITYPOOL|Bodyguard Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Blanket Protection
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
 CLASS:Field Scientist	HD:8		TYPE:Advanced.PC	ABB:Fiel		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -124,16 +124,16 @@ CLASS:Field Scientist	HD:8		TYPE:Advanced.PC	ABB:Fiel		MAXLEVEL:10	BONUS:CHECKS|
 CLASS:Field Scientist	PREMULT:3,[PRESKILL:1,Craft (Chemical)=6,Craft (Electronic)=6],[PRESKILL:1,Knowledge (Earth and Life Sciences)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6],[PRESKILL:1,Research=6]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Field Scientist	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Drive|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Research|Search|Speak Language
-1	SAB:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
-2	SAB:Scientific Improvisation
-3													ADD:FEAT|TYPE=FieldScientist
-4	SAB:Skill Mastery
-5	SAB:Minor Breakthrough
-6													ADD:FEAT|TYPE=FieldScientist
-7	SAB:Smart Survival
-8	SAB:Smart Weapon
-9													ADD:FEAT|TYPE=FieldScientist
-10	SAB:Major Breakthrough
+1	ABILITY:Special Ability|AUTOMATIC|Smart Defense			
+2	ABILITY:Special Ability|AUTOMATIC|Scientific Improvisation
+3													BONUS:ABILITYPOOL|Field Scientist Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Skill Mastery
+5	ABILITY:Special Ability|AUTOMATIC|Minor Breakthrough
+6													BONUS:ABILITYPOOL|Field Scientist Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Smart Survival
+8	ABILITY:Special Ability|AUTOMATIC|Smart Weapon
+9													BONUS:ABILITYPOOL|Field Scientist Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Major Breakthrough
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Techie	HD:6		TYPE:Advanced.PC	ABB:Techi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -141,16 +141,16 @@ CLASS:Techie	HD:6		TYPE:Advanced.PC	ABB:Techi		MAXLEVEL:10	BONUS:CHECKS|BASE.For
 CLASS:Techie	PREMULT:3,[PRESKILL:2,Computer Use=6,Disable Device=6],[PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
-1	SAB:Jury Rig +%|TechieRig					DEFINE:TechieRig|2
-2	SAB:Extreme Machine
-3														ADD:FEAT|TYPE=Techie
-4	SAB:Build Robot
-5														ADD:FEAT|TYPE=TechieMastercraft
-6														ADD:FEAT|TYPE=Techie
+1	ABILITY:Special Ability|AUTOMATIC|Jury Rig					BONUS:VAR|TechieRig|2
+2	ABILITY:Special Ability|AUTOMATIC|Extreme Machine
+3														BONUS:ABILITYPOOL|Techie Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Build Robot
+5														BONUS:ABILITYPOOL|Techie Mastercraft Feat|1
+6														BONUS:ABILITYPOOL|Techie Feat|1
 7						BONUS:VAR|TechieRig|2
-8														ADD:FEAT|TYPE=TechieMastercraft
-9														ADD:FEAT|TYPE=Techie
-10														ADD:FEAT|TYPE=TechieMastercraft
+8														BONUS:ABILITYPOOL|Techie Mastercraft Feat|1
+9														BONUS:ABILITYPOOL|Techie Feat|1
+10														BONUS:ABILITYPOOL|Techie Mastercraft Feat|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
@@ -159,16 +159,16 @@ CLASS:Field Medic	HD:8		TYPE:Advanced.PC	ABB:Fiel		MAXLEVEL:10	BONUS:CHECKS|BASE
 CLASS:Field Medic	PREATT:2	PREFEAT:1,Surgery	PRESKILL:2,Treat Injury=6,Spot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Field Medic	STARTSKILLPTS:4	CSKILL:Computer Use|Concentration|Craft (Pharmaceutical)|Diplomacy|Drive|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Pilot|Profession|Read/Write Language|Research|Speak Language|Spot|Treat Injury
-1	SAB:Medical Specialist +%|MedicalSpec					DEFINE:MedicalSpec|1
-2	SAB:Expert Healer
-3																ADD:FEAT|TYPE=FieldMedic
-4	SAB:Medical Mastery
-5								BONUS:VAR|MedicalSpec|1
-6																ADD:FEAT|TYPE=FieldMedic
-7	SAB:Minor Medical Miracle|PREVARLT:CL,10
-8								BONUS:VAR|MedicalSpec|1
-9																ADD:FEAT|TYPE=FieldMedic
-10	SAB:Medical Miracle
+1	ABILITY:Special Ability|AUTOMATIC|Medical Specialist	BONUS:VAR|MedicalSpec|1
+2	ABILITY:Special Ability|AUTOMATIC|Expert Healer
+3																BONUS:ABILITYPOOL|Field Medic Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Medical Mastery
+5										BONUS:VAR|MedicalSpec|1
+6																BONUS:ABILITYPOOL|Field Medic Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Medical Miracle	BONUS:VAR|MedicalMiracle|1
+8										BONUS:VAR|MedicalSpec|1
+9																BONUS:ABILITYPOOL|Field Medic Feat|1
+10										BONUS:VAR|MedicalMiracle|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Investigator	HD:6		TYPE:Advanced.PC	ABB:Inve		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
@@ -176,16 +176,16 @@ CLASS:Investigator	HD:6		TYPE:Advanced.PC	ABB:Inve		MAXLEVEL:10	BONUS:CHECKS|BAS
 CLASS:Investigator	PREATT:2	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Investigator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
-1	SAB:Profile
-2	SAB:Contact (Low-Level)
-3						ADD:FEAT|TYPE=Investigator
-4	SAB:Nonlethal Force
-5	SAB:Contact (Mid-Level)
-6						ADD:FEAT|TYPE=Investigator
-7	SAB:Discern Lie
-8	SAB:Contact (High-level)
-9						ADD:FEAT|TYPE=Investigator
-10	SAB:Sixth Sense
+1	ABILITY:Special Ability|AUTOMATIC|Profile
+2	ABILITY:Special Ability|AUTOMATIC|Contact			BONUS:VAR|ContactLvl|1
+3														BONUS:ABILITYPOOL|Investigator Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Nonlethal Force
+5										BONUS:VAR|ContactLvl|1
+6														BONUS:ABILITYPOOL|Investigator Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Discern Lie
+8										BONUS:VAR|ContactLvl|1
+9														BONUS:ABILITYPOOL|Investigator Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Sixth Sense
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
 CLASS:Personality	HD:6		TYPE:Advanced.PC	ABB:Pers		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
@@ -193,16 +193,16 @@ CLASS:Personality	HD:6		TYPE:Advanced.PC	ABB:Pers		MAXLEVEL:10	BONUS:CHECKS|BASE
 CLASS:Personality	PREFEAT:1,Renown	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Perform=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Speak Language
-1	SAB:Unlimited Access
+1	ABILITY:Special Ability|AUTOMATIC|Unlimited Access
 2						ADD:CLASSSKILLS|1|NONEXCLUSIVE
-3						ADD:FEAT|TYPE=Personality
-4	SAB:Royalty
-5	SAB:Winning Smile
-6						ADD:FEAT|TYPE=Personality
+3						BONUS:ABILITYPOOL|Personality Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Royalty	BONUS:VAR|Royalty|1
+5	ABILITY:Special Ability|AUTOMATIC|Winning Smile
+6						BONUS:ABILITYPOOL|Personality Feat|1
 7						ADD:CLASSSKILLS|1|NONEXCLUSIVE
-8	SAB:Royalty
-9						ADD:FEAT|TYPE=Personality
-10	SAB:Compelling Performance
+8								BONUS:VAR|Royalty|1
+9						BONUS:ABILITYPOOL|Personality Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Compelling Performance
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Negotiator	HD:8		TYPE:Advanced.PC	ABB:Nego		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
@@ -210,13 +210,13 @@ CLASS:Negotiator	HD:8		TYPE:Advanced.PC	ABB:Nego		MAXLEVEL:10	BONUS:CHECKS|BASE.
 CLASS:Negotiator	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=6,Bluff=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Drive|Gamble|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Sense Motive|Speak Language|Spot
-1	SAB:Conceal Motive
-2	SAB:React First
-3									ADD:FEAT|TYPE=Negotiator
-4	SAB:Talk down one opponent|PREVARLT:CL,7
-5	SAB:No sweat
-6									ADD:FEAT|TYPE=Negotiator
-7	SAB:Talk down several opponents|PREVARLT:CL,10
-8	SAB:Sow Distrust
-9									ADD:FEAT|TYPE=Negotiator
-10	SAB:Talk down all opponents
+1	ABILITY:Special Ability|AUTOMATIC|Conceal Motive
+2	ABILITY:Special Ability|AUTOMATIC|React First
+3									BONUS:ABILITYPOOL|Negotiator Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Talk Down	BONUS:VAR|TalkDownLvl|1
+5	ABILITY:Special Ability|AUTOMATIC|No Sweat
+6									BONUS:ABILITYPOOL|Negotiator Feat|1
+7									BONUS:VAR|TalkDownLvl|1
+8	ABILITY:Special Ability|AUTOMATIC|Sow Distrust
+9									BONUS:ABILITYPOOL|Negotiator Feat|1
+10									BONUS:VAR|TalkDownLvl|1
