@@ -68,14 +68,6 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidTwoPipe() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|2|TestWP1"));
-		assertNoSideEffects();
-	}
-
-	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
@@ -119,20 +111,11 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		assertFalse(parse("2|TestWP1|TestWP2"));
-		assertNoSideEffects();
-	}
-
-	@Test
 	public void testInvalidInputNoCount() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("|TestWP1,TestWP2"));
+		assertFalse(parse("|TestWP1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -155,7 +138,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|TestWP1,"));
+		assertFalse(parse("1|TestWP1|"));
 		assertNoSideEffects();
 	}
 
@@ -163,7 +146,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|,TestWP1"));
+		assertFalse(parse("1||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -222,7 +205,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("-1|TestWP1,TestWP2"));
+		assertFalse(parse("-1|TestWP1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -231,7 +214,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("1|TestWP2,,TestWP1"));
+		assertFalse(parse("1|TestWP2||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -240,7 +223,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("1|TestWP1,TestWP2"));
+		assertTrue(parse("1|TestWP1|TestWP2"));
 		assertFalse(primaryContext.ref.validate());
 	}
 
@@ -250,7 +233,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputAnyItem() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|ALL,TestWP1"));
+		assertFalse(parse("1|ALL|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -258,7 +241,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputItemAny() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|TestWP1,ALL"));
+		assertFalse(parse("1|TestWP1|ALL"));
 		assertNoSideEffects();
 	}
 
@@ -272,9 +255,9 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		construct(secondaryContext, "TestWP2");
 		construct(primaryContext, "TestWP3");
 		construct(secondaryContext, "TestWP3");
-		assertTrue(parse("1|TestWP1,TestWP2"));
-		assertTrue(parseSecondary("1|TestWP1,TestWP2"));
-		assertFalse(parse("1|TestWP3,ALL"));
+		assertTrue(parse("1|TestWP1|TestWP2"));
+		assertTrue(parseSecondary("1|TestWP1|TestWP2"));
+		assertFalse(parse("1|TestWP3|ALL"));
 		assertNoSideEffects();
 	}
 
@@ -285,10 +268,10 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("1|TestWP1"));
 		assertTrue(primaryContext.ref.validate());
-		assertTrue(parse("1|TestWP1,TestWP2"));
+		assertTrue(parse("1|TestWP1|TestWP2"));
 		assertTrue(primaryContext.ref.validate());
 		assertTrue(primaryContext.ref.validate());
-		assertTrue(parse("2|TestWP1,TestWP2"));
+		assertTrue(parse("2|TestWP1|TestWP2"));
 		assertTrue(primaryContext.ref.validate());
 	}
 
@@ -318,7 +301,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		construct(secondaryContext, "TestWP2");
 		constructDomain(secondaryContext, "AestWP3");
 		// Note force of Domain after Classes in alpha ordering
-		runRoundRobin("2|TestWP1,TestWP2,DOMAIN.AestWP3");
+		runRoundRobin("2|TestWP1|TestWP2|DOMAIN.AestWP3");
 	}
 
 	protected void construct(LoadContext loadContext, String one)

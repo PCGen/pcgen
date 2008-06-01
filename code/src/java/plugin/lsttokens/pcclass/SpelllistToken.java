@@ -69,14 +69,14 @@ public class SpelllistToken extends AbstractToken implements
 					+ "count from the list of possible values: " + value);
 			return false;
 		}
-		List<CDOMReference<? extends CDOMListObject>> refs = new ArrayList<CDOMReference<? extends CDOMListObject>>();
+		List<CDOMReference<? extends CDOMListObject<Spell>>> refs = new ArrayList<CDOMReference<? extends CDOMListObject<Spell>>>();
 		boolean foundAny = false;
 		boolean foundOther = false;
 
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
-			CDOMReference<? extends CDOMListObject> ref;
+			CDOMReference<? extends CDOMListObject<Spell>> ref;
 			if (Constants.LST_ALL.equals(token))
 			{
 				foundAny = true;
@@ -104,9 +104,9 @@ public class SpelllistToken extends AbstractToken implements
 			return false;
 		}
 
-		PrimitiveChoiceSet<CDOMListObject> rcs = new SpellReferenceChoiceSet(
+		PrimitiveChoiceSet<CDOMListObject<Spell>> rcs = new SpellReferenceChoiceSet(
 				refs);
-		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet(
+		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<CDOMListObject<Spell>>(
 				getTokenName(), rcs);
 		TransitionChoice<CDOMListObject<Spell>> tc = new TransitionChoice<CDOMListObject<Spell>>(
 				cs, count);
@@ -126,7 +126,8 @@ public class SpelllistToken extends AbstractToken implements
 		StringBuilder sb = new StringBuilder();
 		sb.append(grantChanges.getCount());
 		sb.append(Constants.PIPE);
-		sb.append(grantChanges.getChoices().getLSTformat());
+		sb.append(grantChanges.getChoices().getLSTformat().replaceAll(
+				Constants.COMMA, Constants.PIPE));
 		return new String[] { sb.toString() };
 	}
 
