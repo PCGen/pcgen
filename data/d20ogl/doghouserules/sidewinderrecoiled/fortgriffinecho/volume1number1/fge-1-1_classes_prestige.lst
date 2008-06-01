@@ -5,7 +5,7 @@ SOURCELONG:Fort Griffin Echo Vol. 1 No. 1	SOURCESHORT:FGE1-1	SOURCEWEB:http://ww
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus					Modify VAR
 CLASS:Comanche Parabio	HD:8		TYPE:PC.Prestige	ABB:Cmp		MAXLEVEL:5	SOURCEPAGE:p. 13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+1	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|ClassDefense|(CL+1)/2
 # Class Name		Required Feat		Required Skill				Var. Min. Value
-CLASS:Comanche Parabio	PREFEAT:1,Trustworthy	PRESKILL:2,Diplomacy,Intimidate=10	PREVARGTEQ:Reputation,6
+CLASS:Comanche Parabio	PREFEAT:1,Trustworthy	PRESKILL:2,Diplomacy=10,Intimidate=10	PREVARGTEQ:Reputation,6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Comanche Parabio	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Listen|Profession|Read/Write Language|Ride|Sense Motive|Speak Language
 1	SAB:Great Orator

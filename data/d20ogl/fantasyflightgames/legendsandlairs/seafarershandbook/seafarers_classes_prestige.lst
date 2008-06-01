@@ -5,8 +5,8 @@ SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	ABB:RfW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
-# Class Name		Required AL		Req. Att.	Required Feat			Required Race	Required Skill				Required Template
-CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREATT:5	PREFEAT:1,Skill Focus(Swim)	PRERACE:1,Elf%	PRESKILL:1,Swim=6	PRESKILL:1,Hide=4	PRETEMPLATE:1,Coral Elf
+# Class Name		Required AL		Req. Att.	Required Feat			Required Race	Required Skill			Required Template
+CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREATT:5	PREFEAT:1,Skill Focus(Swim)	PRERACE:1,Elf%	PRESKILL:2,Swim=6,Hide=4	PRETEMPLATE:1,Coral Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Reef Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Hide|Intimidate|Listen|Scry|Search|Spot|Swim
 1	SAB:Reef Bonding

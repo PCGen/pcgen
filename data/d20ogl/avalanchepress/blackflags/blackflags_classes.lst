@@ -145,7 +145,7 @@ CLASS:Officer	PRELEVEL:MIN=1
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	ABB:Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill				Required Stat
-CLASS:Captain	PREFEAT:1,Leadership	PRESKILL:2,Navigation,Piloting=8	PRESTAT:1,CHA=13
+CLASS:Captain	PREFEAT:1,Leadership	PRESKILL:2,Navigation=8,Piloting=8	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Captain	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|Search|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -196,8 +196,8 @@ CLASS:Navigator	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Decipher Scri
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Physician	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Skill								Required Stat
-CLASS:Physician	PRESKILL:2,Alchemy,Wilderness Lore=6	PRESKILL:1,Heal=8	PRESTAT:1,INT=12
+# Class Name	Required Skill						Required Stat
+CLASS:Physician	PRESKILL:3,Alchemy=6,Wilderness Lore=6,Heal=8	PRESTAT:1,INT=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Physician	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Concentration|Heal|Knowledge (Medicine)|Profession (Physician)|Wilderness Lore
 1	SAB:Cure Minor Wounds %/day (Ex)|PhysicianMinor						DEFINE:PhysicianMinor|CL

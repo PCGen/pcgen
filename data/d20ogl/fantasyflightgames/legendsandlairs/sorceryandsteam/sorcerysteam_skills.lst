@@ -27,8 +27,8 @@ Knowledge (Minerals).MOD									TYPE:Tech
 
 Profession (Detective)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Detective)|SynergyBonus|PRESKILL:1,Search=5|TYPE=Synergy.STACK																			SOURCEPAGE:p.99
 Profession (Doctor)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																																				SOURCEPAGE:p.99
-Profession (Policeman)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Policeman)|SynergyBonus|PRESKILL:1,Diplomacy,Intimidate=5|TYPE=Synergy.STACK																	SOURCEPAGE:p.99
-Profession (Profiler)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Profiler)|SynergyBonus|PRESKILL:1,Diplomacy,Intimidate=5|TYPE=Synergy.STACK	BONUS:SKILL|Profession (Profiler)|2|PRESKILLTOT:Diplomacy,Intimidate=10|TYPE=Synergy.STACK	SOURCEPAGE:p.99
+Profession (Policeman)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Policeman)|SynergyBonus|PRESKILL:1,Diplomacy=5,Intimidate=5|TYPE=Synergy.STACK																	SOURCEPAGE:p.99
+Profession (Profiler)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			BONUS:SKILL|Profession (Profiler)|SynergyBonus|PRESKILL:1,Diplomacy=5,Intimidate=5|TYPE=Synergy.STACK	BONUS:SKILL|Profession (Profiler)|2|PRESKILLTOT:Diplomacy,Intimidate=10|TYPE=Synergy.STACK	SOURCEPAGE:p.99
 Profession (Surgeon)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession																																				SOURCEPAGE:p.99
 
 # Added to support Urban Druid prereqs

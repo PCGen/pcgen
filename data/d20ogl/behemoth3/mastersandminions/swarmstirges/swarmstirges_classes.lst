@@ -5,7 +5,7 @@ SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.co
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat			Required Skill
-CLASS:Wing Jockey	PREFEAT:1,Mounted Combat	PRESKILL:2,Ride,Handle Animal=4
+CLASS:Wing Jockey	PREFEAT:1,Mounted Combat	PRESKILL:2,Ride=4,Handle Animal=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wing Jockey	STARTSKILLPTS:6	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Jump|Knowledge (Geography)|Listen|TYPE.Profession|Ride|Spot|Use Rope
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies

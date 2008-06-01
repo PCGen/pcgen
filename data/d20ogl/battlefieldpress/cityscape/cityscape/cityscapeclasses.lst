@@ -585,7 +585,7 @@ CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gath
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus							Combat bonus
 CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:BHtr		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat	Required Skill										Required Text
-CLASS:Bounty Hunter	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Criminology,Gather Information,Intimidate,Move Silently=5	PRETEXT:Must be 18 years of age
+CLASS:Bounty Hunter	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Criminology=5,Gather Information=5,Intimidate=5,Move Silently=5	PRETEXT:Must be 18 years of age
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Computer Use|TYPE.Craft|Criminology|Demolitions|Disguise|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Medical (First Aid)|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Personal Firearms Weapon Proficiency|Heavy Firearms Weapon Proficiency|Futuristic Weapon Proficiency|Archaic Weapons Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies

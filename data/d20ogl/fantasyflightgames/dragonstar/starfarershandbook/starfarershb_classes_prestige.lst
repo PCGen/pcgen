@@ -17,7 +17,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
 # Class Name	Req. Att.	Required Feat											Required Skill
-CLASS:Gundancer	PREATT:5	PREFEAT:4,Evasion,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump,Tumble=5
+CLASS:Gundancer	PREATT:5	PREFEAT:4,Evasion,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump=5,Tumble=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Freefall|Jump|Listen|Spot|Tumble
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -34,7 +34,7 @@ CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Fr
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Required Feat				Required Skill
-CLASS:Negotiator	PREFEAT:2,Iron Will,Leadership	PRESKILL:4,Bluff,Diplomacy,Innuendo,Sense Motive=8
+CLASS:Negotiator	PREFEAT:2,Iron Will,Leadership	PRESKILL:4,Bluff=8,Diplomacy=8,Innuendo=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Move Silently|Perform|TYPE.Profession|Research|Search|Sense Motive|Speak Language|Spot
 1	SAB:First Impression	SAB:Fast Talk	SAB:Bonus Languages	SAB:Tongues						BONUS:LANGUAGES|NUMBER|1
@@ -48,8 +48,8 @@ CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forger
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Technomancer	HD:6		TYPE:PC.Prestige	ABB:Tnm		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL
-# Class Name		Required Feat							Required Skill						Req. Spell Type
-CLASS:Technomancer	PREFEAT:2,Technical Proficiency,TYPE=ItemCreation	PRESKILL:1,Repair=5	PRESKILL:1,Use Device=8	PRESPELLTYPE:1,Arcane=1
+# Class Name		Required Feat							Required Skill				Req. Spell Type
+CLASS:Technomancer	PREFEAT:2,Technical Proficiency,TYPE=ItemCreation	PRESKILL:2,Repair=5,Use Device=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE.Craft|Cryptography|Decipher Script|Disable Device|TYPE.Knowledge|TYPE.Profession|Repair|Research|Scry|Spellcraft|Use Device|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Caster level

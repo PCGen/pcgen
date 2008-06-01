@@ -4,7 +4,7 @@ SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:h
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Demon Summoner	HD:4		TYPE:PC.Prestige	ABB:DmS		MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Class					Required Language			Required Skill
-CLASS:Demon Summoner	PREALIGN:LE,NE,CE	PRECLASS:1,Cleric=7,Wizard=5,Sorcerer=6	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Knowledge (Demonology),Spellcraft=6
+CLASS:Demon Summoner	PREALIGN:LE,NE,CE	PRECLASS:1,Cleric=7,Wizard=5,Sorcerer=6	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Knowledge (Demonology)=6,Spellcraft=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demon Summoner	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Knowledge (Demonology)|Knowledge (The Planes)|Spellcraft
 1	SAB:Special Metamagic feat x%|SpecialMeta					DEFINE:SpecialMeta|1

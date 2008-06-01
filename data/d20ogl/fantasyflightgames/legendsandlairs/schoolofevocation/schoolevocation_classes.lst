@@ -100,7 +100,7 @@ CLASS:Illuminator	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Deciph
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Maestro of Dissonance	HD:4		TYPE:PC.Prestige	ABB:MaDi		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat		Required Skill							Req. Known Spell			Req. Spell Type
-CLASS:Maestro of Dissonance	PREFEAT:1,Blindfight	PRESKILL:2,Listen,Perform=4	PRESKILL:1,Spellcraft=8	PRESPELL:1,Discordant Bolt	PRESPELLTYPE:2,Arcane=3
+CLASS:Maestro of Dissonance	PREFEAT:1,Blindfight	PRESKILL:3,Listen=4,Perform=4,Spellcraft=8	PRESPELL:1,Discordant Bolt	PRESPELLTYPE:2,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft
 1	VISION:Blindsight (MaestroBlindsight')	SAB:Blindsight % ft.|MaestroBlindsight	BONUS:VAR|MaestroBlindsight|15	DEFINE:MaestroBlindsight|0	ADD:SPELLCASTER|1|ANY
@@ -119,8 +119,8 @@ CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Order of Akmon	HD:4		TYPE:PC.Prestige	ABB:Akm		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name		Required Feat								Required Skill										Req. Known Spell		Req. Spell Type
-CLASS:Order of Akmon	PREFEAT:3,Combat Casting,Spell Focus(Evocation),Still Spell	PRESKILL:2,Concentration,Knowledge (Arcana)=8	PRESKILL:1,Intimidate=4	PRESPELL:1,Wind Wall	PRESPELLTYPE:2,Arcane=3
+# Class Name		Required Feat								Required Skill									Req. Known Spell		Req. Spell Type
+CLASS:Order of Akmon	PREFEAT:3,Combat Casting,Spell Focus(Evocation),Still Spell	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Intimidate=4	PRESPELL:1,Wind Wall	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Order of Akmon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency|Order of Akmon Weapon Proficiencies
@@ -158,7 +158,7 @@ CLASS:Spark		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowle
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Unmaker	HD:4		TYPE:PC.Prestige	ABB:Unm		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat					Required Skill				Req. Known Spell		Req. Spell Type
-CLASS:Unmaker	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Brew Potion,Great Fortitude	PRESKILL:1,Alchemy,Spellcraft=8	PRESPELL:1,Acid Burst	PRESPELLTYPE:3,Arcane=3
+CLASS:Unmaker	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Brew Potion,Great Fortitude	PRESKILL:1,Alchemy=8,Spellcraft=8	PRESPELL:1,Acid Burst	PRESPELLTYPE:3,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	SAB:Corrode Life (+%d4)|CorrodeLife				BONUS:VAR|CorrodeLife|(CL+3)/4	DEFINE:CorrodeLife|0		ADD:SPELLCASTER|1|ANY
@@ -175,8 +175,8 @@ CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|T
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wintermage	HD:4		TYPE:PC.Prestige	ABB:Wnt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat				Required Skill												Req. Known Spell					Req. Spell Type
-CLASS:Wintermage	PREFEAT:1,Spell Focus(Evocation)	PRESKILL:1,Knowledge (Nature),Wilderness Lore=4	PRESKILL:1,Knowledge (Arcana)=8	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:3,Arcane=3
+# Class Name	Required Feat				Required Skill														Req. Known Spell					Req. Spell Type
+CLASS:Wintermage	PREFEAT:1,Spell Focus(Evocation)	PREMULT:2,[PRESKILL:1,Knowledge (Nature)=4,Wilderness Lore=4].[PRESKILL:1,Knowledge (Arcana)=8]	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:3,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wintermage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Hide|Listen|Knowledge (Nature)|Knowledge (Arcana)|Move Silently|TYPE.Profession|Scry|Spellcraft|Spot|Wilderness Lore
 1	SAB:Icewalking																	ADD:SPELLCASTER|1|ANY

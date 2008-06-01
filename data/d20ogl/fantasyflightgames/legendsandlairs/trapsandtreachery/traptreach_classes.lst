@@ -16,8 +16,8 @@ CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	ABB:fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required AL				Req. Att.	Required Feat						Required Skill																		Var. Min. Value
-CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill Focus(Intimidate)	PRESKILL:1,Bluff=5	PRESKILL:1,Disguise=4	PRESKILL:1,Gather Information=10	PRESKILL:2,Diplomacy,Intimidate=8	PREVARGTEQ:SneakAttack,1
+# Class Name	Required AL				Req. Att.	Required Feat						Required Skill											Var. Min. Value
+CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill Focus(Intimidate)	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PREVARGTEQ:SneakAttack,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Urban Lore|Use Rope
 ###Block: Proficiencies
@@ -33,7 +33,7 @@ CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Dis
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Roofrunner	HD:6		TYPE:PC.Prestige	ABB:RRN		MAXLEVEL:10	SOURCEPAGE:p.26-29	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Skill
-CLASS:Roofrunner	PRESKILL:1,Knowledge (Home City)=5	PRESKILL:1,Urban Lore=8	PRESKILL:5,Climb,Balance,Jump,Move Silently,Gather Information=5
+CLASS:Roofrunner	PRESKILL:7,Knowledge (Home City)=5,Urban Lore=8,Climb=5,Balance=5,Jump=5,Move Silently=5,Gather Information=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Roofrunner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Swim|Tumble|Urban Lore|Use Rope
 ###Block: Proficiencies
@@ -49,7 +49,7 @@ CLASS:Roofrunner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable De
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus															Combat bonus
 CLASS:Trapmaster	HD:6		TYPE:PC.Prestige	ABB:TMS		MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat			Required Skill
-CLASS:Trapmaster	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:1,Mechanical Aptitude	PRESKILL:1,Craft (Trapmaking)=6	PRESKILL:1,Disable Device=10
+CLASS:Trapmaster	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:1,Mechanical Aptitude	PRESKILL:2,Craft (Trapmaking)=6,Disable Device=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapmaster	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Caster level

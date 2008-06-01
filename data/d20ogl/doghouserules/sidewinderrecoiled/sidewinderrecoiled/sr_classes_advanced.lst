@@ -56,7 +56,7 @@ CLASS:Desperado	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Demolitions|Gam
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus					Modify VAR
 CLASS:Grifter	HD:6		TYPE:PC.Prestige	ABB:Gft		MAXLEVEL:10	SOURCEPAGE:p.171	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|(CL+6)*2/5-1	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+6)*2/5-1
 # Class Name	Required Feat		Required Skill
-CLASS:Grifter	PREFEAT:1,Deceptive	PRESKILL:2,Bluff,Diplomacy=6
+CLASS:Grifter	PREFEAT:1,Deceptive	PRESKILL:2,Bluff=6,Diplomacy=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grifter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Hide|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot
 1	SAB:Work the Crowd
@@ -141,7 +141,7 @@ CLASS:Pony Soldier	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Demolitions|Hand
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
 CLASS:Preacher	HD:6		TYPE:PC.Prestige	ABB:Pre		MAXLEVEL:10	SOURCEPAGE:p.180	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/3
 # Class Name	Required Feat		Required Skill
-CLASS:Preacher	PREFEAT:1,Trustworthy	PRESKILL:2,Knowledge (Theology and Philosophy),Sense Motive=6
+CLASS:Preacher	PREFEAT:1,Trustworthy	PRESKILL:2,Knowledge (Theology and Philosophy)=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Preacher	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Handle Animal|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
 1	SAB:Sermon
@@ -158,7 +158,7 @@ CLASS:Preacher	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Visual Art)|Craft (Wr
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus					Modify VAR
 CLASS:Professor	HD:6		TYPE:PC.Prestige	ABB:Pro		MAXLEVEL:10	SOURCEPAGE:p.182	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/3	BONUS:VAR|ClassDefense|(CL+1)/3
 # Class Name	Required Feat		Required Skill
-CLASS:Professor	PREFEAT:1,Educated	PRESKILL:1,Research=6	PRESKILL:1,Craft (Chemical),Craft (Electric),Craft (Mechanical),Craft (Writing)=6	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Earth and Life Sciences),Knowledge (History),Knowledge (Physical Sciences),Knowledge (Technology)=6
+CLASS:Professor	PREFEAT:1,Educated	PRESKILL:1,Research=6	PRESKILL:1,Craft (Chemical)=6,Craft (Electric)=6,Craft (Mechanical)=6,Craft (Writing)=6	PRESKILL:1,Knowledge (Behavioral Sciences),Knowledge (Earth and Life Sciences),Knowledge (History),Knowledge (Physical Sciences),Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Professor	STARTSKILLPTS:8	CSKILL:Craft (Chemical)|Craft (Electric)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|Operate Vehicle (Aircraft)|Operate Vehicle (Ground Vehicles)|Operate Vehicle (Watercraft)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
 1							AUTO:FEAT|Smart Defense
@@ -209,7 +209,7 @@ CLASS:Rifleman	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|K
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
 CLASS:Rustler	HD:8		TYPE:PC.Prestige	ABB:Rus		MAXLEVEL:10	SOURCEPAGE:p.187	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)*2/3
 # Class Name	Req. Att.	Required Feat	Required Skill
-CLASS:Rustler	PREATT:2	PREFEAT:1,Dodge	PRESKILL:2,Hide,Move Silently=6
+CLASS:Rustler	PREATT:2	PREFEAT:1,Dodge	PRESKILL:2,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rustler	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Escape Artist|Handle Animal|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Tumble
 1	SAB:Sweep
@@ -226,7 +226,7 @@ CLASS:Rustler	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Escape A
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
 CLASS:Sawbones	HD:6		TYPE:PC.Prestige	ABB:Saw		MAXLEVEL:10	SOURCEPAGE:p.189	BONUS:CHECKS|BASE.Fortitude|(CL+4)/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/2
 # Class Name	Required Feat	Required Skill
-CLASS:Sawbones	PREFEAT:1,Surgery	PRESKILL:2,Craft (Pharmaceutical),Treat Injury=6
+CLASS:Sawbones	PREFEAT:1,Surgery	PRESKILL:2,Craft (Pharmaceutical)=6,Treat Injury=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sawbones	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Handle Animal|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Read/Write Language|Research|Ride|Search|Speak Language|Treat Injury
 1	SAB:Patch 'em Up			BONUS:SKILL|Treat Injury|CL/2
@@ -243,7 +243,7 @@ CLASS:Sawbones	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Pharmaceutical)|Diplo
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
 CLASS:Scout		HD:10		TYPE:PC.Prestige	ABB:Sco		MAXLEVEL:10	SOURCEPAGE:p.190	BONUS:CHECKS|BASE.Fortitude|(CL+4)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/3	BONUS:VAR|ClassDefense|(CL+1)/2
 # Class Name	Req. Att.	Required Feat	Required Skill
-CLASS:Scout		PREATT:2	PREFEAT:1,Track	PRESKILL:2,Spot,Survival=6
+CLASS:Scout		PREATT:2	PREFEAT:1,Track	PRESKILL:2,Spot=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Hide|Jump|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival|Swim
 1					ADD:FEAT|1|Terrain Specialization
@@ -260,7 +260,7 @@ CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus					Modify VAR
 CLASS:Showman	HD:6		TYPE:PC.Prestige	ABB:Sho		MAXLEVEL:10	SOURCEPAGE:p.192	BONUS:CHECKS|BASE.Will|(CL+6)*2/5-1	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|ClassDefense|(CL+1)/3
 # Class Name	Required Feat	Required Skill
-CLASS:Showman	PREFEAT:1,Renown	PRESKILL:2,Diplomacy,TYPE.Perform=6
+CLASS:Showman	PREFEAT:1,Renown	PRESKILL:2,Diplomacy=6,TYPE.Perform=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Showman	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disguise|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Profession|Read/Write Language|Speak Language
 1	SAB:Notoriety
@@ -294,7 +294,7 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Handle Animal|Intimidate|Jump|K
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
 CLASS:Tin Star	HD:10		TYPE:PC.Prestige	ABB:Tin		MAXLEVEL:10	SOURCEPAGE:p.196	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/2
 # Class Name	Req. Att.	Required Feat		Required Skill
-CLASS:Tin Star	PREATT:3	PREFEAT:1,Trustworthy	PRESKILL:3,Diplomacy,Investigate,Knowledge (Civics)=3
+CLASS:Tin Star	PREATT:3	PREFEAT:1,Trustworthy	PRESKILL:3,Diplomacy=3,Investigate=3,Knowledge (Civics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tin Star	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Profession|Read/Write Language|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Treat Injury
 1	SAB:Flash the Badge	BONUS:SKILL|Diplomacy|Reputation	BONUS:SKILL|Gather Information|Reputation

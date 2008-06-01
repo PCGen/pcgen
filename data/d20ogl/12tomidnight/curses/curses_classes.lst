@@ -60,7 +60,7 @@ CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Servant of Vengeance	HD:8		TYPE:PC.Prestige	ABB:SrVen		MAXLEVEL:10	SOURCEPAGE:p. 20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL+2)/2)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat					Required Skill						Req. Known Spell
-CLASS:Servant of Vengeance	PREALIGN:LE,LN,LG	PREFEAT:3,Endurance,Diehard,Iron Will	PRESKILL:2,Knowledge (Religion),Sense Motive=5	PRESPELL:1,Mark of Justice
+CLASS:Servant of Vengeance	PREALIGN:LE,LN,LG	PREFEAT:3,Endurance,Diehard,Iron Will	PRESKILL:2,Knowledge (Religion)=5,Sense Motive=5	PRESPELL:1,Mark of Justice
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Servant of Vengeance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Gather Information|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 ###Block: Proficiencies

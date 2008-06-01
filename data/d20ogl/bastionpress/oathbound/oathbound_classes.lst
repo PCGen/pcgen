@@ -9,8 +9,8 @@ SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demagogue	HD:6		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat		Required Lvl	Required Skill							Required Stat
-CLASS:Demagogue	PREFEAT:1,Iron Will	PRELEVEL:MIN=5	PRESKILL:2,Bluff,Intimidate=4	PRESKILL:1,Diplomacy=6	PRESTAT:1,CHA=12
+# Class Name	Required Feat		Required Lvl	Required Skill						Required Stat
+CLASS:Demagogue	PREFEAT:1,Iron Will	PRELEVEL:MIN=5	PRESKILL:3,Bluff=4,Intimidate=4,Diplomacy=6	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|Listen|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Speak Language|Spot|Use Magic Device
 ###Block: Class Defines
@@ -54,7 +54,7 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jum
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat						Required Lvl	Required Skill											Required Stat
-CLASS:Inquisitor	PREFEAT:1,Skill Focus(Knowledge (Religion))	PRELEVEL:MIN=5	PRESKILL:1,Knowledge (Religion),Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
+CLASS:Inquisitor	PREFEAT:1,Skill Focus(Knowledge (Religion))	PRELEVEL:MIN=5	PRESKILL:1,Knowledge (Religion)=6,Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Read Lips|Ride|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Wilderness Lore
 ###Block: Proficiencies
@@ -76,7 +76,7 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplo
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Lvl	Required Skill
-CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:1,Appraise=2	PRESKILL:3,Intuit Direction,Knowledge (Arcana),Craft (Maps)=4
+CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:4,Appraise=2,Intuit Direction=4,Knowledge (Arcana)=4,Craft (Maps)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
@@ -97,7 +97,7 @@ CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Stalker	HD:6		TYPE:PC.Prestige	ABB:Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat	Required Lvl	Required Skill
-CLASS:Stalker	PREFEAT:1,Track	PRELEVEL:MIN=5	PRESKILL:3,Balance,City Lore,Disguise=2	PRESKILL:2,Hide,Move Silently=4
+CLASS:Stalker	PREFEAT:1,Track	PRELEVEL:MIN=5	PRESKILL:5,Balance=2,City Lore=2,Disguise=2,Hide=4,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies

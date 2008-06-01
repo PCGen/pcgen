@@ -10,7 +10,7 @@ SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://ww
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																									Modify VAR
 CLASS:Cat Burglar	HD:10		TYPE:Prestige.PC	ABB:Cat		MAXLEVEL:10	SOURCEPAGE:p.163	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+1	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL-1)-((CL-1)/4)
 # Class Name	Required Feat				Required Lvl	Required Skill
-CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:MIN=5	PRESKILL:2,Climb,Open Lock=8
+CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:MIN=5	PRESKILL:2,Climb=8,Open Lock=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE.Craft|Driver|Electronics|Escape Artist|Hide|TYPE.Hobby|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE.Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
 
@@ -47,7 +47,7 @@ CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE.Craft|De
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus																		Combat bonus																												Modify VAR
 CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|(((CL+2)*2)/5)+(floor(CL/5))+(floor((CL+3)/5))	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Required Feat			Required Lvl	Required Skill
-CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:MIN=5	PRESKILL:2,Computers,Cryptography=8
+CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:MIN=5	PRESKILL:2,Computers=8,Cryptography=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|Listen|Mechanics|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
 1	SAB:Hard-wired (Concentrate)|PREVARLT:CL,5	BONUS:VAR|NumberPrestigeClasses|1	BONUS:SKILL|Concentration|4	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Hacker Core Ability
@@ -65,7 +65,7 @@ CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concent
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus																													Modify VAR
 CLASS:Sniper	HD:10		TYPE:Prestige.PC	ABB:Snpr		MAXLEVEL:10	SOURCEPAGE:p.170	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|(CL-1)-(CL>=5)-(CL>=9)
 # Class Name	Required Feat			Required Lvl	Required Skill				Required Stat
-CLASS:Sniper	PREFEAT:2,Far Shot,Marksman	PRELEVEL:MIN=5	PRESKILL:2,Hide,Surveillance=6	PRESTAT:1,DEX=13
+CLASS:Sniper	PREFEAT:2,Far Shot,Marksman	PRELEVEL:MIN=5	PRESKILL:2,Hide=6,Surveillance=6	PRESTAT:1,DEX=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Disguise|Driver|Hide|TYPE.Hobby|Intimidate|Jump|Move Silently|Open Lock|TYPE.Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
 1										BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Sniper Core Ability		AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Rifle)|Run

@@ -6,8 +6,8 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	ABB:ArA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Feat	Required Skill					Req. Spell Type
-CLASS:Arcane Airman	PREFEAT:1,Pilot	PRESKILL:2,Knowledge (Steamcraft),Drive=8	PRESPELLTYPE:1,Arcane=1
+# Class Name		Required Feat	Required Skill						Req. Spell Type
+CLASS:Arcane Airman	PREFEAT:1,Pilot	PRESKILL:2,Knowledge (Steamcraft)=8,Drive=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|TYPE.Craft|Drive|Intuit Direction|Jump|TYPE.Knowledge|Listen|TYPE.Profession|Ride|Search|Spellcraft|Spot|Use Rope|Use Steamcraft Device
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -28,8 +28,8 @@ CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|T
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Feat		Required Skill																						Req. Known Spell		Req. Spell Type		Required Text
-CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PRESKILL:3,Bluff,Perform,Spellcraft=8	PRESKILL:1,Craft (Carpentry),Craft (Woodworking),Craft (Metalworking),Craft (Musical Instrument)=5	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
+# Class Name		Required Feat		Required Skill																									Req. Known Spell		Req. Spell Type		Required Text
+CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PREMULT:2,[PRESKILL:3,Bluff=8,Perform=8,Spellcraft=8],[PRESKILL:1,Craft (Carpentry)=5,Craft (Woodworking)=5,Craft (Metalworking)=5,Craft (Musical Instrument)=5]	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scry|Sense Motive|Spellcraft|Swim|Tumble|Use Magic Device|Use Steamcraft Device
 1	AUTO:FEAT|Simple Weapon Proficiency						WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip
@@ -83,7 +83,7 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimi
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demolitionist	HD:8		TYPE:PC.Prestige	ABB:Dmo		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Skill
-CLASS:Demolitionist	PREFEAT:1,Skill Focus(Munitions)	PRESKILL:3,Alchemy,Craft (Explosives),Munitions=8	PRESKILL:2,Concentration,Disable Device=5
+CLASS:Demolitionist	PREFEAT:1,Skill Focus(Munitions)	PRESKILL:5,Alchemy=8,Craft (Explosives)=8,Munitions=8,Concentration=5,Disable Device=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Disable Device|Knowledge (Steamcraft)|Listen|Move Silently|Munitions|Open Lock|TYPE.Profession|Search|Spot|Use Steamcraft Device
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -103,7 +103,7 @@ CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Disa
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Detective	HD:6		TYPE:PC.Prestige	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat								Required Skill
-CLASS:Detective	PREFEAT:2,Skill Focus(Search),Skill Focus(Sense Motive)	PRESKILL:3,Diplomacy,Knowledge (Local),Profession (Detective)=5	PRESKILL:3,Gather Information,Search,Sense Motive=8
+CLASS:Detective	PREFEAT:2,Skill Focus(Search),Skill Focus(Sense Motive)	PRESKILL:6,Diplomacy=5,Knowledge (Local)=5,Profession (Detective)=5,Gather Information=8,Search=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Drive|Gather Information|Forgery|TYPE.Knowledge|Listen|Munitions|TYPE.Profession|Read Lips|Search|Sense Motive|Spot
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -125,7 +125,7 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher S
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat				Required Skill
-CLASS:Game Hunter	PREATT:5	PREFEAT:2,Track,Point Blank Shot	PRESKILL:4,Hide,Knowledge (Nature),Move Silently,Wilderness Lore=8
+CLASS:Game Hunter	PREATT:5	PREFEAT:2,Track,Point Blank Shot	PRESKILL:4,Hide=8,Knowledge (Nature)=8,Move Silently=8,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Munitions|TYPE.Profession|Ride|Spot|Swim|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -144,8 +144,8 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	ABB:GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Feat																																																				Required Skill											Req. Spell Type		Required Text													Req. Weapond Prof.
-CLASS:Gun Glyph	PREFEAT:1,Weapon Focus(Flintlock Pistol),Weapon Focus(Matchlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Flintlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Dwarven Tunnel Gun),Weapon Focus(Flintlock Musket),Weapon Focus(Blunderbuss),Weapon Focus(Percussion Cap Musket),Weapon Focus(Ogre Gun)	PRESKILL:2,Alchemy,Craft (Gunsmithing)=8	PRESKILL:1,Knowledge (Steamcraft)=5	PRESPELLTYPE:1,Arcane=3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:1,TYPE=Firearms
+# Class Name	Required Feat																																																				Required Skill										Req. Spell Type		Required Text													Req. Weapond Prof.
+CLASS:Gun Glyph	PREFEAT:1,Weapon Focus(Flintlock Pistol),Weapon Focus(Matchlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Flintlock Pistol),Weapon Focus(Percussion Cap Pistol),Weapon Focus(Dwarven Tunnel Gun),Weapon Focus(Flintlock Musket),Weapon Focus(Blunderbuss),Weapon Focus(Percussion Cap Musket),Weapon Focus(Ogre Gun)	PRESKILL:3,Alchemy=8,Craft (Gunsmithing)=8,Knowledge (Steamcraft)=5	PRESPELLTYPE:1,Arcane=3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:1,TYPE=Firearms
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Steamcraft)|Munitions|TYPE.Profession|Ride|Search|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -165,8 +165,8 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimida
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	ABB:Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat		Required Skill								Required Spell School
-CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:2,Bluff,Concentration=5	PRESKILL:1,Spellcraft=8	PRESPELLSCHOOL:1,Enchantment=3
+# Class Name	Required Feat		Required Skill						Required Spell School
+CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:3,Bluff=5,Concentration=5,Spellcraft=8	PRESPELLSCHOOL:1,Enchantment=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|Perform|TYPE.Profession|Sense Motive|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -188,7 +188,7 @@ CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Di
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat			Required Skill
-CLASS:Noble Bodyguard	PREATT:5	PREFEAT:1,Improved Initiative	PRESKILL:2,Intimidate,Sense Motive=5
+CLASS:Noble Bodyguard	PREATT:5	PREFEAT:1,Improved Initiative	PRESKILL:2,Intimidate=5,Sense Motive=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Handle Animal|Intimidate|Jump|Listen|Munitions|TYPE.Profession|Sense Motive|Spot
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -206,7 +206,7 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Physician	HD:6		TYPE:PC.Prestige	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill
-CLASS:Physician	PREFEAT:1,Physician	PRESKILL:2,Alchemy,Heal=8	PRESKILL:1,Profession (Surgeon),Profession (Doctor)=8
+CLASS:Physician	PREFEAT:1,Physician	PREMULT:2,[PRESKILL:2,Alchemy=8,Heal=8],[PRESKILL:1,Profession (Surgeon)=8,Profession (Doctor)=8]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Hide|Intuit Direction|Listen|Move Silently|Ride|Spot|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency

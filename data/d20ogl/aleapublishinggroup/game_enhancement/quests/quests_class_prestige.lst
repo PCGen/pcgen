@@ -4,7 +4,7 @@ SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_inf
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
 CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat		Required Skill								Required Text
-CLASS:Honor Guard	PREALIGN:LG,NG,CG	PREATT:5	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+
+CLASS:Honor Guard	PREALIGN:LG,NG,CG	PREATT:5	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Sense Motive|Spot
 1	SAB:Harm's Way (Ex)	SAB:Honor Guard (Ex)							SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil,11+WIS
@@ -19,7 +19,7 @@ CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Kno
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat	Required Skill									Required Text
-CLASS:Questing Knight	PREATT:5	PREFEAT:1,Quest	PRESKILL:2,Knowledge (Local),Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath
+CLASS:Questing Knight	PREATT:5	PREFEAT:1,Quest	PRESKILL:2,Knowledge (Local)=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Questing Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Sense Motive
 1	SAB:Fearless (Ex)			BONUS:VAR|KnowledgeLocal|((CL+1)/2)*2	AUTO:FEAT|Knowledge Local
