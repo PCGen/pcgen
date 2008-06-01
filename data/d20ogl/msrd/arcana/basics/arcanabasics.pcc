@@ -21,6 +21,7 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 ABILITYCATEGORY:arcanabasics_ability_categories_arcana.lst
 
 ABILITY:arcanabasics_abilities_occupations.lst
+ABILITY:arcanabasics_abilities_class.lst
 
 CLASS:arcanabasics_classes_advanced.lst
 CLASS:arcanabasics_classes_prestige.lst
