@@ -21,6 +21,9 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 INFOTEXT:This will load the FX options of the MSRD
 
 # FX
+ABILITYCATEGORY:modernfx_ability_categories.lst
+
+ABILITY:modernfx_abilities_class.lst
 CLASS:modernfx_classes.lst
 COMPANIONMOD:modernfx_companionmods.lst
 EQUIPMENT:modernfx_equip.lst
