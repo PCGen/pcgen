@@ -117,8 +117,8 @@ Intimidating Strength			TYPE:General.Raider.Champion							VISIBLE:YES										
 Intuitive Mechanic			TYPE:General.RdWarrior.Tinker.Mech						VISIBLE:YES																																															PRESTAT:1,INT=15				DESC:See Text.														CSKILL:Repair	SOURCEPAGE:p. 64
 Juju Medicine				TYPE:General.Tribal								VISIBLE:YES																							PRESKILL:2,Treat Injury=4,Survival=4																									DESC:See Text.																	SOURCEPAGE:p. 64
 Leadership					TYPE:General									VISIBLE:YES																				PRELEVEL:MIN=6																															DESC:See Text.																	SOURCEPAGE:p. 64
-Market					TYPE:General.Trader								VISIBLE:YES																							PRESKILL:1,TYPE.Profession=2																											DESC:See Text.																	SOURCEPAGE:p. 65
-#Comment: Is Profession a skill? or supposed to be a TYPE? ADDED TYPE.Profession
+Market					TYPE:General.Trader								VISIBLE:YES																							PRESKILL:1,TYPE.Profession=2,Profession=2																											DESC:See Text.																	SOURCEPAGE:p. 65
+#Comment: Made Profession and TYPE.Profession
 Master Artificer				TYPE:General									VISIBLE:YES																							PRESKILL:2,Craft (Electronic)=8,Craft (Mechanical)=8																						DESC:See Text.																	SOURCEPAGE:p. 65
 Master Mechanic				TYPE:General									VISIBLE:YES																							PRESKILL:1,Repair=8																											DESC:See Text.																	SOURCEPAGE:p. 65
 Mounted Archery				TYPE:General.Barbarian								VISIBLE:YES								PREFEAT:1,Mounted Combat											PRESKILL:1,Ride=1																												DESC:See Text.																	SOURCEPAGE:p. 66
