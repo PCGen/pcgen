@@ -8,7 +8,7 @@ SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURC
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Agent of the Crown	HD:6		TYPE:PC.Prestige	ABB:AgC		MAXLEVEL:5	SOURCEPAGE:p.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Feat									Required Skill																				Required Text
-CLASS:Agent of the Crown	PREFEAT:1,Skill Focus (Diplomacy),Skill Focus (Sense Motive)	PRESKILL:2,Diplomacy,Sense Motive=8	PRESKILL:1,Knowledge (Local),Knowledge (Nobility and Royalty),Knowledge (Court Protocol)=8	PRETEXT:Gain an officially recognised position within a government as an operative.
+CLASS:Agent of the Crown	PREFEAT:1,Skill Focus (Diplomacy),Skill Focus (Sense Motive)	PREMULT:2,[PRESKILL:2,Diplomacy=8,Sense Motive=8],[PRESKILL:1,Knowledge (Local)=8,Knowledge (Nobility and Royalty)=8,Knowledge (Court Protocol)=8]	PRETEXT:Gain an officially recognised position within a government as an operative.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Court Protocol)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Spot|Tumble
 1	AUTO:WEAPONPROF|Dagger|Rapier|Sap
@@ -22,8 +22,8 @@ CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE.Craf
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Commando	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:5	SOURCEPAGE:p.23-24	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat				Required Skill				Var. Min. Value
-CLASS:Commando	PREATT:4	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:1,Hide=8	PRESKILL:1,Spot=4	PREVARGTEQ:SneakAttack,1
+# Class Name	Req. Att.	Required Feat				Required Skill			Var. Min. Value
+CLASS:Commando	PREATT:4	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:2,Hide=8,Spot=4	PREVARGTEQ:SneakAttack,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen|Move Silently|Spot|Wilderness Lore
 ###Block: Proficiencies
@@ -71,7 +71,7 @@ CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Decipher Script|Diplo
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Executioner	HD:8		TYPE:PC.Prestige	ABB:Exe		MAXLEVEL:5	SOURCEPAGE:p.28-30	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL				Req. Att.	Required Feat					Required Skill
-CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:7	PREFEAT:3,Cleave,Power Attack,Sunder	PRESKILL:2,Intimidate,Spot=6
+CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:7	PREFEAT:3,Cleave,Power Attack,Sunder	PRESKILL:2,Intimidate=6,Spot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|Heal
 ###Block: Proficiencies
@@ -87,7 +87,7 @@ CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|He
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Shadowy Avenger	HD:8		TYPE:PC.Prestige	ABB:ShA		MAXLEVEL:10	SOURCEPAGE:p.30-32	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat							Required Skill										Required Text
-CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Improved Unarmed Strike,Toughness	PRESKILL:3,Disguise,Intimidate,Sense Motive=8	PRESKILL:1,Alchemy=4	PRETEXT:Must have lost a loved one to a criminal act.
+CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Improved Unarmed Strike,Toughness	PRESKILL:4,Disguise=8,Intimidate=8,Sense Motive=8,Alchemy=4	PRETEXT:Must have lost a loved one to a criminal act.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE.Craft|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
@@ -106,8 +106,8 @@ CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE.Craft|Disable De
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Tomb Raider	HD:6		TYPE:PC.Prestige	ABB:TmR		MAXLEVEL:5	SOURCEPAGE:p.32-33	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Feat											Required Skill							Required Stat
-CLASS:Tomb Raider	PREFEAT:4,Dodge,Lightning Reflexes,Mobility,Skill Focus (TYPE.Knowledge)	PRESKILL:1,Tumble=10	PRESKILL:2,TYPE.Knowledge=4	PRESTAT:1,DEX=15
+# Class Name	Required Feat											Required Skill									Required Stat
+CLASS:Tomb Raider	PREFEAT:4,Dodge,Lightning Reflexes,Mobility,Skill Focus (TYPE.Knowledge)	PREMULT:2,[PRESKILL:1,Tumble=10],[PRESKILL:2,TYPE.Knowledge=4]	PRESTAT:1,DEX=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tomb Raider	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Climb|TYPE.Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Move Silently|Open Lock|TYPE.Profession|Ride|Search|Spellcraft|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies

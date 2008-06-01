@@ -27,7 +27,7 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill												Req. Spell Type
-CLASS:Demolitionist	PREFEAT:1,Craft Wondrous Item	PRESKILL:1,Alchemy=8	PRESKILL:1,Craft (Blacksmithing),Craft (Metalworking)=8	PRESPELLTYPE:1,Arcane=3
+CLASS:Demolitionist	PREFEAT:1,Craft Wondrous Item	PREMULT:2,[PRESKILL:1,Alchemy=8],[PRESKILL:1,Craft (Blacksmithing)=8,Craft (Metalworking)=8]	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demolitionist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession
 # Class Name		Spell Stat		Spell Type		Caster level
@@ -70,7 +70,7 @@ CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Intuit Direc
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill
-CLASS:Treasure Hunter	PREFEAT:1,Lightning Reflexes	PRESKILL:1,Knowledge (Ancient History)=4	PRESKILL:2,Disable Device,Search=8
+CLASS:Treasure Hunter	PREFEAT:1,Lightning Reflexes	PRESKILL:3,Knowledge (Ancient History)=4,Disable Device=8,Search=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Treasure Hunter	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|Decipher Script|Disable Device|Escape Artist|Hide|Jump|Knowledge (Ancient History)|Listen|Move Silently|Open Lock|Search|Spot|Tumble|Use Magic Device|Use Rope
 1	AUTO:FEAT|Rogue Weapon Proficiencies

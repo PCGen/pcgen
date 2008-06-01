@@ -32,7 +32,7 @@ CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Cartel Trade Master	HD:6		TYPE:PC.Prestige	ABB:CTM		MAXLEVEL:5	SOURCEPAGE:p. 25, 26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required AL			Required Language	Req. Special Ability	Required Skill			Required Stat
-CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit Polish	PRESKILL:2,Bluff,Diplomacy=7	PRESTAT:1,CHA=15
+CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit Polish	PRESKILL:2,Bluff=7,Diplomacy=7	PRESTAT:1,CHA=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Sense Motive|Speak Language
 ###Block: Proficiencies
@@ -64,7 +64,7 @@ CLASS:Champion	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Listen|Ride|
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Demolitions Expert	HD:6		TYPE:PC.Prestige	ABB:DXP		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Feat					Required Skill						Required Stat
-CLASS:Demolitions Expert	PREFEAT:1,Skill Focus(Craft (Tinker))	PRESKILL:2,Craft (Tinker),Disable Device=8	PRESTAT:1,DEX=13
+CLASS:Demolitions Expert	PREFEAT:1,Skill Focus(Craft (Tinker))	PRESKILL:2,Craft (Tinker)=8,Disable Device=8	PRESTAT:1,DEX=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Demolitions Expert	STARTSKILLPTS:4	CSKILL:Climb|Craft (Tinker)|Disable Device|Hide|Listen|Move Silently|Search|Tumble
 ###Block: Proficiencies
@@ -110,7 +110,7 @@ CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Juju Doctor	HD:4		TYPE:PC.Prestige	ABB:JJD		MAXLEVEL:10	SOURCEPAGE:p. 30, 31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat													Required Skill
-CLASS:Juju Doctor	PREFEAT:3,Brew Potion,Skill Focus(Knowledge (Medicine)),Skill Focus(Knowledge (Pharmacy))	PRESKILL:3,Heal,Knowledge (Medicine),Knowledge (Pharmacy)=9
+CLASS:Juju Doctor	PREFEAT:3,Brew Potion,Skill Focus(Knowledge (Medicine)),Skill Focus(Knowledge (Pharmacy))	PRESKILL:3,Heal=9,Knowledge (Medicine)=9,Knowledge (Pharmacy)=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Juju Doctor	STARTSKILLPTS:2	CSKILL:Decipher Script|Heal|Knowledge (Ancient Lore)|Knowledge (Medicine)|Knowledge (Mutant Lore)|Knowledge (Pathology)|Knowledge (Pharmacy)|Perform|Profession (Herbalist)|Sense Motive|Speak Language
 1	SAB:Doctor's Know-How	SAB:Herbal Medicine (Minor)
@@ -126,7 +126,7 @@ CLASS:Juju Doctor	STARTSKILLPTS:2	CSKILL:Decipher Script|Heal|Knowledge (Ancient
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Mech		HD:4		TYPE:PC.Prestige	ABB:Mec		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat											Required Language		Required Skill											Required Template
-CLASS:Mech		PREFEAT:1,Skill Focus(Craft (Mechanics)),Skill Focus(Knowledge (Technology))	PRELANG:1,Computer	PRESKILL:3,Craft (Mechanics),Craft (Technician),Knowledge (Technology)=8	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor
+CLASS:Mech		PREFEAT:1,Skill Focus(Craft (Mechanics)),Skill Focus(Knowledge (Technology))	PRELANG:1,Computer	PRESKILL:3,Craft (Mechanics)=8,Craft (Technician)=8,Knowledge (Technology)=8	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mech		STARTSKILLPTS:4	CSKILL:TYPE.Craft|Decipher Script|Disable Device|Knowledge (Ancient Lore)|Knowledge (Computers)|Knowledge (Technology)|Open Lock|TYPE.Profession
 1	SAB:Repair Mechanical Damage
@@ -156,7 +156,7 @@ CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Hand
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Road Warrior	HD:8		TYPE:PC.Prestige	ABB:RWa		MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat		Required Item		Required Skill
-CLASS:Road Warrior	PREATT:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics),Knowledge (Vehicle Operations)=4
+CLASS:Road Warrior	PREATT:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics)=4,Knowledge (Vehicle Operations)=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disable Device|Escape Artist|Intuit Direction|Jump|Knowledge (Vehicle Operations)|Spot
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -186,7 +186,7 @@ CLASS:Sister of the Desert	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craf
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Symbiot	HD:8		TYPE:PC.Prestige	ABB:Sym		MAXLEVEL:5	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill
-CLASS:Symbiot	PREFEAT:1,Forsaken	PRESKILL:2,Animal Empathy,Wilderness Lore=8	PRESKILL:2,Handle Animal,Sense Motive=4
+CLASS:Symbiot	PREFEAT:1,Forsaken	PRESKILL:4,Animal Empathy=8,Wilderness Lore=8,Handle Animal=4,Sense Motive=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Symbiot	STARTSKILLPTS:2	CSKILL:Animal Empathy|Handle Animal|Heal|Innuendo|Intuit Direction|Knowledge (Nature)|Listen|Ride|Sense Motive|Spot|Wilderness Lore
 1	SAB:Animal Partner

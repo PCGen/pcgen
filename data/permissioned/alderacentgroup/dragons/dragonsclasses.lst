@@ -4,7 +4,7 @@ SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:h
 # Class Name	Product Identity?	Hit Dice	Starting Feats	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p.32-35	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat			Required Skill
-CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:1,Balance=4	PRESKILL:1,Ride=8
+CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:2,Balance=4,Ride=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE.Climb|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Jump|Ride|Spot|Swim
 1	SAB:Improved Aerial Rider																																																														AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency

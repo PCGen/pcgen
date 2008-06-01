@@ -38,7 +38,7 @@ CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TY
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Diviner	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill					Required Spell School
-CLASS:Diviner	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana),Scry=8	PRESPELLSCHOOL:7,Divination=3
+CLASS:Diviner	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana)=8,Scry=8	PRESPELLSCHOOL:7,Divination=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diviner	STARTSKILLPTS:2	CSKILL:Concentration|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
 # Class Name	Use Spell List
@@ -56,8 +56,8 @@ CLASS:Diviner	SPELLLIST:1|Wizard
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Geometer	HD:8		TYPE:PC.Prestige	ABB:Geo		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Feat						Required Skill									Req. Spell Type
-CLASS:Geometer	PREFEAT:2,Craft Wondrous Item,Extend Spell	PRESKILL:3,Knowledge (Arcana),Knowledge (Religion),Spellcraft=8	PRESPELLTYPE:1,Divine=3
+# Class Name	Required Feat						Required Skill										Req. Spell Type
+CLASS:Geometer	PREFEAT:2,Craft Wondrous Item,Extend Spell	PRESKILL:3,Knowledge (Arcana=8),Knowledge (Religion)=8,Spellcraft=8	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Geometer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE.Profession|Search|Sense Motive|Spellcraft
 # Class Name	Use Spell List

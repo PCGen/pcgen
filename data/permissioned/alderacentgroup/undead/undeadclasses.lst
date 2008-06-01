@@ -25,8 +25,8 @@ CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Knowledg
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required AL				Required Feat							Required Skill													Req. Known Spell			Required Spell School		Required Text
-CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:1,Craft (Autopsy)=6	PRESKILL:1,Heal=3	PRESKILL:2,Alchemy,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
+# Class Name	Required AL				Required Feat							Required Skill										Req. Known Spell			Required Spell School		Required Text
+CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:4,Craft (Autopsy)=6,Heal=3,Alchemy=8,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chirurgeon	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	SAB:Touch of Repose %/day|TouchofRepose		BONUS:VAR|TouchofRepose|1	DEFINE:TouchofRepose|0	ADD:SPELLCASTER|1|ANY
@@ -64,7 +64,7 @@ CLASS:The Dying	STARTSKILLPTS:2
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat		Required Skill
-CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Knowledge (Religion)=8
+CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
 ###Block: Turn Undead stuff
@@ -90,7 +90,7 @@ CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Gather In
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Faith Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL					Required Feat		Required Skill
-CLASS:Faith Hunter	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	PREFEAT:1,Iron Will	PRESKILL:1,Heal=4	PRESKILL:1,Knowledge (Arcana)=5
+CLASS:Faith Hunter	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	PREFEAT:1,Iron Will	PRESKILL:2,Heal=4,Knowledge (Arcana)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Escape Artist|Gather Information|Heal|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE.Profession|Search|Sense Motive|Spellcraft|Spot
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -142,7 +142,7 @@ CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|
 # Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Paladin of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47-48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required Class		Required Skill					Required Text
-CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion),Heal=8	PRETEXT:Special (see text)
+CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion)=8,Heal=8	PRETEXT:Special (see text)
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Paladin of the Pale	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Ride
 # Class Name			Spell Stat		Spell Type		Caster level
@@ -181,8 +181,8 @@ CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gat
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Skill													Required Text
-CLASS:Raider	PRESKILL:2,Hide,Move Silently=6	PRESKILL:2,Intuit Direction,Knowledge (Arcana)=4	PRETEXT:Special (see text)
+# Class Name	Required Skill											Required Text
+CLASS:Raider	PRESKILL:4,Hide=6,Move Silently=6,Intuit Direction=4,Knowledge (Arcana)=4	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Search|Spot|Tumble|Use Magic Device|Use Rope
 1	SAB:Practical Knowledge	SAB:Quiet Inquisition
@@ -256,7 +256,7 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Feat			Required Skill															Required Spell School		Req. Spell Type		Required Text
-CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:3,Wilderness Lore,Knowledge (Nature),Animal Empathy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
+CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:4,Knowledge (Arcana)=4,Wilderness Lore=8,Knowledge (Nature)=8,Animal Empathy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Turn Undead stuff

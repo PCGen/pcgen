@@ -3,8 +3,8 @@ SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:S
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Buccaneer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Skill				Required Stat
-CLASS:Buccaneer	PREATT:3	PRESKILL:3,Balance,Swim,Tumble=6	PRESTAT:1,CHA=13
+# Class Name	Req. Att.	Required Skill					Required Stat
+CLASS:Buccaneer	PREATT:3	PRESKILL:3,Balance=6,Swim=6,Tumble=6	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Seamanship)|Move Silently|Sense Motive|Swim|Tumble|Use Rope
 ###Block: Proficiencies

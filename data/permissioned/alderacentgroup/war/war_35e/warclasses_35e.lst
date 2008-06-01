@@ -6,7 +6,7 @@ CLASS:Beast Handler.MOD	SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide fro
 CLASS:Beast Handler.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
 
 # Class Name			Clear Prereq.	Req. Att.	Required Feat				Required Race		Required Skill
-CLASS:Elf Treerunner.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:1,Climb=8	PRESKILL:1,Survival=4	PRESKILL:2,Jump,Balance=6
+CLASS:Elf Treerunner.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Climb=8,Survival=4,Jump=6,Balance=6
 # Class Name			Removed Class Skill	Class Skill
 CLASS:Elf Treerunner.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Survival|Swim
 
@@ -35,7 +35,7 @@ CLASS:Lancer.MOD
 CLASS:Mercenary Captain.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|Intimidate|Listen|TYPE.Perform|Ride|Search|Sense Motive|Spot
 
 # Class Name	Clear Prereq.	Req. Att.	Required Feat			Required Skill
-CLASS:Rake.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:1,Combat Expertise	PRESKILL:2,Bluff,Intimidate=8
+CLASS:Rake.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:1,Combat Expertise	PRESKILL:2,Bluff=8,Intimidate=8
 # Class Name	Removed Class Skill	Class Skill
 CLASS:Rake.MOD	CSKILL:.CLEAR		CSKILL:Balance|Bluff|Climb|Gather Information|Intimidate|Jump|TYPE.Perform|Sleight of Hand|Tumble
 
@@ -48,6 +48,6 @@ CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:3,Dodge,Two Weapon Fight
 CLASS:Warmage.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
 
 # Class Name		Clear Prereq.	Req. Att.	Required Feat					Required Skill						Var. Min. Value
-CLASS:Wild Rider.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:1,Ride=8	PRESKILL:2,Heal,Survival=6	PREVARGTEQ:RageTimes,1
+CLASS:Wild Rider.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:3,Ride=8,Heal=6,Survival=6	PREVARGTEQ:RageTimes,1
 # Class Name		Removed Class Skill	Class Skill
 CLASS:Wild Rider.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Listen|TYPE.Profession|Ride|Survival|Swim

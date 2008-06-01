@@ -4,7 +4,7 @@
 CLASS:Crusader.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Subterranean Cultures)|Knowledge (Religion)|Spellcraft
 
 # Class Name		Clear Prereq.	Required Feat			Required Skill													Req. Spell Type
-CLASS:Demolitionist.MOD	PRE:.CLEAR		PREFEAT:1,Craft Wondrous Item	PRESKILL:1,Craft (Alchemy)=8	PRESKILL:1,Craft (Blacksmithing),Craft (Metalworking)=8	PRESPELLTYPE:1,Arcane=3
+CLASS:Demolitionist.MOD	PRE:.CLEAR		PREFEAT:1,Craft Wondrous Item	PREMULT:2,[PRESKILL:1,Craft (Alchemy)=8],[PRESKILL:1,Craft (Blacksmithing)=8,Craft (Metalworking)=8]	PRESPELLTYPE:1,Arcane=3
 # Class Name		Removed Class Skill	Class Skill
 CLASS:Demolitionist.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession
 

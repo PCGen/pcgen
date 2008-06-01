@@ -87,7 +87,7 @@ CLASS:Living Blade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Jump|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Master Bowman	HD:8		TYPE:PC.Prestige	ABB:MBm		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat																			Required Skill
-CLASS:Master Bowman	PREATT:12	PREFEAT:7,Far Shot,Point Blank Shot,Precise Shot,Rapid Shot,Shot on the Run,Weapon Focus (%bow),Weapon Specialization (%bow)	PRESKILL:1,Concentration=4	PRESKILL:1,Craft (Bowmaking)=8
+CLASS:Master Bowman	PREATT:12	PREFEAT:7,Far Shot,Point Blank Shot,Precise Shot,Rapid Shot,Shot on the Run,Weapon Focus (%bow),Weapon Specialization (%bow)	PRESKILL:2,Concentration=4,Craft (Bowmaking)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Bowman	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Bowmaking)|Hide|Listen|Move Silently|Spot|Swim
 ###Block: Proficiencies
@@ -152,7 +152,7 @@ CLASS:Peasant Hero	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Gather Information|Ha
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Swashbuckler	HD:10		TYPE:PC.Prestige	ABB:Swa		MAXLEVEL:5	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat							Required Skill
-CLASS:Swashbuckler	PREATT:5	PREFEAT:4,Dodge,Expertise,Improved Disarm,Mobility	PRESKILL:1,Jump=8	PRESKILL:2,Climb,Tumble=6
+CLASS:Swashbuckler	PREATT:5	PREFEAT:4,Dodge,Expertise,Improved Disarm,Mobility	PRESKILL:3,Jump=8,Climb=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Diplomacy|Gather Information|Jump|Knowledge (Nobility and Royalty)|Ride|Swim|Tumble|Use Rope
 ###Block: Proficiencies

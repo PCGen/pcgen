@@ -73,7 +73,7 @@ CLASS:Sorceror (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:C
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat								Required Skill
-CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:1,Diplomacy=10	PRESKILL:1,Sense Motive=8
+CLASS:Diplomancer	PREFEAT:2,Skill Focus(Diplomacy),Spell Focus(Enchantment)	PRESKILL:2,Diplomacy=10,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Scry|Search|Sense Motive|Spellcraft|Spot
 1	SAB:Charm															ADD:SPELLCASTER|1|ANY
@@ -90,7 +90,7 @@ CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Dip
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:1,Alchemy=3	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Spellcraft=1
+CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Alchemy=3,Knowledge (Arcana)=3,Spellcraft=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Scry|Spellcraft
 # Class Name		Spell Type		Caster level
@@ -109,7 +109,7 @@ CLASS:Eldritch Warrior	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eldritch Warrior|CL
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat				Required Skill								Var. Min. Value
-CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform=9	PREVARGTEQ:Spellsong,2
+CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PRESKILL:2,Knowledge (Arcana)=3,Perform=9	PREVARGTEQ:Spellsong,2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Hide|Innuendo|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Ride|Sense Motive|Speak Language|Spellcraft|Use Magic Device
 1	SAB:Armor song (medium)|PREVARLT:CL,5
@@ -125,8 +125,8 @@ CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required AL				Required Feat			Required Skill								Var. Min. Value
-CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PRESKILL:1,Knowledge (Arcana)=3	PRESKILL:1,Perform=8	PREVARGTEQ:Spellsong,2
+# Class Name	Required AL				Required Feat			Required Skill					Var. Min. Value
+CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PRESKILL:2,Knowledge (Arcana)=3,Perform=8	PREVARGTEQ:Spellsong,2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Song Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Innuendo|TYPE.Knowledge|Listen|Perform|Read Lips|Scry|Speak Language|Spellcraft|Spot|Use Magic Device
 1	SAB:Song Magic											ADD:SPELLCASTER|1|ANY
