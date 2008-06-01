@@ -42,6 +42,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -505,21 +506,21 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		guiSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		guiSkill.setName("GUI");
 		guiSkill.setTypeInfo("INT");
-		guiSkill.setVisibility(Visibility.DISPLAY_ONLY);
+		guiSkill.put(ObjectKey.VISIBILITY, Visibility.DISPLAY_ONLY);
 		guiSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(guiSkill);
 
 		outputSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		outputSkill.setName("Output");
 		outputSkill.setTypeInfo("INT");
-		outputSkill.setVisibility(Visibility.OUTPUT_ONLY);
+		outputSkill.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		outputSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(outputSkill);
 
 		defaultSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		defaultSkill.setName("Default");
 		defaultSkill.setTypeInfo("INT");
-		defaultSkill.setVisibility(Visibility.DEFAULT);
+		defaultSkill.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		defaultSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(defaultSkill);
 
