@@ -301,7 +301,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					.substring(colonLoc + 1);
 			if (context.processToken(classlevel, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else if (tokenMap.containsKey(key))
@@ -314,19 +313,12 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 							+ pcClass.getDisplayName() + ':' + source.getURI()
 							+ ':' + token + "\"");
 				}
-				Logging.clearParseMessages();
-				continue;
 			}
-			else if (PObjectLoader.parseTagLevel(pcClass, token, lvl))
-			{
-				Logging.clearParseMessages();
-				continue;
-			}
-			else
-			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTagLevel(pcClass, token, lvl))
+ 			{
 				Logging.replayParsedMessages();
-			}
+ 			}
+			Logging.clearParseMessages();
 		}
 	}
 
@@ -385,7 +377,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					.substring(colonLoc + 1);
 			if (context.processToken(pcClass, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else if (tokenMap.containsKey(key))
@@ -398,19 +389,12 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 						+ pcClass.getDisplayName() + ':' + source.getURI() + ':'
 						+ token + "\"");
 				}
-				Logging.clearParseMessages();
- 				continue;
 			}
-			else if (PObjectLoader.parseTagLevel(pcClass, token, 0))
+			else if (!PObjectLoader.parseTagLevel(pcClass, token, 0))
  			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 	}
 

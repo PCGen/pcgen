@@ -93,19 +93,13 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 					.substring(colonLoc + 1);
 			if (context.processToken(lang, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
-			else if (PObjectLoader.parseTag(lang, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(lang, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 
 		completeObject(source, lang);

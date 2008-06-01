@@ -91,19 +91,13 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 					.substring(colonLoc + 1);
 			if (context.processToken(prof, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
-			else if (PObjectLoader.parseTag(prof, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(prof, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 
 		// WeaponProfs are one line each;

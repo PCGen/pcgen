@@ -36,10 +36,12 @@ import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -2211,9 +2213,18 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_SPELLLIST).append(':');
 				buffer.append(pcClass.getKeyName());
 
-				for (String spell : pcClass.getClassSpellList())
+				for (CDOMListObject<Spell> spell : pcClass.getClassSpellList())
 				{
-					buffer.append('|').append(spell);
+					buffer.append('|');
+					if (ClassSpellList.class.equals(spell.getClass()))
+					{
+						buffer.append("CLASS");
+					}
+					else
+					{
+						buffer.append("DOMAIN");
+					}
+					buffer.append('.').append(spell.getLSTformat());
 				}
 
 				buffer.append(LINE_SEP);

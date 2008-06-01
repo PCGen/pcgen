@@ -100,7 +100,6 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 					.substring(colonLoc + 1);
 			if (context.processToken(race, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else if (tokenMap.containsKey(key))
@@ -113,19 +112,12 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 						+ race.getDisplayName() + ':' + source.getURI() + ':'
 						+ token + "\"");
 				}
-				Logging.clearParseMessages();
- 				continue;
 			}
-			else if (PObjectLoader.parseTag(race, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(race, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 
 		try

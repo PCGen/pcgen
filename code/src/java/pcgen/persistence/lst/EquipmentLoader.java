@@ -99,7 +99,6 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 					.substring(colonLoc + 1);
 			if (context.processToken(equipment, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else if (tokenMap.containsKey(key))
@@ -112,19 +111,12 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 						+ equipment.getName() + ':' + source.getURI() + ':'
 						+ token + "\"");
 				}
-				Logging.clearParseMessages();
- 				continue;
 			}
-			else if (PObjectLoader.parseTag(equipment, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(equipment, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 		
 		completeObject(source, equipment);

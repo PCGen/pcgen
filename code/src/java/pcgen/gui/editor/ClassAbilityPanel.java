@@ -39,8 +39,10 @@ import javax.swing.JTextField;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.MapCollection;
+import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -49,7 +51,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.core.utils.ChoiceList;
+import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
@@ -235,9 +237,13 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 //		}
 		Boolean sb = obj.get(ObjectKey.SPELLBOOK);
 		spellBook.setSelected(sb != null && sb);
-		ChoiceList<String> classSpellChoices = obj.getClassSpellChoices();
-		if (classSpellChoices != null) {
-			spellList.setText(classSpellChoices.toString());
+		TransitionChoice<CDOMListObject<Spell>> choices = obj.get(ObjectKey.SPELLLIST_CHOICE);
+		if (choices != null) {
+			StringBuilder csb = new StringBuilder();
+			csb.append(choices.getCount());
+			csb.append(Constants.PIPE);
+			csb.append(choices.getChoices().getLSTformat());
+			spellList.setText(csb.toString());
 		}
 
 		//spellStat.setText(obj.getSpellBaseStat());

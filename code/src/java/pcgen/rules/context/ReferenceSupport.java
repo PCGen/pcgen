@@ -23,8 +23,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.util.HashMapToInstanceList;
@@ -196,6 +196,10 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 	{
 		// TODO Auto-generated method stub
 		// TODO This is incorrect, but a hack for now :)
+		if (val == null)
+		{
+			throw new IllegalArgumentException(val);
+		}
 		if (val.equals(""))
 		{
 			throw new IllegalArgumentException(val);

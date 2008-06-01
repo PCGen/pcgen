@@ -39,11 +39,14 @@ import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapCollection;
+import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -53,6 +56,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
@@ -244,7 +248,7 @@ public class PCClass extends PObject
 	 * selections the character takes at a given level) - triggered by
 	 * addLevel
 	 */
-	private List<String> classSpellList = null;
+	private List<CDOMListObject<Spell>> classSpellList = null;
 
 	/*
 	 * TYPESAFETY This should be working with Skill objects, not Strings
@@ -283,37 +287,6 @@ public class PCClass extends PObject
 	 * then have this as a later dependency.
 	 */
 	private ChoiceList<String> classSkillChoices = null;
-
-	/*
-	 * FUTURETYPESAFETY This should be better than a String... the problem here
-	 * is that this is dependent upon the Choice system being type safe. While
-	 * it doesn't LOOK type-hostile, it is using a LOT of unchecked Objects,
-	 * which makes me sensitive to the fact that it may NOT be entirely type
-	 * safe. Better to rebuild that at some point to be Java 1.5 friendly and
-	 * then have this as a later dependency.
-	 */
-	/*
-	 * REFACTOR This is actually a moderate challenge in refactoring
-	 * PCClassLevel out of PCClass. This actually does a deferral to another
-	 * class' Spell List. This is definitely possible to do in a reasonable way
-	 * since the CLASS limitation is actually stored in the spell (as part of
-	 * the CLASSES tag). However, this gets a LOT more complicated when you
-	 * consider that this MAY have to enforce the same spell list across
-	 * multiple instantiations of this PCClass (meaning multiple PCClassLevels).
-	 * This is because it could be CLASSSPELL:2,Druid|Ranger|Sorcerer ... the
-	 * user only gets to select two... the question being, does it always have
-	 * to be the same two?? If SO, can that trigger a multi-class situation, and
-	 * still use the same class, or is the user stuck with the original choice.
-	 */
-	/*
-	 * FINALPCCLASSONLY The selected delegate spell lists [see classSpellList]
-	 * (not the raw classSpellString) need to be stored in EACH individual
-	 * PCClassLevel. This is the case because each individual PCClassLevel will
-	 * be capable of holding individual spells known and spells cast (per day)
-	 * and this is the delegate to determine what is appropriate for any given
-	 * PCClassLevel.
-	 */
-	private ChoiceList<String> classSpellChoices = null;
 
 	/*
 	 * FUTURETYPESAFETY This should not be a String, but a member of a Typesafe
@@ -946,7 +919,7 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public final List<String> getClassSpellList()
+	public final List<CDOMListObject<Spell>> getClassSpellList()
 	{
 		return classSpellList;
 	}
@@ -1348,7 +1321,7 @@ public class PCClass extends PObject
 		final StringBuffer aBuf = new StringBuffer();
 		boolean needPipe = false;
 
-		for (String keyStr : classSpellList)
+		for (CDOMListObject<Spell> keyStr : classSpellList)
 		{
 			if (needPipe)
 			{
@@ -1356,49 +1329,21 @@ public class PCClass extends PObject
 			}
 			needPipe = true;
 
-			if (keyStr.endsWith("(Domain)"))
+			if (DomainSpellList.class.equals(keyStr.getClass()))
 			{
 				aBuf.append("DOMAIN").append(Constants.PIPE).append(
-					keyStr.substring(0, keyStr.length() - 8));
+						keyStr.getLSTformat());
 			}
 			else
 			{
-				aBuf.append("CLASS").append(Constants.PIPE).append(keyStr);
+				aBuf.append("CLASS").append(Constants.PIPE).append(
+						keyStr.getLSTformat());
 			}
 		}
 
 		stableSpellKey = aBuf.toString();
 
 		return stableSpellKey;
-	}
-
-	/*
-	 * UPPERLEVELPREREQ classSpellString is supposed to allow the spell use of
-	 * another class to this PCClass. Because it is possible to assign only a
-	 * subset of the items in the CLASSSPELL tag (if the tag is
-	 * CLASSSPELL:2,Druid|Ranger|Sorcerer, for example, only two of those are
-	 * used), the later levels (after level 1) have a prerequisite that the
-	 * CLASSSPELL assignments stay the same. Thus, this requires a prerequisite
-	 * test of some sort on upper levels of this PCClass to ensure it is
-	 * consistent with the lower levels (or first level) of this PCClass
-	 */
-	/*
-	 * FINALPCCLASSONLY This is required in PCClass since it is 
-	 * a Tag, but is used for construction of PCClassLevels and therefore
-	 * not passed into a PCCLassLevel
-	 */
-	public final void setClassSpellChoices(int choiceCount, List<String> choices)
-	{
-		classSpellChoices = ChoiceList.getChoiceList(choiceCount, choices);
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is only the choice list, not the actual choices
-	 * that were made, so this is only required in the PCClass
-	 */
-	public final ChoiceList<String> getClassSpellChoices()
-	{
-		return classSpellChoices;
 	}
 
 	/*
@@ -2608,11 +2553,6 @@ public class PCClass extends PObject
 			pccTxt.append("\tITEMCREATE:").append(itemCreationMultiplier);
 		}
 
-		if (classSpellChoices != null)
-		{
-			checkAdd(pccTxt, "", "SPELLLIST:", classSpellChoices.toString());
-		}
-
 		if (classSkillChoices != null)
 		{
 			checkAdd(pccTxt, "", "SKILLLIST:", classSkillChoices.toString());
@@ -2942,13 +2882,13 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public void addClassSpellList(final String tok)
+	public void addClassSpellList(CDOMListObject<Spell> list)
 	{
 		if (classSpellList == null)
 		{
-			classSpellList = new ArrayList<String>();
+			classSpellList = new ArrayList<CDOMListObject<Spell>>();
 		}
-		classSpellList.add(tok);
+		classSpellList.add(list);
 		/*
 		 * CONSIDER I have taken out classSpellString = null; which is now the
 		 * equivalent of classSpellChoices = null; ... I don't understand why in
@@ -5858,30 +5798,32 @@ public class PCClass extends PObject
 	 */
 	private void chooseClassSpellList()
 	{
+		TransitionChoice<CDOMListObject<Spell>> csc = get(ObjectKey.SPELLLIST_CHOICE);
 		// if no entry or no choices, just return
-		if (classSpellChoices == null || (level < 1))
+		if (csc == null || (level < 1))
 		{
 			return;
 		}
 
 		clearClassSpellList();
 
-		List<String> classSpellChoiceList = classSpellChoices.getList();
-		if (classSpellChoiceList.size() == 1)
+		ChoiceSet<? extends CDOMListObject<Spell>> choiceSet = csc.getChoices();
+		Set<? extends CDOMListObject<Spell>> lists = choiceSet.getSet(null);
+		if (lists.size() == 1)
 		{
-			addClassSpellList(classSpellChoiceList.get(0));
+			addClassSpellList(lists.iterator().next());
 			return;
 		}
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Select class whose list of spells this class will use");
-		c.setTotalChoicesAvail(classSpellChoices.getCount());
+		c.setTotalChoicesAvail(csc.getCount());
 		c.setPoolFlag(false);
-		c.setAvailableList(classSpellChoiceList);
+		c.setAvailableList(new ArrayList<CDOMListObject<Spell>>(lists));
 		c.setVisible(true);
 
-		List<String> selectedList = c.getSelectedList();
-		for (String st : selectedList)
+		List<CDOMListObject<Spell>> selectedList = c.getSelectedList();
+		for (CDOMListObject<Spell> st : selectedList)
 		{
 			addClassSpellList(st);
 		}
@@ -5926,7 +5868,12 @@ public class PCClass extends PObject
 			put(ObjectKey.SPELL_STAT, ss);
 		}
 
-		classSpellChoices = otherClass.classSpellChoices;
+		TransitionChoice<CDOMListObject<Spell>> slc = otherClass
+				.get(ObjectKey.SPELLLIST_CHOICE);
+		if (slc != null)
+		{
+			put(ObjectKey.SPELLLIST_CHOICE, slc);
+		}
 
 		Set<String> s = otherClass.getAutoMapKeys();
 		if (s != null)

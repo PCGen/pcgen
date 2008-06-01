@@ -91,19 +91,13 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 					.substring(colonLoc + 1);
 			if (context.processToken(skill, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
-			else if (PObjectLoader.parseTag(skill, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(skill, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 
 		completeObject(source, skill);

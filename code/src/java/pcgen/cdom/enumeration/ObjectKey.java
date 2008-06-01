@@ -31,9 +31,11 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -43,6 +45,7 @@ import pcgen.core.PCStat;
 import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -162,6 +165,8 @@ public final class ObjectKey<T>
 	public static final ObjectKey<ClassSpellList> CLASS_SPELLLIST = new ObjectKey<ClassSpellList>(null);
 
 	public static final ObjectKey<DomainSpellList> DOMAIN_SPELLLIST = new ObjectKey<DomainSpellList>(null);
+
+	public static final ObjectKey<TransitionChoice<CDOMListObject<Spell>>> SPELLLIST_CHOICE = new ObjectKey<TransitionChoice<CDOMListObject<Spell>>>(null);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

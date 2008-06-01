@@ -29,6 +29,7 @@ import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.persistence.TokenSupport;
 import pcgen.util.Logging;
@@ -210,14 +211,13 @@ public abstract class LoadContext
 		{
 			if (processToken(obj, key, value))
 			{
-				Logging.clearParseMessages();
 				commit();
 			}
 			else
 			{
-				Logging.rewindParseMessages();
 				Logging.replayParsedMessages();
 			}
+			Logging.clearParseMessages();
 		}
 		catch (PersistenceLayerException e)
 		{

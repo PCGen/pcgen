@@ -103,7 +103,6 @@ public final class EquipmentModifierLoader extends
 					.substring(colonLoc + 1);
 			if (context.processToken(eqMod, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else if (tokenMap.containsKey(key))
@@ -117,19 +116,12 @@ public final class EquipmentModifierLoader extends
 							+ eqMod.getDisplayName() + ':' + source.getURI()
 							+ ':' + token + "\"");
 				}
-				Logging.clearParseMessages();
- 				continue;
 			}
-			else if (PObjectLoader.parseTag(eqMod, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(eqMod, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 
 		completeObject(source, eqMod);

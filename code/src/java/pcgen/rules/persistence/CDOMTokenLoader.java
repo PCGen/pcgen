@@ -63,14 +63,13 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 					.substring(colonLoc + 1);
 			if (context.processToken(obj, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else
 			{
-				Logging.rewindParseMessages();
 				Logging.replayParsedMessages();
 			}
+			Logging.clearParseMessages();
 		}
 	}
 

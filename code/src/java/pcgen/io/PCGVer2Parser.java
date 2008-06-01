@@ -36,6 +36,8 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -3847,12 +3849,53 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		while ((aClass != null) && stok.hasMoreTokens())
 		{
 			final String tok = stok.nextToken();
-			aClass.addClassSpellList(tok);
-			PCClass spellClass = Globals.getClassKeyed(tok);
-			if (spellClass != null)
+			if (tok.startsWith("CLASS."))
 			{
-				aClass.getSpellSupport().addSpells(-1,
-					spellClass.getSpellList());
+				ClassSpellList csl = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(ClassSpellList.class,
+								tok.substring(6));
+				aClass.addClassSpellList(csl);
+			}
+			else if (tok.startsWith("DOMAIN."))
+			{
+				DomainSpellList dsl = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(
+								DomainSpellList.class, tok.substring(7));
+				aClass.addClassSpellList(dsl);
+			}
+			else
+			{
+				/*
+				 * This is 5.14-ish, but have to try anyway:
+				 */
+				ClassSpellList csl = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(ClassSpellList.class,
+								tok);
+				if (csl == null)
+				{
+					DomainSpellList dsl = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(
+									DomainSpellList.class, tok);
+					if (dsl != null)
+					{
+						aClass.addClassSpellList(dsl);
+					}
+				}
+				else
+				{
+					aClass.addClassSpellList(csl);
+					/*
+					 * TODO This makes no sense to me - WHY do we have to add
+					 * the spells by hand? - look at Rev 6416 and older for this
+					 * behavior, but I don't understand it - thpr, 1 Jun 08
+					 */
+					PCClass spellClass = Globals.getClassKeyed(csl.getLSTformat());
+					if (spellClass != null)
+					{
+						aClass.getSpellSupport().addSpells(-1,
+							spellClass.getSpellList());
+					}
+				}
 			}
 		}
 	}

@@ -96,19 +96,13 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 					.substring(colonLoc + 1);
 			if (context.processToken(spell, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
-			else if (PObjectLoader.parseTag(spell, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(spell, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 
 		completeObject(source, spell);

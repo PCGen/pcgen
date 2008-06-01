@@ -134,8 +134,7 @@ public class ClassesToken extends AbstractToken implements
 		Collection<CDOMReference<ClassSkillList>> prevented = removedChanges
 				.getAdded();
 		StringBuilder sb = new StringBuilder();
-		if (added == null
-				|| added.isEmpty())
+		if (added == null || added.isEmpty())
 		{
 			if (prevented == null || prevented.isEmpty())
 			{

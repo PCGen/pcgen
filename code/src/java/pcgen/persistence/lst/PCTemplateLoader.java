@@ -99,7 +99,6 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 					.substring(colonLoc + 1);
 			if (context.processToken(template, key, value))
 			{
-				Logging.clearParseMessages();
 				context.commit();
 			}
 			else if (tokenMap.containsKey(key))
@@ -111,19 +110,12 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 							+ template.getDisplayName() + ':'
 							+ source.toString() + ':' + token + "\"");
 				}
-				Logging.clearParseMessages();
- 				continue;
 			}
-			else if (PObjectLoader.parseTag(template, token))
- 			{
-				Logging.clearParseMessages();
- 				continue;
- 			}
- 			else
- 			{
-				Logging.rewindParseMessages();
+			else if (!PObjectLoader.parseTag(template, token))
+			{
 				Logging.replayParsedMessages();
  			}
+			Logging.clearParseMessages();
 		}
 		
 		completeObject(source, template);
