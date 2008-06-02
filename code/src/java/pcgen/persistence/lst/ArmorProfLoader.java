@@ -22,7 +22,6 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.ArmorProf;
@@ -56,58 +55,48 @@ public final class ArmorProfLoader extends LstObjectFileLoader<ArmorProf>
 			prof = new ArmorProf();
 		}
 
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		int col = 0;
+		final StringTokenizer colToken = new StringTokenizer(lstLine,
+				SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(ArmorProfLstToken.class);
-		while (colToken.hasMoreTokens())
+		if (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
-			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			ArmorProfLstToken token = (ArmorProfLstToken) tokenMap.get(key);
-
-			if (col == 0) // First column is name, without a tag
-			{
-				prof.setName(colString);
-				prof.setSourceCampaign(source.getCampaign());
-				prof.setSourceURI(source.getURI());
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, prof, value);
-				if (!token.parse(prof, value))
-				{
-					Logging.errorPrint("Error parsing skill "
-						+ prof.getDisplayName() + ':' + source.getURI() + ':'
-						+ colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(prof, colString))
-			{
-				continue;
-			}
-			else
-			{
-				Logging.errorPrint("Illegal armor proficiency info '"
-					+ lstLine + "' in " + source.toString());
-			}
-
-			++col;
+			prof.setName(colToken.nextToken());
+			prof.setSourceCampaign(source.getCampaign());
+			prof.setSourceURI(source.getURI());
 		}
 
-		// WeaponProfs are one line each;
+		while (colToken.hasMoreTokens())
+		{
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
+			}
+			else if (colonLoc == 0)
+			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(prof, key, value))
+			{
+				context.commit();
+			}
+			else if (!PObjectLoader.parseTag(prof, token))
+			{
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
+		}
+
+		// ArmorProfs are one line each;
 		// finish the object and return null
 		completeObject(source, prof);
 

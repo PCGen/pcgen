@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -73,71 +72,57 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			anAbility.setCategory("BROKENABILTYNOCATEGORYSET");
 		}
 
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		int col = 0;
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(AbilityLstToken.class);
-		while (colToken.hasMoreTokens())
+		final StringTokenizer colToken = new StringTokenizer(lstLine,
+				SystemLoader.TAB_DELIM);
+		
+		if (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = Constants.EMPTY_STRING;
-			try
-			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				// TODO Handle Exception
-			}
-			AbilityLstToken token = (AbilityLstToken) tokenMap.get(key);
-			if (col == 0)
-			{
-				anAbility.setName(colString);
-				anAbility.setSourceCampaign(source.getCampaign());
-				anAbility.setSourceURI(source.getURI());
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, anAbility, value);
-				if (!token.parse(anAbility, value))
-				{
-					Logging.errorPrintLocalised(
-						"Errors.AbilityLoader.ParsingError", //$NON-NLS-1$
-						anAbility.getDisplayName(), source.getURI(), colString);
-				}
-			}
-			//
-			// moved this after name assignment so abilities named
-			// PRExxx don't parse the name as a prerequisite
-			//
-			else if (PObjectLoader.parseTag(anAbility, colString))
-			{
-				continue;
-			}
-			/*******************************************************************
-			 * TODO: The ADD: tag is parsed in PObjectLoader. This code never
-			 * gets processed. ***************
-			 */
-			else if (colString.startsWith("ADD:"))
-			{
-				anAbility.setAddString(colString.substring(4));
-			}
-			else
-			{
-				Logging.errorPrintLocalised("Errors.AbilityLoader.UnknownTag", //$NON-NLS-1$
-					colString, source.getURI());
-			}
-
-			++col;
+			anAbility.setName(colToken.nextToken());
+			anAbility.setSourceCampaign(source.getCampaign());
+			anAbility.setSourceURI(source.getURI());
 		}
 
-		// setChanged();
-		// notifyObservers(anAbility);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				AbilityLstToken.class);
+		while (colToken.hasMoreTokens()) {
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
+			}
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(anAbility, key, value))
+			{
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				AbilityLstToken tok = (AbilityLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, anAbility, value);
+				if (!tok.parse(anAbility, value)) {
+					Logging.errorPrint("Error parsing ability "
+							+ anAbility.getDisplayName() + ':'
+							+ source.toString() + ':' + token + "\"");
+				}
+			}
+			else if (!PObjectLoader.parseTag(anAbility, token))
+			{
+				Logging.replayParsedMessages();
+ 			}
+			Logging.clearParseMessages();
+		}
 
 		completeObject(source, anAbility);
 		return null;

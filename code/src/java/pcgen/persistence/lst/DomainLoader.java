@@ -25,7 +25,6 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -62,84 +61,57 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 		}
 
 		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		int col = 0;
+			new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(DomainLstToken.class);
-		while (colToken.hasMoreTokens())
+		if (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = Constants.EMPTY_STRING;
-			try
-			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			DomainLstToken token = (DomainLstToken) tokenMap.get(key);
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, domain, value);
-				if (!token.parse(domain, value))
-				{
-					Logging.errorPrint("Error parsing domain "
-						+ domain.getDisplayName() + ':' + source.getURI()
-						+ ':' + colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(domain, colString))
-			{
-				continue;
-			}
-			else if (col == 0)
-			{
-				if ((!colString.equals(domain.getKeyName()))
-					&& (colString.indexOf(".MOD") < 0))
-				{
-					completeObject(source, domain);
-					domain = new Domain();
-					domain.setName(colString);
-					domain.setSourceCampaign(source.getCampaign());
-					domain.setSourceURI(source.getURI());
-				}
-			}
-			else if (col == 1)
-			{
-				LstUtils
-					.deprecationWarning(
-						"Positional DESC",
-						"domain",
-						domain.getSourceURI(),
-						colString,
-						"A DESC tag has been used instead, please update your LST code. "
-							+ "This default functionality will be removed in versions after 5.14");
-				token = (DomainLstToken) tokenMap.get("DESC");
-				if (token != null)
-				{
-					LstUtils.deprecationCheck(token, domain, colString);
-					if (!token.parse(domain, colString))
-					{
-						Logging.errorPrint("Error parsing domain "
-							+ domain.getDisplayName() + ':' + source.getURI()
-							+ ':' + colString + "\"");
-					}
-				}
-			}
-			else
-			{
-				Logging.errorPrint("Illegal obj info '" + colString + "' in "
-					+ source.getURI());
-			}
-
-			++col;
+			domain.setName(colToken.nextToken());
+			domain.setSourceCampaign(source.getCampaign());
+			domain.setSourceURI(source.getURI());
 		}
 
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				DomainLstToken.class);
+		while (colToken.hasMoreTokens()) {
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
+			}
+			else if (colonLoc == 0)
+ 			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
+ 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(domain, key, value))
+			{
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				DomainLstToken tok = (DomainLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, domain, value);
+				if (!tok.parse(domain, value)) {
+					Logging.errorPrint("Error parsing domain "
+							+ domain.getDisplayName() + ':'
+							+ source.toString() + ':' + token + "\"");
+				}
+			}
+			else if (!PObjectLoader.parseTag(domain, token))
+			{
+				Logging.replayParsedMessages();
+ 			}
+			Logging.clearParseMessages();
+		}
+		
 		completeObject(source, domain);
 		return null;
 	}
