@@ -229,12 +229,6 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.11.11 - Remove 5.16.0 - Use <a href="#HITDIE">HITDIE</a></p>
-	<p class="indent0"><strong><a name="HITDICESIZE">Tag Name:</a></strong> HITDICESIZE:x|y</p>
-	<p></p>
-
-<hr>
-
 	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="HITDIE">Tag Name:</a></strong> HITDIE:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Die size)</p>
@@ -389,42 +383,6 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>
 	<p class="indent3">Effective Character Level is raised by one.</p>
-	<p></p>
-
-<hr>
-
-	<p class="new">*** Deprecated 5.11.13 - Remove 5.16.0 - Use <a href="../globalfilestagpages/globalfilesother.html#NATURALATTACKS">NATURALATTACKS</a> tag instead.</p>
-	<p class="indent0"><strong><a name="NATURALATTACKS">Tag Name:</a></strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>
-	<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Natural weapon type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of attacks)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tag is used to define non-equipment attacks a race may possess.</p>
-	<p class="indent2">This is a , (comma) and | (pipe) delimited list of the natural attacks a creature has.
-		If the creature has multiple attacks pipes are used to separate the entries. Commas are used to
-		delimit variables within a single attack listing. All four variables separated by three commas must
-		be present or PCGen will hang when attempting to load the .pcc file.</p>
-	<p class="indent2">The first variable (w) is the name of the natural weapon.</p>
-	<p class="indent2">The second set of variables (x) are the natural weapon types.
-  		Types should be delimited with periods (.). This must always start with &quot;Weapon&quot;
-  		and &quot;Natural&quot; and must be followed by either &quot;Melee&quot; or &quot;Ranged&quot;.
-  		After that the weapons damage types are listed which can be &quot;Bludgeoning&quot;,
-  		&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</p>
-	<p class="indent2">The third variable (y) is the number of attacks of this type
-  		that the creature possesses. If the is an asterisk in front of the number it indicates
-  		that the number of attacks is non-iterative, that is it is not based on the
-  		creatures attack progression but rather how many of the natural weapons it possesses.</p>
-	<p class="indent2">The final variable is the damage the natural weapon does. This
-  		is entered in the standard dice notation such as &quot;1d8&quot; and &quot;4d10&quot;.</p>
-	<p class="indent2">The NATURALATTACKS tag creates a proficiency for the its attacks on the fly
-		which allows the use of the BONUS:WEAPONPROF tag to effect it. For example, if you used the
-		NATURALATTACKS tag to create a Bite attack you could then use
-		<code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code> to add 2 to the attack and damage rolls.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,
-		1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
-	<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
 	<p></p>
 
 <hr>
