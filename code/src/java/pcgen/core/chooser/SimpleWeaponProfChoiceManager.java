@@ -32,6 +32,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.CategorisableStore;
@@ -197,7 +198,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 			{
 				for (WeaponProf wp : ref.getContainedObjects())
 				{
-					addtoToAvailableAndMap(unparsed, availableList, wp.getKeyName());
+					addtoToAvailableAndMap(unparsed, availableList, wp);
 				}
 			}
 		}
@@ -263,8 +264,12 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 				if (bOk)
 				{
-					String wpName = aEq.profKey(aPC);
-					addtoToAvailableAndMap(unparsed, availableList, wpName);
+					CDOMSingleRef<WeaponProf> ref = aEq.get(ObjectKey.WEAPON_PROF);
+					if (ref != null)
+					{
+						addtoToAvailableAndMap(unparsed, availableList, ref
+								.resolvesTo());
+					}
 				}
 			}
 		}
@@ -309,8 +314,12 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 					break;
 				}
 
-				String wpName = aEq.profKey(aPC);
-				addtoToAvailableAndMap(unparsed, availableList, wpName);
+				CDOMSingleRef<WeaponProf> ref = aEq.get(ObjectKey.WEAPON_PROF);
+				if (ref != null)
+				{
+					addtoToAvailableAndMap(unparsed, availableList, ref
+							.resolvesTo());
+				}
 			}
 		}
 	}
@@ -324,18 +333,6 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 	 * @param  availableList	The list weapon proficiencies are added to.
 	 * @param  wpName			Name of the weapon proficiency.
 	 */
-	private void addtoToAvailableAndMap(
-		final String unparsed,
-		final List<String>   availableList,
-		String       wpKey)
-	{
-		final WeaponProf wp = getSpecificObject(wpKey);
-		if (wp != null)
-		{
-			addtoToAvailableAndMap(unparsed, availableList, wp);
-		}
-	}
-
 	private void addtoToAvailableAndMap(final String unparsed,
 			final List<String> availableList, final WeaponProf wp)
 	{
@@ -395,12 +392,14 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 					break;
 				}
 
-				final WeaponProf wp = getSpecificObject(aEq.profKey(aPC));
-
-				if ((wp != null) && availableList.contains(wp.getKeyName()))
+				CDOMSingleRef<WeaponProf> ref = aEq.get(ObjectKey.WEAPON_PROF);
+				if (ref != null)
 				{
-					final String bString = wp.getKeyName();
-					availableList.remove(bString);
+					String profKey = ref.resolvesTo().getKeyName();
+					if (availableList.contains(profKey))
+					{
+						availableList.remove(profKey);
+					}
 				}
 			}
 		}
@@ -496,10 +495,4 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 	{
 		return Globals.getAllWeaponProfs();
 	}
-
-	public WeaponProf getSpecificObject(String key)
-	{
-		return Globals.getWeaponProfKeyed(key);
-	}
-
 }

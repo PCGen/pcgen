@@ -202,7 +202,7 @@ public class EqContainerwToken extends Token
 			}
 			else if (property.equals("PROF"))
 			{
-				retString = getProfToken(pc, eq);
+				retString = eq.consolidatedProfName();
 			}
 			else if (property.equals("QTY"))
 			{
@@ -495,17 +495,6 @@ public class EqContainerwToken extends Token
 	public static String getNameToken(Equipment eq, PlayerCharacter pc)
 	{
 		return eq.parseOutputName(eq.getOutputName(), pc);
-	}
-
-	/**
-	 * Get Proficiency Token
-	 * @param pc
-	 * @param eq
-	 * @return Proficiency Token
-	 */
-	public static String getProfToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.profKey(pc);
 	}
 
 	/**

@@ -29,8 +29,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.Quality;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
@@ -775,17 +778,6 @@ public class EqToken extends Token
 	}
 
 	/**
-	 * Get Proficiency Token
-	 * @param pc
-	 * @param eq
-	 * @return Proficiency Token
-	 */
-	public static String getProfToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.profKey(pc);
-	}
-
-	/**
 	 * Get QTY Token
 	 * @param eq
 	 * @return QTY Token
@@ -1157,20 +1149,29 @@ public class EqToken extends Token
 		}
 		else if ("QUALITY".equals(token))
 		{
+			List<Quality> qualityList = eq.getSafeListFor(ListKey.QUALITY);
 			if (tokenizer.hasMoreTokens())
 			{
 				String next = tokenizer.nextToken();
+				Quality qual = null;
 				try
 				{
-					int num = Integer.parseInt(next);
-					return eq.getQuality(num);
+					qual = qualityList.get(Integer.parseInt(next));
 				}
 				catch (NumberFormatException e)
 				{
-					return eq.getQuality(next);
+					for (Quality q : qualityList)
+					{
+						if (q.getQuality().equals(next))
+						{
+							qual = q;
+							break;
+						}
+					}
 				}
+				return qual == null ? "" : qual.getValue();
 			}
-			return eq.getQualityString();
+			return StringUtil.join(qualityList, ", ");
 		}
 		else if ("SPELLFAILURE".equals(token))
 		{
@@ -1218,7 +1219,7 @@ public class EqToken extends Token
 		}
 		else if ("PROF".equals(token))
 		{
-			retString = getProfToken(pc, eq);
+			retString = eq.consolidatedProfName();
 		}
 		else if ("SPROP".equals(token))
 		{

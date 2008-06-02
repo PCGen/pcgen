@@ -46,8 +46,8 @@ public class ShieldProfToken implements AutoLstToken
 			if (st.nextToken().startsWith("TYPE"))
 			{
 				Logging.deprecationPrint("TYPE= in AUTO:SHIELDPROF is "
-						+ "deprecated.  Use SHIELDTYPE=");
-				break;
+						+ "prohibited.  Use SHIELDTYPE=");
+				return false;
 			}
 		}
 		target.addAutoArray(getTokenName(), value);

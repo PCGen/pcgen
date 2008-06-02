@@ -139,16 +139,7 @@ public class PlayerCharacterUtilities
 	 */
 	static void setProf(final Equipment equip, final Equipment eqm)
 	{
-		// Make sure the proficiency is set
-		String profName = equip.rawProfName();
-
-		if (profName.length() == 0)
-		{
-			profName = equip.getName();
-		}
-
-		eqm.setWeaponProf(profName);
-
+		eqm.put(ObjectKey.WEAPON_PROF, equip.get(ObjectKey.WEAPON_PROF));
 		// In case this is used somewhere it shouldn't be used,
 		// set weight and cost to 0
 		eqm.put(ObjectKey.WEIGHT, BigDecimal.ZERO);

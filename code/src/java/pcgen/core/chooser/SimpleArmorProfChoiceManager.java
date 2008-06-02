@@ -77,11 +77,13 @@ public class SimpleArmorProfChoiceManager extends
 						.getEquipmentListIterator(); i.hasNext();)
 				{
 					final Equipment eq = i.next().getValue();
-
-					String profKey = eq.profKey(aPc);
-					if (eq.isArmor() && !availableList.contains(profKey))
+					if (eq.isArmor())
 					{
-						availableList.add(profKey);
+						String profKey = eq.getArmorProf().getKeyName();
+						if (!availableList.contains(profKey))
+						{
+							availableList.add(profKey);
+						}
 					}
 				}
 			}
@@ -94,11 +96,13 @@ public class SimpleArmorProfChoiceManager extends
 						.getEquipmentListIterator(); i.hasNext();)
 				{
 					final Equipment eq = i.next().getValue();
-
-					if (eq.isArmor() && eq.isType(tempString)
-							&& !availableList.contains(eq.profKey(aPc)))
+					if (eq.isArmor() && eq.isType(tempString))
 					{
-						availableList.add(eq.profKey(aPc));
+						String profKey = eq.getArmorProf().getKeyName();
+						if (!availableList.contains(profKey))
+						{
+							availableList.add(profKey);
+						}
 					}
 				}
 			}
@@ -106,11 +110,13 @@ public class SimpleArmorProfChoiceManager extends
 			{
 				final Equipment eq = EquipmentList
 						.getEquipmentNamed(tempString);
-
-				if ((eq != null) && eq.isArmor()
-						&& !availableList.contains(eq.profKey(aPc)))
+				if (eq != null && eq.isArmor())
 				{
-					availableList.add(eq.profKey(aPc));
+					String profKey = eq.getArmorProf().getKeyName();
+					if (!availableList.contains(profKey))
+					{
+						availableList.add(profKey);
+					}
 				}
 			}
 		}

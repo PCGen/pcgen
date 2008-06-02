@@ -28,6 +28,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.character.Follower;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -1362,7 +1363,18 @@ public class VariableProcessorPC extends VariableProcessor
 
 				if (eq != null)
 				{
-					modSize = (int) getPc().getTotalBonusTo("WEAPONPROF=" + eq.profKey(getPc()), "PCSIZE");
+					CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+					String profName;
+					if (ref == null)
+					{
+						profName = "";
+					}
+					else
+					{
+						profName = ref.resolvesTo().getKeyName();
+					}
+
+					modSize = (int) getPc().getTotalBonusTo("WEAPONPROF=" + profName, "PCSIZE");
 
 					// loops for each equipment type
 					for ( String eqType : eq.typeList() )

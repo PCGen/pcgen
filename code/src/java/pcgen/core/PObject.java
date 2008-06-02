@@ -48,7 +48,9 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -1119,9 +1121,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param character
 	 * @return List
 	 */
-	public List<String> getChangeProfList(final PlayerCharacter character)
+	public Map<WeaponProf, String> getChangeProfList(final PlayerCharacter character)
 	{
-		final List<String> aList = new ArrayList<String>();
+		final Map<WeaponProf, String> results = new HashMap<WeaponProf, String>();
 
 		for (Iterator<String> e = changeProfMap.keySet().iterator(); e.hasNext();)
 		{
@@ -1139,8 +1141,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				// need to get all items of this TYPE
 				for (Iterator<Equipment> eq = EquipmentList.getEquipmentOfType(aKey.substring(5), "").iterator(); eq.hasNext();)
 				{
-					final String aName = eq.next().profKey(character);
-					aList.add(aName + "|" + newProfType);
+					CDOMSingleRef<WeaponProf> ref = eq.next().get(ObjectKey.WEAPON_PROF);
+					if (ref != null)
+					{
+						results.put(ref.resolvesTo(), newProfType);
+					}
 				}
 			}
 			else
@@ -1151,13 +1156,15 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				{
 					continue;
 				}
-
-				final String aName = aEq.profKey(character);
-				aList.add(aName + "|" + newProfType);
+				CDOMSingleRef<WeaponProf> ref = aEq.get(ObjectKey.WEAPON_PROF);
+				if (ref != null)
+				{
+					results.put(ref.resolvesTo(), newProfType);
+				}
 			}
 		}
 
-		return aList;
+		return results;
 	}
 
 	/**
@@ -3501,7 +3508,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private List<String> processWeaponAutoTags(final PlayerCharacter aPC, String tok)
 	{
 		final StringTokenizer bTok = new StringTokenizer(tok, ".");
-		List<String> xList = null;
+		List<WeaponProf> xList = null;
 
 		while (bTok.hasMoreTokens())
 		{
@@ -3515,44 +3522,41 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 			if (xList == null)
 			{
-				xList = new ArrayList<String>();
+				xList = new ArrayList<WeaponProf>();
 
 				for (WeaponProf obj : pcWeapProfList)
 				{
-					final String wprof = obj.getKeyName();
-
-					if (!xList.contains(wprof))
+					if (!xList.contains(obj))
 					{
-						xList.add(wprof);
+						xList.add(obj);
 					}
 				}
 				
 				for (Equipment obj : pcWeaponList)
 				{
-					final String wprof = obj.profKey(aPC);
-
-					if (!xList.contains(wprof))
+					CDOMSingleRef<WeaponProf> ref = obj
+							.get(ObjectKey.WEAPON_PROF);
+					if (ref != null)
 					{
-						xList.add(wprof);
+						WeaponProf wp = ref.resolvesTo();
+						if (!xList.contains(wp))
+						{
+							xList.add(wp);
+						}
 					}
 				}
-				
-				
 			}
 			else
 			{
-				final List<String> removeList = new ArrayList<String>();
+				final List<WeaponProf> removeList = new ArrayList<WeaponProf>();
 
-				for (Iterator<String> e = xList.iterator(); e.hasNext();)
+				for (WeaponProf wprof : xList)
 				{
-					final String wprof = e.next();
 					boolean contains = false;
 
 					for (WeaponProf obj : pcWeapProfList)
 					{
-						final String wprof2 = obj.getKeyName();
-
-						if (wprof.equals(wprof2))
+						if (wprof.equals(obj))
 						{
 							contains = true;
 
@@ -3562,13 +3566,15 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 					if(!contains) {
 						for (Equipment obj : pcWeaponList)
 						{
-							final String wprof2 = obj.profKey(aPC);
-
-							if (wprof.equals(wprof2))
+							CDOMSingleRef<WeaponProf> ref = obj.get(ObjectKey.WEAPON_PROF);
+							if (ref != null)
 							{
-								contains = true;
+								if (wprof.equals(ref.resolvesTo()))
+								{
+									contains = true;
 
-								break;
+									break;
+								}
 							}
 						}
 
@@ -3579,14 +3585,18 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 					}
 				}
 
-				for (Iterator<String> e = removeList.iterator(); e.hasNext();)
+				for (WeaponProf wprof : removeList)
 				{
-					final String wprof = e.next();
 					xList.remove(wprof);
 				}
 			}
 		}
-		return xList;
+		List<String> returnList = new ArrayList<String>(xList.size());
+		for (WeaponProf wp : xList)
+		{
+			returnList.add(wp.getKeyName());
+		}
+		return returnList;
 	}
 
 	/**

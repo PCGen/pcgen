@@ -131,8 +131,8 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase
 		is(Lone.size(), eq(2), "Available list has 2 elements");
 		is(Ltwo.size(), eq(0), "Selected list has no elements");
 
-		is(Lone.contains("Armor one"), eq(true), "First Available list test");
-		is(Lone.contains("Armor two"), eq(true), "Second Available list test");
-		is(Lone.contains("Armor three"), eq(false), "Third Available list test");
+		is(Lone.contains("Arm001"), eq(true), "First Available list test");
+		is(Lone.contains("Arm002"), eq(true), "Second Available list test");
+		is(Lone.contains("Arm003"), eq(false), "Third Available list test");
 	}
 }

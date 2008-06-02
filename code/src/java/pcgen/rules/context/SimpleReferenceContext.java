@@ -197,4 +197,12 @@ public class SimpleReferenceContext
 	{
 		getManufacturer(cl).resolveReferences(getRefSupport(cl));
 	}
+
+	public void buildDeferredObjects()
+	{
+		for (ReferenceSupport<?, ?> rs : refMap.values())
+		{
+			rs.buildDeferredObjects();
+		}
+	}
 }

@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -121,7 +122,7 @@ public class WeaponhToken extends WeaponToken
 		Equipment eq = new Equipment();
 		eq.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq.setKeyName("KEY_Unarmed Strike");
-		eq.setWeaponProf("Unarmed Strike");
+		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 		eq.setOutputName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq
 			.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");

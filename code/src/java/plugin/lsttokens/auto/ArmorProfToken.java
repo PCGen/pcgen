@@ -45,9 +45,9 @@ public class ArmorProfToken implements AutoLstToken
 		{
 			if (st.nextToken().startsWith("TYPE"))
 			{
-				Logging.deprecationPrint("TYPE= in AUTO:ARMORPROF is "
-						+ "deprecated.  Use ARMORTYPE=");
-				break;
+				Logging.errorPrint("TYPE= in AUTO:ARMORPROF is "
+						+ "prohibited.  Use ARMORTYPE=");
+				return false;
 			}
 		}
 		target.addAutoArray(getTokenName(), value);

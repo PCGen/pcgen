@@ -52,8 +52,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.GenericMapToList;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -70,6 +73,7 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -5224,15 +5228,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return List
 	 */
-	public List<String> getChangeProfList()
+	public MapToList<String, WeaponProf> getChangeProfList()
 	{
-		final List<String> aList = new ArrayList<String>();
-
+		MapToList<String, WeaponProf> mtl = GenericMapToList
+				.getMapToList(CaseInsensitiveMap.class);
+		
 		for (PObject pObj : getPObjectList())
 		{
-			aList.addAll(pObj.getChangeProfList(this));
+			Map<WeaponProf, String> cp = pObj.getChangeProfList(this);
+			for (Map.Entry<WeaponProf, String> me : cp.entrySet())
+			{
+				mtl.addToListFor(me.getValue(), me.getKey());
+			}
 		}
-		return aList;
+		return mtl;
 	}
 
 	public CharacterDomain getCharacterDomainForDomain(final String domainKey)
@@ -6185,12 +6194,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (eq.isShield())
 		{
 			final List<String> aList = getShieldProfList();
-			return isProficientWith(eq, aList);
+			return isProficientWithShield(eq, aList);
 		}
 		else if (eq.isArmor())
 		{
 			final List<String> aList = getArmorProfList();
-			return isProficientWith(eq, aList);
+			return isProficientWithArmor(eq, aList);
 		}
 		else if (eq.isWeapon())
 		{
@@ -12071,8 +12080,47 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return iBonus;
 	}
 
-	private boolean isProficientWith(final Equipment eq,
-		final List<String> aList)
+	private boolean isProficientWithShield(final Equipment eq,
+			final List<String> aList)
+		{
+			// First, check to see if fits into any TYPE granted
+			for (int i = 0; i < aList.size(); ++i)
+			{
+				final String aString = aList.get(i);
+
+				StringTokenizer tok;
+				if (aString.startsWith("SHIELDTYPE=")
+					|| aString.startsWith("SHIELDTYPE."))
+				{
+					tok = new StringTokenizer(aString.substring(11), ".");
+				}
+				else
+				{
+					// All TYPE profs are at the beginning of the list
+					break;
+				}
+				int matches = 0;
+				final int minMatches = tok.countTokens();
+				while (tok.hasMoreTokens())
+				{
+					final String aType = tok.nextToken();
+					if (eq.isType(aType))
+					{
+						matches++;
+					}
+				}
+				// We have to match all the tokens.
+				if (matches == minMatches)
+				{
+					return true;
+				}
+			}
+
+			return aList.contains(eq.getShieldProf().getKeyName());
+		}
+
+	private boolean isProficientWithArmor(final Equipment eq,
+			final List<String> aList)
 	{
 		// First, check to see if fits into any TYPE granted
 		for (int i = 0; i < aList.size(); ++i)
@@ -12080,19 +12128,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final String aString = aList.get(i);
 
 			StringTokenizer tok;
-			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
-			{
-				tok = new StringTokenizer(aString.substring(5), ".");
-			}
-			else if (aString.startsWith("ARMORTYPE=")
-				|| aString.startsWith("ARMORTYPE."))
+			if (aString.startsWith("ARMORTYPE=")
+					|| aString.startsWith("ARMORTYPE."))
 			{
 				tok = new StringTokenizer(aString.substring(10), ".");
-			}
-			else if (aString.startsWith("SHIELDTYPE=")
-				|| aString.startsWith("SHIELDTYPE."))
-			{
-				tok = new StringTokenizer(aString.substring(11), ".");
 			}
 			else
 			{
@@ -12116,7 +12155,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return aList.contains(eq.profKey(this));
+		return aList.contains(eq.getArmorProf().getKeyName());
 	}
 
 	private boolean isProficientWithWeapon(final Equipment eq)
@@ -12126,13 +12165,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return true;
 		}
 
-		final WeaponProf wp = eq.getExpandedWeaponProf(this);
-
-		if (wp == null)
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		if (ref == null)
 		{
 			return false;
 		}
 
+		WeaponProf wp = ref.resolvesTo();
 		return hasWeaponProfKeyed(wp.getKeyName());
 	}
 
@@ -12503,12 +12542,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (Equipment weap : EquipmentList.getEquipmentOfType("WEAPON."
 				+ aString.substring(11), ""))
 			{
-				final WeaponProf aProf =
-						Globals.getWeaponProfKeyed(weap.profKey(this));
+				CDOMSingleRef<WeaponProf> ref = weap.get(ObjectKey.WEAPON_PROF);
 
-				if (aProf != null)
+				if (ref != null)
 				{
-					addWeaponProfToList(aFeatList, aProf.getKeyName(), isAuto);
+					addWeaponProfToList(aFeatList, ref.resolvesTo().getKeyName(), isAuto);
 				}
 			}
 
@@ -12778,9 +12816,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						{
 							for (Equipment e : listFromEquipmentType)
 							{
-								final WeaponProf prof =
-										e.getExpandedWeaponProf(this);
-								addWPs.add(prof);
+								CDOMSingleRef<WeaponProf> ref = e.get(ObjectKey.WEAPON_PROF);
+								if (ref != null)
+								{
+									addWPs.add(ref.resolvesTo());
+								}
 							}
 						}
 					}

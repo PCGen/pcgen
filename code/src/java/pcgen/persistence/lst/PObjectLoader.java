@@ -25,16 +25,13 @@
  */
 package pcgen.persistence.lst;
 
+import java.util.Map;
+import java.util.regex.Pattern;
+
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.persistence.lst.utils.PObjectHelper;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Pattern;
 
 /**
  * @author David Rice <david-pcgen@jcuz.com>
@@ -47,10 +44,6 @@ public final class PObjectLoader
 	 * Creates a new instance of PObjectLoader Private since instances need never
 	 * be created and API methods are public and static
 	 */
-
-	private static List<PObjectHelper> featList =
-			new ArrayList<PObjectHelper>();
-
 	private PObjectLoader()
 	{
 		// Empty Constructor

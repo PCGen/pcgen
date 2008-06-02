@@ -51,6 +51,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.core.character.CompanionMod;
@@ -3185,56 +3186,29 @@ public final class Globals
 	 */
 	public static List<WeaponProf> getWeaponProfs(final String type, final PlayerCharacter aPC)
 	{
-		final List<WeaponProf> aList = new ArrayList<WeaponProf>();
-		final List<WeaponProf> bList = new ArrayList<WeaponProf>();
-		StringTokenizer aTok;
-		WeaponProf tempProf;
-
-		for ( String aString : aPC.getChangeProfList() )
+		MapToList<String, WeaponProf> mtl = aPC.getChangeProfList();
+		List<WeaponProf> aList = mtl.getListFor(type);
+		if (aList == null)
 		{
-			aTok = new StringTokenizer(aString, "|");
-
-			//
-			// aString is format: WeapProf|ProfCategory
-			// eg: Greataxe|Simple
-			// eg: Sword (Bastard/Exotic)|Martial
-			//
-			final String eqName = aTok.nextToken();
-			final String wpType = aTok.nextToken();
-			tempProf = getWeaponProfKeyed(eqName);
-
-			if (tempProf == null)
-			{
-				continue;
-			}
-
-			if (wpType.equalsIgnoreCase(type))
-			{
-				aList.add(tempProf);
-			}
-			else
-			{
-				bList.add(tempProf);
-			}
+			aList = new ArrayList<WeaponProf>();
 		}
 
-		final Collection<WeaponProf> weaponProfsOfType = getAllWeaponProfsOfType(type);
+		Collection<WeaponProf> weaponProfsOfType = getAllWeaponProfsOfType(type);
 
 		if (weaponProfsOfType == null)
 		{
 			return aList;
 		}
 
-		for ( WeaponProf tempProf2 : weaponProfsOfType )
+		ArrayList<WeaponProf> appendList = new ArrayList<WeaponProf>(weaponProfsOfType);
+		for (String cpType : mtl.getKeySet())
 		{
-			if (bList.contains(tempProf2))
+			if (!type.equals(cpType))
 			{
-				continue;
+				appendList.removeAll(mtl.getListFor(cpType));
 			}
-
-			aList.add(tempProf2);
 		}
-
+		aList.addAll(appendList);
 		return aList;
 	}
 

@@ -383,6 +383,21 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 			{
 				me.getValue().addResolution(activeObj);
 			}
+			else
+			{
+				System.err.println("Unable to Resolve: " + baseClass + " " + me.getKey());
+			}
+		}
+	}
+
+	public void buildDeferredObjects()
+	{
+		for (CaseInsensitiveString cis : deferred)
+		{
+			if (!active.containsKey(cis))
+			{
+				constructCDOMObject(cis.toString());
+			}
 		}
 	}
 }

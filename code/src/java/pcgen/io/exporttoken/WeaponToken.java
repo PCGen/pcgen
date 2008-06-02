@@ -34,6 +34,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -722,11 +723,21 @@ public class WeaponToken extends Token
 	 */
 	public static String getMultToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		StringBuffer sb = new StringBuffer();
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
 		int mult =
-				(int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc),
+				(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 					"CRITMULTADD")
 					+ getWeaponProfTypeBonuses(pc, eq, "CRITMULTADD",
 						WPTYPEBONUS_PC);
@@ -890,9 +901,19 @@ public class WeaponToken extends Token
 	 */
 	public static int getMagicDamageToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		int magicdamage =
 				eq.getBonusToDamage(pc, true)
-					+ (int) eq.bonusTo("WEAPONPROF=" + eq.profKey(pc),
+					+ (int) eq.bonusTo("WEAPONPROF=" + profName,
 						"DAMAGE", pc, pc)
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_EQ);
 		return magicdamage;
@@ -906,9 +927,19 @@ public class WeaponToken extends Token
 	 */
 	public static int getMagicHitToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		int magichit =
 				eq.getBonusToHit(pc, true)
-					+ (int) eq.bonusTo("WEAPONPROF=" + eq.profKey(pc), "TOHIT",
+					+ (int) eq.bonusTo("WEAPONPROF=" + profName, "TOHIT",
 						pc, pc)
 					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_EQ);
 		return magichit;
@@ -922,8 +953,18 @@ public class WeaponToken extends Token
 	 */
 	public static int getMiscToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		int miscBonus =
-				((int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc),
+				((int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 					"TOHIT") + getWeaponProfTypeBonuses(pc, eq, "TOHIT",
 					WPTYPEBONUS_PC))
 					- (int) pc.getStatBonusTo("TOHIT", "TYPE.MELEE")
@@ -939,11 +980,21 @@ public class WeaponToken extends Token
 	 */
 	public static int getFeatDamageToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		int featBonus =
 				(int) pc.getFeatBonusTo("WEAPON", "DAMAGE", true)
 					- (int) pc.getFeatBonusTo("WEAPON", "DAMAGE-SHORTRANGE",
 						true)
-					+ (int) pc.getFeatBonusTo("WEAPONPROF=" + eq.profKey(pc),
+					+ (int) pc.getFeatBonusTo("WEAPONPROF=" + profName,
 						"DAMAGE", true)
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE",
 						WPTYPEBONUS_FEAT);
@@ -958,9 +1009,19 @@ public class WeaponToken extends Token
 	 */
 	public static int getFeatHitToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		int featBonus =
 				(int) pc.getFeatBonusTo("WEAPON", "TOHIT", true)
-					+ (int) pc.getFeatBonusTo("WEAPONPROF=" + eq.profKey(pc),
+					+ (int) pc.getFeatBonusTo("WEAPONPROF=" + profName,
 						"TOHIT", true)
 					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT",
 						WPTYPEBONUS_FEAT);
@@ -975,10 +1036,20 @@ public class WeaponToken extends Token
 	 */
 	public static int getTemplateDamageToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		int templateBonus =
 				(int) pc.getTemplateBonusTo("WEAPON", "DAMAGE", true)
 					+ (int) pc.getTemplateBonusTo("WEAPONPROF="
-						+ eq.profKey(pc), "DAMAGE", true)
+						+ profName, "DAMAGE", true)
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE",
 						WPTYPEBONUS_TEMPLATE);
 		return templateBonus;
@@ -992,10 +1063,20 @@ public class WeaponToken extends Token
 	 */
 	public static int getTemplateHitToken(PlayerCharacter pc, Equipment eq)
 	{
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
 		int templateBonus =
 				(int) pc.getTemplateBonusTo("WEAPON", "TOHIT", true)
 					+ (int) pc.getTemplateBonusTo("WEAPONPROF="
-						+ eq.profKey(pc), "TOHIT", true)
+						+ profName, "TOHIT", true)
 					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT",
 						WPTYPEBONUS_TEMPLATE);
 		return templateBonus;
@@ -1195,16 +1276,27 @@ public class WeaponToken extends Token
 			return "none";
 		}
 
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
+		}
+
 		final List<BonusObj> bonuses = new ArrayList<BonusObj>();
 		bonuses.addAll(BonusUtilities.getBonusFromList(pc.getActiveBonusList(),
-			"WEAPONPROF=" + eq.profKey(pc), "CRITRANGEDOUBLE"));
+			"WEAPONPROF=" + profName, "CRITRANGEDOUBLE"));
 		int dbl =
-				(int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc),
+				(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 					"CRITRANGEDOUBLE")
 					+ getWeaponProfTypeBonuses(pc, eq, "CRITRANGEDOUBLE",
 						WPTYPEBONUS_PC);
 		int iAdd =
-				(int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc),
+				(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 					"CRITRANGEADD")
 					+ getWeaponProfTypeBonuses(pc, eq, "CRITRANGEADD",
 						WPTYPEBONUS_PC);
@@ -1322,8 +1414,7 @@ public class WeaponToken extends Token
 				damageMode = DAMAGEMODE_BASIC;
 			}
 		}
-		String profKey = eq.profKey(pc);
-		return getDamage(pc, eq, profKey, range, content, ammo, bonusOnly,
+		return getDamage(pc, eq, range, content, ammo, bonusOnly,
 			hands, damageMode, base);
 	}
 
@@ -1355,7 +1446,7 @@ public class WeaponToken extends Token
 	{
 		int damageMode = DAMAGEMODE_BASIC;
 		int hands = 1;
-		return getDamage(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getDamage(pc, eq, range, content, ammo,
 			bonusOnly, hands, damageMode, false);
 	}
 
@@ -1387,7 +1478,7 @@ public class WeaponToken extends Token
 	{
 		int damageMode = DAMAGEMODE_TWOHANDS;
 		int hands = 2;
-		return getDamage(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getDamage(pc, eq, range, content, ammo,
 			bonusOnly, hands, damageMode, false);
 	}
 
@@ -1419,7 +1510,7 @@ public class WeaponToken extends Token
 	{
 		int damageMode = DAMAGEMODE_OFFHAND;
 		int hands = 0;
-		return getDamage(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getDamage(pc, eq, range, content, ammo,
 			bonusOnly, hands, damageMode, false);
 	}
 
@@ -1547,7 +1638,7 @@ public class WeaponToken extends Token
 			}
 		}
 
-		return getToHit(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getToHit(pc, eq, range, content, ammo,
 			hitModeHands, hitMode, attackNum, true);
 	}
 
@@ -1577,7 +1668,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_BASEHIT;
-		return getToHit(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getToHit(pc, eq, range, content, ammo,
 			hitModeHands, hitMode, attackNum, false);
 	}
 
@@ -1607,7 +1698,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TWPHITH;
-		return getToHit(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getToHit(pc, eq, range, content, ammo,
 			hitModeHands, hitMode, attackNum, false);
 	}
 
@@ -1637,7 +1728,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TWPHITL;
-		return getToHit(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getToHit(pc, eq, range, content, ammo,
 			hitModeHands, hitMode, attackNum, false);
 	}
 
@@ -1667,7 +1758,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TWOHIT;
-		return getToHit(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getToHit(pc, eq, range, content, ammo,
 			hitModeHands, hitMode, attackNum, false);
 	}
 
@@ -1697,7 +1788,7 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 1;
 		int hitMode = HITMODE_OHHIT;
-		return getToHit(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getToHit(pc, eq, range, content, ammo,
 			hitModeHands, hitMode, attackNum, false);
 	}
 
@@ -1727,18 +1818,17 @@ public class WeaponToken extends Token
 	{
 		int hitModeHands = 2;
 		int hitMode = HITMODE_THHIT;
-		return getToHit(pc, eq, eq.profKey(pc), range, content, ammo,
+		return getToHit(pc, eq, range, content, ammo,
 			hitModeHands, hitMode, attackNum, false);
 	}
 
 	private static String getToHit(PlayerCharacter pc, Equipment eq,
-		String profKey, int range, int content, int ammo, int hands,
+		int range, int content, int ammo, int hands,
 		int hitMode, int attackNum, boolean totalHit)
 	{
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
-		WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
 
 		// If it's a two handed weapon, but is not
 		// wielded as two handed, just punt now!
@@ -1758,6 +1848,16 @@ public class WeaponToken extends Token
 		}
 
 		int weaponBaseBonus = (int) eq.bonusTo(pc, "WEAPON", "WEAPONBAB", true);
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profKey;
+		if (ref == null)
+		{
+			profKey = "";
+		}
+		else
+		{
+			profKey = ref.resolvesTo().getKeyName();
+		}
 
 		weaponBaseBonus +=
 				(int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "WEAPONBAB");
@@ -1970,7 +2070,7 @@ public class WeaponToken extends Token
 		// Dagger yields following:
 		// WEAPONPROF=abc.TOHIT:NOTRANGED
 		//
-		if ((wp != null) && eq.isRanged())
+		if ((ref != null) && eq.isRanged())
 		{
 			baseBonus -=
 					(int) pc.getBonusDueToType("WEAPONPROF=" + profKey,
@@ -1981,7 +2081,7 @@ public class WeaponToken extends Token
 		}
 
 		if (!eq.isNatural()
-			&& ((wp == null) || !pc.hasWeaponProfKeyed(profKey)))
+			&& ((ref == null) || !pc.hasWeaponProfKeyed(profKey)))
 		{
 			baseBonus += pc.getNonProficiencyPenalty();
 		}
@@ -2308,7 +2408,7 @@ public class WeaponToken extends Token
 	}
 
 	private static String getDamage(PlayerCharacter pc, Equipment eq,
-		String profName, int range, int content, int ammo, boolean bonusOnly,
+		int range, int content, int ammo, boolean bonusOnly,
 		int hands, int damageMode, boolean base)
 	{
 		boolean isDouble =
@@ -2336,6 +2436,17 @@ public class WeaponToken extends Token
 			// if wielding a 'Light' weapon two handed
 			// treat as if wielding 1 handed for damage bonus
 			hands = 1;
+		}
+
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profName;
+		if (ref == null)
+		{
+			profName = "";
+		}
+		else
+		{
+			profName = ref.resolvesTo().getKeyName();
 		}
 
 		String damString = getEqDamage(pc, eq);
@@ -2541,7 +2652,16 @@ public class WeaponToken extends Token
 	private static int getWeaponProfBonus(PlayerCharacter pc, Equipment eq,
 		int range)
 	{
-		String profKey = eq.profKey(pc);
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profKey;
+		if (ref == null)
+		{
+			profKey = "";
+		}
+		else
+		{
+			profKey = ref.resolvesTo().getKeyName();
+		}
 		int weaponProfBonus =
 				(int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGE")
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_PC);
@@ -2678,7 +2798,16 @@ public class WeaponToken extends Token
 			return retString;
 		}
 
-		String profKey = eq.profKey(pc);
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		String profKey;
+		if (ref == null)
+		{
+			profKey = "";
+		}
+		else
+		{
+			profKey = ref.resolvesTo().getKeyName();
+		}
 		if (eq.isNatural())
 		{
 			//			int eqSize = Globals.sizeInt(pc.getRace().getSize());
@@ -2739,13 +2868,12 @@ public class WeaponToken extends Token
 	{
 		int bonus = 0;
 		boolean hasBoth = (eq.isRanged() && eq.isMelee());
-		String profKey = eq.profKey(pc);
-		WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
-
-		if (wp == null)
+		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		if (ref == null)
 		{
 			return 0;
 		}
+		WeaponProf wp = ref.resolvesTo();
 
 		StringTokenizer aTok = new StringTokenizer(wp.getType(), ".");
 

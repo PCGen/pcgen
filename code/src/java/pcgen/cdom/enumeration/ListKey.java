@@ -31,6 +31,7 @@ import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.PointCost;
+import pcgen.cdom.helper.Quality;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -187,6 +188,7 @@ public final class ListKey<T> {
 	public static final ListKey<AttackCycle> ATTACK_CYCLE = new ListKey<AttackCycle>();
 	public static final ListKey<KnownSpellIdentifier> KNOWN_SPELLS = new ListKey<KnownSpellIdentifier>();
 	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<SpellProhibitor>();
+	public static final ListKey<Quality> QUALITY = new ListKey<Quality>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

@@ -31,6 +31,8 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -146,54 +148,24 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 					if (eq == null)
 					{
 						//
-						// Sword (Bastard/Exotic), Sword (Bastard/Martial), Katana (Martial), Katana(Exotic)
+						// Couldn't find equipment with matching name, look for
+						// 1st weapon that uses it
 						//
-						int len = 0;
-
-						if (profKey.endsWith("Exotic)"))
+						for (Iterator<Map.Entry<String, Equipment>> eqIter = EquipmentList
+								.getEquipmentListIterator(); eqIter.hasNext();)
 						{
-							len = 7;
-						}
+							final Map.Entry<String, Equipment> entry = eqIter
+									.next();
+							final Equipment tempEq = entry.getValue();
 
-						if ((len == 0) && profKey.endsWith("Martial)"))
-						{
-							len = 8;
-						}
-
-						if (len != 0)
-						{
-							if (profKey.charAt(profKey.length() - len - 1) == '/')
+							CDOMSingleRef<WeaponProf> ref = tempEq
+									.get(ObjectKey.WEAPON_PROF);
+							if (ref != null)
 							{
-								++len;
-							}
-
-							String tempString = profKey.substring(0, profKey.length() - len) + ")";
-
-							if (tempString.endsWith("()"))
-							{
-								tempString = tempString.substring(0, tempString.length() - 3).trim();
-							}
-
-							eq = EquipmentList.getEquipmentNamed(tempString);
-						}
-						else
-						{
-							//
-							// Couldn't find equipment with matching name, look for 1st weapon that uses it
-							//
-							for (Iterator<Map.Entry<String, Equipment>> eqIter = EquipmentList.getEquipmentListIterator(); eqIter.hasNext(); )
-							{
-								final Map.Entry<String, Equipment> entry = eqIter.next();
-								final Equipment tempEq = entry.getValue();
-
-								if (tempEq.isWeapon())
+								if (ref.contains(wp))
 								{
-									if (tempEq.profKey(aPc).equals(profKey))
-									{
-										eq = tempEq;
-
-										break;
-									}
+									eq = tempEq;
+									break;
 								}
 							}
 						}

@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -162,18 +163,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
-		bastardSword = new Equipment();
-		bastardSword.setName("Sword, Bastard");
-		bastardSword.setKeyName("BASTARD_SWORD");
-		bastardSword.setWeaponProf("KEY_Sword (Bastard)");
-		bastardSword
-			.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
-		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
-		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
-		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		bastardSword.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
-		bastardSword.setSize("M", true);
-
 		WeaponProf wp = new WeaponProf();
 		wp.setName("DoubleWpn");
 		wp.put(IntegerKey.HANDS, Constants.HANDS_SIZEDEPENDENT);
@@ -186,17 +175,17 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Globals.addWeaponProf(wp);
 		character.addWeaponProf(wp.getKeyName());
 
-		largeSword = new Equipment();
-		largeSword.setName("Longsword (Large)");
-		largeSword.setKeyName("KEY_LONGSWORD_LARGE");
-		largeSword.setOutputName("Longsword (Large)");
-		largeSword.setWeaponProf("KEY_Longsword");
-		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
-		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
-		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
-		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		largeSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
-		largeSword.setSize("L", true);
+		bastardSword = new Equipment();
+		bastardSword.setName("Sword, Bastard");
+		bastardSword.setKeyName("BASTARD_SWORD");
+		bastardSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		bastardSword
+			.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
+		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
+		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
+		bastardSword.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
+		bastardSword.setSize("M", true);
 
 		wp = new WeaponProf();
 		wp.setName("Longsword");
@@ -205,11 +194,23 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Globals.addWeaponProf(wp);
 		character.addWeaponProf(wp.getKeyName());
 
+		largeSword = new Equipment();
+		largeSword.setName("Longsword (Large)");
+		largeSword.setKeyName("KEY_LONGSWORD_LARGE");
+		largeSword.setOutputName("Longsword (Large)");
+		largeSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
+		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
+		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
+		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
+		largeSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
+		largeSword.setSize("L", true);
+
 		fineSword = new Equipment();
 		fineSword.setName("Longsword (Fine)");
 		fineSword.setKeyName("KEY_LONGSWORD_FINE");
 		fineSword.setOutputName("Longsword (Fine)");
-		fineSword.setWeaponProf("KEY_Longsword");
+		fineSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 		fineSword
 			.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
 		fineSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
@@ -222,7 +223,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.setName("Longspear");
 		longSpear.setKeyName("KEY_LONGSPEAR");
 		longSpear.setOutputName("Longspear");
-		longSpear.setWeaponProf("MARTIAL");
 		longSpear.setTypeInfo("Weapon.Melee.Martial.Standard.Piercing.Spear");
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -238,6 +238,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		SettingsHandler.setRuleCheck("SIZECAT", true);
 		gm.setWCStepsFormula("EQUIP.SIZE.INT-PC.SIZE.INT");
 		gm.setWeaponReachFormula("(RACEREACH+(max(0,REACH-5)))*REACHMULT");
+
+		wp = new WeaponProf();
+		wp.setName("Silly Bite");
+		wp.setKeyName("SillyBite");
+		//wp.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
+		wp.setTypeInfo("Natural");
+		Globals.addWeaponProf(wp);
+		character.addWeaponProf(wp.getKeyName());
 
 		bite = new Equipment();
 		bite.setName("Silly Bite");
@@ -257,15 +265,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		bite.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
-		bite.setWeaponProf("SillyBite");
-
-		wp = new WeaponProf();
-		wp.setName("Silly Bite");
-		wp.setKeyName("SillyBite");
-		//wp.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
-		wp.setTypeInfo("Natural");
-		Globals.addWeaponProf(wp);
-		character.addWeaponProf(wp.getKeyName());
+		bite.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 
 		// Weild categories
 		WieldCategory wCat1h = new WieldCategory("OneHanded");
@@ -466,7 +466,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("2-handed prof should be martial",
-			"KEY_Sword (Bastard)", bastardSword.profKey(character));
+			"KEY_Sword (Bastard)", bastardSword.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
 
 		EquipSet es =
 				new EquipSet("0.1.2", "Sword (Bastard)",
@@ -493,7 +493,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
-			.profKey(character));
+				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
 
 		EquipSet es =
 				new EquipSet("0.1.3", "Longsword (Large)",
@@ -520,7 +520,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
-			.profKey(character));
+				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
 
 		assertTrue("Character should be proficient with longsword", character
 			.isProficientWith(largeSword));
@@ -565,7 +565,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be SillyBite", "SillyBite", bite
-			.profKey(character));
+				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
 
 		EquipSet es =
 				new EquipSet("0.1.3", "Bite Attack", bite.getName(), bite);
@@ -592,7 +592,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
-			.profKey(character));
+				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
 
 		character.addEquipment(fineSword);
 		EquipSet es =

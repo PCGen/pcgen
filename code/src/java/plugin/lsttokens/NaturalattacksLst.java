@@ -23,6 +23,7 @@ import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 
 /**
@@ -210,7 +211,9 @@ public class NaturalattacksLst implements GlobalLstToken
 		head.put(StringKey.DAMAGE, aTok.nextToken());
 		head.put(IntegerKey.CRIT_RANGE, 1);
 		head.put(IntegerKey.CRIT_MULT, 2);
-		anEquip.setWeaponProf(attackName);
+		ReferenceContext ref = Globals.getContext().ref;
+		ref.constructIfNecessary(WeaponProf.class, attackName);
+		anEquip.put(ObjectKey.WEAPON_PROF, ref.getCDOMReference(WeaponProf.class, attackName));
 
 		// sage_sam 02 Dec 2002 for Bug #586332
 		// allow hands to be required to equip natural weapons

@@ -338,4 +338,9 @@ public class ReferenceContext
 	{
 		simple.resolveReferences();
 	}
+
+	public void buildDeferredObjects()
+	{
+		simple.buildDeferredObjects();
+	}
 }

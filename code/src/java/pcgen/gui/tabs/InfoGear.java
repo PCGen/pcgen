@@ -91,7 +91,9 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.Quality;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -807,11 +809,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 				b.appendI18nElement("in_igInfoLabelTextCharges" , Integer.valueOf(charges).toString() ); //$NON-NLS-1$
 			}
 
-			bString = aEq.getQualityString();
-			if (bString.length() > 0)
+			List<Quality> qualityList = aEq.getListFor(ListKey.QUALITY);
+			if (qualityList != null)
 			{
 				b.appendSpacer();
-				b.appendI18nElement("in_igInfoLabelTextQualities", bString); //$NON-NLS-1$
+				b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join(qualityList, ", ")); //$NON-NLS-1$
 			}
 
 			bString = aEq.getDefaultSourceString();

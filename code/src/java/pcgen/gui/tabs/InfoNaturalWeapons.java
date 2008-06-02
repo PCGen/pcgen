@@ -34,10 +34,13 @@ import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.WeaponProf;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
@@ -277,9 +280,19 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements
 		for (int i = 0; i < weaponCount; ++i)
 		{
 			eq = naturalWeapons.get(i);
+			CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+			String profName;
+			if (ref == null)
+			{
+				profName = "";
+			}
+			else
+			{
+				profName = ref.resolvesTo().getKeyName();
+			}
 
 			final int wpBonus =
-					(int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc),
+					(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 						"TOHIT");
 
 			Object[] newRow = new Object[7];
