@@ -483,11 +483,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// load before races to handle auto known languages
 			languageLoader.loadLstFiles(context, languageFileList);
 
-			// load before race or class to handle abilities
-			abilityLoader.loadLstFiles(context, abilityFileList);
-
 			// load before race or class to handle feats
 			featLoader.loadLstFiles(context, featFileList);
+
+			// load before race or class to handle abilities
+			abilityLoader.loadLstFiles(context, abilityFileList);
 
 			raceLoader.loadLstFiles(context, raceFileList);
 
