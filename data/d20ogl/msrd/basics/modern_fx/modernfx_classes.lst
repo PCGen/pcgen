@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 17:33:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Jun  2 19:58:23 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -8,16 +8,16 @@ CLASS:Shadow Slayer	HD:8		TYPE:Advanced.PC	ABB:Shad		MAXLEVEL:10	BONUS:CHECKS|BA
 CLASS:Shadow Slayer	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Slayer	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Gather Information|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spot|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|Detect Shadow		BONUS:VAR|ShadowSlayerLevel|CL		
-2	ABILITY:Special Ability|AUTOMATIC|Shadow Immunity	BONUS:VAR|ShadowSlayerHalfLevel|CL/2	
-3																							BONUS:ABILITYPOOL|Shadow Slayer Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Slayer Weapon
-5																							BONUS:ABILITYPOOL|Shadow Enemy Feat|1
-6																							BONUS:ABILITYPOOL|Shadow Slayer Feat|1
-7																							BONUS:ABILITYPOOL|Shadow Enemy Feat|1
-8	ABILITY:Special Ability|AUTOMATIC|Fast Healing
-9																							BONUS:ABILITYPOOL|Shadow Slayer Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|Word of Slaying
+1								BONUS:VAR|ShadowSlayerLevel|CL		ABILITY:Special Ability|AUTOMATIC|Detect Shadow
+2								BONUS:VAR|ShadowSlayerHalfLevel|CL/2	ABILITY:Special Ability|AUTOMATIC|Shadow Immunity
+3	BONUS:ABILITYPOOL|Shadow Slayer Feat|1
+4															ABILITY:Special Ability|AUTOMATIC|Slayer Weapon
+5	BONUS:ABILITYPOOL|Shadow Enemy Feat|1
+6	BONUS:ABILITYPOOL|Shadow Slayer Feat|1
+7	BONUS:ABILITYPOOL|Shadow Enemy Feat|1
+8															ABILITY:Special Ability|AUTOMATIC|Fast Healing
+9	BONUS:ABILITYPOOL|Shadow Slayer Feat|1
+10															ABILITY:Special Ability|AUTOMATIC|Word of Slaying
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Occultist	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/3)	BONUS:VAR|Action|CL*6
@@ -27,16 +27,16 @@ CLASS:Occultist	PREFEAT:2,Educated,Studious	PRESKILL:3,Decipher Script=6,Knowled
 CLASS:Occultist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Drive|Investigate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Occultist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:NO	BONUS:CASTERLEVEL|Occultist|CL
-1	ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Occultist	BONUS:VAR|OccultistRes|CL+5	
-2	ABILITY:Special Ability|AUTOMATIC|Arcane Research			BONUS:VAR|ArcaneResearch|1
-3																	BONUS:ABILITYPOOL|Occultist Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Shadow Contact
-5	ABILITY:Special Ability|AUTOMATIC|Bind Shadow Creature		BONUS:VAR|BindShadowCreatureLvl|1
-6																	BONUS:ABILITYPOOL|Occultist Feat|1
-7												BONUS:VAR|ArcaneResearch|1
-8												BONUS:VAR|BindShadowCreatureLvl|1
-9																	BONUS:ABILITYPOOL|Occultist Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|Banish
+1							BONUS:VAR|OccultistRes|CL+5		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Occultist
+2							BONUS:VAR|ArcaneResearch|1		ABILITY:Special Ability|AUTOMATIC|Arcane Research
+3	BONUS:ABILITYPOOL|Occultist Feat|1
+4													ABILITY:Special Ability|AUTOMATIC|Shadow Contact
+5							BONUS:VAR|BindShadowCreatureLvl|1	ABILITY:Special Ability|AUTOMATIC|Bind Shadow Creature
+6	BONUS:ABILITYPOOL|Occultist Feat|1
+7							BONUS:VAR|ArcaneResearch|1
+8							BONUS:VAR|BindShadowCreatureLvl|1
+9	BONUS:ABILITYPOOL|Occultist Feat|1
+10													ABILITY:Special Ability|AUTOMATIC|Banish
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Telepath	HD:6		TYPE:Advanced.PC	ABB:Tele		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
@@ -62,15 +62,15 @@ CLASS:Telepath	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tel
 1	BONUS:VAR|BonusPowerPoints|max(((CHA*2)-1),0)
 ###Block: Normal Level Progression
 1	KNOWN:3,1
-2	KNOWN:3,2		ABILITY:Special Ability|AUTOMATIC|Trigger Power		BONUS:VAR|TelepathTriggerCount|1	
-3	KNOWN:3,3																						BONUS:ABILITYPOOL|Telepath Feat|1
-4	KNOWN:4,3,1		ABILITY:Special Ability|AUTOMATIC|Power crystal
-5	KNOWN:4,3,2											BONUS:VAR|TelepathTriggerCount|1
-6	KNOWN:4,3,2,1																					BONUS:ABILITYPOOL|Telepath Feat|1
-7	KNOWN:5,4,3,2	ABILITY:Special Ability|AUTOMATIC|Concentration ~ Psionic
-8	KNOWN:5,4,3,2,1										BONUS:VAR|TelepathTriggerCount|1
-9	KNOWN:5,4,3,3,2																					BONUS:ABILITYPOOL|Telepath Feat|1
-10	KNOWN:6,4,3,3,2,1	ABILITY:Special Ability|AUTOMATIC|Maximize Power
+2	KNOWN:3,2								BONUS:VAR|TelepathTriggerCount|1	ABILITY:Special Ability|AUTOMATIC|Trigger Power
+3	KNOWN:3,3		BONUS:ABILITYPOOL|Telepath Feat|1
+4	KNOWN:4,3,1														ABILITY:Special Ability|AUTOMATIC|Power crystal
+5	KNOWN:4,3,2								BONUS:VAR|TelepathTriggerCount|1
+6	KNOWN:4,3,2,1	BONUS:ABILITYPOOL|Telepath Feat|1
+7	KNOWN:5,4,3,2													ABILITY:Special Ability|AUTOMATIC|Concentration ~ Psionic
+8	KNOWN:5,4,3,2,1							BONUS:VAR|TelepathTriggerCount|1
+9	KNOWN:5,4,3,3,2	BONUS:ABILITYPOOL|Telepath Feat|1
+10	KNOWN:6,4,3,3,2,1													ABILITY:Special Ability|AUTOMATIC|Maximize Power
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus						Modify VAR
 CLASS:Battle Mind	HD:8		TYPE:Advanced.PC	ABB:Batt		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -98,14 +98,14 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 1	BONUS:VAR|PsiBladeDamage|1|PREVARGTEQ:BattlemindML,10
 ###Block: Normal Level Progression
 1	KNOWN:2
-2	KNOWN:3		ABILITY:Special Ability|AUTOMATIC|Imprint Tattoo
-3	KNOWN:3,1											BONUS:ABILITYPOOL|Battlemind Feat|1
+2	KNOWN:3								ABILITY:Special Ability|AUTOMATIC|Imprint Tattoo
+3	KNOWN:3,1		BONUS:ABILITYPOOL|Battlemind Feat|1
 4	KNOWN:3,2
-5	KNOWN:3,3,1		ABILITY:Special Ability|AUTOMATIC|Concentration ~ Psionic
-6	KNOWN:3,3,2											BONUS:ABILITYPOOL|Battlemind Feat|1
+5	KNOWN:3,3,1								ABILITY:Special Ability|AUTOMATIC|Concentration ~ Psionic
+6	KNOWN:3,3,2		BONUS:ABILITYPOOL|Battlemind Feat|1
 7	KNOWN:3,3,2,1
 8	KNOWN:3,3,3,1
-9	KNOWN:3,3,3,2										BONUS:ABILITYPOOL|Battlemind Feat|1
+9	KNOWN:3,3,3,2	BONUS:ABILITYPOOL|Battlemind Feat|1
 10	KNOWN:3,3,3,2,1
 
 
@@ -117,16 +117,16 @@ CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lo
 CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
-1	CAST:3,1																AUTO:FEAT|Summon Familiar
-2	CAST:4,2																AUTO:FEAT|Scribe Scroll
-3	CAST:4,2,1											BONUS:ABILITYPOOL|Mage Feat|1	AUTO:FEAT|Brew Potion
-4	CAST:4,3,2																AUTO:FEAT|Scribe Tattoo
-5	CAST:4,3,2,1										ADD:FEAT|Spell Mastery
-6	CAST:4,3,3,2										BONUS:ABILITYPOOL|Mage Feat|1
-7	CAST:4,4,3,2,1	ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage
-8	CAST:4,4,3,3,2										ADD:FEAT|Spell Mastery
-9	CAST:4,4,4,3,2,1										BONUS:ABILITYPOOL|Mage Feat|1
-10	CAST:4,4,4,3,3,2														AUTO:FEAT|Maximize Spell
+1	CAST:3,1																					AUTO:FEAT|Summon Familiar
+2	CAST:4,2																					AUTO:FEAT|Scribe Scroll
+3	CAST:4,2,1		BONUS:ABILITYPOOL|Mage Feat|1															AUTO:FEAT|Brew Potion
+4	CAST:4,3,2																					AUTO:FEAT|Scribe Tattoo
+5	CAST:4,3,2,1						ADD:FEAT|Spell Mastery
+6	CAST:4,3,3,2	BONUS:ABILITYPOOL|Mage Feat|1
+7	CAST:4,4,3,2,1										ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage
+8	CAST:4,4,3,3,2						ADD:FEAT|Spell Mastery
+9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Mage Feat|1
+10	CAST:4,4,4,3,3,2																				AUTO:FEAT|Maximize Spell
 
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus						Modify VAR
@@ -144,13 +144,13 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
 1	CAST:3,1
-2	CAST:4,2		ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Undead
-3	CAST:4,2,1											BONUS:ABILITYPOOL|Acolyte Feat|1
-4	CAST:5,3,2		ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting
-5	CAST:5,3,2,1	ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage
-6	CAST:5,3,3,2										BONUS:ABILITYPOOL|Acolyte Feat|1
-7	CAST:6,4,3,2,1	ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Magical Beasts
-8	CAST:6,4,3,3,2	ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Outsiders
-9	CAST:6,4,4,3,2,1										BONUS:ABILITYPOOL|Acolyte Feat|1
-10	CAST:6,4,4,3,3,2														AUTO:FEAT|Maximize Spell
+2	CAST:4,2								ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Undead
+3	CAST:4,2,1		BONUS:ABILITYPOOL|Acolyte Feat|1
+4	CAST:5,3,2								ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting
+5	CAST:5,3,2,1							ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage
+6	CAST:5,3,3,2	BONUS:ABILITYPOOL|Acolyte Feat|1
+7	CAST:6,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Magical Beasts
+8	CAST:6,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Outsiders
+9	CAST:6,4,4,3,2,1	BONUS:ABILITYPOOL|Acolyte Feat|1
+10	CAST:6,4,4,3,3,2																		AUTO:FEAT|Maximize Spell
 

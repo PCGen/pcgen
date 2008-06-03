@@ -1,41 +1,48 @@
+# CVS $Revision: $ $Author: $ -- Mon Jun  2 19:58:23 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 
 ###Block:Shadow Slayer -------------------------------------------------------------------------------------------------------------------
-Detect Shadow		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Detect Shadow (%/day)|ShadowSlayerLevel		DEFINE:ShadowSlayerLevel|0
-Shadow Immunity		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	DEFINE:ShadowSlayerHalfLevel|0
-Slayer Weapon		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Slayer Weapon (+%)|ShadowSlayerHalfLevel
-Fast Healing		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Fast Healing
-Word of Slaying		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Word of Slaying
+# Ability Name	Category of Ability		Type					Visible	Special ABility							Define
+Detect Shadow	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Detect Shadow (%/day)|ShadowSlayerLevel		DEFINE:ShadowSlayerLevel|0
+Shadow Immunity	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	DEFINE:ShadowSlayerHalfLevel|0
+Slayer Weapon	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Slayer Weapon (+%)|ShadowSlayerHalfLevel
+Fast Healing	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Fast Healing
+Word of Slaying	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Word of Slaying
 
 
 ###Block:Occultist ----------------------------------------------------------------------------------------------------------------------
-Spell Resistance ~ Occultist		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Spell Resistance (%)|OccultistRes	BONUS:VAR|OccultistRes|CL	DEFINE:OccultistRes|5
-Arcane Research				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Research(Scrolls)	SAB:Arcane Research(Items)|PREVARGTEQ:ArcaneResearch,2	DEFINE:ArcaneResearch|0
-Shadow Contact				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Contact
-Bind Shadow Creature			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Bind Shadow Creature|PREVAREQ:BindShadowCreatureLvl,1	SAB:Bind Shadow Creature x2|PREVARGTEQ:BindShadowCreatureLvl,2	DEFINE:BindShadowCreatureLvl|0
-Banish					CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Banish
+# Ability Name			Category of Ability		Type					Visible	Special ABility																			Define					Modify VAR
+Spell Resistance ~ Occultist	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Spell Resistance (%)|OccultistRes															DEFINE:OccultistRes|5			BONUS:VAR|OccultistRes|CL
+Arcane Research			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Research(Scrolls)	SAB:Arcane Research(Items)|PREVARGTEQ:ArcaneResearch,2							DEFINE:ArcaneResearch|0
+Shadow Contact			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Contact
+Bind Shadow Creature		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Bind Shadow Creature|PREVAREQ:BindShadowCreatureLvl,1	SAB:Bind Shadow Creature x2|PREVARGTEQ:BindShadowCreatureLvl,2	DEFINE:BindShadowCreatureLvl|0
+Banish				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Banish
 
 
 ###Block:Telepath -------------------------------------------------------------------------------------------------------------------------
-Trigger Power				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Trigger Power (% powers)|TelepathTriggerCount							DEFINE:TelepathTriggerCount|0
-Power crystal				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Power crystal
-Concentration ~ Psionic			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
-Maximize Power				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Maximize Power
+# Ability Name		Category of Ability		Type					Visible	Special ABility							Define
+Trigger Power		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Trigger Power (% powers)|TelepathTriggerCount	DEFINE:TelepathTriggerCount|0
+Power crystal		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Power crystal
+Concentration ~ Psionic	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
+Maximize Power		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Maximize Power
 
 
 ###Block:Battle Mind --------------------------------------------------------------------------------------------------------------------------
-Imprint Tattoo				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
-Concentration ~ Psionic			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Imprint Tattoo		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
+Concentration ~ Psionic	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
 
 
 ###Block:Mage -----------------------------------------------------------------------------------------------------------------------------------
-Concentration ~ Mage			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while casting defensively
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Concentration ~ Mage	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while casting defensively
 
 
 ###Block:Acolyte --------------------------------------------------------------------------------------------------------------------------------
-Turn/Rebuke Undead			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Undead (Su)
-Spontaneous Casting			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility			VISIBLE:NO	SAB:Spontaneous Casting
-Turn/Rebuke Magical Beasts		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Magical Beasts (Su)
-Turn/Rebuke Outsiders			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Outsiders (Su)
+# Ability Name			Category of Ability		Type							Visible	Special ABility
+Turn/Rebuke Undead		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Undead (Su)
+Spontaneous Casting		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility			VISIBLE:NO	SAB:Spontaneous Casting
+Turn/Rebuke Magical Beasts	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Magical Beasts (Su)
+Turn/Rebuke Outsiders		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Outsiders (Su)
 
 
 
