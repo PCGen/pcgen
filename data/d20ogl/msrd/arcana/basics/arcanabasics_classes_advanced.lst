@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 12:55:11 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Jun  2 19:37:56 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Paul King
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Arcane Arranger	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
-# Class Name		Required Skill
+# Class Name		Multiple Requirements
 CLASS:Arcane Arranger	PREMULT:2,[PRESKILL:2,Diplomacy=6,Gather Information=6],[PRESKILL:1,Knowledge (Arcane Lore)=6,Knowledge (Business)=6,Knowledge (Current Events)=6,Knowledge (Popular Culture)=6,Knowledge (Streetwise)=6]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Arranger	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Decipher Script|Diplomacy|Forgery|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Repair|Research|Sense Motive|Speak Language
-1	ABILITY:Special Ability|AUTOMATIC|Word on the Street
-2	ABILITY:Special Ability|AUTOMATIC|False Allegiance
-3																BONUS:ABILITYPOOL|Arcane Arranger Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Shadow Resources
-5	ABILITY:Special Ability|AUTOMATIC|Pack Rat
-6																BONUS:ABILITYPOOL|Arcane Arranger Feat|1
-7	ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
-8	ABILITY:Special Ability|AUTOMATIC|Up My Sleeve			BONUS:VAR|UpMySleeveLvl|1
-9																BONUS:ABILITYPOOL|Arcane Arranger Feat|1
-10											BONUS:VAR|UpMySleeveLvl|1
+1													ABILITY:Special Ability|AUTOMATIC|Word on the Street
+2													ABILITY:Special Ability|AUTOMATIC|False Allegiance
+3	BONUS:ABILITYPOOL|Arcane Arranger Feat|1
+4													ABILITY:Special Ability|AUTOMATIC|Shadow Resources
+5													ABILITY:Special Ability|AUTOMATIC|Pack Rat
+6	BONUS:ABILITYPOOL|Arcane Arranger Feat|1
+7													ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
+8								BONUS:VAR|UpMySleeveLvl|1	ABILITY:Special Ability|AUTOMATIC|Up My Sleeve
+9	BONUS:ABILITYPOOL|Arcane Arranger Feat|1
+10								BONUS:VAR|UpMySleeveLvl|1
 
 # Class Name			Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
@@ -25,15 +25,15 @@ CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:Arcan
 CLASS:Archaic Weaponsmaster	PREATT:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
-1							BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0							AUTO:FEAT|Weapon Specialization
-2	ABILITY:Special Ability|AUTOMATIC|Imbue Weapon +%|ImbueWeapon	BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0
-3																		BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
-5	ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
-6																		BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-7	ABILITY:Special Ability|AUTOMATIC|Weapon Stun
-9																		BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-10																								AUTO:FEAT|Increased Weapon Critical
+1									BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0												AUTO:FEAT|Weapon Specialization
+2									BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0		ABILITY:Special Ability|AUTOMATIC|Imbue Weapon +%|ImbueWeapon
+3	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
+4																				ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
+5																				ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
+6	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
+7																				ABILITY:Special Ability|AUTOMATIC|Weapon Stun
+9	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
+10																															AUTO:FEAT|Increased Weapon Critical
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -41,16 +41,16 @@ CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCla
 CLASS:Glamourist	PRESKILL:2,Bluff=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Glamourist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Decipher Script|Disguise|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Act)|Perform (Sing)|Profession|Read/Write Language|Sense Motive|Speak Language|Spot
-1	ABILITY:Special Ability|AUTOMATIC|Self Confidence
-2	ABILITY:Special Ability|AUTOMATIC|Hidden Motives
-3					BONUS:ABILITYPOOL|Glamourist Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Hidden Allegiance
-5	ABILITY:Special Ability|AUTOMATIC|Audience
-6					BONUS:ABILITYPOOL|Glamourist Feat|1
-7	ABILITY:Special Ability|AUTOMATIC|Daze								SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Daze,10+CHA|PRESTAT:1,CHA=10
-8	ABILITY:Special Ability|AUTOMATIC|Utterly Convincing
-9					BONUS:ABILITYPOOL|Glamourist Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|Charm Person							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Charm Person,11+CHA|PRESTAT:1,CHA=11
+1							ABILITY:Special Ability|AUTOMATIC|Self Confidence
+2							ABILITY:Special Ability|AUTOMATIC|Hidden Motives
+3	BONUS:ABILITYPOOL|Glamourist Feat|1
+4							ABILITY:Special Ability|AUTOMATIC|Hidden Allegiance
+5							ABILITY:Special Ability|AUTOMATIC|Audience
+6	BONUS:ABILITYPOOL|Glamourist Feat|1
+7							ABILITY:Special Ability|AUTOMATIC|Daze			SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Daze,10+CHA|PRESTAT:1,CHA=10
+8							ABILITY:Special Ability|AUTOMATIC|Utterly Convincing
+9	BONUS:ABILITYPOOL|Glamourist Feat|1
+10							ABILITY:Special Ability|AUTOMATIC|Charm Person		SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Charm Person,11+CHA|PRESTAT:1,CHA=11
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Mystic	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
@@ -73,16 +73,16 @@ CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic
 1	SPELLLEVEL:CLASS|Mystic=4|Discern Lies,Faith's Fury,Freedom of Movement,Greater Magic Weapon,Neutralize Poison,Restoration,Tongues
 1	SPELLLEVEL:CLASS|Mystic=5|Break Enchantment,Flaming Wrath,Greater Command,Insect Plague,True Seeing,Wall of Stone
 ###Block: Standard block
-1	CAST:3,2		KNOWN:4,2												AUTO:FEAT|Arcane Skills
+1	CAST:3,2		KNOWN:4,2																	AUTO:FEAT|Arcane Skills
 2	CAST:4,3		KNOWN:5,2
-3	CAST:4,3,2		KNOWN:5,3,1						BONUS:ABILITYPOOL|Mystic Feat|1
-4	CAST:5,4,3		KNOWN:6,3,2		ABILITY:Special Ability|AUTOMATIC|Combat Casting
-5	CAST:5,4,3,2	KNOWN:6,4,2,1											AUTO:FEAT|Brew Potion
-6	CAST:5,4,4,3	KNOWN:7,4,3,2					BONUS:ABILITYPOOL|Mystic Feat|1
-7	CAST:6,5,4,3,2	KNOWN:7,5,3,2,1	ABILITY:Special Ability|AUTOMATIC|Discern Lie
-8	CAST:6,5,4,4,3	KNOWN:8,5,4,3,2											AUTO:FEAT|Turn/Rebuke Humans
-9	CAST:6,5,5,4,3,2	KNOWN:8,5,4,3,2,1					BONUS:ABILITYPOOL|Mystic Feat|1
-10	CAST:6,5,5,4,4,3	KNOWN:9,5,5,4,3,2											AUTO:FEAT|Empower Spell
+3	CAST:4,3,2		KNOWN:5,3,1		BONUS:ABILITYPOOL|Mystic Feat|1
+4	CAST:5,4,3		KNOWN:6,3,2								ABILITY:Special Ability|AUTOMATIC|Combat Casting
+5	CAST:5,4,3,2	KNOWN:6,4,2,1																AUTO:FEAT|Brew Potion
+6	CAST:5,4,4,3	KNOWN:7,4,3,2	BONUS:ABILITYPOOL|Mystic Feat|1
+7	CAST:6,5,4,3,2	KNOWN:7,5,3,2,1							ABILITY:Special Ability|AUTOMATIC|Discern Lie
+8	CAST:6,5,4,4,3	KNOWN:8,5,4,3,2																AUTO:FEAT|Turn/Rebuke Humans
+9	CAST:6,5,5,4,3,2	KNOWN:8,5,4,3,2,1	BONUS:ABILITYPOOL|Mystic Feat|1
+10	CAST:6,5,5,4,4,3	KNOWN:9,5,5,4,3,2																AUTO:FEAT|Empower Spell
 
 # Psionic Agent moved to psionics subfolder set folder
 
@@ -92,15 +92,15 @@ CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvanced
 CLASS:Shadow Hunter	PREATT:2	PREFEAT:1,Track	PREFEAT:1,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:3,Investigate=6,Sense Motive=6,Knowledge (Arcane Lore)=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot|Survival
-1	ABILITY:Special Ability|AUTOMATIC|Target Bonus +%|TargetBonus	BONUS:VAR|TargetBonus|(CL+2)/3	DEFINE:TargetBonus|0
-2	ABILITY:Special Ability|AUTOMATIC|Swift Track
-3																	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|No Trace
-5	ABILITY:Special Ability|AUTOMATIC|Play a Hunch
-6																	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
-8	ABILITY:Special Ability|AUTOMATIC|Detect Magical Aura
-9																	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|Locate Target				BONUS:VAR|TargetBonus|-1
+1								BONUS:VAR|TargetBonus|(CL+2)/3	DEFINE:TargetBonus|0	ABILITY:Special Ability|AUTOMATIC|Target Bonus +%|TargetBonus
+2																		ABILITY:Special Ability|AUTOMATIC|Swift Track
+3	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
+4																		ABILITY:Special Ability|AUTOMATIC|No Trace
+5																		ABILITY:Special Ability|AUTOMATIC|Play a Hunch
+6	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
+8																		ABILITY:Special Ability|AUTOMATIC|Detect Magical Aura
+9	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
+10								BONUS:VAR|TargetBonus|-1						ABILITY:Special Ability|AUTOMATIC|Locate Target
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -108,16 +108,16 @@ CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCla
 CLASS:Shadowjack	PRESKILL:3,Computer Use=6,Craft (Electronic)=6,Disable Device=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowjack	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Writing)|Decipher Script|Disable Device|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Repair|Research|Speak Language|Search
-1	ABILITY:Special Ability|AUTOMATIC|Read/Write Code
-2	ABILITY:Special Ability|AUTOMATIC|Online Presence
-3												BONUS:ABILITYPOOL|Shadowjack Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Electronic Empathy|Careful Progress
-5	ABILITY:Special Ability|AUTOMATIC|False Trail|Install Backdoor
-6												BONUS:ABILITYPOOL|Shadowjack Feat|1
-7	ABILITY:Special Ability|AUTOMATIC|Online Spell Resistance|Improved Degradation		BONUS:VAR|OnlineSpellResistance|10+CL
-8	ABILITY:Special Ability|AUTOMATIC|Passfirewall|Walking Database
-9												BONUS:ABILITYPOOL|Shadowjack Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|Virtual Incantations
+1														ABILITY:Special Ability|AUTOMATIC|Read/Write Code
+2														ABILITY:Special Ability|AUTOMATIC|Online Presence
+3	BONUS:ABILITYPOOL|Shadowjack Feat|1
+4														ABILITY:Special Ability|AUTOMATIC|Electronic Empathy|Careful Progress
+5														ABILITY:Special Ability|AUTOMATIC|False Trail|Install Backdoor
+6	BONUS:ABILITYPOOL|Shadowjack Feat|1
+7							BONUS:VAR|OnlineSpellResistance|10+CL	ABILITY:Special Ability|AUTOMATIC|Online Spell Resistance|Improved Degradation
+8														ABILITY:Special Ability|AUTOMATIC|Passfirewall|Walking Database
+9	BONUS:ABILITYPOOL|Shadowjack Feat|1
+10														ABILITY:Special Ability|AUTOMATIC|Virtual Incantations
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -125,16 +125,16 @@ CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCl
 CLASS:Speed Demon	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
-1						ADD:FEAT|Uncanny Dodge I,Uncanny Dodge II	QUALIFY:FEAT|Uncanny Dodge I
-2	ABILITY:Special Ability|AUTOMATIC|Hit the Weak Spot
-3	ABILITY:Special Ability|AUTOMATIC|Vehicle Empathy		BONUS:ABILITYPOOL|Speed Demon Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Need for Speed
-5	ABILITY:Special Ability|AUTOMATIC|Nursing the Turns
-6	ABILITY:Special Ability|AUTOMATIC|Commandeer			BONUS:ABILITYPOOL|Speed Demon Feat|1
-7	ABILITY:Special Ability|AUTOMATIC|Leadfoot
-8	ABILITY:Special Ability|AUTOMATIC|Redlining the Needle
-9	ABILITY:Special Ability|AUTOMATIC|Restore Vehicle		BONUS:ABILITYPOOL|Speed Demon Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|One with the Machine
+1								ADD:FEAT|Uncanny Dodge I,Uncanny Dodge II											QUALIFY:FEAT|Uncanny Dodge I
+2															ABILITY:Special Ability|AUTOMATIC|Hit the Weak Spot
+3	BONUS:ABILITYPOOL|Speed Demon Feat|1								ABILITY:Special Ability|AUTOMATIC|Vehicle Empathy
+4															ABILITY:Special Ability|AUTOMATIC|Need for Speed
+5															ABILITY:Special Ability|AUTOMATIC|Nursing the Turns
+6	BONUS:ABILITYPOOL|Speed Demon Feat|1								ABILITY:Special Ability|AUTOMATIC|Commandeer
+7															ABILITY:Special Ability|AUTOMATIC|Leadfoot
+8															ABILITY:Special Ability|AUTOMATIC|Redlining the Needle
+9	BONUS:ABILITYPOOL|Speed Demon Feat|1								ABILITY:Special Ability|AUTOMATIC|Restore Vehicle
+10															ABILITY:Special Ability|AUTOMATIC|One with the Machine
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
@@ -142,16 +142,16 @@ CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvanc
 CLASS:Street Warrior	PREATT:3	PREFEAT:2,Brawl,Streetfighting	PRESKILL:1,Knowledge (Streetwise)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Investigate|Jump|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Profession|Sense Motive|Spot|Survival
-1	ABILITY:Special Ability|AUTOMATIC|Urban Survival
-2	ABILITY:Special Ability|AUTOMATIC|Improvised Weapons
-3											BONUS:ABILITYPOOL|Street Warrior Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Street Cred
-5	ABILITY:Special Ability|AUTOMATIC|Improved Streetfighting
-6											BONUS:ABILITYPOOL|Street Warrior Feat|1
-7						BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|Weapon Specialization
-8	ABILITY:Special Ability|AUTOMATIC|Improvised Weapon Damage
-9											BONUS:ABILITYPOOL|Street Warrior Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|Advanced Streetfighting
+1																			ABILITY:Special Ability|AUTOMATIC|Urban Survival
+2																			ABILITY:Special Ability|AUTOMATIC|Improvised Weapons
+3	BONUS:ABILITYPOOL|Street Warrior Feat|1
+4																			ABILITY:Special Ability|AUTOMATIC|Street Cred
+5																			ABILITY:Special Ability|AUTOMATIC|Improved Streetfighting
+6	BONUS:ABILITYPOOL|Street Warrior Feat|1
+7								BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|Weapon Specialization
+8																			ABILITY:Special Ability|AUTOMATIC|Improvised Weapon Damage
+9	BONUS:ABILITYPOOL|Street Warrior Feat|1
+10																			ABILITY:Special Ability|AUTOMATIC|Advanced Streetfighting
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
 CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -159,16 +159,16 @@ CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedC
 CLASS:Swashbuckler	PREATT:2	PREFEAT:1,Weapon Finesse	PRESKILL:2,Balance=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Pilot|Profession|Sleight of Hand|Swim|Tumble
-1										ADD:FEAT|Weapon Focus
-2	ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
-3										BONUS:ABILITYPOOL|Swashbuckler Feat|1
-4					BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|Weapon Specialization
-5														AUTO:FEAT|Find the Mark
-6										BONUS:ABILITYPOOL|Swashbuckler Feat|1
-7										ADD:FEAT|Greater Weapon Specialization
-8	ABILITY:Special Ability|AUTOMATIC|Deflect Missiles
-9										BONUS:ABILITYPOOL|Swashbuckler Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|Touche
+1													ADD:FEAT|Weapon Focus
+2																				ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
+3	BONUS:ABILITYPOOL|Swashbuckler Feat|1
+4								BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|Weapon Specialization
+5																													AUTO:FEAT|Find the Mark
+6	BONUS:ABILITYPOOL|Swashbuckler Feat|1
+7													ADD:FEAT|Greater Weapon Specialization
+8																				ABILITY:Special Ability|AUTOMATIC|Deflect Missiles
+9	BONUS:ABILITYPOOL|Swashbuckler Feat|1
+10																				ABILITY:Special Ability|AUTOMATIC|Touche
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -181,16 +181,16 @@ CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 ###Block: Spells
 1	SPELLLEVEL:CLASS|Techno Mage=0|Daze,Detect Magical Aura,Light,Mage Hand,Message,Prestidigitation,Read Magic,Resistance|Techno Mage=1|Burning Hands,Cause Fear,Change Self,Comprehend Languages,Feather Fall,Hold Portal,Jump,Mage Armor,Magic Missile,Magic Weapon,Power Device,Ray of Fatigue,Shield,Sleep,True Strike|Techno Mage=2|Arcane Lock,Blur,Darkvision,Enhance Ability,Glitterdust,Invisibility,Knock,Levitate,Locate Object,Magic Mouth,Protection from Arrows/Bullets,Resist Energy,See Invisibility,Spider Climb,Web|Techno Mage=3|Dispel Magic,Displacement,Fireball,Flaming Projectiles,Greater Magic Weapon,Halt Undead,Haste,Hold Person,Invisibility Sphere,Keen Edge,Lightning Bolt,Slow,Tongues,Water Breathing|Techno Mage=4|Animate Dead,Arcane Eye,Bestow Curse,Confusion,Dimension Door,Energy Trap,Fear,Ice Storm,Minor Globe of Invulnerability,Remove Curse,Shout,Stoneskin,Wall of Fire,Wall of Ice|Techno Mage=5|Cloudkill,Cone of Cold,Hold Monster,Passwall,Phantom Watchdog,Telekinesis,Wall of Force,Wall of Iron,Wall of Stone
 ###Block: Standard
-1	CAST:3,1		ABILITY:Special Ability|AUTOMATIC|Arcane Skills		
-2	CAST:4,2		ABILITY:Special Ability|AUTOMATIC|Machine Empathy
-3	CAST:4,2,1		ABILITY:Special Ability|AUTOMATIC|Program Spell																																																											BONUS:ABILITYPOOL|Techno Mage Feat|1
-4	CAST:4,3,2		ABILITY:Special Ability|AUTOMATIC|Create Homunculus
-5	CAST:4,3,2,1																																																														ADD:FEAT|Arcane Spontaneous Casting
-6	CAST:4,3,3,2																																																														BONUS:ABILITYPOOL|Techno Mage Feat|1
-7	CAST:4,4,3,2,1																																																																					AUTO:FEAT|Spell Focus
-8	CAST:4,4,3,3,2	ABILITY:Special Ability|AUTOMATIC|Online Casting
-9	CAST:4,4,4,3,2,1																																																														BONUS:ABILITYPOOL|Techno Mage Feat|1
-10	CAST:4,4,4,3,3,2																																																																					AUTO:FEAT|Quicken Spell
+1	CAST:3,1															ABILITY:Special Ability|AUTOMATIC|Arcane Skills
+2	CAST:4,2															ABILITY:Special Ability|AUTOMATIC|Machine Empathy
+3	CAST:4,2,1		BONUS:ABILITYPOOL|Techno Mage Feat|1							ABILITY:Special Ability|AUTOMATIC|Program Spell
+4	CAST:4,3,2															ABILITY:Special Ability|AUTOMATIC|Create Homunculus
+5	CAST:4,3,2,1								ADD:FEAT|Arcane Spontaneous Casting
+6	CAST:4,3,3,2	BONUS:ABILITYPOOL|Techno Mage Feat|1
+7	CAST:4,4,3,2,1																							AUTO:FEAT|Spell Focus
+8	CAST:4,4,3,3,2														ABILITY:Special Ability|AUTOMATIC|Online Casting
+9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Techno Mage Feat|1
+10	CAST:4,4,4,3,3,2																							AUTO:FEAT|Quicken Spell
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -198,14 +198,14 @@ CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClas
 CLASS:Thrasher	PREATT:2	PREFEAT:1,Athletic,Endurance	PRESKILL:2,Concentration=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Profession|Read/Write Language|Ride|Speak Language|Spot|Swim|Survival|Tumble
-1			ABILITY:Special Ability|AUTOMATIC|Tough Defense											
-2			ABILITY:Special Ability|AUTOMATIC|Ability Surge	BONUS:VAR|AbilitySurge|(CL+1)/3								
-3																											BONUS:ABILITYPOOL|Thrasher Feat|1
-4																											ADD:FEAT|Uncanny Dodge I,Uncanny Dodge II	QUALIFY:FEAT|Uncanny Dodge I
-6																											BONUS:ABILITYPOOL|Thrasher Feat|1
+1																									ABILITY:Special Ability|AUTOMATIC|Tough Defense
+2									BONUS:VAR|AbilitySurge|(CL+1)/3											ABILITY:Special Ability|AUTOMATIC|Ability Surge
+3			BONUS:ABILITYPOOL|Thrasher Feat|1
+4																		ADD:FEAT|Uncanny Dodge I,Uncanny Dodge II									QUALIFY:FEAT|Uncanny Dodge I
+6			BONUS:ABILITYPOOL|Thrasher Feat|1
 7	DR:5/+1
-9																											BONUS:ABILITYPOOL|Thrasher Feat|1
-10																				BONUS:DR|+1|5
+9			BONUS:ABILITYPOOL|Thrasher Feat|1
+10															BONUS:DR|+1|5
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Wildlord	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
@@ -220,14 +220,14 @@ CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle
 8	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 10														AUTO:FEAT|Turn/Rebuke Magical Beasts
 ###Block: Standard
-1	ABILITY:Special Ability|AUTOMATIC|Animal Empathy
-2	ABILITY:Special Ability|AUTOMATIC|Animal Companion										AUTO:FEAT|Track
-3	ABILITY:Special Ability|AUTOMATIC|Fast Climb					BONUS:ABILITYPOOL|Wildlord Feat|1
-4	ABILITY:Special Ability|AUTOMATIC|Resist Venom|Call Companion
-5	ABILITY:Special Ability|AUTOMATIC|Skill Mastery					ADD:FEAT|Wildlord Skill Mastery
-6													BONUS:ABILITYPOOL|Wildlord Feat|1
-7	ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
-9	ABILITY:Special Ability|AUTOMATIC|Transform Companion				BONUS:ABILITYPOOL|Wildlord Feat|1
+1													ABILITY:Special Ability|AUTOMATIC|Animal Empathy
+2													ABILITY:Special Ability|AUTOMATIC|Animal Companion			AUTO:FEAT|Track
+3	BONUS:ABILITYPOOL|Wildlord Feat|1							ABILITY:Special Ability|AUTOMATIC|Fast Climb
+4													ABILITY:Special Ability|AUTOMATIC|Resist Venom|Call Companion
+5							ADD:FEAT|Wildlord Skill Mastery	ABILITY:Special Ability|AUTOMATIC|Skill Mastery
+6	BONUS:ABILITYPOOL|Wildlord Feat|1
+7													ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
+9	BONUS:ABILITYPOOL|Wildlord Feat|1							ABILITY:Special Ability|AUTOMATIC|Transform Companion
 
 #
 # End
