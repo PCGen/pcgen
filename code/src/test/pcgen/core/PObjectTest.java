@@ -236,7 +236,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability pObj = new Ability();
 		loader
 			.parseLine(
-				null,
+				Globals.getContext(),
 				pObj,
 				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
@@ -275,7 +275,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability pObj = new Ability();
 		loader
 			.parseLine(
-				null,
+				Globals.getContext(),
 				pObj,
 				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3", source);
 

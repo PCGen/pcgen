@@ -262,12 +262,12 @@ public class TestHelper
 				}
 			}
 
-			abLoader.parseLine(null, null, input, source);
+			abLoader.parseLine(Globals.getContext(), null, input, source);
 			return true;
 		}
 		catch (Exception e)
 		{
-			// TODO Deal with Exception?
+			Logging.errorPrint(e.getLocalizedMessage());
 		}
 		return false;
 	}

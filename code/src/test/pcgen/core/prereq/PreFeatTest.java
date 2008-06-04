@@ -16,6 +16,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.SwingChooser;
@@ -197,7 +198,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final String spellFocusStr =
 				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
-		featLoader.parseLine(null, spellFocus, spellFocusStr, cse);
+		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
 		spellFocus.addAssociated("Evocation");
 
@@ -241,7 +242,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final String spellFocusStr =
 				"Spell Focus	TYPE:FeatTest	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
-		featLoader.parseLine(null, spellFocus, spellFocusStr, cse);
+		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
 		spellFocus.addAssociated("Evocation");
 

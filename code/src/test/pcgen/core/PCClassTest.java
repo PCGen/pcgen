@@ -503,7 +503,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		}
 		featLoader
 			.parseLine(
-				null,
+				Globals.getContext(),
 				casterFeat,
 				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
 		casterFeat.setCategory("FEAT");
