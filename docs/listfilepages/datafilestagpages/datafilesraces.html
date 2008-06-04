@@ -313,13 +313,18 @@
 
 	<p class="new">*** New 5.4</p>
 	<p class="indent0"><strong><a name="MONCCSKILL">Tag Name:</a></strong> MONCCSKILL:x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Skill Type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Grants the listed skills as monster cross class skills.</p>
-	<p class="indent2">Monster cross class skills are only cross class skills for monster classes such as Giant, Outsider, Undead etc.</p>
-	<p class="indent2">If a monster takes levels in a base class only those skill defined as cross class skills in that class count as
-		cross class skills for that level, the monster cross class skills will not apply.</p>
+	<ul class="indent2">
+		<li>Grants the listed skills as monster cross class skills.</li>
+		<li>The replacement/substitution symbol (%) may be used at the end of the skill name.</li>
+		<li>Monster cross class skills are only cross class skills for monster classes such as 
+			Giant, Outsider, Undead etc.</li>
+		<li>If a monster takes levels in a base class only those skills defined as cross class 
+			skills in that class count as cross class skills for that level, the monster cross 
+			class skills will not apply.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>MONCCSKILL:Alchemy|Wilderness Lore</code></p>
 	<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster cross class skills.</p>
@@ -331,13 +336,16 @@
 
 	<p class="new">*** New 5.4</p>
 	<p class="indent0"><strong><a name="MONCSKILL">Tag Name:</a></strong> MONCSKILL:x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Skill Name&gt;)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Skill Type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Grants the listed skills as monster class skills.</p>
-	<p class="indent2">Monster class skills are only class skills for monster classes such as Giant, Outsider, Undead etc.</p>
-	<p class="indent2">If a monster takes levels in a base class only those skill defined as class skills in that class count as
-		class skills for that level, the monster class skills will not apply.</p>
+	<ul class="indent2">
+		<li>Grants the listed skills as monster class skills.</li>
+		<li>The replacement/substitution symbol (%) may be used at the end of the skill name.</li>
+		<li>Monster class skills are only class skills for monster classes such as Giant, Outsider, Undead etc.</li>
+		<li>If a monster takes levels in a base class only those skills defined as class skills in that class count as
+		class skills for that level, the monster class skills will not apply.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>MONCSKILL:Alchemy|Wilderness Lore</code></p>
 	<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster class skills.</p>
