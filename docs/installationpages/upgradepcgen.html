@@ -35,21 +35,19 @@
 
 <hr>
 		
-		<h2>Preparing for the Upgrade</h2>
+		<h2>Important Files To Know About before the Upgrade</h2>
 
-		<p class="indent0">Copy the following files to a protected location just in case you need to 
-			restore them after the upgrade.</p>
+		<p class="indent1">The <span class="lstfile">options.ini</span> and 
+			<span class="lstfile">filter.ini</span> files, see below, are automatically stored in the 
+			users home directory and are picked up automatically when PCGen is upgraded. If the old files 
+			are not desired, the new <span class="lstfile">filepaths.ini</span> file can be deleted. 
+			PCGen will then ask for where the new files are to be placed.</p>
 		<dl class="indent1">
 			<dt><span class="lstfile">filepaths.ini</span></dt>
 			<dd>This file tells PCGen the location of the other ini files so you can change the 
 				<span class="lstfile">filepaths.ini</span> to point to the folder which contains 
 				the <span class="lstfile">options.ini</span> and <span class="lstfile">filter.ini</span> 
 				that you want to use.</dd>
-			<p class="sidebar1">The <span class="lstfile">options.ini</span> and 
-				<span class="lstfile">filter.ini</span> files are automatically stored in the users home
-				directory and are picked up automatically when PCGen is upgraded. If the old files 
-				are not desired, the new <span class="lstfile">filepaths.ini</span> file can be deleted. 
-				PCGen will then ask for where the new files are to be placed.</p>
 			<dt><span class="lstfile">options.ini</span></dt>
 			<dd>This file holds your PCGen Preferences, such as file paths, so if you are going to 
 				point to your old one you may need to correct various paths to things such as the 
@@ -63,7 +61,7 @@
 			<dt><span class="lstfile">filter.ini</span></dt>
 			<dd>This file holds the various filters on each of the tabs. (See the filter button 
 				in the docs)</dd>
-			<dt>See <a href="#custom">Custom Datasets</a> below.</dt>
+			<dt>See <a href="#custom">Migrating Custom Data Sets</a> below.</dt>
 		</dl>
 
 		<h2>Upgrading on the Windows Platform</h2>
@@ -110,7 +108,7 @@
 		<p></p>
 -->
 		
-		<h2><a name="custom">Custom Data Sets</a></h2>
+		<h2><a name="custom">Migrating Custom Data Sets</a></h2>
 
 		<p class="indent1">PCGen provides two simple ways of adding your own data, these are the 
 			built-in LST Editors and the starter data set my_dataset. Both of these need some 
