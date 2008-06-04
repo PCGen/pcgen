@@ -42,11 +42,16 @@
 		<dl class="indent1">
 			<dt><span class="lstfile">filepaths.ini</span></dt>
 			<dd>This file tells PCGen the location of the other ini files so you can change the 
-				<span class="lstfile">filepaths.ini</span> to point to the folder which 
-				contains the <span class="lstfile">options.ini</span> and 
-				<span class="lstfile">filter.ini</span> that you want to use.</dd>
+				<span class="lstfile">filepaths.ini</span> to point to the folder which contains 
+				the <span class="lstfile">options.ini</span> and <span class="lstfile">filter.ini</span> 
+				that you want to use.</dd>
+			<p class="sidebar1">The <span class="lstfile">options.ini</span> and 
+				<span class="lstfile">filter.ini</span> files are automatically stored in the users home
+				directory and are picked up automatically when PCGen is upgraded. If the old files 
+				are not desired, the new <span class="lstfile">filepaths.ini</span> file can be deleted. 
+				PCGen will then ask for where the new files are to be placed.</p>
 			<dt><span class="lstfile">options.ini</span></dt>
-			<dd>This file holds your PCGen Preferences such as file paths so if you are going to 
+			<dd>This file holds your PCGen Preferences, such as file paths, so if you are going to 
 				point to your old one you may need to correct various paths to things such as the 
 				location of the output sheets.</dd>
 			<p class="sidebar1">WARNING: Installing a new version of PCGen over an old version may cause the 
@@ -55,9 +60,9 @@
 				in order to preserve the file. The <span class="lstfile">options.ini</span> file contains 
 				information on structure and contents that may have changed with the new version, rendering 
 				it useless if different implementations become mixed in the file.</p>
-		
 			<dt><span class="lstfile">filter.ini</span></dt>
-			<dd>This file holds the various filters on each of the tabs. (See the filter button in the docs)</dd>
+			<dd>This file holds the various filters on each of the tabs. (See the filter button 
+				in the docs)</dd>
 			<dt>See <a href="#custom">Custom Datasets</a> below.</dt>
 		</dl>
 
