@@ -563,15 +563,9 @@
 	<p class="indent1"><strong>Variables Used:</strong> Number or formula</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>The class level of the character will be multiplied by the numeric value supplied for
-			calculating potions, scrolls, and wands.</li>
-		<li>The default value is 1.</li>
-		<li>ITEMCREATE is a rather complicated beast in the code (may have (+)(-)(*)(/)&amp;() and CL for
-			Character Level), yet is only documented as a number.  This was updated (comment in the code
-			reads: "This is to support older versions of the ITEMCREATE tag that allowed 0.5, because it used
-			to be just a multiple").  The documentation should be updated to reflect the more complicated
-			ITEMCREATE tag (sorry, while I can read the code, I don't know the designer's intent to make sure
-			it's what should be documented).</li>
+		<li>This tag provides a multiplier by which the class level of the character will be multiplied
+			for calculating potions, scrolls, and wands.</li>
+		<li>This tag is optional and if not provided the multiplier used will default to a value of 1.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ITEMCREATE:2</code></p>
