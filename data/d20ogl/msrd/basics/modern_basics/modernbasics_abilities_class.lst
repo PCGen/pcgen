@@ -1,97 +1,109 @@
+# CVS $Revision: $ $Author: $ -- Wed Jun  4 01:12:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 
 
 ###Block:Soldier ---------------------------------------------------------------------------------
-Tactical Aid	VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Tactical Aid
-Improved Reaction	VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Improved Reaction						BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
-Critical Strike	VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Critical Strike
+# Ability Name	Category of Ability		Type					Visible	Special ABility		Combat bonus
+Tactical Aid	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Tactical Aid
+Improved Reaction	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Reaction	BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+Critical Strike	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Critical Strike
 
 ###Block:Martial Artist ----------------------------------------------------------------------------------------------------
-Living Weapon	CATEGORY:Special Ability	SAB:Living Weapon 1d%|LivingWeaponDie		DEFINE:LivingWeaponDie|0	
+# Ability Name	Category of Ability		Special ABility																Define
+Living Weapon	CATEGORY:Special Ability	SAB:Living Weapon 1d%|LivingWeaponDie												DEFINE:LivingWeaponDie|0
 Flying Kick		CATEGORY:Special Ability	SAB:Flying Kick
 Iron Fist		CATEGORY:Special Ability	SAB:Iron Fist (one attack)|PREVAREQ:IronFistLvl,1	SAB:Iron Fist (all attacks)|PREVAREQ:IronFistLvl,2	DEFINE:IronFistLvl|0
 Flurry of Blows	CATEGORY:Special Ability	SAB:Flurry of Blows
 
 
 ###Block:Gunslinger --------------------------------------------------------------
-Close Combat Shot		VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Close Combat Shot
-Defensive Position	VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Defensive Position
-Lightning Shot		VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Lightning Shot
-Sharp Shooting		VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Sharp Shooting
-Bullseye			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Bullseye
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Close Combat Shot		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Close Combat Shot
+Defensive Position	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Defensive Position
+Lightning Shot		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Lightning Shot
+Sharp Shooting		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sharp Shooting
+Bullseye			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Bullseye
 
 
 ###Block:Infiltrator --------------------------
-Sweep					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Sweep|PREVAREQ:SweepLvl,1	SAB:Improved Sweep|PREVAREQ:SweepLvl,2	DEFINE:SweepLvl|0
-Improvised Implements		VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Improvised Implements
-Improved Evasion			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Improved Evasion
-Skill Mastery			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Skill Mastery
-Improvised Weapon Damage	VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Improvised Weapon Damage
-Without a Trace			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Without a Trace
+# Ability Name			Category of Ability		Type					Visible	Special ABility														Define
+Sweep					CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sweep|PREVAREQ:SweepLvl,1	SAB:Improved Sweep|PREVAREQ:SweepLvl,2					DEFINE:SweepLvl|0
+Improvised Implements		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Implements
+Improved Evasion			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Evasion
+Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
+Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapon Damage
+Without a Trace			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Without a Trace
 
 
 ###:Block:Daredevil --------------------------------------------
 
-Fearless		SAB:Fearless				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	
-Nip Up		SAB:Nip Up									VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability
-Action Boost	SAB:Action Boost								VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability
-Adrenaline Rush	SAB:Adrenaline Rush (one ability score)|PREVARLT:CL,8		SAB:Adrenaline Rush (two ability scores)		DEFINE:AdrenalineRushLvl|0					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability
-Delay Damage	SAB:Delay Damage			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability
-Damage Threshold	SAB:Damage Threshold		VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability
+Fearless				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Fearless
+Nip Up				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Nip Up
+Action Boost			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Action Boost
+Adrenaline Rush			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Adrenaline Rush (one ability score)|PREVARLT:CL,8	SAB:Adrenaline Rush (two ability scores)	DEFINE:AdrenalineRushLvl|0
+Delay Damage			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Delay Damage
+Damage Threshold			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Damage Threshold
 
 
 ###Block:Bodyguard -------------------------------------------------------------
-Harm's Way					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Harm's Way
-Combat Sense				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Combat Sense +%|CombatSense					DEFINE:CombatSense|0															ADD:FEAT|TYPE=Bodyguard
-Sudden Action				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Sudden Action
-Improved Charge				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Improved Charge
-Defensive Strike				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Defensive Strike
-Blanket Protection			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Blanket Protection
+# Ability Name		Category of Ability		Type					Visible	Special ABility				Define			Add
+Harm's Way			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Harm's Way
+Combat Sense		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Combat Sense +%|CombatSense	DEFINE:CombatSense|0	ADD:FEAT|TYPE=Bodyguard
+Sudden Action		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sudden Action
+Improved Charge		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Charge
+Defensive Strike		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Defensive Strike
+Blanket Protection	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Blanket Protection
 
 
 ###Block:Field Scientist ---------------------------------------------------------------------------
-Smart Defense					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
-Scientific Improvisation			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Scientific Improvisation
-Skill Mastery					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Skill Mastery
-Minor Breakthrough				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Minor Breakthrough
-Smart Survival					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Smart Survival
-Smart Weapon					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Smart Weapon
-Major Breakthrough				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Major Breakthrough
+# Ability Name			Category of Ability		Type					Visible	Special ABility			Combat bonus
+Smart Defense			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
+Scientific Improvisation	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Scientific Improvisation
+Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
+Minor Breakthrough		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Minor Breakthrough
+Smart Survival			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Survival
+Smart Weapon			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Weapon
+Major Breakthrough		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Major Breakthrough
 
 
 ###Block:Techie ---------------------------------------------------------------------------
-Jury Rig							VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Jury Rig +%|TechieRig					DEFINE:TechieRig|0
-Extreme Machine						VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Extreme Machine
-Build Robot							VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Build Robot
+# Ability Name	Category of Ability		Type					Visible	Special ABility			Define
+Jury Rig		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Jury Rig +%|TechieRig	DEFINE:TechieRig|0
+Extreme Machine	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Extreme Machine
+Build Robot		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Build Robot
 
 
 ###Block:FieldMedic ---------------------------------------------------------------------------
-Medical Specialist			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Medical Specialist +%|MedicalSpec					DEFINE:MedicalSpec|0
-Expert Healer			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Expert Healer
-Medical Mastery			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Medical Mastery
-Medical Miracle			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Minor Medical Miracle|PREVAREQ:MedicalMiracle,1	DEFINE|MedicalMiracle|0	SAB:Medical Miracle|PREVAREQ:MedicalMiracle,2
+# Ability Name		Category of Ability		Type					Visible	Special ABility															Define
+Medical Specialist	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Medical Specialist +%|MedicalSpec											DEFINE:MedicalSpec|0
+Expert Healer		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Expert Healer
+Medical Mastery		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Medical Mastery
+Medical Miracle		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Minor Medical Miracle|PREVAREQ:MedicalMiracle,1	SAB:Medical Miracle|PREVAREQ:MedicalMiracle,2	DEFINE:MedicalMiracle|0
 
 
 ###Block:Investigator ---------------------------------------------------------------------------
-Profile					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Profile
-Contact					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Contact (Low-Level)|PREVARGTEQ:ContactLvl,1	SAB:Contact (Mid-Level)|PREVARGTEQ:ContactLvl,2	SAB:Contact (High-level)|PREVARGTEQ:ContactLvl,3	DEFINE:ContactLvl|0
-Nonlethal Force				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Nonlethal Force
-Discern Lie					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Discern Lie
-Sixth Sense					VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability		SAB:Sixth Sense
+# Ability Name	Category of Ability		Type					Visible	Special ABility																							Define
+Profile		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Profile
+Contact		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Contact (Low-Level)|PREVARGTEQ:ContactLvl,1	SAB:Contact (Mid-Level)|PREVARGTEQ:ContactLvl,2	SAB:Contact (High-level)|PREVARGTEQ:ContactLvl,3	DEFINE:ContactLvl|0
+Nonlethal Force	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Nonlethal Force
+Discern Lie		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Discern Lie
+Sixth Sense		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sixth Sense
 
 
 ###Block:Personality ---------------------------------------------------------------------------
-Unlimited Access			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Unlimited Access
-Royalty				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Royalty|PREVARGTEQ:Royalty,1	SAB:Royalty x2|PREVARGTEQ:Royalty,2	DEFINE:Royalty|0
-Winning Smile			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Winning Smile
-Compelling Performance		VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Compelling Performance
+# Ability Name		Category of Ability		Type					Visible	Special ABility										Define
+Unlimited Access		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Unlimited Access
+Royalty			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Royalty|PREVARGTEQ:Royalty,1	SAB:Royalty x2|PREVARGTEQ:Royalty,2	DEFINE:Royalty|0
+Winning Smile		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Winning Smile
+Compelling Performance	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Compelling Performance
 
 
 ###Block:Negotiator ---------------------------------------------------------------------------
-Conceal Motive			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Conceal Motive
-React First				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:React First
-Talk Down				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Talk down one opponent|PREVAREQ:TalkDownLvl,1	SAB:Talk down several opponents||PREVAREQ:TalkDownLvl,2	SAB:Talk down all opponents|PREVAREQ:TalkDownLvl,3	DEFINE:TalkDownLvl|0
-No Sweat				VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:No sweat
-Sow Distrust			VISIBLE:NO	TYPE:Class.SpecialAbility	CATEGORY:Special Ability	SAB:Sow Distrust
+# Ability Name	Category of Ability		Type					Visible	Special ABility																										Define
+Conceal Motive	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Conceal Motive
+React First		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:React First
+Talk Down		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Talk down one opponent|PREVAREQ:TalkDownLvl,1	SAB:Talk down several opponents||PREVAREQ:TalkDownLvl,2	SAB:Talk down all opponents|PREVAREQ:TalkDownLvl,3	DEFINE:TalkDownLvl|0
+No Sweat		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:No sweat
+Sow Distrust	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sow Distrust
 
 
 

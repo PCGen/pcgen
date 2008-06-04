@@ -24,6 +24,7 @@ ABILITYCATEGORY:futurebasics_ability_categories_future.lst
 
 ABILITY:futurebasics_abilities_occupations.lst
 ABILITY:futurebasics_abilities_talents_mod.lst
+ABILITY:futurebasics_abilities_class.lst
 
 CLASS:futurebasics_classes_advanced.lst
 

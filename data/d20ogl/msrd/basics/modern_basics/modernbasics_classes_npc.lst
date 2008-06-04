@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 11 12:53:43 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Jun  4 01:12:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Corrected a bunch to standard.. - Tir Gwaith
@@ -67,7 +67,7 @@ CLASS:Dragon (True)	STARTSKILLPTS:6	MODTOSKILLS:YES
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					BONUS:FEAT										Modify VAR
 CLASS:Elemental (Air/Fire)	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)+(var("CL=Elemental (Air/Fire)")-1)/4	BONUS:VAR|MonsterLevel|CL
-# Class Name			Prohibited Class				Reg. Race Type
+# Class Name			Prohibited Class					Reg. Race Type
 CLASS:Elemental (Air/Fire)	!PRECLASS:1,Elemental (Earth/Water)=1	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
@@ -176,14 +176,14 @@ CLASS:Plant		MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Bonus to Ability Pool				Save checks bonus											Combat bonus					BONUS:FEAT							Modify VAR
 CLASS:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:ABILITYPOOL|Undead Proficiency|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|INT+(var("CL=Undead")-1)/4	BONUS:VAR|MonsterLevel|CL
-# Class Name	Prohibited Class				Reg. Race Type
+# Class Name	Prohibited Class					Reg. Race Type
 CLASS:Undead	!PRECLASS:1,Undead (unintelligent)=1	PRERACETYPE:Undead
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Undead	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
 
 # Class Name		Output Name		Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					BONUS:FEAT								Modify VAR
 CLASS:Undead (Basic)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:FEAT|POOL|INT+(var("CL=Undead (Basic)")-1)/4	BONUS:VAR|MonsterLevel|CL
-# Class Name		Prohibited Class				Reg. Race Type
+# Class Name		Prohibited Class					Reg. Race Type
 CLASS:Undead (Basic)	!PRECLASS:1,Undead (unintelligent)=1	PRERACETYPE:Undead
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Undead (Basic)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:3*INTSCORE
@@ -197,7 +197,7 @@ CLASS:Undead (unintelligent)	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Vermin	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL
-# Class Name	Prohibited Class				Reg. Race Type
+# Class Name	Prohibited Class					Reg. Race Type
 CLASS:Vermin	!PRECLASS:1,Vermin (Sentient Swarm)=1	PRERACETYPE:Vermin
 # Class Name	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Vermin	MODTOSKILLS:NO			MONSKILL:10

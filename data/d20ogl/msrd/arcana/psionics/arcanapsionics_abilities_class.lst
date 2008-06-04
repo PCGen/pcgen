@@ -1,7 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Wed Jun  4 01:12:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 
 ###Block:Psionic Agent -----------------------------------------------------------------------------------------------------------------
-Psionic Skills			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Psionic Skills									
-Draw Power				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Draw Power										
-Charged Shot			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Charged Shot										
-Combat Manifestation		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Combat Manifestation								
-Deadly Aim				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Deadly Aim										
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Psionic Skills		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Psionic Skills
+Draw Power			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Draw Power
+Charged Shot		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Charged Shot
+Combat Manifestation	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Combat Manifestation
+Deadly Aim			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Deadly Aim

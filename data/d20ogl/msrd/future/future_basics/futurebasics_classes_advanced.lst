@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jun  4 01:28:09 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Ambassador	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
-# Class Name	Required Feat		Required Skill
-CLASS:Ambassador	PREFEAT:2,Charm,Favor	PRESKILL:3,Diplomacy=6,Knowledge (Civics)=6,Knowledge (Theology and Philosophy)=6
+# Class Name	Required Ability					Required Skill
+CLASS:Ambassador	PREABILITY:2,CATEGORY=Talent,Charm,Favor	PRESKILL:3,Diplomacy=6,Knowledge (Civics)=6,Knowledge (Theology and Philosophy)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sense Motive|Speak Language
-1	SAB:Diplomatic Immunity
-2	SAB:Open Arms		BONUS:SKILL|Diplomacy|CL/2
-3										ADD:FEAT|TYPE=Ambassador
-4	SAB:Information Access
-5	SAB:Stipend
-6										ADD:FEAT|TYPE=Ambassador
-7	SAB:Restricted Access
-8	SAB:Stipend
-9										ADD:FEAT|TYPE=Ambassador
-10	SAB:Select Consuls
+1												ABILITY:Special Ability|AUTOMATIC|Diplomatic Immunity
+2							BONUS:SKILL|Diplomacy|CL/2	ABILITY:Special Ability|AUTOMATIC|Open Arms
+3	BONUS:ABILITYPOOL|Ambassador Feat|1
+4												ABILITY:Special Ability|AUTOMATIC|Information Access
+5												ABILITY:Special Ability|AUTOMATIC|Stipend
+6	BONUS:ABILITYPOOL|Ambassador Feat|1
+7												ABILITY:Special Ability|AUTOMATIC|Restricted Access
+8												ABILITY:Special Ability|AUTOMATIC|Stipend
+9	BONUS:ABILITYPOOL|Ambassador Feat|1
+10												ABILITY:Special Ability|AUTOMATIC|Select Consuls
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Dogfighter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
@@ -24,29 +24,29 @@ CLASS:Dogfighter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedCla
 CLASS:Dogfighter	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Starship Operation(Ultralight)	PRESKILL:1,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dogfighter	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
-1																					ADD:FEAT|TYPE=Dogfighter
-2	SAB:Defender of the Universe
-3																					ADD:FEAT|TYPE=Dogfighter
-4	SAB:Shake, Rattle and Roll %/day|ShakeRattleRoll	BONUS:VAR|ShakeRattleRoll|(CL-1)/3	DEFINE:ShakeRattleRoll|0
-5	SAB:To the Max
-6																					ADD:FEAT|TYPE=Dogfighter
-8	SAB:Keep it Together
-9																					ADD:FEAT|TYPE=Dogfighter
+1	BONUS:ABILITYPOOL|Dogfighter Feat|1
+2													ABILITY:Special Ability|AUTOMATIC|Defender of the Universe
+3	BONUS:ABILITYPOOL|Dogfighter Feat|1
+4							BONUS:VAR|ShakeRattleRoll|(CL-1)/3	ABILITY:Special Ability|AUTOMATIC|Shake, Rattle and Roll
+5													ABILITY:Special Ability|AUTOMATIC|To the Max
+6	BONUS:ABILITYPOOL|Dogfighter Feat|1
+8													ABILITY:Special Ability|AUTOMATIC|Keep it Together
+9	BONUS:ABILITYPOOL|Dogfighter Feat|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Dreadnought	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
-# Class Name	Required Feat																Required Skill
-CLASS:Dreadnought	PREMULT:2,[PREFEAT:1,Improved Damage Threshold],[PREFEAT:2,TYPE=DamageReduction,TYPE=EnergyResistance,TYPE=Unbreakable]	PRESKILL:1,Intimidate=6
+# Class Name	Multiple Requirements																					Required Skill
+CLASS:Dreadnought	PREMULT:2,[PREFEAT:1,Improved Damage Threshold],[PREABILITY:2,CATEGORY=Talent,TYPE=DamageReduction,TYPE=EnergyResistance,TYPE=Unbreakable]	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dreadnought	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Jump|Profession|Survival|Swim|Tumble
-1	SAB:Fearless	SAB:Stability	SAB:Unhindered														BONUS:MISC|ACHECK|2
-2	SAB:Steamroller							BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL																			AUTO:FEAT|Ability Surge
-3																																				ADD:FEAT|TYPE=Dreadnought
-4	SAB:Master Defender +%|MasterDefender			BONUS:VAR|MasterDefender|((CL-1)/3)*2																DEFINE:MasterDefender|0
-5	SAB:Knockdown
-6																																				ADD:FEAT|TYPE=Dreadnought
-8	SAB:Heavy Artillery																							BONUS:WEAPONPROF=ALL|PCSIZE|1
-9																																				ADD:FEAT|TYPE=Dreadnought
+1																					BONUS:MISC|ACHECK|2										ABILITY:Special Ability|AUTOMATIC|Fearless|Stability|Unhindered
+2								BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL														ABILITY:Special Ability|AUTOMATIC|Steamroller				AUTO:FEAT|Ability Surge
+3	BONUS:ABILITYPOOL|Dreadnought Feat|1
+4								BONUS:VAR|MasterDefender|((CL-1)/3)*2																DEFINE:MasterDefender|0	ABILITY:Special Ability|AUTOMATIC|Master Defender
+5																																		ABILITY:Special Ability|AUTOMATIC|Knockdown
+6	BONUS:ABILITYPOOL|Dreadnought Feat|1
+8																									BONUS:WEAPONPROF=ALL|PCSIZE|1					ABILITY:Special Ability|AUTOMATIC|Heavy Artillery
+9	BONUS:ABILITYPOOL|Dreadnought Feat|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Engineer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -54,31 +54,31 @@ CLASS:Engineer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClass
 CLASS:Engineer	PRESKILL:5,Computer Use=6,Craft (Electronic)=6,Craft (Mechanical)=6,Knowledge (Technology)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Engineer	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Search|Speak Language
-1	SAB:Improve Kit +%|ImproveKit					BONUS:VAR|ImproveKit|1		DEFINE:ImproveKit|0	ADD:FEAT|Builder
-2	SAB:Quick Craft	SAB:Superior Repair
-3																			ADD:FEAT|TYPE=Engineer
-4	SAB:Reconfigure Weapon	SAB:Sabotage			BONUS:VAR|ImproveKit|1
-5	SAB:Quick Craft	SAB:Craft XP Reserve %|CraftReserve	BONUS:VAR|CraftReserve|CL*100	DEFINE:CraftReserve|0
-6																			ADD:FEAT|TYPE=Engineer
-7	SAB:Quick Fix							BONUS:VAR|ImproveKit|1
-8	SAB:Weapon Upgrade
-9																			ADD:FEAT|TYPE=Engineer
-10	SAB:Unflustered
+1							BONUS:VAR|ImproveKit|1		ADD:FEAT|Builder	ABILITY:Special Ability|AUTOMATIC|Improve Kit
+2															ABILITY:Special Ability|AUTOMATIC|Quick Craft|Superior Repair
+3	BONUS:ABILITYPOOL|Engineer Feat|1
+4							BONUS:VAR|ImproveKit|1					ABILITY:Special Ability|AUTOMATIC|Reconfigure Weapon|Sabotage
+5							BONUS:VAR|CraftReserve|CL*100				ABILITY:Special Ability|AUTOMATIC|Quick Craft|Craft XP Reserve
+6	BONUS:ABILITYPOOL|Engineer Feat|1
+7							BONUS:VAR|ImproveKit|1					ABILITY:Special Ability|AUTOMATIC|Quick Fix
+8															ABILITY:Special Ability|AUTOMATIC|Weapon Upgrade
+9	BONUS:ABILITYPOOL|Engineer Feat|1
+10															ABILITY:Special Ability|AUTOMATIC|Unflustered
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus									Combat bonus		Modify VAR
 CLASS:Explorer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
-# Class Name	Required Skill
+# Class Name	Multiple Requirements
 CLASS:Explorer	PREMULT:2,[PRESKILL:3,Knowledge (Earth and Life Sciences)=6,Survival=6,Search=4],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Pilot|Read/Write Language|Research|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
-1	SAB:Explorer Lore +%|ExplorerLore	SAB:Survivalist	BONUS:VAR|ExplorerLore|CL+INT	DEFINE:ExplorerLore|0					AUTO:FEAT|Guide|Track
-2	SAB:Resolve	SAB:Skilled Researcher
-3																			ADD:FEAT|TYPE=Explorer
-4										BONUS:VAR|TrapSense|(CL-1)/3									AUTO:FEAT|Trap Sense
-5	SAB:Extra Step
-6																			ADD:FEAT|TYPE=Explorer
-8	SAB:Explorer's Evasion
-9																			ADD:FEAT|TYPE=Explorer
+1							BONUS:VAR|ExplorerLore|CL+INT	ABILITY:Special Ability|AUTOMATIC|Explorer Lore|Survivalist		AUTO:FEAT|Guide|Track
+2												ABILITY:Special Ability|AUTOMATIC|Resolve|Skilled Researcher
+3	BONUS:ABILITYPOOL|Explorer Feat|1
+4							BONUS:VAR|TrapSense|(CL-1)/3												AUTO:FEAT|Trap Sense
+5												ABILITY:Special Ability|AUTOMATIC|Extra Step
+6	BONUS:ABILITYPOOL|Explorer Feat|1
+8												ABILITY:Special Ability|AUTOMATIC|Explorer's Evasion
+9	BONUS:ABILITYPOOL|Explorer Feat|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Field Officer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
@@ -86,16 +86,16 @@ CLASS:Field Officer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvanced
 CLASS:Field Officer	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Diplomacy=6,Knowledge (Tactics)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Read/Write Language|Sense Motive|Speak Language
-1	SAB:Leadership
-2	SAB:Uncanny Survival
-3					ADD:FEAT|TYPE=FieldOfficer
-4	SAB:Tactical Expertise
-5	SAB:August Leadership
-6					ADD:FEAT|TYPE=FieldOfficer
-7	SAB:Tactical Mastery
-8	SAB:Commanding Presence
-9					ADD:FEAT|TYPE=FieldOfficer
-10	SAB:Action Trust
+1								ABILITY:Special Ability|AUTOMATIC|Leadership
+2								ABILITY:Special Ability|AUTOMATIC|Uncanny Survival
+3	BONUS:ABILITYPOOL|FieldOfficer Feat|1
+4								ABILITY:Special Ability|AUTOMATIC|Tactical Expertise
+5								ABILITY:Special Ability|AUTOMATIC|August Leadership
+6	BONUS:ABILITYPOOL|FieldOfficer Feat|1
+7								ABILITY:Special Ability|AUTOMATIC|Tactical Mastery
+8								ABILITY:Special Ability|AUTOMATIC|Commanding Presence
+9	BONUS:ABILITYPOOL|FieldOfficer Feat|1
+10								ABILITY:Special Ability|AUTOMATIC|Action Trust
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Helix Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -103,95 +103,95 @@ CLASS:Helix Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvance
 CLASS:Helix Warrior	PREATT:3	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Helix Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Computer Use|Demolitions|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Spot|Survival|Swim|Tumble
-1					SAB:Haul	SAB:Light Sleeper	SAB:Survivor
+1																	ABILITY:Special Ability|AUTOMATIC|Haul|Light Sleeper|Survivor
 2	VISION:Darkvision (60)
-3																									ADD:FEAT|TYPE=HelixWarrior
-4					SAB:Strong as an Ox
-5					SAB:Superior Conditioning											BONUS:VISION|Darkvision|30
-6																									ADD:FEAT|TYPE=HelixWarrior
-7					SAB:Improved Reaction					BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
-8																				BONUS:VISION|Darkvision|30
-9																									ADD:FEAT|TYPE=HelixWarrior
-10					SAB:Decisive Attack
+3					BONUS:ABILITYPOOL|HelixWarrior Feat|1
+4																	ABILITY:Special Ability|AUTOMATIC|Strong as an Ox
+5												BONUS:VISION|Darkvision|30	ABILITY:Special Ability|AUTOMATIC|Superior Conditioning
+6					BONUS:ABILITYPOOL|HelixWarrior Feat|1
+7																	ABILITY:Special Ability|AUTOMATIC|Improved Reaction
+8												BONUS:VISION|Darkvision|30
+9					BONUS:ABILITYPOOL|HelixWarrior Feat|1
+10																	ABILITY:Special Ability|AUTOMATIC|Decisive Attack
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Space Monkey	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
-# Class Name		Required Feat										Required Skill
-CLASS:Space Monkey	PREMULT:2,[PREFEAT:1,Occupation (Astronaut Trainee)],[PREFEAT:1,TYPE=Unbreakable]	PREMULT:2,[PRESKILL:1,Craft (Mechanical)=6,Craft (Structural)=6],[PRESKILL:1,Survival=6]
+# Class Name		Multiple Requirements
+CLASS:Space Monkey	PREMULT:2,[PREABILITY:1,CATEGORY=Occupation,Astronaut Trainee],[PREABILITY:1,CATEGORY=Talent,TYPE=Unbreakable]	PREMULT:2,[PRESKILL:1,Craft (Mechanical)=6,Craft (Structural)=6],[PRESKILL:1,Survival=6]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Space Monkey	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Computer Use|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Escape Artist|Jump|Knowledge (Earth and Life Sciences)|Knowledge (Technology)|Navigate|Pilot|Repair|Search|Survival|Treat Injury|Tumble
-1	SAB:Hibernation Trance
-2	SAB:Monkey's Wrench +%|MonkeysWrench	BONUS:VAR|MonkeysWrench|CL/2										DEFINE:MonkeysWrench|0
-3																										ADD:FEAT|TYPE=SpaceMonkey
-4	SAB:Monkeys Unite
-5	SAB:Know Location +%|KnowLocation		BONUS:VAR|KnowLocation|((CL-2)/3)*2									DEFINE:KnowLocation|0
-6																										ADD:FEAT|TYPE=SpaceMonkey
-7	SAB:Monkey Shines
-8	SAB:Space Suitable										BONUS:MISC|ACHECK|1	BONUS:MISC|MAXDEX|1
-9																										ADD:FEAT|TYPE=SpaceMonkey
-10	SAB:Monkey Shot
+1																						ABILITY:Special Ability|AUTOMATIC|Hibernation Trance
+2								BONUS:VAR|MonkeysWrench|CL/2										ABILITY:Special Ability|AUTOMATIC|Monkey's Wrench
+3	BONUS:ABILITYPOOL|SpaceMonkey Feat|1
+4																						ABILITY:Special Ability|AUTOMATIC|Monkeys Unite
+5								BONUS:VAR|KnowLocation|((CL-2)/3)*2									ABILITY:Special Ability|AUTOMATIC|Know Location
+6	BONUS:ABILITYPOOL|SpaceMonkey Feat|1
+7																						ABILITY:Special Ability|AUTOMATIC|Monkey Shines
+8														BONUS:MISC|ACHECK|1	BONUS:MISC|MAXDEX|1	ABILITY:Special Ability|AUTOMATIC|Space Suitable
+9	BONUS:ABILITYPOOL|SpaceMonkey Feat|1
+10																						ABILITY:Special Ability|AUTOMATIC|Monkey Shot
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Swindler	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7
-# Class Name	Required Feat					Required Skill
-CLASS:Swindler	PREFEAT:2,Charm,Coordinate,Fast-Talk	PRESKILL:3,Bluff=6,Gamble=6,Disguise=4
+# Class Name	Required Ability								Required Skill
+CLASS:Swindler	PREABILITY:2,CATEGORY=Talent,Charm,Coordinate,Fast-Talk	PRESKILL:3,Bluff=6,Gamble=6,Disguise=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swindler	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Perform (Act)|Read/Write Language|Research|Sense Motive|Sleight of Hand|Speak Language|Tumble
-1	SAB:Cheat Fate
-2	SAB:Thousand Faces
-3																				ADD:FEAT|TYPE=Swindler
-4	SAB:Fortune's Favor +%|FortunesFavor	BONUS:VAR|FortunesFavor|((CL-1)/3)*2	DEFINE:FortunesFavor|0
-5	SAB:Warp Probability % ft|WarpProbability	BONUS:VAR|WarpProbability|((CL-2)/3)*30	DEFINE:WarpProbability|0
-6																				ADD:FEAT|TYPE=Swindler
-9																				ADD:FEAT|TYPE=Swindler
+1														ABILITY:Special Ability|AUTOMATIC|Cheat Fate
+2														ABILITY:Special Ability|AUTOMATIC|Thousand Faces
+3	BONUS:ABILITYPOOL|Swindler Feat|1
+4							BONUS:VAR|FortunesFavor|((CL-1)/3)*2	ABILITY:Special Ability|AUTOMATIC|Fortune's Favor
+5							BONUS:VAR|WarpProbability|((CL-2)/3)*30	ABILITY:Special Ability|AUTOMATIC|Warp Probability
+6	BONUS:ABILITYPOOL|Swindler Feat|1
+9	BONUS:ABILITYPOOL|Swindler Feat|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Technosavant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
-# Class Name		Required Skill
+# Class Name		Multiple Requirements
 CLASS:Technosavant	PREMULT:2,[PRESKILL:3,Computer Use=6,Disable Device=6,Knowledge (Technology)=6],[PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
-1	SAB:Technocrat																													AUTO:FEAT|Salvage
-2	SAB:Robomancer	SAB:Technophile
-3																											ADD:FEAT|TYPE=Technosavant
-4	SAB:Cybermancer	SAB:Skilled Salvager
-5	SAB:Exotic Weapons Adept	SAB:Down with Robots (+%d6/+%)|DownWithRobots|DownWithRobots*4	BONUS:VAR|DownWithRobots|(CL-2)/3	DEFINE:DownWithRobots|0
-6																											ADD:FEAT|TYPE=Technosavant
-7	SAB:Super Cybersurgeon	SAB:Virtual Houdini
-8	SAB:Expeditious Salvager
-9																											ADD:FEAT|TYPE=Technosavant
-10	SAB:Build Prototype
+1														ABILITY:Special Ability|AUTOMATIC|Technocrat					AUTO:FEAT|Salvage
+2														ABILITY:Special Ability|AUTOMATIC|Robomancer|Technophile
+3	BONUS:ABILITYPOOL|Technosavant Feat|1
+4														ABILITY:Special Ability|AUTOMATIC|Cybermancer|Skilled Salvager
+5								BONUS:VAR|DownWithRobots|(CL-2)/3	ABILITY:Special Ability|AUTOMATIC|Exotic Weapons Adept|Down with Robots
+6	BONUS:ABILITYPOOL|Technosavant Feat|1
+7														ABILITY:Special Ability|AUTOMATIC|Super Cybersurgeon|Virtual Houdini
+8														ABILITY:Special Ability|AUTOMATIC|Expeditious Salvager
+9	BONUS:ABILITYPOOL|Technosavant Feat|1
+10														ABILITY:Special Ability|AUTOMATIC|Build Prototype
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Tracer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+3)*2/5	BONUS:VAR|Action|CL*6
-# Class Name	Req. Att.	Required Feat	Required Skill
+# Class Name	Req. Att.	Required Feat	Multiple Requirements
 CLASS:Tracer	PREATT:2	PREFEAT:1,Track	PREMULT:2,[PRESKILL:2,Investigate=6,Survival=6],[PRESKILL:1,Knowledge (Behavioral Sciences)=6,Knowledge (Streetwise)=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tracer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Research|Search|Sense Motive|Spot|Survival|Swim
-1	SAB:Target Species																		AUTO:FEAT|Urban Tracking
-2					BONUS:VAR|SwiftStrike|(CL+1)/3												AUTO:FEAT|Swift Strike
-3																		ADD:FEAT|TYPE=Tracer
-4												DEFINE:UncannyStealthChargeQual|0					AUTO:FEAT|Uncanny Stealth
-6																		ADD:FEAT|TYPE=Tracer
-7					BONUS:VAR|UncannyStealthChargeQual|1
-9																		ADD:FEAT|TYPE=Tracer
-10	SAB:Swift Tracking
+1																				ABILITY:Special Ability|AUTOMATIC|Target Species	AUTO:FEAT|Urban Tracking
+2							BONUS:VAR|SwiftStrike|(CL+1)/3																	AUTO:FEAT|Swift Strike
+3	BONUS:ABILITYPOOL|Tracer Feat|1
+4														DEFINE:UncannyStealthChargeQual|0										AUTO:FEAT|Uncanny Stealth
+6	BONUS:ABILITYPOOL|Tracer Feat|1
+7							BONUS:VAR|UncannyStealthChargeQual|1
+9	BONUS:ABILITYPOOL|Tracer Feat|1
+10																				ABILITY:Special Ability|AUTOMATIC|Swift Tracking
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Xenophile	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
-# Class Name	Required Feat				Required Skill
-CLASS:Xenophile	PREFEAT:1,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences)=6,Knowledge (Technology)=6
+# Class Name	Required Ability								Required Skill
+CLASS:Xenophile	PREABILITY:1,CATEGORY=Talent,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
-1	SAB:Xenolore													ADD:FEAT|TYPE=Xenotype						AUTO:FEAT|Base Xenotype
-2	SAB:Xenoresistance +%|Xenoresist	BONUS:VAR|Xenoresist|(CL+1)/3	DEFINE:Xenoresist|0
-3																ADD:FEAT|TYPE=Xenophile
-4																ADD:FEAT|TYPE=Xenotype	ADD:FEAT|TYPE=XenotypeBonus
-5	SAB:Xenodefense +%|Xenodef		BONUS:VAR|Xenodef|CL/5		DEFINE:Xenodef|0
-6																ADD:FEAT|TYPE=Xenophile
-7																ADD:FEAT|TYPE=Xenotype	ADD:FEAT|TYPE=XenotypeBonus
-9																ADD:FEAT|TYPE=Xenophile
-10																ADD:FEAT|TYPE=Xenotype	ADD:FEAT|TYPE=XenotypeBonus
+1	BONUS:ABILITYPOOL|Xenotype Feat|1													ABILITY:Special Ability|AUTOMATIC|Xenolore		AUTO:FEAT|Base Xenotype
+2														BONUS:VAR|Xenoresist|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Xenoresistance
+3	BONUS:ABILITYPOOL|Xenophile Feat|1
+4	BONUS:ABILITYPOOL|Xenotype Feat|1	BONUS:ABILITYPOOL|XenotypeBonus Feat|1
+5														BONUS:VAR|Xenodef|CL/5		ABILITY:Special Ability|AUTOMATIC|Xenodefense
+6	BONUS:ABILITYPOOL|Xenophile Feat|1
+7	BONUS:ABILITYPOOL|Xenotype Feat|1	BONUS:ABILITYPOOL|XenotypeBonus Feat|1
+9	BONUS:ABILITYPOOL|Xenophile Feat|1
+10	BONUS:ABILITYPOOL|Xenotype Feat|1	BONUS:ABILITYPOOL|XenotypeBonus Feat|1
 
 #
 # End

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Jun  2 19:37:56 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision: $ $Author: $ -- Wed Jun  4 01:12:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 
 
 ###Block:Arcane Arranger ---------------------------------------------------------------------------------------------------------------------------------
@@ -95,7 +95,7 @@ Touche		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Touch
 # Ability Name	Category of Ability		Type					Visible	Special ABility		Add							Misc bonus
 Arcane Skills	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Skills									BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
 Machine Empathy	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Machine Empathy
-Program Spell	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Program Spell		ADD:FEAT|TYPE=TechnoMage,TYPE=Metamagic
+Program Spell	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Program Spell		
 Create Homunculus	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Create Homunculus
 Online Casting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Online Casting
 
@@ -117,5 +117,27 @@ Skill Mastery		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SA
 #Expert in Your Field		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
 Transform Companion	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Transform Companion
 
+
+###Block:Prestige ----------------------------------------------------------------------------------------------------------------
+#Block:Archmage ---------------------------------------------------------------------------------------------------------------------------------
+# Ability Name				Category of Ability		Type					Visible	Special ABility																																							Define							Caster level																																								Save checks bonus								Modify VAR
+Total Spellcasting ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Total Spellcasting																																														BONUS:CASTERLEVEL|Techno Mage|CL=Mage|PRECLASS:1,Techno Mage=1	BONUS:CASTERLEVEL|Mage|CL=Techno Mage|PRECLASS:1,Mage=1
+Increased Spells ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Increased Spells/Day (base number of arcane spells increase by 1/2 round down)|PREVAREQ:IncreasedSpellsProgression,1	SAB:Increased Spells/Day (double base number of arcane spells)|PREVAREQ:IncreasedSpellsProgression,2				DEFINE:IncreasedSpellsProgression|0																																																												
+Gifted Incantations			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Gifted Incantations
+Granted Incantations			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Granted Incantations
+
+
+#Block:Ecclesiarch ---------------------------------------------------------------------------------------------------------------------------------
+Total Spellcasting ~ Ecclesiarch	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Total Spellcasting																																														BONUS:CASTERLEVEL|Acolyte|CL=Mystic+CL=Holy Unholy Knight|PRECLASS:1,Acolyte=1	BONUS:CASTERLEVEL|Mystic|CL=Acolyte+CL=Holy Unholy Knight|PRECLASS:1,Mystic=1	BONUS:CASTERLEVEL|Holy Unholy Knight|CL=Acolyte+CL=Mystic|PRECLASS:1,Holy Unholy Knight=1
+Increased Spells ~ Ecclesiarch	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Increased Spells/Day (base number of divine spells increase by 1/2 round down)|PREVAREQ:IncreasedSpellsEcclesiarchProgression,1	SAB:Increased Spells/Day (double base number of divine spells)|PREVAREQ:IncreasedSpellsEcclesiarchProgression,2	DEFINE:IncreasedSpellsEcclesiarchProgression|0
+Total Turning				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Total Turning
+Innovative Turning			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Innovative Turning
+
+
+#Block:Holy Unholy Knight ---------------------------------------------------------------------------------------------------------------------------------
+Divine Grace				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Divine Grace																																																																																									BONUS:CHECKS|Fortitude,Reflex,Will|CHA|PRESTAT:1,CHA=12
+Sense Allegiance				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Sense Allegiance
+Smite Allegiance				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Smite Allegiance
+Divine Touch				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Divine Touch
 
 ###EOF
