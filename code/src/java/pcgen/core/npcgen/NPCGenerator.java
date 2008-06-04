@@ -219,7 +219,7 @@ public class NPCGenerator
 			}
 
 			Skill pcSkill = aPC.getSkillKeyed(skill.getKeyName());
-			final int cost = skill.costForPCClass(aClass, aPC);
+			final int cost = skill.skillCostForPCClass(aClass, aPC).getCost();
 			double ranks = 1.0 / cost;
 			Logging.debugPrint( "NPCGenerator: Adding " + (int)ranks + "ranks" ); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))

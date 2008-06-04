@@ -71,6 +71,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -3024,7 +3025,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					// Only add the cost for skills associated with a class.
 					// Skill ranks from feats etc are free.
-					final double cost = aSkill.costForPCClass(pcClass, this);
+					final int cost = aSkill.skillCostForPCClass(pcClass, this).getCost();
 					returnValue -= (int) (cost * curRank);
 				}
 			}
@@ -6013,8 +6014,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		else if (!aSkill.isClassSkill(classList, this)
-			&& (aSkill.costForPCClass(aClass, this) == Globals
-				.getGameModeSkillCost_Class()))
+			&& (aSkill.skillCostForPCClass(aClass, this).equals(SkillCost.CLASS)))
 		{
 			// Cross class skill - but as cost is 1 only return a whole number
 			maxRanks =

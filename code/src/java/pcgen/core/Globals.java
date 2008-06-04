@@ -54,6 +54,7 @@ import javax.swing.JFrame;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.spell.Spell;
@@ -1253,33 +1254,6 @@ public final class Globals
 	public static boolean getGameModeShowSpellTab()
 	{
 		return SettingsHandler.getGame().getTabShown(Tab.SPELLS);
-	}
-
-	/**
-	 * Get game mode skill cost for class
-	 * @return game modeskill cost for class
-	 */
-	public static int getGameModeSkillCost_Class()
-	{
-		return SettingsHandler.getGame().getSkillCost_Class();
-	}
-
-	/**
-	 * Get game mode skill cost for cross-class
-	 * @return game modeskill cost for cross-class
-	 */
-	public static int getGameModeSkillCost_CrossClass()
-	{
-		return SettingsHandler.getGame().getSkillCost_CrossClass();
-	}
-
-	/**
-	 * Get game mode skill cost for exclusive
-	 * @return game modeskill cost for exclusive
-	 */
-	public static int getGameModeSkillCost_Exclusive()
-	{
-		return SettingsHandler.getGame().getSkillCost_Exclusive();
 	}
 
 	/**

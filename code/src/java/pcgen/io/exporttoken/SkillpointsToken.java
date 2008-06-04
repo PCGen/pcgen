@@ -190,7 +190,7 @@ public class SkillpointsToken extends Token
 								.floatValue();
 					PCClass pcClass = pc.getClassKeyed(className);
 
-					usedPoints += (ranks * aSkill.costForPCClass(pcClass, pc));
+					usedPoints += (ranks * aSkill.skillCostForPCClass(pcClass, pc).getCost());
 				}
 			}
 		}
@@ -227,7 +227,7 @@ public class SkillpointsToken extends Token
 					PCClass pcClass = pc.getClassKeyed(className);
 					if (targetClass == pcClass)
 					{
-						usedPoints += (ranks * aSkill.costForPCClass(pcClass, pc));
+						usedPoints += (ranks * aSkill.skillCostForPCClass(pcClass, pc).getCost());
 					}
 				}
 			}

@@ -2037,8 +2037,8 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(ranks);
 					buffer.append('|');
 					buffer.append(TAG_COST).append(':');
-					buffer.append(Integer.toString(skill.costForPCClass(
-						pcClass, thePC)));
+					buffer.append(Integer.toString(skill.skillCostForPCClass(
+						pcClass, thePC).getCost()));
 					buffer.append('|');
 					buffer.append(TAG_CLASSSKILL).append(':');
 					buffer.append((skill.isClassSkill(pcClass, thePC)) ? 'Y'

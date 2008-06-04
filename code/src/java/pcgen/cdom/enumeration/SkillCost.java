@@ -17,12 +17,38 @@
  */
 package pcgen.cdom.enumeration;
 
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+
 public enum SkillCost
 {
 
-	CLASS,
+	CLASS
+	{
+		@Override
+		public int getCost()
+		{
+			return SettingsHandler.getGame().getSkillCost_Class();
+		}
+	},
 
-	CROSS_CLASS,
+	CROSS_CLASS
+	{
+		@Override
+		public int getCost()
+		{
+			return SettingsHandler.getGame().getSkillCost_CrossClass();
+		}
+	},
 
-	EXCLUSIVE;
+	EXCLUSIVE
+	{
+		@Override
+		public int getCost()
+		{
+			return SettingsHandler.getGame().getSkillCost_Exclusive();
+		}
+	};
+
+	public abstract int getCost();
 }

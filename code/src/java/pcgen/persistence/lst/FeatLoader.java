@@ -77,7 +77,7 @@ public final class FeatLoader extends AbilityLoader
 
 		if (!defaultFeatsLoaded)
 		{
-			loadDefaultFeats(sourceEntry);
+			loadDefaultFeats(context, sourceEntry);
 		}
 	}
 
@@ -85,7 +85,7 @@ public final class FeatLoader extends AbilityLoader
 	 * This method loads the default feats with the first feat source.
 	 * @param firstSource CampaignSourceEntry first loaded by this loader
 	 */
-	private void loadDefaultFeats(CampaignSourceEntry firstSource)
+	private void loadDefaultFeats(LoadContext context, CampaignSourceEntry firstSource)
 	{
 		if (Globals.getAbilityKeyed("FEAT", Constants.s_INTERNAL_WEAPON_PROF) == null)
 		{
@@ -103,7 +103,7 @@ public final class FeatLoader extends AbilityLoader
 						+ " hit penalty.\tSOURCELONG:PCGen Internal";
 			try
 			{
-				parseLine(null, null, aLine, firstSource);
+				parseLine(context, null, aLine, firstSource);
 			}
 			catch (PersistenceLayerException ple)
 			{

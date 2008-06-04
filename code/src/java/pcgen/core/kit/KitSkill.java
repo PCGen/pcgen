@@ -395,7 +395,8 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		if (!isFree)
 		{
 			double ranksAdded = 0.0;
-			ptsToSpend = (int)(ranksToAdd * aSkill.costForPCClass(pcClass, pc));
+			int skillCost = aSkill.skillCostForPCClass(pcClass, pc).getCost();
+			ptsToSpend = (int)(ranksToAdd * skillCost);
 			for (int i = 0; i < pcLvlInfo.size(); i++ )
 			{
 				PCLevelInfo info = pcLvlInfo.get(i);
@@ -420,7 +421,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 				points[i] = left;
 				int spent = (remaining - left);
 				ptsToSpend -= spent;
-				ranksAdded += ((double)spent / (double)aSkill.costForPCClass(pcClass, pc));
+				ranksAdded += ((double)spent / (double) skillCost);
 				if (ranksAdded == ranksToAdd || ptsToSpend <= 0)
 				{
 					break;
@@ -428,7 +429,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			}
 
 			ranksToAdd = ranksAdded;
-			ptsToSpend = (int)(ranksToAdd * aSkill.costForPCClass(pcClass, pc));
+			ptsToSpend = (int)(ranksToAdd * skillCost);
 		}
 		final Skill skill = pc.addSkill(aSkill);
 

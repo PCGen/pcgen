@@ -342,7 +342,7 @@ public class AbilityUtilities
 
 		if (anAbility == null)
 		{
-			Logging.errorPrint("Attempted to add unknown feat: " + anAbilityKey);
+			Logging.errorPrint("Attempted to add unknown Ability (" + category + "): " + anAbilityKey);
 		}
 		else
 		{

@@ -286,32 +286,6 @@ public final class Skill extends PObject
 		return rankList;
 	}
 
-	/**
-     * Get the type of cost for a skill 
-     * @param aClass
-     * @param aPC
-     * @return CLASS, CROSS-CLASS or Exclusive
-	 */
-    public SkillCost getSkillCostType(final PCClass aClass, final PlayerCharacter aPC)
-	{
-		// This is dippy!  So if the user sets costs to something non-standard, the matching no longer works.  XXX
-		// isCrossClassSkill() doesn't appear to work, so just go by actual cost values
-		if (costForPCClass(aClass, aPC) == Globals.getGameModeSkillCost_Class())
-		{
-			return SkillCost.CLASS;
-		}
-		else if (costForPCClass(aClass, aPC) == Globals.getGameModeSkillCost_CrossClass())
-		{
-			return SkillCost.CROSS_CLASS;
-		}
-		else if (getSafe(ObjectKey.EXCLUSIVE))
-		{
-			return SkillCost.EXCLUSIVE;
-		}
-
-		return null;
-	}
-
     /**
      * Get a count of the sub types
      * @return count of sub types
@@ -638,21 +612,29 @@ public final class Skill extends PObject
      */
 	public int costForPCClass(final PCClass aClass, final PlayerCharacter aPC)
 	{
-		int anInt;
+		return skillCostForPCClass(aClass, aPC).getCost();
+	}
+
+    /**
+     * Get the actual cost of a skill point
+     * @param aClass
+     * @param aPC
+     * @return cost of a skill point
+     */
+	public SkillCost skillCostForPCClass(final PCClass aClass, final PlayerCharacter aPC)
+	{
 		if (isClassSkill(aClass, aPC))
 		{
-			anInt = Globals.getGameModeSkillCost_Class();
+			return SkillCost.CLASS;
 		}
 		else if (!isCrossClassSkill(aClass, aPC) && getSafe(ObjectKey.EXCLUSIVE))
 		{
-			anInt = Globals.getGameModeSkillCost_Exclusive();
+			return SkillCost.EXCLUSIVE;
 		}
 		else
 		{
-			anInt = Globals.getGameModeSkillCost_CrossClass();
+			return SkillCost.CROSS_CLASS;
 		}
-
-		return anInt;
 	}
 
 	/**
@@ -693,9 +675,9 @@ public final class Skill extends PObject
 				return "You do not meet the prerequisites required to take this skill.";
 			}
 
-			i = costForPCClass(aClass, aPC);
+			SkillCost sc = skillCostForPCClass(aClass, aPC);
 
-			if (i == Globals.getGameModeSkillCost_Exclusive())
+			if (sc.equals(SkillCost.EXCLUSIVE))
 			{
 				return "You cannot purchase this exclusive skill.";
 			}
@@ -941,32 +923,30 @@ public final class Skill extends PObject
 	 * @param aPC
 	 * @return cost for pcc class list
 	 */
-	public int costForPCClassList(final List<PCClass> aPCClassList, final PlayerCharacter aPC)
+	public SkillCost costForPCClassList(final List<PCClass> aPCClassList, final PlayerCharacter aPC)
 	{
-		int anInt = Globals.getGameModeSkillCost_Exclusive(); // assume exclusive (can't buy)
+		SkillCost sc = SkillCost.EXCLUSIVE; //Assume we can't buy
 		final int classListSize = aPCClassList.size();
 
 		if (classListSize == 0)
 		{
-			return anInt;
+			return sc;
 		}
 
 		for ( PCClass pcClass : aPCClassList )
 		{
-			final int cInt = costForPCClass(pcClass, aPC);
-
-			if (cInt == Globals.getGameModeSkillCost_Class())
+			final SkillCost csc = skillCostForPCClass(pcClass, aPC);
+			if (csc.equals(SkillCost.CLASS))
 			{
-				return cInt;
+				return csc;
 			}
-
-			if (cInt != anInt)
+			if (!csc.equals(SkillCost.EXCLUSIVE))
 			{
-				anInt = cInt; // found a cross-class
+				sc = csc;
 			}
 		}
 
-		return anInt;
+		return sc;
 	}
 
 	void replaceClassRank(final String oldClass, final String newClass)

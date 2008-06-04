@@ -23,6 +23,7 @@
  */
 package pcgen.core.chooser;
 
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -67,9 +68,9 @@ public class ClassSkillsChoiceManager extends AbstractBasicPObjectChoiceManager<
 	{
 		for ( Skill skill : Globals.getSkillList() )
 		{
-			int sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+			SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
 
-			if (sCost == Globals.getGameModeSkillCost_Class())
+			if (sCost.equals(SkillCost.CLASS))
 			{
 				availableList.add(skill);
 			}

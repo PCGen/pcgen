@@ -154,7 +154,6 @@ public class CategorisableStore implements Cloneable
 	public Categorisable getKeyed(final String aCategory, final String aKey)
 	{
 		final Map<String, Categorisable> objMap = categoryMap.get(aCategory);
-
 		// nothing in this category?
 		if (objMap == null)
 		{

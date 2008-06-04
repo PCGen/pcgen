@@ -100,6 +100,7 @@ import javax.swing.tree.TreePath;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -715,10 +716,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						else
 						{
 							points =
-									theSkill.costForPCClass(
-										getSelectedPCClass(), pc);
-							final int classSkillCost =
-									Globals.getGameModeSkillCost_Class();
+									theSkill.skillCostForPCClass(
+										getSelectedPCClass(), pc).getCost();
+							final int classSkillCost = SkillCost.CLASS.getCost();
 							if (classSkillCost > 1)
 							{
 								points /= classSkillCost;
@@ -1005,7 +1005,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		final int classSkillCost = Globals.getGameModeSkillCost_Class();
+		final int classSkillCost = SkillCost.CLASS.getCost();
 		if (classSkillCost > 1)
 		{
 			points *= classSkillCost;
@@ -1746,13 +1746,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		//		exclusiveLabel = new JLabel(PropertyFactory.getString("in_iskExclusive_skill_cost")); //$NON-NLS-1$
 		exclusiveLabel =
 				new JLabel("Class:"
-					+ Integer.toString(Globals.getGameModeSkillCost_Class())
+					+ Integer.toString(SkillCost.CLASS.getCost())
 					+ " Cross:"
-					+ Integer.toString(Globals
-						.getGameModeSkillCost_CrossClass())
+					+ Integer.toString(SkillCost.CROSS_CLASS.getCost())
 					+ " Exclusive:"
-					+ Integer
-						.toString(Globals.getGameModeSkillCost_Exclusive()));
+					+ Integer.toString(SkillCost.EXCLUSIVE.getCost()));
 		PropertyFactory.getString("in_iskExclusive_skill_cost"); //$NON-NLS-1$
 		Utility.setDescription(exclusiveLabel, PropertyFactory
 			.getString("in_iskExclusive_skill_cost_tooltip")); //$NON-NLS-1$
@@ -1892,9 +1890,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		// the old Skills tab used cost as a double,
 		// so I'll duplicate that behavior
 		PCClass aClass = getSelectedPCClass();
-		final double cost = aSkill.costForPCClass(aClass, pc);
+		SkillCost sc = aSkill.skillCostForPCClass(aClass, pc);
 
-		if (CoreUtility.doublesEqual(cost, 0.0))
+		if (sc.equals(SkillCost.EXCLUSIVE))
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
@@ -1903,6 +1901,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return false;
 		}
 
+		final double cost = sc.getCost();
 		double rank = points / cost;
 
 		if (aSkill != null)
@@ -3111,8 +3110,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						return Integer.valueOf(aSkill.costForPCClass(
-							getSelectedPCClass(), pc));
+						return Integer.valueOf(aSkill.skillCostForPCClass(
+							getSelectedPCClass(), pc).getCost());
 					}
 
 					return "0";
@@ -4166,7 +4165,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					|| Globals.checkRule(RuleConstants.SKILLMAX)) //$NON-NLS-1$
 				{
 					final int cost =
-							aSkill.costForPCClass(getSelectedPCClass(), pc);
+							aSkill.skillCostForPCClass(aClass, pc).getCost();
 					final double pointsNeeded =
 							Math.floor((maxRank - aSkill.getTotalRank(pc)
 								.doubleValue())
@@ -4174,7 +4173,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					double points = Math.min(pointsNeeded, skillPool);
 
 					final int classSkillCost =
-							Globals.getGameModeSkillCost_Class();
+							SkillCost.CLASS.getCost();
 					if (classSkillCost > 1)
 					{
 						points = Math.floor(points / classSkillCost);
@@ -4261,12 +4260,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						//TODO: This value is thrown away, should it really be?
 						iter.next();
 						final int cost =
-								aSkill.costForPCClass(getSelectedPCClass(), pc);
+								aSkill.skillCostForPCClass(getSelectedPCClass(), pc).getCost();
 						double points =
 								-aSkill.getTotalRank(pc).doubleValue() * cost;
-						if (Globals.getGameModeSkillCost_Class() > 1)
+						if (SkillCost.CLASS.getCost() > 1)
 						{
-							points /= Globals.getGameModeSkillCost_Class();
+							points /= SkillCost.CLASS.getCost();
 						}
 
 						addSkill((int) points);

@@ -39,7 +39,7 @@ public final class InfoSkillsSorters
 	private static boolean costsMatch(PObjectNode node, Skill skill, InfoSkills tab)
 	{
 		return node.getItem().equals(
-				skill.getSkillCostType(tab.getSelectedPCClass(), tab.getPc()));
+				skill.skillCostForPCClass(tab.getSelectedPCClass(), tab.getPc()));
 	}
 
 	private static boolean keystatsMatch(PObjectNode node, Skill skill)

@@ -25,6 +25,8 @@ package pcgen.core.chooser;
 
 import java.util.Collection;
 import java.util.List;
+
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -74,8 +76,9 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals
-						.getGameModeSkillCost_Class())
+				SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+
+				if (sCost.equals(SkillCost.CLASS))
 				{
 					availableList.add(skill.getKeyName());
 				}
@@ -85,8 +88,9 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				if (skill.costForPCClassList(aPc.getClassList(), aPc) > Globals
-						.getGameModeSkillCost_Class())
+				SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+
+				if (sCost.equals(SkillCost.CROSS_CLASS))
 				{
 					availableList.add(skill.getKeyName());
 				}
@@ -96,8 +100,9 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals
-						.getGameModeSkillCost_Exclusive())
+				SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+
+				if (sCost.equals(SkillCost.EXCLUSIVE))
 				{
 					availableList.add(skill.getKeyName());
 				}
