@@ -186,8 +186,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private static final int MODEL_AVAIL = 0;
 	private static final int MODEL_SELECT = 1;
 	// +/- button column indexes
-	private static final int COL_INC = 7;
-	private static final int COL_DEC = 8;
+	private static final int COL_INC = 8;
+	private static final int COL_DEC = 9;
 	/** The Number of costs to display - CSkill, CCSkill and x */
 	public static final int nCosts = 3;
 	private final JLabel avaLabel =
@@ -2771,13 +2771,14 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		private static final int COL_MOD = 2;
 		private static final int COL_RANK = 3;
 		private static final int COL_COST = 4;
-		private static final int COL_SRC = 5;
-		private static final int COL_INDEX = 6;
+		private static final int COL_CLASS = 5;
+		private static final int COL_SRC = 6;
+		private static final int COL_INDEX = 7;
 
 		private String[] names =
-				{"Skill", "Total", "Modifier", "Ranks", "Cost", "Source",
-					"Order", "+", "-"};
-		private int[] widths = {100, 100, 100, 100, 100, 100, 100, 30, 30};
+				{"Skill", "Total", "Modifier", "Ranks", "Cost", "Class",
+				    "Source", "Order", "+", "-"};
+		private int[] widths = {100, 100, 100, 100, 100, 100, 100, 100, 30, 30};
 
 		private List<Boolean> displayList;
 
@@ -2813,6 +2814,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Cost
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Class
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Source
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], false))); // Order
@@ -2831,6 +2834,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					+ "." + names[i++], true))); // Rank
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], true))); // Cost
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Class
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
 					+ "." + names[i++], false))); // Source
 				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
@@ -2889,6 +2894,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 				case COL_COST: //skill rank cost
 					return Integer.class;
+
+				case COL_CLASS: //class skill
+					return String.class;
 
 				case COL_INDEX: //display index
 					return Integer.class;
@@ -3115,6 +3123,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					}
 
 					return "0";
+
+				case COL_CLASS: // class skill
+
+					if (aSkill != null)
+					{
+						if (aSkill.isClassSkill(getSelectedPCClass(), pc))
+						{
+							return "yes";
+						}
+					}
+
+					return "no";
 
 				case COL_SRC: // Source Info
 
@@ -3545,6 +3565,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				case COL_RANK:
 				case COL_TOTAL:
 				case COL_COST:
+				case COL_CLASS:
 					//				case COL_INDEX:
 					column
 						.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(
