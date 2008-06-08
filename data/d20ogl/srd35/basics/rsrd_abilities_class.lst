@@ -116,13 +116,15 @@ Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY	
 
 ###Block: Uncanny Dodge
 # Use: TEMPLATE:Uncanny Dodge to add the Uncanny Dodge/Improved Uncanny Dodge feature
+#Problem found with template in loading older characters, switched to using ABILITY - Uncanny Dodge ~ Base to fix.
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
-# Ability Name		Category of Ability		Type				Special ABility															Modify VAR								Source Page
-Uncanny Dodge		CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Uncanny Dodge (Dex bonus to AC)|!PREABILITY:1,CATEGORY=Special Ability,Improved Uncanny Dodge										SOURCEPAGE:ClassesII.rtf
-Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Improved Uncanny Dodge (can't be flanked except by a level % rogue)|UncannyDodgeFlankingLevel	BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
-
+# Ability Name		Category of Ability		Type				Visible	Special ABility															Define										Ability																											Modify VAR								Source Page
+Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO																		DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVAREQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+#
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus to AC)|!PREABILITY:1,CATEGORY=Special Ability,Improved Uncanny Dodge																																																	SOURCEPAGE:ClassesII.rtf
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Improved Uncanny Dodge (can't be flanked except by a level % rogue)|UncannyDodgeFlankingLevel																																								BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
 #
 #EOF
 #
