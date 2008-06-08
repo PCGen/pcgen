@@ -39,7 +39,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 
-public class ReferenceContext
+public class ReferenceContext implements Cloneable
 {
 
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
@@ -54,12 +54,6 @@ public class ReferenceContext
 	public Class<?> getClassFor(String key)
 	{
 		return null; // return StringPClassUtil.getCDOMClassFor(key);
-	}
-
-	public void clear()
-	{
-		simple.clear();
-		// categorized.clear();
 	}
 
 	public boolean validate()
@@ -279,11 +273,11 @@ public class ReferenceContext
 	// return simple.getAddressedReference(obj, name, string);
 	// }
 
-	private HashMap<CDOMObject, CDOMSingleRef<?>> directRef = new HashMap<CDOMObject, CDOMSingleRef<?>>();
+	private HashMap<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
 	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
-		CDOMSingleRef<?> ref = directRef.get(obj);
+		CDOMSingleRef<?> ref = directRefCache.get(obj);
 		if (ref == null)
 		{
 			ref = new CDOMDirectSingleRef<T>(obj);
@@ -347,5 +341,18 @@ public class ReferenceContext
 	public void buildDeferredObjects()
 	{
 		simple.buildDeferredObjects();
+	}
+
+	@Override
+	public ReferenceContext clone() throws CloneNotSupportedException
+	{
+		ReferenceContext rc = (ReferenceContext) super.clone();
+		rc.simple = simple.clone();
+		/*
+		 * TODO Does abbMap need to be cloned?
+		 */
+		//Clear the cache
+		rc.directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
+		return rc;
 	}
 }

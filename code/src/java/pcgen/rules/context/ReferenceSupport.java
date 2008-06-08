@@ -391,4 +391,12 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 			}
 		}
 	}
+
+	public void resetReferences()
+	{
+		for (RT ref : referenced.values())
+		{
+			ref.clearResolution();
+		}
+	}
 }

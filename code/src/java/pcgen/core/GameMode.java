@@ -25,15 +25,6 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.character.WieldCategory;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.system.GameModeRollMethod;
-import pcgen.util.ComparableComparator;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
-import pcgen.util.enumeration.Tab;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -43,6 +34,21 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.MasterListInterface;
+import pcgen.core.character.WieldCategory;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.system.GameModeRollMethod;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.util.ComparableComparator;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 
 /**
@@ -3486,6 +3492,34 @@ public final class GameMode implements Comparable<Object>
 	public void setResizableTypeList(List<String> resizableTypeList)
 	{
 		this.resizableTypeList = resizableTypeList;
+	}
+	
+	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
+	private ReferenceContext refContext = new ReferenceContext();
+	private LoadContext context = new RuntimeLoadContext(refContext, masterLCS);
+
+	public void clearLoadContext()
+	{
+		masterLCS = new ConsolidatedListCommitStrategy();
+		try
+		{
+			context = new RuntimeLoadContext(refContext.clone(), masterLCS);
+		}
+		catch (CloneNotSupportedException e)
+		{
+			throw new UnreachableError(
+					"ReferenceContext is designed to be cloneable: ", e);
+		}
+	}
+
+	public LoadContext getContext()
+	{
+		return context;
+	}
+
+	public MasterListInterface getMasterLists()
+	{
+		return masterLCS;
 	}
 }
 

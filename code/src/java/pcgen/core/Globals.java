@@ -61,9 +61,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.persistence.PersistenceManager;
-import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -177,9 +175,6 @@ public final class Globals
 	private static JFrame currentFrame;
 	private static final StringBuffer section15 = new StringBuffer(30000);
 	private static final String spellPoints = "0";
-
-	private static ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
-	private static LoadContext context = new RuntimeLoadContext(masterLCS);
 
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
@@ -2014,11 +2009,10 @@ public final class Globals
 		Equipment.clearEquipmentTypes();
 		PersistenceManager.getInstance().emptyLists();
 		SettingsHandler.getGame().clearLstAbilityCategories();
+		SettingsHandler.getGame().clearLoadContext();
 		
 		Pantheon.clearConstants();
 		RaceType.clearConstants();
-		masterLCS = new ConsolidatedListCommitStrategy();
-		context = new RuntimeLoadContext(masterLCS);
 		createEmptyRace();
 	}
 
@@ -3017,14 +3011,14 @@ public final class Globals
 
 	public static LoadContext getContext()
 	{
-		return context;
+		return SettingsHandler.getGame().getContext();
 	}
 
 	public static MasterListInterface getMasterLists()
 	{
-		return masterLCS;
+		return SettingsHandler.getGame().getMasterLists();
 	}
-
+	
 	private static boolean hasSpellPPCost;
 	
 	public static boolean hasSpellPPCost()
@@ -3051,4 +3045,5 @@ public final class Globals
 		}
 		return aList;
 	}
+
 }

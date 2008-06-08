@@ -42,9 +42,21 @@ public abstract class LoadContext
 
 	public final ReferenceContext ref;
 
-	public LoadContext(ListContext lc, ObjectContext oc)
+	public LoadContext(ReferenceContext rc, ListContext lc, ObjectContext oc)
 	{
-		ref = new ReferenceContext();
+		if (rc == null)
+		{
+			throw new IllegalArgumentException("ReferenceContext cannot be null");
+		}
+		if (lc == null)
+		{
+			throw new IllegalArgumentException("ListContext cannot be null");
+		}
+		if (oc == null)
+		{
+			throw new IllegalArgumentException("ObjectContext cannot be null");
+		}
+		ref = rc;
 		list = lc;
 		obj = oc;
 	}

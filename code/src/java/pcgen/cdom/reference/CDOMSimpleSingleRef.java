@@ -114,4 +114,10 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 	{
 		return Collections.singleton(referencedObject);
 	}
+
+	@Override
+	public void clearResolution()
+	{
+		referencedObject = null;
+	}
 }

@@ -109,4 +109,10 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 		return getReferenceClass().hashCode() ^ pattern.hashCode();
 	}
 
+	@Override
+	public void clearResolution()
+	{
+		throw new IllegalStateException(
+				"Cannot clear resolution of PatternMatchingReference");
+	}
 }

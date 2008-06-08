@@ -20,7 +20,7 @@ public class AssociationReference<T extends CDOMObject> extends
 		if (start == null)
 		{
 			throw new IllegalArgumentException(
-					"Starting Group cannot be null in PatternMatchingReference");
+					"Starting Group cannot be null in AssociationReference");
 		}
 		all = start;
 		if (ref == null)
@@ -35,7 +35,7 @@ public class AssociationReference<T extends CDOMObject> extends
 	public void addResolution(T obj)
 	{
 		throw new IllegalStateException(
-				"Cannot add resolution to PatternMatchingReference");
+				"Cannot add resolution to AssociationReference");
 	}
 
 	@Override
@@ -114,6 +114,13 @@ public class AssociationReference<T extends CDOMObject> extends
 	public int hashCode()
 	{
 		return getReferenceClass().hashCode() ^ referenceObj.hashCode();
+	}
+
+	@Override
+	public void clearResolution()
+	{
+		throw new IllegalStateException(
+				"Cannot clear resolution of AssociationReference");
 	}
 
 }

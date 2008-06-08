@@ -28,7 +28,7 @@ import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 
-public class SimpleReferenceContext
+public class SimpleReferenceContext implements Cloneable
 {
 
 	private Map<Class<?>, SimpleReferenceManufacturer<?>> map = 
@@ -153,11 +153,6 @@ public class SimpleReferenceContext
 		getRefSupport(cl).constructIfNecessary(value);
 	}
 
-	public void clear()
-	{
-		refMap.clear();
-	}
-
 //	public <T extends CDOMObject> CDOMAddressedSingleRef<T> getAddressedReference(
 //			CDOMObject obj, Class<T> name, String addressName)
 //	{
@@ -202,6 +197,47 @@ public class SimpleReferenceContext
 		for (ReferenceSupport<?, ?> rs : refMap.values())
 		{
 			rs.buildDeferredObjects();
+		}
+	}
+
+	@Override
+	protected SimpleReferenceContext clone() throws CloneNotSupportedException
+	{
+		SimpleReferenceContext src = (SimpleReferenceContext) super.clone();
+		src.resetReferences();
+		return src;
+	}
+	
+	private void resetReferences()
+	{
+		/*
+		 * FUTURE This makes a strong (and limiting) assumption - that any Game
+		 * Mode (and thus any instance of SimpleReferenceContext) will only be
+		 * active at one time. This means that there cannot be two sets of
+		 * campaigns loaded that both reference the same game mode. This is not
+		 * limiting in 5.15/5.16 (at this time, anyway), but it does limit
+		 * future expandability of PCGen. There is a significant reason for this
+		 * limitation that I'm unsure how to work around without some really
+		 * serious deep inspection of CDOMObjects. The problem is that
+		 * references may be built in the game mode that reference objects NOT
+		 * in the Game Mode. (Global tokens can be used in the Game Mode). The
+		 * challenge with that is that the *resolution is already built* and we
+		 * don't want to have to know everywhere a reference could be within a
+		 * Game Mode PObject (e.g. a PCStat) in order to update all of those
+		 * references each time a set of Campaigns is uploaded. Therefore, we
+		 * keep one set of references, and allow the content of those references
+		 * to be cleared/updated for each set of campaigns loaded. It is likely
+		 * that the the solution to get around this limitation in the long term
+		 * is to reload the Game Mode files once for each GameMode/Campaign Set
+		 * that is loaded at the same time.
+		 */
+		for (SimpleReferenceManufacturer<?> srm : map.values())
+		{
+			srm.resetReferences();
+		}
+		for (ReferenceSupport<?, ?> rs : refMap.values())
+		{
+			rs.resetReferences();
 		}
 	}
 }

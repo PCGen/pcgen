@@ -112,4 +112,13 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	{
 		return Collections.unmodifiableList(referencedList);
 	}
+
+	@Override
+	public void clearResolution()
+	{
+		if (referencedList != null)
+		{
+			referencedList.clear();
+		}
+	}
 }

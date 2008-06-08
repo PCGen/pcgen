@@ -116,4 +116,16 @@ public class AbstractReferenceManufacturer<T extends CDOMObject>
 			}
 		}
 	}
+
+	public void resetReferences()
+	{
+		if (allRef != null)
+		{
+			allRef.clearResolution();
+		}
+		for (CDOMTypeRef<T> ref : typeReferences.values())
+		{
+			ref.clearResolution();
+		}
+	}
 }

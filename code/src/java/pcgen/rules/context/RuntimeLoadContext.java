@@ -4,9 +4,9 @@ public class RuntimeLoadContext extends LoadContext
 {
 	private final String contextType;
 
-	public RuntimeLoadContext(ListCommitStrategy lcs)
+	public RuntimeLoadContext(ReferenceContext rc, ListCommitStrategy lcs)
 	{
-		super(new ListContext(lcs), new ObjectContext(
+		super(rc, new ListContext(lcs), new ObjectContext(
 				new ConsolidatedObjectCommitStrategy()));
 		contextType = "Runtime";
 	}
