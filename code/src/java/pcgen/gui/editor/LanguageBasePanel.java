@@ -22,16 +22,15 @@
  */
 package pcgen.gui.editor;
 
+import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
 import pcgen.util.PropertyFactory;
-
-import java.awt.BorderLayout;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <code>LanguageBasePanel</code>
@@ -93,17 +92,13 @@ public class LanguageBasePanel extends BasePanel
 
 	public void updateView(PObject thisPObject)
 	{
-		String aString;
-		Iterator e;
 		Language thisLanguage = (Language) thisPObject;
 
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for (e = Globals.getLanguageList().iterator(); e.hasNext();)
+		for (Language aLanguage : Globals.getContext().ref.getConstructedCDOMObjects(Language.class))
 		{
-			final Language aLanguage = (Language) e.next();
-
 			for (String type : aLanguage.getTypeList(false))
 			{
 				if (!type.equals(Constants.s_CUSTOM))

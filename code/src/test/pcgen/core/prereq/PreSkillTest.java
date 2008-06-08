@@ -86,7 +86,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		knowledge.setTypeInfo("KNOWLEDGE.INT");
 		knowledge.modRanks(8.0, myClass, true, character);
 		character.addSkill(knowledge);
-		Globals.getSkillList().add((Skill) knowledge);
+		Globals.getContext().ref.importObject(knowledge);
 
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -94,7 +94,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		tumble.setTypeInfo("DEX");
 		tumble.modRanks(8.0, myClass, true, character);
 		character.addSkill(tumble);
-		Globals.getSkillList().add((Skill) tumble);
+		Globals.getContext().ref.importObject(tumble);
 
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -102,7 +102,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		balance.setTypeInfo("DEX");
 		balance.modRanks(4.0, myClass, true, character);
 		character.addSkill(balance);
-		Globals.getSkillList().add((Skill) balance);
+		Globals.getContext().ref.importObject(balance);
 		
 		fake = new Skill();
 		fake.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -110,7 +110,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake.setTypeInfo("WIS");
 		fake.modRanks(6.0, myClass, true, character);
 		character.addSkill(fake);
-		Globals.getSkillList().add((Skill) fake);
+		Globals.getContext().ref.importObject(fake);
 		
 		fake2 = new Skill();
 		fake2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -118,19 +118,19 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake2.setTypeInfo("INT");
 		fake2.modRanks(8.0, myClass, true, character);
 		character.addSkill(fake2);
-		Globals.getSkillList().add((Skill) fake2);
+		Globals.getContext().ref.importObject(fake2);
 		
 		target = new Skill();
 		target.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		target.setName("Target");
 		target.setTypeInfo("STR");
-		Globals.getSkillList().add((Skill) target);
+		Globals.getContext().ref.importObject(target);
 		
 		target2 = new Skill();
 		target2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		target2.setName("Target2");
 		target2.setTypeInfo("STR");
-		Globals.getSkillList().add((Skill) target2);
+		Globals.getContext().ref.importObject(target2);
 		
 		fake.putServesAs(target.getDisplayName(), "");		
 		fake.putServesAs(target2.getDisplayName(), "");		

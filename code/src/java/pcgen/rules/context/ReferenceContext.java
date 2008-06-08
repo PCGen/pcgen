@@ -179,6 +179,11 @@ public class ReferenceContext
 		// }
 	}
 
+	public <T extends CDOMObject> boolean forget(T objToForget)
+	{
+		return simple.forgetCDOMObject(objToForget);
+	}
+
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> T
 	// cloneCategorized(
 	// Class<T> cl, Category<T> cat, Object o, String newKey)

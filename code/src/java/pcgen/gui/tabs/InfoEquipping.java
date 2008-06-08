@@ -99,7 +99,6 @@ import javax.swing.tree.TreeSelectionModel;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -1656,7 +1655,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (eqTarget == null)
 				{
-					eqTarget = EquipmentList.getEquipmentNamed(eSet.getValue());
+					eqTarget = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Equipment.class,
+									eSet.getValue());
 				}
 
 				if (!eqTarget.isContainer())

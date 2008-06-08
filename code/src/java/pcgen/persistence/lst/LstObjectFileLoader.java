@@ -34,6 +34,7 @@ import java.util.Observable;
 import java.util.Set;
 
 import pcgen.core.Campaign;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
@@ -261,7 +262,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * 
 	 * @since 5.11
 	 */
-	protected abstract void addGlobalObject(final PObject pObj);
+	protected void addGlobalObject(final PObject pObj)
+	{
+		Globals.getContext().ref.importObject(pObj);
+	}
 
 	/**
 	 * This method is called when the end of data for a specific PObject
@@ -489,7 +493,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 *
 	 * @param objToForget containing the object to forget
 	 */
-	protected abstract void performForget(T objToForget);
+	protected void performForget(T objToForget)
+	{
+		Globals.getContext().ref.forget(objToForget);
+	}
 
 	/**
 	 * This method will perform a single .COPY operation.

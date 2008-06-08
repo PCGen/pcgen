@@ -296,8 +296,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Equipment custEq = eq.clone();
 		custEq.setKeyName("Custom");
 		custEq.setBaseItem(eq.getKeyName());
-		EquipmentList.addEquipment(custEq);
-		EquipmentList.addEquipment(eq);
+		Globals.getContext().ref.importObject(custEq);
+		Globals.getContext().ref.importObject(eq);
 
 		GameMode gameMode = SettingsHandler.getGame();
 		is(gameMode.getSizeAdjustmentListSize(), gt(0), "size list initialised");

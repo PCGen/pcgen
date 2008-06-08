@@ -160,7 +160,7 @@ public class NPCGenerator
 			// User has not specified a weighting for skills for this class
 			// Assume class skills are picked uniformly and cross-class skills
 			// are 1/8 as likely to be selected.
-			for ( Skill skill : Globals.getSkillList() )
+			for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 			{
 				if ( skill.getVisibility() == Visibility.DEFAULT )
 				{

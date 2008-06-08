@@ -112,27 +112,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	@Override
 	protected Language getObjectKeyed(String aKey)
 	{
-		return Globals.getLanguageKeyed(aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(final Language objToForget)
-	{
-		Globals.getLanguageList().remove(objToForget);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		// TODO - Create Globals.addLanguage( final Language aLang )
-		Globals.getLanguageList().add((Language) pObj);
-		Globals.getContext().ref.importObject(pObj);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aKey);
 	}
 
 	@Override

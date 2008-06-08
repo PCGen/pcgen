@@ -445,7 +445,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return skillList;
 		}
 
-		for (final Skill skill : Globals.getSkillList())
+		for (final Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
 			if (!hasSkill(skill.getKeyName()))
 			{
@@ -2247,7 +2247,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Add additional HD if required
 		// newClass = Globals.getClassNamed(race.getType());
 		PCClass aClass =
-				Globals.getClassKeyed(race.getMonsterClass(this, false));
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass(this, false));
 
 		final int usedHD = followerMaster.getUsedHD();
 		addHD -= usedHD;
@@ -2307,7 +2307,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				// familiar doesn't have skill,
 				// but master does, so add it
-				final Skill newSkill = Globals.getSkillKeyed(skillKey).clone();
+				final Skill newSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey).clone();
 				final double sr =
 						mPC.getSkillKeyed(skillKey).getRank().doubleValue();
 
@@ -3998,7 +3998,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// list
 				for (final String profKey : profKeyList)
 				{
-					final WeaponProf prof = Globals.getWeaponProfKeyed(profKey);
+					final WeaponProf prof = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
 					if (prof != null)
 					{
 						ret.put(prof.getKeyName(), prof);
@@ -5962,7 +5962,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			levelForSkillPurposes += totalHitDice();
 		}
 
-		final Skill aSkill = Globals.getSkillKeyed(skillKey);
+		final Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
 
 		if (aSkill == null)
 		{
@@ -6305,7 +6305,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				&& (race.getMonsterClassLevels(this) != 0))
 			{
 				final PCClass mclass =
-						Globals.getClassKeyed(race.getMonsterClass(this));
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass(this));
 
 				if (mclass != null)
 				{
@@ -6343,7 +6343,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (int i = getLevelInfoSize() - 1; i >= 0; --i)
 			{
 				final String classKeyName = getLevelInfoClassKeyName(i);
-				final PCClass aClass = Globals.getClassKeyed(classKeyName);
+				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 
 				if ((aClass == null) || aClass.isMonster())
 				{
@@ -6360,7 +6360,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				&& (race.getMonsterClassLevels(this) != 0))
 			{
 				final PCClass mclass =
-						Globals.getClassKeyed(race.getMonsterClass(this));
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass(this));
 
 				if (mclass != null)
 				{
@@ -7767,7 +7767,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addLanguageKeyed(final String aKey)
 	{
-		final Language aLang = Globals.getLanguageKeyed(aKey);
+		final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aKey);
 
 		if (aLang != null)
 		{
@@ -7916,12 +7916,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// already.
 		if (aClass == null && spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
-			aClass = Globals.getClassKeyed(classKey);
+			aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 			if ((aClass == null) && (classKey.lastIndexOf('(') >= 0))
 			{
 				aClass =
-						Globals.getClassKeyed(classKey.substring(0,
-							classKey.lastIndexOf('(')).trim());
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey.substring(0,
+						classKey.lastIndexOf('(')).trim());
 			}
 		}
 
@@ -8440,12 +8440,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						true, this);
 		}
 
-		PCTemplate aTemplate = Globals.getTemplateKeyed(templateKey);
+		PCTemplate aTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, templateKey);
 
 		if ((aTemplate == null) && templateKey.endsWith(".REMOVE"))
 		{
 			aTemplate =
-					Globals.getTemplateKeyed(templateKey.substring(0,
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, templateKey.substring(0,
 						templateKey.length() - 7));
 			removeTemplate(aTemplate);
 		}
@@ -8465,7 +8465,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addWeaponProf(final String aProfKey)
 	{
-		final WeaponProf wp = Globals.getWeaponProfKeyed(aProfKey);
+		final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, aProfKey);
 		if (wp != null)
 		{
 			// weaponProfList.add(wp);
@@ -10035,7 +10035,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (bClass == null)
 			{
-				bClass = Globals.getClassKeyed(exClass);
+				bClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, exClass);
 
 				if (bClass == null)
 				{
@@ -11876,7 +11876,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (int i = 0; i < getLevelInfoSize(); ++i)
 		{
 			final String classKeyName = getLevelInfoClassKeyName(i);
-			final PCClass aClass = Globals.getClassKeyed(classKeyName);
+			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 
 			if (aClass.isMonster() || characterLevels < maxCharacterLevel)
 			{
@@ -12191,7 +12191,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				if (dotLoc == -1)
 				{
 					//Base Class
-					final PCClass pcClass = Globals.getClassKeyed(cl);
+					final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl);
 					if (pcClass != null)
 					{
 						availableList.add(pcClass);
@@ -12201,7 +12201,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					//Sub Class
 					final PCClass pcClass =
-							Globals.getClassKeyed(cl.substring(dotLoc + 1));
+							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl.substring(dotLoc + 1));
 					if (pcClass != null)
 					{
 						availableList.add(pcClass);
@@ -12557,8 +12557,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// (e.g.: Simple, Martial, Exotic, Ranged, etc.)
 		else if (Globals.weaponTypesContains(aString))
 		{
-			for (WeaponProf weaponProf : Globals
-				.getAllWeaponProfsOfType(aString))
+			for (WeaponProf weaponProf : Globals.getPObjectsOfType(Globals
+					.getContext().ref
+					.getConstructedCDOMObjects(WeaponProf.class), aString))
 			{
 				addWeaponProfToList(aFeatList, weaponProf.getKeyName(), isAuto);
 			}
@@ -12566,7 +12567,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		final WeaponProf wp = Globals.getWeaponProfKeyed(aString);
+		final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
 
 		if (wp != null)
 		{
@@ -12748,7 +12749,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				// 1. Look for an exact equipment match
 				// TODO This doesn't make a whole bunch of sense
-				final Equipment eq = EquipmentList.getEquipmentKeyed(profKey);
+				final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Equipment.class, profKey);
 
 				if (eq != null)
 				{
@@ -12776,7 +12778,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						// Look for an exact proficiency match
 						final WeaponProf prof =
-								Globals.getWeaponProfKeyed(profKey);
+								Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
 
 						if (prof != null)
 						{
@@ -12787,8 +12789,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						// Look for proficiency type matches
 						else
 						{
-							final Collection<WeaponProf> listFromWPType =
-									Globals.getAllWeaponProfsOfType(profKey);
+							final Collection<WeaponProf> listFromWPType = Globals
+									.getPObjectsOfType(
+											Globals.getContext().ref
+													.getConstructedCDOMObjects(WeaponProf.class),
+											profKey);
 
 							if ((listFromWPType != null)
 								&& (!listFromWPType.isEmpty()))
@@ -13150,7 +13155,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Skill> addItems = new ArrayList<Skill>();
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 
-		for (Skill aSkill : Globals.getSkillList())
+		for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
 			if (includeSkill(aSkill, level))
 			{

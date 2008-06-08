@@ -145,7 +145,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 			}
 			else
 			{
-				aSkill = Globals.getSkillKeyed(toAdd);
+				aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, toAdd);
 
 				if ((aSkill != null) && !aSkill.isClassSkill(theClass, aPC))
 				{
@@ -158,7 +158,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 				continue;
 			}
 
-			for ( Skill skill : Globals.getSkillList() )
+			for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 			{
 				//
 				// Already a class skill--no point in making it one again
@@ -304,7 +304,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 				if (autoRank != 0)
 				{
-					Skill aSkill = Globals.getSkillKeyed(nString);
+					Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, nString);
 
 					if (aSkill != null)
 					{

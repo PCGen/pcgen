@@ -308,7 +308,8 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		}
 		else
 		{
-			theEquipment = EquipmentList.getEquipmentKeyed(eqName);
+			theEquipment = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class, eqName);
 		}
 
 		if (theEquipment == null)
@@ -466,7 +467,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			theEquipment.setQty(new Float(theQty));
 
 			aPC.addEquipment(theEquipment);
-			EquipmentList.addEquipment(theEquipment);
+			Globals.getContext().ref.importObject(theEquipment);
 		}
 		else
 		{

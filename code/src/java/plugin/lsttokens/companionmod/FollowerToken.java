@@ -30,7 +30,7 @@ public class FollowerToken implements CompanionModLstToken
 		while (bTok.hasMoreTokens())
 		{
 			final String classKey = bTok.nextToken();
-			final PCClass pcClass = Globals.getClassKeyed(classKey);
+			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 
 			if (pcClass != null)
 			{

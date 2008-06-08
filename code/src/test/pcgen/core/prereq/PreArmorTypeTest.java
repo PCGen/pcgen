@@ -23,7 +23,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
@@ -147,7 +147,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		chainmail.typeList().add("ARMOR");
 		chainmail.typeList().add("MEDIUM");
 		chainmail.setName("Chainmail");
-		EquipmentList.addEquipment(chainmail);
+		Globals.getContext().ref.importObject(chainmail);
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("armortype");
@@ -170,7 +170,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		fullPlate.typeList().add("ARMOR");
 		fullPlate.typeList().add("HEAVY");
 		fullPlate.setName("Full Plate");
-		EquipmentList.addEquipment(fullPlate);
+		Globals.getContext().ref.importObject(fullPlate);
 
 		fullPlate.setIsEquipped(false, character);
 

@@ -77,7 +77,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 
 		character.setRace(race);
 
@@ -101,7 +101,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 
 		character.setRace(race);
 
@@ -125,7 +125,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 
 		character.setRace(race);
 
@@ -149,7 +149,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 
 		character.setRace(race);
 
@@ -172,11 +172,11 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
-		Globals.addRace(fake);
+		Globals.getContext().ref.importObject(fake);
 
 		race.putServesAs(fake.getDisplayName(), "");
 		character.setRace(fake);
@@ -204,14 +204,14 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		race.setTypeInfo("Outsider");
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("aquatic"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("foo"));
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.setTypeInfo("Humanoid");
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("desert"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("none"));
-		Globals.addRace(fake);
+		Globals.getContext().ref.importObject(fake);
 
 		fake.putServesAs(race.getDisplayName(), "");
 		character.setRace(fake);
@@ -247,13 +247,13 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		race.setName("Human");
 		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Outsider"));
 		race.setTypeInfo("Outsider");
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
 		fake.setTypeInfo("Humanoid");
-		Globals.addRace(fake);
+		Globals.getContext().ref.importObject(fake);
 
 		race.putServesAs(fake.getDisplayName(), "");
 		character.setRace(fake);
@@ -280,12 +280,12 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race race = new Race();
 		race.setName("Human");
 		race.setTypeInfo("Outsider");
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.setTypeInfo("Humanoid");
-		Globals.addRace(fake);
+		Globals.getContext().ref.importObject(fake);
 
 		race.putServesAs(fake.getDisplayName(), "");
 		character.setRace(fake);

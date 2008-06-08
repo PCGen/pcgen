@@ -254,7 +254,7 @@ final class KitSelector extends JFrame
 		scpSelected.setViewportView(lstSelected);
 
 		final List<Kit> pcKitInfo = aPC.getKitInfo();
-		addSelections(lstAvailable, Globals.getKitInfo().values(), pcKitInfo, aPC);
+		addSelections(lstAvailable, Globals.getContext().ref.getConstructedCDOMObjects(Kit.class), pcKitInfo, aPC);
 		addSelections(lstSelected, pcKitInfo, null, aPC);
 
 		if (lstAvailable.isSelectionEmpty() == false)

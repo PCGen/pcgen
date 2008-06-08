@@ -87,7 +87,11 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 					final StringTokenizer aTok = new StringTokenizer(anAbility.getKeyName(), " ", false);
 					final String aName = aTok.nextToken(); // first word of name should match type of weaponprof
 
-					for ( WeaponProf wp : Globals.getAllWeaponProfsOfType(aName) )
+					for (WeaponProf wp : Globals
+							.getPObjectsOfType(
+									Globals.getContext().ref
+											.getConstructedCDOMObjects(WeaponProf.class),
+									aName))
 					{
 						if (!aArrayList.contains(wp.getKeyName()))
 						{
@@ -98,7 +102,13 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 			}
 			else if (cString.startsWith("ALL"))
 			{
-				Globals.addUniqueWeaponProfsAsStringTo(aArrayList);
+				for (WeaponProf wp : Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class))
+				{
+					if (!aArrayList.contains(wp.getKeyName()))
+					{
+						aArrayList.add(wp.getKeyName());
+					}
+				}
 			}
 			else if (cString.startsWith("PCPROFLIST"))
 			{
@@ -112,7 +122,7 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 			}
 			else
 			{
-				final WeaponProf wp = Globals.getWeaponProfKeyed(cString);
+				final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, cString);
 
 				if ((wp != null) && !aArrayList.contains(cString))
 				{

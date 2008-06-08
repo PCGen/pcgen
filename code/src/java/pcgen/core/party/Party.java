@@ -181,8 +181,6 @@ public class Party
 					lastPC = currPC;
 				}
 			}
-
-			Globals.sortCampaigns();
 		}
 		catch (Exception ex)
 		{
@@ -289,7 +287,6 @@ public class Party
 			newPC.setFileName(file.getAbsolutePath());
 			Globals.getPCList().add(newPC);
 			Globals.setCurrentPC(newPC);
-			Globals.sortCampaigns();
 			return newPC;
 		}
 

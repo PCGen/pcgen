@@ -31,7 +31,6 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -45,18 +44,10 @@ import pcgen.util.Logging;
 public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 
 	@Override
-	protected void addGlobalObject(PObject pObj) {
-		final PCTemplate aTemplate = Globals
-				.getTemplateKeyed(pObj.getKeyName());
-		if (aTemplate == null) {
-			Globals.getTemplateList().add((PCTemplate) pObj);
-		}
-
-	}
-
-	@Override
-	protected PCTemplate getObjectKeyed(String aKey) {
-		return Globals.getTemplateKeyed(aKey);
+	protected PCTemplate getObjectKeyed(String aKey)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCTemplate.class, aKey);
 	}
 
 	@Override
@@ -120,10 +111,5 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 		
 		completeObject(source, template);
 		return null;
-	}
-
-	@Override
-	protected void performForget(PCTemplate objToForget) {
-		Globals.getTemplateList().remove(objToForget);
 	}
 }

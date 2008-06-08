@@ -27,7 +27,6 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -122,25 +121,6 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	@Override
 	protected Domain getObjectKeyed(String aKey)
 	{
-		return Globals.getDomainKeyed(aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(Domain objToForget)
-	{
-		Globals.getDomainList().remove(objToForget);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		Globals.addDomain((Domain) pObj);
-		Globals.getContext().ref.importObject(pObj);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, aKey);
 	}
 }

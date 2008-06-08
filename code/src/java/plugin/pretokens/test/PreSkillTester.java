@@ -29,12 +29,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
-import javax.print.attribute.standard.Severity;
-
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -42,8 +39,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
-import pcgen.core.Globals;
-import plugin.lsttokens.ServesAsToken;
 /**
  * @author wardc
  *
@@ -220,14 +215,13 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators,
 		PlayerCharacter character)
 	{
-		List<Skill> allSkills = Globals.getSkillList();		
-		for(Skill aSkill: allSkills)
+		for(Skill aSkill: Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
 			Skill finalSkill = null ;
 			Set<Skill> servesAs = new HashSet<Skill>();
 			for(String fakeSkill: aSkill.getServesAs(""))
 			{
-				finalSkill = Globals.getSkillKeyed(fakeSkill);
+				finalSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, fakeSkill);
 				servesAs.add(finalSkill);
 			}
 			

@@ -104,7 +104,7 @@ public class EquipmentListTest extends PCGenTestCase
 	 */
 	public void testGetEquipmentOfType()
 	{
-		EquipmentList.addEquipment(eq);
+		Globals.getContext().ref.importObject(eq);
 
 		List<Equipment> results =
 				EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");

@@ -41,7 +41,6 @@ import java.util.MissingResourceException;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -54,7 +53,8 @@ import javax.swing.JFrame;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
-import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.spell.Spell;
@@ -90,9 +90,6 @@ public final class Globals
 	/** Race, a s_EMPTYRACE */
 	public static  Race            s_EMPTYRACE;
 
-	/** This is true when the campaign data structures are sorted. */
-	private static boolean d_sorted;
-
 	/** These are system constants */
 	public static final String javaVersion      = System.getProperty("java.version"); //$NON-NLS-1$
 	/** Java Version Major */
@@ -123,8 +120,7 @@ public final class Globals
 
 	/** we need maps for efficient lookups */
 	private static Map<URI, Campaign>        campaignMap     = new HashMap<URI, Campaign>();
-	private static Map<String, Domain>        domainMap       = new TreeMap<String, Domain>();
-	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
+
 	/** TODO Why can spellMap contain both Spell and List<Spell>? Change to always contain List<Spell> (it is possible said list only has one member, but that's ok.)
 	 * Does  need to be sorted? If not, change to HashMap.*/
 	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
@@ -132,28 +128,12 @@ public final class Globals
 	private static Map<String, List<CompanionMod>>  companionModMap = new TreeMap<String, List<CompanionMod>>();
 
 	/** We use lists for efficient iteration */
-	private static List<String> armorProfList         = new ArrayList<String>();
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
-	private static List<PCClass> classList             = new ArrayList<PCClass>(380);
-//	private static List<CompanionMod> companionModList      = new ArrayList<CompanionMod>();
-	private static List<Deity> deityList             = new ArrayList<Deity>(275);
-	private static List<Domain> domainList            = new ArrayList<Domain>(100);
-	private static Map<String, Kit> kitMap               = new HashMap<String, Kit>();
-	private static List<Language> languageList          = new ArrayList<Language>(200);
 
-	//any TYPE added to pcClassTypeList is assumed be pre-tokenized
-	private static List<String>             pcClassTypeList = new ArrayList<String>();
-	private static List<Skill>             skillList       = new ArrayList<Skill>(400);
-	private static List<PCTemplate>             templateList    = new ArrayList<PCTemplate>(350);
 	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
 
 	private static Map<String, Map<String, String>> sponsors = new HashMap<String, Map<String, String>>();
 	private static List<Map<String, String>> sponsorList = new ArrayList<Map<String, String>>();
-
-	/** Weapon proficiency Data storage */
-	private static final PObjectDataStore<WeaponProf> weaponProfs = new PObjectDataStore<WeaponProf>("WeaponProf");
-	private static final PObjectDataStore<ArmorProf> armorProfs = new PObjectDataStore<ArmorProf>("ArmorProf");
-	private static final PObjectDataStore<ShieldProf> shieldProfs = new PObjectDataStore<ShieldProf>("ShieldProf");
 
 	/** this is used by the random selection tools */
 	private static final Random random = new Random(System.currentTimeMillis());
@@ -161,8 +141,6 @@ public final class Globals
 	/**
 	 * The following sets are for efficient filter creation:
 	 * <ul>
-	 * <li>pantheonsSet</li>
-	 * <li>raceTypesSet</li>
 	 * <li>subschoolsSet</li>
 	 * <li>weaponTypes</li>
 	 * </ul>
@@ -181,8 +159,6 @@ public final class Globals
 	 * <li>targetSet</li>
 	 * </ul>
 	 */
-	private static SortedSet<String> pantheonsSet     = new TreeSet<String>();
-	private static SortedSet<String> raceTypesSet     = new TreeSet<String>();
 	private static SortedSet<String> subschoolsSet    = new TreeSet<String>();
 	private static SortedSet<String> weaponTypes      = new TreeSet<String>();
 
@@ -204,7 +180,7 @@ public final class Globals
 
 	private static ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
 	private static LoadContext context = new RuntimeLoadContext(masterLCS);
-	
+
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
 
@@ -280,35 +256,6 @@ public final class Globals
 		{
 			globalProperties = null; // TODO: value never used
 		}
-	}
-
-	/**
-	 * Get all weapon proficiencies of a type
-	 * @param type
-	 * @return all weapon proficiencies of a type
-	 */
-	public static Collection<WeaponProf> getAllWeaponProfsOfType(final String type)
-	{
-		return weaponProfs.getAllOfType(type);
-	}
-
-	/**
-	 * Retrieve a set of the possible types of weapon proficiencies.
-	 * @return Set of the names of the weapon proficiencey types.
-	 */
-	public static Set<String> getWeaponProfTypes()
-	{
-		return weaponProfs.getTypes();
-	}
-
-	/**
-	 * Returns all weapon proficiencies registered in the system.
-	 * 
-	 * @return Collection of <tt>WeaponProf</tt>
-	 */
-	public static Collection<WeaponProf> getAllWeaponProfs()
-	{
-		return Collections.unmodifiableCollection(weaponProfs.getAll());
 	}
 
 	/**
@@ -423,32 +370,13 @@ public final class Globals
 	}
 
 	/**
-	 * Get class by key
-	 * @param aKey
-	 * @return Class
-	 */
-	public static PCClass getClassKeyed(final String aKey)
-	{
-		return searchPObjectList(getClassList(), aKey);
-	}
-
-	/**
-	 * Get class list
-	 * @return List
-	 */
-	public static List<PCClass> getClassList()
-	{
-		return classList;
-	}
-
-	/**
 	 * Finds all PObjects that match the passed in type.  All the types listed
 	 * in aType must match for the object to be returned.
 	 * @param aPObjectList List of PObjects to search
 	 * @param aType A "." separated list of TYPEs to match
 	 * @return List of PObjects matching all TYPEs
 	 */
-	private static <T extends PObject> List<T> getPObjectsOfType(final List<T> aPObjectList, final String aType)
+	public static <T extends PObject> List<T> getPObjectsOfType(final Collection<T> aPObjectList, final String aType)
 	{
 		final ArrayList<T> ret = new ArrayList<T>(aPObjectList.size());
 
@@ -482,16 +410,6 @@ public final class Globals
 		}
 		ret.trimToSize();
 		return ret;
-	}
-
-	/**
-	 * Returns a list of classes matching the specified type
-	 * @param aType TYPE string
-	 * @return List of Classes
-	 */
-	public static List<PCClass> getClassesByType(final String aType)
-	{
-		return getPObjectsOfType(getClassList(), aType);
 	}
 
 	/**
@@ -785,78 +703,12 @@ public final class Globals
 	}
 
 	/**
-	 * Get the deity by key
-	 * @param aKey
-	 * @return Deity
-	 */
-	public static Deity getDeityKeyed(final String aKey)
-	{
-		return searchPObjectList(getDeityList(), aKey);
-	}
-
-	/**
-	 * Get deity list
-	 * @return deity list
-	 */
-	public static List<Deity> getDeityList()
-	{
-		return deityList;
-	}
-
-	/**
-	 * Get Deity by key in list
-	 * @param aKey
-	 * @param aList
-	 * @return Deity
-	 */
-	public static Deity getDeityKeyed(final String aKey, final List<Deity> aList)
-	{
-		for ( Deity deity : aList )
-		{
-			if (deity.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return deity;
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * Get descriptor set
 	 * @return descriptor set
 	 */
 	public static SortedSet<String> getDescriptorSet()
 	{
 		return descriptorSet;
-	}
-
-	/**
-	 * Get domain by key
-	 * @param aKey
-	 * @return Domain
-	 */
-	public static Domain getDomainKeyed(final String aKey)
-	{
-		return domainMap.get(aKey);
-	}
-
-	/**
-	 * Get domain list
-	 * @return domain list
-	 */
-	public static List<Domain> getDomainList()
-	{
-		return domainList;
-	}
-
-	/**
-	 * Get domain map
-	 * @return domain map
-	 */
-	public static Map<String, Domain> getDomainMap()
-	{
-		return domainMap;
 	}
 
 	/**
@@ -1370,25 +1222,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get kit info
-	 * @return kit info
-	 */
-	public static Map<String, Kit> getKitInfo()
-	{
-		return kitMap;
-	}
-
-	/**
-	 * Get kit by key
-	 * @param aKey
-	 * @return Kit
-	 */
-	public static Kit getKitKeyed(final String aKey)
-	{
-		return kitMap.get(aKey);
-	}
-
-	/**
 	 * Set language
 	 * @param aString
 	 */
@@ -1404,36 +1237,6 @@ public final class Globals
 	public static String getLanguage()
 	{
 		return language;
-	}
-
-	/**
-	 * Get language list
-	 * @return language list
-	 */
-	public static List<Language> getLanguageList()
-	{
-		return languageList;
-	}
-
-	/**
-	 * Returns the <tt>Language</tt> for the specified key.
-	 * 
-	 * <p>If the key is either &quot;ALL&quot; or &quot;ANY&quot; the special
-	 * Language object representing all languages is returned.
-	 * 
-	 * @param aKey A key to retrieve a Language for
-	 * @return The Language matching the key or null if not found.
-	 */
-	public static Language getLanguageKeyed(final String aKey)
-	{
-		for (Language aLang : getLanguageList())
-		{
-			if (aLang.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return aLang;
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -1469,15 +1272,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get PCC class type list
-	 * @return PCC class type list
-	 */
-	public static List<String> getPCClassTypeList()
-	{
-		return pcClassTypeList;
-	}
-
-	/**
 	 * Set PC List
 	 * @param argPcList
 	 */
@@ -1493,15 +1287,6 @@ public final class Globals
 	public static List<PlayerCharacter> getPCList()
 	{
 		return pcList;
-	}
-
-	/**
-	 * Get pantheons
-	 * @return Sorted set of pantheons
-	 */
-	public static SortedSet<String> getPantheons()
-	{
-		return getPantheonsSet();
 	}
 
 	/**
@@ -1539,15 +1324,6 @@ public final class Globals
 		final PaperInfo pi = SystemCollections.getUnmodifiablePaperInfo().get(idx);
 
 		return pi.getPaperInfo(infoType);
-	}
-
-	/**
-	 * This method gets the available race types as a set.
-	 * @return race types
-	 */
-	public static SortedSet<String> getRaceTypes()
-	{
-		return raceTypesSet;
 	}
 
 	/**
@@ -1650,61 +1426,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get skill by key
-	 * @param aKey
-	 * @return Skill
-	 */
-	public static Skill getSkillKeyed(final String aKey)
-	{
-		return searchPObjectList(getSkillList(), aKey);
-	}
-
-	/**
-	 * Get list of skills
-	 * @return list of skills
-	 */
-	public static List<Skill> getSkillList()
-	{
-		return skillList;
-	}
-
-	/**
-	 * Retrieve those skills in the global skill list that match the
-	 * supplied visibility level.
-	 *
-	 * @param vis What level of visibility skills are desired.
-	 * @return A list of the skills matching the visibility criteria.
-	 */
-	public static List<Skill> getPartialSkillList(final Visibility vis)
-	{
-		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<Skill>();
-		for ( Skill skill : getSkillList() )
-		{
-			final Visibility skillVis = skill.getVisibility();
-
-			if (vis == Visibility.DEFAULT
-				|| skillVis == Visibility.DEFAULT
-				|| skillVis == vis)
-			{
-				aList.add(skill);
-			}
-
-		}
-		return aList;
-	}
-
-	/**
-	 * Returns a list of skills matching the specified type
-	 * @param aType A TYPE String
-	 * @return List of Skills
-	 */
-	public static List<Skill> getSkillsByType(final String aType)
-	{
-		return getPObjectsOfType(getSkillList(), aType);
-	}
-
-	/**
 	 * Return TRUE if the equipment type is hidden
 	 * @param aType
 	 * @return TRUE if the equipment type is hidden
@@ -1732,15 +1453,6 @@ public final class Globals
 	public static boolean isSkillTypeHidden(final String aType)
 	{
 		return SettingsHandler.getGame().isSkillTypeHidden(aType);
-	}
-
-	/**
-	 * Set sroted flag
-	 * @param sorted
-	 */
-	public static void setSorted(final boolean sorted)
-	{
-		setD_sorted(sorted);
 	}
 
 	/**
@@ -1849,12 +1561,12 @@ public final class Globals
 
 			if (classKey.indexOf('|') < 0)
 			{
-				aClass = getClassKeyed(classKey);
+				aClass = getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 				aBuf.append("CLASS|").append(classKey);
 			}
 			else
 			{
-				aClass = getClassKeyed(classKey.substring(classKey.indexOf(Constants.PIPE) + 1));
+				aClass = getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey.substring(classKey.indexOf(Constants.PIPE) + 1));
 				aBuf.append(classKey);
 			}
 
@@ -1938,25 +1650,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get template by key
-	 * @param aKey
-	 * @return Template
-	 */
-	public static PCTemplate getTemplateKeyed(final String aKey)
-	{
-		return searchPObjectList(getTemplateList(), aKey);
-	}
-
-	/**
-	 * Get the template list
-	 * @return list of tempaltes
-	 */
-	public static List<PCTemplate> getTemplateList()
-	{
-		return templateList;
-	}
-
-	/**
 	 * Get type for spells set
 	 * @return type for spells set
 	 */
@@ -1993,86 +1686,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get copy of weapon prof array
-	 * @return copy of weapon prof array
-	 */
-	public static List<WeaponProf> getWeaponProfArrayCopy()
-	{
-		return weaponProfs.getArrayCopy();
-	}
-
-	/**
-	 * Searches for an exact key match.
-	 *
-	 * @param aKey
-	 * @return an exact match or null
-	 */
-	public static WeaponProf getWeaponProfKeyed(final String aKey)
-	{
-		return weaponProfs.getKeyed(aKey);
-	}
-
-	/**
-	 * Searches for an exact key match.
-	 *
-	 * @param aKey
-	 * @return an exact match or null
-	 */
-	public static ArmorProf getArmorProfKeyed(final String aKey)
-	{
-		return armorProfs.getKeyed(aKey);
-	}
-
-	/**
-	 * Get the number of armor proficiencies defined.
-	 * @return number of armor proficiencies
-	 */
-	public static int getArmorProfSize()
-	{
-		return armorProfs.size();
-	}
-
-	/**
-	 * Searches for an exact key match.
-	 *
-	 * @param aKey
-	 * @return an exact match or null
-	 */
-	public static ShieldProf getShieldProfKeyed(final String aKey)
-	{
-		return shieldProfs.getKeyed(aKey);
-	}
-
-	/**
-	 * Get the number of shield proficiencies defined.
-	 * @return number of shield proficiencies
-	 */
-	public static int getShieldProfSize()
-	{
-		return shieldProfs.size();
-	}
-
-	/**
-	 * Get weapon prof names
-	 * @param delim
-	 * @param addArrayMarkers
-	 * @return weapon prof names
-	 */
-	public static String getWeaponProfNames(final String delim, final boolean addArrayMarkers)
-	{
-		return weaponProfs.getNames(delim, addArrayMarkers);
-	}
-
-	/**
-	 * Get the weapon proficiency size
-	 * @return weapon proficiency size
-	 */
-	public static int getWeaponProfSize()
-	{
-		return weaponProfs.size();
-	}
-
-	/**
 	 * Returns a List of weapontypes
 	 *
 	 * @return The list of weapon types
@@ -2098,16 +1711,6 @@ public final class Globals
 	{
 		campaignMap.put(campaign.getSourceURI(), campaign);
 		campaignList.add(campaign);
-	}
-
-	/**
-	 * Add domain to map and list
-	 * @param nextDomain
-	 */
-	public static void addDomain(final Domain nextDomain)
-	{
-		domainMap.put(nextDomain.getKeyName(), nextDomain);
-		domainList.add(nextDomain);
 	}
 
 	/**
@@ -2194,42 +1797,6 @@ public final class Globals
 	public static void addToSASet(final SpecialAbility sa)
 	{
 		saSet.add(sa);
-	}
-
-	/**
-	 * Add to list of unique weapon profs (Strings)
-	 * @param dest
-	 */
-	public static void addUniqueWeaponProfsAsStringTo(final List<String> dest)
-	{
-		weaponProfs.addUniqueAsStringTo(dest);
-	}
-
-	/**
-	 * Add a weapon proficiency
-	 * @param wp
-	 */
-	public static void addWeaponProf(final WeaponProf wp)
-	{
-		weaponProfs.add(wp);
-	}
-
-	/**
-	 * Add a armor proficiency
-	 * @param wp
-	 */
-	public static void addArmorProf(final ArmorProf wp)
-	{
-		armorProfs.add(wp);
-	}
-
-	/**
-	 * Add a shield proficiency
-	 * @param wp
-	 */
-	public static void addShieldProf(final ShieldProf wp)
-	{
-		shieldProfs.add(wp);
 	}
 
 	/**
@@ -2367,17 +1934,17 @@ public final class Globals
 		Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;
 		Logging.log(logLevel, "Number of objects loaded. The following should "
 			+ "all be greater than 0:");
-		Logging.log(logLevel, "Races=" + raceMap.size());
-		Logging.log(logLevel, "Classes=" + getClassList().size());
-		Logging.log(logLevel, "Skills=" + getSkillList().size());
+		Logging.log(logLevel, "Races=" + Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size());
+		Logging.log(logLevel, "Classes=" + getContext().ref.getConstructedCDOMObjects(PCClass.class).size());
+		Logging.log(logLevel, "Skills=" + Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size());
 		Logging.log(logLevel, "Feats="
 			+ getUnmodifiableAbilityList("FEAT").size());
-		Logging.log(logLevel, "Equipment=" + EquipmentList.size());
-		Logging.log(logLevel, "ArmorProfs=" + getArmorProfSize());
-		Logging.log(logLevel, "ShieldProfs=" + getShieldProfSize());
-		Logging.log(logLevel, "WeaponProfs=" + getWeaponProfSize());
-		Logging.log(logLevel, "Kits=" + kitMap.size());
-		Logging.log(logLevel, "Templates=" + templateList.size());
+		Logging.log(logLevel, "Equipment=" + Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size());
+		Logging.log(logLevel, "ArmorProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ArmorProf.class).size());
+		Logging.log(logLevel, "ShieldProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ShieldProf.class).size());
+		Logging.log(logLevel, "WeaponProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size());
+		Logging.log(logLevel, "Kits=" + Globals.getContext().ref.getConstructedCDOMObjects(Kit.class).size());
+		Logging.log(logLevel, "Templates=" + Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class).size());
 
 		return listsHappy;
 	}
@@ -2389,11 +1956,12 @@ public final class Globals
 	public static boolean checkListsHappy()
 	{
 		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
-		boolean listsHappy =
-				!((raceMap.size() == 0) || (getClassList().size() == 0)
-					|| (getSkillList().size() == 0)
-					|| (getUnmodifiableAbilityList("FEAT").size() == 0)
-					|| (EquipmentList.size() == 0) || (getWeaponProfSize() == 0));
+		boolean listsHappy = !((Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size() == 0)
+				|| (getContext().ref.getConstructedCDOMObjects(PCClass.class).size() == 0)
+				|| (Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
+				|| (getUnmodifiableAbilityList("FEAT").size() == 0)
+				|| (Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size() == 0)
+				|| (Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size() == 0));
 		return listsHappy;
 	}
 
@@ -2430,46 +1998,28 @@ public final class Globals
 		//unitSet.clear();
 		//////////////////////////////////////
 		abilityStore = new CategorisableStore();
-		armorProfList = new ArrayList<String>();
-		classList = new ArrayList<PCClass>();
 		companionModMap = new TreeMap<String, List<CompanionMod>>();
-		deityList = new ArrayList<Deity>();
-		domainList = new ArrayList<Domain>();
-		EquipmentList.clearEquipmentMap();
-		kitMap = new HashMap<String, Kit>();
-		languageList = new ArrayList<Language>();
-		EquipmentList.clearModifierList();
-		pcClassTypeList = new ArrayList<String>();
-		skillList = new ArrayList<Skill>();
-		templateList = new ArrayList<PCTemplate>();
 		saSet = new TreeSet<SpecialAbility>();
 
-		clearWeaponProfs();
-		shieldProfs.clear();
-		armorProfs.clear();
-
 		// Clear Maps (not strictly necessary, but done for consistency)
-//		bonusSpellMap = new HashMap();
-		domainMap = new HashMap<String, Domain>();
-		raceMap = new TreeMap<String, Race>();
 		spellMap = new HashMap<String, Object>();
 		VisionType.clearConstants();
 
 		// Clear Sets (not strictly necessary, but done for consistency)
 		clearSpellSets();
-		pantheonsSet = new TreeSet<String>();
-		raceTypesSet = new TreeSet<String>();
 		subschoolsSet = new TreeSet<String>();
 		weaponTypes = new TreeSet<String>();
 
 		// Perform other special cleanup
-		createEmptyRace();
 		Equipment.clearEquipmentTypes();
 		PersistenceManager.getInstance().emptyLists();
 		SettingsHandler.getGame().clearLstAbilityCategories();
 		
+		Pantheon.clearConstants();
+		RaceType.clearConstants();
 		masterLCS = new ConsolidatedListCommitStrategy();
 		context = new RuntimeLoadContext(masterLCS);
+		createEmptyRace();
 	}
 
 	/**
@@ -2535,25 +2085,6 @@ public final class Globals
 	}
 
 	/**
-	 * Return TRUE if the weapon profs have a variable named x
-	 * @param collectionOfProfs
-	 * @param variableString
-	 * @return TRUE if the weapon profs have a variable named x
-	 */
-	public static boolean hasWeaponProfVariableNamed(final Collection<WeaponProf> collectionOfProfs, final String variableString)
-	{
-		return weaponProfs.hasVariableNamed(collectionOfProfs, variableString);
-	}
-
-	/**
-	 * load attribute names
-	 */
-	public static void loadAttributeNames()
-	{
-		createEmptyRace();
-	}
-
-	/**
 	 * @param loadScoreValue
 	 * @param weight
 	 * @param aPC
@@ -2616,33 +2147,6 @@ public final class Globals
 			return (float) aPC.getVariableValue(formula, "").intValue();
 		}
 		return new Float(loadValue.doubleValue() * mult.doubleValue() * getLoadMultForSize(aPC));
-	}
-
-	/**
-	 * Remove a weapon prof by key
-	 * @param aKey
-	 */
-	public static void removeWeaponProfKeyed(final String aKey)
-	{
-		weaponProfs.removeNamed(aKey);
-	}
-
-	/**
-	 * Remove a armor prof by key
-	 * @param aKey
-	 */
-	public static void removeArmorProfKeyed(final String aKey)
-	{
-		armorProfs.removeNamed(aKey);
-	}
-
-	/**
-	 * Remove a shield prof by key
-	 * @param aKey
-	 */
-	public static void removeShieldProfKeyed(final String aKey)
-	{
-		shieldProfs.removeNamed(aKey);
 	}
 
 	/**
@@ -2805,22 +2309,6 @@ public final class Globals
 	}
 
 	/**
-	 * Sort campaign data using the order they will be searched by.
-	 */
-	public static void sortCampaigns()
-	{
-		sortPObjectListByKey(getClassList());
-		sortPObjectListByKey(getSkillList());
-		// sortPObjectList(getFeatList()); Obsolete data structure
-		sortPObjectListByKey(getDeityList());
-		sortPObjectListByKey(getDomainList());
-		Collections.sort(getArmorProfList());
-		sortPObjectListByKey(getTemplateList());
-		sortPObjectListByKey(getLanguageList());
-		setD_sorted(true);
-	}
-
-	/**
 	 * Sorts chooser lists using the appropriate method, based on the type of the first item in either list.
 	 * Not pretty, but it works.
 	 *
@@ -2897,42 +2385,6 @@ public final class Globals
 		Collections.sort(aList, pObjectStringComp);
 
 		return aList;
-	}
-
-	/**
-	 * Find PObject by key name in a sorted list of PObjects
-	 * The list must be sorted by key name
-	 *
-	 * @param aList   a list of PObject objects.
-	 * @param keyName the keyname being sought.
-	 * @return a <code>null</code> value indicates the search failed.
-	 */
-	protected static <T extends PObject> T searchPObjectList(final List<T> aList, final String keyName)
-	{
-		if ((keyName == null) || (keyName.length() <= 0))
-		{
-			return null;
-		}
-		if ( aList == null || aList.size() == 0 )
-		{
-			return null;
-		}
-
-		if (isD_sorted())
-		{
-			return binarySearchPObject(aList, keyName);
-		}
-
-		// not presently sorted
-		for ( T pobj : aList )
-		{
-			if ( keyName.equalsIgnoreCase( pobj.getKeyName() ) )
-			{
-				return pobj;
-			}
-		}
-
-		return null;
 	}
 	
 	static String getBonusFeatString() {
@@ -3068,22 +2520,6 @@ public final class Globals
 		return expandRelativePath(aPath);
 	}
 
-	static List<Language> getLanguagesFromListOfType(final List<Language> langList, final String aType)
-	{
-		final List<Language> retSet = new ArrayList<Language>();
-
-		for ( Language lang : langList )
-		{
-			if ((lang != null)
-				&& (lang.isType(aType) || ((aType.length() > 0) && (aType.charAt(0) == '!') && !lang.isType(aType))))
-			{
-				retSet.add(lang);
-			}
-		}
-
-		return retSet;
-	}
-
 	/**
 	 * returns the location of the "options.ini" file
 	 * which could be one of several locations
@@ -3167,7 +2603,9 @@ public final class Globals
 			aList = new ArrayList<WeaponProf>();
 		}
 
-		Collection<WeaponProf> weaponProfsOfType = getAllWeaponProfsOfType(type);
+		Collection<WeaponProf> weaponProfsOfType = getPObjectsOfType(
+				getContext().ref.getConstructedCDOMObjects(WeaponProf.class),
+				type);
 
 		if (weaponProfsOfType == null)
 		{
@@ -3326,47 +2764,6 @@ public final class Globals
 
 	// Methods
 
-	/**
-	 * Returns a list of Language objects from a string of choices.  The method
-	 * will expand "ALL" or "ANY" into all languages and TYPE= into all
-	 * languages of that type
-	 * @param stringList Pipe separated list of language choices
-	 * @return Sorted list of Language objects
-	 */
-	public static SortedSet<Language> getLanguagesFromString(final String stringList)
-	{
-		SortedSet<Language> list = new TreeSet<Language>();
-
-		final StringTokenizer tokens = new StringTokenizer(stringList,	"|", false);
-
-		while (tokens.hasMoreTokens())
-		{
-			final String aLang = tokens.nextToken();
-			if ("ALL".equals(aLang))
-			{
-				list.addAll(getLanguageList());
-				return list;
-			}
-			else if (aLang.startsWith("TYPE=") || aLang.startsWith("TYPE."))
-			{
-				list.addAll(getLanguagesOfType(aLang.substring(5)));
-			}
-			else
-			{
-				Language languageKeyed = getLanguageKeyed(aLang);
-				if (languageKeyed == null)
-				{
-					Logging.debugPrint("Someone expected Language: " + aLang + " to exist: it doesn't");
-				}
-				else
-				{
-					list.add(languageKeyed);
-				}
-			}
-		}
-		return list;
-	}
-
 	static void initCustColumnWidth(final List<String> l)
 	{
 		getCustColumnWidth().clear();
@@ -3382,26 +2779,6 @@ public final class Globals
 	public static boolean weaponTypesContains(final String weaponType)
 	{
 		return weaponTypes.contains(weaponType.toUpperCase());
-	}
-
-	/**
-	 * Gets the list of armor profs
-	 *
-	 * @return The list of armor profs
-	 */
-	private static List<String> getArmorProfList()
-	{
-		return armorProfList;
-	}
-
-	private static void setD_sorted(final boolean argD_sorted)
-	{
-		Globals.d_sorted = argD_sorted;
-	}
-
-	private static boolean isD_sorted()
-	{
-		return d_sorted;
 	}
 
 	private static String getDamageDownKey(final String aDamage)
@@ -3477,11 +2854,6 @@ public final class Globals
 		}
 	}
 
-	public static List<Language> getLanguagesOfType(final String aType)
-	{
-		return getPObjectsOfType(getLanguageList(), aType);
-	}
-
 	private static double getLoadMultForSize(final PlayerCharacter aPC)
 	{
 		double mult = 1.0;
@@ -3503,11 +2875,6 @@ public final class Globals
 			mult += sadj.bonusTo("LOADMULT", "TYPE=SIZE", aPC, aPC);
 		}
 		return mult;
-	}
-
-	private static SortedSet<String> getPantheonsSet()
-	{
-		return pantheonsSet;
 	}
 
 	private static Random getRandom()
@@ -3558,15 +2925,7 @@ public final class Globals
 		targetSet.clear();
 	}
 
-	/**
-	 * Clear the global weaponProf list
-	 **/
-	private static void clearWeaponProfs()
-	{
-		weaponProfs.clear();
-	}
-
-	private static void createEmptyRace()
+	public static void createEmptyRace()
 	{
 		if (s_EMPTYRACE == null)
 		{
@@ -3575,8 +2934,7 @@ public final class Globals
 			s_EMPTYRACE.setTypeInfo("HUMANOID");
 		}
 
-		addRace(s_EMPTYRACE);
-//		getRaceMap().put(Constants.s_NONESELECTED, s_EMPTYRACE);
+		getContext().ref.importObject(s_EMPTYRACE);
 	}
 
 	private static String expandRelativePath(String path)
@@ -3633,35 +2991,6 @@ public final class Globals
 	}
 	
 	/**
-	 * Get's Race from raceMap() based on aKey
-	 * @param aKey
-	 * @return keyed Race
-	 */
-	public static Race getRaceKeyed(final String aKey)
-	{
-		return raceMap.get(aKey.toLowerCase());
-	}
-
-	public static void addRace(final Race aRace)
-	{
-		raceMap.put(aRace.getKeyName().toLowerCase(), aRace);
-	}
-	
-	public static Map<String, Race> getRaces()
-	{
-		return raceMap;
-	}
-	
-	public static Collection<Race> getAllRaces()
-	{
-		return Collections.unmodifiableCollection(raceMap.values());
-	}
-	
-	public static boolean removeRaceKeyed(final String aKey)
-	{
-		return raceMap.remove(aKey.toLowerCase()) != null;
-	}
-	/**
 	 * Get's current gamemodes DieSizes
 	 * @return dieSizes array
 	 */
@@ -3706,5 +3035,20 @@ public final class Globals
 	public static void setSpellPPCost(boolean b)
 	{
 		hasSpellPPCost = b;
-	}	
+	}
+	
+	public static <T extends PObject> List<T> getObjectsOfVisibility(Collection<T> c, Visibility v)
+	{
+		ArrayList<T> aList = new ArrayList<T>();
+		for (T po : c)
+		{
+			Visibility poVis = po.getVisibility();
+			if (v == Visibility.DEFAULT || poVis == Visibility.DEFAULT
+					|| poVis == v)
+			{
+				aList.add(po);
+			}
+		}
+		return aList;
+	}
 }

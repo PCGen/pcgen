@@ -106,7 +106,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
-		Globals.getClassList().add(arcaneClass);
+		Globals.getContext().ref.importObject(arcaneClass);
 		CharacterSpell aCharacterSpell =
 				new CharacterSpell(arcaneClass, testSpell);
 		aCharacterSpell.addInfo(1, 1, null);
@@ -120,7 +120,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
-		Globals.getClassList().add(divineClass);
+		Globals.getContext().ref.importObject(divineClass);
 		aCharacterSpell = new CharacterSpell(divineClass, testSpell);
 		aCharacterSpell.addInfo(1, 1, null);
 		divineClass.getSpellSupport().addCharacterSpell(aCharacterSpell);
@@ -131,8 +131,8 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 */
 	protected void tearDown() throws Exception
 	{
-		Globals.getClassList().remove(divineClass);
-		Globals.getClassList().remove(arcaneClass);
+		Globals.getContext().ref.forget(divineClass);
+		Globals.getContext().ref.forget(arcaneClass);
 
 		super.tearDown();
 	}

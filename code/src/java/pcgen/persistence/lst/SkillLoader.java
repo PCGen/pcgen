@@ -25,7 +25,6 @@ package pcgen.persistence.lst;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -110,26 +109,6 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 	@Override
 	protected Skill getObjectKeyed(String aKey)
 	{
-		return Globals.getSkillKeyed(aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(final Skill objToForget)
-	{
-		Globals.getSkillList().remove(objToForget);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		// TODO - Create Globals.addSkill(pObj);
-		Globals.getSkillList().add((Skill) pObj);
-		Globals.getContext().ref.importObject(pObj);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, aKey);
 	}
 }

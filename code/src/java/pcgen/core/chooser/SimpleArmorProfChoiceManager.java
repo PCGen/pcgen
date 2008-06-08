@@ -22,13 +22,11 @@
  */
 package pcgen.core.chooser;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -73,10 +71,8 @@ public class SimpleArmorProfChoiceManager extends
 			{
 				tempString = tempString.substring(5);
 
-				for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList
-						.getEquipmentListIterator(); i.hasNext();)
+				for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 				{
-					final Equipment eq = i.next().getValue();
 					if (eq.isArmor())
 					{
 						String profKey = eq.getArmorProf().getKeyName();
@@ -92,10 +88,8 @@ public class SimpleArmorProfChoiceManager extends
 			{
 				tempString = tempString.substring(5);
 
-				for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList
-						.getEquipmentListIterator(); i.hasNext();)
+				for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 				{
-					final Equipment eq = i.next().getValue();
 					if (eq.isArmor() && eq.isType(tempString))
 					{
 						String profKey = eq.getArmorProf().getKeyName();
@@ -108,8 +102,9 @@ public class SimpleArmorProfChoiceManager extends
 			}
 			else
 			{
-				final Equipment eq = EquipmentList
-						.getEquipmentNamed(tempString);
+				final Equipment eq = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Equipment.class,
+								tempString);
 				if (eq != null && eq.isArmor())
 				{
 					String profKey = eq.getArmorProf().getKeyName();

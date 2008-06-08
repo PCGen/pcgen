@@ -1244,38 +1244,38 @@ public class InfoRaces extends BaseCharacterInfoTab
 				case GuiConstants.INFORACE_VIEW_NAME:
 				    setRoot(InfoViewModelBuilder.buildNameView(InfoRaces.this,
 						getPc(),
-						Globals.getAllRaces(), 
+						Globals.getContext().ref.getConstructedCDOMObjects(Race.class), 
 						getQFilter()));
 					break; // end VIEW_NAME
 
 				case GuiConstants.INFORACE_VIEW_TYPE:
 					setRoot(InfoViewModelBuilder.buildTypeView(InfoRaces.this,
 						getPc(),
-						Globals.getAllRaces()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Race.class)));
 					break; // end VIEW_TYPE
 
 				case GuiConstants.INFORACE_VIEW_SOURCE:
 					setRoot(InfoViewModelBuilder.buildSourceView(InfoRaces.this,
 						getPc(),
-						Globals.getAllRaces()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Race.class)));
 					break; // end VIEW_SOURCE
 
 				case GuiConstants.INFORACE_VIEW_RACETYPE_NAME:
 					setRoot(InfoViewModelBuilder.buildRaceTypeView(InfoRaces.this,
 						getPc(),
-						Globals.getAllRaces()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Race.class)));
 					break;
 
 				case GuiConstants.INFORACE_VIEW_RACETYPE_SUBTYPE_NAME:
 					setRoot(InfoViewModelBuilder.buildRaceTypeSubTypeView(InfoRaces.this,
 						getPc(),
-						Globals.getAllRaces()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Race.class)));
 					break;
 
 				case GuiConstants.INFORACE_VIEW_ALL_TYPES:
 					setRoot(InfoViewModelBuilder.buildAllRaceTypesView(InfoRaces.this,
 						getPc(),
-						Globals.getAllRaces()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Race.class)));
 					break;
 
 				default:

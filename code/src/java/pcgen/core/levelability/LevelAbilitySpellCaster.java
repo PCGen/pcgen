@@ -109,7 +109,7 @@ public class LevelAbilitySpellCaster extends LevelAbility
 
 			if (theClass == null)
 			{
-				theClass = Globals.getClassKeyed(classKey);
+				theClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 
 				if (theClass == null)
 				{
@@ -161,7 +161,7 @@ public class LevelAbilitySpellCaster extends LevelAbility
 			token = casterKey;
 		}
 
-		final PCClass selectedClass = Globals.getClassKeyed(casterKey);
+		final PCClass selectedClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, casterKey);
 
 		if (selectedClass != null)
 		{
@@ -220,7 +220,7 @@ public class LevelAbilitySpellCaster extends LevelAbility
 				anArrayList.remove(aString.substring(8));
 			}
 
-			aClass = Globals.getClassKeyed(aString);
+			aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aString);
 
 			if (aClass != null)
 			{

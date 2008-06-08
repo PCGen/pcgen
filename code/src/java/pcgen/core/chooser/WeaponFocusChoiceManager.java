@@ -91,7 +91,7 @@ public class WeaponFocusChoiceManager extends AbstractBasicStringChoiceManager {
 				{
 					final WeaponProf wp;
 					final String strChoice = choice.getDefaultChoice();
-					wp = Globals.getWeaponProfKeyed( strChoice );
+					wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, strChoice );
 
 					if (wp == null)
 					{
@@ -99,7 +99,8 @@ public class WeaponFocusChoiceManager extends AbstractBasicStringChoiceManager {
 					}
 
 					final Equipment eq;
-					eq = EquipmentList.getEquipmentKeyed(wp.getKeyName());
+					eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+							Equipment.class, wp.getKeyName());
 
 					if (eq == null)
 					{

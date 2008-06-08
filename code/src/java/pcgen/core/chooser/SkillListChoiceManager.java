@@ -86,7 +86,9 @@ public class SkillListChoiceManager extends AbstractBasicStringChoiceManager
 
 		else // if it was LIST
 		{
-			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
+			for (Skill skill : Globals.getObjectsOfVisibility(Globals
+					.getContext().ref.getConstructedCDOMObjects(Skill.class),
+					Visibility.DISPLAY_ONLY))
 			{
 				availableList.add(skill.getKeyName());
 			}

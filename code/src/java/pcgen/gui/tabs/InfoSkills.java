@@ -3487,8 +3487,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			public void reset()
 			{
 				skillList =
-						available ? Globals
-							.getPartialSkillList(Visibility.DISPLAY_ONLY) : pc
+						available ? Globals.getObjectsOfVisibility(Globals
+								.getContext().ref.getConstructedCDOMObjects(Skill.class),
+								Visibility.DISPLAY_ONLY) : pc
 							.getPartialSkillList(Visibility.DISPLAY_ONLY);
 				listSize = skillList.size();
 

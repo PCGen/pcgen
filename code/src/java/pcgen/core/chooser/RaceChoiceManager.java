@@ -74,7 +74,7 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 	{
 		// CHOOSE:RACE|RACETYPE=x,RACESUBTYPE=y,<racename>,TYPE=z
 		// or CHOOSE:RACE|[RACETYPE=x,RACESUBTYPE=y]
-		Collection<Race> races = Globals.getAllRaces();
+		Collection<Race> races = Globals.getContext().ref.getConstructedCDOMObjects(Race.class);
 
 		for (String choice : getChoiceList())
 		{
@@ -123,7 +123,7 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 			}
 			else
 			{
-				Race race = Globals.getRaceKeyed(choice);
+				Race race = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, choice);
 
 				if (race != null)
 				{
@@ -136,7 +136,7 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 		pobject.addAssociatedTo(raceKeys);
 		for (String key : raceKeys)
 		{
-			Race race = Globals.getRaceKeyed(key);
+			Race race = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, key);
 			if (race != null)
 			{
 				selectedList.add(race);

@@ -28,7 +28,6 @@ import java.util.Map;
 
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -42,15 +41,10 @@ import pcgen.util.Logging;
  * @version $Revision$
  */
 public final class KitLoader extends LstObjectFileLoader<Kit> {
-	@Override
-	protected void addGlobalObject(PObject pObj) {
-		Kit k = (Kit) pObj;
-		Globals.getKitInfo().put(k.getKeyName(), k);
-	}
 
 	@Override
 	protected Kit getObjectKeyed(String aKey) {
-		return Globals.getKitKeyed(aKey);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Kit.class, aKey);
 	}
 
 	@Override
@@ -98,12 +92,6 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 		}
 
 		return target;
-	}
-
-	@Override
-	protected void performForget(Kit objToForget) {
-		// FIXME Auto-generated method stub
-
 	}
 
 	static List<String> globalTokens = null;

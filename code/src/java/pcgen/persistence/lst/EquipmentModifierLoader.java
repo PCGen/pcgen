@@ -30,10 +30,8 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
-import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -47,19 +45,10 @@ import pcgen.util.Logging;
 public final class EquipmentModifierLoader extends
 		LstObjectFileLoader<EquipmentModifier> {
 	@Override
-	protected void addGlobalObject(PObject pObj) {
-		// getEquipmentKeyedNoCustom??
-		final EquipmentModifier aTemplate = EquipmentList.getModifierKeyed(pObj
-				.getKeyName());
-		if (aTemplate == null) {
-			EquipmentList.addEquipmentModifier((EquipmentModifier) pObj);
-		}
-		Globals.getContext().ref.importObject(pObj);
-	}
-
-	@Override
-	protected EquipmentModifier getObjectKeyed(String aKey) {
-		return EquipmentList.getModifierKeyed(aKey);
+	protected EquipmentModifier getObjectKeyed(String aKey)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				EquipmentModifier.class, aKey);
 	}
 
 	@Override

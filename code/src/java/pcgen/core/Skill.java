@@ -483,7 +483,7 @@ public final class Skill extends PObject
 
 			for ( String aString : selectedLangNames )
 			{
-				final Language aLang = Globals.getLanguageKeyed(aString);
+				final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aString);
 
 				if (aLang == null)
 				{
@@ -507,7 +507,7 @@ public final class Skill extends PObject
 				}
 			}
 
-			for ( Language lang : Globals.getLanguageList() )
+			for ( Language lang : Globals.getContext().ref.getConstructedCDOMObjects(Language.class) )
 			{
 				if (!PrereqHandler.passesAll(lang.getPreReqList(), aPC,
 						lang))

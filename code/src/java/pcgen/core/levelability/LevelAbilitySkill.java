@@ -82,7 +82,7 @@ class LevelAbilitySkill extends LevelAbility
 		while (aTok.hasMoreTokens())
 		{
 			final String toAdd = aTok.nextToken();
-			final Skill aSkill = Globals.getSkillKeyed(toAdd);
+			final Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, toAdd);
 
 			if ((aSkill != null))
 			{
@@ -138,7 +138,7 @@ class LevelAbilitySkill extends LevelAbility
 
 		for ( String selected : selectedList )
 		{
-			Skill skillToAdd = Globals.getSkillKeyed(selected);
+			Skill skillToAdd = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, selected);
 			if (skillToAdd != null)
 			{
 				skillToAdd = aPC.addSkill(skillToAdd);

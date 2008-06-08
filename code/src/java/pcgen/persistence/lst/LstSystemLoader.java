@@ -36,9 +36,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Properties;
@@ -404,7 +402,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	public void loadCampaigns(final List<Campaign> aSelectedCampaignsList)
 		throws PersistenceLayerException
 	{
-		Globals.setSorted(false);
 		sourcesSet.clear();
 		licenseFiles.clear();
 
@@ -933,7 +930,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					aLine = aLine.substring(idx + 1);
 
 					Equipment aEq =
-							EquipmentList.getEquipmentKeyed(baseItemKey);
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+								Equipment.class, baseItemKey);
 
 					if (aEq != null)
 					{
@@ -943,7 +941,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						{
 							aEq.addMyType(Constants.s_CUSTOM);
 						}
-						EquipmentList.addEquipment(aEq);
+						Globals.getContext().ref.importObject(aEq);
 					}
 				}
 			}
@@ -1447,11 +1445,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// Check all the weapons to see if they are either Melee or Ranged, to avoid
 		// problems when we go to export/preview the character
 		//
-		for (Iterator<Map.Entry<String, Equipment>> e2 =
-				EquipmentList.getEquipmentListIterator(); e2.hasNext();)
+		for (Equipment aEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 		{
-			final Equipment aEq = e2.next().getValue();
-
 			if (aEq.isWeapon() && !aEq.isMelee() && !aEq.isRanged())
 			{
 				throw new PersistenceLayerException(
@@ -1469,10 +1464,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	private void verifyFavClassSyntax() throws PersistenceLayerException
 	{
-		for (Race r : Globals.getAllRaces()) {
+		for (Race r : Globals.getContext().ref.getConstructedCDOMObjects(Race.class)) {
 			validateFavClassString(r.getKeyName(), "RACE", "FAVCLASS", r.getFavoredClass());
 		}
-		for (PCTemplate t : Globals.getTemplateList())
+		for (PCTemplate t : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 		{
 			validateFavClassString(t.getKeyName(), "TEMPLATE", "FAVOREDCLASS", t.getFavoredClass());
 		}
@@ -1500,7 +1495,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			if (dotLoc == -1)
 			{
 				// Base Class
-				PCClass pcclass = Globals.getClassKeyed(cl);
+				PCClass pcclass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl);
 				if (pcclass == null)
 				{
 					Logging.deprecationPrint("Class entry in " + tag
@@ -1512,7 +1507,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			else
 			{
 				String parent = cl.substring(0, dotLoc);
-				PCClass pcclass = Globals.getClassKeyed(parent);
+				PCClass pcclass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, parent);
 				if (pcclass == null)
 				{
 					Logging.errorPrint("Invalid Class entry in " + tag

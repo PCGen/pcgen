@@ -74,7 +74,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			if ("ANY".equals(option))
 			{
 				// returns a list of all loaded Domains.
-				for ( Domain domain : Globals.getDomainList() )
+				for ( Domain domain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class) )
 				{
 					availableList.add(domain);
 				}
@@ -84,7 +84,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			{
 				// returns a list of loaded Domains the PC qualifies for
 				// but does not have.
-				for ( Domain domain : Globals.getDomainList() )
+				for ( Domain domain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class) )
 				{
 					if (PrereqHandler.passesAll(domain.getPreReqList(), aPc, domain))
 					{
@@ -118,7 +118,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			{
 				// returns a list of Domains granted by specified Diety.
 				String deityName = option.substring(6);
-				Deity deity = Globals.getDeityKeyed(deityName);
+				Deity deity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, deityName);
 				if (deity != null)
 				{
 					for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
@@ -131,7 +131,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			else
 			{
 				// returns a list of the specified domains.
-				Domain domain = Globals.getDomainKeyed(option);
+				Domain domain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, option);
 				if (domain != null)
 				{
 					availableList.add(domain);
@@ -143,7 +143,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 		pobject.addAssociatedTo( domainKeys );
 		for ( String key : domainKeys )
 		{
-			Domain domain = Globals.getDomainKeyed( key );
+			Domain domain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, key);
 			if ( domain != null )
 			{
 				selectedList.add( domain );

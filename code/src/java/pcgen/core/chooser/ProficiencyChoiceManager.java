@@ -136,7 +136,7 @@ public class ProficiencyChoiceManager extends AbstractBasicPObjectChoiceManager<
 				}
 				else
 				{
-					WeaponProf aProf = Globals.getWeaponProfKeyed(prof);
+					WeaponProf aProf = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, prof);
 					if (aProf != null)
 					{
 						profs.add(aProf);
@@ -282,7 +282,7 @@ public class ProficiencyChoiceManager extends AbstractBasicPObjectChoiceManager<
 		pobject.addAssociatedTo( wpKeys );
 		for ( String key : wpKeys )
 		{
-			WeaponProf wp = Globals.getWeaponProfKeyed( key );
+			WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, key );
 			if ( wp != null )
 			{
 				selectedList.add( wp );

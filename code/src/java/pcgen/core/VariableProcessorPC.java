@@ -432,7 +432,7 @@ public class VariableProcessorPC extends VariableProcessor
 				classKey = aCD.getObjectName(); //returns Domain source (e.g, "Cleric")
 			}
 
-			final PCClass spClass = Globals.getClassKeyed(classKey);
+			final PCClass spClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 
 			String spellType = Constants.s_NONE;
 			if ((spClass != null) && (!spClass.getSpellType().equals(Constants.s_NONE)))
@@ -605,7 +605,9 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("PROFACCHECK".equals(valString) && src.startsWith("EQ:"))
 		{
-			final Equipment eq = EquipmentList.getEquipmentNamed(src.substring(3));
+			final Equipment eq = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Equipment.class, src
+							.substring(3));
 
 			if ((eq != null) && !getPc().isProficientWith(eq))
 			{

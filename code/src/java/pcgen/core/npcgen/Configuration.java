@@ -187,7 +187,7 @@ public class Configuration
 				ret.add((RaceGeneratorOption)opt);
 			}
 		}
-		for ( final Race race : Globals.getAllRaces() )
+		for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 		{
 			final RaceGeneratorOption opt = new RaceGeneratorOption();
 			opt.setName(race.getDisplayName());
@@ -229,7 +229,7 @@ public class Configuration
 				ret.add((ClassGeneratorOption)opt);
 			}
 		}
-		for ( final PCClass pcClass : Globals.getClassList() )
+		for ( final PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class) )
 		{
 			final ClassGeneratorOption opt = new ClassGeneratorOption();
 			opt.setName(pcClass.getDisplayName());

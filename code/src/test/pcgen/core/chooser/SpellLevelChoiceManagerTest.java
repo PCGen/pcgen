@@ -27,8 +27,8 @@ package pcgen.core.chooser;
 
 import java.lang.reflect.Field;
 import java.util.List;
+
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.EquipmentList;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
@@ -49,17 +49,6 @@ public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase
 	public SpellLevelChoiceManagerTest()
 	{
 		// Do Nothing
-	}
-
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-		EquipmentList.clearEquipmentMap();
 	}
 
 	/**

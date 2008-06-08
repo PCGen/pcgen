@@ -1147,8 +1147,8 @@ public final class Equipment extends PObject implements Serializable,
 		final List<EquipmentModifier> altModListByFC[] = initSplitModList();
 		final List<EquipmentModifier> commonListByFC[] = initSplitModList();
 
-		final Equipment baseEquipment = EquipmentList
-				.getEquipmentKeyed(baseItem);
+		final Equipment baseEquipment = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, baseItem);
 		//
 		// Remove any modifiers on the base item so they don't confuse the
 		// naming
@@ -2279,7 +2279,8 @@ public final class Equipment extends PObject implements Serializable,
 				return;
 			}
 
-			eqMod = EquipmentList.getModifierKeyed(eqModKey);
+			eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					EquipmentModifier.class, eqModKey);
 
 			if (eqMod == null) {
 				Logging.errorPrint("Could not find EquipmentModifier: "
@@ -2859,7 +2860,8 @@ public final class Equipment extends PObject implements Serializable,
 		final Equipment base;
 
 		if (baseItem.length() != 0) {
-			base = EquipmentList.getEquipmentNamed(baseItem);
+			base = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class, baseItem);
 			sbuf.append(baseItem);
 			sbuf.append(sep).append("NAME").append(endPart).append(
 					toString(false));
@@ -3329,7 +3331,8 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (iNewSize != iOldSize) {
 			setSize(newSize);
-			final Equipment eq = EquipmentList.getEquipmentKeyed(baseItem);
+			final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class, baseItem);
 
 			if (eq != null) {
 				put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(aPC, newSize));
@@ -3717,7 +3720,8 @@ public final class Equipment extends PObject implements Serializable,
 
 		String prof = consolidatedProfName();
 		if (prof.length() == 0) {
-			final Equipment eq = EquipmentList.getEquipmentKeyed(baseItem);
+			final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class, baseItem);
 
 			if (eq != null) {
 				CDOMSingleRef<WeaponProf> wpRef = eq.get(ObjectKey.WEAPON_PROF);

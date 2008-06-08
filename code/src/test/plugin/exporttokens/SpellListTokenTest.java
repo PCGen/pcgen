@@ -115,7 +115,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
-		Globals.getClassList().add(arcaneClass);
+		Globals.getContext().ref.importObject(arcaneClass);
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
@@ -127,7 +127,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		divineClass.getSpellSupport().addSpellLevel("CLASS",
 			"SPELLCASTER.Divine", "Cure Light Wounds", "1",
 			new ArrayList<Prerequisite>());
-		Globals.getClassList().add(divineClass);
+		Globals.getContext().ref.importObject(divineClass);
 	}
 
 	/*
@@ -135,8 +135,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	protected void tearDown() throws Exception
 	{
-		Globals.getClassList().remove(divineClass);
-		Globals.getClassList().remove(arcaneClass);
+		Globals.getContext().ref.forget(divineClass);
+		Globals.getContext().ref.forget(arcaneClass);
 
 		super.tearDown();
 	}

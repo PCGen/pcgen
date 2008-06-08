@@ -150,20 +150,14 @@ public final class LstEditorMain extends JFrame
 		switch (editType)
 		{
 			case EditorConstants.EDIT_CLASS:
-				Globals.getClassList().add((PCClass)editObject);
-				Globals.sortPObjectList(Globals.getClassList());
-
-				break;
-
+			case EditorConstants.EDIT_SKILL:
 			case EditorConstants.EDIT_DEITY:
-				Globals.getDeityList().add((Deity)editObject);
-				Globals.sortPObjectList(Globals.getDeityList());
-
-				break;
-
+			case EditorConstants.EDIT_TEMPLATE:
+			case EditorConstants.EDIT_RACE:
+			case EditorConstants.EDIT_LANGUAGE:
+				//Fall through intentional
 			case EditorConstants.EDIT_DOMAIN:
-				Globals.addDomain((Domain) editObject);
-				Globals.sortPObjectList(Globals.getDomainList());
+				Globals.getContext().ref.importObject(editObject);
 
 				break;
 
@@ -172,31 +166,9 @@ public final class LstEditorMain extends JFrame
 
 				break;
 
-			case EditorConstants.EDIT_LANGUAGE:
-				Globals.getLanguageList().add((Language)editObject);
-				Globals.sortPObjectList(Globals.getLanguageList());
-
-				break;
-
-			case EditorConstants.EDIT_RACE:
-				Globals.addRace((Race)editObject);
-
-				break;
-
-			case EditorConstants.EDIT_SKILL:
-				Globals.getSkillList().add((Skill)editObject);
-				Globals.sortPObjectList(Globals.getSkillList());
-				break;
-
 			case EditorConstants.EDIT_SPELL:
 				Globals.addToSpellMap( editObject.getKeyName(), editObject );
 				//Globals.sortPObjectList(Globals.getSpellMap());
-				break;
-
-			case EditorConstants.EDIT_TEMPLATE:
-				Globals.getTemplateList().add((PCTemplate)editObject);
-				Globals.sortPObjectList(Globals.getTemplateList());
-
 				break;
 
 			case EditorConstants.EDIT_CAMPAIGN:
@@ -390,31 +362,31 @@ public final class LstEditorMain extends JFrame
 		switch (editType)
 		{
 			case EditorConstants.EDIT_CLASS:
-				return Globals.getClassKeyed(aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aName);
 
 			case EditorConstants.EDIT_DEITY:
-				return Globals.getDeityKeyed(aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, aName);
 
 			case EditorConstants.EDIT_DOMAIN:
-				return Globals.getDomainKeyed(aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, aName);
 
 			case EditorConstants.EDIT_FEAT:
 				return Globals.getAbilityKeyed("FEAT", aName);
 
 			case EditorConstants.EDIT_LANGUAGE:
-				return Globals.getLanguageKeyed(aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aName);
 
 			case EditorConstants.EDIT_RACE:
-				return Globals.getRaceKeyed(aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, aName);
 
 			case EditorConstants.EDIT_SKILL:
-				return Globals.getSkillKeyed(aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, aName);
 
 			case EditorConstants.EDIT_SPELL:
 				return Globals.getSpellKeyed(aName); // will return 1st entry in ArrayList
 
 			case EditorConstants.EDIT_TEMPLATE:
-				return Globals.getTemplateKeyed(aName);
+				return Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, aName);
 
 			case EditorConstants.EDIT_CAMPAIGN:
 				return Globals.getCampaignKeyed(aName);
@@ -733,17 +705,17 @@ public final class LstEditorMain extends JFrame
 		{
 			if (lstType.equalsIgnoreCase(s_EDITTYPE_CLASS))
 			{
-				possibleSelections = Globals.getClassList();
+				possibleSelections = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class);
 				editType = EditorConstants.EDIT_CLASS;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_DEITY))
 			{
-				possibleSelections = Globals.getDeityList();
+				possibleSelections = Globals.getContext().ref.getConstructedCDOMObjects(Deity.class);
 				editType = EditorConstants.EDIT_DEITY;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_DOMAIN))
 			{
-				possibleSelections = Globals.getDomainList();
+				possibleSelections = Globals.getContext().ref.getConstructedCDOMObjects(Domain.class);
 				editType = EditorConstants.EDIT_DOMAIN;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_FEAT))
@@ -753,17 +725,17 @@ public final class LstEditorMain extends JFrame
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_LANGUAGE))
 			{
-				possibleSelections = Globals.getLanguageList();
+				possibleSelections = Globals.getContext().ref.getConstructedCDOMObjects(Language.class);
 				editType = EditorConstants.EDIT_LANGUAGE;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_RACE))
 			{
-				possibleSelections = Globals.getAllRaces();
+				possibleSelections = Globals.getContext().ref.getConstructedCDOMObjects(Race.class);
 				editType = EditorConstants.EDIT_RACE;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_SKILL))
 			{
-				possibleSelections = Globals.getSkillList();
+				possibleSelections = Globals.getContext().ref.getConstructedCDOMObjects(Skill.class);
 				editType = EditorConstants.EDIT_SKILL;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_SPELL))
@@ -787,7 +759,7 @@ public final class LstEditorMain extends JFrame
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_TEMPLATE))
 			{
-				possibleSelections = Globals.getTemplateList();
+				possibleSelections = Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class);
 				editType = EditorConstants.EDIT_TEMPLATE;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_SOURCE))
@@ -860,41 +832,19 @@ public final class LstEditorMain extends JFrame
 			switch (editType)
 			{
 				case EditorConstants.EDIT_CLASS:
-					removed = Globals.getClassList().remove(editObject);
-
-					break;
-
 				case EditorConstants.EDIT_DEITY:
-					removed = Globals.getDeityList().remove(editObject);
-
-					break;
-
+				case EditorConstants.EDIT_SKILL:
+				case EditorConstants.EDIT_TEMPLATE:
+				case EditorConstants.EDIT_RACE:
+				case EditorConstants.EDIT_LANGUAGE:
+					//Fall through intentional
 				case EditorConstants.EDIT_DOMAIN:
-
-					if (Globals.getDomainMap().remove(editObject.getKeyName()) != null)
-					{
-						removed = Globals.getDomainList().remove(editObject);
-					}
+					removed = Globals.getContext().ref.forget(editObject);
 
 					break;
 
 				case EditorConstants.EDIT_FEAT:
 					removed = Globals.removeAbilityKeyed("FEAT", editObject.getKeyName());
-
-					break;
-
-				case EditorConstants.EDIT_LANGUAGE:
-					removed = Globals.getLanguageList().remove(editObject);
-
-					break;
-
-				case EditorConstants.EDIT_RACE:
-					removed = Globals.removeRaceKeyed(editObject.getKeyName());
-
-					break;
-
-				case EditorConstants.EDIT_SKILL:
-					removed = Globals.getSkillList().remove(editObject);
 
 					break;
 
@@ -910,11 +860,6 @@ public final class LstEditorMain extends JFrame
 					{
 						removed = Globals.removeFromSpellMap(editObject.getKeyName()) != null;
 					}
-
-					break;
-
-				case EditorConstants.EDIT_TEMPLATE:
-					removed = Globals.getTemplateList().remove(editObject);
 
 					break;
 

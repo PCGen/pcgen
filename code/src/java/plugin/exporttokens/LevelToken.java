@@ -153,7 +153,7 @@ public class LevelToken extends Token
 		PCClass aClass = pc.getClassKeyed(classKeyName);
 		if (aClass == null)
 		{
-			aClass = Globals.getClassKeyed(classKeyName);
+			aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 			if (aClass != null)
 			{
 				aClass = pc.getClassKeyed(aClass.getExClass());

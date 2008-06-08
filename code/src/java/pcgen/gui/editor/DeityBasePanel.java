@@ -251,7 +251,7 @@ final class DeityBasePanel extends BasePanel
 			for (Object o : getFavoredWeaponsSelectedList())
 			{
 				CDOMReference<WeaponProf> ref = CDOMDirectSingleRef
-						.getRef(Globals.getWeaponProfKeyed(o.toString()));
+						.getRef(Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, o.toString()));
 				thisPObject.addToListFor(ListKey.DEITYWEAPON, ref);
 			}
 		}
@@ -281,7 +281,8 @@ final class DeityBasePanel extends BasePanel
 		// Initialize the contents of the available and selected favored weapons lists
 		//
 		List<WeaponProf> selectedList = new ArrayList<WeaponProf>();
-		List<WeaponProf> availableList = Globals.getWeaponProfArrayCopy();
+		List<WeaponProf> availableList = new ArrayList<WeaponProf>(Globals
+				.getContext().ref.getConstructedCDOMObjects(WeaponProf.class));
 		
 		List<CDOMReference<WeaponProf>> dwp = thisPObject
 				.getSafeListFor(ListKey.DEITYWEAPON);

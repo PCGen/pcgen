@@ -265,16 +265,15 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 	private void initComponentContents()
 	{
-		Iterator e;
 		String aString;
 		List<String> aList = new ArrayList<String>();
 
 		//
 		// Make list of stats
 		//
-		for (e = SettingsHandler.getGame().getUnmodifiableStatList().iterator(); e.hasNext();)
+		for (Iterator<PCStat> e = SettingsHandler.getGame().getUnmodifiableStatList().iterator(); e.hasNext();)
 		{
-			aList.add(((PCStat) e.next()).getAbb());
+			aList.add(e.next().getAbb());
 		}
 
 		aList.remove(Constants.s_NONE);
@@ -286,10 +285,10 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		// Make list of used spell types
 		//
 		aList.clear();
-
-		for (e = Globals.getClassList().iterator(); e.hasNext();)
+		
+		for (PCClass cl : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
-			aString = ((PCClass) e.next()).getSpellType();
+			aString = cl.getSpellType();
 
 			if (!aList.contains(aString))
 			{

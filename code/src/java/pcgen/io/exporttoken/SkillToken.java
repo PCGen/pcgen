@@ -133,7 +133,7 @@ public class SkillToken extends Token
 
 			if (skill == null)
 			{
-				skill = Globals.getSkillKeyed(details.skillId);
+				skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, details.skillId);
 			}
 		}
 		return skill;

@@ -1222,8 +1222,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 				loadPCFromFile(pcFiles[i]);
 			}
 		}
-
-		Globals.sortCampaigns();
 		message.veto();
 	}
 

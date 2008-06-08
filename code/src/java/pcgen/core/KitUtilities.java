@@ -93,7 +93,7 @@ public final class KitUtilities
 		while (aTok.hasMoreTokens())
 		{
 			final String kitKey = aTok.nextToken();
-			final Kit aKit = Globals.getKitKeyed(kitKey);
+			final Kit aKit = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Kit.class, kitKey);
 			if (aKit == null)
 			{
 				Logging.errorPrint("Nonexistant kit: " + kitKey);

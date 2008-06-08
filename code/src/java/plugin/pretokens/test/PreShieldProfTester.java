@@ -53,7 +53,7 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements
 		final String aString = prereq.getKey();
 		final boolean isType =
 				aString.startsWith("TYPE") && aString.length() > 5;
-		ShieldProf keyProf = Globals.getShieldProfKeyed(aString);
+		ShieldProf keyProf = Globals.getContext().ref.silentlyGetConstructedCDOMObject(ShieldProf.class, aString);
 		for (String profName : character.getShieldProfList())
 		{
 			if (profName.equalsIgnoreCase(aString))

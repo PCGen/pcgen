@@ -65,7 +65,7 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 				"Prereq.error", "PREARMOR", prereq.toString())); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		ArmorProf keyProf = Globals.getArmorProfKeyed(prereq.getKey());
+		ArmorProf keyProf = Globals.getContext().ref.silentlyGetConstructedCDOMObject(ArmorProf.class, prereq.getKey());
 		final boolean isType =
 			prereq.getKey().startsWith("TYPE") && prereq.getKey().length() > 5;
 		

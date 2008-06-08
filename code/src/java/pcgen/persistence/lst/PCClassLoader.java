@@ -206,8 +206,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			else if (name.endsWith(".MOD"))
 			{
 				pcClass =
-						Globals.getClassKeyed(name.substring(0, name
-							.length() - 4));
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, name.substring(0, name
+						.length() - 4));
 			}
 			parseLineIntoClass(context, pcClass, source, restOfLine);
 		}
@@ -521,8 +521,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	@Override
 	protected PCClass getObjectKeyed(String aKey)
 	{
-		return Globals.getClassKeyed(aKey.startsWith("CLASS:") ? aKey
-			.substring(6) : aKey);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aKey.startsWith("CLASS:") ? aKey
+		.substring(6) : aKey);
 	}
 
 	/**
@@ -545,29 +545,9 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(final PCClass objToForget)
-	{
-		Globals.getClassList().remove(objToForget);
-	}
-
 	public static String fixParameter(int aInt, final String colString)
 	{
 		return new StringBuffer().append(aInt).append("|").append(colString)
 			.toString();
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		// TODO - Create Globals.addClass( final PCClass aClass )
-		Globals.getClassList().add((PCClass) pObj);
-		Globals.getContext().ref.importObject(pObj);
 	}
 }

@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -65,7 +66,7 @@ import pcgen.core.DamageReduction;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.Movement;
@@ -1174,10 +1175,8 @@ public final class EditorMainForm extends JDialog
 				List<Domain> selectedDomainList = new ArrayList<Domain>();
 				List<Domain> availableDomainList = new ArrayList<Domain>();
 
-				for (Iterator<Domain> e = Globals.getDomainList().iterator(); e.hasNext();)
+				for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
 				{
-					final Domain aDomain = e.next();
-
 					if (((Deity) thisPObject).hasDomain(aDomain))
 					{
 						selectedDomainList.add(aDomain);
@@ -1199,7 +1198,7 @@ public final class EditorMainForm extends JDialog
 
 				final List<String> raceList = ((Deity) thisPObject).getSafeListFor(ListKey.RACEPANTHEON);
 
-				for ( final Race race : Globals.getAllRaces() )
+				for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 				{
 					final String raceName = race.getKeyName();
 
@@ -1317,9 +1316,8 @@ public final class EditorMainForm extends JDialog
 				List<String> selectedRaceTemplateList = new ArrayList<String>();
 				List<String> selectedRaceTemplateList2 = new ArrayList<String>();
 
-				for (Iterator<PCTemplate> e = Globals.getTemplateList().iterator(); e.hasNext();)
+				for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 				{
-					final PCTemplate aTemplate = e.next();
 					aString = aTemplate.getKeyName();
 
 					if (!availableRaceTemplateList.contains(aString))
@@ -1344,7 +1342,7 @@ public final class EditorMainForm extends JDialog
 				List<String> availableFavouredClassList = new ArrayList<String>();
 				List<String> selectedFavouredClassList = new ArrayList<String>();
 
-				for (PCClass aClass : Globals.getClassList())
+				for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 				{
 					if (!(aClass instanceof SubClass)
 						&& !(aClass instanceof SubstitutionClass))
@@ -1481,7 +1479,7 @@ public final class EditorMainForm extends JDialog
 						selectedRaceLangList.addAll(ref.getContainedObjects());
 					}
 				}
-				availableRaceLangList.addAll(Globals.getLanguageList());
+				availableRaceLangList.addAll(Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
 				availableRaceLangList.removeAll(selectedRaceLangList);
 
 				pnlBonusLang.setAvailableList(availableRaceLangList, true);
@@ -1529,7 +1527,7 @@ public final class EditorMainForm extends JDialog
 				List<String> hairColorList = new ArrayList<String>();
 				List<String> skinToneList = new ArrayList<String>();
 
-				for ( final Race race : Globals.getAllRaces() )
+				for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 				{
 //					final String raceName = (String) e.next();
 					aString = race.getRegionString();
@@ -1620,7 +1618,7 @@ public final class EditorMainForm extends JDialog
 				List<String> selectedSkillList = new ArrayList<String>();
 				List<String> selectedSkillList2 = new ArrayList<String>();
 
-				for (Iterator <PCClass>e = Globals.getClassList().iterator(); e.hasNext();)
+				for (Iterator <PCClass>e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e.hasNext();)
 				{
 					final PCClass aClass = e.next();
 					availableSkillList.add(aClass.getKeyName());
@@ -1670,9 +1668,8 @@ public final class EditorMainForm extends JDialog
 				List<String> availableDomainsList = new ArrayList<String>();
 				List<String> selectedDomainsList = new ArrayList<String>();
 
-				for (Iterator<Domain> e = Globals.getDomainList().iterator(); e.hasNext();)
+				for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
 				{
-					final Domain aDomain = e.next();
 					Integer lvl = null;
 
 					if (lvlInfo != null)
@@ -1700,7 +1697,7 @@ public final class EditorMainForm extends JDialog
 				List<String> availableClassesList = new ArrayList<String>();
 				List<String> selectedClassesList = new ArrayList<String>();
 
-				for (Iterator<PCClass> e = Globals.getClassList().iterator(); e.hasNext();)
+				for (Iterator<PCClass> e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e.hasNext();)
 				{
 					final PCClass aClass = e.next();
 					Integer lvl = null;
@@ -1744,9 +1741,8 @@ public final class EditorMainForm extends JDialog
 				List<String> selectedTemplateList = new ArrayList<String>();
 				List<String> selectedTemplateList2 = new ArrayList<String>();
 
-				for (Iterator<PCTemplate> e = Globals.getTemplateList().iterator(); e.hasNext();)
+				for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 				{
-					final PCTemplate aTemplate = e.next();
 					aString = aTemplate.getKeyName();
 
 					if (!availableTemplateList.contains(aString))
@@ -1771,7 +1767,7 @@ public final class EditorMainForm extends JDialog
 				List<String> availableFavouredClassesList = new ArrayList<String>();
 				List<String> selectedFavouredClassesList = new ArrayList<String>();
 
-				for (PCClass aClass : Globals.getClassList())
+				for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 				{
 					if (!(aClass instanceof SubClass)
 						&& !(aClass instanceof SubstitutionClass))
@@ -1920,7 +1916,7 @@ public final class EditorMainForm extends JDialog
 						selectedBonusLangList.addAll(ref.getContainedObjects());
 					}
 				}
-				availableBonusLangList.addAll(Globals.getLanguageList());
+				availableBonusLangList.addAll(Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
 				availableBonusLangList.removeAll(selectedBonusLangList);
 
 				pnlBonusLang.setAvailableList(availableBonusLangList, true);
@@ -1948,10 +1944,8 @@ public final class EditorMainForm extends JDialog
 
 			final Collection aSet = thisPObject.getSafeListFor(ListKey.AUTO_LANGUAGES);
 
-			for (Iterator<Language> e = Globals.getLanguageList().iterator(); e.hasNext();)
+			for (Language aLang : Globals.getContext().ref.getConstructedCDOMObjects(Language.class))
 			{
-				final Language aLang = e.next();
-
 				if (aSet.contains(aLang))
 				{
 					selectedLanguageList.add(aLang);
@@ -1977,7 +1971,7 @@ public final class EditorMainForm extends JDialog
 
 				while (aTok.hasMoreTokens())
 				{
-					final Language aLang = Globals.getLanguageKeyed(aTok.nextToken());
+					final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aTok.nextToken());
 
 					if (aLang != null)
 					{
@@ -1999,17 +1993,15 @@ public final class EditorMainForm extends JDialog
 		if (pnlWeapons != null)
 		{
 			List<String> selectedWPList = new ArrayList<String>();
-			String allProfNames = Globals.getWeaponProfNames("|", false);
-			String[] profNames = allProfNames.split("\\|");
 			List<String> availableWeaponProfList = new ArrayList<String>();
-			for (int i = 0; i < profNames.length; i++)
+			Set<String> wpnProfTypes = new HashSet<String>();
+			for (WeaponProf wp : Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class))
 			{
-				availableWeaponProfList.add(profNames[i]);
+				availableWeaponProfList.add(wp.getDisplayName());
+				wpnProfTypes.addAll(wp.getTypeList(false));
 			}
-			final Set wpnProfTypes = Globals.getWeaponProfTypes();
-			for (Iterator iter = wpnProfTypes.iterator(); iter.hasNext();)
+			for (String typeName : wpnProfTypes)
 			{
-				String typeName = (String) iter.next();
 				availableWeaponProfList.add("TYPE." + typeName.toUpperCase());
 			}
 
@@ -2053,12 +2045,12 @@ public final class EditorMainForm extends JDialog
 				// Initialize the Variable combo with all the variable names we can find
 				//
 				List<String> availableVariableList = new ArrayList<String>();
-				addVariables(availableVariableList, Globals.getClassList());
+				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class));
 				addVariables(availableVariableList, Globals.getUnmodifiableAbilityList("FEAT")); //TODO this list is a list of Ability objects, unfortunately in a List<? extends Categorisable>. Don't know how to typesafe this. JK070101 
-				addVariables(availableVariableList, Globals.getAllRaces());
-				addVariables(availableVariableList, Globals.getSkillList());
-				addVariables(availableVariableList, EquipmentList.getModifierCollection());
-				addVariables(availableVariableList, Globals.getTemplateList());
+				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
+				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Skill.class));
+				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class));
+				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class));
 				addVariables(availableVariableList, Globals.getAllCompanionMods());
 				Collections.sort(availableVariableList);
 
@@ -2094,10 +2086,8 @@ public final class EditorMainForm extends JDialog
 				List<String> availableSkillList = new ArrayList<String>();
 				List<String> selectedSkillList = new ArrayList<String>();
 
-				for (Iterator<Skill> e = Globals.getSkillList().iterator(); e.hasNext();)
+				for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 				{
-					final Skill aSkill = e.next();
-
 					if (!aSkill.getKeyName().equals(thisPObject.getKeyName()))
 					{
 						availableSkillList.add(aSkill.getKeyName());
@@ -2171,9 +2161,8 @@ public final class EditorMainForm extends JDialog
 			List<String> availableClassCrossClassList = new ArrayList<String>();
 			List<String> selectedClassCrossClassList = new ArrayList<String>();
 
-			for (Iterator<Skill> e = Globals.getSkillList().iterator(); e.hasNext();)
+			for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				final Skill aSkill = e.next();
 				aString = aSkill.getKeyName();
 
 				if (!availableClassCrossClassList.contains(aString))
@@ -2277,7 +2266,7 @@ public final class EditorMainForm extends JDialog
 		}
 		else
 		{
-			final WeaponProf wp = Globals.getWeaponProfKeyed(profName);
+			final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profName);
 
 			if (wp != null)
 			{

@@ -128,7 +128,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 					List<String> keys =cl.getServesAs("");
 SERVESAS:			for(String aKey  : keys)
 					{
-						PCClass aClass = Globals.getClassKeyed(aKey);
+						PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aKey);
 						if (aClass == null)
 						{
 							continue SERVESAS;

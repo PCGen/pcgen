@@ -656,7 +656,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 				if (castClassKey.length() != 0)
 				{
-					final PCClass castClass = Globals.getClassKeyed(castClassKey);
+					final PCClass castClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, castClassKey);
 
 					if (castClass != null)
 					{

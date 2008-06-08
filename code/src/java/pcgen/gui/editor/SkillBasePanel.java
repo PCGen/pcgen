@@ -183,10 +183,8 @@ final class SkillBasePanel extends BasePanel
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for (e = Globals.getSkillList().iterator(); e.hasNext();)
+		for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
-			final Skill aSkill = (Skill) e.next();
-
 			for (String type : aSkill.getTypeList(false))
 			{
 				if (!type.equals(Constants.s_CUSTOM))

@@ -208,7 +208,7 @@ public final class CharacterDomain
 
 			if (fromPCClass)
 			{
-				final PCClass aClass = Globals.getClassKeyed(domainName);
+				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, domainName);
 
 				if (aClass != null)
 				{

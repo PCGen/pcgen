@@ -345,7 +345,7 @@ final class ChooseSpellDialog extends JDialog
 		}
 		else
 		{
-			final PCClass aClass = Globals.getClassKeyed(castingClass.getAssociated(0));
+			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, castingClass.getAssociated(0));
 
 			if (aClass != null)
 			{
@@ -375,7 +375,7 @@ final class ChooseSpellDialog extends JDialog
 			{
 				sub = key.substring(6);
 
-				final PCClass aClass = Globals.getClassKeyed(sub);
+				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, sub);
 
 				if (aClass != null)
 				{
@@ -408,7 +408,7 @@ final class ChooseSpellDialog extends JDialog
 
 				sub = key.substring(7);
 
-				final Domain aDomain = Globals.getDomainKeyed(sub);
+				final Domain aDomain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, sub);
 
 				if (aDomain != null)
 				{
@@ -580,11 +580,11 @@ final class ChooseSpellDialog extends JDialog
 			else if (castingClass instanceof Domain)
 			{
 				// TODO this is wrong
-				aClass = Globals.getClassKeyed("Cleric");
+				aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, "Cleric");
 			}
 			else
 			{
-				aClass = Globals.getClassKeyed(castingClass.getKeyName());
+				aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, castingClass.getKeyName());
 			}
 
 			if (aClass != null)
@@ -1045,11 +1045,11 @@ final class ChooseSpellDialog extends JDialog
 		{
 			for (String classKey : classList)
 			{
-				PObject obj = Globals.getClassKeyed(classKey);
+				PObject obj = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 
 				if (obj == null)
 				{
-					obj = Globals.getDomainKeyed(classKey);
+					obj = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, classKey);
 				}
 
 				if (obj != null)
@@ -1129,7 +1129,7 @@ final class ChooseSpellDialog extends JDialog
 				}
 			}
 
-			for (PCClass aClass : Globals.getClassList())
+			for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 			{
 				if (!aClass.getSpellType().equals(Constants.s_NONE))
 				{

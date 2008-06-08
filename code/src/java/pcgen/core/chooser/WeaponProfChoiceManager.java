@@ -26,7 +26,6 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
@@ -35,7 +34,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -111,7 +109,7 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 				if ((aPc.sizeInt() >= Globals.sizeInt(aString.substring(5, 6)))
 					&& aPc.hasWeaponProfKeyed(profKey))
 				{
-					final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+					final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
 					if (!availableList.contains(wp))
 					{
 						availableList.add(wp);
@@ -143,7 +141,9 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 					// get an Equipment object based on the named WeaponProf
 					//
 					final String profKey = wp.getKeyName();
-					Equipment eq = EquipmentList.getEquipmentNamed(profKey);
+					Equipment eq = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Equipment.class,
+									profKey);
 
 					if (eq == null)
 					{
@@ -151,13 +151,8 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 						// Couldn't find equipment with matching name, look for
 						// 1st weapon that uses it
 						//
-						for (Iterator<Map.Entry<String, Equipment>> eqIter = EquipmentList
-								.getEquipmentListIterator(); eqIter.hasNext();)
+						for (Equipment tempEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 						{
-							final Map.Entry<String, Equipment> entry = eqIter
-									.next();
-							final Equipment tempEq = entry.getValue();
-
 							CDOMSingleRef<WeaponProf> ref = tempEq
 									.get(ObjectKey.WEAPON_PROF);
 							if (ref != null)
@@ -226,7 +221,7 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 			{
 				// TODO this should not be hardcoded.
 				String profKey = aString.substring(12);
-				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+				final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
 				if (wp == null)
 				{
 					continue;
@@ -261,7 +256,8 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 						continue;
 					}
 
-					eq = EquipmentList.getEquipmentKeyed(wp.getKeyName());
+					eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+							Equipment.class, wp.getKeyName());
 
 					if (eq == null)
 					{
@@ -313,7 +309,7 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 				{
 					profKey = aString.substring(4);
 				}
-				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+				final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
 				if (wp == null)
 				{
 					Logging.log(Logging.LST_INFO,
@@ -332,7 +328,7 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 		{
 			for (String choice : assocChoice.getChoices())
 			{
-				selectedList.add(Globals.getWeaponProfKeyed(choice));
+				selectedList.add(Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, choice));
 			}
 		}
 		setPreChooserChoices(selectedList.size());

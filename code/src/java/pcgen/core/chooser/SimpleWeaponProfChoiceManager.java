@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
@@ -38,7 +37,6 @@ import pcgen.core.Categorisable;
 import pcgen.core.CategorisableStore;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -237,12 +235,8 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 			}
 		}
 
-		Iterator<Map.Entry<String, Equipment>> ei = EquipmentList.getEquipmentListIterator();
-
-		while (ei.hasNext())
+		for (Equipment aEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 		{
-			final Equipment aEq   = ei.next().getValue();
-
 			if (!aEq.isWeapon())
 			{
 				continue;
@@ -297,10 +291,8 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 			wieldList.add(bTok.nextToken());
 		}
 
-		for (Iterator<Map.Entry<String, Equipment>> ei = EquipmentList.getEquipmentListIterator(); ei.hasNext();)
+		for (Equipment aEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 		{
-			final Equipment aEq   = ei.next().getValue();
-
 			if (!aEq.isWeapon())
 			{
 				continue;
@@ -376,10 +368,8 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 			typeList.add(bTok.nextToken());
 		}
 
-		for (Iterator<Map.Entry<String, Equipment>> ei = EquipmentList.getEquipmentListIterator(); ei.hasNext();)
+		for (Equipment aEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 		{
-			final Equipment aEq   = ei.next().getValue();
-
 			if (!aEq.isWeapon())
 			{
 				continue;
@@ -493,6 +483,6 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 	public Collection<WeaponProf> getAllObjects()
 	{
-		return Globals.getAllWeaponProfs();
+		return Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class);
 	}
 }

@@ -732,7 +732,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			//
 			// Class must exist in Global list
 			//
-			final PCClass aClass = Globals.getClassKeyed(monsterClass);
+			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, monsterClass);
 
 			if (aClass != null)
 			{
@@ -1531,7 +1531,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				final String aString =
 						pc.getLevelInfoClassKeyName(pcClassTable
 							.getSelectedRow());
-				final PCClass aClass = Globals.getClassKeyed(aString);
+				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aString);
 
 				if (aClass != null)
 				{
@@ -2232,8 +2232,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	
 					if (pcClass != null)
 					{
-						classComboBox.setSelectedItem(Globals.getClassKeyed(pcClass
-							.getKeyName()));
+						classComboBox.setSelectedItem(Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, pcClass
+						.getKeyName()));
 	
 						if (classComboBox.getSelectedIndex() >= 0)
 						{
@@ -2254,7 +2254,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			else if (pc.getRace().getMonsterClass(pc, false) != null)
 			{
 				String monsterClass = pc.getRace().getMonsterClass(pc, false);
-				classComboBox.setSelectedItem(Globals.getClassKeyed(monsterClass));
+				classComboBox.setSelectedItem(Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, monsterClass));
 			}
 			else
 			{
@@ -3098,7 +3098,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			final Object pcClass = getSelectedItem();
 			removeAllElements();
 
-			for (PCClass aClass : Globals.getClassList())
+			for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 			{
 				if (SettingsHandler.hideMonsterClasses() && aClass.isMonster())
 				{
@@ -3144,7 +3144,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			final Object pcRace = getSelectedItem();
 			removeAllElements();
 
-			for (final Race race : Globals.getAllRaces())
+			for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 			{
 				if (accept(pc, race))
 				{

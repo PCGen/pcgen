@@ -140,7 +140,7 @@ public final class PCLevelInfo implements Cloneable
 		// If this information in not saved on PCG, then try to recalc it
 		if ((skillPointsGained == 0) && (classKeyName.length() > 0))
 		{
-			final PCClass aClass = Globals.getClassKeyed(classKeyName);
+			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 			skillPointsGained = aClass.recalcSkillPointMod(aPC, level) +
 				getBonusSkillPool();
 		}

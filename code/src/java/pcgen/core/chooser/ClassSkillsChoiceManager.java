@@ -66,7 +66,7 @@ public class ClassSkillsChoiceManager extends AbstractBasicPObjectChoiceManager<
 			final List<Skill>            availableList,
 			final List<Skill>            selectedList)
 	{
-		for ( Skill skill : Globals.getSkillList() )
+		for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 		{
 			SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
 
@@ -80,7 +80,7 @@ public class ClassSkillsChoiceManager extends AbstractBasicPObjectChoiceManager<
 		pobject.addAssociatedTo(associatedKeys);
 		for ( String key : associatedKeys )
 		{
-			Skill skill = Globals.getSkillKeyed(key);
+			Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, key);
 			if ( skill != null )
 			{
 				selectedList.add( skill );

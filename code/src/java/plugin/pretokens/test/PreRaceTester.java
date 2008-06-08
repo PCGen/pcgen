@@ -29,7 +29,6 @@ package plugin.pretokens.test;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -226,10 +225,8 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 	
 	private void getImitators(HashMap<Race, HashSet<Race>> serveAsRaces,PlayerCharacter character)
 	{
-		Map<String, Race> allRaces = Globals.getRaces();		
-		for(String aRace: allRaces.keySet())
+		for (Race theRace : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 		{
-			Race theRace = allRaces.get(aRace);
 			Race finalRace = null;
 			Set<Race> servesAs = new HashSet<Race>();
 			if (theRace == null)
@@ -238,7 +235,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 			}
 			for(String fakeRace: theRace.getServesAs(""))
 			{
-				finalRace = Globals.getRaceKeyed(fakeRace);
+				finalRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, fakeRace);
 				if (finalRace == null)
 				{
 					continue;

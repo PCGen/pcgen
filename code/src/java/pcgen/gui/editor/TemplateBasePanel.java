@@ -485,7 +485,7 @@ public class TemplateBasePanel extends BasePanel
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for (PCTemplate aTemplate : Globals.getTemplateList())
+		for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 		{
 			for (String type : aTemplate.getTypeList(false))
 			{

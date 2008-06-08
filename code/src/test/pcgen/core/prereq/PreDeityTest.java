@@ -72,12 +72,12 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:Y");
+		prereq = factory.parse("PREDEITY:1,Y");
 
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:N");
+		prereq = factory.parse("PREDEITY:1,N");
 
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -88,7 +88,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertFalse("Character has deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:Y");
+		prereq = factory.parse("PREDEITY:1,Y");
 
 		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
 			character, null));
@@ -106,12 +106,12 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:YES");
+		prereq = factory.parse("PREDEITY:1,YES");
 
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:NO");
+		prereq = factory.parse("PREDEITY:1,NO");
 
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -122,17 +122,17 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertFalse("Character has deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:YES");
+		prereq = factory.parse("PREDEITY:1,YES");
 
 		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
 			character, null));
 
-		prereq = factory.parse("PREDEITY:yes");
+		prereq = factory.parse("PREDEITY:1,yes");
 
 		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
 			character, null));
 
-		prereq = factory.parse("PREDEITY:Yesmeth");
+		prereq = factory.parse("PREDEITY:1,Yesmeth");
 
 		assertFalse("Character does not have Yesmeth as deity", PrereqHandler
 			.passes(prereq, character, null));
@@ -149,7 +149,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITY:Test Deity");
+		prereq = factory.parse("PREDEITY:1,Test Deity");
 
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -160,7 +160,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:Test Deity,Zeus,Odin");
+		prereq = factory.parse("PREDEITY:1,Test Deity,Zeus,Odin");
 
 		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -227,11 +227,10 @@ public class PreDeityTest extends AbstractCharacterTestCase
 
 		character.setAlignment(3, false);
 		character.setDeity(deity);
-
 		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		prereq = factory.parse("PREDEITY:Zeus,PANTHEON.Celtic,Odin");
+		prereq = factory.parse("PREDEITY:1,Zeus,PANTHEON.Celtic,Odin");
 
 		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -239,11 +238,10 @@ public class PreDeityTest extends AbstractCharacterTestCase
 
 	protected void setUp() throws Exception
 	{
+		super.setUp();
 		deity = new Deity();
 		deity.setName("Test Deity");
 		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
 		deity.addToListFor(ListKey.PANTHEON, Pantheon.getConstant("Celtic"));
-
-		super.setUp();
 	}
 }

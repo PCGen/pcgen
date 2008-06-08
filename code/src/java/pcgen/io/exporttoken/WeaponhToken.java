@@ -110,14 +110,14 @@ public class WeaponhToken extends WeaponToken
 	{
 		// Creating a fake Unarmed Strike equipment so we
 		// don't need it in the .lst files anymore
-		WeaponProf wp = Globals.getWeaponProfKeyed("Unarmed Strike");
+		WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, "Unarmed Strike");
 		if (wp == null)
 		{
 			wp = new WeaponProf();
 			wp.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 			wp.setKeyName("Unarmed Strike");
 			wp.setTypeInfo("Simple");
-			Globals.addWeaponProf(wp);
+			Globals.getContext().ref.importObject(wp);
 		}
 		Equipment eq = new Equipment();
 		eq.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));

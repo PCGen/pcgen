@@ -462,7 +462,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
-		Globals.getClassList().add(megaCasterClass);
+		Globals.getContext().ref.importObject(megaCasterClass);
 
 		assertEquals("Highest spell level for class", 10, megaCasterClass
 			.getHighestLevelSpell());
@@ -533,7 +533,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
-		Globals.getClassList().add(megaCasterClass);
+		Globals.getContext().ref.importObject(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();
 
@@ -788,13 +788,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		LoadContext context = Globals.getContext();
 		humanoidClass = classLoader.parseLine(context, null, classDef, source);
-		Globals.getClassList().add(humanoidClass);
+		Globals.getContext().ref.importObject(humanoidClass);
 
 		classDef =
 				"CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
 		nymphClass = classLoader.parseLine(context, null, classDef, source);
-		Globals.getClassList().add(nymphClass);
+		Globals.getContext().ref.importObject(nymphClass);
 
 		// Create the large size mod
 		sizeL = new SizeAdjustment();
@@ -811,7 +811,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				.getSizeAdjustmentNamed("Medium")));
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
-		Globals.addRace(bugbearRace);
+		Globals.getContext().ref.importObject(bugbearRace);
 
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
@@ -820,7 +820,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				.getSizeAdjustmentNamed("Large")));
 		bigBugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bigBugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
-		Globals.addRace(bigBugbearRace);
+		Globals.getContext().ref.importObject(bigBugbearRace);
 
 		// Create the Nymph race
 		nymphRace = new Race();
@@ -830,7 +830,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				.getSizeAdjustmentNamed("Medium")));
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		nymphRace.setMonsterClass(nymphClass.getKeyName());
-		Globals.addRace(nymphRace);
+		Globals.getContext().ref.importObject(nymphRace);
 
 		// Setup class with prereqs and var based abilities with prereqs.
 		PreVariableParser parser = new PreVariableParser();

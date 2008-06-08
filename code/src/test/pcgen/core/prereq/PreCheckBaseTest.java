@@ -150,6 +150,6 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 		myClass.addBonusList(fortRefBonus);
 		final BonusObj willBonus = Bonus.newBonus("1|CHECKS|BASE.Will|CL/2+2");
 		myClass.addBonusList(willBonus);
-		Globals.getClassList().add(myClass);
+		Globals.getContext().ref.importObject(myClass);
 	}
 }

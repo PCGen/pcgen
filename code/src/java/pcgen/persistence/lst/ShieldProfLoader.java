@@ -25,7 +25,6 @@ package pcgen.persistence.lst;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.ShieldProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -113,27 +112,6 @@ public final class ShieldProfLoader extends LstObjectFileLoader<ShieldProf>
 	@Override
 	protected ShieldProf getObjectKeyed(String aKey)
 	{
-		return Globals.getShieldProfKeyed(aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(final ShieldProf objToForget)
-	{
-		Globals.removeShieldProfKeyed(objToForget.getKeyName());
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		Globals.addShieldProf((ShieldProf) pObj);
-		// TODO - What exactly is this doing?  Why would we set that it is not
-		// a new item when we just added it?
-		pObj.setNewItem(false);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(ShieldProf.class, aKey);
 	}
 }

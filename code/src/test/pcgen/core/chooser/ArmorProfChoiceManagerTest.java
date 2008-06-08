@@ -28,9 +28,10 @@ package pcgen.core.chooser;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -50,17 +51,6 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase
 	public ArmorProfChoiceManagerTest()
 	{
 		// Do Nothing
-	}
-
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-		EquipmentList.clearEquipmentMap();
 	}
 
 	/**
@@ -106,13 +96,16 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase
 		TestHelper.makeEquipment("Armor one\tKEY:Arm001\tTYPE:Armor.Light");
 		TestHelper.makeEquipment("Armor two\tKEY:Arm002\tTYPE:Armor.Light");
 		TestHelper.makeEquipment("Armor three\tKEY:Arm003\tTYPE:Armor.Medium");
-		Equipment eq = EquipmentList.getEquipmentKeyed("Arm001");
+		Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, "Arm001");
 		is(eq.isArmor(), eq(true));
 		is(eq.isType("Light"), eq(true));
-		eq = EquipmentList.getEquipmentKeyed("Arm002");
+		eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, "Arm002");
 		is(eq.isArmor(), eq(true));
 		is(eq.isType("Light"), eq(true));
-		eq = EquipmentList.getEquipmentKeyed("Arm003");
+		eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, "Arm003");
 		is(eq.isArmor(), eq(true));
 		is(eq.isType("Light"), eq(false));
 

@@ -40,6 +40,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -67,7 +68,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
-import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -296,7 +296,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		List<String> typeList = new ArrayList<String>();
 		List<String> sourceList = new ArrayList<String>();
 
-		for (PCTemplate template : Globals.getTemplateList())
+		for (PCTemplate template : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 		{
 			for (String type : template.getTypeList(false))
 			{
@@ -1199,11 +1199,11 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		 **/
 		private void resetModel(int mode, boolean available)
 		{
-			List<PCTemplate> templList;
+			Collection<PCTemplate> templList;
 
 			if (available)
 			{
-				templList = Globals.getTemplateList();
+				templList = Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class);
 			}
 			else
 			{
@@ -1239,7 +1239,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			}
 		}
 
-		private void createNameViewModel(List<PCTemplate> templList)
+		private void createNameViewModel(Collection<PCTemplate> templList)
 		{
 			setRoot(new PObjectNode()); // just need a blank one
 			String qFilter = this.getQFilter();
@@ -1269,7 +1269,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		}
 
-		private void createTypeViewModel(List<PCTemplate> templList)
+		private void createTypeViewModel(Collection<PCTemplate> templList)
 		{
 			setRoot((PObjectNode) typeRoot.clone());
 
@@ -1303,7 +1303,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			}
 		}
 
-		private void createSourceViewModel(List<PCTemplate> templList)
+		private void createSourceViewModel(Collection<PCTemplate> templList)
 		{
 			setRoot((PObjectNode) sourceRoot.clone());
 

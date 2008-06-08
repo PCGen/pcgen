@@ -21,6 +21,7 @@
 package pcgen.gui.tabs.spells;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -1101,10 +1102,10 @@ public final class SpellModel extends AbstractTreeTableModel implements
 		InfoSpellsSubTab spellTab)
 	{
 		// get the list of spell casting Classes
-		List<PCClass> classes;
+		Collection<PCClass> classes;
 		if (spellListType == GuiConstants.INFOSPELLS_AVAIL_ALL_SPELL_LISTS)
 		{
-			classes = Globals.getClassList();
+			classes = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class);
 		}
 		else
 		{

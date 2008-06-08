@@ -547,7 +547,7 @@ final class PCGVer0Parser implements PCGParser
 
 			if (aClass == null)
 			{
-				aClass = Globals.getClassKeyed(aName);
+				aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aName);
 			}
 			else
 			{
@@ -651,30 +651,21 @@ final class PCGVer0Parser implements PCGParser
 			{
 				case 0:
 
-					boolean deityFound = false;
-					Deity aDeity;
-
-					for (Iterator it = Globals.getDeityList().iterator(); it
-						.hasNext();)
+					Deity d = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Deity.class, token);
+					if (d == null)
 					{
-						aDeity = (Deity) it.next();
-
-						if (aDeity.toString().equals(token))
+						if (!token.equals(Constants.s_NONE))
 						{
-							aPC.setDeity(aDeity);
-							deityFound = true;
-
-							break;
-						}
-					}
-
-					if (!deityFound && !token.equals(Constants.s_NONE))
-					{
-						final String msg =
-								PropertyFactory.getFormattedString(
+							final String msg = PropertyFactory.getFormattedString(
 									"Warnings.PCGenParser.DeityNotFound", //$NON-NLS-1$
 									token);
-						warnings.add(msg);
+								warnings.add(msg);
+						}
+					}
+					else
+					{
+						aPC.setDeity(d);
 					}
 
 					break;
@@ -697,7 +688,7 @@ final class PCGVer0Parser implements PCGParser
 						final String domainName = cdTok.nextToken();
 						CharacterDomain aCD =
 								aPC.getCharacterDomainList().get(j);
-						Domain aDomain = Globals.getDomainKeyed(domainName);
+						Domain aDomain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainName);
 
 						if (aDomain != null)
 						{
@@ -765,8 +756,7 @@ final class PCGVer0Parser implements PCGParser
 			{
 				String value = aTok.nextToken();
 				aSet.setValue(value);
-				eqI = EquipmentList.getEquipmentNamed(value);
-
+				eqI = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, value);
 				if (eqI == null)
 				{
 					final String message =
@@ -865,7 +855,8 @@ final class PCGVer0Parser implements PCGParser
 				// Get base item (must have to modify)
 				//
 				final Equipment aEq =
-						EquipmentList.getEquipmentKeyed(baseItemKey);
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+							Equipment.class, baseItemKey);
 
 				if (aEq != null)
 				{
@@ -875,7 +866,7 @@ final class PCGVer0Parser implements PCGParser
 					{
 						aEq.addMyType(Constants.s_CUSTOM);
 					}
-					EquipmentList.addEquipment(eq.clone());
+					Globals.getContext().ref.importObject(eq.clone());
 					bFound = true;
 				}
 				else
@@ -918,7 +909,8 @@ final class PCGVer0Parser implements PCGParser
 					}
 				}
 
-				Equipment aEq = EquipmentList.getEquipmentKeyed(aName);
+				Equipment aEq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Equipment.class, aName);
 
 				if (aEq == null)
 				{
@@ -980,7 +972,7 @@ final class PCGVer0Parser implements PCGParser
 						eq.setName(customName);
 					}
 
-					EquipmentList.addEquipment(eq.clone());
+					Globals.getContext().ref.importObject(eq.clone());
 				}
 			}
 
@@ -1750,7 +1742,7 @@ final class PCGVer0Parser implements PCGParser
 			switch (i)
 			{
 				case 0:
-					aRace = Globals.getRaceKeyed(token);
+					aRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, token);
 
 					if (aRace != null)
 					{
@@ -1912,13 +1904,11 @@ final class PCGVer0Parser implements PCGParser
 
 				if (aSkill == null)
 				{
-					for (int i = 0; i < Globals.getSkillList().size(); i++)
+					for (Skill s : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 					{
-						if (skillName.equals(Globals.getSkillList().get(i)
-							.toString()))
+						if (skillName.equals(s.toString()))
 						{
-							aSkill = Globals.getSkillList().get(i);
-							aSkill = aSkill.clone();
+							aSkill = s.clone();
 							aPC.getSkillList().add(aSkill);
 
 							break;
@@ -2225,7 +2215,7 @@ final class PCGVer0Parser implements PCGParser
 
 		while (tokens.hasMoreTokens())
 		{
-			aTemplate = Globals.getTemplateKeyed(tokens.nextToken());
+			aTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, tokens.nextToken());
 
 			/**
 			 * bug fix:

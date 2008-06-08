@@ -130,22 +130,22 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		foo.setName("Foo");
 		foo.putServesAs("Bar","");
 		foo.setTypeInfo("Foo");
-		Globals.getSkillList().add(foo);
+		Globals.getContext().ref.importObject(foo);
 		
 		Skill bar = new Skill();
 		bar.setName("Bar");
 		bar.setTypeInfo("Bar");
-		Globals.getSkillList().add(bar); 
+		Globals.getContext().ref.importObject(bar); 
 		
 		Skill baz = new Skill();
 		baz.setName("Baz");
 		baz.setTypeInfo("Baz");
-		Globals.getSkillList().add(baz); 
+		Globals.getContext().ref.importObject(baz); 
 		
 		Skill fee = new Skill();
 		fee.setName("Fee");
 		fee.setTypeInfo("Bar");
-		Globals.getSkillList().add(fee); 
+		Globals.getContext().ref.importObject(fee); 
 		
 		
 		myClass.addCSkill("Foo");
@@ -186,34 +186,34 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 
 		Skill spot = new Skill();
 		spot.setName("Spot");
-		Globals.getSkillList().add(spot);
+		Globals.getContext().ref.importObject(spot);
 
 		Skill listen = new Skill();
 		listen.setName("Listen");
-		Globals.getSkillList().add(listen);
+		Globals.getContext().ref.importObject(listen);
 
 		Skill spy1 = new Skill();
 		spy1.setName("Spy 1");
 		spy1.setTypeInfo("Spy");
-		Globals.getSkillList().add(spy1);
+		Globals.getContext().ref.importObject(spy1);
 
 		Skill spy2 = new Skill();
 		spy2.setName("Spy 2");
 		spy2.setTypeInfo("Spy");
-		Globals.getSkillList().add(spy2);
+		Globals.getContext().ref.importObject(spy2);
 
 		Skill spy3 = new Skill();
 		spy3.setName("Spy 3");
 		spy3.setTypeInfo("Spy");
-		Globals.getSkillList().add(spy3);
+		Globals.getContext().ref.importObject(spy3);
 
 		Skill spy4 = new Skill();
 		spy4.setName("Spy 4");
 		spy4.setTypeInfo("Spy");
-		Globals.getSkillList().add(spy4);
+		Globals.getContext().ref.importObject(spy4);
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		Globals.getClassList().add(myClass);
+		Globals.getContext().ref.importObject(myClass);
 	}
 }

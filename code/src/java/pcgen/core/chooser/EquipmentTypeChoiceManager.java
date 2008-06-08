@@ -28,6 +28,7 @@ import java.util.List;
 
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -79,7 +80,8 @@ public class EquipmentTypeChoiceManager extends AbstractBasicPObjectChoiceManage
 		pobject.addAssociatedTo( equipKeys );
 		for ( String key : equipKeys )
 		{
-			Equipment equip = EquipmentList.getEquipmentKeyed( key );
+			Equipment equip = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class,  key );
 			if ( equip != null )
 			{
 				selectedList.add( equip );

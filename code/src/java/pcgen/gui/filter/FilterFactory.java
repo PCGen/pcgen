@@ -22,9 +22,11 @@ package pcgen.gui.filter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
@@ -148,8 +150,13 @@ public final class FilterFactory implements FilterConstants
 		{
 			classFilters.add(FilterFactory.createQualifyFilter());
 
+			Set<String> typeSet = new HashSet<String>();
+			for (PCClass cl : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
+			{
+				typeSet.addAll(cl.getTypeList(false));
+			}
 			// e.g. "Base", "Monster", "NPC", "PC", "Prestige" + more
-			for ( final String subType : Globals.getPCClassTypeList() )
+			for ( final String subType : typeSet )
 			{
 				//All TYPEs should already be tokenized into subtypes by the "."
 				classFilters.add(FilterFactory.createTypeFilter(subType, subType.length() > 3));
@@ -189,18 +196,18 @@ public final class FilterFactory implements FilterConstants
 				deityFilters.add(FilterFactory.createAlignmentFilter(i));
 			}
 
-			for ( final Domain domain : Globals.getDomainList() )
+			for ( final Domain domain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class) )
 			{
 				deityFilters.add(FilterFactory.createDomainFilter(domain));
 			}
 
-			deityFilters.add(FilterFactory.createPantheonFilter(PantheonFilter.ALL, PantheonFilter.Detail.HIGH));
+			deityFilters.add(FilterFactory.createPantheonFilter(Constants.LST_ALL, PantheonFilter.Detail.HIGH));
 
-			for ( final String pantheon : Globals.getPantheons() )
+			for ( final Pantheon pantheon : Pantheon.getAllConstants() )
 			{
 				// TODO - What are we doing with the indexOf " ("??
-				deityFilters.add(FilterFactory.createPantheonFilter(pantheon,
-							(pantheon.indexOf(" (") > -1)  //$NON-NLS-1$
+				deityFilters.add(FilterFactory.createPantheonFilter(pantheon.toString(),
+							(pantheon.toString().indexOf(" (") > -1)  //$NON-NLS-1$
 							? PantheonFilter.Detail.HIGH 
 							: PantheonFilter.Detail.LOW));
 			}
@@ -317,7 +324,7 @@ public final class FilterFactory implements FilterConstants
 			// TODO - Fix this hardcoding
 			PObjectFilter filter = FilterFactory.createCompoundFilter(new TypeFilter("Base"), new TypeFilter("PC"), AND); //$NON-NLS-1$ //$NON-NLS-2$
 
-			for ( final PCClass pcClass : Globals.getClassList() )
+			for ( final PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class) )
 			{
 				if (pcClass.getVisibility().equals(Visibility.DEFAULT) && filter.accept(null, pcClass))
 				{
@@ -1288,10 +1295,6 @@ final class DomainFilter extends AbstractPObjectFilter
 
 final class PantheonFilter extends AbstractPObjectFilter
 {
-	// TODO - This is really bogus
-	/** ALL = PropertyFactory.getString("in_allPanth") */
-	public static final String ALL = PropertyFactory.getString("in_allPanth"); //$NON-NLS-1$
-	
 	enum Detail {
 		/** Provide a high level of detail */
 		HIGH, 
@@ -1307,14 +1310,14 @@ final class PantheonFilter extends AbstractPObjectFilter
 		super();
 		this.detailLevel = argDetailLevel;
 		this.pantheon = ((this.detailLevel == Detail.LOW) ? normalizePantheon(aPantheon) : aPantheon);
-		this.pantheon = ((this.pantheon.equalsIgnoreCase(ALL)) ? ALL : aPantheon);
+		this.pantheon = ((this.pantheon.equalsIgnoreCase(Constants.LST_ALL)) ? Constants.LST_ALL : aPantheon);
 		setCategory(PropertyFactory.getString("in_pantheon") //$NON-NLS-1$
 			+ ((detailLevel == Detail.LOW) 
 				? String.format("(%1$s)", PropertyFactory.getString("in_general")) //$NON-NLS-1$ //$NON-NLS-2$
 				: String.format("(%1$s)", PropertyFactory.getString("in_specific"))));  //$NON-NLS-1$//$NON-NLS-2$
 		setName(this.pantheon);
 
-		setDescription((this.pantheon.equalsIgnoreCase(ALL)) 
+		setDescription((this.pantheon.equalsIgnoreCase(Constants.LST_ALL)) 
 				? PropertyFactory.getString("in_acceptPantAll") //$NON-NLS-1$
 				: PropertyFactory.getFormattedString("Filters.Pantheon.Description", pantheon)); //$NON-NLS-1$
 	}
@@ -1335,7 +1338,7 @@ final class PantheonFilter extends AbstractPObjectFilter
 		{
 			final Deity aDeity = (Deity) pObject;
 
-			if (pantheon.equals(ALL) && (aDeity.getSafeListFor(ListKey.PANTHEON).size() == 0))
+			if (pantheon.equals(Constants.LST_ALL) && (aDeity.getSafeListFor(ListKey.PANTHEON).size() == 0))
 			{
 				return true;
 			}
@@ -1343,7 +1346,6 @@ final class PantheonFilter extends AbstractPObjectFilter
 			for ( final Pantheon pantheon : aDeity.getSafeListFor(ListKey.PANTHEON) )
 			{
 				String tmp = pantheon.toString();
-
 				if (detailLevel == Detail.LOW)
 				{
 					tmp = normalizePantheon(tmp);

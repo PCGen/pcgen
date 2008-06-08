@@ -80,7 +80,7 @@ public class KitRace extends BaseKit implements Serializable, Cloneable
 		{
 			return false;
 		}
-		theRace = Globals.getRaceKeyed(raceStr);
+		theRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, raceStr);
 
 		if (theRace == null)
 		{

@@ -26,7 +26,6 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Deity;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -112,25 +111,7 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 	@Override
 	protected Deity getObjectKeyed(final String aKey)
 	{
-		return Globals.getDeityKeyed(aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(Deity objToForget)
-	{
-		Globals.getDeityList().remove(objToForget);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		// TODO - Create Globals.addDeity( final Deity aDeity );
-		Globals.getDeityList().add((Deity) pObj);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Deity.class, aKey);
 	}
 }

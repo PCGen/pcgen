@@ -50,17 +50,6 @@ public class WeaponProfChoiceManagerTest extends AbstractCharacterTestCase
 		// Do Nothing
 	}
 
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-		EquipmentList.clearEquipmentMap();
-	}
-
 	/**
 	 * Test the constructor 
 	 */

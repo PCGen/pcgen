@@ -375,7 +375,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 			if (!aPC.containsCharacterDomain(domainKey))
 			{
-				Domain aDom = Globals.getDomainKeyed(domainKey);
+				Domain aDom = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 
 				if (aDom == null)
 				{
@@ -546,7 +546,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		{
 			final String aString = tokenString.substring(5);
 
-			for ( final Race race : Globals.getAllRaces() )
+			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
 				if (race.getType().equalsIgnoreCase(aString))
 				{
@@ -554,7 +554,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 				}
 			}
 
-			for ( PCClass pcClass : Globals.getClassList() )
+			for ( PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class) )
 			{
 				if (pcClass.isType(aString) && !aArrayList.contains(pcClass.getKeyName()))
 				{

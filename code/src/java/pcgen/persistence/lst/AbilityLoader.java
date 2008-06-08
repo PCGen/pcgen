@@ -189,7 +189,6 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		return Globals.getAbilityKeyed(((Ability) aKey).getCategory(), aKey
 			.getKeyName());
 	}
-	
 
 	/**
 	 * This method should be called by finishObject implementations in

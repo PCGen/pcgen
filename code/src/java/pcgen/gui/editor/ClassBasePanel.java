@@ -26,7 +26,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JCheckBox;
@@ -156,19 +155,14 @@ class ClassBasePanel extends BasePanel
 			return;
 		}
 
-		Iterator e;
-		String aString;
-
 		//
 		// Populate the types
 		//
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for (e = Globals.getClassList().iterator(); e.hasNext();)
+		for (PCClass obj : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
-			final PCClass obj = (PCClass) e.next();
-
 			for (String type : obj.getTypeList(false))
 			{
 				if (!type.equals(Constants.s_CUSTOM))

@@ -93,11 +93,11 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 
 		Language lang = new Language();
 		lang.setName("Dwarvish");
-		Globals.getLanguageList().add(lang);
+		Globals.getContext().ref.importObject(lang);
 
 		lang = new Language();
 		lang.setName("Elven");
-		Globals.getLanguageList().add(lang);
+		Globals.getContext().ref.importObject(lang);
 
 		try
 		{

@@ -51,7 +51,7 @@ public class RaceGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final Race race : Globals.getAllRaces() )
+			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
 				if ( ! theChoices.contains(race) )
 				{
@@ -62,7 +62,7 @@ public class RaceGeneratorOption extends GeneratorOption
 		}
 		if ( aValue.startsWith("TYPE") ) //$NON-NLS-1$
 		{
-			for ( final Race race : Globals.getAllRaces() )
+			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
 				if (race.isType(aValue.substring(5)) && !race.getDisplayName().equals(Constants.s_NONESELECTED))
 				{
@@ -71,7 +71,7 @@ public class RaceGeneratorOption extends GeneratorOption
 			}
 			return;
 		}
-		final Race race = Globals.getRaceKeyed(aValue);
+		final Race race = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, aValue);
 		if (race == null)
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.RaceNotFound", aValue); //$NON-NLS-1$

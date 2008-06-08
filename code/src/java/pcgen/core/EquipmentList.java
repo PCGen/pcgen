@@ -26,14 +26,9 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -53,9 +48,6 @@ public class EquipmentList {
 
 	/** this is determined by preferences */
 	private static boolean autoGeneration = false;
-	private static TreeMap<String, EquipmentModifier> modifierList = new TreeMap<String, EquipmentModifier>();
-	private static TreeMap<String, Equipment> equipmentNameMap = new TreeMap<String, Equipment>();
-	private static TreeMap<String, Equipment> equipmentKeyMap = new TreeMap<String, Equipment>();
 
 	/**
 	 * Private to ensure utility object can't be instantiated.
@@ -64,42 +56,8 @@ public class EquipmentList {
 		// Empty Constructor
 	}
 
-	/**
-	 * Empty the equipment list.
-	 */
-	public static void clearEquipmentMap() {
-		equipmentNameMap.clear();
-		equipmentKeyMap.clear();
-	}
-
-	/**
-	 * Empty the modifier list.
-	 */
-	protected static void clearModifierList() {
-		modifierList.clear();
-	}
-
 	private static boolean isAutoGeneration() {
 		return autoGeneration;
-	}
-
-	public static void addEquipmentModifier(EquipmentModifier eqm)
-	{
-		modifierList.put(eqm.getKeyName(), eqm);
-	}
-
-	public static void removeEquipmentModifier(EquipmentModifier eqm)
-	{
-		modifierList.remove(eqm.getKeyName());
-	}
-
-	/**
-	 * Return the modifier list.
-	 *
-	 * @return the list
-	 */
-	public static Collection<EquipmentModifier> getModifierCollection() {
-		return modifierList.values();
 	}
 
 	/**
@@ -110,14 +68,6 @@ public class EquipmentList {
 	 */
 	public static void setAutoGeneration(final boolean auto) {
 		autoGeneration = auto;
-	}
-
-	/**
-	 * @param equipmentMap
-	 *          The equipmentMap to set.
-	 */
-	public static void setEquipmentMap(final TreeMap<String, Equipment> equipmentMap) {
-		EquipmentList.equipmentNameMap = equipmentMap;
 	}
 
 	/**
@@ -350,71 +300,21 @@ public class EquipmentList {
 
 			if (bModified) {
 				eq.nameItemFromModifiers(aPC);
-
-				if (!addEquipment(eq)) {
-					eq = getEquipmentNamed(eq.getName());
+				Equipment equip = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Equipment.class, eq
+								.getKeyName());
+				if (equip == null)
+				{
+					Globals.getContext().ref.importObject(eq);
+				}
+				else
+				{
+					eq = equip;
 				}
 			}
 		}
 
 		return eq;
-	}
-
-	/**
-	 * Find an Equipment object matching passed-in key
-	 *
-	 * @param aKey
-	 *          the key
-	 * @return the Equipment object matching the key
-	 */
-	public static Equipment getEquipmentKeyed(final String aKey) {
-		return equipmentKeyMap.get(aKey);
-	}
-
-	/**
-	 * Find an Equipment object matching aKey (exclude custom items)
-	 *
-	 * @param aKey
-	 *          the key
-	 * @return the Equipment object matching the key
-	 */
-	public static Equipment getEquipmentKeyedNoCustom(final String aKey) {
-		final Equipment eq = getEquipmentKeyed(aKey);
-		if (eq==null) {
-			return null;
-		}
-		if (eq.isType(Constants.s_CUSTOM)) {
-			return null;
-		}
-		return eq;
-	}
-
-	/**
-	 * Return the equipment list.
-	 *
-	 * @return the equipment list
-	 */
-	public static Collection<Equipment> getEquipmentList() {
-		return equipmentNameMap.values();
-	}
-
-	/**
-	 * Get Equipment List Iterator
-	 * @return Equipment List Iterator
-	 */
-	public static Iterator<Map.Entry<String, Equipment>> getEquipmentListIterator() {
-		return equipmentKeyMap.entrySet().iterator();
-	}
-
-	/**
-	 * Return an equipment object matching the passed-in name.
-	 *
-	 * @param name
-	 *          the name to match
-	 * @return the Equipment object matching the name
-	 */
-	public static Equipment getEquipmentNamed(final String name) {
-		return equipmentNameMap.get(name);
 	}
 
 	/**
@@ -447,7 +347,7 @@ public class EquipmentList {
 	 *          a '.' separated list of types to NOT match
 	 * @return the matching Equipment
 	 */
-	public static List<Equipment> getEquipmentOfType(final Iterator<Map.Entry<String, Equipment>> eqIterator, final String desiredTypes, final String excludedTypes)
+	public static List<Equipment> getEquipmentOfType(final String desiredTypes, final String excludedTypes)
 	{
 		final List<String> desiredTypeList = CoreUtility.split(desiredTypes, '.');
 		final List<String> excludedTypeList = CoreUtility.split(excludedTypes, '.');
@@ -455,9 +355,9 @@ public class EquipmentList {
 
 		if (desiredTypeList.size() != 0)
 		{
-			for ( ; eqIterator.hasNext(); )
+			for (Equipment eq : Globals.getContext().ref
+					.getConstructedCDOMObjects(Equipment.class))
 			{
-				final Equipment eq = eqIterator.next().getValue();
 				boolean addIt = true;
 
 				//
@@ -496,54 +396,6 @@ public class EquipmentList {
 	}
 
 	/**
-	 * Get a list of equipment of a particular type
-	 *
-	 * @param desiredTypes
-	 * @param excludedTypes
-	 * @return list of equipment of a particular type
-	 */
-	public static List<Equipment> getEquipmentOfType(final String desiredTypes, final String excludedTypes) {
-		return getEquipmentOfType(equipmentNameMap.entrySet().iterator(), desiredTypes, excludedTypes);
-	}
-
-	/**
-	 * Return a modifier matching the passed-in key.
-	 *
-	 * @param aKey
-	 *          the key to match
-	 * @return the Equipment object
-	 */
-	public static EquipmentModifier getModifierKeyed(final String aKey) {
-		return modifierList.get(aKey);
-	}
-
-	/**
-	 * Add a piece of equipment to the equipment list.
-	 *
-	 * @param aEq
-	 *          the equipment to add
-	 * @return true if adding succeeded
-	 */
-	public static boolean addEquipment(final Equipment aEq) {
-		if (getEquipmentKeyed(aEq.getKeyName()) != null)
-		{
-			return false;
-		}
-
-
-		//
-		// Make sure all the equipment types are present in the sorted list
-		//
-		Equipment.getEquipmentTypes().addAll(aEq.typeList());
-
-		// Keep a reference to the equipment by name and key
-		equipmentNameMap.put(aEq.getName(), aEq);
-		equipmentKeyMap.put(aEq.getKeyName(), aEq);
-
-		return true;
-	}
-
-	/**
 	 * Automatically add equipment types as requested by user.
 	 *          TODO
 	 */
@@ -563,11 +415,8 @@ public class EquipmentList {
 
 	private static void autogenerateExoticMaterialsEquipment() {
 		if (SettingsHandler.isAutogenExoticMaterial()) {
-			final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
-			for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
-				final Map.Entry<String, Equipment> entry = i.next();
-				final Equipment eq = entry.getValue();
-
+			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+			{
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
 				//
@@ -592,11 +441,8 @@ public class EquipmentList {
 			for (int iPlus = 1; iPlus <= 5; iPlus++) {
 				final String aBonus = Delta.toString(iPlus);
 
-				final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
-				for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
-					final Map.Entry<String, Equipment> entry = i.next();
-					Equipment eq = entry.getValue();
-
+				for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+				{
 					// Only apply to non-magical
 					// Armor, Shield and Weapon
 					if (eq.isMagic() || eq.isMasterwork()
@@ -650,11 +496,8 @@ public class EquipmentList {
 
 	private static void autogenerateMasterWorkEquipment() {
 		if (SettingsHandler.isAutogenMasterwork()) {
-			final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
-			for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
-				final Map.Entry<String, Equipment> entry = i.next();
-				final Equipment eq = entry.getValue();
-
+			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+			{
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
 				//
@@ -690,7 +533,7 @@ public class EquipmentList {
 			// TODO - This should not be hardcoded to 10
 			final int[] gensizes = new int[10];
 
-			for ( final Race race : Globals.getAllRaces() )
+			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
 				/*
 				 * TODO This has pc == null, which could be a problem
@@ -704,11 +547,8 @@ public class EquipmentList {
 
 			int x = -1;
 
-			final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
-			for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
-				final Map.Entry<String, Equipment> entry = i.next();
-				final Equipment eq = entry.getValue();
-
+			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+			{
 				//
 				// Only apply to Armor, Shield and resizable items
 				//
@@ -740,7 +580,7 @@ public class EquipmentList {
 	}
 
 	static EquipmentModifier getQualifiedModifierNamed(final String aName, final List<String> aType) {
-		for (EquipmentModifier aEqMod : getModifierCollection())
+		for (EquipmentModifier aEqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
 		{
 			if (aEqMod.getDisplayName().equals(aName)) {
 				if (aEqMod.isType("All")) { return aEqMod; }
@@ -757,7 +597,7 @@ public class EquipmentList {
 	}
 
 	private static EquipmentModifier getModifierNamed(final String aName) {
-		for (EquipmentModifier eqMod : getModifierCollection())
+		for (EquipmentModifier eqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
 		{
 			if (eqMod.getDisplayName().equals(aName)) { return eqMod; }
 		}
@@ -766,7 +606,7 @@ public class EquipmentList {
 	}
 
 	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq) {
-		for (EquipmentModifier eqMod : getModifierCollection())
+		for (EquipmentModifier eqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
 		{
 			if (eqMod.getDisplayName().startsWith(aName)) {
 				for (String t : eq.typeList() )
@@ -848,7 +688,8 @@ public class EquipmentList {
 			// Change the names, to protect the innocent
 			//
 			final String sName = eq.nameItemFromModifiers(aPC);
-			final Equipment eqExists = getEquipmentKeyed(sName);
+			final Equipment eqExists = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class, sName);
 
 			if (eqExists != null) { return; }
 
@@ -869,7 +710,7 @@ public class EquipmentList {
 			//
 			Equipment.getEquipmentTypes().addAll(eq.typeList());
 
-			addEquipment(eq);
+			Globals.getContext().ref.importObject(eq);
 		} catch (NumberFormatException exception) {
 			Logging.errorPrint("createItem: exception: " + eq.getName());
 		}
@@ -903,27 +744,10 @@ public class EquipmentList {
 			newName.append(')');
 		}
 
-		final Equipment eq = getEquipmentKeyed(aName + newName);
+		final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, aName + newName);
 
 		return eq;
 	}
 
-	/**
-	 * @return size
-	 */
-	public static int size() {
-		return equipmentKeyMap.size();
-	}
-
-	/**
-	 * @param eq
-	 */
-	public static void remove(final Equipment eq) {
-		if (eq == null)
-		{
-			return;
-		}
-		equipmentKeyMap.remove(eq.getKeyName());
-		equipmentNameMap.remove(eq.getName());
-	}
 }

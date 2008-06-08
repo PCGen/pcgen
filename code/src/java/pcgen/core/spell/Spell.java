@@ -613,7 +613,7 @@ public final class Spell extends PObject
 
 			if ((lvl == null) && mType.equals("CLASS"))
 			{
-				final PCClass aClass = Globals.getClassKeyed(sType);
+				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, sType);
 
 				if (aClass != null)
 				{
@@ -732,7 +732,7 @@ public final class Spell extends PObject
 
 						if ((lvl == null) && objectType.equals("CLASS"))
 						{
-							final PCClass aClass = Globals.getClassKeyed(objectName);
+							final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, objectName);
 
 							if (aClass != null)
 							{

@@ -44,7 +44,7 @@ public final class UDam extends BonusObj
 		if (token.startsWith("CLASS=") || token.startsWith("CLASS."))
 		{
 			final String classKey = token.substring(6);
-			final PCClass aClass = Globals.getClassKeyed(classKey);
+			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 
 			if (aClass != null)
 			{
@@ -64,7 +64,7 @@ public final class UDam extends BonusObj
 	{
 		if (obj instanceof String)
 		{
-			final PCClass aClass = Globals.getClassKeyed((String) obj);
+			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, ((String) obj));
 			if (aClass != null)
 			{
 				replaceBonusInfo(obj, aClass);

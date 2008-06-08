@@ -109,7 +109,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				}
 				else
 				{
-					skill = Globals.getSkillKeyed(aSkillKey);
+					skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, aSkillKey);
 					if (skill != null
 						&& skill.getSafe(ObjectKey.USE_UNTRAINED)
 						&& skill.get(ObjectKey.KEY_STAT) != null)

@@ -71,7 +71,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(arcaneClass.getClassLevel(2), "CAST", "3,2,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(3), "KNOWN", "5,5,2,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(3), "CAST", "5,5,3,1");
-		Globals.getClassList().add(arcaneClass);
+		Globals.getContext().ref.importObject(arcaneClass);
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
@@ -80,7 +80,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getClassLevel(3), "CAST", "3,1,0");
-		Globals.getClassList().add(divineClass);
+		Globals.getContext().ref.importObject(divineClass);
 
 		psionicClass = new PCClass();
 		psionicClass.setName("TestPsion");
@@ -93,7 +93,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(psionicClass.getClassLevel(3), "KNOWN", "0,5,2");
 		context.unconditionallyProcess(psionicClass.getClassLevel(4), "KNOWN", "0,5,4");
 		context.unconditionallyProcess(psionicClass.getClassLevel(5), "KNOWN", "0,5,4,2");
-		Globals.getClassList().add(psionicClass);
+		Globals.getContext().ref.importObject(psionicClass);
 
 		super.setUp();
 	}

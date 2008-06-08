@@ -59,7 +59,7 @@ public class PreLanguageTester extends AbstractPrerequisiteTest implements
 		}
 		else
 		{
-			final Language aLang = Globals.getLanguageKeyed(requiredLang);
+			final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, requiredLang);
 			if (aLang != null)
 			{
 				if (character.getLanguagesList().contains(aLang))

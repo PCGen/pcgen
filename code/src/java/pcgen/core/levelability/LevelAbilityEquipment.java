@@ -27,6 +27,7 @@ package pcgen.core.levelability;
 
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -84,7 +85,9 @@ final class LevelAbilityEquipment extends LevelAbility
 	{
 		for ( String equipmentName : selectedList )
 		{
-			final Equipment aEquipment = EquipmentList.getEquipmentNamed(equipmentName);
+			final Equipment aEquipment = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Equipment.class,
+							equipmentName);
 
 			if (aEquipment == null)
 			{
@@ -126,7 +129,9 @@ final class LevelAbilityEquipment extends LevelAbility
 		else
 		{
 			final String equipmentName = aToken;
-			final Equipment aEquipment = EquipmentList.getEquipmentNamed(equipmentName);
+			final Equipment aEquipment = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Equipment.class,
+							equipmentName);
 
 			if (aEquipment == null)
 			{

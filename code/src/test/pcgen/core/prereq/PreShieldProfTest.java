@@ -305,16 +305,16 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		ShieldProf lightWood = new ShieldProf();
 		lightWood.setName("Light Wooden Shield");
 		lightWood.setTypeInfo("Light");
-		Globals.addShieldProf(lightWood);
+		Globals.getContext().ref.importObject(lightWood);
 
 		ShieldProf heavyWood = new ShieldProf();
 		heavyWood.setName("Heavy Wooden Shield");
 		heavyWood.setTypeInfo("Heavy");
-		Globals.addShieldProf(heavyWood);
+		Globals.getContext().ref.importObject(heavyWood);
 
 		ShieldProf heavySteel = new ShieldProf();
 		heavySteel.setName("Heavy Steel Shield");
 		heavySteel.setTypeInfo("Heavy");
-		Globals.addShieldProf(heavySteel);
+		Globals.getContext().ref.importObject(heavySteel);
 	}
 }

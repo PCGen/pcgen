@@ -31,7 +31,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -114,8 +114,9 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
 				}
 				else
 				{
-					final Equipment eq =
-							EquipmentList.getEquipmentNamed(wp.getKeyName());
+					final Equipment eq = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Equipment.class,
+									wp.getKeyName());
 					if (eq != null)
 					{
 						if (eq.isType(requiredType))

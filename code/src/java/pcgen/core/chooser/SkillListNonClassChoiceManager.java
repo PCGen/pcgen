@@ -83,7 +83,9 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 
 		else // if it was LIST
 		{
-			for ( Skill skill : Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) )
+			for ( Skill skill : Globals.getObjectsOfVisibility(Globals
+					.getContext().ref.getConstructedCDOMObjects(Skill.class),
+					Visibility.DISPLAY_ONLY) )
 			{
 				SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
 

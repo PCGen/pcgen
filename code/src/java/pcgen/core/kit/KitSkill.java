@@ -327,7 +327,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			{
 				final String skillType = skillKey.substring(5);
 
-				for ( Skill checkSkill : Globals.getSkillList() )
+				for ( Skill checkSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 				{
 					if (checkSkill.isType(skillType))
 					{
@@ -337,7 +337,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			}
 			else
 			{
-				Skill skill = Globals.getSkillKeyed(skillKey);
+				Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
 				skillsOfType.add(skill);
 			}
 		}

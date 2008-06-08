@@ -1058,7 +1058,7 @@ public final class PCTemplate extends PObject
 		final StringTokenizer strTok = new StringTokenizer(templateList, "|");
 		while (strTok.hasMoreTokens())
 		{
-			PCTemplate template = Globals.getTemplateKeyed(strTok.nextToken());
+			PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, strTok.nextToken());
 			if (template != null
 				&& PrereqHandler.passesAll(template.getPreReqList(), aPC,
 					template))

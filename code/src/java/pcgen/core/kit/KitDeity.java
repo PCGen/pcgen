@@ -151,7 +151,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
-		theDeity = Globals.getDeityKeyed(theDeityKey);
+		theDeity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, theDeityKey);
 		if (theDeity == null)
 		{
 			warnings.add("DEITY: Could not find deity '" + getDeityKey()
@@ -236,7 +236,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		{
 			final String domainKey = e.next();
 
-			Domain domain = Globals.getDomainKeyed(domainKey);
+			Domain domain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 			if (domain != null)
 			{
 				if (!PrereqHandler.passesAll(domain.getPreReqList(), aPC, domain))

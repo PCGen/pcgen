@@ -114,16 +114,16 @@ public class PreLangTest extends AbstractCharacterTestCase
 		elven.setName("Elven");
 		elven.setKeyName("KEY_Elven");
 		elven.setTypeInfo("Spoken.Written");
-		Globals.getLanguageList().add(elven);
+		Globals.getContext().ref.importObject(elven);
 
 		dwarven.setName("Dwarven");
 		dwarven.setKeyName("KEY_Dwarven");
 		dwarven.setTypeInfo("Spoken.Written");
-		Globals.getLanguageList().add(dwarven);
+		Globals.getContext().ref.importObject(dwarven);
 
 		halfling.setName("Halfling");
 		halfling.setKeyName("KEY_Halfling");
 		halfling.setTypeInfo("Spoken");
-		Globals.getLanguageList().add(halfling);
+		Globals.getContext().ref.importObject(halfling);
 	}
 }

@@ -223,7 +223,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		GameMode gamemode = SettingsHandler.getGame();
 		race.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Medium")));
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 		
 		template.put(FormulaKey.SIZE, new FixedSizeFormula(SettingsHandler.getGame().getSizeAdjustmentNamed("L")));
 	}

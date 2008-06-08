@@ -86,7 +86,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		CharacterDomain cd = new CharacterDomain();
-		cd.setDomain(Globals.getDomainKeyed("Good"), character);
+		cd.setDomain(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, "Good"), character);
 		character.addCharacterDomain(cd);
 
 		assertTrue("Character has Good domain", PrereqHandler.passes(prereq,
@@ -116,7 +116,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		CharacterDomain cd = new CharacterDomain();
-		cd.setDomain(Globals.getDomainKeyed("Good"), character);
+		cd.setDomain(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, "Good"), character);
 		character.addCharacterDomain(cd);
 
 		assertTrue("Character has Good domain", PrereqHandler.passes(prereq,
@@ -130,7 +130,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		prereq = factory.parse("PREDOMAIN:2,Good,Animal");
 
 		CharacterDomain cd1 = new CharacterDomain();
-		cd1.setDomain(Globals.getDomainKeyed("Animal"), character);
+		cd1.setDomain(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, "Animal"), character);
 		character.addCharacterDomain(cd1);
 
 		assertTrue("Character's deity has Good and animal domains",
@@ -156,7 +156,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		CharacterDomain cd = new CharacterDomain();
-		cd.setDomain(Globals.getDomainKeyed("Good"), character);
+		cd.setDomain(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, "Good"), character);
 		character.addCharacterDomain(cd);
 
 		assertTrue("Character has one domain", PrereqHandler.passes(prereq,
@@ -168,7 +168,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 				prereq, character, null));
 		
 		CharacterDomain cd1 = new CharacterDomain();
-		cd1.setDomain(Globals.getDomainKeyed("Animal"), character);
+		cd1.setDomain(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, "Animal"), character);
 		character.addCharacterDomain(cd1);
 		
 		assertTrue("Character has two domains", PrereqHandler.passes(
@@ -182,11 +182,11 @@ public class PreDomainTest extends AbstractCharacterTestCase
 
 		Domain goodDomain = new Domain();
 		goodDomain.setName("Good");
-		Globals.addDomain(goodDomain);
+		Globals.getContext().ref.importObject(goodDomain);
 
 		Domain animalDomain = new Domain();
 		animalDomain.setName("Animal");
-		Globals.addDomain(animalDomain);
+		Globals.getContext().ref.importObject(animalDomain);
 
 		deity = new Deity();
 		deity.setName("Test Deity");

@@ -225,7 +225,7 @@ public class ClassData
 	{
 		if ( theDeityWeights == null )
 		{
-			for ( final Deity deity : Globals.getDeityList() )
+			for ( final Deity deity : Globals.getContext().ref.getConstructedCDOMObjects(Deity.class) )
 			{
 				addDeity(deity, 1);
 			}
@@ -258,8 +258,7 @@ public class ClassData
 		if ( domains == null )
 		{
 			domains = new WeightedList<Domain>();
-			
-			final Deity deity = Globals.getDeityKeyed(aDeityKey);
+			Deity deity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, aDeityKey);
 			for (CDOMReference<Domain> deityDomains : deity.getSafeListMods(Deity.DOMAINLIST))
 			{
 				domains.addAll(deity.getListAssociations(Deity.DOMAINLIST,
@@ -385,7 +384,7 @@ public class ClassData
 	{
 		if ( theSubClassWeights == null )
 		{
-			final PCClass pcClass = Globals.getClassKeyed( theClassKey );
+			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, theClassKey);
 			if (pcClass != null)
 			{
 				final List<SubClass> subClasses = pcClass.getSubClassList();

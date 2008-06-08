@@ -917,7 +917,7 @@ final class PCGVer2Creator implements IOConstants
 
 			if (pcClass == null)
 			{
-				pcClass = Globals.getClassKeyed(classKeyName);
+				pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 
 				if (pcClass != null)
 				{

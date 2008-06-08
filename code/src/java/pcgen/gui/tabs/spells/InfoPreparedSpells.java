@@ -1268,7 +1268,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		}
 
 		// added to prevent spellbooks being given the same name as a class
-		for (PCClass current : Globals.getClassList())
+		for (PCClass current : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
 			if ((aString.equals(current.getKeyName())))
 			{

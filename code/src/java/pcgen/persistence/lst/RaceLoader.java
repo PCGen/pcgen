@@ -32,7 +32,6 @@ import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -150,24 +149,6 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 	@Override
 	protected Race getObjectKeyed(String aKey)
 	{
-		return Globals.getRaceKeyed(aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
-	 */
-	@Override
-	protected void performForget(final Race objToForget)
-	{
-		Globals.removeRaceKeyed(objToForget.getKeyName());
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void addGlobalObject(final PObject pObj)
-	{
-		Globals.addRace((Race) pObj);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, aKey);
 	}
 }

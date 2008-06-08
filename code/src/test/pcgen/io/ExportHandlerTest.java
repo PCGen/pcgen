@@ -142,7 +142,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[0].put(ObjectKey.KEY_STAT, intStat);
 		knowledge[0].modRanks(8.0, myClass, true, character);
 		knowledge[0].setOutputIndex(2);
-		Globals.getSkillList().add(knowledge[0]);
+		Globals.getContext().ref.importObject(knowledge[0]);
 		character.addSkill(knowledge[0]);
 
 		knowledge[1] = new Skill();
@@ -152,7 +152,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[1].put(ObjectKey.KEY_STAT, intStat);
 		knowledge[1].modRanks(5.0, myClass, true, character);
 		knowledge[1].setOutputIndex(3);
-		Globals.getSkillList().add(knowledge[1]);
+		Globals.getContext().ref.importObject(knowledge[1]);
 		character.addSkill(knowledge[1]);
 
 		tumble = new Skill();
@@ -162,7 +162,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tumble.put(ObjectKey.KEY_STAT, dexStat);
 		tumble.modRanks(7.0, myClass, true, character);
 		tumble.setOutputIndex(4);
-		Globals.getSkillList().add(tumble);
+		Globals.getContext().ref.importObject(tumble);
 		character.addSkill(tumble);
 
 		balance = new Skill();
@@ -174,7 +174,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance.setOutputIndex(1);
 		balance
 			.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
-		Globals.getSkillList().add(balance);
+		Globals.getContext().ref.importObject(balance);
 		character.addSkill(balance);
 
 		character.calcActiveBonuses();

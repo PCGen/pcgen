@@ -89,12 +89,6 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 		myChar.incrementClassLevel(1, pcClass);
 	}
 
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-		EquipmentList.clearEquipmentMap();
-	}
-
 	/**
 	 * Test the constructor
 	 */
@@ -218,11 +212,15 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 
 			is(avail.size(), eq(4), "Available choices is correct size");
 			is(selected.size(), eq(0), "Selected choices is correct size");
-
-			is(avail.get(0).toString(), strEq("Bluff"));
-			is(avail.get(1).toString(), strEq("Listen"));
-			is(avail.get(2).toString(), strEq("Knowledge (Arcana)"));
-			is(avail.get(3).toString(), strEq("Knowledge (Dungeoneering)"));
+			List<String> inAvail = new ArrayList<String>(4);
+			for (Object o : avail)
+			{
+				inAvail.add(o.toString());
+			}
+			assertTrue(inAvail.contains("Bluff"));
+			assertTrue(inAvail.contains("Listen"));
+			assertTrue(inAvail.contains("Knowledge (Arcana)"));
+			assertTrue(inAvail.contains("Knowledge (Dungeoneering)"));
 		}
 		catch (IllegalAccessException e)
 		{

@@ -91,18 +91,18 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Medium")));
-		Globals.addRace(nymphRace);
+		Globals.getContext().ref.importObject(nymphRace);
 
 		// Create the humanoid class
 		humanoidClass = new PCClass();
 		humanoidClass.setName("Humanoid");
 		humanoidClass.setTypeInfo("Monster");
-		Globals.getClassList().add(humanoidClass);
+		Globals.getContext().ref.importObject(humanoidClass);
 
 		nymphClass = new PCClass();
 		nymphClass.setName("Nymph");
 		nymphClass.setTypeInfo("Monster");
-		Globals.getClassList().add(nymphClass);
+		Globals.getContext().ref.importObject(nymphClass);
 
 		megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
@@ -110,7 +110,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
-		Globals.getClassList().add(megaCasterClass);
+		Globals.getContext().ref.importObject(megaCasterClass);
 
 	}
 

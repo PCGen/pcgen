@@ -97,12 +97,6 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 			true, true);
 	}
 
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-		EquipmentList.clearEquipmentMap();
-	}
-
 	/**
 	 * Test the constructor
 	 */

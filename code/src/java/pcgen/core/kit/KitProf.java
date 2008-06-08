@@ -251,7 +251,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		//
 		for ( String profKey : xs )
 		{
-			final WeaponProf aProf = Globals.getWeaponProfKeyed(profKey);
+			final WeaponProf aProf = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
 
 			if (aProf != null)
 			{

@@ -59,13 +59,15 @@ public class SkillsNamedChoiceManager extends
 	@Override
 	public Collection<Skill> getAllObjects()
 	{
-		return Globals.getPartialSkillList(Visibility.DISPLAY_ONLY);
+		return Globals.getObjectsOfVisibility(Globals.getContext().ref
+				.getConstructedCDOMObjects(Skill.class),
+				Visibility.DISPLAY_ONLY);
 	}
 
 	@Override
 	public Skill getSpecificObject(String key)
 	{
-		return Globals.getSkillKeyed(key);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, key);
 	}
 
 	@Override

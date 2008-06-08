@@ -136,7 +136,7 @@ public final class VariableKey implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			return null;
+			return Collections.emptyList();
 		}
 		return Collections.unmodifiableCollection(typeMap.values());
 	}

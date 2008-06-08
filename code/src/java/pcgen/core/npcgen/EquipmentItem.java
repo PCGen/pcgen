@@ -6,6 +6,7 @@ import java.util.List;
 import pcgen.base.util.WeightedList;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
@@ -45,7 +46,8 @@ public class EquipmentItem
 					Logging.debugPrint("Selected " + subst + " as choice");
 					final String equipKey = theVariableEquipment.replaceFirst("%CHOICE", subst); //$NON-NLS-1$
 					Logging.debugPrint("\tUsing " + equipKey + " as the equipment");
-					Equipment eq = EquipmentList.getEquipmentKeyed(equipKey);
+					Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+							Equipment.class, equipKey);
 					eq = eq.clone();
 					int quantity = 1;
 					if ( theQuantity != null )

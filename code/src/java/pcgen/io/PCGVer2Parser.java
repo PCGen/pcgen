@@ -64,6 +64,7 @@ import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
+import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -260,7 +261,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private PCTemplate addKeyedTemplate(final String templateKey)
 	{
 		PCTemplate aPCTemplate =
-				Globals.getTemplateKeyed(EntityEncoder.decode(templateKey));
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, EntityEncoder.decode(templateKey));
 
 		if (aPCTemplate != null)
 		{
@@ -1798,8 +1799,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			element = it.next();
 
 			aPCClass =
-					Globals.getClassKeyed(EntityEncoder.decode(element
-						.getText()));
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, EntityEncoder.decode(element
+					.getText()));
 
 			if (aPCClass != null)
 			{
@@ -1950,8 +1951,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		final String deityKey =
 				EntityEncoder.decode(tokens.getElements().get(0).getText());
-		final Deity aDeity = Globals.getDeityKeyed(deityKey);
-
+		
+		Deity aDeity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Deity.class, deityKey);
 		if (aDeity != null)
 		{
 			thePC.setDeity(aDeity);
@@ -1999,7 +2001,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			// the first element defines the domain name
 			final String domainKey = EntityEncoder.decode(element.getText());
-			final Domain aDomain = Globals.getDomainKeyed(domainKey);
+			final Domain aDomain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 
 			if ((aDomain == null) && (!Constants.s_NONE.equals(domainKey)))
 			{
@@ -2783,7 +2785,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		/** final String kit = stok.nextToken(); */
 
 		final Kit aKit =
-				Globals.getKitKeyed(line.substring(TAG_KIT.length() + 1));
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(Kit.class, line.substring(TAG_KIT.length() + 1));
 
 		if (aKit == null)
 		{
@@ -2825,7 +2827,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		for (PCGElement element : tokens.getElements())
 		{
-			final Language aLang = Globals.getLanguageKeyed(EntityEncoder
+			final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, EntityEncoder
 				.decode(element.getText()));
 			if (aLang == null)
 			{
@@ -3100,7 +3102,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				new StringTokenizer(line.substring(TAG_RACE.length() + 1),
 					TAG_SEPARATOR, false);
 		final String race_name = EntityEncoder.decode(sTok.nextToken());
-		final Race aRace = Globals.getRaceKeyed(race_name);
+		final Race aRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, race_name);
 
 		if (aRace != null)
 		{
@@ -3254,7 +3256,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (aSkill == null)
 			{
-				aSkill = Globals.getSkillKeyed(skillKey);
+				aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
 
 				if (aSkill != null)
 				{
@@ -3889,7 +3891,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					 * the spells by hand? - look at Rev 6416 and older for this
 					 * behavior, but I don't understand it - thpr, 1 Jun 08
 					 */
-					PCClass spellClass = Globals.getClassKeyed(csl.getLSTformat());
+					PCClass spellClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, csl.getLSTformat());
 					if (spellClass != null)
 					{
 						aClass.getSpellSupport().addSpells(-1,
@@ -4058,9 +4060,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								final String ownedTemplateKey =
 										EntityEncoder
 											.decode(subChild.getText());
-								final PCTemplate ownedTemplate =
-										Globals
-											.getTemplateKeyed(ownedTemplateKey);
+								final PCTemplate ownedTemplate = Globals
+										.getContext().ref
+										.silentlyGetConstructedCDOMObject(
+												PCTemplate.class,
+												ownedTemplateKey);
 								if (ownedTemplate != null)
 								{
 									aPCTemplate.addTemplate(ownedTemplateKey);
@@ -4341,7 +4345,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		// TODO This is totally bogus.  This will never really work properly.
 		// This logic should be deprecated and removed.
-		if (Globals.getWeaponProfKeyed(profKey) == null)
+		if (Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey) == null)
 		{
 			int idx = profKey.indexOf("1-H"); //$NON-NLS-1$
 
@@ -4486,11 +4490,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// such as Charges on a wand, etc
 			//
 			// Make sure that we are not picking up custom items!
-			aEquip = EquipmentList.getEquipmentKeyedNoCustom(itemKey);
+			aEquip = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, itemKey);
 			if (aEquip != null)
 			{
-				// standard item
-				aEquip = aEquip.clone();
+				if (aEquip.isType(Constants.s_CUSTOM))
+				{
+					aEquip = null;
+				}
+				else
+				{
+					// standard item
+					aEquip = aEquip.clone();
+				}
 			}
 			if (line.indexOf(TAG_CUSTOMIZATION) >= 0)
 			{
@@ -4531,22 +4542,28 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 						else
 						{
-							// Make sure we are not
-							// getting custom item
-							final Equipment aEquip2 =
-									EquipmentList
-										.getEquipmentKeyedNoCustom(baseItemKey);
+							// Make sure that we are not picking up custom items!
+							Equipment aEquip2 = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, baseItemKey);
 							if (aEquip2 != null)
 							{
-								aEquip = aEquip2.clone();
-								aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
-								aEquip.setOutputName(Constants.EMPTY_STRING);
-								if (!aEquip.isType(Constants.s_CUSTOM))
+								// Make sure we are not getting a custom item
+								if (aEquip2.isType(Constants.s_CUSTOM))
 								{
-									aEquip.addMyType(Constants.s_CUSTOM);
+									aEquip2 = null;
 								}
-								EquipmentList.addEquipment(aEquip
-									.clone());
+								else
+								{
+									// standard item
+									aEquip = aEquip2.clone();
+									aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
+									aEquip.setOutputName(Constants.EMPTY_STRING);
+									if (!aEquip.isType(Constants.s_CUSTOM))
+									{
+										aEquip.addMyType(Constants.s_CUSTOM);
+									}
+									Globals.getContext().ref.importObject(aEquip
+										.clone());
+								}
 							}
 						}
 
@@ -4702,7 +4719,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (eqI == null)
 			{
-				eqI = EquipmentList.getEquipmentNamed(itemKey);
+				eqI = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, itemKey);
 			}
 
 			if (eqI == null)
@@ -4886,7 +4903,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (aEquip == null)
 				{
-					aEquip = EquipmentList.getEquipmentNamed(cKey);
+					aEquip = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, cKey);
 				}
 
 				if (aEquip != null)
@@ -4914,7 +4931,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (aTemplate == null)
 				{
-					aTemplate = Globals.getTemplateKeyed(cKey);
+					aTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, cKey);
 				}
 
 				if (aTemplate != null)
@@ -4929,7 +4946,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (aSkill == null)
 				{
-					aSkill = Globals.getSkillKeyed(cKey);
+					aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, cKey);
 				}
 
 				if (aSkill != null)

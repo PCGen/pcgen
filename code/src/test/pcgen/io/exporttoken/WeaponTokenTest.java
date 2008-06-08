@@ -135,7 +135,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
 		myClass.addBonusList(babClassBonus);
-		Globals.getClassList().add(myClass);
+		Globals.getContext().ref.importObject(myClass);
 		character.incrementClassLevel(1, myClass, true);
 
 		character.calcActiveBonuses();
@@ -166,13 +166,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponProf wp = new WeaponProf();
 		wp.setName("DoubleWpn");
 		wp.put(IntegerKey.HANDS, Constants.HANDS_SIZEDEPENDENT);
-		Globals.addWeaponProf(wp);
+		Globals.getContext().ref.importObject(wp);
 
 		wp = new WeaponProf();
 		wp.setName("Sword (Bastard)");
 		wp.setKeyName("KEY_Sword (Bastard)");
 		wp.setTypeInfo("MARTIAL.EXOTIC");
-		Globals.addWeaponProf(wp);
+		Globals.getContext().ref.importObject(wp);
 		character.addWeaponProf(wp.getKeyName());
 
 		bastardSword = new Equipment();
@@ -191,7 +191,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.setName("Longsword");
 		wp.setKeyName("KEY_LONGSWORD");
 		wp.setTypeInfo("MARTIAL");
-		Globals.addWeaponProf(wp);
+		Globals.getContext().ref.importObject(wp);
 		character.addWeaponProf(wp.getKeyName());
 
 		largeSword = new Equipment();
@@ -244,7 +244,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.setKeyName("SillyBite");
 		//wp.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		wp.setTypeInfo("Natural");
-		Globals.addWeaponProf(wp);
+		Globals.getContext().ref.importObject(wp);
 		character.addWeaponProf(wp.getKeyName());
 
 		bite = new Equipment();
@@ -289,7 +289,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus1");
 		eqMod.addBonusList("WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
-		EquipmentList.addEquipmentModifier(eqMod);
+		Globals.getContext().ref.importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Plus 2 Enhancement");
 		eqMod.setKeyName("PLUS2W");
@@ -299,14 +299,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus2");
 		eqMod.addBonusList("WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement");
-		EquipmentList.addEquipmentModifier(eqMod);
+		Globals.getContext().ref.importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Masterwork");
 		eqMod.setKeyName("MWORKW");
 		eqMod.setTypeInfo("Ammunition.Weapon");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
 		eqMod.addBonusList("WEAPON|TOHIT|1|TYPE=Enhancement");
-		EquipmentList.addEquipmentModifier(eqMod);
+		Globals.getContext().ref.importObject(eqMod);
 	}
 
 	/*

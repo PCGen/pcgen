@@ -545,9 +545,9 @@ public class SpellMemToken extends Token
 				classKey = classKey.substring(6);
 				if (!"ALL".equals(classKey))
 				{
-					if (Globals.getClassKeyed(classKey) != null)
+					if (Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey) != null)
 					{
-						classKey = Globals.getClassKeyed(classKey).getAbbrev();
+						classKey = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey).getAbbrev();
 					}
 					else
 					{

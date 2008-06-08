@@ -23,11 +23,12 @@
  */
 package pcgen.cdom.util;
 
-import pcgen.base.util.HashMapToList;
-import pcgen.cdom.enumeration.ListKey;
-
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.enumeration.ListKey;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -114,7 +115,7 @@ public class ListKeyMapToList
 	 *            A List containing the items to be added to the List for the
 	 *            given key.
 	 */
-	public <T> void addAllToListFor(ListKey<T> key, List<T> list)
+	public <T> void addAllToListFor(ListKey<T> key, Collection<T> list)
 	{
 		map.addAllToListFor(key, list);
 	}

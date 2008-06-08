@@ -167,7 +167,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
-		theClass = Globals.getClassKeyed(theClassName);
+		theClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, theClassName);
 		if (theClass == null)
 		{
 			warnings.add("LEVELABILITY: Could not find class \"" + theClassName

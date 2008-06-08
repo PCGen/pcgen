@@ -1478,7 +1478,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					return;
 				}
 
-				Globals.getDeityList().remove(aDeity);
+				Globals.getContext().ref.forget(aDeity);
 			}
 			else
 			{
@@ -2094,32 +2094,32 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				case GuiConstants.INFODOMAIN_VIEW_NAME:
 					setRoot(InfoViewModelBuilder.buildNameView(InfoDomain.this,
 						pc,
-						Globals.getDeityList(),
+						Globals.getContext().ref.getConstructedCDOMObjects(Deity.class),
 						getQFilter()));
 					break; // end VIEW_NAME
 
 				case GuiConstants.INFODOMAIN_VIEW_ALIGNMENT:
 					setRoot(InfoViewModelBuilder.buildAlignmentView(InfoDomain.this,
 						pc,
-						Globals.getDeityList()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Deity.class)));
 					break; // end VIEW_ALIGNMENT
 
 				case GuiConstants.INFODOMAIN_VIEW_DOMAIN:
 					setRoot(InfoViewModelBuilder.buildDomainView(InfoDomain.this,
 						pc,
-						Globals.getDeityList()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Deity.class)));
 					break; // end VIEW_DOMAIN
 
 				case GuiConstants.INFODOMAIN_VIEW_PANTHEON:
 					setRoot(InfoViewModelBuilder.buildPantheonView(InfoDomain.this,
 						pc,
-						Globals.getDeityList()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Deity.class)));
 					break; // end VIEW_PANTHEON
 
 				case GuiConstants.INFODOMAIN_VIEW_SOURCE:
 					setRoot(InfoViewModelBuilder.buildSourceView(InfoDomain.this,
 						pc,
-						Globals.getDeityList()));
+						Globals.getContext().ref.getConstructedCDOMObjects(Deity.class)));
 					break; // end VIEW_SOURCE
 
 				default:
@@ -2466,7 +2466,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					if (domainKey != null)
 					{
 						final Domain aDomain =
-								Globals.getDomainKeyed(domainKey);
+								Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 						setDomainInfoText(aDomain, qualDomain.getPreReqList());
 					}
 

@@ -323,7 +323,7 @@ final class GameModes extends JMenu
 			if (!Globals.isInGameMode(tempGameMode))
 			{
 				SettingsHandler.setGame(tempGameMode);
-				Globals.loadAttributeNames();
+				Globals.createEmptyRace();
 				updateMenu();
 				((MainSource) PCGen_Frame1.getBaseTabbedPane().getComponent(0)).changedGameMode();
 			}
@@ -371,7 +371,6 @@ final class GameModes extends JMenu
 					ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.WARNING);
 				}
 
-				Globals.sortCampaigns();
 				pcgen.gui.PCGen_Frame1.getInst().getMainSource().updateLoadedCampaignsUI();
 
 				// Show that we are done

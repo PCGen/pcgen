@@ -29,9 +29,9 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
+import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -100,7 +100,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		masterwork.setTypeInfo("Armor.Shield");
 		masterwork.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
 		masterwork.addBonusList("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
-		EquipmentList.addEquipmentModifier(masterwork);
+		Globals.getContext().ref.importObject(masterwork);
 
 		plus1 = new EquipmentModifier();
 		plus1.setName("Plus 1 Enhancement");
@@ -111,7 +111,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Plus1");
 		plus1.addBonusList("COMBAT|AC|1|TYPE=Armor.REPLACE");
-		EquipmentList.addEquipmentModifier(plus1);
+		Globals.getContext().ref.importObject(plus1);
 
 		// Load AC definitions - but only once
 		final GameMode gamemode = SettingsHandler.getGame();
@@ -129,8 +129,8 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 */
 	protected void tearDown() throws Exception
 	{
-		EquipmentList.removeEquipmentModifier(masterwork);
-		EquipmentList.removeEquipmentModifier(plus1);
+		Globals.getContext().ref.forget(masterwork);
+		Globals.getContext().ref.forget(plus1);
 		masterwork = null;
 		plus1 = null;
 

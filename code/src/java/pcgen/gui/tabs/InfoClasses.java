@@ -42,6 +42,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -925,7 +926,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		List<String> typeList = new ArrayList<String>();
 		List<String> sourceList = new ArrayList<String>();
 
-		for (PCClass aClass : Globals.getClassList())
+		for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
 			for (String type : aClass.getTypeList(false))
 			{
@@ -1930,11 +1931,11 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		 **/
 		private void resetModel(int mode, boolean available)
 		{
-			List<PCClass> classList;
+			Collection<PCClass> classList;
 
 			if (available)
 			{
-				classList = Globals.getClassList();
+				classList = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class);
 			}
 			else
 			{

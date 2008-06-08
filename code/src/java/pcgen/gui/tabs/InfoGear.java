@@ -51,7 +51,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.EventObject;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -96,7 +95,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Quality;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -1164,7 +1162,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				final String newKey =
 						selectedEquipment.createKeyForAutoResize(newSize);
 
-				Equipment potential = EquipmentList.getEquipmentKeyed(newKey);
+				Equipment potential = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Equipment.class, newKey);
 
 				if (newKey.equals(existingKey))
 				{
@@ -1182,7 +1181,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 				{
 					final String newName =
 							selectedEquipment.createNameForAutoResize(newSize);
-					potential = EquipmentList.getEquipmentNamed(newName);
+					potential = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Equipment.class,
+									newName);
 
 					if (potential != null)
 					{
@@ -1212,7 +1213,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 							newEq.addMyType(Constants.s_CUSTOM);
 						}
 
-						EquipmentList.addEquipment(newEq);
+						Globals.getContext().ref.importObject(newEq);
 						refreshAvailableList(newEq, false, true);
 
 						selectedEquipment = newEq;
@@ -1614,7 +1615,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				return;
 			}
 
-			aEq = EquipmentList.getEquipmentKeyed(aEq.getKeyName());
+			aEq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class, aEq.getKeyName());
 
 			if (aEq != null)
 			{
@@ -1628,7 +1630,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					return;
 				}
 
-				EquipmentList.remove(aEq);
+				Globals.getContext().ref.forget(aEq);
 
 				//
 				// This will unexpand all expanded nodes
@@ -2089,12 +2091,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 			sourceList.add(Constants.s_CUSTOMSOURCE);
 		}
 
-		for (Iterator<Map.Entry<String, Equipment>> i =
-				EquipmentList.getEquipmentListIterator(); i.hasNext();)
+		for (Equipment bEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 		{
-			Map.Entry<String, Equipment> entry = i.next();
-			final Equipment bEq = entry.getValue();
-			
 			List<String> typeList = bEq.getTypeList(true);
 
 			if (typeList.isEmpty())
@@ -2167,11 +2165,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			aList.clear();
 
-			for (Iterator<Map.Entry<String, Equipment>> e =
-					EquipmentList.getEquipmentListIterator(); e.hasNext();)
+			for (Equipment bEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 			{
-				Map.Entry<String, Equipment> entry = e.next();
-				final Equipment bEq = entry.getValue();
 				final String topType = cc[i].toString();
 
 				if (!bEq.isType(topType))
@@ -3939,7 +3934,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		private Equipment getBaseEquipment(Equipment selectedEquipment)
 		{
 			String keyName = selectedEquipment.getKeyName();
-			Equipment baseEquipment = EquipmentList.getEquipmentNamed(keyName);
+			Equipment baseEquipment = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Equipment.class, keyName);
 
 			if (baseEquipment == null)
 			{
@@ -4229,7 +4225,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			//TODO (DJ) Equipment fix, make this more efficient
 			if (available)
 			{
-				eqList = EquipmentList.getEquipmentList();
+				eqList = Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class);
 			}
 			else
 			{

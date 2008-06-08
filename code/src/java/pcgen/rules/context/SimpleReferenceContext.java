@@ -114,10 +114,9 @@ public class SimpleReferenceContext
 		return getRefSupport(c).constructCDOMObject(val);
 	}
 
-	public <T extends CDOMObject> void forgetCDOMObjectKeyed(Class<T> cl,
-			String forgetKey)
+	public <T extends CDOMObject> boolean forgetCDOMObject(T obj)
 	{
-		getRefSupport(cl).forgetCDOMObjectKeyed(forgetKey);
+		return getRefSupport((Class<T>) obj.getClass()).forgetObject(obj);
 	}
 
 	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(

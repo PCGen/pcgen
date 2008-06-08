@@ -151,7 +151,7 @@ public final class InfoViewModelBuilder
 
     public static PObjectNode buildAllRaceTypesView(Filterable filter, PlayerCharacter pc)
     {
-	return buildAllRaceTypesView(filter, pc, Globals.getAllRaces());
+	return buildAllRaceTypesView(filter, pc, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
     }
 
     public static PObjectNode buildAllRaceTypesView(Filterable filter, PlayerCharacter pc, Collection<Race> races)
@@ -190,7 +190,7 @@ public final class InfoViewModelBuilder
 
     public static PObjectNode buildRaceTypeView(Filterable filter, PlayerCharacter pc)
     {
-	return buildRaceTypeView(filter, pc, Globals.getAllRaces());
+	return buildRaceTypeView(filter, pc, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
     }
 
     public static PObjectNode buildRaceTypeView(Filterable filter, PlayerCharacter pc, Collection<Race> races)
@@ -218,7 +218,7 @@ public final class InfoViewModelBuilder
 
     public static PObjectNode buildRaceTypeSubTypeView(Filterable filter, PlayerCharacter pc)
     {
-	return buildRaceTypeSubTypeView(filter, pc, Globals.getAllRaces());
+	return buildRaceTypeSubTypeView(filter, pc, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
     }
 
     public static PObjectNode buildRaceTypeSubTypeView(Filterable filter, PlayerCharacter pc, Collection<Race> races)

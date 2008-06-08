@@ -41,7 +41,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -128,7 +127,7 @@ public class TestHelper
 				throw new UnreachableError(e);
 			}
 			eqLoader.parseLine(Globals.getContext(), eq, input, source);
-			EquipmentList.addEquipment(eq);
+			Globals.getContext().ref.importObject(eq);
 			return true;
 		}
 		catch (Exception e)
@@ -213,7 +212,7 @@ public class TestHelper
 		aSkill.put(ObjectKey.KEY_STAT, intStat);
 		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
 		aSkill.put(ObjectKey.ARMOR_CHECK, armorCheck);
-		Globals.getSkillList().add(aSkill);
+		Globals.getContext().ref.importObject(aSkill);
 	}
 
 	/**
@@ -286,7 +285,7 @@ public class TestHelper
 		aWpnProf.setName(name);
 		aWpnProf.setKeyName("KEY_" + name);
 		aWpnProf.setTypeInfo(type);
-		Globals.addWeaponProf(aWpnProf);
+		Globals.getContext().ref.importObject(aWpnProf);
 		return aWpnProf;
 	}
 
@@ -316,7 +315,7 @@ public class TestHelper
 			Logging.errorPrint("Caught " + e);
 		}
 
-		Globals.addRace(aRace);
+		Globals.getContext().ref.importObject(aRace);
 		return aRace;
 	}
 
@@ -331,7 +330,7 @@ public class TestHelper
 		aClass.setName(name);
 		aClass.setKeyName("KEY_" + name);
 
-		Globals.getClassList().add(aClass);
+		Globals.getContext().ref.importObject(aClass);
 		return aClass;
 	}
 	

@@ -72,7 +72,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -260,7 +259,8 @@ final class EqBuilder extends JPanel
 			//
 			if (!sBaseKey.equals(aEq.getName()))
 			{
-				baseEquipment = EquipmentList.getEquipmentKeyed(sBaseKey);
+				baseEquipment = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Equipment.class, sBaseKey);
 			}
 			else
 			{
@@ -287,7 +287,7 @@ final class EqBuilder extends JPanel
 		//
 		if ((aEq.getEqModifierList(true).size() == 0) && (aEq.getEqModifierList(false).size() == 0))
 		{
-			for (EquipmentModifier eqMod : EquipmentList.getModifierCollection())
+			for (EquipmentModifier eqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
 				if (!eqMod.getDisplayName().startsWith("EXCLUDEEQ"))
 				{
@@ -1167,7 +1167,8 @@ final class EqBuilder extends JPanel
 			return;
 		}
 
-		if (EquipmentList.getEquipmentKeyed(sName) != null)
+		if (Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, sName) != null)
 		{
 			informationDialog("There is already an existing item: " + sName);
 			return;
@@ -1198,12 +1199,7 @@ final class EqBuilder extends JPanel
 			aNewEq.setBaseItem("");
 		}
 
-		if (!EquipmentList.addEquipment(aNewEq))
-		{
-			informationDialog("Error adding item to list.");
-			return;
-		}
-
+		Globals.getContext().ref.importObject(aNewEq);
 		PCGen_Frame1.getInst().eqList_Changed(aNewEq, bPurchase);
 
 		doCleanUp();
@@ -2240,7 +2236,7 @@ final class EqBuilder extends JPanel
 				fireTableRowsDeleted(0, currentRowCount - 1);
 			}
 
-			for (EquipmentModifier aEqMod : EquipmentList.getModifierCollection())
+			for (EquipmentModifier aEqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
 				if (anEq.isVisible(aEqMod))
 				{

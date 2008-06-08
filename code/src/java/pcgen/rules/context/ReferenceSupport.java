@@ -19,11 +19,11 @@ package pcgen.rules.context;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import pcgen.base.lang.CaseInsensitiveString;
@@ -40,11 +40,11 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 
 	private HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
 
-	private Map<CaseInsensitiveString, T> active = new HashMap<CaseInsensitiveString, T>();
+	private Map<String, T> active = new TreeMap<String, T>(String.CASE_INSENSITIVE_ORDER);
 
-	private List<CaseInsensitiveString> deferred = new ArrayList<CaseInsensitiveString>();
+	private List<String> deferred = new ArrayList<String>();
 
-	private Map<CaseInsensitiveString, RT> referenced = new HashMap<CaseInsensitiveString, RT>();
+	private Map<String, RT> referenced = new TreeMap<String, RT>(String.CASE_INSENSITIVE_ORDER);
 
 	private final Class<T> baseClass;
 
@@ -65,24 +65,22 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 					+ " ReferenceSupport");
 			return;
 		}
-		CaseInsensitiveString cik = new CaseInsensitiveString(key);
-		if (active.containsKey(cik))
+		if (active.containsKey(key))
 		{
-			duplicates.addToListFor(cik, obj);
+			duplicates.addToListFor(new CaseInsensitiveString(key), obj);
 		}
 		else
 		{
-			active.put(cik, obj);
+			active.put(key, obj);
 		}
 	}
 
 	public T silentlyGetConstructedCDOMObject(String val)
 	{
-		CaseInsensitiveString civ = new CaseInsensitiveString(val);
-		T po = active.get(civ);
+		T po = active.get(val);
 		if (po != null)
 		{
-			if (duplicates.containsListFor(civ))
+			if (duplicates.containsListFor(new CaseInsensitiveString(val)))
 			{
 				Logging.errorPrint("Reference to Constructed "
 						+ baseClass.getSimpleName() + " " + val
@@ -142,7 +140,7 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 		registerWithKey(obj, value);
 	}
 
-	public void forgetObject(T obj) throws InternalError
+	public boolean forgetObject(T obj) throws InternalError
 	{
 		if (!baseClass.isInstance(obj))
 		{
@@ -154,7 +152,7 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 		 */
 		String key = obj.getKeyName();
 		CaseInsensitiveString ocik = new CaseInsensitiveString(key);
-		CDOMObject act = active.get(ocik);
+		CDOMObject act = active.get(key);
 		if (act == null)
 		{
 			throw new InternalError("Did not find " + obj + " under " + key);
@@ -165,31 +163,25 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 			if (list == null)
 			{
 				// No replacement
-				active.remove(ocik);
+				active.remove(key);
 			}
 			else
 			{
 				T newActive = duplicates.getElementInList(ocik, 0);
 				duplicates.removeFromListFor(ocik, newActive);
-				active.put(ocik, newActive);
+				active.put(key, newActive);
 			}
 		}
 		else
 		{
 			duplicates.removeFromListFor(ocik, obj);
 		}
-	}
-
-	public void forgetCDOMObjectKeyed(String forgetKey)
-	{
-		CaseInsensitiveString cis = new CaseInsensitiveString(forgetKey);
-		active.remove(cis);
-		duplicates.removeListFor(cis);
+		return true;
 	}
 
 	public boolean containsConstructedCDOMObject(String key)
 	{
-		return active.containsKey(new CaseInsensitiveString(key));
+		return active.containsKey(key);
 	}
 
 	public CDOMSingleRef<T> getCDOMReference(String val)
@@ -261,12 +253,11 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 			}
 		}
 
-		CaseInsensitiveString cis = new CaseInsensitiveString(val);
-		RT ref = referenced.get(cis);
+		RT ref = referenced.get(val);
 		if (ref == null)
 		{
 			ref = referenceMfg.getReference(val);
-			referenced.put(cis, ref);
+			referenced.put(val, ref);
 		}
 		return ref;
 	}
@@ -313,7 +304,7 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 //				returnGood = false;
 //			}
 //		}
-		for (CaseInsensitiveString second : active.keySet())
+		for (Object second : active.keySet())
 		{
 			T activeObj = active.get(second);
 			String keyName = activeObj.getKeyName();
@@ -329,7 +320,7 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 				returnGood = false;
 			}
 		}
-		for (CaseInsensitiveString s : referenced.keySet())
+		for (Object s : referenced.keySet())
 		{
 			if (!active.containsKey(s) && !deferred.contains(s))
 			{
@@ -351,7 +342,7 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 		 * TODO FIXME Need to ensure that items that are built here are tagged
 		 * as manufactured, so that they are not written out to LST files
 		 */
-		deferred.add(new CaseInsensitiveString(value));
+		deferred.add(value);
 	}
 
 	public void clear()
@@ -376,7 +367,7 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 
 	public void fillReferences()
 	{
-		for (Entry<CaseInsensitiveString, RT> me : referenced.entrySet())
+		for (Entry<String, RT> me : referenced.entrySet())
 		{
 			T activeObj = active.get(me.getKey());
 			if (activeObj != null)
@@ -392,7 +383,7 @@ public class ReferenceSupport<T extends CDOMObject, RT extends CDOMSingleRef<T>>
 
 	public void buildDeferredObjects()
 	{
-		for (CaseInsensitiveString cis : deferred)
+		for (Object cis : deferred)
 		{
 			if (!active.containsKey(cis))
 			{

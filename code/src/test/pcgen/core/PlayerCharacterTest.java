@@ -118,7 +118,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
 	
-		Globals.addRace(giantRace);
+		Globals.getContext().ref.importObject(giantRace);
 	
 		// Create the monster class type
 		SettingsHandler.getGame().addClassType(
@@ -130,16 +130,16 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantClass.addMyType("MONSTER");
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
 		giantClass.addBonusList(babClassBonus);
-		Globals.getClassList().add(giantClass);
+		Globals.getContext().ref.importObject(giantClass);
 	
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setSpellType("ARCANE");
-		Globals.getClassList().add(pcClass);
+		Globals.getContext().ref.importObject(pcClass);
 	
 		classWarmind = new PCClass();
 		classWarmind.setName("Warmind");
-		Globals.getClassList().add(classWarmind);
+		Globals.getContext().ref.importObject(classWarmind);
 	
 		toughness = new Ability();
 		toughness.setName("Toughness");
@@ -161,19 +161,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		wpnProfTestA.setName("Weapon A");
 		wpnProfTestA.setKeyName("Weapon A");
 		wpnProfTestA.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestA);
+		Globals.getContext().ref.importObject(wpnProfTestA);
 	
 		WeaponProf wpnProfTestB = new WeaponProf();
 		wpnProfTestB.setName("Weapon B");
 		wpnProfTestB.setKeyName("Weapon B");
 		wpnProfTestB.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestB);
+		Globals.getContext().ref.importObject(wpnProfTestB);
 	
 		WeaponProf wpnProfTestC = new WeaponProf();
 		wpnProfTestC.setName("Weapon C");
 		wpnProfTestC.setKeyName("Weapon C");
 		wpnProfTestC.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestC);
+		Globals.getContext().ref.importObject(wpnProfTestC);
 	
 		SettingsHandler
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
@@ -666,7 +666,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		arClass.setName("AbilityRichClass");
 		arClass.setSpellType("ARCANE");
 	
-		Globals.getClassList().add(arClass);
+		Globals.getContext().ref.importObject(arClass);
 	
 		TestHelper.makeAbilityFromString(
 			"TestARc01\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");

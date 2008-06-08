@@ -304,17 +304,17 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		WeaponProf Longsword = new WeaponProf();
 		Longsword.setName("Longsword");
 		Longsword.setTypeInfo("Martial");
-		Globals.addWeaponProf(Longsword);
+		Globals.getContext().ref.importObject(Longsword);
 
 		WeaponProf Longbow = new WeaponProf();
 		Longbow.setName("Longbow");
 		Longbow.setTypeInfo("Martial");
-		Globals.addWeaponProf(Longbow);
+		Globals.getContext().ref.importObject(Longbow);
 
 		WeaponProf Dagger = new WeaponProf();
 		Dagger.setName("Dagger");
 		Dagger.setTypeInfo("Simple");
-		Globals.addWeaponProf(Dagger);
+		Globals.getContext().ref.importObject(Dagger);
 
 	}
 }

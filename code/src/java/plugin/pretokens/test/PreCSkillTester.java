@@ -23,7 +23,6 @@
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import pcgen.core.Globals;
@@ -75,7 +74,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			//Skill name is actually type to compare for
 
 			//loop through skill list checking for type and class skill
-			for (Skill skill : Globals.getSkillList())
+			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
 				if (skill.isType(skillKey) && skill.isClassSkill(character))
 				{
@@ -111,7 +110,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		}
 		else
 		{
-			Skill skill = Globals.getSkillKeyed(skillKey);
+			Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
 			if (skill != null && skill.isClassSkill(character))
 			{
 				runningTotal++;
@@ -142,14 +141,13 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators,
 		PlayerCharacter character)
 	{
-		List<Skill> allSkills = Globals.getSkillList();		
-		for(Skill aSkill: allSkills)
+		for(Skill aSkill: Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
 			Skill finalSkill = null ;
 			Set<Skill> servesAs = new HashSet<Skill>();
 			for(String fakeSkill: aSkill.getServesAs(""))
 			{
-				finalSkill = Globals.getSkillKeyed(fakeSkill);
+				finalSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, fakeSkill);
 				servesAs.add(finalSkill);
 			}
 			

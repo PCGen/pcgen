@@ -132,7 +132,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge[0].setTypeInfo("KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intStat);
 		knowledge[0].modRanks(8.0, myClass, true, character);
-		Globals.getSkillList().add(knowledge[0]);
+		Globals.getContext().ref.importObject(knowledge[0]);
 		character.addSkill(knowledge[0]);
 
 		knowledge[1] = new Skill();
@@ -141,7 +141,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge[1].setTypeInfo("KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intStat);
 		knowledge[1].modRanks(5.0, myClass, true, character);
-		Globals.getSkillList().add(knowledge[1]);
+		Globals.getContext().ref.importObject(knowledge[1]);
 		character.addSkill(knowledge[1]);
 
 		tumble = new Skill();
@@ -150,7 +150,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		tumble.setTypeInfo("DEX");
 		tumble.put(ObjectKey.KEY_STAT, dexStat);
 		tumble.modRanks(7.0, myClass, true, character);
-		Globals.getSkillList().add(tumble);
+		Globals.getContext().ref.importObject(tumble);
 		character.addSkill(tumble);
 
 		balance = new Skill();
@@ -161,7 +161,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		balance.modRanks(4.0, myClass, true, character);
 		balance
 			.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
-		Globals.getSkillList().add(balance);
+		Globals.getContext().ref.importObject(balance);
 		character.addSkill(balance);
 
 		character.calcActiveBonuses();

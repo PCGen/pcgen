@@ -57,7 +57,7 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 	public FollowerOption( final String aRace )
 	{
 		theRaceKey = aRace.toUpperCase();
-		theRace = Globals.getRaceKeyed( theRaceKey );
+		theRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, theRaceKey);
 	}
 	
 	/**
@@ -85,7 +85,8 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 			{
 				return null;
 			}
-			theRace = Globals.getRaceKeyed( theRaceKey );
+			theRace = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Race.class, theRaceKey);
 		}
 		return theRace;
 	}
@@ -110,7 +111,7 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 		{
 			raceSet = new HashSet<Race>();
 			RaceType raceType = RaceType.getConstant(theRaceKey.substring(9));
-			final Collection<Race> allRaces = Globals.getAllRaces();
+			final Collection<Race> allRaces = Globals.getContext().ref.getConstructedCDOMObjects(Race.class);
 			for ( final Race r : allRaces )
 			{
 				if (raceType.equals(r.get(ObjectKey.RACETYPE)))
@@ -122,7 +123,7 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 		else if ( theRaceKey.equals( ANY_RACE ) )
 		{
 			raceSet = new HashSet<Race>();
-			raceSet.addAll( Globals.getAllRaces() );
+			raceSet.addAll( Globals.getContext().ref.getConstructedCDOMObjects(Race.class) );
 		}
 		if ( raceSet != null )
 		{

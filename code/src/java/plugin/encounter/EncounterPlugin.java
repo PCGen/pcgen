@@ -373,8 +373,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 				}
 
 				PCClass monsterClass =
-						Globals.getClassKeyed(aPC.getRace().getMonsterClass(
-							aPC, false));
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aPC.getRace().getMonsterClass(
+				aPC, false));
 
 				if (monsterClass != null)
 				{
@@ -708,7 +708,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 		Vector<Object> toReturn = new Vector<Object>();
 		toReturn.addElement(num);
-		toReturn.addElement(Globals.getRaceKeyed(tableEntry));
+		toReturn.addElement(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, tableEntry));
 
 		return toReturn;
 	}
@@ -890,7 +890,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		ChallengeRating cr = new ChallengeRating(crs);
 
 		// populate critters with a list of matching monsters with the right CR.
-		for (final Race race : Globals.getAllRaces())
+		for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 		{
 			if (cr.equals(race.get(ObjectKey.CHALLENGE_RATING)))
 			{
@@ -959,7 +959,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 	private void handleNonMonster(PlayerCharacter aPC)
 	{
-		PCClass mclass = Globals.getClassKeyed("Warrior");
+		PCClass mclass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
 
 		if (mclass != null)
 		{
@@ -973,7 +973,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private boolean handleRace(PlayerCharacter aPC, int number)
 	{
 		Race race =
-				Globals.getRaceKeyed((String) theModel.getElementAt(number));
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, (String) theModel.getElementAt(number));
 
 		if (race == null)
 		{

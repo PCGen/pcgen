@@ -306,16 +306,16 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		ArmorProf leather = new ArmorProf();
 		leather.setName("Leather");
 		leather.setTypeInfo("Light");
-		Globals.addArmorProf(leather);
+		Globals.getContext().ref.importObject(leather);
 
 		ArmorProf chainmail = new ArmorProf();
 		chainmail.setName("Chainmail");
 		chainmail.setTypeInfo("Medium");
-		Globals.addArmorProf(chainmail);
+		Globals.getContext().ref.importObject(chainmail);
 
 		ArmorProf breastplate = new ArmorProf();
 		breastplate.setName("Breastplate");
 		breastplate.setTypeInfo("Medium");
-		Globals.addArmorProf(breastplate);
+		Globals.getContext().ref.importObject(breastplate);
 	}
 }

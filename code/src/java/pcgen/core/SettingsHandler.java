@@ -1302,7 +1302,7 @@ public final class SettingsHandler
 
 		setGame(getPCGenOption("game", Constants.e35_MODE)); //$NON-NLS-1$
 
-		Globals.loadAttributeNames();
+		Globals.createEmptyRace();
 
 		showNatWeaponTab = getPCGenOption("showNatWeaponTab", false); //$NON-NLS-1$
 		validateBonuses = getPCGenOption("validateBonuses", false); //$NON-NLS-1$

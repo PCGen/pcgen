@@ -570,12 +570,6 @@ public final class Race extends PObject
 		return intSR;
 	}
 
-	@Override
-	protected void doGlobalTypeUpdate(final String aString)
-	{
-		Globals.getRaceTypes().add(aString);
-	}
-
 	String getMonsterClass(final PlayerCharacter aPC)
 	{
 		return getMonsterClass(aPC, true);

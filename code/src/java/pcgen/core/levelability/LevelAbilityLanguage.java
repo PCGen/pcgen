@@ -110,7 +110,7 @@ final class LevelAbilityLanguage extends LevelAbility
 	{
 		if ("ALL".equalsIgnoreCase(aToken))
 		{
-			for ( Language lang : Globals.getLanguageList() )
+			for ( Language lang : Globals.getContext().ref.getConstructedCDOMObjects(Language.class) )
 			{
 				anArrayList.add(lang.getKeyName());
 			}
@@ -119,7 +119,7 @@ final class LevelAbilityLanguage extends LevelAbility
 		{
 			aToken = aToken.substring(5);
 
-			for ( Language lang : Globals.getLanguageList() )
+			for ( Language lang : Globals.getContext().ref.getConstructedCDOMObjects(Language.class) )
 			{
 				if (lang.isType(aToken))
 				{
@@ -129,7 +129,7 @@ final class LevelAbilityLanguage extends LevelAbility
 		}
 		else
 		{
-			final Language aLang = Globals.getLanguageKeyed(aToken);
+			final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aToken);
 			if (aLang != null)
 			{
 				if (!aPC.getLanguagesList().contains(aLang))

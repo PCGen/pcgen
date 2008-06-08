@@ -35,7 +35,7 @@ public class RaceModel extends DefaultListModel
 	{
 		clear();
 
-		for (final Race race : Globals.getAllRaces())
+		for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 		{
 			//TODO: This is the original code. I took a wild guess at what the code was intended to do, and added braces.
 			//			if (!contains(aRace.toString()));

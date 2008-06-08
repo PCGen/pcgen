@@ -242,7 +242,7 @@ public class NaturalattacksLst implements GlobalLstToken
 		anEquip.put(ObjectKey.ATTACKS_PROGRESS, attacksProgress);
 
 		// Check if the proficiency needs created
-		WeaponProf prof = Globals.getWeaponProfKeyed(attackName);
+		WeaponProf prof = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, attackName);
 
 		if (prof == null)
 		{
@@ -250,7 +250,7 @@ public class NaturalattacksLst implements GlobalLstToken
 			prof.setTypeInfo(profType);
 			prof.setName(attackName);
 			prof.setKeyName(attackName);
-			Globals.addWeaponProf(prof);
+			Globals.getContext().ref.importObject(prof);
 		}
 
 		anEquip.addAutoArray("WEAPONPROF", attackName); //$NON-NLS-1$

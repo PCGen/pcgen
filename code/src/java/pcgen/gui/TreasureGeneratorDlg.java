@@ -21,6 +21,7 @@ import javax.swing.SwingUtilities;
 
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.npcgen.EquipmentTable;
@@ -121,7 +122,7 @@ public class TreasureGeneratorDlg extends JDialog
 							final Equipment eq = (Equipment)obj;
 							
 							pc.addEquipment(eq);
-							EquipmentList.addEquipment(eq);
+							Globals.getContext().ref.importObject(eq);
 						}
 					}
 				}

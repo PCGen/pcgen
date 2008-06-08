@@ -3366,7 +3366,7 @@ public class PCClass extends PObject
 
 		for (ClassSkillList key : classSkillList)
 		{
-			final PCClass pcClass = Globals.getClassKeyed(key.getLSTformat());
+			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, key.getLSTformat());
 
 			if ((pcClass != null) && pcClass.hasCSkill(aString))
 			{
@@ -3627,22 +3627,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSONLY Since this is really most important during import (and the
-	 * same types can be used for PCClassLevels, at least today) this should
-	 * only be performed at import and not on each PCClassLevel creation (since
-	 * that wouldn't create any new types)
-	 */
-	@Override
-	protected void doGlobalTypeUpdate(final String aString)
-	{
-		// add to global PCClassType list for future filtering
-		if (!Globals.getPCClassTypeList().contains(aString))
-		{
-			Globals.getPCClassTypeList().add(aString);
-		}
-	}
-
-	/*
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
@@ -3888,7 +3872,8 @@ public class PCClass extends PObject
 		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + keyName);
 
 		final Equipment eq =
-				EquipmentList.getEquipmentKeyed("KEY_Unarmed Strike");
+			Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment.class, "KEY_Unarmed Strike");
 
 		if (eq != null)
 		{
@@ -3915,7 +3900,7 @@ public class PCClass extends PObject
 		// Check the UDAM list for monk-like damage
 		//
 		List<String> udamList =
-				Globals.getClassKeyed(keyName).getListFor(ListKey.UDAM);
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, keyName).getListFor(ListKey.UDAM);
 
 		if ((udamList != null) && !udamList.isEmpty())
 		{
@@ -3927,7 +3912,7 @@ public class PCClass extends PObject
 					|| aString.startsWith("CLASS."))
 				{
 					final PCClass aClass =
-							Globals.getClassKeyed(aString.substring(6));
+							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aString.substring(6));
 
 					if (aClass != null)
 					{

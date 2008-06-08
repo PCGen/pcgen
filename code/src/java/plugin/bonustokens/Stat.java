@@ -82,7 +82,7 @@ public final class Stat extends BonusObj
 			}
 			else
 			{
-				final PCClass aClass = Globals.getClassKeyed(token);
+				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, token);
 
 				if (aClass != null)
 				{

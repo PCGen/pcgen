@@ -395,7 +395,6 @@ public class RaceBasePanel extends BasePanel
 	@Override
 	public void updateView(PObject thisPObject)
 	{
-		Iterator e;
 		Race thisRace = (Race) thisPObject;
 
 		//
@@ -404,7 +403,7 @@ public class RaceBasePanel extends BasePanel
 		List<String> availableList = new ArrayList<String>();
 		List<String> selectedList = new ArrayList<String>();
 
-		for (final Race race : Globals.getAllRaces())
+		for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 		{
 			for (String type : race.getTypeList(false))
 			{
@@ -437,10 +436,8 @@ public class RaceBasePanel extends BasePanel
 		availableList.clear();
 		availableList.add("(None)");
 
-		for (e = Globals.getClassList().iterator(); e.hasNext();)
+		for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
-			final PCClass aClass = (PCClass) e.next();
-
 			if (aClass.isMonster())
 			{
 				availableList.add(aClass.getKeyName());

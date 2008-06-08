@@ -1175,11 +1175,6 @@ public class MainSource extends FilterAdapterPanel
 			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.WARNING);
 			unloadAllCampaigns_actionPerformed();
 		}
-		//observer.end();
-
-
-		Globals.sortCampaigns();
-
 	}
 
 	private void loadCampaigns_actionPerformed()

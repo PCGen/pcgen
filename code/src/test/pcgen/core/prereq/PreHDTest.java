@@ -81,7 +81,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 		race.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Medium")));
 		race.setHitDice(3);
-		Globals.addRace(race);
+		Globals.getContext().ref.importObject(race);
 
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -128,7 +128,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 	{
 		monClass.setName("Humanoid");
 		monClass.put(ObjectKey.IS_MONSTER, true);
-		Globals.getClassList().add(monClass);
+		Globals.getContext().ref.importObject(monClass);
 		GameMode gamemode = SettingsHandler.getGame();
 
 		race1.setName("Bugbear");
@@ -136,7 +136,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 				.getSizeAdjustmentNamed("Large")));
 		race1.setMonsterClass("Humanoid");
 		race1.setMonsterClassLevels(3);
-		Globals.addRace(race1);
+		Globals.getContext().ref.importObject(race1);
 
 		SettingsHandler.setMonsterDefault(false);
 		final PlayerCharacter character = new PlayerCharacter();

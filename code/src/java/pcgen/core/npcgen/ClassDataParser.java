@@ -215,7 +215,7 @@ class ClassDataHandler extends DefaultHandler
 				if ( anAttrs != null )
 				{
 					final String classKey = anAttrs.getValue("key"); //$NON-NLS-1$
-					final PCClass pcClass = Globals.getClassKeyed(classKey);
+					final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 					if ( pcClass == null )
 					{
 						Logging.errorPrintLocalised("Exceptions.PCGenParser.ClassNotFound", classKey); //$NON-NLS-1$
@@ -304,7 +304,9 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else if (key.startsWith("TYPE")) //$NON-NLS-1$
 						{
-							final List<Skill> skillsOfType = Globals.getSkillsByType(key.substring(5));
+							final List<Skill> skillsOfType = Globals.getPObjectsOfType(Globals
+									.getContext().ref.getConstructedCDOMObjects(Skill.class),
+									key.substring(5));
 							if ( skillsOfType.size() == 0 )
 							{
 								Logging.debugPrint("NPCGenerator: No skills of type found (" + key + ")"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -312,7 +314,7 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else
 						{
-							final Skill skill = Globals.getSkillKeyed(key);
+							final Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, key);
 							if (skill == null)
 							{
 								Logging.debugPrint("NPCGenerator: Skill not found (" + key + ")"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -472,8 +474,7 @@ class ClassDataHandler extends DefaultHandler
 			if (remainingWeight > 0)
 			{
 				// Add all remaining skills at this weight.
-				final List<Skill> allSkills = Globals.getSkillList();
-				for ( final Skill skill : allSkills )
+				for ( final Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 				{
 					if (skill.getVisibility() == Visibility.DEFAULT)
 					{

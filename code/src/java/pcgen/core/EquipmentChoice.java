@@ -261,7 +261,7 @@ final class EquipmentChoice
 	 * Add a list of all skills to the available list of the EquipmentChoice object
 	 */
 	public void addSkills() {
-		for ( Skill skill : Globals.getSkillList() )
+		for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 		{
 			this.getAvailableList().add(skill.getKeyName());
 		}
@@ -357,11 +357,8 @@ final class EquipmentChoice
 	public void addSelectableEquipment(
 		final String          typeString)
 	{
-		for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
+		for (Equipment aEquip : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 		{
-			final Map.Entry<String, Equipment> entry  = i.next();
-			final Equipment aEquip = entry.getValue();
-
 			if (
 				aEquip.isType(typeString) &&
 				!this.getAvailableList().contains(aEquip.getName()))
@@ -379,7 +376,7 @@ final class EquipmentChoice
 	public void addSelectableSkills(
 		final String          typeString)
 	{
-		for ( Skill skill : Globals.getSkillList() )
+		for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 		{
 			if (
 				(typeString.equalsIgnoreCase("ALL") ||

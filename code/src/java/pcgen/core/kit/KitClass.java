@@ -115,7 +115,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theClass = null;
-		theClass = Globals.getClassKeyed(getClassName());
+		theClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, getClassName());
 
 		if (theClass == null)
 		{

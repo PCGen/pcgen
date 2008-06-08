@@ -37,7 +37,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -69,6 +71,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
@@ -285,7 +288,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addCcSkill(String entry)
 	{
-		Skill skill;
 		if (entry.startsWith(".CLEAR"))
 		{
 			if (".CLEAR".equals(entry))
@@ -303,14 +305,14 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				{
 					final String typeString = entry.substring(5);
 
-					for ( Skill skill1 : Globals.getSkillList() )
+					for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 					{
 						boolean toClear = true;
 						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
 
 						while (cTok.hasMoreTokens() && toClear)
 						{
-							if (!skill1.isType(cTok.nextToken()))
+							if (!skill.isType(cTok.nextToken()))
 							{
 								toClear = false;
 							}
@@ -318,7 +320,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 						if (toClear)
 						{
-							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill1.getKeyName());
+							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 						}
 					}
 				}
@@ -330,10 +332,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
 		{
-			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				skill = e1.next();
-
 				if (skill.isType(entry.substring(5)))
 				{
 					listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
@@ -342,9 +342,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		else if ("ALL".equals(entry))
 		{
-			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				skill = e1.next();
 				listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 			}
 		}
@@ -577,7 +576,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addCSkill(String entry)
 	{
-		Skill skill;
 		if (entry.startsWith(".CLEAR"))
 		{
 			if (".CLEAR".equals(entry))
@@ -595,9 +593,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				{
 					final String typeString = entry.substring(5);
 
-					for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+					for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 					{
-						skill = e1.next();
 						boolean toClear = true;
 						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
 
@@ -623,10 +620,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
 		{
-			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				skill = e1.next();
-
 				if (skill.isType(entry.substring(5)))
 				{
 					listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
@@ -635,9 +630,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		else if ("ALL".equals(entry))
 		{
-			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				skill = e1.next();
 				listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 			}
 		}
@@ -1150,7 +1144,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 			else
 			{
-				final Equipment aEq = EquipmentList.getEquipmentNamed(aKey);
+				final Equipment aEq = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Equipment.class, aKey);
 
 				if (aEq == null)
 				{
@@ -1819,18 +1814,19 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		else if ("ALL".equals(aLangKey))
 		{
-			listChar.addAllToListFor(autoLanguageListKey, Globals.getLanguageList());
+			listChar.addAllToListFor(autoLanguageListKey, Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
 		}
 		else if (aLangKey.startsWith("TYPE=") || aLangKey.startsWith("TYPE."))
 		{
 			final String type = aLangKey.substring(5);
-			List<Language> langList = Globals.getLanguageList();
-			langList = Globals.getLanguagesFromListOfType(langList, type);
+			Collection<Language> langList = Globals.getPObjectsOfType(
+					Globals.getContext().ref
+							.getConstructedCDOMObjects(Language.class), type);
 			listChar.addAllToListFor(autoLanguageListKey, langList);
 		}
 		else
 		{
-			final Language lang = Globals.getLanguageKeyed(aLangKey);
+			final Language lang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aLangKey);
 
 			if (lang != null)
 			{
@@ -4109,7 +4105,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			c.setPoolFlag(false);
 			c.setTitle("Pick a Language: ");
 
-			Set<Language> list = Globals.getLanguagesFromString(chooseLanguageAutos);
+			Set<Language> list = getLanguagesFromString(chooseLanguageAutos);
 			c.setAvailableList(new ArrayList<Language>(list));
 			c.setVisible(true);
 			selectedList = c.getSelectedList();
@@ -4119,6 +4115,51 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				aPC.addFreeLanguage(selectedList.get(0));
 			}
 		}
+	}
+
+	/**
+	 * Returns a list of Language objects from a string of choices.  The method
+	 * will expand "ALL" or "ANY" into all languages and TYPE= into all
+	 * languages of that type
+	 * @param stringList Pipe separated list of language choices
+	 * @return Sorted list of Language objects
+	 */
+	public static SortedSet<Language> getLanguagesFromString(final String stringList)
+	{
+		SortedSet<Language> list = new TreeSet<Language>();
+
+		final StringTokenizer tokens = new StringTokenizer(stringList,	"|", false);
+
+		ReferenceContext ref = Globals.getContext().ref;
+		while (tokens.hasMoreTokens())
+		{
+			final String aLang = tokens.nextToken();
+			if ("ALL".equals(aLang))
+			{
+				list.addAll(ref.getConstructedCDOMObjects(Language.class));
+				return list;
+			}
+			else if (aLang.startsWith("TYPE=") || aLang.startsWith("TYPE."))
+			{
+				list.addAll(Globals.getPObjectsOfType(ref
+						.getConstructedCDOMObjects(Language.class), aLang
+						.substring(5)));
+			}
+			else
+			{
+				Language languageKeyed = ref
+						.silentlyGetConstructedCDOMObject(Language.class, aLang);
+				if (languageKeyed == null)
+				{
+					Logging.debugPrint("Someone expected Language: " + aLang + " to exist: it doesn't");
+				}
+				else
+				{
+					list.add(languageKeyed);
+				}
+			}
+		}
+		return list;
 	}
 
 	/* ************************************************

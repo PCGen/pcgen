@@ -40,6 +40,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
+import pcgen.core.Globals;
 import pcgen.core.SystemCollections;
 import pcgen.util.Logging;
 
@@ -331,7 +332,8 @@ public class EquipmentTableParser
 								final String val = anAttrs.getValue( "value" );
 								if ( val != null )
 								{
-									final Equipment eq = EquipmentList.getEquipmentKeyed( val );
+									final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+											Equipment.class,  val );
 									if ( eq == null )
 									{
 										Logging.errorPrint("Could not find equipment named: " + val );

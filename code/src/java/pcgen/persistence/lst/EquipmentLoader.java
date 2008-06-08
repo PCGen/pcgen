@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -44,19 +44,10 @@ import pcgen.util.Logging;
 public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 
 	@Override
-	protected void addGlobalObject(PObject pObj) {
-		//getEquipmentKeyedNoCustom??
-		final Equipment aTemplate = EquipmentList
-				.getEquipmentNamed(pObj.getKeyName());
-		if (aTemplate == null) {
-			EquipmentList.addEquipment((Equipment) pObj);
-		}
-
-	}
-
-	@Override
-	protected Equipment getObjectKeyed(String aKey) {
-		return EquipmentList.getEquipmentNamed(aKey);
+	protected Equipment getObjectKeyed(String aKey)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, aKey);
 	}
 
 	@Override
@@ -121,10 +112,5 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 		
 		completeObject(source, equipment);
 		return null;
-	}
-
-	@Override
-	protected void performForget(Equipment objToForget) {
-		EquipmentList.remove(objToForget);
 	}
 }

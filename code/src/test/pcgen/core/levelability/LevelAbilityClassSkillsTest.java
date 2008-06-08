@@ -152,7 +152,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase
 
 		Skill mySkill = new Skill();
 		mySkill.setName("");
-		Globals.getSkillList().add(mySkill);
+		Globals.getContext().ref.importObject(mySkill);
 
 		try
 		{
@@ -196,7 +196,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase
 
 		Skill mySkill = new Skill();
 		mySkill.setName("");
-		Globals.getSkillList().add(mySkill);
+		Globals.getContext().ref.importObject(mySkill);
 
 		try
 		{
