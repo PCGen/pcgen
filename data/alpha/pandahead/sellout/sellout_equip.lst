@@ -2,17 +2,17 @@
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 ###Block: Adventuring Gear
-# Equipment Name		Type					Contains				Cost		Weight	Source Page
-Advanced Climbing Kit	TYPE:Goods.AdventuringGear						COST:125	WT:6		SOURCEPAGE:95
-Armored Potion Breakers	TYPE:Goods.AdventuringGear						COST:20	WT:1		SOURCEPAGE:95
-Chimical Irritant Spray	TYPE:Goods.AdventuringGear						COST:15	WT:1		SOURCEPAGE:95
-Combat Soaker Backpack	TYPE:Goods.AdventuringGear	CONTAINS:UNLIM|Holy Water=50	COST:225	WT:45		SOURCEPAGE:95
-Eyeblack			TYPE:Goods.AdventuringGear						COST:3	WT:0		SOURCEPAGE:95
-Lockpick Gun		TYPE:Goods.AdventuringGear						COST:275	WT:1		SOURCEPAGE:95
-Mirror Polish		TYPE:Goods.AdventuringGear						COST:30	WT:1		SOURCEPAGE:95
-Sheidl Clock		TYPE:Goods.AdventuringGear						COST:10	WT:0		SOURCEPAGE:95
-X4 Smoke Bomb		TYPE:Goods.AdventuringGear						COST:40	WT:1		SOURCEPAGE:95
-ZeroGee (TM) quiver	TYPE:Goods.AdventuringGear						COST:200	WT:3		SOURCEPAGE:95
+# Equipment Name		Type							Contains				Cost		Weight	Source Page
+Advanced Climbing Kit	TYPE:Goods.AdventuringGear								COST:125	WT:6		SOURCEPAGE:95
+Armored Potion Breakers	TYPE:Goods.AdventuringGear								COST:20	WT:1		SOURCEPAGE:95
+Chimical Irritant Spray	TYPE:Goods.AdventuringGear								COST:15	WT:1		SOURCEPAGE:95
+Combat Soaker Backpack	TYPE:Goods.AdventuringGear.Container	CONTAINS:UNLIM|Holy Water=50	COST:225	WT:45		SOURCEPAGE:95
+Eyeblack			TYPE:Goods.AdventuringGear								COST:3	WT:0		SOURCEPAGE:95
+Lockpick Gun		TYPE:Goods.AdventuringGear								COST:275	WT:1		SOURCEPAGE:95
+Mirror Polish		TYPE:Goods.AdventuringGear								COST:30	WT:1		SOURCEPAGE:95
+Sheidl Clock		TYPE:Goods.AdventuringGear								COST:10	WT:0		SOURCEPAGE:95
+X4 Smoke Bomb		TYPE:Goods.AdventuringGear								COST:40	WT:1		SOURCEPAGE:95
+ZeroGee (TM) quiver	TYPE:Goods.AdventuringGear								COST:200	WT:3		SOURCEPAGE:95
 
 ###Block: Clothing
 # Equipment Name			Output Name					Type					Cost		Weight	Source Page		Special Property
