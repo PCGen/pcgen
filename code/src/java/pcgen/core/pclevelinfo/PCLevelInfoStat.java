@@ -42,6 +42,7 @@ public final class PCLevelInfoStat implements Serializable
 		mod = argMod;
 	}
 
+	@Override
 	public String toString()
 	{
 		return statAbb + "=" + Integer.toString(mod);

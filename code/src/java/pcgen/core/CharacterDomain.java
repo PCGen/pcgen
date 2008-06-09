@@ -198,6 +198,7 @@ public final class CharacterDomain
 	 * </ul>
 	 * @return String
 	 */
+	@Override
 	public String toString()
 	{
 		String string = "";

@@ -20,7 +20,6 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;

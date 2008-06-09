@@ -28,6 +28,7 @@ package pcgen.core.levelability;
 import java.awt.HeadlessException;
 import java.util.List;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
@@ -74,7 +75,7 @@ public class LevelAbilityAbilityTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("NonFtrFeat", AbilityCategory.FEAT.getAbilityCategory(), "GENERAL");
 			TestHelper.makeAbility("FtrAbility", "SpecialAbility", "FIGHTER");
 			Ability ftrFeat2 = TestHelper.makeAbility("FtrFeat2", AbilityCategory.FEAT.getAbilityCategory(), "FIGHTER");
-			ftrFeat2.setMultiples("Y");
+			ftrFeat2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		}
 
 		final PlayerCharacter character = getCharacter();

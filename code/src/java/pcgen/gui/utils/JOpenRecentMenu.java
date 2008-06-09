@@ -267,6 +267,7 @@ public class JOpenRecentMenu extends JMenu
 			this.file = file;
 		}
 
+		@Override
 		public boolean equals(final Object obj)
 		{
 			if (obj == null)
@@ -293,6 +294,7 @@ public class JOpenRecentMenu extends JMenu
 		 * TODO: Is that right?
 		 * @return super.hashCode()
 		 */
+		@Override
 		public int hashCode()
 		{
 			return super.hashCode();

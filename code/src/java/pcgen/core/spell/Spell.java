@@ -378,6 +378,7 @@ public final class Spell extends PObject
 		return result;
 	}
 
+	@Override
 	protected void doGlobalTypeUpdate(final String aType)
 	{
 		Globals.addTypeForSpells(aType);
@@ -422,11 +423,9 @@ public final class Spell extends PObject
 		return wLevelInfo;
 	}
 
-
+	@Override
 	public String getPCCText()
 	{
-		String aString;
-
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
 		txt.append("\t");
@@ -721,7 +720,7 @@ public final class Spell extends PObject
 					HashMap<String, Integer> wLevelInfo = new HashMap<String, Integer>();
 					wLevelInfo.putAll(aPC.getSpellInfoMap("CLASS", getKeyName()));
 					wLevelInfo.putAll(aPC.getSpellInfoMap("DOMAIN", getKeyName()));
-					if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
+					if (wLevelInfo.size() != 0)
 					{
 						Integer lvl = wLevelInfo.get(objectType + "|" + objectName);
 

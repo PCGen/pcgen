@@ -26,6 +26,7 @@ package plugin.jepcommands;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -104,21 +105,21 @@ public class CountCommandTest extends AbstractCharacterTestCase
         abArray[13] = TestHelper.makeAbility("Epic Turning",             "CLERICAL", "SpecialAbility.Epic");
 
         for (final Ability ab : abArray) {
-            ab.setMultiples("NO");
+            ab.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
         }
 
-        abArray[3].setVisibility(Visibility.DISPLAY_ONLY);
+        abArray[3].put(ObjectKey.VISIBILITY, Visibility.DISPLAY_ONLY);
 
-        abArray[4].setVisibility(Visibility.HIDDEN);
-        abArray[5].setVisibility(Visibility.HIDDEN);
+        abArray[4].put(ObjectKey.VISIBILITY, Visibility.HIDDEN);
+        abArray[5].put(ObjectKey.VISIBILITY, Visibility.HIDDEN);
 
-        abArray[10].setVisibility(Visibility.OUTPUT_ONLY);
-        abArray[11].setVisibility(Visibility.OUTPUT_ONLY);
-        abArray[13].setVisibility(Visibility.OUTPUT_ONLY);
+        abArray[10].put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
+        abArray[11].put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
+        abArray[13].put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 
 
 
-        abArray[1].setMultiples("YES");
+        abArray[1].put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		abArray[1].addAssociated("one");
 		abArray[1].addAssociated("two");
 
@@ -458,8 +459,8 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		final Ability ab =
 				TestHelper.makeAbility("Eat Burger", "CLERICAL", "Clerical.General");
 
-		ab.setMultiples("YES");
-
+		ab.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+		
 		ab.addAssociated("munch");
 		
 		// now the tests

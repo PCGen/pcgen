@@ -97,6 +97,7 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 			EXPERIENCE_35));
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Experience";

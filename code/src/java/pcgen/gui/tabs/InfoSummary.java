@@ -3105,7 +3105,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					continue;
 				}
 
-				if (aClass.getVisibility().equals(Visibility.DEFAULT)
+				if (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT)
 					&& accept(pc, aClass))
 				{
 					addElement(aClass);

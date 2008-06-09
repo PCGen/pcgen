@@ -977,8 +977,6 @@ public class InfoRaces extends BaseCharacterInfoTab
 	private final class RaceModel extends AbstractTreeTableModel implements
 			TableColumnManagerModel
 	{
-		// this is the root node
-		private PObjectNode raceRoot;
 		private List<Boolean> displayList = null;
 
 		// list of column names

@@ -264,6 +264,7 @@ public class VectorTable extends AbstractList
 	 * @param o the <code>Object</code> that needs to be compared.
 	 * @return <b>true if the two <code>Strings</code> are equal.
 	 */
+	@Override
 	public boolean equals(Object o)
 	{
 		/*
@@ -311,6 +312,7 @@ public class VectorTable extends AbstractList
 	 * Gets the <code>hashCode</code> value for the <code>Vector</code>.
 	 * @return the hash code.
 	 */
+	@Override
 	public int hashCode()
 	{
 		return rows.hashCode();
@@ -418,6 +420,7 @@ public class VectorTable extends AbstractList
 	 * Gets the <code>name</code> of the table that this class is holding.
 	 * @return the <code>name</code>.
 	 */
+	@Override
 	public String toString()
 	{
 		return this.name;

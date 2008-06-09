@@ -51,16 +51,19 @@ public class MessageType {
         this.name = name;
     }
 
-    public String toString() {
+    @Override
+	public String toString() {
         return name;
     }
 
     // Prevent subclasses from overriding Object.equals
-    public final boolean equals(final Object that) {
+    @Override
+	public final boolean equals(final Object that) {
         return super.equals(that);
     }
 
-    public final int hashCode() {
+    @Override
+	public final int hashCode() {
         return super.hashCode();
     }
 

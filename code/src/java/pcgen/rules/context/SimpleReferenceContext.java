@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.reference.CDOMSimpleSingleRef;
+import pcgen.cdom.reference.AbstractReferenceManufacturer;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 
@@ -45,8 +45,6 @@ public class SimpleReferenceContext implements Cloneable
 		return mfg;
 	}
 
-
-	private Map<Class<?>, ReferenceSupport<?, ?>> refMap = new HashMap<Class<?>, ReferenceSupport<?, ?>>();
 
 //	private DoubleKeyMap<CDOMObject, Class, CDOMAddressedSingleRef> addressed = new DoubleKeyMap<CDOMObject, Class, CDOMAddressedSingleRef>();
 
@@ -73,74 +71,61 @@ public class SimpleReferenceContext implements Cloneable
 		// }
 	}
 
-	private <T extends CDOMObject> ReferenceSupport<T, CDOMSimpleSingleRef<T>> getRefSupport(
-			Class<T> cl)
-	{
-		ReferenceSupport ref = refMap.get(cl);
-		if (ref == null)
-		{
-			ref = new ReferenceSupport<T, CDOMSimpleSingleRef<T>>(
-					getManufacturer(cl));
-			refMap.put(cl, ref);
-		}
-		return ref;
-	}
-
 	public <T extends CDOMObject> void importObject(T obj)
 	{
-		getRefSupport((Class<T>) obj.getClass()).registerWithKey(obj,
+		getManufacturer((Class<T>) obj.getClass()).registerWithKey(obj,
 				obj.getKeyName());
 	}
 
 	public <T extends CDOMObject> void reassociateKey(T obj, String key)
 	{
-		getRefSupport((Class<T>) obj.getClass()).reassociateKey(key, obj);
+		getManufacturer((Class<T>) obj.getClass()).reassociateKey(key, obj);
 	}
 
 	public <T extends CDOMObject> T silentlyGetConstructedCDOMObject(
 			Class<T> c, String val)
 	{
-		return getRefSupport(c).silentlyGetConstructedCDOMObject(val);
+		return getManufacturer(c).silentlyGetConstructedCDOMObject(val);
 	}
 
 	public <T extends CDOMObject> T getConstructedCDOMObject(Class<T> c,
 			String val)
 	{
-		return getRefSupport(c).getConstructedCDOMObject(val);
+		return getManufacturer(c).getConstructedCDOMObject(val);
 	}
 
 	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val)
 	{
-		return getRefSupport(c).constructCDOMObject(val);
+		return getManufacturer(c).constructCDOMObject(val);
 	}
 
 	public <T extends CDOMObject> boolean forgetCDOMObject(T obj)
 	{
-		return getRefSupport((Class<T>) obj.getClass()).forgetObject(obj);
+		return getManufacturer((Class<T>) obj.getClass()).forgetObject(obj);
 	}
 
 	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
 			Class<T> name)
 	{
-		return getRefSupport(name).getAllConstructedCDOMObjects();
+		return getManufacturer(name).getAllConstructedCDOMObjects();
 	}
 
 	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
 			Class<T> name, String key)
 	{
-		return getRefSupport(name).containsConstructedCDOMObject(key);
+		return getManufacturer(name).containsConstructedCDOMObject(key);
 	}
 
 	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
-		return getRefSupport(c).getCDOMReference(val);
+		return getManufacturer(c).getCDOMReference(val);
 	}
 
 	public boolean validate()
 	{
 		boolean returnGood = true;
-		for (ReferenceSupport<?, ?> ref : refMap.values())
+		for (AbstractReferenceManufacturer<?, ?> ref : map.values())
 		{
 			returnGood &= ref.validate();
 		}
@@ -150,7 +135,7 @@ public class SimpleReferenceContext implements Cloneable
 	public <T extends CDOMObject> void constructIfNecessary(Class<T> cl,
 			String value)
 	{
-		getRefSupport(cl).constructIfNecessary(value);
+		getManufacturer(cl).constructIfNecessary(value);
 	}
 
 //	public <T extends CDOMObject> CDOMAddressedSingleRef<T> getAddressedReference(
@@ -168,7 +153,7 @@ public class SimpleReferenceContext implements Cloneable
 	public Collection<CDOMObject> getAllConstructedCDOMObjects()
 	{
 		Set<CDOMObject> set = new HashSet<CDOMObject>();
-		for (ReferenceSupport<?, ?> ref : refMap.values())
+		for (AbstractReferenceManufacturer<?, ?> ref : map.values())
 		{
 			set.addAll(ref.getAllConstructedCDOMObjects());
 		}
@@ -177,24 +162,16 @@ public class SimpleReferenceContext implements Cloneable
 
 	public void resolveReferences()
 	{
-		for (ReferenceSupport<?, ?> rs : refMap.values())
+		for (AbstractReferenceManufacturer<?, ?> rs : map.values())
 		{
 			rs.fillReferences();
+			rs.resolveReferences();
 		}
-		for (Class cl : refMap.keySet())
-		{
-			resolve(cl);
-		}
-	}
-
-	private <T extends CDOMObject> void resolve(Class<T> cl)
-	{
-		getManufacturer(cl).resolveReferences(getRefSupport(cl));
 	}
 
 	public void buildDeferredObjects()
 	{
-		for (ReferenceSupport<?, ?> rs : refMap.values())
+		for (AbstractReferenceManufacturer<?, ?> rs : map.values())
 		{
 			rs.buildDeferredObjects();
 		}
@@ -204,40 +181,11 @@ public class SimpleReferenceContext implements Cloneable
 	protected SimpleReferenceContext clone() throws CloneNotSupportedException
 	{
 		SimpleReferenceContext src = (SimpleReferenceContext) super.clone();
-		src.resetReferences();
+		src.map = new HashMap<Class<?>, SimpleReferenceManufacturer<?>>();
+		for (Map.Entry<Class<?>, SimpleReferenceManufacturer<?>> me : map.entrySet())
+		{
+			src.map.put(me.getKey(), me.getValue().clone());
+		}
 		return src;
-	}
-	
-	private void resetReferences()
-	{
-		/*
-		 * FUTURE This makes a strong (and limiting) assumption - that any Game
-		 * Mode (and thus any instance of SimpleReferenceContext) will only be
-		 * active at one time. This means that there cannot be two sets of
-		 * campaigns loaded that both reference the same game mode. This is not
-		 * limiting in 5.15/5.16 (at this time, anyway), but it does limit
-		 * future expandability of PCGen. There is a significant reason for this
-		 * limitation that I'm unsure how to work around without some really
-		 * serious deep inspection of CDOMObjects. The problem is that
-		 * references may be built in the game mode that reference objects NOT
-		 * in the Game Mode. (Global tokens can be used in the Game Mode). The
-		 * challenge with that is that the *resolution is already built* and we
-		 * don't want to have to know everywhere a reference could be within a
-		 * Game Mode PObject (e.g. a PCStat) in order to update all of those
-		 * references each time a set of Campaigns is uploaded. Therefore, we
-		 * keep one set of references, and allow the content of those references
-		 * to be cleared/updated for each set of campaigns loaded. It is likely
-		 * that the the solution to get around this limitation in the long term
-		 * is to reload the Game Mode files once for each GameMode/Campaign Set
-		 * that is loaded at the same time.
-		 */
-		for (SimpleReferenceManufacturer<?> srm : map.values())
-		{
-			srm.resetReferences();
-		}
-		for (ReferenceSupport<?, ?> rs : refMap.values())
-		{
-			rs.resetReferences();
-		}
 	}
 }

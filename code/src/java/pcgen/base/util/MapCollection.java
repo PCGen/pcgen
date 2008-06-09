@@ -261,7 +261,7 @@ public class MapCollection extends AbstractCollection<Object>
 
 		private boolean returnedKey = false;
 
-		private final Iterator hashIterator;
+		private final Iterator<?> hashIterator;
 
 		MapCollectionIterator(Map<?, ?> m)
 		{

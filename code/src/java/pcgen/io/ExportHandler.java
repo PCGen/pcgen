@@ -1692,8 +1692,8 @@ public final class ExportHandler
 					}
 
 					final PCTemplate template = tList.get(index);
-					if (template.getVisibility() != Visibility.DEFAULT
-						&& template.getVisibility() != Visibility.OUTPUT_ONLY)
+					if (template.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT
+						&& template.getSafe(ObjectKey.VISIBILITY) != Visibility.OUTPUT_ONLY)
 					{
 						canWrite = false;
 					}
@@ -2250,13 +2250,13 @@ public final class ExportHandler
 					PCClass aClass = aPC.getClassKeyed(bString);
 					found = aClass != null;
 
-					if ((aClass != null))
-					{
-						canWrite = (aClass.getLevel() >= i);
-					}
-					else if ((aClass == null))
+					if (aClass == null)
 					{
 						canWrite = false;
+					}
+					else
+					{
+						canWrite = (aClass.getLevel() >= i);
 					}
 					if (bString.startsWith("SPELLLISTCLASS"))
 					{

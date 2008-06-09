@@ -92,6 +92,7 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 		return rollPCInitiatives.isSelected();
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Initiative";

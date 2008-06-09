@@ -2343,6 +2343,7 @@ final class EqBuilder extends JPanel
 		public int getColumnCount() {
 			return COL_COUNT;
 		}
+		@Override
 		public String toString() {
 			return "EquipmentModModelSingle";
 		}

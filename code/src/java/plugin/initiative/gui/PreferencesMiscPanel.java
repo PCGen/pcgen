@@ -115,6 +115,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 			+ ".dbMaxNum", 20));
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Misc";

@@ -171,6 +171,12 @@ public final class ObjectKey<T>
 
 	public static final ObjectKey<TransitionChoice<ClassSkillList>> SKILLLIST_CHOICE = new ObjectKey<TransitionChoice<ClassSkillList>>(null);
 
+	public static final ObjectKey<Boolean> STACKS = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<Boolean> MULTIPLE_ALLOWED = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<BigDecimal> SELECTION_COST = new ObjectKey<BigDecimal>(BigDecimal.ONE);;
+
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 
 	private final T defaultValue;

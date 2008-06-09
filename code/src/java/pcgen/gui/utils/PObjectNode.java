@@ -19,6 +19,7 @@
 package pcgen.gui.utils;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
@@ -260,7 +261,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		{
 			final Ability aFeat = (Ability) item;
 
-			if (aFeat.isMultiples())
+			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
 				boolean addComma = false;
 
@@ -564,6 +565,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		theColor = aColor;
 	}
 
+	@Override
 	public String toString()
 	{
 		if (item == null)

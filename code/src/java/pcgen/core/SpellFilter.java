@@ -62,6 +62,7 @@ public class SpellFilter {
 		return true;
 	}
 	
+	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		if (spellLevel >= 0) {

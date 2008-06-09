@@ -38,6 +38,7 @@ public final class TextAndToolTip
 	 *
 	 * @return {@inheritDoc}
 	 */
+	@Override
 	public String toString()
 	{
 		return text;
@@ -53,6 +54,7 @@ public final class TextAndToolTip
 	 *
 	 * @return {@inheritDoc}
 	 */
+	@Override
 	public boolean equals(final Object o)
 	{
 		if (this == o)
@@ -74,6 +76,7 @@ public final class TextAndToolTip
 	 *
 	 * @return {@inheritDoc}
 	 */
+	@Override
 	public int hashCode()
 	{
 		return text.hashCode();

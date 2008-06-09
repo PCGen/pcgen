@@ -59,6 +59,7 @@ public abstract class Die
 	/** Writes out the die name (like 2d6+1)
 	 * @return Die name
 	 */
+	@Override
 	public abstract String toString();
 
 	/** Sets the random Die object. Allows you to put in a seeded random for better randomness.

@@ -75,6 +75,7 @@ public final class SizeAdjustment extends PObject
 		isDefaultSize = arg;
 	}
 
+	@Override
 	public String toString()
 	{
 		return "pcgen.core.SizeAdjustment{" + "abbreviation='" + abbreviation + "'" + "}";

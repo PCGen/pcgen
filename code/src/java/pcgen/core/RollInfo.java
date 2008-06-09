@@ -284,6 +284,7 @@ final class RollInfo
 		}
 	}
 
+	@Override
 	public String toString()
 	{
 		final StringBuffer buf = new StringBuffer();

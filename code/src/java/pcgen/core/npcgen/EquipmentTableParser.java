@@ -38,7 +38,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SystemCollections;
@@ -233,8 +232,6 @@ public class EquipmentTableParser
 				{
 					if ( anAttrs != null )
 					{
-						if ( anAttrs != null )
-						{
 							final String name = anAttrs.getValue("name"); //$NON-NLS-1$
 							final String id = anAttrs.getValue("id"); //$NON-NLS-1$
 							
@@ -249,7 +246,6 @@ public class EquipmentTableParser
 							}
 							theCurrentData = table;
 							theState = ParserState.EQMODTABLEDATA;
-						}
 					}
 				}
 			}

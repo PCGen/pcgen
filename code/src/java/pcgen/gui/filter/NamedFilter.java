@@ -63,6 +63,7 @@ final class NamedFilter extends AbstractPObjectFilter implements CustomFilter
 		return filter.accept(aPC, pObject);
 	}
 
+	@Override
 	public String toString()
 	{
 		return this.filter.toString() + "|" + getName() + "|" + getDescription();

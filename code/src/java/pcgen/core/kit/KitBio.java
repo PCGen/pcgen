@@ -125,6 +125,7 @@ public class KitBio extends BaseKit
 		return true;
 	}
 
+	@Override
 	public String toString()
 	{
 		final StringBuffer info = new StringBuffer();

@@ -130,11 +130,7 @@ public class PToolBar extends JToolBar
 			if (panelName.equals(Tab.INVENTORY.toString()))
 			{
 				Component subPanel = ((JTabbedPane) curPanel).getSelectedComponent();
-
-				if (curPanel != null)
-				{
-					panelName = subPanel.getName();
-				}
+				panelName = subPanel.getName();
 			}
 
 			aTab = pcgen.core.GameMode.getTab(panelName);

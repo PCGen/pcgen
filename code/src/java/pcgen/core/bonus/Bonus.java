@@ -345,27 +345,6 @@ public class Bonus
 		return aBonus;
 	}
 
-	private static String getJarName()
-	{
-		try
-		{
-			final StringBuffer buffer = new StringBuffer(
-					System.getProperty("java.class.path", "pcgen.jar"));
-			// If we aren't running from the pcgen.jar file, we still need to have it to scan
-			if (buffer.indexOf("pcgen.jar") < 0)
-			{
-				buffer.append(System.getProperty("path.separator"))
-						.append("pcgen.jar");
-			}
-			return buffer.toString();
-		}
-		catch (Exception exc)
-		{
-			// Do nothing
-		}
-		return null;
-	}
-
 	/**
 	 * Add a CLASS via a BONUS
 	 * @param bonusClass
@@ -442,6 +421,7 @@ public class Bonus
          * toString function bonusname:bonustype
          * @return String bonusname:bonustype
          */
+		@Override
 		public String toString()
 		{
 			return bonusObjectName + ':' + Integer.toString(bonusType);

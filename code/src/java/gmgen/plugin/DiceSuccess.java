@@ -86,6 +86,7 @@ public class DiceSuccess extends Die
 	/** Name of the dice in the nds format
 	 * @return Name of the die pool
 	 */
+	@Override
 	public String toString()
 	{
 		return num + "d" + sides;

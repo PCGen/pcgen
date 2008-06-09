@@ -51,8 +51,6 @@ public class CharacterFilter implements OutputFilter
 						new BufferedReader(new InputStreamReader(
 							new FileInputStream(filterFile), "UTF-8"));
 
-				if (br != null)
-				{
 					outputFilterName = filterName;
 					outputFilter = new HashMap<Integer, String>();
 
@@ -90,7 +88,6 @@ public class CharacterFilter implements OutputFilter
 					}
 
 					br.close();
-				}
 			}
 		}
 		catch (IOException e)

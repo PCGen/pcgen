@@ -41,6 +41,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -637,7 +638,6 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 		if (theTable != null)
 		{
 			final List<String> pathList = theTable.getExpandedPaths();
-			final int selRow = theTable.getSelectedRow();
 			theModel.resetModel(thePC, theViewMode, false);
 
 			if (theSorter != null)
@@ -702,8 +702,8 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	public boolean accept(@SuppressWarnings("unused")
 		final ViewMode aMode, final Ability anAbility)
 	{
-		if (!((anAbility.getVisibility() == Visibility.DEFAULT) || (anAbility
-			.getVisibility() == Visibility.DISPLAY_ONLY)))
+		if (!((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT) || (anAbility
+				.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY)))
 		{
 			return false;
 		}

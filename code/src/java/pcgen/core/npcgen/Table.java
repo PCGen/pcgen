@@ -35,6 +35,7 @@ public class Table
 		theData.add( aWeight, anEntry );
 	}
 	
+	@Override
 	public String toString()
 	{
 		return theName;

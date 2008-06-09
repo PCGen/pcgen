@@ -25,6 +25,7 @@ package pcgen.core;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
@@ -82,7 +83,7 @@ public class AbilityUtilities
 	{
 		Ability newAbility = null;
 
-		if (anAbility != null && (anAbility.isMultiples() || getAbilityFromList(addList, anAbility) == null))
+		if (anAbility != null && (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED) || getAbilityFromList(addList, anAbility) == null))
 		{
 			newAbility = anAbility.clone();
 
@@ -382,12 +383,12 @@ public class AbilityUtilities
 			final AbilityCategory category)
 	{
 		// how many sub-choices to make
-		double abilityCount = (ability.getAssociatedCount() * ability.getCost(aPC));
+		double abilityCount = (ability.getAssociatedCount() * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 
 		boolean adjustedAbilityPool = false;
 
 		// adjust the associated List
-		if (singleChoice && (addIt || ability.isMultiples()))
+		if (singleChoice && (addIt || ability.getSafe(ObjectKey.MULTIPLE_ALLOWED)))
 		{
 			if ("".equals(choice) || choice == null)
 			{
@@ -427,7 +428,7 @@ public class AbilityUtilities
 		// if no sub choices made (i.e. all of them removed in Chooser box),
 		// then remove the Feat
 		boolean removed = false;
-		boolean result  = (ability.isMultiples() && singleChoice) ? (ability.getAssociatedCount() > 0) : addIt ; 
+		boolean result  = (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && singleChoice) ? (ability.getAssociatedCount() > 0) : addIt ; 
 
 		if (! result)
 		{
@@ -443,17 +444,17 @@ public class AbilityUtilities
 
 		if (singleChoice && !adjustedAbilityPool)
 		{
-			if (!addIt && !ability.isMultiples() && removed)
+			if (!addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && removed)
 			{
 				// We don't need to adjust the pool for abilities here as it is recalculated each time it is queried.
 				if (category == AbilityCategory.FEAT)
 				{
-					abilityCount += ability.getCost(aPC);
+					abilityCount += ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 				}
 			}
-			else if (addIt && !ability.isMultiples())
+			else if (addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				abilityCount -= ability.getCost(aPC);
+				abilityCount -= ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 			}
 			else if (category == AbilityCategory.FEAT)
 			{
@@ -467,7 +468,7 @@ public class AbilityUtilities
 					}
 				}
 
-				abilityCount -= (listSize * ability.getCost(aPC));
+				abilityCount -= (listSize * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 			}
 
 
@@ -574,7 +575,7 @@ public class AbilityUtilities
 	{
 		if (aCatObj instanceof Ability)
 		{
-			return ((Ability) aCatObj).isMultiples();
+			return ((Ability) aCatObj).getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		}
 		else if (aCatObj instanceof AbilityInfo)
 		{
@@ -583,7 +584,7 @@ public class AbilityUtilities
 			{
 				return false;
 			}
-			return ability.isMultiples();
+			return ability.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		}
 		return false;
 	}
@@ -871,15 +872,15 @@ public class AbilityUtilities
 			}
 			else
 			{
-				if (!all && !anAbility.isMultiples())
+				if (!all && !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					if (addIt)
 					{
-						aPC.adjustFeats(anAbility.getCost(aPC));
+						aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 					}
 					else
 					{
-						aPC.adjustFeats(-anAbility.getCost(aPC));
+						aPC.adjustFeats(-anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 					}
 				}
 

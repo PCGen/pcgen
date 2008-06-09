@@ -326,7 +326,7 @@ public final class FilterFactory implements FilterConstants
 
 			for ( final PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class) )
 			{
-				if (pcClass.getVisibility().equals(Visibility.DEFAULT) && filter.accept(null, pcClass))
+				if (pcClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT) && filter.accept(null, pcClass))
 				{
 					raceFilters.add(FilterFactory.createFavoredClassFilter(pcClass.getKeyName()));
 				}

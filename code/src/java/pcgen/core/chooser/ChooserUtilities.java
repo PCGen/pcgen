@@ -40,7 +40,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Ability.Nature;
 import pcgen.util.Logging;
 
 

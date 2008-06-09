@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AssociatedChoice;
@@ -324,19 +325,19 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		@Override
 		public boolean isMultYes()
 		{
-			return ability.isMultiples();
+			return ability.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		}
 
 		@Override
 		public boolean isStackYes()
 		{
-			return ability.isStacks();
+			return ability.getSafe(ObjectKey.STACKS);
 		}
 
 		@Override
 		public double getCost()
 		{
-			return ability.getCost();
+			return ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 		}
 
 		@Override

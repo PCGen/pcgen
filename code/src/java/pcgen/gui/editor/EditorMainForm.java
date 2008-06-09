@@ -568,8 +568,6 @@ public final class EditorMainForm extends JDialog
 			return;
 		}
 
-		Object[] sel;
-
 		thisPObject.setName(aString);
 
 		try
@@ -667,7 +665,6 @@ public final class EditorMainForm extends JDialog
 				//
 				thisPObject.removeListFor(ListKey.RACEPANTHEON);
 				sel = pnlRaces.getSelectedList();
-				List<String> raceArray = new ArrayList<String>(sel.length);
 				for (int i = 0; i < sel.length; i++)
 				{
 					thisPObject.addToListFor(ListKey.RACEPANTHEON, ((Race) sel[i])

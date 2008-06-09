@@ -1762,6 +1762,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			return _class;
 		}
 
+		@Override
 		public String toString()
 		{
 			StringBuffer b = new StringBuffer();
@@ -2268,7 +2269,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					}
 					else
 					{
-						return (fn != null) ? fn.toString() : null;
+						return fn.toString();
 					}
 
 				case COL_TYPE:
@@ -2339,13 +2340,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 
-					if (fn != null)
-					{
-						return fn.toString();
-					}
-					Logging
-						.errorPrintLocalised("in_itmBonModelNoActiveNode"); //$NON-NLS-1$
-					return null;
+					return fn.toString();
 			}
 		}
 
@@ -2931,6 +2926,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			super(anItem);
 		}
 
+		@Override
 		public String toString()
 		{
 			Object item = super.getItem();

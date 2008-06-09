@@ -69,6 +69,7 @@ public class GameModeRollMethod
 	 * Get a human readable representation of this roll method
 	 * @return The method name
 	 */
+	@Override
 	public String toString()
 	{
 		return methodName;

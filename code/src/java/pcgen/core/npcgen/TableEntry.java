@@ -24,6 +24,7 @@ public class TableEntry
 		return Collections.unmodifiableList(theData);
 	}
 	
+	@Override
 	public String toString()
 	{
 		return theName;

@@ -25,6 +25,7 @@ import java.util.Set;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
@@ -220,6 +221,19 @@ public class ObjectContext
 				}
 			}
 		}
+		for (URI uri : edits.patternClearSet.getKeySet())
+		{
+			for (CDOMObject cdo : edits.patternClearSet.getSecondaryKeySet(uri))
+			{
+				for (ListKey<?> lk : edits.patternClearSet.getTertiaryKeySet(uri, cdo))
+				{
+					for (String s : edits.patternClearSet.getListFor(uri, cdo, lk))
+					{
+						commit.removePatternFromList(cdo, lk, s);
+					}
+				}
+			}
+		}
 		decommit();
 	}
 
@@ -318,6 +332,9 @@ public class ObjectContext
 
 		private DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, ListKey<?>>(
 				HashMap.class, IdentityHashMap.class);
+
+		private TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet = new TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String>(
+				HashMap.class, IdentityHashMap.class, HashMap.class);
 
 		private URI sourceURI;
 
@@ -528,6 +545,12 @@ public class ObjectContext
 			return new CollectionChanges<Prerequisite>(getPositive(extractURI,
 					obj).getPrerequisiteList(), null, false);
 		}
+
+		public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
+				String pattern)
+		{
+			patternClearSet.addToListFor(sourceURI, cdo, lk, pattern);
+		}
 	}
 
 	public Changes<Prerequisite> getPrerequisiteChanges(ConcretePrereqObject obj)
@@ -618,5 +641,11 @@ public class ObjectContext
 	public interface Remover<T>
 	{
 		public boolean matches(T obj);
+	}
+
+	public void removePatternFromList(CDOMObject cdo,
+			ListKey<?> lk, String pattern)
+	{
+		edits.removePatternFromList(cdo, lk, pattern);
 	}
 }

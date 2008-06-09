@@ -265,6 +265,7 @@ public final class CharacterSpell implements Comparable<Object>
 	 * @param obj
 	 * @return true if equal
 	 */
+	@Override
 	public boolean equals(final Object obj)
 	{
 		return obj != null && obj instanceof CharacterSpell && ((CharacterSpell) obj).getName().equals(getName());
@@ -274,6 +275,7 @@ public final class CharacterSpell implements Comparable<Object>
 	 * this method is used the same as equals() but for hash tables
 	 * @return hash code
 	 */
+	@Override
 	public int hashCode()
 	{
 		return toString().hashCode();
@@ -300,6 +302,7 @@ public final class CharacterSpell implements Comparable<Object>
 	 *
 	 * @return the Spell's Name for Tree's display
 	 */
+	@Override
 	public String toString()
 	{
 		final String result;

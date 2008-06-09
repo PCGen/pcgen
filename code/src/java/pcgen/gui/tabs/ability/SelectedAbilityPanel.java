@@ -42,7 +42,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.gui.tabs.components.FilterPanel;
 import pcgen.gui.tabs.components.RemoveItemPanel;
 import pcgen.gui.utils.ClickHandler;

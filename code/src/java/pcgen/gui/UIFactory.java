@@ -48,7 +48,7 @@ public final class UIFactory
 	private static final int TOOLTIP = 2;
 	private static final int crossPlatformIndex = 1;
 	private static final boolean windowsPlatform = System.getProperty("os.name").startsWith("Windows ");
-	private static final boolean macPlatform = System.getProperty("os.name").equals("Mac OS X");
+	//private static final boolean macPlatform = System.getProperty("os.name").equals("Mac OS X");
 
 	static
 	{

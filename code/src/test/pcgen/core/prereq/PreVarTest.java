@@ -10,6 +10,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -57,7 +58,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 
 		Ability ab2 = TestHelper.makeAbility("Dancer", "BARDIC",
 				"General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test fails with ability present.", PrereqHandler.passes(

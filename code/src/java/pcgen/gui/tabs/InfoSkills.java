@@ -1939,16 +1939,13 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if ("".equals(aString)) //$NON-NLS-1$
 			{
-				if (pcl != null)
+				if (currCharacterClass == null)
 				{
-					if (currCharacterClass == null)
-					{
-						updatePcl((int) points);
-					}
-					else
-					{
-						pcl.setSkillPointsRemaining(skillPool - (int) points);
-					}
+					updatePcl((int) points);
+				}
+				else
+				{
+					pcl.setSkillPointsRemaining(skillPool - (int) points);
 				}
 
 				//bSkill.activateBonuses();
@@ -2541,6 +2538,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			_bPassesPreReqs = bPassesPreReqs;
 		}
 
+		@Override
 		public String toString()
 		{
 			if (_aSkill == null)
@@ -3282,7 +3280,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					else
 					{
 						if (available
-							&& (skill.getVisibility() == Visibility.OUTPUT_ONLY))
+							&& (skill.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY))
 						{
 							continue;
 						}

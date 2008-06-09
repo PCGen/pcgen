@@ -28,10 +28,10 @@ package pcgen.core.chooser;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;

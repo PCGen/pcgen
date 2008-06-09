@@ -56,8 +56,6 @@ final class NewWeaponInfoDialog extends JDialog
 	{
 		super(parent);
 
-		Toolkit kit = Toolkit.getDefaultToolkit();
-
 		IconUtilitities.maybeSetIcon(parent,
 			IconUtilitities.RESOURCE_APP_ICON);
 		initComponents();

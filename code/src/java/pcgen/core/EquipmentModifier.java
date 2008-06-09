@@ -33,7 +33,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.EqModNameOpt;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;

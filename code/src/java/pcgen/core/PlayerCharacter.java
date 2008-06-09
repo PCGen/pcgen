@@ -477,7 +477,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (Skill aSkill : skillList)
 		{
-			final Visibility skillVis = aSkill.getVisibility();
+			final Visibility skillVis = aSkill.getSafe(ObjectKey.VISIBILITY);
 
 			if ((vis == Visibility.DEFAULT) || (skillVis == Visibility.DEFAULT)
 				|| (skillVis == vis))
@@ -2971,7 +2971,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final Skill bSkill = i.next();
 
-			Visibility skVis = bSkill.getVisibility();
+			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
 			if (bSkill.getOutputIndex() == -1
 				|| skVis.equals(Visibility.HIDDEN)
 				|| skVis.equals(Visibility.DISPLAY_ONLY))
@@ -3529,8 +3529,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate template : getTemplateList())
 		{
-			if ((template.getVisibility() == Visibility.DEFAULT)
-				|| (template.getVisibility() == Visibility.OUTPUT_ONLY))
+			if ((template.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
+				|| (template.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY))
 			{
 				tl.add(template);
 			}
@@ -6253,7 +6253,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							AbilityUtilities.modFeat(this, null, aString, true,
 								false);
 							// setFeats(feats - anAbility.getCost(this));
-							adjustFeats(-anAbility.getCost(this));
+							adjustFeats(-anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 						}
 					}
 					else
@@ -6271,7 +6271,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 								AbilityUtilities.modFeat(this, null, aString,
 									true, false);
 								// setFeats(feats - anAbility.getCost(this));
-								adjustFeats(-anAbility.getCost(this));
+								adjustFeats(-anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 							}
 						}
 						else
@@ -6438,7 +6438,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						if (anAbility != null)
 						{
 							// setFeats(feats + anAbility.getCost(this));
-							adjustFeats(anAbility.getCost(this));
+							adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 							AbilityUtilities.modFeat(this, null, aString, true,
 								true);
 						}
@@ -6457,7 +6457,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 								.hasFeatAutomatic(featKey)))
 							{
 								// setFeats(feats + anAbility.getCost(this));
-								adjustFeats(anAbility.getCost(this));
+								adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 
 								// modFeat(featName, true,
 								// featName.endsWith("Proficiency"));
@@ -11145,11 +11145,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		else
 		// a stacking bonus
 		{
-			if (bonusType == null)
-			{
-				bonusType = Constants.EMPTY_STRING;
-			}
-
 			final String aVal = bonusMap.get(bonusType);
 
 			if (aVal == null)
@@ -12317,21 +12312,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return lvlMap;
 	}
 
-	/**
-	 * Adds the List to activeBonuses if it passes RereqToUse Test
-	 * 
-	 * @param aList
-	 */
-	private void addListToActiveBonuses(final List<BonusObj> aList)
-	{
-		if (aList == null)
-		{
-			return;
-		}
-		activeBonusList.addAll(aList);
-		// setDirty(true);
-	}
-
 	private void addSpells(final PObject obj)
 	{
 		if ((race == null) || (obj == null) || (obj.getSpellList() == null)
@@ -12412,59 +12392,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		setDirty(true);
-	}
-
-	private Map<String, String> addStringToDRMap(
-		final Map<String, String> drMap, final String drString)
-	{
-		if ((drString == null) || (drString.length() == 0))
-		{
-			return drMap;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(drString, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aString = aTok.nextToken();
-			final int x = aString.indexOf('/');
-			String key;
-			final String val;
-
-			if ((x > 0) && (x < aString.length()))
-			{
-				val = aString.substring(0, x);
-				key = aString.substring(x + 1);
-
-				// some DR: are DR:val/key and others are DR:val/+key,
-				// so remove the + to make them equivalent
-				if ((key.length() > 0) && (key.charAt(0) == '+'))
-				{
-					key = key.substring(1);
-				}
-
-				// We use -1 as a starting value so as to allow DR:0/- to work.
-				// It
-				// can then have bonuses added to improve it.
-				int y = -1;
-				final String obj = drMap.get(key);
-
-				if (obj != null)
-				{
-					y = Integer.parseInt(obj);
-				}
-
-				final int z = getVariableValue(val, "").intValue();
-
-				if (z > y)
-				{
-					drMap.put(key, String.valueOf(z));
-				}
-			}
-		}
-		// setDirty(true);
-
-		return drMap;
 	}
 
 	/**
@@ -12594,7 +12521,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (anAbility != null)
 				{
-					if (anAbility.isMultiples()
+					if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
 						&& !anAbility.containsAssociated(aString))
 					{
 						anAbility.addAssociated(aString);
@@ -12608,7 +12535,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					if (anAbility != null)
 					{
 						if (isAuto
-							&& !anAbility.isMultiples()
+							&& !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
 							&& !Constants.s_INTERNAL_WEAPON_PROF
 								.equalsIgnoreCase(featKey))
 						{
@@ -12663,193 +12590,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// {
 		// weaponProfList.add(wp);
 		// }
-	}
-
-	private SortedSet<String> addWeaponProfsLists(final List<String> aList,
-		final SortedSet<String> aSet, final List<Ability> aFeatList,
-		final boolean addIt)
-	{
-		if ((aList == null) || aList.isEmpty())
-		{
-			return aSet;
-		}
-
-		final String sizeString = "FDTSMLHGC";
-
-		PreParserFactory factory = null;
-		try
-		{
-			factory = PreParserFactory.getInstance();
-		}
-		catch (PersistenceLayerException e)
-		{
-			// We won't do prereq testing if we can't get the factory
-		}
-		for (String profKey : aList)
-		{
-			final int idx = profKey.indexOf('[');
-
-			if (idx >= 0 && factory != null)
-			{
-				final StringTokenizer bTok =
-						new StringTokenizer(profKey.substring(idx + 1), "[]");
-				final List<String> preReqStrings = new ArrayList<String>();
-
-				while (bTok.hasMoreTokens())
-				{
-					preReqStrings.add(bTok.nextToken());
-				}
-
-				profKey = profKey.substring(0, idx);
-
-				if (preReqStrings.size() != 0)
-				{
-					final List<Prerequisite> preReqList =
-							new ArrayList<Prerequisite>(preReqStrings.size());
-					for (String preStr : preReqStrings)
-					{
-						try
-						{
-							preReqList.add(factory.parse(preStr));
-						}
-						catch (PersistenceLayerException e)
-						{
-							// Just skip this one
-						}
-					}
-					if (!PrereqHandler.passesAll(preReqList, this, null))
-					{
-						continue;
-					}
-				}
-			}
-
-			final int lastComma = profKey.lastIndexOf(',');
-			boolean flag = (lastComma < 0);
-
-			if (!flag && (race != null))
-			{
-				final String eString = profKey.substring(lastComma + 1);
-				final int s = sizeInt();
-
-				for (int i = 0; i < eString.length(); ++i)
-				{
-					if (sizeString.lastIndexOf(eString.charAt(i)) == s)
-					{
-						flag = true;
-
-						break;
-					}
-				}
-
-				profKey = profKey.substring(0, lastComma);
-			}
-
-			if (flag)
-			{
-				// 1. Look for an exact equipment match
-				// TODO This doesn't make a whole bunch of sense
-				final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-						Equipment.class, profKey);
-
-				if (eq != null)
-				{
-					// Found an exact equipment match; use it
-					if (addIt)
-					{
-						aSet.add(profKey);
-						addWeaponProfToList(aFeatList, profKey, true);
-					}
-				}
-				else
-				// No exact equipment match found.
-				{
-					// Set up a place to store located profs
-					final List<WeaponProf> addWPs = new ArrayList<WeaponProf>();
-
-					// Check for type separators.
-					final boolean dotsFound = profKey.indexOf(".") >= 0;
-
-					// 2. If no dots found, try to find a weapon proficiency
-					// specification
-					boolean loadedByProfs = false;
-
-					if (!dotsFound)
-					{
-						// Look for an exact proficiency match
-						final WeaponProf prof =
-								Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
-
-						if (prof != null)
-						{
-							addWPs.add(prof);
-							loadedByProfs = true;
-						}
-
-						// Look for proficiency type matches
-						else
-						{
-							final Collection<WeaponProf> listFromWPType = Globals
-									.getPObjectsOfType(
-											Globals.getContext().ref
-													.getConstructedCDOMObjects(WeaponProf.class),
-											profKey);
-
-							if ((listFromWPType != null)
-								&& (!listFromWPType.isEmpty()))
-							{
-								for (WeaponProf wp : listFromWPType)
-								{
-									addWPs.add(wp);
-								}
-
-								loadedByProfs = true;
-							}
-						}
-					}
-
-					// 3. If dots found (or no profs found), assume weapon types
-					if (dotsFound || !loadedByProfs)
-					{
-						final String desiredTypes = "Weapon." + profKey;
-						final List<Equipment> listFromEquipmentType =
-								EquipmentList.getEquipmentOfType(desiredTypes,
-									"");
-
-						if ((listFromEquipmentType != null)
-							&& (!listFromEquipmentType.isEmpty()))
-						{
-							for (Equipment e : listFromEquipmentType)
-							{
-								CDOMSingleRef<WeaponProf> ref = e.get(ObjectKey.WEAPON_PROF);
-								if (ref != null)
-								{
-									addWPs.add(ref.resolvesTo());
-								}
-							}
-						}
-					}
-
-					// Add the located weapon profs to the prof list
-					for (WeaponProf wp : addWPs)
-					{
-						if (addIt)
-						{
-							final String subProfKey = wp.getKeyName();
-							// aSet.add(profKey);
-							aSet.add(subProfKey);
-							addWeaponProfToList(aFeatList, subProfKey, true);
-						}
-					}
-				}
-				// end else( No exact equipment match found )
-			}
-			// end if(flag)
-		}
-		// end for()
-
-		// return result set
-		return aSet;
 	}
 
 	/**
@@ -13620,8 +13360,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			int k =
 					Math.max(1,
-						(int) (anObj.getAssociatedCount() * ((HasCost) anObj)
-							.getCost()));
+						(int) (anObj.getAssociatedCount() *
+								anObj.getSafe(ObjectKey.SELECTION_COST).doubleValue()));
 
 			if (subSearch && (anObj.getAssociatedCount() > 0))
 			{
@@ -15891,8 +15631,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// If locName is empty equip this item to its default location.
 		// If there is more than one option return with an error.
-		if ((locName == null)
-			|| ((locName != null) && ("".equals(locName) || (locName.length() == 0))))
+		if (locName == null || locName.length() == 0)
 		{
 			locName = getSingleLocation(eqI);
 
@@ -16870,7 +16609,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final boolean autoQualify)
 	{
 		final boolean qualify = this.qualifiesForFeat(anAbility);
-		final boolean canTakeMult = anAbility.isMultiples();
+		final boolean canTakeMult = anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		final boolean hasOrdinary = this.hasRealFeat(anAbility);
 		final boolean hasAuto = this.hasFeatAutomatic(anAbility.getKeyName());
 
@@ -16900,13 +16639,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// hidden feats so the number
 			// displayed matches this number
 			//
-			if (aFeat.getVisibility() == Visibility.HIDDEN
-				|| aFeat.getVisibility() == Visibility.OUTPUT_ONLY)
+			if (aFeat.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN
+				|| aFeat.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
 			{
 				continue;
 			}
 			final int subfeatCount = aFeat.getAssociatedCount();
-			double cost = aFeat.getCost(this);
+			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 			int select =
 					getVariableValue(aFeat.getSelectCount(), "").intValue();
 			double relativeCost = cost / select;
@@ -16946,7 +16685,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (final Ability ability : abilities)
 			{
 				final int subfeatCount = ability.getAssociatedCount();
-				double cost = ability.getCost(this);
+				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 				int select =
 						getVariableValue(ability.getSelectCount(), "")
 							.intValue();
@@ -17286,7 +17025,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				aHashMap.put(vFeat.getKeyName(), vFeat);
 			}
-			else if (vFeat.isMultiples())
+			else if (vFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
 				Ability aggregateFeat = aHashMap.get(vFeat.getKeyName());
 				aggregateFeat = aggregateFeat.clone();
@@ -17295,7 +17034,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					final String aString = vFeat.getAssociated(e1);
 
-					if (aggregateFeat.isStacks()
+					if (aggregateFeat.getSafe(ObjectKey.STACKS)
 						|| !aggregateFeat.containsAssociated(aString))
 					{
 						aggregateFeat.addAssociated(aString);
@@ -17316,7 +17055,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				aHashMap.put(autoFeat.getKeyName(), autoFeat);
 			}
 
-			else if (autoFeat.isMultiples())
+			else if (autoFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
 				Ability aggregateFeat = aHashMap.get(autoFeat.getKeyName());
 				aggregateFeat = aggregateFeat.clone();
@@ -17324,7 +17063,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (int e1 = 0; e1 < autoFeat.getAssociatedCount(); ++e1)
 				{
 					final String aString = autoFeat.getAssociated(e1);
-					if (aggregateFeat.isStacks()
+					if (aggregateFeat.getSafe(ObjectKey.STACKS)
 						|| !aggregateFeat.containsAssociated(aString))
 					{
 						aggregateFeat.addAssociated(aString);
@@ -17356,8 +17095,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
 		for (final Ability ability : abilities)
 		{
-			if (ability.getVisibility() == Visibility.DEFAULT
-				|| ability.getVisibility() == Visibility.OUTPUT_ONLY)
+			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
+				|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
 			{
 				ret.add(ability);
 			}

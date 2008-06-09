@@ -104,11 +104,13 @@ public final class CoreUtility
 					obj2.getParentName());
 		}
 
-		public boolean equals(final Equipment obj)
+		@Override
+		public boolean equals(final Object obj)
 		{
 			return false;
 		}
 
+		@Override
 		public int hashCode()
 		{
 			return 0;

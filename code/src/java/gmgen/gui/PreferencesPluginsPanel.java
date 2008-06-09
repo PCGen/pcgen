@@ -64,6 +64,7 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return "Plugin Launch";
 	}

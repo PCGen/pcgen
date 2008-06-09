@@ -92,6 +92,7 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 		return refreshOnStateChange.isSelected();
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Performance";

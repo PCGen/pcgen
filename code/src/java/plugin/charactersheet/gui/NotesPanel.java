@@ -588,6 +588,7 @@ public class NotesPanel extends FlippingSplitPane
 			this.pc = pc;
 		}
 
+		@Override
 		public String toString()
 		{
 			if (item != null)

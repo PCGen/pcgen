@@ -269,6 +269,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 			+ ".Damage.Disabled", DAMAGE_DISABLED_ZERO));
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Damage";

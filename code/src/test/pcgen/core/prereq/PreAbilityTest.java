@@ -26,6 +26,7 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
@@ -71,7 +72,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC",
 					"General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
@@ -106,7 +107,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC",
 					"General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
@@ -145,7 +146,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC",
 					"General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
@@ -182,7 +183,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
@@ -223,7 +224,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 					"General.Bardic");
 		ab2.putServesAs("KEY_Alertness", "FEAT");
 		ab2.putServesAs("KEY_Dancer", "FEAT");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
@@ -261,7 +262,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		TestHelper.makeAbility("Power Attack", "FEAT", "Fighter");
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab2.putServesAs("KEY_Power Attack", "FEAT");
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
@@ -302,7 +303,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Dancer", "FEAT",
 					"General.Bardic");
 		ab2.putServesAs("KEY_Fascinate", "BARDIC");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(

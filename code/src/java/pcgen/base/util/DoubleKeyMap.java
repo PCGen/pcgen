@@ -394,7 +394,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 				Object val = get(key1, key2);
 				if (val instanceof Collection)
 				{
-					size += ((Collection) val).size();
+					size += ((Collection<?>) val).size();
 				}
 				else
 				{

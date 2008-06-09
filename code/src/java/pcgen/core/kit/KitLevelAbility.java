@@ -189,6 +189,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 		}
 	}
 
+	@Override
 	public KitLevelAbility clone()
 	{
 		return (KitLevelAbility) super.clone();

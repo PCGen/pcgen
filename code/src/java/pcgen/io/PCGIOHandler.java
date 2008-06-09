@@ -26,6 +26,7 @@
 package pcgen.io;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -506,7 +507,7 @@ public final class PCGIOHandler extends IOHandler
 				}
 			}
 
-			if (aFeat.isMultiples() && (aFeat.getAssociatedCount() == 0))
+			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && (aFeat.getAssociatedCount() == 0))
 			{
 				aFeat.addAssociated("PLEASE MAKE APPROPRIATE SELECTION");
 				warnings

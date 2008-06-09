@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 
 public enum SkillCost

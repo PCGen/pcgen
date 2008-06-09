@@ -63,7 +63,7 @@ public class CDOMDirectSingleRef<T extends CDOMObject> extends
 	{
 		return o instanceof CDOMDirectSingleRef
 			&& referencedObject.equals(
-				((CDOMDirectSingleRef) o).referencedObject);
+				((CDOMDirectSingleRef<?>) o).referencedObject);
 	}
 
 	@Override

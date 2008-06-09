@@ -34,6 +34,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Campaign;
@@ -806,10 +807,7 @@ final class PCGVer0Parser implements PCGParser
 				}
 			}
 
-			if (aSet != null)
-			{
-				aPC.addEquipSet(aSet);
-			}
+			aPC.addEquipSet(aSet);
 
 			i++;
 
@@ -1191,9 +1189,9 @@ final class PCGVer0Parser implements PCGParser
 				{
 					anAbility = anAbility.clone();
 					AbilityUtilities.modFeat(aPC, null, anAbility.getKeyName(),
-						true, !anAbility.isMultiples());
+						true, !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED));
 
-					if (anAbility.isMultiples()
+					if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
 						&& (anAbility.getAssociatedCount() == 0)
 						&& (aPC.getFeatKeyed(anAbility.getKeyName()) == null))
 					{
@@ -1228,7 +1226,7 @@ final class PCGVer0Parser implements PCGParser
 					{
 						aPC.addWeaponProf(aString);
 					}
-					else if ((anAbility.isMultiples() && anAbility.isStacks())
+					else if ((anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED) && anAbility.getSafe(ObjectKey.STACKS))
 						|| !anAbility.containsAssociated(aString))
 					{
 						anAbility.addAssociated(aString);

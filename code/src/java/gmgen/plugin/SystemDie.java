@@ -65,6 +65,7 @@ public class SystemDie extends Die
 	/** Name of the die in nds+m form
 	 * @return Name of the die
 	 */
+	@Override
 	public String toString()
 	{
 		if (aModifier == 0)

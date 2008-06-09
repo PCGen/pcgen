@@ -23,17 +23,36 @@
 
 package plugin.jepcommands;
 
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
+
 import org.nfunk.jep.ParseException;
-import pcgen.core.*;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Equipment;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.VariableProcessor;
 import pcgen.core.character.Follower;
-import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 import pcgen.util.ParameterTree;
 import pcgen.util.enumeration.Visibility;
-
-import java.text.MessageFormat;
-import java.util.*;
 
 
 /**
@@ -162,7 +181,7 @@ public class CountCommand extends PCGenCommand
 								{
 									final Ability ab = (Ability) abIt.next();
 
-									final String name = (ab.isMultiples()) ?
+									final String name = (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED)) ?
 												AbilityUtilities.getUndecoratedName(
 														ab.getDisplayName(),
 														new ArrayList<String>()) :
@@ -212,7 +231,7 @@ public class CountCommand extends PCGenCommand
 									while (abIt.hasNext())
 									{
 										a = (Ability) abIt.next();
-										if (!a.getVisibility().equals(vi))
+										if (!a.getSafe(ObjectKey.VISIBILITY).equals(vi))
 										{
 											abIt.remove();
 										}
@@ -775,8 +794,6 @@ public class CountCommand extends PCGenCommand
 
 		SPELLS
 				{
-					public Set<Spell> objdata = new HashSet<Spell>();
-
 					protected void getData(final PlayerCharacter pc)
 					{
 					}
@@ -802,7 +819,6 @@ public class CountCommand extends PCGenCommand
 
 		SPELLSINBOOK
 				{
-					public Set<Spell> objdata = new HashSet<Spell>();
 
 					protected void getData(final PlayerCharacter pc)
 					{
@@ -829,8 +845,6 @@ public class CountCommand extends PCGenCommand
 
 		SPELLSKNOWN
 				{
-					public Set<Spell> objdata = new HashSet<Spell>();
-
 					protected void getData(final PlayerCharacter pc)
 					{
 					}

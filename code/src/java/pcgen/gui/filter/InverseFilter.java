@@ -49,6 +49,7 @@ final class InverseFilter extends AbstractPObjectFilter implements CustomFilter
 		return !filter.accept(aPC, pObject);
 	}
 
+	@Override
 	public String toString()
 	{
 		return in_not + " (" + this.filter.toString() + ')';

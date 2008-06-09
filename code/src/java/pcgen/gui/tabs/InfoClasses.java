@@ -1979,7 +1979,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					break;
 
 				case GuiConstants.INFOCLASS_VIEW_TYPE_NAME: // type/name
-					setRoot((PObjectNode) typeRoot.clone());
+					setRoot(typeRoot.clone());
 
 					for (PCClass aClass : classList)
 					{
@@ -2021,7 +2021,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					break;
 
 				case GuiConstants.INFOCLASS_VIEW_SOURCE_NAME: // source/name
-					setRoot((PObjectNode) sourceRoot.clone());
+					setRoot(sourceRoot.clone());
 
 					for (PCClass aClass : classList)
 					{
@@ -2101,7 +2101,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			}
 
 			return (modelType == 1)
-				|| (aClass.getVisibility().equals(Visibility.DEFAULT) && accept(
+				|| (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT) && accept(
 					pc, aClass));
 		}
 

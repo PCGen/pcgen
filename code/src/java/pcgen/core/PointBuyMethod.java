@@ -62,6 +62,7 @@ public final class PointBuyMethod
 		pointFormula = argFormula;
 	}
 
+	@Override
 	public String toString()
 	{
 		return methodName;

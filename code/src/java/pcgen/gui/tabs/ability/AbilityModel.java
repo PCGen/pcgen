@@ -34,6 +34,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -46,7 +47,6 @@ import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
 
@@ -204,8 +204,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		final SortedSet<String> typeSet = new TreeSet<String>();
 		for (final Ability ability : abilityList)
 		{
-			if (!((ability.getVisibility() == Visibility.DEFAULT) || (ability
-				.getVisibility() == Visibility.DISPLAY_ONLY)))
+			if (!((ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT) || (ability
+					.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY)))
 			{
 				continue;
 			}
@@ -238,8 +238,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		// We will use the global lists for this
 		for (final Ability ability : abilityList)
 		{
-			if (!((ability.getVisibility() == Visibility.DEFAULT) || (ability
-				.getVisibility() == Visibility.DISPLAY_ONLY)))
+			if (!((ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT) || (ability
+					.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY)))
 			{
 				continue;
 			}
@@ -384,13 +384,13 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case COST:
 				if (ability != null)
 				{
-					retVal = ability.getCostString();
+					retVal = ability.getSafe(ObjectKey.SELECTION_COST);
 				}
 				break;
 			case MULTIPLES:
 				if (ability != null)
 				{
-					if (ability.isMultiples())
+					if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 					{
 						retVal = PropertyFactory.getString("in_yes"); //$NON-NLS-1$
 					}
@@ -403,7 +403,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case STACKS:
 				if (ability != null)
 				{
-					if (ability.isStacks())
+					if (ability.getSafe(ObjectKey.STACKS))
 					{
 						retVal = PropertyFactory.getString("in_yes"); //$NON-NLS-1$
 					}

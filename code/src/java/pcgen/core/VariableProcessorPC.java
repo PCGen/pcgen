@@ -141,7 +141,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 		if (countVisible)
 		{
-			if ((feat.getVisibility() != Visibility.DISPLAY_ONLY) && (feat.getVisibility() != Visibility.HIDDEN))
+			if ((feat.getSafe(ObjectKey.VISIBILITY) != Visibility.DISPLAY_ONLY) && (feat.getSafe(ObjectKey.VISIBILITY) != Visibility.HIDDEN))
 			{
 				if (onceOnly)
 				{
@@ -156,7 +156,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 		if (countHidden)
 		{
-			if ((feat.getVisibility() == Visibility.DISPLAY_ONLY) || (feat.getVisibility() == Visibility.HIDDEN))
+			if ((feat.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY) || (feat.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN))
 			{
 				if (onceOnly)
 				{
@@ -399,13 +399,8 @@ public class VariableProcessorPC extends VariableProcessor
 				if (!pcClass.getSpellType().equals(Constants.s_NONE))
 				{
 					final String classKey = pcClass.getKeyName();
-					String spellType = Constants.s_NONE;
 					final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", classKey);
-
-					if ((pcClass != null) && (!pcClass.getSpellType().equals(Constants.s_NONE)))
-					{
-						spellType = pcClass.getSpellType();
-					}
+					String spellType = pcClass.getSpellType();
 
 					if (CoreUtility.doublesEqual(getPc().getTotalBonusTo("CASTERLEVEL", classKey), 0.0))
 					{
@@ -1155,7 +1150,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 			for ( PCTemplate template : getPc().getTemplateList() )
 			{
-				final Visibility vis = template.getVisibility();
+				final Visibility vis = template.getSafe(ObjectKey.VISIBILITY);
 
 				if ((vis == Visibility.DEFAULT)
 				|| (vis == Visibility.OUTPUT_ONLY))

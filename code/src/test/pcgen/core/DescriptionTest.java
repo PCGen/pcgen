@@ -52,7 +52,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testEmptyDesc()
 	{
 		final Description desc = new Description(Constants.EMPTY_STRING);
-		assertTrue(desc.getDescription(this.getCharacter()).equals(""));
+		assertTrue(desc.getDescription(this.getCharacter(), null).equals(""));
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	{
 		final String simpleDesc = "This is a test";
 		final Description desc = new Description(simpleDesc);
-		assertTrue(desc.getDescription(getCharacter()).equals(simpleDesc));
+		assertTrue(desc.getDescription(getCharacter(), null).equals(simpleDesc));
 	}
 
 	/**
@@ -80,13 +80,13 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Prerequisite prereqNE =
 				factory.parse("PRETEMPLATE:KEY_Natural Lycanthrope");
 		desc.addPreReq(prereqNE);
-		is(desc.getDescription(getCharacter()), strEq(""));
+		is(desc.getDescription(getCharacter(), null), strEq(""));
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		template.setKeyName("KEY_Natural Lycanthrope");
 		getCharacter().addTemplate(template);
-		is(desc.getDescription(getCharacter()), strEq(simpleDesc));
+		is(desc.getDescription(getCharacter(), null), strEq(simpleDesc));
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	{
 		final Description desc = new Description("%1");
 		desc.addVariable("\"Variable\"");
-		assertTrue(desc.getDescription(getCharacter()).equals("Variable"));
+		assertTrue(desc.getDescription(getCharacter(), null).equals("Variable"));
 	}
 
 	/**
@@ -109,8 +109,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%NAME");
-		desc.setOwner(pobj);
-		assertTrue(desc.getDescription(getCharacter()).equals("PObject"));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals("PObject"));
 	}
 
 	/**
@@ -123,11 +122,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("%1");
 		desc.addVariable("TestVar");
-		desc.setOwner(dummy);
-		assertTrue(desc.getDescription(getCharacter()).equals("0"));
+		assertTrue(desc.getDescription(getCharacter(), dummy).equals("0"));
 
 		getCharacter().setRace(dummy);
-		assertTrue(desc.getDescription(getCharacter()).equals("2"));
+		assertTrue(desc.getDescription(getCharacter(), dummy).equals("2"));
 	}
 
 	/**
@@ -139,11 +137,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%CHOICE");
-		desc.setOwner(pobj);
-		assertTrue(desc.getDescription(getCharacter()).equals(""));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals(""));
 
 		pobj.addAssociated("Foo");
-		assertTrue(desc.getDescription(getCharacter()).equals("Foo"));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Foo"));
 	}
 
 	/**
@@ -155,11 +152,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%LIST");
-		desc.setOwner(pobj);
-		assertTrue(desc.getDescription(getCharacter()).equals(""));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals(""));
 
 		pobj.addAssociated("Foo");
-		assertTrue(desc.getDescription(getCharacter()).equals("Foo"));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Foo"));
 	}
 
 	/**
@@ -170,8 +166,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final PObject pobj = new PObject();
 
 		final Description desc = new Description("%1");
-		desc.setOwner(pobj);
-		assertTrue(desc.getDescription(getCharacter()).equals(""));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals(""));
 	}
 
 	/**
@@ -183,11 +178,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("Testing");
 		desc.addVariable("%LIST");
-		desc.setOwner(pobj);
-		assertTrue(desc.getDescription(getCharacter()).equals("Testing"));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Testing"));
 
 		pobj.addAssociated("Foo");
-		assertTrue(desc.getDescription(getCharacter()).equals("Testing"));
+		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Testing"));
 	}
 
 	/**
@@ -202,19 +196,18 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("%1 test %3 %2");
 		desc.addVariable("TestVar");
-		desc.setOwner(dummy);
-		assertEquals("0 test  ", desc.getDescription(getCharacter()));
+		assertEquals("0 test  ", desc.getDescription(getCharacter(), dummy));
 
 		getCharacter().setRace(dummy);
-		assertEquals("2 test  ", desc.getDescription(getCharacter()));
+		assertEquals("2 test  ", desc.getDescription(getCharacter(), dummy));
 
 		desc.addVariable("%CHOICE");
 		assertEquals("2 test  Associated 1", desc
-			.getDescription(getCharacter()));
+			.getDescription(getCharacter(), dummy));
 
 		desc.addVariable("%LIST");
 		assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1 and Associated 2 Associated 1", desc
-				.getDescription(getCharacter()));
+				.getDescription(getCharacter(), dummy));
 	}
 }

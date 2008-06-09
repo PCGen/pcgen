@@ -23,6 +23,7 @@ package pcgen.core.levelability;
 import java.awt.HeadlessException;
 import java.util.List;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -134,7 +135,7 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 					"General.Fighter");
 		weaponFocus
 			.setChoiceString("WEAPONPROFS|Spellcaster.Ray|ADD.Grapple|LIST");
-		weaponFocus.setMultiples("Y");
+		weaponFocus.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 
 		final LevelAbility ability =
 				LevelAbility.createAbility(pcClass, 1, "FEAT(TYPE=Fighter)");

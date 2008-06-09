@@ -26,6 +26,7 @@
 package pcgen.core.levelability;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -103,7 +104,7 @@ class LevelAbilityFeat extends LevelAbility
 				else
 				{
 					featKey = anAbility.getKeyName();
-					aPC.adjustFeats(-anAbility.getCost());
+					aPC.adjustFeats(-anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 				}
 
 				AbilityUtilities.modFeat(aPC, null, featKey, false, false);
@@ -241,7 +242,7 @@ class LevelAbilityFeat extends LevelAbility
 					}
 					else
 					{
-						c = anAbility.getCost();
+						c = anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 					}
 					if (Double.isNaN(maxVal) || (c > maxVal))
 					{
@@ -301,7 +302,7 @@ class LevelAbilityFeat extends LevelAbility
 					//
 					// Add the cost of the feat to the pool
 					//
-					aPC.adjustFeats(anAbility.getCost());
+					aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 				}
 				else
 				{
@@ -413,7 +414,7 @@ class LevelAbilityFeat extends LevelAbility
 				isVirtual ||
 				PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
 			{
-				if (anAbility.isMultiples())
+				if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					addMultiplySelectableAbility(anArrayList, aPC, featKey, subKey, anAbility);
 				}
@@ -444,7 +445,7 @@ class LevelAbilityFeat extends LevelAbility
 			{
 				Ability a = (Ability) catz;
 				if (aPC.canSelectAbility(a, isVirtual)
-					&& a.getVisibility().equals(Visibility.DEFAULT))
+					&& a.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
 				{
 					featList.add(a.getKeyName());
 				}
@@ -652,7 +653,7 @@ class LevelAbilityFeat extends LevelAbility
 
 		// Remove any already selected
 
-		if (!anAbility.isStacks())
+		if (!anAbility.getSafe(ObjectKey.STACKS))
 		{
 			for (Iterator<String> e = selectedList.iterator(); e.hasNext();)
 			{

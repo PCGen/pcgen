@@ -48,9 +48,6 @@ public final class RandomChooser implements ChooserInterface
 	// TODO - Should this be used?
 	private boolean theZeroPoolFlag = true;
 
-	/** The column containing the cost for an item */
-	private int theCostColumnNumber = -1;
-
 	private int selectionsPerUnitCost = 1;
 	
 	private int totalSelectionsAvailable = 1;
@@ -92,7 +89,6 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setCostColumnNumber(final int costColumnNumber)
 	{
-		theCostColumnNumber = costColumnNumber;
 	}
 
 	/**

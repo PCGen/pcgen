@@ -142,6 +142,7 @@ public class KitSpellBookEntry
 
 	/** TODO Fix this
 	 * @return String*/
+	@Override
 	public String toString()
 	{
 		return theName;

@@ -162,7 +162,7 @@ public class NPCGenerator
 			// are 1/8 as likely to be selected.
 			for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 			{
-				if ( skill.getVisibility() == Visibility.DEFAULT )
+				if ( skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT )
 				{
 					if (skill.isClassSkill(aClass, aPC))
 					{
@@ -364,7 +364,7 @@ public class NPCGenerator
 			{
 				int weight = 1;
 				Ability ability = (Ability)i.next();
-				if (!(ability.getVisibility() == Visibility.DEFAULT))
+				if (ability.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT)
 				{
 					continue;
 				}
@@ -422,7 +422,7 @@ public class NPCGenerator
 			final List<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
 			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
 			{
-				Domain domain = (Domain) iterator.next();
+				Domain domain = iterator.next();
 				if (! PrereqHandler.passesAll(domain.getPreReqList(), aPC, domain))
 				{
 					iterator.remove();
@@ -647,7 +647,7 @@ public class NPCGenerator
 						{
 							break;
 						}
-						if (aClass.getVisibility().equals(Visibility.DEFAULT)
+						if (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT)
 							&& PrereqHandler.passesAll(aClass.getPreReqList(), aPC,
 							aClass) && aClass.isQualified(aPC))
 						{

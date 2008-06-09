@@ -37,6 +37,7 @@ import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
+import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
@@ -189,6 +190,7 @@ public final class ListKey<T> {
 	public static final ListKey<KnownSpellIdentifier> KNOWN_SPELLS = new ListKey<KnownSpellIdentifier>();
 	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<SpellProhibitor>();
 	public static final ListKey<Quality> QUALITY = new ListKey<Quality>();
+	public static final ListKey<Description> BENEFIT = new ListKey<Description>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

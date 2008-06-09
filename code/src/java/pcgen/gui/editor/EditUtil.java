@@ -76,8 +76,6 @@ final class EditUtil
 
 	static void addPObjectTypes(final PObject pobj, List<String> l)
 	{
-		String aString;
-
 		for (String type : pobj.getTypeList(false))
 		{
 			if (!type.equals(Constants.s_CUSTOM))

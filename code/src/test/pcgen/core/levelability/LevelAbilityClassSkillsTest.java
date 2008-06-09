@@ -151,7 +151,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase
 		is(ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
 		Skill mySkill = new Skill();
-		mySkill.setName("");
+		mySkill.setName("Blah2");
 		Globals.getContext().ref.importObject(mySkill);
 
 		try
@@ -195,7 +195,7 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase
 		is(ability.canProcess(), eq(true), "Can we process this LevelAbility");
 
 		Skill mySkill = new Skill();
-		mySkill.setName("");
+		mySkill.setName("Blah");
 		Globals.getContext().ref.importObject(mySkill);
 
 		try

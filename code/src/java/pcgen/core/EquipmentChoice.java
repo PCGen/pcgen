@@ -23,6 +23,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -338,7 +339,7 @@ final class EquipmentChoice
 					anAbility.isType(typeString)
 								  );
 
-			if ((anAbility.getVisibility() == Visibility.DEFAULT)
+			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					&& !this.getAvailableList().contains(anAbility.getKeyName()))
 			{
 				if (matchesType && (anAbility.getChoiceString().length() == 0))

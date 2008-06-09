@@ -27,6 +27,7 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -83,20 +84,20 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		}
 
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT", "General.Fighter");
-		ab1.setMultiples("NO");
-		ab1.setVisibility(Visibility.DEFAULT);
+		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		character.addAbility(featCategory, ab1, null);
 
 		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC", "General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(bardCategory, ab2, null);
 
 		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", "FEAT", "General.Fighter");
-		ab3.setMultiples("NO");
+		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(featCategory, ab3, null);
 
 		Ability ab4 = TestHelper.makeAbility("Silent Step", "FEAT", "General");
-		ab4.setMultiples("NO");
+		ab4.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(featCategory, ab4, null);
 	}
 
@@ -145,12 +146,12 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 			SettingsHandler.getGame().getAbilityCategory("Feat");
 
 		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", "FEAT", "General");
-		ab5.setMultiples("NO");
-		ab5.setVisibility(Visibility.OUTPUT_ONLY);
+		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+		ab5.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		character.addAbility(featCategory, ab5, null);
 
         Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", "FEAT", "Bardic");
-        ab6.setMultiples("NO");
+        ab6.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
         character.addAbility(featCategory, ab6, null);
 
 

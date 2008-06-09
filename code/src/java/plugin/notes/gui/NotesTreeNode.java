@@ -1256,6 +1256,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *
 	 * @return the name of the node (with a * if it is dirty)
 	 */
+	@Override
 	public String toString()
 	{
 		if (dirty)

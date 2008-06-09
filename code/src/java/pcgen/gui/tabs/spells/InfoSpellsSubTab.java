@@ -619,12 +619,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			returnList.set(0, cs);
 			return returnList;
 		}
-		if (cs == null)
-		{
-			cs = new CharacterSpell(theOwner, aSpell);
-			returnList.set(0, cs);
-			return returnList;
-		}
+		cs = new CharacterSpell(theOwner, aSpell);
+		returnList.set(0, cs);
 		return returnList;
 	}
 

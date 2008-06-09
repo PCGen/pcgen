@@ -29,7 +29,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.InputVerifier;
@@ -42,7 +41,6 @@ import javax.swing.SwingUtilities;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.gui.tabs.InfoAbility;
 import pcgen.gui.utils.Utility;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.PropertyFactory;

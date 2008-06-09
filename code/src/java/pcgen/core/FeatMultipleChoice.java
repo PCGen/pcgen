@@ -72,6 +72,7 @@ public final class FeatMultipleChoice extends AssociatedChoice<String> implement
 	 *
 	 * @return String
 	 */
+	@Override
 	public String toString()
 	{
 		final StringBuffer sb = new StringBuffer(50);

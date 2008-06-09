@@ -143,8 +143,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		toughness = new Ability();
 		toughness.setName("Toughness");
-		toughness.setMultiples("Y");
-		toughness.setStacks("Y");
+		toughness.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+		toughness.put(ObjectKey.STACKS, Boolean.TRUE);
 		toughness.setChoiceString("NOCHOICE");
 		toughness.setCategory("FEAT");
 		toughness.addBonusList("HP|CURRENTMAX|3");
@@ -153,7 +153,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Ability exoticWpnProf =
 				TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT",
 					"General.Fighter");
-		exoticWpnProf.setMultiples("YES");
+		exoticWpnProf.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		exoticWpnProf.setChoiceString("PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
 		exoticWpnProf.addAutoArray("WEAPONPROF", "%LIST");
 	

@@ -1002,7 +1002,6 @@ final class LstConverter extends JFrame
 	{
 		public String getToolTipText(MouseEvent e)
 		{
-			String tip = null;
 			java.awt.Point p = e.getPoint();
 			int rowIndex = rowAtPoint(p);
 			int colIndex = columnAtPoint(p);

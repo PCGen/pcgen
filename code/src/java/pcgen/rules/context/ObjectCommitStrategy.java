@@ -73,4 +73,7 @@ public interface ObjectCommitStrategy
 	public String getString(CDOMObject cdo, StringKey sk);
 
 	public boolean containsListFor(CDOMObject obj, ListKey<?> lk);
+	
+	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
+			String pattern);
 }

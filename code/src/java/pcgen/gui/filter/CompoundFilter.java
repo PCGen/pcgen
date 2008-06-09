@@ -63,6 +63,7 @@ final class CompoundFilter extends AbstractPObjectFilter implements CustomFilter
 		}
 	}
 
+	@Override
 	public String toString()
 	{
 		return "((" + this.filter1.toString() + ") " + this.connect.toLowerCase() + " (" + this.filter2.toString()

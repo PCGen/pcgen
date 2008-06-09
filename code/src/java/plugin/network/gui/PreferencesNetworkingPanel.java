@@ -104,6 +104,7 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 			+ ".username", "Player"));
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Network";

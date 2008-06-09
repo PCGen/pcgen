@@ -246,7 +246,7 @@ public class WeightedList<E> implements List<E>
 		{
 			if (element instanceof List)
 			{
-				if (((List) element).contains(o))
+				if (((List<?>) element).contains(o))
 				{
 					return true;
 				}
@@ -327,22 +327,27 @@ public class WeightedList<E> implements List<E>
 	@SuppressWarnings("unchecked")
 	public <T> T[] toArray(T[] a)
 	{
+		T[] returnArray;
 		if (a.length < theData.size())
 		{
 			// Allocate a new array
-			a =
+			returnArray =
 					(T[]) Array.newInstance(a.getClass().getComponentType(),
 						theData.size());
 		}
-		for (int i = 0; i < a.length; i++)
+		else
 		{
-			a[i] = (T) theData.get(i).getElement();
+			returnArray = a;
 		}
-		if (a.length > theData.size())
+		for (int i = 0; i < returnArray.length; i++)
 		{
-			a[theData.size()] = null;
+			returnArray[i] = (T) theData.get(i).getElement();
 		}
-		return a;
+		if (returnArray.length > theData.size())
+		{
+			returnArray[theData.size()] = null;
+		}
+		return returnArray;
 	}
 
 	/**

@@ -87,7 +87,6 @@ final class PCGenMenuBar extends JMenuBar
 	private JCheckBoxMenuItem debugMode;
 	JMenu exportMenu;
 	private JMenu filtersMenu;
-	private JMenu importMenu;
 	private JMenu helpMenu;
 	JMenuItem addKit;
 	JMenuItem closeAllItem;
@@ -296,9 +295,9 @@ final class PCGenMenuBar extends JMenuBar
 
 		fileMenu.addSeparator();
 
-		importMenu =
-				Utility.createMenu("Import", 'I',
-					"Import from other file formats", "Import16.gif", true);
+		// importMenu =
+		// Utility.createMenu("Import", 'I',
+		// "Import from other file formats", "Import16.gif", true);
 
 		// Do not add until we get some formats to
 		// import.  --bko XXX

@@ -228,6 +228,7 @@ public final class Domain extends PObject
 	 * @return TRUE if equals, else FALSE
 	 * @see Object#equals
 	 */
+	@Override
 	public boolean equals(final Object obj)
 	{
 		if (obj != null)
@@ -246,6 +247,7 @@ public final class Domain extends PObject
 	 *
 	 * @return a hashcode for this Domain object
 	 */
+	@Override
 	public int hashCode()
 	{
 		final int result;

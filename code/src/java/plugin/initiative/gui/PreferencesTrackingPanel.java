@@ -141,6 +141,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 			InitiativePlugin.LOG_NAME + ".doHP", true));
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Tracking";

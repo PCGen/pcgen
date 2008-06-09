@@ -46,7 +46,6 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>Skill</code>.
@@ -602,17 +601,6 @@ public final class Skill extends PObject
 		}
 
 		return newSkill;
-	}
-
-    /**
-     * Get the actual cost of a skill point
-     * @param aClass
-     * @param aPC
-     * @return cost of a skill point
-     */
-	public int costForPCClass(final PCClass aClass, final PlayerCharacter aPC)
-	{
-		return skillCostForPCClass(aClass, aPC).getCost();
 	}
 
     /**
@@ -1554,15 +1542,4 @@ public final class Skill extends PObject
 		PCStat keyStat = get(ObjectKey.KEY_STAT);
 		return keyStat == null ? "" : keyStat.getAbb();
 	}
-
-	/**
-	 * Retrieve this object's visibility in the GUI and on the output sheet
-	 * @return Visibility in the GUI and on the output sheet 
-	 */
-	@Override
-	public Visibility getVisibility()
-	{
-		return getSafe(ObjectKey.VISIBILITY);
-	}
-
 }

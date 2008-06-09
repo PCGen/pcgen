@@ -30,7 +30,6 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;

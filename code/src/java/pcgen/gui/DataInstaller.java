@@ -52,6 +52,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
 
 import pcgen.core.InstallableCampaign;
@@ -479,12 +480,12 @@ public class DataInstaller extends JFrame
 	
 		// Data set selection row
 		Utility.buildConstraints(gbc, 0, 0, 1, 1, 0.0, 0.0);
-		JLabel dataSetLabel = new JLabel(PropertyFactory.getString("in_diDataSet"), JLabel.RIGHT);
+		JLabel dataSetLabel = new JLabel(PropertyFactory.getString("in_diDataSet"), SwingConstants.RIGHT);
 		gridbag.setConstraints(dataSetLabel, gbc);
 		add(dataSetLabel, gbc);
 		
 		Utility.buildConstraints(gbc, 1, 0, 2, 1, 1.0, 0.0);
-		dataSetSel = new JTextField("", JLabel.WEST);
+		dataSetSel = new JTextField("", SwingConstants.WEST);
 		dataSetSel.setEditable(false);
 		gridbag.setConstraints(dataSetSel, gbc);
 		add(dataSetSel, gbc);
@@ -511,7 +512,7 @@ public class DataInstaller extends JFrame
 		// Location row
 		Utility.buildConstraints(gbc, 0, 2, 1, 1, 0.0, 0.0);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		JLabel locLabel = new JLabel(PropertyFactory.getString("in_diLocation"), JLabel.RIGHT);
+		JLabel locLabel = new JLabel(PropertyFactory.getString("in_diLocation"), SwingConstants.RIGHT);
 		gridbag.setConstraints(locLabel, gbc);
 		add(locLabel, gbc);
 		

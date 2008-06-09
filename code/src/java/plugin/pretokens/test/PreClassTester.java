@@ -7,8 +7,6 @@
 package plugin.pretokens.test;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import pcgen.core.Equipment;
 import pcgen.core.Globals;

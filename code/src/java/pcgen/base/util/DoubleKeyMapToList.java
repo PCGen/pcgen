@@ -360,7 +360,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	}
 
 	@Override
-	public DoubleKeyMapToList clone() throws CloneNotSupportedException
+	public DoubleKeyMapToList<K1, K2, V> clone() throws CloneNotSupportedException
 	{
 		DoubleKeyMapToList<K1, K2, V> dkm = (DoubleKeyMapToList<K1, K2, V>) super
 				.clone();

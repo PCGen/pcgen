@@ -14,6 +14,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -324,7 +325,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final Ability spellFocus = new Ability();
 		spellFocus.setName("Spell Focus");
 		spellFocus.setKeyName("Spell Focus");
-		spellFocus.setMultiples("Y");
+		spellFocus.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 
 		final PlayerCharacter character = getCharacter();
 

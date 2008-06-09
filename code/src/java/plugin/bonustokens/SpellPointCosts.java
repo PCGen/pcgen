@@ -5,12 +5,10 @@ package plugin.bonustokens;
 
 import java.util.StringTokenizer;
 
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellPointCostInfo;
 import pcgen.core.bonus.util.SpellPointCostInfo.SpellPointFilterType;
-import pcgen.core.SettingsHandler;
-import pcgen.core.bonus.BonusObj;
 import pcgen.util.Logging;
-import pcgen.util.ParseException;
 
 /**
  * @author Joe.Frazier
@@ -26,7 +24,6 @@ public class SpellPointCosts extends BonusObj
 		SpellPointFilterType type =null;
 		String typeValue =null;
 		String part = null;
-		int partValue =0;
 		
 		if (token == null)
 		{
@@ -104,10 +101,6 @@ public class SpellPointCosts extends BonusObj
 	protected String[] getBonusesHandled()
 	{
 		return bonusHandled;
-	}
-	public String toString()
-	{
-		return super.toString();
 	}
 	
 }

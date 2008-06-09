@@ -129,6 +129,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		className = aClassName;
 	}
 
+	@Override
 	public String toString()
 	{
 		final StringBuffer info = new StringBuffer(100);

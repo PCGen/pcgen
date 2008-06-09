@@ -226,8 +226,6 @@ public final class Equipment extends PObject implements Serializable,
 	// player added note
 	private String noteString = "";
 
-	private String profName = "";
-
 	// How fast the weapon can be fired.
 	private String size = "";
 
@@ -1160,7 +1158,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (Iterator<EquipmentModifier> it = modList.iterator(); it.hasNext();)
 		{
 			EquipmentModifier eqMod = it.next();
-			if (eqMod.getVisibility().equals(Visibility.HIDDEN)) {
+			if (eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN)) {
 				it.remove();
 			}
 		}
@@ -2125,7 +2123,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The visible value
 	 */
 	public boolean isVisible(final EquipmentModifier eqMod) {
-		Visibility vis = eqMod.getVisibility();
+		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
 
 		if (Visibility.QUALIFY.equals(vis)) {
 			bonusPrimary = true;
@@ -2842,6 +2840,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            Description of the Parameter
 	 * @return Description of the Return Value
 	 */
+	@Override
 	public boolean equals(final Object o) {
 		return (o != null) && (o instanceof Equipment)
 				&& ((o == this) || getName().equals(((Equipment) o).getName()));
@@ -3436,6 +3435,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return the Equipment as a String
 	 */
+	@Override
 	public String toString() {
 		return toString(true);
 	}
@@ -3586,6 +3586,7 @@ public final class Equipment extends PObject implements Serializable,
 		containerContentsString = tempStringBuffer.toString();
 	}
 
+	@Override
 	protected void doGlobalTypeUpdate(final String aString) {
 		s_equipmentTypes.add(aString);
 	}

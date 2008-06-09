@@ -32,11 +32,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -247,7 +247,7 @@ public final class PrerequisiteUtilities
 						// Subkey == null
 
 						runningTotal++;
-						if (ability.isMultiples() && countMults)
+						if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 						{
 							runningTotal += (ability.getAssociatedCount() - 1);
 						}
@@ -335,7 +335,7 @@ public final class PrerequisiteUtilities
 				&& aFeat.containsAssociated(subKey))
 			{
 				runningTotal++;
-				if (aFeat.isMultiples() && countMults)
+				if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 				{
 					runningTotal +=
 							(aFeat.getAssociatedCount() - 1);

@@ -72,14 +72,6 @@ class PCGenPopup extends JFrame
 	}
 
 	/**
-	 * Forbid the default constructor.
-	 */
-	private PCGenPopup()
-	{
-		//Yes, it should be empty.
-	}
-
-	/**
 	 * Use the panel as the frame content.
 	 *
 	 * @param panel JPanel the frame contents

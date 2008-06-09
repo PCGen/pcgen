@@ -822,9 +822,10 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							{
 								primaryMatch = spell.isLevel(iLev, pc);
 							}
-							else if (!knownSpellsOnly && si != null
-								&& si.getFeatList() != null)
+							else if (!knownSpellsOnly && si.getFeatList() != null)
+							{
 								continue;
+							}
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR: // By Descriptor
 							primaryMatch =

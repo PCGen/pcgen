@@ -111,6 +111,7 @@ public final class LevelInfo
 	 * LevelInfo object.
 	 * @return A string describing the LevelInfo object.
 	 */
+	@Override
 	public String toString()
 	{
 		return "Level: " + levelString + " MinXP: " + minXPString + " MaxClassSkill: " + maxClassSkillString

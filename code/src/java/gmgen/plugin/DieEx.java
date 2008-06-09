@@ -129,6 +129,7 @@ public class DieEx extends Die
 	/** Creates a <code>String</code> representation of this class
 	 * @return This class as a <code>String</code>.
 	 */
+	@Override
 	public String toString()
 	{
 		return num + "d" + sides;

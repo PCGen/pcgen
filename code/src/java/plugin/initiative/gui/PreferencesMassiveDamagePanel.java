@@ -103,6 +103,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 			+ ".Damage.Massive.SizeMod", true));
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Massive Damage";

@@ -31,7 +31,6 @@ import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.SkillArmorCheck;
-import pcgen.core.EquipmentList;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;

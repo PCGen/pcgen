@@ -37,7 +37,6 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SubRace;
@@ -329,7 +328,7 @@ public final class PCTemplate extends PObject
 			}
 		}
 
-		switch (getVisibility())
+		switch (getSafe(ObjectKey.VISIBILITY))
 		{
 			case DISPLAY_ONLY:
 				txt.append("\tVISIBLE:DISPLAY");
@@ -443,8 +442,8 @@ public final class PCTemplate extends PObject
 	{
 		boolean result = false;
 
-		if ((getVisibility() == Visibility.DEFAULT)
-			|| (getVisibility() == Visibility.DISPLAY_ONLY))
+		if ((getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
+			|| (getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY))
 		{
 			result = getSafe(ObjectKey.REMOVABLE);
 		}
@@ -1085,7 +1084,7 @@ public final class PCTemplate extends PObject
 		}
 		Globals.getChoiceFromList(title, availableList, selectedList, 1,
 			forceChoice);
-		if (selectedList != null && selectedList.size() == 1)
+		if (selectedList.size() == 1)
 		{
 			return selectedList.get(0).getKeyName();
 		}
@@ -1484,15 +1483,5 @@ public final class PCTemplate extends PObject
 			return null;
 		}
 		return new Point2D.Double(width.doubleValue(), height.doubleValue());
-	}
-
-	/**
-	 * Retrieve this object's visibility in the GUI and on the output sheet
-	 * @return Visibility in the GUI and on the output sheet 
-	 */
-	@Override
-	public Visibility getVisibility()
-	{
-		return getSafe(ObjectKey.VISIBILITY);
 	}
 }

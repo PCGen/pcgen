@@ -4238,12 +4238,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 			switch (mode)
 			{
 				case GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME: // Type/SubType/Name
-					setRoot((PObjectNode) ((PObjectNode) typeSubtypeRoot)
-						.clone());
+					setRoot(((PObjectNode) typeSubtypeRoot).clone());
 					break;
 
 				case GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME: // Type/Name
-					setRoot((PObjectNode) ((PObjectNode) typeRoot).clone());
+					setRoot(((PObjectNode) typeRoot).clone());
 					break;
 
 				case GuiConstants.INFOINVENTORY_VIEW_NAME: // Name
@@ -4251,11 +4250,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 					break;
 
 				case GuiConstants.INFOINVENTORY_VIEW_ALL_TYPES: // All Types... every unique TYPE is listed
-					setRoot((PObjectNode) ((PObjectNode) allTypeRoot).clone());
+					setRoot(((PObjectNode) allTypeRoot).clone());
 					break;
 
 				case GuiConstants.INFOINVENTORY_VIEW_SOURCE_NAME: // Type/Name
-					setRoot((PObjectNode) ((PObjectNode) sourceRoot).clone());
+					setRoot(((PObjectNode) sourceRoot).clone());
 					break;
 
 				default:

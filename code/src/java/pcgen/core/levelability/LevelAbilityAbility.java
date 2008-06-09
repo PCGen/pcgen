@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -309,7 +310,7 @@ public class LevelAbilityAbility extends LevelAbility
 				isVirtual ||
 				PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
 			{
-				if (anAbility.isMultiples())
+				if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					addMultiplySelectableAbility(anArrayList, aPC, anAbility);
 				}
@@ -456,7 +457,7 @@ public class LevelAbilityAbility extends LevelAbility
 
 		// Remove any already selected
 
-		if (!anAbility.isStacks())
+		if (!anAbility.getSafe(ObjectKey.STACKS))
 		{
 			Iterator<String> it = selectedList.iterator();
 
@@ -682,7 +683,7 @@ public class LevelAbilityAbility extends LevelAbility
 
 				if (pcAbility != null)
 				{
-					if (pcAbility.isMultiples())
+					if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 					{
 						final double x = aPC.getRawFeats(false);
 						aPC.setFeats(1); // temporarily assume 1 choice

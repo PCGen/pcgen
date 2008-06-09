@@ -854,7 +854,6 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
 		List<Race> critters = new ArrayList<Race>();
-		float crNum;
 
 		if (!f.exists())
 		{

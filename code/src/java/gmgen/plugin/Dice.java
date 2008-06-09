@@ -80,6 +80,7 @@ public class Dice extends Die
 	/** Name of the die in the nds+m format
 	 * @return Name of the die
 	 */
+	@Override
 	public String toString()
 	{
 		if (aModifier == 0)

@@ -4327,6 +4327,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			return eqSet;
 		}
 
+		@Override
 		public String toString()
 		{
 			return eqSet.getItem().getName();
@@ -5976,6 +5977,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			super(anItem);
 		}
 
+		@Override
 		public String toString()
 		{
 			final Object item = super.getItem();
@@ -5990,11 +5992,6 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				final EquipSet eSet = (EquipSet) item;
 				final Equipment eqI = eSet.getItem();
 
-				if (eSet == null)
-				{
-					return "";
-				}
-
 				if (eqI == null)
 				{
 					StringBuffer b = new StringBuffer();
@@ -6004,28 +6001,16 @@ public class InfoEquipping extends FilterAdapterPanel implements
 					return b.toString();
 				}
 
-				if (eqI != null)
-				{
-					return eqI.piString();
-				}
-
-				return eSet.toString();
+				return eqI.piString();
 			}
 			else if (item instanceof Equipment)
 			{
-				final Equipment eqI = (Equipment) item;
-
-				if (eqI != null)
-				{
-					return eqI.piString();
-				}
+				return ((Equipment) item).piString();
 			}
 			else
 			{
 				return super.toString();
 			}
-
-			return "";
 		}
 	}
 }

@@ -61,8 +61,6 @@ public class PatternFilter implements OutputFilter
 					new BufferedReader(new InputStreamReader(
 						new FileInputStream(filterFile), "UTF-8"));
 
-			if (br != null)
-			{
 				outputFilterName = filterName;
 				match = new ArrayList<String>();
 				replace = new ArrayList<String>();
@@ -127,7 +125,6 @@ public class PatternFilter implements OutputFilter
 				}
 
 				br.close();
-			}
 		}
 	}
 

@@ -23,6 +23,7 @@
  */
 package pcgen.core.chooser;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -106,7 +107,7 @@ public class FeatSelectChoiceManager extends AbstractBasicStringChoiceManager
 						}
 					}
 
-					if (theAbility.isMultiples())
+					if (theAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 					{
 						//
 						// If already have taken the feat, use it so we can remove
@@ -169,7 +170,7 @@ public class FeatSelectChoiceManager extends AbstractBasicStringChoiceManager
 						//
 						// Remove any already selected
 						//
-						if (!theAbility.isStacks())
+						if (!theAbility.getSafe(ObjectKey.STACKS))
 						{
 							for (Iterator<String> e = xselectedList.iterator(); e.hasNext();)
 							{

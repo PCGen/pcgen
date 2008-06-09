@@ -1,12 +1,15 @@
 package plugin.lsttokens.ability;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.persistence.lst.AbilityLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Deal with STACK token
  */
-public class StackToken implements AbilityLstToken
+public class StackToken implements CDOMPrimaryToken<Ability>
 {
 
 	public String getTokenName()
@@ -14,9 +17,53 @@ public class StackToken implements AbilityLstToken
 		return "STACK";
 	}
 
-	public boolean parse(Ability ability, String value)
+	public boolean parse(LoadContext context, Ability ability, String value)
 	{
-		ability.setStacks(value);
+		Boolean set;
+		char firstChar = value.charAt(0);
+		if (firstChar == 'y' || firstChar == 'Y')
+		{
+			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+			{
+				Logging.errorPrint("You should use 'YES' as the "
+						+ getTokenName() + ": " + value);
+				return false;
+			}
+			set = Boolean.TRUE;
+		}
+		else
+		{
+			if (firstChar != 'N' && firstChar != 'n')
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
+			}
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
+			}
+			set = Boolean.FALSE;
+		}
+		context.getObjectContext().put(ability, ObjectKey.STACKS, set);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Ability ability)
+	{
+		Boolean stacks = context.getObjectContext().getObject(ability,
+				ObjectKey.STACKS);
+		if (stacks == null)
+		{
+			return null;
+		}
+		return new String[] { stacks.booleanValue() ? "YES" : "NO" };
+	}
+
+	public Class<Ability> getTokenClass()
+	{
+		return Ability.class;
 	}
 }

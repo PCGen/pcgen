@@ -69,6 +69,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 		return theStatName;
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuffer ret = new StringBuffer(100);

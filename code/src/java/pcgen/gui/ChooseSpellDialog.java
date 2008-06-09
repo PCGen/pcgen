@@ -1286,6 +1286,7 @@ final class ChooseSpellDialog extends JDialog
 			return 1;
 		}
 
+		@Override
 		public String toString()
 		{
 			if (aSpell != null)

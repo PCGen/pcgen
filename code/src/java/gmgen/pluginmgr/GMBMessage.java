@@ -84,6 +84,7 @@ public abstract class GMBMessage
 	 *@return    Description of the Return Value
 	 *@since        GMGen 3.3
 	 */
+	@Override
 	public String toString()
 	{
 		return getClass().getName() + "[" + paramString() + "]";

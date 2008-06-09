@@ -384,6 +384,7 @@ public abstract class Combatant implements InitHolder
 	 * Returns a String representation of this combatant.
 	 * @return String
 	 */
+	@Override
 	public String toString()
 	{
 		return getName();

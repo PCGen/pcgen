@@ -25,6 +25,7 @@
 package pcgen.core;
 
 import pcgen.PCGenTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.util.TestHelper;
 
 /**
@@ -69,26 +70,26 @@ public class AbilityTest extends PCGenTestCase
 		Ability ab1 =
 				TestHelper.makeAbility("Perform (Dance)", "FEAT",
 					"General.Fighter");
-		ab1.setMultiples("NO");
+		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
 		Ability ab2 =
 				TestHelper.makeAbility("Perform (Dance)", "BARDIC",
 					"General.Bardic");
-		ab2.setMultiples("NO");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
 		Ability ab3 =
 				TestHelper.makeAbility("Perform (Oratory)", "FEAT",
 					"General.Fighter");
-		ab3.setMultiples("NO");
+		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
 		Ability ab4 =
 				TestHelper.makeAbility("Perform", "FEAT", "General.Fighter");
-		ab3.setMultiples("NO");
+		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
 		Ability ab5 =
 				TestHelper.makeAbility("Weapon Throwing", "FEAT",
 					"General.Fighter");
-		ab5.setMultiples("YES");
+		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		ab5.addAssociated("Wellies");
 
 		Ability ab6 = ab5.clone();

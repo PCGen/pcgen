@@ -36,6 +36,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
@@ -46,7 +47,6 @@ import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.FeatMultipleChoice;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -1522,7 +1522,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
-			pcl = null;
 			for (PCLevelInfo info : pcLevelInfoList)
 			{
 				if (classKeyName.equalsIgnoreCase(info.getClassKeyName())
@@ -2318,7 +2317,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						warnings.add(msg);
 					}
 				}
-				else if ((ability.isMultiples() && ability.isStacks())
+				else if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability.getSafe(ObjectKey.STACKS))
 					|| !ability.containsAssociated(appliedToKey))
 				{
 					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
@@ -2589,7 +2588,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						warnings.add(msg);
 					}
 				}
-				else if ((aFeat.isMultiples() && aFeat.isStacks())
+				else if ((aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && aFeat.getSafe(ObjectKey.STACKS))
 					|| !aFeat.containsAssociated(appliedToKey))
 				{
 					aFeat.addAssociated(appliedToKey);

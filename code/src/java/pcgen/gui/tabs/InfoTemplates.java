@@ -1271,7 +1271,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		private void createTypeViewModel(Collection<PCTemplate> templList)
 		{
-			setRoot((PObjectNode) typeRoot.clone());
+			setRoot(typeRoot.clone());
 
 			for (PCTemplate template : templList)
 			{
@@ -1305,7 +1305,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		private void createSourceViewModel(Collection<PCTemplate> templList)
 		{
-			setRoot((PObjectNode) sourceRoot.clone());
+			setRoot(sourceRoot.clone());
 
 			for (PCTemplate template : templList)
 			{
@@ -1357,8 +1357,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		 */
 		private boolean shouldDisplayThis(final PCTemplate template)
 		{
-			return ((template.getVisibility() == Visibility.DEFAULT || template
-				.getVisibility() == Visibility.DISPLAY_ONLY) && accept(getPc(),
+			return ((template.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT || template.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY) && accept(getPc(),
 				template));
 		}
 

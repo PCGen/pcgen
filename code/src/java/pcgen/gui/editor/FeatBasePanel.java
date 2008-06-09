@@ -25,6 +25,7 @@ package pcgen.gui.editor;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -39,6 +40,7 @@ import javax.swing.JPanel;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.Description;
@@ -266,10 +268,10 @@ public class FeatBasePanel extends BasePanel
 		}
 
 		thisFeat.setDescIsPI(getDescIsPI());
-		thisFeat.setMultiples(getMultiples() ? "Y" : "N");
-		thisFeat.setStacks(getStacks() ? "Y" : "N");
-		thisFeat.setVisibility(getVisible());
-		thisFeat.setCost(Double.toString(getCost()));
+		thisFeat.put(ObjectKey.MULTIPLE_ALLOWED, getMultiples() ? Boolean.TRUE : Boolean.FALSE);
+		thisFeat.put(ObjectKey.STACKS, getStacks() ? Boolean.TRUE : Boolean.FALSE);
+		thisFeat.put(ObjectKey.VISIBILITY, getVisible());
+		thisFeat.put(ObjectKey.SELECTION_COST, new BigDecimal(getCost()));
 		thisFeat.put(IntegerKey.ADD_SPELL_LEVEL, getSpellLevels());
 
 		Object[] sel = getTypesSelectedList();
@@ -333,10 +335,10 @@ public class FeatBasePanel extends BasePanel
 		setTypesAvailableList(availableList, true);
 		setTypesSelectedList(selectedList, true);
 
-		setVisible(thisFeat.getVisibility());
-		setMultiples(thisFeat.isMultiples());
-		setStacks(thisFeat.isStacks());
-		setCost(thisFeat.getCost());
+		setVisible(thisFeat.getSafe(ObjectKey.VISIBILITY));
+		setMultiples(thisFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED));
+		setStacks(thisFeat.getSafe(ObjectKey.STACKS));
+		setCost(thisFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 		setSpellLevels(thisFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL));
 	}
 

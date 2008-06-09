@@ -6,7 +6,6 @@
 
 package plugin.charactersheet.gui;
 
-import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.io.exporttoken.VarToken;

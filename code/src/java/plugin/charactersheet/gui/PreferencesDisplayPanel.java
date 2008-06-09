@@ -166,6 +166,7 @@ public class PreferencesDisplayPanel extends gmgen.gui.PreferencesPanel
 			+ ".color", CharacterPanel.BLUE));
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Display";
@@ -216,6 +217,7 @@ public class PreferencesDisplayPanel extends gmgen.gui.PreferencesPanel
 			return constant;
 		}
 
+		@Override
 		public String toString()
 		{
 			switch (constant)

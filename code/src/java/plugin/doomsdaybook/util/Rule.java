@@ -109,6 +109,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		return weight;
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuffer sb = new StringBuffer();

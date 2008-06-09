@@ -1,7 +1,9 @@
 package plugin.lsttokens.ability;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.persistence.lst.AbilityLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
@@ -15,7 +17,7 @@ import pcgen.util.enumeration.Visibility;
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisibleToken implements AbilityLstToken
+public class VisibleToken implements CDOMPrimaryToken<Ability>
 {
 
 	/**
@@ -26,39 +28,71 @@ public class VisibleToken implements AbilityLstToken
 		return "VISIBLE";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.AbilityLstToken#parse(pcgen.core.Ability,
-	 *      java.lang.String)
-	 */
-	public boolean parse(Ability ability, String value)
+	public boolean parse(LoadContext context, Ability ability, String value)
 	{
-		final String visType = value.toUpperCase();
-		if (visType.equalsIgnoreCase("EXPORT"))
+		Visibility vis;
+		if (value.equals("YES"))
 		{
-			ability.setVisibility(Visibility.OUTPUT_ONLY);
+			vis = Visibility.DEFAULT;
 		}
-		else if (visType.equalsIgnoreCase("NO"))
+		else if (value.equals("DISPLAY"))
 		{
-			ability.setVisibility(Visibility.HIDDEN);
+			vis = Visibility.DISPLAY_ONLY;
 		}
-		else if (visType.equalsIgnoreCase("DISPLAY"))
+		else if (value.equals("EXPORT"))
 		{
-			ability.setVisibility(Visibility.DISPLAY_ONLY);
+			vis = Visibility.OUTPUT_ONLY;
+		}
+		else if (value.equals("NO"))
+		{
+			vis = Visibility.HIDDEN;
 		}
 		else
 		{
-			if (!"YES".equalsIgnoreCase(visType))
-			{
-				Logging.errorPrint("Unexpected value used in " + getTokenName()
-						+ " in Ability");
-				Logging.errorPrint(" " + visType + " is not a valid value for "
-						+ getTokenName());
-				Logging
-						.errorPrint(" Valid values in Ability are EXPORT, NO, DISPLAY, and YES");
-				return false;
-			}
-			ability.setVisibility(Visibility.DEFAULT);
+			Logging.errorPrint("Unable to understand " + getTokenName()
+					+ " tag: " + value);
+			return false;
 		}
+		context.getObjectContext().put(ability, ObjectKey.VISIBILITY, vis);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Ability ability)
+	{
+		Visibility vis = context.getObjectContext().getObject(ability,
+				ObjectKey.VISIBILITY);
+		if (vis == null)
+		{
+			return null;
+		}
+		String visString;
+		if (vis.equals(Visibility.DEFAULT))
+		{
+			visString = "YES";
+		}
+		else if (vis.equals(Visibility.DISPLAY_ONLY))
+		{
+			visString = "DISPLAY";
+		}
+		else if (vis.equals(Visibility.OUTPUT_ONLY))
+		{
+			visString = "EXPORT";
+		}
+		else if (vis.equals(Visibility.HIDDEN))
+		{
+			visString = "NO";
+		}
+		else
+		{
+			context.addWriteMessage("Visibility " + vis
+					+ " is not a valid Visibility for an Ability");
+			return null;
+		}
+		return new String[] { visString };
+	}
+
+	public Class<Ability> getTokenClass()
+	{
+		return Ability.class;
 	}
 }

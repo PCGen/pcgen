@@ -45,6 +45,7 @@ import javax.swing.JSplitPane;
 import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -277,7 +278,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 		final boolean pcHasIt = (ability != null);
 
-		if (pcHasIt && !ability.isMultiples())
+		if (pcHasIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			return ABILITY_DUPLICATE;
 		}
@@ -292,7 +293,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 		if ((ability != null))
 		{
-			final BigDecimal cost = BigDecimal.valueOf(ability.getCost(pc));
+			final BigDecimal cost = ability.getSafe(ObjectKey.SELECTION_COST);
 			if (cost.compareTo(pc.getAvailableAbilityPool(theCategory)) > 0)
 			{
 				return ABILITY_FULL;

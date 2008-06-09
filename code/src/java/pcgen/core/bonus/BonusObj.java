@@ -889,6 +889,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
     /**
 	 * @see java.lang.Object#clone()
 	 */
+	@Override
 	public BonusObj clone() throws CloneNotSupportedException
 	{
 		final BonusObj bonusObj = (BonusObj)super.clone();

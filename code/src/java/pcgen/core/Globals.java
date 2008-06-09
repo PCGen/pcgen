@@ -53,6 +53,7 @@ import javax.swing.JFrame;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.character.CompanionMod;
@@ -3036,7 +3037,7 @@ public final class Globals
 		ArrayList<T> aList = new ArrayList<T>();
 		for (T po : c)
 		{
-			Visibility poVis = po.getVisibility();
+			Visibility poVis = po.getSafe(ObjectKey.VISIBILITY);
 			if (v == Visibility.DEFAULT || poVis == Visibility.DEFAULT
 					|| poVis == v)
 			{

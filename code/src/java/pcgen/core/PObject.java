@@ -77,7 +77,6 @@ import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
 
 /**
@@ -123,9 +122,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	protected String keyName = Constants.EMPTY_STRING;
 	/** The name to display to the user.  This should be internationalized. */
 	protected String displayName = Constants.EMPTY_STRING;
-
-	/** Indicates if this object should be displayed to the user in the UI. */
-	protected Visibility visibility = Visibility.DEFAULT;
 
 	/** Map of the bonuses for the object  */
 	private HashMap<String, String> bonusMap = null;
@@ -419,7 +415,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			theDescriptions = new ArrayList<Description>();
 		}
-		aDesc.setOwner( this );
 		theDescriptions.add( aDesc );
 	}
 	
@@ -479,7 +474,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		boolean wrote = false;
 		for ( final Description desc : theDescriptions )
 		{
-			final String str = desc.getDescription(aPC);
+			final String str = desc.getDescription(aPC, this);
 			if ( str.length() > 0 )
 			{
 				if ( wrote )
@@ -1209,24 +1204,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 	
 	/**
-	 * Retrieve this object's visibility in the GUI and on the output sheet
-	 * @return Visibility in the GUI and on the output sheet 
-	 */
-	public Visibility getVisibility()
-	{
-		return visibility;
-	}
-
-	/**
-	 * Set the object's visibility in the GUI and on the output sheet
-	 * @param Visibility in the GUI and on the output sheet 
-	 */
-	public void setVisibility(Visibility argVisibility)
-	{
-		visibility = argVisibility;
-	}
-	
-	/**
 	 * Adds Weapons/Armor/Shield names/types to new Proficiency mapping
 	 *
 	 * @param aString is a list of equipment and new Profs
@@ -1324,9 +1301,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		retVal.types.addAll(types);
 
 		retVal.setName(displayName);
-		retVal.visibility = visibility;
 		retVal.setKeyName(keyName);
-		retVal.spellSupport = (SpellSupport) spellSupport.clone();
+		retVal.spellSupport = spellSupport.clone();
 
 		// added 04 Aug 2003 by sage_sam -- bug#765749
 		// need to copy map correctly during a clone
@@ -1349,7 +1325,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			retVal.bonusList = new ArrayList<BonusObj>();
 			for (BonusObj orig : bonusList)
 			{
-				retVal.bonusList.add((BonusObj)orig.clone());
+				retVal.bonusList.add(orig.clone());
 
 			}
 			retVal.ownBonuses();
@@ -1399,12 +1375,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if ( this.theDescriptions != null )
 		{
-			retVal.theDescriptions = new ArrayList<Description>();
-			for ( final Description desc : theDescriptions )
-			{
-				desc.setOwner(retVal);
-				retVal.theDescriptions.add(desc);
-			}
+			retVal.theDescriptions = new ArrayList<Description>(theDescriptions);
 		}
 		return retVal;
 	}
@@ -2429,7 +2400,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			for (int ix = theFeatList.size() - 1; ix >= 0; ix--)
 			{
 				Ability aFeat = theFeatList.get(ix);
-				aPC.adjustFeats(-aFeat.getCost());
+				aPC.adjustFeats(-aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 				AbilityUtilities.modFeat(aPC, null, aFeat.getKeyName(), false, false);
 				if (ix > theFeatList.size())
 					ix = theFeatList.size();
@@ -2765,6 +2736,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return false;
 	}
 
+	@Override
 	public String toString()
 	{
 		return displayName;
@@ -3141,7 +3113,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 						if (anAbility != null)
 						{
-							switch (anAbility.getVisibility())
+							switch (anAbility.getSafe(ObjectKey.VISIBILITY))
 							{
 								case HIDDEN:
 								case OUTPUT_ONLY:

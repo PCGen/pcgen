@@ -127,7 +127,6 @@ public class TestHelper
 				throw new UnreachableError(e);
 			}
 			eqLoader.parseLine(Globals.getContext(), eq, input, source);
-			Globals.getContext().ref.importObject(eq);
 			return true;
 		}
 		catch (Exception e)

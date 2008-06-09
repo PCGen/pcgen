@@ -56,6 +56,7 @@ public final class EquipSlot
 	private String slotNumType = "";
 	private int containNum = 1;
 
+	@Override
 	public String toString()
 	{
 		return slotName;

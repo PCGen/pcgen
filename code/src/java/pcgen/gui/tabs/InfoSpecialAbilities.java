@@ -458,7 +458,6 @@ public final class InfoSpecialAbilities extends JPanel implements
 			final List<Language> availableLangs = new ArrayList<Language>();
 			final List<Language> selectedLangs = new ArrayList<Language>();
 			final List<Language> excludedLangs = new ArrayList<Language>();
-			final List<Language> selLangs = new ArrayList<Language>();
 
 			int numLanguages = pc.languageNum(false);
 

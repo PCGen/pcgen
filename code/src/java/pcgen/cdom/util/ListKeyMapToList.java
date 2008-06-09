@@ -180,7 +180,7 @@ public class ListKeyMapToList
 	 * @return true if this ListKeyMapToList contains a List for the given key;
 	 *         false otherwise.
 	 */
-	public boolean containsListFor(ListKey key)
+	public boolean containsListFor(ListKey<?> key)
 	{
 		return map.containsListFor(key);
 	}
@@ -289,7 +289,7 @@ public class ListKeyMapToList
 	 *            The key being tested.
 	 * @return the number of objects in the List for the given key
 	 */
-	public int sizeOfListFor(ListKey key)
+	public int sizeOfListFor(ListKey<?>key)
 	{
 		return map.sizeOfListFor(key);
 	}

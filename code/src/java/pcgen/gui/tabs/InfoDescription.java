@@ -2409,6 +2409,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			item = x;
 		}
 
+		@Override
 		public String toString()
 		{
 			if (item != null)

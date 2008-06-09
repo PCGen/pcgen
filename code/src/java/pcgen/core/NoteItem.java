@@ -46,15 +46,6 @@ public final class NoteItem
 		value = aValue;
 	}
 
-	/**
-	 * Constructor for NoteItem.
-	 * use the public constructor instead
-	 */
-	private NoteItem()
-	{
-		super();
-	}
-
 	/* this is used to export to character sheets
 	 * e.g. getExportString("<b>","</b>,"<br>,"")
 	 * would return the name in bold and the value on the next line in html format
@@ -104,6 +95,7 @@ public final class NoteItem
 		return value;
 	}
 
+	@Override
 	public String toString()
 	{
 		return name;

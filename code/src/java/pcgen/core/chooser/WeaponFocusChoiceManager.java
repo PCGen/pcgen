@@ -27,7 +27,6 @@ import java.util.List;
 import pcgen.core.Ability;
 import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;

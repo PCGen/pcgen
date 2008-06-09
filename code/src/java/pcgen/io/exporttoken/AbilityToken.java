@@ -28,6 +28,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -265,16 +266,16 @@ public class AbilityToken extends Token
 					matchVisibilityDef = true;
 					break;
 				case ABILITY_HIDDEN:
-					if (aAbility.getVisibility() == Visibility.HIDDEN
-						|| aAbility.getVisibility() == Visibility.DISPLAY_ONLY)
+					if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN
+						|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY)
 					{
 						matchVisibilityDef = true;
 					}
 					break;
 				case ABILITY_VISIBLE: // Fall thru intentional
 				default:
-					if (aAbility.getVisibility() == Visibility.DEFAULT
-						|| aAbility.getVisibility() == Visibility.OUTPUT_ONLY)
+					if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
+						|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
 					{
 						matchVisibilityDef = true;
 					}

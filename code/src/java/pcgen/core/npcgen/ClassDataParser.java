@@ -37,6 +37,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Categorisable;
@@ -352,7 +353,7 @@ class ClassDataHandler extends DefaultHandler
 							final List<Ability> subFeats = Globals.getAbilitiesByType(theCurrentCategory.getAbilityCategory(), key.substring(5));
 							for ( final Ability ability : subFeats )
 							{
-								if (ability.getVisibility() == Visibility.DEFAULT)
+								if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 								{
 									if (weight > 0)
 									{
@@ -476,7 +477,7 @@ class ClassDataHandler extends DefaultHandler
 				// Add all remaining skills at this weight.
 				for ( final Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 				{
-					if (skill.getVisibility() == Visibility.DEFAULT)
+					if (skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					{
 						theCurrentData.addSkill(skill.getKeyName(), remainingWeight);
 					}
@@ -498,7 +499,7 @@ class ClassDataHandler extends DefaultHandler
 				for (Iterator<? extends Categorisable> i = Globals.getAbilityNameIterator(theCurrentCategory.getAbilityCategory()); i.hasNext(); )
 				{
 					final Ability ability = (Ability)i.next();
-					if ( ability.getVisibility() == Visibility.DEFAULT)
+					if ( ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					{
 						theCurrentData.addAbility(theCurrentCategory, ability, remainingWeight);
 					}

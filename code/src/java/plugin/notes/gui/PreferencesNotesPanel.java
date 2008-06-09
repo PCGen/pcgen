@@ -107,6 +107,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		logging.setSelected(isLogging);
 	}
 
+	@Override
 	public String toString()
 	{
 		return "General";

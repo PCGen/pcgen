@@ -5,7 +5,6 @@ import java.util.List;
 
 import pcgen.base.util.WeightedList;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;

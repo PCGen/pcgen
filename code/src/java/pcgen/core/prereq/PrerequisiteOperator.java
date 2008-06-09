@@ -109,6 +109,7 @@ public class PrerequisiteOperator
 	}
 
 
+	@Override
 	public String toString()
 	{
 		return validTypes[value];
@@ -173,6 +174,7 @@ public class PrerequisiteOperator
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	@Override
 	public boolean equals(final Object obj)
 	{
 		if (obj instanceof PrerequisiteOperator)
@@ -185,6 +187,7 @@ public class PrerequisiteOperator
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
+	@Override
 	public int hashCode()
 	{
 		return super.hashCode();

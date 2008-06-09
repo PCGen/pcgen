@@ -19,8 +19,12 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
@@ -32,20 +36,13 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Tab;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Definition and games rules for an Ability.
  *
  * @author   ???
  * @version  $Revision$
  */
-public final class Ability extends PObject implements HasCost, Categorisable
+public final class Ability extends PObject implements Categorisable
 {
 	/** An enum for the various types of ability options. */
 	public enum Nature {
@@ -59,16 +56,12 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		ANY
 	}
 
-	private boolean multiples = false;
 	private boolean needsSaving = false;
-	private boolean stacks = false;
 
 	private Nature theNature = Nature.NORMAL;
 	
 	// /////////////////////////////////////
 	// Fields - Associations
-
-	private List<Description> theBenefits = null;
 
 	// /////////////////////////////////////
 	// Constructor
@@ -99,57 +92,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Adds a description for this object.  Multiple descriptions are allowed 
-	 * and will be concatonated on output.
-	 * 
-	 * <p>The format of the description tag 
-	 * @param aDesc a description of what this object provides
-	 */
-	public void addBenefit( final Description aDesc )
-	{
-		if ( theBenefits == null )
-		{
-			theBenefits = new ArrayList<Description>();
-		}
-		aDesc.setOwner( this );
-		theBenefits.add( aDesc );
-	}
-	
-	/**
-	 * Clears all current benefits for the object.
-	 */
-	public void removeAllBenefits()
-	{
-		theBenefits.clear();
-		theBenefits = null;
-	}
-	
-	/**
-	 * Removes benefit <tt>Description</tt>s who's PCC Text matches the pattern
-	 * specified.
-	 *  
-	 * @param aDescPattern The regular expression to search for.
-	 */
-	public void removeBenefit( final String aDescPattern )
-	{
-		if ( theBenefits == null )
-		{
-			return;
-		}
-		final Pattern pattern = Pattern.compile(aDescPattern);
-
-		for ( final Iterator<Description> i = theBenefits.iterator(); i.hasNext(); )
-		{
-			final String descText = i.next().getPCCText();
-			final Matcher matcher = pattern.matcher(descText);
-			if ( matcher.find() )
-			{
-				i.remove();
-			}
-		}
-	}
-	
-	/**
 	 * Get the benefits of this object
 	 * 
 	 * @param aPC The PlayerCharacter this object is associated to.
@@ -157,6 +99,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getBenefits(final PlayerCharacter aPC)
 	{
+		List<Description> theBenefits = getListFor(ListKey.BENEFIT);
 		if ( theBenefits == null )
 		{
 			return Constants.EMPTY_STRING;
@@ -165,7 +108,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		boolean wrote = false;
 		for ( final Description desc : theBenefits )
 		{
-			final String str = desc.getDescription(aPC);
+			final String str = desc.getDescription(aPC, this);
 			if ( str.length() > 0 )
 			{
 				if ( wrote )
@@ -179,26 +122,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return buf.toString();
 	}
 
-	public List<Description> getBenefitList()
-	{
-		if ( theBenefits == null )
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(theBenefits);
-	}
-
-	// TODO - Remove this once a decision is made about descriptions.
-	public String getBenefitDescription()
-	{
-		if (SettingsHandler.useFeatBenefits() && getBenefits(null).length() > 1)
-		{
-			return getBenefits(null);
-		}
-
-		return getDescription();
-	}
-	
 	/**
 	 * Get a description of what this ability does
 	 *
@@ -247,50 +170,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Set how many "points" this ability costs
-	 *
-	 * @param  cost  the cost of the ability
-	 */
-	public void setCost(final String cost)
-	{
-		stringChar.put(StringKey.COST, cost);
-	}
-
-	/**
-	 * Get the cost of this ability
-	 *
-	 * @return  a double representing the cost of the ability
-	 */
-	public double getCost()
-	{
-		return Double.parseDouble(getCostString());
-	}
-
-	/**
-	 * Get the cost of this ability
-	 *
-	 * @return  a String representing the cost of the ability
-	 */
-	public String getCostString()
-	{
-		final String characteristic = stringChar.get(StringKey.COST);
-		return characteristic == null ? "1" : characteristic;
-	}
-
-	/**
-	 * This version of getCost treats the thing stored in cost as the name of a
-	 * variable which it looks up in the PlayerCharacter object passed in.
-	 *
-	 * @param   pc  a PlayerCharacter object to look up the cost in
-	 *
-	 * @return  the cost of the ability
-	 */
-	public double getCost(final PlayerCharacter pc)
-	{
-		return pc.getVariableValue(getCostString(), "").doubleValue();
-	}
-
-	/**
 	 * Set the AbilityType property of this Ability
 	 *
 	 * @param  type  The type of this ability (normal, automatic, virtual (see
@@ -330,35 +209,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Set whether or not a character may have multiple instances of this
-	 * ability
-	 *
-	 * @param  aString  If this begins with Y the property will be set true
-	 */
-	public void setMultiples(final String aString)
-	{
-		if (aString.length() == 0)
-		{
-			multiples = false;
-		}
-		else
-		{
-			final char firstChar = aString.charAt(0);
-			multiples = firstChar == 'y' || firstChar == 'Y';
-		}
-	}
-
-	/**
-	 * Whether or not we can have multiples of this ability
-	 *
-	 * @return  whether there can be multiples.
-	 */
-	public boolean isMultiples()
-	{
-		return multiples;
-	}
-
-	/**
 	 * If this is a "virtual Ability", this property controls whether it will be
 	 * saved with the character
 	 *
@@ -381,26 +231,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Whether this ability may be taken multiple times for enhanced effect
-	 *
-	 * @param  aString  To allow stacking, pass a string beginning with Y
-	 */
-	public void setStacks(final String aString)
-	{
-		stacks = (aString.length() > 0) && (aString.charAt(0) == 'Y');
-	}
-
-	/**
-	 * Does this ability stack for enhanced effect?
-	 *
-	 * @return  Whether this ability stacks for enhanced effect.
-	 */
-	public boolean isStacks()
-	{
-		return stacks;
-	}
-
-	/**
 	 * Whether we can add newAssociation to the associated list of this
 	 * Ability
 	 *
@@ -409,7 +239,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public boolean canAddAssociation(final String newAssociation)
 	{
-		return 	this.isStacks() || (this.isMultiples() && !this.containsAssociated(newAssociation));
+		return 	this.getSafe(ObjectKey.STACKS) || (this.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !this.containsAssociated(newAssociation));
 	}
 
 	/**
@@ -422,19 +252,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	{
 		try
 		{
-			final Ability ret = (Ability)super.clone();
-
-			if ( theBenefits != null )
-			{
-				ret.theBenefits = new ArrayList<Description>();
-				for ( final Description desc : theBenefits )
-				{
-					desc.setOwner(ret);
-					ret.theBenefits.add(desc);
-				}
-			}
-			
-			return ret;
+			return (Ability) super.clone();
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -455,48 +273,10 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
 		txt.append("\tCATEGORY:").append(getCategory());
-		txt.append("\tCOST:").append(String.valueOf(getCost()));
-
-		if (isMultiples())
-		{
-			txt.append("\tMULT:Y");
-		}
-
-		if (isStacks())
-		{
-			txt.append("\tSTACK:Y");
-		}
-
-		if (getSafe(IntegerKey.ADD_SPELL_LEVEL) != 0)
-		{
-			txt.append("\tADDSPELLLEVEL:").append(getSafe(IntegerKey.ADD_SPELL_LEVEL));
-		}
 
 		if (getAddString().length() != 0)
 		{
 			txt.append("\tADD:").append(getAddString());
-		}
-
-		txt.append("\tVISIBLE:");
-
-		switch (getVisibility())
-		{
-			case HIDDEN:
-				txt.append("EXPORT");
-				break;
-
-			case OUTPUT_ONLY:
-				txt.append("EXPORT");
-				break;
-
-			case DISPLAY_ONLY:
-				txt.append("DISPLAY");
-				break;
-
-			case DEFAULT:
-			default:
-				txt.append("YES");
-				break;
 		}
 
 		if (getChoiceToModify().length() != 0)
@@ -535,13 +315,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 				&& !getKeyName().startsWith("Armor Proficiency")
 				)
 		{
-			if ((getChoiceString().length() == 0) || (multiples && stacks))
+			if ((getChoiceString().length() == 0) || (getSafe(ObjectKey.MULTIPLE_ALLOWED) && getSafe(ObjectKey.STACKS)))
 			{
 				if (getAssociatedCount() > 1)
 				{
 					// number of items only (ie stacking), e.g. " (1x)"
 					aStrBuf.append(" (");
-					aStrBuf.append((int) (getAssociatedCount() * getCost()));
+					aStrBuf.append((int) (getAssociatedCount() * getSafe(ObjectKey.SELECTION_COST).doubleValue()));
 					aStrBuf.append("x)");
 				}
 			}
@@ -832,7 +612,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		//
 		// Ability doesn't allow choices, so we cannot modify
 		//
-		if (!anAbility.isMultiples())
+		if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			Logging.debugPrint("MULT:NO for: " + abilityName);
 

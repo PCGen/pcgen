@@ -39,5 +39,6 @@ public abstract class PreferencesPanel extends javax.swing.JPanel
 	/** Initialise Preferences */
 	public abstract void initPreferences();
 
+	@Override
 	public abstract String toString();
 }

@@ -18,7 +18,9 @@
 package pcgen.rules.context;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
@@ -158,5 +160,23 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	{
 		return new CollectionChanges<Prerequisite>(obj.getPrerequisiteList(),
 				null, false);
+	}
+
+	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
+			String pattern)
+	{
+		List<T> list = cdo.getListFor(lk);
+		if (list == null || list.isEmpty())
+		{
+			return;
+		}
+		Pattern p = Pattern.compile(pattern);
+		for (T obj : list)
+		{
+			if (p.matcher(obj.toString()).find())
+			{
+				cdo.removeFromListFor(lk, obj);
+			}
+		}
 	}
 }

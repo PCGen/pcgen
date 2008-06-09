@@ -665,8 +665,6 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		}
 
 		final int selectedRow = mSelectedTable.getSelectedRow();
-		final String selectedText =
-				mSelectedModel.getValueAt(selectedRow, 0).toString();
 
 		mSelectedList.remove(selectedRow);
 

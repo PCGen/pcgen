@@ -85,7 +85,6 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
 
 /**
@@ -6346,16 +6345,6 @@ public class PCClass extends PObject
 			spellCacheValid = true;
 		}
 		return spellCache != null;
-	}
-
-	/**
-	 * Retrieve this object's visibility in the GUI and on the output sheet
-	 * @return Visibility in the GUI and on the output sheet 
-	 */
-	@Override
-	public Visibility getVisibility()
-	{
-		return getSafe(ObjectKey.VISIBILITY);
 	}
 
 }

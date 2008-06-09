@@ -33,6 +33,7 @@ import static pcgen.gui.HTMLUtils.THREE_SPACES;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.math.BigDecimal;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -40,6 +41,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -138,21 +140,21 @@ public class AbilityInfoPanel extends JPanel
 			"Ability.Info.Type", //$NON-NLS-1$
 			StringUtil.join(theAbility.getTypeList(true), ". "))); //$NON-NLS-1$
 
-		final String costStr = theAbility.getCostString();
-		if (!costStr.equals("1")) //$NON-NLS-1$
+		BigDecimal costStr = theAbility.getSafe(ObjectKey.SELECTION_COST);
+		if (!costStr.equals(BigDecimal.ONE)) //$NON-NLS-1$
 		{
 			sb.append(PropertyFactory.getFormattedString(
 				"Ability.Info.Cost", //$NON-NLS-1$
 				costStr));
 		}
 
-		if (theAbility.isMultiples())
+		if (theAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			sb.append(THREE_SPACES).append(
 				PropertyFactory.getString("Ability.Info.Multiple")); //$NON-NLS-1$
 		}
 
-		if (theAbility.isStacks())
+		if (theAbility.getSafe(ObjectKey.STACKS))
 		{
 			sb.append(THREE_SPACES).append(
 				PropertyFactory.getString("Ability.Info.Stacks")); //$NON-NLS-1$

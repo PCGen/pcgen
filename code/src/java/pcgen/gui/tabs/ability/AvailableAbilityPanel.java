@@ -36,6 +36,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import javax.swing.table.TableColumn;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -304,7 +305,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 		// If this ability allows multiples we always allow it.
 		// TODO - We could figure out if there are any valid choices left and
 		// disallow it if there aren't.
-		if (anAbility.isMultiples())
+		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			return true;
 		}

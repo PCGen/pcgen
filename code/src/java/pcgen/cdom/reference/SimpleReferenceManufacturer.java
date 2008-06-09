@@ -7,8 +7,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
 
 public class SimpleReferenceManufacturer<T extends CDOMObject> extends
-		AbstractReferenceManufacturer<T> implements
-		ReferenceManufacturer<T, CDOMSimpleSingleRef<T>>
+		AbstractReferenceManufacturer<T, CDOMSimpleSingleRef<T>> implements
+		ReferenceManufacturer<T, CDOMSimpleSingleRef<T>>, Cloneable
 {
 	public SimpleReferenceManufacturer(Class<T> cl)
 	{
@@ -90,4 +90,12 @@ public class SimpleReferenceManufacturer<T extends CDOMObject> extends
 
 		return new CDOMSimpleSingleRef<T>(getCDOMClass(), val);
 	}
+
+	@Override
+	public SimpleReferenceManufacturer<T> clone() throws CloneNotSupportedException
+	{
+		return (SimpleReferenceManufacturer<T>) super.clone();
+	}
+	
+	
 }

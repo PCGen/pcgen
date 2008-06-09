@@ -684,6 +684,7 @@ public class AttackModel extends PObjectModel
 	 *
 	 * Gets a string representation of the object.
 	 */
+	@Override
 	public String toString()
 	{
 		String returnValue;

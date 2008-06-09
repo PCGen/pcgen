@@ -1387,7 +1387,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(ability.getKeyName()))
 					.append(TAG_SEPARATOR);
 				int it2 = 0;
-				if (ability.isMultiples())
+				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					buffer.append(TAG_APPLIEDTO).append(TAG_END);
 					if (ability.getAssociatedObject(0) instanceof FeatMultipleChoice)
@@ -1432,81 +1432,6 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(thePC.getUserPoolBonus(cat));
 			buffer.append(LINE_SEP);
 		}
-	}
-
-	/**
-	 * Build up a list of names of feat choices that will have been written
-	 * out in the class abilities section (i.e. Feats that were class abilities
-	 * such as fighter feats.) These should not be written out again in the
-	 * feats section other wise they can multiply...
-	 * 
-	 * TODO This method is never called, remove?
-	 * 
-	 * @return List of level ability feat choices as Strings
-	 */
-	private List<String> buildLevelAbilityFeatList()
-	{
-		List<String> removeList = new ArrayList<String>();
-		for (final PCLevelInfo pcl : thePC.getLevelInfo())
-		{
-			final String classKeyName = pcl.getClassKeyName();
-			final int lvl = pcl.getLevel() - 1;
-			final PCClass aClass = thePC.getClassKeyed(classKeyName);
-			final List<LevelAbility> laList = aClass.getLevelAbilityList();
-			if (laList != null)
-			{
-				for (LevelAbility la : laList)
-				{
-					if ((la.level() - 1) == lvl && la.getAssociatedCount() != 0)
-					{
-						for (int j = 0; j < la.getAssociatedCount(true); ++j)
-						{
-							removeList.add(la.getAssociated(j, true));
-						}
-					}
-				}
-			}
-		}
-
-		return removeList;
-	}
-
-	/**
-	 * Check if the supplied feat was gained as a result of a level
-	 * ability and thus has already been written out to the pcg file.
-	 * Note: In order to ensure that feats taken multiple times (such as
-	 * Psionic Body taken as a class ability and a regular feat) the supplied
-	 * ability list will have a matching entry removed. So on a true result
-	 * the laList will have been modified. This means the list must be
-	 * rebuilt if you want to check the full list of feats again.
-	 *
-	 * TODO This method is never called, remove?
-	 *
-	 * @param laList The list of chosen level abilities.
-	 * @param feat The feat to be checked.
-	 * @param associated The feat choice to be checked.
-	 * @return true if the feat is part of a level ability.
-	 */
-	private boolean isInLevelAbilityList(List<String> laList, Ability feat,
-		String associated)
-	{
-		String matchString = feat.getKeyName();
-		if (associated != null && associated.length() > 0)
-		{
-			matchString += '(' + associated + ')';
-		}
-		for (Iterator<String> laIter = laList.iterator(); laIter.hasNext();)
-		{
-			final String ability = laIter.next();
-			if (matchString.equals(ability)
-				&& (feat.getAssociatedCount() == 0 || (associated != null && associated
-					.length() > 0)))
-			{
-				laIter.remove();
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/*

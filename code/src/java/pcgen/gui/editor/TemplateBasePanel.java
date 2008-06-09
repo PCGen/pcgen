@@ -419,7 +419,7 @@ public class TemplateBasePanel extends BasePanel
 		{
 			//This is okay, just indicates it wasn't a Gender
 		}
-		thisPCTemplate.setVisibility(getVisible());
+		thisPCTemplate.put(ObjectKey.VISIBILITY, getVisible());
 		String subRegion = getSubRegion();
 		if (subRegion.equals(thisPCTemplate.getDisplayName()))
 		{
@@ -524,7 +524,7 @@ public class TemplateBasePanel extends BasePanel
 		{
 			setGenderLock(genderLock.toString());
 		}
-		setVisible(thisPCTemplate.getVisibility());
+		setVisible(thisPCTemplate.getSafe(ObjectKey.VISIBILITY));
 		setSubRegion(thisPCTemplate.getSubRegion());
 		setSubRace(thisPCTemplate.getSubRace());
 		setBonusSkillPoints(thisPCTemplate.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS));

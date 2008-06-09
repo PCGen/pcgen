@@ -278,6 +278,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		return weight;
 	}
 
+	@Override
 	public String toString()
 	{
 		return getTitle();

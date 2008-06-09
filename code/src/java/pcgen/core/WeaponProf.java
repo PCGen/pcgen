@@ -70,6 +70,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 		return keyName.hashCode();
 	}
 
+	@Override
 	protected void doGlobalTypeUpdate(final String aString)
 	{
 		Globals.addWeaponType(aString);

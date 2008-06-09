@@ -52,6 +52,7 @@ public class SkillModel extends CheckModel
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString()
 	{
 		return "Skill " + super.toString();

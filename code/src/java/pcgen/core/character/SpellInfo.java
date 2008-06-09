@@ -166,6 +166,7 @@ public final class SpellInfo
 		featList.addAll(aList);
 	}
 
+	@Override
 	public String toString()
 	{
 		if (featList == null || featList.isEmpty())

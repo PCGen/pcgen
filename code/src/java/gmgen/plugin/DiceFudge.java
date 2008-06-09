@@ -90,6 +90,7 @@ public class DiceFudge extends Die
 	/**  The name of the die in the ndF format
 	 * @return ndF
 	 */
+	@Override
 	public String toString()
 	{
 		return num + "dF";

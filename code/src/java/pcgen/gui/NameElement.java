@@ -71,6 +71,7 @@ public class NameElement implements Comparable<Object> {
 	/**
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
 		return name;
 	}

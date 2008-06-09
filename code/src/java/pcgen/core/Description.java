@@ -50,7 +50,6 @@ public class Description extends ConcretePrereqObject
 {
 	private List<String> theComponents = new ArrayList<String>();
 	private List<String> theVariables = null;
-	private PObject theOwner = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
 	private static final String VAR_CHOICE = "%CHOICE"; //$NON-NLS-1$
@@ -152,26 +151,6 @@ public class Description extends ConcretePrereqObject
 	}
 	
 	/**
-	 * Sets the owner of this description.
-	 * 
-	 * @param anOwner The <tt>PObject</tt> this description is associated with.
-	 */
-	public void setOwner( final PObject anOwner )
-	{
-		theOwner = anOwner;
-	}
-	
-	/**
-	 * Gets the owner of this description.
-	 * 
-	 * @return The <tt>PObject</tt> this description is associated with.
-	 */
-	public PObject getOwner()
-	{
-		return theOwner;
-	}
-	
-	/**
 	 * Gets the description string after having tested all prereqs and 
 	 * substituting all variables.
 	 * 
@@ -179,7 +158,7 @@ public class Description extends ConcretePrereqObject
 	 * 
 	 * @return The fully substituted description string.
 	 */
-	public String getDescription( final PlayerCharacter aPC )
+	public String getDescription( final PlayerCharacter aPC, PObject theOwner )
 	{
 		final StringBuffer buf = new StringBuffer();
 		
@@ -314,5 +293,11 @@ public class Description extends ConcretePrereqObject
 		
 		buf.append(super.getPCCText());
 		return buf.toString();
+	}
+	
+	@Override
+	public String toString()
+	{
+		return getPCCText();
 	}
 }

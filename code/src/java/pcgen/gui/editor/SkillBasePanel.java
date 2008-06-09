@@ -26,7 +26,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -173,8 +172,6 @@ final class SkillBasePanel extends BasePanel
 
 	public void updateView(PObject thisPObject)
 	{
-		Iterator e;
-		String aString;
 		Skill thisSkill = (Skill) thisPObject;
 
 		//
@@ -230,9 +227,9 @@ final class SkillBasePanel extends BasePanel
 		List<String> availableList = new ArrayList<String>(SettingsHandler.getGame().getUnmodifiableStatList().size() + 1);
 		availableList.add(Constants.s_NONE);
 
-		for (Iterator e = SettingsHandler.getGame().getUnmodifiableStatList().iterator(); e.hasNext();)
+		for (PCStat stat : SettingsHandler.getGame().getUnmodifiableStatList())
 		{
-			availableList.add(((PCStat) e.next()).getKeyName());
+			availableList.add(stat.getKeyName());
 		}
 
 		cmbKeyStat.setModel(new DefaultComboBoxModel(availableList.toArray()));
