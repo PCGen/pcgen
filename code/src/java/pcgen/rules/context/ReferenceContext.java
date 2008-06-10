@@ -36,6 +36,7 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 
@@ -46,9 +47,11 @@ public class ReferenceContext implements Cloneable
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
 
-	private SimpleReferenceContext simple = new SimpleReferenceContext();
+	private Map<Class<?>, SimpleReferenceManufacturer<?>> map = new HashMap<Class<?>, SimpleReferenceManufacturer<?>>();
+
 	// private CategorizedReferenceContext categorized = new
 	// CategorizedReferenceContext();
+
 	private Map<Class<?>, OneToOneMap<CDOMObject, String>> abbMap = new HashMap<Class<?>, OneToOneMap<CDOMObject, String>>();
 
 	public Class<?> getClassFor(String key)
@@ -56,9 +59,27 @@ public class ReferenceContext implements Cloneable
 		return null; // return StringPClassUtil.getCDOMClassFor(key);
 	}
 
+	public <T extends CDOMObject> SimpleReferenceManufacturer<T> getManufacturer(
+			Class<T> cl)
+	{
+		SimpleReferenceManufacturer<T> mfg = (SimpleReferenceManufacturer<T>) map
+				.get(cl);
+		if (mfg == null)
+		{
+			mfg = new SimpleReferenceManufacturer<T>(cl);
+			map.put(cl, mfg);
+		}
+		return mfg;
+	}
+
 	public boolean validate()
 	{
-		return simple.validate();
+		boolean returnGood = true;
+		for (SimpleReferenceManufacturer<?> ref : map.values())
+		{
+			returnGood &= ref.validate();
+		}
+		return returnGood;
 		// && categorized.validate();
 	}
 
@@ -78,13 +99,13 @@ public class ReferenceContext implements Cloneable
 
 	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
-		return simple.getManufacturer(c).getAllReference();
+		return getManufacturer(c).getAllReference();
 	}
 
 	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, String... val)
 	{
-		return simple.getManufacturer(c).getTypeReference(val);
+		return getManufacturer(c).getTypeReference(val);
 	}
 
 	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val)
@@ -96,7 +117,7 @@ public class ReferenceContext implements Cloneable
 		// }
 		// else
 		// {
-		obj = simple.constructCDOMObject(c, val);
+		obj = getManufacturer(c).constructCDOMObject(val);
 		// }
 		obj.put(ObjectKey.SOURCE_URI, sourceURI);
 		return obj;
@@ -105,31 +126,31 @@ public class ReferenceContext implements Cloneable
 	public <T extends CDOMObject> void constructIfNecessary(Class<T> cl,
 			String value)
 	{
-		simple.constructIfNecessary(cl, value);
+		getManufacturer(cl).constructIfNecessary(value);
 	}
 
 	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
-		return simple.getCDOMReference(c, val);
+		return getManufacturer(c).getCDOMReference(val);
 	}
 
-	public <T extends CDOMObject> void reassociateKey(String value, T obj)
+	public <T extends CDOMObject> void reassociateKey(String key, T obj)
 	{
 		// if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
 		// {
-		// categorized.reassociateKey(obj, value);
+		// categorized.reassociateKey(obj, key);
 		// }
 		// else
 		// {
-		simple.reassociateKey(obj, value);
+		getManufacturer((Class<T>) obj.getClass()).reassociateKey(key, obj);
 		// }
 	}
 
 	public <T extends CDOMObject> T silentlyGetConstructedCDOMObject(
 			Class<T> c, String val)
 	{
-		return simple.silentlyGetConstructedCDOMObject(c, val);
+		return getManufacturer(c).silentlyGetConstructedCDOMObject(val);
 	}
 
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T>
@@ -169,13 +190,14 @@ public class ReferenceContext implements Cloneable
 		// }
 		// else
 		// {
-		simple.importObject(orig);
+		getManufacturer((Class<T>) orig.getClass()).registerWithKey(orig,
+				orig.getKeyName());
 		// }
 	}
 
-	public <T extends CDOMObject> boolean forget(T objToForget)
+	public <T extends CDOMObject> boolean forget(T obj)
 	{
-		return simple.forgetCDOMObject(objToForget);
+		return getManufacturer((Class<T>) obj.getClass()).forgetObject(obj);
 	}
 
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> T
@@ -188,7 +210,7 @@ public class ReferenceContext implements Cloneable
 	public <T extends CDOMObject> ReferenceManufacturer<T, CDOMSimpleSingleRef<T>> getReferenceManufacturer(
 			Class<T> c)
 	{
-		return simple.getManufacturer(c);
+		return getManufacturer(c);
 	}
 
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>>
@@ -208,7 +230,7 @@ public class ReferenceContext implements Cloneable
 		// }
 		// else
 		// {
-		return simple.getConstructedCDOMObjects(c);
+		return getManufacturer(c).getAllConstructedCDOMObjects();
 		// }
 	}
 
@@ -222,7 +244,10 @@ public class ReferenceContext implements Cloneable
 	public Set<CDOMObject> getAllConstructedObjects()
 	{
 		Set<CDOMObject> set = new HashSet<CDOMObject>();
-		set.addAll(simple.getAllConstructedCDOMObjects());
+		for (SimpleReferenceManufacturer<?> ref : map.values())
+		{
+			set.addAll(ref.getAllConstructedCDOMObjects());
+		}
 		// Collection otherSet = categorized.getAllConstructedCDOMObjects();
 		// set.addAll(otherSet);
 		return set;
@@ -231,25 +256,23 @@ public class ReferenceContext implements Cloneable
 	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
 			Class<T> c, String s)
 	{
-		return simple.containsConstructedCDOMObject(c, s);
+		return getManufacturer(c).containsConstructedCDOMObject(s);
 	}
 
 	public void buildDerivedObjects()
 	{
-		Collection<Domain> domains = simple
-				.getConstructedCDOMObjects(Domain.class);
+		Collection<Domain> domains = getConstructedCDOMObjects(Domain.class);
 		for (Domain d : domains)
 		{
-			simple.constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
+			constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
 		}
-		Collection<PCClass> classes = simple
-				.getConstructedCDOMObjects(PCClass.class);
+		Collection<PCClass> classes = getConstructedCDOMObjects(PCClass.class);
 		for (PCClass pcc : classes)
 		{
 			String key = pcc.getKeyName();
-			simple.constructCDOMObject(CLASSSKILLLIST_CLASS, key);
+			constructCDOMObject(CLASSSKILLLIST_CLASS, key);
 			// TODO Need to limit which are built to only spellcasters...
-			simple.constructCDOMObject(CLASSSPELLLIST_CLASS, key);
+			constructCDOMObject(CLASSSPELLLIST_CLASS, key);
 			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, key);
 			// Collection<CDOMSubClass> subclasses = categorized
 			// .getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
@@ -335,24 +358,50 @@ public class ReferenceContext implements Cloneable
 
 	public void resolveReferences()
 	{
-		simple.resolveReferences();
+		for (SimpleReferenceManufacturer<?> rs : map.values())
+		{
+			rs.fillReferences();
+			rs.resolveReferences();
+		}
 	}
 
 	public void buildDeferredObjects()
 	{
-		simple.buildDeferredObjects();
+		for (SimpleReferenceManufacturer<?> rs : map.values())
+		{
+			rs.buildDeferredObjects();
+		}
 	}
 
 	@Override
 	public ReferenceContext clone() throws CloneNotSupportedException
 	{
 		ReferenceContext rc = (ReferenceContext) super.clone();
-		rc.simple = simple.clone();
+		rc.map = new HashMap<Class<?>, SimpleReferenceManufacturer<?>>();
+		for (Map.Entry<Class<?>, SimpleReferenceManufacturer<?>> me : map
+				.entrySet())
+		{
+			rc.map.put(me.getKey(), me.getValue().clone());
+		}
 		/*
 		 * TODO Does abbMap need to be cloned?
 		 */
-		//Clear the cache
+		// Clear the cache TODO Does this really need to be cleared?
 		rc.directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 		return rc;
 	}
+
+	// public <T extends CDOMObject> CDOMAddressedSingleRef<T>
+	// getAddressedReference(
+	// CDOMObject obj, Class<T> name, String addressName)
+	// {
+	// CDOMAddressedSingleRef<T> addr = addressed.get(obj, name);
+	// if (addr == null)
+	// {
+	// addr = new CDOMAddressedSingleRef<T>(obj, name, addressName);
+	// addressed.put(obj, name, addr);
+	// }
+	// return addr;
+	// }
+
 }
