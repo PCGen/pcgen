@@ -88,7 +88,7 @@ Stone of Entangling												TYPE:Magic.Wondrous			COST:100	WT:1				EQMOD:STON
 Stone Wards														TYPE:Magic.Wondrous			COST:200	WT:1				EQMOD:STONE			SOURCEPAGE:pg.82
 Teeth (Hound)						OUTPUTNAME:Hound's Teeth			TYPE:Magic.Wondrous			COST:650	WT:0								SOURCEPAGE:pg.53
 Thirst Pebbles													TYPE:Magic.Wondrous			COST:100	WT:0				EQMOD:STONE			SOURCEPAGE:pg.36
-Tooth of Steel													TYPE:Magic.Wondrous			COST:8500	WT:0				EQMOD:STEEL			SOURCEPAGE:pg.140																																																																									NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8
+Tooth of Steel													TYPE:Magic.Wondrous			COST:8500	WT:0				EQMOD:STEEL			SOURCEPAGE:pg.140																																																																									SPROP:2d8 bite damage as +2 magic weapon
 # Need to find another way to apply NATURALATTACKS to Tooth of Steel
 Tooth of Venom													TYPE:Magic.Wondrous			COST:9600	WT:0								SOURCEPAGE:pg.140
 Water Barrier													TYPE:Magic.Wondrous			COST:6000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.90						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Air Bubble,16
