@@ -492,11 +492,6 @@ public final class Ability extends PObject implements Categorisable
 		return super.addAddList(aLevel, aString);
 	}
 
-	@Override boolean isTypeHidden(final String type)
-	{
-		return Globals.isAbilityTypeHidden(type);
-	}
-
 	/**
 	 * Simple setter method for a String representing a choice that must be
 	 * made when applying this ability

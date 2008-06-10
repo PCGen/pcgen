@@ -21,7 +21,6 @@
 package pcgen.core;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.list.WeaponProfList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 
@@ -68,17 +67,5 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 	public int hashCode()
 	{
 		return keyName.hashCode();
-	}
-
-	@Override
-	protected void doGlobalTypeUpdate(final String aString)
-	{
-		Globals.addWeaponType(aString);
-	}
-
-	int getHands()
-	{
-		Integer hands = get(IntegerKey.HANDS);
-		return hands == null ? 1 : hands;
 	}
 }

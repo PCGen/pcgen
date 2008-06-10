@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillModifier;
 
 import com.electronicmuse.djep.JEP;
 
@@ -104,7 +105,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				if (skill != null)
 				{
 					returnValue =
-							Integer.valueOf(skill.modifier(pc).intValue()
+							Integer.valueOf(SkillModifier.modifier(skill, pc).intValue()
 								+ skill.getTotalRank(pc).intValue());
 				}
 				else
@@ -115,7 +116,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 						&& skill.get(ObjectKey.KEY_STAT) != null)
 					{
 						returnValue =
-								Integer.valueOf(skill.modifier(pc).intValue());
+								Integer.valueOf(SkillModifier.modifier(skill, pc).intValue());
 					}
 				}
 			}

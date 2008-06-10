@@ -46,6 +46,7 @@ public final class Language extends PObject implements Comparable<Object>
 	 * @param o1
 	 * @return int
 	 */
+	@Override
 	public int compareTo(final Object o1)
 	{
 		/*

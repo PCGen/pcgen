@@ -1,7 +1,10 @@
 package plugin.lsttokens.gamemode;
 
 import java.net.URI;
+import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+import pcgen.core.Ability;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -18,7 +21,11 @@ public class HiddenfeattypesToken implements GameModeLstToken
 
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setHiddenAbilityTypes(value);
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		while (st.hasMoreTokens())
+		{
+			gameMode.addHiddenType(Ability.class, st.nextToken());
+		}
 		return true;
 	}
 }

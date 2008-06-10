@@ -462,4 +462,25 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public abstract boolean isType(String str);
 
+	public <T extends CDOMObject> boolean hasObjectOnList(
+			CDOMReference<? extends CDOMList<T>> list, T obj)
+	{
+		if (obj == null)
+		{
+			return false;
+		}
+		Collection<CDOMReference<T>> references = getListMods(list);
+		if (references == null)
+		{
+			return false;
+		}
+		for (CDOMReference<T> ref : references)
+		{
+			if (ref.contains(obj))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

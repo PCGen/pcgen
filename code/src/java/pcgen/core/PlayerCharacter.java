@@ -76,6 +76,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -3025,7 +3026,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					// Only add the cost for skills associated with a class.
 					// Skill ranks from feats etc are free.
-					final int cost = aSkill.skillCostForPCClass(pcClass, this).getCost();
+					final int cost = SkillCostCalc.skillCostForPCClass(aSkill, pcClass, this).getCost();
 					returnValue -= (int) (cost * curRank);
 				}
 			}
@@ -5977,7 +5978,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			for (PCClass bClass : classList)
 			{
-				if (aSkill.isClassSkill(bClass, this))
+				if (SkillCostCalc.isClassSkill(aSkill, bClass, this))
 				{
 					levelForSkillPurposes += bClass.getLevel();
 				}
@@ -6013,15 +6014,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							levelForSkillPurposes, this);
 			}
 		}
-		else if (!aSkill.isClassSkill(classList, this)
-			&& (aSkill.skillCostForPCClass(aClass, this).equals(SkillCost.CLASS)))
+		else if (!SkillCostCalc.isClassSkill(aSkill, classList, this)
+			&& (SkillCostCalc.skillCostForPCClass(aSkill, aClass, this).equals(SkillCost.CLASS)))
 		{
 			// Cross class skill - but as cost is 1 only return a whole number
 			maxRanks =
 					new BigDecimal(SkillUtilities.maxCrossClassSkillForLevel(
 						levelForSkillPurposes, this).intValue()); // This was (int) (i/2.0) previously
 		}
-		else if (!aSkill.isClassSkill(classList, this))
+		else if (!SkillCostCalc.isClassSkill(aSkill, classList, this))
 		{
 			// Cross class skill
 			maxRanks =
@@ -12482,7 +12483,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Add all weapons of type aString
 		// (e.g.: Simple, Martial, Exotic, Ranged, etc.)
-		else if (Globals.weaponTypesContains(aString))
+		else if (Globals.getContext().containsType(WeaponProf.class, aString))
 		{
 			for (WeaponProf weaponProf : Globals.getPObjectsOfType(Globals
 					.getContext().ref
@@ -13877,8 +13878,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (skill.getSafe(ObjectKey.USE_UNTRAINED) && skill.getSafe(ObjectKey.EXCLUSIVE))
 		{
-			if (skill.isClassSkill(classList, this)
-				|| skill.isCrossClassSkill(classList, this))
+			if (SkillCostCalc.isClassSkill(skill, classList, this)
+				|| SkillCostCalc.isCrossClassSkill(skill, classList, this))
 			{
 				UntrainedExclusiveClass = true;
 			}

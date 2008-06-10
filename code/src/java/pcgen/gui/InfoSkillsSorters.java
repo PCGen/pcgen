@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.gui.tabs.InfoSkills;
 import pcgen.gui.utils.PObjectNode;
 
@@ -39,7 +40,7 @@ public final class InfoSkillsSorters
 	private static boolean costsMatch(PObjectNode node, Skill skill, InfoSkills tab)
 	{
 		return node.getItem().equals(
-				skill.skillCostForPCClass(tab.getSelectedPCClass(), tab.getPc()));
+				SkillCostCalc.skillCostForPCClass(skill, tab.getSelectedPCClass(), tab.getPc()));
 	}
 
 	private static boolean keystatsMatch(PObjectNode node, Skill skill)

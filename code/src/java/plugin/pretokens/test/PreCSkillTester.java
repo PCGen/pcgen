@@ -28,6 +28,7 @@ import java.util.Set;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -76,7 +77,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			//loop through skill list checking for type and class skill
 			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				if (skill.isType(skillKey) && skill.isClassSkill(character))
+				if (skill.isType(skillKey) && SkillCostCalc.isClassSkill( skill, character ))
 				{
 					skillMatches.add(skill);
 					runningTotal++;
@@ -87,7 +88,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			{
 BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 				{
-					if (fake.isClassSkill(character))
+					if (SkillCostCalc.isClassSkill( fake, character ))
 					{
 						for(Skill mock: serveAsSkills.get(fake))
 						{
@@ -111,7 +112,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		else
 		{
 			Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
-			if (skill != null && skill.isClassSkill(character))
+			if (skill != null && SkillCostCalc.isClassSkill( skill, character ))
 			{
 				runningTotal++;
 			}
@@ -119,7 +120,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 			{
 				for(Skill mock: imitators)
 				{
-					if (mock.isClassSkill(character) && serveAsSkills.get(mock).contains(skill))
+					if (SkillCostCalc.isClassSkill( mock, character ) && serveAsSkills.get(mock).contains(skill))
 					{
 						runningTotal++;
 						break;

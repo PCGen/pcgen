@@ -111,6 +111,8 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
+import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
@@ -390,7 +392,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		return available ? 
 			new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0),
 					PrereqHandler.passesAll((skill).getPreReqList(), pc, skill)) : 
-			new SkillWrapper(skill, skill.modifier(pc), skill.getTotalRank(pc), 
+			new SkillWrapper(skill, SkillModifier.modifier(skill, pc), skill.getTotalRank(pc), 
 					Integer.valueOf(skill.getOutputIndex()),
 					PrereqHandler.passesAll((skill).getPreReqList(), pc, skill));
 	}
@@ -716,8 +718,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						else
 						{
 							points =
-									theSkill.skillCostForPCClass(
-										getSelectedPCClass(), pc).getCost();
+									SkillCostCalc.skillCostForPCClass(theSkill, getSelectedPCClass(), pc).getCost();
 							final int classSkillCost = SkillCost.CLASS.getCost();
 							if (classSkillCost > 1)
 							{
@@ -1890,7 +1891,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		// the old Skills tab used cost as a double,
 		// so I'll duplicate that behavior
 		PCClass aClass = getSelectedPCClass();
-		SkillCost sc = aSkill.skillCostForPCClass(aClass, pc);
+		SkillCost sc = SkillCostCalc.skillCostForPCClass(aSkill, aClass, pc);
 
 		if (sc.equals(SkillCost.EXCLUSIVE))
 		{
@@ -2358,7 +2359,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
 				if (pcSkill != null)
 				{
-					bString = pcSkill.getModifierExplanation(pc, false);
+					bString = SkillModifier.getModifierExplanation(pcSkill, pc, false);
 					if (bString.length() != 0)
 					{
 						b.append(PropertyFactory.getFormattedString(
@@ -3025,7 +3026,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 						aSkill.setOutputIndex(outputIndex);
 						skillA =
-								new SkillWrapper(aSkill, aSkill.modifier(pc),
+								new SkillWrapper(aSkill, SkillModifier.modifier(aSkill, pc),
 									aSkill.getTotalRank(pc), 
 									Integer.valueOf(aSkill.getOutputIndex()),
 									PrereqHandler.passesAll((aSkill).getPreReqList(), pc, aSkill));
@@ -3116,8 +3117,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						return Integer.valueOf(aSkill.skillCostForPCClass(
-							getSelectedPCClass(), pc).getCost());
+						return Integer.valueOf(SkillCostCalc.skillCostForPCClass(aSkill, getSelectedPCClass(), pc).getCost());
 					}
 
 					return "0";
@@ -3126,7 +3126,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						if (aSkill.isClassSkill(getSelectedPCClass(), pc))
+						if (SkillCostCalc.isClassSkill(aSkill, getSelectedPCClass(), pc))
 						{
 							return "yes";
 						}
@@ -3630,7 +3630,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 
 				return (pcClass != null)
-					&& ((Skill) pObject).isClassSkill(pcClass, aPC);
+					&& SkillCostCalc.isClassSkill(((Skill) pObject), pcClass, aPC);
 			}
 
 			return true;
@@ -3675,7 +3675,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 				Skill aSkill = (Skill) pObject;
 
-				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC)
+				return (pcClass != null) && !SkillCostCalc.isClassSkill(aSkill, pcClass, aPC)
 					&& !aSkill.getSafe(ObjectKey.EXCLUSIVE);
 			}
 
@@ -3721,7 +3721,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 				Skill aSkill = (Skill) pObject;
 
-				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC)
+				return (pcClass != null) && !SkillCostCalc.isClassSkill(aSkill, pcClass, aPC)
 					&& aSkill.getSafe(ObjectKey.EXCLUSIVE);
 			}
 
@@ -3763,8 +3763,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				Skill aSkill = (Skill) pObject;
 
 				return (pcClass != null)
-					&& !(aSkill.getSafe(ObjectKey.EXCLUSIVE) && !aSkill.isClassSkill(pcClass,
-						aPC));
+					&& !(aSkill.getSafe(ObjectKey.EXCLUSIVE) && !SkillCostCalc.isClassSkill(aSkill, pcClass, aPC));
 			}
 
 			return true;
@@ -4185,7 +4184,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					|| Globals.checkRule(RuleConstants.SKILLMAX)) //$NON-NLS-1$
 				{
 					final int cost =
-							aSkill.skillCostForPCClass(aClass, pc).getCost();
+							SkillCostCalc.skillCostForPCClass(aSkill, aClass, pc).getCost();
 					final double pointsNeeded =
 							Math.floor((maxRank - aSkill.getTotalRank(pc)
 								.doubleValue())
@@ -4280,7 +4279,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						//TODO: This value is thrown away, should it really be?
 						iter.next();
 						final int cost =
-								aSkill.skillCostForPCClass(getSelectedPCClass(), pc).getCost();
+								SkillCostCalc.skillCostForPCClass(aSkill, getSelectedPCClass(), pc).getCost();
 						double points =
 								-aSkill.getTotalRank(pc).doubleValue() * cost;
 						if (SkillCost.CLASS.getCost() > 1)

@@ -1,9 +1,14 @@
 package plugin.lsttokens.campaign;
 
 import java.net.URI;
+import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+import pcgen.core.Ability;
 import pcgen.core.Campaign;
+import pcgen.core.Equipment;
 import pcgen.core.GameMode;
+import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.persistence.lst.CampaignLstToken;
 import pcgen.util.Logging;
@@ -31,17 +36,33 @@ public class HidetypeToken implements CampaignLstToken
 				continue;
 			}
 
+			Class<?> cl = null;
+			String types = null;
 			if (value.startsWith("EQUIP|"))
 			{
-				gm.setHiddenEquipmentTypes(value.substring(6));
+				cl = Equipment.class;
+				types = value.substring(6);
 			}
 			else if (value.startsWith("FEAT|"))
 			{
-				gm.setHiddenAbilityTypes(value.substring(5));
+				cl = Ability.class;
+				types = value.substring(5);
 			}
 			else if (value.startsWith("SKILL|"))
 			{
-				gm.setHiddenSkillTypes(value.substring(6));
+				cl = Skill.class;
+				types = value.substring(6);
+			}
+			if (cl == null)
+			{
+				Logging.errorPrint("Did not understand: " + value + " in "
+						+ getTokenName());
+				return false;
+			}
+			StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
+			while (st.hasMoreTokens())
+			{
+				gm.addHiddenType(cl, st.nextToken());
 			}
 		}
 		return true;

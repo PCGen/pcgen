@@ -69,6 +69,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -674,7 +675,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 	private void skillLanguageSelectPressed()
 	{
-		if (Skill.chooseLanguageForSkill(pc))
+		if (SkillLanguage.chooseLanguageForSkill(pc))
 		{
 			refresh();
 		}

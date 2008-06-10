@@ -31,9 +31,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
@@ -67,9 +69,6 @@ public final class GameMode implements Comparable<Object>
 	private List<String> bonusStatLevels = new ArrayList<String>();
 	private List<ClassType> classTypeList = new ArrayList<ClassType>();
 	private List<String> defaultDeityList = new ArrayList<String>();
-	private List<String> hiddenEquipmentTypes = null;
-	private List<String> hiddenAbilityTypes = null;
-	private List<String> hiddenSkillTypes = null;
 	private Map<String, LevelInfo> levelInfo = new HashMap<String, LevelInfo>();
 	private List<String> loadStrings = new ArrayList<String>();
 	private List<String> skillMultiplierLevels = new ArrayList<String>();
@@ -191,6 +190,7 @@ public final class GameMode implements Comparable<Object>
 	private List<TimeUnit> theTimeUnits = new ArrayList<TimeUnit>();
 
 	private List<String> resizableTypeList = new ArrayList<String>();
+	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -571,57 +571,6 @@ public final class GameMode implements Comparable<Object>
 	public String getFolderName()
 	{
 		return folderName;
-	}
-
-	/**
-	 * Set the hidden equipment types
-	 * @param pipeList
-	 */
-	public void setHiddenEquipmentTypes(final String pipeList)
-	{
-		if (hiddenEquipmentTypes == null)
-		{
-			hiddenEquipmentTypes = new ArrayList<String>();
-		}
-		final StringTokenizer aTok = new StringTokenizer(pipeList, "|");
-		while (aTok.hasMoreTokens())
-		{
-			hiddenEquipmentTypes.add(aTok.nextToken().toUpperCase());
-		}
-	}
-
-	/**
-	 * Set the hidden ability types
-	 * @param pipeList
-	 */
-	public void setHiddenAbilityTypes(final String pipeList)
-	{
-		if (hiddenAbilityTypes == null)
-		{
-			hiddenAbilityTypes = new ArrayList<String>();
-		}
-		final StringTokenizer aTok = new StringTokenizer(pipeList, "|");
-		while (aTok.hasMoreTokens())
-		{
-			hiddenAbilityTypes.add(aTok.nextToken().toUpperCase());
-		}
-	}
-
-	/**
-	 * Set the hidden skill types
-	 * @param pipeList
-	 */
-	public void setHiddenSkillTypes(final String pipeList)
-	{
-		if (hiddenSkillTypes == null)
-		{
-			hiddenSkillTypes = new ArrayList<String>();
-		}
-		final StringTokenizer aTok = new StringTokenizer(pipeList, "|");
-		while (aTok.hasMoreTokens())
-		{
-			hiddenSkillTypes.add(aTok.nextToken().toUpperCase());
-		}
 	}
 
 	/**
@@ -1161,48 +1110,6 @@ public final class GameMode implements Comparable<Object>
 		return this.weaponReachFormula;
 	}
 	
-	/**
-	 * Return true if an equipment type is hidden
-	 * @param aType
-	 * @return true if an equipment type is hidden
-	 */
-	public boolean isEquipmentTypeHidden(final String aType)
-	{
-		if (hiddenEquipmentTypes != null)
-		{
-			return hiddenEquipmentTypes.contains(aType);
-		}
-		return false;
-	}
-
-	/**
-	 * Return true if an ability type is hidden
-	 * @param aType
-	 * @return true if an ability type is hidden
-	 */
-	public boolean isAbilityTypeHidden(final String aType)
-	{
-		if (hiddenAbilityTypes != null)
-		{
-			return hiddenAbilityTypes.contains(aType);
-		}
-		return false;
-	}
-
-	/**
-	 * Return true if an skill type is hidden
-	 * @param aType
-	 * @return true if an skill type is hidden
-	 */
-	public boolean isSkillTypeHidden(final String aType)
-	{
-		if (hiddenSkillTypes != null)
-		{
-			return hiddenSkillTypes.contains(aType);
-		}
-		return false;
-	}
-
 	/**
 	 * Return true if the AC Type is Valid
 	 * @param ACType
@@ -3520,6 +3427,23 @@ public final class GameMode implements Comparable<Object>
 	public MasterListInterface getMasterLists()
 	{
 		return masterLCS;
+	}
+
+	public void addHiddenType(Class<?> cl, String s)
+	{
+		Set<String> set = hiddenTypes.get(cl);
+		if (set == null)
+		{
+			set = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+			hiddenTypes.put(cl, set);
+		}
+		set.add(s);
+	}
+
+	public boolean isTypeHidden(Class<?> cl, String type)
+	{
+		Set<String> set = hiddenTypes.get(cl);
+		return set != null && set.contains(type);
 	}
 }
 

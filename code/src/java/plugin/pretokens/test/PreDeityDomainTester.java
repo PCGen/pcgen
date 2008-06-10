@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -52,7 +53,7 @@ public class PreDeityDomainTester extends AbstractPrerequisiteTest implements
 
 		if (character.getDeity() != null)
 		{
-			if (character.getDeity().hasDomain(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
+			if (character.getDeity().hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
 			{
 				runningTotal++;
 			}

@@ -3629,7 +3629,7 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	final List<ClassSkillList> getClassSkillList()
+	public final List<ClassSkillList> getClassSkillList()
 	{
 		if (classSkillList == null)
 		{

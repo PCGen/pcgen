@@ -28,6 +28,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillCostCalc;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class ClassSkillsChoiceManager extends AbstractBasicPObjectChoiceManager<
 	{
 		for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 		{
-			SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+			SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
 
 			if (sCost.equals(SkillCost.CLASS))
 			{

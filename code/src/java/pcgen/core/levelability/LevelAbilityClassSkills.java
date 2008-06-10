@@ -24,6 +24,7 @@ package pcgen.core.levelability;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserInterface;
@@ -147,7 +148,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 			{
 				aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, toAdd);
 
-				if ((aSkill != null) && !aSkill.isClassSkill(theClass, aPC))
+				if ((aSkill != null) && !SkillCostCalc.isClassSkill(aSkill, theClass, aPC))
 				{
 					aArrayList.add(aSkill.getKeyName());
 				}
@@ -163,7 +164,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 				//
 				// Already a class skill--no point in making it one again
 				//
-				if (skill.isClassSkill(theClass, aPC))
+				if (SkillCostCalc.isClassSkill(skill, theClass, aPC))
 				{
 					continue;
 				}

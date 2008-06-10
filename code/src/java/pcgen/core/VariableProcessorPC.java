@@ -29,6 +29,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.core.character.Follower;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -582,7 +583,7 @@ public class VariableProcessorPC extends VariableProcessor
 			final Skill aSkill = getPc().getSkillKeyed(valString.substring(11).replace('{', '(').replace('}', ')'));
 			if (aSkill != null)
 			{
-				valString = Integer.toString(aSkill.getTotalRank(getPc()).intValue() + aSkill.modifier(getPc()).intValue());
+				valString = Integer.toString(aSkill.getTotalRank(getPc()).intValue() + SkillModifier.modifier(aSkill, getPc()).intValue());
 			}
 			else
 			{

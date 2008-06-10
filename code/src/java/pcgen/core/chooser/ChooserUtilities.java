@@ -40,6 +40,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.WeaponProf;
 import pcgen.util.Logging;
 
 
@@ -461,7 +462,7 @@ public class ChooserUtilities
 
 		if (className == null)
 		{
-			if (Globals.weaponTypesContains(type))
+			if (Globals.getContext().containsType(WeaponProf.class, type))
 			{
 				type      = "WEAPONPROF";
 				className = classLookup.get(type);

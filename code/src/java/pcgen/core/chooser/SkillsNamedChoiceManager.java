@@ -31,6 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -78,7 +79,7 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+				SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
 
 				if (sCost.equals(SkillCost.CLASS))
 				{
@@ -90,7 +91,7 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+				SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
 
 				if (sCost.equals(SkillCost.CROSS_CLASS))
 				{
@@ -102,7 +103,7 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				SkillCost sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
+				SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
 
 				if (sCost.equals(SkillCost.EXCLUSIVE))
 				{

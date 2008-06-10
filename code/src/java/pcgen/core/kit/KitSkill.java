@@ -26,6 +26,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import pcgen.core.*;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
@@ -396,7 +397,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		if (!isFree)
 		{
 			double ranksAdded = 0.0;
-			int skillCost = aSkill.skillCostForPCClass(pcClass, pc).getCost();
+			int skillCost = SkillCostCalc.skillCostForPCClass(aSkill, pcClass, pc).getCost();
 			ptsToSpend = (int)(ranksToAdd * skillCost);
 			for (int i = 0; i < pcLvlInfo.size(); i++ )
 			{

@@ -28,6 +28,7 @@ package pcgen.io.exporttoken;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
@@ -190,7 +191,7 @@ public class SkillpointsToken extends Token
 								.floatValue();
 					PCClass pcClass = pc.getClassKeyed(className);
 
-					usedPoints += (ranks * aSkill.skillCostForPCClass(pcClass, pc).getCost());
+					usedPoints += (ranks * SkillCostCalc.skillCostForPCClass(aSkill, pcClass, pc).getCost());
 				}
 			}
 		}
@@ -227,7 +228,7 @@ public class SkillpointsToken extends Token
 					PCClass pcClass = pc.getClassKeyed(className);
 					if (targetClass == pcClass)
 					{
-						usedPoints += (ranks * aSkill.skillCostForPCClass(pcClass, pc).getCost());
+						usedPoints += (ranks * SkillCostCalc.skillCostForPCClass(aSkill, pcClass, pc).getCost());
 					}
 				}
 			}

@@ -539,6 +539,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			context.ref.buildDerivedObjects();
 			context.ref.validate();
 			context.resolveReferences();
+			context.buildTypeLists();
 
 			//  Show the licenses
 			showLicensesIfNeeded();

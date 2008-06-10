@@ -26,15 +26,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.regex.Pattern;
 
-import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.list.ClassSkillList;
+import pcgen.core.analysis.SkillCostCalc;
+import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
@@ -42,7 +40,6 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
@@ -63,152 +60,6 @@ public final class Skill extends PObject
 	public Skill()
 	{
 		// Empty Constructor
-	}
-
-    /**
-     * Returns true if it is a CLASS skill
-     *  
-     * @param aClass
-     * @param aPC
-     * @return true if it is a CLASS skill
-	 */
-    public boolean isClassSkill(final PCClass aClass, final PlayerCharacter aPC)
-	{
-		if ((aPC == null) || (aClass == null))
-		{
-			return false;
-		}
-
-		if (aPC.getRace().hasCSkill(keyName))
-		{
-			return true;
-		}
-
-		// hasSkill is a LevelAbility skill
-		if (aClass.hasSkill(keyName))
-		{
-			return true;
-		}
-
-		// hasCSkill is a class.lst loader skill
-		if (aClass.hasCSkill(keyName))
-		{
-			return true;
-		}
-
-		// test for SKILLLIST skill
-		if (aClass.hasClassSkill(keyName))
-		{
-			return true;
-		}
-
-		if (aClass.isMonster())
-		{
-			if (aPC.getRace().hasMonsterCSkill(this))
-			{
-				return true;
-			}
-		}
-
-		List<CDOMReference<ClassSkillList>> prev = getListFor(ListKey.PREVENTED_CLASSES);
-		if (prev != null)
-		{
-			for (CDOMReference<ClassSkillList> ref : prev)
-			{
-				/*
-				 * Should be direct reference comparison, but for now, fall back
-				 * to String
-				 */
-				String aString = ref.getLSTformat();
-				if (aString.equalsIgnoreCase(aClass.getKeyName())
-						|| aString.equalsIgnoreCase(aClass.getSubClassKey()))
-				{
-					return false; // this is an excluded-from-class-skill list
-				}
-			}
-		}
-   		List<CDOMReference<ClassSkillList>> classes = getListFor(ListKey.CLASSES);
-		if (classes != null)
-		{
-			for (CDOMReference<ClassSkillList> ref : classes)
-			{
-				for (ClassSkillList csl : aClass.getClassSkillList())
-				{
-					if (ref.contains(csl))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		for (CharacterDomain aCD : aPC.getCharacterDomainList())
-		{
-			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getKeyName()) && aCD.getDomain().hasCSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCSkill(keyName))
-		{
-			return true;
-		}
-
-		for (Ability aFeat : aPC.getFullAbilitySet())
-		{
-			if (aFeat.hasCSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		final List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
-		for (Skill aSkill : skillList)
-		{
-			if (aSkill.hasCSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		final List<Equipment> eqList =
-			new ArrayList<Equipment>(aPC.getEquipmentList());
-		for (Equipment eq : eqList)
-		{
-			if (eq.isEquipped())
-			{
-				if (eq.hasCSkill(keyName))
-				{
-					return true;
-				}
-
-				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-				{
-					if (eqMod.hasCSkill(keyName))
-					{
-						return true;
-					}
-				}
-
-				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-				{
-					if (eqMod.hasCSkill(keyName))
-					{
-						return true;
-					}
-				}
-			}
-		}
-
-		for (PCTemplate aTemplate : aPC.getTemplateList())
-		{
-			if (aTemplate.hasCSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
     /**
@@ -237,22 +88,6 @@ public final class Skill extends PObject
 	public int getOutputIndex()
 	{
 		return outputIndex;
-	}
-
-	/**
-	 * Made public on 10 Dec 2002 by sage_sam to match PObject method
-	 * @return String
-	 */
-	@Override
-	public String getPCCText()
-	{
-		final StringBuffer txt = new StringBuffer(200);
-		txt.append(getDisplayName());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
-				this), "\t"));
-		txt.append(super.getPCCText(false));
-		return txt.toString();
 	}
 
 	/** returns ranks taken specifically in skill
@@ -396,194 +231,6 @@ public final class Skill extends PObject
 		}
 	}
 
-	/**
-	 * Choose the language that is to be gained for the default language skill.
-	 * The default language skill will be the first one found when scanning the
-	 * PCs skill list.
-	 * Note: This pops up a chooser so should not be used in batch mode.
-	 *
-	 * @param aPC The character to choose a language for.
-	 * @return false if the laguage choice could not be offered. True otherwise.
-	 */
-	public static boolean chooseLanguageForSkill(final PlayerCharacter aPC)
-	{
-		Skill languageSkill = null;
-
-		final List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
-		for (Skill aSkill : skillList)
-		{
-			if (aSkill.getChoiceString().toLowerCase().indexOf("language") >= 0)
-			{
-				languageSkill = aSkill;
-			}
-		}
-
-		return chooseLanguageForSkill(aPC, languageSkill);
-	}
-
-	/**
-	 * Choose the language that is to be gained for the specified language skill.
-	 * Note: This pops up a chooser so should not be used in batch mode.
-	 *
-	 * @param aPC The character to choose a language for.
-	 * @param languageSkill The language skill.
-	 * @return false if the laguage choice could not be offered. True otherwise.
-	 */
-	public static boolean chooseLanguageForSkill(final PlayerCharacter aPC,
-		final Skill languageSkill)
-	{
-		if (aPC != null)
-		{
-			if (languageSkill == null)
-			{
-				ShowMessageDelegate.showMessageDialog(
-					"You do not have enough ranks in Speak Language",
-					Constants.s_APPNAME, MessageType.ERROR);
-
-				return false;
-			}
-
-			final int numLanguages = languageSkill.getTotalRank(aPC).intValue();
-			final List<String> selectedLangNames = new ArrayList<String>();
-			final List<Language> selected = new ArrayList<Language>();
-			final List<Language> available = new ArrayList<Language>();
-			final List<Language> excludedLangs = new ArrayList<Language>();
-
-			String reqType = null;
-			if (languageSkill.getChoiceString().toLowerCase().indexOf(
-				"language(") >= 0)
-			{
-				// We expect to have a choice string like Language(foo)
-				// where foo is the type we have to limit choices by.
-				String choiceParts[] = languageSkill.getChoiceString().split(
-					"[\\(\\)]");
-				if (choiceParts.length >= 2)
-				{
-					reqType = choiceParts[1];
-				}
-			}
-			
-			String[][] reqTypeArray;
-			if (reqType == null)
-			{
-				reqTypeArray = null;
-			}
-			else
-			{
-				String[] rta = reqType.split(",");
-				reqTypeArray = new String[rta.length][];
-				for (int i = 0; i < rta.length; i++)
-				{
-					reqTypeArray[i] = rta[i].split("\\.");
-				}
-			}
-
-			languageSkill.addAssociatedTo(selectedLangNames);
-
-			for ( String aString : selectedLangNames )
-			{
-				final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aString);
-
-				if (aLang == null)
-				{
-					continue;
-				}
-				if (reqTypeArray == null)
-				{
-					selected.add(aLang);
-					continue;
-				}
-				SELARRAY: for (String[] types : reqTypeArray)
-				{
-					for (String type : types)
-					{
-						if (!aLang.isType(type))
-						{
-							continue SELARRAY;
-						}
-					}
-					selected.add(aLang);
-				}
-			}
-
-			for ( Language lang : Globals.getContext().ref.getConstructedCDOMObjects(Language.class) )
-			{
-				if (!PrereqHandler.passesAll(lang.getPreReqList(), aPC,
-						lang))
-				{
-					continue;
-				}
-				if (reqTypeArray == null)
-				{
-					available.add(lang);
-					continue;
-				}
-				AVARRAY: for (String[] types : reqTypeArray)
-				{
-					for (String type : types)
-					{
-						if (!lang.isType(type))
-						{
-							continue AVARRAY;
-						}
-					}
-					available.add(lang);
-				}
-			}
-
-			//
-			// Do not give choice of automatic languages
-			//
-			for ( Language lang : aPC.getAutoLanguages() )
-			{
-				available.remove(lang);
-				excludedLangs.add(lang);
-			}
-
-			//
-			// Do not give choice of selected bonus languages
-			//
-			for ( final Language lang : aPC.getLanguagesList() )
-			{
-				if (!selected.contains(lang))
-				{
-					if ((reqType == null || lang.isType(reqType)))
-					{
-						available.remove(lang);
-					}
-					excludedLangs.add(lang);
-				}
-			}
-
-			Globals.sortChooserLists(available, selected);
-
-			final ChooserInterface lc = ChooserFactory.getChooserInstance();
-			lc.setVisible(false);
-			lc.setAvailableList(available);
-			lc.setSelectedList(selected);
-			lc.setTotalChoicesAvail(numLanguages);
-			lc.setPoolFlag(false);
-			lc.setVisible(true);
-
-			aPC.clearLanguages();
-			aPC.addLanguages(selected);
-
-			// Add in all choice-excluded languages
-			aPC.addLanguages(excludedLangs);
-			languageSkill.clearAssociated();
-			// TODO Fix this to allow Language objects.
-			for ( Iterator<?> i = lc.getSelectedList().iterator(); i.hasNext(); )
-			{
-				languageSkill.addAssociated( ((Language)i.next()).getKeyName() );
-			}
-			aPC.setDirty(true);
-
-			return true;
-		}
-
-		return false;
-	}
-
 	@Override
 	public Skill clone()
 	{
@@ -604,28 +251,6 @@ public final class Skill extends PObject
 	}
 
     /**
-     * Get the actual cost of a skill point
-     * @param aClass
-     * @param aPC
-     * @return cost of a skill point
-     */
-	public SkillCost skillCostForPCClass(final PCClass aClass, final PlayerCharacter aPC)
-	{
-		if (isClassSkill(aClass, aPC))
-		{
-			return SkillCost.CLASS;
-		}
-		else if (!isCrossClassSkill(aClass, aPC) && getSafe(ObjectKey.EXCLUSIVE))
-		{
-			return SkillCost.EXCLUSIVE;
-		}
-		else
-		{
-			return SkillCost.CROSS_CLASS;
-		}
-	}
-
-	/**
      * Modify the rank 
      * 
      * @param rankMod
@@ -663,7 +288,7 @@ public final class Skill extends PObject
 				return "You do not meet the prerequisites required to take this skill.";
 			}
 
-			SkillCost sc = skillCostForPCClass(aClass, aPC);
+			SkillCost sc = SkillCostCalc.skillCostForPCClass(this, aClass, aPC);
 
 			if (sc.equals(SkillCost.EXCLUSIVE))
 			{
@@ -778,82 +403,6 @@ public final class Skill extends PObject
 	}
 
 	/**
-     * return the modifier on a skill 
-     * @param aPC
-     * @return modifier
-	 */
-    public Integer modifier(final PlayerCharacter aPC)
-	{
-		int bonus = 0;
-		if (aPC == null)
-		{
-			return Integer.valueOf(0);
-		}
-
-		PCStat stat = get(ObjectKey.KEY_STAT);
-		if (stat != null)
-		{
-			bonus = aPC.getStatList().getStatModFor(stat.getAbb());
-			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
-		}
-		bonus += aPC.getTotalBonusTo("SKILL", keyName);
-
-		// loop through all current skill types checking for boni
-		for (String singleType : getTypeList(false))
-		{
-			bonus += aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
-		}
-
-		// now check for any lists of skills, etc
-		bonus += aPC.getTotalBonusTo("SKILL", "LIST");
-
-		// now check for ALL
-		bonus += aPC.getTotalBonusTo("SKILL", "ALL");
-
-		//these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to function
-		if (isClassSkill(aPC.getClassList(), aPC))
-		{
-			bonus += aPC.getTotalBonusTo("CSKILL", keyName);
-
-			//loop through all current skill types checking for boni
-			for (String singleType : getTypeList(false))
-			{
-				bonus += aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
-			}
-
-			bonus += aPC.getTotalBonusTo("CSKILL", "LIST");
-		}
-
-		if (!isClassSkill(aPC.getClassList(), aPC) && !getSafe(ObjectKey.EXCLUSIVE))
-		{
-			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
-
-			//loop through all current skill types checking for boni
-			for (String singleType : getTypeList(false))
-			{
-				bonus += aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
-			}
-
-			bonus += aPC.getTotalBonusTo("CCSKILL", "LIST");
-		}
-
-		// the above two if-blocks try to get
-		// BONUS:[C]CSKILL|TYPE=xxx|y to function
-		final int aCheckBonus = getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
-		bonus += aCheckBonus;
-
-		String aString = Globals.getGameModeRankModFormula();
-		if (aString.length() != 0)
-		{
-			aString = aString.replaceAll(Pattern.quote("$$RANK$$"),
-			                             getTotalRank(aPC).toString());
-			bonus += aPC.getVariableValue(aString, "").intValue();
-		}
-
-		return bonus;
-	}
-
-    /**
      * Get the qualified name
      * @return qualified name
      */
@@ -882,61 +431,6 @@ public final class Skill extends PObject
 		return buffer.toString();
 	}
 
-	/**
-	 * Is this skill a class skill for any class possessed by this character.
-	 * @param aPC PlayerCharacter
-	 * @return true if this is a class skill
-	 */
-	public boolean isClassSkill( final PlayerCharacter aPC )
-	{
-		return isClassSkill( aPC.getClassList(), aPC );
-	}
-
-	boolean isClassSkill(final List<PCClass> aList, final PlayerCharacter aPC)
-	{
-		for ( PCClass pcClass : aList )
-		{
-			if (isClassSkill(pcClass, aPC))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * return of 0 means exclusive, 1=class-skill, 2=cross-class skill
-	 * @param aPCClassList
-	 * @param aPC
-	 * @return cost for pcc class list
-	 */
-	public SkillCost costForPCClassList(final List<PCClass> aPCClassList, final PlayerCharacter aPC)
-	{
-		SkillCost sc = SkillCost.EXCLUSIVE; //Assume we can't buy
-		final int classListSize = aPCClassList.size();
-
-		if (classListSize == 0)
-		{
-			return sc;
-		}
-
-		for ( PCClass pcClass : aPCClassList )
-		{
-			final SkillCost csc = skillCostForPCClass(pcClass, aPC);
-			if (csc.equals(SkillCost.CLASS))
-			{
-				return csc;
-			}
-			if (!csc.equals(SkillCost.EXCLUSIVE))
-			{
-				sc = csc;
-			}
-		}
-
-		return sc;
-	}
-
 	void replaceClassRank(final String oldClass, final String newClass)
 	{
 		final String oldClassString = oldClass + ":";
@@ -950,124 +444,6 @@ public final class Skill extends PObject
 				rankList.set(i, newClass + bSkill.substring(oldClass.length()));
 			}
 		}
-	}
-
-	private boolean isCrossClassSkill(final PCClass aClass, final PlayerCharacter aPC)
-	{
-		if (isClassSkill(aClass, aPC))
-		{
-			return false;
-		}
-
-		if ((aPC == null) || (aClass == null))
-		{
-			return false;
-		}
-
-		if (aPC.getRace().hasCcSkill(keyName))
-		{
-			return true;
-		}
-
-		for ( CharacterDomain aCD : aPC.getCharacterDomainList() )
-		{
-			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getKeyName()) && aCD.getDomain().hasCcSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCcSkill(keyName))
-		{
-			return true;
-		}
-
-		if (aClass.hasCcSkill(keyName))
-		{
-			return true;
-		}
-
-		if (aClass.isMonster())
-		{
-			if (aPC.getRace().hasMonsterCCSkill(this))
-			{
-				return true;
-			}
-		}
-
-		for ( Ability feat : aPC.getFullAbilitySet() )
-		{
-			if (feat.hasCcSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		final List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
-		for (Skill aSkill : skillList)
-		{
-			if (aSkill.hasCcSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		for ( Equipment eq : aPC.getEquipmentList() )
-		{
-			if (eq.isEquipped())
-			{
-				if (eq.hasCcSkill(keyName))
-				{
-					return true;
-				}
-
-				for ( EquipmentModifier eqMod : eq.getEqModifierList(true) )
-				{
-					if (eqMod.hasCcSkill(keyName))
-					{
-						return true;
-					}
-				}
-
-				for ( EquipmentModifier eqMod : eq.getEqModifierList(false) )
-				{
-					if (eqMod.hasCcSkill(keyName))
-					{
-						return true;
-					}
-				}
-			}
-		}
-
-		for ( PCTemplate template : aPC.getTemplateList() )
-		{
-			if (template.hasCcSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Check if this skill is cross class for any of the list of classes.
-	 * 
-	 * @param aList List of classes to be checked
-	 * @param aPC The character we are checking for.
-	 * @return true if it is a cross-class skill for any of the classes.
-	 */
-	boolean isCrossClassSkill(final List<PCClass> aList, final PlayerCharacter aPC)
-	{
-		for ( PCClass pcClass : aList )
-		{
-			if (isCrossClassSkill(pcClass, aPC))
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	private double modRanks2(double g, final int idx, String bSkill, final PlayerCharacter aPC)
@@ -1097,7 +473,7 @@ public final class Skill extends PObject
 					bSkill = bSkill.substring(0, iOffs + 1) + newRank;
 					rankList.set(idx, bSkill);
 
-					if (!chooseLanguageForSkill(aPC, this))
+					if (!SkillLanguage.chooseLanguageForSkill(aPC, this))
 					{
 						newRank = curRank;
 					}
@@ -1159,117 +535,6 @@ public final class Skill extends PObject
 		return g;
 	}
 
-	/**
-	 * Builds up a string describing what makes up the misc modifier for
-	 * a skill for a character. This can either be in long form
-	 * '+2[skill TUMBLE gteq 5|TYPE=SYNERGY.STACK]' or in short form
-	 * '+2[TUMBLE]'. Any modifiers that cannot be determined will be
-	 * displayed as a single entry of 'OTHER'.
-	 *
-	 * @param aPC The character associated with this skill.
-	 * @param shortForm True if the abbreviated form should be used.
-	 * @return The explanation of the misc modifier's make-up.
-	 */
-	public String getModifierExplanation(final PlayerCharacter aPC, final boolean shortForm)
-	{
-		double bonusObjTotal = 0.0;
-		final StringBuffer bonusDetails = new StringBuffer();
-		for ( BonusObj bonus : aPC.getActiveBonusList() )
-		{
-			final double bonusVal = bonus.getCalculatedValue(aPC);
-			if (bonus.isApplied() && !CoreUtility.doublesEqual(bonusVal, 0.0)
-				&& "SKILL".equals(bonus.getBonusName())
-				&& bonus.getBonusInfoList().contains(getKeyName().toUpperCase()))
-			{
-				if (bonusDetails.length() > 0)
-				{
-					bonusDetails.append(' ');
-				}
-				bonusDetails.append(bonus.getDescription(shortForm, aPC));
-				bonusObjTotal += bonusVal;
-			}
-		}
-
-		//TODO: Need to add other bonuses which are not encoded as bonus objects
-		//       - familiars, racial, feats - and add them to bonusObjTotal
-
-		double bonus;
-		PCStat stat = get(ObjectKey.KEY_STAT);
-		if (stat != null)
-		{
-			bonus = aPC.getStatList().getStatModFor(stat.getAbb());
-			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
-			appendBonusDesc(bonusDetails, bonus, "STAT");
-		}
-
-		// The catch-all for non-bonusObj modifiers.
-		bonus = aPC.getTotalBonusTo("SKILL", keyName) - bonusObjTotal;
-		appendBonusDesc(bonusDetails, bonus, "OTHER");
-
-		// loop through all current skill types checking for boni
-		for (String singleType : getTypeList(false))
-		{
-			bonus = aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
-			appendBonusDesc(bonusDetails, bonus, "TYPE." + singleType);
-		}
-
-		// now check for any lists of skills, etc
-		bonus = aPC.getTotalBonusTo("SKILL", "LIST");
-		appendBonusDesc(bonusDetails, bonus, "LIST");
-
-		// now check for ALL
-		bonus = aPC.getTotalBonusTo("SKILL", "ALL");
-		appendBonusDesc(bonusDetails, bonus, "ALL");
-
-		//these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to function
-		if (isClassSkill(aPC.getClassList(), aPC))
-		{
-			bonus = aPC.getTotalBonusTo("CSKILL", keyName);
-			appendBonusDesc(bonusDetails, bonus, "CSKILL");
-
-			//loop through all current skill types checking for boni
-			for (String singleType : getTypeList(false))
-			{
-				bonus = aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
-				appendBonusDesc(bonusDetails, bonus, "CSKILL");
-			}
-
-			bonus = aPC.getTotalBonusTo("CSKILL", "LIST");
-			appendBonusDesc(bonusDetails, bonus, "CSKILL");
-		}
-
-		if (!isClassSkill(aPC.getClassList(), aPC) && !getSafe(ObjectKey.EXCLUSIVE))
-		{
-			bonus = aPC.getTotalBonusTo("CCSKILL", keyName);
-			appendBonusDesc(bonusDetails, bonus, "CCSKILL");
-
-			//loop through all current skill types checking for boni
-			for (String singleType : getTypeList(false))
-			{
-				bonus = aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
-				appendBonusDesc(bonusDetails, bonus, "CCSKILL");
-			}
-
-			bonus = aPC.getTotalBonusTo("CCSKILL", "LIST");
-			appendBonusDesc(bonusDetails, bonus, "CCSKILL");
-		}
-
-		// Encumbrance
-		final int aCheckMod = getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
-		appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
-
-		String aString = Globals.getGameModeRankModFormula();
-		if (aString.length() != 0)
-		{
-			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), 
-			                             getTotalRank(aPC).toString());
-			bonus = aPC.getVariableValue(aString, "").intValue();
-			appendBonusDesc(bonusDetails, bonus, "RANKS");
-		}
-
-		return bonusDetails.toString();
-	}
-
 	public String getRanksExplanation()
 	{
 		final StringBuffer ranksDetails = new StringBuffer();
@@ -1287,35 +552,6 @@ public final class Skill extends PObject
 	}
 
 	/**
-	 * Append a description of the bonus to the supplied buffer if
-	 * the bonus value is not 0.
-	 *
-	 * @param bonusDetails The StringBuffer being built up. NB: May be modified.
-	 * @param bonus The value of the bonus.
-	 * @param description The description of the bonus.
-	 */
-	private void appendBonusDesc(final StringBuffer bonusDetails, final double bonus,
-		final String description)
-	{
-		if (CoreUtility.doublesEqual(bonus,0.0))
-		{
-			return;
-		}
-
-		if (bonusDetails.length() > 0)
-		{
-			bonusDetails.append(' ');
-		}
-		String value = Delta.toString((float)bonus);
-		if (value.endsWith(".0"))
-		{
-			value = value.substring(0, value.length()-2);
-		}
-		bonusDetails.append(value);
-		bonusDetails.append('[').append(description).append(']');
-	}
-
-    /**
      * Get the bonus to a skill rank
      * @param aPC
      * @return bonus to skill rank
@@ -1429,34 +665,6 @@ public final class Skill extends PObject
 	}
 
 	/**
-	 * Get the modifier to the skill granted by the key attribute
-	 * @param pc 
-	 * @return modifier 
-	 */
-	public int getStatMod(final PlayerCharacter pc)
-	{
-		PCStat stat = get(ObjectKey.KEY_STAT);
-		if (stat == null)
-		{
-			int statMod = 0;
-			if (Globals.getGameModeHasPointPool())
-			{
-				ArrayList<String> typeList = new ArrayList<String>();
-				getKeyStatList(typeList);
-				for (int i = 0; i < typeList.size(); ++i)
-				{
-					statMod += pc.getTotalBonusTo("SKILL", "TYPE." + typeList.get(i));
-				}
-			}
-			return statMod;
-		}
-		else
-		{
-			return pc.getStatList().getStatModFor(stat.getAbb());
-		}
-	}
-
-	/**
 	 * Get a list of PCStat's that apply a SKILL bonus to this skill.
 	 * Generates (optionally, if typeList is non-null) a list of String's types
      * 
@@ -1530,11 +738,6 @@ public final class Skill extends PObject
 		}
 
 		return aList;
-	}
-
-	boolean isTypeHidden(final String type)
-	{
-		return Globals.isSkillTypeHidden(type);
 	}
 
 	public String getKeyStatAbb()

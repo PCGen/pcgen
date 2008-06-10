@@ -48,6 +48,7 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -164,7 +165,7 @@ public class NPCGenerator
 			{
 				if ( skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT )
 				{
-					if (skill.isClassSkill(aClass, aPC))
+					if (SkillCostCalc.isClassSkill(skill, aClass, aPC))
 					{
 						weightedList.add(8, new SkillChoice(skill.getKeyName()));
 					}
@@ -219,7 +220,7 @@ public class NPCGenerator
 			}
 
 			Skill pcSkill = aPC.getSkillKeyed(skill.getKeyName());
-			final int cost = skill.skillCostForPCClass(aClass, aPC).getCost();
+			final int cost = SkillCostCalc.skillCostForPCClass(skill, aClass, aPC).getCost();
 			double ranks = 1.0 / cost;
 			Logging.debugPrint( "NPCGenerator: Adding " + (int)ranks + "ranks" ); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))

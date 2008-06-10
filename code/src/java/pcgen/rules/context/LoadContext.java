@@ -20,6 +20,9 @@ package pcgen.rules.context;
 import java.io.StringWriter;
 import java.net.URI;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
@@ -27,6 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -293,5 +297,34 @@ public abstract class LoadContext
 			prereqString = StringUtil.join(list, Constants.PIPE);
 		}
 		return prereqString;
+	}
+
+	public Map<Class<?>, Set<String>> typeMap = new HashMap<Class<?>, Set<String>>();
+	
+	public void buildTypeLists()
+	{
+		Set<String> typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		typeMap.put(WeaponProf.class, typeSet);
+		for (WeaponProf wp : ref.getConstructedCDOMObjects(WeaponProf.class))
+		{
+			typeSet.addAll(wp.getTypeList(false));
+		}
+	}
+	
+	public Collection<String> getTypes(Class<?> cl)
+	{
+		Set<String> returnSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		Set<String> set = typeMap.get(cl);
+		if (set != null)
+		{
+			returnSet.addAll(set);
+		}
+		return returnSet;
+	}
+	
+	public boolean containsType(Class<?> cl, String type)
+	{
+		Set<String> set = typeMap.get(cl);
+		return set != null && set.contains(type);
 	}
 }

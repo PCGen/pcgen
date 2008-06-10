@@ -20,6 +20,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SkillUtilities;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.util.enumeration.Visibility;
 import plugin.charactersheet.CharacterSheetUtils;
 
@@ -384,7 +385,7 @@ public class SkillsPane extends javax.swing.JPanel
 			String ability = skill.getKeyStatAbb();
 			String total =
 					Integer.toString(skill.getTotalRank(pc).intValue()
-						+ skill.modifier(pc).intValue());
+						+ SkillModifier.modifier(skill, pc).intValue());
 			StringBuffer abSb = new StringBuffer();
 			abSb.append(SKILL_TOKEN).append('.').append(i).append('.').append(
 				ABMOD_TOKEN);

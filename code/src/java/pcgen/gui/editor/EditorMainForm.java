@@ -1174,7 +1174,7 @@ public final class EditorMainForm extends JDialog
 
 				for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
 				{
-					if (((Deity) thisPObject).hasDomain(aDomain))
+					if (((Deity) thisPObject).hasObjectOnList(Deity.DOMAINLIST, aDomain))
 					{
 						selectedDomainList.add(aDomain);
 					}

@@ -52,6 +52,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.StatList;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -819,14 +820,14 @@ public class PcgCombatant extends Combatant
 				if (skill.get(ObjectKey.KEY_STAT) != null)
 				{
 					modSkill =
-							skill.modifier(pc).intValue()
+							SkillModifier.modifier(skill, pc).intValue()
 								- pc.getStatList().getStatModFor(
 									skill.getKeyStatAbb());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 
 				int temp =
-						skill.modifier(pc).intValue()
+						SkillModifier.modifier(skill, pc).intValue()
 							+ skill.getTotalRank(pc).intValue();
 
 				statBuf.append("<a href='skill:");

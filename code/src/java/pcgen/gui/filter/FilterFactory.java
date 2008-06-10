@@ -52,6 +52,8 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
+import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -237,7 +239,7 @@ public final class FilterFactory implements FilterConstants
 				equipmentFilters.add(FilterFactory.createTypeFilter(type));
 			}
 
-			for (final String s : Globals.getWeaponTypeList())
+			for (final String s : SettingsHandler.getGame().getContext().getTypes(WeaponProf.class))
 			{
 				// weapon types come in pairs:
 				// first UPPERCASE only, than Capitalized
@@ -1281,7 +1283,7 @@ final class DomainFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Deity)
 		{
-			return ((Deity) pObject).hasDomain(domain);
+			return ((Deity) pObject).hasObjectOnList(Deity.DOMAINLIST, domain);
 		}
 		else if (pObject instanceof Domain)
 		{
@@ -1839,7 +1841,7 @@ final class RankModifierFilter extends AbstractPObjectFilter
 				aSkill = aPC.getSkillKeyed(aSkill.getKeyName());
 			}
 
-			return (aSkill.getTotalRank(aPC).doubleValue() + aSkill.modifier(aPC).doubleValue()) > min;
+			return (aSkill.getTotalRank(aPC).doubleValue() + SkillModifier.modifier(aSkill, aPC).doubleValue()) > min;
 		}
 
 		return true;

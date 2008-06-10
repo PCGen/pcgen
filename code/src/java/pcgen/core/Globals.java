@@ -141,7 +141,6 @@ public final class Globals
 	 * The following sets are for efficient filter creation:
 	 * <ul>
 	 * <li>subschoolsSet</li>
-	 * <li>weaponTypes</li>
 	 * </ul>
 	 * The following sets are for efficient filter creation as
 	 * well as quick loading of the spell editor:
@@ -159,7 +158,6 @@ public final class Globals
 	 * </ul>
 	 */
 	private static SortedSet<String> subschoolsSet    = new TreeSet<String>();
-	private static SortedSet<String> weaponTypes      = new TreeSet<String>();
 
 	private static SortedSet<String> castingTimesSet  = new TreeSet<String>();
 	private static SortedSet<String> componentSet     = new TreeSet<String>();
@@ -1422,33 +1420,13 @@ public final class Globals
 	}
 
 	/**
-	 * Return TRUE if the equipment type is hidden
-	 * @param aType
-	 * @return TRUE if the equipment type is hidden
-	 */
-	public static boolean isEquipmentTypeHidden(final String aType)
-	{
-		return SettingsHandler.getGame().isEquipmentTypeHidden(aType);
-	}
-
-	/**
-	 * Return TRUE if the ability type is hidden
-	 * @param aType
-	 * @return TRUE if the ability type is hidden
-	 */
-	public static boolean isAbilityTypeHidden(final String aType)
-	{
-		return SettingsHandler.getGame().isAbilityTypeHidden(aType);
-	}
-
-	/**
 	 * Return TRUE if the skill type is hidden
 	 * @param aType
 	 * @return TRUE if the skill type is hidden
 	 */
 	public static boolean isSkillTypeHidden(final String aType)
 	{
-		return SettingsHandler.getGame().isSkillTypeHidden(aType);
+		return SettingsHandler.getGame().isTypeHidden(Skill.class, aType);
 	}
 
 	/**
@@ -1681,16 +1659,6 @@ public final class Globals
 		return isUseGUI();
 	}
 
-	/**
-	 * Returns a List of weapontypes
-	 *
-	 * @return The list of weapon types
-	 */
-	public static SortedSet<String> getWeaponTypeList()
-	{
-		return weaponTypes;
-	}
-	
 	public static String getWeaponReachForumla ()
 	{
 		return SettingsHandler.getGame().getWeaponReachFormula();
@@ -2004,7 +1972,6 @@ public final class Globals
 		// Clear Sets (not strictly necessary, but done for consistency)
 		clearSpellSets();
 		subschoolsSet = new TreeSet<String>();
-		weaponTypes = new TreeSet<String>();
 
 		// Perform other special cleanup
 		Equipment.clearEquipmentTypes();
@@ -2620,16 +2587,6 @@ public final class Globals
 	}
 
 	/**
-	 * Adds a weapon type
-	 *
-	 * @param weaponType The weapon type to add
-	 */
-	public static void addWeaponType(final String weaponType)
-	{
-		weaponTypes.add(weaponType.toUpperCase());
-	}
-
-	/**
 	 * Reduce/increase damage for modified size as per DMG p.162
 	 * @param aDamage
 	 * @param sBaseSize
@@ -2763,17 +2720,6 @@ public final class Globals
 	{
 		getCustColumnWidth().clear();
 		getCustColumnWidth().addAll(l);
-	}
-
-	/**
-	 * Checks if the weapon types include a certain weapon type
-	 *
-	 * @param weaponType The weapon type to look for
-	 * @return True if the weapon type exists among the weapon types, otherwise false
-	 */
-	public static boolean weaponTypesContains(final String weaponType)
-	{
-		return weaponTypes.contains(weaponType.toUpperCase());
 	}
 
 	private static String getDamageDownKey(final String aDamage)

@@ -4,6 +4,7 @@ import org.nfunk.jep.ParseException;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 
@@ -78,7 +79,7 @@ public class SkillInfoCommand extends PCGenCommand
 			{
 				if ("modifier".equalsIgnoreCase((String) param1))
 				{
-					result = (double) aSkill.modifier(pc).intValue(); // aSkill.modifier() returns Integer
+					result = (double) SkillModifier.modifier(aSkill, pc).intValue(); // aSkill.modifier() returns Integer
 				}
 				else if ("rank".equalsIgnoreCase((String) param1))
 				{
@@ -86,7 +87,7 @@ public class SkillInfoCommand extends PCGenCommand
 				}
 				else if ("total".equalsIgnoreCase((String) param1))
 				{
-					result = (double) aSkill.getTotalRank(pc).intValue() + aSkill.modifier(pc);
+					result = (double) aSkill.getTotalRank(pc).intValue() + SkillModifier.modifier(aSkill, pc);
                 }
 				else if ("totalrank".equalsIgnoreCase((String) param1))
 				{

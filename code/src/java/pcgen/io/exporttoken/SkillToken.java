@@ -31,6 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -313,13 +314,13 @@ public class SkillToken extends Token
 						retValue.append(SettingsHandler.getGame()
 							.getSkillRankDisplayText(
 								aSkill.getTotalRank(pc).intValue()
-									+ aSkill.modifier(pc).intValue()));
+									+ SkillModifier.modifier(aSkill, pc).intValue()));
 					}
 					else
 					{
 						retValue.append(Integer.toString(aSkill
 							.getTotalRank(pc).intValue()
-							+ aSkill.modifier(pc).intValue()));
+							+ SkillModifier.modifier(aSkill, pc).intValue()));
 					}
 					break;
 
@@ -337,7 +338,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_MOD:
-					retValue.append(aSkill.modifier(pc).toString());
+					retValue.append(SkillModifier.modifier(aSkill, pc).toString());
 					break;
 
 				case SKILL_ABILITY:
@@ -345,13 +346,13 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_ABMOD:
-					retValue.append(Integer.toString(aSkill.getStatMod(pc)));
+					retValue.append(Integer.toString(SkillModifier.getStatMod(aSkill, pc)));
 					break;
 
 				case SKILL_MISC:
-					retValue.append(Integer.toString(aSkill.modifier(pc)
+					retValue.append(Integer.toString(SkillModifier.modifier(aSkill, pc)
 						.intValue()
-						- aSkill.getStatMod(pc)));
+						- SkillModifier.getStatMod(aSkill, pc)));
 					break;
 
 				case SKILL_UNTRAINED:
@@ -375,15 +376,14 @@ public class SkillToken extends Token
 						.append(Integer
 							.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED)) && (aSkill.getTotalRank(pc)
 								.intValue() == 0)) ? 0
-								: (aSkill.getTotalRank(pc).intValue() + aSkill
-										.modifier(pc).intValue())));
+								: (aSkill.getTotalRank(pc).intValue() + SkillModifier.modifier(aSkill, pc).intValue())));
 					break;
 
 				case SKILL_TRAINED_TOTAL:
 					retValue.append(Integer
 						.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED) && (aSkill
 							.getTotalRank(pc).intValue() == 0)) ? 0 : (aSkill
-							.getTotalRank(pc).intValue() + aSkill.modifier(pc)
+							.getTotalRank(pc).intValue() + SkillModifier.modifier(aSkill, pc)
 							.intValue())));
 					break;
 
@@ -392,7 +392,7 @@ public class SkillToken extends Token
 							!("_LONG".equals(propertyText.substring(7)));
 
 					String bonusDetails =
-							aSkill.getModifierExplanation(pc, shortFrom);
+							SkillModifier.getModifierExplanation(aSkill, pc, shortFrom);
 					retValue.append(bonusDetails);
 					break;
 

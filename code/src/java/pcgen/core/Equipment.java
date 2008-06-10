@@ -531,10 +531,6 @@ public final class Equipment extends PObject implements Serializable,
 		return isRanged() && !isThrown();
 	}
 
-	boolean isTypeHidden(final String type) {
-		return Globals.isEquipmentTypeHidden(type);
-	}
-
 	protected List<String> getMyTypeList() {
 		return typeList();
 	}
@@ -5238,7 +5234,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		// TODO Remove this code when support for this "feature" goes away
 		if (wp != null) {
-			int iHands = wp.getHands();
+			int iHands = wp.getSafe(IntegerKey.HANDS);
 
 			if (iHands == Constants.HANDS_SIZEDEPENDENT) {
 				if (aPC.sizeInt() > sizeInt()) {

@@ -24,15 +24,11 @@
  */
 package pcgen.core;
 
-import java.util.Collection;
-
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>Deity</code>.
@@ -46,56 +42,11 @@ public final class Deity extends PObject
 			.getRef(new DomainList());
 
 	/**
-	 * Clones a Deity object
-	 * 
-	 * @return A clone of the Deity object.
-	 */
-	@Override
-	public Deity clone()
-	{
-		try
-		{
-			return (Deity) super.clone();
-		}
-		catch (CloneNotSupportedException exc)
-		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(),
-					Constants.s_APPNAME, MessageType.ERROR);
-			return null;
-		}
-	}
-
-	/**
 	 * @return the name of the holy item of this deity
 	 */
 	public String getHolyItem()
 	{
 		String characteristic = stringChar.get(StringKey.HOLY_ITEM);
 		return characteristic == null ? Constants.s_NONE : characteristic;
-	}
-
-	/**
-	 * @param aDomain
-	 * @return true if the deity has the passed-in domain
-	 */
-	public boolean hasDomain(final Domain aDomain)
-	{
-		if (aDomain == null)
-		{
-			return false;
-		}
-		Collection<CDOMReference<Domain>> domains = getListMods(Deity.DOMAINLIST);
-		if (domains == null)
-		{
-			return false;
-		}
-		for (CDOMReference<Domain> ref : domains)
-		{
-			if (ref.contains(aDomain))
-			{
-				return true;
-			}
-		}
-		return false;
 	}
 }

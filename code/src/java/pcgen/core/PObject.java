@@ -167,6 +167,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private Set<String> types = new LinkedHashSet<String>();
 	
 	private String chooseSelectCount = "1";
+
+	private final Class<?> myClass = getClass();
 	
 	/* ************
 	 * Methods
@@ -1947,20 +1949,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return StringUtil.join(getTypeList(false), ".");
 	}
 
-	/**
-	 * Returns false
-	 *
-	 * This method is meant to be overloaded by those classes that
-	 * can have hidden types, which are currently Equipment, Feat and
-	 * Skill.
-	 *
-	 * @return false
-	 */
-	boolean isTypeHidden(final String type)
-	{
-		return false;
-	}
-
 	public List<String> getTypeList(final boolean visibleOnly)
 	{
 		final List<String> ret = new ArrayList<String>(types);
@@ -1968,7 +1956,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			for ( String type : types )
 			{
-				if ( isTypeHidden(type) )
+				if ( SettingsHandler.getGame().isTypeHidden( myClass, type) )
 				{
 					ret.remove(type);
 				}
@@ -3585,7 +3573,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		// This method currently does nothing so it may be overriden in PCClass.
 	}
 
-	final boolean hasCcSkill(final String aName)
+	public final boolean hasCcSkill(final String aName)
 	{
 		List<String> ccSkillList = getCcSkillList();
 		if ((ccSkillList == null) || ccSkillList.isEmpty())
@@ -3630,7 +3618,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return false;
 	}
 
-	final boolean hasCSkill(final String aName)
+	public final boolean hasCSkill(final String aName)
 	{
 		List<String> cSkillList = getCSkillList();
 		if ((cSkillList == null) || cSkillList.isEmpty())

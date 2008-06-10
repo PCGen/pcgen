@@ -637,7 +637,7 @@ public final class Race extends PObject
 		return true;
 	}
 
-	boolean hasMonsterCCSkill(Skill s)
+	public boolean hasMonsterCCSkill(Skill s)
 	{
 		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
 		Collection<CDOMReference<Skill>> mods = getListMods(mList);
@@ -662,7 +662,7 @@ public final class Race extends PObject
 		return false;
 	}
 
-	boolean hasMonsterCSkill(Skill s)
+	public boolean hasMonsterCSkill(Skill s)
 	{
 		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
 		Collection<CDOMReference<Skill>> mods = getListMods(mList);

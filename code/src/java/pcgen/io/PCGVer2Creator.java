@@ -66,6 +66,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
@@ -1962,11 +1963,10 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(ranks);
 					buffer.append('|');
 					buffer.append(TAG_COST).append(':');
-					buffer.append(Integer.toString(skill.skillCostForPCClass(
-						pcClass, thePC).getCost()));
+					buffer.append(Integer.toString(SkillCostCalc.skillCostForPCClass(skill, pcClass, thePC).getCost()));
 					buffer.append('|');
 					buffer.append(TAG_CLASSSKILL).append(':');
-					buffer.append((skill.isClassSkill(pcClass, thePC)) ? 'Y'
+					buffer.append((SkillCostCalc.isClassSkill(skill, pcClass, thePC)) ? 'Y'
 						: 'N');
 					buffer.append(']');
 				}

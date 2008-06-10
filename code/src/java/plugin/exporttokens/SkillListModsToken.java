@@ -3,6 +3,7 @@ package plugin.exporttokens;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -40,7 +41,7 @@ public class SkillListModsToken extends Token
 			if (aSkill.get(ObjectKey.KEY_STAT) != null)
 			{
 				modSkill =
-						aSkill.modifier(pc).intValue()
+						SkillModifier.modifier(aSkill, pc).intValue()
 							- pc.getStatList().getStatModFor(
 								aSkill.getKeyStatAbb());
 			}
@@ -49,7 +50,7 @@ public class SkillListModsToken extends Token
 			{
 				//final
 				int temp =
-						aSkill.modifier(pc).intValue()
+						SkillModifier.modifier(aSkill, pc).intValue()
 							+ aSkill.getTotalRank(pc).intValue();
 
 				if (needcomma)
