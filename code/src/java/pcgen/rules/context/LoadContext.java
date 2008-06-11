@@ -44,9 +44,9 @@ public abstract class LoadContext
 
 	public final ObjectContext obj;
 
-	public final ReferenceContext ref;
+	public final AbstractReferenceContext ref;
 
-	public LoadContext(ReferenceContext rc, ListContext lc, ObjectContext oc)
+	public LoadContext(AbstractReferenceContext rc, ListContext lc, ObjectContext oc)
 	{
 		if (rc == null)
 		{

@@ -31,6 +31,7 @@ import pcgen.core.SystemCollections;
 import pcgen.core.UnitSet;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -52,7 +53,8 @@ public final class UnitSetLoader extends LstLineFileLoader
 	 * @param sourceURL 
 	 * @deprecated This is the old style, to be removed in 5.11.1  
 	 */
-	public void parseLine(String lstLine, URI sourceURI)
+	@Override
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		Logging
 			.errorPrint("Warning: unitset.lst deprecated. use UNITSET in miscinfo.lst instead (GameMode: "

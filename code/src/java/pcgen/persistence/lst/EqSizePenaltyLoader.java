@@ -8,6 +8,7 @@ import pcgen.core.GameMode;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -37,46 +38,47 @@ public class EqSizePenaltyLoader
 
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(EqSizePenaltyLstToken.class);
+		LoadContext context = gameMode.getContext();
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				// TODO Deal with exception
-			}
-
-			EqSizePenaltyLstToken token =
-					(EqSizePenaltyLstToken) tokenMap.get(key);
-
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "EQ Size Penalty", source, value);
-				if (!token.parse(eqSizePenaltyObj, value))
-				{
-					Logging.errorPrint("Error parsing EQ Size Penalty:"
-						+ "miscinfo.lst from the " + gameMode.getName()
-						+ " Game Mode" + ':' + colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(eqSizePenaltyObj, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
+			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Invalid sub tag " + token
-					+ " on EQSIZEPENALTY line");
-				throw new PersistenceLayerException("Invalid sub tag " + token
-					+ " on EQSIZEPENALTY line");
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
 			}
 
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(eqSizePenaltyObj, key, value))
+			{
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				EqSizePenaltyLstToken tok = (EqSizePenaltyLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, eqSizePenaltyObj, value);
+				if (!tok.parse(eqSizePenaltyObj, value))
+				{
+					Logging.errorPrint("Error parsing EQ Size Penalty:"
+							+ "miscinfo.lst from the " + gameMode.getName()
+							+ " Game Mode" + ':' + token + "\"");
+				}
+			}
+			else if (!PObjectLoader.parseTag(eqSizePenaltyObj, token))
+			{
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
 		}
 
 		//Now set the penalty object in this gameMode

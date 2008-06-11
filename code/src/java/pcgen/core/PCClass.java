@@ -77,7 +77,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -3634,7 +3634,7 @@ public class PCClass extends PObject
 		if (classSkillList == null)
 		{
 			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
-			ReferenceContext ref = Globals.getContext().ref;
+			AbstractReferenceContext ref = Globals.getContext().ref;
 			Class<ClassSkillList> cl = ClassSkillList.class;
 			ClassSkillList l = ref.silentlyGetConstructedCDOMObject(cl, getKeyName());
 			if (l != null)

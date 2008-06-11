@@ -18,6 +18,10 @@ import pcgen.util.Logging;
  */
 public class MovecloneLst implements GlobalLstToken
 {
+	/*
+	 * FIXME Template's LevelToken needs adjustment before this can be converted
+	 * to the new syntax, since this is level-dependent
+	 */
 
 	public String getTokenName()
 	{

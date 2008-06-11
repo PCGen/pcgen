@@ -73,7 +73,33 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 			}
 			if (globalTokens != null) {
 				for (String tag : globalTokens) {
-					PObjectLoader.parseTag(target, tag);
+					final String gt = tag.trim();
+					final int colonLoc = gt.indexOf(':');
+					if (colonLoc == -1)
+					{
+						Logging.errorPrint("Invalid Token - does not contain a colon: "
+								+ gt);
+						continue;
+					}
+					else if (colonLoc == 0)
+					{
+						Logging.errorPrint("Invalid Token - starts with a colon: "
+								+ gt);
+						continue;
+					}
+
+					String gkey = gt.substring(0, colonLoc);
+					String value = (colonLoc == gt.length() - 1) ? null : gt
+							.substring(colonLoc + 1);
+					if (context.processToken(target, gkey, value))
+					{
+						context.commit();
+					}
+					else if (!PObjectLoader.parseTag(target, gt))
+					{
+						Logging.replayParsedMessages();
+					}
+					Logging.clearParseMessages();
 				}
 			}
 		}

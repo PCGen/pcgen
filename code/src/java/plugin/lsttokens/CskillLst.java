@@ -15,6 +15,10 @@ import pcgen.persistence.lst.GlobalLstToken;
  */
 public class CskillLst implements GlobalLstToken
 {
+	/*
+	 * FIXME When this token is converted to the new syntax, a change needs to
+	 * take place in PCGIOHandler, which is currently calling PObjectLoader
+	 */
 
 	public String getTokenName()
 	{

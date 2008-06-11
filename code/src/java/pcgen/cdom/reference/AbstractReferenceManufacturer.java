@@ -18,21 +18,31 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.util.Logging;
 
-public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT extends CDOMSingleRef<T>>
-		implements ReferenceManufacturer<T, RT>
+public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
+		implements ReferenceManufacturer<T, SRT>
 {
 	private final Class<T> refClass;
 
-	private Map<String[], CDOMTypeRef<T>> typeReferences = new HashMap<String[], CDOMTypeRef<T>>();
+	private ART allRef;
 
-	private CDOMAllRef<T> allRef;
-	
+	private Map<String[], TRT> typeReferences = new HashMap<String[], TRT>();
+
+	private Map<String, SRT> referenced = new TreeMap<String, SRT>(
+			String.CASE_INSENSITIVE_ORDER);
+
+	private Map<String, T> active = new TreeMap<String, T>(
+			String.CASE_INSENSITIVE_ORDER);
+
+	private HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
+
+	private List<String> deferred = new ArrayList<String>();
+
 	public AbstractReferenceManufacturer(Class<T> cl)
 	{
 		refClass = cl;
 	}
 
-	public CDOMTypeRef<T> getTypeReference(String... types)
+	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		for (String type : types)
 		{
@@ -73,7 +83,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 		 * Commons Collections and create a map that does the lookup based on
 		 * deepEquals of an Array...
 		 */
-		for (Entry<String[], CDOMTypeRef<T>> me : typeReferences.entrySet())
+		for (Entry<String[], TRT> me : typeReferences.entrySet())
 		{
 			if (Arrays.deepEquals(me.getKey(), types))
 			{
@@ -81,16 +91,16 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 			}
 		}
 		// Didn't find the appropriate key, create new
-		CDOMTypeRef<T> cgr = new CDOMTypeRef<T>(refClass, types);
+		TRT cgr = getLocalTypeReference(types);
 		typeReferences.put(types, cgr);
 		return cgr;
 	}
 
-	public CDOMAllRef<T> getAllReference()
+	public CDOMGroupRef<T> getAllReference()
 	{
 		if (allRef == null)
 		{
-			allRef = new CDOMAllRef<T>(refClass);
+			allRef = getLocalAllReference();
 		}
 		return allRef;
 	}
@@ -108,7 +118,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 			{
 				allRef.addResolution(obj);
 			}
-			for (Map.Entry<String[], CDOMTypeRef<T>> me : typeReferences.entrySet())
+			for (Map.Entry<String[], TRT> me : typeReferences
+					.entrySet())
 			{
 				boolean typeOkay = true;
 				for (String type : me.getKey())
@@ -126,30 +137,6 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 			}
 		}
 	}
-
-	public void resetReferences()
-	{
-		if (allRef != null)
-		{
-			allRef.clearResolution();
-		}
-		for (CDOMTypeRef<T> ref : typeReferences.values())
-		{
-			ref.clearResolution();
-		}
-		for (RT ref : referenced.values())
-		{
-			ref.clearResolution();
-		}
-	}
-	
-	private HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
-
-	private Map<String, T> active = new TreeMap<String, T>(String.CASE_INSENSITIVE_ORDER);
-
-	private List<String> deferred = new ArrayList<String>();
-
-	private Map<String, RT> referenced = new TreeMap<String, RT>(String.CASE_INSENSITIVE_ORDER);
 
 	public void registerWithKey(T obj, String key)
 	{
@@ -279,7 +266,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 		return active.containsKey(key);
 	}
 
-	public CDOMSingleRef<T> getCDOMReference(String val)
+	public SRT getReference(String val)
 	{
 		// TODO Auto-generated method stub
 		// TODO This is incorrect, but a hack for now :)
@@ -324,6 +311,14 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 		{
 			throw new IllegalArgumentException(val);
 		}
+		if (val.startsWith("TIMEUNIT="))
+		{
+			throw new IllegalArgumentException(val);
+		}
+		if (val.startsWith("CASTERLEVEL="))
+		{
+			throw new IllegalArgumentException(val);
+		}
 		if (refClass.equals(PCClass.class))
 		{
 			if (val.startsWith("CLASS"))
@@ -348,57 +343,63 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 			}
 		}
 
-		RT ref = referenced.get(val);
+		SRT ref = referenced.get(val);
 		if (ref == null)
 		{
-			ref = getReference(val);
+			ref = getLocalReference(val);
 			referenced.put(val, ref);
 		}
 		return ref;
 	}
 
+	protected abstract SRT getLocalReference(String val);
+
+	protected abstract TRT getLocalTypeReference(String[] val);
+
+	protected abstract ART getLocalAllReference();
+
 	public boolean validate()
 	{
 		boolean returnGood = true;
-//		for (CaseInsensitiveString second : duplicates.getKeySet())
-//		{
-//			if (SettingsHandler.isAllowOverride())
-//			{
-//				List<T> list = duplicates.getListFor(second);
-//				T good = active.get(second);
-//				for (int i = 0; i < list.size(); i++)
-//				{
-//					T dupe = list.get(i);
-//					// If the new object is more recent than the current
-//					// one, use the new object
-//					final Date origDate = good.getSourceEntry().getSourceBook()
-//							.getDate();
-//					final Date dupeDate = dupe.getSourceEntry().getSourceBook()
-//							.getDate();
-//					if ((dupeDate != null)
-//							&& ((origDate == null) || ((dupeDate
-//									.compareTo(origDate) > 0))))
-//					{
-//						duplicates.removeFromListFor(second, good);
-//						good = dupe;
-//					}
-//					else
-//					{
-//						duplicates.removeFromListFor(second, dupe);
-//					}
-//				}
-//				if (!good.equals(active.get(second)))
-//				{
-//					active.put(second, good);
-//				}
-//			}
-//			else
-//			{
-//				Logging.errorPrint("More than one " + baseClass.getSimpleName()
-//						+ " with key/name " + second + " was built");
-//				returnGood = false;
-//			}
-//		}
+		// for (CaseInsensitiveString second : duplicates.getKeySet())
+		// {
+		// if (SettingsHandler.isAllowOverride())
+		// {
+		// List<T> list = duplicates.getListFor(second);
+		// T good = active.get(second);
+		// for (int i = 0; i < list.size(); i++)
+		// {
+		// T dupe = list.get(i);
+		// // If the new object is more recent than the current
+		// // one, use the new object
+		// final Date origDate = good.getSourceEntry().getSourceBook()
+		// .getDate();
+		// final Date dupeDate = dupe.getSourceEntry().getSourceBook()
+		// .getDate();
+		// if ((dupeDate != null)
+		// && ((origDate == null) || ((dupeDate
+		// .compareTo(origDate) > 0))))
+		// {
+		// duplicates.removeFromListFor(second, good);
+		// good = dupe;
+		// }
+		// else
+		// {
+		// duplicates.removeFromListFor(second, dupe);
+		// }
+		// }
+		// if (!good.equals(active.get(second)))
+		// {
+		// active.put(second, good);
+		// }
+		// }
+		// else
+		// {
+		// Logging.errorPrint("More than one " + baseClass.getSimpleName()
+		// + " with key/name " + second + " was built");
+		// returnGood = false;
+		// }
+		// }
 		for (Object second : active.keySet())
 		{
 			T activeObj = active.get(second);
@@ -410,7 +411,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 			}
 			else if (!keyName.equalsIgnoreCase(second.toString()))
 			{
-				 Logging.errorPrint("Magical Key Change: " + second + " to "
+				Logging.errorPrint("Magical Key Change: " + second + " to "
 						+ keyName);
 				returnGood = false;
 			}
@@ -457,7 +458,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 
 	public void fillReferences()
 	{
-		for (Entry<String, RT> me : referenced.entrySet())
+		for (Entry<String, SRT> me : referenced.entrySet())
 		{
 			T activeObj = active.get(me.getKey());
 			if (activeObj != null)
@@ -466,7 +467,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 			}
 			else
 			{
-				System.err.println("Unable to Resolve: " + refClass + " " + me.getKey());
+				System.err.println("Unable to Resolve: " + refClass + " "
+						+ me.getKey());
 			}
 		}
 	}
@@ -482,57 +484,37 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, RT ext
 		}
 	}
 
-	@Override
-	protected Object clone() throws CloneNotSupportedException
+	protected ART getAllRef()
 	{
-		/*
-		 * FUTURE This makes a strong (and limiting) assumption - that any Game
-		 * Mode (and thus any instance of SimpleReferenceContext) will only be
-		 * active at one time. This means that there cannot be two sets of
-		 * campaigns loaded that both reference the same game mode. This is not
-		 * limiting in 5.15/5.16 (at this time, anyway), but it does limit
-		 * future expandability of PCGen. There is a significant reason for this
-		 * limitation that I'm unsure how to work around without some really
-		 * serious deep inspection of CDOMObjects. The problem is that
-		 * references may be built in the game mode that reference objects NOT
-		 * in the Game Mode. (Global tokens can be used in the Game Mode). The
-		 * challenge with that is that the *resolution is already built* and we
-		 * don't want to have to know everywhere a reference could be within a
-		 * Game Mode PObject (e.g. a PCStat) in order to update all of those
-		 * references each time a set of Campaigns is uploaded. Therefore, we
-		 * keep one set of references, and allow the content of those references
-		 * to be cleared/updated for each set of campaigns loaded. It is likely
-		 * that the the solution to get around this limitation in the long term
-		 * is to reload the Game Mode files once for each GameMode/Campaign Set
-		 * that is loaded at the same time.
-		 */
-		AbstractReferenceManufacturer<T, RT> arm = (AbstractReferenceManufacturer<T, RT>) super.clone();
-		if (arm.allRef != null)
-		{
-			arm.allRef.clearResolution();
-		}
-		arm.typeReferences = new HashMap<String[], CDOMTypeRef<T>>();
-		for (Map.Entry<String[], CDOMTypeRef<T>> me : typeReferences.entrySet())
-		{
-			CDOMTypeRef<T> ref = me.getValue();
-			ref.clearResolution();
-			arm.typeReferences.put(me.getKey(), ref);
-		}
-		arm.referenced = new TreeMap<String, RT>(String.CASE_INSENSITIVE_ORDER);
-		for (Map.Entry<String, RT> me : referenced.entrySet())
-		{
-			RT ref = me.getValue();
-			ref.clearResolution();
-			arm.referenced.put(me.getKey(), ref);
-		}
-		arm.duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
-		arm.duplicates.addAllLists(duplicates);
-		arm.active = new TreeMap<String, T>(String.CASE_INSENSITIVE_ORDER);
-		arm.active.putAll(active);
-		arm.deferred = new ArrayList<String>();
-		arm.deferred.addAll(deferred);
-		return arm;
+		return allRef;
 	}
 
+	protected Collection<TRT> getTypeReferences()
+	{
+		return typeReferences.values();
+	}
+
+	protected Collection<SRT> getReferenced()
+	{
+		return referenced.values();
+	}
 	
+	protected void injectConstructed(ReferenceManufacturer<T, ?> arm)
+	{
+		for (Map.Entry<String, T> me : active.entrySet())
+		{
+			arm.registerWithKey(me.getValue(), me.getKey());
+		}
+		for (CaseInsensitiveString cis : duplicates.getKeySet())
+		{
+			for (T obj : duplicates.getListFor(cis))
+			{
+				arm.registerWithKey(obj, cis.toString());
+			}
+		}
+		for (String s : deferred)
+		{
+			arm.constructIfNecessary(s);
+		}
+	}
 }

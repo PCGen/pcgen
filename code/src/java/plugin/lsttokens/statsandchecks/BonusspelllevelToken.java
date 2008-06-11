@@ -29,6 +29,7 @@ import java.net.URI;
 
 import pcgen.persistence.lst.BonusSpellLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Class deals with BONUSSPELLLEVEL Token
@@ -40,12 +41,12 @@ public class BonusspelllevelToken implements StatsAndChecksLstToken
 		return "BONUSSPELLLEVEL";
 	}
 
-	public boolean parse(String lstLine, URI sourceURI)
+	public boolean parse(LoadContext context, String lstLine, URI sourceURI)
 	{
 		try
 		{
 			BonusSpellLoader bonusSpellLoader = new BonusSpellLoader();
-			bonusSpellLoader.parseLine(lstLine, sourceURI);
+			bonusSpellLoader.parseLine(context, lstLine, sourceURI);
 			return true;
 		}
 		catch (Exception e)

@@ -116,11 +116,4 @@ public class AssociationReference<T extends CDOMObject> extends
 		return getReferenceClass().hashCode() ^ referenceObj.hashCode();
 	}
 
-	@Override
-	public void clearResolution()
-	{
-		throw new IllegalStateException(
-				"Cannot clear resolution of AssociationReference");
-	}
-
 }

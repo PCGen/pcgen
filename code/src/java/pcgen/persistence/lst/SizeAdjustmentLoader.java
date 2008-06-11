@@ -30,6 +30,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -46,80 +47,104 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(URI fileName, String gameModeIn)
+	public void loadLstFile(LoadContext context, URI fileName, String gameModeIn)
 		throws PersistenceLayerException
 	{
 		SystemCollections.getGameModeNamed(gameModeIn)
 			.clearSizeAdjustmentList();
-		super.loadLstFile(fileName, gameModeIn);
+		super.loadLstFile(context, fileName, gameModeIn);
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
+		final StringTokenizer colToken = new StringTokenizer(lstLine,
+				SystemLoader.TAB_DELIM);
+
 		SizeAdjustment sa = new SizeAdjustment();
+		if (colToken.hasMoreTokens())
+		{
+			String nameToken = colToken.nextToken();
+			final int colonLoc = nameToken.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ nameToken);
+				return;
+			}
+			else if (colonLoc == 0)
+			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ nameToken);
+				return;
+			}
+			String key = nameToken.substring(0, colonLoc);
+			if (!"SIZENAME".equals(key))
+			{
+				Logging
+						.errorPrint("Expected first token in SizeAdjustment to be SIZENAME");
+				return;
+			}
+			String value = (colonLoc == nameToken.length() - 1) ? null
+					: nameToken.substring(colonLoc + 1);
+			sa = SystemCollections.getGameModeNamed(getGameMode())
+					.getSizeAdjustmentNamed(value);
+			if (sa == null)
+			{
+				sa = new SizeAdjustment();
+				sa.setName(value);
+				SystemCollections.getGameModeNamed(getGameMode())
+					.addToSizeAdjustmentList(sa);
+			}
+		}
 
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine.trim(), SystemLoader.TAB_DELIM);
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(SizeAdjustmentLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				SizeAdjustmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				// TODO Handle Exception
-			}
-			SizeAdjustmentLstToken token =
-					(SizeAdjustmentLstToken) tokenMap.get(key);
-
-			if (colString.startsWith("SIZENAME:"))
-			{
-				final String value = colString.substring(idxColon + 1);
-				sa =
-						SystemCollections.getGameModeNamed(getGameMode())
-							.getSizeAdjustmentNamed(value);
-
-				if (sa == null)
-				{
-					sa = new SizeAdjustment();
-					sa.setName(value);
-					SystemCollections.getGameModeNamed(getGameMode())
-						.addToSizeAdjustmentList(sa);
-				}
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, sa, value);
-				if (!token.parse(sa, value))
-				{
-					Logging.errorPrint("Error parsing size adjustment "
-						+ sa.getDisplayName() + ':' + sourceURI.toString() + ':'
-						+ colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(sa, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
+			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Illegal size info '" + lstLine + "' in "
-					+ sourceURI.toString());
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(sa, key, value))
+			{
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				SizeAdjustmentLstToken tok = (SizeAdjustmentLstToken) tokenMap
+						.get(key);
+				LstUtils.deprecationCheck(tok, sa, value);
+				if (!tok.parse(sa, value))
+				{
+					Logging.errorPrint("Error parsing SizeAdjustment "
+							+ sa.getDisplayName() + ':' + sourceURI.toString()
+							+ ':' + token + "\"");
+				}
+			}
+			else if (!PObjectLoader.parseTag(sa, token))
+			{
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
 		}
 	}
 }

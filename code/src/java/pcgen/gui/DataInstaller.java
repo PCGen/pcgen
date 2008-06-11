@@ -725,7 +725,7 @@ public class DataInstaller extends JFrame
 				installInfo.append((new String(b, "UTF8")).substring(0, len));
 			}
 			final InstallLoader loader = new InstallLoader();
-			loader.loadLstString(dataSet.toURI(), installInfo.toString());
+			loader.loadLstString(null, dataSet.toURI(), installInfo.toString());
 			campaign = loader.getCampaign();
 			in.close();
 		}

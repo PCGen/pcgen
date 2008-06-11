@@ -24,6 +24,7 @@ package pcgen.persistence.lst;
 
 import pcgen.core.Globals;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 import java.net.URI;
@@ -55,7 +56,7 @@ public final class BonusSpellLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM, false);

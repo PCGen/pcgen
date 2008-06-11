@@ -37,13 +37,15 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
+import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -3402,26 +3404,36 @@ public final class GameMode implements Comparable<Object>
 	}
 	
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
-	private ReferenceContext refContext = new ReferenceContext();
-	private LoadContext context = new RuntimeLoadContext(refContext, masterLCS);
+	private LoadContext context = new RuntimeLoadContext(new ReferenceContext(), masterLCS);
+	private GameReferenceContext gameRefContext = new GameReferenceContext();
+	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
 
 	public void clearLoadContext()
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
-		try
+		ReferenceContext referenceContext = new ReferenceContext();
+		for (TransparentReferenceManufacturer<? extends CDOMObject> rm : gameRefContext
+				.getAllManufacturers())
 		{
-			context = new RuntimeLoadContext(refContext.clone(), masterLCS);
+			resolveReferenceManufacturer(referenceContext, rm);
 		}
-		catch (CloneNotSupportedException e)
-		{
-			throw new UnreachableError(
-					"ReferenceContext is designed to be cloneable: ", e);
-		}
+		context = new RuntimeLoadContext(referenceContext, masterLCS);
+	}
+
+	private <T extends CDOMObject> void resolveReferenceManufacturer(
+			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
+	{
+		rm.resolveUsing(rc.getManufacturer(rm.getCDOMClass()));
 	}
 
 	public LoadContext getContext()
 	{
 		return context;
+	}
+
+	public LoadContext getModeContext()
+	{
+		return modeContext;
 	}
 
 	public MasterListInterface getMasterLists()

@@ -92,7 +92,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
-		BioSetLoaderTest.loadBioSet(BIO_SET_DATA);
+		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA);
 	}
 
 	/**

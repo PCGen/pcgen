@@ -24,16 +24,32 @@
  */
 package pcgen.core;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.CampaignURL.URLKind;
-import pcgen.core.utils.*;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
-
-import java.net.URI;
-import java.util.*;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
+import pcgen.rules.context.GameReferenceContext;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
 
 /**
  * <code>Campaign</code> is a source or campaign defined in a *.pcc file.
@@ -1455,4 +1471,29 @@ public class Campaign extends PObject
 		}
 		return kindList;
 	}
+
+	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
+	private GameReferenceContext gameRefContext = new GameReferenceContext();
+	private LoadContext context = new RuntimeLoadContext(gameRefContext, masterLCS);
+
+	public LoadContext getCampaignContext()
+	{
+		return context;
+	}
+	
+	public void applyTo(AbstractReferenceContext rc)
+	{
+		for (TransparentReferenceManufacturer<? extends CDOMObject> rm : gameRefContext
+				.getAllManufacturers())
+		{
+			resolveReferenceManufacturer(rc, rm);
+		}
+	}
+
+	private <T extends CDOMObject> void resolveReferenceManufacturer(
+			AbstractReferenceContext rc, TransparentReferenceManufacturer<T> rm)
+	{
+		rm.resolveUsing(rc.getManufacturer(rm.getCDOMClass()));
+	}
+
 }

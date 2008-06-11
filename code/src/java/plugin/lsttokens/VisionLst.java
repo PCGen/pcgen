@@ -30,6 +30,11 @@ import pcgen.util.enumeration.VisionType;
 public class VisionLst implements GlobalLstToken
 {
 
+	/*
+	 * FIXME Template's LevelToken needs adjustment before this can be converted
+	 * to the new syntax, since this is level-dependent
+	 */
+	
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */

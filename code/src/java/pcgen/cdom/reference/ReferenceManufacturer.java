@@ -17,15 +17,41 @@
  */
 package pcgen.cdom.reference;
 
+import java.util.Collection;
+
 import pcgen.cdom.base.PrereqObject;
 
 public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSingleRef<T>>
 {
 	public RT getReference(String key);
 
-	public CDOMTypeRef<T> getTypeReference(String... types);
-	
-	public CDOMAllRef<T> getAllReference();
-	
+	public CDOMGroupRef<T> getTypeReference(String... types);
+
+	public CDOMGroupRef<T> getAllReference();
+
 	public Class<T> getCDOMClass();
+
+	public boolean validate();
+
+	public void fillReferences();
+
+	public void resolveReferences();
+
+	public void buildDeferredObjects();
+
+	public T constructCDOMObject(String val);
+
+	public void constructIfNecessary(String value);
+
+	public T silentlyGetConstructedCDOMObject(String val);
+
+	public boolean forgetObject(T o);
+	
+	public boolean containsConstructedCDOMObject(String key);
+	
+	public Collection<T> getAllConstructedCDOMObjects();
+	
+	public void registerWithKey(T o, String key);
+	
+	public void reassociateKey(String key, T o);
 }

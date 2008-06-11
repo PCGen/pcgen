@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSlot;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -51,7 +52,7 @@ final class EquipSlotLoader extends LstLineFileLoader
 	 * @see LstLineFileLoader#parseLine(URL, String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		final EquipSlot eqSlot = new EquipSlot();
 

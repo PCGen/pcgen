@@ -35,6 +35,7 @@ import pcgen.core.Globals;
 import pcgen.core.SourceEntry;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -78,34 +79,45 @@ public class CampaignLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(java.net.URI)
 	 */
 	@Override
-	public void loadLstFile(URI fileName) throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		campaign = new Campaign();
 
-		super.loadLstFile(fileName);
+		super.loadLstFile(campaign.getCampaignContext(), fileName);
 
 		finishCampaign();
 	}
 
 	@Override
-	public void parseLine(String inputLine, URI sourceURI)
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
-		final int idxColon = inputLine.indexOf(':');
-		if (idxColon < 0)
+		final int colonLoc = inputLine.indexOf(':');
+		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceURI.toString());
+			Logging.errorPrint("Invalid line - does not contain a colon: "
+					+ inputLine);
 			return;
 		}
-		final String key = inputLine.substring(0, idxColon);
-		final String value = inputLine.substring(idxColon + 1);
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(CampaignLstToken.class);
-		CampaignLstToken token = (CampaignLstToken) tokenMap.get(key);
-
-		if (token != null)
+		else if (colonLoc == 0)
 		{
+			Logging.errorPrint("Invalid line - starts with a colon: "
+					+ inputLine);
+			return;
+		}
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				CampaignLstToken.class);
+
+		String key = inputLine.substring(0, colonLoc);
+		String value = (colonLoc == inputLine.length() - 1) ? null : inputLine
+				.substring(colonLoc + 1);
+		if (context.processToken(campaign, key, value))
+		{
+			context.commit();
+		}
+		else if (tokenMap.containsKey(key))
+		{
+			CampaignLstToken token = (CampaignLstToken) tokenMap.get(key);
 			LstUtils.deprecationCheck(token, campaign, value);
 			if (!token.parse(campaign, value, sourceURI))
 			{
@@ -113,15 +125,11 @@ public class CampaignLoader extends LstLineFileLoader
 					+ campaign.getDisplayName() + ':' + inputLine);
 			}
 		}
-		else if (PObjectLoader.parseTag(campaign, inputLine))
+		else if (!PObjectLoader.parseTag(campaign, inputLine))
 		{
-			return;
+			Logging.replayParsedMessages();
 		}
-		else
-		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceURI.toString());
-		}
+		Logging.clearParseMessages();
 	}
 
 	/**
@@ -226,7 +234,7 @@ public class CampaignLoader extends LstLineFileLoader
 				{
 					try
 					{
-						loadLstFile(fName);
+						loadLstFile(null, fName);
 						globalSubCampaign =
 								Globals.getCampaignByURI(fName, false);
 					}

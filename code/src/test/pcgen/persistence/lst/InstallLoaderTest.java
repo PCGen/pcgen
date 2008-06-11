@@ -137,7 +137,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 			data.append(line);
 			data.append("\n");
 		}
-		loader.loadLstString(new URI("http://UNIT_TEST_CASE"), data.toString());
+		loader.loadLstString(null, new URI("http://UNIT_TEST_CASE"), data.toString());
 		return loader.getCampaign();
 	}
 

@@ -81,7 +81,7 @@ public final class ChooseLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static boolean parseToken(PObject target, String prefix, String key,
-		String value, int level)
+		String value)
 	{
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(ChooseLstToken.class);

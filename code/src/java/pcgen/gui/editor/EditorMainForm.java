@@ -612,6 +612,7 @@ public final class EditorMainForm extends JDialog
 			final SourceEntry source = thisPObject.getSourceEntry();
 			source.setPageNumber(aString);
 		}
+		LoadContext context = Globals.getContext();
 
 		//
 		// Save P.I. flag
@@ -632,7 +633,6 @@ public final class EditorMainForm extends JDialog
 		thisPObject.clearAutoMap();
 
 		SpellSupport spellSupport = thisPObject.getSpellSupport();
-		LoadContext context;
 		switch (editType)
 		{
 			case EditorConstants.EDIT_DEITY:
@@ -852,7 +852,6 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_SPELL:
 				((SpellBasePanel2) pnlBase2).updateData(thisPObject);
-				context = Globals.getContext();
 				Spell sp = (Spell) thisPObject;
 				context.getListContext().clearAllMasterLists("CLASSES", sp);
 				context.getListContext().clearAllMasterLists("DOMAINS", sp);
@@ -1122,7 +1121,33 @@ public final class EditorMainForm extends JDialog
 			aString = (String) sel[i];
 			try
 			{
-				PObjectLoader.parseTag(thisPObject, aString);
+				final String token = aString.trim();
+				final int colonLoc = token.indexOf(':');
+				if (colonLoc == -1)
+				{
+					Logging.errorPrint("Invalid Token - does not contain a colon: "
+							+ token);
+				}
+				else if (colonLoc == 0)
+				{
+					Logging.errorPrint("Invalid Token - starts with a colon: "
+							+ token);
+				}
+				else
+				{
+					String key = token.substring(0, colonLoc);
+					String value = (colonLoc == token.length() - 1) ? null : token
+							.substring(colonLoc + 1);
+					if (context.processToken(thisPObject, key, value))
+					{
+						context.commit();
+					}
+					else if (!PObjectLoader.parseTag(thisPObject, token))
+					{
+						Logging.replayParsedMessages();
+					}
+					Logging.clearParseMessages();
+				}
 			}
 			catch (PersistenceLayerException ple)
 			{

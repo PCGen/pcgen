@@ -31,6 +31,7 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -162,7 +163,7 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
 	 */
 	@Override
-	public void parseLine(String aLine, URI source)
+	public void parseLine(LoadContext context, String aLine, URI source)
 		throws PersistenceLayerException
 	{
 		parseLine(SettingsHandler.getGame(), aLine, source, true);

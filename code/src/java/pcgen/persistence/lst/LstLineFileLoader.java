@@ -30,6 +30,7 @@ import java.util.Observable;
 import java.util.StringTokenizer;
 
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This class is an extension of the LstFileLoader that loads items
@@ -69,12 +70,12 @@ public abstract class LstLineFileLoader extends Observable
 	 * or the URL from which to read LST formatted data.
 	 * @throws PersistenceLayerException
 	 */
-	public void loadLstFile(URI uri) throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI uri) throws PersistenceLayerException
 	{
 		StringBuilder dataBuffer = LstFileLoader.readFromURI(uri);
 		final String aString = dataBuffer.toString();
 
-		loadLstString(uri, aString);
+		loadLstString(context, uri, aString);
 	}
 
 	/**
@@ -84,7 +85,7 @@ public abstract class LstLineFileLoader extends Observable
 	 * @param aString The LST formatted data
 	 * @throws PersistenceLayerException
 	 */
-	public void loadLstString(URI uri, final String aString)
+	public void loadLstString(LoadContext context, URI uri, final String aString)
 		throws PersistenceLayerException
 	{
 		final String newlinedelim = "\r\n";
@@ -102,7 +103,7 @@ public abstract class LstLineFileLoader extends Observable
 				continue;
 			}
 
-			parseLine(line, uri);
+			parseLine(context, line, uri);
 		}
 	}
 
@@ -112,11 +113,11 @@ public abstract class LstLineFileLoader extends Observable
 	 * @param game the game mode
 	 * @throws PersistenceLayerException
 	 */
-	public void loadLstFile(URI fileName, String game)
+	public void loadLstFile(LoadContext context, URI fileName, String game)
 		throws PersistenceLayerException
 	{
 		gameMode = game;
-		loadLstFile(fileName);
+		loadLstFile(context, fileName);
 	}
 
 	/**
@@ -125,12 +126,12 @@ public abstract class LstLineFileLoader extends Observable
 	 * @throws PersistenceLayerException if there is a problem with the
 	 *         LST syntax
 	 */
-	public void loadLstFiles(List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry cse : fileList)
 		{
-			loadLstFile(cse.getURI());
+			loadLstFile(context, cse.getURI());
 		}
 	}
 
@@ -148,7 +149,7 @@ public abstract class LstLineFileLoader extends Observable
 	 *         purposes
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
-	public abstract void parseLine(String lstLine, URI sourceURI)
+	public abstract void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException;
 
 	/**

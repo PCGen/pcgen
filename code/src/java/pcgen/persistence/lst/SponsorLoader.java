@@ -13,6 +13,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -34,7 +35,7 @@ public class SponsorLoader extends LstLineFileLoader
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		StringTokenizer colToken =

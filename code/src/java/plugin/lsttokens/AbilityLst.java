@@ -89,6 +89,10 @@ import pcgen.util.PropertyFactory;
 public class AbilityLst implements GlobalLstToken
 {
 
+	/*
+	 * FIXME Template's LevelToken needs adjustment before this can be converted
+	 * to the new syntax, since this is level-dependent
+	 */
 	/**
 	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)
 	 */

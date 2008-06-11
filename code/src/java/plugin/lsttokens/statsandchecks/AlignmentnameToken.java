@@ -29,6 +29,7 @@ import java.net.URI;
 
 import pcgen.persistence.lst.PCAlignmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Class deals with ALIGNMENTNAME Token
@@ -40,12 +41,12 @@ public class AlignmentnameToken implements StatsAndChecksLstToken
 		return "ALIGNMENTNAME";
 	}
 
-	public boolean parse(String lstLine, URI sourceURI)
+	public boolean parse(LoadContext context, String lstLine, URI sourceURI)
 	{
 		try
 		{
 			PCAlignmentLoader alignmentLoader = new PCAlignmentLoader();
-			alignmentLoader.parseLine(lstLine, sourceURI);
+			alignmentLoader.parseLine(context, lstLine, sourceURI);
 			return true;
 		}
 		catch (Exception e)

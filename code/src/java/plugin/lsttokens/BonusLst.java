@@ -15,6 +15,14 @@ import java.util.regex.Pattern;
 public class BonusLst implements GlobalLstToken
 {
 
+	/*
+	 * FIXME When this token is converted to the new syntax, a change needs to
+	 * take place in BonusToken, which is currently calling PObjectLoader
+	 */
+	/*
+	 * FIXME Template's LevelToken needs adjustment before this can be converted
+	 * to the new syntax, since this is level-dependent
+	 */
 	/**
 	 * Returns token name
 	 * @return token name

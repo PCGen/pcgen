@@ -23,7 +23,7 @@ import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 
 /**
@@ -32,6 +32,10 @@ import pcgen.util.Logging;
  */
 public class NaturalattacksLst implements GlobalLstToken
 {
+	/*
+	 * FIXME Template's LevelToken needs adjustment before this can be converted
+	 * to the new syntax, since this is level-dependent
+	 */
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
@@ -211,7 +215,7 @@ public class NaturalattacksLst implements GlobalLstToken
 		head.put(StringKey.DAMAGE, aTok.nextToken());
 		head.put(IntegerKey.CRIT_RANGE, 1);
 		head.put(IntegerKey.CRIT_MULT, 2);
-		ReferenceContext ref = Globals.getContext().ref;
+		AbstractReferenceContext ref = Globals.getContext().ref;
 		ref.constructIfNecessary(WeaponProf.class, attackName);
 		anEquip.put(ObjectKey.WEAPON_PROF, ref.getCDOMReference(WeaponProf.class, attackName));
 

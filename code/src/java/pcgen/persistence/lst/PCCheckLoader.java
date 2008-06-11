@@ -29,6 +29,7 @@ import java.util.StringTokenizer;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -48,7 +49,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		PObject obj = new PObject();
@@ -59,39 +60,44 @@ public final class PCCheckLoader extends LstLineFileLoader
 				TokenStore.inst().getTokenMap(PCCheckLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			PCCheckLstToken token = (PCCheckLstToken) tokenMap.get(key);
-
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, obj, value);
-				if (!token.parse(obj, value))
-				{
-					Logging.errorPrint("Error parsing check "
-						+ obj.getDisplayName() + ':' + sourceURI.toString()
-						+ ':' + colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(obj, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
+			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Illegal check info '" + lstLine + "' in "
-					+ sourceURI.toString());
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(obj, key, value))
+			{
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				PCCheckLstToken tok = (PCCheckLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, obj, value);
+				if (!tok.parse(obj, value))
+				{
+					Logging.errorPrint("Error parsing PCCheck "
+							+ obj.getDisplayName() + ':' + sourceURI.toString()
+							+ ':' + token + "\"");
+				}
+			}
+			else if (!PObjectLoader.parseTag(obj, token))
+			{
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
 		}
 	}
 }

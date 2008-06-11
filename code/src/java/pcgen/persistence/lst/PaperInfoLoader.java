@@ -27,6 +27,7 @@ import pcgen.core.PaperInfo;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 import java.net.URI;
@@ -47,12 +48,12 @@ final class PaperInfoLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(URI fileName) throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		// We cannot clear the global list as we are only setting one 
 		// game mode at a time now.
 		//SystemCollections.clearPaperInfoList();
-		super.loadLstFile(fileName);
+		super.loadLstFile(context, fileName);
 		Globals.selectPaper(SettingsHandler.getPCGenOption("paperName", "A4"));
 	}
 
@@ -60,7 +61,7 @@ final class PaperInfoLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		final PaperInfo psize = new PaperInfo();
 

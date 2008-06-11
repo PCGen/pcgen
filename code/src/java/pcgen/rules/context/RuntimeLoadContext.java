@@ -4,7 +4,8 @@ public class RuntimeLoadContext extends LoadContext
 {
 	private final String contextType;
 
-	public RuntimeLoadContext(ReferenceContext rc, ListCommitStrategy lcs)
+	public RuntimeLoadContext(AbstractReferenceContext rc,
+			ListCommitStrategy lcs)
 	{
 		super(rc, new ListContext(lcs), new ObjectContext(
 				new ConsolidatedObjectCommitStrategy()));

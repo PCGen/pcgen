@@ -29,6 +29,7 @@ import java.util.Map;
 
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -58,11 +59,11 @@ public class InstallLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(java.net.URI)
 	 */
 	@Override
-	public void loadLstString(URI fileName, String lstData) throws PersistenceLayerException
+	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException
 	{
 		campaign = new InstallableCampaign();
 
-		super.loadLstString(fileName, lstData);
+		super.loadLstString(context, fileName, lstData);
 
 		finishCampaign();
 	}
@@ -71,7 +72,7 @@ public class InstallLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
 	 */
 	@Override
-	public void parseLine(String inputLine, URI sourceURI)
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		final int idxColon = inputLine.indexOf(':');

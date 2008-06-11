@@ -32,6 +32,7 @@ import java.util.Map;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -48,10 +49,10 @@ public class LoadInfoLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(URI source, String gameModeIn)
+	public void loadLstFile(LoadContext context, URI source, String gameModeIn)
 		throws PersistenceLayerException
 	{
-		super.loadLstFile(source, gameModeIn);
+		super.loadLstFile(context, source, gameModeIn);
 
 		if (SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplierCount() == 0)
 		{
@@ -80,7 +81,7 @@ public class LoadInfoLoader extends LstLineFileLoader
 	 * @see LstLineFileLoader#parseLine(URL, String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 
 		LoadInfo loadInfo = SystemCollections.getLoadInfo(getGameMode());

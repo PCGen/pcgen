@@ -17,61 +17,64 @@
  */
 package pcgen.cdom.reference;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.PrereqObject;
 
-public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
+public class CDOMTransparentSingleRef<T extends PrereqObject> extends
+		CDOMSingleRef<T> implements TransparentReference<T>
 {
 
-	private List<T> referencedList = null;
+	private CDOMSingleRef<T> subReference = null;
 
-	private String[] types;
-
-	public CDOMTypeRef(Class<T> cl, String[] val)
+	public CDOMTransparentSingleRef(Class<T> cl, String nm)
 	{
-		super(cl, cl.getSimpleName() + " " + Arrays.deepToString(val));
-		types = new String[val.length];
-		System.arraycopy(val, 0, types, 0, val.length);
-	}
-
-	@Override
-	public String getPrimitiveFormat()
-	{
-		return StringUtil.join(types, ".");
-	}
-
-	@Override
-	public String getLSTformat()
-	{
-		return "TYPE=" + getPrimitiveFormat();
+		super(cl, nm);
 	}
 
 	@Override
 	public boolean contains(T obj)
 	{
-		if (referencedList == null)
+		if (subReference == null)
+		{
+			throw new IllegalStateException("Cannot ask for contains: "
+					+ getReferenceClass().getName() + " Reference " + getName()
+					+ " has not been resolved");
+		}
+		return subReference.contains(obj);
+	}
+
+	@Override
+	public T resolvesTo()
+	{
+		if (subReference == null)
 		{
 			throw new IllegalStateException(
-				"Cannot ask for contains: Reference has not been resolved");
+					"Cannot ask for resolution: Reference has not been resolved");
 		}
-		return referencedList.contains(obj);
+		return subReference.resolvesTo();
+	}
+
+	@Override
+	public String getPrimitiveFormat()
+	{
+		return getName();
+	}
+
+	@Override
+	public String getLSTformat()
+	{
+		return getName();
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof CDOMTypeRef)
+		if (o instanceof CDOMTransparentSingleRef)
 		{
-			CDOMTypeRef<?> ref = (CDOMTypeRef<?>) o;
+			CDOMTransparentSingleRef<?> ref = (CDOMTransparentSingleRef<?>) o;
 			return getReferenceClass().equals(ref.getReferenceClass())
-				&& getName().equals(ref.getName())
-				&& Arrays.deepEquals(types, ref.types);
+					&& getName().equals(ref.getName());
 		}
 		return false;
 	}
@@ -85,31 +88,27 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	@Override
 	public void addResolution(T obj)
 	{
-		if (obj.getClass().equals(getReferenceClass()))
+		throw new IllegalStateException(
+				"Cannot resolve a Transparent Reference");
+	}
+
+	public void resolve(ReferenceManufacturer<T, ?> rm)
+	{
+		if (rm.getCDOMClass().equals(getReferenceClass()))
 		{
-			if (referencedList == null)
-			{
-				referencedList = new ArrayList<T>();
-			}
-			referencedList.add(obj);
+			subReference = rm.getReference(getName());
 		}
 		else
 		{
 			throw new IllegalArgumentException("Cannot resolve a "
-				+ getReferenceClass().getSimpleName() + " Reference to a "
-				+ obj.getClass().getSimpleName());
+					+ getReferenceClass().getSimpleName() + " Reference to a "
+					+ rm.getCDOMClass().getSimpleName());
 		}
-	}
-
-	@Override
-	public int getObjectCount()
-	{
-		return referencedList == null ? 0 : referencedList.size();
 	}
 
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		return Collections.unmodifiableList(referencedList);
+		return subReference.getContainedObjects();
 	}
 }

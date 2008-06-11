@@ -92,9 +92,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		try
 		{
 			URI testURI = new URI("file:/" + getClass().getName() + ".java");
-			bonusSpellLoader.parseLine("BONUSSPELLLEVEL:1	BASESTATSCORE:12	STATRANGE:8", testURI);
-			bonusSpellLoader.parseLine("BONUSSPELLLEVEL:2	BASESTATSCORE:14	STATRANGE:8", testURI);
-			bonusSpellLoader.parseLine("BONUSSPELLLEVEL:3	BASESTATSCORE:16	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine(context, "BONUSSPELLLEVEL:1	BASESTATSCORE:12	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine(context, "BONUSSPELLLEVEL:2	BASESTATSCORE:14	STATRANGE:8", testURI);
+			bonusSpellLoader.parseLine(context, "BONUSSPELLLEVEL:3	BASESTATSCORE:16	STATRANGE:8", testURI);
 		}
 		catch (URISyntaxException e)
 		{

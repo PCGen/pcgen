@@ -27,6 +27,7 @@ package plugin.lsttokens.kit;
 
 import java.net.URI;
 
+import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.KitLstToken;
@@ -69,7 +70,7 @@ public class StartpackToken extends KitLstToken
 	{
 		try
 		{
-			KitStartpackLoader.parseLine(aKit, value);
+			KitStartpackLoader.parseLine(Globals.getContext(), aKit, value, source);
 		}
 		catch (PersistenceLayerException pe)
 		{

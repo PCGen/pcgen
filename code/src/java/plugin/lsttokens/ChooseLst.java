@@ -106,17 +106,17 @@ public class ChooseLst implements GlobalLstToken
 			}
 			String prefixString = StringUtil.join(prefixList, "|");
 			boolean parse =
-					ChooseLoader.parseToken(obj, prefixString, key, val, anInt);
+					ChooseLoader.parseToken(obj, prefixString, key, val);
 			if (!parse)
 			{
-				parseOld(obj, value, anInt);
+				parseOld(obj, value);
 			}
 			return true;
 		}
 		return false;
 	}
 
-	private void parseOld(PObject obj, String value, int anInt)
+	private void parseOld(PObject obj, String value)
 	{
 		Logging.deprecationPrint("CHOOSE: syntax you are using is deprecated: "
 			+ value);

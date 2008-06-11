@@ -71,7 +71,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
@@ -4090,7 +4090,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		final StringTokenizer tokens = new StringTokenizer(stringList,	"|", false);
 
-		ReferenceContext ref = Globals.getContext().ref;
+		AbstractReferenceContext ref = Globals.getContext().ref;
 		while (tokens.hasMoreTokens())
 		{
 			final String aLang = tokens.nextToken();

@@ -29,6 +29,7 @@ import java.net.URI;
 
 import pcgen.persistence.lst.PCCheckLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Class deals with CHECKNAME Token
@@ -40,12 +41,12 @@ public class ChecknameToken implements StatsAndChecksLstToken
 		return "CHECKNAME";
 	}
 
-	public boolean parse(String lstLine, URI sourceURI)
+	public boolean parse(LoadContext context, String lstLine, URI sourceURI)
 	{
 		try
 		{
 			PCCheckLoader checkLoader = new PCCheckLoader();
-			checkLoader.parseLine(lstLine, sourceURI);
+			checkLoader.parseLine(context, lstLine, sourceURI);
 			return true;
 		}
 		catch (Exception e)

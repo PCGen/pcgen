@@ -24,9 +24,11 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.core.GameMode;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 import java.net.URI;
@@ -57,29 +59,30 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstFileLoader#loadLstFiles(java.util.List)
 	 */
 	@Override
-	public void loadLstFile(URI fileName) throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		// Clear relevant Globals
-		SettingsHandler.getGame().setAttribLong(null);
-		SettingsHandler.getGame().setAttribShort(null);
-		SettingsHandler.getGame().clearCheckList();
-		SettingsHandler.getGame().clearAlignmentList();
-		SettingsHandler.getGame().clearStatList();
+		GameMode game = SettingsHandler.getGame();
+		game.setAttribLong(null);
+		game.setAttribShort(null);
+		game.clearCheckList();
+		game.clearAlignmentList();
+		game.clearStatList();
 
-		super.loadLstFile(fileName);
+		super.loadLstFile(context, fileName);
 
 		// Reinit relevant globals from SystemCollections
 		List<PCStat> statList =
-				SettingsHandler.getGame().getUnmodifiableStatList();
+				game.getUnmodifiableStatList();
 		int statCount = statList.size();
-		SettingsHandler.getGame().setAttribLong(new String[statCount]);
-		SettingsHandler.getGame().setAttribShort(new String[statCount]);
+		game.setAttribLong(new String[statCount]);
+		game.setAttribShort(new String[statCount]);
 
 		for (int i = 0; i < statCount; i++)
 		{
 			PCStat stat = statList.get(i);
-			SettingsHandler.getGame().setAttribLong(i, stat.getDisplayName());
-			SettingsHandler.getGame().setAttribShort(i, stat.getAbb());
+			game.setAttribLong(i, stat.getDisplayName());
+			game.setAttribShort(i, stat.getAbb());
 		}
 	}
 
@@ -87,7 +90,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		final int idxColon = lstLine.indexOf(':');
 		if (idxColon < 0)
@@ -104,7 +107,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		{
 			LstUtils
 				.deprecationCheck(token, key, sourceURI, lstLine);
-			if (!token.parse(lstLine, sourceURI))
+			if (!token.parse(context, lstLine, sourceURI))
 			{
 				Logging.errorPrint("Error parsing StatsAndChecks object: "
 					+ lstLine + '/' + sourceURI.toString());

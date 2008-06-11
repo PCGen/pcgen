@@ -88,10 +88,4 @@ public class CDOMDirectSingleRef<T extends CDOMObject> extends
 	{
 		return new CDOMDirectSingleRef<R>(obj);
 	}
-
-	@Override
-	public void clearResolution()
-	{
-		throw new IllegalStateException("Cannot clear resolution of a Direct Reference");
-	}
 }

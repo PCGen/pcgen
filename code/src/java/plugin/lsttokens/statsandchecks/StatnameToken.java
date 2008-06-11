@@ -29,6 +29,7 @@ import java.net.URI;
 
 import pcgen.persistence.lst.PCStatLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Class deals with STATNAME Token
@@ -40,12 +41,12 @@ public class StatnameToken implements StatsAndChecksLstToken
 		return "STATNAME";
 	}
 
-	public boolean parse(String lstLine, URI sourceURI)
+	public boolean parse(LoadContext context, String lstLine, URI sourceURI)
 	{
 		try
 		{
 			PCStatLoader statLoader = new PCStatLoader();
-			statLoader.parseLine(lstLine, sourceURI);
+			statLoader.parseLine(context, lstLine, sourceURI);
 			return true;
 		}
 		catch (Exception e)

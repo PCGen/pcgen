@@ -73,6 +73,7 @@ import pcgen.core.SourceEntry;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.gui.pcGenGUI;
+import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -146,7 +147,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					// call loadPCCFilesInDirectory repeatedly. -rlk 2002-03-30
 					if (Globals.getCampaignByURI(uri, false) == null)
 					{
-						campaignLoader.loadLstFile(uri);
+						campaignLoader.loadLstFile(null, uri);
 					}
 				}
 				/*
@@ -393,7 +394,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		try
 		{
-			sponsorLoader.loadLstFile(sponsorFile.toURI(), null);
+			sponsorLoader.loadLstFile(null, sponsorFile.toURI(), null);
 		}
 		catch (PersistenceLayerException ple)
 		{
@@ -423,25 +424,23 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			// The first thing we need to do is load the
 			// correct statsandchecks.lst file for this gameMode
-			if (SettingsHandler.getGame() != null)
-			{
-				File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
-				File specificGameModeDir = new File(gameModeDir, SettingsHandler.getGame().getFolderName());
-				File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
-				statCheckLoader.loadLstFile(statsAndChecks.toURI());
-			}
-			else
+			if (SettingsHandler.getGame() == null)
 			{
 				// Autoload campaigns is set but there
 				// is no current gameMode, so just return
 				return;
 			}
+			LoadContext context = Globals.getContext();
+			File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
+			File specificGameModeDir = new File(gameModeDir, SettingsHandler.getGame().getFolderName());
+			File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
+			statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
 
 			// Sort the campaigns
 			sortCampaignsByRank(aSelectedCampaignsList);
 
 			// Read the campaigns
-			readPccFiles(aSelectedCampaignsList, null);
+			readPccFiles(context, aSelectedCampaignsList, null);
 
 			// Add custom campaign files at the start of the lists
 			addCustomFilesToStartOfList();
@@ -455,9 +454,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// Load using the new LstFileLoaders
 
 			// load ability categories first as they used to only be at the game mode
-			abilityCategoryLoader.loadLstFiles(abilityCategoryFileList);
+			abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
 
-			LoadContext context = Globals.getContext();
 			for (PCAlignment al : SettingsHandler.getGame()
 					.getUnmodifiableAlignmentList())
 			{
@@ -511,7 +509,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			kitLoader.loadLstFiles(context, kitFileList);
 			
 			// Load the bio settings files
-			bioLoader.loadLstFiles(bioSetFileList);
+			bioLoader.loadLstFiles(context, bioSetFileList);
 
 			// Check for the default deities
 			checkRequiredDeities(context);
@@ -1088,10 +1086,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param gameModeFolderName the name of the folder that the game mode is located in
 	 * @param lstFileName the lst file to load
 	 */
-	private void loadGameModeLstFile(LstLineFileLoader lstFileLoader,
+	private void loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
 		String gameModeName, String gameModeFolderName, String lstFileName)
 	{
-		loadGameModeLstFile(lstFileLoader, gameModeName, gameModeFolderName, lstFileName, true);
+		loadGameModeLstFile(context, lstFileLoader, gameModeName, gameModeFolderName, lstFileName, true);
 	}
 
 	/**
@@ -1104,7 +1102,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param lstFileName the lst file to load
 	 * @param showMissing show the missing file as a warning. Some files are optional and shouldn't generate a warning
 	 */
-	private void loadGameModeLstFile(LstLineFileLoader lstFileLoader,
+	private void loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
 		String gameModeName, String gameModeFolderName, String lstFileName, final boolean showMissing)
 	{
 		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
@@ -1115,7 +1113,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			File gameModeFile = new File(specGameModeDir, lstFileName);
 			if (gameModeFile.exists())
 			{
-				lstFileLoader.loadLstFile(gameModeFile.toURI(), gameModeName);
+				lstFileLoader.loadLstFile(context, gameModeFile.toURI(), gameModeName);
 				return;
 			}
 		}
@@ -1130,7 +1128,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			File gameModeFile = new File(specGameModeDir, lstFileName);
 			if (gameModeFile.exists())
 			{
-				lstFileLoader.loadLstFile(gameModeFile.toURI(), gameModeName);
+				lstFileLoader.loadLstFile(context, gameModeFile.toURI(), gameModeName);
 			}
 		}
 		catch (PersistenceLayerException ple2)
@@ -1167,42 +1165,43 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			SettingsHandler.setGame(gmName);
 			if (gm != null)
 			{
+				LoadContext context = gm.getContext();
 				loadGameModeInfoFile(gm, new File(specGameModeDir, "level.lst")
 						.toURI(), "level");
 				loadGameModeInfoFile(gm, new File(specGameModeDir, "rules.lst")
 						.toURI(), "rules");
 
 				// Load equipmentslot.lst
-				loadGameModeLstFile(eqSlotLoader, gmName, gameFile,
+				loadGameModeLstFile(context, eqSlotLoader, gmName, gameFile,
 					"equipmentslots.lst");
 
 				// Load paperInfo.lst
-				loadGameModeLstFile(paperLoader, gmName, gameFile, "paperInfo.lst");
+				loadGameModeLstFile(context, paperLoader, gmName, gameFile, "paperInfo.lst");
 
 				// Load bio files
-				loadGameModeLstFile(traitLoader, gmName, gameFile, "bio"
+				loadGameModeLstFile(context, traitLoader, gmName, gameFile, "bio"
 					+ File.separator + "traits.lst");
-				loadGameModeLstFile(locationLoader, gmName, gameFile, "bio"
+				loadGameModeLstFile(context, locationLoader, gmName, gameFile, "bio"
 					+ File.separator + "locations.lst");
-				loadGameModeLstFile(bioLoader, gmName, gameFile, "bio"
+				loadGameModeLstFile(context, bioLoader, gmName, gameFile, "bio"
 					+ File.separator + "biosettings.lst");
 
 				// Load load.lst and check for completeness
-				loadGameModeLstFile(loadInfoLoader, gmName, gameFile, "load.lst");
+				loadGameModeLstFile(context, loadInfoLoader, gmName, gameFile, "load.lst");
 
 				// Load unitset.lst
-				loadGameModeLstFile(unitSetLoader, gmName, gameFile, "unitset.lst",
+				loadGameModeLstFile(context, unitSetLoader, gmName, gameFile, "unitset.lst",
 					false);
 
 				// Load pointbuymethods.lst
-				loadPointBuyFile(gameFile, gmName);
+				loadPointBuyFile(context, gameFile, gmName);
 
 				// Load sizeAdjustment.lst
-				loadGameModeLstFile(sizeLoader, gmName, gameFile,
+				loadGameModeLstFile(context, sizeLoader, gmName, gameFile,
 					"sizeAdjustment.lst");
 
 				// Load statsandchecks.lst
-				loadGameModeLstFile(statCheckLoader, gmName, gameFile,
+				loadGameModeLstFile(context, statCheckLoader, gmName, gameFile,
 					"statsandchecks.lst");
 			}
 		}
@@ -1218,7 +1217,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param gameFile The location of the game mode directory.
 	 * @param gmName The name of the game mode being loaded.
 	 */
-	private void loadPointBuyFile(String gameFile, String gmName)
+	private void loadPointBuyFile(LoadContext context, String gameFile, String gmName)
 	{
 		File pointBuyFile =
 				new File(CustomData.customPurchaseModeFilePath(true, gmName));
@@ -1227,7 +1226,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			try
 			{
-				pointBuyLoader.loadLstFile(pointBuyFile.toURI(), gmName);
+				pointBuyLoader.loadLstFile(context, pointBuyFile.toURI(), gmName);
 				useGameModeFile = false;
 			}
 			catch (PersistenceLayerException e)
@@ -1237,7 +1236,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 		if (useGameModeFile)
 		{
-			loadGameModeLstFile(pointBuyLoader, gmName, gameFile,
+			loadGameModeLstFile(context, pointBuyLoader, gmName, gameFile,
 				"pointbuymethods.lst", false);
 		}
 	}
@@ -1250,8 +1249,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param aSelectedCampaignsList List of Campaigns to load
 	 * @param currentPC
 	 */
-	private void readPccFiles(final List<Campaign> aSelectedCampaignsList,
-		final PlayerCharacter currentPC)
+	private void readPccFiles(LoadContext context,
+			final List<Campaign> aSelectedCampaignsList,
+			final PlayerCharacter currentPC)
 	{
 		// Prime options based on currently selected preferences
 		if (SettingsHandler.isOptionAllowedInSources())
@@ -1259,16 +1259,37 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			SettingsHandler.setOptionsProperties(currentPC);
 		}
 
+		Set<Campaign> loadedSet = new HashSet<Campaign>();
+		
 		// Create aggregate collections of source files to load
 		// along with any options required by the campaigns...
 		for (Campaign campaign : aSelectedCampaignsList)
 		{
 			loadCampaignFile(campaign);
+			if (loadedSet.add(campaign))
+			{
+				campaign.applyTo(context.ref);
+			}
 
 			if (SettingsHandler.isOptionAllowedInSources())
 			{
 				setCampaignOptions(campaign);
 			}
+			
+			// Add all sub-files to the main campaign, regardless of exclusions
+			for (URI fName : campaign.getPccFiles())
+			{
+				if (PCGFile.isPCGenCampaignFile(fName))
+				{
+					Campaign subCampaign = Globals.getCampaignByURI(fName,
+							false);
+					if (loadedSet.add(subCampaign))
+					{
+						subCampaign.applyTo(context.ref);
+					}
+				}
+			}
+
 		}
 
 		// ...but make sure to remove those files specified by LSTEXCLUDE;

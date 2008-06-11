@@ -25,28 +25,29 @@ import java.util.Map;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
-import pcgen.cdom.reference.SimpleReferenceManufacturer;
+import pcgen.cdom.reference.TransparentReferenceManufacturer;
 
-public class ReferenceContext extends AbstractReferenceContext
+public class GameReferenceContext extends AbstractReferenceContext
 {
-	private Map<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>> map = new HashMap<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>>();
+	private Map<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
 
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl)
 	{
-		ReferenceManufacturer<T, ?> mfg = (ReferenceManufacturer<T, ?>) map.get(cl);
+		TransparentReferenceManufacturer<T> mfg = (TransparentReferenceManufacturer<T>) map
+				.get(cl);
 		if (mfg == null)
 		{
-			mfg = new SimpleReferenceManufacturer<T>(cl);
+			mfg = new TransparentReferenceManufacturer<T>(cl);
 			map.put(cl, mfg);
 		}
 		return mfg;
 	}
 
 	@Override
-	public Collection<ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers()
+	public Collection<TransparentReferenceManufacturer<? extends CDOMObject>> getAllManufacturers()
 	{
-		return new ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>>(
+		return new ArrayList<TransparentReferenceManufacturer<? extends CDOMObject>>(
 				map.values());
 	}
 }

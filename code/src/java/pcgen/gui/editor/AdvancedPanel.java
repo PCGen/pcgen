@@ -24,6 +24,31 @@
 
 package pcgen.gui.editor;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
@@ -34,21 +59,9 @@ import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.PObjectLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * <code>AdvancedPanel</code> is ...
@@ -366,7 +379,34 @@ public final class AdvancedPanel extends JPanel
 		boolean result = false;
 		try
 		{
-			result = PObjectLoader.parseTag(thisPObject, newEntry);
+			final String token = newEntry.trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
+			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+			}
+			else if (colonLoc == 0)
+			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+			}
+			else
+			{
+				String key = token.substring(0, colonLoc);
+				String value = (colonLoc == token.length() - 1) ? null : token
+						.substring(colonLoc + 1);
+				LoadContext context = SettingsHandler.getGame().getContext();
+				if (context.processToken(thisPObject, key, value))
+				{
+					context.commit();
+				}
+				else if (!PObjectLoader.parseTag(thisPObject, token))
+				{
+					Logging.replayParsedMessages();
+				}
+				Logging.clearParseMessages();
+			}
 		}
 		catch (PersistenceLayerException ple)
 		{

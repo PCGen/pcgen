@@ -26,6 +26,7 @@ package pcgen.persistence.lst;
 
 import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 
 import java.net.URI;
 
@@ -52,17 +53,17 @@ public class TraitLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(URI fileName) throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		traitType = -1;
-		super.loadLstFile(fileName);
+		super.loadLstFile(context, fileName);
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		if (lstLine.charAt(0) != '[')
 		{

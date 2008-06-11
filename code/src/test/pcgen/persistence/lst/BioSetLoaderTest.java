@@ -36,6 +36,7 @@ import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
+import pcgen.rules.context.LoadContext;
 
 /**
  * A collection of tests to validate the functioning of the BioSetLoader class.
@@ -89,7 +90,7 @@ public final class BioSetLoaderTest extends PCGenTestCase
 	{
 		super.setUp();
 
-		BioSetLoaderTest.loadBioSet(BIO_SET_DATA);
+		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA);
 	}
 
 	/* (non-Javadoc)
@@ -133,13 +134,13 @@ public final class BioSetLoaderTest extends PCGenTestCase
 	 *
 	 * @throws Exception If a problem occurs when loading the data
 	 */
-	public static void loadBioSet(final String[] bioSetData) throws Exception
+	public static void loadBioSet(LoadContext context, final String[] bioSetData) throws Exception
 	{
 		final BioSetLoader loader = new BioSetLoader();
 		for (int i = 0; i < bioSetData.length; i++)
 		{
 			final String line = bioSetData[i];
-			loader.parseLine(line, new URI("http://UNIT_TEST_CASE"));
+			loader.parseLine(context, line, new URI("http://UNIT_TEST_CASE"));
 		}
 		Globals.setBioSet(loader.bioSet);
 	}

@@ -26,6 +26,7 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 import java.net.URI;
@@ -49,7 +50,7 @@ public final class PCStatLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URI sourceURI)
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		PCStat stat = new PCStat();
@@ -61,39 +62,44 @@ public final class PCStatLoader extends LstLineFileLoader
 				TokenStore.inst().getTokenMap(PCStatLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			PCStatLstToken token = (PCStatLstToken) tokenMap.get(key);
-
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, stat, value);
-				if (!token.parse(stat, value))
-				{
-					Logging.errorPrint("Error parsing check "
-						+ stat.getDisplayName() + ':' + sourceURI.toString()
-						+ ':' + colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(stat, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
+			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Illegal stat info '" + lstLine + "' in "
-					+ sourceURI.toString());
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(stat, key, value))
+			{
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				PCStatLstToken tok = (PCStatLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, stat, value);
+				if (!tok.parse(stat, value))
+				{
+					Logging.errorPrint("Error parsing PCStat "
+							+ stat.getDisplayName() + ':'
+							+ sourceURI.toString() + ':' + token + "\"");
+				}
+			}
+			else if (!PObjectLoader.parseTag(stat, token))
+			{
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
 		}
 
 		SettingsHandler.getGame().addToStatList(stat);

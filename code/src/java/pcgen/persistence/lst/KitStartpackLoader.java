@@ -25,12 +25,14 @@
 
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -44,7 +46,7 @@ public class KitStartpackLoader
 	 * @param colString
 	 * @throws PersistenceLayerException
 	 */
-	public static void parseLine(Kit kit, String colString)
+	public static void parseLine(LoadContext context, Kit kit, String colString, URI source)
 		throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
@@ -55,44 +57,45 @@ public class KitStartpackLoader
 				TokenStore.inst().getTokenMap(KitStartpackLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
-			colString = colToken.nextToken();
-
-			if (PObjectLoader.parseTag(kit, colString))
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
+			if (colonLoc == -1)
 			{
-				// Here if PObjectLoader has processed tag--nothing else to do
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
+				continue;
+			}
+			else if (colonLoc == 0)
+			{
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
 				continue;
 			}
 
-			// We will find the first ":" for the "controlling" line token
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(kit, key, value))
 			{
-				key = colString.substring(0, idxColon);
+				context.commit();
 			}
-			catch (StringIndexOutOfBoundsException e)
+			else if (tokenMap.containsKey(key))
 			{
-				// TODO Handle Exception
-			}
-			KitStartpackLstToken token =
-					(KitStartpackLstToken) tokenMap.get(key);
-
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, kit, value);
-				if (!token.parse(kit, value))
+				KitStartpackLstToken tok = (KitStartpackLstToken) tokenMap
+						.get(key);
+				LstUtils.deprecationCheck(tok, kit, value);
+				if (!tok.parse(kit, value))
 				{
-					Logging.errorPrint("Error parsing Kit Startpack tag "
-						+ kit.getDisplayName() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing Kit:"
+							+ kit.getDisplayName() + " token " + token
+							+ " from " + source.toString());
 				}
 			}
-			else
+			else if (!PObjectLoader.parseTag(kit, token))
 			{
-				Logging.errorPrint("Unknown Kit Startpack info: \"" + colString
-					+ "\"");
+				Logging.replayParsedMessages();
 			}
-
+			Logging.clearParseMessages();
 		}
 	}
 }

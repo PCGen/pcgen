@@ -45,8 +45,6 @@ public abstract class CDOMReference<T extends PrereqObject> implements
 
 	public abstract void addResolution(T obj);
 
-	public abstract void clearResolution();
-
 	public abstract boolean contains(T obj);
 	
 //	public boolean allow(CharacterDataStore pc, T obj)

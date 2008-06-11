@@ -81,47 +81,52 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				CompanionModLstToken.class);
-		while (colToken.hasMoreTokens()) {
-			String colString = colToken.nextToken().trim();
-
+		while (colToken.hasMoreTokens())
+		{
+			final String token = colToken.nextToken().trim();
+			final int colonLoc = token.indexOf(':');
 			// Companion mods don't have a name, but instead start straight into the first token
 			if (name == null)
 			{
-				name = colString;
+				name = token;
 				cmpMod.setName(name);
 			}
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
+			if (colonLoc == -1)
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				throw new PersistenceLayerException();
-			}
-			CompanionModLstToken token =
-					(CompanionModLstToken) tokenMap.get(key);
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, cmpMod, value);
-				if (!token.parse(cmpMod, value))
-				{
-					Logging.errorPrint("Error parsing CompanionMod "
-						+ cmpMod.getDisplayName() + ':' + source.toString()
-						+ ':' + colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(cmpMod, colString))
-			{
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+						+ token);
 				continue;
 			}
-			else
+			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Unrecognized Token in CompanionMod: "
-						+ source.toString() + ":" + " \"" + colString + "\"");
+				Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+				continue;
 			}
+
+			String key = token.substring(0, colonLoc);
+			String value = (colonLoc == token.length() - 1) ? null : token
+					.substring(colonLoc + 1);
+			if (context.processToken(cmpMod, key, value))
+			{
+				context.commit();
+			}
+			else if (tokenMap.containsKey(key))
+			{
+				CompanionModLstToken tok = (CompanionModLstToken) tokenMap.get(key);
+				LstUtils.deprecationCheck(tok, cmpMod, value);
+				if (!tok.parse(cmpMod, value))
+				{
+					Logging.errorPrint("Error parsing CompanionMod "
+							+ cmpMod.getDisplayName() + ':'
+							+ source.toString() + ':' + token + "\"");
+				}
+			}
+			else if (!PObjectLoader.parseTag(cmpMod, token))
+			{
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
 		}
 		
 		completeObject(source, cmpMod);
