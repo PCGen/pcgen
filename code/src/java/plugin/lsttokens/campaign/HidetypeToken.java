@@ -55,8 +55,8 @@ public class HidetypeToken implements CampaignLstToken
 			}
 			if (cl == null)
 			{
-				Logging.errorPrint("Did not understand: " + value + " in "
-						+ getTokenName());
+				Logging.errorPrint(getTokenName () + " did not understand: " + value + " in "
+						+ sourceUri.toString());
 				return false;
 			}
 			StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
