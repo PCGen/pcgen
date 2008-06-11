@@ -8,7 +8,7 @@ Shuriken					PROFICIENCY:WEAPON|Shuriken			TYPE:Weapon.Exotic.Ranged.Piercing.Th
 
 #SMALL ----------------------------------------------------------------------------------------------------------
 Whip						PROFICIENCY:WEAPON|Whip				TYPE:Weapon.Exotic.Ranged.Slashing.Standard									COST:1	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2		RANGE:15	SIZE:S	SOURCEPAGE:p.104	BONUS:WEAPON|TOHIT|1|PREFEAT:1,Point Blank Shot
-Bola													TYPE:Weapon.Exotic.Ranged.Tangling.Standard									COST:35	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:*		RANGE:10
+Bola													TYPE:Weapon.Exotic.Ranged.Tangling.Standard									COST:35	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:0		RANGE:10
 Blowgun												TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container			CONTAINS:UNLIM|Needle=1		COST:10	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1		RANGE:10
 Boomerang												TYPE:Weapon.Exotic.Ranged.Bludgeoning.Thrown.Standard.Wooden						COST:-	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1		RANGE:10
 
