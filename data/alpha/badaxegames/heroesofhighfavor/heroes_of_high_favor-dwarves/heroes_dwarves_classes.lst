@@ -8,17 +8,17 @@ CLASS:Battle-Rager	HD:12		TYPE:PC.Prestige	ABB:Bat-Rag		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Battle-Rager	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:5	PREFEAT:5,Cleave,Iron Will,Power Attack,Toughness,Rage	PRETEXT:Must be able to rage, frenzy or similar class ability.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle-Rager	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Swim|Tumble
-1																					AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1			SAB:Against the Odds (Ex)
-2			SAB:Fearsome Visage											ADD:FEAT|1|TYPE=Fighter
-3			SAB:Frenzied Charge
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1			ABILITY:Special Ability|AUTOMATIC|Against the Odds
+2			ABILITY:Special Ability|AUTOMATIC|Fearsome Visage											BONUS:ABILITYPOOL|Fighter Feat|1
+3			ABILITY:Special Ability|AUTOMATIC|Frenzied Charge
 4	DR:1/-
-5			SAB:Indomitable Will
-6								BONUS:VAR|RageTimes|1		DEFINE:RageTimes|0	ADD:FEAT|1|TYPE=Fighter	AUTO:FEAT|Rage
-7			SAB:Improved Rage			BONUS:VAR|GreaterRage|1		DEFINE:GreaterRage|0
+5			ABILITY:Special Ability|AUTOMATIC|Indomitable Will
+6				ABILITY:Special Ability|AUTOMATIC|Rage			BONUS:VAR|RageTimes|1		DEFINE:RageTimes|0	BONUS:ABILITYPOOL|Fighter Feat|1
+7			ABILITY:Special Ability|AUTOMATIC|Improved Rage			BONUS:VAR|GreaterRage|1		DEFINE:GreaterRage|0
 8	DR:2/-
-9								BONUS:VAR|RageTimes|1
-10			SAB:Improved Rage			BONUS:VAR|TirelessRage|1	DEFINE:TirelessRage|0	ADD:FEAT|1|TYPE=Fighter
+9													BONUS:VAR|RageTimes|1
+10			ABILITY:Special Ability|AUTOMATIC|Improved Rage2		BONUS:VAR|TirelessRage|1	DEFINE:TirelessRage|0	BONUS:ABILITYPOOL|Fighter Feat|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -32,17 +32,17 @@ CLASS:Dwarven Skald	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TY
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Bardic abilities level definitions.
-1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	AUTO:FEAT|Bardic Knowledge
-1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					AUTO:FEAT|Bardic Music
+1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
+1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Music
 ###Block: Bardic Music Abilities by level
-1					VFEAT:Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1
-1					VFEAT:Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3
-1					VFEAT:Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,6
-1					VFEAT:Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,9
-1	SAB:Bardic Study
-2	SAB:Invoke Curse (Su)
-5	SAB:Captivate (Su)
-8	SAB:Instill Fear (Su)
+1					ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1
+1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3
+1					ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,6
+1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,9
+1	ABILITY:Special Ability|AUTOMATIC|Bardic Study
+2	ABILITY:Special Ability|AUTOMATIC|Invoke Curse
+5	ABILITY:Special Ability|AUTOMATIC|Captivate
+8	ABILITY:Special Ability|AUTOMATIC|Instill Fear
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -59,16 +59,16 @@ CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression:
-1	CAST:0,1						BONUS:DOMAIN|NUMBER|1
-2	CAST:0,2,0										ADD:FEAT|1|Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance
-3	CAST:0,2,1		SAB:Runecraft
-4	CAST:0,3,2,0									ADD:FEAT|1|Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance
+1	CAST:0,1																		BONUS:DOMAIN|NUMBER|1
+2	CAST:0,2,0											BONUS:ABILITYPOOL|Rune Priest Feat|1
+3	CAST:0,2,1		ABILITY:Special Ability|AUTOMATIC|Runecraft
+4	CAST:0,3,2,0										BONUS:ABILITYPOOL|Rune Priest Feat|1
 5	CAST:0,3,2,1
-6	CAST:0,3,3,2,0									ADD:FEAT|1|Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance
-7	CAST:0,3,3,2,1	SAB:Divine Inspiration
-8	CAST:0,3,3,3,2,0									ADD:FEAT|1|Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance
+6	CAST:0,3,3,2,0										BONUS:ABILITYPOOL|Rune Priest Feat|1
+7	CAST:0,3,3,2,1	ABILITY:Special Ability|AUTOMATIC|Divine Inspiration
+8	CAST:0,3,3,3,2,0										BONUS:ABILITYPOOL|Rune Priest Feat|1
 9	CAST:0,3,3,3,2,1
-10	CAST:0,3,3,3,3,2									ADD:FEAT|1|Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance
+10	CAST:0,3,3,3,3,2										BONUS:ABILITYPOOL|Rune Priest Feat|1
 ###Block: Rune-Priest Spell List:
 1	SPELLLEVEL:CLASS|Rune-Priest=1|Bless,Command,Cure Light Wounds,Deathwatch,Divine Favor,Doom,Entropic Shield,Erase,Magic Weapon,Remove Fear,Shield of Faith
 1	SPELLLEVEL:CLASS|Rune-Priest=2|Aid,Augury,Bull's Strength,Cure Moderate Wounds,Endurance,Gentle Repose,Remove Paralysis,Shield Other,Spiritual Weapon
@@ -76,29 +76,26 @@ CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 1	SPELLLEVEL:CLASS|Rune-Priest=4|Cure Critical Wounds,Death Ward,Divination,Divine Power,Explosive Runes,Neutralize Poison,Sending,Status,Tongues
 1	SPELLLEVEL:CLASS|Rune-Priest=5|Atonement,Commune,Flame Strike,Greater Command,Hallow,Healing Circle,Mark of Justice,Raise Dead,Righteous Might,Scrying,Spell Resistance,True Seeing
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Modify VAR
-CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:pg.34	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:pg.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
 # Class Name	Required Feat		Required Language	Required Skill							Req. Spell Type
 CLASS:Rock-Warden	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:3,Animal Empathy=8,Scry=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rock-Warden	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|Scry|Spellcraft|Swim|Wilderness Lore
-1	SAB:Animal Companion											ADD:SPELLCASTER|1|Druid
+1	ABILITY:Special Ability|AUTOMATIC|Animal Companion						ADD:SPELLCASTER|1|Druid
 2															ADD:SPELLCASTER|1|Druid
-3	SAB:Stony Stride (Ex)											ADD:SPELLCASTER|1|Druid
+3	ABILITY:Special Ability|AUTOMATIC|Stony Stride							ADD:SPELLCASTER|1|Druid
 4															ADD:SPELLCASTER|1|Druid
-5	SAB:Blindsight (Ex)											ADD:SPELLCASTER|1|Druid
+5	ABILITY:Special Ability|AUTOMATIC|Blindsight							ADD:SPELLCASTER|1|Druid
 6															ADD:SPELLCASTER|1|Druid
-7	SAB:Subterranean Empathy										ADD:SPELLCASTER|1|Druid
+7	ABILITY:Special Ability|AUTOMATIC|Subterranean Empathy					ADD:SPELLCASTER|1|Druid
 8															ADD:SPELLCASTER|1|Druid
-9	SAB:Poison Immunity											ADD:SPELLCASTER|1|Druid
+9	ABILITY:Special Ability|AUTOMATIC|Poison Immunity						ADD:SPELLCASTER|1|Druid
 10															ADD:SPELLCASTER|1|Druid
 #WILD SHAPE ABILITY:
 ### COMMENT: Not sure if the types should be included - Can change to VAR if need be.
-2	SAB:Rock-Warden Wild Shape 1/day|PREVARLT:CL,4
-4	SAB:Rock-Warden Wild Shape 2/day (tiny)|PREVARLT:CL,6
-6	SAB:Rock-Warden Wild Shape 3/day (tiny, large / fungus)|PREVARLT:CL,8
-8	SAB:Rock-Warden Wild Shape 4/day (tiny, large / fungus, dire / ooze)|PREVARLT:CL,10
-10	SAB:Rock-Warden Wild Shape 5/day (tiny, large / fungus, dire / ooze, elemental)
+2	ABILITY:Special Ability|AUTOMATIC|Rock-Warden Wild Shape	BONUS:VAR|RockWardenWildShape|CL/2
+	
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
@@ -107,24 +104,24 @@ CLASS:Stoneheart Ascetic	HD:8		TYPE:PC.Prestige	ABB:StoneA		MAXLEVEL:10	SOURCEPA
 CLASS:Stoneheart Ascetic	PRECHECKBASE:1,Fortitude=6	PREFEAT:4,Endurance,Improved Unarmed Strike,Stunning Fist,Weapon Focus(Unarmed Strike)	PRESKILL:2,Concentration=6,Sense Motive=4	PRETEXT:Base unarmed damage 1d8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Stoneheart Ascetic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Hide|Intuit Direction|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|Sense Motive|Spot
-1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block: UDAM Progression
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Special Abilities
-1	BONUS:VAR|MonkStunningLVL|CL					VFEAT:Stunning Attack
+1	BONUS:VAR|MonkStunningLVL|CL					ABILITY:Special Ability|VIRTUAL|Stunning Attack
 1	BONUS:VAR|WholenessHpLVL|CL	DEFINE:WholenessHpLVL|0
-1	BONUS:VAR|MonkACLVL|CL						VFEAT:Monk AC
+1	BONUS:VAR|MonkACLVL|CL						ABILITY:Special Ability|VIRTUAL|Monk AC
 ###Block: Level abilities
-1	SAB:Monk Abilities					ADD:VFEAT|1|Deflect Arrows,Dodge,Improved Grab,Improved Bull Rush,Improved Disarm,Improved Trip,Power Attack,Toughness
-2	SAB:Still Mind	SAB:Purity of Body
-3	SAB:Stone Step (Su)	SAB:Wholeness of Body
-4	SAB:Tremorsense (Ex)					ADD:VFEAT|1|Deflect Arrows,Dodge,Improved Grab,Improved Bull Rush,Improved Disarm,Improved Trip,Power Attack,Toughness
-5	SAB:Stone Slumber (Su)
-6	SAB:Stone Heart (Su)
-7									ADD:VFEAT|1|Deflect Arrows,Dodge,Improved Grab,Improved Bull Rush,Improved Disarm,Improved Trip,Power Attack,Toughness
-8	SAB:Stone Soul
-9	SAB:Timeless Body
-10	SAB:Stone Body (Su)					ADD:VFEAT|1|Deflect Arrows,Dodge,Improved Grab,Improved Bull Rush,Improved Disarm,Improved Trip,Power Attack,Toughness
+1	ABILITY:Special Ability|AUTOMATIC|Monk Abilities				BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
+2	ABILITY:Special Ability|AUTOMATIC|Still Mind|Purity of Body
+3	ABILITY:Special Ability|AUTOMATIC|Stone Step|Wholeness of Body
+4	ABILITY:Special Ability|AUTOMATIC|Tremorsense					BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
+5	ABILITY:Special Ability|AUTOMATIC|Stone Slumber
+6	ABILITY:Special Ability|AUTOMATIC|Stone Heart
+7													BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
+8	ABILITY:Special Ability|AUTOMATIC|Stone Soul
+9	ABILITY:Special Ability|AUTOMATIC|Timeless Body
+10	ABILITY:Special Ability|AUTOMATIC|Stone Body					BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -134,15 +131,15 @@ CLASS:Paragon	PREATT:5	PREFEAT:2,Sunder,Weapon Specialization	PRESA:1,Lay on Han
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Paragon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)
 
-1	SAB:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:VAR|SmiteEvil|1	BONUS:VAR|LayOnHands|max(CHA,0)*CL						AUTO:FEAT|Smite Evil
-2	SAB:Forge Mastery															ADD:SPELLCASTER|1|Divine
-3	SAB:Ancestral Weapon (I)|PREVARLT:CL,6
-4								BONUS:VAR|SmiteEvil|1							ADD:SPELLCASTER|1|Divine
-6	SAB:Ancestral Weapon (II)|PREVARLT:CL,9											ADD:SPELLCASTER|1|Divine
-7								BONUS:VAR|SmiteEvil|1
-8																		ADD:SPELLCASTER|1|Divine
-9	SAB:Ancestral Weapon (III)
-10								BONUS:VAR|SmiteEvil|1							ADD:SPELLCASTER|1|Divine
+1	ABILITY:Special Ability|AUTOMATIC|Lay on Hands		BONUS:VAR|SmiteEvil|1	BONUS:VAR|LayOnHands|max(CHA,0)*CL						ABILITY:Special Ability|AUTOMATIC|Smite Evil
+2	ABILITY:Special Ability|AUTOMATIC|Forge Mastery												ADD:SPELLCASTER|1|Divine
+3	ABILITY:Special Ability|AUTOMATIC|Ancestral Weapon	BONUS:VAR|AncestralWeaponLvl|1
+4										BONUS:VAR|SmiteEvil|1							ADD:SPELLCASTER|1|Divine
+6										BONUS:VAR|AncestralWeaponLvl|1					ADD:SPELLCASTER|1|Divine
+7										BONUS:VAR|SmiteEvil|1
+8																				ADD:SPELLCASTER|1|Divine
+9										BONUS:VAR|AncestralWeaponLvl|1
+10										BONUS:VAR|SmiteEvil|1							ADD:SPELLCASTER|1|Divine
 
 ###Block:  COMMENT: 'Slayer' - Renamed to 'Slayer ~ HoHFD' due to conflict with pre-existing class with same name.
 
@@ -153,16 +150,16 @@ CLASS:Slayer ~ HoHFD	PREATT:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 ### ADD:VFEAT(Slayer Favored ~ Cleave,Slayer Favored ~ Dodge,Slayer Favored ~ Expertise,Slayer Favored ~ Great Fortitude,Slayer Favored ~ Lightning Reflexes,Slayer Favored ~ Iron Will,Slayer Favored ~ Improved Charge,Slayer Favored ~ Point Blank Shot,Slayer Favored ~ Power Attack,Slayer Favored ~ Precise Shot,Slayer Favored ~ Improved Critical,Slayer Favored ~ Mobility,Slayer Favored ~ Great Cleave)1
-1	SAB:Favored Enemies														ADD:FEAT|1|TYPE.ClassAbilitiesSlayer
-2	SAB:Skill Mastery %|SkillMasteryCount	BONUS:VAR|SkillMasteryCount|1	DEFINE:SkillMasteryCount|0	ADD:FEAT|1|TYPE.ClassAbilitiesSlayer	ADD:FEAT|1|SlayerSkillMastery
-3																		ADD:FEAT|1|TYPE.ClassAbilitiesSlayer
-4																		ADD:FEAT|1|TYPE.ClassAbilitiesSlayer
-5																		ADD:FEAT|1|TYPE.ClassAbilitiesSlayer
-6								BONUS:VAR|SkillMasteryCount|1						ADD:FEAT|1|TYPE.ClassAbilitiesSlayer	ADD:FEAT|1|SlayerSkillMastery
-7																		ADD:FEAT|1|TYPE.ClassAbilitiesSlayer
-8																		ADD:FEAT|1|TYPE.ClassAbilitiesSlayer
-9																		ADD:FEAT|1|TYPE.ClassAbilitiesSlayer
-10								BONUS:VAR|SkillMasteryCount|1						ADD:FEAT|1|TYPE.ClassAbilitiesSlayer	ADD:FEAT|1|SlayerSkillMastery
+1	ABILITY:Special Ability|AUTOMATIC|Favored Enemies									BONUS:ABILITYPOOL|Slayer Feat|1
+2	ABILITY:Special Ability|AUTOMATIC|Skill Mastery		BONUS:ABILITYPOOL|SkillMasteryCount|1				BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Slayer Skill Mastery|1
+3																		BONUS:ABILITYPOOL|Slayer Feat|1
+4																		BONUS:ABILITYPOOL|Slayer Feat|1
+5																		BONUS:ABILITYPOOL|Slayer Feat|1
+6										BONUS:ABILITYPOOL|SkillMasteryCount|1				BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Slayer Skill Mastery|1
+7																		BONUS:ABILITYPOOL|Slayer Feat|1
+8																		BONUS:ABILITYPOOL|Slayer Feat|1
+9																		BONUS:ABILITYPOOL|Slayer Feat|1
+10										BONUS:ABILITYPOOL|Slayer Skill Mastery|1				BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Slayer Skill Mastery|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -172,15 +169,15 @@ CLASS:Tunnel-Fighter	PREATT:5	PREFEAT:3,Alertness,Improved Initiative,Point Blan
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 
-1	SAB:Ambush Expert	SAB:Quick and Quiet
-2									BONUS:VAR|SneakAttack|1							AUTO:FEAT|Uncanny Dodge|Sneak Attack
-3	SAB:Tunnel Fighting (% Walls)|TunnelFightWall	BONUS:VAR|TunnelFightWall|3	DEFINE:TunnelFightWall|0
-4									BONUS:VAR|SneakAttack|1
-5									BONUS:VAR|UncannyDodge|1
-6									BONUS:VAR|SneakAttack|1
-7									BONUS:VAR|TunnelFightWall|-1
-8									BONUS:VAR|SneakAttack|1
-10									BONUS:VAR|TunnelFightWall|-1
+1	ABILITY:Special Ability|AUTOMATIC|Ambush ExpertQuick and Quiet
+2	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|Sneak Attack	BONUS:VAR|SneakAttack|1							
+3	ABILITY:Special Ability|AUTOMATIC|Tunnel Fighting			BONUS:VAR|TunnelFightWall|3	
+4												BONUS:VAR|SneakAttack|1
+5												BONUS:VAR|UncannyDodge|1
+6												BONUS:VAR|SneakAttack|1
+7												BONUS:VAR|TunnelFightWall|-1
+8												BONUS:VAR|SneakAttack|1
+10												BONUS:VAR|TunnelFightWall|-1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -192,16 +189,16 @@ CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimid
 
 ###Aceldamist Hidden Feats
 #ADD:FEAT(Ancestral Lore,Armored Casting,Blood Magic,Fellblade Magic,Signature Metaspell,Signature Spell Focus,Signature Spell Immunity,Signature Spell Penetration)1
-1	ADD:FEAT|1|TYPE=Aceldamist
-2	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=Aceldamist
-3	ADD:FEAT|1|TYPE=Aceldamist
-4	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=Aceldamist
-5	ADD:FEAT|1|TYPE=Aceldamist
-6	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=Aceldamist
-7	ADD:FEAT|1|TYPE=Aceldamist
-8	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=Aceldamist
-9	ADD:FEAT|1|TYPE=Aceldamist
-10	ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=Aceldamist
+1						BONUS:ABILITYPOOL|Aceldamist Feat|1
+2	ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Aceldamist Feat|1
+3						BONUS:ABILITYPOOL|Aceldamist Feat|1
+4	ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Aceldamist Feat|1
+5						BONUS:ABILITYPOOL|Aceldamist Feat|1
+6	ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Aceldamist Feat|1
+7						BONUS:ABILITYPOOL|Aceldamist Feat|1
+8	ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Aceldamist Feat|1
+9						BONUS:ABILITYPOOL|Aceldamist Feat|1
+10	ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Aceldamist Feat|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -211,13 +208,13 @@ CLASS:Artificer	PREFEAT:1,Craft Magic Arms and Armor	PREMULT:1,[PREARMORPROF:1,T
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Use Magic Device
 
-1			SAB:Magical Craftsman
-2			SAB:Curse Resistance													ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE.ItemCreation
-3			SAB:Magical Familiarity
-4																			ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE.ItemCreation
-5			SAB:Magical Deconstruction (%%)|MagicDecon	BONUS:VAR|MagicDecon|25	DEFINE:MagicDecon|0
-6																			ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE.ItemCreation
+1			ABILITY:Special Ability|AUTOMATIC|Magical Craftsman
+2			ABILITY:Special Ability|AUTOMATIC|Curse Resistance													ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Artificer Feat|1
+3			ABILITY:Special Ability|AUTOMATIC|Magical Familiarity
+4																			ADD:SPELLCASTER|1|Arcane						BONUS:ABILITYPOOL|Artificer Feat|1
+5			ABILITY:Special Ability|AUTOMATIC|Magical Deconstruction (%%)|MagicDecon	BONUS:VAR|MagicDecon|25	
+6																			ADD:SPELLCASTER|1|Arcane						BONUS:ABILITYPOOL|Artificer Feat|1
 7											BONUS:VAR|MagicDecon|25
-8	SR:10+INT	SAB:Spell Resistance													ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE.ItemCreation
+8	SR:10+INT	ABILITY:Special Ability|AUTOMATIC|Spell Resistance													ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Artificer Feat|1
 9											BONUS:VAR|MagicDecon|25
-10			SAB:Spell Absorption													ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE.ItemCreation
+10			ABILITY:Special Ability|AUTOMATIC|Spell Absorption													ADD:SPELLCASTER|1|Arcane	BONUS:ABILITYPOOL|Artificer Feat|1

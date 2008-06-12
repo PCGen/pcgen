@@ -32,11 +32,13 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=18824&it=1?affili
 
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
+#ABILITYCATEGORY:
+ABILITY:heroes_dwarves_abilities_classes.lst
 
 CLASS:heroes_dwarves_classes.lst
 EQUIPMOD:heroes_dwarves_equipmods.lst
 FEAT:heroes_dwarves_feats.lst
-FEAT:heroes_dwarves_feats_hidden.lst
+ABILITY:heroes_dwarves_ability_class.lst
 RACE:heroes_dwarves_races.lst
 SKILL:heroes_dwarves_skills.lst
 TEMPLATE:heroes_dwarves_templates.lst

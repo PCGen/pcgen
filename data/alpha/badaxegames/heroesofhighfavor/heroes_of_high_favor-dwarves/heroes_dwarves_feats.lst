@@ -14,7 +14,7 @@ Improved Charge			TYPE:General.Fighter	PREATT:1																																	
 Improved Darkvision		TYPE:General.Dwarf																																																										DESC:For whatever reason -- a purer bloodline, deep dwarf ancestry, or simply too many years underground-- you have better darkvision than most dwarves.																	BONUS:VISION|DarkVision|30																																													SOURCEPAGE:pg.5
 Improved Rear Rank Fighting	TYPE:General.Fighter			PREFEAT:1,Rear Rank Fighting																																																			DESC:You have mastered fighting as part of a phalanx or spear hedge.																																																																																SOURCEPAGE:pg.5
 Rear Rank Fighting		TYPE:General.Fighter	PREATT:1																																																								DESC:You are accustomed to fighting as part of a phalanx or spear hedge.																																																																															SOURCEPAGE:pg.5
-Refined Skill Focus		TYPE:General																																																											DESC:You have a natural aptitude with one or more related skills.																ADD:FEAT|1|RSF +2 to Two Skills,RSF +3 to 1 Skill,+2 Ranks to 1 skill																																																						SOURCEPAGE:pg.5
+Refined Skill Focus		TYPE:General																																																											DESC:You have a natural aptitude with one or more related skills.																BONUS:ABILITYPOOL|Refined Skill Focus|1																																																											SOURCEPAGE:pg.5
 Shield Bash				TYPE:General.Fighter	PREATT:1																																														PRETEXT:Shield Proficiency						DESC:You are able to use your shield to smash your opponents.																																																																																	SOURCEPAGE:pg.5
 Shield Parry			TYPE:General.Fighter	PREATT:1																																														PRETEXT:Shield Proficiency						DESC:You are skilled at using your shield to intercept and deflect incoming attacks.																																																																													SOURCEPAGE:pg.5
 Shield Rush				TYPE:General.Fighter			PREFEAT:1,Power Attack																																										PRETEXT:Shield Proficiency						DESC:Holding your shield before you, you rush into your opponent, pushing him back.																																																																														SOURCEPAGE:pg.6
@@ -44,12 +44,17 @@ Rune of Vengeance		TYPE:General.Dwarf	PRESTAT:1,WIS=17	PRETEXT:inscribe on any w
 
 #BONUS:WEAPONPROF=%LIST|TOHIT|1
 
-###Block: Refined Skill Focus Subset:
-# Feat Name			Type			Visible	Multiple?	Selections	Choose																		Bonus to skill		Bonus to skill rank
-RSF +2 to Two Skills	TYPE:Special	VISIBLE:NO	MULT:YES	SELECT:2	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|2
-RSF +3 to 1 Skill		TYPE:Special	VISIBLE:NO	MULT:YES			CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|3
-+2 Ranks to 1 skill	TYPE:Special	VISIBLE:NO	MULT:YES			CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity					BONUS:SKILLRANK|LIST|2
-
+###Block:Mods
+Rune of Energy.MOD		TYPE:RunePriest
+Rune of Beauty.MOD		TYPE:RunePriest
+Rune of Cleaving.MOD		TYPE:RunePriest
+Rune of Courage.MOD		TYPE:RunePriest
+Rune of Fortification.MOD	TYPE:RunePriest
+Rune of Power.MOD			TYPE:RunePriest
+Rune of Protection.MOD		TYPE:RunePriest
+Rune of Sharpness.MOD		TYPE:RunePriest
+Rune of Sundering.MOD		TYPE:RunePriest
+Rune of Vengeance.MOD		TYPE:RunePriest
 #
 ## EOF
 #
