@@ -6,8 +6,6 @@ package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
