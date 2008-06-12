@@ -148,19 +148,19 @@ Flurry of Blows			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Flurry of
 	
 	
 ###Paladin
-Detect Evil		SAB:Detect Evil	
-Divine Grace	SAB:Divine Grace	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
-Divine Health	SAB:Divine Health	
-Lay on Hands	SAB:Lay on Hands (Su) % hp/day|LayOnHands	DEFINE:LayOnHands|0
-Aura of Courage	SAB:Aura of Courage	
-Remove Disease	SAB:Remove Disease %/week|RemoveDisease	DEFINE:RemoveDisease|0
+Detect Evil			CATEGORY:Special Ability		TYPE:Special	VISIBLE:NO	SAB:Detect Evil	
+Divine Grace		CATEGORY:Special Ability		TYPE:Special	VISIBLE:NO	SAB:Divine Grace	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+Divine Health		CATEGORY:Special Ability		TYPE:Special	VISIBLE:NO	SAB:Divine Health	
+Lay on Hands		CATEGORY:Special Ability		TYPE:Special	VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands	DEFINE:LayOnHands|0
+Aura of Courage		CATEGORY:Special Ability		TYPE:Special	VISIBLE:NO	SAB:Aura of Courage	
+Remove Disease		CATEGORY:Special Ability		TYPE:Special	VISIBLE:NO	SAB:Remove Disease %/week|RemoveDisease	DEFINE:RemoveDisease|0
 	
 	
 	
 ###Block:Uncanny Dodge and Defensive Awareness (which stacks with Uncanny Dodge
 # Feat Name			Visible	Special ABility																													Define
-Uncanny Dodge		VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps				DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
-Defensive Awareness	VISIBLE:NO	SAB:Defensive Awareness (Dex bonus to AC)|UncannyDodge	SAB:Defensive Awareness (can't be flanked)|ImprovedUncannyDodge	SAB:Defensive Awareness (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
+Uncanny Dodge			CATEGORY:Special Ability	VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps				DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
+Defensive Awareness		CATEGORY:Special Ability	VISIBLE:NO	SAB:Defensive Awareness (Dex bonus to AC)|UncannyDodge	SAB:Defensive Awareness (can't be flanked)|ImprovedUncannyDodge	SAB:Defensive Awareness (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
