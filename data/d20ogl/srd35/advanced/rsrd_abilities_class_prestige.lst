@@ -2,6 +2,10 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
+#CLASS:Arcane Trickster
+Ranged Ledgerdemain		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain	DEFINE:RangedLedgermain|0
+Impromptu Sneak Attack		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak	DEFINE:ImpromptuSneak|0
+
 
 ###Block:Archmage High Arcana Class Abilities
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
@@ -27,6 +31,33 @@ Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIB
 Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 5									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 6									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
 Dragon Wings		CATEGORY:Special Ability	TYPE:Dragon Disciple.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
+
+Immune to Sleep		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Sleep	
+Immune to Paralysis	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Paralysis
+Immune to Acid		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Acid
+Immune to Electricity	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Electricity
+Immune to Fire		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Fire
+Immune to Cold		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Cold
+
+
+#CLASS:Dragon Disciple - Subclass -----------------------------
+DD~Line of Acid		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Line of Lightning	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Line of Fire		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Line of Lightning	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Line of Acid		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Gas		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Fire		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Cold		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+
+
+
+
+
+
+
+
+
 
 ###Block: Hierophant Abilities
 # Ability Name			Category of Ability		Type								Visible		Required AL		Required Class		Var. Must Be Lower	Special ABility				Define			Description				Stackable?	Multiple?	Choose							Bonus to Ability Pool			Caster level				Modify VAR								Source Page

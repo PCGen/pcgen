@@ -5,7 +5,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Ability Name		Category of Ability		Type						Visible	Required Feat	Special ABility																							Define											Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																																			Source Page
 Evasion			CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Evasion (Ex)|EvasionUsable																				DEFINE:EvasionUsable|0																																																	BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0			SOURCEPAGE:ClassesII.rtf
-Improved Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionFeatUsable																	DEFINE:ImprovedEvasionFeatUsable|0																																															BONUS:VAR|ImprovedEvasionFeatUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
+#Improved Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionFeatUsable																	DEFINE:ImprovedEvasionFeatUsable|0																																															BONUS:VAR|ImprovedEvasionFeatUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
 # Uncanny Dodge/Improved Uncanny Dodge are now Abilities
 #Uncanny Dodge			CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO					SAB:Uncanny Dodge (Dex bonus to AC)|var("COUNT[FEATNAME=Improved Uncanny Dodge.ALL]")-1																																																																																													SOURCEPAGE:ClassesII.rtf
 #Improved Uncanny Dodge		CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SAB:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																															BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																						SOURCEPAGE:ClassesII.rtf
@@ -144,7 +144,7 @@ A Thousand Faces		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:A T
 
 ###Block: Timeless Body For Druid and Monk (the actual benefits of this class feature are implemented with a template by the same name)
 # Ability Name	Category of Ability		Type						Visible	Special ABility		Source Page
-Timeless Body	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Timeless Body (Ex)	SOURCEPAGE:ClassesI.rtf
+#Timeless Body	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Timeless Body (Ex)	SOURCEPAGE:ClassesI.rtf
 
 #
 #	###########################
