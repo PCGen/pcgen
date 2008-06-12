@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Dec 16 12:00:20 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, Eddy Anthony
 #
@@ -6,27 +6,27 @@
 #
 
 ###Block: Master Category
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability
+# Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object
+ABILITYCATEGORY:Special Ability	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability
 
 ###Block: Bonus FEATs and subgroups
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-ABILITYCATEGORY:Fighter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Metamagic Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Metamagic				PLURAL:Metamagic Feats			DISPLAYLOCATION:Feats
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Fighter Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Fighter				PLURAL:Fighter Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wizard Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Metamagic Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Metamagic				PLURAL:Metamagic Feats		DISPLAYLOCATION:Feats
 
 ###Block: Special Ability and subgroups
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-ABILITYCATEGORY:Monk Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:MonkBonusFeat			PLURAL:Monk Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Rogue Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RogueAbilities			PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Ranger Combat Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:RangerCombatStyle			PLURAL:Ranger Combat Styles		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability		TYPE:FavoredEnemy				PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability		TYPE:FavoredEnemyBonus			PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Turn Undead			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:TurnUndead				PLURAL:Turn Undead			DISPLAYLOCATION:Class Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:Monk Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:MonkBonusFeat	PLURAL:Monk Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rogue Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:RogueAbilities	PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ranger Combat Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:RangerCombatStyle	PLURAL:Ranger Combat Styles		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability	TYPE:FavoredEnemy		PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability	TYPE:FavoredEnemyBonus	PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Turn Undead			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:TurnUndead		PLURAL:Turn Undead			DISPLAYLOCATION:Class Abilities
 
 ###Block: Stuff for monsters
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-ABILITYCATEGORY:Special Quality or Attack	VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:SpecialQuality.SpecialAttack	PLURAL:Special Qualities		DISPLAYLOCATION:Special Qualities and Attacks
+# Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Special Quality or Attack	VISIBLE:NO	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAttack	PLURAL:Special Qualities	DISPLAYLOCATION:Special Qualities and Attacks
 #ABILITYCATEGORY:Special Attack		VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:SpecialAttack			PLURAL:Special Attacks			DISPLAYLOCATION:Special Qualities and Attacks
 
 

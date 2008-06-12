@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -42,7 +42,7 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Conce
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Archmage	HD:4		TYPE:PC.Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat										Multiple Requirements																																										Required Skill						Req. Spell Type
+# Class Name	Multiple Requirements																																																								Required Skill						Req. Spell Type
 CLASS:Archmage	PREMULT:2,[PREFEAT:1,Skill Focus (Spellcraft)],[PREFEAT:2,CHECKMULT,Spell Focus]	PREMULT:5,[PRESPELLSCHOOL:1,Abjuration=5],[PRESPELLSCHOOL:1,Conjuration=5],[PRESPELLSCHOOL:1,Divination=5],[PRESPELLSCHOOL:1,Enchantment=5],[PRESPELLSCHOOL:1,Evocation=5],[PRESPELLSCHOOL:1,Illusion=5],[PRESPELLSCHOOL:1,Necromancy=5],[PRESPELLSCHOOL:1,Transmutation=5]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
@@ -87,11 +87,11 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 3	BONUS:VAR|TurnLevelBase|CL-2								ABILITY:Special Ability|AUTOMATIC|Rebuke Undead|Basic Turning
 3	BONUS:VAR|TurnDamagePlusBase|CL-2
 # Smite Good
-1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1												ABILITY:Special Ability|AUTOMATIC|Smite Good
+1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1	ABILITY:Special Ability|AUTOMATIC|Smite Good
 1	BONUS:VAR|SmiteGood|CL/5+1
 # Sneak Attack
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
-4	BONUS:VAR|SneakAttack|(CL-1)/3																		ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4	BONUS:VAR|SneakAttack|(CL-1)/3							ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Other Paladin related Abilities
 1	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0
 1	SAB:Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
@@ -117,7 +117,7 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus											Combat bonus
 CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	ABB:DrD		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Language		Prohibited Race		Required Skill				PRESPELLCAST								Prohibited Template
+# Class Name		Required Language		Prohibited Race		Required Skill				Required Casting Type							Prohibited Template
 CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=NO	PRESPELLCAST:TYPE.Arcane	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Escape Artist|Gather Information|TYPE.Knowledge|Listen|TYPE.Profession|Search|Speak Language|Spellcraft|Spot
@@ -162,34 +162,34 @@ SUBCLASSLEVEL:10	SAB:Immune to Fire
 SUBCLASS:Silver Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 SUBCLASSLEVEL:10	SAB:Immune to Cold
-1																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:VAR|BreathWeaponDC|10+CL+CON	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							DEFINE:BreathWeaponDC|0
-2																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1															BONUS:STAT|STR|2																	TEMPLATE:Dragon Disciple Attacks
-3																										BONUS:VAR|BreathWeaponDice|2																DEFINE:BreathWeaponDice|0
-4																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2
+1																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
+2																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|STR|2																							TEMPLATE:Dragon Disciple Attacks
+3																																								BONUS:VAR|BreathWeaponDice|2		DEFINE:BreathWeaponDice|0
+4																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2
 5	VISION:Blindsense (30')														BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1
-6																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1															BONUS:STAT|CON|2
-7																										BONUS:VAR|BreathWeaponDice|2		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-8																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1															BONUS:STAT|INT|2
+6																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|CON|2
+7																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDice|2
+8																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|INT|2
 9																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																										ABILITY:Special Ability|AUTOMATIC|Dragon Wings
-10	VISION:Blindsense (60')|Low-light|Darkvision (60')	SAB:Immune to Sleep	SAB:Immune to Paralysis									BONUS:VAR|BreathWeaponDice|2		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2
+10	VISION:Blindsense (60')|Low-light|Darkvision (60')	SAB:Immune to Sleep	SAB:Immune to Paralysis									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat					Required Skill
+# Class Name	Req. Att.	Required Feat					Multiple Requirements
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PREMULT:2,[PRESKILL:1,TYPE.Perform=3],[PRESKILL:1,Tumble=5]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE.Perform|Sense Motive|Spot|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	BONUS:VAR|CannyDefenseLVL|CL																					ABILITY:Special Ability|AUTOMATIC|Canny Defense
-2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2																		ABILITY:Special Ability|AUTOMATIC|Improved Reaction
-3																										ABILITY:Special Ability|AUTOMATIC|Enhanced Mobility
-4																										ABILITY:Special Ability|AUTOMATIC|Grace
-5	BONUS:VAR|PreciseStrike|CL/5																					ABILITY:Special Ability|AUTOMATIC|Precise Strike
-6																										ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
-7	BONUS:VAR|ElaborateParryLVL|CL																				ABILITY:Special Ability|AUTOMATIC|Elaborate Parry
-9									VFEAT:Deflect Arrows|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded|PREEQUIP:1,TYPE=Piercing
+1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Special Ability|AUTOMATIC|Canny Defense
+2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Special Ability|AUTOMATIC|Improved Reaction
+3									ABILITY:Special Ability|AUTOMATIC|Enhanced Mobility
+4									ABILITY:Special Ability|AUTOMATIC|Grace
+5	BONUS:VAR|PreciseStrike|CL/5				ABILITY:Special Ability|AUTOMATIC|Precise Strike
+6									ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
+7	BONUS:VAR|ElaborateParryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Elaborate Parry
+9																		VFEAT:Deflect Arrows|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded|PREEQUIP:1,TYPE=Piercing
 
 # Used DR:1/- in level line 6 to initialize Damage reduction, DR:0/- doesnt allow BONUS:DR to function
 # Not sure if I added the Dodge AC bonus correctly in level line 1
@@ -205,11 +205,11 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4			TEMPLATE:Uncanny Dodge
-4	BONUS:VAR|TrapSense|CL/4																				ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
-6	BONUS:VAR|DwarvenDefenderDRLVL|CL																			ABILITY:Special Ability|AUTOMATIC|Dwarven Defender DR
-8																									ABILITY:Special Ability|AUTOMATIC|Dwarven Defender Mobile Defense
+1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4																TEMPLATE:Uncanny Dodge
+4	BONUS:VAR|TrapSense|CL/4																ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
+6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ABILITY:Special Ability|AUTOMATIC|Dwarven Defender DR
+8																					ABILITY:Special Ability|AUTOMATIC|Dwarven Defender Mobile Defense
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Mar 11 16:46:24 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Masterwork
 
-# Modifier Name	Unique Key	Naming Format	Naming Option	Type							Cost		Visible		Type granted	Source Page				Required Type			Prohibited Type							BONUS:EQMARMOR					Modify the item cost									Weapon prop. bonus				Apply to both heads
+# Modifier Name	Unique Key	Naming Format	Naming Option	Type							Cost		Visible		Type granted	Source Page				Required Type			Prohibited Type							Bonus Armor Modifiers				Modify the item cost									Weapon prop. bonus				Apply to both heads
 Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Weapon,Ammunition	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
 Masterwork		KEY:MWORKA	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Armor,Shield		!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																				ASSIGNTOALL:YES
 Masterwork		KEY:MWORKI	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Instrument		!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood																											ASSIGNTOALL:YES
@@ -46,11 +46,11 @@ Bow_STR		KEY:BOWSTR	NAMEOPT:NONAME	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOU
 
 ###Block: Armor Accesories
 
-# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		BONUS:EQM			BONUS:EQMWEAPON			Special Property	Automaticaly Added to Inventory
-Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor										SPROP:Spiked	AUTO:EQUIP|Armor Spikes
-Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor	BONUS:EQM|WEIGHTADD|5	BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
-Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf									BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
-Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf					BONUS:EQM|WEIGHTADD|5						SPROP:Locked
+# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		Bonus Equipment Modifiers	Bonus Weapon Modifiers		Special Property	Automaticaly Added to Inventory
+Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor											SPROP:Spiked	AUTO:EQUIP|Armor Spikes
+Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor	BONUS:EQM|WEIGHTADD|5		BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf										BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf					BONUS:EQM|WEIGHTADD|5							SPROP:Locked
 Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
 
 ###Block: Thrown Ammunition workaround

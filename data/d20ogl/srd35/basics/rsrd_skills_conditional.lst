@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Tue Mar 25 21:48:43 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Conditional Skills for output only
-# Skill Name						Key Stat	Untrained?		Skill Penalty Apply	Classes	Type			Visible		Bonus to skill													Source Page
-Climb (Using a rope)					KEYSTAT:STR	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsI.rtf
-Concentration (Cast defensively)			KEYSTAT:CON	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsI.rtf
-Disguise (Act in character)				KEYSTAT:CHA	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsI.rtf
-Escape Artist (Escape from rope bonds)		KEYSTAT:DEX	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsI.rtf
-Search (Secret doors and hidden compartments)	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Search (Notice unusual stonework)			KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Spellcraft (Decipher spell on scroll)		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Survival (Underground)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Survival (The Planes)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Survival (Natural environments)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Survival (Lost/Natural hazards)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Survival (Find or follow tracks)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	ACHECK:DOUBLE		CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|8|PREMOVE:1,Swim=1|TYPE=Racial	SOURCEPAGE:SkillsII.rtf
-Use Magic Device (Scroll)				KEYSTAT:CHA	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
-Use Rope (Bind someone)					KEYSTAT:DEX	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																SOURCEPAGE:SkillsII.rtf
+# Skill Name						Key Stat	Untrained?		Skill Penalty Apply	Classes	Type			Visible		Source Page			Bonus to skill
+Climb (Using a rope)					KEYSTAT:STR	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsI.rtf
+Concentration (Cast defensively)			KEYSTAT:CON	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsI.rtf
+Disguise (Act in character)				KEYSTAT:CHA	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsI.rtf
+Escape Artist (Escape from rope bonds)		KEYSTAT:DEX	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsI.rtf
+Search (Secret doors and hidden compartments)	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Search (Notice unusual stonework)			KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Spellcraft (Decipher spell on scroll)		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Survival (Underground)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Survival (The Planes)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Survival (Natural environments)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Survival (Lost/Natural hazards)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Survival (Find or follow tracks)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	ACHECK:DOUBLE		CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|8|PREMOVE:1,Swim=1|TYPE=Racial
+Use Magic Device (Scroll)				KEYSTAT:CHA	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
+Use Rope (Bind someone)					KEYSTAT:DEX	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:SkillsII.rtf
 
 
 ###Block: Skill .MODs

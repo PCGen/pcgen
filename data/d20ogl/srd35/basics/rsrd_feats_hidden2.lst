@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 26 12:25:22 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -113,7 +113,7 @@ Greater Lore	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)		S
 True Lore		TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)		SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Loremaster Secrets
-# Feat Name				Type				Visible	Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose														Add										Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
+# Feat Name				Type				Visible	Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose														Add 										Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
 Instant Mastery			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,1		SAB:Secret (Instant Mastery %CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																																	BONUS:SKILLRANK|LIST|4	SOURCEPAGE:PrestigeClasses.rtf
 Secret Health			TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,2		SAB:Secret (Secret Health)																																											BONUS:HP|CURRENTMAX|3					SOURCEPAGE:PrestigeClasses.rtf
 Secrets of Inner Strength	TYPE:LoremasterSecret	VISIBLE:NO	PREVARGTEQ:SecretLore,3		SAB:Secret (Secrets of Inner Strength)																															BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:PrestigeClasses.rtf

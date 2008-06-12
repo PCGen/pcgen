@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr 24 21:13:15 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -172,20 +172,20 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Normal Progression
 1	CAST:3,1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|CompLevel|CL	ABILITY:Special Ability|AUTOMATIC|Nature Sense|Animal Companion|Wild Empathy|Spontaneous casting - Summon Nature's Ally
-2	CAST:4,2															ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-3	CAST:4,2,1															ABILITY:Special Ability|AUTOMATIC|Trackless Step
-4	CAST:5,3,2															ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
+2	CAST:4,2													ABILITY:Special Ability|AUTOMATIC|Woodland Stride
+3	CAST:4,2,1													ABILITY:Special Ability|AUTOMATIC|Trackless Step
+4	CAST:5,3,2													ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
 5	CAST:5,3,2,1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2
-9	CAST:6,4,4,3,2,1													ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+9	CAST:6,4,4,3,2,1												ABILITY:Special Ability|AUTOMATIC|Venom Immunity
 10	CAST:6,4,4,3,3,2
 11	CAST:6,5,4,4,3,2,1
 12	CAST:6,5,4,4,3,3,2
-13	CAST:6,5,5,4,4,3,2,1												ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
+13	CAST:6,5,5,4,4,3,2,1											ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1								TEMPLATE:Timeless Body	ABILITY:Special Ability|AUTOMATIC|Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1											ABILITY:Special Ability|AUTOMATIC|Timeless Body													TEMPLATE:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
@@ -244,9 +244,9 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Monk AC, Monk Movement, Flurry of Blows
-1	BONUS:VAR|MonkACLVL|CL																								ABILITY:Special Ability|AUTOMATIC|Monk AC
-1	BONUS:VAR|MonkMoveLVL|CL																							ABILITY:Special Ability|AUTOMATIC|Monk Movement
-1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			VFEAT:Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
+1	BONUS:VAR|MonkACLVL|CL														ABILITY:Special Ability|AUTOMATIC|Monk AC
+1	BONUS:VAR|MonkMoveLVL|CL													ABILITY:Special Ability|AUTOMATIC|Monk Movement
+1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	VFEAT:Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1
 1	BONUS:VAR|MonkBonusFeatLVL|CL								DEFINE:MonkBonusFeatLVL|0
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
 # Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites, The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
@@ -257,26 +257,26 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 #	different progression rates, some that stack with Monk.
 4	BONUS:VAR|KiStrikeLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ki Strike|Monk Ki Strike Advancement
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	BONUS:ABILITYPOOL|Monk Feat|1																			ABILITY:Special Ability|AUTOMATIC|Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:ABILITYPOOL|Monk Feat|1																			ABILITY:Special Ability|AUTOMATIC|Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																											ABILITY:Special Ability|AUTOMATIC|Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									BONUS:VAR|SlowFallLVL|CL														ABILITY:Special Ability|AUTOMATIC|Slow Fall
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																											ABILITY:Special Ability|AUTOMATIC|Purity of Body
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	BONUS:ABILITYPOOL|Monk Feat|1						ABILITY:Special Ability|AUTOMATIC|Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:ABILITYPOOL|Monk Feat|1						ABILITY:Special Ability|AUTOMATIC|Evasion
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6														ABILITY:Special Ability|AUTOMATIC|Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									BONUS:VAR|SlowFallLVL|CL	ABILITY:Special Ability|AUTOMATIC|Slow Fall
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6														ABILITY:Special Ability|AUTOMATIC|Purity of Body
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:ABILITYPOOL|Monk Feat|1
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									BONUS:VAR|WholenessBodyLVL|CL														ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6									BONUS:VAR|WholenessBodyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																											ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8														ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																											ABILITY:Special Ability|AUTOMATIC|Diamond Body
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																											ABILITY:Special Ability|AUTOMATIC|Abundant Step
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6									BONUS:VAR|DiamondSoulLVL|CL														ABILITY:Special Ability|AUTOMATIC|Diamond Soul
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8														ABILITY:Special Ability|AUTOMATIC|Diamond Body
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6														ABILITY:Special Ability|AUTOMATIC|Abundant Step
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6									BONUS:VAR|DiamondSoulLVL|CL	ABILITY:Special Ability|AUTOMATIC|Diamond Soul
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6									BONUS:VAR|QuiveringPalmLVL|CL														ABILITY:Special Ability|AUTOMATIC|Quivering Palm
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6									BONUS:VAR|QuiveringPalmLVL|CL	ABILITY:Special Ability|AUTOMATIC|Quivering Palm
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																							TEMPLATE:Timeless Body	ABILITY:Special Ability|AUTOMATIC|Timeless Body|Tongue of the Sun and Moon
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8														ABILITY:Special Ability|AUTOMATIC|Timeless Body|Tongue of the Sun and Moon	TEMPLATE:Timeless Body
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8									BONUS:VAR|EmptyBodyLVL|CL														ABILITY:Special Ability|AUTOMATIC|Empty Body
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																										ABILITY:Special Ability|AUTOMATIC|Perfect Self
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8									BONUS:VAR|EmptyBodyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Empty Body
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8													ABILITY:Special Ability|AUTOMATIC|Perfect Self
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page				Save checks bonus											Combat bonus
@@ -366,9 +366,9 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Deci
 1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
-1											BONUS:VAR|RogueSneakAttackLVL|CL																						ABILITY:Special Ability|AUTOMATIC|Trapfinding|Sneak Attack|Rogue Sneak Attack
-2																																						ABILITY:Special Ability|AUTOMATIC|Evasion
-3											BONUS:VAR|RogueTrapSenseLVL|CL																						ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability|Rogue Trap Sense
+1											BONUS:VAR|RogueSneakAttackLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trapfinding|Sneak Attack|Rogue Sneak Attack
+2																												ABILITY:Special Ability|AUTOMATIC|Evasion
+3											BONUS:VAR|RogueTrapSenseLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability|Rogue Trap Sense
 4											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 10	BONUS:ABILITYPOOL|Rogue Special Ability|min(4,(CL-7)/3)
 #10												ADD:FEAT|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
