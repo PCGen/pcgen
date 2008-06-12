@@ -451,9 +451,9 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 
 	public Collection<T> getAllConstructedCDOMObjects()
 	{
-		Set<T> set = new HashSet<T>();
-		set.addAll(active.values());
-		return set;
+		List<T> list = new ArrayList<T>(active.size());
+		list.addAll(active.values());
+		return list;
 	}
 
 	public void fillReferences()
