@@ -21,6 +21,7 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -37,6 +38,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
+import pcgen.core.SubClass;
 
 public abstract class AbstractReferenceContext
 {
@@ -255,18 +257,23 @@ public abstract class AbstractReferenceContext
 			// TODO Need to limit which are built to only spellcasters...
 			constructCDOMObject(CLASSSPELLLIST_CLASS, key);
 			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, key);
-			// Collection<CDOMSubClass> subclasses = categorized
-			// .getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
-			// .getConstant(key));
-			// for (CDOMSubClass subcl : subclasses)
-			// {
-			// String subKey = subcl.getKeyName();
-			// simple.constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
-			// // TODO Need to limit which are built to only
-			// // spellcasters...
-			// simple.constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
-			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
-			// }
+//			Collection<CDOMSubClass> subclasses = categorized
+//					.getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
+//							.getConstant(key));
+//			for (CDOMSubClass subcl : subclasses)
+			List<SubClass> subc = pcc.getSubClassList();
+			if (subc != null)
+			{
+				for (SubClass subcl : subc)
+				{
+					String subKey = subcl.getKeyName();
+					constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
+					// TODO Need to limit which are built to only
+					// spellcasters...
+					constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
+					//constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
+				}
+			}
 		}
 	}
 
