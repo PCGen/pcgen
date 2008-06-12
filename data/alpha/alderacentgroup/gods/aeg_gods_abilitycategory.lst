@@ -2,4 +2,9 @@
 
 ###Block: Bonus Ability Category
 # Ability Category					Visible				Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object				Type of Object				Plural description for UI			Display where?
-ABILITYCATEGORY:KSKnownSpellBonus	VISIBLE:YES			EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	POOL:KSKnownSpellBonus									TYPE:KSBonusKnownSpell		PLURAL:KofS Bonus Known Spells		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:KSKnownSpellBonus			VISIBLE:YES			EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	POOL:KSKnownSpellBonus									TYPE:KSBonusKnownSpell		PLURAL:KofS Bonus Known Spells		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Hunter Feat				VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO				CATEGORY:FEAT						TYPE:Hunter		PLURAL:Hunter Feats		DISPLAYLOCATION:FEATS
+ABILITYCATEGORY:Spider Warrior Feat			VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO				CATEGORY:FEAT						TYPE:SpiderWarrior		PLURAL:Spider Warrior Feats		DISPLAYLOCATION:FEATS
+ABILITYCATEGORY:The Broken Feat			VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO				CATEGORY:FEAT						TYPE:Metamagic	PLURAL:The Broken Feats		DISPLAYLOCATION:FEATS
+

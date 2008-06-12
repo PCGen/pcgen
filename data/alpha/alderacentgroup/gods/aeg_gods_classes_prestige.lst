@@ -14,8 +14,8 @@ CLASS:Medicine Man	PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:3,Great Fortitude,Toughnes
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Perform|Ride|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 ###Block: Weapon, Armor, and Shield Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Rage variables
 1	BONUS:VAR|BarbRageTimesLVL|CL				DEFINE:BarbRageTimesLVL|0
 1	BONUS:VAR|BarbRagePowerLVL|CL				DEFINE:BarbRagePowerLVL|0
@@ -43,20 +43,20 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Hunter	HD:8		TYPE:PC.Prestige	ABB:Hntr		MAXLEVEL:10	SOURCEPAGE:pg.16	BONUS:CHECKS|Fortitude,Will|(CL/3)	BONUS:CHECKS|Reflex|(CL/2+1)	BONUS:COMBAT|BAB|(CL-1)/4+(CL-1)
 # Class Name	Required Feat					Required Skill								Required Text
-CLASS:Hunter	PREFEAT:2,Track,Weapon Focus(TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently,Spot=6,Wilderness Lore=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
+CLASS:Hunter	PREFEAT:2,Track,Weapon Focus(TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently=6,Spot=6,Wilderness Lore=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Use Rope|Wilderness Lore
 ###Block: Class Features
-1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
-1:REPEATLEVEL:3																	ADD:ABILITY|1|FEAT|AUTOMATIC|Point Blank Shot,Far Shot,Precise Shot,Shot on the Run
-2	BONUS:VAR|CrackShotMult|1				AUTO:FEAT|Crack Shot
-3	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1	AUTO:FEAT|Vital Shot
+1:REPEATLEVEL:3												BONUS:ABILITYPOOL|Hunter Feat|1				
+2	BONUS:VAR|CrackShotMult|1				ABILITY:Special Ability|AUTOMATIC|Crack Shot
+3	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1	ABILITY:Special Ability|AUTOMATIC|Vital Shot
 5	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
 6	BONUS:VAR|CrackShotMult|1
 7	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-8									AUTO:FEAT|Arrow of Death
+8									ABILITY:Special Ability|AUTOMATIC|Arrow of Death
 9	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
 10	BONUS:VAR|CrackShotMult|1
 
@@ -69,20 +69,20 @@ CLASS:Slaver	PREALIGN:LE,NE,CE	PREATT:3	PREFEAT:1,Skill Focus(Intimidate)	PRESKI
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slaver	STARTSKILLPTS:2	CSKILL:Animal Empathy|Bluff|Handle Animal|Intimidate|Sense Motive|Spot
 ###Block: Class Features
-1	AUTO:FEAT|Simple Weapon Proficiency|Slaver Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Slaver Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
-1																	AUTO:FEAT|Break Slave|Terrifying Visage
-2																	AUTO:FEAT|Slaver Command
+1																	ABILITY:Special Ability|AUTOMATIC|Break Slave|Terrifying Visage
+2																	ABILITY:Special Ability|AUTOMATIC|Slaver Command
 2:REPEATLEVEL:2																	BONUS:VAR|SlaverCommandTimes|1
-3											VFEAT:Weapon Focus(Whip)		AUTO:FEAT|Master of the Whip
-4																	AUTO:FEAT|Dominator
-5											VFEAT:Weapon Specialization(Whip)	AUTO:FEAT|Touch of the Lash
-6																	AUTO:FEAT|Aura of Weakness
-7																	AUTO:FEAT|Slave Trader
+3											VFEAT:Weapon Focus(Whip)		ABILITY:Special Ability|AUTOMATIC|Master of the Whip
+4																	ABILITY:Special Ability|AUTOMATIC|Dominator
+5											VFEAT:Weapon Specialization(Whip)	ABILITY:Special Ability|AUTOMATIC|Touch of the Lash
+6																	ABILITY:Special Ability|AUTOMATIC|Aura of Weakness
+7																	ABILITY:Special Ability|AUTOMATIC|Slave Trader
 8					BONUS:VAR|AuraofWeaknessRange|30
-9	SAB:Frightful Presence
-10																	AUTO:FEAT|Master of Wills
+9																	ABILITY:Special Ability|AUTOMATIC|Frightful Presence	
+10																	ABILITY:Special Ability|AUTOMATIC|Master of Wills
 
 #
 # Dark Elf Prestige Classes (QC'd)
@@ -98,16 +98,16 @@ CLASS:Poison Master	PREALIGN:LE,NE,CE	PREFEAT:1,Brew Potion	PRESKILL:2,Alchemy=6
 CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge (Nature)|Spellcraft|Use Magic Device
 ###Block: Class Features
 ###Block: Normal Progression
-1														AUTO:FEAT|Poison Use|Brew Poison
-2														AUTO:FEAT|Delay Poison
-3														AUTO:FEAT|Immunity to Poison
+1														ABILITY:Special Ability|AUTOMATIC|Poison Use|Brew Poison
+2														ABILITY:Special Ability|AUTOMATIC|Delay Poison
+3														ABILITY:Special Ability|AUTOMATIC|Immunity to Poison
 4	ABILITY:FEAT|AUTOMATIC|Poisoned Flesh|PRECLASSLEVELMAX:1,Poison Master=6
-5														AUTO:FEAT|Identify Potion
-6														AUTO:FEAT|Acid Flesh
-7														AUTO:FEAT|Improved Poisoned Flesh
-8														AUTO:FEAT|Poison Adaptation
-9														AUTO:FEAT|Death Draught
-10														AUTO:FEAT|Breath of Poison
+5														ABILITY:Special Ability|AUTOMATIC|Identify Potion
+6														ABILITY:Special Ability|AUTOMATIC|Acid Flesh
+7														ABILITY:Special Ability|AUTOMATIC|Improved Poisoned Flesh
+8														ABILITY:Special Ability|AUTOMATIC|Poison Adaptation
+9														ABILITY:Special Ability|AUTOMATIC|Death Draught
+10														ABILITY:Special Ability|AUTOMATIC|Breath of Poison
 
 #Class: Spider Warrior (Complete)
 
@@ -118,17 +118,17 @@ CLASS:Spider Warrior	PREATT:6	PRERACE:1,Elf (Drow)	PRESKILL:2,Animal Empathy=6,R
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Handle Animal|Hide|Jump|Move Silently|Ride
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Progression
-1:REPEATLEVEL:2											ADD:FEAT|Alertness,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run
-2							AUTO:FEAT|Spider Mount
-3							AUTO:FEAT|Immunity to Webs
-4	BONUS:VAR|SummonSpidersTimes|1	AUTO:FEAT|Summon Spiders
-6							AUTO:FEAT|Immunity to Poison
+1:REPEATLEVEL:2						BONUS:ABILITYPOOL|Spider Warrior Feat|1
+2							ABILITY:Special Ability|AUTOMATIC|Spider Mount
+3							ABILITY:Special Ability|AUTOMATIC|Immunity to Webs
+4	BONUS:VAR|SummonSpidersTimes|1	ABILITY:Special Ability|AUTOMATIC|Summon Spiders
+6							ABILITY:Special Ability|AUTOMATIC|Immunity to Poison
 7	BONUS:VAR|SummonSpidersTimes|1
-8							AUTO:FEAT|Spider Climb
-10	BONUS:VAR|SummonSpidersTimes|1	AUTO:FEAT|Spider Shape
+8							ABILITY:Special Ability|AUTOMATIC|Spider Climb
+10	BONUS:VAR|SummonSpidersTimes|1	ABILITY:Special Ability|AUTOMATIC|Spider Shape
 
 #
 # Giant Prestige Classes (QC'd)
@@ -143,14 +143,14 @@ CLASS:Karhollan Guard	PREFEAT:3,Cleave,Great Cleave,Power Attack	PRERACE:1,Giant
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|Swim|Wilderness Lore
 ###Block: Class Features
-1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:VAR|PersonalPresenceBonus|1							AUTO:FEAT|Personal Presence
-2	BONUS:VAR|RangedCombatDefense|1							AUTO:FEAT|Ranged Combat Defense
-3	BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|PrayerCircleRadius|10	AUTO:FEAT|Prayer Circle
+1	BONUS:VAR|PersonalPresenceBonus|1							ABILITY:Special Ability|AUTOMATIC|Personal Presence
+2	BONUS:VAR|RangedCombatDefense|1							ABILITY:Special Ability|AUTOMATIC|Ranged Combat Defense
+3	BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|PrayerCircleRadius|10	ABILITY:Special Ability|AUTOMATIC|Prayer Circle
 4	BONUS:VAR|RangedCombatDefense|1
-5	BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|FlameStrikeCasterLevel|12	AUTO:FEAT|Flame Strike
+5	BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|FlameStrikeCasterLevel|12	ABILITY:Special Ability|AUTOMATIC|Flame Strike
 6	BONUS:VAR|RangedCombatDefense|1	BONUS:VAR|PrayerCircleRadius|10
 7	BONUS:VAR|PersonalPresenceBonus|1
 8	BONUS:VAR|RangedCombatDefense|1
@@ -171,16 +171,16 @@ CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREATT:4	!PRECHECK:1,Will=6	
 CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Listen|Spellcraft|Swim
 ###Block: Class Features
 ###Block: Normal Progression
-1													AUTO:FEAT|Demons Heart|Demons Mark
-2	BONUS:VAR|UGBonus|2						VFEAT:Leadership	AUTO:FEAT|Unholy Glory
-3	BONUS:VAR|FMLevel|CL									AUTO:FEAT|Summon Familiar
-4													AUTO:FEAT|Forbidden Lore
+1													ABILITY:Special Ability|AUTOMATIC|Demons Heart|Demons Mark
+2	BONUS:VAR|UGBonus|2						VFEAT:Leadership	ABILITY:Special Ability|AUTOMATIC|Unholy Glory
+3	BONUS:VAR|FMLevel|CL									ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+4													ABILITY:Special Ability|AUTOMATIC|Forbidden Lore
 5	BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
-6													AUTO:FEAT|Surrender the Soul
-7													AUTO:FEAT|Sense Outsider
+6													ABILITY:Special Ability|AUTOMATIC|Surrender the Soul
+7													ABILITY:Special Ability|AUTOMATIC|Sense Outsider
 8	BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
-9													AUTO:FEAT|Demon in Form
-10													AUTO:FEAT|Demon in Fact
+9													ABILITY:Special Ability|AUTOMATIC|Demon in Form
+10													ABILITY:Special Ability|AUTOMATIC|Demon in Fact
 
 #
 # Goblin Prestige Classes (QC'd)
@@ -197,16 +197,16 @@ CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|K
 ###Block: Class Features
 1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
 ###Block: Normal Progression
-1						ADD:SPELLCASTER|Divine	VFEAT:Leadership	AUTO:FEAT|Strength of Purpose
-2						ADD:SPELLCASTER|Divine				AUTO:FEAT|Divine Wrath
-3	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				AUTO:FEAT|Leadership
-4						ADD:SPELLCASTER|Divine				AUTO:FEAT|Enlightened Madness
+1						ADD:SPELLCASTER|Divine	VFEAT:Leadership	ABILITY:Special Ability|AUTOMATIC|Strength of Purpose
+2						ADD:SPELLCASTER|Divine				ABILITY:Special Ability|AUTOMATIC|Divine Wrath
+3	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				ABILITY:Special Ability|AUTOMATIC|Leadership
+4						ADD:SPELLCASTER|Divine				ABILITY:Special Ability|AUTOMATIC|Enlightened Madness
 5						ADD:SPELLCASTER|Divine
-6	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				AUTO:FEAT|Scorn the Heretic
-7						ADD:SPELLCASTER|Divine				AUTO:FEAT|Divine Grace
-8						ADD:SPELLCASTER|Divine				AUTO:FEAT|Departure
+6	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				ABILITY:Special Ability|AUTOMATIC|Scorn the Heretic
+7						ADD:SPELLCASTER|Divine				ABILITY:Special Ability|AUTOMATIC|Divine Grace
+8						ADD:SPELLCASTER|Divine				ABILITY:Special Ability|AUTOMATIC|Departure
 9	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine
-10						ADD:SPELLCASTER|Divine				AUTO:FEAT|Exemplar Revealed
+10						ADD:SPELLCASTER|Divine				ABILITY:Special Ability|AUTOMATIC|Exemplar Revealed
 
 #Class:Ex-Exemplar (Complete)
 
@@ -258,7 +258,7 @@ CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Hum
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies|PRERACE:1,RACETYPE=Humanoid
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|PRERACE:1,RACETYPE=Humanoid
 ###Block: Humanoid Hunter Class Features
-1:REPEATLEVEL:2		ADD:FEAT|TYPE=Fighter
+1:REPEATLEVEL:2				BONUS:ABILITYPOOL|Fighter Feat|1
 ###Block: Favored Enemy
 1:REPEATLEVEL:1		ADD:ABILITY|1|Special Ability|AUTOMATIC|HHFavored Enemy
 ###Block: Normal Progression
@@ -284,14 +284,14 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 #1:REPEATLEVEL:1	BONUS:STAT|WIS|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
 ###Block: Normal Progression
-1						AUTO:FEAT|The Wasting|No Pain
-2:REPEATLEVEL:2|MAX=8	ADD:FEAT|TYPE=Metamagic
-3						AUTO:FEAT|Unnatural Drives
-5	BONUS:VAR|KnowPainTimes|1	AUTO:FEAT|Know Pain
-7						AUTO:FEAT|Divine Malice
+1						ABILITY:Special Ability|AUTOMATIC|The Wasting|No Pain
+2:REPEATLEVEL:2|MAX=8	BONUS:ABILITYPOOL|The Broken Feat|1
+3						ABILITY:Special Ability|AUTOMATIC|Unnatural Drives
+5	BONUS:VAR|KnowPainTimes|1	ABILITY:Special Ability|AUTOMATIC|Know Pain
+7						ABILITY:Special Ability|AUTOMATIC|Divine Malice
 8	BONUS:VAR|KnowPainTimes|1
-9						AUTO:FEAT|Beyond Flesh
-10						AUTO:FEAT|Beyond Pain
+9						ABILITY:Special Ability|AUTOMATIC|Beyond Flesh
+10						ABILITY:Special Ability|AUTOMATIC|Beyond Pain
 
 #
 # Lizardfolk Prestige Classes
@@ -308,16 +308,16 @@ CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft
 ###Block: Weapon and Armor Proficiencies
 1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
 ###Block: Normal Progression
-1	BONUS:VAR|LizardfolkAllyBonus|1							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Entangle,12+CHA						AUTO:FEAT|Water Breathing|Lizardfolk Ally
-2	BONUS:VAR|IncreasedAgilityBonus|1																					AUTO:FEAT|Increased Agility
+1	BONUS:VAR|LizardfolkAllyBonus|1							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Entangle,12+CHA						ABILITY:Special Ability|AUTOMATIC|Water Breathing|Lizardfolk Ally
+2	BONUS:VAR|IncreasedAgilityBonus|1																					ABILITY:Special Ability|AUTOMATIC|Increased Agility
 3													SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally II,12+CHA|PREVARLT:CL,5
-4	BONUS:VAR|LizardfolkAllyBonus|1	BONUS:VAR|IncreasedAgilityBonus|1															AUTO:FEAT|Woodlands Stride
+4	BONUS:VAR|LizardfolkAllyBonus|1	BONUS:VAR|IncreasedAgilityBonus|1															ABILITY:Special Ability|AUTOMATIC|Woodlands Stride
 5													SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally III,13+CHA|PREVARLT:CL,9
-6	BONUS:VAR|IncreasedAgilityBonus|1																					AUTO:FEAT|AEG Trackless Step
+6	BONUS:VAR|IncreasedAgilityBonus|1																					ABILITY:Special Ability|AUTOMATIC|AEG Trackless Step
 7	BONUS:VAR|LizardfolkAllyBonus|1
-8	BONUS:VAR|IncreasedAgilityBonus|1																					AUTO:FEAT|Power of the Swamp
+8	BONUS:VAR|IncreasedAgilityBonus|1																					ABILITY:Special Ability|AUTOMATIC|Power of the Swamp
 9													SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally IV,14+CHA
-10	BONUS:VAR|LizardfolkAllyBonus|1																					AUTO:FEAT|Power of Istos
+10	BONUS:VAR|LizardfolkAllyBonus|1																					ABILITY:Special Ability|AUTOMATIC|Power of Istos
 
 #
 # Ogre Prestige Classes
@@ -333,15 +333,15 @@ CLASS:Black Nail	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:4,Cleave,Improved Initiative
 CLASS:Black Nail	STARTSKILLPTS:2	CSKILL:Balance|Climb|Intimidate|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Search|Sense Motive|Spot
 ###Block: Class Features
 ###Block: Weapon and Shield Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Thick Hide|
-2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor
-3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Battle Cry|Formation Fighting
-4	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	ADD:FEAT|TYPE=Fighter
-5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Great Leadership
+1	BONUS:VAR|BlackNailAC|CL				ABILITY:Special Ability|AUTOMATIC|Thick Hide
+2	
+3						ABILITY:Special Ability|AUTOMATIC|Battle Cry|Formation Fighting
+4		BONUS:ABILITYPOOL|Fighter Feat|1
+5						ABILITY:Special Ability|AUTOMATIC|Great Leadership
 
 #Class:Chaos Crusader
 
@@ -352,23 +352,23 @@ CLASS:Chaos Crusader	PREALIGN:LE,CE	PREATT:6	PREFEAT:3,TYPE=Metamagic	PRERACE:1,
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Listen|Gather Information|Scry|Sense Motive|Spellcraft|Search|Spot
 ###Block: Weapon and Shield Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency
 1																WEAPONBONUS:TYPE.Exotic
 ###Block: Class Features
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block: Normal Progression
-1												AUTO:FEAT|Leadership
+1												VFEAT:Leadership
 2
 3	DR:1/-
-4												AUTO:FEAT|Voice of Thunder
-5												AUTO:FEAT|Hand of God
+4												ABILITY:Special Ability|AUTOMATIC|Voice of Thunder
+5												ABILITY:Special Ability|AUTOMATIC|Hand of God
 6
-7									BONUS:DR|-|1	AUTO:FEAT|Gathering Horde
+7									BONUS:DR|-|1	ABILITY:Special Ability|AUTOMATIC|Gathering Horde
 8			BONUS:VAR|VoiceofThunderTimes|1
 9									BONUS:DR|-|1
-10												AUTO:FEAT|Dispel Good
+10												ABILITY:Special Ability|AUTOMATIC|Dispel Good
 
 #
 # Orc Prestige Classes
@@ -385,15 +385,15 @@ CLASS:Keeper of Secrets	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|
 ###Block: Class Features
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block: Normal Progression
-1								AUTO:FEAT|Shadow Walker
-2	BONUS:ABILITYPOOL|KSKnownSpellBonus|3	AUTO:FEAT|Lore of Sathus
-3								AUTO:FEAT|Envoy of Sathus
-4	BONUS:ABILITYPOOL|KSKnownSpellBonus|3	AUTO:FEAT|Lore of Sathus
-5								AUTO:FEAT|Arcane Seeker
+1								ABILITY:Special Ability|AUTOMATIC|Shadow Walker
+2	BONUS:ABILITYPOOL|KSKnownSpellBonus|3	ABILITY:Special Ability|AUTOMATIC|Lore of Sathus
+3								ABILITY:Special Ability|AUTOMATIC|Envoy of Sathus
+4	BONUS:ABILITYPOOL|KSKnownSpellBonus|3	ABILITY:Special Ability|AUTOMATIC|Lore of Sathus
+5								ABILITY:Special Ability|AUTOMATIC|Arcane Seeker
 6	BONUS:ABILITYPOOL|KSKnownSpellBonus|3
-7								AUTO:FEAT|Mind Delver
+7								ABILITY:Special Ability|AUTOMATIC|Mind Delver
 8	BONUS:ABILITYPOOL|KSKnownSpellBonus|3
-9								AUTO:FEAT|Shadow Double
+9								ABILITY:Special Ability|AUTOMATIC|Shadow Double
 10	BONUS:ABILITYPOOL|KSKnownSpellBonus|2
 
 #Class:Underworld Druid of Thovis
@@ -407,16 +407,16 @@ CLASS:Underworld Druid of Thovis	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentra
 ###Block: Class Features
 1:REPEATLEVEL:1		ADD:SPELLCASTER|Druid
 ## Need to add Wild Shape effects from Underworld Forms Ability
-3	BONUS:VAR|DruidWildShape|CL+2																																																														DEFINE:DruidWildShape|0	AUTO:FEAT|Wild Shape
+3	BONUS:VAR|DruidWildShape|CL+2																																																														DEFINE:DruidWildShape|0	ABILITY:Special Ability|AUTOMATIC|Wild Shape
 3	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|2|PREVARGTEQ:DruidWildShape,18
 3	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18
 3	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
 ###Block: Normal Progression
-1				AUTO:FEAT|Underworld Denizen
-2	DOMAIN:Earth|Fire	AUTO:FEAT|Blessing of Thovis
-3				AUTO:FEAT|Underworld Forms
-4				AUTO:FEAT|Underworld Crusader
-5				AUTO:FEAT|Chosen of Thovis
+1				ABILITY:Special Ability|AUTOMATIC|Underworld Denizen
+2	DOMAIN:Earth|Fire	ABILITY:Special Ability|AUTOMATIC|Blessing of Thovis
+3				ABILITY:Special Ability|AUTOMATIC|Underworld Forms
+4				ABILITY:Special Ability|AUTOMATIC|Underworld Crusader
+5				ABILITY:Special Ability|AUTOMATIC|Chosen of Thovis
 
 #Class:Whip of Urog
 
@@ -427,19 +427,19 @@ CLASS:Whip of Urog	PREATT:4	PREDOMAIN:1,Fury	PREFEAT:1,Toughness	PRESKILL:1,Inti
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Whip of Urog	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Perform|Ride|Swim
 ###Block: Weapon, Armor, and Shield Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency
 ###Block: Class Features, Normal Progression
-1	AUTO:FEAT|Channel Urogs Might
-2	AUTO:FEAT|Urogs Toughness
-3	AUTO:FEAT|Urogs Strength
+1	ABILITY:Special Ability|AUTOMATIC|Channel Urogs Might
+2	ABILITY:Special Ability|AUTOMATIC|Urogs Toughness
+3	ABILITY:Special Ability|AUTOMATIC|Urogs Strength
 4
-5	AUTO:FEAT|Urogs Aura
-6	AUTO:FEAT|Call of Urog
+5	ABILITY:Special Ability|AUTOMATIC|Urogs Aura
+6	ABILITY:Special Ability|AUTOMATIC|Call of Urog
 7
-8	AUTO:FEAT|Urogs Battle Cry
-9	AUTO:FEAT|Urogs Endurance
+8	ABILITY:Special Ability|AUTOMATIC|Urogs Battle Cry
+9	ABILITY:Special Ability|AUTOMATIC|Urogs Endurance
 10
 
 #
@@ -457,22 +457,22 @@ CLASS:Dryad Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYP
 # Class Name		Spell Stat
 CLASS:Dryad Ranger	SPELLSTAT:WIS
 ###Block: Weapon, Armor, and Shield Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Class Features
 1	BONUS:COMBAT|TOHIT-SECONDARY|4|PREMULT:2,[!PREARMORTYPE:1,TYPE.Medium],[!PREARMORTYPE:1,TYPE.Heavy]	BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2|TYPE=NotRanged|PREMULT:2,[!PREARMORTYPE:1,TYPE.Medium],[!PREARMORTYPE:1,TYPE.Heavy]
 1
 ###Block: Normal Progression
 1						VFEAT:Track
 2
-3												AUTO:FEAT|Evasion
-4												AUTO:FEAT|Uncanny Dodge
-5												AUTO:FEAT|Woodlands Stride
-6												AUTO:FEAT|AEG Trackless Step
+3												ABILITY:Special Ability|AUTOMATIC|Evasion
+4												ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+5												ABILITY:Special Ability|AUTOMATIC|Woodlands Stride
+6												ABILITY:Special Ability|AUTOMATIC|AEG Trackless Step
 7	BONUS:VAR|UncannyDodge|1
 8						VFEAT:Improved Two-Weapon Fighting
-9												AUTO:FEAT|Improved Evasion
-10												AUTO:FEAT|Freedom
+9												ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+10												ABILITY:Special Ability|AUTOMATIC|Freedom
 
 #
 # Troll Prestige Classes
@@ -488,13 +488,13 @@ CLASS:Vendaks Chosen	PREDOMAIN:1,Troll Ancestry	PRERACE:1,Troll%	PRESPELLTYPE:1,
 CLASS:Vendaks Chosen	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|Listen|Swim
 ###Block: Class Features
 ###Block: Normal Progression
-1	BONUS:VAR|AncestralKnowledge|2									AUTO:FEAT|Ancestral Knowledge
-2											ADD:FEAT|TYPE=Fighter	AUTO:FEAT|Blessing of Vendak
-3															AUTO:FEAT|Improved Regeneration
-4	BONUS:VAR|AncestralKnowledge|2									AUTO:FEAT|Song of Vendak
-5	BONUS:VAR|GrowthBonus|1							ADD:FEAT|TYPE=Fighter	AUTO:FEAT|Growth
-6															AUTO:FEAT|Bounty of Vendak
-7	BONUS:VAR|AncestralKnowledge|2					ADD:FEAT|TYPE=Fighter
-8															AUTO:FEAT|Greater Regeneration
-9															AUTO:FEAT|Voice of Vendak
+1	BONUS:VAR|AncestralKnowledge|2											ABILITY:Special Ability|AUTOMATIC|Ancestral Knowledge
+2											BONUS:ABILITYPOOL|Fighter Feat|1	ABILITY:Special Ability|AUTOMATIC|Blessing of Vendak
+3																	ABILITY:Special Ability|AUTOMATIC|Improved Regeneration
+4	BONUS:VAR|AncestralKnowledge|2											ABILITY:Special Ability|AUTOMATIC|Song of Vendak
+5	BONUS:VAR|GrowthBonus|1							BONUS:ABILITYPOOL|Fighter Feat|1	ABILITY:Special Ability|AUTOMATIC|Growth
+6																	ABILITY:Special Ability|AUTOMATIC|Bounty of Vendak
+7	BONUS:VAR|AncestralKnowledge|2					BONUS:ABILITYPOOL|Fighter Feat|1
+8																	ABILITY:Special Ability|AUTOMATIC|Greater Regeneration
+9																	ABILITY:Special Ability|AUTOMATIC|Voice of Vendak
 10	BONUS:VAR|AncestralKnowledge|2	BONUS:VAR|GrowthBonus|1
