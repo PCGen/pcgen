@@ -4871,7 +4871,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				clearRacials = false;
 				continue;
 			}
-			autoLangs.addAll(pObj.getSafeListFor(ListKey.AUTO_LANGUAGES));
+			for (CDOMReference<Language> ref : pObj
+					.getSafeListFor(ListKey.AUTO_LANGUAGES))
+			{
+				autoLangs.addAll(ref.getContainedObjects());
+			}
 		}
 
 		languages.addAll(autoLangs);
@@ -5585,7 +5589,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (eqm.getOutputName().indexOf("Head 1 only") < 0)
 				{
-					eqm.setOutputName(EquipmentUtilities.appendToName(eqm
+					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm
 						.getOutputName(), "Head 1 only"));
 				}
 
@@ -5622,7 +5626,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (eqm.getOutputName().indexOf("Head 2 only") < 0)
 				{
-					eqm.setOutputName(EquipmentUtilities.appendToName(eqm
+					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm
 						.getOutputName(), "Head 2 only"));
 				}
 
@@ -5699,7 +5703,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (eqm.getOutputName().indexOf("Thrown") < 0)
 				{
-					eqm.setOutputName(EquipmentUtilities.appendToName(eqm
+					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm
 						.getOutputName(), "Thrown"));
 				}
 
@@ -8311,8 +8315,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		calcActiveBonuses();
 
-		templateAutoLanguages.addAll(inTmpl
-			.getSafeListFor(ListKey.AUTO_LANGUAGES));
+		for (CDOMReference<Language> ref : inTmpl
+				.getSafeListFor(ListKey.AUTO_LANGUAGES))
+		{
+			templateAutoLanguages.addAll(ref.getContainedObjects());
+		}
 		addStartingLanguages(inTmpl, templateLanguages);
 		getAutoLanguages();
 		addNaturalWeapons(inTmpl.getNaturalWeapons());
@@ -14041,8 +14048,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// first time
 				if (numberOfLevels > 0)
 				{
-					languages.addAll(pcClassClone
-						.getSafeListFor(ListKey.AUTO_LANGUAGES));
+					for (CDOMReference<Language> ref : pcClassClone
+							.getSafeListFor(ListKey.AUTO_LANGUAGES))
+					{
+						languages.addAll(ref.getContainedObjects());
+					}
 				}
 			}
 			else

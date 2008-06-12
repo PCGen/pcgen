@@ -61,7 +61,6 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.EmptyIterator;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.core.utils.MapKey;
@@ -135,11 +134,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //	private List<SpellLikeAbility> spellLikeAbilities = null;
 	
 	private VariableList variableList = null;
-
-	/** description is Product Identity */
-	private boolean descIsPI = false;
-	/** name is Product Identity */
-	private boolean nameIsPI = false;
 
 	private boolean isNewItem = true;
 
@@ -378,24 +372,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set whether the description of this object is Product Identity
-	 * @param a
-	 */
-	public final void setDescIsPI(final boolean a)
-	{
-		descIsPI = a;
-	}
-
-	/**
-	 * True if the description of this object is Product Identity
-	 * @return if the description of this object is Product Identity
-	 */
-	public final boolean getDescIsPI()
-	{
-		return descIsPI;
-	}
-
-	/**
 	 * Set the description of this object
 	 * @param a
 	 */
@@ -547,24 +523,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public final List<LevelAbility> getLevelAbilityList()
 	{
 		return levelAbilityList;
-	}
-
-	/**
-	 * Set whether the name of this object is Product Identity
-	 * @param a
-	 */
-	public final void setNameIsPI(final boolean a)
-	{
-		nameIsPI = a;
-	}
-
-	/**
-	 * True if the name of this object is Product Identity
-	 * @return True if the name of this object is Product Identity
-	 */
-	public final boolean getNameIsPI()
-	{
-		return nameIsPI;
 	}
 
 	/**
@@ -744,21 +702,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the temporary description for this object
-	 * @param aString
-	 */
-	public final void setTempDescription(final String aString)
-	{
-		stringChar.put(StringKey.TEMP_DESCRIPTION, aString);
-	}
-
-	/**
 	 * Get the temporary description of this object
 	 * @return the temporary description of this object
 	 */
 	public final String getTempDescription()
 	{
-		String characteristic = stringChar.get(StringKey.TEMP_DESCRIPTION);
+		String characteristic = get(StringKey.TEMP_DESCRIPTION);
 		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 
@@ -1555,48 +1504,26 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the output name for the item
-	 * @param aString
-	 */
-	public final void setOutputName(final String aString)
-	{
-		String newName = aString;
-
-		//process the intended output name, replacing [NAME] token
-		final int nameIndex = newName.indexOf("[NAME]");
-		if (nameIndex >= 0)
-		{
-			final StringBuffer sb = new StringBuffer(newName.substring(0, nameIndex));
-
-			//and rephrasing parenthetical name components
-			sb.append(getPreFormatedOutputName());
-
-			if (newName.length() > (nameIndex + 6))
-			{
-				sb.append(newName.substring(nameIndex + 6));
-			}
-			newName = sb.toString();
-		}
-		stringChar.put(StringKey.OUTPUT_NAME, newName);
-	}
-
-	/**
 	 * Get the output name of the item
 	 * @return the output name of the item
 	 */
 	public final String getOutputName()
 	{
-		String outputName = stringChar.get(StringKey.OUTPUT_NAME);
+		String outputName = get(StringKey.OUTPUT_NAME);
 		// if no OutputName has been defined, just return the regular name
-		if (outputName == null || outputName.length() == 0)
+		if (outputName == null)
 		{
 			return displayName;
 		}
 		else if (outputName.equalsIgnoreCase("[BASE]") && displayName.indexOf('(') != -1)
 		{
-			outputName = this.displayName.substring(0, displayName.indexOf('(')).trim();
+			outputName = displayName.substring(0, displayName.indexOf('(')).trim();
 		}
-		
+		if (outputName.indexOf("[NAME]") >= 0)
+		{
+			outputName = outputName.replaceAll("\\[NAME\\]",
+					getPreFormatedOutputName());
+		}
 		return outputName;
 	}
 
@@ -1771,46 +1698,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public String getSpellKey()
 	{
 		return "POBJECT|" + getKeyName(); //$NON-NLS-1$
-	}
-
-	/**
-	 * Add automatic languages
-	 * 
-	 * @param aLangKey A language key.
-	 */
-	public final void addLanguageAuto(final String aLangKey)
-	{
-		ListKey<Language> autoLanguageListKey = ListKey.AUTO_LANGUAGES;
-		if (".CLEAR".equals(aLangKey)) //$NON-NLS-1$
-		{
-			listChar.removeListFor(autoLanguageListKey);
-		}
-		else if ("ALL".equals(aLangKey))
-		{
-			listChar.addAllToListFor(autoLanguageListKey, Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
-		}
-		else if (aLangKey.startsWith("TYPE=") || aLangKey.startsWith("TYPE."))
-		{
-			final String type = aLangKey.substring(5);
-			Collection<Language> langList = Globals.getPObjectsOfType(
-					Globals.getContext().ref
-							.getConstructedCDOMObjects(Language.class), type);
-			listChar.addAllToListFor(autoLanguageListKey, langList);
-		}
-		else
-		{
-			final Language lang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aLangKey);
-
-			if (lang != null)
-			{
-				listChar.addToListFor(autoLanguageListKey, lang);
-			}
-		}
-	}
-
-	public void clearLanguageAuto()
-	{
-		listChar.removeListFor(ListKey.AUTO_LANGUAGES);
 	}
 
 	/**
@@ -2797,25 +2684,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append(getDisplayName());
 		}
 
-		if (getNameIsPI())
-		{
-			txt.append("\tNAMEISPI:Y");
-		}
-
-		String outputName = stringChar.get(StringKey.OUTPUT_NAME);
-		if ((outputName != null) && (outputName.length() > 0) && !outputName.equals(getDisplayName()))
-		{
-			txt.append("\tOUTPUTNAME:").append(outputName);
-		}
-
 		for ( final Description desc : getDescriptionList() )
 		{
 			txt.append("\tDESC:").append(pcgen.io.EntityEncoder.encode(desc.getPCCText()));
-			
-			if (getDescIsPI())
-			{
-				txt.append("\tDESCISPI:Yes");
-			}
 		}
 
 //		if (!getDisplayName().equals(getKeyName()))
@@ -2895,13 +2766,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			{
 				txt.append("\t").append(reduction.getPCCText(true));
 			}
-		}
-
-		final List<String> langList = CoreUtility.toStringRepresentation(getSafeListFor(ListKey.AUTO_LANGUAGES));
-
-		if (langList.size() != 0)
-		{
-			txt.append("\tLANGAUTO:").append(StringUtil.join(langList, ","));
 		}
 
 		if (movement != null && movement.getNumberOfMovements() > 0)
@@ -3819,7 +3683,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		final String desc = getDescription(aPC);
 
-		if (descIsPI)
+		if (getSafe(ObjectKey.DESC_PI))
 		{
 			final StringBuffer sb = new StringBuffer(desc.length() + 30);
 
@@ -3855,7 +3719,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			aString = getOutputName();
 		}
 
-		if (nameIsPI)
+		if (getSafe(ObjectKey.NAME_PI))
 		{
 			final StringBuffer sb = new StringBuffer(aString.length() + 30);
 

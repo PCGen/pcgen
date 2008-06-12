@@ -150,7 +150,7 @@ public class SpellBasePanel extends BasePanel
 				}
 			}
 		}
-		s.setDescIsPI(pnlDescription.getDescIsPI());
+		s.put(ObjectKey.DESC_PI, pnlDescription.getDescIsPI());
 
 		LoadContext context = Globals.getContext();
 		s.removeListFor(ListKey.COMPONENTS);
@@ -237,7 +237,7 @@ public class SpellBasePanel extends BasePanel
 			buf.append(desc.getPCCText());
 		}
 		pnlDescription.setText(buf.toString()); // don't want PI here
-		pnlDescription.setDescIsPI(thisSpell.getDescIsPI());
+		pnlDescription.setDescIsPI(thisSpell.getSafe(ObjectKey.DESC_PI));
 		cmbComponents.setSelectedItem(thisSpell.getComponentList());
 		cmbCastingTime.setSelectedItem(thisSpell.getCastingTime());
 		cmbRange.setSelectedItem(thisSpell.getRange());

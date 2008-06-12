@@ -234,7 +234,7 @@ final class DeityBasePanel extends BasePanel
 			}
 		}
 	
-		thisPObject.setDescIsPI(getDescIsPI());
+		thisPObject.put(ObjectKey.DESC_PI, getDescIsPI());
 
 		//
 		// Save favored weapon(s)
@@ -270,7 +270,7 @@ final class DeityBasePanel extends BasePanel
 			buf.append(desc.getPCCText());
 		}
 		setDescriptionText(buf.toString()); // don't want PI here
-		setDescIsPI(thisPObject.getDescIsPI());
+		setDescIsPI(thisPObject.getSafe(ObjectKey.DESC_PI));
 
 		//
 		// Initialize the contents of the deity's alignment combo

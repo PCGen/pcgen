@@ -4,15 +4,17 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  * 
  */
-public class NameispiLst implements GlobalLstToken
+public class NameispiLst implements CDOMPrimaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -20,32 +22,53 @@ public class NameispiLst implements GlobalLstToken
 		return "NAMEISPI";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		boolean set;
+		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+				Logging.errorPrint("You should use 'YES' as the "
+						+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = true;
+			set = Boolean.TRUE;
 		}
 		else
 		{
-			if (firstChar != 'N' && firstChar != 'n'
-				&& !value.equalsIgnoreCase("NO"))
+			if (firstChar != 'N' && firstChar != 'n')
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+						+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = false;
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
+			}
+			set = Boolean.FALSE;
 		}
-		obj.setNameIsPI(set);
+		context.obj.put(obj, ObjectKey.NAME_PI, set);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Boolean namePI = context.getObjectContext().getObject(obj,
+				ObjectKey.NAME_PI);
+		if (namePI == null)
+		{
+			return null;
+		}
+		return new String[] { namePI.booleanValue() ? "YES" : "NO" };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

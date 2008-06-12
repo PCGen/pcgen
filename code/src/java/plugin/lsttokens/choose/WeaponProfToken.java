@@ -20,6 +20,8 @@ package plugin.lsttokens.choose;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
@@ -138,7 +140,7 @@ public class WeaponProfToken implements ChooseLstToken
 		}
 		sb.append(getTokenName()).append('|').append(profs).append(suffix);
 		po.setChoiceString(sb.toString());
-		po.setSelect(start);
+		po.put(FormulaKey.SELECT, FormulaFactory.getFormulaFor(start));
 		/*
 		 * TODO Error catching here for SELECT/CHOOSE?
 		 */

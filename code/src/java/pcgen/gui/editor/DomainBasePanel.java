@@ -27,6 +27,7 @@ import java.awt.GridBagLayout;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Description;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
@@ -110,7 +111,7 @@ public class DomainBasePanel extends BasePanel
 				}
 			}
 		}
-		thisPObject.setDescIsPI(getDescIsPI());
+		thisPObject.put(ObjectKey.DESC_PI, getDescIsPI());
 	}
 
 	public void updateView(PObject thisPObject)
@@ -125,7 +126,7 @@ public class DomainBasePanel extends BasePanel
 			buf.append(desc.getPCCText());
 		}
 		setDescriptionText(buf.toString()); // don't want PI here
-		setDescIsPI(thisPObject.getDescIsPI());
+		setDescIsPI(thisPObject.getSafe(ObjectKey.DESC_PI));
 	}
 
 	/**

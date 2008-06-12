@@ -267,7 +267,7 @@ public class FeatBasePanel extends BasePanel
 			}
 		}
 
-		thisFeat.setDescIsPI(getDescIsPI());
+		thisFeat.put(ObjectKey.DESC_PI, getDescIsPI());
 		thisFeat.put(ObjectKey.MULTIPLE_ALLOWED, getMultiples() ? Boolean.TRUE : Boolean.FALSE);
 		thisFeat.put(ObjectKey.STACKS, getStacks() ? Boolean.TRUE : Boolean.FALSE);
 		thisFeat.put(ObjectKey.VISIBILITY, getVisible());
@@ -298,7 +298,7 @@ public class FeatBasePanel extends BasePanel
 			buf.append(desc.getPCCText());
 		}
 		setDescriptionText(buf.toString()); // don't want PI here
-		setDescIsPI(thisPObject.getDescIsPI());
+		setDescIsPI(thisPObject.getSafe(ObjectKey.DESC_PI));
 
 		//
 		// Populate the types

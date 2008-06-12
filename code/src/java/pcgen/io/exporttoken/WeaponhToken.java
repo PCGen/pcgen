@@ -123,9 +123,8 @@ public class WeaponhToken extends WeaponToken
 		eq.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq.setKeyName("KEY_Unarmed Strike");
 		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
-		eq.setOutputName(PropertyFactory.getString("Equipment.UnarmedStrike"));
-		eq
-			.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
+		eq.put(StringKey.OUTPUT_NAME, PropertyFactory.getString("Equipment.UnarmedStrike"));
+		eq.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
 		eq.put(ObjectKey.WIELD, WieldCategory.findByName("Light"));
 		eq.put(ObjectKey.COST, BigDecimal.ZERO);
 		eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);

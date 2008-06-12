@@ -55,6 +55,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
@@ -617,7 +618,7 @@ public final class EditorMainForm extends JDialog
 		//
 		// Save P.I. flag
 		//
-		thisPObject.setNameIsPI(pnlMainTab.getProductIdentity());
+		thisPObject.put(ObjectKey.NAME_PI, pnlMainTab.getProductIdentity());
 
 		pnlMainTab.updateData(thisPObject);
 
@@ -991,11 +992,19 @@ public final class EditorMainForm extends JDialog
 		//
 		if (pnlLanguages != null)
 		{
-			thisPObject.clearLanguageAuto();
+			thisPObject.removeListFor(ListKey.AUTO_LANGUAGES);
 			sel = pnlLanguages.getSelectedList();
 			for (int i = 0; i < sel.length; i++)
 			{
-				thisPObject.addLanguageAuto(sel[i].toString());
+				final Language lang = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Language.class,
+								sel[i].toString());
+
+				if (lang != null)
+				{
+					thisPObject.addToListFor(ListKey.AUTO_LANGUAGES,
+							new CDOMDirectSingleRef<Language>(lang));
+				}
 			}
 		}
 
@@ -1176,7 +1185,7 @@ public final class EditorMainForm extends JDialog
 		List<Equipment> naturalAttacks;
 
 		pnlMainTab.setNameText(thisPObject.getKeyName());
-		pnlMainTab.setProductIdentity(thisPObject.getNameIsPI());
+		pnlMainTab.setProductIdentity(thisPObject.getSafe(ObjectKey.NAME_PI));
 		pnlMainTab.setSourceText(thisPObject.getSourceEntry().getPageNumber());
 
 		pnlMainTab.updateView(thisPObject);

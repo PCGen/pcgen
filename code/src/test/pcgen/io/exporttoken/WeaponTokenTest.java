@@ -196,7 +196,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword = new Equipment();
 		largeSword.setName("Longsword (Large)");
 		largeSword.setKeyName("KEY_LONGSWORD_LARGE");
-		largeSword.setOutputName("Longsword (Large)");
+		largeSword.put(StringKey.OUTPUT_NAME, "Longsword (Large)");
 		largeSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
 		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
@@ -208,7 +208,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword = new Equipment();
 		fineSword.setName("Longsword (Fine)");
 		fineSword.setKeyName("KEY_LONGSWORD_FINE");
-		fineSword.setOutputName("Longsword (Fine)");
+		fineSword.put(StringKey.OUTPUT_NAME, "Longsword (Fine)");
 		fineSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 		fineSword
 			.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
@@ -221,7 +221,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear = new Equipment();
 		longSpear.setName("Longspear");
 		longSpear.setKeyName("KEY_LONGSPEAR");
-		longSpear.setOutputName("Longspear");
+		longSpear.put(StringKey.OUTPUT_NAME, "Longspear");
 		longSpear.setTypeInfo("Weapon.Melee.Martial.Standard.Piercing.Spear");
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -249,9 +249,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite = new Equipment();
 		bite.setName("Silly Bite");
 		bite.setKeyName("SillyBite");
-		bite.setOutputName("Silly Bite (For Test)");
-		bite
-			.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
+		bite.put(StringKey.OUTPUT_NAME, "Silly Bite (For Test)");
+		bite.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 		bite.setSize("M", true);
 		bite.addBonusList("WEAPON|ATTACKS|" + 7);

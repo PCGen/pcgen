@@ -37,6 +37,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
@@ -4555,7 +4556,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									// standard item
 									aEquip = aEquip2.clone();
 									aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
-									aEquip.setOutputName(Constants.EMPTY_STRING);
+									aEquip.remove(StringKey.OUTPUT_NAME);
 									if (!aEquip.isType(Constants.s_CUSTOM))
 									{
 										aEquip.addMyType(Constants.s_CUSTOM);

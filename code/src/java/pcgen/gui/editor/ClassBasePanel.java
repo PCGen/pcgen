@@ -39,6 +39,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -110,7 +111,7 @@ class ClassBasePanel extends BasePanel
 		}
 
 		PCClass obj = (PCClass) thisPObject;
-		obj.setOutputName(txtDisplayName.getText().trim());
+		obj.put(StringKey.OUTPUT_NAME, txtDisplayName.getText().trim());
 		Globals.getContext().ref.registerAbbreviation(obj, abbreviation.getText().trim());
 		obj.setLevelExchange(exchangeLevel.getText().trim());
 		String form = startSkillPoints.getText().trim();

@@ -33,95 +33,77 @@ public class ChooseLst implements GlobalLstToken
 		{
 			return false;
 		}
-		if (!value.startsWith("CHOOSE:LANGAUTO"))
+		String key;
+		String val = value;
+		int activeLoc = 0;
+		String count = null;
+		String maxCount = null;
+		List<String> prefixList = new ArrayList<String>(2);
+		while (true)
 		{
-			String key;
-			String val = value;
-			int activeLoc = 0;
-			String count = null;
-			String maxCount = null;
-			List<String> prefixList = new ArrayList<String>(2);
-			while (true)
+			int pipeLoc = val.indexOf(Constants.PIPE, activeLoc);
+			if (val.startsWith("FEAT="))
 			{
-				int pipeLoc = val.indexOf(Constants.PIPE, activeLoc);
-				if (val.startsWith("FEAT="))
+				key = "FEAT";
+				val = val.substring(5);
+			}
+			else if (pipeLoc == -1)
+			{
+				key = val;
+				val = null;
+			}
+			else
+			{
+				key = val.substring(activeLoc, pipeLoc);
+				val = val.substring(pipeLoc + 1);
+			}
+			if (key.startsWith("COUNT="))
+			{
+				if (count != null)
 				{
-					key = "FEAT";
-					val = val.substring(5);
-				}
-				else if (pipeLoc == -1)
-				{
-					key = val;
-					val = null;
-				}
-				else
-				{
-					key = val.substring(activeLoc, pipeLoc);
-					val = val.substring(pipeLoc + 1);
-				}
-				if (key.startsWith("COUNT="))
-				{
-					if (count != null)
-					{
-						Logging
+					Logging
 							.errorPrint("Cannot use COUNT more than once in CHOOSE: "
-								+ value);
-						return false;
-					}
-					prefixList.add(key);
-					count = key.substring(6);
-					if (count == null)
-					{
-						Logging
-							.errorPrint("COUNT in CHOOSE must be a formula: "
-								+ value);
-						return false;
-					}
-					Logging.deprecationPrint("Support for COUNT= in CHOOSE"
-							+ "is tenuous, at best, use the SELECT: token " + value);
+									+ value);
+					return false;
 				}
-				else if (key.startsWith("NUMCHOICES="))
+				prefixList.add(key);
+				count = key.substring(6);
+				if (count == null)
 				{
-					if (maxCount != null)
-					{
-						Logging
-							.errorPrint("Cannot use NUMCHOICES more than once in CHOOSE: "
-								+ value);
-						return false;
-					}
-					prefixList.add(key);
-					maxCount = key.substring(11);
-					if (maxCount == null || maxCount.length() == 0)
-					{
-						Logging
-							.errorPrint("NUMCHOICES in CHOOSE must be a formula: "
-								+ value);
-						return false;
-					}
+					Logging.errorPrint("COUNT in CHOOSE must be a formula: "
+							+ value);
+					return false;
 				}
-				else
-				{
-					break;
-				}
+				Logging
+						.deprecationPrint("Support for COUNT= in CHOOSE"
+								+ "is tenuous, at best, use the SELECT: token "
+								+ value);
 			}
-			String prefixString = StringUtil.join(prefixList, "|");
-			boolean parse =
-					ChooseLoader.parseToken(obj, prefixString, key, val);
-			if (!parse)
+			else if (key.startsWith("NUMCHOICES="))
 			{
-				parseOld(obj, value);
+				if (maxCount != null)
+				{
+					Logging
+							.errorPrint("Cannot use NUMCHOICES more than once in CHOOSE: "
+									+ value);
+					return false;
+				}
+				prefixList.add(key);
+				maxCount = key.substring(11);
+				if (maxCount == null || maxCount.length() == 0)
+				{
+					Logging
+							.errorPrint("NUMCHOICES in CHOOSE must be a formula: "
+									+ value);
+					return false;
+				}
 			}
-			return true;
+			else
+			{
+				break;
+			}
 		}
-		return false;
-	}
-
-	private void parseOld(PObject obj, String value)
-	{
-		Logging.deprecationPrint("CHOOSE: syntax you are using is deprecated: "
-			+ value);
-		Logging.deprecationPrint("  Please use CHOOSE:SUBKEY|choices");
-		Logging.deprecationPrint("  ... see the PCGen docs");
-		obj.setChoiceString(value);
+		String prefixString = StringUtil.join(prefixList, "|");
+		return ChooseLoader.parseToken(obj, prefixString, key, val);
 	}
 }

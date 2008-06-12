@@ -459,11 +459,6 @@ public final class Race extends PObject
 			txt.append("\tFEAT:").append(featList);
 		}
 
-		if (!Constants.s_NONE.equals(displayName))
-		{
-			txt.append("\tOUTPUTNAME:").append(displayName);
-		}
-
 		return txt.toString();
 	}
 

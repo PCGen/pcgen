@@ -175,7 +175,11 @@ public final class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> MULTIPLE_ALLOWED = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<BigDecimal> SELECTION_COST = new ObjectKey<BigDecimal>(BigDecimal.ONE);;
+	public static final ObjectKey<BigDecimal> SELECTION_COST = new ObjectKey<BigDecimal>(BigDecimal.ONE);
+
+	public static final ObjectKey<Boolean> NAME_PI = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<Boolean> DESC_PI = new ObjectKey<Boolean>(Boolean.FALSE);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

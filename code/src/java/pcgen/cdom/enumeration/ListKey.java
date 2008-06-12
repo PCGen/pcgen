@@ -57,8 +57,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
  */
 public final class ListKey<T> {
 
-	/** AUTO_LANGUAGES - a ListKey */
-	public static final ListKey<Language> AUTO_LANGUAGES = new ListKey<Language>();
 	/** CLASS_SKILLS - a ListKey */
 	public static final ListKey<String> CLASS_SKILLS = new ListKey<String>();
 	/** CROSS_CLASS_SKILLS - a ListKey */
@@ -191,6 +189,7 @@ public final class ListKey<T> {
 	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<SpellProhibitor>();
 	public static final ListKey<Quality> QUALITY = new ListKey<Quality>();
 	public static final ListKey<Description> BENEFIT = new ListKey<Description>();
+	public static final ListKey<CDOMReference<Language>> AUTO_LANGUAGES = new ListKey<CDOMReference<Language>>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

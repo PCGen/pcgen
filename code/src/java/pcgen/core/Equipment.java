@@ -3175,7 +3175,7 @@ public final class Equipment extends PObject implements Serializable,
 		final String itemName = getItemNameFromModifiers();
 		cleanTypes(aPC);
 		setName(itemName);
-		setOutputName("");
+		remove(StringKey.OUTPUT_NAME);
 
 		return getName();
 	}

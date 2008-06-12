@@ -8,6 +8,10 @@ import pcgen.persistence.lst.GlobalLstToken;
  */
 public class SelectLst implements GlobalLstToken
 {
+	
+	/*
+	 * FIXME Can't do this until Formula objects can be used in Equipment
+	 */
 
 	public String getTokenName()
 	{

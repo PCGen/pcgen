@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
@@ -121,7 +123,8 @@ public class UserInputToken implements ChooseLstToken
 		po.setChoiceString(sb.toString());
 		if (firstarg != null)
 		{
-			po.setSelect(firstarg.toString());
+			po.put(FormulaKey.SELECT, FormulaFactory.getFormulaFor(firstarg
+					.toString()));
 		}
 		return true;
 	}

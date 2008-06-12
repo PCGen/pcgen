@@ -92,6 +92,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Quality;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
@@ -1203,7 +1204,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 						}
 
 						newEq.setName(newName);
-						newEq.setOutputName(newName);
+						newEq.put(StringKey.OUTPUT_NAME, newName);
 						newEq.setKeyName(newKey);
 						newEq.resizeItem(pc, newSize);
 						newEq.removeType("AUTO_GEN");

@@ -4,14 +4,16 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * @author djones4
  *
  */
-public class OutputnameLst implements GlobalLstToken
+public class OutputnameLst implements CDOMPrimaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -19,9 +21,27 @@ public class OutputnameLst implements GlobalLstToken
 		return "OUTPUTNAME";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		obj.setOutputName(value);
+		context.getObjectContext().put(obj, StringKey.OUTPUT_NAME, value);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		String oname =
+				context.getObjectContext()
+					.getString(obj, StringKey.OUTPUT_NAME);
+		if (oname == null)
+		{
+			return null;
+		}
+		return new String[]{oname};
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }
