@@ -10,16 +10,16 @@ CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:Prest
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|ArrowEnhancementLVL|CL						AUTO:FEAT|Enhance Arrow
-2												AUTO:FEAT|Imbue Arrow
-4	BONUS:VAR|SeekerArrowTimes|1							AUTO:FEAT|Seeker Arrow
-6	BONUS:VAR|PhaseArrowTimes|1							AUTO:FEAT|Phase Arrow
-8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	AUTO:FEAT|Hail of Arrows
-10												AUTO:FEAT|Arrow of Death
+1	BONUS:VAR|ArrowEnhancementLVL|CL						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
+2												ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
+4	BONUS:VAR|SeekerArrowTimes|1							ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
+6	BONUS:VAR|PhaseArrowTimes|1							ABILITY:Special Ability|AUTOMATIC|Phase Arrow
+8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
+10												ABILITY:Special Ability|AUTOMATIC|Arrow of Death
 
 # Modified 8-30-2003 by GldDragon35
 
@@ -30,7 +30,7 @@ CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:4,Decipher Script=7,D
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
 1	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain	BONUS:VAR|RangedLedgermain|(CL+3)/4	DEFINE:RangedLedgermain|0	ADD:SPELLCASTER|ANY
-2										BONUS:VAR|SneakAttack|CL/2							ADD:SPELLCASTER|ANY	AUTO:FEAT|Sneak Attack
+2										BONUS:VAR|SneakAttack|CL/2							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak	BONUS:VAR|ImpromptuSneak|(CL+1)/4	DEFINE:ImpromptuSneak|0		ADD:SPELLCASTER|ANY
 4																					ADD:SPELLCASTER|ANY
 5																					ADD:SPELLCASTER|ANY
@@ -60,17 +60,17 @@ CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|CL
-1	AUTO:FEAT|Assassin Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2					AUTO:FEAT|Sneak Attack|Death Attack|Poison Use
-2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3										TEMPLATE:Uncanny Dodge	AUTO:FEAT|Save against Poisons
+1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Death Attack|Poison Use
+2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3										ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
 3	CAST:0,2,0		KNOWN:0,3,2
 4	CAST:0,3,1		KNOWN:0,4,3
 5	CAST:0,3,2,0	KNOWN:0,4,3,2
 6	CAST:0,3,3,1	KNOWN:0,4,4,3
 7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
-8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3																											AUTO:FEAT|Hide in Plain Sight (Assassin)
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3																							ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Assassin)
 9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
 10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4
 
@@ -87,11 +87,11 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 3	BONUS:VAR|TurnLevelBase|CL-2								ABILITY:Special Ability|AUTOMATIC|Rebuke Undead|Basic Turning
 3	BONUS:VAR|TurnDamagePlusBase|CL-2
 # Smite Good
-1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1												AUTO:FEAT|Smite Good
+1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1												ABILITY:Special Ability|AUTOMATIC|Smite Good
 1	BONUS:VAR|SmiteGood|CL/5+1
 # Sneak Attack
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
-4	BONUS:VAR|SneakAttack|(CL-1)/3																		AUTO:FEAT|Sneak Attack
+4	BONUS:VAR|SneakAttack|(CL-1)/3																		ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Other Paladin related Abilities
 1	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0
 1	SAB:Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
@@ -99,13 +99,13 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	VFEAT:Undead Companion|PRECLASS:1,Ex Paladin=9
 5	BONUS:VAR|FSLevel|CL							VFEAT:Fiendish Servant
 ###Block: Weapons / Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	AUTO:FEAT|Poison Use|Detect Good|Aura of Evil
-2	CAST:0,1												AUTO:FEAT|Dark Blessing
-3	CAST:0,1,0												AUTO:FEAT|Aura of Despair
+1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	ABILITY:Special Ability|AUTOMATIC|Poison Use|Detect Good|Aura of Evil
+2	CAST:0,1												ABILITY:Special Ability|AUTOMATIC|Dark Blessing
+3	CAST:0,1,0												ABILITY:Special Ability|AUTOMATIC|Aura of Despair
 4	CAST:0,1,1
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1
@@ -180,15 +180,15 @@ CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeCl
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PREMULT:2,[PRESKILL:1,TYPE.Perform=3],[PRESKILL:1,Tumble=5]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE.Perform|Sense Motive|Spot|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	BONUS:VAR|CannyDefenseLVL|CL																					AUTO:FEAT|Canny Defense
-2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2																		AUTO:FEAT|Improved Reaction
-3																										AUTO:FEAT|Enhanced Mobility
-4																										AUTO:FEAT|Grace
-5	BONUS:VAR|PreciseStrike|CL/5																					AUTO:FEAT|Precise Strike
-6																										AUTO:FEAT|Acrobatic Charge
-7	BONUS:VAR|ElaborateParryLVL|CL																				AUTO:FEAT|Elaborate Parry
+1	BONUS:VAR|CannyDefenseLVL|CL																					ABILITY:Special Ability|AUTOMATIC|Canny Defense
+2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2																		ABILITY:Special Ability|AUTOMATIC|Improved Reaction
+3																										ABILITY:Special Ability|AUTOMATIC|Enhanced Mobility
+4																										ABILITY:Special Ability|AUTOMATIC|Grace
+5	BONUS:VAR|PreciseStrike|CL/5																					ABILITY:Special Ability|AUTOMATIC|Precise Strike
+6																										ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
+7	BONUS:VAR|ElaborateParryLVL|CL																				ABILITY:Special Ability|AUTOMATIC|Elaborate Parry
 9									VFEAT:Deflect Arrows|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded|PREEQUIP:1,TYPE=Piercing
 
 # Used DR:1/- in level line 6 to initialize Damage reduction, DR:0/- doesnt allow BONUS:DR to function
@@ -201,15 +201,15 @@ CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:P
 CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3					AUTO:FEAT|Defensive Stance|Dwarven Defender AC Bonus
+1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4			TEMPLATE:Uncanny Dodge
-4	BONUS:VAR|TrapSense|CL/4																				AUTO:FEAT|Trap Sense Ability
-6	BONUS:VAR|DwarvenDefenderDRLVL|CL																			AUTO:FEAT|Dwarven Defender DR
-8																									AUTO:FEAT|Dwarven Defender Mobile Defense
+4	BONUS:VAR|TrapSense|CL/4																				ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
+6	BONUS:VAR|DwarvenDefenderDRLVL|CL																			ABILITY:Special Ability|AUTOMATIC|Dwarven Defender DR
+8																									ABILITY:Special Ability|AUTOMATIC|Dwarven Defender Mobile Defense
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
@@ -259,15 +259,15 @@ CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft|Use Magic Device
 1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY
-2																		ADD:SPELLCASTER|ANY						AUTO:FEAT|Secret Lore
+2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
 3																		ADD:SPELLCASTER|ANY
 4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
 5																		ADD:SPELLCASTER|ANY
-6																		ADD:SPELLCASTER|ANY						AUTO:FEAT|Greater Lore
+6																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
 7																		ADD:SPELLCASTER|ANY
 8																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
 9																		ADD:SPELLCASTER|ANY
-10																		ADD:SPELLCASTER|ANY						AUTO:FEAT|True Lore
+10																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -292,16 +292,16 @@ CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:Presti
 CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:3,Hide=10,Move Silently=8,Perform (Dance)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Search|Sleight of Hand|Spot|Tumble|Use Rope
-1	AUTO:FEAT|Shadowdancer Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Shadowdancer Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																																				AUTO:FEAT|Hide in Plain Sight (Assassin)
-2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3										TEMPLATE:Uncanny Dodge	AUTO:FEAT|Evasion
-3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL																								AUTO:FEAT|Shadow Illusion|Summon Shadow
-4					BONUS:VAR|ShadowJump|20																												AUTO:FEAT|Shadow Jump
-5																																				AUTO:FEAT|Defensive Roll
+1																							ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Assassin)
+2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base
+3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL											ABILITY:Special Ability|AUTOMATIC|Shadow Illusion|Summon Shadow
+4					BONUS:VAR|ShadowJump|20															ABILITY:Special Ability|AUTOMATIC|Shadow Jump
+5																							ABILITY:Special Ability|AUTOMATIC|Defensive Roll
 6					BONUS:VAR|ShadowJump|20
-7																																				AUTO:FEAT|Slippery Mind
+7																							ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 8					BONUS:VAR|ShadowJump|40
 10					BONUS:VAR|ShadowJump|80															ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 
@@ -311,8 +311,8 @@ CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:Presti
 CLASS:Thaumaturgist	PREFEAT:1,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (Lesser)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE.Profession|Sense Motive|Speak Language|Spellcraft
-1	ADD:SPELLCASTER|ANY	AUTO:FEAT|Improved Ally
-2	ADD:SPELLCASTER|ANY	AUTO:FEAT|Augment Summoning
-3	ADD:SPELLCASTER|ANY	AUTO:FEAT|Extended Summoning
-4	ADD:SPELLCASTER|ANY	AUTO:FEAT|Contingent Conjuration
-5	ADD:SPELLCASTER|ANY	AUTO:FEAT|Planar Cohort
+1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Improved Ally
+2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Augment Summoning
+3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Extended Summoning
+4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Contingent Conjuration
+5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Planar Cohort

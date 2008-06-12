@@ -20,6 +20,11 @@ INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 
 
 ABILITY:rsrd_abilities_class.lst
+
+ABILITY:rsrd_abilities_class2.lst
+ABILITY:rsrd_abilities_class_prestige.lst
+#COMMENT:Temp File until everything is checked and assured to be working correctly
+#Comment: Assuming the dependencies will be many and that some function will likely be duplicated for a cycle.
 ABILITY:rsrd_abilities_monsters.lst
 ABILITYCATEGORY:rsrd_ability_categories_core.lst
 
