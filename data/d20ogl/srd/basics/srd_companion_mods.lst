@@ -61,8 +61,8 @@ FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																
 FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	HD:2
+# Class of the Master		Type				Hit Dice
+FOLLOWER:CompLevel=1		TYPE:Animal Companion	HD:2
 
 ###Block:Shadowdancer summoned Shadow
 # Class of the Master		Type				Hit Dice	Special ABility																		Modify VAR
