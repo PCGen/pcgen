@@ -84,7 +84,6 @@ public final class GameMode implements Comparable<Object>
 	private Map<String, String> spellRangeMap = new HashMap<String, String>();
 	private String acAbbrev = "";
 	private String acName = "";
-	private String acTouchBonus = "";
 	private String alignmentName = "";
 	private String althpAbbrev = "";
 	private String althpName = "";
@@ -261,24 +260,6 @@ public final class GameMode implements Comparable<Object>
 		}
 
 		return ACTypeRemoveMap.get(ACType);
-	}
-
-	/**
-	 * Set the AC Touch Bonus
-	 * @param arg
-	 */
-	public void setAcTouchBonus(final String arg)
-	{
-		acTouchBonus = arg;
-	}
-
-	/**
-	 * Get the AC Touch Bonus
-	 * @return ACTouchBonus
-	 */
-	public String getAcTouchBonus()
-	{
-		return acTouchBonus;
 	}
 
 	/**
