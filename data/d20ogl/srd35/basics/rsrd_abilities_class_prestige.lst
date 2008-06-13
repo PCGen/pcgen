@@ -8,14 +8,6 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #     load them all at once.  Won't matter, since we'll be converting these to Abilities soon.  I'd
 #     like to keep the PrC's abilities in a separate file from the standard ones as we go along tho. - Tir Gwaith
 
-###Block: Rogue Special Abilities
-# Feat Name		Type							Visible		Special ABility												Define				Description				Stackable?	Multiple?	Selections		Choose			Modify VAR					Source Page
-# Ability Name	Category of Ability		Type							Visible		Special ABility												Define				Description				Stackable?	Multiple?	Selections		Choose			Modify VAR					Source Page
-Crippling Strike	CATEGORY:Special Ability	TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SAB:Crippling Strike (Ex)															DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
-Defensive Roll	CATEGORY:Special Ability	TYPE:Special.RogueAbilities			VISIBLE:NO		SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0	DESC:Class Special Ability												BONUS:VAR|DefensiveRollTimes|1	SOURCEPAGE:ClassesII.rtf
-Opportunist		CATEGORY:Special Ability	TYPE:Special.RogueAbilities.AttackOption	VISIBLE:NO		SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character						DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
-Slippery Mind	CATEGORY:Special Ability	TYPE:Special.RogueAbilities			VISIBLE:NO		SAB:Slippery Mind (Ex)																DESC:Class Special Ability																		SOURCEPAGE:ClassesII.rtf
-Skill Mastery	CATEGORY:Special Ability	TYPE:Special.RogueAbilities			VISIBLE:EXPORT																				DESC:Take 10 on listed skills	STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL							SOURCEPAGE:ClassesII.rtf
 
 ###Block: Arcane Archer Abilities
 # Feat Name		Type			Visible	Special ABility												Define									Modify VAR								Source Page
@@ -43,14 +35,14 @@ Aura of Despair	CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Aura o
 ###Block: Dragon Disciple Class Features
 # Dragon Disciple
 # Feat Name			Type				Visible	Required Class			Special ABility	Choose												MOVECLONE
-#Bonus Spell Slot 1		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 2		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 3		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 4		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 5		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 6		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Bonus Spell Slot 7		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-#Dragon Wings			CATEGORY:Special Ability	TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
+Bonus Spell Slot 1		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 2		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 3		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 4		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 5		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 6		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 7		CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Dragon Wings			CATEGORY:Special Ability	TYPE:DragonDisciple	VISIBLE:NO	PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
 
 ###Block: Duelist special abilities
 # Feat Name		Type						Visible	Special ABility								Define								Combat bonus																					Modify VAR												Source Page
