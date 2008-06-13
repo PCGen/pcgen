@@ -61,7 +61,7 @@ True Speaker					TYPE:Cultural												PRETEMPLATE:1,Region (Durning Highland
 ###block Regional Feats Chapter Four
 # Feat Name			Type				Visible	Required AL				Required Feat					Required Stat	Required Template								Special ABility				Description														Multiple?	Choose																		% bonus to range			Source Page
 Dream of the Dawn B	TYPE:Cultural				PREALIGN:LG,LN,LE,CG,NE,CE											PRETEMPLATE:1,Region (Foothills)											DESC:You have seen a vision of the world at the moment of its creation																														SOURCEPAGE:p.59
-Defender's Frenzy		TYPE:Cultural									PREFEAT:1,Rage								PRETEMPLATE:1,Region (Foothills)											DESC:The presence of your master in battle drives you into a murderous frenzy																													SOURCEPAGE:p.59
+Defender's Frenzy		TYPE:Cultural									PREABILITY:1,CATEGORY=Special Ability,Rage								PRETEMPLATE:1,Region (Foothills)											DESC:The presence of your master in battle drives you into a murderous frenzy																													SOURCEPAGE:p.59
 Bloodlust			TYPE:Cultural.Fighter								PREFEAT:2,Cleave,Power Attack			PRESTAT:1,STR=13	PRETEMPLATE:1,Region (Foothills)											DESC:See Text																																							SOURCEPAGE:p.60
 Vision of Glory		TYPE:Cultural																			PRETEMPLATE:1,Region (Foothills)											DESC:An immortal has revealed to you the infinite reaches of the divine future																												SOURCEPAGE:p.60
 Whispers in the Dark	TYPE:Metamagic				PREALIGN:LE,NE,CE			PREFEAT:1,Empower Spell							PRETEMPLATE:1,Region (Foothills)											DESC:You have heard the voices of dark things among the root of the mountain																													SOURCEPAGE:p.60

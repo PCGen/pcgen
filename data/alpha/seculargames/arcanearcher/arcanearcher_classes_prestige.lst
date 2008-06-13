@@ -122,7 +122,7 @@ CLASS:Psychic Archer	STARTSKILLPTS:4	CSKILL:Autohypnosis|TYPE.Craft|Hide|Knowled
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Untamed Hunter	HD:10		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Multiple Requirements																																													Required Race
-CLASS:Untamed Hunter	PREMULT:1,[PRECLASS:1,Untamed Hunter=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Rage],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PRESPELLCAST:MEMORIZE=N],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Wild),Half-Elf
+CLASS:Untamed Hunter	PREMULT:1,[PRECLASS:1,Untamed Hunter=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREABILITY:1,CATEGORY=Special Ability,Rage],[PREFEAT:1,Weapon Focus(Longbow),Weapon Focus(Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PRESPELLCAST:MEMORIZE=N],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Wild),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Untamed Hunter	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Intimidate|Listen|Move Silently|Ride|Spot|Survival
 ###Block: proficiencies

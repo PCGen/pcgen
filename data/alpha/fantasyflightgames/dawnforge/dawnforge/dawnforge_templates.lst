@@ -21,8 +21,8 @@ Sabotage Open Lock CCS		VISIBLE:NO																													!PRECSKILL:1,Open
 ###Block: Orcish Rage support
 # Template Name		Visible	Template								Special ABility											Define							Required Feat	Prohibited Feat	Modify VAR
 Orcish Rage			VISIBLE:NO	TEMPLATE:CHOOSE:Orcish Rage New|Orcish Rage Stacked
-Orcish Rage New		VISIBLE:NO										SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|!PREFEAT:1,Rage	DEFINE:RageTimes|0	DEFINE:RageDuration|0				!PREFEAT:1,Rage	BONUS:VAR|RageTimes|1	BONUS:VAR|RageDuration|3+((CONSCORE-10)/2)
-Orcish Rage Stacked	VISIBLE:NO																							DEFINE:OrcishRage|0					PREFEAT:1,Rage				BONUS:VAR|RageTimes|1	BONUS:VAR|BarbRagePowerLVL|2*OrcishRage
+Orcish Rage New		VISIBLE:NO										SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|!PREABILITY:1,CATEGORY=Special Ability,Rage	DEFINE:RageTimes|0	DEFINE:RageDuration|0				!PREABILITY:1,CATEGORY=Special Ability,Rage	BONUS:VAR|RageTimes|1	BONUS:VAR|RageDuration|3+((CONSCORE-10)/2)
+Orcish Rage Stacked	VISIBLE:NO																							DEFINE:OrcishRage|0					PREABILITY:1,CATEGORY=Special Ability,Rage				BONUS:VAR|RageTimes|1	BONUS:VAR|BarbRagePowerLVL|2*OrcishRage
 
 #
 # End
