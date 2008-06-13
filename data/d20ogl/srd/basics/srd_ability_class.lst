@@ -78,13 +78,9 @@ Summon Familiar		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO	SAB:Summon 
 # Original Entry by Tir Gwaith
 # Ranger Favored enemies aren't perfect but better than the ADD: in classes.. - Tir Gwaith 10/26/02
 
-###Block:Hidden Feat for Negative Levels
-# Feat Name		Type				Visible	Special ABility																							Define			Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill
 
 ###Block:Command special abilities (used by multiple classes)
 # Feat Name		Type					Visible	Special ABility						Define										Source Page
-Evasion			CATEGORY:Special Ability	TYPE:Special			VISIBLE:NO	SAB:Evasion (Ex)|PHBFeatEvasion			DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Improved Evasion		CATEGORY:Special Ability	TYPE:RogueSpecialAbilities	VISIBLE:NO	SAB:Improved Evasion (Ex)															SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Sneak Attack		CATEGORY:Special Ability	TYPE:Special			VISIBLE:NO	SAB:Sneak Attack %d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6				SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 ###Block: Barbarian class abilties
@@ -137,7 +133,7 @@ Diamond Body			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Diamond Body
 Abundant Step			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Abundant Step (Sp)
 Diamond Soul			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Diamond Soul
 Quivering Palm			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Quivering Palm (Su) %/week|QuiverPalm				DEFINE:QuiverPalm|0
-Timeless Body			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Timeless Body	
+#Timeless Body			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Timeless Body	
 Tongue of the Sun and Moon	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Tongue of the Sun and Moon
 	
 Empty Body				CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Empty Body (Su) % rounds/day|EmptyBody			DEFINE:EmptyBody|0
