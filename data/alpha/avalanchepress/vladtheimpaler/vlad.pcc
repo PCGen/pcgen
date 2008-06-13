@@ -21,7 +21,8 @@ COPYRIGHT:PCGen dataset conversion for Vlad the Impaler:Blood Prince of Wallachi
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-
+ABILITY:vlad_abilities_class.lst
+ABILITYCATEGORY:vlad_ability_category.lst
 
 CLASS:vlad_classes.lst
 FEAT:vlad_feats.lst
