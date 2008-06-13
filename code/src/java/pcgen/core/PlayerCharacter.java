@@ -52,11 +52,10 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.base.util.GenericMapToList;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
+import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -5236,8 +5235,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public MapToList<String, WeaponProf> getChangeProfList()
 	{
-		MapToList<String, WeaponProf> mtl = GenericMapToList
-				.getMapToList(CaseInsensitiveMap.class);
+		MapToList<String, WeaponProf> mtl = new TreeMapToList<String, WeaponProf>(
+				String.CASE_INSENSITIVE_ORDER);
 		
 		for (PObject pObj : getPObjectList())
 		{
