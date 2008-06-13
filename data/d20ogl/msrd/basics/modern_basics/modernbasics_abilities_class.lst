@@ -58,7 +58,7 @@ Blanket Protection	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO
 # Ability Name			Category of Ability		Type					Visible	Special ABility			Combat bonus
 Smart Defense			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
 Scientific Improvisation	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Scientific Improvisation
-Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
+#Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
 Minor Breakthrough		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Minor Breakthrough
 Smart Survival			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Survival
 Smart Weapon			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Weapon

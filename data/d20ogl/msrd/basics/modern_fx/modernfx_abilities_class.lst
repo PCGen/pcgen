@@ -29,7 +29,7 @@ Maximize Power		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	S
 ###Block:Battle Mind --------------------------------------------------------------------------------------------------------------------------
 # Ability Name		Category of Ability		Type					Visible	Special ABility
 Imprint Tattoo		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
-Concentration ~ Psionic	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
+#Concentration ~ Psionic	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
 
 
 ###Block:Mage -----------------------------------------------------------------------------------------------------------------------------------
