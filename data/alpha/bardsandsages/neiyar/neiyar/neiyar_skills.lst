@@ -8,7 +8,7 @@ Knowledge (Outsider Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Know
 
 ###COMMENT: Not in the book or listed in SRD: Publisher says these are new skills.
 ###COMMENT: Referenced by Class Requirements
-Craft (Trapmaking)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:pg.49
+#Craft (Trapmaking)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:pg.49
 Knowledge (Traps)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:pg.58
 Profession (Doctor)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:pg.56
 Profession (Trapmaker)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:pg.49

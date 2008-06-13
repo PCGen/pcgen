@@ -78,17 +78,17 @@ Capalaquen					NAMEISPI:YES	PROFICIENCY:WEAPON|Greatsword		TYPE:Magic.Artifact.E
 The Skeleton Key				NAMEISPI:YES							TYPE:Magic.Artifact																																								SOURCEPAGE:pg.85
 
 ###Krakodonian Artifacts:
-The Shield of Madruk'thayunkon	NAMEISPI:YES							TYPE:Magic.Artifact.Enhancement.Shield.Heavy.Specific					WT:15															EQMOD:STEEL.MWORKA.PLUS4S.SPELL_RES_17									SOURCEPAGE:pg.85												BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+The Shield of Madruk'thayunkon	NAMEISPI:YES	PROFICIENCY:SHIELD|Light		TYPE:Magic.Artifact.Enhancement.Shield.Heavy.Specific					WT:15															EQMOD:STEEL.MWORKA.PLUS4S.SPELL_RES_17									SOURCEPAGE:pg.85												BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
 ###COMMENT: +4 War Shield SR:17
 The Sword of Krofgrog'Nigtrok		NAMEISPI:YES	PROFICIENCY:WEAPON|Scimitar		TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	WT:4					CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8	EQMOD:STEEL.KEEN.WOUND.PLUS3W			WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.85																																						BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
 ###COMMENT: +3 keen wounding scimitar
-Voklod'hapthuk's Armor			NAMEISPI:YES							TYPE:Magic.Artifact.Armor.Light.Suit.Specific.Nonmetal				WT:15		ACCHECK:0												EQMOD:PLUS4A								MAXDEX:6				SOURCEPAGE:pg.85	SPELLFAILURE:5									BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Voklod'hapthuk's Armor			NAMEISPI:YES	PROFICIENCY:ARMOR|Leather		TYPE:Magic.Artifact.Armor.Light.Suit.Specific.Nonmetal				WT:15		ACCHECK:0												EQMOD:PLUS4A								MAXDEX:6				SOURCEPAGE:pg.85	SPELLFAILURE:5									BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 ###COMMENT: +4 Leather DR:10 vs. Electricity, Fire, Cold, Immune Mind-Affecting		-SPROP? Don't want to get to descriptive do we? -AM
 
 ###Amphikin Artifacts
 Obar's Scepter				NAMEISPI:YES	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace	WT:12					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL.PLUS4W.BANE_M			WIELD:Light					SIZE:M	SOURCEPAGE:pg.85																																						BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
 ###COMMENT: +4 bane light mace
-Doldanda's Shell Armor			NAMEISPI:YES							TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:pg.86	SPELLFAILURE:5		BONUS:CHECKS|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE|PRERACE:1,Amphikin
+Doldanda's Shell Armor			NAMEISPI:YES	PROFICIENCY:ARMOR|Medium		TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:pg.86	SPELLFAILURE:5		BONUS:CHECKS|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE|PRERACE:1,Amphikin
 ###CLARIFY:+10 more to Armor for total of +14 or total of +10? -- Andrew
 
 ###Block: Appendix Items pg 139 - 143:
