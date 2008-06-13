@@ -3,29 +3,29 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
 # Ability Name		Category of Ability		Type						Visible	Required Feat	Special ABility																							Define											Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																																			Source Page
-Evasion			CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Evasion (Ex)|EvasionUsable																				DEFINE:EvasionUsable|0																																																	BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0			SOURCEPAGE:ClassesII.rtf
 #Improved Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionFeatUsable																	DEFINE:ImprovedEvasionFeatUsable|0																																															BONUS:VAR|ImprovedEvasionFeatUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
 # Uncanny Dodge/Improved Uncanny Dodge are now Abilities
 #Uncanny Dodge			CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO					SAB:Uncanny Dodge (Dex bonus to AC)|var("COUNT[FEATNAME=Improved Uncanny Dodge.ALL]")-1																																																																																													SOURCEPAGE:ClassesII.rtf
 #Improved Uncanny Dodge		CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SAB:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																															BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																						SOURCEPAGE:ClassesII.rtf
 
-#Comment: Many classes outside Assassin and Ranger use... making basic references.
-Hide in Plain Sight (Ex)		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
-Hide in Plain Sight (Su)		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Hide in Plain Sight (Su)	SOURCEPAGE:PrestigeClasses.rtf
+###Block: Shared Class Abilities --------------------------------------------------------------------------------------------------
+Evasion			CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Evasion (Ex)|EvasionUsable																				DEFINE:EvasionUsable|0																																																	BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0			SOURCEPAGE:ClassesII.rtf
 #
-Trap Sense Ability	CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Trap Sense (Ex) +%|TrapSense																				DEFINE:TrapSense|0
-Sneak Attack		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO				SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie																	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0					DESC:Class Special Ability																																																																								SOURCEPAGE:ClassesII.rtf
-Negative Levels		CATEGORY:FEAT			TYPE:Special				VISIBLE:NO				SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0														BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
-
 Smite				CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO				SAB:Smite (Su) %/day|SmiteAnyTimes																				DEFINE:SmiteAnyTimes|0																																																																																					SOURCEPAGE:SpellListI.rtf
 Smite Evil			CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO				SAB:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																																					SOURCEPAGE:ClassesII.rtf
 Smite Good			CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO				SAB:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																																					SOURCEPAGE:PrestigeClasses.rtf
-
+# Druid & Ranger
 Wild Empathy		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Wild Empathy (Ex) +% (+% on Magical Beasts)|WildEmpathy|WildEmpathyMagicalBeast												DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy																																									BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK											SOURCEPAGE:ClassesI.rtf
 Woodland Stride		CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO				SAB:Woodland Stride (Ex)																																																																																																													SOURCEPAGE:ClassesI.rtf
 
 
-###Block: Cleric abilities
+###Block: Specials
+Negative Levels		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO				SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0														BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
+#Comment: Many classes outside Assassin and Ranger use... making basic references.
+Hide in Plain Sight (Ex)		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
+Hide in Plain Sight (Su)		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Hide in Plain Sight (Su)	SOURCEPAGE:PrestigeClasses.rtf
+
+###Block: Cleric abilities ----------------------------------------------------------------------------
 
 ###Block: Aura for Clerics, other Class level tracked auras.
 #	Applying this to more than just Cleric will require more work or more hidden feats.
@@ -315,7 +315,9 @@ Favored Bonus__Vermin			CATEGORY:Special Ability	TYPE:FavoredEnemyBonus	VISIBLE:
 
 ###Block: Rogue Abilities ------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type			Visible	Special ABility	Source Page
-Trapfinding		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Trapfinding	SOURCEPAGE:p.ClassesII.rtf
+Trapfinding			CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO	SAB:Trapfinding	SOURCEPAGE:p.ClassesII.rtf
+Trap Sense Ability	CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Trap Sense (Ex) +%|TrapSense																				DEFINE:TrapSense|0
+Sneak Attack		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO				SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie																	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0					DESC:Class Special Ability																																																																								SOURCEPAGE:ClassesII.rtf
 #Class Internal for homebrews
 Rogue Sneak Attack	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:RogueSneakAttackLVL|0	BONUS:VAR|SneakAttack|(RogueSneakAttackLVL+1)/2	SOURCEPAGE:ClassesII.rtf
 Rogue Trap Sense		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:RogueTrapSenseLVL|0	BONUS:VAR|TrapSense|RogueTrapSenseLVL/3		SOURCEPAGE:ClassesII.rtf
@@ -460,7 +462,7 @@ Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREAB
 # Feat Name				Type			Visible	Automaticaly Gained Armor Prof.	Source Page
 # Ability Name			Category of Ability		Type			Visible	Automaticaly Gained Armor Prof.	Source Page
 Armor Proficiency (Barding)	CATEGORY:Special Ability	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf	ABILITY:FEAT|VIRTUAL|Armor Proficiency (Barding)
-Armor Proficiency (Barding)	CATEGORY:FEAT			TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf
+#Armor Proficiency (Barding)	CATEGORY:FEAT			TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf
 #Unknown whether this is an actual feat, or not... leaving as both a Feat and Special Ability for now...
 #
 #EOF
