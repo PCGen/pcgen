@@ -94,8 +94,8 @@ Pseudonatural Troll	STARTFEATS:1	SIZE:L	MOVE:Walk,60	FACE:10	REACH:10	VISION:Dar
 
 ###Block: QR
 
-# Race Name	Size		Move					Face/Space	Reach		Vision			Required AL	Combat bonus						Stat bonus																		Nb Legs	Weapon prof. bonus				Natural Attacks											Special ABility															Monster Class Name and Starting Level	Main Race Type	Race Subtype				Type		Template					CR	Source Page
-Ruin Swarm	SIZE:T	MOVE:Walk,20,Climb,20,Fly,90	FACE:10	REACH:0	VISION:Blindsense (60')	PREALIGN:TN	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|-8	BONUS:STAT|DEX|32	BONUS:STAT|CON|20	BONUS:STAT|INT|-10	BONUS:STAT|WIS|12	BONUS:STAT|CHA|22	LEGS:0	BONUS:WEAPONPROF=Swarm|DAMAGE|-1*(STR)	NATURALATTACKS:Swarm,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,5d6	SAB:Blinding (Ex)	SAB:Blindsense (Ex)	SAB:Distraction (DC 45) (Ex)	SAB:Fast Healing 15 (Ex)	MONSTERCLASS:Vermin:50				RACETYPE:Vermin	RACESUBTYPE:Swarm	RACESUBTYPE:Swarm	TYPE:Vermin	TEMPLATE:Vermin|Swarm|Mindless	CR:23	SOURCEPAGE: EpicMonsters(G-W).rtf
+# Race Name	Size		Move					Face/Space	Reach		Vision			Required AL	Combat bonus						Stat bonus																		Nb Legs	Weapon prof. bonus				Natural Attacks											Special ABility															Monster Class Name and Starting Level	Main Race Type	Race Subtype	Type		Template					CR	Source Page
+Ruin Swarm	SIZE:T	MOVE:Walk,20,Climb,20,Fly,90	FACE:10	REACH:0	VISION:Blindsense (60')	PREALIGN:TN	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|-8	BONUS:STAT|DEX|32	BONUS:STAT|CON|20	BONUS:STAT|INT|-10	BONUS:STAT|WIS|12	BONUS:STAT|CHA|22	LEGS:0	BONUS:WEAPONPROF=Swarm|DAMAGE|-1*(STR)	NATURALATTACKS:Swarm,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,5d6	SAB:Blinding (Ex)	SAB:Blindsense (Ex)	SAB:Distraction (DC 45) (Ex)	SAB:Fast Healing 15 (Ex)	MONSTERCLASS:Vermin:50				RACETYPE:Vermin	RACESUBTYPE:Swarm	TYPE:Vermin	TEMPLATE:Vermin|Swarm|Mindless	CR:23	SOURCEPAGE: EpicMonsters(G-W).rtf
 
 ###Block: S
 

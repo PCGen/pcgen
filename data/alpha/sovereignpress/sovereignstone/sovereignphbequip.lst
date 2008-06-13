@@ -26,7 +26,7 @@ Flint and Steel			TYPE:Goods.General												COST:1	WT:0				SOURCEPAGE:p.
 Grappling Hook			TYPE:Goods.General												COST:1	WT:4				SOURCEPAGE:p.
 Hammer				TYPE:Goods.General												COST:.2	WT:2				SOURCEPAGE:p.
 Jug (Clay)				TYPE:Goods.General.Container		CONTAINS:8|Liquid=20|SpellComponent=1			COST:.2	WT:1				SOURCEPAGE:p.
-Ladder,10ft				TYPE:Goods.General												COST:.5	WT:20				SOURCEPAGE:p.
+Ladder (10ft)			TYPE:Goods.General												COST:.5	WT:20				SOURCEPAGE:p.
 Lantern (Bullseye)		TYPE:Goods.General												COST:12	WT:3				SOURCEPAGE:p.
 Lantern (Hooded)			TYPE:Goods.General												COST:7	WT:2				SOURCEPAGE:p.
 Lock (Very Simple)		TYPE:Goods.General												COST:20	WT:1				SOURCEPAGE:p.
