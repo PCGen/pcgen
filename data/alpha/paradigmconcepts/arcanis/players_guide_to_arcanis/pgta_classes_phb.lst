@@ -345,7 +345,7 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page				Automatic Languages	Bonus Languages		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Research|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
