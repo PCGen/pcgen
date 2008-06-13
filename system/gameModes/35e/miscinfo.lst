@@ -123,8 +123,9 @@ BONUSSTATLEVELSTARTINTERVAL:4|4
 
 # Calculations for AC. Same as those used on the
 # output sheets with the 'BONUS.' stripped off
-BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
-BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
+#BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
+#BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
+#No longer required.
 
 # Ammo is made in batches of 50, so the "plus" cost
 # per unit should be 2000*(PLUS*PLUS)/50
@@ -149,7 +150,7 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
 ACTYPE:Total				ADD:TOTAL
-ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield|NaturalArmorEnhancement
 ACTYPE:Base					ADD:Base
 ACTYPE:Armor				ADD:Armor
