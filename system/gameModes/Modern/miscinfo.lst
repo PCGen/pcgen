@@ -71,6 +71,10 @@ MENUENTRY:&MSRD Modern
 MENUTOOLTIP:Use Modern character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Modern
+
+
+DEITY:None		DOMAINS:ALL		DESC:None	SYMBOL:None		SOURCEPAGE:None
+
 #
 #SHORTRANGE sets the Short Range as referenced by TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
 # Integer value, defaults to zero if tag not present to allow GameModes without shortrange bonus/limitations
@@ -110,9 +114,8 @@ BONUSFEATLEVELSTARTINTERVAL:3|3
 BONUSSTATLEVELSTARTINTERVAL:4|4
 
 # Calculations for AC. Same as those used on the output sheets with the 'BONUS.' stripped off
-DEITY:None		DOMAINS:ALL		DESC:None	SYMBOL:None		SOURCEPAGE:None
-BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
-BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
+#BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
+#BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
 
 #Weapon Damage Types
 WEAPONTYPE:Bludgeoning|Bl

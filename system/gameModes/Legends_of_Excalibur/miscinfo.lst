@@ -123,8 +123,8 @@ BONUSSTATLEVELSTARTINTERVAL:4|4
 
 # Calculations for AC. Same as those used on the
 # output sheets with the 'BONUS.' stripped off
-BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
-BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
+#BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
+#BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
 
 # Ammo is made in batches of 50, so the "plus" cost
 # per unit should be 2000*(PLUS*PLUS)/50
