@@ -43,7 +43,7 @@ EQUIPMOD:srd_equipmods_mundane.lst
 
 FEAT:srd_feats.lst
 FEAT:srd_feats_monster.lst
-FEAT:srd_feats_hidden.lst
+#FEAT:srd_feats_hidden.lst
 FEAT:srd_feats_hidden2.lst
 
 KIT:srd_kits_races__animals.lst
