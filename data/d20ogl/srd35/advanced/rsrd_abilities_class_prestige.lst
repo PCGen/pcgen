@@ -6,6 +6,10 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 Ranged Ledgerdemain		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain	DEFINE:RangedLedgermain|0
 Impromptu Sneak Attack		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak	DEFINE:ImpromptuSneak|0
 
+#Class: Assassin
+Death Attack		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO				SAB:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																																	BONUS:VAR|DeathAttack|10+INT																																SOURCEPAGE:PrestigeClasses.rtf
+Poison Use			CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Poison Use (Ex)																																																																																																														SOURCEPAGE:PrestigeClasses.rtf
+
 
 ###Block:Archmage High Arcana Class Abilities
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot

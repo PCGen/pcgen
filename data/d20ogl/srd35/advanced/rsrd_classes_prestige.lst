@@ -64,10 +64,10 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assa
 1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Death Attack|Poison Use
-2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3										ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
+2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|1												ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
 3	CAST:0,2,0		KNOWN:0,3,2
 4	CAST:0,3,1		KNOWN:0,4,3
-5	CAST:0,3,2,0	KNOWN:0,4,3,2
+5	CAST:0,3,2,0	KNOWN:0,4,3,2	BONUS:VAR|UncannyDodgeLevel|1
 6	CAST:0,3,3,1	KNOWN:0,4,4,3
 7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
 8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3																							ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Assassin)
