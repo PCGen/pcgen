@@ -25,10 +25,10 @@ COPYRIGHT:PCGen dataset conversion for Malhavoc Press Web Enhancements Copyright
 # This script that split the files by game type needs it.
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:Permission.txt
+ABILITY:montecookwebclassfeats.lst
 
 CLASS:montecookwebclasses.lst
 FEAT:montecookwebfeats.lst
-FEAT:montecookwebclassfeats.lst
 RACE:montecookwebraces.lst
 SPELL:montecookwebspells.lst
 
