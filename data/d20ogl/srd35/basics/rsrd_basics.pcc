@@ -54,6 +54,7 @@ FEAT:rsrd_feats_hidden.lst
 FEAT:rsrd_feats_hidden2.lst
 FEAT:rsrd_feats_monster.lst
 FEAT:rsrd_feats.lst
+FEAT:rsrd_feats_mod.lst
 
 KIT:rsrd_kits_races__animals.lst
 KIT:rsrd_kits_races__base.lst
