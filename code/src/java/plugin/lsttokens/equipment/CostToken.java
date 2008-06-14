@@ -38,8 +38,10 @@ public class CostToken implements CDOMPrimaryToken<Equipment>
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrint(getTokenName() + " expected a number: " + value);
-			return false;
+			Logging.deprecationPrint(getTokenName() + " expected a number: "
+					+ value + ", assuming zero");
+			context.getObjectContext().put(eq, ObjectKey.COST, BigDecimal.ZERO);
+			return true;
 		}
 	}
 
