@@ -12,9 +12,9 @@ CLASS:Blood Witch	PREMULT:2,[PREFEAT:1,Skill Focus(Concentration)],[PREFEAT:2,TY
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL
+CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL	SPELLLIST:1|Druid
 1					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-2					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Nature Magic		SPELLLIST:1|Druid
+2					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Nature Magic	
 3					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
 4					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Alter Self
 5					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
