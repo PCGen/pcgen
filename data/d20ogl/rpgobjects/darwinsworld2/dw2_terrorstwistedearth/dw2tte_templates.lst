@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat Jun 14 07:23:21 2008 -- reformated by my_prettylst.pl v1.38 (build 6577)
 SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 ###Block:Class Skill Templates for monsters with classes
@@ -25,20 +25,20 @@ Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 Reduce Acid Dart Size	VISIBLE:NO	BONUS:WEAPONPROF=Acid Dart|DAMAGESIZE|-1
 
 ###Block: Cockroach Sizings (Based on Medium default)
-# Template Name			CR	Visible	Adjust PC Size
-Large Size Cockroach		CR:1	VISIBLE:NO	BONUS:SIZEMOD|NUMBER|1
-Huge Size Cockroach		CR:3	VISIBLE:NO	BONUS:SIZEMOD|NUMBER|2
-Gargantuan Size Cockroach	CR:6	VISIBLE:NO	BONUS:SIZEMOD|NUMBER|3
-Colossal Size Cockroach		CR:9	VISIBLE:NO	BONUS:SIZEMOD|NUMBER|4
+# Template Name			Challenge Rating	Visible	Adjust PC Size
+Large Size Cockroach		CR:1			VISIBLE:NO	BONUS:SIZEMOD|NUMBER|1
+Huge Size Cockroach		CR:3			VISIBLE:NO	BONUS:SIZEMOD|NUMBER|2
+Gargantuan Size Cockroach	CR:6			VISIBLE:NO	BONUS:SIZEMOD|NUMBER|3
+Colossal Size Cockroach		CR:9			VISIBLE:NO	BONUS:SIZEMOD|NUMBER|4
 
 ###Block: Intelligent Ooze
-# Template Name	Visible	Special ABility																																					Bonus to HP												Main Race Type	Type
-Intelligent Ooze	VISIBLE:NO	SAB:Immune to mind affecting effects,poison,sleep,paralysis,stunning,gaze attacks,visual illusions, and other attacks that rely on sight	SAB:Not subject to critical hits flanking, effects of massive damage	SAB:Blindsight(Ex)	BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|((SIZE-6)MAX0)*5	RACETYPE:Ooze	TYPE:Ooze
+# Template Name	Visible	Special ABility																																					Bonus to HP											Main Race Type	Type
+Intelligent Ooze	VISIBLE:NO	SAB:Immune to mind affecting effects,poison,sleep,paralysis,stunning,gaze attacks,visual illusions, and other attacks that rely on sight	SAB:Not subject to critical hits flanking, effects of massive damage	SAB:Blindsight(Ex)	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*5	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*5	RACETYPE:Ooze	TYPE:Ooze
 
 ###Block: Plantman
 # Template Name		Visible	Level Adjustment	Special ABility	Bonus to HP												Class Skill	Ability														Main Race Type	Type
 Background (Plantman)	VISIBLE:NO																				CSKILL:Hide	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:OCCUPATION|AUTOMATIC|None
-Spore Plantman		VISIBLE:NO	LEVELADJUSTMENT:2	SAB:Spores (Ex)	BONUS:HP|CURRENTMAX|(SIZE-2)MAX0*5	BONUS:HP|CURRENTMAX|((SIZE-6)MAX0)*5																		RACETYPE:Ooze	TYPE:Ooze
+Spore Plantman		VISIBLE:NO	LEVELADJUSTMENT:2	SAB:Spores (Ex)	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*5	BONUS:HP|CURRENTMAX|(max(SIZE-6,0)*5																		RACETYPE:Ooze	TYPE:Ooze
 
 ###Block: Sandman
 # Template Name		Visible	Class Skill					Ability
