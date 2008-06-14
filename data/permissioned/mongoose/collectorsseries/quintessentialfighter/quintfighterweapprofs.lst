@@ -8,7 +8,7 @@ Crossbow (Siege)		TYPE:Exotic
 Sword (Crescent)		TYPE:Exotic
 Dagger (Double Bladed)	TYPE:Exotic
 Foot Bow			TYPE:Exotic		HANDS:2	BONUS:WEAPON|DAMAGE|min(STR,0)
-Iron Breaker		TYPE:Exotic		HANDS:1
+Iron-Breaker		TYPE:Exotic		HANDS:1
 Mancatcher			TYPE:Exotic		HANDS:2
 Sword-Breaker		TYPE:Exotic
 Sword-Catcher		TYPE:Exotic
