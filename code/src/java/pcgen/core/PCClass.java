@@ -4966,7 +4966,11 @@ public class PCClass extends PObject
 			}
 
 			spMod *= aPC.getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			Globals.getBioSet().randomize("AGE", aPC);
+			if (aPC.getAge() <= 0)
+			{
+				// Only generate a random age if the user hasn't set one!
+				Globals.getBioSet().randomize("AGE", aPC);
+			}
 		}
 		else
 		{
