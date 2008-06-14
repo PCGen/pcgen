@@ -475,7 +475,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 			 * should not be allowed to add languages after 1st lvl from increased intel bonus.
 			 * added check for house rule to allow adding languages after 1st level from Int bonus.
 			 * */
-			if (pc.getTotalLevels() > 1)
+			if (pc.totalNonMonsterLevels() > 1
+					|| (pc.totalNonMonsterLevels() > 0 && pc.totalHitDice() > 0))
 			{
 				if (Globals.checkRule(RuleConstants.INTBONUSLANG)) //$NON-NLS-1$
 				{
