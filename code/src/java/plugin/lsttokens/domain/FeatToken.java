@@ -1,18 +1,13 @@
 package plugin.lsttokens.domain;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.reference.CategorizedCDOMReference;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
@@ -71,6 +66,10 @@ public class FeatToken extends AbstractToken implements
 				CDOMReference<Ability> ability = TokenUtilities
 						.getTypeOrPrimitive(context, ABILITY_CLASS,
 								AbilityCategory.FEAT, token);
+				if (ability == null)
+				{
+					return false;
+				}
 				context.obj.addToList(obj, ListKey.FEAT, ability);
 			}
 			first = false;
@@ -82,9 +81,9 @@ public class FeatToken extends AbstractToken implements
 	{
 		Changes<CDOMReference<Ability>> changes = context.obj.getListChanges(
 				domain, ListKey.FEAT);
-		List<String> list = new ArrayList<String>();
 		Collection<CDOMReference<Ability>> added = changes.getAdded();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
+		StringBuilder sb = new StringBuilder();
 		if (changes.includesGlobalClear())
 		{
 			if (removedItems != null && !removedItems.isEmpty())
@@ -94,7 +93,7 @@ public class FeatToken extends AbstractToken implements
 						+ ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			list.add(Constants.LST_DOT_CLEAR);
+			sb.append(Constants.LST_DOT_CLEAR);
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
@@ -104,22 +103,17 @@ public class FeatToken extends AbstractToken implements
 		}
 		if (added != null && !added.isEmpty())
 		{
-			Set<String> set = new TreeSet<String>();
-			for (CDOMReference<Ability> ab : added)
+			if (sb.length() != 0)
 			{
-				if (!AbilityCategory.FEAT
-						.equals(((CategorizedCDOMReference<Ability>) ab)
-								.getCDOMCategory()))
-				{
-					context.addWriteMessage("Abilities awarded by "
-							+ getTokenName() + " must be of CATEGORY FEAT");
-					return null;
-				}
-				set.add(ab.getLSTformat());
+				sb.append(Constants.PIPE);
 			}
-			list.addAll(set);
+			sb.append(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
-		return new String[] { StringUtil.join(list, Constants.PIPE) };
+		if (sb.length() == 0)
+		{
+			return null;
+		}
+		return new String[] { sb.toString() };
 	}
 
 	public Class<Domain> getTokenClass()

@@ -27,6 +27,7 @@ package pcgen.persistence.lst;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
@@ -63,6 +64,7 @@ public final class FeatLoader extends AbilityLoader
 		}
 
 		feat.setCategory(Constants.FEAT_CATEGORY);
+		feat.setCDOMCategory(AbilityCategory.FEAT);
 
 		return super.parseLine(context, feat, lstLine, source);
 	}

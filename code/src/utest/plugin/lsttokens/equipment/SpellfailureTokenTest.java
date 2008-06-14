@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -62,14 +63,27 @@ public class SpellfailureTokenTest extends AbstractIntegerTokenTestCase<Equipmen
 	}
 
 	@Override
-	public boolean isZeroAllowed()
-	{
-		return false;
-	}
-
-	@Override
 	public boolean isPositiveAllowed()
 	{
 		return true;
 	}
+
+	@Override
+	public boolean isZeroAllowed()
+	{
+		return true;
+	}
+
+	@Override
+	public void testOutputZero() throws PersistenceLayerException
+	{
+		//Consume due to deprecation
+	}
+
+	@Override
+	public void testRoundRobinZero() throws PersistenceLayerException
+	{
+		//Consume due to deprecation
+	}
+
 }

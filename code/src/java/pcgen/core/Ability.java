@@ -729,8 +729,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 
 	public Category<Ability> getCDOMCategory()
 	{
-		Category<Ability> cat = get(ObjectKey.ABILITY_CAT);
-		return cat == null ? AbilityCategory.FEAT : cat;
+		return get(ObjectKey.ABILITY_CAT);
 	}
 
 	public void setCDOMCategory(Category<Ability> cat)

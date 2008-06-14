@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -70,7 +71,20 @@ public class XtraFeatsTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 	@Override
 	public boolean isZeroAllowed()
 	{
-		return false;
+		return true;
 	}
 
+	@Override
+	public void testOutputZero() throws PersistenceLayerException
+	{
+		//Consume due to deprecation
+	}
+
+	@Override
+	public void testRoundRobinZero() throws PersistenceLayerException
+	{
+		//Consume due to deprecation
+	}
+
+	
 }

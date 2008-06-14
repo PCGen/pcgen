@@ -41,6 +41,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
+import pcgen.util.Logging;
 
 public abstract class AbstractReferenceContext
 {
@@ -76,7 +77,8 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getAllReference();
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(Class<T> c, Category<T> cat)
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(
+			Class<T> c, Category<T> cat)
 	{
 		return getManufacturer(c, cat).getAllReference();
 	}
@@ -139,7 +141,7 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> void reassociateKey(String key, T obj)
 	{
-		 if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
+		if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
 			reassociateCategorizedKey(key, obj, cl);
@@ -170,12 +172,27 @@ public abstract class AbstractReferenceContext
 	// return categorized.getCDOMReference(c, cat, val);
 	// }
 	//
-	// public <T extends CDOMObject & CategorizedCDOMObject<T>> void
-	// reassociateCategory(
-	// Category<T> cat, T obj)
-	// {
-	// categorized.reassociateCategory(cat, obj);
-	// }
+	
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
+			Category<T> cat, T obj)
+	{
+		Category<T> oldCat = obj.getCDOMCategory();
+		if (oldCat == null && cat == null || oldCat != null
+				&& oldCat.equals(cat))
+		{
+			Logging.errorPrint("Worthless Category change encountered: "
+					+ obj.getDisplayName() + " " + oldCat);
+		}
+		reassociateCategory((Class<T>) obj.getClass(), obj, oldCat, cat);
+	}
+
+	private <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
+			Class<T> cl, T obj, Category<T> oldCat, Category<T> cat)
+	{
+		getManufacturer(cl, oldCat).forgetObject(obj);
+		obj.setCDOMCategory(cat);
+		getManufacturer(cl, cat).registerWithKey(obj, obj.getKeyName());
+	}
 
 	// public <T extends CDOMObject> T cloneConstructedCDOMObject(T orig,
 	// String newKey)
@@ -287,10 +304,10 @@ public abstract class AbstractReferenceContext
 			// TODO Need to limit which are built to only spellcasters...
 			constructCDOMObject(CLASSSPELLLIST_CLASS, key);
 			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, key);
-//			Collection<CDOMSubClass> subclasses = categorized
-//					.getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
-//							.getConstant(key));
-//			for (CDOMSubClass subcl : subclasses)
+			// Collection<CDOMSubClass> subclasses = categorized
+			// .getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
+			// .getConstant(key));
+			// for (CDOMSubClass subcl : subclasses)
 			List<SubClass> subc = pcc.getSubClassList();
 			if (subc != null)
 			{
@@ -301,7 +318,7 @@ public abstract class AbstractReferenceContext
 					// TODO Need to limit which are built to only
 					// spellcasters...
 					constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
-					//constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
+					// constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
 				}
 			}
 		}
