@@ -210,23 +210,23 @@ CLASS:Ranger.MOD	CCSKILL:Ritual Casting
 ###
 ###This File -
 
-# Class Name	Class Skill
-CLASS:Blood Witch	CSKILL:Ritual Casting
+# Class Name			Class Skill
+CLASS:Blood Witch.MOD		CSKILL:Ritual Casting
 
-# Class Name	Class Skill
-CLASS:Crypt Lord	CSKILL:Ritual Casting
+# Class Name			Class Skill
+CLASS:Crypt Lord.MOD		CSKILL:Ritual Casting
 
-# Class Name	Class Skill
-CLASS:Incarnate	CSKILL:Ritual Casting
+# Class Name			Class Skill
+CLASS:Incarnate.MOD		CSKILL:Ritual Casting
 
-# Class Name		Class Skill
-CLASS:Penumbral Lord	CSKILL:Ritual Casting
+# Class Name			Class Skill
+CLASS:Penumbral Lord.MOD	CSKILL:Ritual Casting
 
-# Class Name	Class Skill
-CLASS:Summoner	CSKILL:Ritual Casting
+# Class Name			Class Skill
+CLASS:Summoner.MOD		CSKILL:Ritual Casting
 
-# Class Name	Class Skill
-CLASS:Vigilant	CSKILL:Ritual Casting
+# Class Name			Class Skill
+CLASS:Vigilant.MOD		CSKILL:Ritual Casting
 
-# Class Name	Class Skill
-CLASS:Sea Witch	CSKILL:Ritual Casting
+# Class Name			Class Skill
+CLASS:Sea Witch.MOD		CSKILL:Ritual Casting
