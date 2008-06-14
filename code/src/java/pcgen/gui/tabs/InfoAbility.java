@@ -185,18 +185,25 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		List<String> toDoList = new ArrayList<String>();
 		if (getPc() != null)
 		{
-			final BigDecimal pool =
-					getPc().getAvailableAbilityPool(theCategory);
-			final int dir = pool.compareTo(BigDecimal.ZERO);
-			if (dir > 0)
+			for (AbilityCategory cat : categoryList)
 			{
-				toDoList.add(PropertyFactory.getFormattedString(
-					"in_featTodoRemain", theCategory.getPluralName())); //$NON-NLS-1$
-			}
-			else if (dir < 0)
-			{
-				toDoList.add(PropertyFactory.getFormattedString(
-					"in_featTodoTooMany", theCategory.getPluralName())); //$NON-NLS-1$
+				if (cat.isVisible(getPc()))
+				{
+					final BigDecimal pool =
+							getPc().getTotalAbilityPool(cat);
+					final int dir =
+							pool.compareTo(getPc().getAbilityPoolSpent(cat));
+					if (dir > 0)
+					{
+						toDoList.add(PropertyFactory.getFormattedString(
+							"in_featTodoRemain", cat.getPluralName())); //$NON-NLS-1$
+					}
+					else if (dir < 0)
+					{
+						toDoList.add(PropertyFactory.getFormattedString(
+							"in_featTodoTooMany", cat.getPluralName())); //$NON-NLS-1$
+					}
+				}
 			}
 		}
 
