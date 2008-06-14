@@ -29,12 +29,6 @@ public class SpellLevelToken implements ChooseLstToken
 
 	public boolean parse(PObject po, String prefix, String value)
 	{
-		if (prefix.indexOf("NUMCHOICES=") != -1)
-		{
-			Logging.errorPrint("Cannot use NUMCHOICES= with CHOOSE:SPELLLEVEL, "
-				+ "as it has an integrated choice count");
-			return false;
-		}
 		if (value == null)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
@@ -100,10 +94,9 @@ public class SpellLevelToken implements ChooseLstToken
 			return false;
 		}
 		String start = value.substring(0, pipeLoc);
-		int choiceCount;
 		try
 		{
-			choiceCount = Integer.parseInt(start);
+			Integer.parseInt(start);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -161,13 +154,13 @@ public class SpellLevelToken implements ChooseLstToken
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append("NUMCHOICES=").append(choiceCount).append('|');
 		if (prefix.length() > 0)
 		{
 			sb.append(prefix).append('|');
 		}
 		sb.append(getTokenName()).append('|').append(value).append(suffix);
 		po.setChoiceString(sb.toString());
+		po.setSelect(start);
 		return true;
 	}
 
