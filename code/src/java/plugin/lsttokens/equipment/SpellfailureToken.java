@@ -22,7 +22,12 @@ public class SpellfailureToken implements CDOMPrimaryToken<Equipment>
 		try
 		{
 			Integer sf = Integer.valueOf(value);
-			if (sf.intValue() <= 0)
+			if (sf.intValue() == 0)
+			{
+				Logging.deprecationPrint(getTokenName()
+						+ " should not be used if zero (default is zero)");
+			}
+			else if (sf.intValue() <= 0)
 			{
 				Logging.errorPrint(getTokenName() + " must be an integer > 0");
 				return false;
