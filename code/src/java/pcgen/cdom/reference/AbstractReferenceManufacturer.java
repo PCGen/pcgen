@@ -465,7 +465,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			}
 			else
 			{
-				System.err.println("Unable to Resolve: " + refClass + " "
+				Logging.errorPrint("Unable to Resolve: " + refClass + " "
 						+ me.getKey());
 			}
 		}

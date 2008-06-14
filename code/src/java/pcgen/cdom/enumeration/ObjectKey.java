@@ -32,6 +32,7 @@ import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
@@ -40,6 +41,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
@@ -180,6 +182,8 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Boolean> NAME_PI = new ObjectKey<Boolean>(Boolean.FALSE);
 
 	public static final ObjectKey<Boolean> DESC_PI = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<Category<Ability>> ABILITY_CAT = new ObjectKey<Category<Ability>>(null);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 

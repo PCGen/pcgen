@@ -22,6 +22,8 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -42,7 +44,7 @@ import pcgen.util.enumeration.Tab;
  * @author   ???
  * @version  $Revision$
  */
-public final class Ability extends PObject implements Categorisable
+public final class Ability extends PObject implements Categorisable, CategorizedCDOMObject<Ability>
 {
 	/** An enum for the various types of ability options. */
 	public enum Nature {
@@ -723,5 +725,16 @@ public final class Ability extends PObject implements Categorisable
 	 */
 	public boolean isSameBaseAbility(Ability that) {
 		return AbilityUtilities.areSameAbility(this, that);
+	}
+
+	public Category<Ability> getCDOMCategory()
+	{
+		Category<Ability> cat = get(ObjectKey.ABILITY_CAT);
+		return cat == null ? AbilityCategory.FEAT : cat;
+	}
+
+	public void setCDOMCategory(Category<Ability> cat)
+	{
+		put(ObjectKey.ABILITY_CAT, cat);
 	}
 }

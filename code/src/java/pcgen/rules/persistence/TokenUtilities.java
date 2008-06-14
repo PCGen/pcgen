@@ -21,6 +21,8 @@ import java.util.Comparator;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -120,42 +122,42 @@ public final class TokenUtilities
 		return context.ref.getCDOMTypeReference(cl, types);
 	}
 
-//	public static <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMReference<T> getTypeOrPrimitive(
-//		LoadContext context, Class<T> cl, Category<T> cat, String s)
-//	{
-//		if (s.startsWith(Constants.LST_TYPE_OLD)
-//			|| s.startsWith(Constants.LST_TYPE))
-//		{
-//			String subStr = s.substring(5);
-//			if (subStr.length() == 0)
-//			{
-//				Logging.errorPrint("Type may not be empty in: " + s);
-//				return null;
-//			}
-//			if (subStr.charAt(0) == '.'
-//				|| subStr.charAt(subStr.length() - 1) == '.')
-//			{
-//				Logging.errorPrint("Type may not start or end with . in: " + s);
-//				return null;
-//			}
-//			String[] types = subStr.split("\\.");
-//			for (String type : types)
-//			{
-//				if (type.length() == 0)
-//				{
-//					Logging
-//						.errorPrint("Attempt to acquire empty Type in: " + s);
-//					return null;
-//				}
-//			}
-//			return context.ref.getCDOMTypeReference(cl, cat, types);
-//		}
-//		else
-//		{
-//			return context.ref.getCDOMReference(cl, cat, s);
-//		}
-//	}
-//
+	public static <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMReference<T> getTypeOrPrimitive(
+		LoadContext context, Class<T> cl, Category<T> cat, String s)
+	{
+		if (s.startsWith(Constants.LST_TYPE_OLD)
+			|| s.startsWith(Constants.LST_TYPE))
+		{
+			String subStr = s.substring(5);
+			if (subStr.length() == 0)
+			{
+				Logging.errorPrint("Type may not be empty in: " + s);
+				return null;
+			}
+			if (subStr.charAt(0) == '.'
+				|| subStr.charAt(subStr.length() - 1) == '.')
+			{
+				Logging.errorPrint("Type may not start or end with . in: " + s);
+				return null;
+			}
+			String[] types = subStr.split("\\.");
+			for (String type : types)
+			{
+				if (type.length() == 0)
+				{
+					Logging
+						.errorPrint("Attempt to acquire empty Type in: " + s);
+					return null;
+				}
+			}
+			return context.ref.getCDOMTypeReference(cl, cat, types);
+		}
+		else
+		{
+			return context.ref.getCDOMReference(cl, cat, s);
+		}
+	}
+
 	public static int compareRefs(CDOMReference<?> arg0, CDOMReference<?> arg1)
 	{
 		if (arg0 instanceof CDOMSingleRef)

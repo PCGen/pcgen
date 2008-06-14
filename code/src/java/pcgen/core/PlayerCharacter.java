@@ -17478,20 +17478,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						}
 					}
 
-					final Iterator<Categorisable> anIt =
-							aDomain.getFeatIterator();
-
-					for (; anIt.hasNext();)
+					for (CDOMReference<Ability> ref : aDomain.getSafeListFor(ListKey.FEAT))
 					{
-						final AbilityInfo abI = (AbilityInfo) anIt.next();
-						Ability added =
-								AbilityUtilities
-									.addCloneOfGlobalAbilityToListWithChoices(
-										abilities, Constants.FEAT_CATEGORY, abI
-											.getKeyName());
-						if (added != null)
+						for (Ability ab : ref.getContainedObjects())
 						{
-							added.setFeatType(Ability.Nature.AUTOMATIC);
+							Ability added =
+									AbilityUtilities
+										.addCloneOfGlobalAbilityToListWithChoices(
+											abilities, Constants.FEAT_CATEGORY, ab
+												.getKeyName());
+							if (added != null)
+							{
+								added.setFeatType(Ability.Nature.AUTOMATIC);
+							}
+							
 						}
 					}
 

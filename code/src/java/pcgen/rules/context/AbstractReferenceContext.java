@@ -27,6 +27,8 @@ import java.util.Set;
 
 import pcgen.base.util.OneToOneMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSkillList;
@@ -54,6 +56,9 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl);
 
+	public abstract <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+			Class<T> cl, Category<T> cat);
+
 	public abstract Collection<? extends ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers();
 
 	public boolean validate()
@@ -64,26 +69,16 @@ public abstract class AbstractReferenceContext
 			returnGood &= ref.validate();
 		}
 		return returnGood;
-		// && categorized.validate();
 	}
-
-	// public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T>
-	// getCDOMAllReference(
-	// Class<T> c, Category<T> cat)
-	// {
-	// return categorized.getManufacturer(c, cat).getAllReference();
-	// }
-
-	// public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T>
-	// getCDOMTypeReference(
-	// Class<T> c, Category<T> cat, String... val)
-	// {
-	// return categorized.getManufacturer(c, cat).getTypeReference(val);
-	// }
 
 	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
 		return getManufacturer(c).getAllReference();
+	}
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(Class<T> c, Category<T> cat)
+	{
+		return getManufacturer(c, cat).getAllReference();
 	}
 
 	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMTypeReference(
@@ -92,17 +87,24 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getTypeReference(val);
 	}
 
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMTypeReference(
+			Class<T> c, Category<T> cat, String... val)
+	{
+		return getManufacturer(c, cat).getTypeReference(val);
+	}
+
 	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val)
 	{
 		T obj;
-		// if (CategorizedCDOMObject.class.isAssignableFrom(c))
-		// {
-		// obj = (T) categorized.constructCDOMObject((Class) c, null, val);
-		// }
-		// else
-		// {
-		obj = getManufacturer(c).constructCDOMObject(val);
-		// }
+		if (CategorizedCDOMObject.class.isAssignableFrom(c))
+		{
+			Class cl = c;
+			obj = (T) getManufacturer(cl, null).constructCDOMObject(val);
+		}
+		else
+		{
+			obj = getManufacturer(c).constructCDOMObject(val);
+		}
 		obj.put(ObjectKey.SOURCE_URI, sourceURI);
 		return obj;
 	}
@@ -124,16 +126,35 @@ public abstract class AbstractReferenceContext
 		return manufacturer.getReference(val);
 	}
 
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
+			Class<T> c, Category<T> cat, String val)
+	{
+		/*
+		 * Keeping this generic (not inlined as the other methods in this class)
+		 * is required by bugs in Sun's Java 5 compiler.
+		 */
+		ReferenceManufacturer manufacturer = getManufacturer(c, cat);
+		return manufacturer.getReference(val);
+	}
+
 	public <T extends CDOMObject> void reassociateKey(String key, T obj)
 	{
-		// if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
-		// {
-		// categorized.reassociateKey(obj, key);
-		// }
-		// else
-		// {
-		getManufacturer((Class<T>) obj.getClass()).reassociateKey(key, obj);
-		// }
+		 if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
+		{
+			Class cl = obj.getClass();
+			reassociateCategorizedKey(key, obj, cl);
+		}
+		else
+		{
+			getManufacturer((Class<T>) obj.getClass()).reassociateKey(key, obj);
+		}
+	}
+
+	private <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategorizedKey(
+			String key, CDOMObject orig, Class<T> cl)
+	{
+		T obj = (T) orig;
+		getManufacturer(cl, obj.getCDOMCategory()).reassociateKey(key, obj);
 	}
 
 	public <T extends CDOMObject> T silentlyGetConstructedCDOMObject(
@@ -173,15 +194,24 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> void importObject(T orig)
 	{
-		// if (CategorizedCDOMObject.class.isAssignableFrom(orig.getClass()))
-		// {
-		// throw new IllegalArgumentException();
-		// }
-		// else
-		// {
-		getManufacturer((Class<T>) orig.getClass()).registerWithKey(orig,
-				orig.getKeyName());
-		// }
+		if (CategorizedCDOMObject.class.isAssignableFrom(orig.getClass()))
+		{
+			Class cl = orig.getClass();
+			importCategorized(orig, cl);
+		}
+		else
+		{
+			getManufacturer((Class<T>) orig.getClass()).registerWithKey(orig,
+					orig.getKeyName());
+		}
+	}
+
+	private <T extends CDOMObject & CategorizedCDOMObject<T>> void importCategorized(
+			CDOMObject orig, Class<T> cl)
+	{
+		T obj = (T) orig;
+		getManufacturer(cl, obj.getCDOMCategory()).registerWithKey(obj,
+				obj.getKeyName());
 	}
 
 	public <T extends CDOMObject> boolean forget(T obj)

@@ -22,8 +22,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 
@@ -31,10 +35,13 @@ public class ReferenceContext extends AbstractReferenceContext
 {
 	private Map<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>> map = new HashMap<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>>();
 
+	private DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>>();
+
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl)
 	{
-		ReferenceManufacturer<T, ?> mfg = (ReferenceManufacturer<T, ?>) map.get(cl);
+		ReferenceManufacturer<T, ?> mfg = (ReferenceManufacturer<T, ?>) map
+				.get(cl);
 		if (mfg == null)
 		{
 			mfg = new SimpleReferenceManufacturer<T>(cl);
@@ -46,7 +53,26 @@ public class ReferenceContext extends AbstractReferenceContext
 	@Override
 	public Collection<ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers()
 	{
-		return new ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>>(
+		ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>> returnList = new ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>>(
 				map.values());
+		for (Class<?> cl : catmap.getKeySet())
+		{
+			returnList.addAll(catmap.values(cl));
+		}
+		return returnList;
+	}
+
+	@Override
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+			Class<T> cl, Category<T> cat)
+	{
+		CategorizedReferenceManufacturer<T> mfg = (CategorizedReferenceManufacturer<T>) catmap
+				.get(cl, cat);
+		if (mfg == null)
+		{
+			mfg = new CategorizedReferenceManufacturer<T>(cl, cat);
+			catmap.put(cl, cat, mfg);
+		}
+		return mfg;
 	}
 }

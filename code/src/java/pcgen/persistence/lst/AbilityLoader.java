@@ -181,6 +181,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	protected void addGlobalObject(final PObject pObj)
 	{
 		Globals.addAbility((Ability) pObj);
+		Globals.getContext().ref.importObject(pObj);
 	}
 	
 	@Override

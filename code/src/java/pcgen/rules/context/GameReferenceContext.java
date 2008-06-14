@@ -22,7 +22,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -30,6 +33,8 @@ import pcgen.cdom.reference.TransparentReferenceManufacturer;
 public class GameReferenceContext extends AbstractReferenceContext
 {
 	private Map<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
+
+	private DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
 
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl)
@@ -47,7 +52,26 @@ public class GameReferenceContext extends AbstractReferenceContext
 	@Override
 	public Collection<TransparentReferenceManufacturer<? extends CDOMObject>> getAllManufacturers()
 	{
-		return new ArrayList<TransparentReferenceManufacturer<? extends CDOMObject>>(
+		ArrayList<TransparentReferenceManufacturer<? extends CDOMObject>> returnList = new ArrayList<TransparentReferenceManufacturer<? extends CDOMObject>>(
 				map.values());
+		for (Class<?> cl : catmap.getKeySet())
+		{
+			returnList.addAll(catmap.values(cl));
+		}
+		return returnList;
+	}
+
+	@Override
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+			Class<T> cl, Category<T> cat)
+	{
+		TransparentReferenceManufacturer<T> mfg = (TransparentReferenceManufacturer<T>) catmap
+				.get(cl, cat);
+		if (mfg == null)
+		{
+			mfg = new TransparentReferenceManufacturer<T>(cl);
+			catmap.put(cl, cat, mfg);
+		}
+		return mfg;
 	}
 }

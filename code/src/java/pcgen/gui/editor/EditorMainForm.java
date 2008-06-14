@@ -61,7 +61,6 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
-import pcgen.core.AbilityInfo;
 import pcgen.core.Categorisable;
 import pcgen.core.DamageReduction;
 import pcgen.core.Deity;
@@ -679,10 +678,12 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save feats
 				//
-				((Domain)thisPObject).addFeat(".CLEAR");
+				thisPObject.removeListFor(ListKey.FEAT);
+				
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
-				((Domain)thisPObject).addFeat(aString);
+				Globals.getContext().unconditionallyProcess(thisPObject, "FEAT",
+					aString);
 
 				sel = pnlQSpells.getSelectedList();
 				if (thisPObject.isNewItem())
@@ -1265,15 +1266,13 @@ public final class EditorMainForm extends JDialog
 					availableFeatList.add(anAbility.getKeyName());
 				}
 
-				for (Iterator<Categorisable> iter = ((Domain) thisPObject).getFeatIterator(); iter.hasNext();)
+				for (CDOMReference<Ability> ref : thisPObject.getSafeListFor(ListKey.FEAT))
 				{
-					AbilityInfo ability = (AbilityInfo)iter.next();
-					aString = ability.getKeyName();
-
-					if (!selecetdFeatList.contains(aString))
+					String lst = ref.getLSTformat();
+					if (!selecetdFeatList.contains(lst))
 					{
-						availableFeatList.remove(aString);
-						selecetdFeatList.add(aString);
+						availableFeatList.remove(lst);
+						selecetdFeatList.add(lst);
 					}
 				}
 

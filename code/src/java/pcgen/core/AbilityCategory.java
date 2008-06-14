@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.cdom.base.Category;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -43,7 +44,7 @@ import pcgen.util.PropertyFactory;
  * 
  * @since 5.11.1
  */
-public class AbilityCategory implements KeyedObject
+public class AbilityCategory implements KeyedObject, Category<Ability>
 {
 	private String theDisplayName;
 	private String theKeyName;

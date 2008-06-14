@@ -63,7 +63,6 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(BioSetTest.class));
 		suite.addTest(new TestSuite(ClassTypeTest.class));
 		suite.addTest(new TestSuite(DamageReductionTest.class));
-		suite.addTest(new TestSuite(DomainTest.class));
 		suite.addTest(new TestSuite(EquipmentListTest.class));
 		suite.addTest(new TestSuite(EquipmentModifierTest.class));
 		suite.addTest(new TestSuite(EquipmentTest.class));

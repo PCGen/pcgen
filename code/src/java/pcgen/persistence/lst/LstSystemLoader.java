@@ -54,6 +54,7 @@ import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.Deity;
 import pcgen.core.Description;
+import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
@@ -130,7 +131,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private CampaignLoader campaignLoader = new CampaignLoader();
 	private final CampaignSourceEntry globalCampaign;
 	private GenericLoader<Deity> deityLoader = new GenericLoader<Deity>(Deity.class);
-	private DomainLoader domainLoader = new DomainLoader();
+	private GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
 	private AbilityLoader abilityLoader = new AbilityLoader();
 	private FeatLoader featLoader = new FeatLoader();
 	private final FilenameFilter pccFileFilter = new FilenameFilter()

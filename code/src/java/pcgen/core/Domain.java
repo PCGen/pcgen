@@ -26,7 +26,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
@@ -46,23 +45,7 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Domain extends PObject
 {
-	private AbilityStore abilityStore = new AbilityStore();
 	private boolean isLocked;
-
-	/**
-	 * Add an Ability or list of Abilities to the Abilities that the domain 
-	 * grants. The Ability may be a single Ability, or a list of Abilitiess 
-	 * separated by "|" or ",".  If .CLEAR is received, the existing ability 
-	 * store will be cleared.  This string must begin with a "CATEGORY=" 
-	 * statement. All abilities added by this method are assumed to be 
-	 * category FEAT. "CATEGORY=" entries are ignored.
-	 *
-	 * @param  feats
-	 */
-	public void addFeat(final String feats)
-	{
-		abilityStore.addAbilityInfo(feats, "FEAT", "|,", true, false);
-	}
 
 	/**
 	 * Sets the locked flag on a PC
@@ -185,6 +168,7 @@ public final class Domain extends PObject
 		}
 	}
 
+	@Override
 	public String getSpellKey()
 	{
 		return "DOMAIN|" + keyName;
@@ -198,17 +182,7 @@ public final class Domain extends PObject
 		try
 		{
 			aObj                = (Domain) super.clone();
-			aObj.abilityStore = new AbilityStore();
-			Iterator<Categorisable> it = abilityStore.getKeyIterator("ALL");
-			while (it.hasNext())
-			{
-				Categorisable catObj = it.next();
-				aObj.addFeat("CATEGORY="+catObj.getCategory()+"|"+catObj.getKeyName());
-			}
-			//aObj.abilityStore   = (AbilityStore) abilityStore.clone();
 			aObj.isLocked       = false;
-
-			// aObj.isLocked = isLocked;
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -256,26 +230,6 @@ public final class Domain extends PObject
 		return result;
 	}
 
-	/**
-	 * Get an iterator for the AbilityInfo objects that hold represent
-	 * the Feats granted by this domain
-	 *
-	 * @return  An Iterator over a group of AbilityInfo objects.
-	 */
-	public Iterator<Categorisable> getFeatIterator()
-	{
-		return abilityStore.getNameIterator("FEAT");
-	}
-
-	/**
-	 * Gets the number of feats
-	 * @return number of feat
-	 */
-	public int getNumberOfFeats()
-	{
-		return abilityStore.getUnmodifiableList("FEAT").size();
-	}
-	
 	void addSpellsToClassForLevels(
 		final PCClass aClass,
 		final int     minLevel,
@@ -315,34 +269,4 @@ public final class Domain extends PObject
 			}
 		}
 	}
-
-	/**
-	 * This method gets the text used in outputting source files (.pcc files)
-	 * @return String containing properly formatted pcc text for this domain.
-	 */
-	public String getPCCText()
-	{
-		final StringBuffer txt = new StringBuffer(200);
-		txt.append(super.getPCCText(true));
-
-
-		// Granted feats
-		StringBuffer featString = new StringBuffer();
-		for (Iterator<Categorisable> iter = getFeatIterator(); iter.hasNext();)
-		{
-			AbilityInfo grantedFeat = (AbilityInfo)iter.next();
-			if (featString.length() > 0)
-			{
-				featString.append("|");
-			}
-			featString.append(grantedFeat.getKeyName());
-		}
-		if (featString.length() > 0)
-		{
-			txt.append('\t').append("FEAT:").append(featString);
-		}
-		
-		return txt.toString();
-	}
-
 }
