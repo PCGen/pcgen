@@ -8,4 +8,6 @@ SOURCELONG:Mongoose Publishing - Slayer's Guide to Hobgoblins	SOURCESHORT:SGtHob
 # Éric Beaudoin - 2002.11.16
 
 # Language	Type
+Goblinoid	TYPE:Spoken
 Troll		TYPE:Spoken
+Ogre		TYPE:Spoken
