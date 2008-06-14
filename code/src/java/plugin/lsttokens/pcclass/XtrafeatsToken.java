@@ -28,7 +28,12 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 		try
 		{
 			featCount = Integer.parseInt(value);
-			if (featCount <= 0)
+			if (featCount == 0)
+			{
+				Logging.deprecationPrint(getTokenName()
+						+ " should not be used if zero (default is zero)");
+			}
+			else if (featCount <= 0)
 			{
 				Logging.errorPrint("Number in " + getTokenName()
 						+ " must be greater than zero: " + value);
