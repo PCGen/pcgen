@@ -37,6 +37,8 @@ SKILL:evil_skills.lst
 CLASS:evil_classes.lst
 FEAT:evil_feats.lst
 
+LANGUAGE:evil_languages.lst
+
 KIT:evil_kits_races.lst
 
 EQUIPMENT:evil_equip_potionsscrolls.lst
