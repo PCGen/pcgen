@@ -6,7 +6,8 @@ Contortionist				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			CLASSES:Bard|Rogue				
 Intuit Depth				KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:Druid					TYPE:Wisdom				SOURCEPAGE:p.78
 Intuit Distance				KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:Barbarian|Druid|Ranger		TYPE:Wisdom				SOURCEPAGE:p.78
 Intuit Language				KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:Bard|Cleric|Druid			TYPE:Wisdom				SOURCEPAGE:p.78
-Craft (Metalworking)			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence.Craft		SOURCEPAGE:p.
+#Craft (Metalworking)			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence.Craft		SOURCEPAGE:p.
+#Duplicate in SRD
 Knowledge (Ancient History)		KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
 Knowledge (Dungeon Lore)		KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence.Knowledge	SOURCEPAGE:p.79
 Knowledge (Monster Lore)		KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence.Knowledge	SOURCEPAGE:p.79
