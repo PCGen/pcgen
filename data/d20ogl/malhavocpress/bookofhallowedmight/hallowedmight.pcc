@@ -23,11 +23,11 @@ INFOTEXT:Spell names and other proper names from The Book of Hallowed Might are 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:hallowedmight_feats_hidden.lst
 
 DOMAIN:hallowedmight_domains.lst
 SPELL:hallowedmight_spells.lst
 FEAT:hallowedmight_feats.lst
-FEAT:hallowedmight_feats_hidden.lst
 TEMPLATE:hallowedmight_templates.lst
 CLASS:hallowedmight_classes.lst
 EQUIPMOD:hallowedmight_equipmods.lst
@@ -37,7 +37,7 @@ RACE:hallowedmight_races.lst
 
 KIT:hallowedmight_kits_races.lst
 
-FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst
 
 #Not done yet
 EQUIPMENT:hallowedmight_equip_potions.lst
