@@ -37,7 +37,7 @@ Scroll (Favour's Focus I)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consuma
 Scroll (Favour's Focus II)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:.01	SOURCEPAGE:p.32
 Scroll (Favour's Focus III)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:.01	SOURCEPAGE:p.32
 Scroll (Favour's Focus IV)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:700	WT:.01	SOURCEPAGE:p.32
-Scroll (Favour's Focus IV)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus V)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1125	WT:.01	SOURCEPAGE:p.32
 Scroll (Favour's Focus VI)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.33
 Scroll (Favour's Focus VII)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.33
 Scroll (Favour's Focus VIII)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:3000	WT:.01	SOURCEPAGE:p.34
