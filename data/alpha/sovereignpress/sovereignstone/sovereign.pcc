@@ -50,7 +50,7 @@ LANGUAGE:sovereignlanguages.lst
 #FEAT:sovereignmagicfeats.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion|Improved Evasion|Uncanny Dodge|Sneak Attack)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion,Uncanny Dodge,Sneak Attack)
 
 FEAT:sovereignmagicfeats.lst
 EQUIPMENT:sovereignweapmasterwork.lst

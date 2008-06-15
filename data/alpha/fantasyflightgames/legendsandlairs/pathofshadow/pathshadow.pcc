@@ -51,4 +51,4 @@ FEAT:pathshadow_feats_hidden_legendary.lst
 
 # References to SRD
 #TBD
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Basic Turning|Rebuke Undead|Turn Undead|Sneak Attack|Smite)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Basic Turning,Rebuke Undead,Turn Undead,Sneak Attack,Smite)

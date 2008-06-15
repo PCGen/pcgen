@@ -36,4 +36,4 @@ SKILL:dungeonsskills.lst
 SPELL:dungeonsspells.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion|Improved Evasion|Wizard Weapon Proficiencies|Rogue Weapon Proficiencies)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion,Wizard Weapon Proficiencies,Rogue Weapon Proficiencies)

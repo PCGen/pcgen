@@ -42,4 +42,4 @@ SKILL:undeadskills.lst
 SPELL:undeadspells.lst
 TEMPLATE:undeadtemplates.lst
 
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Rebuke Undead|Turn Undead)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Rebuke Undead,Turn Undead)

@@ -46,4 +46,4 @@ EQUIPMENT:necromancy_equip_potionsscrolls.lst
 EQUIPMENT:necromancy_equip_rodsstaffswands.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion|Improved Evasion)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion)

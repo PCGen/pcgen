@@ -41,5 +41,5 @@ WEAPONPROF:mythicracesweapprofs.lst
 EQUIPMENT:mythicraces_equip_potionsscrolls.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion|Improved Evasion|Turn Undead|Rebuke Undead|Basic Turning)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion,Turn Undead,Rebuke Undead,Basic Turning)
 

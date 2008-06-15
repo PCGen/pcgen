@@ -55,7 +55,7 @@ EQUIPMOD:starfarershb_equipmods.lst
 #EQUIPMENT:starfarershbequipspellware.lst
 
 # For the Evasion pseudo-feat
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion|Improved Evasion|Sneak Attack|Turn Undead|Rebuke Undead)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion,Sneak Attack,Turn Undead,Rebuke Undead)
 
 
 

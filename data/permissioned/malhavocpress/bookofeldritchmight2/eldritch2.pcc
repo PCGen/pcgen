@@ -43,4 +43,4 @@ FEAT:eldritch2feats.lst
 SPELL:eldritch2spells.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion|Improved Evasion)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion)

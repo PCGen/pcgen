@@ -30,7 +30,7 @@ FEAT:blackflags_feats_hidden.lst
 # Stuff from the SRD.
 SKILL:@/d20ogl/srd/basics/srd_skills.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,All Martial Weapon Proficiencies|All Automatic Proficiencies)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,All Martial Weapon Proficiencies,All Automatic Proficiencies)
 RACE:@/d20ogl/srd/basics/srd_races__base.lst|(INCLUDE:Human)
 WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
