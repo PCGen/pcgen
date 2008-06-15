@@ -46,8 +46,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	/** A map to hold items keyed by Integers for the object */
 	// TODO make this final once clone() is no longer required...
-	// TODO Make this private once PObject is cleaned up
-	protected Map<IntegerKey, Integer> integerChar = new HashMap<IntegerKey, Integer>();
+	private Map<IntegerKey, Integer> integerChar = new HashMap<IntegerKey, Integer>();
 
 	/** A map to hold items keyed by Strings for the object */
 	// TODO make this final once clone() is no longer required...

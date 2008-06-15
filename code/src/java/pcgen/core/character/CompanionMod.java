@@ -87,6 +87,7 @@ public final class CompanionMod extends PObject
 	 *         is less than, equal to, or greater than the specified object.
 	 * @see Comparable#compareTo(Object)
 	 */
+	@Override
 	public int compareTo(final Object obj)
 	{
 		int result = 0;
@@ -259,7 +260,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setHitDie(final int hd)
 	{
-		integerChar.put(IntegerKey.HIT_DIE, hd);
+		put(IntegerKey.HIT_DIE, hd);
 	}
 
 	/**
@@ -268,7 +269,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setLevel(final int level)
 	{
-		integerChar.put(IntegerKey.LEVEL, level);
+		put(IntegerKey.LEVEL, level);
 	}
 
 	/**

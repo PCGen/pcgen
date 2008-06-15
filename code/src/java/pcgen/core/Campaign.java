@@ -1162,7 +1162,7 @@ public class Campaign extends PObject
 	 */
 	public void setRank(final int rank)
 	{
-		integerChar.put(IntegerKey.CAMPAIGN_RANK, rank);
+		put(IntegerKey.CAMPAIGN_RANK, rank);
 	}
 
 	/**
