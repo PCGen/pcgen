@@ -444,7 +444,7 @@ public class Movement
 			try
 			{
 				double multValue = Double.parseDouble(mod.substring(1));
-				if (multValue <= 0)
+				if (multValue < 0)
 				{
 					Logging.errorPrint("Illegal movement multiplier: "
 						+ multValue + " in movement string " + mod);
