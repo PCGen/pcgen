@@ -1328,6 +1328,357 @@
 	<!--
 	  ====================================
 	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+
+	<ability_objects>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- Visible Standard "Special Ability" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Special Ability.VISIBLE.%ability|</name>
+			<description>|ABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+|ELSE|
+	<!-- Visible Automatic "Special Ability" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+		<ability_object>
+			<name>|ABILITYAUTO.Special Ability.VISIBLE.%ability|</name>
+			<description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITYAUTO.Special Ability.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+|ELSE|
+	<!-- Visible Virtual "Special Ability" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+		<ability_object>
+			<name>|VABILITY.Special Ability.VISIBLE.%ability|</name>
+			<description>|VABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
+			<type>|VABILITY.Special Ability.VISIBLE.%ability.TYPE|</type>
+			<associated>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|VABILITY.Special Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- Hidden Standard "Special Ability" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Special Ability.HIDDEN.%ability|</name>
+			<description>|ABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
+			<type>|ABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
+			<associated>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+|ELSE|
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+		<ability_object>
+			<name>|ABILITYAUTO.Special Ability.HIDDEN.%ability|</name>
+			<description>|ABILITYAUTO.Special Ability.HIDDEN.%ability.DESC|</description>
+			<type>|ABILITYAUTO.Special Ability.HIDDEN.%ability.TYPE|</type>
+			<associated>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+|ELSE|
+	<!-- Hidden Virtual "Special Ability" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+		<ability_object>
+			<name>|VABILITY.Special Ability.HIDDEN.%ability|</name>
+			<description>|VABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
+			<type>|VABILITY.Special Ability.HIDDEN.%ability.TYPE|</type>
+			<associated>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|VABILITY.Special Ability.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- "Salient Divine Ability" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Salient Divine Ability.VISIBLE.%ability|</name>
+			<description>|ABILITY.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITY.Salient Divine Ability.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Salient Divine Ability.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Salient Divine Ability</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- "Mutation" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Mutation.VISIBLE.%ability|</name>
+			<description>|ABILITY.Mutation.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITY.Mutation.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Mutation.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Mutation</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- Visible Standard "Talent" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Talent.VISIBLE.%ability|</name>
+			<description>|ABILITY.Talent.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITY.Talent.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+|ELSE|
+	<!-- Visible Automatic "Talent" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+		<ability_object>
+			<name>|ABILITYAUTO.Talent.VISIBLE.%ability|</name>
+			<description>|ABILITYAUTO.Talent.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITYAUTO.Talent.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+|ELSE|
+	<!-- Visible Virtual "Talent" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+		<ability_object>
+			<name>|VABILITY.Talent.VISIBLE.%ability|</name>
+			<description>|VABILITY.Talent.VISIBLE.%ability.DESC|</description>
+			<type>|VABILITY.Talent.VISIBLE.%ability.TYPE|</type>
+			<associated>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|VABILITY.Talent.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+			<category>Talent</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- Hidden Standard "Talent" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Talent.HIDDEN.%ability|</name>
+			<description>|ABILITY.Talent.HIDDEN.%ability.DESC|</description>
+			<type>|ABILITY.Talent.HIDDEN.%ability.TYPE|</type>
+			<associated>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+|ELSE|
+	<!-- Hidden Automatic "Talent" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+		<ability_object>
+			<name>|ABILITYAUTO.Talent.HIDDEN.%ability|</name>
+			<description>|ABILITYAUTO.Talent.HIDDEN.%ability.DESC|</description>
+			<type>|ABILITYAUTO.Talent.HIDDEN.%ability.TYPE|</type>
+			<associated>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+|ELSE|
+	<!-- Hidden Virtual "Talent" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+		<ability_object>
+			<name>|VABILITY.Talent.HIDDEN.%ability|</name>
+			<description>|VABILITY.Talent.HIDDEN.%ability.DESC|</description>
+			<type>|VABILITY.Talent.HIDDEN.%ability.TYPE|</type>
+			<associated>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|VABILITY.Talent.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>T</virtual>
+			<category>Talent</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- Visible Standard "Internal" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Internal.VISIBLE.%ability|</name>
+			<description>|ABILITY.Internal.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITY.Internal.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+|ELSE|
+	<!-- Visible Automatic "Internal" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+		<ability_object>
+			<name>|ABILITYAUTO.Internal.VISIBLE.%ability|</name>
+			<description>|ABILITYAUTO.Internal.VISIBLE.%ability.DESC|</description>
+			<type>|ABILITYAUTO.Internal.VISIBLE.%ability.TYPE|</type>
+			<associated>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+|ELSE|
+	<!-- Visible Virtual "Internal" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+		<ability_object>
+			<name>|VABILITY.Internal.VISIBLE.%ability|</name>
+			<description>|VABILITY.Internal.VISIBLE.%ability.DESC|</description>
+			<type>|VABILITY.Internal.VISIBLE.%ability.TYPE|</type>
+			<associated>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATED|</associated>
+			<count>|VABILITY.Internal.VISIBLE.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+			<category>Internal</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+|ELSE|
+	<!-- Hidden Standard "Internal" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+		<ability_object>
+			<name>|ABILITY.Internal.HIDDEN.%ability|</name>
+			<description>|ABILITY.Internal.HIDDEN.%ability.DESC|</description>
+			<type>|ABILITY.Internal.HIDDEN.%ability.TYPE|</type>
+			<associated>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|ABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+|ELSE|
+	<!-- Hidden Automatic "Internal" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+		<ability_object>
+			<name>|ABILITYAUTO.Internal.HIDDEN.%ability|</name>
+			<description>|ABILITYAUTO.Internal.HIDDEN.%ability.DESC|</description>
+			<type>|ABILITYAUTO.Internal.HIDDEN.%ability.TYPE|</type>
+			<associated>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+|ELSE|
+	<!-- Hidden Virtual "Internal" Ability Objects -->
+|ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+		<ability_object>
+			<name>|VABILITY.Internal.HIDDEN.%ability|</name>
+			<description>|VABILITY.Internal.HIDDEN.%ability.DESC|</description>
+			<type>|VABILITY.Internal.HIDDEN.%ability.TYPE|</type>
+			<associated>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATED|</associated>
+			<count>|VABILITY.Internal.HIDDEN.%ability.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>T</virtual>
+			<category>Internal</category>
+		</ability_object>
+|ENDFOR|
+	</ability_objects>
+
+
+	<!--
+	  ====================================
+	  ====================================
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
