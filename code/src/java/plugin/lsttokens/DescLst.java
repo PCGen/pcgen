@@ -11,7 +11,9 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Description;
 import pcgen.core.PObject;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.io.EntityEncoder;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
@@ -73,7 +75,7 @@ public class DescLst implements GlobalLstToken
 			final String token = tok.nextToken();
 			if (PreParserFactory.isPreReqString(token)) //$NON-NLS-1$
 			{
-				desc.addPrerequisites(token, '<');
+				addPrerequisites(desc, token);
 				isPre = true;
 			}
 			else
@@ -90,4 +92,28 @@ public class DescLst implements GlobalLstToken
 
 		return desc;
 	}
+
+	public void addPrerequisites( Description desc, String unparsed)
+	{
+		final String[] tokens = unparsed.split("[<>\\|]");
+		try
+		{
+			final PreParserFactory factory = PreParserFactory.getInstance();
+
+			for ( final String pre : tokens )
+			{
+				final Prerequisite prereq = factory.parse(pre);
+
+				if (prereq != null)
+				{
+					desc.addPreReq(prereq);
+				}
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
 }

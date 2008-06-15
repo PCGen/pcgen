@@ -40,7 +40,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * This class implements support for prerequisites for an object.
@@ -54,11 +53,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	/** The list of prerequisites */
 	private Set<Prerequisite> thePrereqs = null;
 
-	/** Used to split an unparsed prereq string that uses angle brackets. */
-	private static final String angleSplit = "[<>\\|]"; //$NON-NLS-1$
-	/** Used to split an uparsed prereq string that uses square brackets. */
-	private static final String squareSplit = "[\\[\\]\\|]"; //$NON-NLS-1$
-
 	/**
 	 * Adds a <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
 	 * 
@@ -67,42 +61,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	public void addPrerequisites( final Collection<Prerequisite> prereqs )
 	{
 		addAllPrerequisites(prereqs);
-	}
-
-	/**
-	 * Takes a string containing valid PRExxx tags separated by a delimiter
-	 * and parses and adds them to the prerequisite list.
-	 * 
-	 * <p>For example, the string <br />
-	 * <code>[PREVARGTEQ:Foo,2][PRECLASS:1,Fighter=1]</code><br />
-	 * would be parsed and and added with the call <br />
-	 * <code>addPrereqisite(string, '[');
-	 * 
-	 * @param unparsed The unparsed prerequisite string.
-	 * @param aDelim The delimiter that separates multiple prerequisites.
-	 */
-	public void addPrerequisites( final String unparsed, final char aDelim )
-	{
-		final String[] tokens = unparsed.split(aDelim == '<' ? angleSplit 
-															 : squareSplit);
-		try
-		{
-			final PreParserFactory factory = PreParserFactory.getInstance();
-
-			for ( final String pre : tokens )
-			{
-				final Prerequisite prereq = factory.parse(pre);
-
-				if (prereq != null)
-				{
-					addPreReq(prereq);
-				}
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			e.printStackTrace();
-		}
 	}
 
 	/**
