@@ -17,18 +17,31 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.core.SourceEntry;
 
+/**
+ * CategorizedCDOMObject represents an object which can possess a Category
+ * object. This Category is used for establishing unique identity of an object.
+ * 
+ * @see pcgen.cdom.base.Category
+ * 
+ * @param <T>
+ *            The Class of object being identified
+ */
 public interface CategorizedCDOMObject<T extends CategorizedCDOMObject<T>>
 		extends PrereqObject
 {
+	/**
+	 * Returns the Category of the CategorizedCDOMObject
+	 * 
+	 * @return the Category of the CategorizedCDOMObject
+	 */
 	public Category<T> getCDOMCategory();
 
+	/**
+	 * Sets the Category of the CategorizedCDOMObject
+	 * 
+	 * @param cat
+	 *            The Category the CategorizedCDOMObject should be set to
+	 */
 	public void setCDOMCategory(Category<T> cat);
-
-	// Tag for now - maybe a real class someday?
-	
-	//CONSIDER This is a hack in order to change CategorizedReferenceContext to make
-	// Sun's compiler happy
-	public SourceEntry getSourceEntry();
 }

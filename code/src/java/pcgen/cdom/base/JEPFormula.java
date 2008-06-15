@@ -36,6 +36,11 @@ public class JEPFormula implements Formula
 		return formula;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this JEPFormula
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
@@ -46,7 +51,7 @@ public class JEPFormula implements Formula
 	public boolean equals(Object o)
 	{
 		return o instanceof JEPFormula
-			&& ((JEPFormula) o).formula.equals(formula);
+				&& ((JEPFormula) o).formula.equals(formula);
 	}
 
 	public Float resolve(PlayerCharacter character, String source)

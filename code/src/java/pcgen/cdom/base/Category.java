@@ -17,6 +17,16 @@
  */
 package pcgen.cdom.base;
 
+/**
+ * Category identifies an object and is used for establishing unique identity of
+ * an object. A Category serves as a Category for a particular type of
+ * CategorizedCDOMObject.
+ * 
+ * @see pcgen.cdom.base.CategorizedCDOMObject
+ * 
+ * @param <T>
+ *            The Class of object being identified by this Category
+ */
 public interface Category<T extends CategorizedCDOMObject<T>>
 {
 

@@ -68,6 +68,11 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		return setName;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this ChoiceSet
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{

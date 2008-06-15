@@ -24,10 +24,33 @@ import java.util.Map;
 
 import pcgen.cdom.enumeration.AssociationKey;
 
+/**
+ * AssociationSupport is a helper class that can be used by classes that
+ * implement the AssociatedObject interface.
+ * 
+ * An instance of AssociationSupport can be used as a delegate for the methods
+ * from the AssociatedObject interface.
+ */
 public class AssociationSupport implements AssociatedObject
 {
+	/**
+	 * The Map used to store associations
+	 */
 	private Map<AssociationKey<?>, Object> associationMap;
 
+	/**
+	 * Sets an Association (as defined by the given key) to the given value.
+	 * Overwrites any previous value associated with the given AssociationKey.
+	 * 
+	 * @param <T>
+	 *            The type of the AssociationKey and the Class of the object to
+	 *            be associated with the given AssociationKey.
+	 * @param key
+	 *            The AssociationKey used to form the association with the given
+	 *            value
+	 * @param value
+	 *            The value to be associated with the given AssociationKey
+	 */
 	public <T> void setAssociation(AssociationKey<T> name, T value)
 	{
 		if (associationMap == null)
@@ -37,27 +60,82 @@ public class AssociationSupport implements AssociatedObject
 		associationMap.put(name, value);
 	}
 
+	/**
+	 * Returns the value associated with the given AssociationKey. Returns null
+	 * if this AssociatedObject contains no association for the given
+	 * AssociationKey.
+	 * 
+	 * @param <T>
+	 *            The type of the AssociationKey and the Class of the object to
+	 *            be returned
+	 * @param key
+	 *            The AssociationKey for which the associated value is to be
+	 *            returned
+	 * @return The value associated with the given AssociationKey.
+	 */
 	public <T> T getAssociation(AssociationKey<T> name)
 	{
 		return (T) (associationMap == null ? null : associationMap.get(name));
 	}
 
+	/**
+	 * Returns a Collection of the AssociationKeys that are in this
+	 * AssociatedObject.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method will be transferred to the calling
+	 * object. Modification of the returned Collection should not result in
+	 * modifying the AssociatedObject, and modifying the AssocaitedObject after
+	 * the Collection is returned should not modify the Collection.
+	 * 
+	 * Note that it may be possible for an association to have a null value.
+	 * This method should include the AssociationKey for that association, if it
+	 * is present in the AssociatedObject, even if the value of the association
+	 * is null.
+	 * 
+	 * @return a Collection of the AssociationKeys that are in this
+	 *         AssociatedObject.
+	 */
 	public Collection<AssociationKey<?>> getAssociationKeys()
 	{
 		return new HashSet<AssociationKey<?>>(associationMap.keySet());
 	}
 
+	/**
+	 * Returns true if this AssociatedObject has any associations.
+	 * 
+	 * Note that it may be possible for an association to have a null value.
+	 * This method should return true if the association is present, even if
+	 * null.
+	 * 
+	 * @return true if this AssociatedObject has any associations; false
+	 *         otherwise.
+	 */
 	public boolean hasAssociations()
 	{
 		return associationMap != null && !associationMap.isEmpty();
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this AssociationSupport
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return associationMap == null ? 0 : associationMap.size();
 	}
 
+	/**
+	 * Returns true if this AssociationSupport is equal to the given Object.
+	 * Equality is defined as being another AssociationSupport object with equal
+	 * keys associated with equal values. Equality of the keys and values is as
+	 * equality is defined by those objects in their .equals(java.lang.Object)
+	 * method.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -71,7 +149,7 @@ public class AssociationSupport implements AssociatedObject
 			if (associationMap == null || associationMap.isEmpty())
 			{
 				return other.associationMap == null
-					|| other.associationMap.isEmpty();
+						|| other.associationMap.isEmpty();
 			}
 			return associationMap.equals(other.associationMap);
 		}
