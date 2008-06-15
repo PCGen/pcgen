@@ -144,7 +144,7 @@ public final class CompanionMod extends PObject
 	 */
 	public String getCopyMasterBAB()
 	{
-		final String characteristic = stringChar.get(StringKey.MASTER_BAB_FORMULA);
+		final String characteristic = get(StringKey.MASTER_BAB_FORMULA);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -154,7 +154,7 @@ public final class CompanionMod extends PObject
 	 */
 	public String getCopyMasterCheck()
 	{
-		final String characteristic = stringChar.get(StringKey.MASTER_CHECK_FORMULA);
+		final String characteristic = get(StringKey.MASTER_CHECK_FORMULA);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -164,7 +164,7 @@ public final class CompanionMod extends PObject
 	 */
 	public String getCopyMasterHP()
 	{
-		final String characteristic = stringChar.get(StringKey.MASTER_HP_FORMULA);
+		final String characteristic = get(StringKey.MASTER_HP_FORMULA);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -232,7 +232,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setCopyMasterBAB(final String masterBABFormula)
 	{
-		stringChar.put(StringKey.MASTER_BAB_FORMULA, masterBABFormula);
+		put(StringKey.MASTER_BAB_FORMULA, masterBABFormula);
 	}
 
 	/**
@@ -241,7 +241,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setCopyMasterCheck(final String masterCheckFormula)
 	{
-		stringChar.put(StringKey.MASTER_CHECK_FORMULA, masterCheckFormula);
+		put(StringKey.MASTER_CHECK_FORMULA, masterCheckFormula);
 	}
 
 	/**
@@ -250,7 +250,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setCopyMasterHP(final String masterHPFormula)
 	{
-		stringChar.put(StringKey.MASTER_HP_FORMULA, masterHPFormula);
+		put(StringKey.MASTER_HP_FORMULA, masterHPFormula);
 	}
 
 	/**
