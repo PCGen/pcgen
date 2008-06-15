@@ -24,6 +24,7 @@ package pcgen.core.kit;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -68,7 +69,8 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 
 		for ( PCTemplate template : theTemplates )
 		{
-			aPC.addTemplate(template, template.templatesAdded().size() == 0);
+			Collection<PCTemplate> added = aPC.getTemplatesAdded(template);
+			aPC.addTemplate(template, added == null || added.size() == 0);
 		}
 
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
@@ -108,7 +110,7 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 					PCTemplate ownedTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, ownedTemplateName);
 					if (ownedTemplate != null)
 					{
-						templateToAdd.addTemplateName(ownedTemplateName);
+						aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
 					}
 					else
 					{
@@ -146,7 +148,8 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 				}
 
 			}
-			aPC.addTemplate(templateToAdd, templateToAdd.templatesAdded().size() == 0);
+			Collection<PCTemplate> added = aPC.getTemplatesAdded(templateToAdd);
+			aPC.addTemplate(templateToAdd, added == null || added.size() == 0);
 			theTemplates.add(templateToAdd);
 		}
 

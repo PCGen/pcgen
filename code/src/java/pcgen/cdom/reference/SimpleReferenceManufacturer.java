@@ -32,4 +32,10 @@ public class SimpleReferenceManufacturer<T extends CDOMObject>
 	{
 		return new CDOMAllRef<T>(getCDOMClass());
 	}
+
+	@Override
+	protected String getReferenceDescription()
+	{
+		return getCDOMClass().getSimpleName();
+	}
 }

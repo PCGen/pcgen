@@ -51,4 +51,10 @@ public class TransparentReferenceManufacturer<T extends CDOMObject>
 		}
 		injectConstructed(rm);
 	}
+	
+	@Override
+	protected String getReferenceDescription()
+	{
+		return getCDOMClass().getSimpleName();
+	}
 }

@@ -107,6 +107,18 @@ public class IntegerKey
 
 	public static final IntegerKey XP_COST = getConstant("XP_COST");
 
+	public static final IntegerKey CONSECUTIVE = getConstant("CONSECUTIVE");
+
+	public static final IntegerKey MAX_LEVEL = getConstant("MAX_LEVEL");
+
+	public static final IntegerKey LEVEL_INCREMENT = getConstant("LEVEL_INCREMENT");
+
+	public static final IntegerKey START_LEVEL = getConstant("START_LEVEL");
+
+	public static final IntegerKey HD_MIN = getConstant("HD_MIN");
+
+	public static final IntegerKey HD_MAX = getConstant("HD_MAX");
+
 	/*
 	 * TODO Okay, this is a hack. This should probably be a FormulaKey rather
 	 * than an IntegerKey in order to properly handle this strange delegation.
@@ -114,7 +126,7 @@ public class IntegerKey
 	 * expect out of an IntegerKey
 	 */
 	public static final IntegerKey INITIAL_SKILL_MULT;
-	
+
 	static
 	{
 		INITIAL_SKILL_MULT = new IntegerKey("INITIAL_SKILL_MULT", 0)

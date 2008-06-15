@@ -445,15 +445,6 @@ public final class Race extends PObject
 			txt.append(':').append(monsterClassLevels);
 		}
 
-		List<String> templates = getTemplateList();
-		if ((templates != null) && (templates.size() > 0))
-		{
-			for (String template : templates)
-			{
-				txt.append("\tTEMPLATE:").append(template);
-			}
-		}
-
 		if ((featList != null) && (featList.length() > 0))
 		{
 			txt.append("\tFEAT:").append(featList);
@@ -540,7 +531,7 @@ public final class Race extends PObject
 	}
 
 	@Override
-	protected int getSR(final PlayerCharacter aPC)
+	public int getSR(final PlayerCharacter aPC)
 	{
 		int intSR;
 

@@ -83,6 +83,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -3848,19 +3849,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final String classKey = stok.nextToken();
 		final PCClass aClass = thePC.getClassKeyed(classKey);
 
+		AbstractReferenceContext refContext = Globals.getContext().ref;
 		while ((aClass != null) && stok.hasMoreTokens())
 		{
 			final String tok = stok.nextToken();
 			if (tok.startsWith("CLASS."))
 			{
-				ClassSpellList csl = Globals.getContext().ref
+				ClassSpellList csl = refContext
 						.silentlyGetConstructedCDOMObject(ClassSpellList.class,
 								tok.substring(6));
 				aClass.addClassSpellList(csl);
 			}
 			else if (tok.startsWith("DOMAIN."))
 			{
-				DomainSpellList dsl = Globals.getContext().ref
+				DomainSpellList dsl = refContext
 						.silentlyGetConstructedCDOMObject(
 								DomainSpellList.class, tok.substring(7));
 				aClass.addClassSpellList(dsl);
@@ -3870,12 +3872,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				/*
 				 * This is 5.14-ish, but have to try anyway:
 				 */
-				ClassSpellList csl = Globals.getContext().ref
+				ClassSpellList csl = refContext
 						.silentlyGetConstructedCDOMObject(ClassSpellList.class,
 								tok);
 				if (csl == null)
 				{
-					DomainSpellList dsl = Globals.getContext().ref
+					DomainSpellList dsl = refContext
 							.silentlyGetConstructedCDOMObject(
 									DomainSpellList.class, tok);
 					if (dsl != null)
@@ -3891,7 +3893,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					 * the spells by hand? - look at Rev 6416 and older for this
 					 * behavior, but I don't understand it - thpr, 1 Jun 08
 					 */
-					PCClass spellClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, csl.getLSTformat());
+					PCClass spellClass = refContext.silentlyGetConstructedCDOMObject(PCClass.class, csl.getLSTformat());
 					if (spellClass != null)
 					{
 						aClass.getSpellSupport().addSpells(-1,
@@ -4044,9 +4046,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 						if ((mapKey != null) && (mapValue != null))
 						{
-							aPCTemplate
-								.addChosenFeat(EntityEncoder.decode(mapKey),
-									EntityEncoder.decode(mapValue));
+							PCTemplate subt = Compatibility.getTemplateFor(aPCTemplate,
+									EntityEncoder.decode(mapKey), EntityEncoder
+											.decode(mapValue));
+							if (subt != null)
+							{
+								thePC.addChosenFeat(subt, mapValue);
+							}
 						}
 					}
 					else if (TAG_CHOSENTEMPLATE.equals(childTag))
@@ -4067,7 +4073,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 												ownedTemplateKey);
 								if (ownedTemplate != null)
 								{
-									aPCTemplate.addTemplate(ownedTemplateKey);
+									thePC.setTemplatesAdded(aPCTemplate,
+											ownedTemplate);
 								}
 							}
 						}

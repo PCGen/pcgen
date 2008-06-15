@@ -40,9 +40,17 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	}
 
 	@Override
-	public boolean validate()
+	protected String getReferenceDescription()
 	{
-		return super.validate();
+		return getCDOMClass().getSimpleName() + " " + category;
+	}
+
+	@Override
+	public T constructCDOMObject(String val)
+	{
+		T obj = super.constructCDOMObject(val);
+		obj.setCDOMCategory(category);
+		return obj;
 	}
 	
 	

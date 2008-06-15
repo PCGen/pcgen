@@ -34,6 +34,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability.Nature;
+import pcgen.core.analysis.TemplateStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCTemplateLoader;
@@ -338,11 +339,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = new PCTemplate();
 		template.setName("Test Template");
 		int index = getCharacter().getStatList().getIndexOfStatFor("STR");
-		assertEquals("Template has not been unlocked", false, template.isUnlocked(index));
+		assertEquals("Template has not been unlocked", false, TemplateStat.isUnlocked(template, index));
 		template.addVariable(-9, "LOCK.STR", "12");
-		assertEquals("Template has not been unlocked", false, template.isUnlocked(index));
+		assertEquals("Template has not been unlocked", false, TemplateStat.isUnlocked(template, index));
 		template.addVariable(-9, "UNLOCK.STR", "");
-		assertEquals("Template has been unlocked", true, template.isUnlocked(index));
+		assertEquals("Template has been unlocked", true, TemplateStat.isUnlocked(template, index));
 	}
 	
 	/**
@@ -353,13 +354,13 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = new PCTemplate();
 		template.setName("Test Template");
 		int index = getCharacter().getStatList().getIndexOfStatFor("STR");
-		assertEquals("Template has not been locked to a nonability", false, template.isNonAbility(index));
+		assertEquals("Template has not been locked to a nonability", false, TemplateStat.isNonAbility(template, index));
 		template.addVariable(-9, "LOCK.STR", "12");
-		assertEquals("Template has been locked to an ability", false, template.isNonAbility(index));
+		assertEquals("Template has been locked to an ability", false, TemplateStat.isNonAbility(template, index));
 		template.addVariable(-9, "LOCK.STR", "10");
-		assertEquals("Template has been locked to a nonability", true, template.isNonAbility(index));
+		assertEquals("Template has been locked to a nonability", true, TemplateStat.isNonAbility(template, index));
 		template.addVariable(-9, "UNLOCK.STR", "");
-		assertEquals("Template has been unlocked", false, template.isNonAbility(index));
+		assertEquals("Template has been unlocked", false, TemplateStat.isNonAbility(template, index));
 	}
 	
 	

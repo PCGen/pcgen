@@ -690,8 +690,7 @@ public final class EditorMainForm extends JDialog
 				
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
-				Globals.getContext().unconditionallyProcess(thisPObject, "FEAT",
-					aString);
+				context.unconditionallyProcess(thisPObject, "FEAT", aString);
 
 				sel = pnlQSpells.getSelectedList();
 				if (thisPObject.isNewItem())
@@ -744,12 +743,14 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save granted templates
 				//
-				thisRace.addTemplate(".CLEAR");
+				thisRace.removeListFor(ListKey.TEMPLATE);
+				thisRace.removeListFor(ListKey.TEMPLATE_CHOOSE);
+				thisRace.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
 				sel = pnlTemplates.getSelectedList();
-
-				for (int index = 0; index < sel.length; index++)
+				aString = EditUtil.delimitArray(sel, '|');
+				if ((aString != null) && (aString.length() > 0))
 				{
-					thisRace.addTemplate((String) sel[index]);
+					context.unconditionallyProcess(thisRace, "TEMPLATE", aString);
 				}
 
 				//
@@ -760,7 +761,8 @@ public final class EditorMainForm extends JDialog
 
 				if ((aString != null) && (aString.length() > 0))
 				{
-					thisRace.addTemplate("CHOOSE:" + aString);
+					context.unconditionallyProcess(thisRace, "TEMPLATE", "CHOOSE:"
+						+ aString);
 				}
 
 				//
@@ -801,7 +803,7 @@ public final class EditorMainForm extends JDialog
 				thisRace.removeAllFromList(Language.STARTING_LIST);
 				sel = pnlBonusLang.getSelectedList();
 				aString = EditUtil.delimitArray(sel, ',');
-				Globals.getContext().unconditionallyProcess(thisRace, "LANGBONUS", aString);
+				context.unconditionallyProcess(thisRace, "LANGBONUS", aString);
 
 				break;
 
@@ -893,12 +895,14 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save granted templates
 				//
-				thisPCTemplate.addTemplate(".CLEAR");
+				thisPCTemplate.removeListFor(ListKey.TEMPLATE);
+				thisPCTemplate.removeListFor(ListKey.TEMPLATE_CHOOSE);
+				thisPCTemplate.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
 				sel = pnlTemplates.getSelectedList();
-
-				for (int index = 0; index < sel.length; index++)
+				aString = EditUtil.delimitArray(sel, '|');
+				if ((aString != null) && (aString.length() > 0))
 				{
-					thisPCTemplate.addTemplate((String) sel[index]);
+					context.unconditionallyProcess(thisPCTemplate, "TEMPLATE", aString);
 				}
 
 				//
@@ -909,7 +913,8 @@ public final class EditorMainForm extends JDialog
 
 				if ((aString != null) && (aString.length() > 0))
 				{
-					thisPCTemplate.addTemplate("CHOOSE:" + aString);
+					context.unconditionallyProcess(thisPCTemplate, "TEMPLATE", "CHOOSE:"
+						+ aString);
 				}
 
 				//
@@ -929,10 +934,10 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save feats
 				//
-				thisPCTemplate.addFeatString(".CLEAR");
+				thisPCTemplate.removeListFor(ListKey.FEAT);
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
-				thisPCTemplate.addFeatString(aString);
+				context.unconditionallyProcess(thisPCTemplate, "FEAT", aString);
 
 				//
 				// Save bonus languages
@@ -940,13 +945,13 @@ public final class EditorMainForm extends JDialog
 				thisPCTemplate.removeAllFromList(Language.STARTING_LIST);
 				sel = pnlBonusLang.getSelectedList();
 				aString = EditUtil.delimitArray(sel, ',');
-				Globals.getContext().unconditionallyProcess(thisPCTemplate, "LANGBONUS", aString);
+				context.unconditionallyProcess(thisPCTemplate, "LANGBONUS", aString);
 
 				//
 				// Save level and hit dice abilities
 				//
-				thisPCTemplate.clearHitDiceStrings();
-				thisPCTemplate.clearLevelAbilities();
+				thisPCTemplate.removeListFor(ListKey.LEVEL_TEMPLATES);
+				thisPCTemplate.removeListFor(ListKey.HD_TEMPLATES);
 				sel = pnlLevelAbilities.getSelectedList();
 
 				for (int index = 0; index < sel.length; index++)
@@ -955,26 +960,13 @@ public final class EditorMainForm extends JDialog
 
 					if (aString.startsWith("HD:"))
 					{
-						thisPCTemplate.addHitDiceString(aString.substring(3));
+						context.unconditionallyProcess(thisPCTemplate, "HD",
+								aString.substring(3));
 					}
 					else if (aString.startsWith("LEVEL:"))
 					{
-						final StringTokenizer tok = new StringTokenizer(aString, ":");
-						tok.nextToken(); // Lose the LEVEL:
-						final String levelStr = tok.nextToken();
-						final int level;
-						try
-						{
-							level = Integer.parseInt(levelStr);
-						}
-						catch (NumberFormatException ex)
-						{
-							// TODO - Add error message.
-							continue;
-						}
-						final String typeStr = tok.nextToken();
-
-						thisPCTemplate.addLevelAbility(level, typeStr, tok.nextToken());
+						context.unconditionallyProcess(thisPCTemplate, "LEVEL",
+							aString.substring(6));
 					}
 				}
 
@@ -987,7 +979,9 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_CLASS:
 				PCClass thisPCClass = (PCClass) thisPObject;
-				thisPCClass.clearTemplates();
+				thisPCClass.removeListFor(ListKey.TEMPLATE);
+				thisPCClass.removeListFor(ListKey.TEMPLATE_CHOOSE);
+				thisPCClass.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
 				thisPCClass.addUmult(".CLEAR");
 				thisPCClass.clearUdamList();
 				break;
@@ -1453,7 +1447,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// remove this race's granted templates from the available list and place into selected list
 				//
-				moveGrantedTemplatesFromAvailableToSelected(((Race) thisPObject).getTemplateList(), selectedRaceTemplateList,
+				moveGrantedTemplatesFromAvailableToSelected(thisPObject, selectedRaceTemplateList,
 					selectedRaceTemplateList2, availableRaceTemplateList);
 
 				pnlTemplates.setAvailableList(availableRaceTemplateList, true);
@@ -1878,7 +1872,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// remove this template's granted templates from the available list and place into selected list
 				//
-				moveGrantedTemplatesFromAvailableToSelected(((PCTemplate) thisPObject).getTemplateList(), selectedTemplateList,
+				moveGrantedTemplatesFromAvailableToSelected(thisPObject, selectedTemplateList,
 					selectedTemplateList2, availableTemplateList);
 
 				pnlTemplates.setAvailableList(availableTemplateList, true);
@@ -1955,16 +1949,17 @@ public final class EditorMainForm extends JDialog
 					availableTemplateFeatsList.add(anAbility.getKeyName());
 				}
 
-				List<String> featList = ((PCTemplate) thisPObject).feats(-1, -1, null, false);
-
-				for (Iterator<String> e = featList.iterator(); e.hasNext();)
+				List<CDOMReference<Ability>> featList = thisPObject.getSafeListFor(ListKey.FEAT);
+				for (CDOMReference<Ability> ref : featList)
 				{
-					aString = e.next();
-
-					if (!selectedTemplateFeatsList.contains(aString))
+					for (Ability a : ref.getContainedObjects())
 					{
-						availableTemplateFeatsList.remove(aString);
-						selectedTemplateFeatsList.add(aString);
+						aString = a.getKeyName();
+						if (!selectedTemplateFeatsList.contains(aString))
+						{
+							availableTemplateFeatsList.remove(aString);
+							selectedTemplateFeatsList.add(aString);
+						}
 					}
 				}
 
@@ -2010,16 +2005,21 @@ public final class EditorMainForm extends JDialog
 				//
 				List<String> selectedSAList = new ArrayList<String>();
 
-				selectedSAList.addAll(((PCTemplate)thisPObject).getLevelAbilities());
-
-				final List<String>specialabilitiesList = ((PCTemplate) thisPObject).getHitDiceStrings();
-
-				if (specialabilitiesList != null)
+				LoadContext context = Globals.getContext();
+				String[] level = context.unparse(thisPObject, "LEVEL");
+				if (level != null)
 				{
-					for (Iterator<String> e = specialabilitiesList.iterator(); e.hasNext();)
+					for (String s : level)
 					{
-						aString = e.next();
-						selectedSAList.add("HD:" + aString);
+						selectedSAList.add("LEVEL:" + s);
+					}
+				}
+				level = context.unparse(thisPObject, "HD");
+				if (level != null)
+				{
+					for (String s : level)
+					{
+						selectedSAList.add("HD:" + s);
 					}
 				}
 
@@ -2469,35 +2469,28 @@ public final class EditorMainForm extends JDialog
 	 * @param selectedList2
 	 * @param availableList
 	 */
-	private static void moveGrantedTemplatesFromAvailableToSelected(List<String> templateList, List<String> selectedList,
+	private static void moveGrantedTemplatesFromAvailableToSelected(PObject cdo, List<String> selectedList,
 		List<String> selectedList2, List<String> availableList)
 	{
-		Iterator<String> e;
-		String aString;
-		StringTokenizer aTok;
-
-		for (e = templateList.iterator(); e.hasNext();)
+		for (CDOMReference<PCTemplate> ref : cdo.getListFor(ListKey.TEMPLATE))
 		{
-			aString = e.next();
-
-			if (aString.startsWith("CHOOSE:"))
+			for (PCTemplate pct : ref.getContainedObjects())
 			{
-				aTok = new StringTokenizer(aString.substring(7), "|", false);
-
-				while (aTok.hasMoreTokens())
-				{
-					String chooseTemplate = aTok.nextToken();
-
-					if (!selectedList.contains(chooseTemplate))
-					{
-						selectedList2.add(chooseTemplate);
-					}
-				}
-			}
-			else
-			{
+				String aString = pct.getKeyName();
 				selectedList.add(aString);
 				availableList.remove(aString);
+			}
+		}
+
+		for (CDOMReference<PCTemplate> ref : cdo.getListFor(ListKey.TEMPLATE_CHOOSE))
+		{
+			for (PCTemplate pct : ref.getContainedObjects())
+			{
+				String aString = pct.getKeyName();
+				if (!selectedList.contains(aString))
+				{
+					selectedList2.add(aString);
+				}
 			}
 		}
 	}

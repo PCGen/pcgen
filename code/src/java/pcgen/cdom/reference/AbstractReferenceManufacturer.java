@@ -421,7 +421,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				if (!s.toString().startsWith("*"))
 				{
 					Logging.errorPrint("Unconstructed Reference: "
-							+ refClass.getSimpleName() + " " + s);
+							+ getReferenceDescription() + " " + s);
 					returnGood = false;
 				}
 				constructCDOMObject(s.toString());
@@ -429,6 +429,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 		return returnGood;
 	}
+
+	protected abstract String getReferenceDescription();
 
 	public void constructIfNecessary(String value)
 	{

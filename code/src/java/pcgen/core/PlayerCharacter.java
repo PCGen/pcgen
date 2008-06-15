@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -74,8 +75,12 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.SkillCostCalc;
+import pcgen.core.analysis.TemplateSR;
+import pcgen.core.analysis.TemplateSelect;
+import pcgen.core.analysis.TemplateStat;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -101,9 +106,12 @@ import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
@@ -341,6 +349,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// private Map<String, List<TypedBonus>> theBonusMap = new HashMap<String,
 	// List<TypedBonus>>();
+
+	private IdentityHashMap<PCTemplate, String> chosenFeatStrings = null;
+	private HashMapToList<CDOMObject, PCTemplate> templatesAdded = new HashMapToList<CDOMObject, PCTemplate>();
 
 	// /////////////////////////////////////
 	// operations
@@ -2334,9 +2345,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			cMod.addAddsForLevel(-9, this, null);
 
-			for (String key : cMod.getTemplateList())
+			for (CDOMReference<PCTemplate> ref : cMod.getSafeListFor(ListKey.TEMPLATE))
 			{
-				addTemplateKeyed(key);
+				for (PCTemplate pct : ref.getContainedObjects())
+				{
+					addTemplate(pct);
+				}
+			}
+			for (CDOMReference<PCTemplate> ref : cMod.getSafeListFor(ListKey.REMOVE_TEMPLATES))
+			{
+				for (PCTemplate pct : ref.getContainedObjects())
+				{
+					removeTemplate(pct);
+				}
 			}
 
 			final List<String> kits = cMod.getSafeListFor(ListKey.KITS);
@@ -6135,7 +6156,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		for (PCTemplate template : templateList)
 		{
-			if (template.isUnlocked(i))
+			if (TemplateStat.isUnlocked(template, i))
 			{
 				return false;
 			}
@@ -6148,7 +6169,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate template : templateList)
 		{
-			if (template.isNonAbility(i))
+			if (TemplateStat.isNonAbility(template, i))
 			{
 				return true;
 			}
@@ -6299,11 +6320,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			removeNaturalWeapons(race);
-
-			for (String s : race.templatesAdded())
-			{
-				removeTemplate(getTemplateKeyed(s));
-			}
+			removeTemplatesFrom(race);
 
 			if ((race.getMonsterClass(this) != null)
 				&& (race.getMonsterClassLevels(this) != 0))
@@ -6482,7 +6499,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getAutoLanguages();
 			getRacialFavoredClasses();
 
-			race.getTemplates(isImporting(), this); // gets and adds templates
+			selectTemplates(race, isImporting()); // gets and adds templates
 
 			race.chooseLanguageAutos(isImporting(), this);
 		}
@@ -8328,7 +8345,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (PlayerCharacterUtilities.canReassignTemplateFeats())
 		{
 			final List<String> templateFeats =
-					inTmpl.feats(getTotalLevels(), totalHitDice(), this, true);
+					feats(inTmpl, getTotalLevels(), totalHitDice(), true);
 
 			for (int i = 0, x = templateFeats.size(); i < x; ++i)
 			{
@@ -8342,18 +8359,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// setAutomaticFeatsStable(false);
 		}
 
-		List<String> templates;
 		if (doChoose)
 		{
-			templates = inTmpl.getTemplates(isImporting(), this);
+			selectTemplates(inTmpl, isImporting());
 		}
 		else
 		{
-			templates = inTmpl.templatesAdded();
-		}
-		for (int i = 0, x = templates.size(); i < x; ++i)
-		{
-			addTemplateKeyed(templates.get(i));
+			List<PCTemplate> list = templatesAdded.getListFor(inTmpl);
+			for (PCTemplate pct : list)
+			{
+				addTemplate(pct);
+			}
 		}
 
 		if (!isImporting())
@@ -8431,43 +8447,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 
 		return inTmpl;
-	}
-
-	public PCTemplate addTemplateKeyed(String templateKey)
-	{
-		if (templateKey == null)
-		{
-			return null;
-		}
-
-		if (templateKey.startsWith("CHOOSE:"))
-		{
-			templateKey =
-					PCTemplate.chooseTemplate(null, templateKey.substring(7),
-						true, this);
-		}
-
-		PCTemplate aTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, templateKey);
-
-		if ((aTemplate == null) && templateKey.endsWith(".REMOVE"))
-		{
-			aTemplate =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, templateKey.substring(0,
-						templateKey.length() - 7));
-			removeTemplate(aTemplate);
-		}
-		else
-		{
-			addTemplate(aTemplate);
-		}
-
-		if (aTemplate == null)
-		{
-			System.err.println("Template not found: '" + templateKey + "'");
-		}
-		setDirty(true);
-
-		return aTemplate;
 	}
 
 	public void addWeaponProf(final String aProfKey)
@@ -9040,7 +9019,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate template : templateList)
 		{
-			SR = Math.max(SR, template.getSR(atl, thd, this));
+			SR = Math.max(SR, TemplateSR.getSR(template, atl, thd, this));
 		}
 
 		SR += (int) getTotalBonusTo("MISC", "SR");
@@ -10795,13 +10774,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			it.previous().remove(this);
 		}
 
-		// It is hard to tell if removeTemplate() modifies
-		// inTmpl.templatesAdded(), so not safe to optimise
-		// the call to .size(). XXX
-		for (int i = 0; i < inTmpl.templatesAdded().size(); ++i)
-		{
-			removeTemplate(getTemplateKeyed(inTmpl.templatesAdded().get(i)));
-		}
+		removeTemplatesFrom(inTmpl);
 
 		for (PCTemplate template : templateList)
 		{
@@ -12470,6 +12443,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private void addWeaponProfToList(final List<Ability> aFeatList,
 		final String aString, final boolean isAuto)
 	{
+		LoadContext context = Globals.getContext();
 		if (aString.startsWith("WEAPONTYPE=")
 			|| aString.startsWith("WEAPONTYPE."))
 		{
@@ -12489,10 +12463,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Add all weapons of type aString
 		// (e.g.: Simple, Martial, Exotic, Ranged, etc.)
-		else if (Globals.getContext().containsType(WeaponProf.class, aString))
+		else if (context.containsType(WeaponProf.class, aString))
 		{
-			for (WeaponProf weaponProf : Globals.getPObjectsOfType(Globals
-					.getContext().ref
+			for (WeaponProf weaponProf : Globals.getPObjectsOfType(context.ref
 					.getConstructedCDOMObjects(WeaponProf.class), aString))
 			{
 				addWeaponProfToList(aFeatList, weaponProf.getKeyName(), isAuto);
@@ -12501,7 +12474,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
+		final WeaponProf wp = context.ref.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
 
 		if (wp != null)
 		{
@@ -14092,8 +14065,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (PCTemplate template : templateList)
 			{
 				final List<String> templateFeats =
-						template.feats(getTotalLevels(), totalHitDice(), this,
-							true);
+						feats(template, getTotalLevels(), totalHitDice(), true);
 
 				for (int j = 0, y = templateFeats.size(); j < y; ++j)
 				{
@@ -16912,7 +16884,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			// addFeat(anAbility, LevelInfo);
 			addAbility(aCategory, anAbility, LevelInfo);
-			anAbility.getTemplates(isImporting(), this);
+			selectTemplates(anAbility, isImporting());
 		}
 
 		/*
@@ -17407,7 +17379,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (final PCTemplate aTemplate : getTemplateList())
 			{
 				final List<String> templateFeats =
-						aTemplate.feats(getTotalLevels(), totalHitDice(), this,
+						feats(aTemplate, getTotalLevels(), totalHitDice(),
 							false);
 
 				if (!templateFeats.isEmpty())
@@ -17712,5 +17684,267 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				primary);
 		return raw * dbl + add;
 
+	}
+
+
+	/**
+	 * Retrieve the list of the keynames of any feats
+	 * that the PC qualifies for at the supplied level and
+	 * hit dice. 
+	 * 
+	 * @param level
+	 *            TODO DOCUMENT ME!
+	 * @param hitdice
+	 *            TODO DOCUMENT ME!
+	 * @param aPC
+	 *            TODO DOCUMENT ME!
+	 * @param addNew
+	 *            TODO DOCUMENT ME!
+	 * 
+	 * @return TODO DOCUMENT ME!
+	 */
+	public List<String> feats(PCTemplate pct, final int level, final int hitdice,
+		final boolean addNew)
+	{
+		final List<String> feats = new ArrayList<String>();
+
+		for (CDOMReference<Ability> ref : pct.getSafeListFor(ListKey.FEAT))
+		{
+			for (Ability a : ref.getContainedObjects())
+			{
+				feats.add(a.getKeyName());
+			}
+		}
+
+		// arknight modified this back in 1.27 with the comment: Added support
+		// for
+		// Spycraft Game Mode we no longer support Spycraft (at this time), and
+		// this
+		// breaks other modes, so I've reverting back to the old method. I am
+		// also fixing
+		// a bug in the code I'm commenting out. levelStrings is used in the 2nd
+		// loop
+		// instead of hitDiceStrings. - Byngl Sept 25, 2003
+		//
+		// Scrap all that. I'm using a HashMap to save those feats that have
+		// been taken when
+		// the required level/hitdie has been met. We need to do this so that
+		// removing the
+		// template will also remove the selected feat(s). PCTemplate instances
+		// will also
+		// need to be cloned() when adding them to PlayerCharacter.
+		if (chosenFeatStrings != null)
+		{
+			feats.addAll(chosenFeatStrings.values());
+		}
+
+		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		{
+			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			{
+				Integer lvl = lt.get(IntegerKey.LEVEL);
+				if (addNew && lvl <= level)
+				{
+					doFeatOnTemplate(lt, lvl);
+				}
+			}
+		}
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		{
+			Integer lvl = lt.get(IntegerKey.LEVEL);
+			if (addNew && lvl <= level)
+			{
+				doFeatOnTemplate(lt, lvl);
+			}
+		}
+
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
+		{
+			final String featKey = "H" + lt.get(IntegerKey.HD_MIN) + "-"
+					+ lt.get(IntegerKey.HD_MAX);
+			String featName = null;
+
+			if (chosenFeatStrings != null)
+			{
+				featName = chosenFeatStrings.get(featKey);
+			}
+
+			if ((featName == null) && addNew)
+			{
+				if (lt.get(IntegerKey.HD_MAX) <= hitdice
+						&& lt.get(IntegerKey.HD_MIN) >= hitdice)
+				{
+					getLevelFeat(lt, -1, featKey);
+				}
+			}
+		}
+
+		return feats;
+	}
+
+	private void doFeatOnTemplate(PCTemplate lt, int lvl)
+	{
+		// Check for an already selected value
+		final String lvlKey = "L" + String.valueOf(lvl);
+		String featKey = null;
+		if (chosenFeatStrings != null)
+		{
+			featKey = chosenFeatStrings.get(lt);
+		}
+
+		// We haven't selected one yet. Ask for one if we are allowed.
+		if (featKey == null && lt.containsListFor(ListKey.FEAT))
+		{
+			getLevelFeat(lt, lvl, lvlKey);
+		}
+	}
+
+	/**
+	 * This is the function that implements a chooser for Feats granted by level
+	 * and/or HD by Templates.
+	 * 
+	 * @param levelString
+	 *            The string to be parsed for the choices to offer
+	 * @param lvl
+	 *            The level this is being added at
+	 * @param featKey
+	 *            either L<lvl> or H<lvl>
+	 * @param aPC
+	 *            The PC that this Template is appled to
+	 */
+	private void getLevelFeat(PCTemplate pct, final int lvl,
+		final String aKey)
+	{
+		String featKe = null;
+		while (true)
+		{
+			List<String> featList = new ArrayList<String>();
+			List<CDOMReference<Ability>> featRefs = pct.getListFor(ListKey.FEAT);
+			List<Ability> featChoices = new ArrayList<Ability>();
+			for (CDOMReference<Ability> ref : featRefs)
+			{
+				featChoices.addAll(ref.getContainedObjects());
+			}
+			final LevelAbility la = LevelAbility.createAbility(pct, lvl,
+					"FEAT(" + ReferenceUtilities.joinLstFormat(featChoices,
+									Constants.COMMA) + ")");
+
+			la.process(featList, this, null);
+
+			switch (featList.size())
+			{
+				case 1:
+					featKe = featList.get(0);
+
+					break;
+
+				default:
+
+					if (!isImporting())
+					{
+						Collections.sort(featList);
+
+						final ChooserInterface c =
+								ChooserFactory.getChooserInstance();
+						c.setTotalChoicesAvail(1);
+						c.setTitle("Feat Choice");
+						c.setAvailableList(featList);
+						c.setVisible(true);
+						featList = c.getSelectedList();
+
+						if ((featList != null) && (featList.size() != 0))
+						{
+							featKe = featList.get(0);
+
+							break;
+						}
+					}
+
+					// fall-through intentional
+				case 0:
+					return;
+			}
+
+			break;
+		}
+
+		addChosenFeat(pct, featKe);
+	}
+
+	public void addChosenFeat(PCTemplate pct, String feat)
+	{
+		if (chosenFeatStrings == null)
+		{
+			chosenFeatStrings = new IdentityHashMap<PCTemplate, String>();
+		}
+		chosenFeatStrings.put(pct, feat);
+	}
+
+	public Map<PCTemplate, String> getChosenFeatStrings()
+	{
+		return chosenFeatStrings;
+	}
+
+	void selectTemplates(CDOMObject po, boolean isImporting)
+	{
+		// older version of this cleared the
+		// templateAdded list, so this may have to do that as well?
+		templatesAdded.removeListFor(po);
+		if (!isImporting)
+		{
+			for (CDOMReference<PCTemplate> ref : po.getSafeListFor(ListKey.TEMPLATE))
+			{
+				for (PCTemplate pct : ref.getContainedObjects())
+				{
+					templatesAdded.addToListFor(po, pct);
+					addTemplate(pct);
+				}
+			}
+			List<PCTemplate> added = new ArrayList<PCTemplate>();
+			for (CDOMReference<PCTemplate> ref : po
+					.getSafeListFor(ListKey.TEMPLATE_ADDCHOICE))
+			{
+				added.addAll(ref.getContainedObjects());
+			}
+			for (CDOMReference<PCTemplate> ref : po
+					.getSafeListFor(ListKey.TEMPLATE_CHOOSE))
+			{
+				List<PCTemplate> list = new ArrayList<PCTemplate>(added);
+				list.addAll(ref.getContainedObjects());
+				PCTemplate selected = TemplateSelect.chooseTemplate(po, list, true, this);
+				templatesAdded.addToListFor(po, selected);
+				addTemplate(selected);
+			}
+			for (CDOMReference<PCTemplate> ref : po
+					.getSafeListFor(ListKey.REMOVE_TEMPLATES))
+			{
+				for (PCTemplate pct : ref.getContainedObjects())
+				{
+					removeTemplate(pct);
+				}
+			}
+		}
+	}
+
+	public void removeTemplatesFrom(PObject po)
+	{
+		List<PCTemplate> list = templatesAdded.getListFor(po);
+		if (list != null)
+		{
+			for (PCTemplate pct : list)
+			{
+				removeTemplate(getTemplateKeyed(pct.getKeyName()));
+			}
+		}
+	}
+	
+	public Collection<PCTemplate> getTemplatesAdded(PObject po)
+	{
+		return templatesAdded.getListFor(po);
+	}
+
+	public void setTemplatesAdded(PObject po, PCTemplate pct)
+	{
+		templatesAdded.addToListFor(po, pct);
 	}
 }

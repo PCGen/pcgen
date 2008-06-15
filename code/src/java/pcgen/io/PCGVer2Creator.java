@@ -26,8 +26,8 @@
 package pcgen.io;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -2248,13 +2248,17 @@ final class PCGVer2Creator implements IOConstants
 			//
 			// Save list of template names 'owned' by current template
 			//
-			for (String ownedTemplate : template.templatesAdded())
+			Collection<PCTemplate> templatesAdded = thePC.getTemplatesAdded(template);
+			if (templatesAdded != null)
 			{
-				buffer.append('|').append(TAG_CHOSENTEMPLATE).append(':')
-					.append('[');
-				buffer.append(TAG_NAME).append(':').append(
-					EntityEncoder.encode(ownedTemplate));
-				buffer.append(']');
+				for (PCTemplate ownedTemplate : templatesAdded)
+				{
+					buffer.append('|').append(TAG_CHOSENTEMPLATE).append(':')
+						.append('[');
+					buffer.append(TAG_NAME).append(':').append(
+						EntityEncoder.encode(ownedTemplate.getKeyName()));
+					buffer.append(']');
+				}
 			}
 
 			buffer.append(']').append(LINE_SEP);
@@ -2417,22 +2421,23 @@ final class PCGVer2Creator implements IOConstants
 	private String chosenFeats(PCTemplate aTemplate)
 	{
 		final StringBuffer aString = new StringBuffer(50);
-		final HashMap<String, String> chosenFeatStrings =
-				aTemplate.getChosenFeatStrings();
+		Map<PCTemplate, String> cfm = thePC.getChosenFeatStrings();
 
-		if (chosenFeatStrings != null)
+		if (cfm != null)
 		{
-			for (Map.Entry<String, String> entry : chosenFeatStrings.entrySet())
+			for (Map.Entry<PCTemplate, String> entry : cfm.entrySet())
 			{
 				if (aString.length() != 0)
 				{
 					aString.append('|');
 				}
 
+				String featKey = Compatibility.getKeyFor(entry.getKey());
+				
 				aString.append(TAG_CHOSENFEAT).append(':');
 				aString.append('[');
 				aString.append(TAG_MAPKEY).append(':').append(
-					EntityEncoder.encode(entry.getKey())).append('|');
+					EntityEncoder.encode(featKey)).append('|');
 				aString.append(TAG_MAPVALUE).append(':').append(
 					EntityEncoder.encode(entry.getValue()));
 				aString.append(']');

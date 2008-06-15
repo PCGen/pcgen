@@ -50,7 +50,9 @@ import javax.swing.table.AbstractTableModel;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.DamageReduction;
@@ -72,6 +74,7 @@ import pcgen.gui.utils.TableSorter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -355,10 +358,18 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(lt);
 		}
 
-		for ( final LevelProperty<String> c : obj.getTemplates() )
+		LoadContext context = Globals.getContext();
+		for (PCClassLevel pcl : obj.getClassLevelCollection())
 		{
-			LevelTag lt = new LevelTag(c.getLevel(), LevelTag.TAG_TEMPLATE, c.getObject());
-			levelTagList.add(lt);
+			String[] unp = context.unparse(pcl, "TEMPLATE");
+			if (unp != null)
+			{
+				for (String ts : unp)
+				{
+					LevelTag lt = new LevelTag(pcl.getSafe(IntegerKey.LEVEL), LevelTag.TAG_TEMPLATE, ts);
+					levelTagList.add(lt);
+				}
+			}
 		}
 
 		List<String> sList = obj.getListFor(ListKey.UMULT);

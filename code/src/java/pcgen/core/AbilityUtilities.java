@@ -434,11 +434,7 @@ public class AbilityUtilities
 		{
 			removed = aPC.removeRealAbility(category, ability);
 			aPC.removeNaturalWeapons(ability);
-
-			for (int x = 0; x < ability.templatesAdded().size(); ++x)
-			{
-				aPC.removeTemplate(aPC.getTemplateKeyed(ability.templatesAdded().get(x)));
-			}
+			aPC.removeTemplatesFrom(ability);
 			ability.subAddsForLevel(-9, aPC);
 		}
 
@@ -633,7 +629,7 @@ public class AbilityUtilities
 			pcAbility = argAbility.clone();
 
 			aPC.addAbility(category, pcAbility, levelInfo);
-			pcAbility.getTemplates(aPC.isImporting(), aPC);
+			aPC.selectTemplates(pcAbility, aPC.isImporting());
 		}
 		if (pcAbility == null)
 		{
@@ -721,7 +717,7 @@ public class AbilityUtilities
 			anAbility = anAbility.clone();
 
 			aPC.addFeat(anAbility, LevelInfo);
-			anAbility.getTemplates(aPC.isImporting(), aPC);
+			aPC.selectTemplates(anAbility, aPC.isImporting());
 		}
 
 		/*

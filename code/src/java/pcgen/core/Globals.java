@@ -2378,7 +2378,7 @@ public final class Globals
 		return getChoiceFromList(title, choiceList, selectedList, pool, false);
 	}
 
-	static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool, final boolean forceChoice)
+	public static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool, final boolean forceChoice)
 	{
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTotalChoicesAvail(pool);

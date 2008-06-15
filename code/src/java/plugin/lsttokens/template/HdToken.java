@@ -1,25 +1,30 @@
 package plugin.lsttokens.template;
 
-import java.util.Map;
+import java.util.Collection;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
-import pcgen.core.Globals;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.PCTemplateLstToken;
 import pcgen.persistence.lst.PObjectLoader;
-import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with HD Token
  */
-public class HdToken implements PCTemplateLstToken
+public class HdToken implements CDOMPrimaryToken<PCTemplate>
 {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
 	public String getTokenName()
@@ -27,68 +32,142 @@ public class HdToken implements PCTemplateLstToken
 		return "HD";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.PCTemplateLstToken#parse(pcgen.core.PCTemplate, java.lang.String)
-	 */
-	public boolean parse(PCTemplate template, String value)
+	public boolean parse(LoadContext context, PCTemplate template, String value)
+			throws PersistenceLayerException
 	{
 		if (".CLEAR".equals(value))
 		{
-			template.clearHitDiceStrings();
+			context.getObjectContext().removeList(template,
+					ListKey.HD_TEMPLATES);
 			return true;
 		}
 
-		StringTokenizer tok = new StringTokenizer(value, ":");
-		String hdStr = tok.nextToken();
-		String typeStr = tok.nextToken();
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(PCTemplateLstToken.class);
-		PCTemplateLstToken token = (PCTemplateLstToken) tokenMap.get(typeStr);
+		StringTokenizer tok = new StringTokenizer(value, Constants.COLON);
 
-		if (token != null)
+		String hdString = tok.nextToken();
+		int minhd;
+		int maxhd;
+		try
 		{
-			template.addHitDiceString(value);
-		}
-		else
-		{
-			String tagValue =
-					value.substring(hdStr.length() + 1) + "|PREHDSILENT:" + hdStr; 
-			try
+			int minusLoc = hdString.indexOf('-');
+			if (minusLoc == -1)
 			{
-				final int colonLoc = tagValue.indexOf(':');
-				if (colonLoc == -1)
+				if (hdString.indexOf('+') == hdString.length() - 1)
 				{
-					Logging.errorPrint("Invalid HD Token - does not contain a colon: "
-							+ tagValue);
-					return false;
+					minhd = Integer.parseInt(hdString.substring(0, hdString
+							.length() - 1));
+					maxhd = Integer.MAX_VALUE;
 				}
-				else if (colonLoc == 0)
+				else
 				{
-					Logging.errorPrint("Invalid HD Token - starts with a colon: "
-							+ tagValue);
-					return false;
+					minhd = Integer.parseInt(hdString);
+					maxhd = minhd;
 				}
-
-				String key = tagValue.substring(0, colonLoc);
-				String val = (colonLoc == tagValue.length() - 1) ? null : tagValue
-						.substring(colonLoc + 1);
-				LoadContext context = Globals.getContext();
-				if (context.processToken(template, key, val))
-				{
-					context.commit();
-				}
-				else if (!PObjectLoader.parseTag(template, tagValue))
-				{
-					Logging.replayParsedMessages();
-				}
-				Logging.clearParseMessages();
 			}
-			catch (PersistenceLayerException e)
+			else
 			{
-				Logging.errorPrint("Failed to parse " + value + ".", e);
+				minhd = Integer.parseInt(hdString.substring(0, minusLoc));
+				maxhd = Integer.parseInt(hdString.substring(minusLoc + 1));
+			}
+			if (maxhd < minhd)
+			{
+				Logging.errorPrint("Malformed " + getTokenName()
+						+ " Token (Max < Min): " + hdString);
+				Logging.errorPrint("  Line was: " + value);
 				return false;
 			}
 		}
-		return true;
+		catch (NumberFormatException ex)
+		{
+			Logging.errorPrint("Malformed " + getTokenName()
+					+ " Token (HD syntax invalid): " + hdString);
+			return false;
+		}
+
+		if (!tok.hasMoreTokens())
+		{
+			Logging.errorPrint("Invalid " + getTokenName()
+					+ ": requires 3 colon separated elements (has one): "
+					+ value);
+			return false;
+		}
+		String typeStr = tok.nextToken();
+		if (!tok.hasMoreTokens())
+		{
+			Logging.errorPrint("Invalid " + getTokenName()
+					+ ": requires 3 colon separated elements (has two): "
+					+ value);
+			return false;
+		}
+		String argument = tok.nextToken();
+		PCTemplate derivative = new PCTemplate();
+		derivative.put(IntegerKey.HD_MIN, minhd);
+		derivative.put(IntegerKey.HD_MAX, maxhd);
+		context.getObjectContext().addToList(template, ListKey.HD_TEMPLATES,
+				derivative);
+		if (context.processToken(derivative, typeStr, argument))
+		{
+			return true;
+		}
+		else
+		{
+			if (PObjectLoader.parseTag(template, typeStr + ":" + argument
+					+ "|PREHDSILENT:" + hdString))
+			{
+				Logging.clearParseMessages();
+				return true;
+			}
+		}
+		return false;
 	}
+
+	public String[] unparse(LoadContext context, PCTemplate pct)
+	{
+		Changes<PCTemplate> changes = context.getObjectContext()
+				.getListChanges(pct, ListKey.HD_TEMPLATES);
+		Collection<PCTemplate> added = changes.getAdded();
+		if (added == null || added.isEmpty())
+		{
+			return null;
+		}
+		Set<String> set = new TreeSet<String>();
+		for (PCTemplate pctChild : added)
+		{
+			StringBuilder sb = new StringBuilder();
+			Integer min = pctChild.get(IntegerKey.HD_MIN);
+			Integer max = pctChild.get(IntegerKey.HD_MAX);
+			StringBuilder hd = new StringBuilder();
+			hd.append(min);
+			if (max == Integer.MAX_VALUE)
+			{
+				hd.append('+');
+			}
+			else if (max != min)
+			{
+				hd.append('-').append(max);
+			}
+			sb.append(hd.toString()).append(':');
+			Collection<String> unparse = context.unparse(pctChild);
+			if (unparse != null)
+			{
+				int masterLength = sb.length();
+				for (String str : unparse)
+				{
+					sb.setLength(masterLength);
+					set.add(sb.append(str).toString());
+				}
+			}
+		}
+		if (set.isEmpty())
+		{
+			return null;
+		}
+		return set.toArray(new String[set.size()]);
+	}
+
+	public Class<PCTemplate> getTokenClass()
+	{
+		return PCTemplate.class;
+	}
+
 }

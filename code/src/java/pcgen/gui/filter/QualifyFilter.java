@@ -75,10 +75,6 @@ final class QualifyFilter extends AbstractPObjectFilter
 		{
 			return ((PCClass) pObject).isQualified(aPC);
 		}
-		else if (pObject instanceof PCTemplate)
-		{
-			return ((PCTemplate) pObject).isQualified(aPC);
-		}
 		else
 		{
 			//passesPrereqTests is global now, so this should be the right thing to do.

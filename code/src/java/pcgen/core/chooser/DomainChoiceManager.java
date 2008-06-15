@@ -34,6 +34,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.rules.context.AbstractReferenceContext;
 
 /**
  * This is the chooser that deals with choosing a domain.
@@ -69,12 +70,13 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			final List<Domain>            availableList,
 			final List<Domain>            selectedList)
 	{
+		AbstractReferenceContext refContext = Globals.getContext().ref;
 		for (String option : getChoiceList())
 		{
 			if ("ANY".equals(option))
 			{
 				// returns a list of all loaded Domains.
-				for ( Domain domain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class) )
+				for ( Domain domain : refContext.getConstructedCDOMObjects(Domain.class) )
 				{
 					availableList.add(domain);
 				}
@@ -84,7 +86,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			{
 				// returns a list of loaded Domains the PC qualifies for
 				// but does not have.
-				for ( Domain domain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class) )
+				for ( Domain domain : refContext.getConstructedCDOMObjects(Domain.class) )
 				{
 					if (PrereqHandler.passesAll(domain.getPreReqList(), aPc, domain))
 					{
@@ -118,7 +120,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			{
 				// returns a list of Domains granted by specified Diety.
 				String deityName = option.substring(6);
-				Deity deity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, deityName);
+				Deity deity = refContext.silentlyGetConstructedCDOMObject(Deity.class, deityName);
 				if (deity != null)
 				{
 					for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
@@ -131,7 +133,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			else
 			{
 				// returns a list of the specified domains.
-				Domain domain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, option);
+				Domain domain = refContext.silentlyGetConstructedCDOMObject(Domain.class, option);
 				if (domain != null)
 				{
 					availableList.add(domain);
@@ -143,7 +145,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 		pobject.addAssociatedTo( domainKeys );
 		for ( String key : domainKeys )
 		{
-			Domain domain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, key);
+			Domain domain = refContext.silentlyGetConstructedCDOMObject(Domain.class, key);
 			if ( domain != null )
 			{
 				selectedList.add( domain );

@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.Collections;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.core.SourceEntry;
@@ -120,7 +121,7 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 				+ getReferenceClass().getSimpleName() + " Reference to a "
 				+ obj.getClass().getSimpleName());
 		}
-		if (!obj.getCDOMCategory().equals(category))
+		if (!category.equals(obj.getCDOMCategory()))
 		{
 			throw new IllegalArgumentException("Cannot resolve a "
 				+ getReferenceClass().getSimpleName() + " "

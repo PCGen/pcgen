@@ -93,7 +93,6 @@ public final class PObjectLoader
 		{
 			return false;
 		}
-
 		obj.setNewItem(false);
 
 		// This line seems to be useless ... nuance 28/10/2007

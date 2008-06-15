@@ -120,23 +120,6 @@ public class PCClass extends PObject
 	private String specialty = null;
 
 	/*
-	 * STRINGREFACTOR This is currently taking in a delimited String and should
-	 * be taking in a List or somesuch.
-	 * 
-	 * The challenge here (which requires a new CHOICE class - is that this may
-	 * not be simply a list, but could include a CHOICE as well... need to figure
-	 * out how to do that in a type safe way :/
-	 */
-	/*
-	 * TYPESAFETY This is throwing around template names as Strings. :(
-	 */
-	/*
-	 * ALLCLASSLEVELS The templates [based on their LevelProperty] (not the raw
-	 * Strings) need to be stored in EACH individual PCClassLevel.
-	 */
-	private List<LevelProperty<String>> templates = null;
-
-	/*
 	 * FINALALLCLASSLEVELS The SR List is level dependent - heck, it's in a
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
@@ -1711,37 +1694,6 @@ public class PCClass extends PObject
 		return null;
 	}
 
-	/*
-	 * Note: Since this is local access, it does not need to override
-	 * getTemplateList from PObject (although it is probably confusing that it
-	 * doesn't). The key point is ensuring that getTemplates(final boolean flag,
-	 * final PlayerCharacter aPC) is still properly overriding the PObject
-	 * method so that the proper templates for this PCClass are applied to the
-	 * PlayerCharacter.
-	 */
-	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public List<LevelProperty<String>> getTemplates()
-	{
-		if (templates == null)
-		{
-			final List<LevelProperty<String>> ret = Collections.emptyList();
-			return ret;
-		}
-		return Collections.unmodifiableList(templates);
-	}
-
-	/*
-	 * DELETEMETHOD I don't believe (?) that this is used in a place that
-	 * actually has any effect???  Will (obviously) need to test that!!
-	 */
-	public void clearTemplates()
-	{
-		templates = null;
-	}
-
 	//	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
 	//	{
 	//		if ( aCategory == AbilityCategory.FEAT )
@@ -2334,7 +2286,7 @@ public class PCClass extends PObject
 	 * they are specified...
 	 */
 	@Override
-	protected int getSR(PlayerCharacter aPC)
+	public int getSR(PlayerCharacter aPC)
 	{
 		if (aPC == null)
 		{
@@ -2527,15 +2479,6 @@ public class PCClass extends PObject
 				}
 			}
 
-		}
-
-		if (templates != null)
-		{
-			for (final LevelProperty<String> lp : templates)
-			{
-				pccTxt.append(lineSep).append(lp.getLevel());
-				pccTxt.append("\tTEMPLATE:").append(lp.getObject());
-			}
 		}
 
 		for (int x = 0; x < getBonusList().size(); ++x)
@@ -2881,19 +2824,6 @@ public class PCClass extends PObject
 		{
 			skillList.add(aString);
 		}
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public void addTemplate(int lvl, final String template)
-	{
-		if (templates == null)
-		{
-			templates = new ArrayList<LevelProperty<String>>();
-		}
-		templates.add(LevelProperty.getLevelProperty(lvl, template));
 	}
 
 	/**
@@ -3870,8 +3800,9 @@ public class PCClass extends PObject
 
 		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + keyName);
 
+		AbstractReferenceContext ref = Globals.getContext().ref;
 		final Equipment eq =
-			Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			ref.silentlyGetConstructedCDOMObject(
 					Equipment.class, "KEY_Unarmed Strike");
 
 		if (eq != null)
@@ -3899,7 +3830,7 @@ public class PCClass extends PObject
 		// Check the UDAM list for monk-like damage
 		//
 		List<String> udamList =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, keyName).getListFor(ListKey.UDAM);
+				ref.silentlyGetConstructedCDOMObject(PCClass.class, keyName).getListFor(ListKey.UDAM);
 
 		if ((udamList != null) && !udamList.isEmpty())
 		{
@@ -3911,7 +3842,7 @@ public class PCClass extends PObject
 					|| aString.startsWith("CLASS."))
 				{
 					final PCClass aClass =
-							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aString.substring(6));
+							ref.silentlyGetConstructedCDOMObject(PCClass.class, aString.substring(6));
 
 					if (aClass != null)
 					{
@@ -4064,10 +3995,8 @@ public class PCClass extends PObject
 		// the level has now been added to the character,
 		// so now assign the attributes of this class level to the
 		// character...
-		for (final String template : getTemplates(aPC.isImporting(), aPC))
-		{
-			aPC.addTemplateKeyed(template);
-		}
+		aPC.selectTemplates(this, aPC.isImporting());
+		aPC.selectTemplates(getClassLevel(newLevel), aPC.isImporting());
 
 		// Make sure that if this Class adds a new domain that
 		// we record where that domain came from
@@ -5009,72 +4938,6 @@ public class PCClass extends PObject
 			final int s = getCastForLevel(i, aPC);
 			castForLevelMap.put(i, s);
 		}
-	}
-
-	/**
-	 * <p>
-	 * This function adds all templates up to the current level to
-	 * <code>templatesAdded</code> and returns a list of the names of those
-	 * templates.
-	 * </p>
-	 * <p>
-	 * The function requires that templates be stored in the
-	 * <code>templates</code> list as a string in the form
-	 * LVL|[CHOOSE:]Template|Template|Template...
-	 * </p>
-	 * <p>
-	 * Passing <code>false</code> to this function results in nothing
-	 * happening, it doesn't add anything to the class.
-	 * </p>
-	 * 
-	 * @param flag
-	 *            If false, function returns empty <code>ArrayList</code> (?)
-	 * @param aPC
-	 * @return A list of templates added by this function
-	 */
-	/*
-	 * DELETEMETHOD if not PCCLASSONLY.  This is required in PCClass since
-	 * it is really done during addLevel.
-	 */
-	@Override
-	public List<String> getTemplates(final boolean flag,
-		final PlayerCharacter aPC)
-	{
-		final ArrayList<String> newTemplates = new ArrayList<String>();
-
-		if (flag)
-		{
-			return newTemplates;
-		}
-
-		for (final LevelProperty<String> template : getTemplates())
-		{
-			if (level < template.getLevel())
-			{
-				continue;
-			}
-
-			/*
-			 * The template string will either be a CHOOSE: tag or a bar
-			 * separated list of templates
-			 */
-			final String tString = template.getObject();
-
-			if (tString.startsWith("CHOOSE:"))
-			{
-				newTemplates.add(PCTemplate.chooseTemplate(this, tString
-					.substring(7), true, aPC));
-			}
-			else
-			{
-				for (String templ : tString.split("\\|"))
-				{
-					newTemplates.add(templ);
-				}
-			}
-		}
-
-		return newTemplates;
 	}
 
 	/*

@@ -2617,7 +2617,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return displayName;
 	}
 
-	protected int getSR(final PlayerCharacter aPC)
+	public int getSR(final PlayerCharacter aPC)
 	{
 		final String srFormula = getSRFormula();
 
@@ -3744,94 +3744,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	protected void removeMyType(final String myType)
 	{
 		types.remove(myType);
-	}
-
-	/**
-	 * Method getTemplateList. Returns an array list containing the raw
-	 * templates granted by this race. This includes CHOOSE: strings
-	 * which list templates a user will be asked to choose from.
-	 *
-	 * @return ArrayList of granted templates
-	 */
-	public List<String> getTemplateList()
-	{
-		return getSafeListFor(ListKey.TEMPLATES);
-	}
-
-	/**
-	 * @param templateList	A string containing a pipe-delimited list of templates to add
-	 */
-	public void addTemplate(final String templateList)
-	{
-		if (templateList.startsWith("CHOOSE:"))
-		{
-			listChar.addToListFor(ListKey.TEMPLATES, templateList);
-		}
-		else
-		{
-			final StringTokenizer aTok = new StringTokenizer(templateList, "|");
-
-			while (aTok.hasMoreTokens())
-			{
-				String templateName = aTok.nextToken();
-
-				// .CLEAR
-				if (".CLEAR".equalsIgnoreCase(templateName))
-				{
-					listChar.removeListFor(ListKey.TEMPLATES);
-				}
-
-				// .CLEAR.<template_name>
-				else if (templateName.regionMatches(true, 0, ".CLEAR.", 0, 7))
-				{
-					templateName = templateName.substring(7);
-					if (!listChar.removeFromListFor(ListKey.TEMPLATES, templateName))
-					{
-						Logging.errorPrint("addTemplate: Could not find template: " + templateName + " in templateList.");
-					}
-				}
-				else
-				{
-					listChar.addToListFor(ListKey.TEMPLATES, templateName);
-				}
-			}
-		}
-	}
-
-	List<String> getTemplates(final boolean isImporting, final PlayerCharacter aPC)
-	{
-		final List<String> newTemplates = new ArrayList<String>();
-		listChar.removeListFor(ListKey.TEMPLATES_ADDED);
-
-		if (!isImporting)
-		{
-			for ( String templateKey : getTemplateList() )
-			{
-				if (templateKey.startsWith("CHOOSE:"))
-				{
-					templateKey = PCTemplate.chooseTemplate(this, templateKey.substring(7), true, aPC);
-				}
-
-				if (templateKey.length() != 0)
-				{
-					newTemplates.add(templateKey);
-					listChar.addToListFor(ListKey.TEMPLATES_ADDED, templateKey);
-					aPC.addTemplateKeyed(templateKey);
-
-				}
-			}
-		}
-
-		return newTemplates;
-	}
-
-	/**
-	 * Get a list of the added templates
-	 * @return a list of the added templates
-	 */
-	public List<String> templatesAdded()
-	{
-		return getSafeListFor(ListKey.TEMPLATES_ADDED);
 	}
 
 	/**

@@ -42,6 +42,7 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Language;
+import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
@@ -139,10 +140,6 @@ public final class ListKey<T> {
 	public static final ListKey<String> SELECTED_WEAPON_PROF_BONUS = new ListKey<String>();
 	/** SPECIAL_ABILITY - a ListKey */
 	public static final ListKey<SpecialAbility> SPECIAL_ABILITY = new ListKey<SpecialAbility>();
-	/** TEMPLATES - a ListKey */
-	public static final ListKey<String> TEMPLATES = new ListKey<String>();
-	/** TEMPLATES_ADDED - a ListKey */
-	public static final ListKey<String> TEMPLATES_ADDED = new ListKey<String>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
 	/** UDAM - a ListKey */
@@ -191,6 +188,13 @@ public final class ListKey<T> {
 	public static final ListKey<Description> BENEFIT = new ListKey<Description>();
 	public static final ListKey<CDOMReference<Language>> AUTO_LANGUAGES = new ListKey<CDOMReference<Language>>();
 	public static final ListKey<CDOMReference<Ability>> FEAT = new ListKey<CDOMReference<Ability>>();
+	public static final ListKey<PCTemplate> LEVEL_TEMPLATES = new ListKey<PCTemplate>();
+	public static final ListKey<PCTemplate> REPEATLEVEL_TEMPLATES = new ListKey<PCTemplate>();
+	public static final ListKey<PCTemplate> HD_TEMPLATES = new ListKey<PCTemplate>();
+	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE_CHOOSE = new ListKey<CDOMReference<PCTemplate>>();
+	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE_ADDCHOICE = new ListKey<CDOMReference<PCTemplate>>();
+	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE = new ListKey<CDOMReference<PCTemplate>>();
+	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

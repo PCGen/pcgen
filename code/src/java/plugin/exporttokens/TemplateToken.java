@@ -34,6 +34,8 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.TemplateSR;
+import pcgen.core.analysis.TemplateStat;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -154,9 +156,8 @@ public class TemplateToken extends Token
 	 */
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
-		List<String> fList =
-				template.feats(pc.getTotalLevels(), pc.totalHitDice(), pc,
-					false);
+		List<String> fList = pc.feats(template, pc.getTotalLevels(), pc
+				.totalHitDice(), false);
 		return StringUtil.join(fList, ", ");
 	}
 
@@ -179,7 +180,7 @@ public class TemplateToken extends Token
 
 			if (aLabel.equals(modName))
 			{
-				if (template.isNonAbility(iMod))
+				if (TemplateStat.isNonAbility(template, iMod))
 				{
 					retString.append("*");
 				}
@@ -250,6 +251,6 @@ public class TemplateToken extends Token
 	 */
 	public static int getSRToken(PCTemplate template, PlayerCharacter pc)
 	{
-		return template.getSR(pc.getTotalLevels(), pc.totalHitDice(), pc);
+		return TemplateSR.getSR(template, pc.getTotalLevels(), pc.totalHitDice(), pc);
 	}
 }

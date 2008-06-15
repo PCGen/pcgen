@@ -76,6 +76,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.TemplateModifier;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -843,7 +844,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		PCTemplate template = getSelectedTemplate();
 
-		if ((template == null) || !template.isQualified(getPc()))
+		if ((template == null) || !PrereqHandler.passesAll(template.getPreReqList(), getPc(), template))
 		{
 			return;
 		}
@@ -1172,7 +1173,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 							.resolve(getPc(), "");
 
 					case COL_MODIFIER:
-						return template.modifierString(getPc());
+						return TemplateModifier.modifierString(template, getPc());
 
 					case COL_REQS:
 						return template.preReqStrings();

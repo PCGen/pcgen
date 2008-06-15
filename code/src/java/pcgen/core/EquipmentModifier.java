@@ -463,7 +463,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getSafe(ObjectKey.NAME_OPT).returnName(this);
 	}
 
-	protected int getSR(final PlayerCharacter aPC)
+	public int getSR(final PlayerCharacter aPC)
 	{
 		if (getSRFormula() == null)
 		{
