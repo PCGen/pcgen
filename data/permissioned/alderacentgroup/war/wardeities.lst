@@ -8,7 +8,7 @@ Arnlon		NAMEISPI:YES	DOMAINS:War,Creation,Law|PREALIGN:TN			DESC:Great Maker, pa
 Ergethen		NAMEISPI:YES	DOMAINS:War,Protection,Strength|PREALIGN:TN		DESC:The Defender, god of defense and protection	SYMBOL:None	DEITYWEAP:Quarterstaff		ALIGN:TN	PANTHEON:War	SOURCEPAGE:p.110
 Artoh			NAMEISPI:YES	DOMAINS:War,Luck|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DESC:Lord of Battles						SYMBOL:None	DEITYWEAP:Longsword		ALIGN:TN	PANTHEON:War	SOURCEPAGE:p.110
 Bronegh		NAMEISPI:YES	DOMAINS:War,Conquest,Strength,Chaos|PREALIGN:CN		DESC:The Conqueror, god of conquest				SYMBOL:None	DEITYWEAP:Greataxe		ALIGN:CN	PANTHEON:War	SOURCEPAGE:p.111
-Londalia		NAMEISPI:YES	DOMAINS:War,Law,Tyranny|PREALIGN:LE				DESC:Tyrant Queen, goddess of tyranny			SYMBOL:None	DEITYWEAP:Mace			ALIGN:LE	PANTHEON:War	SOURCEPAGE:p.111
+Londalia		NAMEISPI:YES	DOMAINS:War,Law,Tyranny|PREALIGN:LE				DESC:Tyrant Queen, goddess of tyranny			SYMBOL:None	DEITYWEAP:Mace (Light)		ALIGN:LE	PANTHEON:War	SOURCEPAGE:p.111
 Boraal		NAMEISPI:YES	DOMAINS:War,Evil,Trickery|PREALIGN:NE			DESC:Lord of Betrayal, patron of war profiteers		SYMBOL:None	DEITYWEAP:Dagger			ALIGN:NE	PANTHEON:War	SOURCEPAGE:p.111
-Layan'kul		NAMEISPI:YES	DOMAINS:War,Evil,Death|PREALIGN:NE				DESC:Scavenger King						SYMBOL:None	DEITYWEAP:Headsman's axe	ALIGN:NE	PANTHEON:War	SOURCEPAGE:p.112
+Layan'kul		NAMEISPI:YES	DOMAINS:War,Evil,Death|PREALIGN:NE				DESC:Scavenger King						SYMBOL:None	DEITYWEAP:Headsman's Axe	ALIGN:NE	PANTHEON:War	SOURCEPAGE:p.112
 Pleiagh		NAMEISPI:YES	DOMAINS:War,Destruction,Death|PREALIGN:CE			DESC:the Wasted, Lord of Famine				SYMBOL:None	DEITYWEAP:Scythe			ALIGN:CE	PANTHEON:War	SOURCEPAGE:p.112
