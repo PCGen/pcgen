@@ -74,36 +74,6 @@ public class Campaign extends PObject
 	 */
 	public Campaign() {
 		super();
-		listChar.initializeListFor(ListKey.GAME_MODE);
-		listChar.initializeListFor(ListKey.LICENSE);
-		listChar.initializeListFor(ListKey.LINE);
-		listChar.initializeListFor(ListKey.SECTION_15);
-		listChar.initializeListFor(ListKey.FILE_ABILITY_CATEGORY);
-		listChar.initializeListFor(ListKey.FILE_BIO_SET);
-		listChar.initializeListFor(ListKey.FILE_CLASS);
-		listChar.initializeListFor(ListKey.FILE_CLASS_SKILL);
-		listChar.initializeListFor(ListKey.FILE_CLASS_SPELL);
-		listChar.initializeListFor(ListKey.FILE_COMPANION_MOD);
-		listChar.initializeListFor(ListKey.FILE_COVER);
-		listChar.initializeListFor(ListKey.FILE_DEITY);
-		listChar.initializeListFor(ListKey.FILE_DOMAIN);
-		listChar.initializeListFor(ListKey.FILE_EQUIP);
-		listChar.initializeListFor(ListKey.FILE_EQUIP_MOD);
-		listChar.initializeListFor(ListKey.FILE_ABILITY);
-		listChar.initializeListFor(ListKey.FILE_FEAT);
-		listChar.initializeListFor(ListKey.FILE_KIT);
-		listChar.initializeListFor(ListKey.FILE_LANGUAGE);
-		listChar.initializeListFor(ListKey.FILE_LOGO);
-		listChar.initializeListFor(ListKey.FILE_LST_EXCLUDE);
-		listChar.initializeListFor(ListKey.FILE_PCC);
-		listChar.initializeListFor(ListKey.FILE_RACE);
-		listChar.initializeListFor(ListKey.FILE_REQ_SKILL);
-		listChar.initializeListFor(ListKey.FILE_SKILL);
-		listChar.initializeListFor(ListKey.FILE_SPELL);
-		listChar.initializeListFor(ListKey.FILE_TEMPLATE);
-		listChar.initializeListFor(ListKey.FILE_WEAPON_PROF);
-		listChar.initializeListFor(ListKey.FILE_ARMOR_PROF);
-		listChar.initializeListFor(ListKey.FILE_SHIELD_PROF);
 	}
 
 	/**
@@ -112,7 +82,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllAbilityFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_ABILITY, files);
+		addAllToListFor(ListKey.FILE_ABILITY, files);
 	}
 
 	/**
@@ -121,7 +91,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllAbilityCategoryFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, files);
+		addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, files);
 	}
 
 	/**
@@ -130,7 +100,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllBioSetFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_BIO_SET, files);
+		addAllToListFor(ListKey.FILE_BIO_SET, files);
 	}
 
 	/**
@@ -139,7 +109,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllClassFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_CLASS, files);
+		addAllToListFor(ListKey.FILE_CLASS, files);
 	}
 
 	/**
@@ -148,7 +118,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllClassSkillFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_CLASS_SKILL, files);
+		addAllToListFor(ListKey.FILE_CLASS_SKILL, files);
 	}
 
 	/**
@@ -157,7 +127,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllClassSpellFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_CLASS_SPELL, files);
+		addAllToListFor(ListKey.FILE_CLASS_SPELL, files);
 	}
 
 	/**
@@ -166,7 +136,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllCompanionModFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_COMPANION_MOD, files);
+		addAllToListFor(ListKey.FILE_COMPANION_MOD, files);
 	}
 
 	/**
@@ -175,7 +145,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllCoverFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_COVER, files);
+		addAllToListFor(ListKey.FILE_COVER, files);
 	}
 
 	/**
@@ -184,7 +154,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllDeityFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_DEITY, files);
+		addAllToListFor(ListKey.FILE_DEITY, files);
 	}
 
 	/**
@@ -193,7 +163,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllDomainFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_DOMAIN, files);
+		addAllToListFor(ListKey.FILE_DOMAIN, files);
 	}
 
 	/**
@@ -202,7 +172,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllEquipFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_EQUIP, files);
+		addAllToListFor(ListKey.FILE_EQUIP, files);
 	}
 
 	/**
@@ -211,7 +181,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllEquipModFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_EQUIP_MOD, files);
+		addAllToListFor(ListKey.FILE_EQUIP_MOD, files);
 	}
 
 	/**
@@ -220,7 +190,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllFeatFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_FEAT, files);
+		addAllToListFor(ListKey.FILE_FEAT, files);
 	}
 
 	/**
@@ -229,7 +199,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllKitFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_KIT, files);
+		addAllToListFor(ListKey.FILE_KIT, files);
 	}
 
 	/**
@@ -238,7 +208,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllLanguageFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_LANGUAGE, files);
+		addAllToListFor(ListKey.FILE_LANGUAGE, files);
 	}
 
 	/**
@@ -247,7 +217,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllLogoFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_LOGO, files);
+		addAllToListFor(ListKey.FILE_LOGO, files);
 	}
 
 	/**
@@ -256,7 +226,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllLstExcludeFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_LST_EXCLUDE, files);
+		addAllToListFor(ListKey.FILE_LST_EXCLUDE, files);
 	}
 
 	/**
@@ -265,7 +235,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllPccFiles(final List<URI> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_PCC, files);
+		addAllToListFor(ListKey.FILE_PCC, files);
 	}
 
 	/**
@@ -274,7 +244,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllRaceFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_RACE, files);
+		addAllToListFor(ListKey.FILE_RACE, files);
 	}
 
 	/**
@@ -283,7 +253,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllReqSkillFiles(final List<String> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_REQ_SKILL, files);
+		addAllToListFor(ListKey.FILE_REQ_SKILL, files);
 	}
 
 	/**
@@ -292,7 +262,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllSkillFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_SKILL, files);
+		addAllToListFor(ListKey.FILE_SKILL, files);
 	}
 
 	/**
@@ -301,7 +271,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllSpellFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_SPELL, files);
+		addAllToListFor(ListKey.FILE_SPELL, files);
 	}
 
 	/**
@@ -310,7 +280,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllTemplateFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_TEMPLATE, files);
+		addAllToListFor(ListKey.FILE_TEMPLATE, files);
 	}
 
 	/**
@@ -320,7 +290,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllArmorProfFiles(List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_ARMOR_PROF, files);
+		addAllToListFor(ListKey.FILE_ARMOR_PROF, files);
 	}
 
 	/**
@@ -330,7 +300,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllShieldProfFiles(List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_SHIELD_PROF, files);
+		addAllToListFor(ListKey.FILE_SHIELD_PROF, files);
 	}
 
 	/**
@@ -339,7 +309,7 @@ public class Campaign extends PObject
 	 */
 	public void addAllWeaponProfFiles(final List<CampaignSourceEntry> files)
 	{
-		listChar.addAllToListFor(ListKey.FILE_WEAPON_PROF, files);
+		addAllToListFor(ListKey.FILE_WEAPON_PROF, files);
 	}
 
 	/**
@@ -348,7 +318,7 @@ public class Campaign extends PObject
 	 */
 	public void addAbilityFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_ABILITY, file);
+		addToListFor(ListKey.FILE_ABILITY, file);
 	}
 
 	/**
@@ -357,7 +327,7 @@ public class Campaign extends PObject
 	 */
 	public void addAbilityCategoryFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_ABILITY_CATEGORY, file);
+		addToListFor(ListKey.FILE_ABILITY_CATEGORY, file);
 	}
 
 	/**
@@ -366,7 +336,7 @@ public class Campaign extends PObject
 	 */
 	public void addBioSetFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_BIO_SET, file);
+		addToListFor(ListKey.FILE_BIO_SET, file);
 	}
 
 	/**
@@ -375,7 +345,7 @@ public class Campaign extends PObject
 	 */
 	public void addClassFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_CLASS, file);
+		addToListFor(ListKey.FILE_CLASS, file);
 	}
 
 	/**
@@ -384,7 +354,7 @@ public class Campaign extends PObject
 	 */
 	public void addClassSkillFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_CLASS_SKILL, file);
+		addToListFor(ListKey.FILE_CLASS_SKILL, file);
 	}
 
 	/**
@@ -393,7 +363,7 @@ public class Campaign extends PObject
 	 */
 	public void addClassSpellFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_CLASS_SPELL, file);
+		addToListFor(ListKey.FILE_CLASS_SPELL, file);
 	}
 
 	/**
@@ -402,7 +372,7 @@ public class Campaign extends PObject
 	 */
 	public void addCompanionModFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_COMPANION_MOD, file);
+		addToListFor(ListKey.FILE_COMPANION_MOD, file);
 	}
 
 	/**
@@ -411,7 +381,7 @@ public class Campaign extends PObject
 	 */
 	public void addCoverFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_COVER, file);
+		addToListFor(ListKey.FILE_COVER, file);
 	}
 
 	/**
@@ -420,7 +390,7 @@ public class Campaign extends PObject
 	 */
 	public void addDeityFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_DEITY, file);
+		addToListFor(ListKey.FILE_DEITY, file);
 	}
 
 	/**
@@ -429,7 +399,7 @@ public class Campaign extends PObject
 	 */
 	public void addDomainFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_DOMAIN, file);
+		addToListFor(ListKey.FILE_DOMAIN, file);
 	}
 
 	/**
@@ -438,7 +408,7 @@ public class Campaign extends PObject
 	 */
 	public void addEquipFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_EQUIP, file);
+		addToListFor(ListKey.FILE_EQUIP, file);
 	}
 
 	/**
@@ -447,7 +417,7 @@ public class Campaign extends PObject
 	 */
 	public void addEquipModFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_EQUIP_MOD, file);
+		addToListFor(ListKey.FILE_EQUIP_MOD, file);
 	}
 
 	/**
@@ -456,7 +426,7 @@ public class Campaign extends PObject
 	 */
 	public void addFeatFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_FEAT, file);
+		addToListFor(ListKey.FILE_FEAT, file);
 	}
 
 	/**
@@ -465,7 +435,7 @@ public class Campaign extends PObject
 	 */
 	public void addKitFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_KIT, file);
+		addToListFor(ListKey.FILE_KIT, file);
 	}
 
 	/**
@@ -474,7 +444,7 @@ public class Campaign extends PObject
 	 */
 	public void addLanguageFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_LANGUAGE, file);
+		addToListFor(ListKey.FILE_LANGUAGE, file);
 	}
 
 	/**
@@ -486,12 +456,11 @@ public class Campaign extends PObject
 	{
 		if (license.equals(".CLEAR"))
 		{
-			listChar.removeListFor(ListKey.LICENSE);
-			listChar.initializeListFor(ListKey.LICENSE);
+			removeListFor(ListKey.LICENSE);
 		}
 		else
 		{
-			listChar.addToListFor(ListKey.LICENSE, license);
+			addToListFor(ListKey.LICENSE, license);
 		}
 	}
 
@@ -506,7 +475,7 @@ public class Campaign extends PObject
 	 */
 	public void addLicenseFile(final URI licenseFile)
 	{
-		listChar.addToListFor(ListKey.LICENSE_FILE, licenseFile);
+		addToListFor(ListKey.LICENSE_FILE, licenseFile);
 	}
 
 	/**
@@ -517,12 +486,11 @@ public class Campaign extends PObject
 	{
 		if (line.equals(".CLEAR"))
 		{
-			listChar.removeListFor(ListKey.LINE);
-			listChar.initializeListFor(ListKey.LINE);
+			removeListFor(ListKey.LINE);
 		}
 		else
 		{
-			listChar.addToListFor(ListKey.LINE, line);
+			addToListFor(ListKey.LINE, line);
 		}
 	}
 
@@ -533,7 +501,7 @@ public class Campaign extends PObject
 	 */
 	public void addLogoFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_LOGO, file);
+		addToListFor(ListKey.FILE_LOGO, file);
 	}
 
 	/**
@@ -542,7 +510,7 @@ public class Campaign extends PObject
 	 */
 	public void addLstExcludeFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_LST_EXCLUDE, file);
+		addToListFor(ListKey.FILE_LST_EXCLUDE, file);
 	}
 
 	/**
@@ -551,7 +519,7 @@ public class Campaign extends PObject
 	 */
 	public void addPccFile(final URI file)
 	{
-		listChar.addToListFor(ListKey.FILE_PCC, file);
+		addToListFor(ListKey.FILE_PCC, file);
 	}
 
 	/**
@@ -560,7 +528,7 @@ public class Campaign extends PObject
 	 */
 	public void addRaceFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_RACE, file);
+		addToListFor(ListKey.FILE_RACE, file);
 	}
 
 	/**
@@ -569,7 +537,7 @@ public class Campaign extends PObject
 	 */
 	public void addReqSkillFile(final String file)
 	{
-		listChar.addToListFor(ListKey.FILE_REQ_SKILL, file);
+		addToListFor(ListKey.FILE_REQ_SKILL, file);
 	}
 
 	/**
@@ -580,12 +548,11 @@ public class Campaign extends PObject
 	{
 		if (section15.equals(".CLEAR"))
 		{
-			listChar.removeListFor(ListKey.SECTION_15);
-			listChar.initializeListFor(ListKey.SECTION_15);
+			removeListFor(ListKey.SECTION_15);
 		}
 		else
 		{
-			listChar.addToListFor(ListKey.SECTION_15, section15);
+			addToListFor(ListKey.SECTION_15, section15);
 		}
 	}
 
@@ -595,7 +562,7 @@ public class Campaign extends PObject
 	 */
 	public void addSkillFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_SKILL, file);
+		addToListFor(ListKey.FILE_SKILL, file);
 	}
 
 	/**
@@ -604,7 +571,7 @@ public class Campaign extends PObject
 	 */
 	public void addSpellFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_SPELL, file);
+		addToListFor(ListKey.FILE_SPELL, file);
 	}
 
 	/**
@@ -613,7 +580,7 @@ public class Campaign extends PObject
 	 */
 	public void addTemplateFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_TEMPLATE, file);
+		addToListFor(ListKey.FILE_TEMPLATE, file);
 	}
 
 	/**
@@ -622,7 +589,7 @@ public class Campaign extends PObject
 	 */
 	public void addArmorProfFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_ARMOR_PROF, file);
+		addToListFor(ListKey.FILE_ARMOR_PROF, file);
 	}
 
 	/**
@@ -631,7 +598,7 @@ public class Campaign extends PObject
 	 */
 	public void addShieldProfFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_SHIELD_PROF, file);
+		addToListFor(ListKey.FILE_SHIELD_PROF, file);
 	}
 
 	/**
@@ -640,7 +607,7 @@ public class Campaign extends PObject
 	 */
 	public void addWeaponProfFile(final CampaignSourceEntry file)
 	{
-		listChar.addToListFor(ListKey.FILE_WEAPON_PROF, file);
+		addToListFor(ListKey.FILE_WEAPON_PROF, file);
 	}
 
 	/**
@@ -649,7 +616,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getAbilityFiles()
 	{
-		return getListFor(ListKey.FILE_ABILITY);
+		return getSafeListFor(ListKey.FILE_ABILITY);
 	}
 
 	/**
@@ -658,7 +625,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getAbilityCategoryFiles()
 	{
-		return getListFor(ListKey.FILE_ABILITY_CATEGORY);
+		return getSafeListFor(ListKey.FILE_ABILITY_CATEGORY);
 	}
 
 	/**
@@ -667,7 +634,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getBioSetFiles()
 	{
-		return getListFor(ListKey.FILE_BIO_SET);
+		return getSafeListFor(ListKey.FILE_BIO_SET);
 	}
 
 	/**
@@ -686,7 +653,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getClassFiles()
 	{
-		return getListFor(ListKey.FILE_CLASS);
+		return getSafeListFor(ListKey.FILE_CLASS);
 	}
 
 	/**
@@ -695,7 +662,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getClassSkillFiles()
 	{
-		return getListFor(ListKey.FILE_CLASS_SKILL);
+		return getSafeListFor(ListKey.FILE_CLASS_SKILL);
 	}
 
 	/**
@@ -704,7 +671,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getClassSpellFiles()
 	{
-		return getListFor(ListKey.FILE_CLASS_SPELL);
+		return getSafeListFor(ListKey.FILE_CLASS_SPELL);
 	}
 	/**
 	 * Returns the companionmodFileList.
@@ -712,7 +679,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getCompanionModFiles()
 	{
-		return getListFor(ListKey.FILE_COMPANION_MOD);
+		return getSafeListFor(ListKey.FILE_COMPANION_MOD);
 	}
 
 	/**
@@ -721,7 +688,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getCoverFiles()
 	{
-		return getListFor(ListKey.FILE_COVER);
+		return getSafeListFor(ListKey.FILE_COVER);
 	}
 
 	/**
@@ -730,7 +697,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getDeityFiles()
 	{
-		return getListFor(ListKey.FILE_DEITY);
+		return getSafeListFor(ListKey.FILE_DEITY);
 	}
 
 	/**
@@ -749,7 +716,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getDomainFiles()
 	{
-		return getListFor(ListKey.FILE_DOMAIN);
+		return getSafeListFor(ListKey.FILE_DOMAIN);
 	}
 
 	/**
@@ -758,7 +725,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getEquipFiles()
 	{
-		return getListFor(ListKey.FILE_EQUIP);
+		return getSafeListFor(ListKey.FILE_EQUIP);
 	}
 
 	/**
@@ -767,7 +734,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getEquipModFiles()
 	{
-		return getListFor(ListKey.FILE_EQUIP_MOD);
+		return getSafeListFor(ListKey.FILE_EQUIP_MOD);
 	}
 
 	/**
@@ -776,7 +743,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getFeatFiles()
 	{
-		return getListFor(ListKey.FILE_FEAT);
+		return getSafeListFor(ListKey.FILE_FEAT);
 	}
 
 	/**
@@ -785,7 +752,7 @@ public class Campaign extends PObject
 	 */
 	public List<String> getGameModes()
 	{
-		return getListFor(ListKey.GAME_MODE);
+		return getSafeListFor(ListKey.GAME_MODE);
 	}
 
 	/**
@@ -796,7 +763,7 @@ public class Campaign extends PObject
 	public String getGameModeString()
 	{
 		final StringBuffer sb = new StringBuffer();
-		List<String> gameModeList = getListFor(ListKey.GAME_MODE);
+		List<String> gameModeList = getSafeListFor(ListKey.GAME_MODE);
 
 		for (Iterator<String> i = gameModeList.iterator(); i.hasNext();)
 		{
@@ -847,7 +814,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getKitFiles()
 	{
-		return getListFor(ListKey.FILE_KIT);
+		return getSafeListFor(ListKey.FILE_KIT);
 	}
 
 	/**
@@ -856,7 +823,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getLanguageFiles()
 	{
-		return getListFor(ListKey.FILE_LANGUAGE);
+		return getSafeListFor(ListKey.FILE_LANGUAGE);
 	}
 
 	/**
@@ -865,7 +832,7 @@ public class Campaign extends PObject
 	 */
 	public List<String> getLicenses()
 	{
-		return getListFor(ListKey.LICENSE);
+		return getSafeListFor(ListKey.LICENSE);
 	}
 
 	/**
@@ -876,7 +843,7 @@ public class Campaign extends PObject
 	{
 		StringBuffer sb = new StringBuffer();
 
-		for ( String license : getListFor(ListKey.LICENSE) )
+		for ( String license : getSafeListFor(ListKey.LICENSE) )
 		{
 			sb.append(license).append("<br>");
 		}
@@ -890,7 +857,7 @@ public class Campaign extends PObject
 	 */
 	public List<URI> getLicenseFiles()
 	{
-		return getListFor(ListKey.LICENSE_FILE);
+		return getSafeListFor(ListKey.LICENSE_FILE);
 	}
 
 	/**
@@ -899,7 +866,7 @@ public class Campaign extends PObject
 	 */
 	public List<String> getLines()
 	{
-		return getListFor(ListKey.LINE);
+		return getSafeListFor(ListKey.LINE);
 	}
 
 	/**
@@ -908,7 +875,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getLstExcludeFiles()
 	{
-		return getListFor(ListKey.FILE_LST_EXCLUDE);
+		return getSafeListFor(ListKey.FILE_LST_EXCLUDE);
 	}
 
 	/**
@@ -918,7 +885,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getLogoFiles()
 	{
-		return getListFor(ListKey.FILE_LOGO);
+		return getSafeListFor(ListKey.FILE_LOGO);
 	}
 
 	/**
@@ -927,7 +894,7 @@ public class Campaign extends PObject
 	 */
 	public List<URI> getPccFiles()
 	{
-		return getListFor(ListKey.FILE_PCC);
+		return getSafeListFor(ListKey.FILE_PCC);
 	}
 
 	/**
@@ -966,7 +933,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getRaceFiles()
 	{
-		return getListFor(ListKey.FILE_RACE);
+		return getSafeListFor(ListKey.FILE_RACE);
 	}
 
 	/**
@@ -975,7 +942,7 @@ public class Campaign extends PObject
 	 */
 	public List<String> getReqSkillFiles()
 	{
-		return getListFor(ListKey.FILE_REQ_SKILL);
+		return getSafeListFor(ListKey.FILE_REQ_SKILL);
 	}
 
 	/**
@@ -984,7 +951,7 @@ public class Campaign extends PObject
 	 */
 	public List<String> getSection15s()
 	{
-		return getListFor(ListKey.SECTION_15);
+		return getSafeListFor(ListKey.SECTION_15);
 	}
 
 	/**
@@ -995,7 +962,7 @@ public class Campaign extends PObject
 	{
 		StringBuffer sb = new StringBuffer();
 
-		for ( String license : getListFor(ListKey.SECTION_15) )
+		for ( String license : getSafeListFor(ListKey.SECTION_15) )
 		{
 			sb.append(license).append("<br>");
 		}
@@ -1019,7 +986,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getSkillFiles()
 	{
-		return getListFor(ListKey.FILE_SKILL);
+		return getSafeListFor(ListKey.FILE_SKILL);
 	}
 
 	/**
@@ -1028,7 +995,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getSpellFiles()
 	{
-		return getListFor(ListKey.FILE_SPELL);
+		return getSafeListFor(ListKey.FILE_SPELL);
 	}
 
 	/**
@@ -1037,7 +1004,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getTemplateFiles()
 	{
-		return getListFor(ListKey.FILE_TEMPLATE);
+		return getSafeListFor(ListKey.FILE_TEMPLATE);
 	}
 
 	/**
@@ -1046,7 +1013,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getArmorProfFiles()
 	{
-		return getListFor(ListKey.FILE_ARMOR_PROF);
+		return getSafeListFor(ListKey.FILE_ARMOR_PROF);
 	}
 
 	/**
@@ -1055,7 +1022,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getShieldProfFiles()
 	{
-		return getListFor(ListKey.FILE_SHIELD_PROF);
+		return getSafeListFor(ListKey.FILE_SHIELD_PROF);
 	}
 
 	/**
@@ -1064,7 +1031,7 @@ public class Campaign extends PObject
 	 */
 	public List<CampaignSourceEntry> getWeaponProfFiles()
 	{
-		return getListFor(ListKey.FILE_WEAPON_PROF);
+		return getSafeListFor(ListKey.FILE_WEAPON_PROF);
 	}
 
 	/**
@@ -1074,7 +1041,7 @@ public class Campaign extends PObject
 	 **/
 	public boolean isGameMode(final String gameMode)
 	{
-		return listChar.containsInList(ListKey.GAME_MODE, gameMode);
+		return containsInList(ListKey.GAME_MODE, gameMode);
 	}
 
 	/**
@@ -1086,7 +1053,7 @@ public class Campaign extends PObject
 	{
 		for ( String gameMode : gameModeList )
 		{
-			if (listChar.containsInList(ListKey.GAME_MODE, gameMode))
+			if (containsInList(ListKey.GAME_MODE, gameMode))
 			{
 				return true;
 			}
@@ -1120,14 +1087,14 @@ public class Campaign extends PObject
 	public void setGameMode(final String gameMode)
 	{
 		final StringTokenizer aTok = new StringTokenizer(gameMode, "|");
-		listChar.removeListFor(ListKey.GAME_MODE);
+		removeListFor(ListKey.GAME_MODE);
 
 		while (aTok.hasMoreTokens())
 		{
 			final String tok = aTok.nextToken();
 			if (!(isGameMode(tok)))
 			{
-				listChar.addToListFor(ListKey.GAME_MODE, tok);
+				addToListFor(ListKey.GAME_MODE, tok);
 			}
 		}
 	}

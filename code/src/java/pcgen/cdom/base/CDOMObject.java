@@ -227,6 +227,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		listChar.addToListFor(key, value);
 	}
 
+	public final <T> void addAllToListFor(ListKey<T> key, Collection<T> value)
+	{
+		listChar.addAllToListFor(key, value);
+	}
+
 	public final <T> List<T> getListFor(ListKey<T> key)
 	{
 		return listChar.getListFor(key);
