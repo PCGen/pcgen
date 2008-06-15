@@ -46,10 +46,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi.rtf</source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>6000</current>
 			<next_level>10000</next_level>
@@ -67,7 +68,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>4</cr>
+		<face>
 		<face>5 ft. by 5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
+		</face>
 		<favoredlist>Wizard.Illusionist</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -90,6 +95,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>20 ft.</rate>
+				<squares>4</squares>
+			</move>
 			<all>Walk 20 ft.</all>
 		</move>
 		<personality>
@@ -99,7 +109,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Gnome</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -109,7 +122,10 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
-		<vision>Low-light</vision>
+		<vision>
+			<vision>Low-light</vision>
+			<all>Low-light</all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>42 lbs.</weight_unit>
@@ -226,6 +242,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>40</points>
+		<alternate>11</alternate>
 		<die>(4d12)</die>
 		<current/>
 		<subdual/>
@@ -812,7 +829,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -1025,6 +1042,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -1053,17 +1071,22 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
+			<longname>Breastplate</longname>
+			<id></id>
 			<name>Breastplate</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>200</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1074,17 +1097,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Dagger</longname>
+			<id></id>
 			<name>Dagger</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>2</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>2</quantity>
+			<checkbox>2</checkbox>
 			<size>
 				<long>Tiny</long>
 				<short>T</short>
@@ -1275,7 +1303,17 @@ BIO
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
-		<feat>
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1284,8 +1322,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1294,8 +1333,53 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Armor Proficiency (Light)</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Armor Proficiency (Medium)</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Barbarian Fast Movement</name>
+			<description></description>
+			<type>EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Martial Weapon Proficiency</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Rage</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1304,8 +1388,31 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Shield Proficiency</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Simple Weapon Proficiency</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Uncanny Dodge</name>
 			<description></description>
 			<type></type>
@@ -1314,8 +1421,11 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-	</feats>
+			<category>Special Ability</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
@@ -1366,6 +1476,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 minutes</duration>
 					<effect>The caster can communicate with natural animals.</effect>
@@ -1394,6 +1505,7 @@ BIO
 					<range>Medium (110 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 minute</duration>
 					<effect>Figment torches or other lights.</effect>
@@ -1422,6 +1534,7 @@ BIO
 					<range>Close (25 ft.)</range>
 					<components>V, S, M</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc>11</dc>
 					<duration>1 rounds [D]</duration>
 					<effect>Figment sounds.</effect>
@@ -1450,6 +1563,7 @@ BIO
 					<range>10 feet</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 hour</duration>
 					<effect>Performs minor tricks.</effect>
@@ -1497,6 +1611,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 minutes</duration>
 					<effect>The caster can communicate with natural animals.</effect>
@@ -1525,6 +1640,7 @@ BIO
 					<range>Medium (110 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 minute</duration>
 					<effect>Figment torches or other lights.</effect>
@@ -1553,6 +1669,7 @@ BIO
 					<range>Close (25 ft.)</range>
 					<components>V, S, M</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc>11</dc>
 					<duration>1 rounds [D]</duration>
 					<effect>Figment sounds.</effect>
@@ -1581,6 +1698,7 @@ BIO
 					<range>10 feet</range>
 					<components>V, S</components>
 					<castingtime>1 action</castingtime>
+					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 hour</duration>
 					<effect>Performs minor tricks.</effect>
