@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
+# CVS $Revision$ $Author$ -- Sun Jun 15 15:42:44 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -29,16 +29,16 @@ CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:Pr
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|Ranged Ledgerdemain		BONUS:VAR|RangedLedgermain|(CL+3)/4					ADD:SPELLCASTER|ANY
-2		ABILITY:Special Ability|AUTOMATIC|Sneak Attack		BONUS:VAR|SneakAttack|CL/2						ADD:SPELLCASTER|ANY
-3	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack	BONUS:VAR|ImpromptuSneak|(CL+1)/4					ADD:SPELLCASTER|ANY
-4																					ADD:SPELLCASTER|ANY
-5																					ADD:SPELLCASTER|ANY
-6																					ADD:SPELLCASTER|ANY
-7																					ADD:SPELLCASTER|ANY
-8																					ADD:SPELLCASTER|ANY
-9																					ADD:SPELLCASTER|ANY
-10																					ADD:SPELLCASTER|ANY
+1	BONUS:VAR|RangedLedgermain|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Ranged Ledgerdemain
+2	BONUS:VAR|SneakAttack|CL/2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	BONUS:VAR|ImpromptuSneak|(CL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack
+4							ADD:SPELLCASTER|ANY
+5							ADD:SPELLCASTER|ANY
+6							ADD:SPELLCASTER|ANY
+7							ADD:SPELLCASTER|ANY
+8							ADD:SPELLCASTER|ANY
+9							ADD:SPELLCASTER|ANY
+10							ADD:SPELLCASTER|ANY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Archmage	HD:4		TYPE:PC.Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -93,8 +93,8 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
 4	BONUS:VAR|SneakAttack|(CL-1)/3							ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Other Paladin related Abilities
-1	ABILITY:Special Ability|AUTOMATIC|Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0
-1	ABILITY:Special Ability|AUTOMATIC|Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
+1	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0	ABILITY:Special Ability|AUTOMATIC|Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3
+1														ABILITY:Special Ability|AUTOMATIC|Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
 ###Block: Servants Servant (Undead and Fiendish)
 5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	VFEAT:Undead Companion|PRECLASS:1,Ex Paladin=9
 5	BONUS:VAR|FSLevel|CL							VFEAT:Fiendish Servant
@@ -124,54 +124,54 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 ###COMMENT: CHOICE is invalid without COST tag, and as these aren't specializing in a Spell SCHOOL isn't required. Commented out and replaced with COST tag. - AM
 #SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
 SUBCLASS:Black Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Acid	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Acid
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Acid
 #SUBCLASS:Blue Dragon Disciple	CHOICE:Blue Dragon Disciple
 SUBCLASS:Blue Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Lightning	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Lightning
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Electricity
 #SUBCLASS:Green Dragon Disciple	CHOICE:Green Dragon Disciple
 SUBCLASS:Green Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Gas	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Gas
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Acid
 #SUBCLASS:Red Dragon Disciple		CHOICE:Red Dragon Disciple
 SUBCLASS:Red Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Fire	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Fire
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Fire
 #SUBCLASS:White Dragon Disciple	CHOICE:White Dragon Disciple
 SUBCLASS:White Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Cold
 #SUBCLASS:Brass Dragon Disciple	CHOICE:Brass Dragon Disciple
 SUBCLASS:Brass Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Fire	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Fire
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Fire
 #SUBCLASS:Bronze Dragon Disciple	CHOICE:Bronze Dragon Disciple
 SUBCLASS:Bronze Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Lightning	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Lightning
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Electricity
 #SUBCLASS:Copper Dragon Disciple	CHOICE:Copper Dragon Disciple
 SUBCLASS:Copper Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Acid	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Acid
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Acid
 #SUBCLASS:Gold Dragon Disciple		CHOICE:Gold Dragon Disciple
 SUBCLASS:Gold Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Fire	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Fire
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Fire
 #SUBCLASS:Silver Dragon Disciple	CHOICE:Silver Dragon Disciple
 SUBCLASS:Silver Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold	
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immune to Cold
-1																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
-2																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|STR|2																							TEMPLATE:Dragon Disciple Attacks
-3																																								BONUS:VAR|BreathWeaponDice|2		DEFINE:BreathWeaponDice|0
-4																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2
-5	VISION:Blindsense (30')														BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1
-6																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|CON|2
-7																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDice|2
-8																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|INT|2
-9																		BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																										ABILITY:Special Ability|AUTOMATIC|Dragon Wings
-10	VISION:Blindsense (60')|Low-light|Darkvision (60')	ABILITY:Special Ability|AUTOMATIC|Immune to Sleep|Immune to Paralysis									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2
+1										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
+2										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|STR|2																											TEMPLATE:Dragon Disciple Attacks
+3																																BONUS:VAR|BreathWeaponDice|2		DEFINE:BreathWeaponDice|0
+4										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2
+5	VISION:Blindsense (30')						BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1
+6										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|CON|2
+7																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDice|2
+8										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|INT|2
+9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																										ABILITY:Special Ability|AUTOMATIC|Dragon Wings
+10	VISION:Blindsense (60')|Low-light|Darkvision (60')									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immune to Sleep|Immune to Paralysis
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
@@ -206,7 +206,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4																TEMPLATE:Uncanny Dodge
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4			ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 4	BONUS:VAR|TrapSense|CL/4																ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
 6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ABILITY:Special Ability|AUTOMATIC|Dwarven Defender DR
 8																					ABILITY:Special Ability|AUTOMATIC|Dwarven Defender Mobile Defense
@@ -258,16 +258,16 @@ CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:Prestige
 CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft|Use Magic Device
-1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT					ADD:SPELLCASTER|ANY
-2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
-3																		ADD:SPELLCASTER|ANY
-4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-5																		ADD:SPELLCASTER|ANY
-6																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
-7																		ADD:SPELLCASTER|ANY
-8																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-9																		ADD:SPELLCASTER|ANY
-10																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
+1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	ADD:SPELLCASTER|ANY
+2														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
+3														ADD:SPELLCASTER|ANY
+4														ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+5														ADD:SPELLCASTER|ANY
+6														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
+7														ADD:SPELLCASTER|ANY
+8														ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+9														ADD:SPELLCASTER|ANY
+10														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

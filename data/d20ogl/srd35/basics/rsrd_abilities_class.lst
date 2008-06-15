@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
+# CVS $Revision$ $Author$ -- Sun Jun 15 15:42:44 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -9,34 +9,36 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #Improved Uncanny Dodge		CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SAB:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																															BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																						SOURCEPAGE:ClassesII.rtf
 
 ###Block: Shared Class Abilities --------------------------------------------------------------------------------------------------
-Evasion			CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Evasion (Ex)|EvasionUsable																				DEFINE:EvasionUsable|0																																																	BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0			SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type						Visible	Special ABility												Define											Modify VAR																																	Source Page
+Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO	SAB:Evasion (Ex)|EvasionUsable									DEFINE:EvasionUsable|0									BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
 #
-Smite				CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO				SAB:Smite (Su) %/day|SmiteAnyTimes																				DEFINE:SmiteAnyTimes|0																																																																																					SOURCEPAGE:SpellListI.rtf
-Smite Evil			CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO				SAB:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																																					SOURCEPAGE:ClassesII.rtf
-Smite Good			CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO				SAB:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																																					SOURCEPAGE:PrestigeClasses.rtf
+Smite			CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO	SAB:Smite (Su) %/day|SmiteAnyTimes									DEFINE:SmiteAnyTimes|0																																											SOURCEPAGE:SpellListI.rtf
+Smite Evil		CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO	SAB:Smite Evil (Su) %/day|SmiteEvil									DEFINE:SmiteEvil|0																																											SOURCEPAGE:ClassesII.rtf
+Smite Good		CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO	SAB:Smite Good (Su) %/day|SmiteGood									DEFINE:SmiteGood|0																																											SOURCEPAGE:PrestigeClasses.rtf
 # Druid & Ranger
-Wild Empathy		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Wild Empathy (Ex) +% (+% on Magical Beasts)|WildEmpathy|WildEmpathyMagicalBeast												DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy																																									BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK											SOURCEPAGE:ClassesI.rtf
-Woodland Stride		CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO				SAB:Woodland Stride (Ex)																																																																																																													SOURCEPAGE:ClassesI.rtf
+Wild Empathy	CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO	SAB:Wild Empathy (Ex) +% (+% on Magical Beasts)|WildEmpathy|WildEmpathyMagicalBeast	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy	BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK									SOURCEPAGE:ClassesI.rtf
+Woodland Stride	CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Woodland Stride (Ex)																																																								SOURCEPAGE:ClassesI.rtf
 
 
 ###Block: Specials
-Negative Levels		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO				SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0														BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
+# Ability Name			Category of Ability		Type				Visible	Special ABility																							Define			Save checks bonus							Combat bonus				Bonus to skill																		Source Page
+Negative Levels			CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
 #Comment: Many classes outside Assassin and Ranger use... making basic references.
-Hide in Plain Sight (Ex)		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
-Hide in Plain Sight (Su)		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Hide in Plain Sight (Su)	SOURCEPAGE:PrestigeClasses.rtf
+Hide in Plain Sight (Ex)	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Hide in Plain Sight (Ex)																																																												SOURCEPAGE:ClassesII.rtf
+Hide in Plain Sight (Su)	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Hide in Plain Sight (Su)																																																												SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Cleric abilities ----------------------------------------------------------------------------
 
 ###Block: Aura for Clerics, other Class level tracked auras.
 #	Applying this to more than just Cleric will require more work or more hidden feats.
-# Ability Name	Category of Ability		Type					Visible	Special ABility																																											Define			Modify VAR									Source Page
-Aura of Chaos	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Chaos (Ex) Faint|PREVAREQ:AuraChaos,1	SAB:Aura of Chaos (Ex) Moderate|PREVARGTEQ:AuraChaos,2|PREVARLTEQ:AuraChaos,4	SAB:Aura of Chaos (Ex) Strong|PREVARGTEQ:AuraChaos,5|PREVARLTEQ:AuraChaos,10	SAB:Aura of Chaos (Ex) Overwhelming|PREVARGTEQ:AuraChaos,11	DEFINE:AuraChaos|0	BONUS:VAR|AuraChaos|AlignmentAuraBase|!PREDOMAIN:1,Chaos	SOURCEPAGE:SpellsD-E.rtf
-Aura of Evil	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Evil (Ex) Faint|PREVAREQ:AuraEvil,1	SAB:Aura of Evil (Ex) Moderate|PREVARGTEQ:AuraEvil,2|PREVARLTEQ:AuraEvil,4	SAB:Aura of Evil (Ex) Strong|PREVARGTEQ:AuraEvil,5|PREVARLTEQ:AuraEvil,10	SAB:Aura of Evil (Ex) Overwhelming|PREVARGTEQ:AuraEvil,11		DEFINE:AuraEvil|0		BONUS:VAR|AuraEvil|AlignmentAuraBase|!PREDOMAIN:1,Evil	SOURCEPAGE:SpellsD-E.rtf
-Aura of Good	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Good (Ex) Faint|PREVAREQ:AuraGood,1	SAB:Aura of Good (Ex) Moderate|PREVARGTEQ:AuraGood,2|PREVARLTEQ:AuraGood,4	SAB:Aura of Good (Ex) Strong|PREVARGTEQ:AuraGood,5|PREVARLTEQ:AuraGood,10	SAB:Aura of Good (Ex) Overwhelming|PREVARGTEQ:AuraGood,11		DEFINE:AuraGood|0		BONUS:VAR|AuraGood|AlignmentAuraBase|!PREDOMAIN:1,Good	SOURCEPAGE:SpellsD-E.rtf
-Aura of Law		CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Law (Ex) Faint|PREVAREQ:AuraLaw,1	SAB:Aura of Law (Ex) Moderate|PREVARGTEQ:AuraLaw,2|PREVARLTEQ:AuraLaw,4	SAB:Aura of Law (Ex) Strong|PREVARGTEQ:AuraLaw,5|PREVARLTEQ:AuraLaw,10	SAB:Aura of Law (Ex) Overwhelming|PREVARGTEQ:AuraLaw,11				DEFINE:AuraLaw|0		BONUS:VAR|AuraLaw|AlignmentAuraBase|!PREDOMAIN:1,Law		SOURCEPAGE:SpellsD-E.rtf
+# Ability Name	Category of Ability		Type					Visible	Special ABility																																											Define									Modify VAR													Source Page
+Aura of Chaos	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Chaos (Ex) Faint|PREVAREQ:AuraChaos,1	SAB:Aura of Chaos (Ex) Moderate|PREVARGTEQ:AuraChaos,2|PREVARLTEQ:AuraChaos,4	SAB:Aura of Chaos (Ex) Strong|PREVARGTEQ:AuraChaos,5|PREVARLTEQ:AuraChaos,10	SAB:Aura of Chaos (Ex) Overwhelming|PREVARGTEQ:AuraChaos,11	DEFINE:AuraChaos|0							BONUS:VAR|AuraChaos|AlignmentAuraBase|!PREDOMAIN:1,Chaos					SOURCEPAGE:SpellsD-E.rtf
+Aura of Evil	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Evil (Ex) Faint|PREVAREQ:AuraEvil,1	SAB:Aura of Evil (Ex) Moderate|PREVARGTEQ:AuraEvil,2|PREVARLTEQ:AuraEvil,4	SAB:Aura of Evil (Ex) Strong|PREVARGTEQ:AuraEvil,5|PREVARLTEQ:AuraEvil,10	SAB:Aura of Evil (Ex) Overwhelming|PREVARGTEQ:AuraEvil,11		DEFINE:AuraEvil|0								BONUS:VAR|AuraEvil|AlignmentAuraBase|!PREDOMAIN:1,Evil					SOURCEPAGE:SpellsD-E.rtf
+Aura of Good	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Good (Ex) Faint|PREVAREQ:AuraGood,1	SAB:Aura of Good (Ex) Moderate|PREVARGTEQ:AuraGood,2|PREVARLTEQ:AuraGood,4	SAB:Aura of Good (Ex) Strong|PREVARGTEQ:AuraGood,5|PREVARLTEQ:AuraGood,10	SAB:Aura of Good (Ex) Overwhelming|PREVARGTEQ:AuraGood,11		DEFINE:AuraGood|0								BONUS:VAR|AuraGood|AlignmentAuraBase|!PREDOMAIN:1,Good					SOURCEPAGE:SpellsD-E.rtf
+Aura of Law		CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Aura of Law (Ex) Faint|PREVAREQ:AuraLaw,1	SAB:Aura of Law (Ex) Moderate|PREVARGTEQ:AuraLaw,2|PREVARLTEQ:AuraLaw,4	SAB:Aura of Law (Ex) Strong|PREVARGTEQ:AuraLaw,5|PREVARLTEQ:AuraLaw,10	SAB:Aura of Law (Ex) Overwhelming|PREVARGTEQ:AuraLaw,11				DEFINE:AuraLaw|0								BONUS:VAR|AuraLaw|AlignmentAuraBase|!PREDOMAIN:1,Law						SOURCEPAGE:SpellsD-E.rtf
 
-# Ability Name	Category of Ability		Visible	Define									Modify VAR
-Cleric Turning	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AllowExtraTurning|1	DEFINE:AllowImprovedTurning|1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+# Ability Name	Category of Ability		Type					Visible	Special ABility																																											Define									Modify VAR													Source Page
+Cleric Turning	CATEGORY:Special Ability						VISIBLE:NO																																														DEFINE:AllowExtraTurning|1	DEFINE:AllowImprovedTurning|1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 
 ###Block: Turning Stuff
 # Ability Name	Category of Ability		Type					Visible		Restricted Ability						Required AL				Prohibited Var. Value			Special ABility																												Define																																												Source Page
@@ -226,13 +228,13 @@ Paladin Turn Undead	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:All
 
 ###Block: Ranger Abilities ------------------------------------------------------------------------------------------------------
 # Feat Name				Type				Visible	Special ABility			Source Page
-# Ability Name			Category of Ability		Type				Visible	Special ABility			Source Page
-Swift Tracker			CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Swift Tracker (Ex)		SOURCEPAGE:ClassesII.rtf
-Camouflage				CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Camouflage (Ex)		SOURCEPAGE:ClassesII.rtf
-Hide in Plain Sight (Ranger)	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
-Ranger Animal Companion		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerAnimalCompLVL|0																			BONUS:VAR|CompLevel|RangerAnimalCompLVL/2																											SOURCEPAGE:ClassesII.rtf
-Ranger Combat Tree		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0	BONUS:ABILITYPOOL|Ranger Combat Style|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
-Ranger Favored Enemy		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0																		BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
+# Ability Name			Category of Ability		Type				Visible	Special ABility		Define									Ability									Bonus to Ability Pool										Modify VAR																																Source Page
+Swift Tracker			CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Swift Tracker (Ex)																																																																			SOURCEPAGE:ClassesII.rtf
+Camouflage				CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Camouflage (Ex)																																																																			SOURCEPAGE:ClassesII.rtf
+Hide in Plain Sight (Ranger)	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO															ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Ex)																																															SOURCEPAGE:ClassesII.rtf
+Ranger Animal Companion		CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO					DEFINE:RangerAnimalCompLVL|0																													BONUS:VAR|CompLevel|RangerAnimalCompLVL/2																											SOURCEPAGE:ClassesII.rtf
+Ranger Combat Tree		CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO					DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0											BONUS:ABILITYPOOL|Ranger Combat Style|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
+Ranger Favored Enemy		CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO					DEFINE:RangerFavoredEnemyLVL|0																												BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Combat Styles
 # Ability Name				Category of Ability		Type				Visible		Restricted Ability								Special ABility					Virtual Feat
@@ -240,41 +242,41 @@ Two Weapon Fighting Combat Style	CATEGORY:Special Ability	TYPE:RangerCombatStyle
 Archery Combat Style			CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Archery Combat Style			VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Manyshot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
 
 ###Block: Favored Enemies ------------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type			Visible	Define
-Basic Favored Enemy	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DEFINE:FavoredBase|2	DEFINE:FavoredEnemies|0	DEFINE:FavoredEBonuses|0
-# Ability Name					Category of Ability		Type								Visible	Special ABility										Define							Multiple?	Source Page
-Favored Enemy (Aberration)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Aberration) +%|FavoredAberration				DEFINE:FavoredAberration|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Animal)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Animal) +%|FavoredAnimal					DEFINE:FavoredAnimal|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Construct)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Construct) +%|FavoredConstruct				DEFINE:FavoredConstruct|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Dragon)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Dragon) +%|FavoredDragon					DEFINE:FavoredDragon|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Elemental)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Elemental) +%|FavoredElemental				DEFINE:FavoredElemental|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Fey)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Fey) +%|FavoredFey						DEFINE:FavoredFey|FavoredBase				MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Giant)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Giant) +%|FavoredGiant						DEFINE:FavoredGiant|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Aquatic))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Aquatic)) +%|FavoredHumanoidAquatic		DEFINE:FavoredHumanoidAquatic|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Dwarf))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Dwarf)) +%|FavoredHumanoidDwarf		DEFINE:FavoredHumanoidDwarf|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Elf))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Elf)) +%|FavoredHumanoidElf			DEFINE:FavoredHumanoidElf|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Goblinoid))	CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Goblinoid)) +%|FavoredHumanoidGoblinoid	DEFINE:FavoredHumanoidGoblinoid|FavoredBase	MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Gnoll))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnoll)) +%|FavoredHumanoidGnoll		DEFINE:FavoredHumanoidGnoll|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Gnome))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnome)) +%|FavoredHumanoidGnome		DEFINE:FavoredHumanoidGnome|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Halfling))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Halfling)) +%|FavoredHumanoidHalfling	DEFINE:FavoredHumanoidHalfling|FavoredBase	MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Human))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Human)) +%|FavoredHumanoidHuman		DEFINE:FavoredHumanoidHuman|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Orc))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Orc)) +%|FavoredHumanoidOrc			DEFINE:FavoredHumanoidOrc|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Humanoid (Reptilian))	CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Reptilian)) +%|FavoredHumanoidReptilian	DEFINE:FavoredHumanoidReptilian|FavoredBase	MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Magical Beast)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Magical Beast) +%|FavoredMagicalBeast			DEFINE:FavoredMagicalBeast|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Monstrous Humanoid)		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Monstrous Humanoid) +%|FavoredMonstrousHumanoid	DEFINE:FavoredMonstrousHumanoid|FavoredBase	MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Ooze)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Ooze) +%|FavoredOoze						DEFINE:FavoredOoze|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Air))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Air)) +%|FavoredOutsiderAir			DEFINE:FavoredOutsiderAir|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Earth))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Earth)) +%|FavoredOutsiderEarth		DEFINE:FavoredOutsiderEarth|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Fire))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Fire)) +%|FavoredOutsiderFire			DEFINE:FavoredOutsiderFire|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Water))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Water)) +%|FavoredOutsiderWater		DEFINE:FavoredOutsiderWater|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Lawful))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Lawful)) +%|FavoredOutsiderLawful		DEFINE:FavoredOutsiderLawful|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Chaotic))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Chaotic)) +%|FavoredOutsiderChaotic		DEFINE:FavoredOutsiderChaotic|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Good))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Good)) +%|FavoredOutsiderGood			DEFINE:FavoredOutsiderGood|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Evil))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Evil)) +%|FavoredOutsiderEvil			DEFINE:FavoredOutsiderEvil|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Outsider (Native))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Native)) +%|FavoredOutsiderNative		DEFINE:FavoredOutsiderNative|FavoredBase		MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Plant)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Plant) +%|FavoredPlant						DEFINE:FavoredPlant|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Undead)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Undead) +%|FavoredUndead					DEFINE:FavoredUndead|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
-Favored Enemy (Vermin)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Vermin) +%|FavoredVermin					DEFINE:FavoredVermin|FavoredBase			MULT:NO	SOURCEPAGE:ClassesII.rtf
+# Ability Name					Category of Ability		Type								Visible	Special ABility										Define												Multiple?	Source Page
+Basic Favored Enemy				CATEGORY:Special Ability	TYPE:Special						VISIBLE:NO													DEFINE:FavoredBase|2	DEFINE:FavoredEnemies|0	DEFINE:FavoredEBonuses|0
+# Ability Name					Category of Ability		Type								Visible	Special ABility										Define												Multiple?	Source Page
+Favored Enemy (Aberration)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Aberration) +%|FavoredAberration				DEFINE:FavoredAberration|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Animal)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Animal) +%|FavoredAnimal					DEFINE:FavoredAnimal|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Construct)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Construct) +%|FavoredConstruct				DEFINE:FavoredConstruct|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Dragon)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Dragon) +%|FavoredDragon					DEFINE:FavoredDragon|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Elemental)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Elemental) +%|FavoredElemental				DEFINE:FavoredElemental|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Fey)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Fey) +%|FavoredFey						DEFINE:FavoredFey|FavoredBase									MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Giant)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Giant) +%|FavoredGiant						DEFINE:FavoredGiant|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Aquatic))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Aquatic)) +%|FavoredHumanoidAquatic		DEFINE:FavoredHumanoidAquatic|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Dwarf))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Dwarf)) +%|FavoredHumanoidDwarf		DEFINE:FavoredHumanoidDwarf|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Elf))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Elf)) +%|FavoredHumanoidElf			DEFINE:FavoredHumanoidElf|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Goblinoid))	CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Goblinoid)) +%|FavoredHumanoidGoblinoid	DEFINE:FavoredHumanoidGoblinoid|FavoredBase						MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Gnoll))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnoll)) +%|FavoredHumanoidGnoll		DEFINE:FavoredHumanoidGnoll|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Gnome))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnome)) +%|FavoredHumanoidGnome		DEFINE:FavoredHumanoidGnome|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Halfling))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Halfling)) +%|FavoredHumanoidHalfling	DEFINE:FavoredHumanoidHalfling|FavoredBase						MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Human))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Human)) +%|FavoredHumanoidHuman		DEFINE:FavoredHumanoidHuman|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Orc))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Orc)) +%|FavoredHumanoidOrc			DEFINE:FavoredHumanoidOrc|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Humanoid (Reptilian))	CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Reptilian)) +%|FavoredHumanoidReptilian	DEFINE:FavoredHumanoidReptilian|FavoredBase						MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Magical Beast)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Magical Beast) +%|FavoredMagicalBeast			DEFINE:FavoredMagicalBeast|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Monstrous Humanoid)		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Monstrous Humanoid) +%|FavoredMonstrousHumanoid	DEFINE:FavoredMonstrousHumanoid|FavoredBase						MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Ooze)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Ooze) +%|FavoredOoze						DEFINE:FavoredOoze|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Air))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Air)) +%|FavoredOutsiderAir			DEFINE:FavoredOutsiderAir|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Earth))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Earth)) +%|FavoredOutsiderEarth		DEFINE:FavoredOutsiderEarth|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Fire))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Fire)) +%|FavoredOutsiderFire			DEFINE:FavoredOutsiderFire|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Water))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Water)) +%|FavoredOutsiderWater		DEFINE:FavoredOutsiderWater|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Lawful))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Lawful)) +%|FavoredOutsiderLawful		DEFINE:FavoredOutsiderLawful|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Chaotic))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Chaotic)) +%|FavoredOutsiderChaotic		DEFINE:FavoredOutsiderChaotic|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Good))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Good)) +%|FavoredOutsiderGood			DEFINE:FavoredOutsiderGood|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Evil))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Evil)) +%|FavoredOutsiderEvil			DEFINE:FavoredOutsiderEvil|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Outsider (Native))		CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Outsider (Native)) +%|FavoredOutsiderNative		DEFINE:FavoredOutsiderNative|FavoredBase							MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Plant)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Plant) +%|FavoredPlant						DEFINE:FavoredPlant|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Undead)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Undead) +%|FavoredUndead					DEFINE:FavoredUndead|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
+Favored Enemy (Vermin)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	SAB:Favored Enemy (Vermin) +%|FavoredVermin					DEFINE:FavoredVermin|FavoredBase								MULT:NO	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Favored Enemy Bonuses
 # Ability Name				Category of Ability		Type				Visible		Required Ability											Stackable?	Multiple?	Choose		Modify VAR						Source Page
@@ -314,27 +316,26 @@ Favored Bonus__Vermin			CATEGORY:Special Ability	TYPE:FavoredEnemyBonus	VISIBLE:
 
 
 ###Block: Rogue Abilities ------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type			Visible	Special ABility	Source Page
-Trapfinding			CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO	SAB:Trapfinding	SOURCEPAGE:p.ClassesII.rtf
-Trap Sense Ability	CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Trap Sense (Ex) +%|TrapSense																				DEFINE:TrapSense|0
-Sneak Attack		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO				SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie																	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0					DESC:Class Special Ability																																																																								SOURCEPAGE:ClassesII.rtf
+# Ability Name		Category of Ability		Type					Visible	Special ABility							Define							Description				Modify VAR							Source Page
+Trapfinding			CATEGORY:Special Ability	TYPE:Special			VISIBLE:NO	SAB:Trapfinding																												SOURCEPAGE:p.ClassesII.rtf
+Trap Sense Ability	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Trap Sense (Ex) +%|TrapSense				DEFINE:TrapSense|0
+Sneak Attack		CATEGORY:Special Ability	TYPE:Special			VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:Class Special Ability									SOURCEPAGE:ClassesII.rtf
 #Class Internal for homebrews
-Rogue Sneak Attack	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:RogueSneakAttackLVL|0	BONUS:VAR|SneakAttack|(RogueSneakAttackLVL+1)/2	SOURCEPAGE:ClassesII.rtf
-Rogue Trap Sense		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:RogueTrapSenseLVL|0	BONUS:VAR|TrapSense|RogueTrapSenseLVL/3		SOURCEPAGE:ClassesII.rtf
+Rogue Sneak Attack	CATEGORY:Special Ability						VISIBLE:NO										DEFINE:RogueSneakAttackLVL|0									BONUS:VAR|SneakAttack|(RogueSneakAttackLVL+1)/2	SOURCEPAGE:ClassesII.rtf
+Rogue Trap Sense		CATEGORY:Special Ability						VISIBLE:NO										DEFINE:RogueTrapSenseLVL|0									BONUS:VAR|TrapSense|RogueTrapSenseLVL/3		SOURCEPAGE:ClassesII.rtf
 
 ###Block: Rogue Bonus Feat / Special Abilities
-# Ability Name	Category of Ability		Type											Visible		Required Feat	Special ABility												Define					Description																								Stackable?	Multiple?	Selections		Choose			Bonus Number of Feats	Modify VAR																						Source Page
-Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY				SAB:Crippling Strike (Ex)																DESC:An opponent damaged with Sneak Attack also takes 2 points STR damage.																																																			SOURCEPAGE:ClassesII.rtf
-Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY				SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0		DESC:%1 / day, when reduced to 0 or fewer hit points by damage in combat, may take only 1/2 damage on successful Reflex save.|DefensiveRollTimes																BONUS:VAR|DefensiveRollTimes|1																		SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type											Visible		Required Ability						Special ABility												Define					Description																								Stackable?	Multiple?	Selections		Choose			Bonus Number of Feats	Modify VAR																						Source Page
+Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY									SAB:Crippling Strike (Ex)																DESC:An opponent damaged with Sneak Attack also takes 2 points STR damage.																																																			SOURCEPAGE:ClassesII.rtf
+Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY									SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0		DESC:%1 / day, when reduced to 0 or fewer hit points by damage in combat, may take only 1/2 damage on successful Reflex save.|DefensiveRollTimes																BONUS:VAR|DefensiveRollTimes|1																		SOURCEPAGE:ClassesII.rtf
 Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable							DEFINE:ImprovedEvasionUsable|0	DESC:Class Special Ability																																				BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
-Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY				SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character							DESC:Once per round, may make an AoO vs opponent damaged in melee by another character.																																																	SOURCEPAGE:ClassesII.rtf
-Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY				SAB:Slippery Mind (Ex)																	DESC:Class Special Ability																																																											SOURCEPAGE:ClassesII.rtf
-Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities.SpecialQuality						VISIBLE:DISPLAY																								DESC:Take 10 on listed skills																					STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL																												SOURCEPAGE:ClassesII.rtf
-Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY																								DESC:1 Extra Feat (Spend on Feat tab)																			STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1																									SOURCEPAGE:ClassesII.rtf
+Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY									SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character							DESC:Once per round, may make an AoO vs opponent damaged in melee by another character.																																																	SOURCEPAGE:ClassesII.rtf
+Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY									SAB:Slippery Mind (Ex)																	DESC:Class Special Ability																																																											SOURCEPAGE:ClassesII.rtf
+Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities.SpecialQuality						VISIBLE:DISPLAY																													DESC:Take 10 on listed skills																					STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL																												SOURCEPAGE:ClassesII.rtf
+Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY																													DESC:1 Extra Feat (Spend on Feat tab)																			STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1																									SOURCEPAGE:ClassesII.rtf
 
 ###Block: Uncanny Dodge
-# Use: TEMPLATE:Uncanny Dodge to add the Uncanny Dodge/Improved Uncanny Dodge feature
-#Problem found with template in loading older characters, switched to using ABILITY - Uncanny Dodge ~ Base to fix.
+# Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
@@ -460,8 +461,8 @@ Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREAB
 
 ###Block: Barding Proficiency    - This needs to be moved...
 # Feat Name				Type			Visible	Automaticaly Gained Armor Prof.	Source Page
-# Ability Name			Category of Ability		Type			Visible	Automaticaly Gained Armor Prof.	Source Page
-Armor Proficiency (Barding)	CATEGORY:Special Ability	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf	ABILITY:FEAT|VIRTUAL|Armor Proficiency (Barding)
+# Ability Name			Category of Ability		Type			Visible	Automaticaly Gained Armor Prof.	Ability								Source Page
+Armor Proficiency (Barding)	CATEGORY:Special Ability	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	ABILITY:FEAT|VIRTUAL|Armor Proficiency (Barding)	SOURCEPAGE:Feats.rtf
 #Armor Proficiency (Barding)	CATEGORY:FEAT			TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf
 #Unknown whether this is an actual feat, or not... leaving as both a Feat and Special Ability for now...
 #

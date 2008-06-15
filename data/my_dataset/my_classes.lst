@@ -21,9 +21,9 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #1	AUTO:FEAT|Armor Proficiency (Light)
 #1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
 #1	SAB:Trapfinding
-#2																																					AUTO:FEAT|Evasion
-#3				BONUS:VAR|TrapSense|CL/3																													AUTO:FEAT|Trap Sense Ability
-#4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1														TEMPLATE:Uncanny Dodge
+#2																																											AUTO:FEAT|Evasion
+#3				BONUS:VAR|TrapSense|CL/3																																			AUTO:FEAT|Trap Sense Ability
+#4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1														ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 #8															BONUS:VAR|UncannyDodgeLevel|1
 #10																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 #13																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
