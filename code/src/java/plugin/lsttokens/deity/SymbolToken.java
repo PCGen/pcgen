@@ -19,7 +19,8 @@ public class SymbolToken implements CDOMPrimaryToken<Deity>
 
 	public boolean parse(LoadContext context, Deity deity, String value)
 	{
-		if (value.length() == 0)
+		if (value == null || value.length() == 0)
+
 		{
 			Logging.errorPrint(getTokenName() + " arguments may not be empty");
 			return false;

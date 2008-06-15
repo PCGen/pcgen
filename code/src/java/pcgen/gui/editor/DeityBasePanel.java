@@ -86,7 +86,7 @@ final class DeityBasePanel extends BasePanel
 	 */
 	public void setDeityAlignment(PCAlignment al)
 	{
-		if (al.isValidForDeity())
+		if (al != null && al.isValidForDeity())
 		{
 			cmbDeityAlignment.setSelectedItem(al.getKeyName());
 		}

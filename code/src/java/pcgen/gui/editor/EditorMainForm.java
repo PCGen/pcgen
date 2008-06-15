@@ -29,6 +29,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.StringWriter;
@@ -70,11 +72,13 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.Movement;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCSpell;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SourceEntry;
 import pcgen.core.SpecialAbility;
@@ -93,6 +97,8 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -296,6 +302,7 @@ public final class EditorMainForm extends JDialog
 	private MovementPanel pnlMovement;
 	private NaturalAttacksPanel pnlNaturalAttacks;
 	private PObject thisPObject = null;
+	private AvailableSelectedPanel pnlFollowers;
 	private QualifiedAvailableSelectedPanel pnlQClasses;
 	private QualifiedAvailableSelectedPanel pnlQDomains;
 	private QualifiedAvailableSelectedPanel pnlQSpells;
@@ -648,10 +655,13 @@ public final class EditorMainForm extends JDialog
 				}
 				else
 				{
+					List<Prerequisite> followerPrereqs = buildFollowerPrereqs(pnlFollowers.getSelectedList());
 					sel = pnlDomains.getSelectedList();
 					for (Object object : sel)
 					{
 						Domain d = (Domain) object;
+						//TODO: This doesn't seem right - shouldn't the prereqs be on the reference?
+						d.addAllPrerequisites(followerPrereqs);
 						CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef
 							.getRef(d);
 						SimpleAssociatedObject sao = new SimpleAssociatedObject();
@@ -1172,6 +1182,65 @@ public final class EditorMainForm extends JDialog
 		}
 	}
 
+	/**
+	 * Builds the follower prereqs based on the list of selected alignments.
+	 * 
+	 * @param selectedList the selected alignments
+	 * 
+	 * @return the list of Prerequisites
+	 */
+	private List<Prerequisite> buildFollowerPrereqs(Object[] selectedList)
+	{
+		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		StringBuffer tbuf = new StringBuffer(100);
+		for (Object selItem : selectedList)
+		{
+			String alignName = (String) selItem;
+			boolean found = false;
+
+			for (int align = 0; align < SettingsHandler.getGame()
+				.getUnmodifiableAlignmentList().size(); ++align)
+			{
+				if (alignName.equals(SettingsHandler.getGame()
+					.getLongAlignmentAtIndex(align)))
+				{
+					if (tbuf.length() > 0)
+					{
+						tbuf.append(',');
+					}
+					tbuf.append(SettingsHandler.getGame()
+						.getShortAlignmentAtIndex(align));
+					found = true;
+					break;
+				}
+			}
+			
+			if (!found)
+			{
+				Logging.errorPrint("Alignment " + alignName
+					+ " could not be found. Ignoring.");
+			}
+		}
+		
+		if (tbuf.length() > 0)
+		{
+			try
+			{
+				final PrerequisiteParserInterface parser =
+						PreParserFactory.getInstance().getParser("ALIGN");
+				Prerequisite prereq = parser.parse("align", tbuf.toString(), false, false);
+				prereqs.add(prereq);
+			}
+			catch (PersistenceLayerException e)
+			{
+				Logging.errorPrint("Unable to create PREALIGN for " + tbuf.toString()
+					+ ". Ignoring.", e);
+			}
+		}
+		
+		return prereqs;
+	}
+
 	//TODO: I'm in the process of breaking this method up (and removing a lot of duplicated code.) 1122 lines is just TOO LONG. Heck, it's long for a class, never mind a method... JK070110
 	private void initComponentContents()
 	{
@@ -1200,6 +1269,34 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_DEITY:
+
+				//
+				// Initialize the lists of available and selected follower alignments
+				//
+				List<String> availableFollowerAlignmentList = new ArrayList<String>();
+				List<String> selectedFollowerAlignmentList = new ArrayList<String>();
+
+				for (Iterator<PCAlignment> e = SettingsHandler.getGame().getUnmodifiableAlignmentList().iterator(); e.hasNext();)
+				{
+					final PCAlignment anAlignment = e.next();
+
+					if (anAlignment.isValidForFollower())
+					{
+						availableFollowerAlignmentList.add(anAlignment.getDisplayName());
+					}
+				}
+
+				Prerequisite prereq =
+						getFirstPrereqOfKind(((Deity) thisPObject)
+							.getSafeListMods(Deity.DOMAINLIST), "align");
+				if (prereq != null)
+				{
+					parseAlignAbbrev(availableFollowerAlignmentList,
+						selectedFollowerAlignmentList, prereq);
+				}
+
+				pnlFollowers.setAvailableList(availableFollowerAlignmentList, true);
+				pnlFollowers.setSelectedList(selectedFollowerAlignmentList, true);
 
 				//
 				// Initialize the contents of the available and selected domains lists
@@ -2257,6 +2354,52 @@ public final class EditorMainForm extends JDialog
 	}
 
 	/**
+	 * Gets the first prereq of the required kind. 
+	 * 
+	 * @param domainRefCol the collection of references to Domains
+	 * @param kind the kind of prereq to be retrieved.
+	 * 
+	 * @return the first prereq of type, null if there are none.
+	 */
+	private Prerequisite getFirstPrereqOfKind(
+		Collection<CDOMReference<Domain>> domainRefCol, String kind)
+	{
+		if (domainRefCol == null || domainRefCol.isEmpty())
+		{
+			return null;
+		}
+		
+		Collection<Domain> domainCol =
+				domainRefCol.iterator().next().getContainedObjects();
+		if (domainCol == null || domainCol.isEmpty())
+		{
+			return null;
+		}
+		
+		Domain domain = domainCol.iterator().next();
+		if (domain == null)
+		{
+			return null;
+		}
+
+		List<Prerequisite> prereqList = domain.getPreReqList();
+		if (prereqList == null || prereqList.isEmpty())
+		{
+			return null;
+		}
+		
+		for (Prerequisite prerequisite : prereqList)
+		{
+			if (kind.equals(prerequisite.getKind()))
+			{
+				return prerequisite;
+			}
+		}
+		
+		return null;
+	}
+
+	/**
 	 * Build up a list of the vision strings based on a list of 
 	 * vision objects. 
 	 * @param vision The vision objects
@@ -2385,6 +2528,7 @@ public final class EditorMainForm extends JDialog
 				//lblQualifier = new JLabel();
 				//lblVariable = new JLabel();
 				pnlDomains = new AvailableSelectedPanel();
+				pnlFollowers = new AvailableSelectedPanel();
 				pnlRaces = new AvailableSelectedPanel();
 
 				break;
@@ -2608,6 +2752,8 @@ public final class EditorMainForm extends JDialog
 				pnlDomains.setHeader(PropertyFactory.getString("in_demGrantDom"));
 				jTabbedPane1.addTab(PropertyFactory.getString("in_domains"), pnlDomains);
 
+				jTabbedPane1.addTab(PropertyFactory.getString("in_demFollowers"), pnlFollowers);
+
 				pnlRaces.setHeader(PropertyFactory.getString("in_demRacWors"));
 				jTabbedPane1.addTab(PropertyFactory.getString("in_race"), pnlRaces);
 
@@ -2808,6 +2954,37 @@ public final class EditorMainForm extends JDialog
 		getContentPane().add(pnlMainDialog, gridBagConstraints);
 
 		pack();
+	}
+
+	/**
+	 * Parses the prerequisite to obtain the selected alignments.
+	 * 
+	 * @param availableList the available list
+	 * @param selectedList the selected list
+	 * @param prereq the prereq
+	 */
+	private void parseAlignAbbrev(List<String> availableList,
+		List<String> selectedList, Prerequisite prereq)
+	{
+		if (prereq == null)
+		{
+			return;
+		}
+		if (prereq.getPrerequisites() != null)
+		{
+			for (Prerequisite childPrereq : prereq.getPrerequisites())
+			{
+				parseAlignAbbrev(availableList, selectedList, childPrereq);
+			}
+		}
+		
+		String key = prereq.getKey();
+		PCAlignment align = SettingsHandler.getGame()
+			.getAlignment(key);
+		if (align != null)
+		{
+			selectedList.add(align.getDisplayName());
+		}
 	}
 
 	private static boolean parseSynergyBonus(final BonusObj aBonus, List<String> availableList, List<String> selectedList)
