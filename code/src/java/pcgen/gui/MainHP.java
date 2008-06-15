@@ -29,6 +29,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JTableEx;
@@ -285,8 +286,12 @@ final class MainHP extends JPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				int iRows = currentHpTable.getRowCount() - 1;
-
-				for (int i = 0; i < iRows-1; i++)
+				int startRow = 0;
+				if (SettingsHandler.isHPMaxAtFirstLevel())
+				{
+					startRow++;
+				}
+				for (int i = startRow; i < iRows-1; i++)
 				{
 					setForRow(i, Math.abs(Globals.getRandomInt(getHitDieSize(i))) + 1);
 				}
