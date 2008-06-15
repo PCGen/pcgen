@@ -52,6 +52,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.SimpleAssociatedObject;
@@ -649,22 +651,18 @@ public final class EditorMainForm extends JDialog
 				//
 				CDOMReference<DomainList> list = Deity.DOMAINLIST;
 				Deity deity = (Deity) thisPObject;
-				if (pnlDomains.getAvailableList().length == 0)
-				{
-					deity.removeAllFromList(list);
-				}
-				else
+				deity.removeAllFromList(list);
+				if (pnlDomains.getSelectedList().length > 0)
 				{
 					List<Prerequisite> followerPrereqs = buildFollowerPrereqs(pnlFollowers.getSelectedList());
 					sel = pnlDomains.getSelectedList();
 					for (Object object : sel)
 					{
 						Domain d = (Domain) object;
-						//TODO: This doesn't seem right - shouldn't the prereqs be on the reference?
-						d.addAllPrerequisites(followerPrereqs);
 						CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef
 							.getRef(d);
 						SimpleAssociatedObject sao = new SimpleAssociatedObject();
+						sao.addAllPrerequisites(followerPrereqs);
 						sao.setAssociation(AssociationKey.TOKEN, "DOMAINS");
 						deity.putToList(list, ref, sao);
 					}
@@ -1287,8 +1285,7 @@ public final class EditorMainForm extends JDialog
 				}
 
 				Prerequisite prereq =
-						getFirstPrereqOfKind(((Deity) thisPObject)
-							.getSafeListMods(Deity.DOMAINLIST), "align");
+						getFirstPrereqOfKind(thisPObject, "align");
 				if (prereq != null)
 				{
 					parseAlignAbbrev(availableFollowerAlignmentList,
@@ -2354,48 +2351,64 @@ public final class EditorMainForm extends JDialog
 	}
 
 	/**
-	 * Gets the first prereq of the required kind. 
+	 * Gets the first prereq of the required kind, or no kind 
+	 * (a PREMULT), associated with a linked Domain object. 
 	 * 
-	 * @param domainRefCol the collection of references to Domains
+	 * @param obj the object to be searched, normally a Deity object
 	 * @param kind the kind of prereq to be retrieved.
 	 * 
 	 * @return the first prereq of type, null if there are none.
 	 */
-	private Prerequisite getFirstPrereqOfKind(
-		Collection<CDOMReference<Domain>> domainRefCol, String kind)
+	private Prerequisite getFirstPrereqOfKind(CDOMObject obj, String kind)
 	{
-		if (domainRefCol == null || domainRefCol.isEmpty())
+		if (obj == null)
 		{
 			return null;
 		}
 		
-		Collection<Domain> domainCol =
-				domainRefCol.iterator().next().getContainedObjects();
-		if (domainCol == null || domainCol.isEmpty())
+		Collection<CDOMReference<Domain>> keys = obj.getListMods(Deity.DOMAINLIST);
+		if (keys == null || keys.isEmpty())
 		{
 			return null;
 		}
 		
-		Domain domain = domainCol.iterator().next();
-		if (domain == null)
-		{
-			return null;
-		}
+		CDOMReference<Domain> firstKey = keys.iterator().next();
+		Collection<AssociatedPrereqObject> prereqObjCol = obj.getListAssociations(Deity.DOMAINLIST, firstKey);
+		AssociatedPrereqObject assoc = prereqObjCol.iterator().next();
+		
 
-		List<Prerequisite> prereqList = domain.getPreReqList();
+		List<Prerequisite> prereqList = assoc.getPrerequisiteList();
 		if (prereqList == null || prereqList.isEmpty())
 		{
 			return null;
 		}
 		
+		return getPrereqOfKind(kind, prereqList);
+		
+	}
+
+	/**
+	 * Retrieve the first prerequisite of either the specified kind, or no kind 
+	 * (a PREMULT).
+	 *  
+	 * @param kind The kind of prerequisite to be found
+	 * @param prereqList The list to be searched.
+	 * @return The matching prerequisite, or null if none.
+	 */
+	private Prerequisite getPrereqOfKind(String kind, List<Prerequisite> prereqList)
+	{
 		for (Prerequisite prerequisite : prereqList)
 		{
-			if (kind.equals(prerequisite.getKind()))
+			if (kind.equals(prerequisite.getKind()) || prerequisite.getKind() == null)
 			{
 				return prerequisite;
 			}
+			Prerequisite found = getPrereqOfKind(kind, prerequisite.getPrerequisites());
+			if (found != null)
+			{
+				return found;
+			}
 		}
-		
 		return null;
 	}
 
