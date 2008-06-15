@@ -312,13 +312,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 						if (toClear)
 						{
-							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
+							removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 						}
 					}
 				}
 				else
 				{
-					listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, entry);
+					removeFromListFor(ListKey.CROSS_CLASS_SKILLS, entry);
 				}
 			}
 		}
@@ -328,7 +328,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			{
 				if (skill.isType(entry.substring(5)))
 				{
-					listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
+					addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 				}
 			}
 		}
@@ -336,12 +336,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
+				addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 			}
 		}
 		else
 		{
-			listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, entry);
+			addToListFor(ListKey.CROSS_CLASS_SKILLS, entry);
 		}
 	}
 
@@ -351,7 +351,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addAllCcSkills(final List<String> entries)
 	{
-		listChar.addAllToListFor(ListKey.CROSS_CLASS_SKILLS, entries);
+		addAllToListFor(ListKey.CROSS_CLASS_SKILLS, entries);
 	}
 
 	/**
@@ -359,7 +359,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void clearCcSkills()
 	{
-		listChar.removeListFor(ListKey.CROSS_CLASS_SKILLS);
+		removeListFor(ListKey.CROSS_CLASS_SKILLS);
 	}
 
 	/**
@@ -368,7 +368,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final List<String> getCcSkillList()
 	{
-		return listChar.getListFor(ListKey.CROSS_CLASS_SKILLS);
+		return getListFor(ListKey.CROSS_CLASS_SKILLS);
 	}
 
 	/**
@@ -377,7 +377,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void setDescription(final String a)
 	{
-		stringChar.put(StringKey.DESCRIPTION, a);
+		put(StringKey.DESCRIPTION, a);
 	}
 
 	/**
@@ -432,7 +432,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	
 	public final String getDescription()
 	{
-		String characteristic = stringChar.get(StringKey.DESCRIPTION);
+		String characteristic = get(StringKey.DESCRIPTION);
 		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 	
@@ -505,13 +505,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		if (arg.equals(".CLEAR"))
 		{
-			listChar.removeListFor(ListKey.KITS);
+			removeListFor(ListKey.KITS);
 		}
 		else
 		{
 			if (!containsInList(ListKey.KITS, arg))
 			{
-				listChar.addToListFor(ListKey.KITS, arg);
+				addToListFor(ListKey.KITS, arg);
 			}
 		}
 	}
@@ -563,13 +563,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 						if (toClear)
 						{
-							listChar.removeFromListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
+							removeFromListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 						}
 					}
 				}
 				else
 				{
-					listChar.removeFromListFor(ListKey.CLASS_SKILLS, entry);
+					removeFromListFor(ListKey.CLASS_SKILLS, entry);
 				}
 			}
 		}
@@ -579,7 +579,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			{
 				if (skill.isType(entry.substring(5)))
 				{
-					listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
+					addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 				}
 			}
 		}
@@ -587,12 +587,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
+				addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 			}
 		}
 		else
 		{
-			listChar.addToListFor(ListKey.CLASS_SKILLS, entry);
+			addToListFor(ListKey.CLASS_SKILLS, entry);
 		}
 	}
 
@@ -602,7 +602,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addAllCSkills(final List<String> entries)
 	{
-		listChar.addAllToListFor(ListKey.CLASS_SKILLS, entries);
+		addAllToListFor(ListKey.CLASS_SKILLS, entries);
 	}
 
 	/**
@@ -610,7 +610,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void clearCSkills()
 	{
-		listChar.removeListFor(ListKey.CLASS_SKILLS);
+		removeListFor(ListKey.CLASS_SKILLS);
 	}
 
 	/**
@@ -619,7 +619,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final List<String> getCSkillList()
 	{
-		return listChar.getListFor(ListKey.CLASS_SKILLS);
+		return getListFor(ListKey.CLASS_SKILLS);
 	}
 
 	/**
@@ -679,8 +679,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void setNaturalWeapons(final List<Equipment> aList)
 	{
-		listChar.removeListFor(ListKey.NATURAL_WEAPONS);
-		listChar.addAllToListFor(ListKey.NATURAL_WEAPONS, aList);
+		removeListFor(ListKey.NATURAL_WEAPONS);
+		addAllToListFor(ListKey.NATURAL_WEAPONS, aList);
 	}
 
 	/**
@@ -764,7 +764,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //
 //			if (".CLEAR".equals(bString))
 //			{
-//				listChar.removeListFor(weaponProfListKey);
+//				removeListFor(weaponProfListKey);
 //			}
 //			else if (bString.startsWith("TYPE=") || bString.startsWith("TYPE."))
 //			{
@@ -777,7 +777,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //
 //						if (!containsInList(weaponProfListKey, cString))
 //						{
-//							listChar.addToListFor(weaponProfListKey, cString);
+//							addToListFor(weaponProfListKey, cString);
 //						}
 //					}
 //				}
@@ -786,7 +786,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //			{
 //				if (!containsInList(weaponProfListKey, bString))
 //				{
-//					listChar.addToListFor(weaponProfListKey, bString);
+//					addToListFor(weaponProfListKey, bString);
 //				}
 //			}
 //		}
@@ -903,7 +903,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addSave(final String aString)
 	{
-		listChar.addToListFor(ListKey.SAVE, aString);
+		addToListFor(ListKey.SAVE, aString);
 	}
 
 	/**
@@ -912,7 +912,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addSelectedWeaponProfBonus(final String entry)
 	{
-		listChar.addToListFor(ListKey.SELECTED_WEAPON_PROF_BONUS, entry);
+		addToListFor(ListKey.SELECTED_WEAPON_PROF_BONUS, entry);
 	}
 
 	/**
@@ -921,7 +921,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addSpecialAbilityToList(final SpecialAbility sa)
 	{
-		listChar.addToListFor(ListKey.SPECIAL_ABILITY, sa);
+		addToListFor(ListKey.SPECIAL_ABILITY, sa);
 	}
 
 	/**
@@ -930,7 +930,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void addTempBonus(final BonusObj aBonus)
 	{
-		listChar.addToListFor(ListKey.TEMP_BONUS, aBonus);
+		addToListFor(ListKey.TEMP_BONUS, aBonus);
 	}
 
 	/**
@@ -939,7 +939,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void removeTempBonus(final BonusObj aBonus)
 	{
-		listChar.removeFromListFor(ListKey.TEMP_BONUS, aBonus);
+		removeFromListFor(ListKey.TEMP_BONUS, aBonus);
 	}
 
 	/**
@@ -948,7 +948,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void clearUdamList()
 	{
-		listChar.removeListFor(ListKey.UDAM);
+		removeListFor(ListKey.UDAM);
 	}
 
 	/**
@@ -968,11 +968,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		if (".CLEAR".equals(mult))
 		{
-			listChar.removeListFor(ListKey.UMULT);
+			removeListFor(ListKey.UMULT);
 		}
 		else
 		{
-			listChar.addToListFor(ListKey.UMULT, mult);
+			addToListFor(ListKey.UMULT, mult);
 		}
 	}
 
@@ -1197,7 +1197,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void addNaturalWeapon(final Equipment weapon, final int level)
 	{
-		listChar.addToListFor(ListKey.NATURAL_WEAPONS, weapon);
+		addToListFor(ListKey.NATURAL_WEAPONS, weapon);
 	}
 
 	/**
@@ -1244,10 +1244,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public PObject clone() throws CloneNotSupportedException
 	{
 		final PObject retVal = (PObject) super.clone();
-		retVal.stringChar = new HashMap<StringKey, String>();
-		retVal.stringChar.putAll(stringChar);
-		retVal.integerChar = new HashMap<IntegerKey, Integer>();
-		retVal.integerChar.putAll(integerChar);
 		retVal.types = new LinkedHashSet<String>();
 		retVal.types.addAll(types);
 
@@ -1377,7 +1373,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void setChoiceString(final String aString)
 	{
-		stringChar.put(StringKey.CHOICE_STRING, aString);
+		put(StringKey.CHOICE_STRING, aString);
 	}
 
 	/**
@@ -1386,7 +1382,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final String getChoiceString()
 	{
-		String characteristic = stringChar.get(StringKey.CHOICE_STRING);
+		String characteristic = get(StringKey.CHOICE_STRING);
 		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 
@@ -1580,7 +1576,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void setSR(int aLevel, String newSR)
 	{
-		stringChar.put(StringKey.SR_FORMULA, newSR);
+		put(StringKey.SR_FORMULA, newSR);
 	}
 	
 	/**
@@ -1588,7 +1584,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void clearSRList()
 	{
-		stringChar.remove(StringKey.SR_FORMULA);
+		remove(StringKey.SR_FORMULA);
 	}
 
 	/**
@@ -1597,7 +1593,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public String getSRFormula()
 	{
-		return stringChar.get(StringKey.SR_FORMULA);
+		return get(StringKey.SR_FORMULA);
 	}
 
 	/**
@@ -1741,7 +1737,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void clearSpecialAbilityList()
 	{
-		listChar.removeListFor(ListKey.SPECIAL_ABILITY);
+		removeListFor(ListKey.SPECIAL_ABILITY);
 	}
 
 	public void addSAB(SpecialAbility sa, int level)
@@ -2063,7 +2059,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void removeSave(final String bonusString)
 	{
-		boolean b = listChar.removeFromListFor(ListKey.SAVE, bonusString);
+		boolean b = removeFromListFor(ListKey.SAVE, bonusString);
 		if (!b) {
 			Logging.errorPrint("removeSave: Could not find bonus: " + bonusString + " in saveList.");
 		}
@@ -2090,7 +2086,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void resetTempBonusList()
 	{
-		listChar.removeListFor(ListKey.TEMP_BONUS);
+		removeListFor(ListKey.TEMP_BONUS);
 	}
 
 	/**
@@ -2099,7 +2095,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void setRegionString(final String arg)
 	{
-		stringChar.put(StringKey.REGION, arg);
+		put(StringKey.REGION, arg);
 	}
 
 	/**
@@ -2108,7 +2104,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final String getRegionString()
 	{
-		return stringChar.get(StringKey.REGION);
+		return get(StringKey.REGION);
 	}
 
 	/**
@@ -2119,11 +2115,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		if (arg.equals(".CLEAR"))
 		{
-			listChar.removeListFor(ListKey.REMOVE_STRING_LIST);
+			removeListFor(ListKey.REMOVE_STRING_LIST);
 		}
 		else
 		{
-			listChar.addToListFor(ListKey.REMOVE_STRING_LIST, arg);
+			addToListFor(ListKey.REMOVE_STRING_LIST, arg);
 		}
 	}
 
@@ -2303,7 +2299,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			if (!containsInList(ListKey.SELECTED_ARMOR_PROF, aString))
 			{
-				listChar.addToListFor(ListKey.SELECTED_ARMOR_PROF, aString);
+				addToListFor(ListKey.SELECTED_ARMOR_PROF, aString);
 			}
 		}
 	}
@@ -2318,7 +2314,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			if (!containsInList(ListKey.SELECTED_SHIELD_PROFS, aString))
 			{
-				listChar.addToListFor(ListKey.SELECTED_SHIELD_PROFS, aString);
+				addToListFor(ListKey.SELECTED_SHIELD_PROFS, aString);
 			}
 		}
 	}
@@ -2853,7 +2849,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 
-		String SR = stringChar.get(StringKey.SR_FORMULA);
+		String SR = get(StringKey.SR_FORMULA);
 		if (!(this instanceof PCClass) && (SR != null) && (SR.length() != 0))
 		{
 			txt.append("\tSR:").append(SR);
@@ -2893,7 +2889,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append("\tSOURCEPAGE:").append(aString);
 		}
 
-		String regionString = stringChar.get(StringKey.REGION);
+		String regionString = get(StringKey.REGION);
 		if ((regionString != null) && regionString.startsWith("0|"))
 		{
 			txt.append("\tREGION:").append(regionString.substring(2));
@@ -3538,7 +3534,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	final void makeRegionSelection(final int arg, final PlayerCharacter aPC)
 	{
-		String regionString = stringChar.get(StringKey.REGION);
+		String regionString = get(StringKey.REGION);
 		if (regionString == null)
 		{
 			return;
@@ -3676,7 +3672,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void clearSelectedWeaponProfBonus()
 	{
-		listChar.removeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
+		removeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
 	}
 
 	private String piDescString(final PlayerCharacter aPC, final boolean useHeader)
@@ -3761,8 +3757,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void setKitList(List<String> l)
 	{
-		listChar.removeListFor(ListKey.KITS);
-		listChar.addAllToListFor(ListKey.KITS, l);
+		removeListFor(ListKey.KITS);
+		addAllToListFor(ListKey.KITS, l);
 	}
 
 	/**
@@ -3779,7 +3775,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param sa
 	 */
 	public void removeSpecialAbility(SpecialAbility sa) {
-		listChar.removeFromListFor(ListKey.SPECIAL_ABILITY, sa);
+		removeFromListFor(ListKey.SPECIAL_ABILITY, sa);
 	}
 
 	/**
@@ -3789,7 +3785,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void setStringFor(StringKey key, String s)
 	{
-		stringChar.put(key, s);
+		put(key, s);
 	}
 
 	/**
@@ -3799,7 +3795,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public String getStringFor(StringKey key)
 	{
-		return stringChar.get(key);
+		return get(key);
 	}
 
 	/**

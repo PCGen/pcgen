@@ -91,7 +91,7 @@ public class InstallableCampaign extends Campaign
 	 */
 	public String getMinVer()
 	{
-		String ver = stringChar.get(StringKey.MINVER);
+		String ver = get(StringKey.MINVER);
 		return ver == null ? Constants.EMPTY_STRING : ver;
 	}
 
@@ -100,7 +100,7 @@ public class InstallableCampaign extends Campaign
 	 */
 	public void setMinVer(String minVer)
 	{
-		stringChar.put(StringKey.MINVER, minVer);
+		put(StringKey.MINVER, minVer);
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class InstallableCampaign extends Campaign
 	 */
 	public String getMinDevVer()
 	{
-		String ver = stringChar.get(StringKey.MINDEVVER);
+		String ver = get(StringKey.MINDEVVER);
 		return ver == null ? Constants.EMPTY_STRING : ver;
 	}
 
@@ -117,7 +117,7 @@ public class InstallableCampaign extends Campaign
 	 */
 	public void setMinDevVer(String minDevVer)
 	{
-		stringChar.put(StringKey.MINDEVVER, minDevVer);
+		put(StringKey.MINDEVVER, minDevVer);
 	}
 
 }

@@ -77,7 +77,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 */
 	public void setAddString(final String add)
 	{
-		stringChar.put(StringKey.ADD, add);
+		put(StringKey.ADD, add);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 */
 	public String getAddString()
 	{
-		final String characteristic = stringChar.get(StringKey.ADD);
+		final String characteristic = get(StringKey.ADD);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -148,7 +148,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 */
 	public void setCategory(final String category)
 	{
-		stringChar.put(StringKey.CATEGORY, category);
+		put(StringKey.CATEGORY, category);
 	}
 
 	/**
@@ -158,7 +158,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 */
 	public String getCategory()
 	{
-		final String characteristic = stringChar.get(StringKey.CATEGORY);
+		final String characteristic = get(StringKey.CATEGORY);
 		return characteristic == null ? Constants.FEAT_CATEGORY : characteristic;
 	}
 
@@ -502,7 +502,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 */
 	public void setChoiceToModify(final String choiceToModify)
 	{
-		stringChar.put(StringKey.CHOICE_TO_MODIFY, choiceToModify);
+		put(StringKey.CHOICE_TO_MODIFY, choiceToModify);
 	}
 
 	/**
@@ -513,7 +513,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 */
 	public String getChoiceToModify()
 	{
-		final String characteristic = stringChar.get(StringKey.CHOICE_TO_MODIFY);
+		final String characteristic = get(StringKey.CHOICE_TO_MODIFY);
 		return characteristic == null ? "" : characteristic;
 	}
 

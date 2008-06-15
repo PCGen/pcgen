@@ -643,7 +643,7 @@ public class Campaign extends PObject
 	 */
 	public String getBookType()
 	{
-		String characteristic = stringChar.get(StringKey.BOOK_TYPE);
+		String characteristic = get(StringKey.BOOK_TYPE);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -706,7 +706,7 @@ public class Campaign extends PObject
 	 */
 	public String getDestination()
 	{
-		String characteristic = stringChar.get(StringKey.DESTINATION);
+		String characteristic = get(StringKey.DESTINATION);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -785,7 +785,7 @@ public class Campaign extends PObject
 	 */
 	public String getGenre()
 	{
-		String characteristic = stringChar.get(StringKey.GENRE);
+		String characteristic = get(StringKey.GENRE);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -795,7 +795,7 @@ public class Campaign extends PObject
 	 */
 	public String getHelp()
 	{
-		String characteristic = stringChar.get(StringKey.HELP);
+		String characteristic = get(StringKey.HELP);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -804,7 +804,7 @@ public class Campaign extends PObject
 	 */
 	public String getInfoText()
 	{
-		String characteristic = stringChar.get(StringKey.INFO_TEXT);
+		String characteristic = get(StringKey.INFO_TEXT);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -903,7 +903,7 @@ public class Campaign extends PObject
 	 */
 	public String getPubNameLong()
 	{
-		String characteristic = stringChar.get(StringKey.PUB_NAME_LONG);
+		String characteristic = get(StringKey.PUB_NAME_LONG);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -913,7 +913,7 @@ public class Campaign extends PObject
 	 */
 	public String getPubNameShort()
 	{
-		String characteristic = stringChar.get(StringKey.PUB_NAME_SHORT);
+		String characteristic = get(StringKey.PUB_NAME_SHORT);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -923,7 +923,7 @@ public class Campaign extends PObject
 	 */
 	public String getPubNameWeb()
 	{
-		String characteristic = stringChar.get(StringKey.PUB_NAME_WEB);
+		String characteristic = get(StringKey.PUB_NAME_WEB);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -976,7 +976,7 @@ public class Campaign extends PObject
 	 */
 	public String getSetting()
 	{
-		String characteristic = stringChar.get(StringKey.SETTING);
+		String characteristic = get(StringKey.SETTING);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -1068,7 +1068,7 @@ public class Campaign extends PObject
 	 */
 	public void setBookType(final String bookType)
 	{
-		stringChar.put(StringKey.BOOK_TYPE, bookType);
+		put(StringKey.BOOK_TYPE, bookType);
 	}
 
 	/**
@@ -1077,7 +1077,7 @@ public class Campaign extends PObject
 	 */
 	public void setDestination(final String destination)
 	{
-		stringChar.put(StringKey.DESTINATION, destination);
+		put(StringKey.DESTINATION, destination);
 	}
 
 	/**
@@ -1105,7 +1105,7 @@ public class Campaign extends PObject
 	 */
 	public void setGenre(final String genre)
 	{
-		stringChar.put(StringKey.GENRE, genre);
+		put(StringKey.GENRE, genre);
 	}
 
 	/**
@@ -1114,7 +1114,7 @@ public class Campaign extends PObject
 	 */
 	public void setHelp(final String help)
 	{
-		stringChar.put(StringKey.HELP, help);
+		put(StringKey.HELP, help);
 	}
 
 	/**
@@ -1123,7 +1123,7 @@ public class Campaign extends PObject
 	 */
 	public void setInfoText(final String infoText)
 	{
-		stringChar.put(StringKey.INFO_TEXT, infoText);
+		put(StringKey.INFO_TEXT, infoText);
 	}
 
 	/**
@@ -1133,7 +1133,7 @@ public class Campaign extends PObject
 	public void setPubNameLong(final String pubNameLong)
 	{
 		addPublisher("LONG:" + pubNameLong);
-		stringChar.put(StringKey.PUB_NAME_LONG, pubNameLong);
+		put(StringKey.PUB_NAME_LONG, pubNameLong);
 	}
 
 	/**
@@ -1143,7 +1143,7 @@ public class Campaign extends PObject
 	public void setPubNameShort(final String pubNameShort)
 	{
 		addPublisher("SHORT:" + pubNameShort);
-		stringChar.put(StringKey.PUB_NAME_SHORT, pubNameShort);
+		put(StringKey.PUB_NAME_SHORT, pubNameShort);
 	}
 
 	/**
@@ -1153,7 +1153,7 @@ public class Campaign extends PObject
 	public void setPubNameWeb(final String pubNameWeb)
 	{
 		addPublisher("WEB:" + pubNameWeb);
-		stringChar.put(StringKey.PUB_NAME_WEB, pubNameWeb);
+		put(StringKey.PUB_NAME_WEB, pubNameWeb);
 	}
 
 	/**
@@ -1171,7 +1171,7 @@ public class Campaign extends PObject
 	 */
 	public void setSetting(final String setting)
 	{
-		stringChar.put(StringKey.SETTING, setting);
+		put(StringKey.SETTING, setting);
 	}
 
 	/**

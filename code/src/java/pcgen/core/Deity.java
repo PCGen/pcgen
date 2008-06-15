@@ -46,7 +46,7 @@ public final class Deity extends PObject
 	 */
 	public String getHolyItem()
 	{
-		String characteristic = stringChar.get(StringKey.HOLY_ITEM);
+		String characteristic = get(StringKey.HOLY_ITEM);
 		return characteristic == null ? Constants.s_NONE : characteristic;
 	}
 }
