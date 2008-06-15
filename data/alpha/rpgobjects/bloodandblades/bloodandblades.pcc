@@ -103,7 +103,7 @@ SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst|(INCLUDE:Etherealness|Nightmare)
 SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst|(INCLUDE:Plane Shift (Psionic))
 
 ###Borrowed from SRD
-FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst|(INCLUDE:Sneak Attack)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack)
 
 ###
 #EOF

@@ -49,4 +49,4 @@ SKILL:quintrogueskills.lst
 WEAPONPROF:quintrogueweapprofs.lst
 ARMORPROF:quintrogue_profs_armor.lst
 
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:Sneak Attack)
+ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack)
