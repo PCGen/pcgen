@@ -70,6 +70,11 @@ public class HashMapToList<K, V> extends AbstractMapToList<K, V>
 		super(new HashMap<K, List<V>>());
 	}
 
+	/**
+	 * Creates a new HashSet for use by AbstractMapToList
+	 * 
+	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
+	 */
 	@Override
 	protected Set<K> getEmptySet()
 	{

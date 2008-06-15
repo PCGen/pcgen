@@ -27,13 +27,11 @@ import pcgen.core.PlayerCharacter;
 public interface Formula
 {
 
-	/*
-	 * No implementation yet. Eventually, the idea is to hide JEP behind this
-	 * interface, so that Formula are type safe and other optimizations can be
-	 * performed that may help speed up PCGen... long way off, but at least the
-	 * type safety will help out.
+	/**
+	 * A Formula for the integer constant ZERO. This is done in order to
+	 * minimize memory usage in the many cases where a default Formula of ZERO
+	 * is required.
 	 */
-
 	public final Formula ZERO = new Formula()
 	{
 		public Integer resolve(PlayerCharacter pc, String source)
@@ -41,6 +39,12 @@ public interface Formula
 			return Integer.valueOf(0);
 		}
 	};
+
+	/*
+	 * The idea is to hide JEP behind this interface, so that Formula are type
+	 * safe and other optimizations can be performed that may help speed up
+	 * PCGen... long way off, but at least the type safety will help out.
+	 */
 
 	public Number resolve(PlayerCharacter pc, String source);
 }

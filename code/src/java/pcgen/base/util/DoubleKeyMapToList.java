@@ -44,6 +44,14 @@ import java.util.Set;
  * the contents of the Collection (keys, values, etc.) are references whose
  * ownership should be respected.
  * 
+ * Since DoubleKeyMapToList leverages existing classes that implement
+ * java.util.Map, it also inherits any limitations on those classes. For
+ * example, if the underlying Map is a java.util.HashMap, then modifying an
+ * object in this set to alter the hashCode of that object may result in
+ * unpredictable behavior from the DoubleKeyMapToList. Be careful to read the
+ * documentation on the underlying Map class to ensure appropriate treatment of
+ * objects placed in the DoubleKeyMapToList.
+ * 
  * @param <K1>
  *            The type of the primary keys in this DoubleKeyMapToList
  * @param <K2>
@@ -53,13 +61,23 @@ import java.util.Set;
  */
 public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 {
+	/**
+	 * Stores the Class to be used as the underlying Map for the map from the
+	 * first key of the DoubleKeyMapToList to the second underlying Map
+	 */
 	private final Class<? extends Map> firstClass;
+
+	/**
+	 * Stores the Class to be used as the underlying Map for the map from the
+	 * second key of the DoubleKeyMapToList to the value stored for the given
+	 * keys
+	 */
 	private final Class<? extends Map> secondClass;
 
 	/**
 	 * The actual map containing the map to map to Lists
 	 */
-	private Map<K1, MapToList<K2, V>> mtmtl = new HashMap<K1, MapToList<K2, V>>();
+	private Map<K1, MapToList<K2, V>> mtmtl;
 
 	/**
 	 * Constructs a new DoubleKeyMapToList
@@ -68,16 +86,44 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	{
 		super();
 		firstClass = secondClass = HashMap.class;
+		mtmtl = new HashMap<K1, MapToList<K2, V>>();
 	}
 
 	/**
-	 * Constructs a new DoubleKeyMapToList
+	 * Creates a new, empty DoubleKeyMapToList using the given classes as the
+	 * underlying Map classes for the primary and secondary underlying Maps. The
+	 * given Classes MUST have public, zero-argument constructors.
+	 * 
+	 * @param cl1
+	 *            The Class to be used for the primary underlying map
+	 * @param cl2
+	 *            The Class to be used for the secondary underlying map
+	 * @throws IllegalArgumentException
+	 *             if one or both of the given Classes do not have a public,
+	 *             zero argument constructor.
 	 */
 	public DoubleKeyMapToList(Class<? extends Map> cl1, Class<? extends Map> cl2)
 	{
 		super();
+		if (cl1 == null)
+		{
+			throw new IllegalArgumentException(
+					"First underlying Class cannot be null for DoubleKeyMap");
+		}
+		if (cl2 == null)
+		{
+			throw new IllegalArgumentException(
+					"Second underlying Class cannot be null for DoubleKeyMap");
+		}
 		firstClass = cl1;
 		secondClass = cl2;
+		mtmtl = createGlobalMap();
+		/*
+		 * This "useless" call is designed to exercise the code to ensure that
+		 * the given class meets the restrictions imposed by DoubleKeyMapToList
+		 * (public, zero-argument constructor)
+		 */
+		GenericMapToList.getMapToList(secondClass);
 	}
 
 	/**
@@ -359,8 +405,18 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		return mtmtl.size();
 	}
 
+	/**
+	 * Produces a clone of the DoubleKeyMapToList. This means the internal maps
+	 * used to store keys and values are not shared between the original
+	 * DoubleKeyMapToList and the clone (modifying one DoubleKeyMapToList will
+	 * not impact the other). However, this does not perform a true "deep"
+	 * clone, in the sense that the actual keys and values are not cloned.
+	 * 
+	 * @see java.lang.Object#clone()
+	 */
 	@Override
-	public DoubleKeyMapToList<K1, K2, V> clone() throws CloneNotSupportedException
+	public DoubleKeyMapToList<K1, K2, V> clone()
+			throws CloneNotSupportedException
 	{
 		DoubleKeyMapToList<K1, K2, V> dkm = (DoubleKeyMapToList<K1, K2, V>) super
 				.clone();
@@ -419,12 +475,24 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		return localMap == null ? 0 : localMap.sizeOfListFor(key2);
 	}
 
+	/**
+	 * A consistent-with-equals hashCode for DoubleKeyMapToList
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return mtmtl.hashCode();
 	}
 
+	/**
+	 * Returns true if the DoubleKeyMapToList is equal to the given Object.
+	 * Equality is defined as the given Object being a DoubleKeyMapToList with
+	 * equal keys and values as defined by the underlying Maps.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -432,6 +500,12 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 				&& mtmtl.equals(((DoubleKeyMapToList<?, ?, ?>) o).mtmtl);
 	}
 
+	/**
+	 * Creates a new primary map (map from the first key to the map storing the
+	 * second key and value)
+	 * 
+	 * @return a new primary map
+	 */
 	private Map<K1, MapToList<K2, V>> createGlobalMap()
 	{
 		try

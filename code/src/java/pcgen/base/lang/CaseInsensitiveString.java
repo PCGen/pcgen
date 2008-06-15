@@ -32,6 +32,12 @@ package pcgen.base.lang;
  * also overrides the .hashCode() method of Object in order to maintain the
  * "consistent with equals" behavior that is appropriate (and expected by
  * certain classes, such as java.util.HashMap)
+ * 
+ * NOTE: It is generally preferred to use new TreeMap<String,
+ * blah>(String.CASE_INSENSITIVE_ORDER) when dealing with case insensitive Maps.
+ * This should only be avoided in rare cases where performance is an issue in
+ * fetching items from large maps. In reality, it may be best to remove
+ * CaseInsensitiveString from use entirely.
  */
 public class CaseInsensitiveString
 {

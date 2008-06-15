@@ -27,6 +27,14 @@ import java.util.Set;
  * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * Represents a Map of objects to Lists.
+ * 
+ * It is expected that any class that implements MapToList makes a reasonable
+ * attempt to be consistent in the application of the .equals(Object o) method.
+ * In this case, proper implementation of .equals(Object o) is defined as
+ * equality to any other class that implements MapToList. If a class implements
+ * MapToList and does not define equality against any other MapToList, then that
+ * difference in behavior should be clearly documented in the class implementing
+ * MapToList without MapToList equality.
  */
 public interface MapToList<K, V>
 {

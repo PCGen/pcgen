@@ -156,15 +156,15 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 
 	/**
 	 * Adds the given value to the List at the given position, for the given
-	 * key. The null value cannot be used as a key in a HashMapToList. This
+	 * key. The null value cannot be used as a key in a AbstractMapToList. This
 	 * method will automatically initialize the list for the given key if there
 	 * is not already a List for that key. Any necessary null values will be
 	 * inserted if the given value is larger than the current length of the
 	 * list.
 	 * 
-	 * This method is reference-semantic and this HashMapToList will maintain a
-	 * strong reference to both the key object and the value object given as
-	 * arguments to this method.
+	 * This method is reference-semantic and this AbstractMapToList will
+	 * maintain a strong reference to both the key object and the value object
+	 * given as arguments to this method.
 	 * 
 	 * @param key
 	 *            The key indicating which List the given object should be added
@@ -471,14 +471,48 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 		return set;
 	}
 
+	/**
+	 * Returns an empty Set to be used as a value in the underlying Map. This
+	 * method must be overridden by classes that extend AbstractMapToList in
+	 * order to return a set of teh appropariate type.
+	 * 
+	 * Each call to this method should produce a NEW Set, which is independent
+	 * of each Set returned by previous calls to this method.
+	 * 
+	 * @return an empty Set to be used as a value in the underlying Map
+	 */
 	protected abstract Set<K> getEmptySet();
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this AbstractMapToList
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return mapToList.hashCode();
 	}
 
+	/**
+	 * Returns true if this AbstractMapToList is equal to the given Object.
+	 * 
+	 * Note that equality as defined by this method is equality of *contents* of
+	 * the MapToList, not the exact class extending AbstractMapToList.
+	 * Therefore, as with the expected behavior of classes that implement
+	 * interfaces like java.util.Map, it is expected that classes that implement
+	 * MapToList can be tested for equality against other instances of MapToList
+	 * using the equals(Object o) method.
+	 * 
+	 * **NOTE** This equals method may not be symmetric if other implementors of
+	 * MapToList do not define equality in the same way. This equality test
+	 * against other classes that implement MapToList is limited to their
+	 * contents as a MapToList, regardless of whether they extend
+	 * AbstractMapToList. It does not consider other fields/contents that the
+	 * other MapToList may contain.
+	 * 
+	 * @see java.lang.Object#equals()
+	 */
 	@Override
 	public boolean equals(Object o)
 	{

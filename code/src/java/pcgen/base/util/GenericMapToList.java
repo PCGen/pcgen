@@ -40,6 +40,14 @@ import java.util.Set;
  * the contents of the Collection (keys, values, etc.) are references whose
  * ownership should be respected.
  * 
+ * Since GenericMapToList leverages existing classes that implement
+ * java.util.Map, it also inherits any limitations on those classes. For
+ * example, if the underlying Map is a java.util.HashMap, then modifying an
+ * object in this set to alter the hashCode of that object may result in
+ * unpredictable behavior from the GenericMapToList. Be careful to read the
+ * documentation on the underlying Map class to ensure appropriate treatment of
+ * objects placed in the GenericMapToList.
+ * 
  * CAUTION: This is a convenience method for use in Java 1.4 and is not
  * appropriate for use in Java 1.5 (Typed Collections are probably more
  * appropriate)
@@ -47,13 +55,21 @@ import java.util.Set;
 public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 {
 
+	/**
+	 * Stores the Class to be used as the underlying Map for the map from the
+	 * key to the contained lists.
+	 */
 	private final Class<? extends Map> underlyingClass;
 
 	/**
-	 * Creates a new GenericMapToList
+	 * Creates a new GenericMapToList, using the given Class as the underlying
+	 * class for construction of the Map
 	 * 
 	 * @throws IllegalAccessException
+	 *             if there is a security problem in accessing the given class
 	 * @throws InstantiationException
+	 *             if the given class does not have a public, zero argument
+	 *             constructor
 	 */
 	public GenericMapToList(Class<? extends Map> cl)
 			throws InstantiationException, IllegalAccessException
@@ -62,6 +78,23 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 		underlyingClass = cl;
 	}
 
+	/**
+	 * A convenience method for constructing a new GenericMapToList. This is
+	 * generally used to avoid catching InstantiationException and
+	 * IllegalAccessException (both thrown by GenericMapToList's constructor) as
+	 * well as reducing typing in construction of a parameterized
+	 * GenericMapToList
+	 * 
+	 * @param <K>
+	 *            The type used as the Key in the GenericMapToList
+	 * @param <V>The
+	 *            type used as values in the GenericMapToList
+	 * @param cl
+	 *            The class to be used as the underlying class in the
+	 *            GenericMapToList
+	 * @return A new, empty GenericMapToList with the given Class as the
+	 *         underlying Class
+	 */
 	public static <K, V> GenericMapToList<K, V> getMapToList(
 			Class<? extends Map> cl)
 	{
@@ -83,6 +116,11 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 		}
 	}
 
+	/**
+	 * Creates a new Set for use by AbstractMapToList
+	 * 
+	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
+	 */
 	@Override
 	protected Set<K> getEmptySet()
 	{

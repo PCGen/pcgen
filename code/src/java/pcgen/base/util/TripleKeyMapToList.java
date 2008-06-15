@@ -53,8 +53,11 @@ import java.util.Set;
 public class TripleKeyMapToList<K1, K2, K3, V> implements Cloneable
 {
 
-	private final Class<? extends Map> firstClass;
-	private final Class<? extends Map> secondClass;
+	/**
+	 * Stores the Class to be used as the underlying Map for the map from the
+	 * third key of the TripleKeyMapToList to the value stored for the given
+	 * keys
+	 */
 	private final Class<? extends Map> thirdClass;
 
 	/**
@@ -71,9 +74,9 @@ public class TripleKeyMapToList<K1, K2, K3, V> implements Cloneable
 	public TripleKeyMapToList()
 	{
 		super();
-		firstClass = secondClass = thirdClass = HashMap.class;
-		map = new DoubleKeyMap<K1, K2, MapToList<K3, V>>(firstClass,
-				secondClass);
+		thirdClass = HashMap.class;
+		map = new DoubleKeyMap<K1, K2, MapToList<K3, V>>(HashMap.class,
+				HashMap.class);
 	}
 
 	/**
@@ -83,11 +86,19 @@ public class TripleKeyMapToList<K1, K2, K3, V> implements Cloneable
 			Class<? extends Map> cl2, Class<? extends Map> cl3)
 	{
 		super();
-		firstClass = cl1;
-		secondClass = cl2;
+		map = new DoubleKeyMap<K1, K2, MapToList<K3, V>>(cl1, cl2);
+		if (cl3 == null)
+		{
+			throw new IllegalArgumentException(
+					"Third underlying Class cannot be null for DoubleKeyMap");
+		}
 		thirdClass = cl3;
-		map = new DoubleKeyMap<K1, K2, MapToList<K3, V>>(firstClass,
-				secondClass);
+		/*
+		 * This "useless" call is designed to exercise the code to ensure that
+		 * the given class meets the restrictions imposed by TripleKeyMapToList
+		 * (public, zero-argument constructor)
+		 */
+		GenericMapToList.getMapToList(thirdClass);
 	}
 
 	/**

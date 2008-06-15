@@ -82,6 +82,11 @@ public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 		comparator = comp;
 	}
 
+	/**
+	 * Creates a new TreeSet for use by AbstractMapToList
+	 * 
+	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
+	 */
 	@Override
 	protected Set<K> getEmptySet()
 	{
