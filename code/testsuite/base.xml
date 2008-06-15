@@ -273,7 +273,6 @@
 			<exclusive>|SKILL.%skill.EXCLUSIVE|</exclusive>
 			<trained_total>|SKILL.%skill.TRAINED_TOTAL|</trained_total>
 			<exclusive_total>|SKILL.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
-			<type>|SKILL.%skill.TYPE|</type>
 		</skill>
 |ENDFOR|	<!-- Skills -->
 	</skills>
@@ -921,7 +920,6 @@
 			<cost>|EQ.MERGELOC.%equip.COST|</cost>
 			<equipped>|EQ.MERGELOC.%equip.EQUIPPED|</equipped>
 			<location>|EQ.MERGELOC.%equip.LOCATION|</location>
-			<locationId>|EQ.MERGELOC.%equip.LOCATIONID|</locationId>
 			<maxcharges>|EQ.MERGELOC.%equip.MAXCHARGES|</maxcharges>
 			<note>|EQ.MERGELOC.%equip.NOTE|</note>
 			<quantity>|EQ.MERGELOC.%equip.QTY|</quantity>
