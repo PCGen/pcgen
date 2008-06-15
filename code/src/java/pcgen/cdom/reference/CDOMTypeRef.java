@@ -41,15 +41,9 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	}
 
 	@Override
-	public String getPrimitiveFormat()
-	{
-		return StringUtil.join(types, ".");
-	}
-
-	@Override
 	public String getLSTformat()
 	{
-		return "TYPE=" + getPrimitiveFormat();
+		return "TYPE=" + StringUtil.join(types, ".");
 	}
 
 	@Override

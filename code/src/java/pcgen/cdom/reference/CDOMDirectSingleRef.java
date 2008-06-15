@@ -47,12 +47,6 @@ public class CDOMDirectSingleRef<T extends CDOMObject> extends
 	}
 
 	@Override
-	public String getPrimitiveFormat()
-	{
-		return getName();
-	}
-
-	@Override
 	public String getLSTformat()
 	{
 		return referencedObject.getLSTformat();

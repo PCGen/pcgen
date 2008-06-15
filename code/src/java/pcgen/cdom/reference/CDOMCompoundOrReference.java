@@ -62,23 +62,6 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	}
 
 	@Override
-	public String getPrimitiveFormat()
-	{
-		StringBuilder sb = new StringBuilder();
-		boolean needComma = false;
-		for (CDOMReference<?> ref : references)
-		{
-			if (needComma)
-			{
-				sb.append(',');
-			}
-			needComma = true;
-			sb.append(ref.getPrimitiveFormat());
-		}
-		return sb.toString();
-	}
-
-	@Override
 	public String getLSTformat()
 	{
 		return ReferenceUtilities.joinLstFormat(references, Constants.COMMA);

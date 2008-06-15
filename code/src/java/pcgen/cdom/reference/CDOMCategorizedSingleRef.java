@@ -20,7 +20,6 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.core.SourceEntry;
@@ -53,12 +52,6 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 				"Cannot ask for contains: Reference has not been resolved");
 		}
 		return referencedObject.equals(obj);
-	}
-
-	@Override
-	public String getPrimitiveFormat()
-	{
-		return getName();
 	}
 
 	@Override

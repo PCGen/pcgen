@@ -45,12 +45,6 @@ public class CDOMTransparentAllRef<T extends PrereqObject> extends
 	}
 
 	@Override
-	public String getPrimitiveFormat()
-	{
-		return getName();
-	}
-
-	@Override
 	public String getLSTformat()
 	{
 		return getName();

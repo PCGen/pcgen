@@ -41,12 +41,6 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	}
 
 	@Override
-	public String getPrimitiveFormat()
-	{
-		return Constants.ALLREF_LST;
-	}
-
-	@Override
 	public boolean contains(T obj)
 	{
 		if (referencedList == null)
