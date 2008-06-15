@@ -344,7 +344,7 @@ pcgen.filepaths=user
 	<target name="complete" depends="clean, svnupdate, build, test, emma.report, docs, deploy" description="Everything including update from SVN." />
 
 	<!-- The deulat target, do an incremental build and test -->
-	<target name="main" depends="build, test" description="[default] Do an (incremental) build." />
+	<target name="main" depends="build, quicktest" description="[default] Do an (incremental) build." />
 
 	<!-- Compile the Javadocs -->
 	<target name="docs" depends="compile-compile" description="Build Java API documentation">
@@ -744,7 +744,7 @@ pcgen.filepaths=user
 	-->
 
 	<!-- Run the full test cycle -->
-	<target name="test" depends="doquicktest, dotest, failure.notice, success.notice" description="Run test suite (include lib/test/junit.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
+	<target name="test" depends="doquicktest, dotest, reporttest, failure.notice, success.notice" description="Run test suite (include lib/test/junit.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
 	</target>
 
 	<!-- Run the tests -->
@@ -770,7 +770,9 @@ pcgen.filepaths=user
 			</batchtest>
 			<!-- test name="${test.framework.class}" / -->
 		</junit>
+	</target>
 
+	<target name="reporttest">
 		<mkdir dir="${build.rpt.dir}/test-results" />
 		<junitreport todir="${build.rpt.dir}/test-results">
 			<fileset dir="${build.dir}/test-results/xml">
@@ -780,6 +782,10 @@ pcgen.filepaths=user
 		</junitreport>
 
 		<echo message="JUnit report output to ${build.rpt.dir}/test-results" />
+	</target>
+	
+	<!-- Run the quick test cycle -->
+	<target name="quicktest" depends="doquicktest, failure.notice, success.notice" description="Run a short subset of the test suite (include lib/test/junit.jar in CLASSPATH)">
 	</target>
 
 	<target name="doquicktest" depends="testclean, test.compile" >
@@ -809,7 +815,7 @@ pcgen.filepaths=user
 			<format property="finish.time" pattern="dd MMM yyyy HH:mm:ss z" />
 		</tstamp>
 		<echo message="Finished at ${finish.time}" />
-		<echo message="One or more JUnit tests failed." />
+		<echo message="One or more JUnit tests failed. Run ant reporttest to see details." />
 
 		<fail if="cibuild" />
 	</target>
