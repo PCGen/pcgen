@@ -372,14 +372,14 @@ Horse Talker	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES	PR
 Ironclad		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Ironclad (Ex)		MULT:NO																	SOURCEPAGE:p.107
 
 ###Block:Trueborn Racial Transformations
-# Ability Name		Category of Ability		Type						Visible	Req. Att.	Required Feat	Special ABility			Innate Spells				Multiple?	Add						Source Page
-Defending Soldier		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES			PREFEAT:1,Dodge	SAB:Defending Soldier (Ex)							MULT:NO							SOURCEPAGE:p.107
-Strength of Conquest	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Strength of Conquest (Su)							MULT:NO							SOURCEPAGE:p.107
-Holy Light			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Holy Light (Sp)		SPELLS:Innate|TIMES=ATWILL|Light	MULT:NO							SOURCEPAGE:p.107
-Divine Health		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Health (Ex)								MULT:NO							SOURCEPAGE:p.107
-Divine Heritage		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Heritage (Ex)							MULT:NO							SOURCEPAGE:p.107
-Followthrough		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES	PREATT:6				SAB:Followthrough (Ex)								MULT:NO							SOURCEPAGE:p.107
-Staunch			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Staunch (Ex)									MULT:NO	ADD:FEAT|2|TYPE=HTrueStaunchBonus	SOURCEPAGE:p.107
+# Ability Name		Category of Ability		Type						Visible	Req. Att.	Required Feat	Special ABility			Innate Spells				Multiple?	Add								Source Page
+Defending Soldier		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES			PREFEAT:1,Dodge	SAB:Defending Soldier (Ex)							MULT:NO									SOURCEPAGE:p.107
+Strength of Conquest	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Strength of Conquest (Su)							MULT:NO									SOURCEPAGE:p.107
+Holy Light			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Holy Light (Sp)		SPELLS:Innate|TIMES=ATWILL|Light	MULT:NO									SOURCEPAGE:p.107
+Divine Health		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Health (Ex)								MULT:NO									SOURCEPAGE:p.107
+Divine Heritage		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Divine Heritage (Ex)							MULT:NO									SOURCEPAGE:p.107
+Followthrough		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES	PREATT:6				SAB:Followthrough (Ex)								MULT:NO									SOURCEPAGE:p.107
+Staunch			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES						SAB:Staunch (Ex)									MULT:NO	BONUS:ABILITYPOOL|Trueborn Staunch Bonus|2	SOURCEPAGE:p.107	
 
 #################
 ### Minotaur  ###

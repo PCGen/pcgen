@@ -36,13 +36,14 @@ INFOTEXT:Accessory for the Dawnforge campaign setting.
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 ABILITY:agelegend_abilities_class.lst
+
 RACE:agelegend_races.lst
 TEMPLATE:agelegend_templates.lst
 CLASS:agelegend_classes_prestige.lst
 #CLASS:agelegend_classes_legendary.lst
 #CLASS:agelegend_classes_variant.lst
 FEAT:agelegend_feats.lst
-FEAT:agelegend_feats_hidden.lst
+#FEAT:agelegend_feats_hidden.lst
 #FEAT:agelegend_feats_hidden_legendary.lst
 #EQUIPMENT:agelegend_equip.lst
 SKILL:agelegend_skills.lst

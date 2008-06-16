@@ -76,12 +76,12 @@ CLASS:Night Hunter	PREALIGN:LN,NG,TN,NE,CN	PREATT:6	PREFEAT:2,Alertness,Stealthy
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Survival|Swim|Tumble|Use Rope
 1																AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-1	SAB:Heart of Darkness	BONUS:VISION|DarkVision|30	ADD:FEAT|1|TYPE=NightHunterGift
-3										ADD:FEAT|1|TYPE=NightHunterGift
+1	SAB:Heart of Darkness	BONUS:VISION|DarkVision|30	BONUS:ABILITYPOOL|Night Hunter Gift|1
+3										BONUS:ABILITYPOOL|Night Hunter Gift|1
 4	SAB:Form of Darkness
-5										ADD:FEAT|1|TYPE=NightHunterGift
-7										ADD:FEAT|1|TYPE=NightHunterGift
-9										ADD:FEAT|1|TYPE=NightHunterGift
+5										BONUS:ABILITYPOOL|Night Hunter Gift|1
+7										BONUS:ABILITYPOOL|Night Hunter Gift|1
+9										BONUS:ABILITYPOOL|Night Hunter Gift|1
 #zzzdevelop Form of Darkness...level 4,7,10
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -93,11 +93,11 @@ CLASS:Fey Traveler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diploma
 1	SAB:Traveler's Gift (%/day)|TravelersGift	BONUS:VAR|TravelersGift|(CL+1)/2	DEFINE:TravelersGift|0	ADD:SPELLCASTER|1|ANY
 2	SAB:Traveler's Stride
 3																		ADD:SPELLCASTER|1|ANY
-4																		ADD:FEAT|1|TYPE=FeyTravelerChoice
+4																								BONUS:ABILITYPOOL|Fey Traveler Choice|1
 5																		ADD:SPELLCASTER|1|ANY
 6	SAB:Traveler's Crossing
 7																		ADD:SPELLCASTER|1|ANY
-8																		ADD:FEAT|1|TYPE=FeyTravelerChoice
+8																								BONUS:ABILITYPOOL|Fey Traveler Choice|1
 9																		ADD:SPELLCASTER|1|ANY
 10	SAB:Traveler's Promise
 
@@ -126,13 +126,13 @@ CLASS:Brother of the Panthic Order	HD:4		TYPE:PC.Prestige	ABB:BPO		MAXLEVEL:10	S
 CLASS:Brother of the Panthic Order	PREMULT:1,[PRESPELLTYPE:1,Any=3],[PRESA:1,Spirit Sense II]	PRESKILL:3,Knowledge (Arcana)=6,Knowledge (Nature)=6,Spellcraft=6
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Brother of the Panthic Order	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Spellcraft
-1	SAB:Seal of the Order					ADD:ABILITY|AUTOMATIC|1|Panthic Order First Guide
+1	SAB:Seal of the Order					BONUS:ABILITYPOOL|Panthic Order Choice|1
 2					ADD:SPELLCASTER|1|ANY
-4					ADD:SPELLCASTER|1|ANY	ADD:ABILITY|AUTOMATIC|1|Panthic Order Second Guide
+4					ADD:SPELLCASTER|1|ANY	BONUS:ABILITYPOOL|Panthic Order Choice|1
 6					ADD:SPELLCASTER|1|ANY
-7									ADD:ABILITY|AUTOMATIC|1|Panthic Order Third Guide
+7									BONUS:ABILITYPOOL|Panthic Order Choice|1
 8					ADD:SPELLCASTER|1|ANY
-10					ADD:SPELLCASTER|1|ANY	ADD:ABILITY|AUTOMATIC|1|Panthic Order Fourth Guide
+10					ADD:SPELLCASTER|1|ANY	BONUS:ABILITYPOOL|Panthic Order Choice|1
 #not sure how Spirit Sense II will be coded..... SA for now....
 #can more be done with the guides?...
 #TODO: ADD:SPELLCASTER should include option to advance in spirit adept!!
@@ -159,15 +159,15 @@ CLASS:Disciple of Mystery	HD:6		TYPE:PC.Prestige	ABB:DMy		MAXLEVEL:10	SOURCEPAGE
 CLASS:Disciple of Mystery	PREALIGN:LG,LN,LE	PREMULT:1,[PRESPELLTYPE:1,Any=3],[PRESA:1,Spirit Sense II]	PREMULT:2,[PRESKILL:1,Concentration=8],[PRESKILL:2,TYPE.Knowledge=4]
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Disciple of Mystery	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Jump|Listen|Knowledge (Arcana)|Knowledge (History)|TYPE.Profession|Search|Sense Motive|Spot|Swim
-1																	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.DiscipleMysteryDiscipline
+1																	ADD:SPELLCASTER|1|ANY	BONUS:ABILITYPOOL|Disciple Mystery Discipline|1
 2	SAB:Rite of Mystery +%|RiteMystery	BONUS:VAR|RiteMystery|floor(CL/2)*2	DEFINE:RiteMystery|0	ADD:SPELLCASTER|1|ANY
-3																	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.DiscipleMysteryDiscipline
+3																	ADD:SPELLCASTER|1|ANY	BONUS:ABILITYPOOL|Disciple Mystery Discipline|1
 4																	ADD:SPELLCASTER|1|ANY
-5																	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.DiscipleMysteryDiscipline
+5																	ADD:SPELLCASTER|1|ANY	BONUS:ABILITYPOOL|Disciple Mystery Discipline|1
 6																	ADD:SPELLCASTER|1|ANY
-7																	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.DiscipleMysteryDiscipline
+7																	ADD:SPELLCASTER|1|ANY	BONUS:ABILITYPOOL|Disciple Mystery Discipline|1
 8																	ADD:SPELLCASTER|1|ANY
-9																	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.DiscipleMysteryDiscipline
+9																	ADD:SPELLCASTER|1|ANY	BONUS:ABILITYPOOL|Disciple Mystery Discipline|1
 10																	ADD:SPELLCASTER|1|ANY
 #not sure how Spirit Sense II will be coded..... SA for now....
 #TODO: ADD:SPELLCASTER should include option to advance in spirit adept!!
@@ -224,7 +224,7 @@ CLASS:Orc Adapter	HD:8		TYPE:PC.Prestige	ABB:OAd		MAXLEVEL:10	SOURCEPAGE:p.70	BO
 CLASS:Orc Adapter	PREALIGN:LG,LN,LE	PRERACE:1,Orc (DF)	PRESKILL:2,TYPE.Strength=8,TYPE.Dexterity=8,TYPE.Constitution=8,TYPE.Intelligence=8,TYPE.Wisdom=8,TYPE.Charisma=8	PRETEXT:The character must have contact with at least one non-orc culture.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Orc Adapter	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Disable Device|Diplomacy|Gather Information|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Survival|Use Rope
-1							ADD:ABILITY|AUTOMATIC|Orc Adapter Cultural Study|PRERACE:1,Orc (DF)
+1							BONUS:ABILITYPOOL|Orc Adapter Cultural Choice|1|PRERACE:1,Orc (DF)
 2	SAB:Adopt Talent (TBD)
 3	SAB:Familiar Eye (TBD)
 5	SAB:Adopt Transformation (TBD)
@@ -251,15 +251,15 @@ CLASS:Circle Walker	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	SPELLLEVEL:CLASS|Circle Walker=3|Dispel Magic,Invisibility Sphere,Magic Circle,Major Image,Nondetection,Suggestion
 1	SPELLLEVEL:CLASS|Circle Walker=4|Dimension Door,Detect Scrying,Greater Invisibility,Hallucinatory Terrain,Illusory Wall,Polymorph,Scrying
 ###Block: Normal progression
-1	CAST:0,0		KNOWN:0,2		SAB:Face the Challenge		DEFINE:SmiteEvil|0	DEFINE:SmiteGood|0	ADD:FEAT|1|TYPE.CircleWalkerGift
+1	CAST:0,0		KNOWN:0,2		SAB:Face the Challenge		DEFINE:SmiteEvil|0	DEFINE:SmiteGood|0		BONUS:ABILITYPOOL|Circle Walker Gift|1
 2	CAST:0,1		KNOWN:0,3
-3	CAST:0,2,0		KNOWN:0,3,2		SAB:The Great Oath										ADD:FEAT|1|TYPE.CircleWalkerGift	ADD:FEAT|1|TYPE.CircleWalkerChoice
+3	CAST:0,2,0		KNOWN:0,3,2		SAB:The Great Oath											BONUS:ABILITYPOOL|Circle Walker Gift|1		BONUS:ABILITYPOOL|Circle Walker Choice|1
 4	CAST:0,3,1		KNOWN:0,4,3
-5	CAST:0,3,2,0	KNOWN:0,4,3,2														ADD:FEAT|1|TYPE.CircleWalkerGift
+5	CAST:0,3,2,0	KNOWN:0,4,3,2															BONUS:ABILITYPOOL|Circle Walker Gift|1
 6	CAST:0,3,3,1	KNOWN:0,4,4,3
-7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2														ADD:FEAT|1|TYPE.CircleWalkerGift
+7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2															BONUS:ABILITYPOOL|Circle Walker Gift|1
 8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3
-9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3														ADD:FEAT|1|TYPE.CircleWalkerGift
+9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3															BONUS:ABILITYPOOL|Circle Walker Gift|1
 10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4	SAB:Master of the Circle
 #zzzzzzzAdd PRE racial talents Alternate Form and Quick Form
 
@@ -285,15 +285,15 @@ CLASS:Wilderness Guide	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Handle An
 # Class Name		Spell Stat		Spell Type		Memorize		Caster level					Use Spell List
 CLASS:Wilderness Guide	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	BONUS:CASTERLEVEL|Wilderness Guide|CL	SPELLLIST:1|Ranger
 1	CAST:0,0		KNOWN:0,2		SAB:Call of the Wild	BONUS:SKILL|Survival|4
-2	CAST:0,1		KNOWN:0,3										ADD:FEAT|1|TYPE.WildernessGuideGift
+2	CAST:0,1		KNOWN:0,3										BONUS:ABILITYPOOL|Wilderness Guide Gift|1
 3	CAST:0,2,0		KNOWN:0,3,2
-4	CAST:0,3,1		KNOWN:0,4,3										ADD:FEAT|1|TYPE.WildernessGuideGift
+4	CAST:0,3,1		KNOWN:0,4,3										BONUS:ABILITYPOOL|Wilderness Guide Gift|1
 5	CAST:0,3,2,0	KNOWN:0,4,3,2
-6	CAST:0,3,3,1	KNOWN:0,4,4,3									ADD:FEAT|1|TYPE.WildernessGuideGift
+6	CAST:0,3,3,1	KNOWN:0,4,4,3									BONUS:ABILITYPOOL|Wilderness Guide Gift|1
 7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
-8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3									ADD:FEAT|1|TYPE.WildernessGuideGift
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3									BONUS:ABILITYPOOL|Wilderness Guide Gift|1
 9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
-10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4									ADD:FEAT|1|TYPE.WildernessGuideGift
+10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4									BONUS:ABILITYPOOL|Wilderness Guide Gift|1
 
 
 ##############################
@@ -333,13 +333,13 @@ CLASS:Bravo		STARTSKILLPTS:2	CSKILL:Bluff|Climb|Escape Artist|Handle Animal|Inti
 ###Block: Normal Progression
 1	SAB:Savvy Defense
 2	SAB:Delayed Strike
-3						ADD:FEAT|1|Combat Expertise,Disabling Duelist,Dodge,Expert Duelist,Improved Disarm,Improved Initiative,Improved Sunder,Mobility,Skilled Duelist,Spring Attack
+3						BONUS:ABILITYPOOL|Bravo Feat|1
 4	SAB:Deadly Throw
 5	SAB:Undermine
-6						ADD:FEAT|1|Combat Expertise,Disabling Duelist,Dodge,Expert Duelist,Improved Disarm,Improved Initiative,Improved Sunder,Mobility,Skilled Duelist,Spring Attack
+6						BONUS:ABILITYPOOL|Bravo Feat|1
 7	SAB:Improved Delayed Strike
 8	SAB:Improved Deadly Throw
-9						ADD:FEAT|1|Combat Expertise,Disabling Duelist,Dodge,Expert Duelist,Improved Disarm,Improved Initiative,Improved Sunder,Mobility,Skilled Duelist,Spring Attack
+9						BONUS:ABILITYPOOL|Bravo Feat|1
 10	SAB:Street Lord			ADD:FEAT|1|Leadership
 #PRE Weapon Focus should be for a Light or OneHanded melee weapon....
 #WEAPONPROF Martial.Melee AND Light....+ choices for two more OneHanded
@@ -396,12 +396,12 @@ CLASS:Disciple of St. Baedras	PREATT:6	PREFEAT:2,Combat Expertise,Sneak Attack	P
 CLASS:Disciple of St. Baedras	STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Hide|Intimidate|Move Silently|Sense Motive|Sleight of Hand|Spot|Tumble
 1																																													AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency						AUTO:WEAPONPROF|TYPE.Martial
 1																																													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
-1					BONUS:VAR|SneakAttack|(CL+2)/3																																			AUTO:FEAT|Sneak Attack
-2	SAB:Defend the Cause							ADD:FEAT|1|Combat Reflexes,Diehard,Dodge,Endurance,Improved Bull Rush,Improved Disarm,Improved Feint,Improved Grapple,Improved Overrun,Improved Sunder,Improved Trip,Mobility,Spring Attack,Stunning Fist
+1					BONUS:VAR|SneakAttack|(CL+2)/3																																			ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2	SAB:Defend the Cause							BONUS:ABILITYPOOL|Disciple of St. Baedras Feat|1	
 3	SAB:Bravado
-5											ADD:FEAT|1|Combat Reflexes,Diehard,Dodge,Endurance,Improved Bull Rush,Improved Disarm,Improved Feint,Improved Grapple,Improved Overrun,Improved Sunder,Improved Trip,Mobility,Spring Attack,Stunning Fist
+5											BONUS:ABILITYPOOL|Disciple of St. Baedras Feat|1
 6	SAB:Surprise Move
-8											ADD:FEAT|1|Combat Reflexes,Diehard,Dodge,Endurance,Improved Bull Rush,Improved Disarm,Improved Feint,Improved Grapple,Improved Overrun,Improved Sunder,Improved Trip,Mobility,Spring Attack,Stunning Fist
+8											BONUS:ABILITYPOOL|Disciple of St. Baedras Feat|1
 9	SAB:Gouge
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -438,11 +438,11 @@ CLASS:The Unbroken	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Lightning Refle
 CLASS:The Unbroken	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Concentration|Escape Artist|Hide|Sense Motive|Spot|Survival
 1	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
 ###Block: Normal level progression
-1	SAB:Pain Immunity (Ex)	SAB:Force of Will (Ex) +%|ForceOfWill							BONUS:VAR|ForceOfWill|floor((CL+1)/2)*2	DEFINE:ForceOfWill|0	ADD:FEAT|1|TYPE.UnbrokenResistance
+1	SAB:Pain Immunity (Ex)	SAB:Force of Will (Ex) +%|ForceOfWill							BONUS:VAR|ForceOfWill|floor((CL+1)/2)*2	DEFINE:ForceOfWill|0	BONUS:ABILITYPOOL|Unbroken Resistance Choice|1
 2	SAB:Fortress of the Mind (Ex) +4 bonus against Charm effects|PREVARLT:CL,4
-4	SAB:Fortress of the Mind (Ex) Ignore Charm effects|PREVARLT:CL,6																		ADD:FEAT|1|TYPE.UnbrokenResistance
+4	SAB:Fortress of the Mind (Ex) Ignore Charm effects|PREVARLT:CL,6																		BONUS:ABILITYPOOL|Unbroken Resistance Choice|1
 6	SAB:Fortress of the Mind (Ex) Ignore Charm effects and +4 against Compulsion effects|PREVARLT:CL,8
-7																													ADD:FEAT|1|TYPE.UnbrokenResistance
+7																													BONUS:ABILITYPOOL|Unbroken Resistance Choice|1
 8	SAB:Fortress of the Mind (Ex) Ignore Charm and Compulsion effects|PREVARLT:CL,10
 10	SAB:Fortress of the Mind (Ex) Immune to all Mind-Affecting spells and effects.
 #Todo: Resistance abilities
@@ -459,19 +459,19 @@ CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus(Craft%)
 CLASS:Binder	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Decipher Script|Gather Information|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE.Martial
 ###Block: Normal level progression
-1	SAB:Hightened Crafting (Ex)		ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Bind Item
-2							ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.AnySchool
-3							ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.ItemCreation
-4	SAB:Metamagic Crafting I (Ex)		ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.AnySchool
-5							ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Bind Item
-6							ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.AnySchool
-7	SAB:Metamagic Crafting II (Ex)	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.ItemCreation
-8							ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.AnySchool
-9							ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Bind Item
-10	SAB:Quick Crafting (Ex)			ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE.AnySchool
+1	SAB:Hightened Crafting (Ex)		ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder Bind Item Choice|1
+2							ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder School Choice|1
+3							ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder Item Creation Choice|1
+4	SAB:Metamagic Crafting I (Ex)		ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder School Choice|1
+5							ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder Bind Item Choice|1
+6							ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder School Choice|1
+7	SAB:Metamagic Crafting II (Ex)	ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder Item Creation Choice|1
+8							ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder School Choice|1
+9							ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder Bind Item Choice|1
+10	SAB:Quick Crafting (Ex)			ADD:SPELLCASTER|1|ANY		BONUS:ABILITYPOOL|Binder School Choice|1
 # TODO: the choice feats (TYPE.AnySchool and Bind Item)
-
-
+#Comment: Need the Binder Bind Item Choice and Binder School Choice
+#Comment: Critically important to complete the Choices, Ability pool has nothing to draw from and I don't have access to this source.
 
 
 
