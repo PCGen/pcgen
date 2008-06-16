@@ -126,13 +126,13 @@ CLASS:Brother of the Panthic Order	HD:4		TYPE:PC.Prestige	ABB:BPO		MAXLEVEL:10	S
 CLASS:Brother of the Panthic Order	PREMULT:1,[PRESPELLTYPE:1,Any=3],[PRESA:1,Spirit Sense II]	PRESKILL:3,Knowledge (Arcana)=6,Knowledge (Nature)=6,Spellcraft=6
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Brother of the Panthic Order	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Spellcraft
-1	SAB:Seal of the Order	ADD:FEAT|1|Panthic Order First Guide
+1	SAB:Seal of the Order					ADD:ABILITY|AUTOMATIC|1|Panthic Order First Guide
 2					ADD:SPELLCASTER|1|ANY
-4					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Panthic Order Second Guide
+4					ADD:SPELLCASTER|1|ANY	ADD:ABILITY|AUTOMATIC|1|Panthic Order Second Guide
 6					ADD:SPELLCASTER|1|ANY
-7					ADD:FEAT|1|Panthic Order Third Guide
+7									ADD:ABILITY|AUTOMATIC|1|Panthic Order Third Guide
 8					ADD:SPELLCASTER|1|ANY
-10					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Panthic Order Fourth Guide
+10					ADD:SPELLCASTER|1|ANY	ADD:ABILITY|AUTOMATIC|1|Panthic Order Fourth Guide
 #not sure how Spirit Sense II will be coded..... SA for now....
 #can more be done with the guides?...
 #TODO: ADD:SPELLCASTER should include option to advance in spirit adept!!
@@ -147,7 +147,7 @@ CLASS:Griffin Guard	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Heal|Hide|In
 1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	SAB:Griffin's Hate
 2	SAB:Forestwalker
-4	SAB:Griffin's Wings		ADD:FEAT|1|Evasion
+4	SAB:Griffin's Wings		ADD:ABILITY|AUTOMATIC|1|Evasion
 6	SAB:Griffin's Eye
 8	SAB:Griffin's Talons
 10	SAB:Spirit of the Griffin
@@ -224,7 +224,7 @@ CLASS:Orc Adapter	HD:8		TYPE:PC.Prestige	ABB:OAd		MAXLEVEL:10	SOURCEPAGE:p.70	BO
 CLASS:Orc Adapter	PREALIGN:LG,LN,LE	PRERACE:1,Orc (DF)	PRESKILL:2,TYPE.Strength=8,TYPE.Dexterity=8,TYPE.Constitution=8,TYPE.Intelligence=8,TYPE.Wisdom=8,TYPE.Charisma=8	PRETEXT:The character must have contact with at least one non-orc culture.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Orc Adapter	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Disable Device|Diplomacy|Gather Information|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Survival|Use Rope
-1							ADD:FEAT|1|Orc Adapter Cultural Study
+1							ADD:ABILITY|AUTOMATIC|Orc Adapter Cultural Study|PRERACE:1,Orc (DF)
 2	SAB:Adopt Talent (TBD)
 3	SAB:Familiar Eye (TBD)
 5	SAB:Adopt Transformation (TBD)

@@ -167,6 +167,33 @@ Still Spell.MOD				TYPE:TieflingCovertCasting
 Track.MOD					TYPE:ForestWightTalentFeat
 Weapon Focus.MOD				TYPE:ForestWightTalentFeat
 
+
+
+Combat Expertise.MOD		TYPE:Bravo
+Disabling Duelist.MOD		TYPE:Bravo
+Dodge.MOD				TYPE:Bravo
+Expert Duelist.MOD		TYPE:Bravo
+Improved Disarm.MOD		TYPE:Bravo
+Improved Initiative.MOD		TYPE:Bravo
+Improved Sunder.MOD		TYPE:Bravo
+Mobility.MOD			TYPE:Bravo
+Skilled Duelist.MOD		TYPE:Bravo
+Spring Attack.MOD			TYPE:Bravo
+
+Combat Reflexes.MOD		TYPE:DiscipleStBaedras
+Diehard.MOD				TYPE:DiscipleStBaedras
+Dodge.MOD				TYPE:DiscipleStBaedras
+Endurance.MOD			TYPE:DiscipleStBaedras
+Improved Bull Rush.MOD		TYPE:DiscipleStBaedras
+Improved Disarm.MOD		TYPE:DiscipleStBaedras
+Improved Feint.MOD		TYPE:DiscipleStBaedras
+Improved Grapple.MOD		TYPE:DiscipleStBaedras
+Improved Overrun.MOD		TYPE:DiscipleStBaedras
+Improved Sunder.MOD		TYPE:DiscipleStBaedras
+Improved Trip.MOD			TYPE:DiscipleStBaedras
+Mobility.MOD			TYPE:DiscipleStBaedras
+Spring Attack.MOD			TYPE:DiscipleStBaedras
+Stunning Fist.MOD			TYPE:DiscipleStBaedras
 #
 # End
 #

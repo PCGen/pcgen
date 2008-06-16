@@ -35,6 +35,7 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=2103&it=1?affilia
 #EXTRAFILE:OGL.txt
 ABILITY:ds_oql_abilities_occupations.lst
 ABILITY:ds_oql_abilities_talents.lst
+ABILITY:ds_oql_abilities_class.lst
 ABILITYCATEGORY:ds_oql_ability_categories.lst
 BIOSET:ds_oql_bioset.lst
 CLASS:ds_oql_class_advanced.lst
@@ -48,7 +49,7 @@ EQUIPMENT:ds_oql_equip_weapon_melee.lst
 EQUIPMENT:ds_oql_equip_weapon_ranged.lst
 EQUIPMOD:ds_oql_equipmod.lst
 FEAT:ds_oql_feat.lst
-FEAT:ds_oql_feat_hidden.lst
+#FEAT:ds_oql_feat_hidden.lst
 FEAT:ds_oql_feat_mod.lst
 KIT:ds_oql_kits_defaultmonster.lst
 LANGUAGE:ds_oql_languages.lst

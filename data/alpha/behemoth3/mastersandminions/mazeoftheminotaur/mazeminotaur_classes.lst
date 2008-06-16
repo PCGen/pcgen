@@ -49,18 +49,18 @@ CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|Survival|Swim
 
 ###Block: Proficiencies
-1	AUTO:FEAT|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 
 ###Block: Progression
 1	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|INT|2	BONUS:STAT|CHA|2	TEMPLATE:Bull Lord
 2																		AUTO:FEAT|Great Fortitude
 3						BONUS:STAT|STR|2
-4						BONUS:STAT|CON|2										AUTO:FEAT|Pounce
-6						BONUS:STAT|STR|2										AUTO:FEAT|Onslaught
+4						BONUS:STAT|CON|2										ABILITY:Special Ability|AUTOMATIC|Pounce
+6						BONUS:STAT|STR|2										ABILITY:Special Ability|AUTOMATIC|Onslaught
 7																		AUTO:FEAT|Improved Bull Rush
 8						BONUS:STAT|STR|2
-9												TEMPLATE:Minotaur Favored Class	AUTO:FEAT|Freedom
+9												TEMPLATE:Minotaur Favored Class	ABILITY:Special Ability|AUTOMATIC|Freedom
 
 ###Block: Natural Armor
 2	BONUS:COMBAT|AC|CL/2|TYPE=NaturalArmor.REPLACE
@@ -97,7 +97,7 @@ CLASS:Minotrice	STARTSKILLPTS:2
 2							BONUS:STAT|STR|2	BONUS:STAT|DEX|2
 3							BONUS:STAT|CON|2	BONUS:STAT|WIS|2
 4													TEMPLATE:Natural Cunning
-5																			AUTO:FEAT|Pack Tactics
+5	ABILITY:Special Ability|AUTOMATIC|Pack Tactics
 6							BONUS:STAT|STR|2	BONUS:STAT|DEX|2	TEMPLATE:Minotrice Favored Class
 ###Block: Natural Armor
 2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
