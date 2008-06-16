@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.SpecialProperty;
@@ -62,9 +61,8 @@ public class SpropToken extends AbstractToken implements
 			return null;
 		}
 		List<String> list = new ArrayList<String>();
-		for (LSTWriteable ab : added)
+		for (SpecialProperty sp : added)
 		{
-			SpecialProperty sp = (SpecialProperty) ab;
 			StringBuilder sb = new StringBuilder();
 			sb.append(sp.getDisplayName());
 			if (sp.hasPrerequisites())

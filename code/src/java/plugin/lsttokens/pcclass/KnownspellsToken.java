@@ -11,7 +11,6 @@ import java.util.Map.Entry;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
@@ -169,9 +168,8 @@ public class KnownspellsToken extends AbstractToken implements
 		{
 			Map<CDOMReference<?>, Integer> map = new TreeMap<CDOMReference<?>, Integer>(
 					TokenUtilities.REFERENCE_SORTER);
-			for (LSTWriteable lstw : added)
+			for (KnownSpellIdentifier ksi : added)
 			{
-				KnownSpellIdentifier ksi = (KnownSpellIdentifier) lstw;
 				CDOMReference<Spell> ref = ksi.getLimit();
 				Integer i = ksi.getSpellLevel();
 				map.put(ref, i);

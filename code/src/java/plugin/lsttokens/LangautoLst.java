@@ -10,7 +10,6 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Language;
 import pcgen.rules.context.Changes;
@@ -117,7 +116,7 @@ public class LangautoLst extends AbstractToken implements
 		}
 		if (added != null)
 		{
-			for (LSTWriteable lw : added)
+			for (CDOMReference<Language> lw : added)
 			{
 				if (needComma)
 				{

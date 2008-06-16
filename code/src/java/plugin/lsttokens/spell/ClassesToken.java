@@ -13,7 +13,6 @@ import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.prereq.Prerequisite;
@@ -306,7 +305,7 @@ public class ClassesToken extends AbstractToken implements
 					sb.append(Constants.PIPE);
 				}
 				boolean needComma = false;
-				for (LSTWriteable wr : set)
+				for (CDOMReference<ClassSpellList> wr : set)
 				{
 					if (needComma)
 					{

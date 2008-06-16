@@ -13,7 +13,6 @@ import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -172,7 +171,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 				.getAddedAssociations();
 		if (mtl != null && !mtl.isEmpty())
 		{
-			MapToList<Set<Prerequisite>, LSTWriteable> m = new HashMapToList<Set<Prerequisite>, LSTWriteable>();
+			MapToList<Set<Prerequisite>, CDOMReference<Domain>> m = new HashMapToList<Set<Prerequisite>, CDOMReference<Domain>>();
 			for (CDOMReference<Domain> ab : mtl.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
@@ -184,7 +183,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			Set<String> set = new TreeSet<String>();
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
-				Set<LSTWriteable> domainSet = new TreeSet<LSTWriteable>(
+				Set<CDOMReference<Domain>> domainSet = new TreeSet<CDOMReference<Domain>>(
 						TokenUtilities.WRITEABLE_SORTER);
 				domainSet.addAll(m.getListFor(prereqs));
 				StringBuilder sb = new StringBuilder(ReferenceUtilities
