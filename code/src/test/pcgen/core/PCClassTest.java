@@ -224,7 +224,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aPrClass.setName("PreReqClass");
 		aPrClass.setKeyName("KEY_PreReqClass");
 		aPrClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
-		aPrClass.addPreReq(aPrereq);
+		aPrClass.addPrerequisite(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
@@ -295,7 +295,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aPrClass.setName("PreReqClass");
 		aPrClass.setKeyName("KEY_PreReqClass");
 		aPrClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
-		aPrClass.addPreReq(aPrereq);
+		aPrClass.addPrerequisite(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
@@ -845,7 +845,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prClass.setName("PreReqClass");
 		prClass.setKeyName("KEY_PreReqClass");
 		prClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
-		prClass.addPreReq(prereq);
+		prClass.addPrerequisite(prereq);
 		qClass = new PCClass();
 		qClass.setName("QualClass");
 		qClass.setKeyName("KEY_QualClass");

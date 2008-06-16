@@ -103,7 +103,7 @@ public class VisionLst implements GlobalLstToken
 		{
 			for (Prerequisite prereq : prereqs)
 			{
-				vis.addPreReq(prereq);
+				vis.addPrerequisite(prereq);
 			}
 
 			if (anInt > -9)

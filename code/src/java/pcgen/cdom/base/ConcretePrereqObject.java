@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.ListSet;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -99,24 +98,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		 * to return Collection or Set (or perhaps ListSet?)
 		 */
 		return Collections.unmodifiableList(new ArrayList<Prerequisite>(thePrereqs));
-	}
-
-	/**
-	 * Clear the prerequisite list.
-	 */
-	public final void clearPreReq()
-	{
-		clearPrerequisiteList();
-	}
-
-	/**
-	 * Add a <tt>Prerequesite</tt> to the prerequisite list.
-	 * 
-	 * @param preReq The prerequisite to add.
-	 */
-	public final void addPreReq(final Prerequisite preReq)
-	{
-		addPreReq(preReq, -1);
 	}
 
 	/**
@@ -213,19 +194,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	public final String preReqHTMLStrings(final PlayerCharacter aPC, final PObject p)
 	{
 		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, p, thePrereqs, true);
-	}
-
-	/**
-	 * Adds the prerequisites to the <tt>Collection</tt> passed in.
-	 * 
-	 * @param A <tt>Collection</tt> to add to.
-	 */
-	protected final void addPreReqTo(final Collection<Prerequisite> collection)
-	{
-		if (thePrereqs != null)
-		{
-			collection.addAll(thePrereqs);
-		}
 	}
 
 	/**
@@ -347,59 +315,9 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		return getClass();
 	}
 
-	public boolean hasPrerequisiteOfType(String matchType)
-	{
-		if (thePrereqs == null)
-		{
-			return false;
-		}
-
-		for (Prerequisite prereq : getPrerequisiteList())
-		{
-			if (matchType == null && prereq.getKind() == null)
-			{
-				return true;
-			}
-			if (matchType != null
-					&& matchType.equalsIgnoreCase(prereq.getKind()))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 	public boolean hasPrerequisites()
 	{
 		return thePrereqs != null;
-	}
-
-	public void setPrerequisiteListFrom(PrereqObject prereqObject)
-	{
-		Collection<Prerequisite> workingList;
-		if (prereqObject.getClass().equals(ConcretePrereqObject.class))
-		{
-			ConcretePrereqObject pro = (ConcretePrereqObject) prereqObject;
-			workingList = pro.thePrereqs;
-		}
-		else
-		{
-			workingList = prereqObject.getPrerequisiteList();
-		}
-		thePrereqs = new ListSet<Prerequisite>(workingList.size());
-		try
-		{
-			for (Prerequisite element : workingList)
-			{
-				thePrereqs.add(element.clone());
-			}
-		}
-		catch (CloneNotSupportedException cnse)
-		{
-			throw new UnreachableError(
-					"Code assumes Prerequisite is Cloneable", cnse);
-		}
 	}
 
 	public boolean equalsPrereqObject(PrereqObject other)

@@ -634,7 +634,7 @@ public final class EditorMainForm extends JDialog
 		thisPObject.clearVariableList();
 //		thisPObject.setDR(".CLEAR");
 		thisPObject.clearDR();
-		thisPObject.clearPreReq();
+		thisPObject.clearPrerequisiteList();
 		thisPObject.clearSpecialAbilityList();
 		thisPObject.clearAllSABLists();
 		thisPObject.clearSRList();

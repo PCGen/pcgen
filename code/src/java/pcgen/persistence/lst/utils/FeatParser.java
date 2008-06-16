@@ -88,7 +88,7 @@ public class FeatParser
 					{
 						anAbility = anAbility.clone();
 						anAbility.setFeatType(Ability.Nature.VIRTUAL);
-						anAbility.clearPreReq();
+						anAbility.clearPrerequisiteList();
 					}
 				}
 

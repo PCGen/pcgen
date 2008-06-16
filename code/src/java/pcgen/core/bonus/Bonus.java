@@ -272,7 +272,7 @@ public class Bonus
 					try
 					{
 						final PreParserFactory factory = PreParserFactory.getInstance();
-						aBonus.addPreReq( factory.parse(aString) );
+						aBonus.addPrerequisite(factory.parse(aString));
 					}
 					catch ( PersistenceLayerException ple)
 					{

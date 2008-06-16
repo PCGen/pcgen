@@ -80,7 +80,7 @@ public final class SpecialProperty extends TextProperty
 				{
 					final PreParserFactory factory = PreParserFactory.getInstance();
 					final Prerequisite prereq = factory.parse(cString);
-					sp.addPreReq(prereq);
+					sp.addPrerequisite(prereq);
 				}
 				catch (PersistenceLayerException ple)
 				{

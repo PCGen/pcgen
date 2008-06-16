@@ -126,7 +126,7 @@ public final class PObjectLoader
 			{
 				if ("PRE:.CLEAR".equalsIgnoreCase(aTag))
 				{
-					obj.clearPreReq();
+					obj.clearPrerequisiteList();
 				}
 				else
 				{

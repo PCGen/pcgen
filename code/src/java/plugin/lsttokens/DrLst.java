@@ -85,7 +85,7 @@ public class DrLst implements GlobalLstToken
 		}
 		for (Prerequisite prereq : preReqs)
 		{
-			dr.addPreReq(prereq);
+			dr.addPrerequisite(prereq);
 		}
 
 		obj.addDR(dr);

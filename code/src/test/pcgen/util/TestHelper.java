@@ -304,7 +304,7 @@ public class TestHelper
 			final BonusObj bon = Bonus.newBonus("FEAT|POOL|1");
 			final PreParserFactory factory = PreParserFactory.getInstance();
 			final Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
-			bon.addPreReq(prereq);
+			bon.addPrerequisite(prereq);
 			bon.setCreatorObject(aRace);
 
 			aRace.setBonusInitialFeats(bon);

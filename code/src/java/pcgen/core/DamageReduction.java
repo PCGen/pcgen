@@ -688,10 +688,10 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		DamageReduction clone = (DamageReduction) super.clone();
 		//Have to do deep clone of Prereqs to match previous behavior :/
 		if (hasPrerequisites()) {
-			clone.clearPreReq();
+			clone.clearPrerequisiteList();
 			for (Prerequisite prereq : getPreReqList())
 			{
-				clone.addPreReq(prereq.clone());
+				clone.addPrerequisite(prereq.clone());
 			}
 		}
 		return clone;

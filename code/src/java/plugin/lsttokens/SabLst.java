@@ -98,7 +98,7 @@ public class SabLst implements GlobalLstToken
 					{
 						prereq.setSubKey("CLASS:" + obj.getKeyName());
 					}
-					sa.addPreReq(prereq);
+					sa.addPrerequisite(prereq);
 				}
 				catch (PersistenceLayerException ple)
 				{
@@ -137,7 +137,7 @@ public class SabLst implements GlobalLstToken
 		{
 			try
 			{
-				sa.addPreReq(PreParserFactory.createLevelPrereq(obj, level));
+				sa.addPrerequisite(PreParserFactory.createLevelPrereq(obj, level));
 			}
 			catch (PersistenceLayerException notUsed)
 			{

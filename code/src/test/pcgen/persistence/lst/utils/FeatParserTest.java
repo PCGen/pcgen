@@ -85,7 +85,7 @@ public class FeatParserTest extends AbstractCharacterTestCase
 		prereq.setKey("DEX");
 		prereq.setOperand("15");
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		twf.addPreReq(prereq);
+		twf.addPrerequisite(prereq);
 		Globals.addAbility(twf);
 
 		List<Ability> feats =

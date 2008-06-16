@@ -191,7 +191,7 @@ public class AbilityUtilities
 		if (newAbility != null)
 		{
 			newAbility.setFeatType(Ability.Nature.VIRTUAL);
-			newAbility.clearPreReq();
+			newAbility.clearPrerequisiteList();
 			if (levelInfo != null)
 			{
 				levelInfo.addObject(newAbility);

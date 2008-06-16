@@ -79,7 +79,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Prerequisite prereqNE =
 				factory.parse("PRETEMPLATE:KEY_Natural Lycanthrope");
-		desc.addPreReq(prereqNE);
+		desc.addPrerequisite(prereqNE);
 		is(desc.getDescription(getCharacter(), null), strEq(""));
 
 		PCTemplate template = new PCTemplate();

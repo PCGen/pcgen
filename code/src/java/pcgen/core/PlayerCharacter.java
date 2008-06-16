@@ -12831,7 +12831,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					final PreParserFactory factory =
 							PreParserFactory.getInstance();
 					final Prerequisite prereq = factory.parse(bString);
-					aPObj.addPreReq(prereq);
+					aPObj.addPrerequisite(prereq);
 				}
 				catch (PersistenceLayerException ple)
 				{

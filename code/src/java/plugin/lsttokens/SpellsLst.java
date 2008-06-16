@@ -182,7 +182,7 @@ public class SpellsLst implements GlobalLstToken
 				spell.setDcFormula(dcFormula);
 				for (Prerequisite prereq : preList)
 				{
-					spell.addPreReq(prereq);
+					spell.addPrerequisite(prereq);
 				}
 				spellList.add(spell);
 			}

@@ -69,7 +69,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 			target.setSourceCampaign(source.getCampaign());
 			target.setSourceURI(source.getURI());
 			if (kitPrereq != null) {
-				target.addPreReq(KitLoader.kitPrereq);
+				target.addPrerequisite(KitLoader.kitPrereq);
 			}
 			if (globalTokens != null) {
 				for (String tag : globalTokens) {

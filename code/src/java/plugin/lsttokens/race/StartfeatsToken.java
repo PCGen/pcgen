@@ -34,7 +34,7 @@ public class StartfeatsToken implements RaceLstToken
 			buf.append("PREMULT:1,[PREHD:MIN=1],[PRELEVEL:MIN=1]");
 
 			final Prerequisite prereq = factory.parse(buf.toString());
-			bon.addPreReq(prereq);
+			bon.addPrerequisite(prereq);
 
 			race.setBonusInitialFeats(bon);
 			return true;

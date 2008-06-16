@@ -106,7 +106,7 @@ public class DescLst implements GlobalLstToken
 
 				if (prereq != null)
 				{
-					desc.addPreReq(prereq);
+					desc.addPrerequisite(prereq);
 				}
 			}
 		}
