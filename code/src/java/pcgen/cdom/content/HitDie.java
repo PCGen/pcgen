@@ -21,23 +21,67 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.Globals;
 import pcgen.util.Logging;
 
-public class HitDie extends ConcretePrereqObject
+/**
+ * A HitDie is intended to be a type-safe wrapper for an integer hit die.
+ * 
+ * HitDie also provides other methods to support additional features for
+ * establish the sequence of HieDie objects.
+ */
+public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 {
 
+	/**
+	 * A HitDie for the integer constant ZERO. This is done in order to minimize
+	 * memory usage and construction speed in the many cases where a default
+	 * HitDie of ZERO is required.
+	 */
 	public static final HitDie ZERO = new HitDie(0);
 
+	/**
+	 * The integer die for this HitDie
+	 */
 	private int die;
 
+	/**
+	 * Constructs a new HitDie with the given int value.
+	 * 
+	 * @param i
+	 *            The die size for this HitDie
+	 * @throws IllegalArgumentException
+	 *             if the given die size is negative
+	 */
 	public HitDie(int i)
 	{
+		if (i < 0)
+		{
+			throw new IllegalArgumentException(
+					"HitDie can not have a negative die size");
+		}
 		die = i;
 	}
 
+	/**
+	 * Returns the die size of this HitDie
+	 * 
+	 * @return The die size of this HitDie
+	 */
 	public int getDie()
 	{
 		return die;
 	}
 
+	/**
+	 * Returns the next (i.e. next larger) HitDie in the globally defined
+	 * sequence of Hit Dice.
+	 * 
+	 * The behavior of this method is not defined if the HitDie on which this
+	 * method is called is not in the globally defined sequence of Hit Dice.
+	 * 
+	 * If this is the largest HitDie in the globally defined sequence of Hit
+	 * Dice, then this method will return the current HitDie.
+	 * 
+	 * @return the next HitDie in the globally defined sequence of Hit Dice.
+	 */
 	public HitDie getNext()
 	{
 		int[] dieSizes = Globals.getDieSizes();
@@ -63,6 +107,18 @@ public class HitDie extends ConcretePrereqObject
 		return this;
 	}
 
+	/**
+	 * Returns the previous (i.e. next smaller) HitDie in the globally defined
+	 * sequence of Hit Dice.
+	 * 
+	 * The behavior of this method is not defined if the HitDie on which this
+	 * method is called is not in the globally defined sequence of Hit Dice.
+	 * 
+	 * If this is the smallest HitDie in the globally defined sequence of Hit
+	 * Dice, then this method will return the current HitDie.
+	 * 
+	 * @return the previous HitDie in the globally defined sequence of Hit Dice.
+	 */
 	public HitDie getPrevious()
 	{
 		int[] dieSizes = Globals.getDieSizes();
@@ -87,24 +143,52 @@ public class HitDie extends ConcretePrereqObject
 		return this;
 	}
 
-	// FIXME TODO Needs to be comparable...
-
+	/**
+	 * Returns the consistent-with-equals hashCode for this HitDie
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return die;
 	}
 
+	/**
+	 * Returns true if this HitDie is equal to the given Object. Equality is
+	 * defined as being another HitDie object with equal die size.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
 		return o instanceof HitDie && ((HitDie) o).die == die;
 	}
 
+	/**
+	 * Returns a String representation of this HitDie, primarily for purposes of
+	 * debugging. It is strongly advised that no dependency on this method be
+	 * created, as the return value may be changed without warning.
+	 */
 	@Override
 	public String toString()
 	{
 		return "HitDie: " + die;
+	}
+
+	/**
+	 * Compares this HitDie to another HitDie.
+	 * 
+	 * @param other
+	 *            The HitDie to be compared to this HitDie.
+	 * @return 0 if this HitDie is equal to the given HitDie; -1 if this HitDie
+	 *         has a die size less than the given HitDie; +1 if this HitDie has
+	 *         a die size greater than the given HitDie
+	 */
+	public int compareTo(HitDie other)
+	{
+		return die == other.die ? 0 : die < other.die ? -1 : 1;
 	}
 
 }

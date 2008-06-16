@@ -20,16 +20,32 @@ package pcgen.cdom.base;
 import pcgen.base.formula.Formula;
 import pcgen.core.PlayerCharacter;
 
+/**
+ * JEPFormula is a variable-value Formula designed to be run through the JEP
+ * formula evaluation system.
+ */
 public class JEPFormula implements Formula
 {
 
+	/**
+	 * The value of this JEPFormula
+	 */
 	private final String formula;
 
+	/**
+	 * Creates a new JEPFormula from the given String.
+	 * 
+	 * @param in
+	 *            The String value of this JEPFormula.
+	 */
 	public JEPFormula(String s)
 	{
 		formula = s;
 	}
 
+	/**
+	 * Returns a String representation of this JEPFormula.
+	 */
 	@Override
 	public String toString()
 	{
@@ -47,6 +63,12 @@ public class JEPFormula implements Formula
 		return formula.hashCode();
 	}
 
+	/**
+	 * Returns true if this JEPFormula is equal to the given Object. Equality is
+	 * defined as being another JEPFormula object with equal value.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -54,6 +76,13 @@ public class JEPFormula implements Formula
 				&& ((JEPFormula) o).formula.equals(formula);
 	}
 
+	/**
+	 * Resolves this JEPFormula, returning the value of this JEPFormula in the
+	 * context of the given PlayerCharacter and source.
+	 * 
+	 * @return The value of this JEPFormula in the context of the given
+	 *         PlayerCharacter and source.
+	 */
 	public Float resolve(PlayerCharacter character, String source)
 	{
 		return character.getVariableValue(formula, source);

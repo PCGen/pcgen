@@ -31,6 +31,7 @@ import java.util.Collection;
  * CDOMReference can refer (it may be more than one).
  * 
  * @param <T>
+ *            The class of object this CDOMReference refers to.
  */
 public abstract class CDOMReference<T extends PrereqObject>
 // implements PrimitiveChoiceFilter<T>

@@ -21,11 +21,46 @@ import java.util.Set;
 
 import pcgen.core.PlayerCharacter;
 
+/**
+ * A PrimitiveChoiceSet contains references to Objects. Often these are
+ * CDOMObjects, but that is not strictly required.
+ * 
+ * The intent is for a PrimitiveChoiceSet to be created and populated with a set
+ * of CDOMObjects. It is possible that the contents of the PrimitiveChoiceSet
+ * will be dynamic based on the PlayerCharacter used to resolve the contents of
+ * the PrimitiveChoiceSet.
+ * 
+ * @param <T>
+ *            The class of object this PrimitiveChoiceSet contains.
+ */
 public interface PrimitiveChoiceSet<T>
 {
+	/**
+	 * Returns a Set containing the Objects which this PrimitiveChoiceSet
+	 * contains.
+	 * 
+	 * It is intended that classes which implement PrimitiveChoiceSet will make
+	 * this method reference-semantic, meaning that ownership of the Set
+	 * returned by this method will be transferred to the calling object.
+	 * Modification of the returned Set should not result in modifying the
+	 * PrimitiveChoiceSet, and modifying the PrimitiveChoiceSet after the Set is
+	 * returned should not modify the Set.
+	 * 
+	 * @return A Set containing the Objects which this PrimitiveChoiceSet
+	 *         contains.
+	 */
 	public Set<T> getSet(PlayerCharacter pc);
 
+	/**
+	 * The class of object this PrimitiveChoiceSet contains.
+	 * 
+	 * @return The class of object this PrimitiveChoiceSet contains.
+	 */
 	public Class<? super T> getChoiceClass();
-	
+
+	/**
+	 * Returns a representation of this PrimitiveChoiceSet, suitable for storing
+	 * in an LST file.
+	 */
 	public String getLSTformat();
 }

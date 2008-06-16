@@ -21,27 +21,90 @@ import java.util.Collection;
 
 import pcgen.cdom.enumeration.AssociationKey;
 
+/**
+ * SimpleAssociatedObject is a minimal implementation of the
+ * AssociatedPrereqObject interface.
+ */
 public class SimpleAssociatedObject extends ConcretePrereqObject implements
 		AssociatedPrereqObject
 {
 
+	/**
+	 * Helper AssociationSupport to support the Association functions of this
+	 * SimpleAssociatedObject
+	 */
 	private final AssociationSupport assoc = new AssociationSupport();
 
+	/**
+	 * Returns the value associated with the given AssociationKey. Returns null
+	 * if this SimpleAssociatedObject contains no association for the given
+	 * AssociationKey.
+	 * 
+	 * @param <T>
+	 *            The type of the AssociationKey and the Class of the object to
+	 *            be returned
+	 * @param key
+	 *            The AssociationKey for which the associated value is to be
+	 *            returned
+	 * @return The value associated with the given AssociationKey.
+	 */
 	public <T> T getAssociation(AssociationKey<T> name)
 	{
 		return assoc.getAssociation(name);
 	}
 
+	/**
+	 * Returns a Collection of the AssociationKeys that are in this
+	 * SimpleAssociatedObject.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method will be transferred to the calling
+	 * object. Modification of the returned Collection should not result in
+	 * modifying the SimpleAssociatedObject, and modifying the
+	 * SimpleAssociatedObject after the Collection is returned should not modify
+	 * the Collection.
+	 * 
+	 * Note that it may be possible for an association to have a null value.
+	 * This method should include the AssociationKey for that association, if it
+	 * is present in the SimpleAssociatedObject, even if the value of the
+	 * association is null.
+	 * 
+	 * @return a Collection of the AssociationKeys that are in this
+	 *         SimpleAssociatedObject.
+	 */
 	public Collection<AssociationKey<?>> getAssociationKeys()
 	{
 		return assoc.getAssociationKeys();
 	}
 
+	/**
+	 * Returns true if this SimpleAssociatedObject has any associations.
+	 * 
+	 * Note that it may be possible for an association to have a null value.
+	 * This method should return true if the association is present, even if
+	 * null.
+	 * 
+	 * @return true if this SimpleAssociatedObject has any associations; false
+	 *         otherwise.
+	 */
 	public boolean hasAssociations()
 	{
 		return assoc.hasAssociations();
 	}
 
+	/**
+	 * Sets an Association (as defined by the given key) to the given value.
+	 * Overwrites any previous value associated with the given AssociationKey.
+	 * 
+	 * @param <T>
+	 *            The type of the AssociationKey and the Class of the object to
+	 *            be associated with the given AssociationKey.
+	 * @param key
+	 *            The AssociationKey used to form the association with the given
+	 *            value
+	 * @param value
+	 *            The value to be associated with the given AssociationKey
+	 */
 	public <T> void setAssociation(AssociationKey<T> name, T value)
 	{
 		assoc.setAssociation(name, value);
@@ -59,6 +122,13 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 		return assoc.hashCode();
 	}
 
+	/**
+	 * Returns true if this SimpleAssociatedObject is equal to the given Object.
+	 * Equality is defined as being another SimpleAssociatedObject object with
+	 * equal associations and Prerequisites.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{

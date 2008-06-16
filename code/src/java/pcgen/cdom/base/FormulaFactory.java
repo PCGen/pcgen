@@ -20,6 +20,10 @@ package pcgen.cdom.base;
 import pcgen.base.formula.Formula;
 import pcgen.core.PlayerCharacter;
 
+/**
+ * FormulaFactory is a utility class which creates Formula objects based on the
+ * input provided
+ */
 public final class FormulaFactory
 {
 
@@ -28,6 +32,13 @@ public final class FormulaFactory
 		// Can't instantiate Utility Class
 	}
 
+	/**
+	 * Returns a Formula for the given String.
+	 * 
+	 * @param s
+	 *            The String to be converted to a Formula
+	 * @return A Formula for the given String.
+	 */
 	public static Formula getFormulaFor(String s)
 	{
 		if (s.length() == 0)
@@ -36,7 +47,7 @@ public final class FormulaFactory
 		}
 		try
 		{
-			return getFormulaFor(Integer.parseInt(s));
+			return getFormulaFor(Integer.valueOf(s));
 		}
 		catch (NumberFormatException e)
 		{
@@ -45,42 +56,88 @@ public final class FormulaFactory
 		}
 	}
 
-	public static Formula getFormulaFor(int i)
+	/**
+	 * Returns a Formula for the given Integer.
+	 * 
+	 * @param i
+	 *            The int to be converted to a Formula
+	 * @return A Formula for the given Integer.
+	 */
+	public static Formula getFormulaFor(Integer i)
 	{
 		return new IntegerFormula(i);
 	}
 
+	/**
+	 * IntegerFormula is a fixed-value formula for a specific Integer.
+	 */
 	private static class IntegerFormula implements Formula
 	{
 
-		Integer i;
+		/**
+		 * The integer value of this IntegerFormula
+		 */
+		private final Integer i;
 
-		public IntegerFormula(int parseInt)
+		/**
+		 * Creates a new IntegerFormula from the given Integer.
+		 * 
+		 * @param in
+		 *            The Integer value of this IntegerFormula.
+		 */
+		public IntegerFormula(Integer in)
 		{
-			i = Integer.valueOf(parseInt);
+			if (in == null)
+			{
+				throw new IllegalArgumentException(
+						"Cannot create an IntegerFormula with a null Integer");
+			}
+			i = in;
 		}
 
+		/**
+		 * Resolves this IntegerFormula, returning the Integer in this
+		 * IntegerFormula.
+		 * 
+		 * @return the Integer in this IntegerFormula.
+		 */
 		public Integer resolve(PlayerCharacter pc, String source)
 		{
 			return i;
 		}
 
+		/**
+		 * Returns a String representation of this IntegerFormula.
+		 */
 		@Override
 		public String toString()
 		{
-			return Integer.toString(i);
+			return i.toString();
 		}
 
+		/**
+		 * Returns the consistent-with-equals hashCode for this IntegerFormula
+		 * 
+		 * @see java.lang.Object#hashCode()
+		 */
 		@Override
 		public int hashCode()
 		{
 			return i;
 		}
 
+		/**
+		 * Returns true if this IntegerFormula is equal to the given Object.
+		 * Equality is defined as being another IntegerFormula object with equal
+		 * value.
+		 * 
+		 * @see java.lang.Object#equals(java.lang.Object)
+		 */
 		@Override
 		public boolean equals(Object o)
 		{
-			return (o instanceof IntegerFormula) && ((IntegerFormula) o).i.equals(i);
+			return (o instanceof IntegerFormula)
+					&& ((IntegerFormula) o).i.equals(i);
 		}
 
 	}
