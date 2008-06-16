@@ -22,7 +22,7 @@
  */
 package pcgen.core.npcgen;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Race;
@@ -36,7 +36,7 @@ import pcgen.util.Logging;
  */
 public class RaceGeneratorOption extends GeneratorOption
 {
-	private WeightedList<Race> theChoices = null;
+	private WeightedCollection<Race> theChoices = null;
 	
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
@@ -46,7 +46,7 @@ public class RaceGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedList<Race>();
+			theChoices = new WeightedCollection<Race>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
@@ -55,7 +55,7 @@ public class RaceGeneratorOption extends GeneratorOption
 			{
 				if ( ! theChoices.contains(race) )
 				{
-					theChoices.add(aWeight, race);
+					theChoices.add(race, aWeight);
 				}
 			}
 			return;
@@ -66,7 +66,7 @@ public class RaceGeneratorOption extends GeneratorOption
 			{
 				if (race.isType(aValue.substring(5)) && !race.getDisplayName().equals(Constants.s_NONESELECTED))
 				{
-					theChoices.add(aWeight, race);
+					theChoices.add(race, aWeight);
 				}
 			}
 			return;
@@ -78,7 +78,7 @@ public class RaceGeneratorOption extends GeneratorOption
 		}
 		else
 		{
-			theChoices.add(aWeight, race);
+			theChoices.add(race, aWeight);
 		}
 	}
 
@@ -88,7 +88,7 @@ public class RaceGeneratorOption extends GeneratorOption
 	 * @return List
 	 */
 	@Override
-	public WeightedList<Race> getList()
+	public WeightedCollection<Race> getList()
 	{
 		return theChoices;
 	}

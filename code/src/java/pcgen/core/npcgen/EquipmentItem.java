@@ -3,7 +3,7 @@ package pcgen.core.npcgen;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.util.Logging;
@@ -15,7 +15,7 @@ public class EquipmentItem
 	private Equipment theEquipment = null;
 	private List<EqmodItem> theEqMods = null;
 	private EquipmentTable theLookupTable = null;
-	private WeightedList<String> theChoices = null;
+	private WeightedCollection<String> theChoices = null;
 	private String theVariableEquipment = null;
 	private String theTimes = null;
 	private String theQuantity = null;
@@ -115,7 +115,7 @@ public class EquipmentItem
 	public void setVariableEquipment( final String anEquipString, final List<String> aList )
 	{
 		theVariableEquipment = anEquipString;
-		theChoices = new WeightedList<String>( aList );
+		theChoices = new WeightedCollection<String>( aList );
 	}
 	
 	public void setTimes( final String aNumberTimes )

@@ -22,7 +22,7 @@
  */
 package pcgen.core.npcgen;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.util.Logging;
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
  */
 public class ClassGeneratorOption extends GeneratorOption
 {
-	private WeightedList<PCClass> theChoices = null;
+	private WeightedCollection<PCClass> theChoices = null;
 	
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
@@ -45,7 +45,7 @@ public class ClassGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedList<PCClass>();
+			theChoices = new WeightedCollection<PCClass>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
@@ -54,7 +54,7 @@ public class ClassGeneratorOption extends GeneratorOption
 			{
 				if ( ! theChoices.contains(pcClass) )
 				{
-					theChoices.add(aWeight, pcClass);
+					theChoices.add(pcClass, aWeight);
 				}
 			}
 			return;
@@ -65,7 +65,7 @@ public class ClassGeneratorOption extends GeneratorOption
 			{
 				if (!theChoices.contains(pcClass))
 				{
-					theChoices.add(aWeight, pcClass);
+					theChoices.add(pcClass, aWeight);
 				}
 			}
 			return;
@@ -77,7 +77,7 @@ public class ClassGeneratorOption extends GeneratorOption
 		}
 		else
 		{
-			theChoices.add(aWeight, pcClass);
+			theChoices.add(pcClass, aWeight);
 		}
 	}
 
@@ -85,7 +85,7 @@ public class ClassGeneratorOption extends GeneratorOption
 	 * @see pcgen.core.npcgen.GeneratorOption#getList()
 	 */
 	@Override
-	public WeightedList<PCClass> getList()
+	public WeightedCollection<PCClass> getList()
 	{
 		return theChoices;
 	}

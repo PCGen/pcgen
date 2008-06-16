@@ -24,7 +24,7 @@ package pcgen.core.npcgen;
 
 import java.util.List;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.core.Globals;
 import pcgen.core.Skill;
 
@@ -44,7 +44,7 @@ import pcgen.core.Skill;
 public class SkillChoice
 {
 	private String theKey = null;
-	private List<Skill> theSkillList = new WeightedList<Skill>();
+	private WeightedCollection<Skill> theSkillList = new WeightedCollection<Skill>();
 	
 	/**
 	 * Creates a new SkillChoice.
@@ -78,8 +78,8 @@ public class SkillChoice
 	 */
 	public Skill getSkill()
 	{
-		final Skill skill = theSkillList.get(Globals.getRandomInt(theSkillList.size()));
-		theSkillList.add(NPCGenerator.getSubSkillWeightAdd(), skill);
+		final Skill skill = theSkillList.getRandomValue();
+		theSkillList.add(skill, NPCGenerator.getSubSkillWeightAdd());
 		return skill;
 	}
 	

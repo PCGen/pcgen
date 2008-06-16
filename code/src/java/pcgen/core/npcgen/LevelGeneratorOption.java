@@ -24,7 +24,7 @@ package pcgen.core.npcgen;
 
 import java.util.StringTokenizer;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 
 /**
  * This class represents a particular level generator option.
@@ -34,7 +34,7 @@ import pcgen.base.util.WeightedList;
  */
 public class LevelGeneratorOption extends GeneratorOption
 {
-	private WeightedList<Integer> theChoices = null;
+	private WeightedCollection<Integer> theChoices = null;
 	
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
@@ -44,7 +44,7 @@ public class LevelGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedList<Integer>();
+			theChoices = new WeightedCollection<Integer>();
 		}
 		
 		final StringTokenizer tok = new StringTokenizer(aValue, ","); //$NON-NLS-1$
@@ -66,7 +66,7 @@ public class LevelGeneratorOption extends GeneratorOption
 	 * @return List
 	 */
 	@Override
-	public WeightedList<Integer> getList()
+	public WeightedCollection<Integer> getList()
 	{
 		return theChoices;
 	}

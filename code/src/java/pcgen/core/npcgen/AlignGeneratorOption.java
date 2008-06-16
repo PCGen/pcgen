@@ -22,7 +22,7 @@
  */
 package pcgen.core.npcgen;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
@@ -35,7 +35,7 @@ import pcgen.util.Logging;
  */
 public class AlignGeneratorOption extends GeneratorOption
 {
-	private WeightedList<PCAlignment> theChoices = null;
+	private WeightedCollection<PCAlignment> theChoices = null;
 	
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
@@ -45,7 +45,7 @@ public class AlignGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedList<PCAlignment>();
+			theChoices = new WeightedCollection<PCAlignment>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
@@ -54,7 +54,7 @@ public class AlignGeneratorOption extends GeneratorOption
 			{
 				if ( align.isValidForFollower() && ! theChoices.contains(align) )
 				{
-					theChoices.add(aWeight, align);
+					theChoices.add(align, aWeight);
 				}
 			}
 			return;
@@ -66,7 +66,7 @@ public class AlignGeneratorOption extends GeneratorOption
 		}
 		else
 		{
-			theChoices.add(aWeight, align);
+			theChoices.add(align, aWeight);
 		}
 	}
 
@@ -76,7 +76,7 @@ public class AlignGeneratorOption extends GeneratorOption
 	 * @return List
 	 */
 	@Override
-	public WeightedList<PCAlignment> getList()
+	public WeightedCollection<PCAlignment> getList()
 	{
 		return theChoices;
 	}

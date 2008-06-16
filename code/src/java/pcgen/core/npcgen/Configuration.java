@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -260,7 +260,7 @@ public class Configuration
 		return ret;
 	}
 	
-	public WeightedList<String> getStatWeights(final String aKey)
+	public WeightedCollection<String> getStatWeights(final String aKey)
 	{
 		ClassData data = theClassData.get(aKey);
 		if ( data == null )
@@ -270,7 +270,7 @@ public class Configuration
 		return data.getStatWeights();
 	}
 	
-	public WeightedList<SkillChoice> getSkillWeights(final String aKey)
+	public WeightedCollection<SkillChoice> getSkillWeights(final String aKey)
 	{
 		ClassData data = theClassData.get(aKey);
 		if ( data == null )
@@ -280,7 +280,7 @@ public class Configuration
 		return data.getSkillWeights();
 	}
 	
-	public WeightedList<Ability> getAbilityWeights( final String aKey, final AbilityCategory aCategory )
+	public WeightedCollection<Ability> getAbilityWeights( final String aKey, final AbilityCategory aCategory )
 	{
 		ClassData data = theClassData.get(aKey);
 		if ( data == null )
@@ -290,7 +290,7 @@ public class Configuration
 		return data.getAbilityWeights(aCategory);
 	}
 	
-	public WeightedList<Deity> getDeityWeights( final String aKey )
+	public WeightedCollection<Deity> getDeityWeights( final String aKey )
 	{
 		ClassData data = theClassData.get( aKey );
 		if ( data == null )
@@ -300,7 +300,7 @@ public class Configuration
 		return data.getDeityWeights();
 	}
 
-	public WeightedList<Domain> getDomainWeights(final String aDeityKey, final String aClassKey ) 
+	public WeightedCollection<Domain> getDomainWeights(final String aDeityKey, final String aClassKey ) 
 	{
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
@@ -310,7 +310,7 @@ public class Configuration
 		return data.getDomainWeights(aDeityKey);
 	}
 
-	public WeightedList<Spell> getKnownSpellWeights(final String aClassKey, final int aLevel)
+	public WeightedCollection<Spell> getKnownSpellWeights(final String aClassKey, final int aLevel)
 	{
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
@@ -320,7 +320,7 @@ public class Configuration
 		return data.getKnownSpellWeights(aLevel);
 	}
 
-	public WeightedList<Spell> getPreparedSpellWeights(final String aClassKey, final int aLevel)
+	public WeightedCollection<Spell> getPreparedSpellWeights(final String aClassKey, final int aLevel)
 	{
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
@@ -330,7 +330,7 @@ public class Configuration
 		return data.getPreparedSpellWeights(aLevel);
 	}
 
-	public WeightedList<String> getSubClassWeights(final String aClassKey)
+	public WeightedCollection<String> getSubClassWeights(final String aClassKey)
 	{
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )

@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
@@ -52,14 +52,14 @@ public class ClassData
 	private String theClassKey = null;
 	
 	// TODO Can this be a PCStat?
-	private WeightedList<String> theStatWeights = null;
-	private WeightedList<SkillChoice> theSkillWeights = null;
-	private Map<AbilityCategory, WeightedList<Ability>> theAbilityWeights = null;
-	private WeightedList<Deity> theDeityWeights = null;
-	private Map<String, WeightedList<Domain>> theDomainWeights = null;
-	private Map<Integer, WeightedList<Spell>> theKnownSpellWeights = null;
-	private Map<Integer, WeightedList<Spell>> thePreparedSpellWeights = null;
-	private WeightedList<String> theSubClassWeights = null;
+	private WeightedCollection<String> theStatWeights = null;
+	private WeightedCollection<SkillChoice> theSkillWeights = null;
+	private Map<AbilityCategory, WeightedCollection<Ability>> theAbilityWeights = null;
+	private WeightedCollection<Deity> theDeityWeights = null;
+	private Map<String, WeightedCollection<Domain>> theDomainWeights = null;
+	private Map<Integer, WeightedCollection<Spell>> theKnownSpellWeights = null;
+	private Map<Integer, WeightedCollection<Spell>> thePreparedSpellWeights = null;
+	private WeightedCollection<String> theSubClassWeights = null;
 	
 	/**
 	 * Creates an empty <tt>ClassData</tt> object
@@ -87,15 +87,15 @@ public class ClassData
 	{
 		if ( theStatWeights == null )
 		{
-			theStatWeights = new WeightedList<String>();
+			theStatWeights = new WeightedCollection<String>();
 		}
-		theStatWeights.add(aWeight, aStatAbbr);
+		theStatWeights.add(aStatAbbr, aWeight);
 	}
 	
 	/**
-	 * @return <tt>WeightedList</tt> of stat abbreviations.
+	 * @return <tt>WeightedCollection</tt> of stat abbreviations.
 	 */
-	public WeightedList<String> getStatWeights()
+	public WeightedCollection<String> getStatWeights()
 	{
 		// Make sure that we have all the stats
 		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
@@ -118,7 +118,7 @@ public class ClassData
 	{
 		if ( theSkillWeights == null )
 		{
-			theSkillWeights = new WeightedList<SkillChoice>();
+			theSkillWeights = new WeightedCollection<SkillChoice>();
 		}
 		for ( final SkillChoice sc : theSkillWeights )
 		{
@@ -127,7 +127,7 @@ public class ClassData
 				return;
 			}
 		}
-		theSkillWeights.add(aWeight, new SkillChoice(aKey));
+		theSkillWeights.add(new SkillChoice(aKey), aWeight);
 	}
 	
 	/**
@@ -143,9 +143,9 @@ public class ClassData
 	}
 	
 	/**
-	 * @return <tt>WeightedList</tt> of Skill keys
+	 * @return <tt>WeightedCollection</tt> of Skill keys
 	 */
-	public WeightedList<SkillChoice> getSkillWeights()
+	public WeightedCollection<SkillChoice> getSkillWeights()
 	{
 		return theSkillWeights;
 	}
@@ -159,17 +159,17 @@ public class ClassData
 	{
 		if ( theAbilityWeights == null )
 		{
-			theAbilityWeights = new HashMap<AbilityCategory, WeightedList<Ability>>();
+			theAbilityWeights = new HashMap<AbilityCategory, WeightedCollection<Ability>>();
 		}
-		WeightedList<Ability> abilities = theAbilityWeights.get(aCategory);
+		WeightedCollection<Ability> abilities = theAbilityWeights.get(aCategory);
 		if ( abilities == null )
 		{
-			abilities = new WeightedList<Ability>();
+			abilities = new WeightedCollection<Ability>();
 			theAbilityWeights.put(aCategory, abilities);
 		}
 		if ( ! abilities.contains(anAbility) )
 		{
-			abilities.add(aWeight, anAbility);
+			abilities.add(anAbility, aWeight);
 		}
 	}
 	
@@ -185,7 +185,7 @@ public class ClassData
 		{
 			return;
 		}
-		final WeightedList<Ability> abilities = theAbilityWeights.get(aCategory);
+		final WeightedCollection<Ability> abilities = theAbilityWeights.get(aCategory);
 		if ( abilities == null )
 		{
 			return;
@@ -200,9 +200,9 @@ public class ClassData
 	 * will be added to the list with the same weight.
 	 * 
 	 * @param aCategory The category of ability to retrieve
-	 * @return A <tt>WeightedList</tt> of Ability objects
+	 * @return A <tt>WeightedCollection</tt> of Ability objects
 	 */
-	public WeightedList<Ability> getAbilityWeights( final AbilityCategory aCategory )
+	public WeightedCollection<Ability> getAbilityWeights( final AbilityCategory aCategory )
 	{
 		if ( theAbilityWeights == null )
 		{
@@ -215,13 +215,13 @@ public class ClassData
 	{
 		if ( theDeityWeights == null )
 		{
-			theDeityWeights = new WeightedList<Deity>();
+			theDeityWeights = new WeightedCollection<Deity>();
 		}
 		
-		theDeityWeights.add(aWeight, aDeity);
+		theDeityWeights.add(aDeity, aWeight);
 	}
 	
-	public WeightedList<Deity> getDeityWeights()
+	public WeightedCollection<Deity> getDeityWeights()
 	{
 		if ( theDeityWeights == null )
 		{
@@ -237,33 +237,33 @@ public class ClassData
 	{
 		if ( theDomainWeights == null )
 		{
-			theDomainWeights  = new HashMap<String, WeightedList<Domain>>();
+			theDomainWeights  = new HashMap<String, WeightedCollection<Domain>>();
 		}
-		WeightedList<Domain> domains = theDomainWeights.get(aDeityKey);
+		WeightedCollection<Domain> domains = theDomainWeights.get(aDeityKey);
 		if ( domains == null )
 		{
-			domains = new WeightedList<Domain>();
+			domains = new WeightedCollection<Domain>();
 			theDomainWeights.put( aDeityKey, domains );
 		}
-		domains.add(aWeight, aDomain);
+		domains.add(aDomain, aWeight);
 	}
 	
-	public WeightedList<Domain> getDomainWeights( final String aDeityKey ) 
+	public WeightedCollection<Domain> getDomainWeights( final String aDeityKey ) 
 	{
 		if ( theDomainWeights == null )
 		{
-			theDomainWeights  = new HashMap<String, WeightedList<Domain>>();
+			theDomainWeights  = new HashMap<String, WeightedCollection<Domain>>();
 		}
-		WeightedList<Domain> domains = theDomainWeights.get(aDeityKey);
+		WeightedCollection<Domain> domains = theDomainWeights.get(aDeityKey);
 		if ( domains == null )
 		{
-			domains = new WeightedList<Domain>();
+			domains = new WeightedCollection<Domain>();
 			Deity deity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, aDeityKey);
 			for (CDOMReference<Domain> deityDomains : deity.getSafeListMods(Deity.DOMAINLIST))
 			{
-				domains.addAll(deity.getListAssociations(Deity.DOMAINLIST,
-						deityDomains).size(), deityDomains
-						.getContainedObjects());
+				domains.addAll(deityDomains.getContainedObjects(), deity
+						.getListAssociations(Deity.DOMAINLIST, deityDomains)
+						.size());
 			}
 		}
 		return domains;
@@ -273,17 +273,17 @@ public class ClassData
 	{
 		if ( theKnownSpellWeights == null )
 		{
-			theKnownSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+			theKnownSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
 		}
-		WeightedList<Spell> spells = theKnownSpellWeights.get(aLevel);
+		WeightedCollection<Spell> spells = theKnownSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedList<Spell>();
+			spells = new WeightedCollection<Spell>();
 			theKnownSpellWeights.put(aLevel, spells);
 		}
 		if ( ! spells.contains(aSpell) )
 		{
-			spells.add(aWeight, aSpell);
+			spells.add(aSpell, aWeight);
 		}
 	}
 	
@@ -294,27 +294,27 @@ public class ClassData
 			return;
 		}
 		
-		final WeightedList<Spell> spells = theKnownSpellWeights.get(aLevel);
+		final WeightedCollection<Spell> spells = theKnownSpellWeights.get(aLevel);
 		if ( spells != null )
 		{
 			spells.remove( aSpell );
 		}
 	}
 	
-	public WeightedList<Spell> getKnownSpellWeights( final int aLevel ) 
+	public WeightedCollection<Spell> getKnownSpellWeights( final int aLevel ) 
 	{
 		if ( theKnownSpellWeights == null )
 		{
-			theKnownSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+			theKnownSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
 		}
-		WeightedList<Spell> spells = theKnownSpellWeights.get(aLevel);
+		WeightedCollection<Spell> spells = theKnownSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedList<Spell>();
+			spells = new WeightedCollection<Spell>();
 			
 			for ( final Spell spell : Globals.getSpellsIn(aLevel, theClassKey, Constants.EMPTY_STRING) )
 			{
-				spells.add(1, spell);
+				spells.add(spell, 1);
 			}
 		}
 		return spells;
@@ -324,17 +324,17 @@ public class ClassData
 	{
 		if ( thePreparedSpellWeights == null )
 		{
-			thePreparedSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+			thePreparedSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
 		}
-		WeightedList<Spell> spells = thePreparedSpellWeights.get(aLevel);
+		WeightedCollection<Spell> spells = thePreparedSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedList<Spell>();
+			spells = new WeightedCollection<Spell>();
 			thePreparedSpellWeights.put(aLevel, spells);
 		}
 		if ( ! spells.contains(aSpell) )
 		{
-			spells.add(aWeight, aSpell);
+			spells.add(aSpell, aWeight);
 		}
 	}
 	
@@ -345,27 +345,27 @@ public class ClassData
 			return;
 		}
 		
-		final WeightedList<Spell> spells = thePreparedSpellWeights.get(aLevel);
+		final WeightedCollection<Spell> spells = thePreparedSpellWeights.get(aLevel);
 		if ( spells != null )
 		{
 			spells.remove( aSpell );
 		}
 	}
 	
-	public WeightedList<Spell> getPreparedSpellWeights( final int aLevel ) 
+	public WeightedCollection<Spell> getPreparedSpellWeights( final int aLevel ) 
 	{
 		if ( thePreparedSpellWeights == null )
 		{
-			thePreparedSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+			thePreparedSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
 		}
-		WeightedList<Spell> spells = thePreparedSpellWeights.get(aLevel);
+		WeightedCollection<Spell> spells = thePreparedSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedList<Spell>();
+			spells = new WeightedCollection<Spell>();
 			
 			for ( final Spell spell : Globals.getSpellsIn(aLevel, theClassKey, Constants.EMPTY_STRING) )
 			{
-				spells.add(1, spell);
+				spells.add(spell, 1);
 			}
 		}
 		return spells;
@@ -375,12 +375,12 @@ public class ClassData
 	{
 		if ( theSubClassWeights == null )
 		{
-			theSubClassWeights = new WeightedList<String>();
+			theSubClassWeights = new WeightedCollection<String>();
 		}
-		theSubClassWeights.add( aWeight, aKey );
+		theSubClassWeights.add(aKey, aWeight);
 	}
 	
-	public WeightedList<String> getSubClassWeights()
+	public WeightedCollection<String> getSubClassWeights()
 	{
 		if ( theSubClassWeights == null )
 		{

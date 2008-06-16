@@ -26,14 +26,51 @@ import java.util.Set;
 
 import pcgen.core.PlayerCharacter;
 
+/**
+ * A ChoiceSet is a named container of a Collection of objects (stored in a
+ * PrimitiveChoiceSet).
+ * 
+ * It is expected that a ChoiceSet will be useful in situations where a
+ * pre-defined list of choices is available.
+ * 
+ * If the set of choices is dynamic, consider using the List infrastructure,
+ * including classes like CDOMList.
+ * 
+ * @see pcgen.cdom.base.CDOMList
+ * 
+ * TODO Why is this necessary? It certainly doesn't add anything other than a
+ * name to the Trunk structure (as of SVN 6665), and it's even dangerously
+ * semantic in the sense that it takes in the PrimitiveChoiceSet and keeps a
+ * reference to it.
+ * 
+ * 
+ * @param <T>
+ */
 public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		LSTWriteable
 {
 
+	/**
+	 * The PrimitiveChoiceSet containing the Collection of Objects in this
+	 * ChoiceSet
+	 */
 	private final PrimitiveChoiceSet<T> pcs;
 
+	/**
+	 * The name of this ChoiceSet
+	 */
 	private final String setName;
 
+	/**
+	 * Creates a new ChoiceSet with the given name and given underlying
+	 * PrimitiveChoiceSet.
+	 * 
+	 * @param name
+	 *            The name of this ChoiceSet
+	 * @param choice
+	 *            The PrimitiveChoiceSet indicating the Collection of objects
+	 *            for this ChoiceSet
+	 */
 	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice)
 	{
 		if (choice == null)

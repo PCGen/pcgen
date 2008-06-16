@@ -22,7 +22,7 @@
  */
 package pcgen.core.npcgen;
 
-import pcgen.base.util.WeightedList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 
 /**
@@ -85,9 +85,9 @@ public abstract class GeneratorOption
 	public abstract void addChoice( final int aWeight, final String aChoice );
 
 	/**
-	 * Gets a <tt>WeightedList</tt> of choices for this option.
+	 * Gets a <tt>WeightedCollection</tt> of choices for this option.
 	 * 
-	 * @return A <tt>WeightedList</tt>.
+	 * @return A <tt>WeightedCollection</tt>.
 	 */
-	public abstract WeightedList<?> getList();
+	public abstract WeightedCollection<?> getList();
 }
