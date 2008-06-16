@@ -41,10 +41,12 @@ import pcgen.core.PlayerCharacter;
  * TODO Why is this necessary? It certainly doesn't add anything other than a
  * name to the Trunk structure (as of SVN 6665), and it's even dangerously
  * semantic in the sense that it takes in the PrimitiveChoiceSet and keeps a
- * reference to it.
- * 
+ * reference to it. getSet also asks for a PlayerCharacter, yet none is ever
+ * actually used in any implementation contained within Trunk (again 6665) -
+ * thpr 6/15/08
  * 
  * @param <T>
+ *            the Class contained within this ChoiceSet
  */
 public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		LSTWriteable
@@ -85,21 +87,48 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		setName = name;
 	}
 
+	/**
+	 * Returns a representation of this ChoiceSet, suitable for storing in an
+	 * LST file.
+	 */
 	public String getLSTformat()
 	{
 		return pcs.getLSTformat();
 	}
 
+	/**
+	 * Returns the Class contained within this ChoiceSet
+	 * 
+	 * @return the Class contained within this ChoiceSet
+	 */
 	public Class<? super T> getChoiceClass()
 	{
 		return pcs.getChoiceClass();
 	}
 
+	/**
+	 * Returns a Set of objects contained within this ChoiceSet for the given
+	 * PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this ChoiceSet
+	 *            should be returned.
+	 * @return a Set of objects contained within this ChoiceSet for the given
+	 *         PlayerCharacter.
+	 */
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		return pcs.getSet(pc);
 	}
 
+	/**
+	 * Returns the name of this ChoiceSet. Note that this name is suitable for
+	 * display, but it does not represent information that should be stored in a
+	 * persistent state (it is not sufficient information to reconstruct this
+	 * ChoiceSet)
+	 * 
+	 * @return
+	 */
 	public String getName()
 	{
 		return setName;
@@ -116,6 +145,13 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		return setName.hashCode() ^ pcs.hashCode();
 	}
 
+	/**
+	 * Returns true if this ChoiceSet is equal to the given Object. Equality is
+	 * defined as being another ChoiceSet object with an equal name and equal
+	 * underlying PrimitiveChoiceSet.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
