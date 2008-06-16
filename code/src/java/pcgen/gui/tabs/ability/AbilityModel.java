@@ -41,6 +41,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry.SourceFormat;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.TableColumnManagerModel;
@@ -416,7 +417,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case REQUIREMENTS:
 				if (ability != null)
 				{
-					retVal = ability.preReqStrings();
+					retVal = PrereqHandler.toHtmlString(ability.getPrerequisiteList());
 				}
 				break;
 			case DESCRIPTION:

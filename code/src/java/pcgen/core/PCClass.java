@@ -540,7 +540,7 @@ public class PCClass extends PObject
 					final String aString = breakOnPipes.nextToken();
 					final List<Prerequisite> localPreReqList =
 							new ArrayList<Prerequisite>();
-					if (bonus.hasPreReqs())
+					if (bonus.hasPrerequisites())
 					{
 						localPreReqList.addAll(bonus.getPreReqList());
 					}
@@ -2662,7 +2662,7 @@ public class PCClass extends PObject
 		{
 			if ((bonus.getPCLevel() <= level))
 			{
-				if (bonus.hasPreReqs())
+				if (bonus.hasPrerequisites())
 				{
 					// TODO: This is a hack to avoid VARs etc in class defs
 					// being qualified for when Bypass class prereqs is

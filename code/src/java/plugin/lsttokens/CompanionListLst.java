@@ -163,7 +163,7 @@ public class CompanionListLst implements GlobalLstToken
 					option.setType(companionType);
 					if (prereqs.size() > 0)
 					{
-						option.addPrerequisites(prereqs);
+						option.addAllPrerequisites(prereqs);
 					}
 					if (followerAdjustment != 0)
 					{

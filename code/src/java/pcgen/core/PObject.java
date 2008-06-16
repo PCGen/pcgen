@@ -2769,7 +2769,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append(movement.toLSTString());
 		}
 
-		if (hasPreReqs())
+		if (hasPrerequisites())
 		{
 			final StringWriter writer = new StringWriter();
 			for (Prerequisite prereq : getPreReqList())
@@ -4784,7 +4784,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		else
 		{
-			if ( !aBonusObj.passesPreReqToGain((Equipment)obj, aPC) )
+			if ( !PrereqHandler.passesAll(aBonusObj.getPrerequisiteList(), ((Equipment)obj), aPC) )
 			{
 				return 0;
 			}

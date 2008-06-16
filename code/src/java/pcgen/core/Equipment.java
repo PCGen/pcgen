@@ -2123,7 +2123,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (Visibility.QUALIFY.equals(vis)) {
 			bonusPrimary = true;
-			if (eqMod.passesPreReqToGain(this, null)) {
+			if (PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, null)) {
 				return true;
 			}
 			//
@@ -2132,7 +2132,7 @@ public final class Equipment extends PObject implements Serializable,
 			//
 			if (isDouble()) {
 				bonusPrimary = false;
-				return eqMod.passesPreReqToGain(this, null);
+				return PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, null);
 			}
 			return false;
 		}
@@ -2660,7 +2660,7 @@ public final class Equipment extends PObject implements Serializable,
 		// Make sure we are qualified
 		bonusPrimary = bPrimary;
 
-		if (!getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed() || !eqMod.passesPreReqToGain(this, null)) {
+		if (!getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed() || !PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, null)) {
 			return false;
 		}
 
@@ -3381,7 +3381,7 @@ public final class Equipment extends PObject implements Serializable,
 			// Since we've just resized the item, we need to modify any PRESIZE
 			// prerequisites
 			//
-			if (hasPreReqs())
+			if (hasPrerequisites())
 			{
 				for (Prerequisite aBonus : getPreReqList()) {
 					if ("SIZE".equalsIgnoreCase(aBonus.getKind())) {
@@ -4632,9 +4632,9 @@ public final class Equipment extends PObject implements Serializable,
 			// the GUI to know what to display, not for
 			// actual passesPreReq checks
 
-			if (!eqMod.passesPreReqToGain(this, null)) {
+			if (!PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, null)) {
 				Logging.errorPrint("reUnq:Removing: " + eqMod.getDisplayName());
-				Logging.errorPrint("reUnq:preReqs: " + eqMod.preReqStrings());
+				Logging.errorPrint("reUnq:preReqs: " + PrereqHandler.toHtmlString(eqMod.getPrerequisiteList()));
 			}
 		}
 	}
@@ -4829,7 +4829,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (final BonusObj bonus : getBonusList()) {
 			bonus.setApplied(false);
 
-			if (bonus.passesPreReqToGain(this, aPC)) {
+			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), this, aPC)) {
 				bonus.setApplied(true);
 			} else {
 				bonus.setApplied(false);

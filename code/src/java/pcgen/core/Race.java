@@ -585,7 +585,7 @@ public final class Race extends PObject
 
 	boolean canBeAlignment(final String aString)
 	{
-		if (hasPreReqs())
+		if (hasPrerequisites())
 		{
 			for (Prerequisite prereq : getPreReqList())
 			{

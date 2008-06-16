@@ -304,7 +304,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public boolean isTempBonus()
 	{
-		if ( !hasPreReqs() )
+		if ( !hasPrerequisites() )
 		{
 			return false;
 		}
@@ -343,7 +343,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public boolean isTempBonusTarget( final TempBonusTarget aTarget )
 	{
-		if ( !isTempBonus() || !hasPreReqs() )
+		if ( !isTempBonus() || !hasPrerequisites() )
 		{
 			return false;
 		}
@@ -644,7 +644,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 		boolean bEmpty = true;
 		sb.append('[');
-		if (hasPreReqs()) {
+		if (hasPrerequisites()) {
 			for (Prerequisite p : getPreReqList()) {
 				if (!bEmpty)
 				{
@@ -931,7 +931,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		final String value = getValue();
 		setValue(value.replaceAll(Pattern.quote(token), tokenValue));
 
-		if ( hasPreReqs() )
+		if ( hasPrerequisites() )
 		{
 			for ( final Prerequisite prereq : getPreReqList() )
 			{

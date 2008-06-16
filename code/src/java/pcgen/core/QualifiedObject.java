@@ -208,7 +208,7 @@ public class QualifiedObject<T> extends ConcretePrereqObject
 	@Override
 	public int hashCode()
 	{
-		return getPreReqCount() * 23
+		return getPrerequisiteCount() * 23
 				+ (theObject == null ? -1 : theObject.hashCode());
 	}
     

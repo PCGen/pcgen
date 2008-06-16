@@ -32,7 +32,6 @@ import java.util.Set;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.ListSet;
-import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
@@ -54,16 +53,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	private Set<Prerequisite> thePrereqs = null;
 
 	/**
-	 * Adds a <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
-	 * 
-	 * @param prereqs A <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
-	 */
-	public void addPrerequisites( final Collection<Prerequisite> prereqs )
-	{
-		addAllPrerequisites(prereqs);
-	}
-
-	/**
 	 * Tests if the specified PlayerCharacter passes all the prerequisites.
 	 * 
 	 * @param aPC The <tt>PlayerCharacter</tt> to test.
@@ -78,17 +67,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		}
 
 		return PrereqHandler.passesAll(thePrereqs, aPC, null);
-	}
-
-	/** TODO This is rather foobar'd */
-	public final boolean passesPreReqToGain(final Equipment p, final PlayerCharacter aPC)
-	{
-		if (!hasPreReqs())
-		{
-			return true;
-		}
-
-		return PrereqHandler.passesAll(thePrereqs, p, aPC);
 	}
 
 	/**
@@ -142,16 +120,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	}
 
 	/**
-	 * Tests to see if this object has any prerequisites associated with it.
-	 * 
-	 * @return <tt>true</tt> if it has prereqs
-	 */
-	public boolean hasPreReqs()
-	{
-		return hasPrerequisites();
-	}
-
-	/**
 	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
 	 * 
 	 * <p>If the Prerequisite kind is &quot;clear&quot; all the prerequisites
@@ -199,7 +167,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 */
 	public final boolean hasPreReqTypeOf(final String matchType)
 	{
-		if (!hasPreReqs())
+		if (!hasPrerequisites())
 		{
 			return false;
 		}
@@ -213,16 +181,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		}
 
 		return false;
-	}
-
-	/**
-	 * Gets the number of prerequisites currently associated.
-	 * 
-	 * @return the number of prerequesites
-	 */
-	public final int getPreReqCount()
-	{
-		return getPrerequisiteCount();
 	}
 
 	/**
@@ -255,15 +213,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	public final String preReqHTMLStrings(final PlayerCharacter aPC, final PObject p)
 	{
 		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, p, thePrereqs, true);
-	}
-
-	/**
-	 * Creates the requirement string for printing.
-	 * @return the requirement string for printing
-	 */
-	public final String preReqStrings()
-	{
-		return PrereqHandler.toHtmlString(thePrereqs);
 	}
 
 	/**
@@ -324,6 +273,11 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		return obj;
 	}
 
+	/**
+	 * Adds a <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 * 
+	 * @param prereqs A <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 */
 	public void addAllPrerequisites(final Collection<Prerequisite> prereqs)
 	{
 		if (prereqs == null || prereqs.isEmpty())
@@ -340,6 +294,11 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		}
 	}
 
+	/**
+	 * Adds an <tt>Array</tt> of <tt>Prerequisite</tt> objects.
+	 * 
+	 * @param prereqs An <tt>Array</tt> of <tt>Prerequisite</tt> objects.
+	 */
 	public void addAllPrerequisites(Prerequisite... prereqs)
 	{
 		if (prereqs == null || prereqs.length == 0)
@@ -356,7 +315,14 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		}
 	}
 
-
+	/**
+	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
+	 * 
+	 * <p>If the Prerequisite kind is &quot;clear&quot; all the prerequisites
+	 * will be cleared from the list.
+	 * 
+	 * @param preReq The <tt>Prerequisite</tt> to add.
+	 */
 	public void addPrerequisite(Prerequisite preReq)
 	{
 		this.addPreReq(preReq, -1);

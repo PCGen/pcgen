@@ -1116,7 +1116,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						// TODO - This looks like a bug.  It should be testing
 						// for aEq in the passesAll() check.
 						//						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
-						if (newB.passesPreReqToGain(aEq, pc))
+						if (PrereqHandler.passesAll(newB.getPrerequisiteList(), aEq, pc))
 						{
 							newB.setApplied(true);
 						}

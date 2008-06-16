@@ -1022,7 +1022,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		//
 		boolean dirty = false;
 		int pointsLeft = points;
-		if ((pointsLeft > 0) && theSkill.hasPreReqs())
+		if ((pointsLeft > 0) && theSkill.hasPrerequisites())
 		{
 			while (pointsLeft > classSkillCost)
 			{
@@ -4387,7 +4387,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (theSkill.compareTo(aSkill) != 0)
 			{
-				if (aSkill.hasPreReqs()
+				if (aSkill.hasPrerequisites()
 					&& PrereqHandler.passesAll(aSkill.getPreReqList(), pc,
 						aSkill))
 				{

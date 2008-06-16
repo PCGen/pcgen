@@ -36,27 +36,58 @@ import pcgen.core.prereq.Prerequisite;
 public interface PrereqObject
 {
 	
+	/**
+	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
+	 * 
+	 * <p>If the Prerequisite kind is &quot;clear&quot; all the prerequisites
+	 * will be cleared from the list.
+	 * 
+	 * @param preReq The <tt>Prerequisite</tt> to add.
+	 */
 	public void addPrerequisite(Prerequisite preReq);
 
+	/**
+	 * Adds an <tt>Array</tt> of <tt>Prerequisite</tt> objects.
+	 * 
+	 * @param prereqs An <tt>Array</tt> of <tt>Prerequisite</tt> objects.
+	 */
 	public void addAllPrerequisites(Prerequisite... prereqs);
 
+	/**
+	 * Adds a <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 * 
+	 * @param prereqs A <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 */
 	public void addAllPrerequisites(Collection<Prerequisite> prereqs);
 	
+	/**
+	 * Get the list of <tt>Prerequesite</tt>s.
+	 * 
+	 * @return An unmodifiable <tt>List</tt> of <tt>Prerequesite</tt>s or
+	 *         <tt>
+	 * null</tt> if no prerequisites have been set.
+	 */
 	public List<Prerequisite> getPrerequisiteList();
 
+	/**
+	 * Clear the prerequisite list.
+	 */
 	public void clearPrerequisiteList();
 
+	/**
+	 * Tests to see if this object has any prerequisites associated with it.
+	 * 
+	 * @return <tt>true</tt> if it has prereqs
+	 */
 	public boolean hasPrerequisites();
 
+	/**
+	 * Gets the number of prerequisites currently associated.
+	 * 
+	 * @return the number of prerequesites
+	 */
 	public int getPrerequisiteCount();
 
-	public void setPrerequisiteListFrom(PrereqObject prereqObject);
-
-	public boolean hasPrerequisiteOfType(String matchType);
-	
 	public Class<? extends PrereqObject> getReferenceClass();
-
-	@Deprecated
-	public void addPreReq(Prerequisite preReq);
 	
 }

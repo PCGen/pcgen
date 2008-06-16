@@ -38,6 +38,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
@@ -77,7 +78,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		{
 			if (caller instanceof Equipment)
 			{
-				if ( bonus.passesPreReqToGain((Equipment)caller, aPC) )
+				if ( PrereqHandler.passesAll(bonus.getPrerequisiteList(), ((Equipment)caller), aPC) )
 				{
 					bonus.setApplied(true);
 					aList.add(bonus);
@@ -124,7 +125,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 							aString.substring(idx + 7));
 					newBonus.setCreatorObject(this);
 
-					if (aBonus.hasPreReqs())
+					if (aBonus.hasPrerequisites())
 					{
 						newBonus.clearPreReq();
 						for (Prerequisite prereq : aBonus.getPreReqList())

@@ -3114,7 +3114,7 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
-		if (thisPObject.hasPreReqs()) {
+		if (thisPObject.hasPrerequisites()) {
 			for (Prerequisite p : thisPObject.getPreReqList()) {
 				// TODO: This hack is here because there is currently no
 				// specific Prerequisite editor. The code curently relies

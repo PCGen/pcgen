@@ -1176,7 +1176,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 						return TemplateModifier.modifierString(template, getPc());
 
 					case COL_REQS:
-						return template.preReqStrings();
+						return PrereqHandler.toHtmlString(template.getPrerequisiteList());
 
 					case COL_SRC:
 						return template.getDefaultSourceString();

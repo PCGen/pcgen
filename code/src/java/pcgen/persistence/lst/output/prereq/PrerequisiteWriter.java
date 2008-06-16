@@ -61,7 +61,7 @@ public class PrerequisiteWriter
 	 */
 	static public String prereqsToString(final PObject pObj)
 	{
-		if (pObj.hasPreReqs()) {
+		if (pObj.hasPrerequisites()) {
 			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 			final StringWriter swriter = new StringWriter();
 			for (Prerequisite p : pObj.getPreReqList()) {

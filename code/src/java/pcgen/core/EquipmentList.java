@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -613,7 +614,7 @@ public class EquipmentList {
 				{
 					if (eqMod.isType(t)) {
 						// Type matches, passes prereqs?
-						if (eqMod.passesPreReqToGain(eq, null)) { return eqMod; }
+						if (PrereqHandler.passesAll(eqMod.getPrerequisiteList(), eq, null)) { return eqMod; }
 					}
 				}
 			}
