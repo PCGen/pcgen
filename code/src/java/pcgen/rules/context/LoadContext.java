@@ -17,7 +17,6 @@
  */
 package pcgen.rules.context;
 
-import java.io.StringWriter;
 import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
@@ -25,9 +24,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.WeaponProf;
@@ -276,27 +273,15 @@ public abstract class LoadContext
 
 	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
 	{
-		String prereqString = null;
-		if (prereqs != null && !prereqs.isEmpty())
+		try
 		{
-			TreeSet<String> list = new TreeSet<String>();
-			for (Prerequisite p : prereqs)
-			{
-				StringWriter swriter = new StringWriter();
-				try
-				{
-					prereqWriter.write(swriter, p);
-				}
-				catch (PersistenceLayerException e)
-				{
-					addWriteMessage("Error writing Prerequisite: " + e);
-					return null;
-				}
-				list.add(swriter.toString());
-			}
-			prereqString = StringUtil.join(list, Constants.PIPE);
+			return prereqWriter.getPrerequisiteString(prereqs);
 		}
-		return prereqString;
+		catch (PersistenceLayerException e)
+		{
+			addWriteMessage("Error writing Prerequisite: " + e);
+			return null;
+		}
 	}
 
 	public Map<Class<?>, Set<String>> typeMap = new HashMap<Class<?>, Set<String>>();

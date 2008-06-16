@@ -292,7 +292,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 
 		ability = Globals.getAbilityKeyed(theCategory, aKey);
 		if (ability != null
-			&& !PrereqHandler.passesAll(ability.getPreReqList(), pc,
+			&& !PrereqHandler.passesAll(ability.getPrerequisiteList(), pc,
 				ability) && !Globals.checkRule(RuleConstants.FEATPRE))
 		{
 			return ABILITY_NOT_QUALIFIED;

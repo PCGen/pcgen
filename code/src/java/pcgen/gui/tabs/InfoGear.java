@@ -104,6 +104,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -630,7 +631,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				b.appendI18nElement("in_igInfoLabelTextProficient",value); //$NON-NLS-1$
 			}
 
-			final String cString = aEq.preReqHTMLStrings(pc, false);
+			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aEq.getPrerequisiteList(), false);
 
 			if (cString.length() > 0)
 			{
@@ -4199,7 +4201,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (aChild instanceof Equipment)
 			{
 				Equipment eq = (Equipment) aChild;
-				PrereqHandler.passesAll(eq.getPreReqList(), pc, eq);
+				PrereqHandler.passesAll(eq.getPrerequisiteList(), pc, eq);
 			}
 
 			return ((PObjectNode) aParent).addChild(aFN, sort);

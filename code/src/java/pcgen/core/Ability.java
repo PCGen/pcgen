@@ -355,7 +355,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 
 	boolean canBeSelectedBy(final PlayerCharacter pc)
 	{
-		return PrereqHandler.passesAll(getPreReqList(), pc, this);
+		return PrereqHandler.passesAll(getPrerequisiteList(), pc, this);
 	}
 
 	/**

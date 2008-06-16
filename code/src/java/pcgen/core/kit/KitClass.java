@@ -130,9 +130,9 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 			theClass.setSubClassKey(getSubClass());
 		}
 
-		if (!PrereqHandler.passesAll(theClass.getPreReqList(), aPC, aKit))
+		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
 		{
-			PrereqHandler.toHtmlString(theClass.getPreReqList());
+			PrereqHandler.toHtmlString(theClass.getPrerequisiteList());
 			warnings.add("CLASS: Not qualified for class \"" + getClassName() +
 						 "\".");
 			return false;

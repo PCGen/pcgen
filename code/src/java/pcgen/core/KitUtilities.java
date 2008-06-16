@@ -99,7 +99,7 @@ public final class KitUtilities
 				Logging.errorPrint("Nonexistant kit: " + kitKey);
 				return;
 			}
-			if (PrereqHandler.passesAll(aKit.getPreReqList(), aPC, aKit))
+			if (PrereqHandler.passesAll(aKit.getPrerequisiteList(), aPC, aKit))
 			{
 				aList.add(aKit);
 			}

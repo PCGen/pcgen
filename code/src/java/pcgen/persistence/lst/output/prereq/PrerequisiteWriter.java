@@ -28,43 +28,52 @@
  */
 package pcgen.persistence.lst.output.prereq;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.Collection;
+import java.util.TreeSet;
 
 public class PrerequisiteWriter
 {
 	public void write(Writer stringWriter, Prerequisite prereq)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
-		PrerequisiteWriterFactory factory =
-				PrerequisiteWriterFactory.getInstance();
-		PrerequisiteWriterInterface writer =
-				factory.getWriter(prereq.getKind());
+		PrerequisiteWriterFactory factory = PrerequisiteWriterFactory
+				.getInstance();
+		PrerequisiteWriterInterface writer = factory
+				.getWriter(prereq.getKind());
 		if (writer == null)
 		{
 			throw new PersistenceLayerException(
-				"Can not find a Writer for prerequisites fo kind: "
-					+ prereq.getKind());
+					"Can not find a Writer for prerequisites fo kind: "
+							+ prereq.getKind());
 		}
 		writer.write(stringWriter, prereq);
 	}
 
 	/**
-	 * Convert the prerequisites of a PObject to a String in .lst-compatible form
-	 *
-	 * @param pObj	A PObject object.
-	 * @return		The .lst-compatible string representation of the prerequisite list.
+	 * Convert the prerequisites of a PObject to a String in .lst-compatible
+	 * form
+	 * 
+	 * @param pObj
+	 *            A PObject object.
+	 * @return The .lst-compatible string representation of the prerequisite
+	 *         list.
 	 */
 	static public String prereqsToString(final PObject pObj)
 	{
-		if (pObj.hasPrerequisites()) {
+		if (pObj.hasPrerequisites())
+		{
 			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 			final StringWriter swriter = new StringWriter();
-			for (Prerequisite p : pObj.getPreReqList()) {
+			for (Prerequisite p : pObj.getPrerequisiteList())
+			{
 				try
 				{
 					swriter.write('\t');
@@ -79,4 +88,23 @@ public class PrerequisiteWriter
 		}
 		return "";
 	}
+
+	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
+			throws PersistenceLayerException
+	{
+		String prereqString = null;
+		if (prereqs != null && !prereqs.isEmpty())
+		{
+			TreeSet<String> list = new TreeSet<String>();
+			for (Prerequisite p : prereqs)
+			{
+				StringWriter swriter = new StringWriter();
+				write(swriter, p);
+				list.add(swriter.toString());
+			}
+			prereqString = StringUtil.join(list, Constants.PIPE);
+		}
+		return prereqString;
+	}
+
 }

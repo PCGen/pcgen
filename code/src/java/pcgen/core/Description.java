@@ -27,6 +27,8 @@ import java.util.List;
 
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 
 /**
@@ -265,7 +267,6 @@ public class Description extends ConcretePrereqObject
 	 * 
 	 * @see pcgen.cdom.base.PrereqObject#getPCCText()
 	 */
-	@Override
 	public String getPCCText()
 	{
 		final StringBuffer buf = new StringBuffer();
@@ -291,7 +292,20 @@ public class Description extends ConcretePrereqObject
 			}
 		}
 		
-		buf.append(super.getPCCText());
+		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+		try
+		{
+			String prerequisiteString = prereqWriter
+					.getPrerequisiteString(getPrerequisiteList());
+			if (prerequisiteString != null)
+			{
+				buf.append(prerequisiteString);
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging.errorPrint("Error writing Prerequisite: " + e);
+		}
 		return buf.toString();
 	}
 	

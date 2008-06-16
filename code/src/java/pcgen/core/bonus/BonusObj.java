@@ -40,7 +40,10 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Delta;
+import pcgen.util.Logging;
 
 /**
  * <code>BonusObj</code>
@@ -310,7 +313,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		
 		// TODO - This should be handled better
-		for ( final Prerequisite prereq : getPreReqList() )
+		for ( final Prerequisite prereq : getPrerequisiteList() )
 		{
 			if ( prereq.getKind() == null )
 			{
@@ -348,7 +351,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			return false;
 		}
 		
-		for ( final Prerequisite prereq : getPreReqList() )
+		for ( final Prerequisite prereq : getPrerequisiteList() )
 		{
 			if ( prereq.getOperand().equalsIgnoreCase(aTarget.toString()) )
 			{
@@ -544,7 +547,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * LST editors.
 	 * @return The text to be saved for example in a character.
 	 */
-	@Override
 	public String getPCCText()
 	{
 		if (stringRepresentation == null)
@@ -579,9 +581,22 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			{
 				sb.append('|').append(bonusValue.toString());
 			}
-	
-			sb.append(super.getPCCText());
-	
+			
+			PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+			try
+			{
+				String prerequisiteString = prereqWriter
+						.getPrerequisiteString(getPrerequisiteList());
+				if (prerequisiteString != null)
+				{
+					sb.append(prerequisiteString);
+				}
+			}
+			catch (PersistenceLayerException e)
+			{
+				Logging.errorPrint("Error writing Prerequisite: " + e);
+			}
+
 			if (bonusType.length() != 0)
 			{
 				sb.append("|TYPE=").append(bonusType);
@@ -645,7 +660,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		boolean bEmpty = true;
 		sb.append('[');
 		if (hasPrerequisites()) {
-			for (Prerequisite p : getPreReqList()) {
+			for (Prerequisite p : getPrerequisiteList()) {
 				if (!bEmpty)
 				{
 					sb.append('|');
@@ -933,7 +948,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 		if ( hasPrerequisites() )
 		{
-			for ( final Prerequisite prereq : getPreReqList() )
+			for ( final Prerequisite prereq : getPrerequisiteList() )
 			{
 				prereq.expandToken(token, tokenValue);
 			}

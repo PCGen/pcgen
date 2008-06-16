@@ -57,12 +57,12 @@ final class QualifyFilter extends AbstractPObjectFilter
 		else if (pObject instanceof Domain)
 		{
 			Domain r = ((Domain) pObject);
-			return PrereqHandler.passesAll(r.getPreReqList(), aPC, r);
+			return PrereqHandler.passesAll(r.getPrerequisiteList(), aPC, r);
 		}
 		else if (pObject instanceof Equipment)
 		{
 			final Equipment equip = (Equipment) pObject;
-			final boolean accept = PrereqHandler.passesAll(equip.getPreReqList(), aPC, equip);
+			final boolean accept = PrereqHandler.passesAll(equip.getPrerequisiteList(), aPC, equip);
 
 			if (accept && (equip.isShield() || equip.isWeapon() || equip.isArmor()))
 			{
@@ -78,7 +78,7 @@ final class QualifyFilter extends AbstractPObjectFilter
 		else
 		{
 			//passesPrereqTests is global now, so this should be the right thing to do.
-			return PrereqHandler.passesAll(pObject.getPreReqList(), aPC, pObject);
+			return PrereqHandler.passesAll(pObject.getPrerequisiteList(), aPC, pObject);
 		}
 	}
 }

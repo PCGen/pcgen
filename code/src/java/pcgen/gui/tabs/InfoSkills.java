@@ -115,6 +115,7 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -391,10 +392,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		return available ? 
 			new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0),
-					PrereqHandler.passesAll((skill).getPreReqList(), pc, skill)) : 
+					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill)) : 
 			new SkillWrapper(skill, SkillModifier.modifier(skill, pc), skill.getTotalRank(pc), 
 					Integer.valueOf(skill.getOutputIndex()),
-					PrereqHandler.passesAll((skill).getPreReqList(), pc, skill));
+					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill));
 	}
 
 	/**
@@ -2339,7 +2340,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")) //$NON-NLS-1$
 				.append(aSkill.getSafe(ObjectKey.EXCLUSIVE) ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
 
-			String bString = aSkill.preReqHTMLStrings(pc, false);
+			String bString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aSkill.getPrerequisiteList(), false);
 
 			if (bString.length() > 0)
 			{
@@ -3029,7 +3031,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 								new SkillWrapper(aSkill, SkillModifier.modifier(aSkill, pc),
 									aSkill.getTotalRank(pc), 
 									Integer.valueOf(aSkill.getOutputIndex()),
-									PrereqHandler.passesAll((aSkill).getPreReqList(), pc, aSkill));
+									PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc, aSkill));
 						fn.setItem(skillA);
 
 						if (needRefresh)
@@ -3267,7 +3269,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 								if (Globals.isSkillTypeHidden(anObj.toString()))
 								{
 									PObjectNode nameNode = new PObjectNode(createSkillWrapper(available, skill, pc));
-									PrereqHandler.passesAll(skill.getPreReqList(), pc,
+									PrereqHandler.passesAll(skill.getPrerequisiteList(), pc,
 										skill);
 									set.add(nameNode);
 									continue;
@@ -3286,7 +3288,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						}
 
 						PObjectNode nameNode = new PObjectNode(part);
-						PrereqHandler.passesAll(skill.getPreReqList(), pc,
+						PrereqHandler.passesAll(skill.getPrerequisiteList(), pc,
 							skill);
 						set.add(nameNode);
 					}
@@ -4388,7 +4390,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if (theSkill.compareTo(aSkill) != 0)
 			{
 				if (aSkill.hasPrerequisites()
-					&& PrereqHandler.passesAll(aSkill.getPreReqList(), pc,
+					&& PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc,
 						aSkill))
 				{
 					prereqSkills.add(aSkill);
@@ -4410,7 +4412,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			final Skill aSkill = iter.next();
 
-			if (PrereqHandler.passesAll(aSkill.getPreReqList(), pc, aSkill))
+			if (PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc, aSkill))
 			{
 				iter.remove();
 			}

@@ -385,7 +385,7 @@ public class NPCGenerator
 		{
 			final Ability ability = aFeatList.get(Globals.getRandomInt(aFeatList.size()));
 
-			if (!PrereqHandler.passesAll(ability.getPreReqList(), aPC, ability))
+			if (!PrereqHandler.passesAll(ability.getPrerequisiteList(), aPC, ability))
 			{
 				// We will leave the feat because we may qualify later.
 				continue;
@@ -424,7 +424,7 @@ public class NPCGenerator
 			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
 			{
 				Domain domain = iterator.next();
-				if (! PrereqHandler.passesAll(domain.getPreReqList(), aPC, domain))
+				if (! PrereqHandler.passesAll(domain.getPrerequisiteList(), aPC, domain))
 				{
 					iterator.remove();
 				}
@@ -607,7 +607,7 @@ public class NPCGenerator
 					continue;
 				}
 				Logging.debugPrint( "NPCGenerator: Selected " + r + " for race " + aRace ); //$NON-NLS-1$ //$NON-NLS-2$
-				if (PrereqHandler.passesAll(r.getPreReqList(), aPC, r))
+				if (PrereqHandler.passesAll(r.getPrerequisiteList(), aPC, r))
 				{
 					Logging.debugPrint( "NPCGenerator: PC qualifies for race " + r ); //$NON-NLS-1$
 					aPC.setRace(r);
@@ -649,7 +649,7 @@ public class NPCGenerator
 							break;
 						}
 						if (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT)
-							&& PrereqHandler.passesAll(aClass.getPreReqList(), aPC,
+							&& PrereqHandler.passesAll(aClass.getPrerequisiteList(), aPC,
 							aClass) && aClass.isQualified(aPC))
 						{
 							Logging.debugPrint( "NPCGenerator: Selecting " + aClass + " for class " + classList.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$

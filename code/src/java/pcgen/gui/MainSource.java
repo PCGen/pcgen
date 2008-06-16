@@ -1788,7 +1788,7 @@ public class MainSource extends FilterAdapterPanel
 				    PObjectNode aFN = new PObjectNode();
 				    aFN.setParent(rootAsPObjectNode);
 				    aFN.setItem(aCamp);
-				    PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp);
+				    PrereqHandler.passesAll(aCamp.getPrerequisiteList(), aPC, aCamp);
 				    rootAsPObjectNode.addChild(aFN);
 				}
 			    }

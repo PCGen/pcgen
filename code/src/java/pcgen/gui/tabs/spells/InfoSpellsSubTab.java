@@ -63,6 +63,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -873,7 +874,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			b.appendI18nElement("in_descrip", pc.parseSpellString(aSpell, 
 				aSpell.getDescription(getPc()), cs.getOwner()));
 
-			final String cString = aSpell.preReqHTMLStrings(pc, false);
+			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aSpell.getPrerequisiteList(), false);
 			if (cString.length() > 0)
 			{
 				b.appendLineBreak();

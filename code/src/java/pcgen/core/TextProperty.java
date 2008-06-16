@@ -73,7 +73,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 
 	boolean pcQualifiesFor(final PlayerCharacter pc)
 	{
-		if (!PrereqHandler.passesAll(getPreReqList(), pc, null))
+		if (!PrereqHandler.passesAll(getPrerequisiteList(), pc, null))
 		{
 			return false;
 		}

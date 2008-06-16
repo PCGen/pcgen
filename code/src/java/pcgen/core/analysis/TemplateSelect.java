@@ -18,7 +18,7 @@ public class TemplateSelect
 		final List<PCTemplate> availableList = new ArrayList<PCTemplate>();
 		for (PCTemplate pct : list)
 		{
-			if (PrereqHandler.passesAll(pct.getPreReqList(), aPC, pct))
+			if (PrereqHandler.passesAll(pct.getPrerequisiteList(), aPC, pct))
 			{
 				availableList.add(pct);
 			}

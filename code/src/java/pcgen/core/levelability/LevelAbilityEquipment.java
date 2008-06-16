@@ -142,7 +142,7 @@ final class LevelAbilityEquipment extends LevelAbility
 
 			if (!aPC.getEquipmentMasterList().contains(aEquipment))
 			{
-				if (PrereqHandler.passesAll(aEquipment.getPreReqList(), aPC, aEquipment))
+				if (PrereqHandler.passesAll(aEquipment.getPrerequisiteList(), aPC, aEquipment))
 				{
 					anArrayList.add(aToken);
 				}

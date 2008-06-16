@@ -156,7 +156,7 @@ public final class SkillLanguage
 			for (Language lang : Globals.getContext().ref
 					.getConstructedCDOMObjects(Language.class))
 			{
-				if (!PrereqHandler.passesAll(lang.getPreReqList(), aPC, lang))
+				if (!PrereqHandler.passesAll(lang.getPrerequisiteList(), aPC, lang))
 				{
 					continue;
 				}

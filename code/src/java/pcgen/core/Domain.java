@@ -127,7 +127,7 @@ public final class Domain extends PObject
 
 					final String book = pcSpell.getSpellbook();
 
-					if (PrereqHandler.passesAll(pcSpell.getPreReqList(), aPC, this))
+					if (PrereqHandler.passesAll(pcSpell.getPrerequisiteList(), aPC, this))
 					{
 						final List<CharacterSpell> aList = aClass.getSpellSupport()
 							.getCharacterSpell(aSpell, book, -1);

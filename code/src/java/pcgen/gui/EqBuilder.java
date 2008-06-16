@@ -78,6 +78,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialProperty;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -2172,7 +2173,8 @@ final class EqBuilder extends JPanel
 		 */
 		protected Object getPrereqValue(PlayerCharacter aPlayerCharacter, EquipmentModifier e) {
 			Object sRet;
-			sRet = e.preReqHTMLStrings(aPlayerCharacter, aNewEq);
+			sRet = PrerequisiteUtilities.preReqHTMLStringsForList(
+					aPlayerCharacter, aNewEq, e.getPrerequisiteList(), true);
 			return sRet;
 		}
 

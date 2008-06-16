@@ -81,6 +81,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
@@ -425,7 +426,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 				b.appendI18nElement("in_irInfoType", aRace.getType()); //$NON-NLS-1$
 			}
 
-			String bString = aRace.preReqHTMLStrings(getPc(), false);
+			String bString = PrerequisiteUtilities.preReqHTMLStringsForList(getPc(), null,
+			aRace.getPrerequisiteList(), false);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();
@@ -1160,7 +1162,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				return race.preReqHTMLStrings(getPc());
+				return PrerequisiteUtilities.preReqHTMLStringsForList(getPc(), null,
+				race.getPrerequisiteList(), true);
 			}
 			return null;
 		}

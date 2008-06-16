@@ -239,7 +239,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 			Domain domain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 			if (domain != null)
 			{
-				if (!PrereqHandler.passesAll(domain.getPreReqList(), aPC, domain))
+				if (!PrereqHandler.passesAll(domain.getPrerequisiteList(), aPC, domain))
 				{
 					warnings.add("DEITY: Not qualified for domain \"" +
 								 domain.getDisplayName() + "\"");

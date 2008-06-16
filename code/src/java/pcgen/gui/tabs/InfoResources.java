@@ -89,6 +89,7 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.Follower;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -1220,11 +1221,13 @@ public class InfoResources extends FilterAdapterPanel implements
 			}
 
 
-			if (option != null && option.preReqHTMLStrings(pc).length() > 0)
+			if (option != null && PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			option.getPrerequisiteList(), true).length() > 0)
 			{
 				b.appendLineBreak();
 				b.appendI18nElement("in_requirements", //$NON-NLS-1$
-					option.preReqHTMLStrings(pc));
+					PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+					option.getPrerequisiteList(), true));
 			}
 			
 			bString = aRace.getDefaultSourceString();

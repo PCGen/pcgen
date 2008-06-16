@@ -2772,7 +2772,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (hasPrerequisites())
 		{
 			final StringWriter writer = new StringWriter();
-			for (Prerequisite prereq : getPreReqList())
+			for (Prerequisite prereq : getPrerequisiteList())
 			{
 				final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 				try
@@ -4170,7 +4170,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 			boolean returnZero = false;
 
-			if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))
+			if (!PrereqHandler.passesAll(getPrerequisiteList(), aPC, this))
 			{
 				returnZero = true;
 			}

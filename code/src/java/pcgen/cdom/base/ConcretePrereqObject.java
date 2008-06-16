@@ -23,7 +23,6 @@
  */
 package pcgen.cdom.base;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -31,20 +30,18 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 /**
- * This class implements support for prerequisites for an object.
+ * A ConcretePrereqObject is an object that contains a list of Prerequisites.
+ * This list of Prerequisites is designed to serve as a list of conditions that
+ * must be met before the PrereqObject can be "used"
  * 
- * @author boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
+ * ConcretePrereqObject is intended to provide a quick foundation class that
+ * implements PrereqObject.
  */
 public class ConcretePrereqObject implements Cloneable, PrereqObject
 {
@@ -54,11 +51,12 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	/**
 	 * Tests if the specified PlayerCharacter passes all the prerequisites.
 	 * 
-	 * @param aPC The <tt>PlayerCharacter</tt> to test.
+	 * @param aPC
+	 *            The <tt>PlayerCharacter</tt> to test.
 	 * 
 	 * @return <tt>true</tt> if the PC passes all the prerequisites.
 	 */
-	public boolean qualifies( final PlayerCharacter aPC )
+	public boolean qualifies(final PlayerCharacter aPC)
 	{
 		if (thePrereqs == null)
 		{
@@ -69,22 +67,11 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	}
 
 	/**
-	 * Get the list of <tt>Prerequesite</tt>s.
+	 * Returns a List of the Prerequisite objects contained in the PrereqObject.
+	 * If the PrereqObject contains no Prerequisites, the return value may be
+	 * null or an empty list, it is implementation-specific.
 	 * 
-	 * @return An unmodifiable <tt>List</tt> of <tt>Prerequesite</tt>s or <tt>
-	 * null</tt> if no prerequisites have been set.
-	 */
-	public List<Prerequisite> getPreReqList()
-	{
-		return getPrerequisiteList();
-	}
-
-	/**
-	 * Get the list of <tt>Prerequesite</tt>s.
-	 * 
-	 * @return An unmodifiable <tt>List</tt> of <tt>Prerequesite</tt>s or
-	 *         <tt>
-	 * null</tt> if no prerequisites have been set.
+	 * @return A List of Prerequesite objects contained in the PrereqObject.
 	 */
 	public List<Prerequisite> getPrerequisiteList()
 	{
@@ -97,23 +84,28 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		 * 5.14 - to be changed once 5.14 code is gone and this can be changed
 		 * to return Collection or Set (or perhaps ListSet?)
 		 */
-		return Collections.unmodifiableList(new ArrayList<Prerequisite>(thePrereqs));
+		return Collections.unmodifiableList(new ArrayList<Prerequisite>(
+				thePrereqs));
 	}
 
 	/**
 	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
 	 * 
-	 * <p>If the Prerequisite kind is &quot;clear&quot; all the prerequisites
-	 * will be cleared from the list.
+	 * <p>
+	 * If the Prerequisite kind is &quot;clear&quot; all the prerequisites will
+	 * be cleared from the list.
 	 * 
-	 * @param preReq The <tt>Prerequisite</tt> to add.
-	 * @param levelQualifier A level qualifier.
+	 * @param preReq
+	 *            The <tt>Prerequisite</tt> to add.
+	 * @param levelQualifier
+	 *            A level qualifier.
 	 * 
 	 * @see pcgen.core.prereq.Prerequisite#setLevelQualifier(int)
 	 */
-	public final void addPreReq(final Prerequisite preReq, final int levelQualifier)
+	public final void addPreReq(final Prerequisite preReq,
+			final int levelQualifier)
 	{
-		if ( preReq == null )
+		if (preReq == null)
 		{
 			return;
 		}
@@ -136,13 +128,14 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	}
 
 	/**
-	 * Returns true if this object has any prerequisites of the kind that
-	 * is passed in.
-	 *
-	 * @param matchType The kind of Prerequisite to test for.
+	 * Returns true if this object has any prerequisites of the kind that is
+	 * passed in.
 	 * 
-	 * @return <tt>true</tt> if this object has a prerequisite of the kind that
-	 * is passed in
+	 * @param matchType
+	 *            The kind of Prerequisite to test for.
+	 * 
+	 * @return <tt>true</tt> if this object has a prerequisite of the kind
+	 *         that is passed in
 	 * 
 	 * @see pcgen.core.prereq.Prerequisite#getKind()
 	 */
@@ -153,7 +146,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 			return false;
 		}
 
-		for (Prerequisite prereq : getPreReqList())
+		for (Prerequisite prereq : getPrerequisiteList())
 		{
 			if (PrerequisiteUtilities.hasPreReqKindOf(prereq, matchType))
 			{
@@ -165,75 +158,18 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	}
 
 	/**
-	 * Returns the pre requesites as an HTML String
-	 * @param aPC
-	 * @return the pre requesites as an HTML String
-	 */
-	public final String preReqHTMLStrings(final PlayerCharacter aPC)
-	{
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, null, thePrereqs, true);
-	}
-
-	/**
-	 * Returns the pre requesites as an HTML String with a header
-	 * @param aPC
-	 * @param includeHeader
-	 * @return the pre requesites as an HTML String
-	 */
-	public String preReqHTMLStrings(final PlayerCharacter aPC, final boolean includeHeader)
-	{
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, null, thePrereqs, includeHeader);
-	}
-
-	/**
-	 * Returns the pre requesites as an HTML String given an object
-	 * @param aPC
-	 * @param p
-	 * @return the pre requesites as an HTML String given an object
-	 */
-	public final String preReqHTMLStrings(final PlayerCharacter aPC, final PObject p)
-	{
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, p, thePrereqs, true);
-	}
-
-	/**
-	 * Returns the prerequisites in &quot;PCC&quot; format.
+	 * Clones this ConcretePrereqObject. This is not a "deep" clone, in that the
+	 * List of Prerequisites is cloned (to allow Prerequisites to be
+	 * added/removed without altering the original or the clone), but the
+	 * Prerequisites contained within the ConcretePrereqObject are not cloned.
 	 * 
-	 * @return A string in &quot;PCC&quot; format or an empty string.
-	 */
-	public String getPCCText()
-	{
-		if ( thePrereqs == null )
-		{
-			return Constants.EMPTY_STRING;
-		}
-		
-		final StringWriter writer = new StringWriter();
-		for ( final Prerequisite prereq : thePrereqs )
-		{
-			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-			writer.write(Constants.PIPE);
-			try
-			{
-				prereqWriter.write(writer, prereq);
-			}
-			catch (PersistenceLayerException e)
-			{
-				e.printStackTrace();
-			}
-		}
-		return writer.toString();
-	}
-	
-	/**
 	 * @see java.lang.Object#clone()
 	 */
 	@Override
-	public Object clone()
-		throws CloneNotSupportedException
+	public ConcretePrereqObject clone() throws CloneNotSupportedException
 	{
-		final ConcretePrereqObject obj = (ConcretePrereqObject)super.clone();
-		if ( thePrereqs != null )
+		final ConcretePrereqObject obj = (ConcretePrereqObject) super.clone();
+		if (thePrereqs != null)
 		{
 			obj.thePrereqs = new ListSet<Prerequisite>();
 			obj.thePrereqs.addAll(thePrereqs);
@@ -242,9 +178,11 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	}
 
 	/**
-	 * Adds a <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 * Adds a Collection of Prerequisite objects to the ConcretePrereqObject.
 	 * 
-	 * @param prereqs A <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 * @param prereqs
+	 *            A Collection of Prerequisite objects to added to the
+	 *            ConcretePrereqObject.
 	 */
 	public void addAllPrerequisites(final Collection<Prerequisite> prereqs)
 	{
@@ -263,44 +201,34 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	}
 
 	/**
-	 * Adds an <tt>Array</tt> of <tt>Prerequisite</tt> objects.
+	 * Add a Prerequisite to the ConcretePrereqObject.
 	 * 
-	 * @param prereqs An <tt>Array</tt> of <tt>Prerequisite</tt> objects.
-	 */
-	public void addAllPrerequisites(Prerequisite... prereqs)
-	{
-		if (prereqs == null || prereqs.length == 0)
-		{
-			return;
-		}
-		if (thePrereqs == null)
-		{
-			thePrereqs = new ListSet<Prerequisite>(prereqs.length);
-		}
-		for (final Prerequisite pre : prereqs)
-		{
-			addPrerequisite(pre);
-		}
-	}
-
-	/**
-	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
+	 * If the Prerequisite kind is CLEAR all the prerequisites will be cleared
+	 * from the list.
 	 * 
-	 * <p>If the Prerequisite kind is &quot;clear&quot; all the prerequisites
-	 * will be cleared from the list.
-	 * 
-	 * @param preReq The <tt>Prerequisite</tt> to add.
+	 * @param prereq
+	 *            The Prerequisite to add to the ConcretePrereqObject.
 	 */
 	public void addPrerequisite(Prerequisite preReq)
 	{
 		this.addPreReq(preReq, -1);
 	}
 
+	/**
+	 * Remove All Prerequisites contained in the ConcretePrereqObject.
+	 */
 	public void clearPrerequisiteList()
 	{
 		thePrereqs = null;
 	}
 
+	/**
+	 * Returns the number of Prerequisites contained in the
+	 * ConcretePrereqObject.
+	 * 
+	 * @return the number of Prerequisites contained in the
+	 *         ConcretePrereqObject.
+	 */
 	public int getPrerequisiteCount()
 	{
 		if (thePrereqs == null)
@@ -310,16 +238,31 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		return thePrereqs.size();
 	}
 
-	public Class<? extends PrereqObject> getReferenceClass()
-	{
-		return getClass();
-	}
-
+	/**
+	 * Returns true if this ConcretePrereqObject contains any Prerequisites;
+	 * false otherwise.
+	 * 
+	 * @return true if this ConcretePrereqObject contains any Prerequisites;
+	 *         false otherwise.
+	 */
 	public boolean hasPrerequisites()
 	{
 		return thePrereqs != null;
 	}
 
+	/**
+	 * Returns true if the given PrereqObject contains Prerequisites that are
+	 * equal to the Prerequisites contained within this ConcretePrereqObject. If
+	 * the number of Prerequisites does not match, or if the Prerequisites are
+	 * not equal, this will return false.
+	 * 
+	 * @param other
+	 *            The PrereqObject for which the Prerequisites will be compared
+	 *            to the Prerequisites in this ConcretePrereqObject.
+	 * @return true if the given PrereqObject contains Prerequisites that are
+	 *         equal to the Prerequisites contained within this
+	 *         ConcretePrereqObject; false otherwise
+	 */
 	public boolean equalsPrereqObject(PrereqObject other)
 	{
 		if (this == other)

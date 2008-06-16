@@ -1160,7 +1160,7 @@ abstract class AlignmentFilter extends AbstractPObjectFilter
 		}
 
 		if (pObject.hasPrerequisites()) {
-			for (Prerequisite p : pObject.getPreReqList()) {
+			for (Prerequisite p : pObject.getPrerequisiteList()) {
 				// TODO - Fix prereqs to not use/give out strings.
 				if ("ALIGN".equalsIgnoreCase( p.getKind() )) //$NON-NLS-1$
 				{

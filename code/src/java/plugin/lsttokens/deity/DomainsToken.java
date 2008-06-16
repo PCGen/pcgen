@@ -137,7 +137,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			}
 			for (AssociatedPrereqObject ao : proList)
 			{
-				ao.addAllPrerequisites(prereq);
+				ao.addPrerequisite(prereq);
 			}
 		}
 

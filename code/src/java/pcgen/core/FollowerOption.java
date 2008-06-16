@@ -131,7 +131,7 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 			{
 				final FollowerOption opt = new FollowerOption( r );
 				opt.setAdjustment( getAdjustment() );
-				opt.addAllPrerequisites(getPreReqList());
+				opt.addAllPrerequisites(getPrerequisiteList());
 				options.add( opt );
 			}
 		}

@@ -531,7 +531,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	@Override
 	protected void finishObject(final PObject target)
 	{
-		final List<Prerequisite> preReqList = target.getPreReqList();
+		final List<Prerequisite> preReqList = target.getPrerequisiteList();
 		if (preReqList != null)
 		{
 			for (Prerequisite preReq : preReqList)

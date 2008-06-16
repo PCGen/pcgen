@@ -56,7 +56,7 @@ public class FeatParserTest extends AbstractCharacterTestCase
 
 		is(feat.getKeyName(), strEq("Two Weapon Fighting"));
 
-		List<Prerequisite> prereqs = feat.getPreReqList();
+		List<Prerequisite> prereqs = feat.getPrerequisiteList();
 		is(prereqs.size(), eq(1), "there is only one Prerequisite.");
 		Prerequisite prereq = prereqs.get(0);
 		assertEquals(
@@ -96,7 +96,7 @@ public class FeatParserTest extends AbstractCharacterTestCase
 
 		is(feat.getKeyName(), strEq("Two Weapon Fighting"));
 
-		List<Prerequisite> prereqs = feat.getPreReqList();
+		List<Prerequisite> prereqs = feat.getPrerequisiteList();
 		is(prereqs.size(), eq(1), "there is only one Prerequisite.");
 		prereq = prereqs.get(0);
 		assertEquals(

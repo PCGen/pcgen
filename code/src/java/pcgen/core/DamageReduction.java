@@ -689,7 +689,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		//Have to do deep clone of Prereqs to match previous behavior :/
 		if (hasPrerequisites()) {
 			clone.clearPrerequisiteList();
-			for (Prerequisite prereq : getPreReqList())
+			for (Prerequisite prereq : getPrerequisiteList())
 			{
 				clone.addPrerequisite(prereq.clone());
 			}
@@ -711,7 +711,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		result.append(theBypass);
 
 		final StringWriter writer = new StringWriter();
-		for (Prerequisite prereq : getPreReqList())
+		for (Prerequisite prereq : getPrerequisiteList())
 		{
 			if (!includeLevel && "class".equals(prereq.getKind()))
 			{
@@ -742,7 +742,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 	 */
 	public boolean isForClassLevel(String keyName)
 	{
-		for (Prerequisite prereq : getPreReqList())
+		for (Prerequisite prereq : getPrerequisiteList())
 		{
 			if (DamageReduction.isPrereqForClassLevel(prereq, keyName))
 			{

@@ -45,6 +45,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
@@ -160,7 +161,8 @@ public class AbilityInfoPanel extends JPanel
 				PropertyFactory.getString("Ability.Info.Stacks")); //$NON-NLS-1$
 		}
 
-		final String cString = theAbility.preReqHTMLStrings(thePC, false);
+		final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(thePC, null,
+		theAbility.getPrerequisiteList(), false);
 
 		if (cString.length() > 0)
 		{

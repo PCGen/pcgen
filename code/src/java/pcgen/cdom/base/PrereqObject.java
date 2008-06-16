@@ -1,5 +1,6 @@
 /*
  * PrereqObject.java Copyright 2006 Aaron Divinsky <boomer70@yahoo.com>
+ *   Copyright 2008 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -27,67 +28,60 @@ import java.util.List;
 import pcgen.core.prereq.Prerequisite;
 
 /**
- * This class implements support for prerequisites for an object.
- * 
- * @author boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
+ * A PrereqObject is an object that contains a list of Prerequisites. This list
+ * of Prerequisites is designed to serve as a list of conditions that must be
+ * met before the PrereqObject can be "used"
  */
 public interface PrereqObject
 {
-	
-	/**
-	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
-	 * 
-	 * <p>If the Prerequisite kind is &quot;clear&quot; all the prerequisites
-	 * will be cleared from the list.
-	 * 
-	 * @param preReq The <tt>Prerequisite</tt> to add.
-	 */
-	public void addPrerequisite(Prerequisite preReq);
 
 	/**
-	 * Adds an <tt>Array</tt> of <tt>Prerequisite</tt> objects.
+	 * Add a Prerequisite to the PrereqObject.
 	 * 
-	 * @param prereqs An <tt>Array</tt> of <tt>Prerequisite</tt> objects.
+	 * If the Prerequisite kind is CLEAR all the prerequisites will be cleared
+	 * from the list.
+	 * 
+	 * @param prereq
+	 *            The Prerequisite to add to the PrereqObject.
 	 */
-	public void addAllPrerequisites(Prerequisite... prereqs);
+	public void addPrerequisite(Prerequisite prereq);
 
 	/**
-	 * Adds a <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 * Adds a Collection of Prerequisite objects to the PrereqObject.
 	 * 
-	 * @param prereqs A <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 * @param prereqs
+	 *            A Collection of Prerequisite objects to added to the
+	 *            PrereqObject.
 	 */
 	public void addAllPrerequisites(Collection<Prerequisite> prereqs);
-	
-	/**
-	 * Get the list of <tt>Prerequesite</tt>s.
-	 * 
-	 * @return An unmodifiable <tt>List</tt> of <tt>Prerequesite</tt>s or
-	 *         <tt>
-	 * null</tt> if no prerequisites have been set.
-	 */
-	public List<Prerequisite> getPrerequisiteList();
 
 	/**
-	 * Clear the prerequisite list.
-	 */
-	public void clearPrerequisiteList();
-
-	/**
-	 * Tests to see if this object has any prerequisites associated with it.
+	 * Returns true if this PrereqObject contains any Prerequisites; false
+	 * otherwise.
 	 * 
-	 * @return <tt>true</tt> if it has prereqs
+	 * @return true if this PrereqObject contains any Prerequisites; false
+	 *         otherwise.
 	 */
 	public boolean hasPrerequisites();
 
 	/**
-	 * Gets the number of prerequisites currently associated.
+	 * Returns a List of the Prerequisite objects contained in the PrereqObject.
+	 * If the PrereqObject contains no Prerequisites, the return value may be
+	 * null or an empty list, it is implementation-specific.
 	 * 
-	 * @return the number of prerequesites
+	 * @return A List of Prerequesite objects contained in the PrereqObject.
+	 */
+	public List<Prerequisite> getPrerequisiteList();
+
+	/**
+	 * Remove All Prerequisites contained in the PrereqObject.
+	 */
+	public void clearPrerequisiteList();
+
+	/**
+	 * Returns the number of Prerequisites contained in the PrereqObject.
+	 * 
+	 * @return the number of Prerequisites contained in the PrereqObject.
 	 */
 	public int getPrerequisiteCount();
-
-	public Class<? extends PrereqObject> getReferenceClass();
-	
 }

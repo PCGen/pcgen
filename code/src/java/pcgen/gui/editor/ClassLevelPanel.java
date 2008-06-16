@@ -259,7 +259,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext();)
 		{
 			DamageReduction dr = i.next();
-			List<Prerequisite> preList = dr.getPreReqList();
+			List<Prerequisite> preList = dr.getPrerequisiteList();
 			for (Iterator<Prerequisite> j = preList.iterator(); j.hasNext();)
 			{
 				Prerequisite prereq = j.next();

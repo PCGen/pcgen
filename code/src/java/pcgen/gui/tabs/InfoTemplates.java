@@ -78,6 +78,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.TemplateModifier;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -695,7 +696,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				b.appendI18nElement("in_irInfoType", temp.getType()); //$NON-NLS-1$
 			}
 
-			String bString = temp.preReqHTMLStrings(getPc(), false);
+			String bString = PrerequisiteUtilities.preReqHTMLStringsForList(getPc(), null,
+			temp.getPrerequisiteList(), false);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();
@@ -844,7 +846,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		PCTemplate template = getSelectedTemplate();
 
-		if ((template == null) || !PrereqHandler.passesAll(template.getPreReqList(), getPc(), template))
+		if ((template == null) || !PrereqHandler.passesAll(template.getPrerequisiteList(), getPc(), template))
 		{
 			return;
 		}
@@ -1262,7 +1264,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					PObjectNode aFN = new PObjectNode();
 					aFN.setParent((PObjectNode) super.getRoot());
 					aFN.setItem(template);
-					PrereqHandler.passesAll(template.getPreReqList(), getPc(),
+					PrereqHandler.passesAll(template.getPrerequisiteList(), getPc(),
 						template);
 					((PObjectNode) super.getRoot()).addChild(aFN);
 				}
@@ -1295,7 +1297,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 						PObjectNode aFN = new PObjectNode();
 						aFN.setParent(rootAsPObjectNode.getChild(i));
 						aFN.setItem(template);
-						PrereqHandler.passesAll(template.getPreReqList(),
+						PrereqHandler.passesAll(template.getPrerequisiteList(),
 							getPc(), template);
 						rootAsPObjectNode.getChild(i).addChild(aFN);
 						added = true;
@@ -1334,7 +1336,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 							PObjectNode aFN = new PObjectNode();
 							aFN.setParent(rootAsPObjectNode.getChild(i));
 							aFN.setItem(template);
-							PrereqHandler.passesAll(template.getPreReqList(),
+							PrereqHandler.passesAll(template.getPrerequisiteList(),
 								getPc(), template);
 							rootAsPObjectNode.getChild(i).addChild(aFN);
 							added = true;

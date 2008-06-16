@@ -88,7 +88,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 				// but does not have.
 				for ( Domain domain : refContext.getConstructedCDOMObjects(Domain.class) )
 				{
-					if (PrereqHandler.passesAll(domain.getPreReqList(), aPc, domain))
+					if (PrereqHandler.passesAll(domain.getPrerequisiteList(), aPc, domain))
 					{
 						boolean found = false;
 						for ( CharacterDomain cd : aPc.getCharacterDomainList())

@@ -299,7 +299,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	{
 		if (kitVisible == VISIBLE_QUALIFIED)
 		{
-			final List<Prerequisite> prereqList = getPreReqList();
+			final List<Prerequisite> prereqList = getPrerequisiteList();
 
 			if (PrereqHandler.passesAll(prereqList, aPC, this))
 			{
@@ -431,7 +431,7 @@ public final class Kit extends PObject implements Comparable<Object>
 
 	private String getPreReqHTMLStrings(PlayerCharacter aPC)
 	{
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPreReqList(), false);
+		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false);
 	}
 
 	/**

@@ -21,6 +21,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.HTMLUtils;
 import pcgen.gui.TableColumnManagerModel;
@@ -275,7 +276,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 
 				if (race != null)
 				{
-					sRet = race.preReqHTMLStrings(this.pc);
+					sRet = PrerequisiteUtilities.preReqHTMLStringsForList(this.pc, null,
+					race.getPrerequisiteList(), true);
 				}
 
 				break;

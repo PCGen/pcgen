@@ -91,6 +91,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -866,7 +867,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			b.appendSpacer();
 			b.appendI18nElement("in_sumTYPE", aRace.getType()); //$NON-NLS-1
 
-			final String cString = aRace.preReqHTMLStrings(pc, false);
+			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aRace.getPrerequisiteList(), false);
 			if (cString.length() > 0)
 			{
 				b.appendSpacer();
@@ -984,7 +986,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			b.appendSpacer();
 			b.appendI18nElement("in_sumTYPE", aClass.getType()); //$NON-NLS-1
 
-			final String cString = aClass.preReqHTMLStrings(pc, false);
+			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aClass.getPrerequisiteList(), false);
 			if (cString.length() > 0)
 			{
 				b.appendSpacer();
@@ -2196,7 +2199,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final Race pcRace = pc.getRace();
 		raceComboModel.setSelectedItem(pcRace);
 
-		if (PrereqHandler.passesAll(pcRace.getPreReqList(), pc, pcRace))
+		if (PrereqHandler.passesAll(pcRace.getPrerequisiteList(), pc, pcRace))
 		{
 			labelRace.setForeground(new Color(SettingsHandler
 				.getPrereqQualifyColor()));

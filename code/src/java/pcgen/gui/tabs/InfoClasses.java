@@ -87,6 +87,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
 import pcgen.core.SubClass;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -450,11 +451,13 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			//
 			// Prereqs
 			//
-			aString = aClass.preReqHTMLStrings(pc, false);
+			aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aClass.getPrerequisiteList(), false);
 
 			if (isSubClass && (aString.length() == 0))
 			{
-				aString = lastClass.preReqHTMLStrings(pc, false);
+				aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+				lastClass.getPrerequisiteList(), false);
 			}
 
 			if (aString.length() > 0)
@@ -1824,7 +1827,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					{
 						if (pcclass != null)
 						{
-							retString = pcclass.preReqHTMLStrings(pc);
+							retString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+							pcclass.getPrerequisiteList(), true);
 						}
 					}
 					return retString;
@@ -1917,7 +1921,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					PObjectNode aSN = new PObjectNode();
 					aSN.setParent(aFN);
 					aSN.setItem(sClass);
-					PrereqHandler.passesAll(sClass.getPreReqList(), pc, sClass);
+					PrereqHandler.passesAll(sClass.getPrerequisiteList(), pc, sClass);
 					aFN.addChild(aSN);
 				}
 			}
@@ -1965,7 +1969,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 							PObjectNode aFN = new PObjectNode();
 							aFN.setParent((PObjectNode) super.getRoot());
 							aFN.setItem(aClass);
-							PrereqHandler.passesAll(aClass.getPreReqList(), pc,
+							PrereqHandler.passesAll(aClass.getPrerequisiteList(), pc,
 								aClass);
 							((PObjectNode) super.getRoot()).addChild(aFN);
 
@@ -2005,7 +2009,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 								PObjectNode aFN = new PObjectNode();
 								aFN.setParent(rootAsPObjectNode.getChild(i));
 								aFN.setItem(aClass);
-								PrereqHandler.passesAll(aClass.getPreReqList(),
+								PrereqHandler.passesAll(aClass.getPrerequisiteList(),
 									pc, aClass);
 								rootAsPObjectNode.getChild(i).addChild(aFN);
 								added = true;
@@ -2055,7 +2059,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 								PObjectNode aFN = new PObjectNode();
 								aFN.setParent(rootAsPObjectNode.getChild(i));
 								aFN.setItem(aClass);
-								PrereqHandler.passesAll(aClass.getPreReqList(),
+								PrereqHandler.passesAll(aClass.getPrerequisiteList(),
 									pc, aClass);
 								rootAsPObjectNode.getChild(i).addChild(aFN);
 								added = true;

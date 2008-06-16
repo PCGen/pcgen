@@ -3086,7 +3086,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 */
 	public boolean meetsPreReqs(PlayerCharacter currentPC) {
-		return PrereqHandler.passesAll(this.getPreReqList(), this, currentPC);
+		return PrereqHandler.passesAll(getPrerequisiteList(), this, currentPC);
 	}
 
 	/**
@@ -3383,7 +3383,7 @@ public final class Equipment extends PObject implements Serializable,
 			//
 			if (hasPrerequisites())
 			{
-				for (Prerequisite aBonus : getPreReqList()) {
+				for (Prerequisite aBonus : getPrerequisiteList()) {
 					if ("SIZE".equalsIgnoreCase(aBonus.getKind())) {
 						final int iOldPre = Globals.sizeInt(aBonus.getOperand());
 						iNewSize += (iOldPre - iOldSize);

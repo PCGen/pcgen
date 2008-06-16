@@ -109,7 +109,7 @@ public class QualifiedObject<T> extends ConcretePrereqObject
 		result.append("Object:");
 		result.append(theObject.toString());
 		result.append(", Prereq:");
-		result.append(getPreReqList().toString());
+		result.append(getPrerequisiteList().toString());
 		// TODO Auto-generated method stub
 		return result.toString();
 	}

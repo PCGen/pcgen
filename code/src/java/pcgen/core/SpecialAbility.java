@@ -202,7 +202,7 @@ public final class SpecialAbility extends TextProperty
 	{
 
 		// If the PC doesn't meet all of pre-reqs then return false
-		if (!PrereqHandler.passesAll(getPreReqList(), aPC, null))
+		if (!PrereqHandler.passesAll(getPrerequisiteList(), aPC, null))
 		{
 			return false;
 		}

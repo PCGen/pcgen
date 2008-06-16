@@ -230,7 +230,7 @@ public class TemplateToken extends Token
 		List<String> saDescList = new ArrayList<String>();
 		for (SpecialAbility sa : saList)
 		{
-			if (!PrereqHandler.passesAll(sa.getPreReqList(), pc, sa))
+			if (!PrereqHandler.passesAll(sa.getPrerequisiteList(), pc, sa))
 			{
 				continue;
 			}

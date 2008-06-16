@@ -412,7 +412,7 @@ class LevelAbilityFeat extends LevelAbility
 
 			if (
 				isVirtual ||
-				PrereqHandler.passesAll(anAbility.getPreReqList(), aPC, anAbility))
+				PrereqHandler.passesAll(anAbility.getPrerequisiteList(), aPC, anAbility))
 			{
 				if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{

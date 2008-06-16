@@ -53,7 +53,7 @@ public class PCSpell extends PObject {
 			sBuff.append(dcFormula);
 		}
 
-		final List<Prerequisite> preReqs = getPreReqList();
+		final List<Prerequisite> preReqs = getPrerequisiteList();
 
 		sBuff
 			.append(PrerequisiteUtilities.getPrerequisitePCCText(preReqs, "|"));

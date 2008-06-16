@@ -128,7 +128,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					if (aBonus.hasPrerequisites())
 					{
 						newBonus.clearPrerequisiteList();
-						for (Prerequisite prereq : aBonus.getPreReqList())
+						for (Prerequisite prereq : aBonus.getPrerequisiteList())
 						{
 							try
 							{
@@ -872,7 +872,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				return true;
 			}
 
-			for (Prerequisite preReq : getPreReqList())
+			for (Prerequisite preReq : getPrerequisiteList())
 			{
 				if (
 					"TYPE".equalsIgnoreCase(preReq.getKind()) &&

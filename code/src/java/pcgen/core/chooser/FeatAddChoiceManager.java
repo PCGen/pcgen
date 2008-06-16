@@ -140,7 +140,7 @@ public class FeatAddChoiceManager extends AbstractBasicStringChoiceManager {
 			}
 		}
 
-		if (PrereqHandler.passesAll(anAbility.getPreReqList(), aPc, anAbility))
+		if (PrereqHandler.passesAll(anAbility.getPrerequisiteList(), aPc, anAbility))
 		{
 			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{

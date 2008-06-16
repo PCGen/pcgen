@@ -587,7 +587,7 @@ public final class Race extends PObject
 	{
 		if (hasPrerequisites())
 		{
-			for (Prerequisite prereq : getPreReqList())
+			for (Prerequisite prereq : getPrerequisiteList())
 			{
 				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
 				{

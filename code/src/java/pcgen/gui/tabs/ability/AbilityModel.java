@@ -577,7 +577,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				// the other prereqs
 				List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
 
-				for (Prerequisite prereq : ability.getPreReqList())
+				for (Prerequisite prereq : ability.getPrerequisiteList())
 				{
 					if (PrerequisiteUtilities.hasPreReqKindOf(prereq, "FEAT") //$NON-NLS-1$
 						|| PrerequisiteUtilities.hasPreReqKindOf(prereq,

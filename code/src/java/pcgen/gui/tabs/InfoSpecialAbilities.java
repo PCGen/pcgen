@@ -534,7 +534,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		{
 			if (aLang != null)
 			{
-				if (PrereqHandler.passesAll(aLang.getPreReqList(), pc, aLang))
+				if (PrereqHandler.passesAll(aLang.getPrerequisiteList(), pc, aLang))
 				{
 					availableLangs.add(aLang);
 				}

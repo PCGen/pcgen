@@ -2219,7 +2219,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// and for the correct level or lower
 				if ((compLev <= mLev) || (compLev <= mTotalLevel))
 				{
-					if (PrereqHandler.passesAll(cMod.getPreReqList(), this,
+					if (PrereqHandler.passesAll(cMod.getPrerequisiteList(), this,
 						cMod))
 					{
 						if (!oldCompanionMods.contains(cMod))
@@ -2240,7 +2240,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (mLev >= cMod.getLevel(varName))
 				{
-					if (PrereqHandler.passesAll(cMod.getPreReqList(), this,
+					if (PrereqHandler.passesAll(cMod.getPrerequisiteList(), this,
 						cMod))
 					{
 						if (!oldCompanionMods.contains(cMod))
@@ -3158,7 +3158,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (SpecialAbility sa : getSpecialAbilityList())
 		{
-			if (!PrereqHandler.passesAll(sa.getPreReqList(), this, sa))
+			if (!PrereqHandler.passesAll(sa.getPrerequisiteList(), this, sa))
 			{
 				continue;
 			}
@@ -7970,7 +7970,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// all the exists checks are done.
 
 		// don't allow adding spells which are not qualified for.
-		if (!PrereqHandler.passesAll(aSpell.getPreReqList(), this, aSpell))
+		if (!PrereqHandler.passesAll(aSpell.getPrerequisiteList(), this, aSpell))
 		{
 			return "You do not qualify for " + acs.getSpell().getDisplayName()
 				+ ".";
@@ -8697,7 +8697,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final PObject aPObj = new PObject();
 				getPreReqFromACType(aString, aPObj);
 
-				if (PrereqHandler.passesAll(aPObj.getPreReqList(), this, aPObj))
+				if (PrereqHandler.passesAll(aPObj.getPrerequisiteList(), this, aPObj))
 				{
 					final StringTokenizer aTok =
 							new StringTokenizer(aString, "|");
@@ -8722,7 +8722,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final PObject aPObj = new PObject();
 				getPreReqFromACType(rString, aPObj);
 
-				if (PrereqHandler.passesAll(aPObj.getPreReqList(), this, aPObj))
+				if (PrereqHandler.passesAll(aPObj.getPrerequisiteList(), this, aPObj))
 				{
 					final StringTokenizer aTok =
 							new StringTokenizer(rString, "|");
@@ -9135,7 +9135,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return result && PrereqHandler.passesAll(aDeity.getPreReqList(), this, aDeity);
+		return result && PrereqHandler.passesAll(aDeity.getPrerequisiteList(), this, aDeity);
 	}
 
 	public int classAC()
@@ -12349,7 +12349,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// used
 			}
 
-			if (PrereqHandler.passesAll(pcSpell.getPreReqList(), this, pcSpell))
+			if (PrereqHandler.passesAll(pcSpell.getPrerequisiteList(), this, pcSpell))
 			{
 				final Spell newSpell = aSpell.clone();
 				aSpell.setFixedCasterLevel(pcSpell.getCasterLevelFormula());
@@ -13866,7 +13866,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		else if (skill.getSafe(ObjectKey.USE_UNTRAINED))
 		{
 			IsQualified =
-					PrereqHandler.passesAll((skill).getPreReqList(), this,
+					PrereqHandler.passesAll((skill).getPrerequisiteList(), this,
 						skill);
 		}
 
@@ -17254,7 +17254,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						for (Ability ability : getDirectVirtualAbilities(cat))
 						{
 							if (PrereqHandler.passesAll(
-								ability.getPreReqList(), this, ability))
+								ability.getPrerequisiteList(), this, ability))
 							{
 								abilities.add(ability);
 							}

@@ -109,6 +109,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.system.LoadInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
@@ -817,7 +818,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				b.append(Globals.getCurrencyDisplay());
 			}
 
-			final String cString = eqI.preReqHTMLStrings(pc, false);
+			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			eqI.getPrerequisiteList(), false);
 			if (cString.length() > 0)
 			{
 				b.appendLineBreak();

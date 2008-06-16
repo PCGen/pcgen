@@ -421,7 +421,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					aString));
 			}
 
-			aString = aDeity.preReqHTMLStrings(pc, false);
+			aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aDeity.getPrerequisiteList(), false);
 			if (aString.length() != 0)
 			{
 				infoText.append(PropertyFactory.getFormattedString(
@@ -469,7 +470,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					aString));
 			}
 
-			aString = aDomain.preReqHTMLStrings(pc, false);
+			aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aDomain.getPrerequisiteList(), false);
 			if (aString.length() != 0)
 			{
 				infoText.append(PropertyFactory.getFormattedString(
@@ -592,7 +594,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (!isDomainInList(availDomainList, domain))
 			{
 				availDomainList.add(new QualifiedObject<Domain>(domain
-						.clone(), qo.getPreReqList()));
+						.clone(), qo.getPrerequisiteList()));
 			}
 		}
 	}
@@ -1358,7 +1360,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// Make sure a valid domain was selected
-		if (!PrereqHandler.passesAll(addedDomain.getPreReqList(), pc, addedDomain)
+		if (!PrereqHandler.passesAll(addedDomain.getPrerequisiteList(), pc, addedDomain)
 				|| !qualDomain.qualifies(pc))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
@@ -2305,7 +2307,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 							.append(aDomain.piSubString()).append(
 								"*</b></html>");
 					}
-					else if (!PrereqHandler.passesAll(aDomain.getPreReqList(), pc, aDomain)
+					else if (!PrereqHandler.passesAll(aDomain.getPrerequisiteList(), pc, aDomain)
 						|| !aQualDomain.qualifies(pc))
 					{
 						retVal.append("<html>").append(
@@ -2467,7 +2469,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						final Domain aDomain =
 								Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
-						setDomainInfoText(aDomain, qualDomain.getPreReqList());
+						setDomainInfoText(aDomain, qualDomain.getPrerequisiteList());
 					}
 
 					break;

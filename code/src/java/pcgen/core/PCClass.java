@@ -542,7 +542,7 @@ public class PCClass extends PObject
 							new ArrayList<Prerequisite>();
 					if (bonus.hasPrerequisites())
 					{
-						localPreReqList.addAll(bonus.getPreReqList());
+						localPreReqList.addAll(bonus.getPrerequisiteList());
 					}
 
 					// TODO: This code should be removed after the 5.8 release
@@ -2243,7 +2243,7 @@ public class PCClass extends PObject
 			return false;
 		}
 
-		if (!PrereqHandler.passesAll(getPreReqList(), aPC, this))
+		if (!PrereqHandler.passesAll(getPrerequisiteList(), aPC, this))
 		{
 			return false;
 		}
@@ -2440,7 +2440,7 @@ public class PCClass extends PObject
 		// Output the level based DR only
 		for (DamageReduction reduction : getDRList())
 		{
-			for (Prerequisite prereq : reduction.getPreReqList())
+			for (Prerequisite prereq : reduction.getPrerequisiteList())
 			{
 				if (DamageReduction.isPrereqForClassLevel(prereq, getKeyName()))
 				{
@@ -3743,7 +3743,7 @@ public class PCClass extends PObject
 	 */
 	public boolean isProhibited(final Spell aSpell, final PlayerCharacter aPC)
 	{
-		if (!PrereqHandler.passesAll(aSpell.getPreReqList(), aPC, aSpell))
+		if (!PrereqHandler.passesAll(aSpell.getPrerequisiteList(), aPC, aSpell))
 		{
 			return true;
 		}
@@ -3946,7 +3946,7 @@ public class PCClass extends PObject
 			// When loading a character, classes are added before feats, so
 			// this test would always fail on loading if feats are required
 			boolean doReturn = false;
-			if (!PrereqHandler.passesAll(getPreReqList(), aPC, this))
+			if (!PrereqHandler.passesAll(getPrerequisiteList(), aPC, this))
 			{
 				doReturn = true;
 				if (!bSilent)
@@ -4465,7 +4465,7 @@ public class PCClass extends PObject
 		//
 		for (DamageReduction reduction : getDRList())
 		{
-			for (Prerequisite prereq : reduction.getPreReqList())
+			for (Prerequisite prereq : reduction.getPrerequisiteList())
 			{
 				if (DamageReduction.isPrereqForClassLevel(prereq, oldClass))
 				{
@@ -5131,7 +5131,7 @@ public class PCClass extends PObject
 
 		for (SubstitutionClass sc : substitutionClassList)
 		{
-			if (!PrereqHandler.passesAll(sc.getPreReqList(), aPC, this))
+			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, this))
 			{
 				continue;
 			}
@@ -5249,7 +5249,7 @@ public class PCClass extends PObject
 			 * 
 			 * STOP THE MAGIC, I want to delete MULTIPREREQs
 			 */
-			if (!PrereqHandler.passesAll(sc.getPreReqList(), aPC, this))
+			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, this))
 			{
 				continue;
 			}
@@ -5378,7 +5378,7 @@ public class PCClass extends PObject
 				 * 
 				 * STOP THE MAGIC, I want to delete MULTIPREREQs
 				 */
-				if (!PrereqHandler.passesAll(sub.getPreReqList(), aPC, this))
+				if (!PrereqHandler.passesAll(sub.getPrerequisiteList(), aPC, this))
 				{
 					continue;
 				}
@@ -6089,7 +6089,7 @@ public class PCClass extends PObject
 		List<DamageReduction> newDR = new ArrayList<DamageReduction>();
 		for (DamageReduction reduction : getDRList())
 		{
-			for (Prerequisite prereq : reduction.getPreReqList())
+			for (Prerequisite prereq : reduction.getPrerequisiteList())
 			{
 				if (!DamageReduction.isPrereqForClassLevel(prereq, getKeyName())
 					&& !prereq.getOperand().equals(Integer.toString(level))

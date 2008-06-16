@@ -444,7 +444,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public Object clone() throws CloneNotSupportedException
+	public CDOMObject clone() throws CloneNotSupportedException
 	{
 		CDOMObject clone = (CDOMObject) super.clone();
 		clone.integerChar = new HashMap<IntegerKey, Integer>(integerChar);

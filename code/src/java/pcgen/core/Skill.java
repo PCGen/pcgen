@@ -283,7 +283,7 @@ public final class Skill extends PObject
 				return "You must be at least level one before you can purchase skills.";
 			}
 
-			if ((rankMod > 0.0) && !PrereqHandler.passesAll(getPreReqList(), aPC, this))
+			if ((rankMod > 0.0) && !PrereqHandler.passesAll(getPrerequisiteList(), aPC, this))
 			{
 				return "You do not meet the prerequisites required to take this skill.";
 			}

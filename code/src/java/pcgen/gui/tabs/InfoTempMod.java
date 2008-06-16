@@ -1088,7 +1088,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					// We clear the prereqs and add the non-PREAPPLY prereqs from the old bonus
 					// TODO - Why are we doing this?
 					newB.clearPrerequisiteList();
-					for (Prerequisite prereq : aBonus.getPreReqList())
+					for (Prerequisite prereq : aBonus.getPrerequisiteList())
 					{
 						if (prereq.getKind() == null
 							|| !prereq.getKind().equalsIgnoreCase(
@@ -2694,7 +2694,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						{
 							boolean passesApply = true;
 							for (Iterator<Prerequisite> iter =
-									aBonus.getPreReqList().iterator(); iter
+									aBonus.getPrerequisiteList().iterator(); iter
 								.hasNext()
 								&& passesApply;)
 							{

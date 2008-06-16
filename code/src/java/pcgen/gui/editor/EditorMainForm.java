@@ -3115,7 +3115,7 @@ public final class EditorMainForm extends JDialog
 		}
 
 		if (thisPObject.hasPrerequisites()) {
-			for (Prerequisite p : thisPObject.getPreReqList()) {
+			for (Prerequisite p : thisPObject.getPrerequisiteList()) {
 				// TODO: This hack is here because there is currently no
 				// specific Prerequisite editor. The code curently relies
 				// on the assumption that input format==in memory format== output format
