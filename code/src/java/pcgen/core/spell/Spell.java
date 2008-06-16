@@ -403,10 +403,10 @@ public final class Spell extends PObject
 		{
 			Collection<AssociatedPrereqObject> assoc = masterLists
 					.getAssociations(list, this);
-			String type = ClassSpellList.class.equals(list.getReferenceClass()) ? "CLASS"
-					: "DOMAIN";
 			if (assoc != null)
 			{
+				String type = ClassSpellList.class.equals(list.getReferenceClass()) ? "CLASS"
+						: "DOMAIN";
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					Integer lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
