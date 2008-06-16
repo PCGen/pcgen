@@ -24,7 +24,6 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.LSTWriteable;
 
 
 public final class ReferenceUtilities
@@ -35,30 +34,55 @@ public final class ReferenceUtilities
 		// Cannot construct utility class
 	}
 
-	public static <T extends LSTWriteable> String joinLstFormat(
-		Collection<T> set, String separator)
-	{
-		if (set == null)
+	public static <T extends CDOMReference<?>> String joinLstFormat(
+			Collection<T> set, String separator)
 		{
-			return "";
-		}
-
-		final StringBuilder result = new StringBuilder(set.size() * 10);
-
-		boolean needjoin = false;
-
-		for (LSTWriteable obj : set)
-		{
-			if (needjoin)
+			if (set == null)
 			{
-				result.append(separator);
+				return "";
 			}
-			needjoin = true;
-			result.append(obj.getLSTformat());
+
+			final StringBuilder result = new StringBuilder(set.size() * 10);
+
+			boolean needjoin = false;
+
+			for (CDOMReference<?> obj : set)
+			{
+				if (needjoin)
+				{
+					result.append(separator);
+				}
+				needjoin = true;
+				result.append(obj.getLSTformat());
+			}
+
+			return result.toString();
 		}
 
-		return result.toString();
-	}
+	public static <T extends CDOMObject> String joinKeyName(
+			Collection<T> set, String separator)
+		{
+			if (set == null)
+			{
+				return "";
+			}
+
+			final StringBuilder result = new StringBuilder(set.size() * 10);
+
+			boolean needjoin = false;
+
+			for (CDOMObject obj : set)
+			{
+				if (needjoin)
+				{
+					result.append(separator);
+				}
+				needjoin = true;
+				result.append(obj.getLSTformat());
+			}
+
+			return result.toString();
+		}
 
 	public static <T extends CDOMObject> String joinDisplayFormat(
 			Collection<CDOMReference<T>> set, String separator)

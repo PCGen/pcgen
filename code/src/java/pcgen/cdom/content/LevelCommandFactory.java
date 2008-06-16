@@ -20,7 +20,6 @@ package pcgen.cdom.content;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -28,7 +27,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.rules.persistence.TokenUtilities;
 
 public class LevelCommandFactory extends ConcretePrereqObject implements
-		Comparable<LevelCommandFactory>, LSTWriteable
+		Comparable<LevelCommandFactory>
 {
 
 	private final CDOMSingleRef<PCClass> pcClass;

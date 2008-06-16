@@ -184,7 +184,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
 				Set<CDOMReference<Domain>> domainSet = new TreeSet<CDOMReference<Domain>>(
-						TokenUtilities.WRITEABLE_SORTER);
+						TokenUtilities.REFERENCE_SORTER);
 				domainSet.addAll(m.getListFor(prereqs));
 				StringBuilder sb = new StringBuilder(ReferenceUtilities
 						.joinLstFormat(domainSet, Constants.COMMA));

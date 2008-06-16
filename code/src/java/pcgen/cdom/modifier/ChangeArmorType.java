@@ -21,11 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.cdom.content.Modifier;
 
 public class ChangeArmorType extends ConcretePrereqObject implements
-		Modifier<String>, LSTWriteable
+		Modifier<String>
 {
 
 	private final String source;

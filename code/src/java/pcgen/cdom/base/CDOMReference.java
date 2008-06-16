@@ -32,8 +32,8 @@ import java.util.Collection;
  * 
  * @param <T>
  */
-public abstract class CDOMReference<T extends PrereqObject> implements
-		LSTWriteable // , PrimitiveChoiceFilter<T>
+public abstract class CDOMReference<T extends PrereqObject>
+// implements PrimitiveChoiceFilter<T>
 {
 
 	/**

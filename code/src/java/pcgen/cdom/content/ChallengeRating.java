@@ -18,12 +18,10 @@
 package pcgen.cdom.content;
 
 import pcgen.base.formula.Formula;
-import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.cdom.base.LSTWriteable;
+import pcgen.cdom.base.FormulaFactory;
 
-public class ChallengeRating extends ConcretePrereqObject implements
-		LSTWriteable
+public class ChallengeRating extends ConcretePrereqObject
 {
 
 	public static final ChallengeRating ZERO = new ChallengeRating("0");

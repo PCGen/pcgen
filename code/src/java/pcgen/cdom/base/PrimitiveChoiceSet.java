@@ -21,9 +21,11 @@ import java.util.Set;
 
 import pcgen.core.PlayerCharacter;
 
-public interface PrimitiveChoiceSet<T> extends LSTWriteable
+public interface PrimitiveChoiceSet<T>
 {
 	public Set<T> getSet(PlayerCharacter pc);
 
 	public Class<? super T> getChoiceClass();
+	
+	public String getLSTformat();
 }

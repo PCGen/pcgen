@@ -466,7 +466,7 @@ public class ListContext
 				CDOMReference<? extends CDOMList<T>> swl)
 		{
 			MapToList<T, AssociatedPrereqObject> map = new TreeMapToList<T, AssociatedPrereqObject>(
-					TokenUtilities.WRITEABLE_SORTER);
+					TokenUtilities.CDOM_SORTER);
 			OwnerURI lo = new OwnerURI(extractURI, owner);
 			Set<CDOMObject> added = positiveMasterMap
 					.getTertiaryKeySet(swl, lo);

@@ -19,11 +19,9 @@ package pcgen.cdom.content;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.cdom.base.LSTWriteable;
 import pcgen.core.spell.Spell;
 
-public class KnownSpellIdentifier extends ConcretePrereqObject implements
-		LSTWriteable
+public class KnownSpellIdentifier extends ConcretePrereqObject
 {
 
 	private final CDOMReference<Spell> ref;

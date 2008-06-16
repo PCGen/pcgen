@@ -48,8 +48,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            the Class contained within this ChoiceSet
  */
-public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
-		LSTWriteable
+public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 {
 
 	/**

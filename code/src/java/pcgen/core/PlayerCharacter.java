@@ -17826,7 +17826,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				featChoices.addAll(ref.getContainedObjects());
 			}
 			final LevelAbility la = LevelAbility.createAbility(pct, lvl,
-					"FEAT(" + ReferenceUtilities.joinLstFormat(featChoices,
+					"FEAT(" + ReferenceUtilities.joinKeyName(featChoices,
 									Constants.COMMA) + ")");
 
 			la.process(featList, this, null);

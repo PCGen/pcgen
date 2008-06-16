@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		LSTWriteable, Cloneable
+		Cloneable
 {
 
 	/*

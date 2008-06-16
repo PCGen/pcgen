@@ -124,7 +124,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		Set<CDOMObject> added = masterList.getSecondaryKeySet(swl);
 		MapToList<T, AssociatedPrereqObject> owned =
 				new TreeMapToList<T, AssociatedPrereqObject>(
-					TokenUtilities.WRITEABLE_SORTER);
+					TokenUtilities.CDOM_SORTER);
 		for (CDOMObject lw : added)
 		{
 			List<AssociatedPrereqObject> list = masterList.getListFor(swl, lw);
