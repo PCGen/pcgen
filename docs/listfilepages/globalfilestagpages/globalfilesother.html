@@ -939,45 +939,6 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.x.x - Remove 5.16.0 - Use <a href="#SPELLS">SPELLS</a></p>
-	<p class="indent0"><strong><a name="SPELL">Tag Name:</a></strong> SPELL:x|y|z|x|y|z</p>
-	<p><strong> Variables Used (x):</strong>Text (name of spell)</p>
-	<p><strong> Variables Used (y):</strong>Number (number of times per day)</p>
-	<p><strong> Variables Used (z):</strong>Text (&lt;spellbook&gt;)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This grants the character spell like abilities.</li>
-		<li>The &lt;spellbook&gt; should never be the same name as a Class, as it
-			will cause an exception in PCGen.</li>
-		<li>&quot;-1&quot; in the times per day will result in &quot;At will&quot; on the Output Sheets.</li>
-		<li>You can apply PRExxx tags to the SPELL tag. If a SPELL tag requires multiple PRExxx statements
-			it is &quot;|&quot; delimited.
-			Some of the PRExxx statements have &quot;|&quot; delimiting in them, if a spell requires a PRExxx
-			statement that has &quot;|&quot;
-			delimiting in it, simply put that PRExxx statement in a separate SPELL tag by itself.</li>
-			<li><strong>NOTE:</strong> The [PRExxx:blah] syntax has been deprecated and will soon cease to
-			function.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>SPELL:Acid Fog|1|Innate</code></p>
-	<p class="indent3">&quot;Acid Fog&quot; is granted once per day as an &quot;Innate&quot; ability.</p>
-	<p class="indent2"><code>SPELL:Acid Fog|1|Innate|Spider Climb|3|ClassAbility</code></p>
-	<p class="indent3">&quot;Acid Fog&quot; is granted once per day as an &quot;Innate&quot; ability
-		and &quot;Spider Climb&quot; three times a day as a &quot;Class&quot; ability.</p>
-	<p class="indent2"><code>SPELL:Bless|1|Innate|PRELEVEL:1|PRESTAT:2,WIS=8,CHA=8</code></p>
-	<p class="indent3">Would add &quot;Bless&quot; as an Innate spell usable once per day if the PC was
-			level 1 or higher and had both Wisdom and Charisma 8 or higher.</p>
-	<p class="indent2"><code>SPELL:Bless|1|Innate|Detect Evil|3|Innate|PRERACE:Human|PRESIZE:M</code></p>
-	<p class="indent3">Would add both &quot;Bless&quot; and &quot;Detect Evil&quot; as Innate and usable 1 and 3
-		times per day if the PC was of race 'Human' and size Medium.</p>
-	<p class="indent2"><code>SPELL:Holy Aura|3|Innate|Hallow|1|Innate|PRELEVEL:13|PRESTAT:1,INT=8,WIS=8</code></p>
-	<p class="indent3">The above example shows two spells in one SPELL tag. While this is perfectly legal, please
-		remember that the PRExxx tags at the end apply to ALL spells in the tag, so if the spells have different
-		Prereq's than they must have separate SPELL tags.</p>
-	<p></p>
-
-<hr>
-
 	<p class="new">*** Updated 5.11.4</p><p></p>
 	<p class="indent0"><strong><a name="SPELLLEVEL">Tag Name:</a></strong>SPELLLEVEL:v|w=x|y|w=x|y|w=x|y|w=x|y|w=x|y|z</p>
 	<p class="indent1"><strong>Variables Used (v):</strong> Text (DOMAIN or CLASS Tag)</p>
