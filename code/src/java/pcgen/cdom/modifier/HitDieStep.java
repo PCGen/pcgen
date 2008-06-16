@@ -17,10 +17,12 @@
  */
 package pcgen.cdom.modifier;
 
-import pcgen.cdom.content.AbstractHitDieModifier;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.Modifier;
 
-public class HitDieStep extends AbstractHitDieModifier
+public class HitDieStep extends ConcretePrereqObject implements
+		Modifier<HitDie>
 {
 
 	private final int numSteps;
@@ -37,7 +39,6 @@ public class HitDieStep extends AbstractHitDieModifier
 		dieLimit = stopAt;
 	}
 
-	@Override
 	public HitDie applyModifier(HitDie hd, Object context)
 	{
 		int steps = numSteps;
@@ -74,7 +75,6 @@ public class HitDieStep extends AbstractHitDieModifier
 		 */
 	}
 
-	@Override
 	public String getLSTformat()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -95,11 +95,16 @@ public class HitDieStep extends AbstractHitDieModifier
 		return sb.toString();
 	}
 
+	public Class<HitDie> getModifiedClass()
+	{
+		return HitDie.class;
+	}
+
 	@Override
 	public int hashCode()
 	{
 		return dieLimit == null ? numSteps : numSteps + dieLimit.hashCode()
-			* 29;
+				* 29;
 	}
 
 	@Override
@@ -109,8 +114,8 @@ public class HitDieStep extends AbstractHitDieModifier
 		{
 			HitDieStep other = (HitDieStep) o;
 			return other.numSteps == numSteps
-				&& (dieLimit == null && other.dieLimit == null || dieLimit != null
-					&& dieLimit.equals(other.dieLimit));
+					&& (dieLimit == null && other.dieLimit == null || dieLimit != null
+							&& dieLimit.equals(other.dieLimit));
 		}
 		return false;
 	}

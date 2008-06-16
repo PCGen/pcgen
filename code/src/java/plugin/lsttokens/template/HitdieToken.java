@@ -6,7 +6,6 @@ import pcgen.base.formula.MultiplyingFormula;
 import pcgen.base.formula.SubtractingFormula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.AbstractHitDieModifier;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -93,7 +92,7 @@ public class HitdieToken extends AbstractToken implements
 				lock = lock.substring(0, pipeLoc);
 			}
 
-			AbstractHitDieModifier hdm;
+			Modifier<HitDie> hdm;
 			if (lock.startsWith("%/"))
 			{
 				// HITDIE:%/num --- divides the classes hit die by num.

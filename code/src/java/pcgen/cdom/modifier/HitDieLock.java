@@ -17,10 +17,12 @@
  */
 package pcgen.cdom.modifier;
 
-import pcgen.cdom.content.AbstractHitDieModifier;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.Modifier;
 
-public class HitDieLock extends AbstractHitDieModifier
+public class HitDieLock extends ConcretePrereqObject implements
+		Modifier<HitDie>
 {
 
 	private final HitDie hitDie;
@@ -30,21 +32,25 @@ public class HitDieLock extends AbstractHitDieModifier
 		super();
 		if (die == null)
 		{
-			throw new IllegalArgumentException("Die for HitDieLock cannot be null");
+			throw new IllegalArgumentException(
+					"Die for HitDieLock cannot be null");
 		}
 		hitDie = die;
 	}
 
-	@Override
 	public HitDie applyModifier(HitDie hd, Object context)
 	{
 		return hitDie;
 	}
 
-	@Override
 	public String getLSTformat()
 	{
 		return Integer.toString(hitDie.getDie());
+	}
+
+	public Class<HitDie> getModifiedClass()
+	{
+		return HitDie.class;
 	}
 
 	@Override
@@ -57,7 +63,7 @@ public class HitDieLock extends AbstractHitDieModifier
 	public boolean equals(Object o)
 	{
 		return o instanceof HitDieLock
-			&& ((HitDieLock) o).hitDie.equals(hitDie);
+				&& ((HitDieLock) o).hitDie.equals(hitDie);
 	}
 
 }

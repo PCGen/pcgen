@@ -18,10 +18,12 @@
 package pcgen.cdom.modifier;
 
 import pcgen.base.formula.ReferenceFormula;
-import pcgen.cdom.content.AbstractHitDieModifier;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.Modifier;
 
-public class HitDieFormula extends AbstractHitDieModifier
+public class HitDieFormula extends ConcretePrereqObject implements
+		Modifier<HitDie>
 {
 
 	private final ReferenceFormula<Integer> f;
@@ -32,16 +34,19 @@ public class HitDieFormula extends AbstractHitDieModifier
 		f = formula;
 	}
 
-	@Override
 	public HitDie applyModifier(HitDie hd, Object context)
 	{
 		return new HitDie(f.resolve(Integer.valueOf(hd.getDie())).intValue());
 	}
 
-	@Override
 	public String getLSTformat()
 	{
 		return '%' + f.toString();
+	}
+
+	public Class<HitDie> getModifiedClass()
+	{
+		return HitDie.class;
 	}
 
 	@Override
