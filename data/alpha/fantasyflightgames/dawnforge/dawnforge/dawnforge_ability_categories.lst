@@ -118,6 +118,31 @@ ABILITYCATEGORY:Thinblood Transformation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Thinblood Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ThinbloodTransfSkill			PLURAL:Thinblood Transformation Skills		DISPLAYLOCATION:Talents and Transformations
 ABILITYCATEGORY:Thinblood Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ThinbloodTransformationFeat		PLURAL:Thinblood Transformation Feats		DISPLAYLOCATION:Feats
 
+###Block: Class Special Abilities
+
+ABILITYCATEGORY:Elemental Form Choice		CATEGORY:Special Ability	TYPE:ShamanElementalForm	DISPLAYLOCATION:Talents and Transformations		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	
+ABILITYCATEGORY:Shaper Divine Focus Choice	CATEGORY:Special Ability	TYPE:ShaperDivineFocus		DISPLAYLOCATION:Talents and Transformations		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	
+ABILITYCATEGORY:Shaper Specialty Choice		CATEGORY:Special Ability	TYPE:ShaperSpecialty		DISPLAYLOCATION:Talents and Transformations		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	
+ABILITYCATEGORY:Spirit Adept Powers Choice	CATEGORY:Special Ability	TYPE:SpiritAdeptPowers		DISPLAYLOCATION:Talents and Transformations		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	
+
+
+ABILITYCATEGORY:LowlanderStatPenalty Choice	CATEGORY:Special Ability	TYPE:LowlanderStatPenalty		DISPLAYLOCATION:Talents and Transformations		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	
+
+ABILITYCATEGORY:LowlanderStatBonus Choice	CATEGORY:Special Ability	TYPE:LowlanderStatBonus		DISPLAYLOCATION:Talents and Transformations		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
 # End
 #
