@@ -39,10 +39,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>0</current>
 			<next_level>0</next_level>
@@ -60,7 +61,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>0</cr>
+		<face>
 		<face>5 ft.</face>
+			<short>5 ft.</short>
+			<squares>1</squares>
+		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -80,6 +85,16 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>30 ft.</rate>
+				<squares>6</squares>
+			</move>
+			<move>
+				<name>Climb</name>
+				<rate>20 ft.</rate>
+				<squares>4</squares>
+			</move>
 			<all>Walk 30 ft., Climb 20 ft.</all>
 		</move>
 		<personality>
@@ -89,7 +104,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Psicrystal (Coward)</race>
+		<reach>
 		<reach>0 ft.</reach>
+			<squares>0</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -99,7 +117,10 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Construct</type>
-		<vision>Sighted (40&#39;)</vision>
+		<vision>
+			<vision>Sighted (40&#39;)</vision>
+			<all>Sighted (40&#39;)</all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>0 lbs.</weight_unit>
@@ -216,6 +237,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>0</points>
+		<alternate>10</alternate>
 		<die></die>
 		<current/>
 		<subdual/>
@@ -744,7 +766,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -837,6 +859,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -909,8 +932,8 @@ BIO
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Alertness</name>
-			<description>You get a +2 bonus on all Listen checks and Spot checks.</description>
-			<type>GENERAL</type>
+			<description>The character gets a +2 bonus on all Listen checks and Spot checks</description>
+			<type>GENERAL.TRACER.GLAMOURIST.MYSTIC.SHADOWJACK.THRASHER.SHADOWKINDHUMAN</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -922,6 +945,17 @@ BIO
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
 	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================

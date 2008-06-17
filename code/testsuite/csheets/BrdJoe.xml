@@ -46,10 +46,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>0</current>
 			<next_level>1000</next_level>
@@ -67,7 +68,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>1</cr>
+		<face>
 		<face>5 ft. by 5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
+		</face>
 		<favoredlist>Any</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -90,6 +95,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>30 ft.</rate>
+				<squares>6</squares>
+			</move>
 			<all>Walk 30 ft.</all>
 		</move>
 		<personality>
@@ -99,7 +109,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Half-Elf</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -109,7 +122,10 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
-		<vision>Low-light</vision>
+		<vision>
+			<vision>Low-light</vision>
+			<all>Low-light</all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>145 lbs.</weight_unit>
@@ -226,6 +242,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>8</points>
+		<alternate>15</alternate>
 		<die>(1d6)+2</die>
 		<current/>
 		<subdual/>
@@ -828,7 +845,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -921,6 +938,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -1078,38 +1096,18 @@ BIO
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
-		<feat>
-			<name>Bardic Countersong</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
-			<name>Bardic Fascinate</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
-			<name>Bardic Inspire Courage</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
 <!-- END Hidden VFEATS -->
-		<feat>
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1118,8 +1116,31 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Armor Proficiency (Light)</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Armor Proficiency (Medium)</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Bardic Knowledge</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1128,8 +1149,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Bardic Music</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1138,8 +1160,67 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-	</feats>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Shield Proficiency</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Simple Weapon Proficiency</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Hidden Virtual "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Bardic Countersong</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bardic Fascinate</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bardic Inspire Courage</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>T</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
@@ -1194,6 +1275,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>10</dc>
 						<duration>Instantaneous</duration>
 						<effect>Dazzles one creature [-1 attack].</effect>
@@ -1222,6 +1304,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S, M</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>10</dc>
 						<duration>1 rounds [D]</duration>
 						<effect>Figment sounds.</effect>
@@ -1250,6 +1333,7 @@ BIO
 						<range>Touch</range>
 						<components>V, M/DF</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>10 minutes [D]</duration>
 						<effect>Object shines like a torch.</effect>
@@ -1278,6 +1362,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Concentration</duration>
 						<effect>5-pound telekinesis.</effect>

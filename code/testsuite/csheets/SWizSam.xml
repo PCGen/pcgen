@@ -46,10 +46,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi.rtf</source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>0</current>
 			<next_level>1000</next_level>
@@ -67,7 +68,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>1</cr>
+		<face>
 		<face>5 ft. by 5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
+		</face>
 		<favoredlist>Rogue</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -89,6 +94,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>20 ft.</rate>
+				<squares>4</squares>
+			</move>
 			<all>Walk 20 ft.</all>
 		</move>
 		<personality>
@@ -98,7 +108,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Halfling</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -108,7 +121,9 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
-		<vision></vision>
+		<vision>
+			<all></all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>37 lbs.</weight_unit>
@@ -225,6 +240,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>6</points>
+		<alternate>14</alternate>
 		<die>(1d4)+2</die>
 		<current/>
 		<subdual/>
@@ -810,7 +826,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -903,6 +919,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -1017,7 +1034,17 @@ BIO
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
-		<feat>
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1026,8 +1053,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Summon Familiar</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1036,8 +1064,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Wizard Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1046,8 +1075,11 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-	</feats>
+			<category>Special Ability</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
@@ -1104,6 +1136,7 @@ BIO
 						<range>0 ft</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Permanent</duration>
 						<effect>Inscribes a personal rune [visible or invisible].</effect>
@@ -1132,6 +1165,7 @@ BIO
 						<range>Medium (110 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>1 minute</duration>
 						<effect>Figment torches or other lights.</effect>
@@ -1160,6 +1194,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Concentration up to 1 minutes [D]</duration>
 						<effect>Detects spells and magic items within 60 ft.</effect>
@@ -1188,6 +1223,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Instantaneous/10 minutes per target HD</duration>
 						<effect>Detects poison in one creature or small object.</effect>
@@ -1216,6 +1252,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Instantaneous</duration>
 						<effect>Deals 1d6 damage to one undead.</effect>
@@ -1244,6 +1281,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>11</dc>
 						<duration>Instantaneous</duration>
 						<effect>Dazzles one creature [-1 attack].</effect>
@@ -1272,6 +1310,7 @@ BIO
 						<range>Touch</range>
 						<components>V, M/DF</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>10 minutes [D]</duration>
 						<effect>Object shines like a torch.</effect>
@@ -1300,6 +1339,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Concentration</duration>
 						<effect>5-pound telekinesis.</effect>
@@ -1328,6 +1368,7 @@ BIO
 						<range>10 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>11</dc>
 						<duration>Instantaneous</duration>
 						<effect>Makes minor repairs on an object.</effect>
@@ -1356,6 +1397,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S, F</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>11</dc>
 						<duration>Instantaneous</duration>
 						<effect>Opens or closes small or light things.</effect>
@@ -1384,6 +1426,7 @@ BIO
 						<range>10 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>1 hour</duration>
 						<effect>Performs minor tricks.</effect>
@@ -1412,6 +1455,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Instantaneous</duration>
 						<effect>Ray deals 1d3 cold damage.</effect>
@@ -1440,6 +1484,7 @@ BIO
 						<range>Personal</range>
 						<components>V, S, F</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>10 minutes</duration>
 						<effect>Read scrolls and spellbooks.</effect>
@@ -1468,6 +1513,7 @@ BIO
 						<range>Touch</range>
 						<components>V, S, M/DF</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>11</dc>
 						<duration>1 minute</duration>
 						<effect>Subject gains +1 on saving throws.</effect>
@@ -1498,6 +1544,7 @@ BIO
 						<range>Close (25 ft.)</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>12</dc>
 						<duration>1d4 rounds</duration>
 						<effect>One creature flees for 1d4 rounds.</effect>
@@ -1526,6 +1573,7 @@ BIO
 						<range>Touch</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc>12</dc>
 						<duration>Instantaneous</duration>
 						<effect>1 touches deal 1d6 damage and possibly 1 Str damage.</effect>
@@ -1554,6 +1602,7 @@ BIO
 						<range>Personal</range>
 						<components>V, S, M/DF</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>10 minutes</duration>
 						<effect>Understands all spoken and written languages.</effect>
@@ -1582,6 +1631,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Concentration up to 1 minutes [D]</duration>
 						<effect>Reveals hidden doors within 60 ft.</effect>
@@ -1610,6 +1660,7 @@ BIO
 						<range>60 feet</range>
 						<components>V, S, M/DF</components>
 						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
 						<dc></dc>
 						<duration>Concentration up to 1 minutes [D]</duration>
 						<effect>Reveals undead within 60 ft.</effect>

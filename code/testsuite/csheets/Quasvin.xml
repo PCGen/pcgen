@@ -46,10 +46,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>10000</current>
 			<next_level>15000</next_level>
@@ -67,7 +68,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>5</cr>
+		<face>
 		<face>5 ft.</face>
+			<short>5 ft.</short>
+			<squares>1</squares>
+		</face>
 		<favoredlist>Psion</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -92,6 +97,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>30 ft.</rate>
+				<squares>6</squares>
+			</move>
 			<all>Walk 30 ft.</all>
 		</move>
 		<personality>
@@ -101,7 +111,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Elan (Psionic)</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -111,7 +124,9 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Aberration</type>
-		<vision></vision>
+		<vision>
+			<all></all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>162 lbs.</weight_unit>
@@ -228,6 +243,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>16</points>
+		<alternate>10</alternate>
 		<die>(5d4)</die>
 		<current/>
 		<subdual/>
@@ -786,7 +802,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -1006,6 +1022,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -1019,6 +1036,7 @@ BIO
  
 	<!-- Psionics -->
 		<psionics>
+			<type>3.5</type>
 			<base_pp>25</base_pp>
 			<bonus_pp>12</bonus_pp>
 			<total_pp>37</total_pp>
@@ -1040,17 +1058,22 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
+			<longname>Buckler</longname>
+			<id></id>
 			<name>Buckler</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>15</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1061,17 +1084,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Shortspear</longname>
+			<id></id>
 			<name>Shortspear</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1082,17 +1110,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Leather</longname>
+			<id></id>
 			<name>Leather</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>10</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1103,17 +1136,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Outfit (Artisan&#39;s)</longname>
+			<id></id>
 			<name>Artisan&#39;s Outfit</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1350,6 +1388,17 @@ BIO
 	<!--
 	  ====================================
 	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	</ability_objects>
+ 
+ 
+	<!--
+	  ====================================
+	  ====================================
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
@@ -1421,6 +1470,7 @@ BIO
 						<range>Close (35 ft.)</range>
 						<components>Me</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc>15</dc>
 						<duration>5 hours</duration>
 						<effect>As charm person except as noted in the text.</effect>
@@ -1449,6 +1499,7 @@ BIO
 						<range>Close (35 ft.)</range>
 						<components>Ma Vi</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc></dc>
 						<duration>5 rounds</duration>
 						<effect>You entangle target in ectoplasmic goo on a successful ranged touch attack.</effect>
@@ -1477,6 +1528,7 @@ BIO
 						<range>Close (35 ft.)</range>
 						<components>Au</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc>15</dc>
 						<duration>Instantaneous</duration>
 						<effect>Deal 1d10 damage.</effect>
@@ -1505,6 +1557,7 @@ BIO
 						<range>Close; see text</range>
 						<components>Me</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc></dc>
 						<duration>50 min.</duration>
 						<effect>You forge a limited mental bond with another creature.</effect>
@@ -1533,6 +1586,7 @@ BIO
 						<range>Personal or touch; see text</range>
 						<components>Ma, Vi</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc></dc>
 						<duration>5 min. [D]</duration>
 						<effect>Subject slides skillfully along the ground.</effect>
@@ -1563,6 +1617,7 @@ BIO
 						<range>Medium (150 ft.)</range>
 						<components>Ma Vi</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc>16</dc>
 						<duration>Concentration, plus 1 round</duration>
 						<effect>Mentally paralyzes one humanoid.</effect>
@@ -1591,6 +1646,7 @@ BIO
 						<range>0 ft.</range>
 						<components>Ma, see text</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc></dc>
 						<duration>5 minutes [D]</duration>
 						<effect>Quasi-real film distorts your features, granting you concealment.</effect>
@@ -1619,6 +1675,7 @@ BIO
 						<range>Medium (150 ft.)</range>
 						<components>Au</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc>16</dc>
 						<duration>Instantaneous</duration>
 						<effect>Target takes 1d4 Charisma damage, and may also be dazed for 1 round.</effect>
@@ -1647,6 +1704,7 @@ BIO
 						<range>Close (35 ft.)</range>
 						<components>Au</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc>16</dc>
 						<duration>5 hours or until completed</duration>
 						<effect>Compels subject to follow stated course of action.</effect>
@@ -1677,6 +1735,7 @@ BIO
 						<range>Medium (150 ft.)</range>
 						<components>Au</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc>17</dc>
 						<duration>5 rounds</duration>
 						<effect>You compel the subject to purge its store of air</effect>
@@ -1705,6 +1764,7 @@ BIO
 						<range>Touch</range>
 						<components>Au Ma</components>
 						<castingtime>1 standard action</castingtime>
+						<casterlevel>5</casterlevel>
 						<dc>17</dc>
 						<duration>Instantaneous</duration>
 						<effect>You transfer your hurt to another creature.</effect>
