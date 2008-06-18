@@ -299,6 +299,7 @@ public class Description extends ConcretePrereqObject
 					.getPrerequisiteString(getPrerequisiteList());
 			if (prerequisiteString != null)
 			{
+				buf.append(Constants.PIPE);
 				buf.append(prerequisiteString);
 			}
 		}

@@ -589,6 +589,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 						.getPrerequisiteString(getPrerequisiteList());
 				if (prerequisiteString != null)
 				{
+					sb.append(Constants.PIPE);
 					sb.append(prerequisiteString);
 				}
 			}
