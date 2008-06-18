@@ -37,6 +37,7 @@ INFOTEXT:Dawnforge campaign setting, load with Core Rules for the 3.5 revised ed
 #EXTRAFILE:HowTo.txt
 
 
+
 RACE:dawnforge_races.lst
 BIOSET:dawnforge_biosettings.lst
 LANGUAGE:dawnforge_languages.lst
@@ -59,6 +60,12 @@ WEAPONPROF:dawnforge_weaponprofs.lst
 
 ABILITYCATEGORY:dawnforge_ability_categories.lst
 ABILITY:dawnforge_abilities_racial.lst
+
+ABILITY:dawnforge_abilities_class.lst
+ABILITY:dawnforge_abilities_class_legendary.lst
+ABILITY:dawnforge_abilities_class_legendary_mod.lst
+
+
 
 #FEAT:dawnforge_feats_races.lst
 #TEMPLATE:dawnforge_templates_races.lst
