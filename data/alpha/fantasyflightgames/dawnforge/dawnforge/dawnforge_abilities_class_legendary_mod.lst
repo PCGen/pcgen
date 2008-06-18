@@ -1,0 +1,39 @@
+#mod section
+
+
+
+CATEGORY=Special Ability|Enhanced Strength I		TYPE:EpicGeneralLPL1
+CATEGORY=Special Ability|Enhanced Strength II		TYPE:EpicGeneralLPL2
+CATEGORY=Special Ability|Enhanced Strength III		TYPE:EpicGeneralLPL3
+CATEGORY=Special Ability|Enhanced Strength IV		TYPE:EpicGeneralLPL4
+CATEGORY=Special Ability|Enhanced Strength V		TYPE:EpicGeneralLPL5
+
+CATEGORY=Special Ability|Enhanced Dexterity I		TYPE:DawnArcherLPL1.FleetwindLPL1	
+CATEGORY=Special Ability|Enhanced Dexterity II		TYPE:DawnArcherLPL2.FleetwindLPL2
+CATEGORY=Special Ability|Enhanced Dexterity III		TYPE:DawnArcherLPL3.FleetwindLPL3
+CATEGORY=Special Ability|Enhanced Dexterity IV		TYPE:DawnArcherLPL4.FleetwindLPL4
+CATEGORY=Special Ability|Enhanced Dexterity V		TYPE:DawnArcherLPL5.FleetwindLPL5
+
+CATEGORY=Special Ability|Enhanced Constitution I	TYPE:FleetwindLPL1.UnsufferingLPL1
+CATEGORY=Special Ability|Enhanced Constitution II	TYPE:FleetwindLPL2.UnsufferingLPL2
+CATEGORY=Special Ability|Enhanced Constitution III	TYPE:FleetwindLPL3.UnsufferingLPL3
+CATEGORY=Special Ability|Enhanced Constitution IV	TYPE:FleetwindLPL4.UnsufferingLPL4
+CATEGORY=Special Ability|Enhanced Constitution V	TYPE:FleetwindLPL5.UnsufferingLPL5
+
+CATEGORY=Special Ability|Enhanced Intelligence I	TYPE:IconLPL1.MasterArcanistLPL1
+CATEGORY=Special Ability|Enhanced Intelligence II	TYPE:IconLPL2.MasterArcanistLPL2
+CATEGORY=Special Ability|Enhanced Intelligence III	TYPE:IconLPL3.MasterArcanistLPL3
+CATEGORY=Special Ability|Enhanced Intelligence IV	TYPE:IconLPL4.MasterArcanistLPL4
+CATEGORY=Special Ability|Enhanced Intelligence V	TYPE:IconLPL5.MasterArcanistLPL5
+
+CATEGORY=Special Ability|Enhanced Wisdom I		TYPE:DawnArcherLPL1.MasterArcanistLPL1.UnsufferingLPL1
+CATEGORY=Special Ability|Enhanced Wisdom II		TYPE:DawnArcherLPL2.MasterArcanistLPL2.UnsufferingLPL2
+CATEGORY=Special Ability|Enhanced Wisdom III		TYPE:DawnArcherLPL3.MasterArcanistLPL3.UnsufferingLPL3
+CATEGORY=Special Ability|Enhanced Wisdom IV		TYPE:DawnArcherLPL4.MasterArcanistLPL4.UnsufferingLPL4
+CATEGORY=Special Ability|Enhanced Wisdom V		TYPE:DawnArcherLPL5.MasterArcanistLPL5.UnsufferingLPL5
+
+CATEGORY=Special Ability|Enhanced Charisma I		TYPE:EpicGeneralLPL1.IconLPL1
+CATEGORY=Special Ability|Enhanced Charisma II		TYPE:EpicGeneralLPL2.IconLPL2
+CATEGORY=Special Ability|Enhanced Charisma III		TYPE:EpicGeneralLPL3.IconLPL3
+CATEGORY=Special Ability|Enhanced Charisma IV		TYPE:EpicGeneralLPL4.IconLPL4
+CATEGORY=Special Ability|Enhanced Charisma V		TYPE:EpicGeneralLPL5.IconLPL5
