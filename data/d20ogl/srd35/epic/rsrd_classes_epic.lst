@@ -60,8 +60,8 @@ CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decip
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	ABB:Gpa		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
-# Class Name			Req. Att.	Required Feat																	Required Lvl	Required Skill
-CLASS:Guardian Paramount	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PREFEAT:2,Evasion,Uncanny Dodge	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
+# Class Name			Req. Att.	Required Feat																					Required Lvl	Required Skill
+CLASS:Guardian Paramount	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate|Jump|Listen|Spot|TYPE.Profession
 1			SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler									BONUS:VAR|GPEnabler|(2+ceil(CL/3))		DEFINE:GPEnabler|0	ADD:FEAT|Bulwark of Defense,Combat Archery,Damage Reduction,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Fortitude,Epic Reflexes,Epic Reputation,Epic Skill Focus,Epic Speed,Epic Toughness,Epic Will,Exceptional Deflection,Fast Healing,Great Dexterity,Improved Combat Reflexes,Improved Sneak Attack,Improved Spell Resistance,Infinite Deflection,Legendary Climber,Lingering Damage,Mobile Defense,Perfect Health,Reflect Arrows,Self Concealment,Sneak Attack of Opportunity,Spellcasting Harrier,Uncanny Accuracy
