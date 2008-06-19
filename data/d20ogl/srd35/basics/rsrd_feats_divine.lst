@@ -1,14 +1,14 @@
-# CVS $Revision: 228 $ $Author: nuance $ -- Wed Jun 11 19:06:12 2008 -- reformated by prettylst.pl v1.38 (build 6503)
+# CVS $Revision: 228 $ $Author: nuance $ -- Thu Jun 19 07:16:01 2008 -- reformated by prettylst.pl v1.38 (build 6736)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Additional Feats from the Divine Characters section of the RSRD
 # Feat Name				Type			Required Ability									Req. Att.	Required Feat					Required Lvl	Required Skill				Req. Known Spell				Required Stat	Description		Stackable?	Multiple?	Choose							Add 				Add Spell Lvl	Modify VAR				Source Page
 Blindsight (5 ft Radius)	TYPE:General												PREATT:4	PREFEAT:1,Blind Fight																			PRESTAT:1,WIS=19	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Disguise Spell			TYPE:Metamagic														PREFEAT:1,Bardic Music							PRESKILL:1,TYPE.Perform=12											DESC:See Text																	ADDSPELLLEVEL:1						SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Disguise Spell			TYPE:Metamagic	PREABILITY:1,CATEGORY=Special Ability,Bardic Music															PRESKILL:1,TYPE.Perform=12											DESC:See Text																	ADDSPELLLEVEL:1						SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Divine Might			TYPE:Divine		PREABILITY:1,CATEGORY=Special Ability,Turn Undead,Rebuke Undead			PREFEAT:1,Power Attack																			PRESTAT:1,STR=13	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Divine Vengeance			TYPE:Divine		PREABILITY:1,CATEGORY=Special Ability,Turn Undead					PREFEAT:1,Extra Turning																						DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Energy Substitution		TYPE:Metamagic														PREFEAT:1,TYPE.Metamagic						PRESKILL:1,Knowledge (Arcana)=5										DESC:See Text	STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Electricity|Fire|Sonic													SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Extra Music				TYPE:General														PREFEAT:1,Bardic Music																						DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|BardicMusicTimes|4	SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Extra Music				TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Bardic Music																														DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|BardicMusicTimes|4	SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Eyes in the Back of Your Head	TYPE:General												PREATT:3																							PRESTAT:1,WIS=19	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Fleet of Foot			TYPE:General														PREFEAT:1,Run																				PRESTAT:1,DEX=15	DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Hold the Line			TYPE:General												PREATT:2	PREFEAT:1,Combat Reflexes																					DESC:See Text																									SOURCEPAGE:DivineAbilitiesandFeats.rtf
