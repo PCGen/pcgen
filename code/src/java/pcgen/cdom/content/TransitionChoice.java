@@ -19,6 +19,13 @@ package pcgen.cdom.content;
 
 import pcgen.cdom.base.ChoiceSet;
 
+/**
+ * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
+ * provided as convenience to hold a set of choices and the number of choices
+ * allowed, prior to final implementation of the new choice system
+ * 
+ * @param <T>
+ */
 public class TransitionChoice<T>
 {
 

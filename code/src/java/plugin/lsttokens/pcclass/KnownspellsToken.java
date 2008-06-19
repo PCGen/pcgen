@@ -170,7 +170,7 @@ public class KnownspellsToken extends AbstractToken implements
 					TokenUtilities.REFERENCE_SORTER);
 			for (KnownSpellIdentifier ksi : added)
 			{
-				CDOMReference<Spell> ref = ksi.getLimit();
+				CDOMReference<Spell> ref = ksi.getSpellReference();
 				Integer i = ksi.getSpellLevel();
 				map.put(ref, i);
 			}
