@@ -169,14 +169,6 @@ Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO			
 Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
 Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
 
-#Proficiency Support - Feats
-Simple Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Simple Weapon Proficiency
-Martial Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Martial Weapon Proficiency
-Armor Proficiency (Light)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Light)
-Armor Proficiency (Medium)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Medium)
-Armor Proficiency (Heavy)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Heavy)
-Shield Proficiency			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Shield Proficiency
-Tower Shield Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Tower Shield Proficiency
 
 ###Block: Leadership feat support
 # Feat Name		Type			Visible	Multiple?	Choose										Modify VAR							Temporary effect description
