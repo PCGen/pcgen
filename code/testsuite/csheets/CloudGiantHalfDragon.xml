@@ -46,10 +46,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>6000</current>
 			<next_level>210000</next_level>
@@ -67,7 +68,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>13</cr>
+		<face>
 		<face>15 ft.</face>
+			<short>15 ft.</short>
+			<squares>3</squares>
+		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -88,6 +93,16 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>50 ft.</rate>
+				<squares>10</squares>
+			</move>
+			<move>
+				<name>Fly</name>
+				<rate>100 ft.</rate>
+				<squares>20</squares>
+			</move>
 			<all>Walk 50 ft., Fly 100 ft.</all>
 		</move>
 		<personality>
@@ -97,7 +112,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Cloud Giant</race>
+		<reach>
 		<reach>15 ft.</reach>
+			<squares>3</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -107,7 +125,11 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Dragon</type>
-		<vision>Darkvision (60&#39;), Low-light</vision>
+		<vision>
+			<vision>Darkvision (60&#39;)</vision>
+			<vision>Low-light</vision>
+			<all>Darkvision (60&#39;), Low-light</all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>0 lbs.</weight_unit>
@@ -220,6 +242,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>227</points>
+		<alternate>28</alternate>
 		<die>(17d10)+153</die>
 		<current/>
 		<subdual/>
@@ -868,7 +891,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -1075,6 +1098,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -1103,17 +1127,22 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
+			<longname>Bite (Natural/Primary)</longname>
+			<id></id>
 			<name>Bite</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1124,17 +1153,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Slam (Natural/Primary)</longname>
+			<id></id>
 			<name>Slam</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>N</equipped>
 			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Huge</long>
 				<short>H</short>
@@ -1145,17 +1179,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Claw (Natural/Secondary)</longname>
+			<id></id>
 			<name>Claw</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1401,26 +1440,6 @@ BIO
 		</feat>
 <!-- Hidden VFEATS -->
 		<feat>
-			<name>All Martial Weapon Proficiencies</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
-			<name>Giant Proficiencies</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
 			<name>Giant Traits</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1442,6 +1461,40 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>All Martial Weapon Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Giant Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
@@ -1526,6 +1579,7 @@ BIO
 					<range>Medium (250 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
+					<casterlevel>15</casterlevel>
 					<dc></dc>
 					<duration>150 minutes</duration>
 					<effect>Fog obscures vision.</effect>
@@ -1554,6 +1608,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S, F</components>
 					<castingtime>1 standard action</castingtime>
+					<casterlevel>15</casterlevel>
 					<dc></dc>
 					<duration>15 minutes [D]</duration>
 					<effect>You move up and down at your direction.</effect>
@@ -1582,6 +1637,7 @@ BIO
 					<range>20 ft.</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
+					<casterlevel>15</casterlevel>
 					<dc></dc>
 					<duration>15 minutes</duration>
 					<effect>Fog surrounds you.</effect>
@@ -1629,6 +1685,7 @@ BIO
 					<range>Medium (250 ft.)</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
+					<casterlevel>15</casterlevel>
 					<dc></dc>
 					<duration>150 minutes</duration>
 					<effect>Fog obscures vision.</effect>
@@ -1657,6 +1714,7 @@ BIO
 					<range>Personal</range>
 					<components>V, S, F</components>
 					<castingtime>1 standard action</castingtime>
+					<casterlevel>15</casterlevel>
 					<dc></dc>
 					<duration>15 minutes [D]</duration>
 					<effect>You move up and down at your direction.</effect>
@@ -1685,6 +1743,7 @@ BIO
 					<range>20 ft.</range>
 					<components>V, S</components>
 					<castingtime>1 standard action</castingtime>
+					<casterlevel>15</casterlevel>
 					<dc></dc>
 					<duration>15 minutes</duration>
 					<effect>Fog surrounds you.</effect>
