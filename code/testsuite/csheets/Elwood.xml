@@ -53,10 +53,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>15000</current>
 			<next_level>21000</next_level>
@@ -74,7 +75,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>6</cr>
+		<face>
 		<face>5 ft. by 5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
+		</face>
 		<favoredlist>Any</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -96,6 +101,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>30 ft.</rate>
+				<squares>6</squares>
+			</move>
 			<all>Walk 30 ft.</all>
 		</move>
 		<personality>
@@ -105,7 +115,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Human</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>2</reputation>
 		<residence></residence>
@@ -115,7 +128,9 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
-		<vision></vision>
+		<vision>
+			<all></all>
+		</vision>
 		<wealth>7</wealth>
 		<weight>
 			<weight_unit>162 lbs.</weight_unit>
@@ -232,6 +247,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>35</points>
+		<alternate>11</alternate>
 		<die>(3d8)+(3d8)+3</die>
 		<current/>
 		<subdual/>
@@ -1119,7 +1135,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -1314,6 +1330,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -1342,17 +1359,22 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
+			<longname>Aluminum Travel Case (75 lb)</longname>
+			<id></id>
 			<name>Aluminum Travel Case (75 lb)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents>1 lbs., 1 PDA (Satellite Datalink Gadget), 1 Camera, Digital</contents>
+			<contents_num>2</contents_num>
+			<content_weight>1</content_weight>
 			<cost>12</cost>
 			<equipped>N</equipped>
 			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1363,17 +1385,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Bullet (.357)</longname>
+			<id></id>
 			<name>.357 Bullet</name>
 			<carried>6.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>5</cost>
 			<equipped>N</equipped>
 			<location>Colt Python (.357 revolver)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>6</quantity>
+			<checkbox>6</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1384,17 +1411,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Bullet (.357/50)</longname>
+			<id></id>
 			<name>.357 Bullets, 50 pack</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>5</cost>
 			<equipped>N</equipped>
 			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1405,17 +1437,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Camera (Digital)</longname>
+			<id></id>
 			<name>Camera, Digital</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>14</cost>
 			<equipped>N</equipped>
 			<location>Aluminum Travel Case (75 lb)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1426,17 +1463,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Clothing Outfit (Normal Everday)</longname>
+			<id></id>
 			<name>Normal Everday Clothing</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1447,17 +1489,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Colt Python (.357 revolver)</longname>
+			<id></id>
 			<name>Colt Python (.357 revolver)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents>0 lbs., 6 .357 Bullet</contents>
+			<contents_num>1</contents_num>
+			<content_weight>0</content_weight>
 			<cost>5</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1468,17 +1515,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Mercedes E55 AMG</longname>
+			<id></id>
 			<name>Mercedes E55 AMG</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents>0 lbs.</contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>32</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1489,17 +1541,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>PDA (Satellite Datalink Gadget)</longname>
+			<id></id>
 			<name>PDA (Satellite Datalink Gadget)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>17</cost>
 			<equipped>N</equipped>
 			<location>Aluminum Travel Case (75 lb)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1510,17 +1567,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Unarmed Lethal Strike (Natural/Primary)</longname>
+			<id></id>
 			<name>Unarmed Lethal Strike</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1779,7 +1841,7 @@ BIO
 		</class>
 		<class>
 			<class>Infiltrator</class>
-			<ability>Improvised Implements, Sweep</ability>
+			<ability></ability>
 		</class>
 	</special_abilities>
 	<!--
@@ -1879,6 +1941,63 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Improvised Implements</name>
+			<description></description>
+			<type>CLASS.SPECIALABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Sweep</name>
+			<description></description>
+			<type>CLASS.SPECIALABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Visible Standard "Talent" Ability Objects -->
+		<ability_object>
+			<name>Evasion</name>
+			<description></description>
+			<type>TALENT.FASTTALENT.DEFENSIVE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+		<ability_object>
+			<name>Uncanny Dodge I</name>
+			<description></description>
+			<type>TALENT.FASTTALENT.DEFENSIVE.FASTPLUS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
