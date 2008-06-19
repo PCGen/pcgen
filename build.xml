@@ -809,6 +809,29 @@ pcgen.filepaths=user
 		</junit>
 	</target>
 
+	<!-- Run the data and code integration tests -->
+	<target name="inttest" depends="dointtest, failure.notice, success.notice" description="Run the data/code integration subset of the test suite (include lib/test/junit.jar in CLASSPATH)">
+	</target>
+
+	<target name="dointtest" depends="testclean, test.jar" >
+		<junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
+			<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+			<jvmarg value="-Demma.coverage.out.merge=true" />
+			<jvmarg value="-Xmx192M" />
+			<formatter type="plain" />
+			<formatter type="xml" />
+			<classpath>
+				<path refid="test.project.classpath" />
+				<path refid="emma.lib" />
+			</classpath>
+			<batchtest todir="${build.dir}/test-results/xml">
+				<fileset dir="${basedir}/code/src/test">
+				  <include name="pcgen/gui/*Test.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+	
 	<!-- Generate a failure notice if the junit tests failed -->
 	<target name="failure.notice" if="junitfailure">
 		<tstamp>
