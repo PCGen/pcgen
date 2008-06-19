@@ -61,8 +61,8 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
 
 ###Block:Monk Abilities
-1						BONUS:VAR|MonkACLvl|CL		AUTO:FEAT|Monk AC
-1						BONUS:VAR|MonkMoveLVL|CL	AUTO:FEAT|Monk Movement
+1						BONUS:VAR|MonkACLvl|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
+1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC||Monk Movement
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Class Info
 1	KNOWN:0,1		SAB:Monk Abilities
@@ -75,6 +75,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 8	KNOWN:0,2,2,2,2
 9	KNOWN:0,2,2,2,2,1
 10	KNOWN:0,2,2,2,2,2					ADD:FEAT|TYPE=Psionic
+###TODO: Set up Abilitypool for Psionic Fist - Psionic
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
