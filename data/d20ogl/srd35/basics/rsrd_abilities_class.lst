@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
+# CVS $Revision$ $Author$ -- Wed Jun 18 20:41:40 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -9,15 +9,16 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #Improved Uncanny Dodge		CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SAB:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																															BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																						SOURCEPAGE:ClassesII.rtf
 
 ###Block: Shared Class Abilities --------------------------------------------------------------------------------------------------
-Evasion			CATEGORY:Special Ability	TYPE:Special.Extraordinary							VISIBLE:DISPLAY										SAB:Evasion (Ex)|EvasionUsable									DEFINE:EvasionUsable|0																																											BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0			SOURCEPAGE:ClassesII.rtf
-Improved Evasion		CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable							DEFINE:ImprovedEvasionUsable|0	DESC:Class Special Ability																																				BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0														SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type									Visible		Required Ability						Special ABility												Define											Description				Modify VAR																																	Source Page
+Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary					VISIBLE:DISPLAY									SAB:Evasion (Ex)|EvasionUsable									DEFINE:EvasionUsable|0														BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
+Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable							DEFINE:ImprovedEvasionUsable|0							DESC:Class Special Ability	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0												SOURCEPAGE:ClassesII.rtf
 #
-Smite			CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO	SAB:Smite (Su) %/day|SmiteAnyTimes									DEFINE:SmiteAnyTimes|0																																											SOURCEPAGE:SpellListI.rtf
-Smite Evil		CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO	SAB:Smite Evil (Su) %/day|SmiteEvil									DEFINE:SmiteEvil|0																																											SOURCEPAGE:ClassesII.rtf
-Smite Good		CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural	VISIBLE:NO	SAB:Smite Good (Su) %/day|SmiteGood									DEFINE:SmiteGood|0																																											SOURCEPAGE:PrestigeClasses.rtf
+Smite			CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural				VISIBLE:NO										SAB:Smite (Su) %/day|SmiteAnyTimes									DEFINE:SmiteAnyTimes|0																																																SOURCEPAGE:SpellListI.rtf
+Smite Evil		CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural				VISIBLE:NO										SAB:Smite Evil (Su) %/day|SmiteEvil									DEFINE:SmiteEvil|0																																																SOURCEPAGE:ClassesII.rtf
+Smite Good		CATEGORY:Special Ability	TYPE:Special.Smite.Supernatural				VISIBLE:NO										SAB:Smite Good (Su) %/day|SmiteGood									DEFINE:SmiteGood|0																																																SOURCEPAGE:PrestigeClasses.rtf
 # Druid & Ranger
-Wild Empathy	CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO	SAB:Wild Empathy (Ex) +% (+% on Magical Beasts)|WildEmpathy|WildEmpathyMagicalBeast	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy	BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK									SOURCEPAGE:ClassesI.rtf
-Woodland Stride	CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Woodland Stride (Ex)																																																								SOURCEPAGE:ClassesI.rtf
+Wild Empathy	CATEGORY:Special Ability	TYPE:Special.Extraordinary					VISIBLE:NO										SAB:Wild Empathy (Ex) +% (+% on Magical Beasts)|WildEmpathy|WildEmpathyMagicalBeast	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy						BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK									SOURCEPAGE:ClassesI.rtf
+Woodland Stride	CATEGORY:Special Ability	TYPE:Extraordinary						VISIBLE:NO										SAB:Woodland Stride (Ex)																																																													SOURCEPAGE:ClassesI.rtf
 
 
 ###Block: Specials
@@ -325,13 +326,13 @@ Rogue Sneak Attack	CATEGORY:Special Ability						VISIBLE:NO										DEFINE:Rogu
 Rogue Trap Sense		CATEGORY:Special Ability						VISIBLE:NO										DEFINE:RogueTrapSenseLVL|0									BONUS:VAR|TrapSense|RogueTrapSenseLVL/3		SOURCEPAGE:ClassesII.rtf
 
 ###Block: Rogue Bonus Feat / Special Abilities
-# Ability Name	Category of Ability		Type											Visible		Required Ability						Special ABility												Define					Description																								Stackable?	Multiple?	Selections		Choose			Bonus Number of Feats	Modify VAR																						Source Page
-Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY									SAB:Crippling Strike (Ex)																DESC:An opponent damaged with Sneak Attack also takes 2 points STR damage.																																																			SOURCEPAGE:ClassesII.rtf
-Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY									SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0		DESC:%1 / day, when reduced to 0 or fewer hit points by damage in combat, may take only 1/2 damage on successful Reflex save.|DefensiveRollTimes																BONUS:VAR|DefensiveRollTimes|1																		SOURCEPAGE:ClassesII.rtf
-Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY									SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character							DESC:Once per round, may make an AoO vs opponent damaged in melee by another character.																																																	SOURCEPAGE:ClassesII.rtf
-Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY									SAB:Slippery Mind (Ex)																	DESC:Class Special Ability																																																											SOURCEPAGE:ClassesII.rtf
-Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities.SpecialQuality						VISIBLE:DISPLAY																													DESC:Take 10 on listed skills																					STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL																												SOURCEPAGE:ClassesII.rtf
-Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY																													DESC:1 Extra Feat (Spend on Feat tab)																			STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1																									SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type											Visible		Special ABility												Define				Description																								Stackable?	Multiple?	Selections		Choose			Bonus Number of Feats	Modify VAR					Source Page
+Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Crippling Strike (Ex)															DESC:An opponent damaged with Sneak Attack also takes 2 points STR damage.																																		SOURCEPAGE:ClassesII.rtf
+Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY	SAB:Defensive Roll (Ex) %/day|DefensiveRollTimes						DEFINE:DefensiveRollTimes|0	DESC:%1 / day, when reduced to 0 or fewer hit points by damage in combat, may take only 1/2 damage on successful Reflex save.|DefensiveRollTimes																BONUS:VAR|DefensiveRollTimes|1	SOURCEPAGE:ClassesII.rtf
+Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Opportunist (Ex) 1/round a rogue Atk of Op vs opponent hit by another character						DESC:Once per round, may make an AoO vs opponent damaged in melee by another character.																																SOURCEPAGE:ClassesII.rtf
+Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality			VISIBLE:DISPLAY	SAB:Slippery Mind (Ex)																DESC:Class Special Ability																																										SOURCEPAGE:ClassesII.rtf
+Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities.SpecialQuality						VISIBLE:DISPLAY																				DESC:Take 10 on listed skills																					STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL											SOURCEPAGE:ClassesII.rtf
+Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY																				DESC:1 Extra Feat (Spend on Feat tab)																			STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1								SOURCEPAGE:ClassesII.rtf
 
 ###Block: Uncanny Dodge
 # Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
@@ -359,54 +360,35 @@ Transmuter Learning Bonus	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO
 #Weapon Proficiencies for .MOD capabilities in classes.
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
 ###Block: Weapon proficiencies
-# Ability Name				Category of Ability		Type			Visible	Automaticaly Gained Feat			Automaticaly Gained Weapon Prof.
-All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|TYPE.Martial
-Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
-Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
-Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
-Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
-Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|TYPE.Crossbow|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Sword (Short)
-Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|TYPE.Crossbow|TYPE.Dagger|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)
+# Ability Name				Category of Ability		Type			Visible	Automaticaly Gained Weapon Prof.
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
+Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
+Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
+Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
+Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
+Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Crossbow|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Sword (Short)
+Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|TYPE.Crossbow|TYPE.Dagger|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)
 
+# These should just be feats, commented out so we can find any erronious references to them  -Eddy
 #Proficiency Support - Feats
-Simple Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Simple Weapon Proficiency
-Martial Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Martial Weapon Proficiency
-Armor Proficiency (Light)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Light)
-Armor Proficiency (Medium)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Medium)
-Armor Proficiency (Heavy)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Heavy)
-Shield Proficiency			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Shield Proficiency
-Tower Shield Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Tower Shield Proficiency
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Simple Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Simple Weapon Proficiency
+#Martial Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Martial Weapon Proficiency
+#Armor Proficiency (Light)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Light)
+#Armor Proficiency (Medium)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Medium)
+#Armor Proficiency (Heavy)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Heavy)
+#Shield Proficiency			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Shield Proficiency
+#Tower Shield Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Tower Shield Proficiency
 
 ###Block: Automatic Creature Type Proficiencies
-# Ability Name				Category of Ability		Type			Visible	Virtual Feat									Source Page
-Fey Proficiencies				CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
-Giant Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Humanoid Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
-Monstrous Humanoid Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
-Outsider Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Undead Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency						SOURCEPAGE:TypesSubtypesAbilities.rtf
+# Ability Name				Category of Ability		Type			Visible	Virtual Feat				Ability											Source Page
+Fey Proficiencies				CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Humanoid Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Monstrous Humanoid Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Outsider Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Undead Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Creature Type Traits
 # Ability Name			Category of Ability		Type			Visible	Special ABility																																																																																																																																																																																																																					Vision					Source Page
