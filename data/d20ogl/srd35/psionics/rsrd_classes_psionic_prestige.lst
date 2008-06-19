@@ -62,7 +62,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 ###Block:Monk Abilities
 1						BONUS:VAR|MonkACLvl|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
-1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC||Monk Movement
+1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Class Info
 1	KNOWN:0,1		SAB:Monk Abilities
