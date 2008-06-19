@@ -53,10 +53,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>63000</current>
 			<next_level>91000</next_level>
@@ -74,7 +75,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>7</cr>
+		<face>
 		<face>5 ft.</face>
+			<short>5 ft.</short>
+			<squares>1</squares>
+		</face>
 		<favoredlist>Rogue</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -95,6 +100,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>30 ft.</rate>
+				<squares>6</squares>
+			</move>
 			<all>Walk 30 ft.</all>
 		</move>
 		<personality>
@@ -104,7 +114,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Doppelganger</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -114,7 +127,11 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Dragon</type>
-		<vision>Darkvision (60&#39;), Low-light</vision>
+		<vision>
+			<vision>Darkvision (60&#39;)</vision>
+			<vision>Low-light</vision>
+			<all>Darkvision (60&#39;), Low-light</all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>0 lbs.</weight_unit>
@@ -227,6 +244,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>52</points>
+		<alternate>18</alternate>
 		<die>(4d10)+(2d10)+24</die>
 		<current/>
 		<subdual/>
@@ -816,7 +834,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -1023,6 +1041,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -1051,17 +1070,22 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
+			<longname>Outfit (Explorer&#39;s)</longname>
+			<id></id>
 			<name>Explorer&#39;s Outfit</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1072,17 +1096,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Bite (Natural/Primary)</longname>
+			<id></id>
 			<name>Bite</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>N</equipped>
 			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1093,17 +1122,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Slam (Natural/Primary)</longname>
+			<id></id>
 			<name>Slam</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1114,17 +1148,22 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Claw (Natural/Secondary)</longname>
+			<id></id>
 			<name>Claw</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>0</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
+			<checkbox>1</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1407,16 +1446,6 @@ BIO
 		</feat>
 <!-- Hidden VFEATS -->
 		<feat>
-			<name>Monstrous Humanoid Proficiencies</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
 			<name>Monstrous Humanoid Traits</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1427,7 +1456,17 @@ BIO
 			<virtual>T</virtual>
 		</feat>
 <!-- END Hidden VFEATS -->
-		<feat>
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1436,8 +1475,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1446,8 +1486,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Fighter Level Advanced Feat Tracker</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1456,8 +1497,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Greater Weapon Focus Qualify</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1466,8 +1508,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Greater Weapon Specialization Qualify</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1476,8 +1519,20 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Monstrous Humanoid Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Weapon Specialization Qualify</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1486,8 +1541,11 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-	</feats>
+			<category>Special Ability</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
