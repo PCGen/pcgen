@@ -932,8 +932,8 @@ BIO
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Alertness</name>
-			<description>The character gets a +2 bonus on all Listen checks and Spot checks</description>
-			<type>GENERAL.TRACER.GLAMOURIST.MYSTIC.SHADOWJACK.THRASHER.SHADOWKINDHUMAN</type>
+			<description>You get a +2 bonus on all Listen checks and Spot checks.</description>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
