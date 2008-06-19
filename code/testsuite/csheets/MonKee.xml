@@ -46,10 +46,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>0</current>
 			<next_level>36000</next_level>
@@ -67,7 +68,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>8</cr>
+		<face>
 		<face>5 ft. by 5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
+		</face>
 		<favoredlist>Any</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -88,6 +93,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>50 ft.</rate>
+				<squares>10</squares>
+			</move>
 			<all>Walk 50 ft.</all>
 		</move>
 		<personality>
@@ -97,7 +107,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Human</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -107,7 +120,9 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
-		<vision></vision>
+		<vision>
+			<all></all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>150 lbs.</weight_unit>
@@ -224,6 +239,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>23</points>
+		<alternate>8</alternate>
 		<die>(8d8)-8</die>
 		<current/>
 		<subdual/>
@@ -834,7 +850,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -927,6 +943,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -957,7 +974,7 @@ BIO
 
 		<leadership>
 			<score>9</score>
-			<max_cohort_level>6</max_cohort_level>
+			<max_cohort_level>6.0</max_cohort_level>
 		</leadership>
 
 	</class_features>
@@ -1032,7 +1049,7 @@ BIO
 		<race></race>
 		<class>
 			<class>Monk</class>
-			<ability>Flurry of Blows, Leap of the Clouds, Purity of Body, Slow Fall (50 ft.), Still Mind, Wholeness of Body (Su) 16 hp/day</ability>
+			<ability></ability>
 		</class>
 	</special_abilities>
 	<!--
@@ -1120,58 +1137,18 @@ BIO
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
-		<feat>
-			<name>Evasion</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
-			<name>Leadership Score</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
-			<name>Monk AC</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
-			<name>Monk Fast Movement</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
-		<feat>
-			<name>Stunning Attack</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
 <!-- END Hidden VFEATS -->
-		<feat>
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1180,8 +1157,75 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Evasion</name>
+			<description></description>
+			<type>EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Flurry of Blows</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Leadership Score</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Leap of the Clouds</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Monk AC</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Monk Fast Movement</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Monk Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1190,8 +1234,66 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-	</feats>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Purity of Body</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Slow Fall</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Still Mind</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Stunning Attack</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Wholeness of Body</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
