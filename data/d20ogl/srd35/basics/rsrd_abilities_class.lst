@@ -214,7 +214,7 @@ Monk Ki Strike Advancement	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BON
 
 ###Block: Paladin Abilities --------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type				Visible	Special ABility						Define								Innate Spells										Save checks bonus						Modify VAR							Source Page
-Aura of Courage	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Aura of Courage (Su)																																									SOURCEPAGE:ClassesII.rtf
+Aura of Courage	CATEGORY:Special Ability	TYPE:Supernatural.Aura		VISIBLE:NO	SAB:Aura of Courage (Su)																																									SOURCEPAGE:ClassesII.rtf
 Divine Health	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Divine Health (Ex)																																										SOURCEPAGE:ClassesII.rtf
 Remove Disease	CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																					BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
 Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																						BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
