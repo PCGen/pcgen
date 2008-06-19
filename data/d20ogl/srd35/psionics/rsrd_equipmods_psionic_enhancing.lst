@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Mar 11 16:46:24 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #Updates: TaluronIscandar
 
 ###Block: Base Materials
-# Modifier Name	Unique Key			Type																					Cost		Visible		Type granted				Keys to replace		Source Page				Prohibited Type					BONUS:EQMARMOR								Modify the item cost																				Weapon prop. bonus												Special Property															Apply to both heads
+# Modifier Name	Unique Key			Type																					Cost		Visible		Type granted				Keys to replace		Source Page				Prohibited Type					Bonus Armor Modifiers							Modify the item cost																				Weapon prop. bonus												Special Property															Apply to both heads
 Crystal (Mundane)	KEY:CRYS_MUN		TYPE:MasterworkQuality.Weapon.Armor.Shield.Ammunition.BaseMaterial										COST:0	VISIBLE:QUALIFY	ITYPE:Metal.Crystal.Masterwork	REPLACES:MWORKW,MWORKA	SOURCEPAGE:PsionicItems.rtf								BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement|PRETYPE:1,Armor	BONUS:ITEMCOST|TYPE.Weapon|300	BONUS:ITEMCOST|TYPE.Armor|150	BONUS:ITEMCOST|TYPE.Shield|150	BONUS:ITEMCOST|TYPE.Ammunition|6	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement|PREMULT:1,[PRETYPE:1,Weapon],[PRETYPE:1,Ammunition]	SPROP:25hp/inch and 8 hardness												ASSIGNTOALL:YES
 Crystal (Deep)	KEY:CRYS_DEEP		TYPE:MasterworkQuality.Weapon.Armor.Shield.Ammunition.BaseMaterial										COST:0	VISIBLE:QUALIFY	ITYPE:Metal.Crystal.Masterwork	REPLACES:MWORKW,MWORKA	SOURCEPAGE:PsionicItems.rtf								BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement|PRETYPE:1,Armor	BONUS:ITEMCOST|TYPE.Weapon|1300	BONUS:ITEMCOST|TYPE.Armor|150	BONUS:ITEMCOST|TYPE.Shield|150	BONUS:ITEMCOST|TYPE.Ammunition|6	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement|PREMULT:1,[PRETYPE:1,Weapon],[PRETYPE:1,Ammunition]	SPROP:30hp/inch and 10 hardness;Weapon may be charged with 2 Psionic Power Points for +2d6 damage	ASSIGNTOALL:YES
 

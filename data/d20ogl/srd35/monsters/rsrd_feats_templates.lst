@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor (andargor@yahoo.com)
 
@@ -13,8 +13,8 @@ Malevolence			TYPE:GhostAbility	VISIBLE:NO	SAB:Malevolence (Su) DC%|15+max(CHA,0
 Telekinesis			TYPE:GhostAbility	VISIBLE:NO	SAB:Telekinesis (Su) DC%|GhostAbilityDC
 
 ###Block: Half Dragon Abilities
-# Feat Name		Type				Visible	PRESIZEGT	Special ABility	Clone Movement
-Half Dragon Wings	TYPE:HalfDragonWings	VISIBLE:NO	PRESIZEGT:M	SAB:Wings (Ex)	MOVECLONE:Walk,Fly,*2
+# Feat Name		Type				Visible	Must be Larger	Special ABility	Clone Movement
+Half Dragon Wings	TYPE:HalfDragonWings	VISIBLE:NO	PRESIZEGT:M		SAB:Wings (Ex)	MOVECLONE:Walk,Fly,*2
 
 ###Block: Used for Half Dragon and Half Fiend
 # Feat Name				Type					Visible	Required Size	Natural Attacks

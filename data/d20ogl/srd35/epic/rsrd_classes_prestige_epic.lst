@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Dec  1 14:00:20 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -9,13 +9,13 @@ CLASS:Arcane Archer.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name			Max Level
 CLASS:Arcane Trickster.MOD	MAXLEVEL:NOLIMIT
-11:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+11:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Arcane Trickster Feat|1
 
 
 # Class Name		Max Level
 CLASS:Assassin.MOD	MAXLEVEL:NOLIMIT
-11	BONUS:VAR|DeathAttack|(-1*(floor((CL-10)/2)))
+11										BONUS:VAR|DeathAttack|(-1*(floor((CL-10)/2)))
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Assassin Feat|1
 
 
@@ -27,9 +27,9 @@ CLASS:Blackguard.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name			Max Level
 CLASS:Dragon Disciple.MOD	MAXLEVEL:NOLIMIT
-13	BONUS:VAR|EpicDDNA|floor((CL-10)/3)								BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.REPLACE	DEFINE:EpicDDNA|0
-13	BONUS:VAR|BreathWeaponDice|EpicDDBW	BONUS:VAR|EpicDDBW|2*floor((CL-9)/4)										DEFINE:EpicDDBW|0
-14:REPEATLEVEL:4		BONUS:ABILITYPOOL|Epic Dragon Disciple Feat|1
+13											BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.REPLACE	BONUS:VAR|EpicDDNA|floor((CL-10)/3)								DEFINE:EpicDDNA|0
+13																				BONUS:VAR|BreathWeaponDice|EpicDDBW	BONUS:VAR|EpicDDBW|2*floor((CL-9)/4)	DEFINE:EpicDDBW|0
+14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Dragon Disciple Feat|1
 
 
 # Class Name	Max Level
@@ -44,7 +44,7 @@ CLASS:Dwarven Defender.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name			Max Level
 CLASS:Eldritch Knight.MOD	MAXLEVEL:NOLIMIT
-11:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+11:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Eldritch Knight Feat|1
 
 
@@ -56,20 +56,20 @@ CLASS:Horizon Walker.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name		Max Level
 CLASS:Loremaster.MOD	MAXLEVEL:NOLIMIT
-11:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+11:REPEATLEVEL:1								ADD:SPELLCASTER|ANY
 13:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Loremaster Feat|1
 
 
 # Class Name			Max Level
 CLASS:Mystic Theurge.MOD	MAXLEVEL:NOLIMIT
-11:REPEATLEVEL:2	ADD:SPELLCASTER|Arcane
-12:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
+11:REPEATLEVEL:2									ADD:SPELLCASTER|Arcane
+12:REPEATLEVEL:2									ADD:SPELLCASTER|Divine
 16:REPEATLEVEL:6	BONUS:ABILITYPOOL|Epic Mystic Theurge Feat|1
 
 
 # Class Name		Max Level
 CLASS:Shadowdancer.MOD	MAXLEVEL:NOLIMIT
-11	BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
+11											BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
 13:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Shadowdancer Feat|1
 
 #  Reference for Epic Shadow Jump formula

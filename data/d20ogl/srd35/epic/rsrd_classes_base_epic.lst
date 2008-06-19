@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -16,7 +16,7 @@ CLASS:Cleric.MOD	MAXLEVEL:NOLIMIT
 
 # Class Name	Max Level
 CLASS:Druid.MOD	MAXLEVEL:NOLIMIT
-22	BONUS:VAR|WildShapeTimes|(CL-18)/4
+22									BONUS:VAR|WildShapeTimes|(CL-18)/4
 24:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Druid Feat|1
 
 # Class Name	Max Level

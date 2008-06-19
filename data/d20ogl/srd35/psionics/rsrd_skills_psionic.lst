@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Sep 11 02:10:49 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Arknight
 
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus -- Frank
 
 
-# Skill Name		Key Stat	Untrained?		Type					Bonus to skill														Source Page
-Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				BONUS:SKILL|Autohypnosis|SynergyBonus|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK			SOURCEPAGE:PsionicSkills.rtf
-Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	BONUS:SKILL|Knowledge (Psionics)|SynergyBonus|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK	SOURCEPAGE:PsionicSkills.rtf
-Psicraft			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence			BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Knowledge (Psionics)=5|TYPE=Synergy.STACK		SOURCEPAGE:PsionicSkills.rtf
-Use Psionic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma																			SOURCEPAGE:PsionicSkills.rtf
+# Skill Name		Key Stat	Untrained?		Type					Source Page				Bonus to skill
+Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				SOURCEPAGE:PsionicSkills.rtf	BONUS:SKILL|Autohypnosis|SynergyBonus|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK
+Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:PsionicSkills.rtf	BONUS:SKILL|Knowledge (Psionics)|SynergyBonus|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK
+Psicraft			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence			SOURCEPAGE:PsionicSkills.rtf	BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Knowledge (Psionics)=5|TYPE=Synergy.STACK
+Use Psionic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma			SOURCEPAGE:PsionicSkills.rtf
