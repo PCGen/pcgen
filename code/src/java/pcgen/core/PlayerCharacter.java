@@ -2889,9 +2889,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<String> autoShieldProfList = getAutoShieldProfList();
 		addShieldProfs(autoShieldProfList);
 
-		final List<String> selectedProfList = getSelectedShieldProfList();
-		addShieldProfs(selectedProfList);
-
 		return shieldProfList;
 	}
 
@@ -12845,26 +12842,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		aString = outputString.substring(1); // TODO: value never used
-	}
-
-	private List<String> getSelectedShieldProfList()
-	{
-		final ArrayList<String> aList = new ArrayList<String>();
-
-		for (PObject aPObj : getPObjectList())
-		{
-			if (aPObj == null)
-			{
-				continue;
-			}
-
-			if (aPObj.containsListFor(ListKey.SELECTED_SHIELD_PROFS))
-			{
-				aList.addAll(aPObj.getListFor(ListKey.SELECTED_SHIELD_PROFS));
-			}
-		}
-
-		return aList;
 	}
 
 	/**

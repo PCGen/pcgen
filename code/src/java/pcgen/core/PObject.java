@@ -48,7 +48,6 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -2300,21 +2299,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			if (!containsInList(ListKey.SELECTED_ARMOR_PROF, aString))
 			{
 				addToListFor(ListKey.SELECTED_ARMOR_PROF, aString);
-			}
-		}
-	}
-
-	/**
-	 * Add the selected shield proficiencies to the list
-	 * @param aList
-	 */
-	public final void addSelectedShieldProfs(final List<String> aList)
-	{
-		for (String aString : aList)
-		{
-			if (!containsInList(ListKey.SELECTED_SHIELD_PROFS, aString))
-			{
-				addToListFor(ListKey.SELECTED_SHIELD_PROFS, aString);
 			}
 		}
 	}

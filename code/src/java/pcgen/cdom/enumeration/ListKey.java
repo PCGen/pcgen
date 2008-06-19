@@ -134,8 +134,6 @@ public final class ListKey<T> {
 	public static final ListKey<String> SECTION_15 = new ListKey<String>();
 	/** SELECTED_ARMOR_PROFS - a ListKey */
 	public static final ListKey<String> SELECTED_ARMOR_PROF = new ListKey<String>();
-	/** SELECTED_SHIELD_PROFS - a ListKey */
-	public static final ListKey<String> SELECTED_SHIELD_PROFS = new ListKey<String>();
 	/** SELECTED_WEAPON_PROF_BONUS - a ListKey */
 	public static final ListKey<String> SELECTED_WEAPON_PROF_BONUS = new ListKey<String>();
 	/** SPECIAL_ABILITY - a ListKey */
