@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 15 15:42:44 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Wed Jun 18 21:54:10 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -10,9 +10,9 @@ CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:Prest
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|ArrowEnhancementLVL|CL						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 2												ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
@@ -61,7 +61,7 @@ CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Sc
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|CL
 1	ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
+1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Death Attack|Poison Use
 2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|1												ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
@@ -96,12 +96,12 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0	ABILITY:Special Ability|AUTOMATIC|Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3
 1														ABILITY:Special Ability|AUTOMATIC|Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
 ###Block: Servants Servant (Undead and Fiendish)
-5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	VFEAT:Undead Companion|PRECLASS:1,Ex Paladin=9
-5	BONUS:VAR|FSLevel|CL							VFEAT:Fiendish Servant
+5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	ABILITY:Special Ability|AUTOMATIC|Undead Companion|PRECLASS:1,Ex Paladin=9
+5	BONUS:VAR|FSLevel|CL							ABILITY:Special Ability|AUTOMATIC|Fiendish Servant
 ###Block: Weapons / Armor Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
 1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	ABILITY:Special Ability|AUTOMATIC|Poison Use|Detect Good|Aura of Evil
 2	CAST:0,1												ABILITY:Special Ability|AUTOMATIC|Dark Blessing
@@ -180,7 +180,7 @@ CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeCl
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PREMULT:2,[PRESKILL:1,TYPE.Perform=3],[PRESKILL:1,Tumble=5]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE.Perform|Sense Motive|Spot|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Special Ability|AUTOMATIC|Canny Defense
 2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Special Ability|AUTOMATIC|Improved Reaction
@@ -201,9 +201,9 @@ CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:P
 CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spot
-1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	ABILITY:Special Ability|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4			ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
@@ -293,7 +293,7 @@ CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:3,Hide=10,M
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Search|Sleight of Hand|Spot|Tumble|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|Shadowdancer Weapon Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency (Light)
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																							ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Assassin)
 2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base

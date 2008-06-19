@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 14 13:16:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jun 18 21:59:52 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -75,9 +75,9 @@ CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TY
 CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")																											DEFINE:PsychicWarriorML|0	TEMPLATE:Psionic

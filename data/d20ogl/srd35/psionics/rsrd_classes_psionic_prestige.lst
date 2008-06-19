@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 20:35:11 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+# CVS $Revision$ $Author$ -- Wed Jun 18 21:59:52 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -61,9 +61,9 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
 
 ###Block:Monk Abilities
-1	BONUS:VAR|MonkACLvl|CL							AUTO:FEAT|Monk AC
-1	BONUS:VAR|MonkMoveLVL|CL						AUTO:FEAT|Monk Movement
-1						BONUS:UDAM|CLASS.Monk|CL
+1						BONUS:VAR|MonkACLvl|CL		AUTO:FEAT|Monk AC
+1						BONUS:VAR|MonkMoveLVL|CL	AUTO:FEAT|Monk Movement
+1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Class Info
 1	KNOWN:0,1		SAB:Monk Abilities
 2	KNOWN:0,2
@@ -83,8 +83,8 @@ CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Class Info
 1	SAB:Favored Enemy (Specific Psionic Creature)(+%) (Ex)|SlayerFavoredEnemy	SAB:Sense Favored Enemy (60')(Su)	BONUS:VAR|SlayerFavoredEnemy|2	DEFINE:SlayerFavoredEnemy|0
 2	SAB:Brain Nausea (Will Save DC:%)(Su)|BrainNausea											BONUS:VAR|BrainNausea|15+CL		DEFINE:BrainNausea|0		ADD:SPELLCASTER|Psionic
@@ -186,13 +186,13 @@ CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War
 1	BONUS:VAR|BonusPowerPoints|(WIS*WarMindML)/2|TYPE=WarMindBonusPP
 
 ###Block: Class Info
-1	KNOWN:0,1				SAB:Chain of Personal Superiority (Ex) (+%)|SuperiorityChain	BONUS:VAR|SuperiorityChain|2				DEFINE:SuperiorityChain|0
-2	KNOWN:0,2				SAB:Chain of Defensive Posture (Ex) (+%)|DefensivePosture		BONUS:VAR|DefensivePosture|2				DEFINE:DefensivePosture|0
+1	KNOWN:0,1				SAB:Chain of Personal Superiority (Ex) (+%)|SuperiorityChain				BONUS:VAR|SuperiorityChain|2	DEFINE:SuperiorityChain|0
+2	KNOWN:0,2				SAB:Chain of Defensive Posture (Ex) (+%)|DefensivePosture					BONUS:VAR|DefensivePosture|2	DEFINE:DefensivePosture|0
 3	KNOWN:0,2		DR:1/-	SAB:Enduring Body (Ex)
 4	KNOWN:0,2,1
 5	KNOWN:0,2,1				SAB:Sweeping Strike (Ex)
-6	KNOWN:0,2,1,1																			BONUS:DR|-|1
-7	KNOWN:0,2,1,1														BONUS:VAR|SuperiorityChain|2
-8	KNOWN:0,2,1,1,1														BONUS:VAR|DefensivePosture|2
-9	KNOWN:0,2,1,1,1																			BONUS:DR|-|1
+6	KNOWN:0,2,1,1														BONUS:DR|-|1
+7	KNOWN:0,2,1,1																	BONUS:VAR|SuperiorityChain|2
+8	KNOWN:0,2,1,1,1																	BONUS:VAR|DefensivePosture|2
+9	KNOWN:0,2,1,1,1														BONUS:DR|-|1
 10	KNOWN:0,2,1,1,1,1			SAB:Chain of Overwhelming Force (Su) (1x/day)
