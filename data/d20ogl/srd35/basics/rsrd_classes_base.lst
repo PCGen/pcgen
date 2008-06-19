@@ -25,7 +25,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
-1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL
+1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level Progression
 1																			ABILITY:Special Ability|AUTOMATIC|Barbarian Fast Movement
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
@@ -44,7 +44,7 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimid
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
-1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL
+1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level progression
 1																			ABILITY:Special Ability|AUTOMATIC|Barbarian Fast Movement
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
@@ -112,18 +112,18 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Turn Undead stuff
 1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 ###Block: Spontaneous casting
-1	VFEAT:Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
-1	VFEAT:Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Aura strength
-1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0	VFEAT:Aura of Chaos|PREDEITYALIGN:CG,CN,CE
-1												VFEAT:Aura of Evil|PREDEITYALIGN:LE,NE,CE
-1												VFEAT:Aura of Good|PREDEITYALIGN:LG,NG,CG
-1												VFEAT:Aura of Law|PREDEITYALIGN:LG,LN,LE
+1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0	ABILITY:Special Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
+1												ABILITY:Special Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
+1												ABILITY:Special Ability|VIRTUAL|Aura of Good|PREDEITYALIGN:LG,NG,CG
+1												ABILITY:Special Ability|VIRTUAL|Aura of Law|PREDEITYALIGN:LG,LN,LE
 ###Block: Righteous Might Workaround
 1	TEMPLATE:RighteousMightDR
 ###Block: Level progression
@@ -246,7 +246,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 ###Block: Monk AC, Monk Movement, Flurry of Blows
 1	BONUS:VAR|MonkACLVL|CL														ABILITY:Special Ability|AUTOMATIC|Monk AC
 1	BONUS:VAR|MonkMoveLVL|CL													ABILITY:Special Ability|AUTOMATIC|Monk Movement
-1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	VFEAT:Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1
+1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	ABILITY:Special Ability|VIRTUAL|Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1
 1	BONUS:VAR|MonkBonusFeatLVL|CL								DEFINE:MonkBonusFeatLVL|0
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
 # Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites, The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
