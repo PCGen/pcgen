@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan  7 12:41:45 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Jun 18 22:02:07 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
@@ -25,11 +25,11 @@ FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
 #
 
 ###Block: Undead Companion
-# Class of the Master			Type				Hit Dice	Spell Res.	Virtual Feat	Special ABility																				Define						Combat bonus						Stat bonus		Modify VAR
-FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				VFEAT:Smite Good	SAB:Empathic Link (Su)	SAB:Share spells	SAB:Share saving throws	SAB:Improved Evasion (Ex)	SAB:Can not be Turned or Rebuked	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3
-FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2							SAB:Speak with Blackguard (Ex)																	DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2							SAB:Blood Bond (Ex)																			DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																											DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+# Class of the Master			Type				Hit Dice	Spell Res.	Special ABility																				Define						Combat bonus						Stat bonus		Modify VAR			Ability
+FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				SAB:Empathic Link (Su)	SAB:Share spells	SAB:Share saving throws	SAB:Improved Evasion (Ex)	SAB:Can not be Turned or Rebuked	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	ABILITY:Special Ability|VIRTUAL|Smite Good
+FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2				SAB:Speak with Blackguard (Ex)																	DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2				SAB:Blood Bond (Ex)																			DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																								DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block: Specific Undead Companions

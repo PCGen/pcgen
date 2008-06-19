@@ -1,28 +1,28 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Wed Jun 18 22:29:50 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
 ###Block: Arcane Archer Abilities
-# Ability Name	Category of Ability		Type			Visible	Special ABility												Define									Modify VAR								Source Page
-Enhance Arrow	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Enhance Arrow (Su) +%|ArrowEnhancement							DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
-Imbue Arrow		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Imbue Arrow (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
-Seeker Arrow	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Seeker Arrow (Sp) %/day|SeekerArrowTimes							DEFINE:SeekerArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
-Phase Arrow		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Phase Arrow (Sp) %/day|PhaseArrowTimes							DEFINE:PhaseArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
-Hail of Arrows	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0										SOURCEPAGE:PrestigeClasses.rtf
-Arrow of Death	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Arrow of Death (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name		Category of Ability		Type			Visible	Special ABility												Define									Modify VAR								Source Page
+Enhance Arrow		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Enhance Arrow (Su) +%|ArrowEnhancement							DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
+Imbue Arrow			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Imbue Arrow (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
+Seeker Arrow		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Seeker Arrow (Sp) %/day|SeekerArrowTimes							DEFINE:SeekerArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
+Phase Arrow			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Phase Arrow (Sp) %/day|PhaseArrowTimes							DEFINE:PhaseArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
+Hail of Arrows		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0										SOURCEPAGE:PrestigeClasses.rtf
+Arrow of Death		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Arrow of Death (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
 
 
 #CLASS:Arcane Trickster -----------------------------------------------------------------------------------------------------------
-Ranged Ledgerdemain		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain	DEFINE:RangedLedgermain|0
-Impromptu Sneak Attack		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak	DEFINE:ImpromptuSneak|0
+Ranged Ledgerdemain	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain						DEFINE:RangedLedgermain|0
+Impromptu Sneak Attack	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak						DEFINE:ImpromptuSneak|0
 
 
 ###Block: Assassin special abilities -------------------------------------------------------------------------------------------------
-# Ability Name				Category of Ability		Type						Visible	Special ABility						Define				Source Page
-Save against Poisons			CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0	SOURCEPAGE:PrestigeClasses.rtf
-Hide in Plain Sight (Assassin)	CATEGORY:Special Ability	TYPE:Supernatural				VISIBLE:NO	ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Su)
-Death Attack				CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO				SAB:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																																	BONUS:VAR|DeathAttack|10+INT																																SOURCEPAGE:PrestigeClasses.rtf
-Poison Use					CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO				SAB:Poison Use (Ex)																																																																																																														SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name				Category of Ability		Type					Visible	Special ABility						Define				Ability									Modify VAR				Source Page
+Save against Poisons			CATEGORY:Special Ability	TYPE:Extraordinary		VISIBLE:NO	SAB:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0																SOURCEPAGE:PrestigeClasses.rtf
+Hide in Plain Sight (Assassin)	CATEGORY:Special Ability	TYPE:Supernatural			VISIBLE:NO														ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Su)
+Death Attack				CATEGORY:Special Ability	TYPE:Special			VISIBLE:NO	SAB:Death Attack (DC %)|DeathAttack			DEFINE:DeathAttack|0												BONUS:VAR|DeathAttack|10+INT	SOURCEPAGE:PrestigeClasses.rtf
+Poison Use					CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Poison Use (Ex)																									SOURCEPAGE:PrestigeClasses.rtf
 
 
 ###Block:Archmage High Arcana Class Abilities ---------------------------------------------------------------------------------------
@@ -40,39 +40,41 @@ Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAt
 
 ###Block: Blackguard special abilities -----------------------------------------------------------------------------------------------
 # Feat Name		Type			Visible	Special ABility			Innate Spells											Save checks bonus						Source Page
-# Ability Name	Category of Ability		Type			Visible	Special ABility			Innate Spells											Save checks bonus						Source Page
-Detect Good		CATEGORY:Special Ability	TYPE:SpellLike	VISIBLE:NO	SAB:Detect Good (Sp)		SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
-Dark Blessing	CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Dark Blessing (Su)															BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
-Aura of Despair	CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Aura of Despair (Su)																						SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name		Output Name			Category of Ability		Type			Visible	Special ABility							Define				Innate Spells											Save checks bonus						Source Page
+Detect Good							CATEGORY:Special Ability	TYPE:SpellLike	VISIBLE:NO	SAB:Detect Good (Sp)											SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
+Dark Blessing						CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Dark Blessing (Su)																								BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
+Aura of Despair						CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Aura of Despair (Su)																															SOURCEPAGE:PrestigeClasses.rtf
+Blackguard Lay on Hands	OUTPUTNAME:Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands	DEFINE:BlackguardLayOnHands|0																						SOURCEPAGE:PrestigeClasses.rtf
+Fiendish Summoning					CATEGORY:Special Ability	TYPE:SpellLike	VISIBLE:NO	SAB:Fiendish Summoning (Sp)																															SOURCEPAGE:PrestigeClasses.rtf
 
 
 #COMMENT: Not sure about Dragon Disciple stuff, so I'm commenting these out for now. - Tir Gwaith
 ###Block: Dragon Disciple Class Features ----------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type						Visible		Required Ability								Required Class			Special ABility	Choose												Clone Movement
-Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY																			CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 1									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 2									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 3									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 4									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 5									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 6									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Dragon Wings		CATEGORY:Special Ability	TYPE:DragonDisciple.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
+# Ability Name		Category of Ability		Type						Visible		Required Ability								Required Class			Special ABility										Choose												Clone Movement
+Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY																												CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 1																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 2																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 3																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 4																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 5																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 6																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Dragon Wings		CATEGORY:Special Ability	TYPE:DragonDisciple.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)																							MOVECLONE:Walk,Fly,*1
 
 #DD Stuff, but reusable for MANY Classes!!!
-Immune to Sleep		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Sleep	
-Immune to Paralysis	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Paralysis
-Immune to Acid		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Acid
-Immune to Electricity	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Electricity
-Immune to Fire		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Fire
-Immune to Cold		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Immune to Cold
+Immune to Sleep		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Sleep
+Immune to Paralysis	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Paralysis
+Immune to Acid		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Acid
+Immune to Electricity	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Electricity
+Immune to Fire		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Fire
+Immune to Cold		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Cold
 
 #Block: Dragon Disciple - Subclass -----------------------------
-DD~Line of Acid		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Line of Lightning	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Line of Fire		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Cone of Gas		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Cone of Fire		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Cone of Cold		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO		SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Line of Acid		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Line of Lightning	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Line of Fire		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Gas		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Fire		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Cold		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
 
 
 ###Block: Duelist special abilities ----------------------------------------------------------------------------------------------------
@@ -140,10 +142,10 @@ Other Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLA
 
 
 ###Block: Loremaster Lore Abilities ------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type						Visible	Special ABility			Source Page
-Secret Lore		CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Lore (+%)|SecretLore	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:SecretLore|0
-Greater Lore	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)		SOURCEPAGE:PrestigeClasses.rtf
-True Lore		CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)		SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name	Category of Ability		Type						Visible	Special ABility			Define			Source Page
+Secret Lore		CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Lore (+%)|SecretLore	DEFINE:SecretLore|0	SOURCEPAGE:PrestigeClasses.rtf
+Greater Lore	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)						SOURCEPAGE:PrestigeClasses.rtf
+True Lore		CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)						SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Loremaster Secrets
 # Ability Name			Category of Ability		Type							Visible		Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose														Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page

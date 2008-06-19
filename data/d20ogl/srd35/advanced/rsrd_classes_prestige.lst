@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 18 21:54:10 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Wed Jun 18 22:29:50 2008 -- reformated by prettylst.pl v1.38 (build 6600)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -93,8 +93,8 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
 4	BONUS:VAR|SneakAttack|(CL-1)/3							ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Other Paladin related Abilities
-1	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	DEFINE:BlackguardLayOnHands|0	ABILITY:Special Ability|AUTOMATIC|Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3
-1														ABILITY:Special Ability|AUTOMATIC|Fiendish Summoning (Sp)|PRECLASS:1,Ex Paladin=7
+1	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	ABILITY:Special Ability|AUTOMATIC|Blackguard Lay on Hands|PRECLASS:1,Ex Paladin=3
+1									ABILITY:Special Ability|AUTOMATIC|Fiendish Summoning|PRECLASS:1,Ex Paladin=7
 ###Block: Servants Servant (Undead and Fiendish)
 5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	ABILITY:Special Ability|AUTOMATIC|Undead Companion|PRECLASS:1,Ex Paladin=9
 5	BONUS:VAR|FSLevel|CL							ABILITY:Special Ability|AUTOMATIC|Fiendish Servant
