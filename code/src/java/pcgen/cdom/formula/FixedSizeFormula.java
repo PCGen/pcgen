@@ -23,35 +23,76 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
 
+/**
+ * A FixedSizeFormula is a Formula that returns a deterministic value, used to
+ * uniquely identify a SizeAdjustment. The SizeAdjustment for which this Formula
+ * will return the value must be defined during construction of the
+ * FixedSizeFormula.
+ */
 public class FixedSizeFormula implements Formula
 {
 
+	/**
+	 * The underlying SizeAdjustment for which this Formula will return the
+	 * identifying value.
+	 */
 	private final SizeAdjustment size;
 
+	/**
+	 * Creates a new FixedSizeFormula for the given SizeAdjustment.
+	 * 
+	 * @param s
+	 *            The SizeAdjustment for which this Formula will return the
+	 *            identifying value.
+	 */
 	public FixedSizeFormula(SizeAdjustment s)
 	{
 		size = s;
 	}
 
+	/**
+	 * Returns a String representation of this FixedSizeFormula, primarily for
+	 * purposes of debugging. It is strongly advised that no dependency on this
+	 * method be created, as the return value may be changed without warning.
+	 */
 	@Override
 	public String toString()
 	{
 		return size.get(StringKey.ABB);
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this FixedSizeFormula
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return size.hashCode();
 	}
 
+	/**
+	 * Returns true if this FixedSizeFormula is equal to the given Object.
+	 * Equality is defined as being another FixedSizeFormula object with equal
+	 * underlying SizeAdjustment
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
 		return o instanceof FixedSizeFormula
-			&& size.equals(((FixedSizeFormula) o).size);
+				&& size.equals(((FixedSizeFormula) o).size);
 	}
 
+	/**
+	 * Resolves to the identifying value of the SizeAdjustment provided during
+	 * construction of the FixedSizeFormula.
+	 * 
+	 * @return the identifying value of the SizeAdjustment this FixedSizeFormula
+	 *         represents.
+	 */
 	public Integer resolve(PlayerCharacter pc, String source)
 	{
 		return Globals.sizeInt(size.getAbbreviation());

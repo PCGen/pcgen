@@ -17,34 +17,73 @@
  */
 package pcgen.cdom.helper;
 
+/**
+ * A Quality represents a name/value characteristic
+ */
 public class Quality
 {
 
+	/**
+	 * The name of the quality stored in this Quality.
+	 */
 	private final String quality;
+
+	/**
+	 * The value of the quality stored in this Quality.
+	 */
 	private final String value;
 
-	public Quality(String key, String val)
+	/**
+	 * Constructs a new Quality with the given name and value.
+	 * 
+	 * @param name
+	 *            The name of the Quality
+	 * @param val
+	 *            The value of this Quality
+	 */
+	public Quality(String name, String val)
 	{
-		quality = key;
+		quality = name;
 		value = val;
 	}
 
-	public String getQuality()
+	/**
+	 * Returns the name of this Quality
+	 * 
+	 * @return the name of this Quality
+	 */
+	public String getName()
 	{
 		return quality;
 	}
 
+	/**
+	 * Returns the value of this Quality
+	 * 
+	 * @return The value of this Quality
+	 */
 	public String getValue()
 	{
 		return value;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this Quality
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return quality.hashCode() ^ value.hashCode();
 	}
 
+	/**
+	 * Returns true if this Quality is equal to the given Object. Equality is
+	 * defined as being another Quality object with an equal name and value
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -56,6 +95,11 @@ public class Quality
 		return false;
 	}
 
+	/**
+	 * Returns a String representation of this Quality, primarily for purposes
+	 * of debugging. It is strongly advised that no dependency on this method be
+	 * created, as the return value may be changed without warning.
+	 */
 	@Override
 	public String toString()
 	{

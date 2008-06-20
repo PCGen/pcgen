@@ -68,7 +68,7 @@ public class QualityToken implements CDOMPrimaryToken<Equipment>
 		Set<String> set = new TreeSet<String>();
 		for (Quality q : changes.getAdded())
 		{
-			set.add(new StringBuilder().append(q.getQuality()).append(
+			set.add(new StringBuilder().append(q.getName()).append(
 					Constants.PIPE).append(q.getValue()).toString());
 		}
 		return set.toArray(new String[set.size()]);

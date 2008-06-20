@@ -1162,7 +1162,7 @@ public class EqToken extends Token
 				{
 					for (Quality q : qualityList)
 					{
-						if (q.getQuality().equals(next))
+						if (q.getName().equals(next))
 						{
 							qual = q;
 							break;
