@@ -46,10 +46,11 @@ BIO
 			<pantheonlist></pantheonlist>
 			<source></source>
 			<special_abilities></special_abilities>
+			<appearance></appearance>
+			<title></title>
+			<worshippers></worshippers>
 		</deity>
-		<description>
-			<para></para>
-		</description>
+		<description></description>
 		<experience>
 			<current>0</current>
 			<next_level>10000</next_level>
@@ -67,7 +68,11 @@ BIO
 			<color></color>
 		</skin>
 		<cr>4</cr>
+		<face>
 		<face>5 ft. by 5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
+		</face>
 		<favoredlist>Barbarian</favoredlist>
 		<followerlist></followerlist>
 		<gender>
@@ -89,6 +94,11 @@ BIO
 		</languages>
 		<location></location>
 		<move>
+			<move>
+				<name>Walk</name>
+				<rate>30 ft.</rate>
+				<squares>6</squares>
+			</move>
 			<all>Walk 30 ft.</all>
 		</move>
 		<personality>
@@ -98,7 +108,10 @@ BIO
 		<portrait></portrait>
 		<phobias></phobias>
 		<race>Half-Orc</race>
+		<reach>
 		<reach>5 ft.</reach>
+			<squares>1</squares>
+		</reach>
 		<region>None</region>
 		<reputation>0</reputation>
 		<residence></residence>
@@ -108,7 +121,10 @@ BIO
 		</size>
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
-		<vision>Darkvision (60&#39;)</vision>
+		<vision>
+			<vision>Darkvision (60&#39;)</vision>
+			<all>Darkvision (60&#39;)</all>
+		</vision>
 		<wealth>0</wealth>
 		<weight>
 			<weight_unit>160 lbs.</weight_unit>
@@ -225,6 +241,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>32</points>
+		<alternate>15</alternate>
 		<die>(4d10)+8</die>
 		<current/>
 		<subdual/>
@@ -794,7 +811,7 @@ BIO
 		</saving_throw>
 		<saving_throw>
 			<name>
-				<long>willpower</long>
+				<long>will</long>
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
@@ -952,6 +969,7 @@ BIO
 	<!-- Character Rage -->
  
  
+	<!-- Turning ability -->
  
  
  
@@ -980,17 +998,22 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
+			<longname>Rapier</longname>
+			<id></id>
 			<name>Rapier</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
 			<cost>20</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>2</quantity>
+			<checkbox>2</checkbox>
 			<size>
 				<long>Medium</long>
 				<short>M</short>
@@ -1186,7 +1209,17 @@ BIO
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
-		<feat>
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+ 
+	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1195,8 +1228,9 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-		<feat>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
@@ -1205,8 +1239,11 @@ BIO
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-		</feat>
-	</feats>
+			<category>Special Ability</category>
+		</ability_object>
+	</ability_objects>
+ 
+ 
 	<!--
 	  ====================================
 	  ====================================
