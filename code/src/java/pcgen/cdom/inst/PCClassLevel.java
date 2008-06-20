@@ -17,7 +17,9 @@
  */
 package pcgen.cdom.inst;
 
-public final class PCClassLevel extends AbstractClassAwareObject
+import pcgen.cdom.base.CDOMObject;
+
+public final class PCClassLevel extends CDOMObject
 {
 
 	@Override
