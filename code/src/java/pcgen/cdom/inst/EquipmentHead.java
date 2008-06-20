@@ -19,11 +19,29 @@ package pcgen.cdom.inst;
 
 import pcgen.cdom.base.CDOMObject;
 
+/**
+ * An EquipmentHead is a CDOMObject that represents characteristics of a single
+ * "head" of a weapon. It is possible for a weapon to have more than one "head",
+ * such as a Double Axe.
+ */
 public final class EquipmentHead extends CDOMObject
 {
 
+	/*
+	 * Note: The equality issue referenced below (and the reason for the
+	 * headSource field) doesn't necessarily present itself within PCGen at SVN
+	 * 6700, but it is an issue if this is ever stored in a Graph, as the
+	 * EquipmentHead from two pieces of Equipment must not be shared, in case
+	 * .MODs are applied.
+	 */
+	/**
+	 * The source of this EquipmentHead; used to establish equality
+	 */
 	private final Object headSource;
 
+	/**
+	 * The index (location) of this Head on the Equipment
+	 */
 	private final int index;
 
 	public EquipmentHead(Object source, int idx)
@@ -33,19 +51,34 @@ public final class EquipmentHead extends CDOMObject
 		headSource = source;
 	}
 
+	/**
+	 * Returns the index (location) of this Head on the Equipment
+	 * 
+	 * @return the index (location) of this Head on the Equipment
+	 */
 	public int getHeadIndex()
 	{
 		return index;
 	}
 
-	// No additional Functionality :)
-
+	/**
+	 * Returns the consistent-with-equals hashCode for this EquipmentHead
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return index ^ headSource.hashCode();
 	}
 
+	/**
+	 * Returns true if this EquipmentHead is equal to the given Object. Equality
+	 * is defined as being another EquipmentHead object with equal CDOM
+	 * characteristics
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -61,6 +94,11 @@ public final class EquipmentHead extends CDOMObject
 		return other.index == index && other.headSource.equals(headSource);
 	}
 
+	/**
+	 * Returns true if the EquipmentHead is of the given Type; false otherwise.
+	 * 
+	 * @see pcgen.cdom.base.CDOMObject#isType(java.lang.String)
+	 */
 	@Override
 	public boolean isType(String str)
 	{
