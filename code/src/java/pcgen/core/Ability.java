@@ -22,12 +22,15 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
@@ -46,6 +49,9 @@ import pcgen.util.enumeration.Tab;
  */
 public final class Ability extends PObject implements Categorisable, CategorizedCDOMObject<Ability>
 {
+	public static final CDOMReference<AbilityList> FEATLIST = CDOMDirectSingleRef
+			.getRef(new AbilityList());
+
 	/** An enum for the various types of ability options. */
 	public enum Nature {
 		/** Ability is Normal */

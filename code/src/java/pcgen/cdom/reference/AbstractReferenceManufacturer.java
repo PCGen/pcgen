@@ -30,6 +30,7 @@ import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.util.HashMapToInstanceList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.util.Logging;
 
@@ -431,17 +432,23 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				returnGood = false;
 			}
 		}
-		for (Object s : referenced.keySet())
+		List<String> throwaway = new ArrayList<String>();
+		for (String s : referenced.keySet())
 		{
 			if (!active.containsKey(s) && !deferred.contains(s))
 			{
-				if (!s.toString().startsWith("*"))
+				String undec = AbilityUtilities
+						.getUndecoratedName(s, throwaway);
+				if (!active.containsKey(undec) && !deferred.contains(undec))
 				{
-					Logging.errorPrint("Unconstructed Reference: "
-							+ getReferenceDescription() + " " + s);
-					returnGood = false;
+					if (!s.toString().startsWith("*"))
+					{
+						Logging.errorPrint("Unconstructed Reference: "
+								+ getReferenceDescription() + " " + s);
+						returnGood = false;
+					}
+					constructCDOMObject(s.toString());
 				}
-				constructCDOMObject(s.toString());
 			}
 		}
 		return returnGood;
@@ -475,17 +482,28 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 
 	public void fillReferences()
 	{
+		List<String> throwaway = new ArrayList<String>();
 		for (Entry<String, SRT> me : referenced.entrySet())
 		{
-			T activeObj = active.get(me.getKey());
-			if (activeObj != null)
+			String reduced = AbilityUtilities.getUndecoratedName(me.getKey(),
+					throwaway);
+			T activeObj = active.get(reduced);
+			if (activeObj == null)
 			{
-				me.getValue().addResolution(activeObj);
+				activeObj = active.get(me.getKey());
+				if (activeObj == null)
+				{
+					Logging.errorPrint("Unable to Resolve: " + refClass + " "
+							+ me.getKey());
+				}
+				else
+				{
+					me.getValue().addResolution(activeObj);
+				}
 			}
 			else
 			{
-				Logging.errorPrint("Unable to Resolve: " + refClass + " "
-						+ me.getKey());
+				me.getValue().addResolution(activeObj);
 			}
 		}
 	}

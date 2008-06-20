@@ -1,17 +1,22 @@
 package plugin.lsttokens.template;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.PCTemplate;
-import pcgen.rules.context.Changes;
+import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -59,7 +64,8 @@ public class FeatToken extends AbstractToken implements
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
-				context.getObjectContext().removeList(obj, ListKey.FEAT);
+				context.getListContext().removeAllFromList(getTokenName(), obj,
+						Ability.FEATLIST);
 			}
 			else
 			{
@@ -70,7 +76,15 @@ public class FeatToken extends AbstractToken implements
 				{
 					return false;
 				}
-				context.obj.addToList(obj, ListKey.FEAT, ability);
+				AssociatedPrereqObject assoc = context.getListContext()
+						.addToList(getTokenName(), obj, Ability.FEATLIST,
+								ability);
+				if (token.indexOf('(') != -1)
+				{
+					List<String> choices = new ArrayList<String>();
+					AbilityUtilities.getUndecoratedName(token, choices);
+					assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+				}
 			}
 			first = false;
 		}
@@ -79,8 +93,16 @@ public class FeatToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<CDOMReference<Ability>> changes = context.obj.getListChanges(
-				pct, ListKey.FEAT);
+		AssociatedChanges<CDOMReference<Ability>> changes = context
+				.getListContext().getChangesInList(getTokenName(), pct,
+						Ability.FEATLIST);
+		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
+				.getAddedAssociations();
+		if (mtl == null || mtl.isEmpty())
+		{
+			// Zero indicates no Token
+			return null;
+		}
 		Collection<CDOMReference<Ability>> added = changes.getAdded();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
 		StringBuilder sb = new StringBuilder();

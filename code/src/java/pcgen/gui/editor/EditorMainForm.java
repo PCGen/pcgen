@@ -29,8 +29,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.StringWriter;
@@ -686,7 +684,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save feats
 				//
-				thisPObject.removeListFor(ListKey.FEAT);
+				thisPObject.removeAllFromList(Ability.FEATLIST);
 				
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
@@ -934,7 +932,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save feats
 				//
-				thisPCTemplate.removeListFor(ListKey.FEAT);
+				thisPCTemplate.removeAllFromList(Ability.FEATLIST);
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
 				context.unconditionallyProcess(thisPCTemplate, "FEAT", aString);
@@ -1354,7 +1352,7 @@ public final class EditorMainForm extends JDialog
 					availableFeatList.add(anAbility.getKeyName());
 				}
 
-				for (CDOMReference<Ability> ref : thisPObject.getSafeListFor(ListKey.FEAT))
+				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
 				{
 					String lst = ref.getLSTformat();
 					if (!selecetdFeatList.contains(lst))
@@ -1949,8 +1947,7 @@ public final class EditorMainForm extends JDialog
 					availableTemplateFeatsList.add(anAbility.getKeyName());
 				}
 
-				List<CDOMReference<Ability>> featList = thisPObject.getSafeListFor(ListKey.FEAT);
-				for (CDOMReference<Ability> ref : featList)
+				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
 				{
 					for (Ability a : ref.getContainedObjects())
 					{

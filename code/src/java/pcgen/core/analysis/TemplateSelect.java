@@ -23,14 +23,6 @@ public class TemplateSelect
 				availableList.add(pct);
 			}
 		}
-	
-		final List<PCTemplate> selectedList = new ArrayList<PCTemplate>(1);
-		String title = "Template Choice";
-		if (anOwner != null)
-		{
-			title += " (" + anOwner.getDisplayName() + ")";
-		}
-	
 		if (availableList.size() == 1)
 		{
 			return availableList.get(0);
@@ -39,6 +31,12 @@ public class TemplateSelect
 		if (availableList.size() < 1)
 		{
 			return null;
+		}
+		final List<PCTemplate> selectedList = new ArrayList<PCTemplate>(1);
+		String title = "Template Choice";
+		if (anOwner != null)
+		{
+			title += " (" + anOwner.getDisplayName() + ")";
 		}
 		Globals.getChoiceFromList(title, availableList, selectedList, 1,
 			forceChoice);

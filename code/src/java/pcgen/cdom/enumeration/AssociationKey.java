@@ -25,6 +25,7 @@ package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
@@ -45,6 +46,8 @@ public final class AssociationKey<T>
 	public static final AssociationKey<SkillCost> SKILL_COST = new AssociationKey<SkillCost>();
 
 	public static final AssociationKey<Integer> SPELL_LEVEL = new AssociationKey<Integer>();
+
+	public static final AssociationKey<List<String>> ASSOC_CHOICES = new AssociationKey<List<String>>();
 
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 

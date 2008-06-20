@@ -185,7 +185,6 @@ public final class ListKey<T> {
 	public static final ListKey<Quality> QUALITY = new ListKey<Quality>();
 	public static final ListKey<Description> BENEFIT = new ListKey<Description>();
 	public static final ListKey<CDOMReference<Language>> AUTO_LANGUAGES = new ListKey<CDOMReference<Language>>();
-	public static final ListKey<CDOMReference<Ability>> FEAT = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<PCTemplate> LEVEL_TEMPLATES = new ListKey<PCTemplate>();
 	public static final ListKey<PCTemplate> REPEATLEVEL_TEMPLATES = new ListKey<PCTemplate>();
 	public static final ListKey<PCTemplate> HD_TEMPLATES = new ListKey<PCTemplate>();

@@ -53,10 +53,12 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -64,6 +66,7 @@ import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -75,7 +78,6 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.TemplateSR;
@@ -8362,7 +8364,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else
 		{
-			List<PCTemplate> list = templatesAdded.getListFor(inTmpl);
+			Collection<PCTemplate> list = getTemplatesAdded(inTmpl);
 			for (PCTemplate pct : list)
 			{
 				addTemplate(pct);
@@ -17427,20 +17429,28 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						}
 					}
 
-					for (CDOMReference<Ability> ref : aDomain.getSafeListFor(ListKey.FEAT))
+					for (CDOMReference<Ability> ref : aDomain.getSafeListMods(Ability.FEATLIST))
 					{
+						Collection<AssociatedPrereqObject> assoc = aDomain
+								.getListAssociations(Ability.FEATLIST, ref);
 						for (Ability ab : ref.getContainedObjects())
 						{
-							Ability added =
-									AbilityUtilities
-										.addCloneOfGlobalAbilityToListWithChoices(
-											abilities, Constants.FEAT_CATEGORY, ab
-												.getKeyName());
-							if (added != null)
+							for (AssociatedPrereqObject apo : assoc)
 							{
-								added.setFeatType(Ability.Nature.AUTOMATIC);
+								List<String> choices = apo
+										.getAssociation(AssociationKey.ASSOC_CHOICES);
+								if (choices == null)
+								{
+									choices = Collections.emptyList();
+								}
+								Ability added = AbilityUtilities
+										.addCloneOfAbilityToListwithChoices(ab,
+												choices, abilities);
+								if (added != null)
+								{
+									added.setFeatType(Ability.Nature.AUTOMATIC);
+								}
 							}
-							
 						}
 					}
 
@@ -17685,12 +17695,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<String> feats = new ArrayList<String>();
 
-		for (CDOMReference<Ability> ref : pct.getSafeListFor(ListKey.FEAT))
+		for (CDOMReference<Ability> ref : pct.getSafeListMods(Ability.FEATLIST))
 		{
-			for (Ability a : ref.getContainedObjects())
-			{
-				feats.add(a.getKeyName());
-			}
+			/*
+			 * This is a hack for 5.x core compatibility... should use
+			 * ref.getContainedObjects(), but this ref string gives us back
+			 * items in () which were lost during resolution...
+			 */
+			feats.add(ref.getLSTformat());
 		}
 
 		// arknight modified this back in 1.27 with the comment: Added support
@@ -17770,7 +17782,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// We haven't selected one yet. Ask for one if we are allowed.
-		if (featKey == null && lt.containsListFor(ListKey.FEAT))
+		if (featKey == null && lt.hasListMods(Ability.FEATLIST))
 		{
 			getLevelFeat(lt, lvl, lvlKey);
 		}
@@ -17796,15 +17808,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		while (true)
 		{
 			List<String> featList = new ArrayList<String>();
-			List<CDOMReference<Ability>> featRefs = pct.getListFor(ListKey.FEAT);
-			List<Ability> featChoices = new ArrayList<Ability>();
-			for (CDOMReference<Ability> ref : featRefs)
+			List<String> featChoices = new ArrayList<String>();
+			for (CDOMReference<Ability> ref : pct.getSafeListMods(Ability.FEATLIST))
 			{
-				featChoices.addAll(ref.getContainedObjects());
+				/*
+				 * This is a hack for 5.x core compatibility... should use
+				 * ref.getContainedObjects(), but this ref string gives us back
+				 * items in () which were lost during resolution...
+				 */
+				featChoices.add(ref.getLSTformat());
 			}
 			final LevelAbility la = LevelAbility.createAbility(pct, lvl,
-					"FEAT(" + ReferenceUtilities.joinKeyName(featChoices,
-									Constants.COMMA) + ")");
+					"FEAT(" + StringUtil.join(featChoices, Constants.COMMA)
+							+ ")");
 
 			la.process(featList, this, null);
 
@@ -17889,8 +17905,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				List<PCTemplate> list = new ArrayList<PCTemplate>(added);
 				list.addAll(ref.getContainedObjects());
 				PCTemplate selected = TemplateSelect.chooseTemplate(po, list, true, this);
-				templatesAdded.addToListFor(po, selected);
-				addTemplate(selected);
+				if (selected != null)
+				{
+					templatesAdded.addToListFor(po, selected);
+					addTemplate(selected);
+				}
 			}
 			for (CDOMReference<PCTemplate> ref : po
 					.getSafeListFor(ListKey.REMOVE_TEMPLATES))
@@ -17905,7 +17924,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void removeTemplatesFrom(PObject po)
 	{
-		List<PCTemplate> list = templatesAdded.getListFor(po);
+		Collection<PCTemplate> list = getTemplatesAdded(po);
 		if (list != null)
 		{
 			for (PCTemplate pct : list)
