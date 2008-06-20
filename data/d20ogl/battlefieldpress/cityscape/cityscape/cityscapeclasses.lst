@@ -352,8 +352,8 @@ CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|T
 1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Sneak attack and Uncany Dodge
-1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
-3	BONUS:VAR|UncannyDodge|1		AUTO:FEAT|Uncanny Dodge
+1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	BONUS:VAR|UncannyDodge|1		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 6	BONUS:VAR|UncannyDodge|1
 11	BONUS:VAR|UncannyDodge|1
 14	BONUS:VAR|UncannyDodge|1
@@ -361,7 +361,7 @@ CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|T
 20	BONUS:VAR|UncannyDodge|1
 ###Block: Normal progression
 1	SAB:Traps
-2																	VFEAT:Evasion
+2																	ABILITY:Special Ability|AUTOMATIC:Evasion
 10			ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 13			ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 16			ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation

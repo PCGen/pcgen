@@ -293,7 +293,7 @@ CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cra
 1	AUTO:FEAT|Street Runner Weapon Proficiencies	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1					BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
+1					BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Gossip Hound (Ex)
 4	SAB:Quick Lift (Ex)
 5	SAB:Street Master (Ex)

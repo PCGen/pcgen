@@ -16,8 +16,8 @@ CLASS:Igasaki Disciple	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Decipher Sc
 ###Block: class abilities
 1	SAB:Poison Use	SAB:Explosive Use
 2							BONUS:VAR|ArtOfTrickery|((CL+1)/3)*2	AUTO:FEAT|Art of Trickery
-3	SAB:Saboteur				BONUS:VAR|SneakAttack|CL/3			AUTO:FEAT|Sneak Attack
-4														AUTO:FEAT|Still Mind
+3	SAB:Saboteur				BONUS:VAR|SneakAttack|CL/3			ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4														ABILITY:Special Ability|AUTOMATIC|Still Mind
 7	SAB:Igasaki Poison
 10	SAB:Face in the Shadows (Su)
 
@@ -45,7 +45,7 @@ CLASS:Inpo Agent	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 9	CAST:3,3,3,2	KNOWN:4,4,4,3
 10	CAST:3,3,3,3	KNOWN:4,4,4,4
 ###Block:class abilities
-1							BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),1|TYPE=FastMovement	AUTO:FEAT|Sneak Attack
+1							BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),1|TYPE=FastMovement	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Cautious Invader
 4																																	AUTO:FEAT|Predators Spirit
 6	SAB:Scorpion Technique (Ex)

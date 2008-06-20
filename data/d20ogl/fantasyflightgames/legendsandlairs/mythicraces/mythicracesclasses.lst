@@ -203,7 +203,7 @@ CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|I
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1							BONUS:VAR|SneakAttack|1																									ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir	AUTO:FEAT|Sneak Attack
+1							BONUS:VAR|SneakAttack|1																									ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Hunter's Claws +%|HunterClaw					BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement	DEFINE:HunterClaw|CL/2
 3	SAB:Defensive Shift
 4																																			ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
