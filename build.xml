@@ -810,10 +810,10 @@ pcgen.filepaths=user
 	</target>
 
 	<!-- Run the data and code integration tests -->
-	<target name="inttest" depends="dointtest, failure.notice, success.notice" description="Run the data/code integration subset of the test suite (include lib/test/junit.jar in CLASSPATH)">
+	<target name="inttest" depends="dointtest, failure.notice, success.notice, reporttest" description="Run the data/code integration subset of the test suite (include lib/test/junit.jar in CLASSPATH)">
 	</target>
 
-	<target name="dointtest" depends="testclean, test.jar, reporttest" >
+	<target name="dointtest" depends="testclean, test.jar" >
 		<junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
 			<jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
 			<jvmarg value="-Demma.coverage.out.merge=true" />
