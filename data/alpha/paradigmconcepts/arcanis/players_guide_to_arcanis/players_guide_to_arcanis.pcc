@@ -100,8 +100,8 @@ EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_natural.lst
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ranged.lst
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ammo.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_ammo_specific.lst
-FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst|(EXCLUDE:Weapon Specialization|Greater Weapon Focus|Greater Weapon Specialization)
-FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst|(EXCLUDE:Monk AC)
+FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Weapon Specialization,Greater Weapon Focus,Greater Weapon Specialization)
+FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst|(EXCLUDE:CATEGORY=FEAT,Monk AC)
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
 RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst
@@ -131,7 +131,7 @@ EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic.lst
 EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic_enhancing.lst
 EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_psionic.lst
 EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_weap_psionic.lst
-FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic.lst|(EXCLUDE:Speed of Thought)
+FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic.lst|(EXCLUDE:CATEGORY=FEAT,Speed of Thought)
 FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic_hidden.lst
 SKILL:@/d20ogl/srd35/psionics/rsrd_skills_psionic.lst
 SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst

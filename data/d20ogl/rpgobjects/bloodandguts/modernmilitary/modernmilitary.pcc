@@ -55,4 +55,4 @@ SKILL:modernmilitary_skills_mod.lst
 SKILL:@/d20ogl/srd/basics/srd_skills.lst|(INCLUDE:Use Rope)
 
 #Included from BloodandSecrets
-FEAT:@/d20ogl/rpgobjects/modernsystem/bloodandsecrets/blood_and_secrets_feat.lst|(INCLUDE:Cover Fire|Enemy|Fast Track|Tactician|Teamwork)
+FEAT:@/d20ogl/rpgobjects/modernsystem/bloodandsecrets/blood_and_secrets_feat.lst|(INCLUDE:CATEGORY=FEAT,Cover Fire,Enemy,Fast Track,Tactician,Teamwork)

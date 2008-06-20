@@ -87,8 +87,8 @@ ARMORPROF:pulpfantasy_profs_armor.lst
 
 #Stuff imported from the MSRD
 EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Scale Mail|Half Plate|Hide Armor|Banded Mail|Splint Mail)
-FEAT:@\d20ogl\msrd\future\future_basics\futurebasics_feats.lst|(INCLUDE:Charismatic Plus|Dedicated Plus|Fast Plus|Smart Plus|Strong Plus|Tough Plus)
-FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats.lst|(INCLUDE:Improved Grapple|Improved Overrun|Improved Natural Healing|Jack of all Trades|Precise Strike)
+FEAT:@\d20ogl\msrd\future\future_basics\futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
+FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats.lst,(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
 RACE:@\d20ogl\msrd\arcana\creatures\arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
 RACE:@\d20ogl\msrd\basics\modern_creatures\moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
 RACE:@\d20ogl\msrd\menaces\menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)

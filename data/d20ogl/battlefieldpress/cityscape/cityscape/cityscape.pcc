@@ -55,7 +55,7 @@ SPELL:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_spe
 SKILL:cityscapeskills.lst
 EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst
-FEAT:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_feats.lst|(INCLUDE:Born Spacer|Hacker|High-G Tolerance|Gunner's Eye|Low-G Tolerance|Remote Operation|Space Jockey|Zero-G Tolerance)
+FEAT:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
 FEAT:cityscapefeats.lst
 FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:cityscapeclassfeats.lst

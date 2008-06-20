@@ -58,6 +58,6 @@ SHIELDPROF:deadlands_profs_shield.lst
 
 # For the Evasion and Improved Evasion pseudo-feats
 ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion,Uncanny Dodge)
-FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:Brew Potion|Craft Magic Arms and Armor|Craft Rod|Craft Staff|Craft Wand|Craft Wondrous Item|Forge Ring|Scribe Scroll)
+FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Brew Potion,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Forge Ring,Scribe Scroll)
 SPELL:@/d20ogl/srd/basics/srd_spells.lst
 SKILL:@/d20ogl/srd/basics/srd_skills.lst
