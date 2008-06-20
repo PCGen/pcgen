@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 21:49:29 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Jun 20 18:03:11 2008 -- reformated by prettylst.pl v1.38 (build 6748)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
@@ -14,15 +14,15 @@ Wound Wraps			TYPE:Goods.Alchemical.Consumable	COST:20	WT:1.00	SOURCEPAGE:pg.70
 
 ###Block: Magic Items
 
-# Equipment Name				Product Identity?	Output Name							Required Proficiency			Type											Cost		Weight	Slot Needed	AC Penalty Check	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Virtual Feat		Save checks bonus				Combat bonus					Bonus to skill								Stat bonus						Modify VAR						Weapon prop. bonus					Weapon prof. bonus					Special Property
+# Equipment Name				Product Identity?	Output Name							Required Proficiency			Type											Cost		Weight	Slot Needed	AC Penalty Check	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability								Save checks bonus				Combat bonus					Bonus to skill								Stat bonus						Modify VAR						Weapon prof. bonus					Weapon prop. bonus					Special Property
 Potion (Purging)							OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:25	WT:0																																			SOURCEPAGE:pg.78
 Potion (Dragon's Breath)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:250	WT:0																																			SOURCEPAGE:pg.78
 Potion (Bodily Efficiency)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:400	WT:0																																			SOURCEPAGE:pg.78
 Potion (Complex Thought)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:800	WT:0																																			SOURCEPAGE:pg.78
 
 ### Armor & Shields:
-Demonbane Shield																					TYPE:Enhancement.Shield.Heavy.Specific					COST:25000	WT:15																					EQMOD:STEEL.MWORKA.PLUS1S										SOURCEPAGE:pg.79															BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
-Ghost Armor																						TYPE:Armor.Light.Suit.Specific.Nonmetal					COST:36000	WT:15				ACCHECK:0																EQMOD:PLUS1A.GHOST_A						MAXDEX:6				SOURCEPAGE:pg.79	SPELLFAILURE:5												BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+Demonbane Shield																					TYPE:Enhancement.Shield.Heavy.Specific					COST:25000	WT:15																					EQMOD:STEEL.MWORKA.PLUS1S										SOURCEPAGE:pg.79																				BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
+Ghost Armor																						TYPE:Armor.Light.Suit.Specific.Nonmetal					COST:36000	WT:15				ACCHECK:0																EQMOD:PLUS1A.GHOST_A						MAXDEX:6				SOURCEPAGE:pg.79	SPELLFAILURE:5																	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 
 #Charm Arrows									TYPE:Enhancement.Ammunition.SpecificArrow.Individual							COST:250	WT:0																				EQMOD:STEEL.WOOD																				SOURCEPAGE:pg.80
 Charm Arrow (Sleep)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
@@ -32,15 +32,15 @@ Charm Arrow (Charm)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhanceme
 Charm Arrow (Love)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
 Charm Arrow (Forgetfulness)					OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
 
-Earth Crusher															PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Bashing.Mace		COST:50312	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL.PLUS2W.THNDR_M		WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.80																																														BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
-Wind Warden																PROFICIENCY:WEAPON|Greatsword		TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:50350	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:STEEL.PLUS2W.DANCE		WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.80																																														BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Earth Crusher															PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Bashing.Mace		COST:50312	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL.PLUS2W.THNDR_M		WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.80																																																											BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Wind Warden																PROFICIENCY:WEAPON|Greatsword		TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:50350	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:STEEL.PLUS2W.DANCE		WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.80																																																											BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 
 ###
 Ring (Blessing)							OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:25000	WT:0																																			SOURCEPAGE:pg.80
-Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80															BONUS:COMBAT|AC|4|TYPE=Deflection												BONUS:STAT|STR,DEX,CON|2|PREAPPLY:PC																								SPROP:DR %/+1 when enraged|CHA*2
+Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80																				BONUS:COMBAT|AC|4|TYPE=Deflection												BONUS:STAT|STR,DEX,CON|2|PREAPPLY:PC																								SPROP:DR %/+1 when enraged|CHA*2
 
 ####
-Staff (Blood)							OUTPUTNAME:Staff of [NAME]										TYPE:Magic.Staff									COST:20000	WT:5							BASEITEM:Staff												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81					VFEAT:Negative Levels																															BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE
+Staff (Blood)							OUTPUTNAME:Staff of [NAME]										TYPE:Magic.Staff									COST:20000	WT:5							BASEITEM:Staff												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81					ABILITY:Special Ability|AUTOMATIC|Negative Levels																															BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE
 Wand (Mischief)							OUTPUTNAME:Wand of [NAME]										TYPE:Magic.Wand											WT:.0625						BASEITEM:Wand												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81
 
 ###
@@ -48,25 +48,25 @@ Bestial Boots																					TYPE:Magic.Wondrous.Boot							COST:4000	WT:1	
 Bicycle of Speed																					TYPE:Magic.Wondrous								COST:4000	WT:20		SLOTS:0																																SOURCEPAGE:pg.81
 Bracelet of Useful Things																			TYPE:Magic.Wondrous.Bracelet							COST:6000	WT:1		SLOTS:0																																SOURCEPAGE:pg.81
 Bracelet of Useful Things (Greater)				OUTPUTNAME:[NAME] Bracelet of Useful Things							TYPE:Magic.Wondrous.Bracelet							COST:10000	WT:1		SLOTS:0																																SOURCEPAGE:pg.81
-Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:pg.81									BONUS:CHECKS|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																																		BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
+Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:pg.81														BONUS:CHECKS|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																										BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
 Death Crown																						TYPE:Magic.Wondrous.Headgear							COST:75000	WT:1		SLOTS:1																																SOURCEPAGE:pg.82
-Echo Earrings																					TYPE:Magic.Wondrous								COST:2000	WT:0		SLOTS:0																																SOURCEPAGE:pg.82																						BONUS:SKILL|Listen|10|TYPE=Circumstance
+Echo Earrings																					TYPE:Magic.Wondrous								COST:2000	WT:0		SLOTS:0																																SOURCEPAGE:pg.82																											BONUS:SKILL|Listen|10|TYPE=Circumstance
 Fetish (Death)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:8000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82
 Fetish (Demon)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:1000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82
-Fetish (Key)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:3000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82																						BONUS:SKILL|Open Locks,Disable Device|2|TYPE=Competence
+Fetish (Key)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:3000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82																											BONUS:SKILL|Open Locks,Disable Device|2|TYPE=Competence
 Fetish (Worry)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:2000	WT:1		SLOTS:0																																SOURCEPAGE:pg.83
 Michella's Mandolin			NAMEISPI:YES															TYPE:Magic.Wondrous								COST:1500	WT:2		SLOTS:0																																SOURCEPAGE:pg.83
-Mother's Brooch (+1)																				TYPE:Magic.Wondrous.Amulet							COST:6000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83															BONUS:COMBAT|AC|1|TYPE=Deflection
-Mother's Brooch (+2)																				TYPE:Magic.Wondrous.Amulet							COST:12000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83															BONUS:COMBAT|AC|2|TYPE=Deflection
-Mother's Brooch (+3)																				TYPE:Magic.Wondrous.Amulet							COST:20000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83															BONUS:COMBAT|AC|3|TYPE=Deflection
-Mother's Brooch (+4)																				TYPE:Magic.Wondrous.Amulet							COST:30000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83															BONUS:COMBAT|AC|4|TYPE=Deflection
-Mother's Brooch (+5)																				TYPE:Magic.Wondrous.Amulet							COST:50000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83															BONUS:COMBAT|AC|5|TYPE=Deflection
+Mother's Brooch (+1)																				TYPE:Magic.Wondrous.Amulet							COST:6000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83																				BONUS:COMBAT|AC|1|TYPE=Deflection
+Mother's Brooch (+2)																				TYPE:Magic.Wondrous.Amulet							COST:12000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83																				BONUS:COMBAT|AC|2|TYPE=Deflection
+Mother's Brooch (+3)																				TYPE:Magic.Wondrous.Amulet							COST:20000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83																				BONUS:COMBAT|AC|3|TYPE=Deflection
+Mother's Brooch (+4)																				TYPE:Magic.Wondrous.Amulet							COST:30000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83																				BONUS:COMBAT|AC|4|TYPE=Deflection
+Mother's Brooch (+5)																				TYPE:Magic.Wondrous.Amulet							COST:50000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83																				BONUS:COMBAT|AC|5|TYPE=Deflection
 Translator Earrings																				TYPE:Magic.Wondrous								COST:4000	WT:0		SLOTS:0																																SOURCEPAGE:pg.83
-Rose Amulet (+1)																					TYPE:Magic.Wondrous.Amulet							COST:3000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83									BONUS:CHECKS|ALL|1
-Rose Amulet (+2)																					TYPE:Magic.Wondrous.Amulet							COST:7000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83									BONUS:CHECKS|ALL|2
-Rose Amulet (+3)																					TYPE:Magic.Wondrous.Amulet							COST:15000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83									BONUS:CHECKS|ALL|3
-Rose Amulet (+4)																					TYPE:Magic.Wondrous.Amulet							COST:36000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83									BONUS:CHECKS|ALL|4
-Rose Amulet (+5)																					TYPE:Magic.Wondrous.Amulet							COST:30000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83									BONUS:CHECKS|ALL|5
+Rose Amulet (+1)																					TYPE:Magic.Wondrous.Amulet							COST:3000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83														BONUS:CHECKS|ALL|1
+Rose Amulet (+2)																					TYPE:Magic.Wondrous.Amulet							COST:7000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83														BONUS:CHECKS|ALL|2
+Rose Amulet (+3)																					TYPE:Magic.Wondrous.Amulet							COST:15000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83														BONUS:CHECKS|ALL|3
+Rose Amulet (+4)																					TYPE:Magic.Wondrous.Amulet							COST:36000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83														BONUS:CHECKS|ALL|4
+Rose Amulet (+5)																					TYPE:Magic.Wondrous.Amulet							COST:30000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83														BONUS:CHECKS|ALL|5
 Pearl of Dispelling																				TYPE:Magic.Wondrous								COST:4000	WT:0		SLOTS:0																																SOURCEPAGE:pg.83
 Sharlette's Fabulous Bicycle		NAMEISPI:YES															TYPE:Magic.Wondrous								COST:8000	WT:20		SLOTS:0																																SOURCEPAGE:pg.83
 
