@@ -211,7 +211,7 @@ CLASS:Shadowblade	!PREALIGN:CG,LG,NG	PREATT:6	PREFEAT:3,Skill Focus,Weapon Fines
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Listen|Move Silently|Search|Spot
 ###Block: Special Abilities:
-1						BONUS:VAR|SneakAttack|1	AUTO:FEAT|Sneak Attack
+1						BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Shadow Movement
 3	SAB:Vampiric Blade 1/day
 4						BONUS:VAR|SneakAttack|1

@@ -391,7 +391,7 @@ CLASS:Knight Adamant	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|TYPE.Pr
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Disciple of St. Baedras	HD:10		TYPE:PC.Prestige	ABB:Baed		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat					Required Text
-CLASS:Disciple of St. Baedras	PREATT:6	PREFEAT:2,Combat Expertise,Sneak Attack	PRETEXT:See Text.
+CLASS:Disciple of St. Baedras	PREATT:6	PREFEAT:1,Combat Expertise	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack	PRETEXT:See Text.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Disciple of St. Baedras	STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Hide|Intimidate|Move Silently|Sense Motive|Sleight of Hand|Spot|Tumble
 1																																													AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency						AUTO:WEAPONPROF|TYPE.Martial

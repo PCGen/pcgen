@@ -104,4 +104,4 @@ CLASS:Black Knight	STARTSKILLPTS:4	CSKILL:Climb|Decipher Script|Disable Device|F
 4	SAB:Contagious Touch
 5	SAB:Vermin Swarm %/day|VerminSwarm	BONUS:VAR|VerminSwarm|CL/5		DEFINE:VerminSwarm|0
 7	SAB:Vermin Shape
-8							BONUS:VAR|SneakAttack|((CL-6)/2)*2					AUTO:FEAT|Sneak Attack
+8							BONUS:VAR|SneakAttack|((CL-6)/2)*2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack

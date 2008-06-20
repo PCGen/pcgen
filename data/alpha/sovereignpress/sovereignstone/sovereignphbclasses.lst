@@ -66,9 +66,9 @@ CLASS:Rogue		STARTSKILLPTS:8
 1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	BONUS:VAR|SneakAttack|(CL+1)/2																		AUTO:FEAT|Sneak Attack
-2																					VFEAT:Evasion
-3	BONUS:VAR|UncannyDodge|1																			AUTO:FEAT|Uncanny Dodge
+1	BONUS:VAR|SneakAttack|(CL+1)/2																		ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2																					ABILITY:Special Ability|AUTOMATIC:Evasion
+3	BONUS:VAR|UncannyDodge|1																			ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 6	BONUS:VAR|UncannyDodge|1
 10							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11	BONUS:VAR|UncannyDodge|1

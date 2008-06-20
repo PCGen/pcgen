@@ -15,7 +15,7 @@ CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentratio
 # Class Name	Spell Stat		Spell Type		Spell Scoll Prohibited							Caster level				Use Spell List
 CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Chameleon|CL	SPELLLIST:1|Wizard
 ###Block: Sneak Attack
-1								BONUS:VAR|SneakAttack|(CL+1)/4													AUTO:FEAT|Sneak Attack
+1								BONUS:VAR|SneakAttack|(CL+1)/4													ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ##Block: Quick Change
 1	SAB:Quick Change (% disguises)|Disguises	BONUS:VAR|Disguises|(CL+10)/5		BONUS:SKILL|Disguise|(CL+1)/2|TYPE=Competence	DEFINE:Disguises|0
 ###Block: Weapon and Armor proficiencies
@@ -23,7 +23,7 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
 1	CAST:2
-2	CAST:3,0																									VFEAT:Evasion
+2	CAST:3,0																									ABILITY:Special Ability|AUTOMATIC|Evasion
 3	CAST:3,1
 4	CAST:3,2,0
 5	CAST:3,3,1
@@ -109,7 +109,7 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 ###Block: Weapon and Armor Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
 ###Block: sneak attack
-1	BONUS:VAR|SneakAttack|(CL+3)/4	AUTO:FEAT|Sneak Attack
+1	BONUS:VAR|SneakAttack|(CL+3)/4	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Manifester stuff
 1	BONUS:VAR|Manifester|CL	DEFINE:Manifester|0	DEFINE:PSIONLEVEL|CL
 1					DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0

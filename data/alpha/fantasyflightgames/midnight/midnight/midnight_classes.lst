@@ -170,7 +170,7 @@ CLASS:Insurgent Spy	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cra
 ###Block: Normal Level Progression
 1	SAB:Conceal Magic (Su) (% items)|ConcealMagic	SAB:Shadow Contact (minor)	BONUS:VAR|ConcealMagic|CL		DEFINE:ConcealMagic|0
 2	SAB:Shadow Speak (+%)|ShadowSpeak								BONUS:VAR|ShadowSpeak|CL/2		DEFINE:ShadowSpeak|0
-3	SAB:Shadow Contact (major)									BONUS:VAR|SneakAttack|(CL-1)/2					AUTO:FEAT|Sneak Attack
+3	SAB:Shadow Contact (major)									BONUS:VAR|SneakAttack|(CL-1)/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 5	SAB:Shadow Contact (incredible)
 
 # Class Name		Output Name		Hit Dice	Type			Max Level	Save checks bonus											Combat bonus

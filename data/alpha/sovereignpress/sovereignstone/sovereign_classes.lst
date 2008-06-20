@@ -133,7 +133,7 @@ CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Gather
 2																	AUTO:FEAT|Improved Unarmed Strike
 5																	AUTO:FEAT|Subduing Strike
 8	BONUS:VAR|SkilledDisarm|(CL-2)/3											AUTO:FEAT|Skilled Disarm
-11	BONUS:VAR|SneakAttack|(CL-8)/3											AUTO:FEAT|Sneak Attack
+11	BONUS:VAR|SneakAttack|(CL-8)/3											ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 14																	AUTO:FEAT|Blinding Attack
 17																	AUTO:FEAT|Incapacitating Attack
 20																	AUTO:FEAT|Finishing Attack

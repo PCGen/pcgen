@@ -264,9 +264,9 @@ CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:pg. 69	LANGAUTO:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Research|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	SAB:Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2																																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)
-1																																												AUTO:FEAT|Sneak Attack
+1																																												ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2																					ADD:FEAT|1|Evasion,Improved Evasion
-3				BONUS:VAR|TrapSense|CL/3																																				AUTO:FEAT|Trap Sense Ability
+3				BONUS:VAR|TrapSense|CL/3																																				ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
 4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4														ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 10																					ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 13																					ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
