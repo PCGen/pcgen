@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 14 13:15:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Jun 19 21:54:04 2008 -- reformated by prettylst.pl v1.38 (build 6748)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name	Hit Dice	Type				Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus											Combat bonus					Modify VAR
@@ -39,7 +39,7 @@ SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:PsionML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:PsionML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PsionML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionML,19
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Powers per day
 1	SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion")+3	AUTO:FEAT|Psicrystal
 ###Block: Level progression
@@ -79,9 +79,9 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 1	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsychicWarriorML,13	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsychicWarriorML,14	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsychicWarriorML,15	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,16
 1	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,17	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,18	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,19	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,20
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Powers per day
 1	SAB:Psychic Warrior 0 level powers (% free / day)|PsyWarFreePowers	DEFINE:PsyWarFreePowers|CL+var("BL=Psychic Warrior")+2
 ###Block: Level progression
@@ -146,7 +146,7 @@ SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUB
 
 # Class Name		Hit Dice	Type					Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus														Combat bonus
 CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required AL		Required Skill					Req. Known Spell			Required Text											Var. Min. Value
+# Class Name		Required AL		Required Skill						Req. Known Spell			Required Text											Var. Min. Value
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:2,Alchemy=1,Knowledge (Psionics)=1	PRESPELL:1,Control Flames	PRETEXT:Must have set fire to a structure of any size just to watch it burn	PREVARGTEQ:BasePowerPoints,10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
@@ -184,7 +184,7 @@ SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[
 
 # Class Name	Hit Dice	Type					Max Level	Source Page					Save checks bonus														Combat bonus
 CLASS:Slayer	HD:10		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat	Required Skill											Required Text																		Var. Min. Value
+# Class Name	Req. Att.	Required Feat	Required Skill									Required Text																		Var. Min. Value
 CLASS:Slayer	PREATT:3	PREFEAT:1,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
@@ -202,9 +202,9 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:SlayerML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:SlayerML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:SlayerML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:SlayerML,19
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1				SAB:Favored Enemy (Mortal Enemy)	SAB:Mortal Enemy Sense	BONUS:ABILITYPOOL|Psionic Combat Mode|2
 2				SAB:Brain Nausea (Will Save DC 17)
@@ -219,7 +219,7 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 
 # Class Name	Hit Dice	Type					Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus															Combat bonus
 CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Skill						Var. Min. Value
+# Class Name	Req. Att.	Required Skill							Var. Min. Value
 CLASS:Soulknife	PREATT:3	PRESKILL:2,Move Silently=3,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Concentration|Hide|Knowledge (Psionics)|Move Silently|Sense Motive|Tumble

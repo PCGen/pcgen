@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 18 23:15:44 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Thu Jun 19 21:54:04 2008 -- reformated by prettylst.pl v1.38 (build 6748)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by Tir Gwaith
 # Ranger Favored enemies aren't perfect but better than the ADD: in classes.. - Tir Gwaith 10/26/02
@@ -56,12 +56,12 @@ Immune to Poisons		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Im
 A Thousand Faces		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:A Thousand Faces (Su)								SOURCEPAGE:ClassesI.rtf
 
 ###Block: Timeless Body For Druid and Monk (the actual benefits of this class feature are implemented with a template by the same name)
-# Ability Name	Category of Ability		Type						Visible	Special ABility			Define				Template			Allow Follower			Allowed Companions																																																																																																																																																		Source Page
-Timeless Body	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Timeless Body (Ex)							TEMPLATE:Timeless Body																																																																																																																																																											SOURCEPAGE:ClassesI.rtf
+# Ability Name	Category of Ability		Type						Visible	Special ABility			Define			Template			Allow Follower			Allowed Companions																																																																																																																																																		Source Page
+Timeless Body	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Timeless Body (Ex)						TEMPLATE:Timeless Body																																																																																																																																																											SOURCEPAGE:ClassesI.rtf
 
-Animal Companion	CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Animal Companion (Ex)	DEFINE:AnimalCompanionLvl|0					FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Badger,Camel,Crocodile,Dire Rat,Dog,Dog (Riding),Eagle,Hawk,Horse (Light),Horse (Heavy),Owl,Pony,Porpoise,Shark (Medium),Snake (Small Viper),Snake (Medium Viper),Squid,Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Dire Badger,Dire Bat,Dire Weasel,Leopard,Snake (Constrictor),Snake (Large Viper),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Dire Wolverine,Crocodile (Giant),Dinosaur (Deinonychus),Dire Ape,Dire Boar,Dire Wolf,Lion,Rhinoceros,Snake (Huge Viper),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Dire Lion,Dinosaur (Megaraptor),Snake (Giant Constrictor)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Bear,Elephant|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dire Tiger,Dinosaur (Triceratops),Dinosaur (Tyrannosaurus)|FOLLOWERADJUSTMENT:-15
-Special Mount	CATEGORY:Special Ability	TYPE:SpellLike				VISIBLE:NO	SAB:Special Mount (Sp)		DEFINE:SMLevel|0							FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY																																																																																																																																																SOURCEPAGE:ClassesII.rtf
-Summon Familiar	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO	SAB:Summon Familiar		DEFINE:FMLevel|0							FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Tiny Viper),Toad,Weasel
+Animal Companion	CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Animal Companion (Ex)	DEFINE:CompLevel|0					FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Badger,Camel,Crocodile,Dire Rat,Dog,Dog (Riding),Eagle,Hawk,Horse (Light),Horse (Heavy),Owl,Pony,Porpoise,Shark (Medium),Snake (Small Viper),Snake (Medium Viper),Squid,Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Dire Badger,Dire Bat,Dire Weasel,Leopard,Snake (Constrictor),Snake (Large Viper),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Dire Wolverine,Crocodile (Giant),Dinosaur (Deinonychus),Dire Ape,Dire Boar,Dire Wolf,Lion,Rhinoceros,Snake (Huge Viper),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Dire Lion,Dinosaur (Megaraptor),Snake (Giant Constrictor)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Bear,Elephant|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dire Tiger,Dinosaur (Triceratops),Dinosaur (Tyrannosaurus)|FOLLOWERADJUSTMENT:-15
+Special Mount	CATEGORY:Special Ability	TYPE:SpellLike				VISIBLE:NO	SAB:Special Mount (Sp)		DEFINE:SMLevel|0						FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY																																																																																																																																																SOURCEPAGE:ClassesII.rtf
+Summon Familiar	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO	SAB:Summon Familiar		DEFINE:FMLevel|0						FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Tiny Viper),Toad,Weasel
 
 
 
@@ -86,7 +86,7 @@ Sneak Attack	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack %
 
 ###Block: Barbarian class abilties
 # Ability Name		Category of Ability		Type				Visible	Special ABility																																																																														Define																										Save checks bonus							Combat bonus								Add to base move																		Stat bonus																	Modify VAR																																																								Source Page
-Illiteracy			CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO	SAB:Illiteracy																																																																														DEFINE:IlliteracyLVL|0																																																																																																																																										SOURCEPAGE:ClassesI.rtf
+Illiteracy			CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO	SAB:Illiteracy																																																																														DEFINE:IllteracyLVL|0	DEFINE:IlliteracyLVL|0																																																																																																																																						SOURCEPAGE:ClassesI.rtf
 Rage				CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SAB:Rage (Ex) % times/day and no longer winded after (% rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC																					BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
 Barbarian Fast Movement	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO																																																																																																																															BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement																																																																												SOURCEPAGE:ClassesI.rtf
 
@@ -159,22 +159,25 @@ Uncanny Dodge		CATEGORY:Special Ability	VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus 
 Defensive Awareness	CATEGORY:Special Ability	VISIBLE:NO	SAB:Defensive Awareness (Dex bonus to AC)|UncannyDodge	SAB:Defensive Awareness (can't be flanked)|ImprovedUncannyDodge	SAB:Defensive Awareness (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 
 ###Block: Proficiencies
-# Ability Name				Category of Ability		Type			Visible	Automaticaly Gained Feat			Automaticaly Gained Weapon Prof.
-All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|TYPE.Martial
-Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
-Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
-Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier[PRESIZEGTEQ:M]
-Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
-Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+# Ability Name				Category of Ability		Type			Visible	Automaticaly Gained Weapon Prof.
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
+Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
+Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
+Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier[PRESIZEGTEQ:M]
+Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
+Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
 
 
 ###Block: Leadership feat support
-# Feat Name		Type			Visible	Multiple?	Choose										Modify VAR							Temporary effect description
+# Ability Name	Category of Ability		Type			Visible	Multiple?	Choose										Modify VAR							Temporary effect description
 Leadership Score	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
 
+###Block:Hidden Feat for Negative Levels
+# Ability Name	Category of Ability		Type				Visible	Special ABility																							Define			Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill
+Negative Levels	CATEGORY:Special Ability	TYPE:NegativeLevels	VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels
 
 
 

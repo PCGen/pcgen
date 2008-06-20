@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Jan 17 21:36:15 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Jun 19 21:54:04 2008 -- reformated by prettylst.pl v1.38 (build 6748)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Hammer (Gnome Hooked)    -- REMOVED - NOT in SRD.
 # Urgrosh (Dwarven)    -- REMOVED - NOT in SRD.
 
 # Now need to take Armor Spikes/Shield spikes for weight and cost.
 #Armor Extra
-# Equipment Name		Output Name				Required Proficiency				Type												Alternative Type				Cost		Weight	Slot Needed	Var. Min. Value			Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier			Alternative Modifier	Requires Modification?	Range		Reach Multiplier	Size		Source Page						Weapon prop. bonus												Special Property
-Armor Spikes							PROFICIENCY:WEAPON|Armor Spikes		TYPE:Weapon.Martial.Melee.Standard.Piercing.Unarmed.Accessories								COST:0	WT:0		SLOTS:0						CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL																		SOURCEPAGE:SRDEquipmentI.rtf																		SPROP:deals extra piercing damage on a successful grapple attack
+# Equipment Name		Output Name				Required Proficiency				Type												Alternative Type				Cost		Weight	Slot Needed	Var. Min. Value			Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier			Alternative Modifier	Requires Modification?	Range		Reach Multiplier	Size		Source Page						Weapon prop. bonus											Special Property
+Armor Spikes							PROFICIENCY:WEAPON|Armor Spikes		TYPE:Weapon.Martial.Melee.Standard.Piercing.Unarmed.Accessories								COST:0	WT:0		SLOTS:0						CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL																		SOURCEPAGE:SRDEquipmentI.rtf																	SPROP:deals extra piercing damage on a successful grapple attack
 #Exotic Melee Weapons
 #TINY ----------------------------------------------------------------------------------------------------------
 Kama (Halfling)		OUTPUTNAME:Kama, Halfling	PROFICIENCY:WEAPON|Kama				TYPE:Weapon.Exotic.Melee.Slashing.Standard.Monk											COST:2	WT:1									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL																SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
@@ -20,8 +20,8 @@ Nunchaku								PROFICIENCY:WEAPON|Nunchaku			TYPE:Weapon.Exotic.Melee.Bludgeoni
 Siangham								PROFICIENCY:WEAPON|Siangham			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Monk											COST:3	WT:1									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL																SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 
 #MEDIUM --------------------------------------------------------------------------------------------------------
-Sword (Bastard)		OUTPUTNAME:Sword, Bastard	PROFICIENCY:WEAPON|Sword (Bastard)		TYPE:Weapon.Martial.Exotic.Melee.Slashing.Standard.Sword									COST:35	WT:10									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL																SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf			BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency (Sword (Bastard))
-Waraxe (Dwarven)		OUTPUTNAME:Waraxe, Dwarven	PROFICIENCY:WEAPON|Waraxe (Dwarven)		TYPE:Weapon.Martial.Exotic.Melee.Slashing.Standard.Axe									COST:30	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL																SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf			BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))
+Sword (Bastard)		OUTPUTNAME:Sword, Bastard	PROFICIENCY:WEAPON|Sword (Bastard)		TYPE:Weapon.Martial.Exotic.Melee.Slashing.Standard.Sword									COST:35	WT:10									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL																SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf			BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency(Sword (Bastard))
+Waraxe (Dwarven)		OUTPUTNAME:Waraxe, Dwarven	PROFICIENCY:WEAPON|Waraxe (Dwarven)		TYPE:Weapon.Martial.Exotic.Melee.Slashing.Standard.Axe									COST:30	WT:15									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL																SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf			BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency(Waraxe (Dwarven))
 
 
 #LARGE ----------------------------------------------------------------------------------------------------------
@@ -70,9 +70,9 @@ Greatsword								PROFICIENCY:WEAPON|Greatsword			TYPE:Weapon.Martial.Melee.Stan
 #UNARMED ----------------------------------------------------------------------------------------------------------
 Unarmed Strike							PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Unarmed.Melee.Bludgeoning.Standard.Monk										COST:0	WT:0																										DAMAGE:1d3													MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
 Gauntlet								PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:2	WT:2									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL																SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
-Gauntlet (Locked)							PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:8	WT:5									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL																SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf																		SPROP:+10 vs. disarm
-Shieldbash (Light)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3																						SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
-Shieldbash (Heavy)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4																						SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf																		SPROP:Shieldbash attacks are considered to be offhanded attacks
+Gauntlet (Locked)							PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:8	WT:5									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL																SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf																	SPROP:+10 vs. disarm
+Shieldbash (Light)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3																						SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf																	SPROP:Shieldbash attacks are considered to be offhanded attacks
+Shieldbash (Heavy)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4																						SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf																	SPROP:Shieldbash attacks are considered to be offhanded attacks
 Touch Attack (Grapple)						PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed													COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:0													MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
 Touch Attack (Ray)						PROFICIENCY:WEAPON|Spells(Ray)		TYPE:Weapon.Ranged.Unarmed														COST:0	WT:0									CRITMULT:x2			CRITRANGE:1												DAMAGE:0													MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI.rtf
 
@@ -101,6 +101,6 @@ Flurry of Blows							PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Natural.Una
 #	or we redo Natural Attacks and Unarmed attacks. - Tir Gwaith
 
 # Asian Weapons from DMG
-Katana								PROFICIENCY:WEAPON|Katana			TYPE:Weapon.Martial.Exotic.Melee.Medium.Slashing.Asian.Sword								COST:100	WT:6									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL.MWORKW														SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf			BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency (Katana)
+Katana								PROFICIENCY:WEAPON|Katana			TYPE:Weapon.Martial.Exotic.Melee.Medium.Slashing.Asian.Sword								COST:100	WT:6									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					EQMOD:STEEL.MWORKW														SIZE:M	SOURCEPAGE:SRDEquipmentI.rtf			BONUS:WEAPON|WIELDCATEGORY|1|!PREFEAT:1,Exotic Weapon Proficiency(Katana)
 Kusari-gama								PROFICIENCY:WEAPON|Kusari-gama		TYPE:Weapon.Martial.Melee.Bludgeoning.Slashing.Asian.Reach									COST:10	WT:3									CRITMULT:x2																DAMAGE:1d6					EQMOD:STEEL													REACHMULT:2		SIZE:L	SOURCEPAGE:SRDEquipmentI.rtf
 Wakizashi								PROFICIENCY:WEAPON|Wakizashi			TYPE:Weapon.Martial.Melee.Slashing.Asian.Sword											COST:0	WT:3									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL.MWORKW														SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
