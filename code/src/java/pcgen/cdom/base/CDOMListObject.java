@@ -26,7 +26,7 @@ package pcgen.cdom.base;
  * @param <T>
  *            The type of object contained in the CDOMList
  */
-public abstract class CDOMListObject<T extends CDOMObject> extends CDOMObject
+public abstract class CDOMListObject<T extends PrereqObject> extends CDOMObject
 		implements CDOMList<T>
 {
 

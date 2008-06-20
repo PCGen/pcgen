@@ -7,6 +7,7 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
 
 public interface ListCommitStrategy
 {
@@ -28,21 +29,21 @@ public interface ListCommitStrategy
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl);
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToList(
+	public <T extends PrereqObject> AssociatedPrereqObject addToList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<? super T>> list, CDOMReference<T> allowed);
 
-	public Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> getChangedLists(
+	public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
 		CDOMObject owner, Class<? extends CDOMList<?>> cl);
 
 	public void removeAllFromList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<?>> swl);
 
-	public <T extends CDOMObject> void removeFromList(String tokenName,
+	public <T extends PrereqObject> void removeFromList(String tokenName,
 		CDOMObject owner, CDOMReference<? extends CDOMList<? super T>> swl,
 		CDOMReference<T> ref);
 
-	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
+	public <T extends PrereqObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl);
 

@@ -9,10 +9,11 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.rules.persistence.TokenUtilities;
 
-public class ListChanges<T extends CDOMObject> implements
+public class ListChanges<T extends PrereqObject> implements
 		AssociatedChanges<CDOMReference<T>>
 {
 	private String tokenName;

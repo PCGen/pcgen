@@ -15,6 +15,7 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.rules.persistence.TokenUtilities;
@@ -195,7 +196,7 @@ public class ListContext
 			for (CDOMObject owner : edits.negativeMap.getSecondaryKeySet(uri))
 			{
 				CDOMObject neg = edits.negativeMap.get(uri, owner);
-				Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> modifiedLists = neg
+				Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> modifiedLists = neg
 						.getModifiedLists();
 				for (CDOMReference list : modifiedLists)
 				{
@@ -208,7 +209,7 @@ public class ListContext
 			for (CDOMObject owner : edits.positiveMap.getSecondaryKeySet(uri))
 			{
 				CDOMObject neg = edits.positiveMap.get(uri, owner);
-				Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> modifiedLists = neg
+				Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> modifiedLists = neg
 						.getModifiedLists();
 				for (CDOMReference list : modifiedLists)
 				{
@@ -272,7 +273,7 @@ public class ListContext
 		edits.decommit();
 	}
 
-	public Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> getChangedLists(
+	public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
 			CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
 		return commit.getChangedLists(owner, cl);
@@ -522,7 +523,7 @@ public class ListContext
 			return negative;
 		}
 
-		public <T extends CDOMObject> AssociatedPrereqObject addToList(
+		public <T extends PrereqObject> AssociatedPrereqObject addToList(
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<? super T>> list,
 				CDOMReference<T> allowed)
@@ -533,7 +534,7 @@ public class ListContext
 			return a;
 		}
 
-		public <T extends CDOMObject> void removeFromList(String tokenName,
+		public <T extends PrereqObject> void removeFromList(String tokenName,
 				CDOMObject owner,
 				CDOMReference<? extends CDOMList<? super T>> list,
 				CDOMReference<T> ref)
@@ -543,11 +544,11 @@ public class ListContext
 			getNegative(sourceURI, owner).putToList(list, ref, a);
 		}
 
-		public Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> getChangedLists(
+		public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
 				CDOMObject owner, Class<? extends CDOMList<?>> cl)
 		{
-			ArrayList<CDOMReference<? extends CDOMList<? extends CDOMObject>>> list = new ArrayList<CDOMReference<? extends CDOMList<? extends CDOMObject>>>();
-			for (CDOMReference<? extends CDOMList<? extends CDOMObject>> ref : getPositive(
+			ArrayList<CDOMReference<? extends CDOMList<? extends PrereqObject>>> list = new ArrayList<CDOMReference<? extends CDOMList<? extends PrereqObject>>>();
+			for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : getPositive(
 					extractURI, owner).getModifiedLists())
 			{
 				if (cl.equals(ref.getReferenceClass()))
@@ -564,7 +565,7 @@ public class ListContext
 			globalClearSet.addToListFor(sourceURI, owner, swl);
 		}
 
-		public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
+		public <T extends PrereqObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<T>> swl)
 		{

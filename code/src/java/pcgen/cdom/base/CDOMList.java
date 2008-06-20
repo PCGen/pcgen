@@ -30,7 +30,7 @@ package pcgen.cdom.base;
  * @param <T>
  *            The type of object contained in the CDOMList
  */
-public interface CDOMList<T extends CDOMObject> extends PrereqObject
+public interface CDOMList<T extends PrereqObject> extends PrereqObject
 {
 	/**
 	 * Returns the Class of Object this CDOMList will identify

@@ -14,6 +14,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.rules.persistence.TokenUtilities;
@@ -145,7 +146,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return !masterList.isEmpty();
 	}
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToList(
+	public <T extends PrereqObject> AssociatedPrereqObject addToList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<? super T>> list, CDOMReference<T> allowed)
 	{
@@ -155,7 +156,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return a;
 	}
 
-	public <T extends CDOMObject> void removeFromList(String tokenName,
+	public <T extends PrereqObject> void removeFromList(String tokenName,
 		CDOMObject owner, CDOMReference<? extends CDOMList<? super T>> swl,
 		CDOMReference<T> ref)
 	{
@@ -168,12 +169,12 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		owner.removeAllFromList(swl);
 	}
 
-	public Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> getChangedLists(
+	public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
 		CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
-		ArrayList<CDOMReference<? extends CDOMList<? extends CDOMObject>>> list =
-				new ArrayList<CDOMReference<? extends CDOMList<? extends CDOMObject>>>();
-		for (CDOMReference<? extends CDOMList<? extends CDOMObject>> ref : owner
+		ArrayList<CDOMReference<? extends CDOMList<? extends PrereqObject>>> list =
+				new ArrayList<CDOMReference<? extends CDOMList<? extends PrereqObject>>>();
+		for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : owner
 			.getModifiedLists())
 		{
 			if (cl.equals(ref.getReferenceClass()))
@@ -184,7 +185,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return list;
 	}
 
-	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
+	public <T extends PrereqObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl)
 	{

@@ -22,10 +22,17 @@
  */
 package pcgen.core;
 
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.list.VisionList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.enumeration.VisionType;
 
 public class Vision extends ConcretePrereqObject implements Comparable<Vision> {
+
+	public static final VisionList VISIONLIST = new VisionList();
 
 	private final VisionType visionType;
 
@@ -49,11 +56,7 @@ public class Vision extends ConcretePrereqObject implements Comparable<Vision> {
 
 	@Override
 	public String toString() {
-		try {
-			return toString(Integer.parseInt(distance));
-		} catch (NumberFormatException e) {
-			return visionType + " (" + distance + "')";
-		}
+		return getLSTformat();
 	}
 
 	private String toString(int dist) {
@@ -85,5 +88,98 @@ public class Vision extends ConcretePrereqObject implements Comparable<Vision> {
 	public int compareTo(Vision v) {
 		//CONSIDER This is potentially a slow method, but definitely works - thpr 10/26/06
 		return toString().compareTo(v.toString());
+	}
+
+	public static Vision getVision(String visionType)
+	{
+		// expecting value in form of Darkvision (60') or Darkvision
+		int commaLoc = visionType.indexOf(',');
+		if (commaLoc != -1)
+		{
+			throw new IllegalArgumentException("Invalid Vision: " + visionType
+				+ ". May not contain a comma");
+		}
+		int quoteLoc = visionType.indexOf('\'');
+		int openParenLoc = visionType.indexOf('(');
+		String distance;
+		String type;
+		if (openParenLoc == -1)
+		{
+			if (visionType.indexOf(')') != -1)
+			{
+				throw new IllegalArgumentException("Invalid Vision: "
+					+ visionType + ". Had close paren without open paren");
+			}
+			if (quoteLoc != -1)
+			{
+				throw new IllegalArgumentException("Invalid Vision: "
+					+ visionType + ". Had quote parens");
+			}
+			type = visionType;
+			distance = "0";
+		}
+		else
+		{
+			int length = visionType.length();
+			if (visionType.indexOf(')') != length - 1)
+			{
+				throw new IllegalArgumentException("Invalid Vision: "
+					+ visionType + ". Close paren not at end of string");
+			}
+			int endDistance = length - 1;
+			if (quoteLoc != -1)
+			{
+				if (quoteLoc == length - 2)
+				{
+					endDistance--;
+				}
+				else
+				{
+					throw new IllegalArgumentException(
+						"Invalid Vision: "
+							+ visionType
+							+ ". Foot character ' not immediately before close paren");
+				}
+			}
+			type = visionType.substring(0, openParenLoc).trim();
+			distance = visionType.substring(openParenLoc + 1, endDistance);
+			if (distance.length() == 0)
+			{
+				throw new IllegalArgumentException("Invalid Vision: "
+					+ visionType + ". No Distance provided");
+			}
+			if (quoteLoc != -1)
+			{
+				try
+				{
+					Integer.parseInt(distance);
+				}
+				catch (NumberFormatException nfe)
+				{
+					throw new IllegalArgumentException(
+						"Invalid Vision: "
+							+ visionType
+							+ ". Vision Distance with Foot character ' was not an integer");
+				}
+			}
+		}
+		if (type.length() == 0)
+		{
+			throw new IllegalArgumentException("Invalid Vision: " + visionType
+				+ ". No Vision Type provided");
+		}
+		return new Vision(VisionType.getVisionType(type), distance);
+	}
+
+	public String getLSTformat()
+	{
+		try
+		{
+			return toString(Integer.parseInt(distance));
+		}
+		catch (NumberFormatException e)
+		{
+			return visionType + " (" + distance + ")";
+		}
 	}
 }

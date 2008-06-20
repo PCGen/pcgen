@@ -70,7 +70,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	protected ListKeyMapToList listChar = new ListKeyMapToList();
 
 	// TODO make this final once clone() is no longer required...
-	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends CDOMObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends CDOMObject>>, CDOMReference<?>, AssociatedPrereqObject>();
+	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>();
 
 	public final boolean containsKey(IntegerKey arg0)
 	{
@@ -354,7 +354,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			 System.err.println(cdomListMods + " " + cdo.cdomListMods);
 			 System.err.println(cdomListMods.getKeySet() + " "
 			 + cdo.cdomListMods.getKeySet());
-			 for (CDOMReference<? extends CDOMList<? extends CDOMObject>> key
+			 for (CDOMReference<? extends CDOMList<? extends PrereqObject>> key
 			 : cdomListMods.getKeySet())
 			 {
 			 System.err.println(cdomListMods.getSecondaryKeySet(key));
@@ -365,28 +365,28 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return true;
 	}
 
-	public final <T extends CDOMObject> void putToList(
-			CDOMReference<? extends CDOMList<? extends CDOMObject>> list,
+	public final <T extends PrereqObject> void putToList(
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> list,
 			CDOMReference<T> granted, AssociatedPrereqObject associations)
 	{
 		cdomListMods.addToListFor(list, granted, associations);
 	}
 
-	public final <T extends CDOMObject> void removeFromList(
-			CDOMReference<? extends CDOMList<? extends CDOMObject>> list,
+	public final <T extends PrereqObject> void removeFromList(
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> list,
 			CDOMReference<T> granted)
 	{
 		cdomListMods.removeListFor(list, granted);
 	}
 
 	public final boolean hasListMods(
-			CDOMReference<? extends CDOMList<? extends CDOMObject>> list)
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> list)
 	{
 		return cdomListMods.containsListFor(list);
 	}
 
 	// TODO Is there a way to get type safety here?
-	public final <BT extends CDOMObject> Collection<CDOMReference<BT>> getListMods(
+	public final <BT extends PrereqObject> Collection<CDOMReference<BT>> getListMods(
 			CDOMReference<? extends CDOMList<BT>> list)
 	{
 		Set set = cdomListMods.getSecondaryKeySet(list);
@@ -409,13 +409,13 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	public final Collection<AssociatedPrereqObject> getListAssociations(
-			CDOMReference<? extends CDOMList<? extends CDOMObject>> list,
+			CDOMReference<? extends CDOMList<? extends PrereqObject>> list,
 			CDOMReference<?> key)
 	{
 		return cdomListMods.getListFor(list, key);
 	}
 
-	public final Collection<CDOMReference<? extends CDOMList<? extends CDOMObject>>> getModifiedLists()
+	public final Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getModifiedLists()
 	{
 		return cdomListMods.getKeySet();
 	}
