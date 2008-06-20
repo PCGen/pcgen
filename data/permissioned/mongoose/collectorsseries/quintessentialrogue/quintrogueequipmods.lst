@@ -9,7 +9,7 @@ Padding		KEY:ARMRPAD	TYPE:Armor	COST:50	ITYPE:Padded	SOURCEPAGE:p.57	PRETYPE:1,A
 ###Block:Magical Weapon Modifiers
 #
 # Modifier Name	Type				Plus		Source Page			Required Type									Modify VAR			Special Property														Virtual Feat
-Heartskewer		TYPE:Weapon			PLUS:3	SOURCEPAGE:p.58		PRETYPE:1,EQMOD=MagicalEnhancement						BONUS:VAR|SneakAttack|2	SPROP:Grants Sneak Attack at 2d6 or improves Sneak Attack by 2d6.						VFEAT:Sneak Attack
+Heartskewer		TYPE:Weapon			PLUS:3	SOURCEPAGE:p.58		PRETYPE:1,EQMOD=MagicalEnhancement						BONUS:VAR|SneakAttack|2	SPROP:Grants Sneak Attack at 2d6 or improves Sneak Attack by 2d6.						ABILITY:Special Ability|VIRTUAL|Sneak Attack
 Ring Weapon		TYPE:Weapon			PLUS:3	SOURCEPAGE:p.58		PRETYPE:1,EQMOD=MagicalEnhancement										SPROP:Weapon turns into ring which does not detect as magical
 Seeker		TYPE:Weapon.Ammunition	PLUS:2	SOURCEPAGE:p.58-59	PRETYPE:1,EQMOD=MagicalEnhancement	PRETYPE:1,Thrown,Ammunition					SPROP:Weapon that misses will attempt to strike on its own in subsequent rounds. (see text)
 Stealth		TYPE:Weapon			PLUS:4	SOURCEPAGE:p.59		PRETYPE:1,EQMOD=MagicalEnhancement										SPROP:Emits silence in 5' radius

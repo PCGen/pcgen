@@ -27,7 +27,7 @@ CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Brl		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:
 CLASS:Brawler	PREATT:5	PREFEAT:2,Alertness,Improved Unarmed Strike	PRESTAT:1,STR=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
-1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10									BONUS:VAR|SneakAttack|1									AUTO:FEAT|Sneak Attack
+1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10									BONUS:VAR|SneakAttack|1									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10		SAB:Combat Awareness (can't be flanked)
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8
 4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	SAB:Surprise Guard

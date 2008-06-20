@@ -110,12 +110,12 @@ CLASS:Gutter Fighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist
 ###Block: Normal Level Progression
 1	SAB:Dirty Blow
 2	SAB:Strike and Fade
-3						BONUS:VAR|SneakAttack|CL/3									AUTO:FEAT|Sneak Attack
+3						BONUS:VAR|SneakAttack|CL/3									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 4											BONUS:COMBAT|AC|1|TYPE=Dodge|PREFEAT:1,Dodge	AUTO:FEAT|Dodge
 5	SAB:Scaling the Mountain
 6											BONUS:COMBAT|AC|CL/3|TYPE=NaturalArmor.REPLACE
 7	SAB:Hobbling Strike
-8						BONUS:VAR|UncannyDodge|1									AUTO:FEAT|Uncanny Dodge
+8						BONUS:VAR|UncannyDodge|1									ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 10	SAB:Agonizing Strike
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -198,7 +198,7 @@ CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuen
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1										BONUS:VAR|SneakAttack|(CL+1)/2					AUTO:FEAT|Sneak Attack
+1										BONUS:VAR|SneakAttack|(CL+1)/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Taunt (Intimidate)|PREVARLT:CL,4
 3																ADD:FEAT|1|TYPE=Fighter
 4	SAB:Taunt (Intimidate/Enrage)|PREVARLT:CL,8
