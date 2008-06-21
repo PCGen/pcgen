@@ -132,7 +132,7 @@ CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.
 # Master of two worlds - Druid levels stack w/Channeler Spiritual
 1	SAB:Druidcraft	SAB:Nature Sense (Ex)																										AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
 2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
-3	SAB:Woodland Stride (Ex)
+3					ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 4	SAB:Trackless Step (Ex)
 6	SAB:Venom Immunity (Ex)
 8	SAB:Fey Friend

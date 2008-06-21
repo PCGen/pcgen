@@ -268,7 +268,7 @@ CLASS:WildWalker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:1,Sophia Kalla	PRERACE:1,Ne
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:WildWalker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:
-1	SAB:Woodland Stride
+1										ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 2	SAB:Charm Monster (Su)
 3	SAB:Fast Movement		BONUS:MOVEADD|TYPE.Walk|10
 4	SAB:Summon Monster (Su)
