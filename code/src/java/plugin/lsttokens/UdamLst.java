@@ -15,8 +15,8 @@ public class UdamLst implements GlobalLstToken
 {
 
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * FIXME Classes must be resolved/in context before this is converted due to 
+	 * undocumented "features"
 	 */
 
 	public String getTokenName()
