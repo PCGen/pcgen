@@ -93,26 +93,27 @@ public final class Race extends PObject
 
 	public String getDisplayVision(final PlayerCharacter aPC)
 	{
-		if (vision == null)
-		{
-			return "";
-		}
-
 		if (aPC == null)
 		{
 			return "";
 		}
-
-		final StringBuffer visionString = new StringBuffer(25);
-
-		for (Vision vis : vision)
+		Collection<CDOMReference<Vision>> mods = getListMods(Vision.VISIONLIST);
+		if (mods == null)
 		{
-			if (visionString.length() > 0)
-			{
-				visionString.append(';');
-			}
+			return "";
+		}
 
-			visionString.append(vis.toString(aPC));
+		StringBuilder visionString = new StringBuilder(25);
+		for (CDOMReference<Vision> ref : mods)
+		{
+			for (Vision v : ref.getContainedObjects())
+			{
+				if (visionString.length() > 0)
+				{
+					visionString.append(';');
+				}
+				visionString.append(v.toString(aPC));
+			}
 		}
 
 		return visionString.toString();

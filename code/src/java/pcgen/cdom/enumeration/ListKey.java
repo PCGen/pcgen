@@ -47,6 +47,7 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
 import pcgen.core.SpellProhibitor;
+import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -192,6 +193,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE_ADDCHOICE = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
+	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

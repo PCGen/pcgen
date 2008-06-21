@@ -38,6 +38,7 @@ import java.util.TreeMap;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
@@ -85,7 +86,6 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PCClass</code>.
@@ -238,12 +238,6 @@ public class PCClass extends PObject
 	 */
 	private List<String> skillList = null; // TODO - Not sure this support is
 	// really working properly
-
-	/*
-	 * FINALALLCLASSLEVELS The Vision List is level dependent - heck, it's in a
-	 * LevelProperty, so that should be pretty obvious :)
-	 */
-	private List<LevelProperty<Vision>> visionList = null;
 
 	/*
 	 * FUTURETYPESAFETY This should not be a String, but a member of a Typesafe
@@ -1767,60 +1761,6 @@ public class PCClass extends PObject
 		}
 	}
 
-	/**
-	 * we over ride the PObject setVision() function to keep track of what
-	 * levels this VISION: tag should take effect
-	 * 
-	 * @param aString
-	 * @param aPC
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel PCClass since it is
-	 * a Tag [with level dependence differences, of course)
-	 */
-	public final void addVision(int aLevel, Vision vis)
-	{
-		if (visionList == null)
-		{
-			visionList = new ArrayList<LevelProperty<Vision>>();
-		}
-		visionList.add(LevelProperty.getLevelProperty(aLevel, vis));
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is an editor and loader requirement, therefore
-	 * PCClass only
-	 */
-	@Override
-	public void clearVisionList()
-	{
-		if (visionList != null)
-		{
-			visionList.clear();
-		}
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is an editor and loader requirement, therefore
-	 * PCClass only
-	 */
-	@Override
-	public boolean removeVisionType(VisionType type)
-	{
-		if (visionList == null)
-		{
-			return false;
-		}
-		for (LevelProperty<Vision> lp : visionList)
-		{
-			if (lp.getObject().getType().equals(type))
-			{
-				return visionList.remove(lp);
-			}
-		}
-		return false;
-	}
-
 	/*
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
@@ -2595,47 +2535,6 @@ public class PCClass extends PObject
 		}
 
 		return aList;
-	}
-
-	/**
-	 * Here is where we do the real work of setting the vision information on
-	 * the PObject
-	 * 
-	 * Must Override to fix 1489300
-	 * 
-	 * @param aPC
-	 * @return Map
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory) [with level dependent
-	 * differences, of course]
-	 */
-	/*
-	 * UNWIND I'm not going to unwind this one early, because PC.getVisionList 
-	 * actually depends on this for a bug fix - this will 'naturally' be fixed 
-	 * when PCClassLevel is broken out because it is used in few places.
-	 */
-	@Override
-	public List<Vision> getVision()
-	{
-		List<Vision> returnList = super.getVision();
-		if (visionList != null)
-		{
-			if (returnList == null)
-			{
-				returnList = new ArrayList<Vision>();
-			}
-			for (LevelProperty<Vision> vis : visionList)
-			{
-				if (vis.getLevel() <= level)
-				{
-					returnList.add(vis.getObject());
-				}
-			}
-		}
-
-		return returnList;
 	}
 
 	/**
@@ -5699,9 +5598,14 @@ public class PCClass extends PObject
 			SR = new ArrayList<LevelProperty<String>>(otherClass.SR);
 		}
 
-		if (otherClass.vision != null)
+		for (CDOMReference<Vision> ref : otherClass
+				.getSafeListMods(Vision.VISIONLIST))
 		{
-			vision = otherClass.vision;
+			for (AssociatedPrereqObject apo : otherClass.getListAssociations(
+					Vision.VISIONLIST, ref))
+			{
+				putToList(Vision.VISIONLIST, ref, apo);
+			}
 		}
 
 		if (otherClass instanceof SubClass)

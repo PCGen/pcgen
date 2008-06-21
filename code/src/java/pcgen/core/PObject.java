@@ -75,7 +75,6 @@ import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PObject</code><br>
@@ -109,11 +108,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private SourceEntry theSource = new SourceEntry();
 
-	/**
-	 * A map of vision types associated with the object,
-	 * Key: vision type, Value: vision range.
-	 */
-	protected List<Vision> vision = null;
 	private HashMap<String, String> pluginDataMap = new HashMap<String, String>();
 
 	/** The Non-internationalized name to use to refer to this object. */
@@ -1108,52 +1102,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Takes a string of the form:
-	 * Darkvision (60')|Low-light
-	 * and builds a hashMap for this object.
-	 * It also adds the type (such as Darkvision) to a Global hashMap
-	 * @param aString
-	 * @param aPC
-	 */
-	public void addVision(Vision v)
-	{
-		//CONSIDER Need null check?
-		if (vision == null) {
-			vision = new ArrayList<Vision>();
-		}
-		vision.add(v);
-	}
-	
-	public void clearVisionList() {
-		if (vision != null)
-		{
-			vision.clear();
-		}
-	}
-	
-	public boolean removeVisionType(VisionType type) {
-		if (vision == null) {
-			return false;
-		}
-		for (Vision vis : vision) {
-			if (vis.getType().equals(type)) {
-				return vision.remove(vis);
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Retrieve the vision types associated with the object.
-	 * 
-	 * @return List of Vision objects associated with the object.
-	 */
-	public List<Vision> getVision()
-	{
-		return vision;
-	}
-	
-	/**
 	 * Adds Weapons/Armor/Shield names/types to new Proficiency mapping
 	 *
 	 * @param aString is a list of equipment and new Profs
@@ -1296,8 +1244,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			retVal.bonusMap = new HashMap<String, String>(bonusMap);
 		}
-
-		retVal.vision = vision;
 
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
@@ -2837,28 +2783,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (!(this instanceof PCClass) && (SR != null) && (SR.length() != 0))
 		{
 			txt.append("\tSR:").append(SR);
-		}
-
-		if ((vision != null) && (vision.size() != 0))
-		{
-			final StringBuffer sb = new StringBuffer();
-
-			for (Vision vis : vision)
-			{
-				if (!"0".equals(vis.getDistance()))
-				{
-					if (sb.length() > 0)
-					{
-						sb.append('|');
-					}
-					sb.append(vis);
-				}
-			}
-
-			if (sb.length() > 0)
-			{
-				txt.append("\tVISION:").append(sb.toString());
-			}
 		}
 
 		if (getMyTypeCount() != 0)

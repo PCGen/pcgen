@@ -10,6 +10,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
@@ -46,13 +48,17 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
-		template.addVision(new Vision(VisionType.getVisionType("Darkvision"),
-			"60"));
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "60")),
+				new SimpleAssociatedObject());
 		character.addTemplate(template);
 
 		final PCTemplate template2 = new PCTemplate();
-		template2.addVision(new Vision(VisionType.getVisionType("Low-Light"),
-			"30"));
+		template2.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Low-Light"), "30")),
+				new SimpleAssociatedObject());
 		character.addTemplate(template2);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -73,8 +79,10 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
-		template
-			.addVision(new Vision(VisionType.getVisionType("Normal"), "60"));
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Normal"), "60")),
+				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
 
@@ -95,8 +103,10 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
-		template.addVision(new Vision(VisionType.getVisionType("Darkvision"),
-			"60"));
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "60")),
+				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
 

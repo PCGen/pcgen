@@ -77,6 +77,8 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.inst.ObjectCache;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.SkillCostCalc;
@@ -134,6 +136,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/** MONKBONUS = 4 */
 	public static final int MONKBONUS = 4;
 	private static String lastVariable = null;
+
+	private ObjectCache cache = new ObjectCache();
 
 	// List of Armor Proficiencies
 	private final List<String> armorProfList = new ArrayList<String>();
@@ -1269,6 +1273,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			cachedWeaponProfs = null;
 			serial++;
+			cache = new ObjectCache();
 			getVariableProcessor().setSerial(serial);
 			setAggregateAbilitiesStable(null, false);
 		}
@@ -7634,41 +7639,67 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public List<Vision> getVisionList()
 	{
-		List<Vision> visionList = new ArrayList<Vision>();
-
-		for (PObject pObj : getPObjectList())
+		if (!cache.containsListFor(ListKey.VISION_CACHE))
 		{
-			if (pObj != null)
+			cache.initializeListFor(ListKey.VISION_CACHE);
+			Map<VisionType, Integer> map = new HashMap<VisionType, Integer>();
+			for (CDOMObject cdo : getCDOMObjectList())
 			{
-				visionList =
-						addStringToVisionList(visionList, pObj.getVision());
+				Collection<CDOMReference<Vision>> mods = cdo
+						.getListMods(Vision.VISIONLIST);
+				if (mods == null)
+				{
+					continue;
+				}
+				for (CDOMReference<Vision> ref : mods)
+				{
+					Collection<AssociatedPrereqObject> assoc = cdo
+							.getListAssociations(Vision.VISIONLIST, ref);
+					for (AssociatedPrereqObject apo : assoc)
+					{
+						if (PrereqHandler.passesAll(apo.getPrerequisiteList(),
+								this, null))
+						{
+							for (Vision v : ref.getContainedObjects())
+							{
+								VisionType visType = v.getType();
+								int a = getVariableValue(v.getDistance(), "")
+										.intValue();
+								Integer current = map.get(visType);
+								if (current == null || current < a)
+								{
+									map.put(visType, a);
+								}
+							}
+						}
+					}
+				}
 			}
-		}
 
-		// parse through the global list of vision tags and see
-		// if this PC has any BONUS:VISION tags which will create
-		// a new visionMap entry
-		for (VisionType vType : VisionType.getAllVisionTypes())
-		{
-			final int aVal = (int) getTotalBonusTo("VISION", vType.toString());
-
-			if (aVal > 0)
+			/*
+			 * parse through the global list of vision tags and see if this PC
+			 * has any BONUS:VISION tags which will create a new visionMap
+			 * entry, and add any BONUS to existing entries in the map
+			 */
+			for (VisionType vType : VisionType.getAllVisionTypes())
 			{
-				// add a 0 value, as the bonus is added
-				// in the addStringToVisionMap() routine
-				final List<Vision> newList = new ArrayList<Vision>();
-				newList.add(new Vision(vType, "0"));
-				visionList = addStringToVisionList(visionList, newList);
+				final int aVal = (int) getTotalBonusTo("VISION", vType
+						.toString());
+
+				if (aVal > 0)
+				{
+					Integer current = map.get(vType);
+					map.put(vType, aVal + (current == null ? 0 : current));
+				}
 			}
+			TreeSet<Vision> set = new TreeSet<Vision>();
+			for (Map.Entry<VisionType, Integer> me : map.entrySet())
+			{
+				set.add(new Vision(me.getKey(), me.getValue().toString()));
+			}
+			cache.addAllToListFor(ListKey.VISION_CACHE, set);
 		}
-
-		// CONSIDER Is this sort really necessary?
-		if (visionList.size() > 1)
-		{
-			Collections.sort(visionList);
-		}
-
-		return visionList;
+		return cache.getListFor(ListKey.VISION_CACHE);
 	}
 
 	public String getVision()
@@ -12373,59 +12404,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	/**
-	 * create a map of key (vision-type string) and values (int)
-	 * 
-	 * @param visionList
-	 * @param addList
-	 * @return Map
-	 */
-	private List<Vision> addStringToVisionList(final List<Vision> visionList,
-		final List<Vision> addList)
-	{
-		if ((addList == null) || (addList.size() == 0))
-		{
-			return visionList;
-		}
-
-		for (Vision vis : addList)
-		{
-			final VisionType visType = vis.getType();
-			if (!vis.qualifies(this))
-			{
-				continue;
-			}
-			Vision foundVision = null;
-			for (Vision baseVis : visionList)
-			{
-				if (baseVis.getType() == visType)
-				{
-					foundVision = baseVis;
-					break;
-				}
-			}
-
-			int a = getVariableValue(vis.getDistance(), "").intValue();
-			// Add any bonuses to new value
-			a += (int) getTotalBonusTo("VISION", visType.toString());
-
-			if (foundVision == null)
-			{
-				visionList.add(new Vision(visType, String.valueOf(a)));
-			}
-			else
-			{
-				if (a > Integer.parseInt(foundVision.getDistance()))
-				{
-					visionList.remove(foundVision);
-					visionList.add(new Vision(visType, String.valueOf(a)));
-				}
-			}
-		}
-
-		return visionList;
-	}
-
 	private void setStableAggregateFeatList(final List<Ability> aFeatList)
 	{
 		stableAggregateFeatList = aFeatList;
@@ -12683,6 +12661,59 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return lvl;
 	}
 
+	private List<? extends CDOMObject> getCDOMObjectList()
+	{
+		List<CDOMObject> list = new ArrayList<CDOMObject>();
+		for (PObject po : getPObjectList())
+		{
+			if (po != null)
+			{
+				list.add(po);
+			}
+		}
+		for (PCClass cl : classList)
+		{
+			for (int i = 0; i < cl.getLevel(); i++)
+			{
+				PCClassLevel classLevel = cl.getClassLevel(i);
+				list.add(classLevel);
+			}
+		}
+		int totalLevels = getTotalLevels();
+		int totalHitDice = totalHitDice();
+		for (PCTemplate templ : getTemplateList())
+		{
+			for (PCTemplate rlt : templ.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+			{
+				for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+				{
+					if (lt.get(IntegerKey.LEVEL) <= totalLevels)
+					{
+						list.add(lt);
+					}
+				}
+			}
+
+			for (PCTemplate lt : templ.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			{
+				if (lt.get(IntegerKey.LEVEL) <= totalLevels)
+				{
+					list.add(lt);
+				}
+			}
+
+			for (PCTemplate lt : templ.getSafeListFor(ListKey.HD_TEMPLATES))
+			{
+				if (lt.get(IntegerKey.HD_MAX) <= totalHitDice
+						&& lt.get(IntegerKey.HD_MIN) >= totalHitDice)
+				{
+					list.add(lt);
+				}
+			}
+		}
+		return list;
+	}
+	
 	private List<? extends PObject> getPObjectList()
 	{
 		// Possible object types include:

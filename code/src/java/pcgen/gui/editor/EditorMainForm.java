@@ -727,11 +727,13 @@ public final class EditorMainForm extends JDialog
 				cm.setMovementTypes(pnlMovement.getMoveTypes());
 				thisRace.setMovement(cm, -9);
 				
-				thisRace.clearVisionList();
+				thisRace.removeAllFromList(Vision.VISIONLIST);
 				List<Vision> visionList = pnlVision.getVision();
 				for (Vision vis : visionList) 
 				{
-					thisRace.addVision(vis);
+					thisRace.putToList(Vision.VISIONLIST,
+						new CDOMDirectSingleRef<Vision>(vis),
+						new SimpleAssociatedObject());
 				}
 				
 				thisRace.setNaturalWeapons(pnlNaturalAttacks.getNaturalWeapons());
@@ -880,11 +882,13 @@ public final class EditorMainForm extends JDialog
 				cmv.setMoveRatesFlag(pnlMovement.getMoveRateType());
 				thisPCTemplate.setMovement(cmv, -9);
 
-				thisPCTemplate.clearVisionList();
+				thisPCTemplate.removeAllFromList(Vision.VISIONLIST);
 				List<Vision> tplVisionList = pnlVision.getVision();
 				for (Vision vis : tplVisionList) 
 				{
-					thisPCTemplate.addVision(vis);
+					thisPCTemplate.putToList(Vision.VISIONLIST,
+						new CDOMDirectSingleRef<Vision>(vis),
+						new SimpleAssociatedObject());
 				}
 
 				//
@@ -1608,7 +1612,12 @@ public final class EditorMainForm extends JDialog
 				//
 				// Populate the vision panel
 				//
-				vision = thisPObject.getVision();
+				vision = new ArrayList<Vision>();
+				for (CDOMReference<Vision> ref : thisPObject
+					.getSafeListMods(Vision.VISIONLIST))
+				{
+					vision.addAll(ref.getContainedObjects());
+				}
 				visionValues = buildVisionValues(vision);
 				pnlVision.setSelectedList(visionValues);
 
@@ -1975,7 +1984,12 @@ public final class EditorMainForm extends JDialog
 				//
 				// Populate the vision panel
 				//
-				vision = thisPObject.getVision();
+				vision = new ArrayList<Vision>();
+				for (CDOMReference<Vision> ref : thisPObject
+					.getSafeListMods(Vision.VISIONLIST))
+				{
+					vision.addAll(ref.getContainedObjects());
+				}
 				visionValues = buildVisionValues(vision);
 				pnlVision.setSelectedList(visionValues);
 

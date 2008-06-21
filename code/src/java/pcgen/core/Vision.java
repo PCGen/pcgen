@@ -22,17 +22,16 @@
  */
 package pcgen.core;
 
-import java.util.StringTokenizer;
-
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.list.VisionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.enumeration.VisionType;
 
-public class Vision extends ConcretePrereqObject implements Comparable<Vision> {
+public class Vision extends CDOMObject implements Comparable<Vision> {
 
-	public static final VisionList VISIONLIST = new VisionList();
+	public static final CDOMReference<VisionList> VISIONLIST = new CDOMDirectSingleRef<VisionList>(
+			new VisionList());
 
 	private final VisionType visionType;
 
@@ -56,7 +55,14 @@ public class Vision extends ConcretePrereqObject implements Comparable<Vision> {
 
 	@Override
 	public String toString() {
-		return getLSTformat();
+		try
+		{
+			return toString(Integer.parseInt(distance));
+		}
+		catch (NumberFormatException e)
+		{
+			return visionType + " (" + distance + ")";
+		}
 	}
 
 	private String toString(int dist) {
@@ -171,15 +177,17 @@ public class Vision extends ConcretePrereqObject implements Comparable<Vision> {
 		return new Vision(VisionType.getVisionType(type), distance);
 	}
 
-	public String getLSTformat()
+	@Override
+	public boolean isType(String str)
 	{
-		try
-		{
-			return toString(Integer.parseInt(distance));
-		}
-		catch (NumberFormatException e)
-		{
-			return visionType + " (" + distance + ")";
-		}
+		return false;
 	}
+
+	@Override
+	public String getKeyName()
+	{
+		return toString();
+	}
+	
+	
 }
