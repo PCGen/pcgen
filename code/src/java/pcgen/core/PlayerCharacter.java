@@ -9718,19 +9718,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean ignoreEncumberedArmorMove(final Load armor)
 	{
-		// Try all possible POBjects
-		for (PObject pObj : getPObjectList())
-		{
-			if (pObj != null)
-			{
-				if (armor.checkLtEq(pObj.getEncumberedArmorMove()))
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
+		return compareLoad(armor, ObjectKey.UNENCUMBERED_ARMOR);
 	}
 
 	/**
@@ -9743,19 +9731,54 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean ignoreEncumberedLoadMove(final Load load)
 	{
-		// Try all possible POBjects
-		for (PObject pObj : getPObjectList())
+		return compareLoad(load, ObjectKey.UNENCUMBERED_LOAD);
+	}
+
+	private boolean compareLoad(final Load load, ObjectKey<Load> loadKey)
+	{
+		Load pcload = cache.get(loadKey);
+		if (pcload == null)
 		{
-			if (pObj != null)
+			pcload = Load.LIGHT;
+			for (PObject po : getPObjectList())
 			{
-				if (load.checkLtEq(pObj.getEncumberedLoadMove()))
+				if (po != null && !(po instanceof PCClass))
 				{
-					return true;
+					Load poLoad = po.get(loadKey);
+					if (poLoad != null && pcload.compareTo(poLoad) < 0)
+					{
+						pcload = poLoad;
+					}
 				}
 			}
+			for (CDOMObject po : getConditionalTemplateObjects())
+			{
+				Load poLoad = po.get(loadKey);
+				if (poLoad != null && pcload.compareTo(poLoad) < 0)
+				{
+					pcload = poLoad;
+				}
+			}
+			for (PCClass cl : classList)
+			{
+				Load active = cl.getSafe(loadKey);
+				for (int i = 0; i < cl.getLevel(); i++)
+				{
+					PCClassLevel classLevel = cl.getClassLevel(i);
+					Load override = classLevel.get(loadKey);
+					if (override != null)
+					{
+						active = override;
+					}
+				}
+				if (pcload.compareTo(active) < 0)
+				{
+					pcload = active;
+				}
+			}
+			cache.put(loadKey, pcload);
 		}
-
-		return false;
+		return pcload.compareTo(load) >= 0;
 	}
 
 	/**
@@ -12679,6 +12702,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				list.add(classLevel);
 			}
 		}
+		list.addAll(getConditionalTemplateObjects());
+		return list;
+	}
+	
+	private List<CDOMObject> getConditionalTemplateObjects()
+	{
+		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		int totalLevels = getTotalLevels();
 		int totalHitDice = totalHitDice();
 		for (PCTemplate templ : getTemplateList())
@@ -12713,7 +12743,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		return list;
 	}
-	
+
 	private List<? extends PObject> getPObjectList()
 	{
 		// Possible object types include:

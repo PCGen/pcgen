@@ -85,7 +85,6 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
-import pcgen.util.enumeration.Load;
 
 /**
  * <code>PCClass</code>.
@@ -124,18 +123,6 @@ public class PCClass extends PObject
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
 	private List<LevelProperty<String>> SR = null;
-
-	/*
-	 * FINALALLCLASSLEVELS The encumberedLoadMove List is level dependent -
-	 * heck, it's in a LevelProperty, so that should be pretty obvious :)
-	 */
-	private List<LevelProperty<Load>> encumberedLoadMove = null;
-
-	/*
-	 * FINALALLCLASSLEVELS The encumberedArmorMove List is level dependent -
-	 * heck, it's in a LevelProperty, so that should be pretty obvious :)
-	 */
-	private List<LevelProperty<Load>> encumberedArmorMove = null;
 
 	/*
 	 * FINALALLCLASSLEVELS This is pretty obvious, as these are already in a
@@ -5844,76 +5831,6 @@ public class PCClass extends PObject
 			return -1;
 		}
 		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
-	}
-
-	@Override
-	public Load getEncumberedArmorMove()
-	{
-		LevelProperty<Load> activeLP = null;
-
-		if (encumberedArmorMove != null)
-		{
-			for (LevelProperty<Load> lp : encumberedArmorMove)
-			{
-				if (lp.getLevel() > level)
-				{
-					continue;
-				}
-				if (activeLP == null || activeLP.getLevel() < lp.getLevel())
-				{
-					activeLP = lp;
-					continue;
-				}
-			}
-		}
-
-		return activeLP == null ? super.getEncumberedArmorMove() : activeLP
-			.getObject();
-	}
-
-	@Override
-	public Load getEncumberedLoadMove()
-	{
-		LevelProperty<Load> activeLP = null;
-
-		if (encumberedLoadMove != null)
-		{
-			for (LevelProperty<Load> lp : encumberedLoadMove)
-			{
-				if (lp.getLevel() > level)
-				{
-					continue;
-				}
-				if (activeLP == null || activeLP.getLevel() < lp.getLevel())
-				{
-					activeLP = lp;
-					continue;
-				}
-			}
-		}
-
-		return activeLP == null ? super.getEncumberedLoadMove() : activeLP
-			.getObject();
-	}
-
-	@Override
-	public void setEncumberedArmorMove(Load load, int lvl)
-	{
-		if (encumberedArmorMove == null)
-		{
-			encumberedArmorMove = new ArrayList<LevelProperty<Load>>();
-		}
-		encumberedArmorMove.add(LevelProperty.getLevelProperty(lvl, load));
-	}
-
-	@Override
-	public void setEncumberedLoadMove(Load load, int lvl)
-	{
-		if (encumberedLoadMove == null)
-		{
-			encumberedLoadMove = new ArrayList<LevelProperty<Load>>();
-		}
-		encumberedLoadMove.add(LevelProperty.getLevelProperty(lvl, load));
 	}
 
 	@Override

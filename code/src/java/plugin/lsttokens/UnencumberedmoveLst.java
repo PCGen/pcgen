@@ -6,69 +6,215 @@ package plugin.lsttokens;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.PObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
 
 /**
  * @author djones4
  */
-public class UnencumberedmoveLst implements GlobalLstToken
+public class UnencumberedmoveLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
 
-	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
-	 */
-
+	@Override
 	public String getTokenName()
 	{
 		return "UNENCUMBEREDMOVE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		obj.setEncumberedLoadMove(Load.LIGHT, anInt);
-		obj.setEncumberedArmorMove(Load.LIGHT, anInt);
-		
-		final StringTokenizer st = new StringTokenizer(value, "|");
-		
-		while (st.hasMoreTokens())
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			final String loadString = st.nextToken();
-		
+			return false;
+		}
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+
+		boolean hasArmor = false;
+		boolean hasMove = false;
+
+		Load loadMove = Load.LIGHT;
+		Load loadArmor = Load.LIGHT;
+
+		while (tok.hasMoreTokens())
+		{
+			String loadString = tok.nextToken();
 			if (loadString.equalsIgnoreCase("MediumLoad"))
 			{
-				obj.setEncumberedLoadMove(Load.MEDIUM, anInt);
+				if (!validateOnlyMove(hasMove))
+				{
+					return false;
+				}
+				loadMove = Load.MEDIUM;
+				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("HeavyLoad"))
 			{
-				obj.setEncumberedLoadMove(Load.HEAVY, anInt);
+				if (!validateOnlyMove(hasMove))
+				{
+					return false;
+				}
+				loadMove = Load.HEAVY;
+				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("Overload"))
 			{
-				obj.setEncumberedLoadMove(Load.OVERLOAD, anInt);
+				if (!validateOnlyMove(hasMove))
+				{
+					return false;
+				}
+				loadMove = Load.OVERLOAD;
+				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("MediumArmor"))
 			{
-				obj.setEncumberedArmorMove(Load.MEDIUM, anInt);
+				if (!validateOnlyArmor(hasArmor))
+				{
+					return false;
+				}
+				loadArmor = Load.MEDIUM;
+				hasArmor = true;
 			}
 			else if (loadString.equalsIgnoreCase("HeavyArmor"))
 			{
-				obj.setEncumberedArmorMove(Load.OVERLOAD, anInt);
+				if (!validateOnlyArmor(hasArmor))
+				{
+					return false;
+				}
+				loadArmor = Load.OVERLOAD;
+				hasArmor = true;
 			}
-			else if (loadString.equalsIgnoreCase("LightLoad") || loadString.equalsIgnoreCase("LightArmor"))
+			else if (loadString.equalsIgnoreCase("LightLoad"))
 			{
-				//do nothing, but accept values as valid
+				if (!validateOnlyMove(hasMove))
+				{
+					return false;
+				}
+				// do nothing, but accept values as valid
+			}
+			else if (loadString.equalsIgnoreCase("LightArmor"))
+			{
+				if (!validateOnlyMove(hasMove))
+				{
+					return false;
+				}
+				// do nothing, but accept values as valid
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog("Invalid value of \"" + loadString + "\" for UNENCUMBEREDMOVE in \"" + obj.getDisplayName() + "\".",
-					"PCGen", MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Invalid value of \""
+						+ loadString + "\" for UNENCUMBEREDMOVE in \""
+						+ obj.getDisplayName() + "\".", "PCGen",
+						MessageType.ERROR);
+				return false;
 			}
 		}
+		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD,
+				loadMove);
+		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_ARMOR,
+				loadArmor);
 		return true;
+	}
+
+	private boolean validateOnlyArmor(boolean hasArmor)
+	{
+		if (hasArmor)
+		{
+			Logging.errorPrint("Encountered Second Armor Load Type in "
+					+ getTokenName() + " this is not valid.");
+		}
+		return !hasArmor;
+	}
+
+	private boolean validateOnlyMove(boolean hasMove)
+	{
+		if (hasMove)
+		{
+			Logging.errorPrint("Encountered Second Move Load Type in "
+					+ getTokenName() + " this is not valid.");
+		}
+		return !hasMove;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Load load = context.getObjectContext().getObject(obj,
+				ObjectKey.UNENCUMBERED_LOAD);
+		Load at = context.getObjectContext().getObject(obj,
+				ObjectKey.UNENCUMBERED_ARMOR);
+		if (load == null && at == null)
+		{
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		boolean needsLight = false;
+		if (load != null)
+		{
+			if (Load.OVERLOAD.equals(load))
+			{
+				sb.append("Overload");
+			}
+			else if (Load.HEAVY.equals(load))
+			{
+				sb.append("HeavyLoad");
+			}
+			else if (Load.MEDIUM.equals(load))
+			{
+				sb.append("MediumLoad");
+			}
+			else if (Load.LIGHT.equals(load))
+			{
+				needsLight = true;
+			}
+			else
+			{
+				context.addWriteMessage(getTokenName()
+						+ " encountered unknown Movement Load: " + load);
+				return null;
+			}
+		}
+		if (at == null || Load.LIGHT.equals(at))
+		{
+			if (needsLight)
+			{
+				sb.append("LightLoad");
+			}
+		}
+		else
+		{
+			if (sb.length() != 0)
+			{
+				sb.append(Constants.PIPE);
+			}
+			if (Load.OVERLOAD.equals(at))
+			{
+				sb.append("HeavyArmor");
+			}
+			else if (Load.MEDIUM.equals(at))
+			{
+				sb.append("MediumArmor");
+			}
+			else
+			{
+				context.addWriteMessage(getTokenName()
+						+ " encountered invalid Armor Load: " + load);
+				return null;
+			}
+		}
+		return new String[] { sb.toString() };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

@@ -74,7 +74,6 @@ import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-import pcgen.util.enumeration.Load;
 
 /**
  * <code>PObject</code><br>
@@ -129,11 +128,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private VariableList variableList = null;
 
 	private boolean isNewItem = true;
-
-	/** Holds the level of encumberance due to armor for the object */
-	private Load encumberedArmorMove = Load.LIGHT;
-	/** Holds the level of encumberance due to load for the object */
-	private Load encumberedLoadMove = Load.LIGHT;
 
 	private List<DamageReduction> drList = new ArrayList<DamageReduction>();
 
@@ -626,44 +620,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			return Collections.emptyList();
 		}
 		return Collections.singletonList(movement);
-	}
-
-	/**
-	 * Get the encumberance due to armor
-	 * @return the encumberance due to armor
-	 */
-	public Load getEncumberedArmorMove()
-	{
-		return encumberedArmorMove;
-	}
-
-	/**
-	 * Get the encumberance due to load
-	 * @return the encumberance due to load
-	 */
-	public Load getEncumberedLoadMove()
-	{
-		return encumberedLoadMove;
-	}
-
-	/**
-	 * Set the encumberance due to armor
-	 * @param encumberedArmorMove
-	 * @param level FIXME
-	 */
-	public void setEncumberedArmorMove(Load encumberedArmorMove, int level)
-	{
-		this.encumberedArmorMove = encumberedArmorMove;
-	}
-
-	/**
-	 * Set the encumberance due to load
-	 * @param encumberedLoadMove
-	 * @param level FIXME
-	 */
-	public void setEncumberedLoadMove(Load encumberedLoadMove, int level)
-	{
-		this.encumberedLoadMove = encumberedLoadMove;
 	}
 
 	/**

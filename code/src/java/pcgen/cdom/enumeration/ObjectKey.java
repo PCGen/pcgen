@@ -49,6 +49,7 @@ import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -184,6 +185,10 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Boolean> DESC_PI = new ObjectKey<Boolean>(Boolean.FALSE);
 
 	public static final ObjectKey<Category<Ability>> ABILITY_CAT = new ObjectKey<Category<Ability>>(null);
+
+	public static final ObjectKey<Load> UNENCUMBERED_LOAD = new ObjectKey<Load>(Load.LIGHT);
+
+	public static final ObjectKey<Load> UNENCUMBERED_ARMOR = new ObjectKey<Load>(Load.LIGHT);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 
