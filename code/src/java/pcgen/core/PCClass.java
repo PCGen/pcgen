@@ -2488,17 +2488,6 @@ public class PCClass extends PObject
 			}
 		}
 
-		List<String> umultList = getListFor(ListKey.UMULT);
-		if (umultList != null)
-		{
-			for (String st : umultList)
-			{
-				final int sepPos = st.indexOf("|");
-				pccTxt.append(lineSep).append(st.substring(0, sepPos)).append(
-					"\tUMULT:").append(st.substring(sepPos + 1));
-			}
-		}
-
 		return pccTxt.toString();
 	}
 
@@ -3775,11 +3764,27 @@ public class PCClass extends PObject
 
 		if (includeCrit)
 		{
-			final String dString = getUMultForLevel(aLevel);
-
-			if (!"0".equals(dString))
+			Integer active = null;
+			for (int i = aLevel; i >= 0; i--)
 			{
-				aString.append("(x").append(dString).append(')');
+				PCClassLevel pcl = levelMap.get(i);
+				if (pcl != null)
+				{
+					active = pcl.get(IntegerKey.UMULT);
+					if (active != null)
+					{
+						break;
+					}
+				}
+			}
+			if (active == null)
+			{
+				//Could be in the class
+				active = get(IntegerKey.UMULT);
+			}
+			if (active != null)
+			{
+				aString.append("(x").append(active).append(')');
 			}
 		}
 
@@ -4824,34 +4829,6 @@ public class PCClass extends PObject
 			final int s = getCastForLevel(i, aPC);
 			castForLevelMap.put(i, s);
 		}
-	}
-
-	/*
-	 * PCCLASSLEVELONLY Since this is a level dependent calculation, this should
-	 * be performed by the PCClassLevel.
-	 */
-	private String getUMultForLevel(final int aLevel)
-	{
-		String aString = "0";
-
-		List<String> umultList = getListFor(ListKey.UMULT);
-		if ((umultList == null) || umultList.isEmpty())
-		{
-			return aString;
-		}
-
-		for (String umult : umultList)
-		{
-			final int pos = umult.lastIndexOf('|');
-
-			if ((pos >= 0)
-				&& (aLevel <= Integer.parseInt(umult.substring(0, pos))))
-			{
-				aString = umult.substring(pos + 1);
-			}
-		}
-
-		return aString;
 	}
 
 	/*

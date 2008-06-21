@@ -48,6 +48,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -907,22 +908,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public final void setUdamItem(String addString, int loc)
 	{
 		listChar.addToListAt(ListKey.UDAM, addString, loc);
-	}
-
-	/**
-	 * Add the U multiplier
-	 * @param mult
-	 */
-	public final void addUmult(final String mult)
-	{
-		if (".CLEAR".equals(mult))
-		{
-			removeListFor(ListKey.UMULT);
-		}
-		else
-		{
-			addToListFor(ListKey.UMULT, mult);
-		}
 	}
 
 	/**
@@ -3027,14 +3012,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			aString.append(String.valueOf(b));
 		}
 
-		List<String> umultList = getListFor(ListKey.UMULT);
-		if (includeCrit && (umultList != null) && !umultList.isEmpty())
+		if (includeCrit)
 		{
-			final String dString = umultList.get(0);
-
-			if (!"0".equals(dString))
+			Integer umult = get(IntegerKey.UMULT);
+			if (umult != null)
 			{
-				aString.append("(x").append(dString).append(')');
+				aString.append("(x").append(umult).append(')');
 			}
 		}
 

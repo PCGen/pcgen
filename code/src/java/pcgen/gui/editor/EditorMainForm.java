@@ -56,9 +56,11 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -981,7 +983,11 @@ public final class EditorMainForm extends JDialog
 				thisPCClass.removeListFor(ListKey.TEMPLATE);
 				thisPCClass.removeListFor(ListKey.TEMPLATE_CHOOSE);
 				thisPCClass.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
-				thisPCClass.addUmult(".CLEAR");
+				thisPCClass.remove(IntegerKey.UMULT);
+				for (PCClassLevel pcl : thisPCClass.getClassLevelCollection())
+				{
+					pcl.remove(IntegerKey.UMULT);
+				}
 				thisPCClass.clearUdamList();
 				break;
 

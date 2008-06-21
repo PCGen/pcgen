@@ -119,6 +119,8 @@ public class IntegerKey
 
 	public static final IntegerKey HD_MAX = getConstant("HD_MAX");
 
+	public static final IntegerKey UMULT = getConstant("UMULT");
+
 	/*
 	 * TODO Okay, this is a hack. This should probably be a FormulaKey rather
 	 * than an IntegerKey in order to properly handle this strange delegation.
