@@ -180,7 +180,7 @@ CLASS:Maverick	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|De
 6	BONUS:VAR|UncannyDodge|1
 ###Block: Normal Progression
 1																			AUTO:FEAT|Extraordinary Luck
-2																			ABILITY:Special Ability|AUTOMATIC|Evasion
+2																			AUTO:FEAT|Evasion
 5	ADD:FEAT|1|Skill Focus
 8	ADD:FEAT|1|Skill Focus
 10	ADD:FEAT|1|Defensive Roll,Gambler's Luck,Improved Evasion,Skill Mastery,Slippery Mind,Maverick Sneak Attack
@@ -217,7 +217,7 @@ CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Gather Information|Handle A
 ###Block: Normal Progression
 1						BONUS:SKILL|Language |4							AUTO:FEAT|Track
 2						BONUS:SKILL|Listen,Spot|(CL-2)/3					AUTO:FEAT|Alertness
-4	BONUS:VAR|SneakAttack|CL/4											ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4	BONUS:VAR|SneakAttack|CL/4											AUTO:FEAT|Sneak Attack
 5						BONUS:SKILL|Language |2
 6												ADD:FEAT|1|Skill Focus
 7						BONUS:SKILL|Language |2

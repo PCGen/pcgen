@@ -143,7 +143,7 @@ CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:C
 CLASS:Stalker	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				AUTO:FEAT|Sneak Attack
 2																	ADD:FEAT|1|Weapon Specialization
 3	VISION:Darkvision (60')									BONUS:VAR|SneakAttack|1
 4					SAB:Right Behind You (Su)								ADD:FEAT|1|TYPE.Stalker

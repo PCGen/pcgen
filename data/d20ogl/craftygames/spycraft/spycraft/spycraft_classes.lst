@@ -35,9 +35,9 @@ CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		MAXLEVEL:20	SOURCEPAGE:p.24	LANGAUTO:Li
 CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE.Craft|Demolitions|Driver|Electronics|Escape Artist|Forgery|Hide|TYPE.Hobby|Innuendo|Jump|TYPE.Knowledge|Languages|TYPE.Language|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sleight of Hand|Spot|Tumble
 
 1	SAB:Procure																																		ADD:FEAT|1|Fixer Core Ability						AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-2																		BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)																					ABILITY:Special Ability|AUTOMATIC|Evasion
-3																		BONUS:VAR|SneakAttack|(CL-1)/2																							ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-4																		BONUS:VAR|UncannyDodge|CL/4																								ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+2																		BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)																					AUTO:FEAT|Evasion
+3																		BONUS:VAR|SneakAttack|(CL-1)/2																							AUTO:FEAT|Sneak Attack
+4																		BONUS:VAR|UncannyDodge|CL/4																								AUTO:FEAT|Uncanny Dodge
 5	SAB:Improvisation (%/session)|FixerImprovisation	SAB:Master Thief (%/session)|FixerMasterThief									DEFINE:FixerImprovisation|0	DEFINE:FixerMasterThief|0
 6																																				ADD:FEAT|1|TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert
 9																																				ADD:FEAT|1|TYPE=FixerSpecialAbility,TYPE=Gear,TYPE=Covert
