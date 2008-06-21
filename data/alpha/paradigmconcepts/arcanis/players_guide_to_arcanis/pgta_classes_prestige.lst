@@ -676,7 +676,7 @@ CLASS:Val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|D
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Warped Ones	HD:12		TYPE:PC.Prestige	ABB:WrpO		MAXLEVEL:10	SOURCEPAGE:p.222	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat				Required Region
-CLASS:Warped Ones	PREALIGN:CG,CN,CE	PREATT:6	PREFEAT:3,Iron Will,Endurance,Rage	PREREGION:Hinterlands
+CLASS:Warped Ones	PREALIGN:CG,CN,CE	PREATT:6	PREFEAT:2,Iron Will,Endurance	PREABILITY:1,CATEGORY=Special Ability,Rage	PREREGION:Hinterlands
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warped Ones	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jump|Listen|Spot|Survival|Swim
 1	SAB:Path of Rage (Ex)			BONUS:VAR|RageTimes|1+(CL>=5)+(CL>=10)				ADD:FEAT|1|Twisted Form		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial

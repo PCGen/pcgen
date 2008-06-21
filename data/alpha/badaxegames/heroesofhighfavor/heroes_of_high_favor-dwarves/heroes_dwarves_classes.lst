@@ -5,7 +5,7 @@ SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badax
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Battle-Rager	HD:12		TYPE:PC.Prestige	ABB:Bat-Rag		MAXLEVEL:10	SOURCEPAGE:pg.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat								Required Text
-CLASS:Battle-Rager	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:5	PREFEAT:5,Cleave,Iron Will,Power Attack,Toughness,Rage	PRETEXT:Must be able to rage, frenzy or similar class ability.
+CLASS:Battle-Rager	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:5	PREFEAT:4,Cleave,Iron Will,Power Attack,Toughness	PREABILITY:1,CATEGORY=Special Ability,Rage	PRETEXT:Must be able to rage, frenzy or similar class ability.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle-Rager	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Swim|Tumble
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency

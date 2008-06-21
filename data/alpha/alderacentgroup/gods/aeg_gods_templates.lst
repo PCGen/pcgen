@@ -3,7 +3,7 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 ###Block: Barbarian Totem Animal Templates
 # Template Name	Hit Dice Size			Visible	Special ABility		Virtual Feat
-Totem (Badger)						VISIBLE:NO	SAB:Rage (Ex)		VFEAT:Rage
+Totem (Badger)						VISIBLE:NO	SAB:Rage (Ex)		ABILITY:Special Ability|VIRTUAL|Rage
 Totem (Bat)							VISIBLE:NO	SAB:Blindsight (Ex)
 Totem (Bear)						VISIBLE:NO	SAB:Tough (Ex)
 Totem (Boar)						VISIBLE:NO	SAB:Ferocity (Ex)
@@ -26,4 +26,4 @@ Totem (Snake)						VISIBLE:NO	SAB:Venomous Bite (Ex)
 Totem (Tiger)						VISIBLE:NO	SAB:Ambush (Ex)
 Totem (Weasle)						VISIBLE:NO	SAB:Wild Weasel (Ex)
 Totem (Wolf)						VISIBLE:NO	SAB:Wolf Scent (Ex)
-Totem (Wolverine)						VISIBLE:NO	SAB:Wolverine Totem	VFEAT:Rage
+Totem (Wolverine)						VISIBLE:NO	SAB:Wolverine Totem	ABILITY:Special Ability|VIRTUAL|Rage

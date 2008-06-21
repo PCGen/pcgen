@@ -50,7 +50,7 @@ CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE.Craft|Disable
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Berserker	HD:12		TYPE:PC.Prestige	ABB:Ber		MAXLEVEL:10	SOURCEPAGE:36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat						Required Text
-CLASS:Berserker	PREATT:10	PREFEAT:4,Power Attack,Cleave,Great Cleave,Rage	PRETEXT:If nationalities are used, only Saxons can be this class
+CLASS:Berserker	PREATT:10	PREFEAT:3,Power Attack,Cleave,Great Cleave	PREABILITY:1,CATEGORY=Special Ability,Rage	PRETEXT:If nationalities are used, only Saxons can be this class
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 1																	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy
@@ -243,7 +243,7 @@ CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle 
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy
 ###Block: Normal Level Progression
-1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0					AUTO:FEAT|Knight's Warhorse	AUTO:FEAT|Rage
+1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0					AUTO:FEAT|Knight's Warhorse	ABILITY:Special Ability|AUTOMATIC|Rage
 2	SAB:Wild Empathy (Ex)
 3	SAB:Woodland Stride (Ex)
 4	SAB:Trackless Step (Ex)

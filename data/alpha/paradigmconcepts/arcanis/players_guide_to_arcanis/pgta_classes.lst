@@ -426,7 +426,7 @@ SUBCLASSLEVEL:1						SAB:+1 per die of damage on spells cast with the fire descr
 SUBCLASS:Priest of Saluwe		PREDEITY:1,Saluwe
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																																																															AUTO:WEAPONPROF|Spear
 SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex)																																																																																																																								AUTO:FEAT|Track
-SUBCLASSLEVEL:4																																																																				BONUS:VAR|CompLevel|CL																																																										AUTO:FEAT|Animal Companion
+SUBCLASSLEVEL:4																																																																				BONUS:VAR|CompLevel|CL																																																										ABILITY:Special Ability|AUTOMATIC|Animal Companion
 SUBCLASS:Priest of Sarish		PREDEITY:1,Sarish
 SUBCLASSLEVEL:1																																BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility																																																															LANGAUTO:Infernal	ADD:EQUIP|1|Dagger (Sarishan Steel)																								AUTO:WEAPONPROF|Dagger
 SUBCLASSLEVEL:3																																																																																																																																	AUTO:FEAT|Magical Aptitude
