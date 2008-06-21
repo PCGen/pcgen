@@ -17,7 +17,7 @@ FOLLOWER:SarSMLevel=8		TYPE:Special Mount	HD:2						SAB:Improved Speed (Ex)	BONU
 FOLLOWER:SarSMLevel=8		TYPE:Special Mount	HD:2						SAB:Empathy (Ex)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	BONUS:VAR|TricksQty|1
 
 FOLLOWER:WogrenRiderLvl=1	TYPE:Special Mount							SAB:Devotion (Ex)															BONUS:STAT|DEX|2
-FOLLOWER:WogrenRiderLvl=3	TYPE:Special Mount	HD:2		VFEAT:Evasion						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2
+FOLLOWER:WogrenRiderLvl=3	TYPE:Special Mount	HD:2		ABILITY:Special Ability|VIRTUAL|Evasion						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2
 FOLLOWER:WogrenRiderLvl=6	TYPE:Special Mount	HD:2		VFEAT:Improved Trip					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2
 FOLLOWER:WogrenRiderLvl=8	TYPE:Special Mount	HD:2										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|1	BONUS:STAT|DEX|2
 FOLLOWER:WogrenRiderLvl=10	TYPE:Special Mount	HD:2						SAB:Empathy (Su)		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|1	BONUS:STAT|DEX|2

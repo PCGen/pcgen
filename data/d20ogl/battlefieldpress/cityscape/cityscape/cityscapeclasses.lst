@@ -242,7 +242,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 ###Block: Proficiencies
 1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block:Level progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2				SAB:Flurry of Blows																												VFEAT:Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2				SAB:Flurry of Blows																												ABILITY:Special Ability|VIRTUAL|Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
 2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																											AUTO:FEAT|Deflect Arrows
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SAB:Still Mind
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Slow Fall (% ft.)|SlowFall|PREVARLT:CL,18						BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
@@ -250,7 +250,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:VAR|SlowFall|10																				AUTO:FEAT|Improved Trip
 7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Leap of the Clouds	SAB:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
 8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																			BONUS:VAR|SlowFall|20
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																					VFEAT:Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																					ABILITY:Special Ability|VIRTUAL|Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SAB:Ki Strike (+%) (Su)|KiStrike												DEFINE:KiStrike|1
 11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12						SAB:Diamond Body (Su)
 12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Abundant Step (Sp)																		SPELLS:Class|TIMES=1|Dimension Door
@@ -625,7 +625,7 @@ CLASS:Security Specialist	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Craft|C
 1	SAB:Electronic Tinkering	SAB:Sweep	BONUS:SKILL|Computer Use,Craft (Electronics),Knowledge (Technology)|SynergyBonus|TYPE=Synergy
 2	SAB:Improvised Implements
 3																								ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy
-4																																																							VFEAT:Improved Evasion
+4																																																							ABILITY:Special Ability|VIRTUAL|Improved Evasion
 5	SAB:Skill Mastery
 # Same as Rogues?  Rogue uses feat...
 6	SAB:Traceless																					ADD:FEAT|1|Acrobatic,Alertness,Armor Proficiency (Light),Athletic,Attentive,Brawl,Cautious,Defensive Martial Arts,Dodge,Elusive Target,Meticulous,Mobility,Nimble,Renown,Run,Stealthy

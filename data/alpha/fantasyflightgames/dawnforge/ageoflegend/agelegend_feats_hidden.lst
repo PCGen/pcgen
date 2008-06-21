@@ -82,8 +82,8 @@ Battle Hardened			TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (
 Battle Hardened II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Battle Hardened																																										DR:3/-		SOURCEPAGE:p.117
 Battle Hardened III		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:2,Battle Hardened II,Battle Hardened																																							DR:4/-		SOURCEPAGE:p.117
 Battle Hardened IV		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:3,Battle Hardened III,Battle Hardened II,Battle Hardened																																				DR:5/-		SOURCEPAGE:p.117
-Survival Instincts		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Survival Instincts																			VFEAT:Evasion											SOURCEPAGE:p.117
-Survival Instincts II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Survival Instincts																																VFEAT:Improved Evasion										SOURCEPAGE:p.117
+Survival Instincts		TYPE:UnbrokenResistance	VISIBLE:NO												SAB:Resistance (Ex) Survival Instincts																			ABILITY:Special Ability|VIRTUAL|Evasion											SOURCEPAGE:p.117
+Survival Instincts II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Survival Instincts																																ABILITY:Special Ability|VIRTUAL|Improved Evasion										SOURCEPAGE:p.117
 
 ###Block: Trueborn Staunch bonuses
 # Feat Name						Type				Visible	Save checks bonus

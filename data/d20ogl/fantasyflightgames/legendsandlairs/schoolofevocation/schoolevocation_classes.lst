@@ -23,7 +23,7 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 2	CAST:5,3				SAB:Augment evocation (% levels)|AugmentEvocation	BONUS:VAR|AugmentEvocation|CL/4+1	DEFINE:AugmentEvocation|0
 3	CAST:5,3,2				SAB:Evocation focus (+%)|EvocationFocus			BONUS:VAR|EvocationFocus|CL/6+1
 4	CAST:5,4,3
-5	CAST:5,4,3,2																													VFEAT:Evasion
+5	CAST:5,4,3,2																													ABILITY:Special Ability|VIRTUAL|Evasion
 6	CAST:5,4,4,3
 7	CAST:5,5,4,3,2
 8	CAST:5,5,4,4,3

@@ -14,8 +14,8 @@ CLASS:Acrobat	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Hide
 1	SAB:Quarterstaff Affinity	BONUS:SKILL|Balance,Jump,Tumble|2|TYPE=Circumstance|PREEQUIP:1,TYPE=Quarterstaff	VFEAT:Ambidexterity|Two Weapon Fighting|PREEQUIPTWOWEAPON:1,TYPE=Quarterstaff
 ###Block: Normal progression
 1	SAB:Agile Charge
-2							BONUS:VAR|ImprovedUncannyDodge|2																																					AUTO:FEAT|Uncanny Dodge
-4																																														VFEAT:Evasion
+2							BONUS:VAR|ImprovedUncannyDodge|2																																					ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+4																																														ABILITY:Special Ability|VIRTUAL|Evasion
 5	SAB:Rapid Climb
 6																		ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run
 7	SAB:Superior Charge

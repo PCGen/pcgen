@@ -160,6 +160,6 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Diplomacy|Gather I
 ###Block: Normal Level Progression
 1	SAB:Leaping Dodge							BONUS:COMBAT|AC|CL|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0
 2																				BONUS:SKILL|Balance,Climb,Jump,Tumble|4
-3																											VFEAT:Evasion
-4					BONUS:VAR|UncannyDodge|1																					AUTO:FEAT|Uncanny Dodge
+3																											ABILITY:Special Ability|VIRTUAL|Evasion
+4					BONUS:VAR|UncannyDodge|1																					ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 5	SAB:Freedom of Movement

@@ -24,7 +24,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 6	CAST:0,8,0,0	KNOWN:0,4,0,1																BONUS:VAR|Spellsong|1
 7	CAST:0,8,0,1	KNOWN:0,5,0,2
 8	CAST:0,8,0,2	KNOWN:0,5,0,2
-9	CAST:0,9,0,3	KNOWN:0,6,0,3																				AUTO:FEAT|Evasion
+9	CAST:0,9,0,3	KNOWN:0,6,0,3																				ABILITY:Special Ability|AUTOMATIC|Evasion
 10	CAST:0,9,0,4	KNOWN:0,6,0,3
 11	CAST:0,9,0,5	KNOWN:0,7,0,4
 12	CAST:0,10,0,6	KNOWN:0,7,0,4		SAB:Weave Chords
@@ -32,7 +32,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 14	CAST:0,10,0,7,0,1	KNOWN:0,8,0,5,0,2
 15	CAST:0,11,0,7,0,2	KNOWN:0,9,0,6,0,2
 16	CAST:0,11,0,8,0,3	KNOWN:0,9,0,6,0,3
-17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																			AUTO:FEAT|Improved Evasion
+17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																			ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 18	CAST:0,12,0,8,0,5	KNOWN:0,10,0,7,0,4
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
 20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	SAB:Weave Melodies
@@ -45,7 +45,7 @@ CLASS:Sorcerer (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Di
 CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Monte Cook's)|CL
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Familiar
-1	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
+1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=0|Dancing Lights,Daze,Detect Magic,Disrupt Undead,Flare,Ghost Sound,Light,Mage Hand,Mending,Open/Close,Prestidigitation,Ray of Frost,Read Magic,Resistance
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=1|Animate Rope,Burning Hands,Cause Fear,Charm Person,Chill Touch,Color Spray,Comprehend Languages,Disguise Self,Endure Elements,Expeditious Retreat,Floating Disk,Grease,Hypnotism,Jump,Mage Armor,Magic Missile,Message,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Ray of Enfeeblement,Shocking Grasp,Silent Image,Sleep,Spider Climb,Summon Monster I,True Strike,Unseen Servant,Ventriloquism

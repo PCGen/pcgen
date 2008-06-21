@@ -84,5 +84,5 @@ CLASS:Treasure Hunter	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|Decipher Scr
 6														BONUS:VAR|PoisonSave|1
 7														BONUS:VAR|DangerSense|1
 8
-9																											VFEAT:Improved Evasion
+9																											ABILITY:Special Ability|VIRTUAL|Improved Evasion
 10	SAB:Uncanny Sense (Danger Sense +%)|DangerSense						BONUS:VAR|DangerSense|1

@@ -56,7 +56,7 @@ CLASS:Ebon Link	PREFEAT:3,Great Fortitude,Iron Will,Lightning Reflexes	PRESKILL:
 CLASS:Ebon Link	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Scry|Search|Sense Motive|Spellcraft|Spot|Tumble|Use Magic Device|Use Rope
 1	SAB:Spell Resistance (Ex)						BONUS:MISC|SR|10+CL|TYPE=EbonLink
 2	SAB:Magic Sight (Su)
-3																							VFEAT:Improved Evasion
+3																							ABILITY:Special Ability|VIRTUAL|Improved Evasion
 4																	ADD:FEAT|1|Trace Enchantment I
 5	SAB:Slippery Mind (Ex)
 6																	ADD:FEAT|1|Trace Enchantment II
@@ -86,11 +86,11 @@ CLASS:Falconer	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Fa
 1	AUTO:FEAT|Falconer Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,0																														VFEAT:Evasion
+1	CAST:0,0																														ABILITY:Special Ability|VIRTUAL|Evasion
 2	CAST:0,1		BONUS:VAR|SneakAttack|(CL+2)/4																											ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3	CAST:0,1,0								BONUS:MOVEADD|TYPE=WALK|10|PREVARLT:ENCUMBERANCE,1,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],1
 4	CAST:0,1,1
-5	CAST:0,1,1,0																													VFEAT:Improved Evasion
+5	CAST:0,1,1,0																													ABILITY:Special Ability|VIRTUAL|Improved Evasion
 6	CAST:0,1,1,1
 7	CAST:0,2,1,1,0
 8	CAST:0,2,1,1,1							BONUS:MOVEADD|TYPE=WALK|10|PREVARLT:ENCUMBERANCE,1,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],1
@@ -164,7 +164,7 @@ CLASS:Noble Decoy	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disable 
 1	AUTO:FEAT|Noble Decoy Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Avoid Death (+%)|AvoidDeath	BONUS:VAR|AvoidDeath|(CL+1)/2	DEFINE:AvoidDeath|0																					VFEAT:Improved Evasion
+1	SAB:Avoid Death (+%)|AvoidDeath	BONUS:VAR|AvoidDeath|(CL+1)/2	DEFINE:AvoidDeath|0																					ABILITY:Special Ability|VIRTUAL|Improved Evasion
 2	SAB:Detect Evil (%/day)|CL
 3																ADD:FEAT|1|Alertness,Blind-Fight,Dodge,Great Fortitude,Improved Initiative,Iron Will,Lightning Reflexes,Run,Toughness
 4	SAB:Blur (%/day)|CHA

@@ -73,15 +73,15 @@ CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		MAXLEVEL:10	SOURCEPAGE:p.24	BON
 CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently=8,Hide=8,Knowledge (Fey)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|Pick Pocket|TYPE.Profession|Search|Spot|Tumble|Use Rope
-1				SAB:Step Sideways % (Su)|StepSideways						DEFINE:StepSideways|1	ADD:FEAT|1|Evasion
-2	VISION:Low-light																	ADD:FEAT|1|Uncanny Dodge
+1				SAB:Step Sideways % (Su)|StepSideways						DEFINE:StepSideways|1	ABILITY:Special Ability|AUTOMATIC|Evasion
+2	VISION:Low-light																	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 3				SAB:Slippery Mind (Ex)
 4				SAB:Fae-walk % ft. (Sp)|FaeWalk							DEFINE:FaeWalk|15
-5											BONUS:VAR|StepSideways|1					ADD:FEAT|1|Improved Uncanny Dodge
+5											BONUS:VAR|StepSideways|1					ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge
 6				SAB:Defensive Jaunt (Su)			BONUS:VAR|FaeWalk|15
 7											BONUS:VAR|StepSideways|1
 8											BONUS:VAR|FaeWalk|30
-9																				ADD:FEAT|1|Improved Evasion	ADD:FEAT|1|Improved Uncanny Dodge 2
+9																				ABILITY:Special Ability|AUTOMATIC|Improved Evasion	ADD:FEAT|1|Improved Uncanny Dodge 2
 10				SAB:Stray (Su)					BONUS:VAR|FaeWalk|60
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

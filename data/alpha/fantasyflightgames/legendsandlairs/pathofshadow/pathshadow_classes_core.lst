@@ -76,8 +76,8 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
 1	SAB:Delver Notebook	SAB:Traps						ADD:FEAT|1|Martial Weapon Proficiency,Exotic Weapon Proficiency
-2																																																		VFEAT:Evasion
-3							BONUS:VAR|UncannyDodge|1																																										AUTO:FEAT|Uncanny Dodge
+2																																																		ABILITY:Special Ability|VIRTUAL|Evasion
+3							BONUS:VAR|UncannyDodge|1																																										ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 7												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
 6							BONUS:VAR|UncannyDodge|1
 10												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
@@ -119,8 +119,8 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	SAB:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	DEFINE:PsyThfFreePowers|CL+2
 ###Block: normal progression
 1	KNOWN:2					BONUS:VAR|BASEPOWERPOINTS|2						ADD:FEAT|2|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
-2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1																																							AUTO:FEAT|Evasion
-3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode																								AUTO:FEAT|Uncanny Dodge
+2	KNOWN:3					BONUS:VAR|BASEPOWERPOINTS|1																																							ABILITY:Special Ability|AUTOMATIC|Evasion
+3	KNOWN:3,1					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|UncannyDodge|1	ADD:FEAT|1|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode																								ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 4	KNOWN:3,2					BONUS:VAR|BASEPOWERPOINTS|1
 5	KNOWN:3,3,1					BONUS:VAR|BASEPOWERPOINTS|3
 6	KNOWN:3,3,2			SAB:Traps	BONUS:VAR|BASEPOWERPOINTS|3

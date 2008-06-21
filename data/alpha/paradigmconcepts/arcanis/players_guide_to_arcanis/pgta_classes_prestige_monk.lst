@@ -80,7 +80,7 @@ CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Path of Water	HD:8		TYPE:PC.Prestige	ABB:EPoW		MAXLEVEL:5	SOURCEPAGE:pg. 62	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Class	Required Feat												Multiple Requirements						Required Skill																	Required Subclass
-CLASS:Elemental Path of Water	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:5,Dodge,Evasion,Improved Unarmed Strike,Heightened Elorii Bloodline,Run	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Berokene]	PREMULT:2,[PRESKILL:2,Balance=5,Jump=5],[PRESKILL:1,Knowledge (Religion:Belisarda)=4,Knowledge (Religion:Elemental lords)=4]	PRESUBCLASS:1,Contemplation of the Elements
+CLASS:Elemental Path of Water	PREALIGN:LG,LN,LE	PREATT:5	PRECLASS:1,Monk=6	PREFEAT:4,Dodge,Improved Unarmed Strike,Heightened Elorii Bloodline,Run	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Berokene]	PREMULT:2,[PRESKILL:2,Balance=5,Jump=5],[PRESKILL:1,Knowledge (Religion:Belisarda)=4,Knowledge (Religion:Elemental lords)=4]	PRESUBCLASS:1,Contemplation of the Elements
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion:Belisarda)|Knowledge (Religion:Elemental Lords)|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff

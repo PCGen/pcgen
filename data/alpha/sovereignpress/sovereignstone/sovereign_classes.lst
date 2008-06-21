@@ -84,7 +84,7 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 ###Block: Normal Level Progression
 1						BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:FEAT|1|Sailor Weapon Bonus
 2																										AUTO:FEAT|Improvised Weapon
-3																						VFEAT:Evasion
+3																						ABILITY:Special Ability|VIRTUAL|Evasion
 5																ADD:FEAT|1|Sailor Weapon Bonus					AUTO:FEAT|Extraordinary Tolerance
 7	BONUS:VAR|DirtyBlow|(CL-4)/3																					AUTO:FEAT|Dirty Blow
 9	BONUS:VAR|UncannyDodge|1																					AUTO:FEAT|Uncanny Dodge
@@ -93,7 +93,7 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 13	BONUS:VAR|UncannyDodge|1
 15																ADD:FEAT|1|Sailor Weapon Bonus					AUTO:FEAT|Follow Up Strike
 17																										AUTO:FEAT|Extraordinary Balance
-20																ADD:FEAT|1|Sailor Weapon Bonus	VFEAT:Improved Evasion
+20																ADD:FEAT|1|Sailor Weapon Bonus	ABILITY:Special Ability|VIRTUAL|Improved Evasion
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

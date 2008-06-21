@@ -27,7 +27,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 6	CAST:0,8,0,0	KNOWN:0,4,0,1
 7	CAST:0,8,0,1	KNOWN:0,5,0,2
 8	CAST:0,8,0,2	KNOWN:0,5,0,2
-9	CAST:0,9,0,3	KNOWN:0,6,0,3																																					VFEAT:Evasion
+9	CAST:0,9,0,3	KNOWN:0,6,0,3																																					ABILITY:Special Ability|VIRTUAL|Evasion
 10	CAST:0,9,0,4	KNOWN:0,6,0,3
 11	CAST:0,9,0,5	KNOWN:0,7,0,4
 12	CAST:0,10,0,6	KNOWN:0,7,0,4		SAB:Weave Chords
@@ -35,7 +35,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 14	CAST:0,10,0,7,0,1	KNOWN:0,8,0,5,0,2
 15	CAST:0,11,0,7,0,2	KNOWN:0,9,0,6,0,2
 16	CAST:0,11,0,8,0,3	KNOWN:0,9,0,6,0,3
-17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																																				VFEAT:Improved Evasion
+17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																																				ABILITY:Special Ability|VIRTUAL|Improved Evasion
 18	CAST:0,12,0,8,0,5	KNOWN:0,10,0,7,0,4
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
 20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	SAB:Weave Melodies

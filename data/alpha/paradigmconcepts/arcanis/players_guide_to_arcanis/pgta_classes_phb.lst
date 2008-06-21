@@ -179,14 +179,14 @@ SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Imp
 1	BONUS:VAR|MonkMoveLvl|CL	AUTO:FEAT|Monk Movement
 ###Block: Level progression
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2			SAB:Flurry of Blows (Ex)																DEFINE:MonkLvl|CL											AUTO:FEAT|Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							AUTO:FEAT|Evasion
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							ABILITY:Special Ability|AUTOMATIC|Evasion
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6						SAB:Still Mind (Ex)
 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Ki Strike (Magic)|PREVARLT:CL,10	SAB:Slow Fall (%)|SlowFall|PREVARLT:CL,20	BONUS:VAR|SlowFall|floor((CL)/2)*10	DEFINE:SlowFall|0
 5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Purity of Body (Ex)
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
 7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Wholeness of Body (Su) % hp/day|WholenessBody						BONUS:VAR|WholenessBody|CL*2		DEFINE:WholenessBody|0
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																							AUTO:FEAT|Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																							ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						SAB:Ki Strike (Magic and Lawful)|PREVARLT:CL,16
 11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						SAB:Diamond Body (Su)
 12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						SAB:Abundant Step (Su)
@@ -265,7 +265,7 @@ CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:pg. 69	LANGAUTO:
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Research|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	SAB:Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2																																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)
 1																																												ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2																					ADD:FEAT|1|Evasion,Improved Evasion
+2																					ADD:ABILITY|1|Special Ability|AUTOMATIC|Evasion,Improved Evasion
 3				BONUS:VAR|TrapSense|CL/3																																				ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
 4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4														ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 10																					ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
@@ -324,12 +324,12 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1														ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree							VFEAT:Streetwise	AUTO:FEAT|Track
 2														ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 3														ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree										AUTO:FEAT|Endurance
-4	CAST:0,0							BONUS:VAR|CompLevel|CL/2	ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree										AUTO:FEAT|Animal Companion
+4	CAST:0,0							BONUS:VAR|CompLevel|CL/2	ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree										ABILITY:Special Ability|AUTOMATIC|Animal Companion
 5	CAST:0,0												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 6	CAST:0,1												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 7	CAST:0,1		SAB:As the Ghost (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 8	CAST:0,1,0		SAB:Swift Tracker (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-9	CAST:0,1,0												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree	ADD:FEAT|1|Evasion,Improved Evasion
+9	CAST:0,1,0												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree	ADD:ABILITY|1|Special Ability|AUTOMATIC|Evasion,Improved Evasion	
 10	CAST:0,1,1												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 11	CAST:0,1,1,0											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 12	CAST:0,1,1,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree

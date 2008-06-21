@@ -38,7 +38,7 @@ NAME:Chardara Bird
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 ALIGN:TN
 SKILL:Spot	RANK:9	FREE:YES
-FEAT:Evasion
+ABILITY:CATEGORY=Special Abilty|Evasion
 FEAT:Weapon Finesse
 FEAT:Improved Initiative	FREE:YES
 

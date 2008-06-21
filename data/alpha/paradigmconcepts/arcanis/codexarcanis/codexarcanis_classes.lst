@@ -31,7 +31,7 @@ CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentra
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	ABB:DoE		MAXLEVEL:5	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Req. Att.	Required Feat															Required Race	Required Skill
-CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:7,Evasion,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform=4,Jump=4,Tumble=4
+CLASS:Dancer of the Elements	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:6,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PREABILITY:1,CATEGORY=Special Ability,Evasion	PRERACE:1,Elorii	PRESKILL:3,Perform=4,Jump=4,Tumble=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silently|Perform|Tumble
 1																																	AUTO:WEAPONPROF|TYPE.Martial

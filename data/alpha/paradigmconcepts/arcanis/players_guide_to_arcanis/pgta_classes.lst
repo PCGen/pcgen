@@ -152,7 +152,7 @@ CLASS:Fatespinner	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 15	CAST:0,2,1,1,1
 16	CAST:0,2,2,1,1	SAB:Supreme Savant (Su)
 17	CAST:0,2,2,2,1
-18	CAST:0,3,2,2,1	SAB:Blessed Agility (Sp)												AUTO:FEAT|Evasion
+18	CAST:0,3,2,2,1	SAB:Blessed Agility (Sp)												ABILITY:Special Ability|AUTOMATIC|Evasion
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3	SAB:Alternate Reality (Su)
 
