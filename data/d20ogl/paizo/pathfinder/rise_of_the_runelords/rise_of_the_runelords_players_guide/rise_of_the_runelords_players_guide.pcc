@@ -24,13 +24,14 @@ COPYRIGHT:PCGen dataset conversion for the Rise of the Runelords Player's Guide 
 #EXTRAFILE:OGL.txt
 
 # Data files
+ABILITY:rrpg_abilities_class.lst
 BIOSET:rrpg_biosettings.lst
 COMPANIONMOD:rrpg_companionmods.lst
 DEITY:rrpg_deities.lst
 EQUIPMENT:rrpg_equip_armorshields.lst
 EQUIPMENT:rrpg_equip.lst
 EQUIPMENT:rrpg_equip_weap_melee.lst
-FEAT:rrpg_feats_hidden.lst
+#FEAT:rrpg_feats_hidden.lst
 FEAT:rrpg_feats.lst
 KIT:rrpg_kits_races_animals.lst
 KIT:rrpg_kits_races.lst

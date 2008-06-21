@@ -57,7 +57,7 @@ CLASS:Pit Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Heal|Int
 1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency|Improved Unarmed Strike	AUTO:WEAPONPROF|TYPE.Simple
 ###Block: Normal progression
 1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12		SAB:Expert Pugilist																													ADD:FEAT|1|Exotic Weapon Proficiency	ADD:FEAT|1|Exotic Weapon Proficiency
-2																	BONUS:VAR|RageTimes|CL/5+1															DEFINE:RageTimes|0																AUTO:FEAT|Rage
+2																	BONUS:VAR|RageTimes|CL/5+1															DEFINE:RageTimes|0																ABILITY:Special Ability|AUTOMATIC|Rage
 3									SAB:Low Cunning (Expertise)																																										AUTO:FEAT|Expertise
 4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																		ADD:FEAT|1|Exotic Weapon Proficiency
 6									SAB:Low Cunning (Dodge +%)|PitFighterDodge	BONUS:VAR|PitFighterDodge|CL/6	BONUS:COMBAT|AC|PitFighterDodge|TYPE=Dodge|!PREEQUIP:2,TYPE=Armor,TYPE=Heavy	DEFINE:PitFighterDodge|0
