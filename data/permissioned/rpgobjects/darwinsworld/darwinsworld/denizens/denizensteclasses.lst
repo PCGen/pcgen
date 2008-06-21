@@ -22,7 +22,7 @@ CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Rage
-1	BONUS:VAR|RageTimes|CL/4+1	DEFINE:RageTimes|0	VFEAT:Rage
+1	BONUS:VAR|RageTimes|CL/4+1	DEFINE:RageTimes|0	ABILITY:Special Ability|VIRTUAL|Rage
 ###Block: Normal level progression
 1	SAB:Experience Bonus																																		AUTO:FEAT|Improved Unarmed Strike
 2	SAB:Trap-Making %d6 (DC%)|TrapMaking|TrapMakingDC	BONUS:VAR|TrapMaking|(CL-1)/4+1	BONUS:VAR|TrapMakingDC|floor((CL-1)/4)*3+16	DEFINE:TrapMaking|0	DEFINE:TrapMakingDC|0
