@@ -783,9 +783,6 @@ public final class EditorMainForm extends JDialog
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
 				thisRace.setFeatList(aString);
-				sel = pnlFeats.getSelectedList2();
-				aString = EditUtil.delimitArray(sel, '|');
-				thisRace.setMFeatList(aString);
 
 				//
 				// Save virtual feats
@@ -1537,23 +1534,8 @@ public final class EditorMainForm extends JDialog
 					}
 				}
 
-				aString = ((Race) thisPObject).getMFeatList();
-				aTok = new StringTokenizer(aString, "|", false);
-
-				while (aTok.hasMoreTokens())
-				{
-					String featName = aTok.nextToken();
-
-					if (!selectedRaceFeatList2.contains(featName))
-					{
-						availableRaceFeatList.remove(featName);
-						selectedRaceFeatList2.add(featName);
-					}
-				}
-
 				pnlFeats.setAvailableList(availableRaceFeatList, true);
 				pnlFeats.setSelectedList(selectedRaceFeatList, true);
-				pnlFeats.setSelectedList2(selectedRaceFeatList2, true);
 
 				//
 				// Populate the virtual feats available list and selected list
@@ -2576,7 +2558,7 @@ public final class EditorMainForm extends JDialog
 				pnlTemplates = new AvailableSelectedPanel(true);
 				pnlWeapons = new AvailableSelectedPanel(true);
 				pnlClasses = new AvailableSelectedPanel();
-				pnlFeats = new AvailableSelectedPanel(true);
+				pnlFeats = new AvailableSelectedPanel();
 				pnlVFeats = new AvailableSelectedPanel();
 				pnlBonusLang = new AvailableSelectedPanel();
 				pnlAppearance = new AppearancePanel();
@@ -2782,7 +2764,6 @@ public final class EditorMainForm extends JDialog
 				pnlBonusLang.setHeader(PropertyFactory.getString("in_demBonusLang"));
 				jTabbedPane1.addTab(PropertyFactory.getString("in_demBonusLangAbbrev"), pnlBonusLang);
 				pnlFeats.setLblSelectedText(PropertyFactory.getString("in_demSelFeats"));
-				pnlFeats.setLblSelected2Text(PropertyFactory.getString("in_demSelMFeats"));
 
 				break;
 
