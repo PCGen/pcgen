@@ -61,7 +61,7 @@ CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concent
 2	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 3	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 4	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform				AUTO:FEAT|Venom immunity
+5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform				ABILITY:Special Ability|AUTOMATIC|Venom Immunity
 6	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 7	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 8	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form

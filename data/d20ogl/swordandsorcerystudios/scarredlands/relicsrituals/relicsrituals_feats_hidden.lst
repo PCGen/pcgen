@@ -25,7 +25,7 @@ Energy Drain Immunity	TYPE:ClassAbility	VISIBLE:NO	SAB:Energy Drain Immunity				
 # Feat Name				Type			Visible	Special ABility					Stackable?	Multiple?	Choose														Template					Source Page		List of Class Spells by Level
 Reincarnate				TYPE:ClassAbility	VISIBLE:NO	SAB:Reincarnate																														SOURCEPAGE:p.12
 Fixed Alignment			TYPE:ClassAbility	VISIBLE:NO	SAB:Fixed Alignment																													SOURCEPAGE:p.12
-Venom Imunity			TYPE:ClassAbility	VISIBLE:NO	SAB:Venom Immunity																													SOURCEPAGE:p.12
+#Venom Imunity			TYPE:ClassAbility	VISIBLE:NO	SAB:Venom Immunity																													SOURCEPAGE:p.12
 Timeless Body			TYPE:ClassAbility	VISIBLE:NO	SAB:Timeless Body																								TEMPLATE:Timeless Body ~ Adult	SOURCEPAGE:p.12
 Designate Life Form		TYPE:ClassAbility	VISIBLE:NO	SAB:Designate Life Form																													SOURCEPAGE:p.12
 Pastlife Form			TYPE:ClassAbility	VISIBLE:NO	SAB:Pastlife Form (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal|RACETYPE=Vermin|RACETYPE=Beast|RACETYPE=Fey|RACETYPE=Humanoid							SOURCEPAGE:p.12

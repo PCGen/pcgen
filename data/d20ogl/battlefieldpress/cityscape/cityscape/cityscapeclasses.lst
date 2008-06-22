@@ -166,11 +166,11 @@ CLASS:Druid (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 6	CAST:5,3,3,2										BONUS:VAR|Wildshape|1
 7	CAST:6,4,3,2,1										BONUS:VAR|Wildshape|1
 8	CAST:6,4,3,3,2			SAB:Wildshape Large
-9	CAST:6,4,4,3,2,1			SAB:Venom Immunity
+9	CAST:6,4,4,3,2,1			ABILITY:Special Ability|AUTOMATIC|Venom Immunity
 10	CAST:6,4,4,3,3,2										BONUS:VAR|Wildshape|1
 11	CAST:6,5,4,4,3,2,1		SAB:Wildshape Tiny
 12	CAST:6,5,4,4,3,3,2		SAB:Wildshape Dire
-13	CAST:6,5,5,4,4,3,2,1		SAB:A Thousand Faces
+13	CAST:6,5,5,4,4,3,2,1		ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2									BONUS:VAR|Wildshape|1
 15	CAST:6,5,5,5,4,4,3,2,1		SAB:Wildshape Huge	SAB:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2		SAB:Wildshape Elemental %/day|EWildshape	BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0

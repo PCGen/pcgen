@@ -244,13 +244,13 @@ CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle 
 1																	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy
 ###Block: Normal Level Progression
 1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0					AUTO:FEAT|Knight's Warhorse	ABILITY:Special Ability|AUTOMATIC|Rage
-2	SAB:Wild Empathy (Ex)
+2	ABILITY:Special Ability|AUTOMATIC|Wild Empathy
 3	ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-4	SAB:Trackless Step (Ex)
+4	ABILITY:Special Ability|AUTOMATIC|Trackless Step
 6																								ADD:FEAT|1|TYPE=Fighter
-7	SAB:Resist Nature's (Ex) Lure	SAB:Green Armor (Ex)
+7	ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure	SAB:Green Armor (Ex)
 8																								ADD:FEAT|1|TYPE=Fighter
-9	SAB:Venom Immunity (Ex)
+9	ABILITY:Special Ability|AUTOMATIC|Venom Immunity
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	ABB:PKn		MAXLEVEL:10	SOURCEPAGE:49	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

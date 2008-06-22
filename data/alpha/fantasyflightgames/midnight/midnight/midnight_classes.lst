@@ -134,7 +134,7 @@ CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.
 2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
 3					ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 4	ABILITY:Special Ability|AUTOMATIC|Trackless Step
-6	SAB:Venom Immunity (Ex)
+6	ABILITY:Special Ability|AUTOMATIC|Venom Immunity
 8	SAB:Fey Friend
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus

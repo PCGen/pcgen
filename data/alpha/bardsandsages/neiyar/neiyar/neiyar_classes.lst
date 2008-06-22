@@ -163,7 +163,7 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 3	ADD:SPELLCASTER|Divine
 5	ADD:SPELLCASTER|Divine
 ###Block: Special Abilities:
-1	SAB:Venom Immunity
+1	ABILITY:Special Ability|AUTOMATIC|Venom Immunity
 2	SAB:Speak with Animals
 4	SAB:Wild Shape %/day|WSTimes	BONUS:VAR|WSTimes|1	DEFINE:WSTimes|0
 6						BONUS:VAR|WSTimes|1
