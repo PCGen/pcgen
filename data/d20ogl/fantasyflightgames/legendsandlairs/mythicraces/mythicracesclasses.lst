@@ -65,7 +65,7 @@ CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Mystic Discipline (Light)|PREVARLT:CL,2																														ABILITY:Special Ability|VIRTUAL|Evasion	VFEAT:Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Detect Evil	SAB:Mystic Discipline (Light/Fleetness of Foot)|PREVARLT:CL,3																								VFEAT:Stunning Fist
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		ABILITY:Special Ability|AUTOMATIC|Detect Evil	SAB:Mystic Discipline (Light/Fleetness of Foot)|PREVARLT:CL,3																								VFEAT:Stunning Fist
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight)|PREVARLT:CL,4
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball)|PREVARLT:CL,5													
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Purity of Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis)|PREVARLT:CL,6

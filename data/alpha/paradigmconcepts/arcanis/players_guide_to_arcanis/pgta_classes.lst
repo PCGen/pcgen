@@ -530,7 +530,7 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 4	BONUS:VAR|ChannelDamagePlusBase|CL-3
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
-1				VISION:Darkvision (60')					SAB:Aura of Faith (Ex)	SAB:Detect Evil (Sp)																													SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil												AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+1				VISION:Darkvision (60')					SAB:Aura of Faith (Ex)	ABILITY:Special Ability|AUTOMATIC|Detect Evil																												BONUS:VAR|DetectEvilLVL|CL													AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2												SAB:Defensive Stance (Ex)	ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Talons of Flame (Su) % hp/day|TalonFlame					BONUS:VAR|TalonFlame|CHA*CL			DEFINE:TalonFlame|0
 3												ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Burning Blood (Ex) ~ immune to natural poisons
 4	CAST:0,0										SAB:Ssethric Enforcer (Su)

@@ -26,7 +26,7 @@ CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
 3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal level progression
-1				ABILITY:Special Ability|AUTOMATIC|Divine Health|Divine Grace|Lay on Hands|Detect Evil	BONUS:VAR|LayOnHands|CL	DEFINE:AllowHolyAvenger|1
+1				ABILITY:Special Ability|AUTOMATIC|Divine Health|Divine Grace|Lay on Hands|Detect Evil	BONUS:VAR|LayOnHands|CL	DEFINE:AllowHolyAvenger|1	BONUS:VAR|DetectEvilLVL|CL
 2				ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Smite Evil					BONUS:VAR|SmiteEvil|1
 3				ABILITY:Special Ability|AUTOMATIC|Remove Disease							BONUS:VAR|RemoveDisease|CL/3
 4	CAST:0,0

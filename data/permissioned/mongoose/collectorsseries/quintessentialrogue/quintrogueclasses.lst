@@ -45,7 +45,7 @@ CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE
 1	SAB:Divine Companion	SAB:Divine Luck
 #	BONUS:CHECKS|2	- Um... To what?  Tir Gwaith
 2	SAB:Smite Undead +%d%|SmiteUndead|SmiteUndeadDie	BONUS:VAR|SmiteUndead|CL/2									DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0
-3	SAB:Detect Evil	SAB:Detect Undead
+3	ABILITY:Special Ability|AUTOMATIC|Detect Evil	SAB:Detect Undead	BONUS:VAR|DetectEvilLVL|CL
 5	SAB:Mask Alignment
 7	SAB:Divine Shield
 9	SAB:Sense Guards and Wards										BONUS:SKILL|Disable Device,Search|2|TYPE=Divine
