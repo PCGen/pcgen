@@ -7,7 +7,7 @@ SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badax
 Against the Odds	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Against the Odds (Ex)
 Fearsome Visage	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Fearsome Visage
 Frenzied Charge	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Frenzied Charge
-Indomitable Will	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Indomitable Will
+#Indomitable Will	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Indomitable Will
 Improved Rage	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Rage
 Improved Rage2	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Rage x2
 

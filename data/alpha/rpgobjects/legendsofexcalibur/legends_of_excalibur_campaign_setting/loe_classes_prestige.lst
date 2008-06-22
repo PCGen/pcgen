@@ -59,7 +59,7 @@ CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 ###Block: Normal Level Progression
 1									BONUS:VAR|RageTimes|CL/3+1	BONUS:VAR|GreaterRage|1
 2	SAB:Bloody Slaughter +%d6 (Ex)|BloodySlaughter	BONUS:VAR|BloodySlaughter|CL/2				DEFINE:BloodySlaughter|0
-4	SAB:Indomitable Will (Ex)
+4	ABILITY:Special Ability|AUTOMATIC|Indomitable Will
 5	SAB:Berserker Fury (Ex)
 7									BONUS:VAR|TirelessRage|1
 10	SAB:Blood Rage (Ex)					BONUS:VAR|MightyRage|1
