@@ -24,6 +24,9 @@ COPYRIGHT:PCGen dataset conversion for Dragonstar: Starfarer's Handbook Copyrigh
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:starfarershb_abilities_mod.lst
+
+ABILITYCATEGORY:starfarershb_ability_category.lst
 BIOSET:starfarershb_biosettings.lst
 
 DEITY:starfarershb_deities.lst
