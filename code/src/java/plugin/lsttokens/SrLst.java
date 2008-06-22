@@ -15,8 +15,10 @@ public class SrLst implements GlobalLstToken
 {
 
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * FIXME This can only be converted after associations are no longer stored
+	 * in the object, but instead are stored in the PC. This is due to the
+	 * %CHOICE usage in EquipmentModifier not being handled by JEP due to use of %
+	 * [which is the modulo function to JEP]
 	 */
 
 	public String getTokenName()
