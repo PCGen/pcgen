@@ -58,7 +58,7 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 3	CAST:4,2,1				SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
 4	CAST:5,3,2				SAB:Companion Sight (Su)
 5	CAST:5,3,2,1																																										ADD:FEAT|1|Elemental Form	BONUS:ABILITYPOOL|Elemental Form Choice|1
-6	CAST:5,3,3,2			SAB:Trackless Step (Ex)
+6	CAST:5,3,3,2			ABILITY:Special Ability|AUTOMATIC|Trackless Step
 7	CAST:6,4,3,2,1			SAB:Rituals of Power II (Su) (-2 WIS for any spell up to 5th level or next larger Elemental form)
 8	CAST:6,4,3,3,2			SAB:Treant Form (Su)
 9	CAST:6,4,4,3,2,1

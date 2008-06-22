@@ -133,7 +133,7 @@ CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.
 1	SAB:Druidcraft	ABILITY:Special Ability|AUTOMATIC|Nature Sense																										AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
 2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
 3					ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-4	SAB:Trackless Step (Ex)
+4	ABILITY:Special Ability|AUTOMATIC|Trackless Step
 6	SAB:Venom Immunity (Ex)
 8	SAB:Fey Friend
 

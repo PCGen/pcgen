@@ -55,7 +55,7 @@ CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Int
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1					SAB:Treewalking (Ex)|PREVARLT:CL,3
-2					SAB:Trackless Step
+2					ABILITY:Special Ability|AUTOMATIC|Trackless Step
 3					SAB:Treewalking (Su)
 4					SAB:Speak with Plants %/day|SpeakPlants		BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
 5					SAB:Arboreal Ally (Su)
