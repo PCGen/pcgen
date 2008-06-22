@@ -177,13 +177,13 @@ SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Imp
 ###Block:Proficiencies
 1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Monk AC
-1	BONUS:VAR|MonkACLvl|CL		AUTO:FEAT|Monk AC
-1	BONUS:VAR|MonkMoveLvl|CL	AUTO:FEAT|Monk Movement
+1	BONUS:VAR|MonkACLvl|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
+1	BONUS:VAR|MonkMoveLvl|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
 ###Block: Level progression
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2			SAB:Flurry of Blows (Ex)																DEFINE:MonkLvl|CL											AUTO:FEAT|Improved Unarmed Strike
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							ABILITY:Special Ability|AUTOMATIC|Evasion
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6						SAB:Still Mind (Ex)
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Ki Strike (Magic)|PREVARLT:CL,10	SAB:Slow Fall (%)|SlowFall|PREVARLT:CL,20	BONUS:VAR|SlowFall|floor((CL)/2)*10	DEFINE:SlowFall|0
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Ki Strike (Magic)|PREVARLT:CL,10	ABILITY:Special Ability|AUTOMATIC|Slow Fall	BONUS:VAR|SlowFallMonkProgression|1	BONUS:VAR|SlowFall|floor((CL)/2)*10
 5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Purity of Body (Ex)
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
 7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Wholeness of Body (Su) % hp/day|WholenessBody						BONUS:VAR|WholenessBody|CL*2		DEFINE:WholenessBody|0
@@ -199,7 +199,7 @@ SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Imp
 17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body	SAB:Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
 19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL			DEFINE:EmptyBody|0
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SAB:Perfect Self (Su)	SAB:Slow Fall (Any Distance)																					TEMPLATE:Monk Outsider
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SAB:Perfect Self (Su)	BONUS:VAR|SlowFallMonkProgression|1																					TEMPLATE:Monk Outsider
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR

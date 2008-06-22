@@ -21,7 +21,7 @@ CLASS:Bearer of Woe	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2						SAB:Aura of Faith (Ex)																																								AUTO:FEAT|Simple Weapon Proficiency|Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6								SAB:AC Bonus (Ex)	SAB:I Feel Your Pain (Su) ~ Heal % hp/day|PainLevel	SAB:Mind Over Matter (Su)																BONUS:VAR|PainLevel|max(CON,0)*CL		DEFINE:PainLevel|0	AUTO:FEAT|Monk AC
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6								SAB:AC Bonus (Ex)	SAB:I Feel Your Pain (Su) ~ Heal % hp/day|PainLevel	SAB:Mind Over Matter (Su)																BONUS:VAR|PainLevel|max(CON,0)*CL		DEFINE:PainLevel|0	ABILITY:Special Ability|AUTOMATIC|Monk AC
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6								SAB:You Shall Know My Pain ~ Inflict up to % hp 1/day and heal same amount|PainLevel																													AUTO:FEAT|Endurance
 4	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			CAST:0,0				SAB:Empowered Fist (Ex)
 5	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			CAST:0,0

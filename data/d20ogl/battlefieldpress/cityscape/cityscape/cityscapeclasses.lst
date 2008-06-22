@@ -40,10 +40,10 @@ CLASS:Bard (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bar
 1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
 1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Music
 ###Block: Bardic Music Abilities by level
-1	VFEAT:Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1
-1	VFEAT:Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3
-1	VFEAT:Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,6
-1	VFEAT:Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,9
+1	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3
+1	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,6
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,9
 ###Block: Normal Level Progression
 1	CAST:2			KNOWN:4
 2	CAST:3,0			KNOWN:5,2
@@ -237,9 +237,9 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 ###Block:DEFINEs and BONUSes associated.
 1	BONUS:VAR|MonkStunningLVL|CL					VFEAT:Stunning Attack
 1	BONUS:VAR|MonkSR|CL		DEFINE:MonkSR|0
-1	BONUS:VAR|MonkSpeedLVL|CL					VFEAT:Monk Fast Movement
+1	BONUS:VAR|MonkSpeedLVL|CL					ABILITY:Special Ability|AUTOMATIC|Monk Fast Movement
 1	BONUS:VAR|WholenessHpLVL|CL	DEFINE:WholenessHpLVL|0
-1	BONUS:VAR|MonkACLVL|CL						VFEAT:Monk AC
+1	BONUS:VAR|MonkACLVL|CL						ABILITY:Special Ability|AUTOMATIC|Monk AC
 1						DEFINE:FlurryOfBlows|1
 ###Block: Proficiencies
 1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
@@ -247,7 +247,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2				SAB:Flurry of Blows																												ABILITY:Special Ability|VIRTUAL|Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
 2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																											AUTO:FEAT|Deflect Arrows
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8							SAB:Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Slow Fall (% ft.)|SlowFall|PREVARLT:CL,18						BONUS:VAR|SlowFall|20	DEFINE:SlowFall|0
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						ABILITY:Special Ability|AUTOMATIC|Slow Fall	BONUS:VAR|SlowFallMonkProgression|1					BONUS:VAR|SlowFall|20	
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Purity of Body
 6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:VAR|SlowFall|10																				AUTO:FEAT|Improved Trip
 7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Leap of the Clouds	SAB:Wholeness of Body (Su) % hp/day|WholenessHpLVL*2
@@ -261,7 +261,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
 16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																			BONUS:VAR|KiStrike|1
 17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body	SAB:Tongue of the Sun and Moon
-18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Slow Fall (any distance)
+18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						BONUS:VAR|SlowFallMonkProgression|1
 19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Empty Body (Su) % rounds/day|EmptyBody						BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
 20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Perfect Self																									TEMPLATE:Monk Outsider
 
