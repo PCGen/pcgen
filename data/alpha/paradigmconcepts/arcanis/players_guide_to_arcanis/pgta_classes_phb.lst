@@ -331,12 +331,12 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 5	CAST:0,0												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 6	CAST:0,1												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 7	CAST:0,1		SAB:As the Ghost (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-8	CAST:0,1,0		SAB:Swift Tracker (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+8	CAST:0,1,0		ABILITY:Special Ability|AUTOMATIC|Swift Tracker			ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 9	CAST:0,1,0												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree	ADD:ABILITY|1|Special Ability|AUTOMATIC|Evasion,Improved Evasion	
 10	CAST:0,1,1												ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 11	CAST:0,1,1,0											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 12	CAST:0,1,1,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
-13	CAST:0,1,1,1	SAB:Camouflage (Ex)							ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
+13	CAST:0,1,1,1	ABILITY:Special Ability|AUTOMATIC|Camouflage			ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 14	CAST:0,2,1,1,0											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 15	CAST:0,2,1,1,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree
 16	CAST:0,2,2,1,1											ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus	ADD:FEAT|1|TYPE.RangerCombatTree

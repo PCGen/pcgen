@@ -95,7 +95,7 @@ Bonestripping												TYPE:SpecialAttack.Extraordinary.SpecialAction	VISIBLE:
 Burn														TYPE:SpecialAttack.Extraordinary.SpecialAtk	VISIBLE:NO					SAB:Burn (Ex) [%d%, DC %]|BurnDice|BurnDieSize|BurnDC																																																																																																																																																																			DEFINE:BurnDice|0	DEFINE:BurnDieSize|0	DEFINE:BurnDC|0																																																																																																																																								BONUS:VAR|BurnDC|10+(HD/2)
 Burst of Speed												TYPE:SpecialQuality.Extraordinary.Movement	VISIBLE:NO					SAB:Burst of Speed (Ex)
 Call Storm													TYPE:SpecialAttack.Supernatural.SpecialAction	VISIBLE:NO					SAB:Call Storm (Su) [%/day]|CallStormTimes																																																																																																																																																																				DEFINE:CallStormTimes|0	DEFINE:CallStormCL|0																																			SPELLS:Innate|TIMES=var("CallStormTimes")|CASTERLEVEL=var("CallStormCL")|Call Storm
-Camouflage													TYPE:SpecialQuality.Extraordinary.SQ		VISIBLE:NO					SAB:Camouflage (Ex)
+#Camouflage													TYPE:SpecialQuality.Extraordinary.SQ		VISIBLE:NO					SAB:Camouflage (Ex)
 Capsize													TYPE:SpecialAttack.Extraordinary.SpecialAction	VISIBLE:NO					SAB:Capsize (Ex)
 Cell Death													TYPE:SpecialAttack.Extraordinary.SpecialAtk	VISIBLE:NO					SAB:Cell Death (Ex)
 Cell Division												TYPE:SpecialAttack.Extraordinary.SpecialAction	VISIBLE:NO					SAB:Cell Division (Ex)
