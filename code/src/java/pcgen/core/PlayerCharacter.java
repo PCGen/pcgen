@@ -13892,27 +13892,24 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private boolean includeSkill(final Skill skill, final int level)
 	{
-		boolean UntrainedExclusiveClass = false;
-		boolean IsQualified = true;
-
-		if (skill.getSafe(ObjectKey.USE_UNTRAINED) && skill.getSafe(ObjectKey.EXCLUSIVE))
+		if (level == 2 || skill.getTotalRank(this).floatValue() > 0)
 		{
-			if (SkillCostCalc.isClassSkill(skill, classList, this)
-				|| SkillCostCalc.isCrossClassSkill(skill, classList, this))
-			{
-				UntrainedExclusiveClass = true;
-			}
+			return true;
 		}
-		else if (skill.getSafe(ObjectKey.USE_UNTRAINED))
+		if (level != 1 || !skill.getSafe(ObjectKey.USE_UNTRAINED))
 		{
-			IsQualified =
-					PrereqHandler.passesAll((skill).getPrerequisiteList(), this,
-						skill);
+			return false;
 		}
-
-		return (level == 2)
-			|| (skill.getTotalRank(this).floatValue() > 0)
-			|| ((level == 1) && skill.getSafe(ObjectKey.USE_UNTRAINED) && IsQualified && !skill.getSafe(ObjectKey.EXCLUSIVE)) || ((level == 1) && UntrainedExclusiveClass);
+		if (skill.getSafe(ObjectKey.EXCLUSIVE))
+		{
+			return SkillCostCalc.isClassSkill(skill, classList, this)
+				|| SkillCostCalc.isCrossClassSkill(skill, classList, this);
+		}
+		else
+		{
+			return PrereqHandler.passesAll((skill).getPrerequisiteList(), this,
+					skill);
+		}
 	}
 
 	private void increaseMoveArray(final Double moveRate,
