@@ -65,7 +65,7 @@ CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concent
 6	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 7	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 8	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-9	BONUS:PCLEVEL|Druid|1								AUTO:FEAT|Timeless Body
+9	BONUS:PCLEVEL|Druid|1								ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
 10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form			AUTO:FEAT|Designate Life Form
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

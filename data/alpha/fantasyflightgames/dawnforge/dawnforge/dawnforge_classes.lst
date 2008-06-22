@@ -67,7 +67,7 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 12	CAST:6,5,4,4,3,3,2		SAB:Quickened Rituals (Ex) for I and II
 13	CAST:6,5,5,4,4,3,2,1		SAB:Rituals of Power III (Su) (-3 WIS for any spell up to 7th level or remove all poisons/diseases and physical damage)
 14	CAST:6,5,5,4,4,3,3,2		SAB:Improved Elemental Form
-15	CAST:6,5,5,5,4,4,3,2,1		SAB:Timeless Body (Ex)
+15	CAST:6,5,5,5,4,4,3,2,1		ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1																																								BONUS:ABILITYPOOL|Elemental Form Choice|1
 18	CAST:6,5,5,5,5,4,4,3,3,2	SAB:Rituals of Power IV (Su) (-4 WIS for any spell up to 9th level or free from all harmful magical effects/heal all ability damage/remove all negative levels)

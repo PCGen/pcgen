@@ -194,7 +194,7 @@ SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Imp
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
 15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						SAB:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC			BONUS:VAR|QuiveringPalmDC|CL/2+WIS	DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Ki Strike (Magic and Lawful and Adamantine)
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Timeless Body (Ex)	SAB:Tongue of the Sun and Moon
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body	SAB:Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
 19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL			DEFINE:EmptyBody|0
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SAB:Perfect Self (Su)	SAB:Slow Fall (Any Distance)																					TEMPLATE:Monk Outsider

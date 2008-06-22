@@ -119,7 +119,7 @@ CLASS:Stoneheart Ascetic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diploma
 6	ABILITY:Special Ability|AUTOMATIC|Stone Heart
 7													BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
 8	ABILITY:Special Ability|AUTOMATIC|Stone Soul
-9	ABILITY:Special Ability|AUTOMATIC|Timeless Body
+9	ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
 10	ABILITY:Special Ability|AUTOMATIC|Stone Body					BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
 
 

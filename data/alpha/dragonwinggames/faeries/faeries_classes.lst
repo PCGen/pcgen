@@ -62,7 +62,7 @@ CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Inf
 4	SAB:Create Doorways & Backroad (Sp)
 5	SAB:Fey Form (Su)				ADD:FEAT|1|TYPE.FeyArts
 6							ADD:FEAT|1|TYPE.FeyArts
-7	SAB:Timeless Body (Ex)
+7	ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
 8							ADD:FEAT|1|TYPE.FeyArts
 9	SAB:True Fey Form (Su)
 10	SAB:Create Doorway & Sideroad (Sp)	ADD:FEAT|1|TYPE.FeyArts
@@ -144,7 +144,7 @@ CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather
 5
 6				SAB:Luck of the True Fey (Ex) 2/day
 7				SAB:Slippery Mind (Ex)
-8				SAB:Timeless Body (Ex)
+8				ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
 9				SAB:Destined (Ex)
 10				SAB:Soul of Ages (Ex)
 

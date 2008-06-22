@@ -172,7 +172,7 @@ CLASS:Druid (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 12	CAST:6,5,4,4,3,3,2		SAB:Wildshape Dire
 13	CAST:6,5,5,4,4,3,2,1		ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2									BONUS:VAR|Wildshape|1
-15	CAST:6,5,5,5,4,4,3,2,1		SAB:Wildshape Huge	SAB:Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1		SAB:Wildshape Huge	ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2		SAB:Wildshape Elemental %/day|EWildshape	BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2								BONUS:VAR|EWildshape|2	BONUS:VAR|Wildshape|1
@@ -258,7 +258,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 14	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
 15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8						SAB:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
 16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																			BONUS:VAR|KiStrike|1
-17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Timeless Body	SAB:Tongue of the Sun and Moon
+17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body	SAB:Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Slow Fall (any distance)
 19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Empty Body (Su) % rounds/day|EmptyBody						BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
 20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SAB:Perfect Self																									TEMPLATE:Monk Outsider
