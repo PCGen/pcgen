@@ -164,7 +164,7 @@ public class NPCGenerator
 			{
 				if ( skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT )
 				{
-					if (SkillCostCalc.isClassSkill(skill, aClass, aPC))
+					if (aPC.isClassSkill(skill, aClass))
 					{
 						WeightedCollection.add(new SkillChoice(skill.getKeyName()), 8);
 					}
@@ -219,7 +219,7 @@ public class NPCGenerator
 			}
 
 			Skill pcSkill = aPC.getSkillKeyed(skill.getKeyName());
-			final int cost = SkillCostCalc.skillCostForPCClass(skill, aClass, aPC).getCost();
+			final int cost = aPC.getSkillCostForClass(skill, aClass).getCost();
 			double ranks = 1.0 / cost;
 			Logging.debugPrint( "NPCGenerator: Adding " + (int)ranks + "ranks" ); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))

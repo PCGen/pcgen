@@ -26,13 +26,10 @@ package pcgen.core.chooser;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -88,14 +85,11 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 					.getContext().ref.getConstructedCDOMObjects(Skill.class),
 					Visibility.DISPLAY_ONLY) )
 			{
-				SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
-
-				if (sCost.equals(SkillCost.CLASS) || skill.getSafe(ObjectKey.EXCLUSIVE))
+				if (aPc.isCrossClassSkill(skill))
 				{
-					continue; // builds a list of Cross class skills
+					// builds a list of Cross class skills
+					availableList.add(skill.getKeyName());
 				}
-
-				availableList.add(skill.getKeyName());
 			}
 		}
 

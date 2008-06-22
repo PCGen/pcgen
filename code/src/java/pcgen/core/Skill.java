@@ -288,7 +288,7 @@ public final class Skill extends PObject
 				return "You do not meet the prerequisites required to take this skill.";
 			}
 
-			SkillCost sc = SkillCostCalc.skillCostForPCClass(this, aClass, aPC);
+			SkillCost sc = aPC.getSkillCostForClass(this, aClass);
 
 			if (sc.equals(SkillCost.EXCLUSIVE))
 			{

@@ -397,7 +397,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		if (!isFree)
 		{
 			double ranksAdded = 0.0;
-			int skillCost = SkillCostCalc.skillCostForPCClass(aSkill, pcClass, pc).getCost();
+			int skillCost = pc.getSkillCostForClass(aSkill, pcClass).getCost();
 			ptsToSpend = (int)(ranksToAdd * skillCost);
 			for (int i = 0; i < pcLvlInfo.size(); i++ )
 			{

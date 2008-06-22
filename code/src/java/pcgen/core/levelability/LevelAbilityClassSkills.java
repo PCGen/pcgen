@@ -148,7 +148,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 			{
 				aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, toAdd);
 
-				if ((aSkill != null) && !SkillCostCalc.isClassSkill(aSkill, theClass, aPC))
+				if ((aSkill != null) && !aPC.isClassSkill(aSkill, theClass))
 				{
 					aArrayList.add(aSkill.getKeyName());
 				}
@@ -164,7 +164,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 				//
 				// Already a class skill--no point in making it one again
 				//
-				if (SkillCostCalc.isClassSkill(skill, theClass, aPC))
+				if (aPC.isClassSkill(skill, theClass))
 				{
 					continue;
 				}

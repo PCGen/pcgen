@@ -26,12 +26,10 @@ package pcgen.core.chooser;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -79,9 +77,7 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
-
-				if (sCost.equals(SkillCost.CLASS))
+				if (aPc.isClassSkill(skill))
 				{
 					availableList.add(skill.getKeyName());
 				}
@@ -91,9 +87,7 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
-
-				if (sCost.equals(SkillCost.CROSS_CLASS))
+				if (aPc.isCrossClassSkill(skill))
 				{
 					availableList.add(skill.getKeyName());
 				}
@@ -103,9 +97,7 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
-
-				if (sCost.equals(SkillCost.EXCLUSIVE))
+				if (!aPc.isClassSkill(skill) && !aPc.isCrossClassSkill(skill))
 				{
 					availableList.add(skill.getKeyName());
 				}

@@ -66,7 +66,7 @@ public final class SkillModifier
 
 		// these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to
 		// function
-		if (SkillCostCalc.isClassSkill(sk, aPC.getClassList(), aPC))
+		if (aPC.isClassSkill(sk))
 		{
 			bonus += aPC.getTotalBonusTo("CSKILL", keyName);
 
@@ -79,7 +79,7 @@ public final class SkillModifier
 			bonus += aPC.getTotalBonusTo("CSKILL", "LIST");
 		}
 
-		if (!SkillCostCalc.isClassSkill(sk, aPC.getClassList(), aPC)
+		if (!aPC.isClassSkill(sk)
 				&& !sk.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
@@ -207,7 +207,7 @@ public final class SkillModifier
 
 		// these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to
 		// function
-		if (SkillCostCalc.isClassSkill(sk, aPC.getClassList(), aPC))
+		if (aPC.isClassSkill(sk))
 		{
 			bonus = aPC.getTotalBonusTo("CSKILL", keyName);
 			appendBonusDesc(sk, bonusDetails, bonus, "CSKILL");
@@ -224,7 +224,7 @@ public final class SkillModifier
 			appendBonusDesc(sk, bonusDetails, bonus, "CSKILL");
 		}
 
-		if (!SkillCostCalc.isClassSkill(sk, aPC.getClassList(), aPC)
+		if (!aPC.isClassSkill(sk)
 				&& !sk.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			bonus = aPC.getTotalBonusTo("CCSKILL", keyName);

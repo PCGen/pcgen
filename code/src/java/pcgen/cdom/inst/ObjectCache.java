@@ -5,12 +5,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
 import pcgen.core.Vision;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.enumeration.VisionType;
 
@@ -87,6 +92,20 @@ public class ObjectCache extends CDOMObject
 			set.add(new Vision(me.getKey(), me.getValue().toString()));
 		}
 		addAllToListFor(ListKey.VISION_CACHE, set);
+	}
+	
+	private final DoubleKeyMap<String, PCClass, SkillCost> skillCostMap = new DoubleKeyMap<String, PCClass, SkillCost>();
+
+	public SkillCost getSkillCost(PlayerCharacter pc, Skill skill, PCClass pcc)
+	{
+		String sk = skill.getKeyName();
+		SkillCost cost = skillCostMap.get(sk, pcc);
+		if (cost == null)
+		{
+			cost = SkillCostCalc.skillCostForPCClass(skill, pcc, pc);
+			skillCostMap.put(sk, pcc, cost);
+		}
+		return cost;
 	}
 
 }

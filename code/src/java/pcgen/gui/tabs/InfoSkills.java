@@ -719,7 +719,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						else
 						{
 							points =
-									SkillCostCalc.skillCostForPCClass(theSkill, getSelectedPCClass(), pc).getCost();
+									pc.getSkillCostForClass(theSkill, getSelectedPCClass()).getCost();
 							final int classSkillCost = SkillCost.CLASS.getCost();
 							if (classSkillCost > 1)
 							{
@@ -1892,7 +1892,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		// the old Skills tab used cost as a double,
 		// so I'll duplicate that behavior
 		PCClass aClass = getSelectedPCClass();
-		SkillCost sc = SkillCostCalc.skillCostForPCClass(aSkill, aClass, pc);
+		SkillCost sc = pc.getSkillCostForClass(aSkill, aClass);
 
 		if (sc.equals(SkillCost.EXCLUSIVE))
 		{
@@ -3119,7 +3119,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						return Integer.valueOf(SkillCostCalc.skillCostForPCClass(aSkill, getSelectedPCClass(), pc).getCost());
+						return Integer.valueOf(pc.getSkillCostForClass(aSkill, getSelectedPCClass()).getCost());
 					}
 
 					return "0";
@@ -3128,7 +3128,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						if (SkillCostCalc.isClassSkill(aSkill, getSelectedPCClass(), pc))
+						if (pc.isClassSkill(aSkill, getSelectedPCClass()))
 						{
 							return "yes";
 						}
@@ -3632,7 +3632,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 
 				return (pcClass != null)
-					&& SkillCostCalc.isClassSkill(((Skill) pObject), pcClass, aPC);
+					&& aPC.isClassSkill(((Skill) pObject), pcClass);
 			}
 
 			return true;
@@ -3677,7 +3677,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 				Skill aSkill = (Skill) pObject;
 
-				return (pcClass != null) && !SkillCostCalc.isClassSkill(aSkill, pcClass, aPC)
+				return (pcClass != null) && !aPC.isClassSkill(aSkill, pcClass)
 					&& !aSkill.getSafe(ObjectKey.EXCLUSIVE);
 			}
 
@@ -3723,7 +3723,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 				Skill aSkill = (Skill) pObject;
 
-				return (pcClass != null) && !SkillCostCalc.isClassSkill(aSkill, pcClass, aPC)
+				return (pcClass != null) && !aPC.isClassSkill(aSkill, pcClass)
 					&& aSkill.getSafe(ObjectKey.EXCLUSIVE);
 			}
 
@@ -3765,7 +3765,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				Skill aSkill = (Skill) pObject;
 
 				return (pcClass != null)
-					&& !(aSkill.getSafe(ObjectKey.EXCLUSIVE) && !SkillCostCalc.isClassSkill(aSkill, pcClass, aPC));
+					&& !(aSkill.getSafe(ObjectKey.EXCLUSIVE) && !aPC.isClassSkill(aSkill, pcClass));
 			}
 
 			return true;
@@ -4186,7 +4186,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					|| Globals.checkRule(RuleConstants.SKILLMAX)) //$NON-NLS-1$
 				{
 					final int cost =
-							SkillCostCalc.skillCostForPCClass(aSkill, aClass, pc).getCost();
+							pc.getSkillCostForClass(aSkill, aClass).getCost();
 					final double pointsNeeded =
 							Math.floor((maxRank - aSkill.getTotalRank(pc)
 								.doubleValue())
@@ -4281,7 +4281,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						//TODO: This value is thrown away, should it really be?
 						iter.next();
 						final int cost =
-								SkillCostCalc.skillCostForPCClass(aSkill, getSelectedPCClass(), pc).getCost();
+								pc.getSkillCostForClass(aSkill, getSelectedPCClass()).getCost();
 						double points =
 								-aSkill.getTotalRank(pc).doubleValue() * cost;
 						if (SkillCost.CLASS.getCost() > 1)

@@ -77,7 +77,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			//loop through skill list checking for type and class skill
 			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 			{
-				if (skill.isType(skillKey) && SkillCostCalc.isClassSkill( skill, character ))
+				if (skill.isType(skillKey) && character.isClassSkill(skill))
 				{
 					skillMatches.add(skill);
 					runningTotal++;
@@ -88,7 +88,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 			{
 BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 				{
-					if (SkillCostCalc.isClassSkill( fake, character ))
+					if (character.isClassSkill(fake))
 					{
 						for(Skill mock: serveAsSkills.get(fake))
 						{
@@ -112,7 +112,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		else
 		{
 			Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
-			if (skill != null && SkillCostCalc.isClassSkill( skill, character ))
+			if (skill != null && character.isClassSkill(skill))
 			{
 				runningTotal++;
 			}
@@ -120,7 +120,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 			{
 				for(Skill mock: imitators)
 				{
-					if (SkillCostCalc.isClassSkill( mock, character ) && serveAsSkills.get(mock).contains(skill))
+					if (character.isClassSkill(mock) && serveAsSkills.get(mock).contains(skill))
 					{
 						runningTotal++;
 						break;

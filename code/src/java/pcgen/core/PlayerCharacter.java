@@ -81,7 +81,6 @@ import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
@@ -119,7 +118,6 @@ import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
-import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -3050,7 +3048,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					// Only add the cost for skills associated with a class.
 					// Skill ranks from feats etc are free.
-					final int cost = SkillCostCalc.skillCostForPCClass(aSkill, pcClass, this).getCost();
+					final int cost = this.getSkillCostForClass(aSkill, pcClass).getCost();
 					returnValue -= (int) (cost * curRank);
 				}
 			}
@@ -6006,7 +6004,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			for (PCClass bClass : classList)
 			{
-				if (SkillCostCalc.isClassSkill(aSkill, bClass, this))
+				if (this.isClassSkill(aSkill, bClass))
 				{
 					levelForSkillPurposes += bClass.getLevel();
 				}
@@ -6042,15 +6040,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							levelForSkillPurposes, this);
 			}
 		}
-		else if (!SkillCostCalc.isClassSkill(aSkill, classList, this)
-			&& (SkillCostCalc.skillCostForPCClass(aSkill, aClass, this).equals(SkillCost.CLASS)))
+		else if (!this.isClassSkill(aSkill)
+			&& (this.getSkillCostForClass(aSkill, aClass).equals(SkillCost.CLASS)))
 		{
 			// Cross class skill - but as cost is 1 only return a whole number
 			maxRanks =
 					new BigDecimal(SkillUtilities.maxCrossClassSkillForLevel(
 						levelForSkillPurposes, this).intValue()); // This was (int) (i/2.0) previously
 		}
-		else if (!SkillCostCalc.isClassSkill(aSkill, classList, this))
+		else if (!this.isClassSkill(aSkill))
 		{
 			// Cross class skill
 			maxRanks =
@@ -13846,8 +13844,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		if (skill.getSafe(ObjectKey.EXCLUSIVE))
 		{
-			return SkillCostCalc.isClassSkill(skill, classList, this)
-				|| SkillCostCalc.isCrossClassSkill(skill, classList, this);
+			return this.isClassSkill(skill)
+				|| this.isCrossClassSkill(skill);
 		}
 		else
 		{
@@ -17944,5 +17942,44 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void setTemplatesAdded(PObject po, PCTemplate pct)
 	{
 		templatesAdded.addToListFor(po, pct);
+	}
+
+	public boolean isClassSkill(Skill sk, PCClass pcc)
+	{
+		return SkillCost.CLASS.equals(cache.getSkillCost(this, sk, pcc));
+	}
+
+	public boolean isClassSkill(Skill sk)
+	{
+		for (PCClass cl : classList)
+		{
+			if (isClassSkill(sk, cl))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean isCrossClassSkill(Skill sk, PCClass pcc)
+	{
+		return SkillCost.CROSS_CLASS.equals(cache.getSkillCost(this, sk, pcc));
+	}
+
+	public boolean isCrossClassSkill(Skill sk)
+	{
+		for (PCClass cl : classList)
+		{
+			if (isCrossClassSkill(sk, cl))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public SkillCost getSkillCostForClass(Skill sk, PCClass cl)
+	{
+		return cache.getSkillCost(this, sk, cl);
 	}
 }

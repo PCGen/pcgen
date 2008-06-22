@@ -23,15 +23,13 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.cdom.enumeration.SkillCost;
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillCostCalc;
-
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing from among a PCs class skills.
@@ -69,9 +67,7 @@ public class ClassSkillsChoiceManager extends AbstractBasicPObjectChoiceManager<
 	{
 		for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
 		{
-			SkillCost sCost = SkillCostCalc.costForPCClassList(skill, aPc.getClassList(), aPc);
-
-			if (sCost.equals(SkillCost.CLASS))
+			if (aPc.isClassSkill(skill))
 			{
 				availableList.add(skill);
 			}

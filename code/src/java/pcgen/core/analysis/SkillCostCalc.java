@@ -40,7 +40,7 @@ import pcgen.core.Skill;
 public final class SkillCostCalc
 {
 
-	public static boolean isClassSkill(Skill sk, PCClass aClass,
+	private static boolean isClassSkill(Skill sk, PCClass aClass,
 			PlayerCharacter aPC)
 	{
 		if ((aPC == null) || (aClass == null))
@@ -204,60 +204,7 @@ public final class SkillCostCalc
 		}
 	}
 
-	/**
-	 * Is this skill a class skill for any class possessed by this character.
-	 * 
-	 * @param aPC
-	 *            PlayerCharacter
-	 * @return true if this is a class skill
-	 */
-	public static boolean isClassSkill(Skill sk, PlayerCharacter aPC)
-	{
-		return isClassSkill(sk, aPC.getClassList(), aPC);
-	}
-
-	public static boolean isClassSkill(Skill sk, List<PCClass> aList,
-			PlayerCharacter aPC)
-	{
-		for (PCClass pcClass : aList)
-		{
-			if (isClassSkill(sk, pcClass, aPC))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public static SkillCost costForPCClassList(Skill sk,
-			List<PCClass> aPCClassList, PlayerCharacter aPC)
-	{
-		SkillCost sc = SkillCost.EXCLUSIVE; // Assume we can't buy
-		int classListSize = aPCClassList.size();
-
-		if (classListSize == 0)
-		{
-			return sc;
-		}
-
-		for (PCClass pcClass : aPCClassList)
-		{
-			SkillCost csc = skillCostForPCClass(sk, pcClass, aPC);
-			if (csc.equals(SkillCost.CLASS))
-			{
-				return csc;
-			}
-			if (!csc.equals(SkillCost.EXCLUSIVE))
-			{
-				sc = csc;
-			}
-		}
-
-		return sc;
-	}
-
-	public static boolean isCrossClassSkill(Skill sk, PCClass aClass,
+	private static boolean isCrossClassSkill(Skill sk, PCClass aClass,
 			PlayerCharacter aPC)
 	{
 		if (isClassSkill(sk, aClass, aPC))
@@ -351,29 +298,6 @@ public final class SkillCostCalc
 		for (PCTemplate template : aPC.getTemplateList())
 		{
 			if (template.hasCcSkill(keyName))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Check if this skill is cross class for any of the list of classes.
-	 * 
-	 * @param aList
-	 *            List of classes to be checked
-	 * @param aPC
-	 *            The character we are checking for.
-	 * @return true if it is a cross-class skill for any of the classes.
-	 */
-	public static boolean isCrossClassSkill(Skill sk, List<PCClass> aList,
-			PlayerCharacter aPC)
-	{
-		for (PCClass pcClass : aList)
-		{
-			if (isCrossClassSkill(sk, pcClass, aPC))
 			{
 				return true;
 			}
