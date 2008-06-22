@@ -193,8 +193,8 @@ public final class SkillCostCalc
 		{
 			return SkillCost.CLASS;
 		}
-		else if (!isCrossClassSkill(sk, aClass, aPC)
-				&& sk.getSafe(ObjectKey.EXCLUSIVE))
+		else if (sk.getSafe(ObjectKey.EXCLUSIVE)
+				&& !isCrossClassSkill(sk, aClass, aPC))
 		{
 			return SkillCost.EXCLUSIVE;
 		}
