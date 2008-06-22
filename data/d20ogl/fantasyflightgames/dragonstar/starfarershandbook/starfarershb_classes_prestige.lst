@@ -20,7 +20,7 @@ CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONU
 CLASS:Gundancer	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump=5,Tumble=5	PREABILITY:1,CATEGORY=Special Ability,Evasion
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Freefall|Jump|Listen|Spot|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression

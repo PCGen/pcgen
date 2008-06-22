@@ -52,7 +52,7 @@ CLASS:Avenging Knife	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:2,Improved Initiative,In
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Aradil's Eye	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1															AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1															AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1															AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1															AUTO:FEAT|The Drop
 2															AUTO:FEAT|Security Breach

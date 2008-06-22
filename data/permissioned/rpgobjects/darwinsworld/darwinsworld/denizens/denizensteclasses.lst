@@ -36,7 +36,7 @@ CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit P
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Sense Motive|Speak Language
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -53,7 +53,7 @@ CLASS:Champion	PREATT:10	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=5	!PRETEMPLAT
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Listen|Ride|Sense Motive|Spot|Tumble
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -95,7 +95,7 @@ CLASS:Foundationist Paladin	HD:10		TYPE:PC.Prestige	ABB:FPa		MAXLEVEL:10	SOURCEP
 CLASS:Foundationist Paladin	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:1,Knowledge (Ancient Lore)=8	PRESTAT:1,INT=15	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Knowledge (Ancient Lore)|Knowledge (Vehicle Operations)|Ride
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Martial Weapon Proficiencies|All Exotic Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	SAB:Ancient Lore									ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
@@ -144,7 +144,7 @@ CLASS:Ranger (DW)	HD:10		TYPE:PC.Prestige	ABB:RDW		MAXLEVEL:5	SOURCEPAGE:p.33	BO
 CLASS:Ranger (DW)	PREALIGN:LG,LN	PREATT:7	PREFEAT:2,Iron Will,Toughness	PRESTAT:1,CON=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Listen|Move Silently|Ride|Sense Motive|Speak Language|Spot|Use Rope|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	SAB:Rigorous Training
@@ -159,7 +159,7 @@ CLASS:Road Warrior	HD:8		TYPE:PC.Prestige	ABB:RWa		MAXLEVEL:5	SOURCEPAGE:p.35	BO
 CLASS:Road Warrior	PREATT:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics)=4,Knowledge (Vehicle Operations)=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disable Device|Escape Artist|Intuit Direction|Jump|Knowledge (Vehicle Operations)|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SAB:Boarding Party	SAB:Offensive Driving
 2	SAB:Defensive Driving
