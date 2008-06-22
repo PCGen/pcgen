@@ -4,7 +4,7 @@ SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:EMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Domain				Required Feat																	Required Skill							Req. Spell Type						Required Text
-CLASS:Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PREFEAT:1,Summon Familiar	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
+CLASS:Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PREABILITY:1,CATEGORY=Special Ability,Summon Familiar	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
 1	BONUS:VAR|ElementalTurningLevel|CL	ADD:SPELLCASTER|1|ANY							ABILITY:Special Ability|AUTOMATIC|Theurgy|Elemental Familiar|Elemental Turning
