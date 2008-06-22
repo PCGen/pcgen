@@ -62,8 +62,8 @@ CLASS:Beltinian Hospitaler	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LE
 4										BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)	SAB:Mercy For All	SAB:Weapons of Our Mother (Ex)																						VFEAT:Two Weapon Fighting|PREMULT:1,[PREEQUIPBOTH:1,Quarterstaff],[PREEQUIPTWOWEAPON:1,Mace (Light)]	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2	CAST:0,0		SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Merciful Strike (Ex)	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	BONUS:VAR|LayOnHands|max(CHA,0)*CL	DEFINE:LayOnHands|0
-3	CAST:0,1		SAB:Divine Health (Ex)
+2	CAST:0,0		ABILITY:Special Ability|AUTOMATIC|Lay on Hands|Divine Grace	SAB:Merciful Strike (Ex)	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	BONUS:VAR|LayOnHands|max(CHA,0)*CL	DEFINE:LayOnHands|0
+3	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Divine Health
 4	CAST:0,2,0
 5	CAST:0,3,1
 6	CAST:0,3,2
@@ -99,8 +99,8 @@ CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)	SAB:Smite Evil (Su) %/day|SmiteEvil									BONUS:VAR|SmiteEvil|1			DEFINE:SmiteEvil|0	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2				SAB:Divine Grace (Ex)										BONUS:CHECKS|ALL|max(CHA,0)											SPELLS:Class|TIMES=max(CHA,1)|CASTERLEVEL=CL|Deathwatch
-3				SAB:Divine Health (Ex)	ABILITY:Special Ability|AUTOMATIC|Aura of Courage
+2				ABILITY:Special Ability|AUTOMATIC|Divine Grace																					SPELLS:Class|TIMES=max(CHA,1)|CASTERLEVEL=CL|Deathwatch
+3					ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
 4	CAST:0,0		SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
 5	CAST:0,0
 6	CAST:0,1		SAB:Special Mount (Sp)
@@ -136,8 +136,8 @@ CLASS:Fatespinner	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)	SAB:Detect Aura (Sp)									AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2				SAB:Divine Grace (Su)	SAB:Borrowed Time (Su)	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
-3				SAB:Divine Health (Ex)
+2				ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Borrowed Time (Su)	
+3				ABILITY:Special Ability|AUTOMATIC|Divine Health
 4	CAST:0,0		SAB:Pull the Strands of Fate (Su)
 5	CAST:0,0
 6	CAST:0,1		SAB:More Borrowed Time (Su)
@@ -179,8 +179,8 @@ CLASS:Harbinger of the Dawn	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|L
 4										BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block:Level Stuff
 1				SAB:Aura of Faith (Su)	SAB:Smite Chaos (Su) (%/Day, +% to hit, +% Damage)|SmiteChaos|ChaosHit|ChaosDamage									BONUS:VAR|ChaosHit|max(CHA,0)	BONUS:VAR|ChaosDamage|CL	DEFINE:SmiteChaos|1	DEFINE:ChaosHit|0	DEFINE:ChaosDamage|0	SPELLS:Class|TIMES=ATWILL|Detect Chaos	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
-2				SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Divine Grace (Su)								BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	BONUS:VAR|LayOnHands|max(CHA,0)*CL					DEFINE:LayOnHands|0
-3				SAB:Aura of Courage (Ex)	SAB:Divine Health (Ex)
+2				ABILITY:Special Ability|AUTOMATIC|Lay on Hands|Divine Grace								BONUS:VAR|LayOnHands|CL					
+3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
 4	CAST:0,0																																																								AUTO:FEAT|Weapon Focus(Gladius)
 5	CAST:0,0
 6	CAST:0,1		SAB:Perfect Emotions (Ex)																																																		AUTO:FEAT|Improved Familiar
@@ -218,8 +218,8 @@ CLASS:Holy Judge of Nier	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)	SAB:Discern Aura (Sp)	SAB:Smite Infidel (Su) (%/Day, +% to hit, +% Damage)|SmiteInfidel|InfidelHit|InfidelDamage									BONUS:VAR|InfidelHit|max(CHA,0)	BONUS:VAR|InfidelDamage|CL	DEFINE:SmiteInfidel|0	DEFINE:SmiteInfidel|1	DEFINE:InfidelHit|0	DEFINE:InfidelDamage|0	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2				SAB:Divine Grace (Su)	SAB:Fiery Touch (Su) 1/Day																BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
-3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Divine Health (Ex)
+2				ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Fiery Touch (Su) 1/Day																
+3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
 4	CAST:0,0																																																													AUTO:FEAT|Weapon Focus (Greatsword)
 5	CAST:0,0
 6	CAST:0,1		SAB:Stand and Be Judged (Su)
@@ -259,11 +259,11 @@ CLASS:Knight of the Twelve Oaks	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL
 4										BONUS:VAR|TurnCheckBase|CHA|TYPE=Knight of the Twelve Oaks
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)																			BONUS:VAR|SmiteEvil|(CL/6)+1								SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil				AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2				SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands				BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	BONUS:VAR|LayOnHands|max(CHA,0)*CL	DEFINE:LayOnHands|0
-3				SAB:Know Thy Friends (Sp)	SAB:Divine Health (Ex)																				DEFINE:DiscernTimes|max(CHA,1)	SPELLS:Class|TIMES=DiscernTimes|CASTERLEVEL=CL|Discern Lies
+2				ABILITY:Special Ability|AUTOMATIC|Lay on Hands|Divine Grace					BONUS:VAR|LayOnHandsLVL|CL	
+3				SAB:Know Thy Friends (Sp)	ABILITY:Special Ability|AUTOMATIC|Divine Health																				DEFINE:DiscernTimes|max(CHA,1)	SPELLS:Class|TIMES=DiscernTimes|CASTERLEVEL=CL|Discern Lies
 4	CAST:0,0		SAB:Defender of the Children (Ex)
 5	CAST:0,0
-6	CAST:0,1		SAB:Special Mount (Sp)																															SPELLS:Class|TIMES=ChannelTimesBase|CASTERLEVEL=CL|Shield Other (KoTO)
+6	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Special Mount																															SPELLS:Class|TIMES=ChannelTimesBase|CASTERLEVEL=CL|Shield Other (KoTO)
 7	CAST:0,1
 8	CAST:0,1,0		SAB:Smite the Wayward Spirits (Su)
 9	CAST:0,1,0
@@ -458,7 +458,7 @@ SUBCLASSLEVEL:3						SAB:Wild Empathy (Ex) (Water Only)																									
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 1	CAST:3,1				SAB:Aura of Faith (Ex)	SAB:Trust in Faith		SAB:Rituals of the Faith
 2	CAST:4,2
-3	CAST:4,2,1				SAB:Divine Health (Ex)
+3	CAST:4,2,1				ABILITY:Special Ability|AUTOMATIC|Divine Health
 4	CAST:5,3,2
 5	CAST:5,3,2,1			SAB:Dogma (Ex)	SAB:Sermon (Inspire the Faithful) (Su)|PRESKILL:2,TYPE.Religion=8,Perform (Oratory)=8		BONUS:DOMAIN|NUMBER|1
 6	CAST:5,3,3,2
@@ -495,8 +495,8 @@ CLASS:Sea Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 ###Block: Level Stuff
 1							SAB:Aura of Faith (Ex)	SAB:+2 to all skill checks when used at sea.													AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2
-3							SAB:Divine Health (Ex)	SAB:Yarris' Embrace (Sp)
-4	CAST:0,0		MOVE:Swim,30	SAB:At One with the Sea (Ex)	SAB:Divine Grace (Ex)	SAB:First Pearl of Yarris (Su) - Medium/Medium, Humanoid	BONUS:CHECKS|ALL|max(CHA,0)
+3							ABILITY:Special Ability|AUTOMATIC|Divine Health	SAB:Yarris' Embrace (Sp)
+4	CAST:0,0		MOVE:Swim,30	SAB:At One with the Sea (Ex)	ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:First Pearl of Yarris (Su) - Medium/Medium, Humanoid
 5	CAST:0,0
 6	CAST:0,1					SAB:Second Pearl of Yarris (Su) - Animal/Monstrous Humanoid
 7	CAST:0,1
@@ -531,7 +531,7 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1				VISION:Darkvision (60')					SAB:Aura of Faith (Ex)	SAB:Detect Evil (Sp)																													SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil												AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2												SAB:Defensive Stance (Ex)	SAB:Divine Grace (Ex)	SAB:Talons of Flame (Su) % hp/day|TalonFlame	BONUS:CHECKS|ALL|max(CHA,0)				BONUS:VAR|TalonFlame|CHA*CL			DEFINE:TalonFlame|0
+2												SAB:Defensive Stance (Ex)	ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Talons of Flame (Su) % hp/day|TalonFlame					BONUS:VAR|TalonFlame|CHA*CL			DEFINE:TalonFlame|0
 3												ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Burning Blood (Ex) ~ immune to natural poisons
 4	CAST:0,0										SAB:Ssethric Enforcer (Su)
 5	CAST:0,0
@@ -568,8 +568,8 @@ CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)																						BONUS:VAR|SmiteEvil|1			SPELLS:Class|TIMES=ATWILL|Detect Evil				AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2				SAB:Divine Grace (Su)	SAB:Electricity Resistance % (Su)|2*CL							BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
-3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Divine Health (Ex)
+2				ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Electricity Resistance % (Su)|2*CL							
+3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
 4	CAST:0,0																																											AUTO:FEAT|Weapon Focus (Longsword)
 5	CAST:0,0
 6	CAST:0,1		SAB:Hand of the Storm Lord - Fortitude DC % (Sp)|10+CHA+(floor(CL/2))	SAB:Ride the Lightning (Sp)
@@ -609,7 +609,7 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 1				VISION:Darkvision (60')	SAB:Aura of Faith (Ex)	SAB:Pierce the Veil of Shadow (Su)																																							AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2								SAB:Cloak of Cadic (Su)
 3								SAB:Shadow Jump (Su)
-4	CAST:0,0						SAB:Divine Grace (Su)									BONUS:CHECKS|ALL|max(CHA,0)	BONUS:VAR|SmiteEvil|1																												AUTO:FEAT|Smite Evil
+4	CAST:0,0						ABILITY:Special Ability|AUTOMATIC|Divine Grace										BONUS:VAR|SmiteEvil|1																												AUTO:FEAT|Smite Evil
 5	CAST:0,0						SAB:Trapfinding
 6	CAST:0,1						SAB:Cloak of Cadic (Womb of Darkness) (Su)															ADD:FEAT|1|Evasion
 7	CAST:0,1
@@ -619,7 +619,7 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1					ABILITY:Special Ability|AUTOMATIC|Aura of Courage																		ADD:FEAT|1|Slippery Mind
 13	CAST:0,1,1,1
-14	CAST:0,2,1,1,0					SAB:Cloak of Cadic (Cover of Night) (Su)	SAB:Hide in Plain Sight (Su)
+14	CAST:0,2,1,1,0					SAB:Cloak of Cadic (Cover of Night) (Su)	ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Su)
 15	CAST:0,2,1,1,1
 16	CAST:0,2,2,1,1					SAB:Shadow Mage (Sp)																																		SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration (Greater)
 17	CAST:0,2,2,2,1
@@ -644,8 +644,8 @@ CLASS:Verdant Champion	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 4	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level Stuff
 1												SAB:Aura of Faith (Ex)	SAB:Stability (Ex)	SAB:Strength of the Earth (Su)																				AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
-2												SAB:Divine Grace (Ex)	SAB:Lay on Hands (Su) % hp/day|LayOnHands				BONUS:CHECKS|ALL|max(CHA,0)					BONUS:VAR|LayOnHands|max(CHA,0)*CL	DEFINE:LayOnHands|0
-3												SAB:Divine Health (Ex)	SAB:Thorn of Saluwe (Sp)
+2												ABILITY:Special Ability|AUTOMATIC|Lay on Hands|Divine Grace					BONUS:VAR|LayOnHandsLVL|CL			
+3												ABILITY:Special Ability|AUTOMATIC|Divine Health	SAB:Thorn of Saluwe (Sp)
 4	CAST:0,0										SAB:Gaea's Embrace (Su)
 5	CAST:0,0
 6	CAST:0,1										SAB:Special Mount (Sp)	SAB:Earth Mastery (Ex)

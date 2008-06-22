@@ -156,7 +156,7 @@ Strength of Purpose	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:St
 Divine Wrath		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Divine Wrath - All weapons act as magical weapons with a bonus of +% against Outsiders of opposing alignment.|var("CLASSLEVEL=Exemplar")/2|!PRECLASS:1,Exemplar=5	SAB:Divine Wrath - All weapons act as magical weapons with a bonus of +% against Outsiders and spellcasters of opposing alignment|var("CLASSLEVEL=Exemplar")/2|PRECLASS:1,Exemplar=5
 Enlightened Madness	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Enlightened Madness
 Scorn the Heretic		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Scorn The Heretic
-Divine Grace		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Divine Grace
+#Divine Grace		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Divine Grace
 Departure			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Departure
 Exemplar Revealed		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:The Exemplar Reaevled
 

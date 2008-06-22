@@ -519,7 +519,7 @@ CLASS:Order of the Thundering Storm	PRECHECKBASE:1,Will=6	PREDEITY:1,Hurrian	PRE
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Religion)|Ride|Tumble
 1	SAB:The Reluctant Warrior (Su)
-2	SAB:Lay on Hands (Su) % hp/day|LayOnHands|!PRESA:1,Lay on Hands (Su)	BONUS:VAR|LayOnHands|max(CHA,0)*CL							DEFINE:LayOnHands|0
+2	ABILITY:Special Ability|AUTOMATIC|Lay on Hands|!PRESA:1,Lay on Hands (Su)					BONUS:VAR|LayOnHandsLVL|CL	
 3	SAB:Way of the Wind (Ex)
 4	SAB:Force of the Storm (Su) %/day|ForceStormTimes				BONUS:VAR|ForceStormTimes|CL/4							DEFINE:ForceStormTimes|0
 5	SAB:The Tempest (Ex)

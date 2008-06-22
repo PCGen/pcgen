@@ -125,7 +125,7 @@ Awaken Ancestral Blade	TYPE:SpecialAbility.Extraordinary	VISIBLE:NO	SAB:Awaken A
 Alter Ego										TYPE:SpecialAbility.Supernatural				VISIBLE:NO		SAB:Alter Ego (Su) [% alter egos]|NumAlterEgos|PREVARLT:TL,7	SAB:Alter Ego (Su) [Any number of aliases]|PREVARGTEQ:AlterEgoLvl,7																																																																																																																	DEFINE:AlterEgoLvl|0	DEFINE:NumAlterEgos|1																																																																																																																				BONUS:VAR|NumAlterEgos|1|PREVARGTEQ:AlterEgoLvl,3
 Mindbond										TYPE:SpecialAbility.Supernatural				VISIBLE:NO		SAB:Mindbond (Su)
 Closed Mind										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Closed Mind (Ex)
-Hide in Plain Sight								TYPE:SpecialAbility.Supernatural				VISIBLE:NO		SAB:Hide in Plain Sight (Su)
+#Hide in Plain Sight								TYPE:SpecialAbility.Supernatural				VISIBLE:NO		SAB:Hide in Plain Sight (Su)
 
 
 The Drop										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:The Drop (Ex)																																																																																																																																																																																																											BONUS:COMBAT|TOHIT,DAMAGE|2|PREAPPLY:PC																																																												BONUS:WEAPONPROF=TYPE.Weapon|CRITMULTADD|1|PREAPPLY:PC	TEMPDESC:Bonus when attacking a flat-footed opponent.

@@ -623,7 +623,7 @@ Ironclad			TYPE:HTrueRacialTalent			VISIBLE:NO							SAB:Ironclad (Ex)								MU
 Defending Soldier		TYPE:HTrueRacialTransformation	VISIBLE:NO			PREFEAT:1,Dodge		SAB:Defending Soldier (Ex)						MULT:NO																	SOURCEPAGE:p.107
 Strength of Conquest	TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Strength of Conquest (Su)						MULT:NO																	SOURCEPAGE:p.107
 Holy Light			TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Holy Light (Sp)		SPELLS:Innate|TIMES=ATWILL|Light	MULT:NO																	SOURCEPAGE:p.107
-Divine Health		TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Divine Health (Ex)							MULT:NO																	SOURCEPAGE:p.107
+Divine Health		TYPE:HTrueRacialTransformation	VISIBLE:NO							ABILITY:Special Ability|AUTOMATIC|Divine Health							MULT:NO																	SOURCEPAGE:p.107
 Divine Heritage		TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Divine Heritage (Ex)						MULT:NO																	SOURCEPAGE:p.107
 Followthrough		TYPE:HTrueRacialTransformation	VISIBLE:NO	PREATT:6					SAB:Followthrough (Ex)							MULT:NO																	SOURCEPAGE:p.107
 Staunch			TYPE:HTrueRacialTransformation	VISIBLE:NO							SAB:Staunch (Ex)								MULT:NO	ADD:FEAT|2|TYPE=HTrueStaunchBonus											SOURCEPAGE:p.107

@@ -196,7 +196,7 @@ CLASS:Noble		PRESTAT:1,NOB=51
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Sense Motive
 1	SAB:Dispense Justice (Ex)	SAB:Aura of Nobility (Ex)	SAB:Nobless Oblige (Ex)									BONUS:SKILL|Intimidate|AuraNobility	BONUS:VAR|AuraNobility|NOB/2	DEFINE:AuraNobility|0	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2	SAB:Divine Grace (Su)											BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+2	ABILITY:Special Ability|AUTOMATIC|Divine Grace											
 3	SAB:Quest +% (Ex)|Qust																									BONUS:VAR|Qust|CL/3		DEFINE:Qust|0
 4	ABILITY:Special Ability|AUTOMATIC|Aura of Courage
 5	SAB:Divine Wrath %/day (Su)|DivineWrath																						BONUS:VAR|DivineWrath|1		DEFINE:DivineWrath|0
