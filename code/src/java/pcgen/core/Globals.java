@@ -51,6 +51,7 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 
 import pcgen.base.util.MapToList;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -186,9 +187,9 @@ public final class Globals
 			}
 		};
 
-	private static final Comparator<PObject> pObjectNameComp = new Comparator<PObject>()
+	private static final Comparator<CDOMObject> pObjectNameComp = new Comparator<CDOMObject>()
 		{
-			public int compare(final PObject o1, final PObject o2)
+			public int compare(final CDOMObject o1, final CDOMObject o2)
 			{
 				final Collator collator = Collator.getInstance();
 				return collator.compare(o1.getDisplayName(), o2.getDisplayName());
@@ -2329,7 +2330,7 @@ public final class Globals
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static <T extends PObject> List<T> sortPObjectListByName(final List<T> aList)
+	public static <T extends CDOMObject> List<T> sortPObjectListByName(final List<T> aList)
 	{
 		Collections.sort(aList, pObjectNameComp);
 
