@@ -180,7 +180,7 @@ SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Imp
 1	BONUS:VAR|MonkACLvl|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
 1	BONUS:VAR|MonkMoveLvl|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2			SAB:Flurry of Blows (Ex)																DEFINE:MonkLvl|CL											AUTO:FEAT|Improved Unarmed Strike
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2			ABILITY:Special Ability|AUTOMATIC|Flurry of Blows																DEFINE:MonkLvl|CL											AUTO:FEAT|Improved Unarmed Strike
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							ABILITY:Special Ability|AUTOMATIC|Evasion
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6						SAB:Still Mind (Ex)
 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Ki Strike (Magic)|PREVARLT:CL,10	ABILITY:Special Ability|AUTOMATIC|Slow Fall	BONUS:VAR|SlowFallMonkProgression|1	BONUS:VAR|SlowFall|floor((CL)/2)*10

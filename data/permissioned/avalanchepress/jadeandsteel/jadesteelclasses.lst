@@ -96,13 +96,13 @@ CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	ABB:SwS		MAXLEVEL:10	SOURCEPAGE:p.17	B
 CLASS:Sword Saint	PREATT:6	PREFEAT:4,Weapon Specialization,Expertise,Quick Draw,Spring Attack
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sword Saint	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Religion)|Tumble
-1	SAB:Flurry of Blows
-2	SAB:Still Mind
+1	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
+2	ABILITY:Special Ability|AUTOMATIC|Still Mind
 3												ADD:FEAT|1|Deflect Arrows
 4					BONUS:COMBAT|TOHIT|2|TYPE=Enhancement	ADD:FEAT|1|Superior Weapon Focus
 5	SAB:Leap of The Clouds
 6												ADD:FEAT|1|Lightning Reflexes
 7					BONUS:COMBAT|DAMAGE|2|TYPE=Enhancement	ADD:FEAT|1|Superior Weapon Specialization
 8	SAB:Perfect Balance
-9	SAB:Wholeness of Body
+9	ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
 10	SAB:Spellcleaver
