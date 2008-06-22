@@ -72,7 +72,7 @@ CLASS:Changeling	PREATT:7	PREFEAT:2,Animal Affinity,Self Sufficient	PRESA:1,Wild
 CLASS:Changeling	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Natural
 ###Block: Normal Level Progression
-1	SAB:Bestial Rage %/day (Ex)|BestialRage	SAB:Wild Empathy (Ex)	SAB:Bestial Lore (Ex)	BONUS:VAR|BestialRage|CL/3+1	DEFINE:BestialRage|0
+1	SAB:Bestial Rage %/day (Ex)|BestialRage	ABILITY:Special Ability|AUTOMATIC|Wild Empathy	SAB:Bestial Lore (Ex)	BONUS:VAR|BestialRage|CL/3+1	DEFINE:BestialRage|0
 2	SAB:Animal Magnetism (Su)	SAB:Wildshape %/day|Wildshape	SAB:Wildshape (Large)		BONUS:VAR|Wildshape|CL/2	DEFINE:Wildshape|0
 3	SAB:Bestial Lore
 4	SAB:Wildshape (Tiny)

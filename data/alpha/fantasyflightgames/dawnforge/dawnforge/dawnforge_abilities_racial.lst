@@ -159,7 +159,7 @@ Dawn Elf Talent Feats	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBL
 # Ability Name				Category of Ability		Type						Visible	Required Text									Special ABility			Stackable?	Multiple?	Choose		Bonus to Ability Pool						Source Page
 Elfsight					CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Elfsight					MULT:NO													SOURCEPAGE:p.25
 Improved Spell Immunity			CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Improved Spell Immunity			MULT:NO													SOURCEPAGE:p.25
-Wild Empathy				CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Wild Empathy					MULT:NO													SOURCEPAGE:p.25
+Wild Empathy				CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												ABILITY:Special Ability|VIRTUAL|Wild Empathy					MULT:NO													SOURCEPAGE:p.25
 Ageless					CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Ageless						MULT:NO													SOURCEPAGE:p.25
 Dawn Elf Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Transformation Skill|5	SOURCEPAGE:p.22
 Dawn Elf Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Transformation Feat|1	SOURCEPAGE:p.22
