@@ -130,7 +130,7 @@ CLASS:Druid (Midnight)	PREFEAT:1,Magecraft (Spiritual)	PRESKILL:2,Knowledge (Nat
 CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
 # Druids and Channeler stack for the bonus spells thing.
 # Master of two worlds - Druid levels stack w/Channeler Spiritual
-1	SAB:Druidcraft	SAB:Nature Sense (Ex)																										AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
+1	SAB:Druidcraft	ABILITY:Special Ability|AUTOMATIC|Nature Sense																										AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
 2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
 3					ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 4	SAB:Trackless Step (Ex)

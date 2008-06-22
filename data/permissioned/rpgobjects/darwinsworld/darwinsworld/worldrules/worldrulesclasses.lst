@@ -62,7 +62,7 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|For
 1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Nature Sense						BONUS:VAR|SneakAttack|CL/5+1																												ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1	ABILITY:Special Ability|AUTOMATIC|Nature Sense						BONUS:VAR|SneakAttack|CL/5+1																												ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 4	SAB:Radiation Sense
 8	SAB:Canny Defense (%)|WIS									BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement	DEFINE:LowArmor|var("COUNT[EQTYPE.ARMOR.EQUIPPED]")-var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")
 12	SAB:Feign Death (% rounds)|FeignDeathRounds																DEFINE:FeignDeathRounds|CL*10
