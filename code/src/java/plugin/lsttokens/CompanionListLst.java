@@ -86,6 +86,9 @@ public class CompanionListLst implements GlobalLstToken
 	private static final String FOLLOWERADJUSTMENT = "FOLLOWERADJUSTMENT"; //$NON-NLS-1$
 	private static final String PRE = "PRE"; //$NON-NLS-1$
 
+	/*
+	 * TODO Need to wait until lists are flattened into the PC to have this at all effective/usable
+	 */
 	/**
 	 * Parses the COMPANIONLIST tag.
 	 * @param anObj The object this tag was found on

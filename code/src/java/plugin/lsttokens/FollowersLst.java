@@ -54,6 +54,9 @@ import java.util.StringTokenizer;
  */
 public class FollowersLst implements GlobalLstToken
 {
+	/*
+	 * TODO Need to wait until lists are flattened into the PC to have this at all effective/usable
+	 */
 	/**
 	 *
 	 * @return token name
