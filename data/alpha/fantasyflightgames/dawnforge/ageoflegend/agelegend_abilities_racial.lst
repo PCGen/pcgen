@@ -289,7 +289,7 @@ Unseen Strength		CATEGORY:Dawnforge Ability	TYPE:HalflingRacialTransformation	VI
 # Ability Name	Category of Ability		Type					Visible	Required Class			Required Lvl	Special ABility												Define			Stackable?	Multiple?	Choose		Modify VAR				Source Page
 Drive the Body	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES	PRECLASS:1,Spirit Adept=1	PRELEVEL:MIN=4	SAB:Drive the Body (Ex)																	MULT:NO									SOURCEPAGE:p.42
 Purity of Heart	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES	PRECLASS:1,Spirit Adept=1				SAB:Purity of Heart (Ex)																MULT:NO									SOURCEPAGE:p.43
-Purity of Body	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES	PRECLASS:1,Spirit Adept=1				SAB:Purity of Body (Ex)																	MULT:NO									SOURCEPAGE:p.43
+Purity of Body	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES	PRECLASS:1,Spirit Adept=1				ABILITY:Special Ability|AUTOMATIC|Purity of Body																	MULT:NO									SOURCEPAGE:p.43
 Strength of Stone	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES	PRECLASS:1,Spirit Adept=1	PRELEVEL:MIN=8	SAB:Strength of Stone (Ex)																MULT:NO									SOURCEPAGE:p.43
 Surge of Will	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES									SAB:Surge of Will (Ex)																	MULT:NO									SOURCEPAGE:p.43
 Way of Spirit	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES	PRECLASS:1,Spirit Adept=1				SAB:Way of Spirit (Ex) (% additional spirit adepth strength points)|WayofSpirit	DEFINE:WayofSpirit|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|WayofSpirit|TL	SOURCEPAGE:p.43

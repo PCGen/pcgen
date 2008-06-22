@@ -179,27 +179,28 @@ SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Imp
 ###Block: Monk AC
 1	BONUS:VAR|MonkACLvl|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
 1	BONUS:VAR|MonkMoveLvl|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
+1	BONUS:VAR|KiStrikeLVL|CL
 ###Block: Level progression
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2			ABILITY:Special Ability|AUTOMATIC|Flurry of Blows																DEFINE:MonkLvl|CL											AUTO:FEAT|Improved Unarmed Strike
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																							ABILITY:Special Ability|AUTOMATIC|Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6						SAB:Still Mind (Ex)
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Ki Strike (Magic)|PREVARLT:CL,10	ABILITY:Special Ability|AUTOMATIC|Slow Fall	BONUS:VAR|SlowFallMonkProgression|1	BONUS:VAR|SlowFall|floor((CL)/2)*10
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Purity of Body (Ex)
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6						ABILITY:Special Ability|AUTOMATIC|Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						ABILITY:Special Ability|AUTOMATIC|Ki Strike|Slow Fall	BONUS:VAR|SlowFallMonkProgression|1	BONUS:VAR|SlowFall|floor((CL)/2)*10
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						ABILITY:Special Ability|AUTOMATIC|Purity of Body
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						SAB:Wholeness of Body (Su) % hp/day|WholenessBody						BONUS:VAR|WholenessBody|CL*2		DEFINE:WholenessBody|0
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6						ABILITY:Special Ability|AUTOMATIC|Wholeness of Body						BONUS:VAR|WholenessBody|CL*2		
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																							ABILITY:Special Ability|AUTOMATIC|Improved Evasion
-10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						SAB:Ki Strike (Magic and Lawful)|PREVARLT:CL,16
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						SAB:Diamond Body (Su)
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						SAB:Abundant Step (Su)
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				SR:10+CL	SAB:Diamond Soul (Ex)
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						ABILITY:Special Ability|AUTOMATIC|Diamond Body
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						ABILITY:Special Ability|AUTOMATIC|Abundant Step
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				SR:10+CL	ABILITY:Special Ability|AUTOMATIC|Diamond Soul
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						SAB:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC			BONUS:VAR|QuiveringPalmDC|CL/2+WIS	DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10
-16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Ki Strike (Magic and Lawful and Adamantine)
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body	SAB:Tongue of the Sun and Moon
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6						ABILITY:Special Ability|AUTOMATIC|Quivering Palm			BONUS:VAR|QuiveringPalmDC|CL/2+WIS	
+16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						ABILITY:Special Ability|AUTOMATIC|Timeless Body|Tongue of the Sun and Moon	TEMPLATE:Timeless Body	
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SAB:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL			DEFINE:EmptyBody|0
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SAB:Perfect Self (Su)	BONUS:VAR|SlowFallMonkProgression|1																					TEMPLATE:Monk Outsider
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						ABILITY:Special Ability|AUTOMATIC|Empty Body							BONUS:VAR|EmptyBody|CL			
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					ABILITY:Special Ability|AUTOMATIC|Perfect Self	BONUS:VAR|SlowFallMonkProgression|1																					TEMPLATE:Monk Outsider
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
@@ -241,7 +242,7 @@ SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon						
 ###Block: Level progression
 1				SAB:Smite Evil (Su) %/day|SmiteEvil	SAB:Aura of Faith (Ex)										BONUS:VAR|SmiteEvil|(CL/5)+1		DEFINE:SmiteEvil|0	DEFINE:AllowHolyAvenger|1	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Su)	SAB:Lay on Hands (Su) % hp/day|LayOnHands	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	BONUS:VAR|LayOnHands|max(CHA,0)*CL	DEFINE:LayOnHands|0
-3				SAB:Aura of Courage (Su)	SAB:Divine Health (Ex)
+3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Divine Health (Ex)
 4	CAST:0,0
 5	CAST:0,0		SAB:Faithful Steed (Sp)
 6	CAST:0,1		SAB:Remove Disease (Sp) %/week|RemoveDisease												BONUS:VAR|RemoveDisease|(CL/3)-1	DEFINE:RemoveDisease|0

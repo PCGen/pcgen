@@ -37,9 +37,9 @@ CLASS:Aradil's Eye	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Deciphe
 2						AUTO:FEAT|Aradil's Eye Spy
 #3	SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL")|Undetectable Alignment
 #4	AUTO:FEAT|Fascinating Speech
-5						AUTO:FEAT|Still Mind
-6						AUTO:FEAT|Hide in Plain Sight
-7						AUTO:FEAT|Slippery Mind
+5						ABILITY:Special Ability|AUTOMATIC|Still Mind
+6						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Su)
+7						ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 #8	Memory Alteration
 #9	Discerning Mind
 

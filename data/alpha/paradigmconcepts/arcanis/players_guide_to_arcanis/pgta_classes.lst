@@ -27,11 +27,11 @@ CLASS:Bearer of Woe	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 5	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			CAST:0,0
 6	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6			CAST:0,1		DR:1/-	SAB:Pain Tolerance (Ex)																																								AUTO:FEAT|Diehard
 7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1
-8	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,0				SAB:Divine Grace (Ex)														BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+8	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,0				ABILITY:Special Ability|AUTOMATIC|Divine Grace														BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
 9	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,0
 10	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1				SAB:Improved Pain Tolerance (Ex)																				BONUS:DR|-|max(floor(max(CON,0)/2),1)
 11	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1,0
-12	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1,1			SAB:Aura of Courage (Ex)	SAB:Inner Strength (Su)																								BONUS:VAR|ChannelTimesBase|max(CON,1)
+12	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1,1			ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Inner Strength (Su)																								BONUS:VAR|ChannelTimesBase|max(CON,1)
 13	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,1,1,1
 14	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6			CAST:0,2,1,1,0			SAB:Travail Stasis (Ex)
 15	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8			CAST:0,2,1,1,1
@@ -100,7 +100,7 @@ CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)	SAB:Smite Evil (Su) %/day|SmiteEvil									BONUS:VAR|SmiteEvil|1			DEFINE:SmiteEvil|0	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Ex)										BONUS:CHECKS|ALL|max(CHA,0)											SPELLS:Class|TIMES=max(CHA,1)|CASTERLEVEL=CL|Deathwatch
-3				SAB:Divine Health (Ex)	SAB:Aura of Courage (Ex)
+3				SAB:Divine Health (Ex)	ABILITY:Special Ability|AUTOMATIC|Aura of Courage
 4	CAST:0,0		SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
 5	CAST:0,0
 6	CAST:0,1		SAB:Special Mount (Sp)
@@ -219,7 +219,7 @@ CLASS:Holy Judge of Nier	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)	SAB:Discern Aura (Sp)	SAB:Smite Infidel (Su) (%/Day, +% to hit, +% Damage)|SmiteInfidel|InfidelHit|InfidelDamage									BONUS:VAR|InfidelHit|max(CHA,0)	BONUS:VAR|InfidelDamage|CL	DEFINE:SmiteInfidel|0	DEFINE:SmiteInfidel|1	DEFINE:InfidelHit|0	DEFINE:InfidelDamage|0	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Su)	SAB:Fiery Touch (Su) 1/Day																BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
-3				SAB:Aura of Courage (Ex)	SAB:Divine Health (Ex)
+3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Divine Health (Ex)
 4	CAST:0,0																																																													AUTO:FEAT|Weapon Focus (Greatsword)
 5	CAST:0,0
 6	CAST:0,1		SAB:Stand and Be Judged (Su)
@@ -311,7 +311,7 @@ CLASS:Order of the Inner Demon	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=
 9	CAST:0,1,0
 10	CAST:0,1,1		SAB:Symbiosis II (Su)|PREVARLT:CL,14																																																									ADD:FEAT|1|TYPE=InnerDemonSecond
 11	CAST:0,1,1,0
-12	CAST:0,1,1,1	SAB:Aura of Courage (Ex)	SAB:Fire Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SAB:Electricity Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock							BONUS:VAR|GreaterResistLevel|CL	DEFINE:GreaterResistLevel|0
+12	CAST:0,1,1,1	ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Fire Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Hamatula,Inner Demon Kyton,Inner Demon Osyluth	SAB:Electricity Resistance % (Su)|GreaterResistLevel|PREFEAT:1,Inner Demon Glabrezu,Inner Demon Succubus,Inner Demon Vrock							BONUS:VAR|GreaterResistLevel|CL	DEFINE:GreaterResistLevel|0
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0	SAB:Symbiosis III (Su)|PREVARLT:CL,18																																																									ADD:FEAT|1|TYPE=InnerDemonThird
 15	CAST:0,2,1,1,1
@@ -376,7 +376,7 @@ CLASS:Philosophic Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEV
 9	CAST:0,1,0
 10	CAST:0,1,1		SAB:Exploit Technique (Ex)	SAB:Special Mount(Sp)
 11	CAST:0,1,1,0
-12	CAST:0,1,1,1	SAB:Aura of Courage (Ex)
+12	CAST:0,1,1,1	ABILITY:Special Ability|AUTOMATIC|Aura of Courage
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0	SAB:Insight of Althares (Ex)
 15	CAST:0,2,1,1,1
@@ -532,7 +532,7 @@ CLASS:Sentinel of the Blazing Wyrm	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 ###Block: Level Stuff
 1				VISION:Darkvision (60')					SAB:Aura of Faith (Ex)	SAB:Detect Evil (Sp)																													SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil												AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2												SAB:Defensive Stance (Ex)	SAB:Divine Grace (Ex)	SAB:Talons of Flame (Su) % hp/day|TalonFlame	BONUS:CHECKS|ALL|max(CHA,0)				BONUS:VAR|TalonFlame|CHA*CL			DEFINE:TalonFlame|0
-3												SAB:Aura of COurage (Ex)	SAB:Burning Blood (Ex) ~ immune to natural poisons
+3												ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Burning Blood (Ex) ~ immune to natural poisons
 4	CAST:0,0										SAB:Ssethric Enforcer (Su)
 5	CAST:0,0
 6	CAST:0,1																																																																		AUTO:FEAT|Dragon's Hide
@@ -569,7 +569,7 @@ CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 ###Block: Level Stuff
 1				SAB:Aura of Faith (Ex)																						BONUS:VAR|SmiteEvil|1			SPELLS:Class|TIMES=ATWILL|Detect Evil				AUTO:FEAT|Smite Evil	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 2				SAB:Divine Grace (Su)	SAB:Electricity Resistance % (Su)|2*CL							BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
-3				SAB:Aura of Courage (Ex)	SAB:Divine Health (Ex)
+3				ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Divine Health (Ex)
 4	CAST:0,0																																											AUTO:FEAT|Weapon Focus (Longsword)
 5	CAST:0,0
 6	CAST:0,1		SAB:Hand of the Storm Lord - Fortitude DC % (Sp)|10+CHA+(floor(CL/2))	SAB:Ride the Lightning (Sp)
@@ -617,7 +617,7 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 9	CAST:0,1,0
 10	CAST:0,1,1						SAB:Cloak of Cadic (Moonless Night) (Su)																															SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Shadow Conjuration
 11	CAST:0,1,1,0
-12	CAST:0,1,1,1					SAB:Aura of Courage (Ex)																		ADD:FEAT|1|Slippery Mind
+12	CAST:0,1,1,1					ABILITY:Special Ability|AUTOMATIC|Aura of Courage																		ADD:FEAT|1|Slippery Mind
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0					SAB:Cloak of Cadic (Cover of Night) (Su)	SAB:Hide in Plain Sight (Su)
 15	CAST:0,2,1,1,1

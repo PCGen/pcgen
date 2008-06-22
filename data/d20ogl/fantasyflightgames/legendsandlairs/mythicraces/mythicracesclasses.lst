@@ -66,14 +66,14 @@ CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 ###Block: Normal Level Progression
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Mystic Discipline (Light)|PREVARLT:CL,2																														ABILITY:Special Ability|VIRTUAL|Evasion	VFEAT:Improved Unarmed Strike
 2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Detect Evil	SAB:Mystic Discipline (Light/Fleetness of Foot)|PREVARLT:CL,3																								VFEAT:Stunning Fist
-3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Aura of Courage	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight)|PREVARLT:CL,4
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Divine Grace	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball)|PREVARLT:CL,5													BONUS:CHECKS|Fortitude,Reflex,Will|min(CHA,0)
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Purity of Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis)|PREVARLT:CL,6
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight)|PREVARLT:CL,4
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball)|PREVARLT:CL,5													BONUS:CHECKS|Fortitude,Reflex,Will|min(CHA,0)
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Purity of Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis)|PREVARLT:CL,6
 6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility)|PREVARLT:CL,7																			VFEAT:Improved Trip
-7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Wholeness of Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas)|PREVARLT:CL,8
+7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Wholeness of Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas)|PREVARLT:CL,8
 8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force)|PREVARLT:CL,9														ABILITY:Special Ability|VIRTUAL|Improved Evasion
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Diamond Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal)|PREVARLT:CL,10
-10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Diamond Soul	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal/Antimagic Field)
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	ABILITY:Special Ability|AUTOMATIC|Diamond Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal)|PREVARLT:CL,10
+10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	ABILITY:Special Ability|AUTOMATIC|Diamond Soul	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal/Antimagic Field)
 
 # Class Name			Hit Dice	Type			Max Level	Source Page			Save checks bonus													Combat bonus
 CLASS:Blickish Infiltrator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33-35	BONUS:CHECKS|BASE.Fortitude|(CL+2)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+5)/3	BONUS:COMBAT|BAB|(CL+3)/2|TYPE=Base.REPLACE

@@ -171,7 +171,7 @@ CLASS:Centurion	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:5	PREFEAT:2,Leadership,Legionn
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Centurion	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|TYPE.Profession|Ride|Sense Motive|Spot|Swim
 1																																												AUTO:FEAT|Strength of the Coryani Heart
-2			SAB:Aura of Courage (Ex)
+2			ABILITY:Special Ability|AUTOMATIC|Aura of Courage
 3																																								ADD:FEAT|1|TYPE=Fighter
 4	DR:1/-
 5			SAB:Discipline of Steel (Ex) (%/day)(+4 attack, +% damage)|DiscSteelDay|DiscSteelDmg				BONUS:VAR|DiscSteelDay|1+(CL>=9)	BONUS:VAR|DiscSteelDmg|CL	DEFINE:DiscSteelDay|0	DEFINE:DiscSteelDay|0
