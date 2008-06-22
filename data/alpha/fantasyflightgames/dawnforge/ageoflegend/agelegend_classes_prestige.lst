@@ -183,7 +183,8 @@ CLASS:Lone Walker	HD:12		TYPE:PC.Prestige	ABB:LWa		MAXLEVEL:10	SOURCEPAGE:p.62	B
 CLASS:Lone Walker	PREATT:6	PREFEAT:3,Endurance,Great Fortitude,Iron Will	PRERACE:1,Minotaur (DF)	PRESKILL:1,Knowledge (History)=4	PRESKILL:1,Survival=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lone Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Intimidate|Jump|Knowledge (History)|Listen|TYPE.Profession|Search|Spot|Survival|Swim|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression

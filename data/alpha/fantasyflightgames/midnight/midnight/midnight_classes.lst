@@ -71,7 +71,8 @@ CLASS:Legate	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Progression
@@ -105,7 +106,8 @@ CLASS:Wildlander	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle A
 # Smite as hidden feat, possibly with PREAPPLY:PC or something.. :)
 # - Tir Gwaith
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -144,7 +146,8 @@ CLASS:Freerider	PREFEAT:2,Mounted Combat,Track	PRERACE:1,Human%	PRESKILL:2,Ride=
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intuit Direction|Jump|Listen|TYPE.Profession|Ride|Spot|Swim|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression

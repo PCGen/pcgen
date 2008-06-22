@@ -20,7 +20,7 @@ CLASS:Merchant	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:Mch		MAXLEVEL:20	SOURCEPAGE:p
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE.Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
-1	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
 1	SAB:Knowledge:Market (Ex)													AUTO:FEAT|Literacy
 3	SAB:Contacts (Ex)	SAB:Haggle (Ex)
@@ -36,7 +36,7 @@ CLASS:Noble		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|TYPE.Knowledge|Read Lips|Ride|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
-1	AUTO:FEAT|Firearms Proficiency|Noble Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Firearms Proficiency|Noble Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
 1	SAB:Resources % (Ex)|BFResources	SAB:Social Standing % (Ex)|BFSocialStanding						DEFINE:BFSocialStanding|1	DEFINE:BFResources|1	AUTO:FEAT|Literacy
 3															BONUS:VAR|BFSocialStanding|1
@@ -83,7 +83,7 @@ CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		MAXLEVEL:20	SOURCEPAGE:p.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disable Device|Heal|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|TYPE.Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies	AUTO:WEAPONPROF|Cutlass
+1	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:WEAPONPROF|Cutlass
 ###Block: Normal Level Progression
 1	SAB:Sea Legs (Ex)					BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=8	BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=6
 2																												AUTO:FEAT|Great Fortitude
@@ -102,7 +102,7 @@ CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:FtSol		MAXLEVEL:20	SOURCEPAGE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim
 ###Block: Proficiency
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Firearms Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Firearms Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression

@@ -27,7 +27,7 @@ CLASS:Evil Eye	PREALIGN:LE,NE,CE	PREFEAT:2,Death Curse Contingency,Iron Will	PRE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft|Psicraft|Spot
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
@@ -64,7 +64,7 @@ CLASS:Servant of Vengeance	PREALIGN:LE,LN,LG	PREFEAT:3,Endurance,Diehard,Iron Wi
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Servant of Vengeance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Gather Information|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Level Progression

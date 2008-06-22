@@ -37,7 +37,8 @@ CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 17	BONUS:CHECKS|BASE.Will|1
 19	BONUS:CHECKS|BASE.Will|1
 ###Block:Proficiencies
-1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Special Abilities:
 5	SAB:Tiger Form

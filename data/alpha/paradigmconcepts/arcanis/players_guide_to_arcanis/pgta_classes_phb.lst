@@ -107,7 +107,7 @@ SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex) (Water Only)																														
 CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Examine Martial Technique|Handle Animal|Intimidate|Jump|Ride|Swim
-1	BONUS:VAR|WeapSpecQualify|CL	DEFINE:WeapSpecQualify|0	ADD:FEAT|1|TYPE=Fighter	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	BONUS:VAR|WeapSpecQualify|CL	DEFINE:WeapSpecQualify|0	ADD:FEAT|1|TYPE=Fighter	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 2											ADD:FEAT|1|TYPE=Fighter
 3
 4											ADD:FEAT|1|TYPE=Fighter
@@ -175,7 +175,7 @@ SUBCLASSLEVEL:2																																																		ADD:VFEAT|1|Cal
 SUBCLASSLEVEL:5	SAB:Immune to all types of fear, and mind-affecting compulsions and spells or spell-like abilities of third level or less.	SAB:Suffer an extra +1d6 damage when struck by an Abomination or Undead.
 SUBCLASSLEVEL:6																																																		ADD:VFEAT|1|Improved Disarm,Improved Trip,Divinity's Purpose
 ###Block:Proficiencies
-1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Monk AC
 1	BONUS:VAR|MonkACLvl|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
 1	BONUS:VAR|MonkMoveLvl|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
@@ -371,7 +371,7 @@ SUBCLASSLEVEL:1	SAB:+2 bonus to Spellcraft when learning Necromancy
 SUBCLASS:Transmuter	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	SAB:+2 bonus to Spellcraft when learning Transmutation
 ###Block:Proficiencies
-1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Level progression
 1	CAST:3,1				SAB:Hunted											AUTO:FEAT|Scribe Scroll|Summon Familiar
 2	CAST:4,2

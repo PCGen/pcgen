@@ -10,7 +10,7 @@ CLASS:Aristo	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Ari		SOURCEPAGE:p.	BONUS:CHECKS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristo	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Perform|Read Lips|Ride|Savoir Faire|Sense Motive|Speak Language|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	ADD:FEAT|2|Simple Weapon Proficiency,Martial Weapon Proficiency,Exotic Weapon Proficiency,Futuristic Weapon Proficiency,Heavy Firearms Weapon Proficiency,Improvised Weapon,Personal Firearms Weapon Proficiency	AUTO:FEAT|All Automatic Proficiencies
+1	ADD:FEAT|2|Simple Weapon Proficiency,Martial Weapon Proficiency,Exotic Weapon Proficiency,Futuristic Weapon Proficiency,Heavy Firearms Weapon Proficiency,Improvised Weapon,Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1																																				AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Megabucks	ADD:FEAT|1|TYPE=Contact
@@ -33,7 +33,7 @@ CLASS:Bard (CS)	PREALIGN:NG,TN,NE,CG,CN,CE
 CLASS:Bard (CS)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|Conceal Object|Criminology|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Linguistics|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scent/Taste|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Bard (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (CS)|CL	SPELLLIST:1|Bard
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow (Composite)|Sword (Short)|Shortbow|Whip
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow (Composite)|Sword (Short)|Shortbow|Whip
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Bardic abilities level definitions.
@@ -73,7 +73,7 @@ CLASS:Cleric (CS)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Know
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level				Use Spell List
 CLASS:Cleric (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (CS)|CL	SPELLLIST:1|Cleric
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Turn Undead stuff
@@ -110,7 +110,7 @@ CLASS:Corporate Super	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:CSpr		SOURCEPAGE:p.	BO
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Corporate Super	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Computer Use|Conceal Object|Criminology|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Read Lips|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Use Rope
 ###Block: Proficiencies
-1	AUTO:FEAT|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=Metahuman	ADD:FEAT|1|TYPE=Contact	AUTO:FEAT|Metahuman Talent
@@ -125,7 +125,7 @@ CLASS:Corporate Super	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Computer Use|Conceal
 CLASS:Dataman	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Data		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|Conceal Object|Criminology|Decipher Script|Disable Device|Forgery|Gather Information|Hide|TYPE.Knowledge|Linguistics|Listen|Medical (First Aid)|Open Lock|TYPE.Profession|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Cybernetics Implant(Datajack)																																								AUTO:FEAT|Cybernetics Implant
@@ -156,7 +156,7 @@ CLASS:Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level				Use Spell List
 CLASS:Druid (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid (CS)|CL	SPELLLIST:1|Druid
 ###Block: Proficiencies
-1	AUTO:FEAT|Druid Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Druid Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -186,7 +186,7 @@ CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Intuit Direction|Knowledge (Nature)|Listen|Medical (First Aid)|TYPE.Profession|Scry|Scent/Taste|Spellcraft|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Druid Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Druid Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 
@@ -195,7 +195,7 @@ CLASS:Gadgeteer	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Gadg		SOURCEPAGE:p.	BONUS:CH
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE.Craft|Demolitions|Disable Device|Invention|Gather Information|Gunslinging|Intuit Direction|TYPE.Knowledge|Listen|Medical (First Aid)|TYPE.Profession|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Initial Creation	SAB:Invention Level %|InventionLevel	BONUS:VAR|InventionLevel|CL+2	BONUS:VAR|CreateGadget|CL	DEFINE:InventionLevel|0	DEFINE:CreateGadget|0	ADD:FEAT|1|TYPE=GadgetCreation
@@ -208,7 +208,7 @@ CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE.Craft|Dem
 CLASS:Gunslinger	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:Gun		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|(CL-1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:5	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Gunslinging|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|TYPE.Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival
-1	AUTO:FEAT|Archaic Weapons Proficiency|Personal Firearms Weapon Proficiency|Heavy Firearms Weapon Proficiency|Futuristic Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Archaic Weapons Proficiency|Personal Firearms Weapon Proficiency|Heavy Firearms Weapon Proficiency|Futuristic Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
 1						ADD:FEAT|1|Advanced Firearms Weapon Proficiency,Advanced Two-Weapon Fighting,Burst Fire,Dead Aim,Double-Tap,Far Shot,Improved Two-Weapon Fighting,Precise Shot,Quick Draw,Quick Reload,Shot on the Run,Skip Shot,Strafe,Two-Weapon Fighting
 2	SAB:Close Combat Shot
@@ -242,7 +242,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 1	BONUS:VAR|MonkACLVL|CL						ABILITY:Special Ability|AUTOMATIC|Monk AC
 1	BONUS:VAR|KiStrikeLVL|CL					DEFINE:FlurryOfBlows|1
 ###Block: Proficiencies
-1	AUTO:FEAT|Monk Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block:Level progression
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2				ABILITY:Special Ability|AUTOMATIC|Flurry of Blows|Stunning Attack|Evasion	AUTO:FEAT|Improved Unarmed Strike
 2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																											AUTO:FEAT|Deflect Arrows
@@ -269,7 +269,7 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Di
 CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:MutH		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mutant Hero	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Rope|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|1|TYPE=Metahuman	AUTO:FEAT|Metahuman Talent
@@ -285,7 +285,7 @@ CLASS:Private Detective	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:PvtD		SOURCEPAGE:p.	
 CLASS:Private Detective	PREALIGN:LG,LN,NG,TN,CG,CN
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Private Detective	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Conceal Object|Criminology|Demolitions|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Investigation|Intimidate|Listen|Medical (First Aid)|Move Silently|Open Lock|TYPE.Profession|Read Lips|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Use Rope
-1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	SAB:Profile	SAB:Traps	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE	ADD:FEAT|1|TYPE=Contact
@@ -315,7 +315,7 @@ CLASS:Ranger (CS)	OUTPUTNAME:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		SOURCEPAGE:p.44
 CLASS:Ranger (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Agriculture)|Knowledge (Nature)|Knowledge (Zoology)|Listen|Medical (First Aid)|Move Silently|TYPE.Profession|Ride|Scent/Taste|Search|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level								Use Spell List
 CLASS:Ranger (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Bard (CS)|CL/2|PRECLASS:1,Ranger (CS)=4	SPELLLIST:1|Ranger
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -351,7 +351,7 @@ CLASS:Rogue (CS).MOD	CSKILL:Demolitions|Linguistics|Medical (First Aid)|Mesmeris
 CLASS:Rogue (CS/High tech)	OUTPUTNAME:Rogue, High Tech (CS)	HD:6		TYPE:Base.PC	ABB:Rog		SOURCEPAGE:p.46	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Linguistics|Listen|Medical (First Aid)|Mesmerism|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Sneak attack and Uncany Dodge
 1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
@@ -373,7 +373,7 @@ CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|T
 CLASS:Scholar	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Sch		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scholar	STARTSKILLPTS:8	CSKILL:Computer Use|Criminology|Decipher Script|TYPE.Knowledge|Linguistics|Listen|TYPE.Medical|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Field of Study
@@ -390,7 +390,7 @@ CLASS:Soldier	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Sol		SOURCEPAGE:p.	BONUS:CHECK
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Craft|Demolitions|Drive|Forward Observer|Gather Information|Gunslinging|Handle Animal|Jump|Listen|Medical (First Aid)|TYPE.Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	ADD:FEAT|1|Personal Firearms Weapon Proficiency,Futuristic Weapon Proficiency
 1														AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Armor Proficiency (Powered)
-1														AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Heavy Firearms Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1														AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Heavy Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SAB:Close-Order Fighting
 2	SAB:Favored Weapon																									ADD:FEAT|1|Favored Weapon		AUTO:FEAT|Combat Reflexes
@@ -416,9 +416,9 @@ CLASS:Sorcerer (CS)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Know
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Sorcerer (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (CS)|CL	SPELLLIST:1|Wizard
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:5,3				KNOWN:4,2				BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
+1	CAST:5,3				KNOWN:4,2				BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -443,21 +443,21 @@ CLASS:Sorcerer (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 CLASS:Warrior (CS)	OUTPUTNAME:Warrior	HD:10		TYPE:Base.PC	ABB:War		SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior (CS)	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Scent/Taste|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1						ADD:FEAT|1|TYPE=Fighter
-2						ADD:FEAT|1|TYPE=Fighter
-4	DEFINE:WeapSpecQualify|1	ADD:FEAT|1|TYPE=Fighter
-6						ADD:FEAT|1|TYPE=Fighter
-8						ADD:FEAT|1|TYPE=Fighter
-10						ADD:FEAT|1|TYPE=Fighter
-12						ADD:FEAT|1|TYPE=Fighter
-14						ADD:FEAT|1|TYPE=Fighter
-16						ADD:FEAT|1|TYPE=Fighter
-18						ADD:FEAT|1|TYPE=Fighter
-20						ADD:FEAT|1|TYPE=Fighter
+1						BONUS:ABILITYPOOL|Fighter|CL/2+1
+
+4	DEFINE:WeapSpecQualify|1	
+#6						ADD:FEAT|1|TYPE=Fighter
+#8						ADD:FEAT|1|TYPE=Fighter
+#10						ADD:FEAT|1|TYPE=Fighter
+#12						ADD:FEAT|1|TYPE=Fighter
+#14						ADD:FEAT|1|TYPE=Fighter
+#16						ADD:FEAT|1|TYPE=Fighter
+#18						ADD:FEAT|1|TYPE=Fighter
+#20						ADD:FEAT|1|TYPE=Fighter
 
 
 # Class Name	Output Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus														Combat bonus
@@ -475,28 +475,28 @@ SUBCLASS:Illusionist (CS)	COST:2	CHOICE:SCHOOL|Illusion		KNOWNSPELLSFROMSPECIALT
 SUBCLASS:Necromancer (CS)	COST:1	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Transmuter (CS)	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1
 ###Block:Proficiencies
-1	AUTO:FEAT|Wizard Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:3,1				BONUS:VAR|FMLevel|CL											AUTO:FEAT|Scribe Scroll|Summon Familiar
+1	CAST:3,1				BONUS:VAR|FMLevel|CL											AUTO:FEAT|Scribe Scroll	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1							ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+5	CAST:4,3,2,1							BONUS:ABILITYPOOL|Wizard Feat|CL/5
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2							ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+10	CAST:4,4,4,3,3,2							
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
 13	CAST:4,4,4,4,4,3,2,1
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1						ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+15	CAST:4,4,4,4,4,4,3,2,1						
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4					ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+20	CAST:4,4,4,4,4,4,4,4,4,4					
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Bonus Languages		Save checks bonus											Combat bonus
 CLASS:Martial Magician	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:MarM		SOURCEPAGE:p.	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -505,10 +505,10 @@ CLASS:Martial Magician	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentratio
 # Class Name		Spell Stat		Spell Type		Spellbook		Caster level					Use Spell List
 CLASS:Martial Magician	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Martial Magician|CL	SPELLLIST:1|Wizard
 ###Block:Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:2				SAB:Living Weapon																																																						AUTO:FEAT|Combat Martial Arts|Meditation
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3										BONUS:VAR|FMLevel|CL																																															AUTO:FEAT|Scribe Scroll|Summon Familiar
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3										BONUS:VAR|FMLevel|CL																																															AUTO:FEAT|Scribe Scroll	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3,1				SAB:Flying Kick
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,1																			ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery,Acrobatic,Advanced Combat Martial Arts,Archaic Weapons Proficiency,Combat Reflexes,Combat Throw,Elusive Target,Exotic Melee Weapon Proficiency,Improved Combat Throw,Unbalance Opponent
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,2,1				SAB:Combat Throw
@@ -532,7 +532,7 @@ CLASS:Martial Magician	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTER
 CLASS:Mechanist	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Mech		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Cryptography|Demolitions|Disable Device|Freefall|Knowledge (Anatomy)|Knowledge (Archeology)|Knowledge (Astrology)|Knowledge (Astronomy)|Knowledge (Biology)|Knowledge (Botany)|Knowledge (Chemistry)|Knowledge (Epistemology)|Knowledge (Geology)|Knowledge (Mathematics)|Knowledge (Physics)|Knowledge (Psionics)|Knowledge (Technology)|Knowledge (Temporal Mechanics)|Knowledge (Zoology)|Open Lock|TYPE.Pilot|TYPE.Profession|Repair|Research|Search
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Traps	SAB:Jury Rig	SAB:Guerilla Repair	SAB:Minor Upgrade	ADD:FEAT|1|Born Spacer,Hacker,High-G Tolerance,Gearhead,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance
@@ -590,7 +590,7 @@ CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:BHtr		SOURCEPAGE:p.
 CLASS:Bounty Hunter	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Criminology=5,Gather Information=5,Intimidate=5,Move Silently=5	PRETEXT:Must be 18 years of age
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Computer Use|TYPE.Craft|Criminology|Demolitions|Disguise|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Knowledge|Medical (First Aid)|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Personal Firearms Weapon Proficiency|Heavy Firearms Weapon Proficiency|Futuristic Weapon Proficiency|Archaic Weapons Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Personal Firearms Weapon Proficiency|Heavy Firearms Weapon Proficiency|Futuristic Weapon Proficiency|Archaic Weapons Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Powered)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block:Level progression
@@ -621,7 +621,7 @@ CLASS:Security Specialist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SecS		SOURCEPA
 CLASS:Security Specialist	PREATT:6	PRESKILL:1,Gather Information=5	PRETEXT:Must have achieved 21 years of age
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Security Specialist	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE.Craft|Criminology|Demolitions|Drive|Gather Information|Investigation|Jump|Listen|Medical (First Aid)|TYPE.Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Electronic Tinkering	SAB:Sweep	BONUS:SKILL|Computer Use,Craft (Electronics),Knowledge (Technology)|SynergyBonus|TYPE=Synergy
@@ -641,7 +641,7 @@ CLASS:Spy		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Spy		SOURCEPAGE:p.	BONUS:CHEC
 CLASS:Spy		PRELANG:2,ANY	PRESKILL:3,Diplomacy=8,Sense Motive=8,Savoir-Faire=5	PRETEXT:The character must know at least one language other than his native one
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spy		STARTSKILLPTS:6	CSKILL:Climb|Bluff|Disable Device|Diplomacy|Disguise|Demolitions|Drive|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Savoir Faire|Search|Seduction|Sense Motive|Spot|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Personal Firearms Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Obligation	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	BONUS:VAR|SneakAttack|(CL-1)/3+1							DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0

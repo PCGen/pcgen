@@ -21,7 +21,7 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,20	DEFINE:TirelessRage|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
@@ -42,7 +42,7 @@ CLASS:Fighter	HD:10		ABB:Ftr		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|C
 # Class Name	Skill Pts/Lvl
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
@@ -63,7 +63,7 @@ CLASS:Rogue		HD:6		ABB:Rog		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude,BAS
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
-1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
 1	BONUS:VAR|SneakAttack|(CL+1)/2																		ABILITY:Special Ability|AUTOMATIC|Sneak Attack

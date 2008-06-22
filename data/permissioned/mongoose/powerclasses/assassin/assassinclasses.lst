@@ -11,7 +11,7 @@ CLASS:Assassin (Mong)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Clim
 ###Block: Assassination/Sneak Attack
 1	SAB:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	DEFINE:Assassination|0	DEFINE:AssassinationDie|6	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Proficiencies
-1	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 2	SAB:Poison Use|PREVARLT:CL,5

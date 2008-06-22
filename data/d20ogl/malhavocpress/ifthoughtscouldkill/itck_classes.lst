@@ -67,7 +67,7 @@ SUBCLASSLEVEL:1	ADD:FEAT|2|Psychometabolism Subdiscipline,Psychokinesis Subdisci
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:PsionMLITCK,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:PsionMLITCK,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PsionMLITCK,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionMLITCK,19
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Level progression
 1												SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion ITCK")+3											AUTO:FEAT|Psicrystal
 1	KNOWN:3,1				SPECIALTYKNOWN:1,1																						ADD:FEAT|5|TYPE=PsionicAttackMode,TYPE=PsionicDefenseMode
@@ -139,7 +139,7 @@ CLASS:Slayer ITCK	PREATT:3	PREFEAT:1,Track	PRESKILL:2,Knowledge (Mortal Enemy Lo
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression

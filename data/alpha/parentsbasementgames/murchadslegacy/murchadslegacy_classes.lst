@@ -149,7 +149,7 @@ CLASS:Steadfast Knight	STARTSKILLPTS:4	CSKILL:Handle Animal|Climb|Heal|Knowledge
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level					Use Spell List
 CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: level progression

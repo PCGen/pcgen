@@ -61,7 +61,7 @@ CLASS:Chosen of Ba en Aset	PREALIGN:LG,NG,CG,CN	PREATT:6	PREFEAT:2,Power Attack,
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE.Profession|Ride|Swim|Tumble
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Mystic Discipline (Light)|PREVARLT:CL,2																														ABILITY:Special Ability|VIRTUAL|Evasion	VFEAT:Improved Unarmed Strike

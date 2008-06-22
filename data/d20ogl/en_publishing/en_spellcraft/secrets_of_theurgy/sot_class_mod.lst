@@ -9,7 +9,7 @@ CLASS:Mystic Theurge.MOD
 CLASS:Druid.MOD	HASSUBSTITUTIONLEVEL:YES
 SUBSTITUTIONCLASS:Elemental Druid Option
 SUBSTITUTIONLEVEL:1									BONUS:DOMAIN|NUMBER|1
-SUBSTITUTIONLEVEL:1													AUTO:FEAT|Druid Weapon Proficiencies|All Automatic Proficiencies|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+SUBSTITUTIONLEVEL:1													ABILITY:Special Ability|AUTOMATIC|Druid Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 SUBSTITUTIONLEVEL:1													ABILITY:Special Ability|AUTOMATIC|Wild Shape|Druid Wild Shape|Druid Wild Shape Times|Druid Elemental Wild Shape Times|Druid Wild Shape Progression
 SUBSTITUTIONLEVEL:1													ABILITY:Special Ability|AUTOMATIC|Nature Sense|Animal Companion|Wild Empathy|Spontaneous casting - Summon Nature's Ally
 SUBSTITUTIONLEVEL:1			BONUS:VAR|DruidWildShape|CL

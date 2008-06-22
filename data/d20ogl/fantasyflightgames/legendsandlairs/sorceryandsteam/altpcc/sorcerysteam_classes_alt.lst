@@ -47,7 +47,7 @@ CLASS:Urban Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level				Use Spell List
 CLASS:Urban Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Urban Druid|CL	SPELLLIST:1|Druid
 ###Block:Proficiencies
-1	AUTO:FEAT|Druid Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Druid Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Wildshape Abilities Block
@@ -90,7 +90,7 @@ CLASS:Urban Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYP
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level									Use Spell List
 CLASS:Urban Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Urban Ranger|CL/2|PRECLASS:1,Urban Ranger=4	SPELLLIST:1|Ranger
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression

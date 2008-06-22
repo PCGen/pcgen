@@ -13,7 +13,7 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCE
 CLASS:Guardian	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Grd		SOURCEPAGE:pp.17-19	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidate|Knowledge (Vehicle Operations)|Listen|Ride|Sense Motive|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -36,7 +36,7 @@ CLASS:Raider	HD:10		XTRAFEATS:0		TYPE:Base.PC	ABB:Rdr		SOURCEPAGE:pp.19-21	BONUS
 CLASS:Raider	PREALIGN:LE,NE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Raider	STARTSKILLPTS:2	CSKILL:Craft (Mechanics)|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Vehicle Operations)|Ride|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Chains and Chaps +%|ChainsChaps	DEFINE:ChainsChaps|CL/10+1	ADD:FEAT|1|Primitive Raider Craft Class Skill,Primitive Raider Mechanics Bonus,Skill Focus Advanced
@@ -59,7 +59,7 @@ CLASS:Scav		HD:8		TYPE:Base.PC	ABB:Scv		SOURCEPAGE:pp.21-23	BONUS:CHECKS|BASE.Fo
 CLASS:Scav		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|Forgery|Gather Information|Hide|Intuit Direction|Move Silently|Open Lock|Pick Pocket|Search|Spot|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ABILITY:Special Ability|AUTOMATIC|Nature Sense						BONUS:VAR|SneakAttack|CL/5+1																												ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
@@ -72,7 +72,7 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|For
 CLASS:Thinker	HD:4		XTRAFEATS:0		TYPE:Base.PC	ABB:Thn		SOURCEPAGE:pp.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Heal|TYPE.Knowledge|Open Lock|TYPE.Profession
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
 1																			ADD:FEAT|1|Skill Focus	ADD:FEAT|1|Primitive Craft Skill Bonus,Skill Focus Advanced
 2	SAB:Thinker Knowledge (+%)|ThinkerKnowledge	BONUS:VAR|ThinkerKnowledge|CL	DEFINE:ThinkerKnowledge|INT
@@ -90,7 +90,7 @@ CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE.Craft|Decipher Script|D
 CLASS:Trader	HD:6		XTRAFEATS:0		TYPE:Base.PC	ABB:Trd		SOURCEPAGE:pp.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|Intuit Direction|Ride|Search|Sense Motive|Speak Language|Spot|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression

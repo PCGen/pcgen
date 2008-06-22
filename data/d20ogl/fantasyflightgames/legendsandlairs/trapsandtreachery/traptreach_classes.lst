@@ -78,7 +78,7 @@ CLASS:Thug		HD:6		TYPE:Base.NPC	ABB:THG		MAXLEVEL:20	SOURCEPAGE:p.31-33	BONUS:CH
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Urban Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Backstab +%d%|BackstabDice|BackstabDieSize	BONUS:VAR|BackstabDice|CL/5+1	DEFINE:BackstabDieSize|4	DEFINE:BackstabDice|0

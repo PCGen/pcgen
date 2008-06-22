@@ -7,7 +7,7 @@ CLASS:Conjurer	HD:6		TYPE:PC.Base	ABB:Con		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Conjurer	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Survival
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Class Abilities
 1	BONUS:ABILITYPOOL|Fires Burn and Cauldrons Bubble|(CL+1)/2	BONUS:VAR|SwashbucklingPointTotal|1	BONUS:VAR|SFMLevel|CL	BONUS:VAR|ConjurerAC|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Swashbuckling Points|Fires Burn and Cauldrons Bubble	ABILITY:Internal|AUTOMATIC|ConjurerDefense
 2	BONUS:ABILITYPOOL|Conjurer Ability|CL/2

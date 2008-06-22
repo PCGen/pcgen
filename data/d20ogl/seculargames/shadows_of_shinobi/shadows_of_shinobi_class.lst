@@ -77,7 +77,7 @@ CLASS:Shadow Saint	PREALIGN:LG,LN	PREATT:7	PREFEAT:4,Blind Fight,Improved Unarme
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Saint	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Escape Artist|Handle Animal|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|Ride|Search|Sense Motive|Spot|Swim|Tumble
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block:general
 1	SAB:Curse of Darkness	SAB:Shadow Meld (Su)	BONUS:VAR|ShadowSaint|CL	DEFINE:ShadowSaint|0

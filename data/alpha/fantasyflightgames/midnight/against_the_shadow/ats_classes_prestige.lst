@@ -9,11 +9,12 @@ CLASS:Ancestral Bladebearer	HD:10		TYPE:PC.Prestige	ABB:AnBld		MAXLEVEL:10	SOURC
 CLASS:Ancestral Bladebearer	PREATT:6	PREFEAT:1,Weapon Focus	PREFEAT:1,Weapon Specialization	PRETEXT:Weapon Focus and Weapon Specialization must be with ancestral blade.  Must have used ancestral blade exclusively for at least one level.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ancestral Bladebearer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Swim
-1	AUTO:FEAT|All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Unbreakable Blade
 2	AUTO:FEAT|Advance Ancestral Blade
 3	AUTO:FEAT|Ancestral Watcher
-3:REPEATLEVEL:3	ADD:FEAT|1|TYPE=Fighter
+3	BONUS:ABILITYPOOL|Fighter Feat|CL/3
 4	AUTO:FEAT|Immovable Blade
 5	AUTO:FEAT|Ancestral Advisor
 7	AUTO:FEAT|Ancestral Guide
@@ -122,7 +123,8 @@ CLASS:Herbalist	HD:6		TYPE:PC.Prestige	ABB:Herb		MAXLEVEL:10	SOURCEPAGE:p. 52	BO
 CLASS:Herbalist	PREFEAT:2,Brew Herbal Concoctions,Green Thumb	PRESKILL:2,Profession (Herbalist)=10,Wilderness Lore=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Herbalist	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Jump|Knowledge (Herbalism)|Listen|TYPE.Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
-1	AUTO:FEAT|All Automatic Proficiencies|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
 1	AUTO:FEAT|Extended Concoction
 2:REPEATLEVEL:3	ADD:FEAT|1|Concoction Mastery
 3	AUTO:FEAT|Efficient Harvest
@@ -154,13 +156,13 @@ CLASS:Smuggler	HD:6		TYPE:PC.Prestige	ABB:Smg		MAXLEVEL:10	SOURCEPAGE:p. 59	BONU
 CLASS:Smuggler	PREFEAT:1,Inconspicuous	PRESKILL:5,Bluff=8,Gather Information=8,Disguise=5,Forgery=5,Hide=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Smuggler	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1																						AUTO:FEAT|All Automatic Proficiencies|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)
+1																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)
 1	BONUS:VAR|SmugglingBonus|floor((CL+1)/2)*2														AUTO:FEAT|Smuggler's Trade
 2	BONUS:VAR|DominantWillBonus|min(4,floor((CL+2)/4)*2)													AUTO:FEAT|Dominant Will
 3	BONUS:VAR|MystifyingSpeechTimes|floor((CL+1)/4)	BONUS:VAR|MystifyingSpeechTargets|CL	BONUS:VAR|MystifyingSpeechDC|14+CHA	AUTO:FEAT|Mystifying Speech
 4	BONUS:VAR|InformationNetworkLvl|CL																AUTO:FEAT|Information Network
 5	BONUS:VAR|DisguiseContrabandLvl|CL																AUTO:FEAT|Disguise Contraband
-10																						AUTO:FEAT|Slippery Mind
+10																						ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Warrior Arcanist	HD:8		TYPE:PC.Prestige	ABB:warc		MAXLEVEL:10	SOURCEPAGE:p. 61	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
