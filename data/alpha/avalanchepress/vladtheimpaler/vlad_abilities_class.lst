@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Sat Jan 26 20:12:45 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+# Original Entry by: Jerril
+
+
+###Block:Boyar ------------------------------------------------------------------------------------------
+Income	CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Income %|BoyarIncome		DEFINE:BoyarIncome|0
+Overtaxing	CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Overtaxing %|BoyarOverTaxing	DEFINE:BoyarOverTaxing|0
+
+
+###Block:Black Hussar & Red Hussar -------------------------------------------------------------------------------------------
+Courser's Fury		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Courser's Fury %|HussarCoursersFury	DEFINE:HussarCoursersFury|0
+Equine Speed		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Equine Speed
+Graceful Fall		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Graceful Fall
+
+
+###Block:Herbalist --------------------------------------------------------------------------------------------------------------------
+# Feat Name		Type				Visible	Special ABility																															Define				Multiple?	Choose
+Minor Poultice	CATEGORY:Special Ability	TYPE:SpecialAbility.HerbalistMinor	VISIBLE:DISPLAY	SAB:Brew Minor Poultice (%CHOICE) %/day|HerbalistMinorPoultices																												MULT:YES	CHOOSE:STRING|Blessing|Cure Light Wounds|Curse|Prowess
+Moderate Poultice	CATEGORY:Special Ability	TYPE:SpecialAbility.HerbalistMod	VISIBLE:DISPLAY	SAB:Brew Moderate Poultice (%CHOICE) %/day|HerbalistModeratePoultices																											MULT:YES	CHOOSE:STRING|Cure Moderate Wounds|Love Potion|Protection From Evil|Remove Disease|Repel Minor Undead
+Major Poultice	CATEGORY:Special Ability	TYPE:SpecialAbility.HerbalistMajor	VISIBLE:DISPLAY	SAB:Brew Minour Poultice (%CHOICE) %/day|HerbalistMajorPoultices																												MULT:YES	CHOOSE:STRING|Cure Serious Wounds|Repel Major Undead
+
+
+###Block:Lautar -----------------------------------------------------------------------------------------------
+Song of Power	CATEGORY:Special Ability	TYPE:LautaurSongs				VISIBLE:DISPLAY	SAB:Song of Power (%CHOICE)																																		MULT:YES	CHOOSE:STRING|Allure|Bring the Rain|Call the Storm|Call the Herd|Calm Animal|Prowess|The Well Runs Dry
+Create Talisman	CATEGORY:Special Ability	TYPE:SpecialAbility			VISIBLE:DISPLAY	SAB:Create Talisman (Standard)|PREVAREQ:TalismanProgression,1	SAB:Create Talisman (Reliable)|PREVAREQ:TalismanProgression,2	SAB:Create Talisman (Dependable)|PREVARGTEQ:TalismanProgression,3	DEFINE:TalismanProgression|0
+
+#COMMENT: Found in SRD - duplicates
+#Summon Mount	SAB:Summon Mount
+
