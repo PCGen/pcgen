@@ -79,7 +79,9 @@ SUBCLASSLEVEL:3	SAB:Wild Empathy (Ex) (Water Only)																														
 1	BONUS:VAR|ChannelDamagePlusBase|CL
 1	BONUS:VAR|ChannelCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1	CAST:3,1				SAB:Spontaneous casting
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
+1	CAST:3,1				
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:5,3,2
