@@ -610,7 +610,7 @@ CLASS:Twilight Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 2								SAB:Cloak of Cadic (Su)
 3								SAB:Shadow Jump (Su)
 4	CAST:0,0						ABILITY:Special Ability|AUTOMATIC|Divine Grace										BONUS:VAR|SmiteEvil|1																												AUTO:FEAT|Smite Evil
-5	CAST:0,0						SAB:Trapfinding
+5	CAST:0,0						ABILITY:Special Ability|AUTOMATIC|Trapfinding
 6	CAST:0,1						SAB:Cloak of Cadic (Womb of Darkness) (Su)															ADD:FEAT|1|Evasion
 7	CAST:0,1
 8	CAST:0,1,0						SAB:Turn Shadows (Su)														BONUS:VAR|UncannyDodgeLevel|1						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base

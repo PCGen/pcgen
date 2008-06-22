@@ -636,7 +636,7 @@ CLASS:Talon of the Hawk	HD:6		TYPE:PC.Prestige	ABB:TotHk		MAXLEVEL:10	SOURCEPAGE
 CLASS:Talon of the Hawk	PREATT:5	PREFEAT:2,Spell Penetration,Improved Counterspell	PREFEAT:1,Favored Enemy (Ymandrakes)	PRESKILL:4,Concentration=8,Knowledge (Arcana)=5,Spellcraft=5,Survival=4	PRETEMPLATE:1,Hawk
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Craft|Diplomacy|Examine Martial Technique|Gather Information|Hide|Intimidate|Jump|Knowledge (Arcana)|Knowledge (History)|Listen|Move Silently|TYPE.Profession|Ride|Sense Motive|Survival|Spot|Swim|Tumble|Use Magic Device
-1	SAB:Dispel Focus +%|DispelFocus			BONUS:VAR|SneakAttack|1+(CL>=4)+(CL>=7)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0						AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency|Sneak Attack	AUTO:WEAPONPROF|TYPE.Martial
+1	SAB:Dispel Focus +%|DispelFocus			BONUS:VAR|SneakAttack|1+(CL>=4)+(CL>=7)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0						AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	AUTO:WEAPONPROF|TYPE.Martial
 2																												ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Armored Caster
 3									BONUS:VAR|FavoredYmandrakes|2
 4																												ADD:SPELLCASTER|1|Arcane

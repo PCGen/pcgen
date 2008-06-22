@@ -266,7 +266,7 @@ SUBCLASSLEVEL:5	SAB:Turn Undead (Su) (Turn level %)|ChannelLevelFireDragon						
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:pg. 69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE.Local|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Research|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	SAB:Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2																																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)
+1	ABILITY:Special Ability|AUTOMATIC|Trapfinding	BONUS:VAR|SneakAttack|(CL+1)/2																																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Saber|Sap|Shortbow|Sword (Short)
 1																																												ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2																					ADD:ABILITY|1|Special Ability|AUTOMATIC|Evasion,Improved Evasion
 3				BONUS:VAR|TrapSense|CL/3																																				ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
@@ -315,7 +315,7 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 ###Block:Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
 ###Block: Favored Enemy level stacking
-1	BONUS:VAR|RangerFavoredEnemyLVL|CL				DEFINE:RangerFavoredEnemyLVL|0	AUTO:FEAT|Basic Favored Enemy
+1	BONUS:VAR|RangerFavoredEnemyLVL|CL				DEFINE:RangerFavoredEnemyLVL|0	ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy
 1	BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1
 1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5
 ###Block: Combat Trees

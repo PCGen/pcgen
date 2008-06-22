@@ -15,20 +15,19 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 #
 #####Example
 
-#CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog	MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
+#CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
 #CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
-#1	AUTO:FEAT|Simple Weapon Proficiency|Rogue Weapon Proficiencies|All Automatic Proficiencies
-#1	AUTO:FEAT|Armor Proficiency (Light)
-#1	BONUS:VAR|SneakAttack|(CL+1)/2	AUTO:FEAT|Sneak Attack
-#1	SAB:Trapfinding
-#2																																											AUTO:FEAT|Evasion
-#3				BONUS:VAR|TrapSense|CL/3																																			AUTO:FEAT|Trap Sense Ability
-#4				BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1														ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-#8															BONUS:VAR|UncannyDodgeLevel|1
-#10																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-#13																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-#16																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-#19																				ADD:FEAT|1|TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
+###Block:Proficiencies
+#1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+#1																AUTO:FEAT|Armor Proficiency (Light)
+###Block: Level progression
+#1											BONUS:VAR|RogueSneakAttackLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trapfinding|Sneak Attack|Rogue Sneak Attack
+#2																												ABILITY:Special Ability|AUTOMATIC|Evasion
+#3											BONUS:VAR|RogueTrapSenseLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability|Rogue Trap Sense
+#4											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+#10	BONUS:ABILITYPOOL|Rogue Special Ability|min(4,(CL-7)/3)
 
 #####
 #Class files are where each class is listed, given it's important information for the correct output and functioning of the

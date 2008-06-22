@@ -199,9 +199,10 @@ CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Favored Enemies setup
-1	BONUS:VAR|SlayerFavoredEnemyLVL|CL				DEFINE:SlayerFavoredEnemyLVL|0	AUTO:FEAT|Basic Favored Enemy
+1	BONUS:VAR|SlayerFavoredEnemyLVL|CL				DEFINE:SlayerFavoredEnemyLVL|0	ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy	
 1	BONUS:VAR|SlayerEnemies|SlayerFavoredEnemyLVL/5+1	DEFINE:SlayerEnemies|0
 1	BONUS:VAR|SlayerEBonuses|SlayerFavoredEnemyLVL/5	DEFINE:SlayerEBonuses|0
+#COMMENT: Review Mortal Slayer, see if it's getting the Favored enemy stuff... I'm not seeing a proper link.
 ###Block: Normal Progression
 1	CAST:0,0																																								ADD:FEAT|1|TYPE.FavoredEnemy	ADD:FEAT|1|TYPE.FavoredEnemyBonus
 2	CAST:0,1
