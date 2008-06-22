@@ -194,6 +194,7 @@ CLASS:Ossorus	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 1	CAST:0,0		SAB:Death Attack				BONUS:VAR|SneakAttack|(CL-1)/3									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	CAST:0,1								BONUS:VAR|UncannyDodge|1										ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 3	CAST:0,1,0		SAB:Turn Undead %/day|TurnUndead	BONUS:VAR|TurnLevel|CL-2		DEFINE:TurnLevel|0	DEFINE:TurnUndead|3+CHA
+#Comment: Leaving this Turn Undead in place until it can be looked at...
 4	CAST:0,1,1		SAB:Slipping the Bonds (Su)
 5	CAST:0,1,1,0							BONUS:VAR|UncannyDodge|1
 6	CAST:0,1,1,1

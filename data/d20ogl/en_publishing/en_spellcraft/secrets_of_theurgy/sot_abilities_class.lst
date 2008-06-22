@@ -49,8 +49,8 @@ Spellcaster						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISI
 Theurgic Feat (Improved Metamagic)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY						PREFEAT:2,TYPE=Metamagic																	VFEAT:Improved Metamagic
 Theurgic Feat (Many Sources of Power)	CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																											VFEAT:Many Sources of Power
 Theurgic Feat (Planar Ward)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY													PRESKILL:1,Knowledge (The Planes)=10	PRESTAT:1,CHA=15					VFEAT:Planar Ward
-Theurgic Feat (Profane Arcana)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY						PREFEAT:2,Empower Spell,Rebuke Undead															VFEAT:Profane Arcana
-Theurgic Feat (Sacred Arcana)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY						PREFEAT:2,Empower Spell,Turn Undead																VFEAT:Sacred Arcana
+Theurgic Feat (Profane Arcana)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY						PREFEAT:1,Empower Spell	PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead															VFEAT:Profane Arcana
+Theurgic Feat (Sacred Arcana)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY						PREFEAT:1,Empower Spell	PREABILITY:1,CATEGORY=Special Ability,Turn Undead																VFEAT:Sacred Arcana
 Theurgic Feat (Spellcasting Might)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY	PRECLASS:1,SPELLCASTER=10	PREFEAT:1,Spell Penetration																	VFEAT:Spellcasting Might
 Theurgic Feat (Tap All-Magic)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																											VFEAT:Tap All-Magic
 

@@ -311,7 +311,7 @@ Mounted Warrior		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YE
 ###Block: Racial Transformations
 # Ability Name				Category of Ability		Type						Visible	Required Ability							Required Lvl	Required Text									Special ABility			Stackable?	Multiple?	Choose		Template				Bonus to Ability Pool						Combat bonus				Add to vision			Source Page
 Trueborn Outsider				CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=6																			MULT:NO				TEMPLATE:Trueborn Outsider																					SOURCEPAGE:p.41
-Aura of Good				CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																								SAB:Aura of Good					MULT:NO																													SOURCEPAGE:p.41
+Aura of Good				CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																								ABILITY:Special Ability|AUTOMATIC|Aura of Good					MULT:NO																													SOURCEPAGE:p.41
 Trueborn Natural Armor			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																															MULT:NO																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor						SOURCEPAGE:p.41
 Trueborn Spell Resistance		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Aura of Good	PRELEVEL:MIN=6												SAB:Spell Resistance (%)|5+TL			MULT:NO																													SOURCEPAGE:p.41
 Angel Wings					CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=8												SAB:Angel Wings					MULT:NO																													SOURCEPAGE:p.41
