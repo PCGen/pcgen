@@ -1,0 +1,18 @@
+
+
+
+CATEGORY=Special Ability|Defensive Roll.MOD		TYPE:ChameleonChoice
+CATEGORY=Special Ability|Skill Mastery.MOD		TYPE:ChameleonChoice
+CATEGORY=Special Ability|Slippery Mind.MOD		TYPE:ChameleonChoice
+CATEGORY=Special Ability|Traps.MOD				TYPE:ChameleonChoice
+
+
+
+CATEGORY=Special Ability|Crippling Strike.MOD		TYPE:QuestionerChoice
+CATEGORY=Special Ability|Defensive Roll.MOD		TYPE:QuestionerChoice
+CATEGORY=Special Ability|Improved Evasion.MOD		TYPE:QuestionerChoice
+CATEGORY=Special Ability|Reputation.MOD			TYPE:QuestionerChoice
+CATEGORY=Special Ability|Skill Mastery.MOD		TYPE:QuestionerChoice
+CATEGORY=Special Ability|Slippery Mind.MOD		TYPE:QuestionerChoice
+CATEGORY=Special Ability|Urban Tracking.MOD		TYPE:QuestionerChoice
+

@@ -17,7 +17,7 @@ CLASS:Abyssal Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TY
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Blood Thief	HD:6		TYPE:PC.Legendary	ABB:Blo		MAXLEVEL:5	SOURCEPAGE:Chap.2, Blood Thief	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Restricted AL		Required Feat										Req. Special Ability		Required Skill
-CLASS:Blood Thief	!PREALIGN:LG,NG,CG	PREFEAT:4,Improved Critical(TYPE=Slashing),Endurance,Toughness,Track	PRESA:1,Crippling Strike	PRESKILL:4,Concentration=7,Heal=7,Wilderness Lore=7,Intimidate=15
+CLASS:Blood Thief	!PREALIGN:LG,NG,CG	PREFEAT:4,Improved Critical(TYPE=Slashing),Endurance,Toughness,Track	PREABILITY:1,CATEGORY=Special Ability,Crippling Strike	PRESKILL:4,Concentration=7,Heal=7,Wilderness Lore=7,Intimidate=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Thief	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency

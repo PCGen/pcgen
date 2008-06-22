@@ -124,6 +124,7 @@ Covenant				TYPE:General																																																					PRE
 Crab Stance				TYPE:General.Fighter																																																				PRESTAT:1,STR=13																									DESC:You are hard to knock over, able to root yourself to the ground and resist attacks.																																																																											SOURCEPAGE:pg.30
 Criminal				TYPE:General		!PREALIGN:LG,LN,LE																																																																											DESC:You have a seedy past and your criminal ways are hard to shake.																																																																						CSKILL:Bluff|Forgery|Open Lock|Pick Pocket	SOURCEPAGE:pg.31
 Crippling Strike			TYPE:General						PREATT:8																						PREMULT:2,[PREFEAT:4,Agonizing Strike,Back Alley Brawler,Painful Strike],[PREABILITY:1,CATEGORY=Special Ability,Sneak Attack]								PRESTAT:1,DEX=15																					DESC:Your sneak attack is devastating.																																																																																			SOURCEPAGE:pg.31
+###Warning Same Name different ability... Rogue is in the SPecial Ability category...
 Crouched Combat			TYPE:General																																																																																DESC:You are able to fight from a kneeling or crouched position without penalty.																																																																												SOURCEPAGE:pg.31
 
 ###Block: D

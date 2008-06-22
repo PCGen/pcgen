@@ -1,0 +1,23 @@
+
+ABILITYCATEGORY:Questioner Feat	CATEGORY:FEAT			TYPE:QuestionerFeat		EDITPOOL:YES
+
+ABILITYCATEGORY:Questioner Choice	CATEGORY:Special Ability	TYPE:QuestionerChoice		EDITPOOL:YES
+
+
+#ADD:FEAT|1|Crippling Strike,Defensive Roll,Improved Evasion,Reputation,Skill Mastery,Slippery Mind,Urban Tracking					BONUS:ABILITYPOOL||1
+
+#CLASS:Chameleon
+#Chamelion Class Choice	TYPE:ChameleonChoice
+#Chameleon Feat Choice	TYPE:General.Metamagic.ItemCreation
+
+#Chameleon? is this a repeat?		TYPE:ChameleonSpecialAbilities.General.Metamagic.ItemCreation
+
+
+
+#
+#Chameleon Bonus Feat		
+
+
+
+
+
