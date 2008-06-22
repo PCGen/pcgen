@@ -21,7 +21,7 @@ CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 7	CAST:3,2,0		KNOWN:4,4,2
 8	CAST:3,3,1		KNOWN:4,4,3
 9	CAST:3,3,2		KNOWN:4,4,3
-10	CAST:3,3,2,0	KNOWN:4,4,3,2	SAB:Special Mount
+10	CAST:3,3,2,0	KNOWN:4,4,3,2	ABILITY:Special Ability|AUTOMATIC|Special Mount
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

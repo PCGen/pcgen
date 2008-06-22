@@ -30,7 +30,7 @@ CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 2				ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Smite Evil					BONUS:VAR|SmiteEvil|1
 3				ABILITY:Special Ability|AUTOMATIC|Remove Disease							BONUS:VAR|RemoveDisease|CL/3
 4	CAST:0,0
-5	CAST:0,0		SAB:Special Mount
+5	CAST:0,0		ABILITY:Special Ability|AUTOMATIC|Special Mount
 6	CAST:0,1
 7	CAST:0,1
 8	CAST:0,1,0

@@ -103,7 +103,7 @@ CLASS:Deathbringer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 3					ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
 4	CAST:0,0		SAB:Turn Undead (Su) (Turn level %)|ChannelLevelUndead
 5	CAST:0,0
-6	CAST:0,1		SAB:Special Mount (Sp)
+6	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Special Mount
 7	CAST:0,1
 8	CAST:0,1,0		SAB:Neroth's Grasp (Su)
 9	CAST:0,1,0
@@ -576,7 +576,7 @@ CLASS:Storm Lord	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 7	CAST:0,1
 8	CAST:0,1,0		SAB:Thunderclap - %d4 dmg, deaf for 2d4 rounds, Fortitude Save DC % (Sp)|CL|10+CHA+(floor(CL/2))
 9	CAST:0,1,0
-10	CAST:0,1,1		SAB:Special Mount (Sp)
+10	CAST:0,1,1		ABILITY:Special Ability|AUTOMATIC|Special Mount
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1																																										AUTO:FEAT|Weapon Specialization (Longsword)
 13	CAST:0,1,1,1
@@ -648,7 +648,7 @@ CLASS:Verdant Champion	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 3												ABILITY:Special Ability|AUTOMATIC|Divine Health	SAB:Thorn of Saluwe (Sp)
 4	CAST:0,0										SAB:Gaea's Embrace (Su)
 5	CAST:0,0
-6	CAST:0,1										SAB:Special Mount (Sp)	SAB:Earth Mastery (Ex)
+6	CAST:0,1										ABILITY:Special Ability|AUTOMATIC|Special Mount	SAB:Earth Mastery (Ex)
 7	CAST:0,1
 8	CAST:0,1,0										SAB:Gaea's Ward (Su)
 9	CAST:0,1,0
