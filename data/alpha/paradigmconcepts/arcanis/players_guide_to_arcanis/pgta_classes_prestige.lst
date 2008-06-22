@@ -112,7 +112,7 @@ CLASS:Beltinian Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diploma
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Blackchanter	HD:6		TYPE:PC.Prestige	ABB:BlKCh		MAXLEVEL:5	SOURCEPAGE:p.173	BONUS:CHECKS|BASE.Will,BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Restricted AL		Req. Att.	Required Feat				Multiple Requirements																				Req. Spell Type
-CLASS:Blackchanter	!PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:2,Iron Will,Bardic Music	PREMULT:2,[PRESKILL:4,Concentration=4,Knowledge (Nobility and Royalty)=4,Knowledge (Religion)=4,Spellcraft=4],[PRESKILL:1,TYPE.Perform=8]	PRESPELLTYPE:1,Arcane=3
+CLASS:Blackchanter	!PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:1,Iron Will	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	PREMULT:2,[PRESKILL:4,Concentration=4,Knowledge (Nobility and Royalty)=4,Knowledge (Religion)=4,Spellcraft=4],[PRESKILL:1,TYPE.Perform=8]	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Jump|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Speak Language|Spellcraft|Swim|Tumble
 1									ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Religion)

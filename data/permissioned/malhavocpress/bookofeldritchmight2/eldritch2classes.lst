@@ -20,6 +20,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
 1	CAST:0,3		KNOWN:0,2			SAB:Bardic knowledge (+%)|BardicKnowledge	BONUS:VAR|BardicKnowledge|INT	BONUS:VAR|Spellsong|1	BONUS:VAR|BardicKnowledge|var("CLASSLEVEL=Bard {Monte Cook's}")	DEFINE:BardicKnowledge|0	DEFINE:Spellsong|0
+#COMMENT: Left in this Bardic Knowledge as it has outside variables that need to be incorporated.
 2	CAST:0,4		KNOWN:0,2
 3	CAST:0,5		KNOWN:0,3
 4	CAST:0,6		KNOWN:0,3

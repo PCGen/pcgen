@@ -12,7 +12,7 @@ CLASS:Bard (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Co
 CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
 1										AUTO:FEAT|Simple Weapon Proficiency
 1	BONUS:VAR|Spellsong|1		DEFINE:Spellsong|0
-1	BONUS:VAR|BardicKnowledge|CL					AUTO:FEAT|Bardic Knowledge
+1	BONUS:VAR|BardicKnowledge|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
 ###Block: Proficiencies
 1	AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)
 ###Block: Normal progression

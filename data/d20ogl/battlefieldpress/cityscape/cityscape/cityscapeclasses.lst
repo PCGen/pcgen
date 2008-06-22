@@ -37,8 +37,8 @@ CLASS:Bard (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bar
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Bardic abilities level definitions.
-1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	AUTO:FEAT|Bardic Knowledge
-1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					AUTO:FEAT|Bardic Music
+1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
+1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Music
 ###Block: Bardic Music Abilities by level
 1	VFEAT:Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1
 1	VFEAT:Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3
