@@ -34,6 +34,7 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 	public boolean parse(LoadContext context, PCClassLevel obj, String value)
 			throws PersistenceLayerException
 	{
+		//TODO: This fails to process level based tokens for levels higher than 1! 
 		if (ONE.equals(obj.get(IntegerKey.LEVEL)))
 		{
 			PCClass parent = (PCClass) obj.get(ObjectKey.PARENT);
