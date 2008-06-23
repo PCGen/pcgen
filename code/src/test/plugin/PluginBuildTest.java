@@ -232,6 +232,18 @@ public class PluginBuildTest extends PCGenTestCase
 	}
 	
 	/**
+	 * Check for the presence of all class
+	 * token parsing plugins.
+	 */
+	public void testLstClassLevelPlugins()
+	{
+		String jarPrefix = "ClassLevelLstToken-";
+		File sourceFolder = new File("code/src/java/plugin/lsttokens/pcclass/level");
+		File jarFolder = new File("plugins/lstplugins");
+		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
+	}
+	
+	/**
 	 * Check for the presence of all companion mod
 	 * token parsing plugins.
 	 */
