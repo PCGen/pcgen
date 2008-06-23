@@ -289,7 +289,7 @@ public class ListKeyMapToList
 	 *            The key being tested.
 	 * @return the number of objects in the List for the given key
 	 */
-	public int sizeOfListFor(ListKey<?>key)
+	public int sizeOfListFor(ListKey<?> key)
 	{
 		return map.sizeOfListFor(key);
 	}
@@ -314,21 +314,48 @@ public class ListKeyMapToList
 		return map.containsInList(key, value);
 	}
 
+	/**
+	 * Returns a Set indicating the Keys of this ListKeyMapToList. Ownership of
+	 * the Set is transferred to the calling Object, no association is kept
+	 * between the Set and this ListKeyMapToList. (Thus, removal of a key from
+	 * the returned Set will not remove that key from this ListKeyMapToList)
+	 * 
+	 * NOTE: This method returns all of the keys this ListKeyMapToList contains.
+	 * It DOES NOT determine whether the Lists defined for the keys are empty.
+	 * Therefore, it is possible that this ListKeyMapToList contains one or more
+	 * keys, and all of the lists associated with those keys are empty, yet this
+	 * method will return a non-zero length Set.
+	 * 
+	 * @return a Set containing the keys in this ListKeyMapToList
+	 */
 	public Set<ListKey<?>> getKeySet()
 	{
 		return map.getKeySet();
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this ListKeyMapToList
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return map.hashCode();
 	}
 
+	/**
+	 * Returns true if this ListKeyMapToList is equal to the given Object.
+	 * 
+	 * Note that equality as defined by this method is both a class of
+	 * ListKeyMapToList and equality of contents of the ListKeyMapToList.
+	 * 
+	 * @see java.lang.Object#equals()
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
 		return o instanceof ListKeyMapToList
-			&& map.equals(((ListKeyMapToList) o).map);
+				&& map.equals(((ListKeyMapToList) o).map);
 	}
 }
