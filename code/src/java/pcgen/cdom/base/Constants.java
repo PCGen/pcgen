@@ -238,7 +238,7 @@ public interface Constants
 	/** 5 */
 	int MAX_OPEN_RECENT_ENTRIES = 5;
 	/** The highest spell level we are catering for. */
-	int MAX_SPELL_LEVEL = 19;
+	int MAX_SPELL_LEVEL = 25;
 
 	// merge of like equipment constants
 	/** 0 */
