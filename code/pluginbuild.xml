@@ -3274,6 +3274,13 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 	
 	<target name="jar-lst-pcclass-level-plugins" depends="makeplugindirs" description="Build (Link) Class Level Lst Token plugin jar files">
+		<jar jarfile="${lstplugins.dir}/ClassLevelLstToken-ADDDOMAINS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/level/AdddomainsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/ClassLevelLstToken-CAST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
