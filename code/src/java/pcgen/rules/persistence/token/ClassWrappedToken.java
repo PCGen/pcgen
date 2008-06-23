@@ -9,6 +9,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 {
@@ -34,12 +35,14 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 	public boolean parse(LoadContext context, PCClassLevel obj, String value)
 			throws PersistenceLayerException
 	{
-		//TODO: This fails to process level based tokens for levels higher than 1! 
 		if (ONE.equals(obj.get(IntegerKey.LEVEL)))
 		{
 			PCClass parent = (PCClass) obj.get(ObjectKey.PARENT);
 			return wrappedToken.parse(context, parent, value);
 		}
+		Logging.log(Logging.LST_ERROR, "Data used token: " + value
+				+ " which is a Class token, "
+				+ "but it was used in a class level line other than level 1");
 		return false;
 	}
 
