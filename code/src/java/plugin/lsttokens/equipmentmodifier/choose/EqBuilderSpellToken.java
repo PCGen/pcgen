@@ -64,13 +64,6 @@ public class EqBuilderSpellToken implements EqModChooseLstToken
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
-		int pipeLoc = value.indexOf("|");
-		if (pipeLoc == -1)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
-			return false;
-		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
 		{
@@ -79,31 +72,43 @@ public class EqBuilderSpellToken implements EqModChooseLstToken
 			return false;
 		}
 		tok.nextToken();
-		String second = tok.nextToken();
-		try
+		if (tok.hasMoreTokens())
 		{
-			Integer.parseInt(second);
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " second argument must be an Integer : " + value);
-			return false;
-		}
-		String third = tok.nextToken();
-		if (!third.equals("MAXLEVEL"))
-		{
+			String second = tok.nextToken();
 			try
 			{
-				Integer.parseInt(third);
+				Integer.parseInt(second);
 			}
 			catch (NumberFormatException nfe)
 			{
 				Logging.errorPrint("CHOOSE:" + getTokenName()
-					+ " third argument must be an Integer or 'MAXLEVEL': "
-					+ value);
+					+ " second argument must be an Integer : " + value);
 				return false;
 			}
+		}
+		if (tok.hasMoreTokens())
+		{
+			String third = tok.nextToken();
+			if (!third.equals("MAXLEVEL"))
+			{
+				try
+				{
+					Integer.parseInt(third);
+				}
+				catch (NumberFormatException nfe)
+				{
+					Logging.errorPrint("CHOOSE:" + getTokenName()
+						+ " third argument must be an Integer or 'MAXLEVEL': "
+						+ value);
+					return false;
+				}
+			}
+		}
+		if (tok.hasMoreTokens())
+		{
+			Logging.errorPrint("CHOOSE:" + getTokenName()
+					+ " must have 1 to 3 | delimited arguments: " + value);
+			return false;
 		}
 		StringBuilder sb = new StringBuilder();
 		if (prefix.length() > 0)
