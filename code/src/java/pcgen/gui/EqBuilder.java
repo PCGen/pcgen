@@ -1331,7 +1331,7 @@ final class EqBuilder extends JPanel
 			String spellType = csd.getSpellType();
 			int baseSpellLevel = csd.getBaseSpellLevel();
 			int casterLevel = csd.getCasterLevel();
-			Ability[] metamagicFeats = (Ability[])csd.getMetamagicFeats();
+			Object[] metamagicFeats = csd.getMetamagicFeats();
 
 			int charges = -1;
 

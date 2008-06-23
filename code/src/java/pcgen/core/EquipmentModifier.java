@@ -321,7 +321,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		final String  spellType,
 		final int     spellLevel,
 		final int     spellCasterLevel,
-		final Ability  spellMetamagicFeats[],
+		final Object[]  spellMetamagicFeats,
 		final int     charges)
 	{
 		final StringBuffer spellInfo = new StringBuffer(100);
@@ -351,7 +351,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 			for (int i = 0; i < spellMetamagicFeats.length; i++)
 			{
-				final Ability aFeat = spellMetamagicFeats[i];
+				final Ability aFeat = (Ability) spellMetamagicFeats[i];
 
 				if (i != 0)
 				{
