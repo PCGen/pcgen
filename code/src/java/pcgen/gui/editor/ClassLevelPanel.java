@@ -33,6 +33,7 @@ import java.awt.event.ActionListener;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -49,6 +50,7 @@ import javax.swing.table.AbstractTableModel;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -57,6 +59,7 @@ import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.DamageReduction;
 import pcgen.core.Description;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.LevelProperty;
 import pcgen.core.PCClass;
@@ -192,6 +195,25 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				LevelAbility la = i.next();
 				LevelTag lt = new LevelTag(la.level(), LevelTag.TAG_ADD, la.getTagData());
 				levelTagList.add(lt);
+			}
+		}
+
+		for (PCClassLevel pcl : obj.getClassLevelCollection())
+		{
+			Collection<CDOMReference<Domain>> domains =
+					pcl.getListMods(PCClass.ALLOWED_DOMAINS);
+			if (domains != null)
+			{
+				for (CDOMReference<Domain> ref : domains)
+				{
+					for (Domain d : ref.getContainedObjects())
+					{
+						int l = pcl.getSafe(IntegerKey.LEVEL);
+						String t = d.getKeyName();
+						LevelTag lt = new LevelTag(l, LevelTag.TAG_ADDDOMAINS, t);
+						levelTagList.add(lt);
+					}
+				}
 			}
 		}
 
