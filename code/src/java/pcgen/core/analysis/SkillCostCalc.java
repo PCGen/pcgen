@@ -81,39 +81,6 @@ public final class SkillCostCalc
 			}
 		}
 
-		List<CDOMReference<ClassSkillList>> prev = sk
-				.getListFor(ListKey.PREVENTED_CLASSES);
-		if (prev != null)
-		{
-			for (CDOMReference<ClassSkillList> ref : prev)
-			{
-				/*
-				 * Should be direct reference comparison, but for now, fall back
-				 * to String
-				 */
-				String aString = ref.getLSTformat();
-				if (aString.equalsIgnoreCase(aClass.getKeyName())
-						|| aString.equalsIgnoreCase(aClass.getSubClassKey()))
-				{
-					return false; // this is an excluded-from-class-skill list
-				}
-			}
-		}
-		List<CDOMReference<ClassSkillList>> classes = sk
-				.getListFor(ListKey.CLASSES);
-		if (classes != null)
-		{
-			for (CDOMReference<ClassSkillList> ref : classes)
-			{
-				for (ClassSkillList csl : aClass.getClassSkillList())
-				{
-					if (ref.contains(csl))
-					{
-						return true;
-					}
-				}
-			}
-		}
 		for (CharacterDomain aCD : aPC.getCharacterDomainList())
 		{
 			if ((aCD.getDomain() != null)
@@ -183,6 +150,39 @@ public final class SkillCostCalc
 			}
 		}
 
+		List<CDOMReference<ClassSkillList>> prev = sk
+				.getListFor(ListKey.PREVENTED_CLASSES);
+		if (prev != null)
+		{
+			for (CDOMReference<ClassSkillList> ref : prev)
+			{
+				/*
+				 * Should be direct reference comparison, but for now, fall back
+				 * to String
+				 */
+				String aString = ref.getLSTformat();
+				if (aString.equalsIgnoreCase(aClass.getKeyName())
+						|| aString.equalsIgnoreCase(aClass.getSubClassKey()))
+				{
+					return false; // this is an excluded-from-class-skill list
+				}
+			}
+		}
+		List<CDOMReference<ClassSkillList>> classes = sk
+				.getListFor(ListKey.CLASSES);
+		if (classes != null)
+		{
+			for (CDOMReference<ClassSkillList> ref : classes)
+			{
+				for (ClassSkillList csl : aClass.getClassSkillList())
+				{
+					if (ref.contains(csl))
+					{
+						return true;
+					}
+				}
+			}
+		}
 		return false;
 	}
 
