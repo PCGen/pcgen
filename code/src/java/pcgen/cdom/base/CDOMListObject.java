@@ -21,7 +21,9 @@ package pcgen.cdom.base;
  * This is an abstract object intended to be used as a basis for "concrete"
  * CDOMList objects.
  * 
- * CDOMListObject provides basic equality of list
+ * CDOMListObject provides basic equality, ensuring matching Class, matching
+ * underlying class (the Class of objects in the CDOMList) and matching List
+ * name. It does not fully test the underlying CDOMObject contents.
  * 
  * @param <T>
  *            The type of object contained in the CDOMList
