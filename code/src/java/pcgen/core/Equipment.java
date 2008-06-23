@@ -559,6 +559,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            PlayerCharacter used to check prereqs for bonuses
 	 * @return active bonuses
 	 */
+	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC) {
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
@@ -4825,6 +4826,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC
 	 *            The character being checked.
 	 */
+	@Override
 	public void activateBonuses(final PlayerCharacter aPC) {
 		for (final BonusObj bonus : getBonusList()) {
 			bonus.setApplied(false);

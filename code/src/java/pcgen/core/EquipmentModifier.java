@@ -104,6 +104,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * @return  a complete list of bonus objects with %CHOICE expanded to
 	 *          include one entry for each associated choice.
 	 */
+	@Override
 	public List<BonusObj> getBonusList()
 	{
 		final List<BonusObj> myBonusList = new ArrayList<BonusObj>(super.getBonusList());
@@ -161,6 +162,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  a List of bonuses mathing both name and type
 	 */
+	@Override
 	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
@@ -186,6 +188,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  True if the string matches, false otherwise
 	 */
+	@Override
 	public boolean getBonusListString(final String aString)
 	{
 		for ( BonusObj bonus : getBonusList() )
