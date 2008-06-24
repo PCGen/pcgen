@@ -54,10 +54,11 @@ public final class Domain extends PObject
 	 */
 	public void setIsLocked(final boolean aBool, final PlayerCharacter pc)
 	{
-		if (isLocked == aBool)
-		{
-			return;
-		}
+		// The effect of this method is per character, so a global flag cannot be used for optimisation
+//		if (isLocked == aBool)
+//		{
+//			return;
+//		}
 
 		isLocked = aBool;
 
