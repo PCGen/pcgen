@@ -33,7 +33,7 @@
 
 	<p class="indent1">The BONUS tag tells PCGen that the following information is to be added to a character, in the
 	appropriate places.</p>
-	<p class="indent1">The general format fo bonus tags are as follows:</p>
+	<p class="indent1">The general format for bonus tags are as follows:</p>
 	<blockquote>
 		<p class="indent1"><code>BONUS:&lt;category&gt;|&lt;group&gt;|&lt;formula&gt;</code></p>
 	</blockquote>
@@ -161,29 +161,29 @@
 	<p class="indent3">This would take the normal (4), compare it to the total <code>.REPLACE</code> (2), give the higher
 		value, then add in the <code>.STACK</code> (6) for a final value of 10.</p>
 	<p></p>
-	
+
 <hr>
 
 	<h2>Special BONUS Types</h2>
-	<p class="indent1">There are a two types of special &quot;types&quot; defined in the <em>miscinfo.lst</em> file 
+	<p class="indent1">There are a two types of special &quot;types&quot; defined in the <em>miscinfo.lst</em> file
 		in the <em>system/gamemode</em> folders. These are the <a href="#BONUSSTACKS">Bonus Stack Types</a> and the <a href="#ACTYPE">AC Types</a>.</p>
 	<blockquote>
 	<h3><a name="BONUSSTACKS">Bonus Stacks</a></h3>
-	<p class="indent1">Within PCGen, tags which do not have a <code>TYPE=&lt;type&gt;</code> sub-tag appended are assumed to stack, 
-		tags which do have a type appended do not normally stack. Some games have exceptions to this rule and list specific types 
-		which always do stack. In the fantasy gameModes Dodge and Circumstance always stack. The 
-		<a href="../systemfilestagpages/gamemodemiscinfolist.html#BONUSSTACKS">BONUSESTACKS</a> tag in the <em>miscinfo.lst</em> file 
+	<p class="indent1">Within PCGen, tags which do not have a <code>TYPE=&lt;type&gt;</code> sub-tag appended are assumed to stack,
+		tags which do have a type appended do not normally stack. Some games have exceptions to this rule and list specific types
+		which always do stack. In the fantasy gameModes Dodge and Circumstance always stack. The
+		<a href="../systemfilestagpages/gamemodemiscinfolist.html#BONUSSTACKS">BONUSESTACKS</a> tag in the <em>miscinfo.lst</em> file
 		lists those exceptions. The following are commonly used types that are defined within the <em>miscinfo.lst</em> file for this purpose.</p>
 	<p class="indent2"><code>Defense</code></p>
 	<p class="indent2"><code>Dodge</code></p>
 	<p class="indent2"><code>Circumstance</code></p>
 	<p class="indent2"><code>NotRanged</code></p>
 	<p class="indent2"><code>NotFlatFooted</code></p>
-	
+
 	<h3><a name="ACTYPE">Armor Class Types</a></h3>
-	<p class="indent1">PCGen tracks bonuses to the armor class through the use of several AC types. 
-		The following are commonly used types that are defined with the 
-		<a href="../systemfilestagpages/gamemodemiscinfolist.html#ACTYPE">ACTYPE</a> 
+	<p class="indent1">PCGen tracks bonuses to the armor class through the use of several AC types.
+		The following are commonly used types that are defined with the
+		<a href="../systemfilestagpages/gamemodemiscinfolist.html#ACTYPE">ACTYPE</a>
 		tag in the GameMode's <em>miscinfo.lst</em> file.</p>
 	<p class="indent2"><code>Total</code></p>
 	<p class="indent2"><code>Flatfooted</code></p>
@@ -203,13 +203,13 @@
 	<p></p>
 
 <hr>
-	
+
 	<h2>Miscellaneous BONUS Type Notes</h2>
 
 	<p class="indent1">Bonuses with negative numbers have been found to stack even when they have
     	matching types.</p>
-	<p class="indent1">While you can't <code>.CLEAR</code> a <code>BONUS</code> tag you can add a counter 
-		bonus that would negate it. In this case you would add a counter bonus and <code>PRExxx</code> 
+	<p class="indent1">While you can't <code>.CLEAR</code> a <code>BONUS</code> tag you can add a counter
+		bonus that would negate it. In this case you would add a counter bonus and <code>PRExxx</code>
 		tag it with the reverse of the feats prerequisite.</p>
 	<p></p>
 
@@ -783,8 +783,8 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Damage reduction type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage reduction amount)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adds a bonus to a Damage Reduction type, previously defined 
-	  by a standard <a href="globalfilesother.html#DR">DR</a> tag (the BONUS tag needs 
+	<p class="indent2">Adds a bonus to a Damage Reduction type, previously defined
+	  by a standard <a href="globalfilesother.html#DR">DR</a> tag (the BONUS tag needs
 	  to be coordinated with a DR:#/&lt;string&gt;).</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DR|+1|10</code></p>
@@ -1774,14 +1774,20 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.5.2</p>
+	<p class="new">*** Updated 5.5.2...5.14.0</p>
 	<p class="indent0"><strong><a name="WEAPON">Tag Name:</a></strong> BONUS:WEAPON|x,x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Property (Weapon property)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Modifies the indicated property of the weapon the tag is contained in.
-		<li>This tag only works in Equipment and Equipmod files.
+		<li>This tag only works in Equipment, Equipmod and temporary bonuses files.
+		<li>PRE tags have no baring on how the tags they are appended to can be used, they only effect when they are applied. See <a href="globalfilesprexxx.html#PREAPPLY">PREAPPLY</a>
+		and the Inventory Temporary Bonus Sub-Tab link that is there.</li>
+		<li>BONUS:WEAPON can be used in objects which can hold temporary bonuses as long as it have a PREAPPLY:Weapon tag on it. I
+		don't think PREAPPLY:PC or PREAPPLY:ANYPC will work since PCGen can't know what weapon to put it on.
+		<li>Temporary bonuses can be used in Class, Feat, Equipment, Skill, Spell and Template objects for sure, these all have a
+		tree in the temporary bonus subtab, possibly in Race and Ability
 		<li>Weapon properties defined are:
 		<ul>
 			<li>ATTACKS (Adds a number of additional attacks)</li>

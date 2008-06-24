@@ -145,20 +145,20 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (A type name).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Requires included qualifications must be met before the assiciated BONUS will be applied to the target.</li>
+		<li>Requires included qualifications must be met before the associated BONUS will be applied to the target.</li>
 		<li>The Temporary Bonus tab uses this tag as a flag to identify which objects should be listed on that tab.</li>
 		<li>PREAPPLY works ONLY at the end of a BONUS tag.</li>
 		<li>Bonuses with PREAPPLY tags will only appear in the Temporary Bonuses Tab.</li>
 		<li>Use a comma (,) delimiter to indicate AND (both  conditions must be met).</li>
 		<li>Use a semi-colon (;) delimiter to indicate OR (either condition needs to be met).</li>
-		<li>All feats, spells or templates with ANYPC as the target of the PREAPPLY tag will always 
-		show up on the Temp Bonuses tab. This allows for Spells that can be cast on any character and 
-		Feats and Templates which act as holders for conditional bonuses any character can get (given 
-		the right circumstances of course) without the character needing to have added those objects 
+		<li>All feats, spells or templates with ANYPC as the target of the PREAPPLY tag will always
+		show up on the Temp Bonuses tab. This allows for Spells that can be cast on any character and
+		Feats and Templates which act as holders for conditional bonuses any character can get (given
+		the right circumstances of course) without the character needing to have added those objects
 		to his character.</li>
-		<li>Spells with weapon type PREAPPLY tags will also show in the tab. The PREAPPLY:ANYPC is 
+		<li>Spells with weapon type PREAPPLY tags will also show in the tab. The PREAPPLY:ANYPC is
 		assumed in this case but the bonus can only be applied to a weapon.</li>
-		<li>See the documentation for the <a href="../../tabpages/players/inventory/inventorytempbonus.html">Temporary 
+		<li>See the documentation for the <a href="../../tabpages/players/inventory/inventorytempbonus.html">Temporary
 		Bonus Tab</a> for more information on using this tag.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -367,7 +367,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets maximum class level limits.</li>
-		<li>Class types are defined in the loaded datasets.  Examples from the RSRD are &quot;Base&quot;, 
+		<li>Class types are defined in the loaded datasets.  Examples from the RSRD are &quot;Base&quot;,
 			&quot;PC&quot;, or &quot;Prestige&quot;.</li>
 		<li><code>SPELLCATER</code> will check against all spellcasting classes.</li>
 		<li><code>SPELLCASTER.Text</code> will check against spellcaster types, e.g. Arcane or Divine.</li>
@@ -639,10 +639,10 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets character feat requirements.</li>
-		<li>Feats with multiple instances where the instance is expressed within parentheses, e.g. Skill 
+		<li>Feats with multiple instances where the instance is expressed within parentheses, e.g. Skill
 			Focus or Spell Focus, there is no space between the name of the feat and the parentheses.</li>
-		<li>Use of the <code>(TYPE=&lt;text&gt;)</code> syntax with feats with multiple instances, e.g. 
-			<code>Weapon Focus(TYPE=Bow)</code>, though allowed, is only supported for feats with internal 
+		<li>Use of the <code>(TYPE=&lt;text&gt;)</code> syntax with feats with multiple instances, e.g.
+			<code>Weapon Focus(TYPE=Bow)</code>, though allowed, is only supported for feats with internal
 			choosers for <code>DOMAIN</code>, <code>SKILL</code>, <code>SPELL</code>, and <code>WEAPONPROF</code> types.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -799,7 +799,7 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or formula (Maximum total level).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Provides the minimum and/or maximum total levels, including all character, racial, or monster 
+		<li>Provides the minimum and/or maximum total levels, including all character, racial, or monster
 		class levels, the character must have to qualify.</li>
 		<li>Either value may be used without the other.
 	</ul>
@@ -880,9 +880,9 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREPCLEVEL:MAX=1</code></p>
-	<p class="indent3">Character must be no greater than 1st level. This can be used 
-	  to qualify feats which can only be taken as a 1st level character. A character 
-	  with racial hitdice (monster levels) but only 1 or no character class levels will 
+	<p class="indent3">Character must be no greater than 1st level. This can be used
+	  to qualify feats which can only be taken as a 1st level character. A character
+	  with racial hitdice (monster levels) but only 1 or no character class levels will
 	  still qualify.</p>
 	<p class="indent2"><code>PREPCLEVEL:MIN=5</code></p>
 	<p class="indent3">Character must be at least 5th level.</p>
@@ -903,7 +903,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets a prerequisite based upon the saved method used by the point-buy system of stat determination.</li>
-		<li><strong>Note:</strong> Only one (1) point-buy method is used at any given time so using a value greater 
+		<li><strong>Note:</strong> Only one (1) point-buy method is used at any given time so using a value greater
 			then one is unecessary.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -1094,9 +1094,9 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets skill requirements.</li>
-		<li>If you require multiples of a particular type of skill, you need to include a <code>TYPE.Text</code> 
+		<li>If you require multiples of a particular type of skill, you need to include a <code>TYPE.Text</code>
 			sub-tag for each instance in the comma delimited list.</li>
-		<li>Skills types with multiple versions like &quot;Craft (Pottery)&quot; or &quot;Knowledge (Local)&quot; 
+		<li>Skills types with multiple versions like &quot;Craft (Pottery)&quot; or &quot;Knowledge (Local)&quot;
 			there must be a space between the name and the parentheses because the text must match the entry exactly.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -1114,7 +1114,7 @@
 
 	<p class="new">** NOTE: The following tag has some problems. It will work in some files but not all. **</p>
 	<p class="indent0"><strong><a name="PRESKILLMULT">Tag Name:</a></strong> PRESKILLMULT:x,y=z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of skills that must be equal 
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of skills that must be equal
 		to or greater than the numbers specified for the check to succeed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (A defined skill type).</p>
@@ -1213,7 +1213,7 @@
 	<p class="indent2">Sets spell descriptor requirements. (i.e. Fire, Acid, Sonic, Evil, Good, Mind-Affecting, etc.)</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PRESPELLDESCRIPTOR:4,Mind-Affecting=3</code></p>
-	<p class="indent3">Character must have at least four 3rd level or higher Mind-Affecting spells to 
+	<p class="indent3">Character must have at least four 3rd level or higher Mind-Affecting spells to
 		meet the requirement.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
 	<p class="indent2"><code>PRESPELLDESCRIPTOR:y,x,z</code></p>
@@ -1486,7 +1486,7 @@
 	<p class="indent2"><code>PREWEAPONPROF:1,TYPE.Exotic</code></p>
 	<p class="indent3">Character must have a weapon proficiency of type &quot;Exotic&quot;.</p>
 	<p class="indent2"><code>PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)</code></p>
-	<p class="indent3">Character must have either a weapon proficiency of type &quot;Martial&quot; or 
+	<p class="indent3">Character must have either a weapon proficiency of type &quot;Martial&quot; or
 		proficiency with &quot;Chain (Spiked)&quot;.</p>
 	<p class="indent2"><code>PREWEAPONPROF:1,DEITYWEAPON</code></p>
 	<p class="indent3">Character must have proficiency with one of the chosen deity's favored weapons.</p>
@@ -1539,7 +1539,7 @@
   		the character ignores all the prereqs), but you still want the DEX prereq to
   		be enforced, you would edit the PRE in the Whirlwind Attack feat to read as above. </p>
 	<p></p>
-	
+
 <hr>
 
 	<p><a href="http://validator.w3.org/check?uri=referer"><img
