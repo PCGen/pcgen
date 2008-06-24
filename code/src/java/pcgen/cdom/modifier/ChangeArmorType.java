@@ -23,13 +23,44 @@ import java.util.List;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.Modifier;
 
+/**
+ * ChangeArmorType is a Modifier that alters Armor Types.
+ * 
+ * If the type to be modified matches the source type of the ChangeArmorType
+ * object, then the result type is returned. Otherwise, the incoming type is not
+ * modified.
+ * 
+ * NOTE: It is possible (albeit strange) to use ChangeArmorType as a
+ * "RemoveArmorType", in that the result type can be null. Therefore, users
+ * should expect that applyModifier(String, Object) may return null.
+ */
 public class ChangeArmorType extends ConcretePrereqObject implements
 		Modifier<String>
 {
 
+	/**
+	 * The source type for this ChangeArmorType. If the type to be modified
+	 * matches the source type of the ChangeArmorType object, then this modifier
+	 * will act on the incoming type.
+	 */
 	private final String source;
+
+	/**
+	 * The result type for this ChangeArmorType. If the modifier acts on the
+	 * incoming type, it will return this type in place of the incoming type.
+	 */
 	private final String result;
 
+	/**
+	 * Constructs a new ChangeArmorType with the given source and result types.
+	 * 
+	 * @param sourceType
+	 *            The source type for this ChangeArmorType, to be tested against
+	 *            the types provided in applyModifier
+	 * @param resultType
+	 *            The result type for this ChangeArmorType, to be returned from
+	 *            applyModifier if the Modifier acts on the incoming type
+	 */
 	public ChangeArmorType(String sourceType, String resultType)
 	{
 		if (sourceType == null)
@@ -46,32 +77,60 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 		source = sourceType;
 	}
 
+	/**
+	 * Applies this Modifier to the given input armor type.
+	 * 
+	 * If the type to be modified matches the source type of the ChangeArmorType
+	 * object, then the result type is returned. Otherwise, the incoming type is
+	 * not modified (and the incoming type is returned).
+	 * 
+	 * Since ChangeArmorType is universal, the given context is ignored.
+	 * 
+	 * NOTE: It is possible (albeit strange) to use ChangeArmorType as a
+	 * "RemoveArmorType", in that the result type can be null. Therefore, users
+	 * should account for the possibility that this method may return null.
+	 * 
+	 * @param obj
+	 *            The input armor type this Modifier will act upon
+	 * @param context
+	 *            The context of this Modifier, ignored by ChangeArmorType.
+	 * @return The modified armor type, if the type to be modified matches the
+	 *         source type of the ChangeArmorType object; otherwise the source
+	 *         armor type
+	 */
 	public String applyModifier(String obj, Object context)
 	{
 		return source.equals(obj) ? result : obj;
 	}
 
+	/**
+	 * The class of object this Modifier acts upon (String).
+	 * 
+	 * @return The class of object this Modifier acts upon (String.class)
+	 */
 	public Class<String> getModifiedClass()
 	{
 		return String.class;
 	}
 
-	public String getSourceType()
-	{
-		return source;
-	}
-
-	public String getResultType()
-	{
-		return result;
-	}
-
+	/**
+	 * Returns the consistent-with-equals hashCode for this ChangeArmorType
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return 31 * source.hashCode() + result.hashCode();
 	}
 
+	/**
+	 * Returns true if this ChangeArmorType is equal to the given Object.
+	 * Equality is defined as being another ChangeArmorType object with equal
+	 * source and result armor types.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -91,6 +150,31 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 		return result.equals(other.result) && source.equals(other.source);
 	}
 
+	/**
+	 * Applies this Modifier to the given list of input armor types.
+	 * 
+	 * If any type in the given list matches the source type of the
+	 * ChangeArmorType object, then the result type is placed into the returned
+	 * list instead of the type to be modified. Other incoming types are not
+	 * modified (and the incoming type is included in the returned list).
+	 * 
+	 * Note: This method is reference-semantic. The ownership of the returned
+	 * List is transferred to the calling Object; therefore, changes to the
+	 * returned List will NOT impact the ChangeArmorType and will NOT impact the
+	 * incoming list. The returned list is guaranteed to be distinct from the
+	 * given list.
+	 * 
+	 * NOTE: As it is possible (albeit strange) to use ChangeArmorType as a
+	 * "RemoveArmorType", there is no guarantee that the returned list is the
+	 * same size as the given list. null values (removed armor types) will not
+	 * be included in the returned list. If the incoming list has only one type,
+	 * and that type is removed, this method will return an empty list. This
+	 * method will not return null.
+	 * 
+	 * @param calculatedTypeList
+	 *            The list of input armor types this Modifier will act upon
+	 * @return The modified List of armor types.
+	 */
 	public List<String> applyModifier(List<String> calculatedTypeList)
 	{
 		List<String> returnList = new ArrayList<String>();
@@ -105,6 +189,10 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 		return returnList;
 	}
 
+	/**
+	 * Returns a representation of this ChangeArmorType, suitable for storing in
+	 * an LST file.
+	 */
 	public String getLSTformat()
 	{
 		return source + (result == null ? "" : "|" + result);

@@ -22,11 +22,37 @@ import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.content.Modifier;
 import pcgen.util.StringPClassUtil;
 
+/**
+ * A ContextModifier is a Modifier that has the ability to wrap another Modifier
+ * in order to conditionally apply the underlying Modifier only in a given
+ * context.
+ */
 public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 {
+	/**
+	 * The underlying Modifier that this ContextModifer will apply when the
+	 * given context is matched.
+	 */
 	private final Modifier<T> modifier;
+
+	/**
+	 * A Reference which contains the objects in the context in which the
+	 * underlying Modifier should be applied.
+	 */
 	private final CDOMReference<R> contextItems;
 
+	/**
+	 * Constructs a new ContextModifier that will conditionally apply the given
+	 * Modifier only when objects in the given CDOMReference are provided as the
+	 * context of the modification.
+	 * 
+	 * @param mod
+	 *            The underlying Modifier that this ContextModifer will apply
+	 *            when the given context is matched.
+	 * @param context
+	 *            The CDOMReference which contains the objects for which the
+	 *            underlying Modifier should be applied.
+	 */
 	public ContextModifier(Modifier<T> mod, CDOMReference<R> context)
 	{
 		if (mod == null)
@@ -43,6 +69,25 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 		contextItems = context;
 	}
 
+	/**
+	 * Conditionally applies the underlying Modifier to the given input. Will
+	 * only be applied if the object given as the context object is contained
+	 * within the CDOMReference provided during construction of this
+	 * ContextModifier.
+	 * 
+	 * Note this method may return the object passed in as the input object. The
+	 * behavior of ContextModifier will depend on the behavior of the underlying
+	 * Modifier. Therefore, if the input object is mutable, the caller of the
+	 * applyModifier method should be aware of that behavior, and should treat
+	 * the returned object appropriately.
+	 * 
+	 * @param obj
+	 *            The input object this ContextModifier will act upon
+	 * @param context
+	 *            The context of this ContextModifier, to establish whether this
+	 *            Modifier should act upon the input object
+	 * @return The modified object, of the same class as the input object.
+	 */
 	public T applyModifier(T obj, Object context)
 	{
 		return (context instanceof PrereqObject && contextItems
@@ -50,6 +95,10 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 				: obj;
 	}
 
+	/**
+	 * Returns a representation of this ContextModifier, suitable for storing in
+	 * an LST file.
+	 */
 	public String getLSTformat()
 	{
 		String cf = contextItems.getLSTformat();
@@ -62,11 +111,24 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 		return sb.toString();
 	}
 
+	/**
+	 * The class of object this ContextModifier acts upon (matches the modified
+	 * class of the underlying Modifier).
+	 * 
+	 * @return The class of object this ContextModifier acts upon
+	 */
 	public Class<T> getModifiedClass()
 	{
 		return modifier.getModifiedClass();
 	}
 
+	/**
+	 * Returns true if this ContextModifier is equal to the given Object.
+	 * Equality is defined as being another ContextModifier object underlying
+	 * Modifier and context items
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -79,6 +141,11 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 		return false;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this ContextModifier
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
