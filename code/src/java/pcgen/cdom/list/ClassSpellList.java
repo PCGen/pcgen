@@ -20,14 +20,29 @@ package pcgen.cdom.list;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.core.spell.Spell;
 
+/**
+ * ClassSpellList is a CDOMListObject designed to reference a List of Spell
+ * objects.
+ * 
+ * A ClassSpellList is effectively a specialized SpellList that represents Spell
+ * objects associated with a particular PCClass.
+ */
 public class ClassSpellList extends CDOMListObject<Spell>
 {
 
+	/**
+	 * Returns the Spell Class object (Spell.class)
+	 * 
+	 * @return the Spell Class object (Spell.class)
+	 */
 	public Class<Spell> getListClass()
 	{
 		return Spell.class;
 	}
 
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	@Override
 	public boolean isType(String str)
 	{

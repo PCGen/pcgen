@@ -20,14 +20,26 @@ package pcgen.cdom.list;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.core.Language;
 
+/**
+ * LanguageList is a CDOMListObject designed to reference a List of Language
+ * objects.
+ */
 public class LanguageList extends CDOMListObject<Language>
 {
 
+	/**
+	 * Returns the Language Class object (Language.class)
+	 * 
+	 * @return the Language Class object (Language.class)
+	 */
 	public Class<Language> getListClass()
 	{
 		return Language.class;
 	}
 
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	@Override
 	public boolean isType(String str)
 	{

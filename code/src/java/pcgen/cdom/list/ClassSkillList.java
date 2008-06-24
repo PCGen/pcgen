@@ -20,14 +20,29 @@ package pcgen.cdom.list;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.core.Skill;
 
+/**
+ * ClassSkillList is a CDOMListObject designed to reference a List of Skill
+ * objects.
+ * 
+ * A ClassSkillList is effectively a specialized SkillList that represents Skill
+ * objects associated with a particular PCClass.
+ */
 public class ClassSkillList extends CDOMListObject<Skill>
 {
 
+	/**
+	 * Returns the Skill Class object (Skill.class)
+	 * 
+	 * @return the Skill Class object (Skill.class)
+	 */
 	public Class<Skill> getListClass()
 	{
 		return Skill.class;
 	}
 
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	@Override
 	public boolean isType(String str)
 	{

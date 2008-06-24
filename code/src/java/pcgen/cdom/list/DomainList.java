@@ -20,14 +20,26 @@ package pcgen.cdom.list;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.core.Domain;
 
+/**
+ * DomainList is a CDOMListObject designed to reference a List of Domain
+ * objects.
+ */
 public class DomainList extends CDOMListObject<Domain>
 {
 
+	/**
+	 * Returns the Domain Class object (Domain.class)
+	 * 
+	 * @return the Domain Class object (Domain.class)
+	 */
 	public Class<Domain> getListClass()
 	{
 		return Domain.class;
 	}
 
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	@Override
 	public boolean isType(String str)
 	{

@@ -22,11 +22,15 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.WeaponProf;
 
+/**
+ * WeaponProfList is a CDOMListObject designed to reference a List of WeaponProf
+ * objects.
+ */
 public class WeaponProfList extends CDOMListObject<WeaponProf>
 {
 
 	public static final CDOMReference<WeaponProfList> STARTING;
-	
+
 	static
 	{
 		WeaponProfList wpl = new WeaponProfList();
@@ -34,11 +38,19 @@ public class WeaponProfList extends CDOMListObject<WeaponProf>
 		STARTING = new CDOMDirectSingleRef<WeaponProfList>(wpl);
 	}
 
+	/**
+	 * Returns the WeaponProf Class object (WeaponProf.class)
+	 * 
+	 * @return the WeaponProf Class object (WeaponProf.class)
+	 */
 	public Class<WeaponProf> getListClass()
 	{
 		return WeaponProf.class;
 	}
 
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	@Override
 	public boolean isType(String str)
 	{

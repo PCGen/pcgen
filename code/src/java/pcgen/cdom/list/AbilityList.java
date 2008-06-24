@@ -20,14 +20,26 @@ package pcgen.cdom.list;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.core.Ability;
 
+/**
+ * AbilityList is a CDOMListObject designed to reference a List of Ability
+ * objects.
+ */
 public class AbilityList extends CDOMListObject<Ability>
 {
 
+	/**
+	 * Returns the Ability Class object (Ability.class)
+	 * 
+	 * @return the Ability Class object (Ability.class)
+	 */
 	public Class<Ability> getListClass()
 	{
 		return Ability.class;
 	}
 
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	@Override
 	public boolean isType(String str)
 	{

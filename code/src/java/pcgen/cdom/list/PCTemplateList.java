@@ -20,14 +20,26 @@ package pcgen.cdom.list;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.core.PCTemplate;
 
+/**
+ * PCTemplateList is a CDOMListObject designed to reference a List of PCTemplate
+ * objects.
+ */
 public class PCTemplateList extends CDOMListObject<PCTemplate>
 {
 
+	/**
+	 * Returns the PCTemplate Class object (PCTemplate.class)
+	 * 
+	 * @return the PCTemplate Class object (PCTemplate.class)
+	 */
 	public Class<PCTemplate> getListClass()
 	{
 		return PCTemplate.class;
 	}
 
+	/**
+	 * Lists never have a Type, so this returns false
+	 */
 	@Override
 	public boolean isType(String str)
 	{
