@@ -20,20 +20,50 @@ package pcgen.cdom.reference;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 
+/**
+ * A CDOMSimpleSingleRef is a CDOMReference which is intended to contain a
+ * single object of a given Type for the Class this CDOMSingleRef represents.
+ * 
+ * @param <T>
+ *            The Class of the underlying object contained by this CDOMSingleRef
+ */
 public abstract class CDOMSingleRef<T extends PrereqObject> extends
 		CDOMReference<T>
 {
 
+	/**
+	 * Constructs a new CDOMSingleRef for the given Class and name.
+	 * 
+	 * @param cl
+	 *            The Class of the underlying object contained by this
+	 *            CDOMSingleRef.
+	 * @param nm
+	 *            An identifier of the object this CDOMSingleRef contains.
+	 */
 	public CDOMSingleRef(Class<T> cl, String nm)
 	{
 		super(cl, nm);
 	}
 
+	/**
+	 * Returns one: The count of the number of objects included in the
+	 * Collection of Objects to which this CDOMSingleRef refers.
+	 * 
+	 * @return one (since this is a single reference)
+	 */
 	@Override
 	public int getObjectCount()
 	{
 		return 1;
 	}
 
+	/**
+	 * Returns the given Object this CDOMSingleRef contains.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMSingleRef
+	 * has not yet been resolved.
+	 * 
+	 * @return the given Object this CDOMSingleRef contains.
+	 */
 	public abstract T resolvesTo();
 }

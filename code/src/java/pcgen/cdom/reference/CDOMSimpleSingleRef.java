@@ -22,17 +22,51 @@ import java.util.Collections;
 
 import pcgen.cdom.base.PrereqObject;
 
+/**
+ * A CDOMSimpleSingleRef is a CDOMReference which is intended to contain a
+ * single (non-categorized) object of a given Type for the Class this
+ * CDOMSimpleSingleRef represents.
+ * 
+ * @param <T>
+ *            The Class of the underlying object contained by this
+ *            CDOMSimpleSingleRef
+ */
 public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 		CDOMSingleRef<T>
 {
 
+	/**
+	 * The object of the Class this CDOMSimpleSingleRef represents
+	 */
 	private T referencedObject = null;
 
+	/**
+	 * Constructs a new CDOMSimpleSingleRef for the given Class and name.
+	 * 
+	 * @param cl
+	 *            The Class of the underlying object contained by this
+	 *            CDOMSimpleSingleRef.
+	 * @param nm
+	 *            An identifier of the object this CDOMSimpleSingleRef contains.
+	 */
 	public CDOMSimpleSingleRef(Class<T> cl, String nm)
 	{
 		super(cl, nm);
 	}
 
+	/**
+	 * Returns true if the given Object matches the object to which this
+	 * CDOMSimpleSingleRef refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the
+	 * CDOMSimpleSingleRef has not yet been resolved.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it matches the object to
+	 *            which this CDOMSimpleSingleRef contains.
+	 * @return true if the given Object is the object this CDOMSimpleSingleRef
+	 *         contains; false otherwise.
+	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -45,23 +79,49 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 		return referencedObject.equals(obj);
 	}
 
+	/**
+	 * Returns the given Object this CDOMSimpleSingleRef contains.
+	 * 
+	 * Note that the behavior of this class is undefined if the
+	 * CDOMSimpleSingleRef has not yet been resolved.
+	 * 
+	 * @return the given Object this CDOMSimpleSingleRef contains.
+	 */
 	@Override
 	public T resolvesTo()
 	{
 		if (referencedObject == null)
 		{
 			throw new IllegalStateException(
-				"Cannot ask for resolution: Reference has not been resolved");
+					"Cannot ask for resolution: Reference has not been resolved");
 		}
 		return referencedObject;
 	}
 
+	/**
+	 * Returns a representation of this CDOMSimpleSingleRef, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the identifier of the underlying reference (of
+	 * the types given at construction), often the "key" in LST terminology.
+	 * 
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 */
 	@Override
 	public String getLSTformat()
 	{
 		return getName();
 	}
 
+	/**
+	 * Returns true if this CDOMSimpleSingleRef is equal to the given Object.
+	 * Equality is defined as being another CDOMSimpleSingleRef object with
+	 * equal Class represented by the reference and equal name of the underlying
+	 * reference. This is NOT a deep .equals, in that the actual contents of
+	 * this CDOMSimpleSingleRef are not tested.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -69,17 +129,33 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 		{
 			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef<?>) o;
 			return getReferenceClass().equals(ref.getReferenceClass())
-				&& getName().equals(ref.getName());
+					&& getName().equals(ref.getName());
 		}
 		return false;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this CDOMSimpleSingleRef
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return getReferenceClass().hashCode() ^ getName().hashCode();
 	}
 
+	/**
+	 * Defines the object to which this CDOMSimpleSingleRef will refer.
+	 * 
+	 * Note that this method may only be called once - a CDOMSimpleSingleRef is
+	 * a one-shot resolution. If you are looking for a Reference which can be
+	 * redefined, check out objects that extend the TransparentReference
+	 * interface.
+	 * 
+	 * @param obj
+	 *            The object to which this CDOMSimpleSingleRef will refer.
+	 */
 	@Override
 	public void addResolution(T obj)
 	{
@@ -92,17 +168,38 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 			else
 			{
 				throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ obj.getClass().getSimpleName());
+						+ getReferenceClass().getSimpleName()
+						+ " Reference to a " + obj.getClass().getSimpleName());
 			}
 		}
 		else
 		{
 			throw new IllegalStateException(
-				"Cannot resolve a Single Reference twice");
+					"Cannot resolve a Single Reference twice");
 		}
 	}
 
+	/**
+	 * Returns a Collection containing the single Object to which this
+	 * CDOMSimpleSingleRef refers.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the CDOMSimpleSingleRef, and modifying the CDOMSimpleSingleRef after the
+	 * Collection is returned should not modify the Collection.
+	 * 
+	 * Note that if you know this reference is a CDOMSingleRef, you are better
+	 * off using resolvesTo() as the result will be much faster than having to
+	 * extract the object out of the Collection returned by this method.
+	 * 
+	 * Note that the behavior of this class is undefined if the
+	 * CDOMSimpleSingleRef has not yet been resolved. (It may return null or an
+	 * empty Collection; that is implementation dependent)
+	 * 
+	 * @return A Collection containing the single Object to which this
+	 *         CDOMSimpleSingleRef refers.
+	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{

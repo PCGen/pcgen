@@ -25,45 +25,108 @@ import java.util.List;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 
+/**
+ * A CDOMAllRef is a CDOMReference which is intended to contain all objects of
+ * the Class this CDOMAllRef represents.
+ * 
+ * @param <T>
+ *            The Class of the underlying objects contained by this reference
+ */
 public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 {
+	/**
+	 * The objects (presumably all of the objects) of the Class this CDOMAllRef
+	 * represents
+	 */
 	private List<T> referencedList = null;
 
+	/**
+	 * Constructs a new CDOMAllRef for the given Class to be represented by this
+	 * CDOMAllRef.
+	 * 
+	 * @param cl
+	 *            The Class of the underlying objects contained by this
+	 *            reference.
+	 */
 	public CDOMAllRef(Class<T> cl)
 	{
 		super(cl, Constants.ALLREF_LST + ": " + cl.getSimpleName());
 	}
 
+	/**
+	 * Returns a representation of this CDOMAllRef, suitable for storing in an
+	 * LST file.
+	 * 
+	 * Note that this will return the identifier of the "All" reference, not an
+	 * expanded list of the contents of this CDOMAllRef.
+	 * 
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 */
 	@Override
 	public String getLSTformat()
 	{
 		return Constants.ALLREF_LST;
 	}
 
+	/**
+	 * Returns true if the given Object is included in the Collection of Objects
+	 * to which this CDOMAllRef refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMAllRef has
+	 * not yet been resolved.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it is referred to by this
+	 *            CDOMAllRef.
+	 * @return true if the given Object is included in the Collection of Objects
+	 *         to which this CDOMAllRef refers; false otherwise.
+	 */
 	@Override
 	public boolean contains(T obj)
 	{
 		if (referencedList == null)
 		{
 			throw new IllegalStateException(
-				"Cannot ask for contains: Reference has not been resolved");
+					"Cannot ask for contains: Reference has not been resolved");
 		}
 		return referencedList.contains(obj);
 	}
 
+	/**
+	 * Returns true if this CDOMAllRef is equal to the given Object. Equality is
+	 * defined as being another CDOMAllRef object with equal Class represented
+	 * by the reference. This is NOT a deep .equals, in that the actual contents
+	 * of this CDOMReference are not tested.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
 		return o instanceof CDOMAllRef
-			&& getReferenceClass().equals(((CDOMAllRef<?>) o).getReferenceClass());
+				&& getReferenceClass().equals(
+						((CDOMAllRef<?>) o).getReferenceClass());
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this CDOMAllRef
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return getReferenceClass().hashCode();
 	}
 
+	/**
+	 * Adds an object to be included in the Collection of objects to which this
+	 * CDOMAllRef refers.
+	 * 
+	 * @param obj
+	 *            An object to be included in the Collection of objects to which
+	 *            this CDOMAllRef refers.
+	 */
 	@Override
 	public void addResolution(T obj)
 	{
@@ -78,17 +141,44 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 		else
 		{
 			throw new IllegalArgumentException("Cannot resolve a "
-				+ getReferenceClass().getSimpleName() + " Reference to a "
-				+ obj.getClass().getSimpleName());
+					+ getReferenceClass().getSimpleName() + " Reference to a "
+					+ obj.getClass().getSimpleName());
 		}
 	}
 
+	/**
+	 * Returns the count of the number of objects included in the Collection of
+	 * Objects to which this CDOMAllRef refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMAllRef has
+	 * not yet been resolved.
+	 * 
+	 * @return The count of the number of objects included in the Collection of
+	 *         Objects to which this CDOMAllRef refers.
+	 */
 	@Override
 	public int getObjectCount()
 	{
 		return referencedList == null ? 0 : referencedList.size();
 	}
 
+	/**
+	 * Returns a Collection containing the Objects to which this CDOMAllRef
+	 * refers.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the CDOMAllRef, and modifying the CDOMAllRef after the Collection is
+	 * returned should not modify the Collection.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMAllRef has
+	 * not yet been resolved. (It may return null or an empty Collection; that
+	 * is implementation dependent)
+	 * 
+	 * @return A Collection containing the Objects to which this CDOMAllRef
+	 *         refers.
+	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
