@@ -20,15 +20,59 @@ package pcgen.cdom.reference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 
+/**
+ * A CategorizedCDOMReference is an object that contains one or more references
+ * to Categorized CDOMObjects.
+ * 
+ * @see pcgen.cdom.base.Category
+ * 
+ * CategorizedCDOMReference does not limit the quantity of object to which a
+ * single CategorizedCDOMReference can refer (it may be more than one).
+ * 
+ * @param <T>
+ *            The class of object underlying this CategorizedCDOMReference.
+ */
 public interface CategorizedCDOMReference<T extends CategorizedCDOMObject<T>>
 {
 
+	/**
+	 * Returns the Category of the object this CategorizedCDOMReference contains
+	 * 
+	 * @return the Category of the object this CategorizedCDOMReference contains
+	 */
 	public Category<T> getCDOMCategory();
 
+	/**
+	 * Returns a representation of this CategorizedCDOMReference, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the identifier of the underlying reference (of
+	 * the types given at construction), often the "key" in LST terminology.
+	 */
 	public String getLSTformat();
 
+	/**
+	 * Returns the name of this CategorizedCDOMReference. Note that this name is
+	 * suitable for display, but it does not represent information that should
+	 * be stored in a persistent state (it is not sufficient information to
+	 * reconstruct this CategorizedCDOMReference)
+	 * 
+	 * @return The name of this CategorizedCDOMReference.
+	 */
 	public String getName();
 
+	/**
+	 * Adds an object to be included in the Collection of objects to which this
+	 * CategorizedCDOMReference refers.
+	 * 
+	 * Note that specific implementations may limit the number of times this
+	 * method may be called, and may throw an IllegalStateException if that
+	 * limit is exceeded.
+	 * 
+	 * @param obj
+	 *            an object to be included in the Collection of objects to which
+	 *            this CategorizedCDOMReference refers.
+	 */
 	public void addResolution(T obj);
 
 }

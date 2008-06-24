@@ -26,23 +26,76 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 
+/**
+ * A CDOMCompoundOrReference is a CDOMReference which is intended to contain one
+ * or more CDOMReferences that this object "joins" in an "or" format. In other
+ * words, if any one of the underlying CDOMReference objects contains an object,
+ * then this CDOMCompoundOrReference will contain the object.
+ * 
+ * @param <T>
+ *            The Class of the underlying objects contained by this
+ *            CDOMCompoundOrReference
+ */
 public class CDOMCompoundOrReference<T extends PrereqObject> extends
 		CDOMGroupRef<T>
 {
 
-	private ArrayList<CDOMReference<T>> references =
-			new ArrayList<CDOMReference<T>>();
+	/**
+	 * The list of underlying references that this CDOMCompoundOrReference
+	 * contains
+	 */
+	private ArrayList<CDOMReference<T>> references = new ArrayList<CDOMReference<T>>();
 
+	/**
+	 * Creates a new CDOMCompoundOrReference with the given name which will
+	 * contain CDOMReferences that contain objects of the given Class.
+	 * 
+	 * @param cl
+	 *            The Class of the underlying object contained by this
+	 *            CDOMCompoundOrReference.
+	 * @param nm
+	 *            An identifier of the objects this CDOMCompoundOrReference
+	 *            contains.
+	 */
 	public CDOMCompoundOrReference(Class<T> cl, String nm)
 	{
 		super(cl, nm);
 	}
 
+	/**
+	 * Adds a new CDOMReference to this CDOMCompoundOrReference.
+	 * 
+	 * @param ref
+	 *            The CDOMReference to add to this CDOMCompoundOrReference
+	 */
 	public void addReference(CDOMReference<T> ref)
 	{
+		/*
+		 * Extra protection in case generics fail
+		 */
+		if (!getReferenceClass().equals(ref.getReferenceClass()))
+		{
+			throw new IllegalArgumentException("Cannot add reference of "
+					+ ref.getReferenceClass()
+					+ " to CDOMCompoundOrReference of " + getReferenceClass());
+		}
 		references.add(ref);
 	}
 
+	/**
+	 * Returns true if the given Object is included in the Collection of Objects
+	 * to which this CDOMCompoundOrReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if CDOMReferences have
+	 * not been added to this CDOMCompoundOrReference or if any of the
+	 * underlying CDOMReference objects have not been resolved.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it is referred to by this
+	 *            CDOMCompoundOrReference.
+	 * @return true if the given Object is included in the Collection of Objects
+	 *         to which this CDOMCompoundOrReference refers; false otherwise.
+	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -56,24 +109,65 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 		return false;
 	}
 
+	/**
+	 * For purposes of memory optimization, allows the underlying collection of
+	 * CDOMReferences to be compacted to the exact size of the number of
+	 * CDOMReference objects that this CDOMCompoundOrReference contains.
+	 */
 	public void trimToSize()
 	{
 		references.trimToSize();
 	}
 
+	/**
+	 * Returns a representation of this CDOMCompoundOrReference, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will call the getLSTformat() method of the underlying
+	 * CDOMReference objects. Therefore, the contents of the String returned by
+	 * this method is partially governed by the response of the individual
+	 * CDOMReference objects contained by this CDOMCompoundOrReference.
+	 * 
+	 * Note that this will ALWAYS return a comma-delimted list of objects if
+	 * more than one reference is present in the CDOMCompoundOrReference.
+	 */
 	@Override
 	public String getLSTformat()
 	{
 		return ReferenceUtilities.joinLstFormat(references, Constants.COMMA);
 	}
 
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * CDOMCompoundOrReference refers to objects indirectly through references.
+	 * 
+	 * To add items to this CDOMCompoundOrReference, see
+	 * addReference(CDOMReference)
+	 * 
+	 * @param obj
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a CDOMCompoundOrReference does not get directly
+	 *             resolved.
+	 */
 	@Override
 	public void addResolution(T obj)
 	{
 		throw new IllegalStateException(
-			"CompoundReference cannot be given a resolution");
+				"CompoundReference cannot be given a resolution");
 	}
 
+	/**
+	 * Returns the count of the number of objects included in the Collection of
+	 * Objects to which this CDOMCompoundOrReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if CDOMReferences have
+	 * not been added to this CDOMCompoundOrReference or if any of the
+	 * underlying CDOMReference objects have not been resolved.
+	 * 
+	 * @return the count of the number of objects included in the Collection of
+	 *         Objects to which this CDOMCompoundOrReference refers.
+	 */
 	@Override
 	public int getObjectCount()
 	{
@@ -85,6 +179,23 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 		return count;
 	}
 
+	/**
+	 * Returns a Collection containing the Objects to which this
+	 * CDOMCompoundOrReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if CDOMReferences have
+	 * not been added to this CDOMCompoundOrReference or if any of the
+	 * underlying CDOMReference objects have not been resolved.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the CDOMCompoundOrReference, and modifying the CDOMCompoundOrReference
+	 * after the Collection is returned should not modify the Collection.
+	 * 
+	 * @return A Collection containing the Objects to which this
+	 *         CDOMCompoundOrReference refers.
+	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{

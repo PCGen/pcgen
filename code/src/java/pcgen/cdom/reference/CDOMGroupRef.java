@@ -21,15 +21,44 @@ package pcgen.cdom.reference;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 
+/**
+ * A CDOMGroupRef is a CDOMReference which is intended to contain more than one
+ * object of a given Type for the Class this CDOMGroupRef represents.
+ * 
+ * @param <T>
+ *            The Class of the underlying objects contained by this CDOMGroupRef
+ */
 public abstract class CDOMGroupRef<T extends PrereqObject> extends
 		CDOMReference<T>
 {
 
+	/**
+	 * Constructs a new CDOMGroupRef for the given Class and name.
+	 * 
+	 * @param cl
+	 *            The Class of the underlying object contained by this
+	 *            CDOMGroupRef.
+	 * @param nm
+	 *            An identifier of the objects this CDOMGroupRef contains.
+	 */
 	public CDOMGroupRef(Class<T> cl, String nm)
 	{
 		super(cl, nm);
 	}
 
+	/**
+	 * Returns true if the given Object is included in the Collection of Objects
+	 * to which this CDOMGroupRef refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef has
+	 * not yet been resolved.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it is referred to by this
+	 *            CDOMGroupRef.
+	 * @return true if the given Object is included in the Collection of Objects
+	 *         to which this CDOMGroupRef refers; false otherwise.
+	 */
 	@Override
 	public abstract boolean contains(T obj);
 }

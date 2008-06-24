@@ -25,13 +25,58 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 
+/**
+ * A PatternMatchingReference is a CDOMReference that matches objects based on a
+ * pattern of their key.
+ * 
+ * An underlying start list is provided during construction of the
+ * PatternMatchingReference. Generally, this will be the CDOMAllRef for the
+ * class of object underlying this PatternMatchingReference.
+ * 
+ * @param <T>
+ *            The class of object underlying this PatternMatchingReference.
+ */
 public class PatternMatchingReference<T extends CDOMObject> extends
 		CDOMReference<T>
 {
 
+	/**
+	 * The CDOMGroupRef containing the underlying list of objects from which
+	 * this PatternMatchingReference will draw.
+	 */
 	private final CDOMGroupRef<T> all;
+
+	/**
+	 * The pattern used to match against the key of objects from the underlying
+	 * CDOMGroupRef
+	 */
 	private final String pattern;
 
+	/*
+	 * CONSIDER is it necessary/useful to cache the results of the pattern
+	 * match? If that is done, under what conditions does the cache need to be
+	 * invalidated (how can the underlying CDOMGroupRef be known to not have
+	 * been modified)?
+	 */
+
+	/**
+	 * Constructs a new PatternMatchingReference
+	 * 
+	 * @param cl
+	 *            The Class of the underlying objects contained by this
+	 *            reference.
+	 * @param start
+	 *            The underlying list of objects from which this
+	 *            PatternMatchingReference will draw.
+	 * @param tokText
+	 *            The pattern used to identify items which this
+	 *            PatternMatchingReference will contain. Note that this pattern
+	 *            must end with the PCGen pattern characters (defined by
+	 *            Constants.LST_PATTERN)
+	 * @throws IllegalArgumentException
+	 *             if the starting group is null or the provided pattern does
+	 *             not end with the PCGen pattern characters
+	 */
 	public PatternMatchingReference(Class<T> cl, CDOMGroupRef<T> start,
 			String tokText)
 	{
@@ -53,6 +98,17 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 		pattern = tokText.substring(0, patternchar);
 	}
 
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * PatternMatchingReference is resolved based on the pattern provided at
+	 * construction.
+	 * 
+	 * @param obj
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a PatternMatchingReference is resolved based on the
+	 *             pattern provided at construction.
+	 */
 	@Override
 	public void addResolution(T obj)
 	{
@@ -60,12 +116,41 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 				"Cannot add resolution to PatternMatchingReference");
 	}
 
+	/**
+	 * Returns true if the given Object is included in the Collection of Objects
+	 * to which this PatternMatchingReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this PatternMatchingReference has not yet been resolved.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it is referred to by this
+	 *            PatternMatchingReference.
+	 * @return true if the given Object is included in the Collection of Objects
+	 *         to which this PatternMatchingReference refers; false otherwise.
+	 */
 	@Override
 	public boolean contains(T obj)
 	{
 		return all.contains(obj) && obj.getKeyName().startsWith(pattern);
 	}
 
+	/**
+	 * Returns a Collection containing the Objects to which this
+	 * PatternMatchingReference refers.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the PatternMatchingReference, and modifying the PatternMatchingReference
+	 * after the Collection is returned should not modify the Collection.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this PatternMatchingReference has not yet been resolved.
+	 * 
+	 * @return A Collection containing the Objects to which this
+	 *         PatternMatchingReference refers.
+	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
@@ -80,12 +165,31 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 		return list;
 	}
 
+	/**
+	 * Returns a representation of this PatternMatchingReference, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the pattern String provided during
+	 * construction of the PatternMatchingReference.
+	 * 
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 */
 	@Override
 	public String getLSTformat()
 	{
 		return getName();
 	}
 
+	/**
+	 * Returns the count of the number of objects included in the Collection of
+	 * Objects to which this PatternMatchingReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this PatternMatchingReference has not yet been resolved.
+	 * 
+	 * @return The count of the number of objects included in the Collection of
+	 *         Objects to which this PatternMatchingReference refers.
+	 */
 	@Override
 	public int getObjectCount()
 	{
@@ -100,6 +204,17 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 		return count;
 	}
 
+	/**
+	 * Returns true if this PatternMatchingReference is equal to the given
+	 * Object. Equality is defined as being another PatternMatchingReference
+	 * object with equal Class represented by the reference, an equal staring
+	 * CDOMGroupRef and an equal pattern. This may or may not be a deep .equals,
+	 * depending on the behavior of the underlying CDOMGroupRef. You should
+	 * check the documentation for the .equals(Object) method of that class to
+	 * establish the actual behavior of this method.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -107,12 +222,17 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 		{
 			PatternMatchingReference<?> other = (PatternMatchingReference<?>) o;
 			return getReferenceClass().equals(other.getReferenceClass())
-					&& getName().equals(other.getName())
 					&& all.equals(other.all) && pattern.equals(other.pattern);
 		}
 		return false;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this
+	 * PatternMatchingReference
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
