@@ -98,6 +98,7 @@ public class TemplateLst extends AbstractToken implements
 			{
 				ref.addReference(r);
 			}
+			ref.trimToSize();
 			list.clear();
 			list.add(ref);
 		}
