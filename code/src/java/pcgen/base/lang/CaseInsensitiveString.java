@@ -1,5 +1,5 @@
 /*
- * Copyright 2006 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2006 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -20,7 +20,7 @@
 package pcgen.base.lang;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker <thpr@users.sourceforge.net>
  * 
  * CaseInsensitiveString is designed to be a String-like Object which is fast in
  * dealing with case sensitive comparisons in "consistent with equals"

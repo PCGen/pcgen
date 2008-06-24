@@ -1,6 +1,6 @@
 /*
  * WeightedCollection.java
- * Copyright 2007 (c) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2007 (c) Tom Parker <thpr@users.sourceforge.net>
  *  Derived from WeightedList.java
  *  Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  * 

@@ -146,8 +146,8 @@ public abstract class CDOMReference<T extends PrereqObject>
 	 * is returned should not modify the Collection.
 	 * 
 	 * Note that the behavior of this class is undefined if the CDOMReference
-	 * has not yet been resolved. (It may return null or an empty Collection;
-	 * that is implementation dependent)
+	 * has not yet been resolved. (It may return null, an empty Collection or
+	 * throw an exception; that is implementation dependent)
 	 * 
 	 * @return A Collection containing the Objects to which this CDOMReference
 	 *         refers.

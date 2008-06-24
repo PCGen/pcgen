@@ -21,7 +21,7 @@
 package pcgen.base.lang;
 
 /**
- * @author Thomas Parker (thpr@sourceforge.net)
+ * @author Thomas Parker (thpr@users.sourceforge.net)
  * 
  * An UnreachableError is an error caused by code that the programmer thought
  * was Unreachable. This is preferred to an InternalError, as an InternalError
