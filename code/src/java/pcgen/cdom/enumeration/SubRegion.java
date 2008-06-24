@@ -110,6 +110,8 @@ public final class SubRegion implements TypeSafeConstant
 	 * @param s
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
+	 * @throws IllegalArgumentException
+	 *             if the given String is not a previously defined SubRegion
 	 */
 	public static SubRegion valueOf(String s)
 	{

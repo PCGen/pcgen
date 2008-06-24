@@ -105,6 +105,9 @@ public abstract class CDOMReference<T extends PrereqObject>
 	 * Returns true if the given Object is included in the Collection of Objects
 	 * to which this CDOMReference refers.
 	 * 
+	 * Note that the behavior of this class is undefined if the CDOMReference
+	 * has not yet been resolved.
+	 * 
 	 * @param obj
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMReference.

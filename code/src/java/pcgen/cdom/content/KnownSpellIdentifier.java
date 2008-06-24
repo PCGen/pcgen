@@ -52,6 +52,8 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * @param levelLimit
 	 *            The spell level of this KnownSpellIdentifier. May be null if
 	 *            this KnownSpellIdentifier is not limited by level.
+	 * @throws IllegalArgumentException
+	 *             if the given CDOMReference is null
 	 */
 	public KnownSpellIdentifier(CDOMReference<Spell> sr, Integer levelLimit)
 	{

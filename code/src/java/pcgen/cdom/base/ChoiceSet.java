@@ -71,16 +71,19 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	 * @param choice
 	 *            The PrimitiveChoiceSet indicating the Collection of objects
 	 *            for this ChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given name or PrimitiveChoiceSet is null
 	 */
 	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice)
 	{
 		if (choice == null)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(
+					"PrimitiveChoiceSet cannot be null");
 		}
 		if (name == null)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Name cannot be null");
 		}
 		pcs = choice;
 		setName = name;

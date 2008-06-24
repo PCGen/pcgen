@@ -253,6 +253,8 @@ public class IntegerKey
 	 * @param s
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
+	 * @throws IllegalArgumentException
+	 *             if the given String is not a previously defined IntegerKey
 	 */
 	public static IntegerKey valueOf(String s)
 	{

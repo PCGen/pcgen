@@ -38,6 +38,8 @@ public final class FormulaFactory
 	 * @param s
 	 *            The String to be converted to a Formula
 	 * @return A Formula for the given String.
+	 * @throws IllegalArgumentException
+	 *             if the given String is empty
 	 */
 	public static Formula getFormulaFor(String s)
 	{
@@ -84,6 +86,8 @@ public final class FormulaFactory
 		 * 
 		 * @param in
 		 *            The Integer value of this IntegerFormula.
+		 * @throws IllegalArgumentException
+		 *             if the given Integer is null
 		 */
 		public IntegerFormula(Integer in)
 		{

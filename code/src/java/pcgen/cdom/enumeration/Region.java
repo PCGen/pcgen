@@ -110,6 +110,8 @@ public final class Region implements TypeSafeConstant
 	 * @param s
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
+	 * @throws IllegalArgumentException
+	 *             if the given String is not a previously defined Region
 	 */
 	public static Region valueOf(String s)
 	{

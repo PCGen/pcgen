@@ -59,7 +59,11 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 	 *            the types provided in applyModifier
 	 * @param resultType
 	 *            The result type for this ChangeArmorType, to be returned from
-	 *            applyModifier if the Modifier acts on the incoming type
+	 *            applyModifier if the Modifier acts on the incoming type. May
+	 *            be null to indicate this ChangeArmorType should remove the
+	 *            source armor type
+	 * @throws IllegalArgumentException
+	 *             if the given source type is null
 	 */
 	public ChangeArmorType(String sourceType, String resultType)
 	{

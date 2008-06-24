@@ -21,14 +21,56 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 
+/**
+ * A HitDieStep represents a modified HitDie that changes along the path of Hit
+ * Dice defined in the Game Mode. A bound may be set in order to limit movement
+ * beyond a given point.
+ * 
+ * Because the number of steps that this HitDieStep will apply is provided
+ * during construction, the object constructing this HitDieStep is expected to
+ * understand if it is setting an upper or lower bound.
+ */
 public class HitDieStep extends ConcretePrereqObject implements
 		Modifier<HitDie>
 {
 
+	/**
+	 * The number of steps by which this HitDieStep object will modify the
+	 * incoming HitDie.
+	 */
 	private final int numSteps;
 
+	/**
+	 * The bound beyond which this HitDieStep will not modify the incoming
+	 * HitDie. This bound overrides the number of steps to be taken, if the
+	 * bound is reached.
+	 */
 	private final HitDie dieLimit;
 
+	/**
+	 * Constructs a new HitDieStep object with the given number of steps and
+	 * bound.
+	 * 
+	 * Because the number of steps that this HitDieStep will apply is provided
+	 * during construction, the object constructing this HitDieStep is expected
+	 * to understand if it is setting an upper or lower bound.
+	 * 
+	 * *NOTE* if the HitDie provided as a bound is not in the global sequence of
+	 * HitDie objects (defined in the Game Mode), then this method will fail to
+	 * stop at the bound. Matching on this bound is exact.
+	 * 
+	 * @param steps
+	 *            The number of steps this HitDieStep will modify the incoming
+	 *            HitDie provided to applyModifier
+	 * @param stopAt
+	 *            The bound, indicating the HitDie at which the HitDitStep will
+	 *            not proceed. This bound overrides the number of steps to be
+	 *            taken, if the bound is reached. This bound may be null to
+	 *            indicate there is no bound.
+	 * @throws IllegalArgumentException
+	 *             if the number of steps is zero (since that is effectively a
+	 *             pass-through, no Modifier is required)
+	 */
 	public HitDieStep(int steps, HitDie stopAt)
 	{
 		if (steps == 0)
@@ -39,13 +81,30 @@ public class HitDieStep extends ConcretePrereqObject implements
 		dieLimit = stopAt;
 	}
 
+	/**
+	 * Applies this Modifier to the given input object, in the context of the
+	 * given context object.
+	 * 
+	 * *NOTE* if the HitDie provided is not in the global sequence of HitDie
+	 * objects (defined in the Game Mode), then this method will fail to step
+	 * that HitDie, and the original, unmodified HitDie will be returned.
+	 * 
+	 * Since HitDieStep is universal, the given context is ignored.
+	 * 
+	 * @param obj
+	 *            The input HitDie this HitDieStep will act upon.
+	 * @param context
+	 *            The context, ignored by HitDieStep.
+	 * @return The modified HitDie, as limited by the bound of this HitDieStep.
+	 */
 	public HitDie applyModifier(HitDie hd, Object context)
 	{
 		int steps = numSteps;
 		HitDie currentDie = hd;
 		while (steps != 0)
 		{
-			if (dieLimit.equals(currentDie))
+			// Order is important, dieLimit may be null
+			if (currentDie.equals(dieLimit))
 			{
 				return currentDie;
 			}
@@ -62,7 +121,6 @@ public class HitDieStep extends ConcretePrereqObject implements
 			}
 		}
 		return currentDie;
-		// TODO Auto-generated method stub
 		/*
 		 * Theoretically, the die sizes here should be stored as ... what? A
 		 * AbstractSequencedConstant, effectively? This gives the ability to
@@ -71,10 +129,18 @@ public class HitDieStep extends ConcretePrereqObject implements
 		 * 
 		 * So it looks like an enumeration is OUT because the MODs will actually
 		 * alter to unexpected values... like 8 * 3 = 24... therefore, this
-		 * really needs to be thought through to determine what is best...
+		 * really needs to be thought through to determine what is best... The
+		 * behavior for these cases is undefined.
+		 * 
+		 * There is a (short) thread on pcgen-devel "Hit Die Locking" from Nov
+		 * 2006, where this issue remains unresolved.
 		 */
 	}
 
+	/**
+	 * Returns a representation of this HitDieStep, suitable for storing in an
+	 * LST file.
+	 */
 	public String getLSTformat()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -95,11 +161,21 @@ public class HitDieStep extends ConcretePrereqObject implements
 		return sb.toString();
 	}
 
+	/**
+	 * The class of object this Modifier acts upon (HitDie).
+	 * 
+	 * @return The class of object this Modifier acts upon (HitDie.class)
+	 */
 	public Class<HitDie> getModifiedClass()
 	{
 		return HitDie.class;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this HitDieStep
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
@@ -107,6 +183,13 @@ public class HitDieStep extends ConcretePrereqObject implements
 				* 29;
 	}
 
+	/**
+	 * Returns true if this HitDieStep is equal to the given Object. Equality is
+	 * defined as being another HitDieStep object with step count and HitDie
+	 * limit.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{

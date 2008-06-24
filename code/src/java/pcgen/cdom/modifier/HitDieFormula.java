@@ -22,39 +22,89 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 
+/**
+ * A HitDieFormula represents a modified HitDie that changes relative to a
+ * ReferenceFormula
+ */
 public class HitDieFormula extends ConcretePrereqObject implements
 		Modifier<HitDie>
 {
 
+	/**
+	 * The ReferenceFormula used by this HitDieFormula to modify an incoming
+	 * HitDie.
+	 */
 	private final ReferenceFormula<Integer> f;
 
+	/**
+	 * Constructs a new HitDieFormula object with the given ReferenceFormula to
+	 * modify HitDie objects.
+	 * 
+	 * @param formula
+	 *            A ReferenceFormula to modify a HitDie when this HitDieFormula
+	 *            acts on a given HitDie
+	 */
 	public HitDieFormula(ReferenceFormula<Integer> formula)
 	{
 		super();
 		f = formula;
 	}
 
+	/**
+	 * Applies this Modifier to the given input HitDie, which modifies the given
+	 * input HitDie with the formula provided at construction of the
+	 * HitDieFormula.
+	 * 
+	 * Since HitDieFormula is universal, the given context is ignored.
+	 * 
+	 * @param obj
+	 *            The input HitDie this HitDieFormula will act upon.
+	 * @param context
+	 *            The context, ignored by HitDieFormula.
+	 * @return The modified HitDie
+	 */
 	public HitDie applyModifier(HitDie hd, Object context)
 	{
 		return new HitDie(f.resolve(Integer.valueOf(hd.getDie())).intValue());
 	}
 
+	/**
+	 * Returns a representation of this HitDieFormula, suitable for storing in
+	 * an LST file.
+	 */
 	public String getLSTformat()
 	{
 		return '%' + f.toString();
 	}
 
+	/**
+	 * The class of object this Modifier acts upon (HitDie).
+	 * 
+	 * @return The class of object this Modifier acts upon (HitDie.class)
+	 */
 	public Class<HitDie> getModifiedClass()
 	{
 		return HitDie.class;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this HitDieFormula
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return f.hashCode();
 	}
 
+	/**
+	 * Returns true if this HitDieFormula is equal to the given Object. Equality
+	 * is defined as being another HitDieFormula object with equal underlying
+	 * formula.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{

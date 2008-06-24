@@ -52,6 +52,8 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	 * @param context
 	 *            The CDOMReference which contains the objects for which the
 	 *            underlying Modifier should be applied.
+	 * @throws IllegalArgumentException
+	 *             if the given Modifier or the given CDOMReference is null
 	 */
 	public ContextModifier(Modifier<T> mod, CDOMReference<R> context)
 	{
