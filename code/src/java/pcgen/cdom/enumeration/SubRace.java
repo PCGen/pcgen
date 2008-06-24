@@ -26,7 +26,9 @@ import pcgen.base.util.CaseInsensitiveMap;
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
  * 
- * This Class is a Type Safe Constant.
+ * This Class is a Type Safe Constant. It is designed to hold SubRaces in a
+ * type-safe fashion, so that they can be quickly compared and use less memory
+ * when identical SubRaces exist in two CDOMObjects.
  */
 public final class SubRace implements TypeSafeConstant
 {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2005 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2005 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -31,9 +31,15 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker <thpr@users.sourceforge.net>
  * 
  * This is a Typesafe enumeration of legal Integer Characteristics of an object.
+ * It is designed to act as an index to a specific integers within a
+ * CDOMObject.
+ * 
+ * An optional "default value" can be provided (the default is provided when
+ * getSafe(IntegerKey) is called in CDOMObject). The default "default value" is
+ * zero.
  */
 public class IntegerKey
 {
@@ -47,7 +53,8 @@ public class IntegerKey
 
 	public static final IntegerKey ADD_SPELL_LEVEL = getConstant("ADD_SPELL_LEVEL");
 
-	public static final IntegerKey BASE_QUANTITY = getConstant("BASE_QUANTITY", 1);
+	public static final IntegerKey BASE_QUANTITY = getConstant("BASE_QUANTITY",
+			1);
 
 	public static final IntegerKey BONUS_CLASS_SKILL_POINTS = getConstant("BONUS_CLASS_SKILL_POINTS");
 
@@ -60,8 +67,9 @@ public class IntegerKey
 	public static final IntegerKey EDR = getConstant("EDR");
 
 	public static final IntegerKey HANDS = getConstant("HANDS", 1);
-	
-	public static final IntegerKey CREATURE_HANDS = getConstant("CREATURE_HANDS", 2);
+
+	public static final IntegerKey CREATURE_HANDS = getConstant(
+			"CREATURE_HANDS", 2);
 
 	public static final IntegerKey HIT_DIE = getConstant("HIT_DIE");
 
@@ -71,13 +79,15 @@ public class IntegerKey
 
 	public static final IntegerKey LEVEL = getConstant("LEVEL");
 
-	public static final IntegerKey LEVEL_LIMIT = getConstant("LEVEL_LIMIT", Constants.NO_LEVEL_LIMIT);
+	public static final IntegerKey LEVEL_LIMIT = getConstant("LEVEL_LIMIT",
+			Constants.NO_LEVEL_LIMIT);
 
 	public static final IntegerKey LEVELS_PER_FEAT = getConstant("LEVELS_PER_FEAT");
 
 	public static final IntegerKey MAX_CHARGES = getConstant("MAX_CHARGES");
 
-	public static final IntegerKey MAX_DEX = getConstant("MAX_DEX", Constants.MAX_MAXDEX);
+	public static final IntegerKey MAX_DEX = getConstant("MAX_DEX",
+			Constants.MAX_MAXDEX);
 
 	public static final IntegerKey MIN_CHARGES = getConstant("MIN_CHARGES");
 
@@ -91,7 +101,8 @@ public class IntegerKey
 
 	public static final IntegerKey RANGE = getConstant("RANGE");
 
-	public static final IntegerKey CAMPAIGN_RANK = getConstant("CAMPAIGN_RANK", 9);
+	public static final IntegerKey CAMPAIGN_RANK = getConstant("CAMPAIGN_RANK",
+			9);
 
 	public static final IntegerKey REACH = getConstant("REACH");
 

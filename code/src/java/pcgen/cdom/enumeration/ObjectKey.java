@@ -1,5 +1,5 @@
 /*
- * Copyright 2005 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2005 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -53,19 +53,26 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker <thpr@users.sourceforge.net>
  * 
- * This is a Typesafe enumeration of legal String Characteristics of an object.
+ * This is a Typesafe enumeration of legal Object Characteristics of an object.
+ * It is designed to act as an index to a specific Objects within a
+ * CDOMObject.
+ * 
+ * ObjectKeys are designed to store items in a CDOMObject in a type-safe
+ * fashion. Note that it is possible to use the ObjectKey to cast the object to
+ * the type of object stored by the ObjectKey. (This assists with Generics)
+ * 
+ * A "default value" (may be null) must be provided at object construction (the
+ * default is provided when getSafe(ObjectKey) is called in CDOMObject). This
+ * default value is especially useful for Boolean ObjectKeys.
+ * 
+ * @param <T>
+ *            The class of object stored by this ObjectKey.
  */
 public final class ObjectKey<T>
 {
 
-	/*
-	 * TODO Should ObjectKey take in the Class in order to be able to cast to
-	 * the given class?
-	 * 
-	 * have a .cast(Object o) method on ObjectKey???
-	 */
 	public static final ObjectKey<Boolean> USE_UNTRAINED = new ObjectKey<Boolean>(Boolean.TRUE);
 
 	public static final ObjectKey<Boolean> EXCLUSIVE = new ObjectKey<Boolean>(Boolean.FALSE);

@@ -26,7 +26,9 @@ import pcgen.base.util.CaseInsensitiveMap;
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
  * 
- * This Class is a Type Safe Constant.
+ * This Class is a Type Safe Constant. It is designed to hold RaceTypes in a
+ * type-safe fashion, so that they can be quickly compared and use less memory
+ * when identical RaceTypes exist in two CDOMObjects.
  */
 public final class RaceType implements TypeSafeConstant
 {

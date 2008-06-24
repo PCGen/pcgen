@@ -17,6 +17,16 @@
  */
 package pcgen.cdom.enumeration;
 
+/**
+ * EqModFormatCat refers to different methods used to format the extended name
+ * of Equipment when Equipment Modifiers are applied to the Equipment. An
+ * EqModFormatCat is placed into the EquipmentModifier to establish where in the
+ * name the identification of the EquipmentModifier should occur
+ * 
+ * It is designed to hold formatting choices in a type-safe fashion, so that
+ * they can be quickly compared and use less memory when identical
+ * EqModFormatCats exist in two CDOMObjects.
+ */
 public enum EqModFormatCat
 {
 

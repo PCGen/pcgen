@@ -1,5 +1,5 @@
 /*
- * Copyright 2005 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2005 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,9 +32,21 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker <thpr@users.sourceforge.net>
  * 
- * This is a Typesafe enumeration of legal String Characteristics of an object.
+ * This is a Typesafe enumeration of legal Characteristics of an Association. It
+ * is designed to act as an index to a specific Objects within an item that
+ * forms associations.
+ * 
+ * @see pcgen.cdom.base.AssociatedObject
+ * 
+ * AssociationKeys are designed to store items in an AssociatedObject in a
+ * type-safe fashion. Note that it is possible to use the AssociationKey to cast
+ * the object to the type of object stored by the AssociationKey. (This assists
+ * with Generics)
+ * 
+ * @param <T>
+ *            The class of object stored by this AssociationKey.
  */
 public final class AssociationKey<T>
 {

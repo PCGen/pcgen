@@ -32,6 +32,15 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 
+/**
+ * An EqModNameOpt is a method of identifying how the name of an
+ * EquipmentModifier should appear when the extended name of a piece of
+ * Equipment (to which the EquipmentModifier is applied) is displayed.
+ * 
+ * It is designed to hold naming choices in a type-safe fashion, so that they
+ * can be quickly compared and use less memory when identical EqModNameOpts
+ * exist in two CDOMObjects.
+ */
 public enum EqModNameOpt
 {
 
@@ -125,11 +134,11 @@ public enum EqModNameOpt
 				{
 					sb.append(" (").append(info).append(')');
 				}
-				
+
 				String metaFeat = EquipmentModifier.getSpellInfoString(
 						listEntry, "METAFEATS");
 				List<String> metaFeats = CoreUtility.split(metaFeat, ',');
-				
+
 				if (!metaFeats.isEmpty())
 				{
 					sb.append('/').append(StringUtil.join(metaFeats, "/"));
@@ -156,7 +165,7 @@ public enum EqModNameOpt
 	};
 
 	public abstract String returnName(EquipmentModifier mod);
-	
+
 	public static EqModNameOpt valueOfIgnoreCase(String s)
 	{
 		if (typeMap == null)
@@ -171,9 +180,9 @@ public enum EqModNameOpt
 		}
 		return eqmno;
 	}
-	
+
 	private static CaseInsensitiveMap<EqModNameOpt> typeMap = null;
-	
+
 	/**
 	 * Actually build the set of Constants, using any "public static final"
 	 * constants within the child (extending) class as initial values in the
@@ -187,9 +196,9 @@ public enum EqModNameOpt
 		{
 			int mod = f.getModifiers();
 			String name = f.getName();
-			
+
 			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-				&& Modifier.isPublic(mod))
+					&& Modifier.isPublic(mod))
 			{
 				try
 				{
@@ -200,8 +209,9 @@ public enum EqModNameOpt
 						if (typeMap.containsKey(name))
 						{
 							throw new UnreachableError(
-								"Attempt to redefine constant value " + name
-									+ ", value was " + typeMap.get(name));
+									"Attempt to redefine constant value "
+											+ name + ", value was "
+											+ typeMap.get(name));
 						}
 						typeMap.put(name, tObj);
 					}
@@ -218,5 +228,4 @@ public enum EqModNameOpt
 		}
 	}
 
-	
 }

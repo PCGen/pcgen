@@ -1,5 +1,5 @@
 /*
- * Copyright 2005 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2005 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -53,9 +53,18 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
- *
- * This is a Typesafe enumeration of legal List Characteristics of an object.
+ * @author Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This is a Typesafe enumeration of legal List Characteristics of an object. It
+ * is designed to act as an index to a specific Object items within a
+ * CDOMObject.
+ * 
+ * ListKeys are designed to store items in a CDOMObject in a type-safe
+ * fashion. Note that it is possible to use the ListKey to cast the object to
+ * the type of object stored by the ListKey. (This assists with Generics)
+ * 
+ * @param <T>
+ *            The class of object stored by this ListKey.
  */
 public final class ListKey<T> {
 
@@ -196,5 +205,10 @@ public final class ListKey<T> {
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {
 		//Only allow instantation here
+	}
+
+	public T cast(Object o)
+	{
+		return (T) o;
 	}
 }

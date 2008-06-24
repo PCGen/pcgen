@@ -17,10 +17,20 @@
  */
 package pcgen.cdom.enumeration;
 
+/**
+ * EqModControl is used to identify the behavior of a piece of Equipment with
+ * respect to Equipment Modifiers. This sets whether Equipment Modifiers are
+ * required and/or allowed.
+ * 
+ * This is designed to hold control choices in a type-safe fashion, so that they
+ * can be quickly compared and use less memory when identical EqModControls
+ * exist in two pieces of Equipment.
+ */
 public enum EqModControl
 {
 
-	YES() {
+	YES()
+	{
 		@Override
 		public boolean getModifiersAllowed()
 		{
@@ -34,7 +44,8 @@ public enum EqModControl
 		}
 	},
 
-	NO() {
+	NO()
+	{
 		@Override
 		public boolean getModifiersAllowed()
 		{
@@ -48,7 +59,8 @@ public enum EqModControl
 		}
 	},
 
-	REQUIRED() {
+	REQUIRED()
+	{
 		@Override
 		public boolean getModifiersAllowed()
 		{

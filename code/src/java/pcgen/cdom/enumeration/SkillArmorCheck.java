@@ -27,6 +27,9 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SystemCollections;
 import pcgen.util.enumeration.Load;
 
+/**
+ * A SkillArmorCheck refers to a method of calculating an Armor Check Penalty.
+ */
 public enum SkillArmorCheck
 {
 	// # NO - Armor check penalty does not apply (Default).

@@ -19,6 +19,12 @@ package pcgen.cdom.enumeration;
 
 import pcgen.core.SettingsHandler;
 
+/**
+ * Holds the Skill Costs in type safe form.
+ * 
+ * The actual point cost of the SkillCost can be acquired through the getCost()
+ * method. A numerical cost of -1 represents that a Skill cannot be taken.
+ */
 public enum SkillCost
 {
 

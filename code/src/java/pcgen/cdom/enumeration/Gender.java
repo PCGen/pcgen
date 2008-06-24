@@ -17,6 +17,13 @@
  */
 package pcgen.cdom.enumeration;
 
+/**
+ * Represents the Genders available in PCGen.
+ * 
+ * It is designed to hold Genders in a type-safe fashion, so that they can be
+ * quickly compared and use less memory when identical Genders exist in two
+ * CDOMObjects.
+ */
 public enum Gender
 {
 	Male, Female, Neuter;

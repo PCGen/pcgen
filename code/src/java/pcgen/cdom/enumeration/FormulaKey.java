@@ -27,7 +27,11 @@ import pcgen.base.util.CaseInsensitiveMap;
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
  * 
- * This Class is a Type Safe Constant.
+ * This Class is a Type Safe Constant. It is designed to act as an index to a
+ * specific Formula item within a CDOMObject.
+ * 
+ * *Important*: This should NOT be used to store items from the DEFINE: token,
+ * as those are Variables that should be stored using VariableKey
  */
 public final class FormulaKey implements TypeSafeConstant
 {
