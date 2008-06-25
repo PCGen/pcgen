@@ -1146,7 +1146,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //			retVal.sourceMap = new HashMap<String, String>();
 //			retVal.sourceMap.putAll(this.sourceMap);
 //		}
-		retVal.theSource = theSource;
+		retVal.theSource = theSource.clone();
 
 		retVal.changeProfMap = new HashMap<String, String>(changeProfMap);
 
