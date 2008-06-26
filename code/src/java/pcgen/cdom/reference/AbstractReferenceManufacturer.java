@@ -27,6 +27,7 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import pcgen.base.lang.CaseInsensitiveString;
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.HashMapToInstanceList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
@@ -34,30 +35,159 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.util.Logging;
 
+/**
+ * An AbstractReferenceManufacturer is a concrete, but abstract object capable
+ * of creating CDOMReferences of a given "form". That "form" includes a specific
+ * Class of CDOMObject, or a specific Class/Category for Categorized CDOMObjects
+ * (this class does not make distinction between the Class and Class/Categorized
+ * cases)
+ * 
+ * The Class is designed to share significant common code between
+ * implementations of the ReferenceManufacturer interface.
+ * 
+ * @param <T>
+ *            The Class of object this AbstractReferenceManufacturer can
+ *            manufacture
+ * @param <RT>
+ *            The Class of Single Reference that this
+ *            AbstractReferenceManufacturer will produce
+ * @param <TRT>
+ *            The Class of Type Reference that this
+ *            AbstractReferenceManufacturer will produce
+ * @param <ART>
+ *            The Class of All Reference that this AbstractReferenceManufacturer
+ *            will produce
+ */
 public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
 		implements ReferenceManufacturer<T, SRT>
 {
+	/**
+	 * The class of object this AbstractReferenceManufacturer constructs or
+	 * builds references to.
+	 */
 	private final Class<T> refClass;
 
+	/**
+	 * The "ALL" reference, if it is ever referenced. This ensures that only one
+	 * "ALL" reference is ever built (and allows it to be reused if the
+	 * reference is requested a second time). This also stores the reference so
+	 * that it can be appropriately resolved when resolveReferences() is called.
+	 */
 	private ART allRef;
 
+	/**
+	 * Storage for "TYPE" references. This ensures that only one "TYPE"
+	 * reference is ever built for any combination of Types. (and allows those
+	 * references to be reused if a combination of types reference is requested
+	 * a second time). This also stores the reference so that it can be
+	 * appropriately resolved when resolveReferences() is called.
+	 * 
+	 * It is expected that the String array used as a key to this map conforms
+	 * to the following rules: (1) The array does not contain null values (2)
+	 * The array does not contain redundant values (3) The array is sorted in
+	 * alphabetical order, as defined by the natural ordering of String (for
+	 * simplicity [and due to lack of user presentation of this value] this sort
+	 * does not correct for internationalization)
+	 */
+	/*
+	 * TODO Should there be (4) all types should be upper case? That isn't
+	 * enforced here, and that may be a problem in terms of duplication. It's
+	 * probably not too problematic, in the sense that a few extra CDOMReference
+	 * objects really isn't that big of a deal. But it's still imperfect...
+	 */
 	private Map<String[], TRT> typeReferences = new HashMap<String[], TRT>();
 
+	/**
+	 * Storage for individual references. This ensures that only one reference
+	 * is ever built for any identifier. (and allows those references to be
+	 * reused if a refernce to an identifier is requested a second time). This
+	 * also stores the reference so that it can be appropriately resolved when
+	 * resolveReferences() is called.
+	 */
 	private Map<String, SRT> referenced = new TreeMap<String, SRT>(
 			String.CASE_INSENSITIVE_ORDER);
 
+	/**
+	 * Stores the active objects for this AbstractReferenceManufacturer. These
+	 * are objects that have been constructed or imported into the
+	 * AbstractReferenceManufacturer.
+	 */
 	private Map<String, T> active = new TreeMap<String, T>(
 			String.CASE_INSENSITIVE_ORDER);
 
+	/**
+	 * Stores the duplicate objects for identifiers in this
+	 * AbstractReferenceManufacturer. Identifiers will only be stored in this
+	 * Map if an identical identifier already exists in the active map. Also, if
+	 * the gating object in the active map is removed, then the first
+	 * "duplicate" in this MapToList should be removed and moved to the "active"
+	 * map. This map should never contain an identifier which is not in the
+	 * active map.
+	 * 
+	 * Due to extremely weak .equals() rules in many PObjects, this Map MUST be
+	 * a HashMapToInstanceList. In the future, it may be exchanged for a
+	 * TreeMapToList that leverages String.CASE_INSENSITIVE_ORDER; however, the
+	 * instance behavior may be too important to make that swap without
+	 * developing a MapToList that is backed by a TreeMap and also an
+	 * "InstanceList"
+	 */
 	private HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
 
+	/**
+	 * Contains a list of deferred objects. Identifiers for objects for which
+	 * construction was deferred were inserted into the
+	 * AbstractReferenceManufacturer using constructIfNecessary(String). Objects
+	 * will be constructed when buildDeferredReferences() is called, if and only
+	 * if no object with the matching identifier has been constructed or
+	 * imported into this AbstractReferenceManufacturer.
+	 */
 	private List<String> deferred = new ArrayList<String>();
 
+	/**
+	 * Constructs a new AbstractReferenceManufacturer for the given Class.
+	 * 
+	 * @param cl
+	 *            The Class of object this AbstractReferenceManufacturer will
+	 *            construct and reference.
+	 */
 	public AbstractReferenceManufacturer(Class<T> cl)
 	{
+		if (cl == null)
+		{
+			throw new IllegalArgumentException("Reference Class for "
+					+ getClass().getName() + " cannot be null");
+		}
+		try
+		{
+			cl.newInstance();
+		}
+		catch (InstantiationException e)
+		{
+			throw new IllegalArgumentException("Class for "
+					+ getClass().getName()
+					+ " must possess a zero-argument constructor", e);
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new IllegalArgumentException("Class for "
+					+ getClass().getName()
+					+ " must possess a public zero-argument constructor", e);
+		}
 		refClass = cl;
 	}
 
+	/**
+	 * Gets a reference to the Class or Class/Context provided by this
+	 * AbstractReferenceManufacturer. The reference will be a reference to the
+	 * objects identified by the given types.
+	 * 
+	 * @param types
+	 *            An array of the types of objects to which the returned
+	 *            CDOMReference will refer.
+	 * @return A CDOMGroupRef which is intended to contain objects of a given
+	 *         Type for the Class or Class/Context this
+	 *         AbstractReferenceManufacturer represents.
+	 */
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		for (String type : types)
@@ -112,6 +242,14 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return cgr;
 	}
 
+	/**
+	 * Returns a CDOMGroupRef for the given Class or Class/Context provided by
+	 * this AbstractReferenceManufacturer.
+	 * 
+	 * @return A CDOMGroupRef which is intended to contain all the objects of
+	 *         the Class or Class/Context this AbstractReferenceManufacturer
+	 *         represents.
+	 */
 	public CDOMGroupRef<T> getAllReference()
 	{
 		if (allRef == null)
@@ -121,21 +259,64 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return allRef;
 	}
 
-	public Class<T> getCDOMClass()
+	/**
+	 * The class of object this AbstractReferenceManufacturer represents.
+	 * 
+	 * @return The class of object this AbstractReferenceManufacturer
+	 *         represents.
+	 */
+	public Class<T> getReferenceClass()
 	{
 		return refClass;
 	}
 
+	/**
+	 * Resolves the references that have been requested from this
+	 * AbstractReferenceManufacturer, using the objects contained within this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * This method guarantees that all references are resolved.
+	 * 
+	 * Note: Implementations of AbstractReferenceManufacturer may place limits
+	 * on the number of times resolveReferences() can be called. The reason for
+	 * this is that some references may only be resolved once, and the
+	 * AbstractReferenceManufacturer is not required to maintain a list of
+	 * references that have been resolved and those which have not been
+	 * resolved.
+	 */
 	public void resolveReferences()
 	{
-		for (T obj : getAllConstructedCDOMObjects())
+		List<String> throwaway = new ArrayList<String>();
+		for (Entry<String, SRT> me1 : referenced.entrySet())
+		{
+			String reduced = AbilityUtilities.getUndecoratedName(me1.getKey(),
+					throwaway);
+			T activeObj = active.get(reduced);
+			if (activeObj == null)
+			{
+				activeObj = active.get(me1.getKey());
+				if (activeObj == null)
+				{
+					Logging.errorPrint("Unable to Resolve: " + refClass + " "
+							+ me1.getKey());
+				}
+				else
+				{
+					me1.getValue().addResolution(activeObj);
+				}
+			}
+			else
+			{
+				me1.getValue().addResolution(activeObj);
+			}
+		}
+		for (T obj : getAllObjects())
 		{
 			if (allRef != null)
 			{
 				allRef.addResolution(obj);
 			}
-			for (Map.Entry<String[], TRT> me : typeReferences
-					.entrySet())
+			for (Map.Entry<String[], TRT> me : typeReferences.entrySet())
 			{
 				boolean typeOkay = true;
 				for (String type : me.getKey())
@@ -154,7 +335,23 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 	}
 
-	public void registerWithKey(T obj, String key)
+	/**
+	 * Adds an object to the contents of this AbstractReferenceManufacturer.
+	 * This is used in conditions where this AbstractReferenceManufacturer was
+	 * not used to construct the object.
+	 * 
+	 * Implementation Note: There are various situations where this "external
+	 * construction" may happen - the primary one being loading of "game mode"
+	 * information like CDOMStat objects.
+	 * 
+	 * @param o
+	 *            The object to be imported into this
+	 *            AbstractReferenceManufacturer
+	 * @param key
+	 *            The identifier of the object to be imported into this
+	 *            AbstractReferenceManufacturer
+	 */
+	public void addObject(T obj, String key)
 	{
 		if (!refClass.isInstance(obj))
 		{
@@ -173,7 +370,23 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 	}
 
-	public T silentlyGetConstructedCDOMObject(String val)
+	/**
+	 * Gets the object represented by the given identifier. Will return null if
+	 * an object with the given identifier is not present in this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * Note that this is testing *object* presence. This will not return an
+	 * object if a reference for the given identifier has been requested; it
+	 * will only return true if an object with the given identifier has actually
+	 * been constructed by or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * @param val
+	 *            identifier of the object to be returned
+	 * @return The object stored in this AbstractReferenceManufacturer with the
+	 *         given identifier, or null if this AbstractReferenceManufacturer
+	 *         does not contain an object with the given identifier.
+	 */
+	public T getObject(String val)
 	{
 		T po = active.get(val);
 		if (po != null)
@@ -189,18 +402,23 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return null;
 	}
 
-	public T getConstructedCDOMObject(String val)
-	{
-		T obj = silentlyGetConstructedCDOMObject(val);
-		if (obj == null)
-		{
-			Logging.errorPrint("Someone expected " + refClass.getSimpleName()
-					+ " " + val + " to exist.");
-		}
-		return obj;
-	}
-
-	public T constructCDOMObject(String val)
+	/**
+	 * Constructs a new CDOMObject of the Class or Class/Category represented by
+	 * this AbstractReferenceManufacturer
+	 * 
+	 * Implementation Note: At this point, the "key" provided is likely to be
+	 * the "display name" of an object, not the actual "KEY". This is due to the
+	 * need to construct an object at the time it is first encountered, which is
+	 * probably not the time at which the KEY is known (the intent is not to do
+	 * "lookahead", as it fails under .MOD conditions anyway). In order to
+	 * "rename" an object once a KEY is encountered, see renameObject(String, T)
+	 * 
+	 * @param key
+	 *            The identifier of the CDOMObject to be constructed
+	 * @return The new CDOMObject of the Class or Class/Category represented by
+	 *         this AbstractReferenceManufacturer
+	 */
+	public T constructObject(String val)
 	{
 		if (val.equals(""))
 		{
@@ -210,23 +428,34 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		{
 			T obj = refClass.newInstance();
 			obj.setName(val);
-			registerWithKey(obj, val);
+			addObject(obj, val);
 			return obj;
 		}
 		catch (InstantiationException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new UnreachableError(
+					"Class was tested at AbstractReferenceManufacturer "
+							+ "construction to ensure it had a public, zero-argument constructor");
 		}
 		catch (IllegalAccessException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new UnreachableError(
+					"Class was tested at AbstractReferenceManufacturer "
+							+ "construction to ensure it had a public, zero-argument constructor");
 		}
-		throw new IllegalArgumentException(refClass + " " + val);
 	}
 
-	public void reassociateKey(String value, T obj)
+	/**
+	 * Changes the identifier for a given object, as stored in this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * @param key
+	 *            The new identifier to be used for the given object
+	 * @param o
+	 *            The object for which the identifier in this
+	 *            AbstractReferenceManufacturer should be changed
+	 */
+	public void renameObject(String value, T obj)
 	{
 		String oldKey = obj.getKeyName();
 		if (oldKey.equalsIgnoreCase(value))
@@ -235,9 +464,20 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 					+ obj.getDisplayName() + " " + oldKey);
 		}
 		forgetObject(obj);
-		registerWithKey(obj, value);
+		addObject(obj, value);
 	}
 
+	/**
+	 * Remove the given object from this AbstractReferenceManufacturer. Returns
+	 * true if the object was removed from this AbstractReferenceManufacturer;
+	 * false otherwise.
+	 * 
+	 * @param o
+	 *            The object to be removed from this
+	 *            AbstractReferenceManufacturer.
+	 * @return true if the object was removed from this
+	 *         AbstractReferenceManufacturer; false otherwise.
+	 */
 	public boolean forgetObject(T obj) throws InternalError
 	{
 		if (!refClass.isInstance(obj))
@@ -277,15 +517,49 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return true;
 	}
 
-	public boolean containsConstructedCDOMObject(String key)
+	/**
+	 * Returns true if this AbstractReferenceManufacturer contains an object of
+	 * the Class or Class/Category represented by this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * Note that this is testing *object* presence. This will not return true if
+	 * a reference for the given identifier has been requested; it will only
+	 * return true if an object with the given identifier has actually been
+	 * constructed by or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * @param key
+	 *            The identifier of the object to be checked if it is present in
+	 *            this AbstractReferenceManufacturer.
+	 * @return true if this AbstractReferenceManufacturer contains an object of
+	 *         the Class or Class/Category represented by this
+	 *         AbstractReferenceManufacturer; false otherwise.
+	 */
+	public boolean containsObject(String key)
 	{
 		return active.containsKey(key);
 	}
 
+	/**
+	 * Gets a reference to the Class or Class/Context provided by this
+	 * AbstractReferenceManufacturer. The reference will be a reference to the
+	 * object identified by the given key.
+	 * 
+	 * @param key
+	 *            The key used to identify the object to which the returned
+	 *            CDOMReference will refer.
+	 * @return A CDOMReference that refers to the object identified by the given
+	 *         key
+	 */
 	public SRT getReference(String val)
 	{
-		// TODO Auto-generated method stub
-		// TODO This is incorrect, but a hack for now :)
+		/*
+		 * TODO This is incorrect, but a hack for now :)
+		 * 
+		 * Mainly this throws around IllegalArgumentException in order to catch
+		 * bad parsing issues (design flaws in the code). Not sure if we want to
+		 * continue that long term? Once tokens are truly tested this may not be
+		 * necessary or desireable.
+		 */
 		if (val == null)
 		{
 			throw new IllegalArgumentException(val);
@@ -368,15 +642,65 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return ref;
 	}
 
+	/**
+	 * Returns a CDOMSingleRef for the given identifier as defined by the class
+	 * that extends AbstractReferenceManufacturer. This is designed to be used
+	 * ONLY within AbstractReferenceManufacturer and should not be called by
+	 * other objects.
+	 * 
+	 * @return a CDOMSingleRef for the given identifier as defined by the class
+	 *         that extends AbstractReferenceManufacturer.
+	 */
 	protected abstract SRT getLocalReference(String val);
 
+	/**
+	 * Returns a CDOMGroupRef for the given types as defined by the class that
+	 * extends AbstractReferenceManufacturer. This is designed to be used ONLY
+	 * within AbstractReferenceManufacturer and should not be called by other
+	 * objects.
+	 * 
+	 * @return A CDOMGroupRef for the given types as defined by the class that
+	 *         extends AbstractReferenceManufacturer.
+	 */
 	protected abstract TRT getLocalTypeReference(String[] val);
 
+	/**
+	 * Returns a CDOMGroupRef for all objects of the class that extends
+	 * AbstractReferenceManufacturer. This is designed to be used ONLY within
+	 * AbstractReferenceManufacturer and should not be called by other objects.
+	 * 
+	 * @return A CDOMGroupRef for all objects of the class that extends
+	 *         AbstractReferenceManufacturer.
+	 */
 	protected abstract ART getLocalAllReference();
 
+	/**
+	 * Returns true if this AbstractReferenceManufacturer is "valid". A "valid"
+	 * AbstractReferenceManufacturer is one where all of the following are true:
+	 * 
+	 * (1) Any object stored in the AbstractReferenceManufacturer reports that
+	 * it's KEY (as defined by CDOMObject.getKeyName()) matches the identifier
+	 * used to store the object in the AbstractReferenceManufacturer.
+	 * 
+	 * (2) Any identifier to which a reference was made has a constructed or
+	 * imported object with that identifier present in the
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * (3) No two objects in the AbstractReferenceManufacturer have a matching
+	 * identifier.
+	 * 
+	 * TODO Condition (3) is not enforced presently, due to issues with some
+	 * classes allowing duplicates (e.g. Languages)
+	 * 
+	 * @return true if the AbstractReferenceManufacturer is "valid"; false
+	 *         otherwise.
+	 */
 	public boolean validate()
 	{
 		boolean returnGood = true;
+		/*
+		 * Commented out stuff is the case 3 to-do
+		 */
 		// for (CaseInsensitiveString second : duplicates.getKeySet())
 		// {
 		// if (SettingsHandler.isAllowOverride())
@@ -447,15 +771,42 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 								+ getReferenceDescription() + " " + s);
 						returnGood = false;
 					}
-					constructCDOMObject(s.toString());
+					constructObject(s.toString());
 				}
 			}
 		}
 		return returnGood;
 	}
 
+	/**
+	 * Returns a description of the type of Class or Class/Category that this
+	 * AbstractReferenceManufacturer constructs or references. This is designed
+	 * to be overridden by classes that extend AbstractReferenceManufacturer so
+	 * that AbstractReferenceManufacturer can output error messages that are
+	 * useful for users.
+	 * 
+	 * @return A String description of the type of Class or Class/Category that
+	 *         this AbstractReferenceManufacturer constructs or references.
+	 */
 	protected abstract String getReferenceDescription();
 
+	/**
+	 * Instructs the AbstractReferenceManufacturer that the object with the
+	 * given identifer should be constructed automatically if it is necessary
+	 * when buildDeferredObjects() is called. The object will be constructed
+	 * only if no object with the matching identifier has been constructed or
+	 * imported into this AbstractReferenceManufacturer.
+	 * 
+	 * Implementation Note: This is generally used for backwards compatibility
+	 * to previous versions of PCGen or to items that are built automatically
+	 * (such as Weapon Proficiencies for Natural Attacks)
+	 * 
+	 * @param value
+	 *            The identifier of the CDOMObject to be built (if otherwise not
+	 *            constructed or imported into this
+	 *            AbstractReferenceManufacturer) when buildDeferredObjects() is
+	 *            called.
+	 */
 	public void constructIfNecessary(String value)
 	{
 		/*
@@ -465,56 +816,45 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		deferred.add(value);
 	}
 
-	public void clear()
-	{
-		duplicates.clear();
-		active.clear();
-		deferred.clear();
-		referenced.clear();
-	}
-
-	public Collection<T> getAllConstructedCDOMObjects()
+	/**
+	 * Returns a Collection of all of the objects contained in this
+	 * AbstractReferenceManufacturer. This will not return null, it will return
+	 * an empty list if no objects have been constructed by or imported into
+	 * this AbstractReferenceManufacturer.
+	 * 
+	 * @return A Collection of all of the objects contained in this
+	 *         AbstractReferenceManufacturer
+	 */
+	public Collection<T> getAllObjects()
 	{
 		List<T> list = new ArrayList<T>(active.size());
 		list.addAll(active.values());
 		return list;
 	}
 
-	public void fillReferences()
-	{
-		List<String> throwaway = new ArrayList<String>();
-		for (Entry<String, SRT> me : referenced.entrySet())
-		{
-			String reduced = AbilityUtilities.getUndecoratedName(me.getKey(),
-					throwaway);
-			T activeObj = active.get(reduced);
-			if (activeObj == null)
-			{
-				activeObj = active.get(me.getKey());
-				if (activeObj == null)
-				{
-					Logging.errorPrint("Unable to Resolve: " + refClass + " "
-							+ me.getKey());
-				}
-				else
-				{
-					me.getValue().addResolution(activeObj);
-				}
-			}
-			else
-			{
-				me.getValue().addResolution(activeObj);
-			}
-		}
-	}
-
+	/**
+	 * Builds any objects whose construction was deferred. Identifiers for
+	 * objects for which construction was deferred were inserted into the
+	 * AbstractReferenceManufacturer using constructIfNecessary(String). Objects
+	 * will be constructed only if no object with the matching identifier has
+	 * been constructed or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * Construction or import into the AbstractReferenceManufacturer could occur
+	 * at any time before buildDeferredObjects() is called, either before or
+	 * after constructIfNecessary(String) was called with the relevant
+	 * identifier. However, construction or import of an object with an
+	 * identical identifier after buildDeferredObjects() is called will result
+	 * in a duplicate object being formed. AbstractReferenceManufacturer is not
+	 * responsible for deleting automatically built objects under those
+	 * conditions.
+	 */
 	public void buildDeferredObjects()
 	{
 		for (Object cis : deferred)
 		{
 			if (!active.containsKey(cis))
 			{
-				constructCDOMObject(cis.toString());
+				constructObject(cis.toString());
 			}
 		}
 	}
@@ -533,18 +873,18 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	{
 		return referenced.values();
 	}
-	
+
 	protected void injectConstructed(ReferenceManufacturer<T, ?> arm)
 	{
 		for (Map.Entry<String, T> me : active.entrySet())
 		{
-			arm.registerWithKey(me.getValue(), me.getKey());
+			arm.addObject(me.getValue(), me.getKey());
 		}
 		for (CaseInsensitiveString cis : duplicates.getKeySet())
 		{
 			for (T obj : duplicates.getListFor(cis))
 			{
-				arm.registerWithKey(obj, cis.toString());
+				arm.addObject(obj, cis.toString());
 			}
 		}
 		for (String s : deferred)

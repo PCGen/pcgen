@@ -77,7 +77,7 @@ public class CDOMTransparentAllRef<T extends PrereqObject> extends
 
 	public void resolve(ReferenceManufacturer<T, ?> rm)
 	{
-		if (rm.getCDOMClass().equals(getReferenceClass()))
+		if (rm.getReferenceClass().equals(getReferenceClass()))
 		{
 			subReference = rm.getAllReference();
 		}
@@ -85,7 +85,7 @@ public class CDOMTransparentAllRef<T extends PrereqObject> extends
 		{
 			throw new IllegalArgumentException("Cannot resolve a "
 					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ rm.getCDOMClass().getSimpleName());
+					+ rm.getReferenceClass().getSimpleName());
 		}
 	}
 

@@ -3385,7 +3385,7 @@ public final class GameMode implements Comparable<Object>
 	private <T extends CDOMObject> void resolveReferenceManufacturer(
 			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
-		rm.resolveUsing(rc.getManufacturer(rm.getCDOMClass()));
+		rm.resolveUsing(rc.getManufacturer(rm.getReferenceClass()));
 	}
 
 	public LoadContext getContext()

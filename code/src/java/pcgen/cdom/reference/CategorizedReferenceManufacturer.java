@@ -21,51 +21,125 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 
+/**
+ * A CategorizedReferenceManufacturer is a ReferenceManufacturer that will
+ * construct or reference Categorized CDOMObjects.
+ * 
+ * @see pcgen.cdom.reference.ReferenceManufacturer
+ * @see pcgen.cdom.base.Category
+ * 
+ * @param <T>
+ *            The Class of object this CategorizedReferenceManufacturer can
+ *            manufacture
+ */
 public class CategorizedReferenceManufacturer<T extends CDOMObject & CategorizedCDOMObject<T>>
 		extends
 		AbstractReferenceManufacturer<T, CDOMCategorizedSingleRef<T>, CDOMTypeRef<T>, CDOMAllRef<T>>
 		implements ReferenceManufacturer<T, CDOMCategorizedSingleRef<T>>
 {
 
+	/**
+	 * Stores the Category of the CategorizedCDOMObjects that this
+	 * CategorizedReferenceManufacturer constructs and references.
+	 */
 	private final Category<T> category;
 
+	/**
+	 * Constructs a new SimpleReferenceManufacturer that will construct or
+	 * reference non-categorized CDOMObjects of the given Class.
+	 * 
+	 * @param cl
+	 *            The Class of object this AbstractReferenceManufacturer will
+	 *            construct and reference.
+	 */
 	public CategorizedReferenceManufacturer(Class<T> cl, Category<T> cat)
 	{
 		super(cl);
+		if (cat == null)
+		{
+			throw new IllegalArgumentException("Category for "
+					+ getClass().getName() + " cannot be null");
+		}
 		category = cat;
 	}
 
+	/**
+	 * Returns a CDOMCategorizedSingleRef for the given identifier as defined by
+	 * the Class and Category provided when this
+	 * CategorizedReferenceManufacturer was constructed. This is designed to be
+	 * used ONLY by the AbstractReferenceManufacturer template Class and should
+	 * not be called by other objects.
+	 * 
+	 * @return a CDOMCategorizedSingleRef for the given identifier as defined by
+	 *         the Class and Category provided when this
+	 *         CategorizedReferenceManufacturer was constructed.
+	 */
 	@Override
 	protected CDOMCategorizedSingleRef<T> getLocalReference(String val)
 	{
-		return new CDOMCategorizedSingleRef<T>(getCDOMClass(), category, val);
+		return new CDOMCategorizedSingleRef<T>(getReferenceClass(), category,
+				val);
 	}
 
+	/**
+	 * Returns a CDOMTypeRef for the given types as defined by the Class and
+	 * Category provided when this CategorizedReferenceManufacturer was
+	 * constructed. This is designed to be used ONLY by the
+	 * AbstractReferenceManufacturer template Class and should not be called by
+	 * other objects.
+	 * 
+	 * @return A CDOMTypeRef for the given types as defined by the Class and
+	 *         Category provided when this CategorizedReferenceManufacturer was
+	 *         constructed.
+	 */
 	@Override
 	protected CDOMTypeRef<T> getLocalTypeReference(String[] val)
 	{
-		return new CDOMTypeRef<T>(getCDOMClass(), val);
+		return new CDOMTypeRef<T>(getReferenceClass(), val);
 	}
 
+	/**
+	 * Returns a CDOMAllRef for all objects of the Class and Category provided
+	 * when this CategorizedReferenceManufacturer was constructed. This is
+	 * designed to be used ONLY by the AbstractReferenceManufacturer template
+	 * Class and should not be called by other objects.
+	 * 
+	 * @return A CDOMAllRef for all objects of the Class and Category provided
+	 *         when this CategorizedReferenceManufacturer was constructed.
+	 */
 	@Override
 	protected CDOMAllRef<T> getLocalAllReference()
 	{
-		return new CDOMAllRef<T>(getCDOMClass());
+		return new CDOMAllRef<T>(getReferenceClass());
 	}
 
+	/**
+	 * Returns a description of the type of Class and Category this
+	 * CategorizedReferenceManufacturer constructs or references. This is
+	 * designed to be used ONLY by the AbstractReferenceManufacturer template
+	 * Class and should not be called by other objects.
+	 * 
+	 * @return A String description of the Class and Category that this
+	 *         CategorizedReferenceManufacturer constructs or references.
+	 */
 	@Override
 	protected String getReferenceDescription()
 	{
-		return getCDOMClass().getSimpleName() + " " + category;
+		return getReferenceClass().getSimpleName() + " " + category;
 	}
 
+	/**
+	 * Constructs a new CDOMObject of the Class and Category this
+	 * CategorizedReferenceManufacturer constructs.
+	 * 
+	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#constructObject(java.lang.String)
+	 */
 	@Override
-	public T constructCDOMObject(String val)
+	public T constructObject(String val)
 	{
-		T obj = super.constructCDOMObject(val);
+		T obj = super.constructObject(val);
 		obj.setCDOMCategory(category);
 		return obj;
 	}
-	
-	
+
 }

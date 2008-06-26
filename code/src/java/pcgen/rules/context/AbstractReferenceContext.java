@@ -101,11 +101,11 @@ public abstract class AbstractReferenceContext
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
 			Class cl = c;
-			obj = (T) getManufacturer(cl, null).constructCDOMObject(val);
+			obj = (T) getManufacturer(cl, null).constructObject(val);
 		}
 		else
 		{
-			obj = getManufacturer(c).constructCDOMObject(val);
+			obj = getManufacturer(c).constructObject(val);
 		}
 		obj.put(ObjectKey.SOURCE_URI, sourceURI);
 		return obj;
@@ -148,7 +148,7 @@ public abstract class AbstractReferenceContext
 		}
 		else
 		{
-			getManufacturer((Class<T>) obj.getClass()).reassociateKey(key, obj);
+			getManufacturer((Class<T>) obj.getClass()).renameObject(key, obj);
 		}
 	}
 
@@ -156,13 +156,13 @@ public abstract class AbstractReferenceContext
 			String key, CDOMObject orig, Class<T> cl)
 	{
 		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).reassociateKey(key, obj);
+		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
 	public <T extends CDOMObject> T silentlyGetConstructedCDOMObject(
 			Class<T> c, String val)
 	{
-		return getManufacturer(c).silentlyGetConstructedCDOMObject(val);
+		return getManufacturer(c).getObject(val);
 	}
 
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T>
@@ -191,7 +191,7 @@ public abstract class AbstractReferenceContext
 	{
 		getManufacturer(cl, oldCat).forgetObject(obj);
 		obj.setCDOMCategory(cat);
-		getManufacturer(cl, cat).registerWithKey(obj, obj.getKeyName());
+		getManufacturer(cl, cat).addObject(obj, obj.getKeyName());
 	}
 
 	// public <T extends CDOMObject> T cloneConstructedCDOMObject(T orig,
@@ -218,7 +218,7 @@ public abstract class AbstractReferenceContext
 		}
 		else
 		{
-			getManufacturer((Class<T>) orig.getClass()).registerWithKey(orig,
+			getManufacturer((Class<T>) orig.getClass()).addObject(orig,
 					orig.getKeyName());
 		}
 	}
@@ -227,7 +227,7 @@ public abstract class AbstractReferenceContext
 			CDOMObject orig, Class<T> cl)
 	{
 		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).registerWithKey(obj,
+		getManufacturer(cl, obj.getCDOMCategory()).addObject(obj,
 				obj.getKeyName());
 	}
 
@@ -260,7 +260,7 @@ public abstract class AbstractReferenceContext
 		// }
 		// else
 		// {
-		return getManufacturer(c).getAllConstructedCDOMObjects();
+		return getManufacturer(c).getAllObjects();
 		// }
 	}
 
@@ -276,7 +276,7 @@ public abstract class AbstractReferenceContext
 		Set<CDOMObject> set = new HashSet<CDOMObject>();
 		for (ReferenceManufacturer<? extends CDOMObject, ?> ref : getAllManufacturers())
 		{
-			set.addAll(ref.getAllConstructedCDOMObjects());
+			set.addAll(ref.getAllObjects());
 		}
 		// Collection otherSet = categorized.getAllConstructedCDOMObjects();
 		// set.addAll(otherSet);
@@ -286,7 +286,7 @@ public abstract class AbstractReferenceContext
 	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
 			Class<T> c, String s)
 	{
-		return getManufacturer(c).containsConstructedCDOMObject(s);
+		return getManufacturer(c).containsObject(s);
 	}
 
 	public void buildDerivedObjects()
@@ -386,7 +386,6 @@ public abstract class AbstractReferenceContext
 	{
 		for (ReferenceManufacturer<?, ?> rs : getAllManufacturers())
 		{
-			rs.fillReferences();
 			rs.resolveReferences();
 		}
 	}

@@ -19,37 +19,92 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMObject;
 
+/**
+ * A SimpleReferenceManufacturer is a ReferenceManufacturer that will construct
+ * or reference non-categorized CDOMObjects.
+ * 
+ * @see pcgen.cdom.reference.ReferenceManufacturer
+ * 
+ * @param <T>
+ *            The Class of object this SimpleReferenceManufacturer can
+ *            manufacture
+ */
 public class SimpleReferenceManufacturer<T extends CDOMObject>
 		extends
 		AbstractReferenceManufacturer<T, CDOMSimpleSingleRef<T>, CDOMTypeRef<T>, CDOMAllRef<T>>
 		implements ReferenceManufacturer<T, CDOMSimpleSingleRef<T>>
 {
+	/**
+	 * Constructs a new SimpleReferenceManufacturer that will construct or
+	 * reference non-categorized CDOMObjects of the given Class.
+	 * 
+	 * @param cl
+	 *            The Class of object this AbstractReferenceManufacturer will
+	 *            construct and reference.
+	 */
 	public SimpleReferenceManufacturer(Class<T> cl)
 	{
 		super(cl);
 	}
 
+	/**
+	 * Returns a CDOMSimpleSingleRef for the given identifier as defined by the
+	 * Class provided when this SimpleReferenceManufacturer was constructed.
+	 * This is designed to be used ONLY by the AbstractReferenceManufacturer
+	 * template Class and should not be called by other objects.
+	 * 
+	 * @return a CDOMSimpleSingleRef for the given identifier as defined by the
+	 *         Class provided when this SimpleReferenceManufacturer was
+	 *         constructed.
+	 */
 	@Override
 	protected CDOMSimpleSingleRef<T> getLocalReference(String val)
 	{
-		return new CDOMSimpleSingleRef<T>(getCDOMClass(), val);
+		return new CDOMSimpleSingleRef<T>(getReferenceClass(), val);
 	}
 
+	/**
+	 * Returns a CDOMTypeRef for the given types as defined by the Class
+	 * provided when this SimpleReferenceManufacturer was constructed. This is
+	 * designed to be used ONLY by the AbstractReferenceManufacturer template
+	 * Class and should not be called by other objects.
+	 * 
+	 * @return A CDOMTypeRef for the given types as defined by the Class
+	 *         provided when this SimpleReferenceManufacturer was constructed.
+	 */
 	@Override
 	protected CDOMTypeRef<T> getLocalTypeReference(String[] val)
 	{
-		return new CDOMTypeRef<T>(getCDOMClass(), val);
+		return new CDOMTypeRef<T>(getReferenceClass(), val);
 	}
 
+	/**
+	 * Returns a CDOMAllRef for all objects of the Class provided when this
+	 * SimpleReferenceManufacturer was constructed. This is designed to be used
+	 * ONLY by the AbstractReferenceManufacturer template Class and should not
+	 * be called by other objects.
+	 * 
+	 * @return A CDOMAllRef for all objects of the Class provided when this
+	 *         SimpleReferenceManufacturer was constructed.
+	 */
 	@Override
 	protected CDOMAllRef<T> getLocalAllReference()
 	{
-		return new CDOMAllRef<T>(getCDOMClass());
+		return new CDOMAllRef<T>(getReferenceClass());
 	}
 
+	/**
+	 * Returns a description of the type of Class this
+	 * SimpleReferenceManufacturer constructs or references. This is designed to
+	 * be used ONLY by the AbstractReferenceManufacturer template Class and
+	 * should not be called by other objects.
+	 * 
+	 * @return A String description of the Class that this
+	 *         SimpleReferenceManufacturer constructs or references.
+	 */
 	@Override
 	protected String getReferenceDescription()
 	{
-		return getCDOMClass().getSimpleName();
+		return getReferenceClass().getSimpleName();
 	}
 }

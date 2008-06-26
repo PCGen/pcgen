@@ -33,19 +33,19 @@ public class TransparentReferenceManufacturer<T extends CDOMObject>
 	@Override
 	protected CDOMTransparentSingleRef<T> getLocalReference(String val)
 	{
-		return new CDOMTransparentSingleRef<T>(getCDOMClass(), val);
+		return new CDOMTransparentSingleRef<T>(getReferenceClass(), val);
 	}
 
 	@Override
 	protected CDOMTransparentTypeRef<T> getLocalTypeReference(String[] val)
 	{
-		return new CDOMTransparentTypeRef<T>(getCDOMClass(), val);
+		return new CDOMTransparentTypeRef<T>(getReferenceClass(), val);
 	}
 
 	@Override
 	protected CDOMTransparentAllRef<T> getLocalAllReference()
 	{
-		return new CDOMTransparentAllRef<T>(getCDOMClass());
+		return new CDOMTransparentAllRef<T>(getReferenceClass());
 	}
 
 	public void resolveUsing(ReferenceManufacturer<T, ?> rm)
@@ -69,6 +69,6 @@ public class TransparentReferenceManufacturer<T extends CDOMObject>
 	@Override
 	protected String getReferenceDescription()
 	{
-		return getCDOMClass().getSimpleName();
+		return getReferenceClass().getSimpleName();
 	}
 }

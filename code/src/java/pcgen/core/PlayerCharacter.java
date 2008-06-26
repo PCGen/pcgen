@@ -14206,7 +14206,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final double iBonus =
 					anObj.calcBonusFrom(aBonus, this, bString, this);
 			setActiveBonusStack(iBonus, bString, getActiveBonusMap());
-			Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : "
+			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
 				+ iBonus + " : " + bString);
 		}
 		prevProcessed.remove(aBonus);

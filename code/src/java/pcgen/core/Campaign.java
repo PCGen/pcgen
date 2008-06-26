@@ -1460,7 +1460,7 @@ public class Campaign extends PObject
 	private <T extends CDOMObject> void resolveReferenceManufacturer(
 			AbstractReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
-		rm.resolveUsing(rc.getManufacturer(rm.getCDOMClass()));
+		rm.resolveUsing(rc.getManufacturer(rm.getReferenceClass()));
 	}
 
 }
