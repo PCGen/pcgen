@@ -81,6 +81,8 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * @param otherMap
 	 *            The TripleKeyMap whose contents should be copied into this
 	 *            TripleKeyMap.
+	 * @throws NullPointerException
+	 *             if the given TripleKeyMap is null
 	 */
 	public TripleKeyMap(final TripleKeyMap<K1, K2, K3, V> otherMap)
 	{

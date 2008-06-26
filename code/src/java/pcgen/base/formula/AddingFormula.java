@@ -53,6 +53,8 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	 * @return the result of the addition
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument
+	 * @throws NullPointerException
+	 *             if the Number provided is null
 	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
 	 */
 	public Integer resolve(Number... nums)
@@ -60,7 +62,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 		if (nums == null || nums.length != 1)
 		{
 			throw new IllegalArgumentException(
-				"AddingFormula only has one backreference");
+					"AddingFormula only has one backreference");
 		}
 		return Integer.valueOf(nums[0].intValue() + add);
 	}

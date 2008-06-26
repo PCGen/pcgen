@@ -41,14 +41,16 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * @param denominator
 	 *            the int to be divide the input by when this DividingFormula is
 	 *            used
+	 * @throws IllegalArgumentException
+	 *             if the given int is zero
 	 */
 	public DividingFormula(int denominator)
 	{
 		if (denominator == 0)
 		{
 			throw new IllegalArgumentException(
-				"Cannot build a DividingFormula that divides by Zero - "
-					+ "will always cause an ArithmeticException when resolved");
+					"Cannot build a DividingFormula that divides by Zero - "
+							+ "will always cause an ArithmeticException when resolved");
 		}
 		denom = denominator;
 	}
@@ -61,6 +63,8 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * @return the result of the division
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument
+	 * @throws NullPointerException
+	 *             if the Number provided is null
 	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
 	 */
 	public Integer resolve(Number... nums)
@@ -68,7 +72,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 		if (nums == null || nums.length != 1)
 		{
 			throw new IllegalArgumentException(
-				"DividingFormula only has one backreference");
+					"DividingFormula only has one backreference");
 		}
 		/*
 		 * Note that there is NOT an order of operations issue here with
@@ -109,6 +113,6 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	public boolean equals(Object o)
 	{
 		return o instanceof DividingFormula
-			&& ((DividingFormula) o).denom == denom;
+				&& ((DividingFormula) o).denom == denom;
 	}
 }

@@ -99,8 +99,8 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @param cl2
 	 *            The Class to be used for the secondary underlying map
 	 * @throws IllegalArgumentException
-	 *             if one or both of the given Classes do not have a public,
-	 *             zero argument constructor.
+	 *             if one or both of the given Classes is null or does not have
+	 *             a public, zero argument constructor.
 	 */
 	public DoubleKeyMapToList(Class<? extends Map> cl1, Class<? extends Map> cl2)
 	{

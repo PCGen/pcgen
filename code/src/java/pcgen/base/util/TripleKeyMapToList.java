@@ -81,6 +81,8 @@ public class TripleKeyMapToList<K1, K2, K3, V> implements Cloneable
 
 	/**
 	 * Constructs a new (empty) TripleKeyMapToList
+	 * 
+	 * @throws IllegalArgumentException if any of the given Classes is null
 	 */
 	public TripleKeyMapToList(Class<? extends Map> cl1,
 			Class<? extends Map> cl2, Class<? extends Map> cl3)

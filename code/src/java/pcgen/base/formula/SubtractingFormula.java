@@ -54,6 +54,8 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	 * @return the result of the subtraction
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument
+	 * @throws NullPointerException
+	 *             if the Number provided is null
 	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
 	 */
 	public Integer resolve(Number... nums)
@@ -61,7 +63,7 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 		if (nums == null || nums.length != 1)
 		{
 			throw new IllegalArgumentException(
-				"SubtractingFormula only has one backreference");
+					"SubtractingFormula only has one backreference");
 		}
 		return Integer.valueOf(nums[0].intValue() - sub);
 	}
@@ -104,6 +106,6 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	public boolean equals(Object o)
 	{
 		return o instanceof SubtractingFormula
-			&& ((SubtractingFormula) o).sub == sub;
+				&& ((SubtractingFormula) o).sub == sub;
 	}
 }

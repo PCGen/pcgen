@@ -104,8 +104,8 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @param cl2
 	 *            The Class to be used for the secondary underlying map
 	 * @throws IllegalArgumentException
-	 *             if one or both of the given Classes do not have a public,
-	 *             zero argument constructor.
+	 *             if one or both of the given Classes is null or does not have
+	 *             a public, zero argument constructor.
 	 */
 	public DoubleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2)
 	{
@@ -146,6 +146,8 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @param otherMap
 	 *            The DoubleKeyMap to use as a source of mappings for
 	 *            initializing this DoubleKeyMap
+	 * @throws NullPointerException
+	 *             if the given DoubleKeyMap is null
 	 */
 	public DoubleKeyMap(final DoubleKeyMap<K1, K2, V> otherMap)
 	{
@@ -187,6 +189,8 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @param dkm
 	 *            The DoubleKeyMap for which the key/value combinations should
 	 *            be placed into this DoubleKeyMap
+	 * @throws NullPointerException
+	 *             if the given DoubleKeyMap is null
 	 */
 	public void putAll(DoubleKeyMap<K1, K2, V> dkm)
 	{

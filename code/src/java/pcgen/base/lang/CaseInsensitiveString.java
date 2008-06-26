@@ -60,13 +60,15 @@ public class CaseInsensitiveString
 	 * 
 	 * @param s
 	 *            The underlying String of this CaseInsensitiveString
+	 * @throws IllegalArgumentException
+	 *             if the given String is null
 	 */
 	public CaseInsensitiveString(String s)
 	{
 		if (s == null)
 		{
 			throw new IllegalArgumentException(
-				"Cannot make a Case Insensitive String for null");
+					"Cannot make a Case Insensitive String for null");
 		}
 		string = s;
 	}
@@ -80,7 +82,7 @@ public class CaseInsensitiveString
 		if (s instanceof CaseInsensitiveString)
 		{
 			return string.equalsIgnoreCase(((CaseInsensitiveString) s)
-				.toString());
+					.toString());
 		}
 		return false;
 	}

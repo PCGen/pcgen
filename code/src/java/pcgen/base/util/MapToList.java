@@ -60,6 +60,8 @@ public interface MapToList<K, V>
 	 * @param list
 	 *            A Collection containing the items to be added to the List for
 	 *            the given key.
+	 * @throws NullPointerException
+	 *             if the given Collection is null
 	 */
 	public void addAllToListFor(K key, Collection<V> list);
 
@@ -68,6 +70,8 @@ public interface MapToList<K, V>
 	 * 
 	 * @param mtl
 	 *            The MapToList from which all of the Lists should be imported
+	 * @throws NullPointerException
+	 *             if the given MapToList is null
 	 */
 	public void addAllLists(MapToList<K, V> mtl);
 

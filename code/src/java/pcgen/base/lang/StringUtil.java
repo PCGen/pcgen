@@ -22,6 +22,10 @@ package pcgen.base.lang;
 
 import java.util.Collection;
 
+/**
+ * StringUtil is a utility class designed to provide utility methods when
+ * working with java.lang.String Objects
+ */
 public final class StringUtil
 {
 

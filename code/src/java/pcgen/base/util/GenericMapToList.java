@@ -70,6 +70,8 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 * @throws InstantiationException
 	 *             if the given class does not have a public, zero argument
 	 *             constructor
+	 * @throws NullPointerException
+	 *             if the given Class is null
 	 */
 	public GenericMapToList(Class<? extends Map> cl)
 			throws InstantiationException, IllegalAccessException
@@ -94,6 +96,11 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 *            GenericMapToList
 	 * @return A new, empty GenericMapToList with the given Class as the
 	 *         underlying Class
+	 * @throws IllegalArgumentException
+	 *             if the given Class does not have a public, zero argument
+	 *             constructor
+	 * @throws NullPointerException
+	 *             if the given Class is null
 	 */
 	public static <K, V> GenericMapToList<K, V> getMapToList(
 			Class<? extends Map> cl)

@@ -55,6 +55,8 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 * @return the result of the multiplication
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument
+	 * @throws NullPointerException
+	 *             if the Number provided is null
 	 * @see pcgen.base.formula.ReferenceFormula#resolve(java.lang.Number[])
 	 */
 	public Integer resolve(Number... nums)
@@ -62,7 +64,7 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 		if (nums == null || nums.length != 1)
 		{
 			throw new IllegalArgumentException(
-				"MultiplyingFormula only has one backreference");
+					"MultiplyingFormula only has one backreference");
 		}
 		// TODO May not be correct (order of rounding op)
 		return Integer.valueOf(nums[0].intValue() * mult);
@@ -99,6 +101,6 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	public boolean equals(Object o)
 	{
 		return o instanceof MultiplyingFormula
-			&& ((MultiplyingFormula) o).mult == mult;
+				&& ((MultiplyingFormula) o).mult == mult;
 	}
 }

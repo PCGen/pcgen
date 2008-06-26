@@ -76,13 +76,15 @@ public class MapCollection extends AbstractCollection<Object>
 	 * given Map must be non-null.
 	 * 
 	 * @m The map to be treated as a Collection.
+	 * @throws IllegalArgumentException
+	 *             if the given Map is null
 	 */
 	public MapCollection(Map<?, ?> m)
 	{
 		if (m == null)
 		{
 			throw new IllegalArgumentException(
-				"Cannot provide null to MapCollection");
+					"Cannot provide null to MapCollection");
 		}
 		map = m;
 	}
@@ -94,6 +96,9 @@ public class MapCollection extends AbstractCollection<Object>
 	 * This should be kept as an override of AbstactCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
+	 * 
+	 * @throws UnsupportedOperationException
+	 *             unconditionally
 	 */
 	@Override
 	public boolean add(Object arg0)
@@ -108,6 +113,9 @@ public class MapCollection extends AbstractCollection<Object>
 	 * This should be kept as an override of AbstactCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
+	 * 
+	 * @throws UnsupportedOperationException
+	 *             unconditionally
 	 */
 	@Override
 	public boolean addAll(Collection<?> arg0)
@@ -122,6 +130,9 @@ public class MapCollection extends AbstractCollection<Object>
 	 * This should be kept as an override of AbstactCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
+	 * 
+	 * @throws UnsupportedOperationException
+	 *             unconditionally
 	 */
 	@Override
 	public void clear()
@@ -164,6 +175,8 @@ public class MapCollection extends AbstractCollection<Object>
 	 *            underlying Map.
 	 * @return true if all of the Objects in the given Collection are present in
 	 *         the underlying Map; false otherwise.
+	 * @throws NullPointerException
+	 *             if the given Collection is null
 	 */
 	@Override
 	public boolean containsAll(Collection<?> arg0)
@@ -191,7 +204,8 @@ public class MapCollection extends AbstractCollection<Object>
 	}
 
 	/**
-	 * Provides a new Iterator for iterating over the contents of this MapCollection.
+	 * Provides a new Iterator for iterating over the contents of this
+	 * MapCollection.
 	 * 
 	 * @return An Iterator over the contents of this MapCollection.
 	 */
@@ -208,6 +222,9 @@ public class MapCollection extends AbstractCollection<Object>
 	 * This should be kept as an override of AbstactCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
+	 * 
+	 * @throws UnsupportedOperationException
+	 *             unconditionally
 	 */
 	@Override
 	public boolean remove(Object arg0)
@@ -222,6 +239,9 @@ public class MapCollection extends AbstractCollection<Object>
 	 * This should be kept as an override of AbstactCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
+	 * 
+	 * @throws UnsupportedOperationException
+	 *             unconditionally
 	 */
 	@Override
 	public boolean removeAll(Collection<?> arg0)
@@ -236,6 +256,9 @@ public class MapCollection extends AbstractCollection<Object>
 	 * This should be kept as an override of AbstactCollection (even if it
 	 * replicates function), as it ensures future changes will not provide very
 	 * strange results.
+	 * 
+	 * @throws UnsupportedOperationException
+	 *             unconditionally
 	 */
 	@Override
 	public boolean retainAll(Collection<?> arg0)

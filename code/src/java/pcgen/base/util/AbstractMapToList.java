@@ -81,6 +81,9 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * @param key
 	 *            The key for which a List should be initialized in this
 	 *            MapToList.
+	 * @throws IllegalArgumentException
+	 *             if this AbstractMapToList already contains a List for the
+	 *             given key
 	 */
 	public void initializeListFor(K key)
 	{

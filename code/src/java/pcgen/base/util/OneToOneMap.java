@@ -164,6 +164,8 @@ public class OneToOneMap<K, V>
 	 * @param dkm
 	 *            The Map for which the key/value combinations should be placed
 	 *            into this OneToOneMap
+	 * @throws NullPointerException
+	 *             if the given Map is null
 	 */
 	public void putAll(Map<? extends K, ? extends V> m)
 	{
