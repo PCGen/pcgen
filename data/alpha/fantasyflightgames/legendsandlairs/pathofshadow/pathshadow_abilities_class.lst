@@ -51,10 +51,10 @@ Vitality of Chance				CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIB
 # Feat Name			Type						Visible	Special ABility														Define																		Source Page
 Aerialist Evasion		CATEGORY:Special Ability	TYPE:AerialistSpecialAbilities	VISIBLE:NO	SAB:Evasion (Ex)|AerialistFeatEvasion	SAB:Improved Evasion (Ex)|AerialistImprFeatEvasion	DEFINE:AerialistFeatEvasion|COUNT[FEATNAME=Evasion]-1	DEFINE:AerialistImprFeatEvasion|COUNT[FEATNAME=Evasion]	SOURCEPAGE:Chap.3, Rogue, Special Abilities
 
-Trace Enchantment I							VISIBLE:NO	SAB:Trace Enchantment (Su)|ShadowFeatTraceEnch1									DEFINE:ShadowFeatTraceEnch1|COUNT[FEATNAME=Trace Enchantment II]-1								SOURCEPAGE:p.14
-Trace Enchantment II							VISIBLE:NO	SAB:Trace Enchantment (more distant items) (Su)|ShadowFeatTraceEnch2					DEFINE:ShadowFeatTraceEnch2|COUNT[FEATNAME=Trace Enchantment III]-1								SOURCEPAGE:p.14
-Trace Enchantment III							VISIBLE:NO	SAB:Trace Enchantment (unlimited range) (Su)|ShadowFeatTraceEnch3						DEFINE:ShadowFeatTraceEnch3|COUNT[FEATNAME=Trace Enchantment IV]-1								SOURCEPAGE:p.14
-Trace Enchantment IV							VISIBLE:NO	SAB:Trace Enchantment (cross planar) (Su)																													SOURCEPAGE:p.14
+Trace Enchantment I	CATEGORY:Special Ability		VISIBLE:NO	SAB:Trace Enchantment (Su)|ShadowFeatTraceEnch1									DEFINE:ShadowFeatTraceEnch1|COUNT[FEATNAME=Trace Enchantment II]-1								SOURCEPAGE:p.14
+Trace Enchantment II	CATEGORY:Special Ability		VISIBLE:NO	SAB:Trace Enchantment (more distant items) (Su)|ShadowFeatTraceEnch2					DEFINE:ShadowFeatTraceEnch2|COUNT[FEATNAME=Trace Enchantment III]-1								SOURCEPAGE:p.14
+Trace Enchantment III	CATEGORY:Special Ability		VISIBLE:NO	SAB:Trace Enchantment (unlimited range) (Su)|ShadowFeatTraceEnch3						DEFINE:ShadowFeatTraceEnch3|COUNT[FEATNAME=Trace Enchantment IV]-1								SOURCEPAGE:p.14
+Trace Enchantment IV	CATEGORY:Special Ability		VISIBLE:NO	SAB:Trace Enchantment (cross planar) (Su)																													SOURCEPAGE:p.14
 
 
 

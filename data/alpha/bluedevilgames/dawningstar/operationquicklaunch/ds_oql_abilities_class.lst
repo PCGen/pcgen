@@ -35,7 +35,7 @@ Legwork		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Legwork						
 Dawning Star Systems Expert		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Dawning Star Systems Expert		DEFINE:DawningStarSystemsExpert|0	BONUS:SKILL|TYPE.Craft,Repair|DawningStarSystemsExpert
 Government Issue				CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Government Issue
 Improved Dawning Star Familiarity	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Dawning Star Familiarity																	BONUS:VAR|DawningStarFamiliarity|2
-Surprise Sense				TYPE:ClassAbility	VISIBLE:NO	SAB:Surprise Sense +%|SurpriseSense		DEFINE:SurpriseSense|0
+Surprise Sense				CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Surprise Sense +%|SurpriseSense		DEFINE:SurpriseSense|0
 
 ###BLOCK: Velin Guardian abilities
 # Feat Name			Type							Visible	Special ABility						Define				Modify VAR				Source Page
