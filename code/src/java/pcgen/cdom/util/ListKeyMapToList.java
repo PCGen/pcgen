@@ -92,6 +92,7 @@ public class ListKeyMapToList
 	 * @param lcs
 	 *            The ListKeyMapToList from which all of the Lists should be
 	 *            imported
+     * @throws NullPointerException if the specified ListKeyMapToList is null.
 	 */
 	public void addAllLists(ListKeyMapToList lcs)
 	{

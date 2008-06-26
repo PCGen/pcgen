@@ -185,6 +185,8 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	 * @return 0 if this HitDie is equal to the given HitDie; -1 if this HitDie
 	 *         has a die size less than the given HitDie; +1 if this HitDie has
 	 *         a die size greater than the given HitDie
+	 * @throws NullPointerException
+	 *             if the given HitDie is null
 	 */
 	public int compareTo(HitDie other)
 	{

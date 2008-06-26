@@ -55,6 +55,11 @@ public final class Region implements TypeSafeConstant
 
 	private Region(String name)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for Region cannot be null");
+		}
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -122,7 +127,8 @@ public final class Region implements TypeSafeConstant
 		Region o = typeMap.get(s);
 		if (o == null)
 		{
-			throw new IllegalArgumentException(s);
+			throw new IllegalArgumentException(s
+					+ " is not a previously defined Region");
 		}
 		return o;
 	}

@@ -55,6 +55,11 @@ public final class SubRegion implements TypeSafeConstant
 
 	private SubRegion(String name)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for SubRegion cannot be null");
+		}
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -122,7 +127,8 @@ public final class SubRegion implements TypeSafeConstant
 		SubRegion o = typeMap.get(s);
 		if (o == null)
 		{
-			throw new IllegalArgumentException(s);
+			throw new IllegalArgumentException(s
+					+ " is not a previously defined SubRegion");
 		}
 		return o;
 	}

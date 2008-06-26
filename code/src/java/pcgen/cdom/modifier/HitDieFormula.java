@@ -62,6 +62,7 @@ public class HitDieFormula extends ConcretePrereqObject implements
 	 * @param context
 	 *            The context, ignored by HitDieFormula.
 	 * @return The modified HitDie
+	 * @throws NullPointerException if the given HitDie is null
 	 */
 	public HitDie applyModifier(HitDie hd, Object context)
 	{

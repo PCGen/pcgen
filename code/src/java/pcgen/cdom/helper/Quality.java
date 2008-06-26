@@ -40,9 +40,21 @@ public class Quality
 	 *            The name of the Quality
 	 * @param val
 	 *            The value of this Quality
+	 * @throws IllegalArgumentException
+	 *             if the given name or value is null
 	 */
 	public Quality(String name, String val)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for Quality cannot be null");
+		}
+		if (val == null)
+		{
+			throw new IllegalArgumentException(
+					"Value for Quality cannot be null");
+		}
 		quality = name;
 		value = val;
 	}

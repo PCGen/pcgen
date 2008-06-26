@@ -44,9 +44,16 @@ public class FixedSizeFormula implements Formula
 	 * @param s
 	 *            The SizeAdjustment for which this Formula will return the
 	 *            identifying value.
+	 * @throws IllegalArgumentException
+	 *             if the given SizeAdjustment is null
 	 */
 	public FixedSizeFormula(SizeAdjustment s)
 	{
+		if (s == null)
+		{
+			throw new IllegalArgumentException(
+					"Size Adjustment for FixedSizeFormula cannot be null");
+		}
 		size = s;
 	}
 

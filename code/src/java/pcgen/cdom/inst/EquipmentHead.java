@@ -44,9 +44,24 @@ public final class EquipmentHead extends CDOMObject
 	 */
 	private final int index;
 
+	/**
+	 * Creates a new EquipmentHead with the given source and index.
+	 * 
+	 * @param source
+	 *            The source object for this EquipmentHead
+	 * @param idx
+	 *            The index of this EquipmentHead for the given source
+	 * @throws IllegalArgumentException
+	 *             if the given source is null
+	 */
 	public EquipmentHead(Object source, int idx)
 	{
 		super();
+		if (source == null)
+		{
+			throw new IllegalArgumentException(
+					"Source for EquipmentHead cannot be null");
+		}
 		index = idx;
 		headSource = source;
 	}

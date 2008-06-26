@@ -96,6 +96,7 @@ public class HitDieStep extends ConcretePrereqObject implements
 	 * @param context
 	 *            The context, ignored by HitDieStep.
 	 * @return The modified HitDie, as limited by the bound of this HitDieStep.
+	 * @throws NullPointerException if the given HitDie is null
 	 */
 	public HitDie applyModifier(HitDie hd, Object context)
 	{

@@ -178,6 +178,8 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 	 * @param calculatedTypeList
 	 *            The list of input armor types this Modifier will act upon
 	 * @return The modified List of armor types.
+	 * @throws NullPointerException
+	 *             if the given List is null
 	 */
 	public List<String> applyModifier(List<String> calculatedTypeList)
 	{

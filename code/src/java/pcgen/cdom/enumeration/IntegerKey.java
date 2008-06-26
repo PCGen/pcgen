@@ -173,6 +173,11 @@ public class IntegerKey
 
 	private IntegerKey(String name, int def)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for IntegerKey cannot be null");
+		}
 		ordinal = ordinalCount++;
 		fieldName = name;
 		defaultValue = def;
@@ -261,7 +266,8 @@ public class IntegerKey
 		IntegerKey o = typeMap.get(s);
 		if (o == null)
 		{
-			throw new IllegalArgumentException(s);
+			throw new IllegalArgumentException(s
+					+ " is not a previously defined IntegerKey");
 		}
 		return o;
 	}

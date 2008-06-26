@@ -55,6 +55,11 @@ public final class Pantheon implements TypeSafeConstant
 
 	private Pantheon(String name)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for Pantheon cannot be null");
+		}
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -122,7 +127,8 @@ public final class Pantheon implements TypeSafeConstant
 		Pantheon o = typeMap.get(s);
 		if (o == null)
 		{
-			throw new IllegalArgumentException(s);
+			throw new IllegalArgumentException(s
+					+ " is not a previously defined Pantheon");
 		}
 		return o;
 	}

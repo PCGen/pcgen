@@ -58,9 +58,21 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 * @param lvls
 	 *            A Formula indicating the number of levels to be applied to the
 	 *            PlayerCharacter when this LevelCommandFactory is executed.
+	 * @throws IllegalArgumentException
+	 *             if the given Reference or Formula is null
 	 */
 	public LevelCommandFactory(CDOMSingleRef<PCClass> cl, Formula lvls)
 	{
+		if (cl == null)
+		{
+			throw new IllegalArgumentException(
+					"Class Reference for LevelCommandFactory cannot be null");
+		}
+		if (lvls == null)
+		{
+			throw new IllegalArgumentException(
+					"Level Formula for LevelCommandFactory cannot be null");
+		}
 		pcClass = cl;
 		levels = lvls;
 	}
@@ -142,6 +154,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 *         and level formula that sorts before the given
 	 *         LevelCommandFactory; +1 if this LevelCommandFactory has a PCClass
 	 *         and level formula that sorts before the given LevelCommandFactory
+	 * @throws NullPointerException
+	 *             if the given LevelCommandFactory is null
 	 */
 	public int compareTo(LevelCommandFactory other)
 	{
@@ -175,6 +189,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 * @param pc
 	 *            The PlayerCharacter to which the levels of the PCClass in this
 	 *            LevelCommandFactory will be added.
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
 	 */
 	public void add(PlayerCharacter pc)
 	{
@@ -195,6 +211,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 * @param pc
 	 *            The PlayerCharacter from which the levels of the PCClass in
 	 *            this LevelCommandFactory will be removed.
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
 	 */
 	public void remove(PlayerCharacter pc)
 	{
@@ -216,6 +234,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 *            this LevelCommandFactory will be removed.
 	 * @param lvls
 	 *            The number of levels to apply to the PlayerCharacter
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
 	 */
 	private void apply(PlayerCharacter pc, int lvls)
 	{

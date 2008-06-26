@@ -55,6 +55,11 @@ public final class RaceType implements TypeSafeConstant
 
 	private RaceType(String name)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for RaceType cannot be null");
+		}
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -122,7 +127,8 @@ public final class RaceType implements TypeSafeConstant
 		RaceType o = typeMap.get(s);
 		if (o == null)
 		{
-			throw new IllegalArgumentException(s);
+			throw new IllegalArgumentException(s
+					+ " is not a previously defined RaceType");
 		}
 		return o;
 	}

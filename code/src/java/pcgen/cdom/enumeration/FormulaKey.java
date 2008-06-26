@@ -98,6 +98,16 @@ public final class FormulaKey implements TypeSafeConstant
 
 	private FormulaKey(String name, Formula def)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for FormulaKey cannot be null");
+		}
+		if (def == null)
+		{
+			throw new IllegalArgumentException(
+					"Formula for FormulaKey cannot be null");
+		}
 		ordinal = ordinalCount++;
 		fieldName = name;
 		defaultValue = def;
@@ -186,7 +196,8 @@ public final class FormulaKey implements TypeSafeConstant
 		FormulaKey o = typeMap.get(s);
 		if (o == null)
 		{
-			throw new IllegalArgumentException(s);
+			throw new IllegalArgumentException(s
+					+ " is not a previously defined FormulaKey");
 		}
 		return o;
 	}

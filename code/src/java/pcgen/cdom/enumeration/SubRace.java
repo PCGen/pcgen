@@ -55,6 +55,11 @@ public final class SubRace implements TypeSafeConstant
 
 	private SubRace(String name)
 	{
+		if (name == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for SubRace cannot be null");
+		}
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -122,7 +127,8 @@ public final class SubRace implements TypeSafeConstant
 		SubRace o = typeMap.get(s);
 		if (o == null)
 		{
-			throw new IllegalArgumentException(s);
+			throw new IllegalArgumentException(s
+					+ " is not a previously defined SubRace");
 		}
 		return o;
 	}

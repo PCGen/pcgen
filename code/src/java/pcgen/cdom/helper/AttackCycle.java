@@ -47,9 +47,16 @@ public class AttackCycle
 	 * @param val
 	 *            The value indicating the value of the modifier required to get
 	 *            an additional attack of the given type.
+	 * @throws IllegalArgumentException
+	 *             if the given AttackType is null
 	 */
 	public AttackCycle(AttackType key, int val)
 	{
+		if (key == null)
+		{
+			throw new IllegalArgumentException(
+					"Attack Type for AttackCycle cannot be null");
+		}
 		type = key;
 		value = val;
 	}

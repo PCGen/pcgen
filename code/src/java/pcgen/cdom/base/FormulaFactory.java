@@ -39,11 +39,11 @@ public final class FormulaFactory
 	 *            The String to be converted to a Formula
 	 * @return A Formula for the given String.
 	 * @throws IllegalArgumentException
-	 *             if the given String is empty
+	 *             if the given String is null or empty
 	 */
 	public static Formula getFormulaFor(String s)
 	{
-		if (s.length() == 0)
+		if (s == null || s.length() == 0)
 		{
 			throw new IllegalArgumentException("Formula cannot be empty");
 		}
@@ -64,6 +64,8 @@ public final class FormulaFactory
 	 * @param i
 	 *            The int to be converted to a Formula
 	 * @return A Formula for the given Integer.
+	 * @throws IllegalArgumentException
+	 *             if the given Integer is null
 	 */
 	public static Formula getFormulaFor(Integer i)
 	{

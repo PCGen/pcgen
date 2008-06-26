@@ -43,9 +43,16 @@ public class PointCost
 	 *            The characteristic for which this PointCost defines a cost
 	 * @param cost
 	 *            The point cost of the characterisic
+	 * @throws new
+	 *             IllegalArgumentException if the given characteristic is null
 	 */
 	public PointCost(String key, int cost)
 	{
+		if (key == null)
+		{
+			throw new IllegalArgumentException(
+					"Key for PointCost cannot be null");
+		}
 		type = key;
 		pointCost = cost;
 	}

@@ -82,6 +82,8 @@ public class JEPFormula implements Formula
 	 * 
 	 * @return The value of this JEPFormula in the context of the given
 	 *         PlayerCharacter and source.
+	 * @throws NullPointerException
+	 *             if the given PlayerCharacter is null
 	 */
 	public Float resolve(PlayerCharacter character, String source)
 	{

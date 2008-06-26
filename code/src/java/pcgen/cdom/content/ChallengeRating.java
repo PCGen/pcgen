@@ -46,6 +46,8 @@ public class ChallengeRating extends ConcretePrereqObject
 	 * 
 	 * @param string
 	 *            The formula for this ChallengeRating
+	 * @throws NullPointerException
+	 *             if the given String is null
 	 * @throws IllegalArgumentException
 	 *             if the given String is not of the appropriate syntax
 	 */
