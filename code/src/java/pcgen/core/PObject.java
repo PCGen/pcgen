@@ -4713,7 +4713,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if (aList.equals("ALL"))
 		{
-Logging.errorPrint(anObj + " " + aBonus + " is ALL, nyah, nyah");
+Logging.errorPrint(aBonus + " is ALL, nyah, nyah");
 			return 0;
 		}
 
