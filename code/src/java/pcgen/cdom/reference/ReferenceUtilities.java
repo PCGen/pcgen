@@ -25,7 +25,10 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 
-
+/**
+ * ReferenceUtilities is a utility class designed to provide utility methods
+ * when working with pcgen.cdom.base.CDOMReference Objects
+ */
 public final class ReferenceUtilities
 {
 
@@ -34,66 +37,81 @@ public final class ReferenceUtilities
 		// Cannot construct utility class
 	}
 
+	/**
+	 * Concatenates the LST format of the given Collection of CDOMReference
+	 * objects into a String using the separator as the delimiter.
+	 * 
+	 * The LST format for each CDOMReference is determined by calling the
+	 * getLSTformat() method on the CDOMReference.
+	 * 
+	 * The items will be joined in the order determined by the ordering of the
+	 * given Collection.
+	 * 
+	 * @param strings
+	 *            An Collection of CDOMReference objects
+	 * @param separator
+	 *            The separating string
+	 * @return A 'separator' separated String containing the LST format of the
+	 *         given Collection of CDOMReference objects
+	 */
 	public static <T extends CDOMReference<?>> String joinLstFormat(
-			Collection<T> set, String separator)
-		{
-			if (set == null)
-			{
-				return "";
-			}
-
-			final StringBuilder result = new StringBuilder(set.size() * 10);
-
-			boolean needjoin = false;
-
-			for (CDOMReference<?> obj : set)
-			{
-				if (needjoin)
-				{
-					result.append(separator);
-				}
-				needjoin = true;
-				result.append(obj.getLSTformat());
-			}
-
-			return result.toString();
-		}
-
-	public static <T extends CDOMObject> String joinKeyName(
-			Collection<T> set, String separator)
-		{
-			if (set == null)
-			{
-				return "";
-			}
-
-			final StringBuilder result = new StringBuilder(set.size() * 10);
-
-			boolean needjoin = false;
-
-			for (CDOMObject obj : set)
-			{
-				if (needjoin)
-				{
-					result.append(separator);
-				}
-				needjoin = true;
-				result.append(obj.getLSTformat());
-			}
-
-			return result.toString();
-		}
-
-	public static <T extends CDOMObject> String joinDisplayFormat(
-			Collection<CDOMReference<T>> set, String separator)
+			Collection<T> c, String separator)
 	{
-		if (set == null)
+		if (c == null)
+		{
+			return "";
+		}
+
+		final StringBuilder result = new StringBuilder(c.size() * 10);
+
+		boolean needjoin = false;
+
+		for (CDOMReference<?> obj : c)
+		{
+			if (needjoin)
+			{
+				result.append(separator);
+			}
+			needjoin = true;
+			result.append(obj.getLSTformat());
+		}
+
+		return result.toString();
+	}
+
+	/**
+	 * Concatenates the Display Name of the contents of the given Collection of
+	 * CDOMReference objects into a String using the separator as the delimiter.
+	 * 
+	 * Each CDOMReference in the given Collection is expanded to the contained
+	 * objects, and each of those contained CDOMObjects has getDisplayName()
+	 * called to establish the Display Name of the CDOMObject.
+	 * 
+	 * The LST format for each CDOMReference is determined by calling the
+	 * getLSTformat() method on the CDOMReference.
+	 * 
+	 * The items will be joined in the order determined by the ordering of the
+	 * given Collection and the getContainedObjects() method of the
+	 * CDOMReferences contained in the given Collection.
+	 * 
+	 * @param strings
+	 *            An Collection of CDOMReference objects
+	 * @param separator
+	 *            The separating string
+	 * @return A 'separator' separated String containing the Display Name of the
+	 *         given CDOMObjects contained within the given Collection of
+	 *         CDOMReference objects
+	 */
+	public static <T extends CDOMObject> String joinDisplayFormat(
+			Collection<CDOMReference<T>> c, String separator)
+	{
+		if (c == null)
 		{
 			return "";
 		}
 
 		Set<String> resultSet = new TreeSet<String>();
-		for (CDOMReference<T> ref : set)
+		for (CDOMReference<T> ref : c)
 		{
 			for (T obj : ref.getContainedObjects())
 			{

@@ -66,6 +66,8 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 	 *            which this CDOMSimpleSingleRef contains.
 	 * @return true if the given Object is the object this CDOMSimpleSingleRef
 	 *         contains; false otherwise.
+	 * @throws IllegalStateException
+	 *             if this CDOMSimpleSingleRef has not been resolved
 	 */
 	@Override
 	public boolean contains(T obj)
@@ -86,6 +88,8 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 	 * CDOMSimpleSingleRef has not yet been resolved.
 	 * 
 	 * @return the given Object this CDOMSimpleSingleRef contains.
+	 * @throws IllegalStateException
+	 *             if this CDOMSimpleSingleRef has not been resolved
 	 */
 	@Override
 	public T resolvesTo()
@@ -155,28 +159,29 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 	 * 
 	 * @param obj
 	 *            The object to which this CDOMSimpleSingleRef will refer.
+	 * @throws IllegalArgumentException
+	 *             if the given object for addition to this CDOMTypeRef is not
+	 *             of the class that this CDOMTypeRef represents
+	 * @throws IllegalStateException
+	 *             if this method is called a second time
+	 * @throws NullPointerException
+	 *             if the given object is null
 	 */
 	@Override
 	public void addResolution(T obj)
 	{
-		if (referencedObject == null)
-		{
-			if (obj.getClass().equals(getReferenceClass()))
-			{
-				referencedObject = obj;
-			}
-			else
-			{
-				throw new IllegalArgumentException("Cannot resolve a "
-						+ getReferenceClass().getSimpleName()
-						+ " Reference to a " + obj.getClass().getSimpleName());
-			}
-		}
-		else
+		if (referencedObject != null)
 		{
 			throw new IllegalStateException(
 					"Cannot resolve a Single Reference twice");
 		}
+		if (!obj.getClass().equals(getReferenceClass()))
+		{
+			throw new IllegalArgumentException("Cannot resolve a "
+					+ getReferenceClass().getSimpleName() + " Reference to a "
+					+ obj.getClass().getSimpleName());
+		}
+		referencedObject = obj;
 	}
 
 	/**

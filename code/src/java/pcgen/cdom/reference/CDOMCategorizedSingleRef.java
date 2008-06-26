@@ -59,6 +59,8 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 * @param nm
 	 *            An identifier of the object this CDOMCategorizedSingleRef
 	 *            contains.
+	 * @throws IllegalArgumentException
+	 *             if the given Cagegory is null
 	 */
 	public CDOMCategorizedSingleRef(Class<T> cl, Category<T> cat, String nm)
 	{
@@ -83,6 +85,8 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 *            which this CDOMCategorizedSingleRef contains.
 	 * @return true if the given Object is the object this
 	 *         CDOMCategorizedSingleRef contains; false otherwise.
+	 * @throws IllegalStateException
+	 *             if this CDOMCategorizedSingleRef has not been resolved
 	 */
 	@Override
 	public boolean contains(T obj)
@@ -117,6 +121,8 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 * CDOMCategorizedSingleRef has not yet been resolved.
 	 * 
 	 * @return the given Object this CDOMCategorizedSingleRef contains.
+	 * @throws IllegalStateException
+	 *             if this CDOMCategorizedSingleRef has not been resolved
 	 */
 	@Override
 	public T resolvesTo()
@@ -182,7 +188,16 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	 * TransparentReference interface.
 	 * 
 	 * @param obj
-	 *            The object to which this CDOMTypeRef refers.
+	 *            The object to which this CDOMCategorizedSingleRef refers.
+	 * @throws IllegalArgumentException
+	 *             if the given object for addition to this
+	 *             CDOMCategorizedSingleRef is not of the class that this
+	 *             CDOMCategorizedSingleRef represents or not of the Category
+	 *             that this CDOMCategorizedSingleRef represents
+	 * @throws IllegalStateException
+	 *             if this method is called a second time
+	 * @throws NullPointerException
+	 *             if the given object is null
 	 */
 	@Override
 	public void addResolution(T obj)

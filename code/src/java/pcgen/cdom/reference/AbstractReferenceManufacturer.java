@@ -149,6 +149,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * @param cl
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
+	 * @throws IllegalArgumentException
+	 *             if the given Class is null or the given Class does not have a
+	 *             public, zero argument constructor
+	 * 
 	 */
 	public AbstractReferenceManufacturer(Class<T> cl)
 	{
@@ -187,16 +191,19 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * @return A CDOMGroupRef which is intended to contain objects of a given
 	 *         Type for the Class or Class/Context this
 	 *         AbstractReferenceManufacturer represents.
+	 * @throws IllegalArgumentException
+	 *             if any of the given Strings is null, empty (length is zero),
+	 *             or contains a period (.), equals (=), comma (,) or pipe (|)
 	 */
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		for (String type : types)
 		{
-			if (type.length() == 0)
+			if (type == null || type.length() == 0)
 			{
-				Logging.errorPrint("Attempt to acquire empty Type "
-						+ "(the type String contains an empty element)");
-				return null;
+				throw new IllegalArgumentException(
+						"Attempt to acquire empty Type "
+								+ "(the type String contains a null or empty element)");
 			}
 			if (type.indexOf('.') != -1)
 			{
@@ -350,15 +357,17 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * @param key
 	 *            The identifier of the object to be imported into this
 	 *            AbstractReferenceManufacturer
+	 * @throws IllegalArgumentException
+	 *             if the given object is not of the Class that this
+	 *             AbstractReferenceManufacturer constructs and references
 	 */
 	public void addObject(T obj, String key)
 	{
 		if (!refClass.isInstance(obj))
 		{
-			Logging.errorPrint("Attempted to register a "
+			throw new IllegalArgumentException("Attempted to register a "
 					+ obj.getClass().getName() + " in " + refClass.getName()
 					+ " ReferenceSupport");
-			return;
 		}
 		if (active.containsKey(key))
 		{
@@ -417,10 +426,12 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 *            The identifier of the CDOMObject to be constructed
 	 * @return The new CDOMObject of the Class or Class/Category represented by
 	 *         this AbstractReferenceManufacturer
+	 * @throws IllegalArgumentException
+	 *             if the given identifier is null or empty (length is zero)
 	 */
 	public T constructObject(String val)
 	{
-		if (val.equals(""))
+		if (val == null || val.equals(""))
 		{
 			throw new IllegalArgumentException("Cannot build empty name");
 		}
@@ -493,7 +504,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		CDOMObject act = active.get(key);
 		if (act == null)
 		{
-			throw new InternalError("Did not find " + obj + " under " + key);
+			throw new UnreachableError("Did not find " + obj + " under " + key);
 		}
 		if (act.equals(obj))
 		{
@@ -549,6 +560,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 *            CDOMReference will refer.
 	 * @return A CDOMReference that refers to the object identified by the given
 	 *         key
+	 * @throws IllegalArgumentException
+	 *             if the given key is null or empty
 	 */
 	public SRT getReference(String val)
 	{
@@ -562,12 +575,18 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		 */
 		if (val == null)
 		{
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException(
+					"Cannot request a reference to null identifier");
 		}
 		if (val.equals(""))
 		{
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException(
+					"Cannot request a reference to an empty identifier");
 		}
+		/*
+		 * Items thrown below this point are for protection from coding errors
+		 * in LST files, not part of the public interface of this method
+		 */
 		try
 		{
 			Integer.parseInt(val);
@@ -648,10 +667,13 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * ONLY within AbstractReferenceManufacturer and should not be called by
 	 * other objects.
 	 * 
+	 * @param ident
+	 *            The identifier for which a CDOMTransparentSingleRef should be
+	 *            returned.
 	 * @return a CDOMSingleRef for the given identifier as defined by the class
 	 *         that extends AbstractReferenceManufacturer.
 	 */
-	protected abstract SRT getLocalReference(String val);
+	protected abstract SRT getLocalReference(String ident);
 
 	/**
 	 * Returns a CDOMGroupRef for the given types as defined by the class that
@@ -659,10 +681,13 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * within AbstractReferenceManufacturer and should not be called by other
 	 * objects.
 	 * 
+	 * @param types
+	 *            An array of the types of objects to which the returned
+	 *            CDOMReference will refer.
 	 * @return A CDOMGroupRef for the given types as defined by the class that
 	 *         extends AbstractReferenceManufacturer.
 	 */
-	protected abstract TRT getLocalTypeReference(String[] val);
+	protected abstract TRT getLocalTypeReference(String[] types);
 
 	/**
 	 * Returns a CDOMGroupRef for all objects of the class that extends

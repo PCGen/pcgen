@@ -57,9 +57,21 @@ public abstract class CDOMReference<T extends PrereqObject>
 	 *            The class of object this CDOMReference refers to.
 	 * @param nm
 	 *            The name of this CDOMReference.
+	 * @throws IllegalArgumentException
+	 *             if the given Class or name is null
 	 */
 	public CDOMReference(Class<T> cl, String nm)
 	{
+		if (cl == null)
+		{
+			throw new IllegalArgumentException(
+					"Class for CDOMReference cannot be null");
+		}
+		if (nm == null)
+		{
+			throw new IllegalArgumentException(
+					"Name for CDOMReference cannot be null");
+		}
 		clazz = cl;
 		name = nm;
 	}
@@ -93,7 +105,8 @@ public abstract class CDOMReference<T extends PrereqObject>
 	 * 
 	 * Note that specific implementations may limit the number of times this
 	 * method may be called, and may throw an IllegalStateException if that
-	 * limit is exceeded.
+	 * limit is exceeded. Note: The limit defined may be any value, including
+	 * zero (or "this is an optional method")
 	 * 
 	 * @param obj
 	 *            an object to be included in the Collection of objects to which

@@ -19,37 +19,112 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMObject;
 
+/**
+ * A TransparentReferenceManufacturer is a ReferenceManufacturer capable of
+ * creating TransparentReferences of a given "form". That "form" includes a
+ * specific Class of CDOMObject, or a specific Class/Category for Categorized
+ * CDOMObjects (this class does not make distinction between the Class and
+ * Class/Categorized cases)
+ * 
+ * @param <T>
+ *            The Class of object this TransparentReferenceManufacturer can
+ *            reference
+ */
 public class TransparentReferenceManufacturer<T extends CDOMObject>
 		extends
 		AbstractReferenceManufacturer<T, CDOMTransparentSingleRef<T>, CDOMTransparentTypeRef<T>, CDOMTransparentAllRef<T>>
 		implements ReferenceManufacturer<T, CDOMTransparentSingleRef<T>>,
 		Cloneable
 {
+	/**
+	 * Constructs a new TransparentReferenceManufacturer for the given Class.
+	 * 
+	 * @param cl
+	 *            The Class of object this TransparentReferenceManufacturer will
+	 *            construct and reference.
+	 */
 	public TransparentReferenceManufacturer(Class<T> cl)
 	{
 		super(cl);
 	}
 
+	/**
+	 * Returns a CDOMTransparentSingleRef for the given identifier as defined by
+	 * the Class provided when this TransparentReferenceManufacturer was
+	 * constructed. This is designed to be used ONLY by the
+	 * AbstractReferenceManufacturer template Class and should not be called by
+	 * other objects.
+	 * 
+	 * @param ident
+	 *            The identifier for which a CDOMTransparentSingleRef should be
+	 *            returned.
+	 * @return a CDOMTransparentSingleRef for the given identifier as defined by
+	 *         the Class provided when this TransparentReferenceManufacturer was
+	 *         constructed.
+	 */
 	@Override
-	protected CDOMTransparentSingleRef<T> getLocalReference(String val)
+	protected CDOMTransparentSingleRef<T> getLocalReference(String ident)
 	{
-		return new CDOMTransparentSingleRef<T>(getReferenceClass(), val);
+		return new CDOMTransparentSingleRef<T>(getReferenceClass(), ident);
 	}
 
+	/**
+	 * Returns a CDOMTransparentTypeRef for the given types as defined by the
+	 * Class provided when this TransparentReferenceManufacturer was
+	 * constructed. This is designed to be used ONLY by the
+	 * AbstractReferenceManufacturer template Class and should not be called by
+	 * other objects.
+	 * 
+	 * @param types
+	 *            An array of the types of objects to which the returned
+	 *            CDOMReference will refer.
+	 * @return A CDOMTransparentTypeRef for the given types as defined by the
+	 *         Class provided when this TransparentReferenceManufacturer was
+	 *         constructed.
+	 */
 	@Override
-	protected CDOMTransparentTypeRef<T> getLocalTypeReference(String[] val)
+	protected CDOMTransparentTypeRef<T> getLocalTypeReference(String[] types)
 	{
-		return new CDOMTransparentTypeRef<T>(getReferenceClass(), val);
+		return new CDOMTransparentTypeRef<T>(getReferenceClass(), types);
 	}
 
+	/**
+	 * Returns a CDOMTransparentAllRef for all objects of the Class provided
+	 * when this TransparentReferenceManufacturer was constructed. This is
+	 * designed to be used ONLY by the AbstractReferenceManufacturer template
+	 * Class and should not be called by other objects.
+	 * 
+	 * @return A CDOMTransparentAllRef for all objects of the Class provided
+	 *         when this TransparentReferenceManufacturer was constructed.
+	 */
 	@Override
 	protected CDOMTransparentAllRef<T> getLocalAllReference()
 	{
 		return new CDOMTransparentAllRef<T>(getReferenceClass());
 	}
 
+	/**
+	 * Resolves the TransparentReferences in this
+	 * TransparentReferenceManufacturer using the given ReferenceManufacturer.
+	 * 
+	 * This method may be called more than once; each time it is called it will
+	 * overwrite the existing resolution of the TransparentReferences contained
+	 * within this TransparentReferenceManufacturer.
+	 * 
+	 * @param rm
+	 *            The ReferenceManufacturer to be used to resolve the
+	 *            TransparentReferences produced in this
+	 *            TransparentReferenceManufacturer
+	 * @throws IllegalArgumentException
+	 *             if the given ReferenceManufacturer is null
+	 */
 	public void resolveUsing(ReferenceManufacturer<T, ?> rm)
 	{
+		if (rm == null)
+		{
+			throw new IllegalArgumentException(
+					"Reference Manufacturer for resolveUsing cannot be null");
+		}
 		CDOMTransparentAllRef<T> all = getAllRef();
 		if (all != null)
 		{
@@ -65,7 +140,16 @@ public class TransparentReferenceManufacturer<T extends CDOMObject>
 		}
 		injectConstructed(rm);
 	}
-	
+
+	/**
+	 * Returns a description of the type of Class this
+	 * TransparentReferenceManufacturer constructs or references. This is
+	 * designed to be used ONLY by the AbstractReferenceManufacturer template
+	 * Class and should not be called by other objects.
+	 * 
+	 * @return A String description of the Class that this
+	 *         TransparentReferenceManufacturer constructs or references.
+	 */
 	@Override
 	protected String getReferenceDescription()
 	{

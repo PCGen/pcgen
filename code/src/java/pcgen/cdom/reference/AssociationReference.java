@@ -25,29 +25,86 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.core.PObject;
 
+/**
+ * An AssociationReference is a CDOMReference that points to associations on a
+ * PObject.
+ * 
+ * An Association (in PCGen terms) is something used to store choices made on an
+ * object. Thus, a Feat like Martial Weapon Proficiency which allows the
+ * selection of Weapon Proficiencies stores the identifier of each selected
+ * Weapon Proficiency as an association on the Feat. Other items may refer to
+ * this association (such as a selection of choices providing input into CSKILL:
+ * through the LIST entry)
+ * 
+ * @param <T>
+ *            The Class of the underlying objects contained by this
+ *            AssociationReference
+ */
 public class AssociationReference<T extends CDOMObject> extends
 		CDOMReference<T>
 {
+	/**
+	 * The CDOMGroupRef used to establish the potential objects that could be
+	 * stored in associations of the given PObject
+	 */
 	private final CDOMGroupRef<T> all;
+
+	/**
+	 * The PObject from which identifiers should be extracted to establish which
+	 * of the objects in the potential object CDOMGroupRef this
+	 * AssociationReference actually references.
+	 */
 	private final PObject referenceObj;
 
-	public AssociationReference(Class<T> cl, CDOMGroupRef<T> start, PObject ref)
+	/**
+	 * Constructs a new AssociationReference, which will reference the
+	 * associations on the given object, with the association used as an
+	 * identifier to extract objects from the given starting CDOMGroupRef of
+	 * objects.
+	 * 
+	 * This AssociationReference will reference the same Class of object as the
+	 * Class of object referenced by the given CDOMGroupRef.
+	 * 
+	 * @param start
+	 *            The starting CDOMGroupRef, which references the potential
+	 *            objects that could be stored in associations of the given
+	 *            PObject
+	 * @param ref
+	 *            The PObject from which identifiers should be extracted to
+	 *            establish which of the objects in the given CDOMGroupRef this
+	 *            AssociationReference actually references.
+	 * @throws NullPointerException
+	 *             if the starting reference provided is null
+	 * @throws IllegalArgumentException
+	 *             if the given PObject is null
+	 */
+	public AssociationReference(CDOMGroupRef<T> start, PObject ref)
 	{
-		super(cl, "LIST");
-		if (start == null)
-		{
-			throw new IllegalArgumentException(
-					"Starting Group cannot be null in AssociationReference");
-		}
+		super(start.getReferenceClass(), "LIST");
 		all = start;
 		if (ref == null)
 		{
 			throw new IllegalArgumentException(
 					"PObject in AssociationReference cannot be null");
 		}
+		/*
+		 * TODO BUG this is a problem because it's not true that this is
+		 * necessarily the object that will contain the associations :( Since
+		 * PCGen currently clones a ton of stuff, this assumption fails, and
+		 * thus AssociationReference is useless.
+		 */
 		referenceObj = ref;
 	}
 
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * AssociationReference is resolved by association.
+	 * 
+	 * @param obj
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a AssociationReference is resolved by association.
+	 */
 	@Override
 	public void addResolution(T obj)
 	{
@@ -55,6 +112,16 @@ public class AssociationReference<T extends CDOMObject> extends
 				"Cannot add resolution to AssociationReference");
 	}
 
+	/**
+	 * Returns true if the given Object matches one of the objects to which this
+	 * AssociationReference refers.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it matches one of the
+	 *            objects to which this AssociationReference refers.
+	 * @return true if the given Object is one of the objects to which this
+	 *         AssociationReference refers; false otherwise.
+	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -74,6 +141,19 @@ public class AssociationReference<T extends CDOMObject> extends
 		return false;
 	}
 
+	/**
+	 * Returns a Collection containing the Objects to which this
+	 * AssociationReference refers.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the AssociationReference, and modifying the AssociationReference after
+	 * the Collection is returned should not modify the Collection.
+	 * 
+	 * @return A Collection containing the Objects to which this
+	 *         AssociationReference refers.
+	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
@@ -94,18 +174,43 @@ public class AssociationReference<T extends CDOMObject> extends
 		return list;
 	}
 
+	/**
+	 * Returns a representation of this AssociationReference, suitable for
+	 * storing in an LST file.
+	 * 
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 */
 	@Override
 	public String getLSTformat()
 	{
 		return getName();
 	}
 
+	/**
+	 * Returns the count of the number of objects included in the Collection of
+	 * Objects to which this AssociationReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the
+	 * AssociationReference has not yet been resolved.
+	 * 
+	 * @return The count of the number of objects included in the Collection of
+	 *         Objects to which this AssociationReference refers.
+	 */
 	@Override
 	public int getObjectCount()
 	{
 		return referenceObj.getAssociatedCount();
 	}
 
+	/**
+	 * Returns true if this AssociationReference is equal to the given Object.
+	 * Equality is defined as being another AssociationReference object with
+	 * equal starting Reference Set and equal reference object. This is NOT a
+	 * deep .equals, in that the actual contents of this AssociationReference
+	 * are not tested.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -120,6 +225,11 @@ public class AssociationReference<T extends CDOMObject> extends
 		return false;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this AssociationReference
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{

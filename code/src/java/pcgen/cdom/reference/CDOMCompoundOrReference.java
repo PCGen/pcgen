@@ -67,6 +67,12 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * 
 	 * @param ref
 	 *            The CDOMReference to add to this CDOMCompoundOrReference
+	 * @throws IllegalArgumentException
+	 *             if the given CDOMReference for addition to this
+	 *             CDOMCompoundOrReference does not represent the same
+	 *             CDOMObject class as this CDOMCompoundOrReference
+	 * @throws NullPointerException
+	 *             if the given CDOMReference is null
 	 */
 	public void addReference(CDOMReference<T> ref)
 	{

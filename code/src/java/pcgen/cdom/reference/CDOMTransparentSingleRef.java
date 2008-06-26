@@ -21,17 +21,61 @@ import java.util.Collection;
 
 import pcgen.cdom.base.PrereqObject;
 
+/**
+ * A CDOMTransparentSingleRef is a CDOMReference which is intended to contain a
+ * another CDOMSingleRef, to which the CDOMTransparentSingleRef will delegate
+ * behavior.
+ * 
+ * A CDOMTransparentSingleRef, unlike many CDOMReference objects, can be
+ * cleared, and the underlying CDOMSingleRef can be changed.
+ * 
+ * @see TransparentReference for a description of cases in which
+ *      TransparentReferences like CDOMTransparentSingleRef are typically used
+ * 
+ * @param <T>
+ *            The Class of the underlying object contained by this
+ *            CDOMTransparentSingleRef
+ */
 public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 		CDOMSingleRef<T> implements TransparentReference<T>
 {
 
+	/**
+	 * Holds the reference to which this CDOMTransparentSingleRef will delegate
+	 * behavior.
+	 */
 	private CDOMSingleRef<T> subReference = null;
 
+	/**
+	 * Constructs a new CDOMTransparentSingleRef for the given Class and name.
+	 * 
+	 * @param cl
+	 *            The Class of the underlying object contained by this
+	 *            CDOMTransparentSingleRef.
+	 * @param nm
+	 *            An identifier of the object this CDOMTransparentSingleRef
+	 *            contains.
+	 */
 	public CDOMTransparentSingleRef(Class<T> cl, String nm)
 	{
 		super(cl, nm);
 	}
 
+	/**
+	 * Returns true if the given Object is the Object to which this
+	 * CDOMTransparentSingleRef refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the underlying
+	 * CDOMSingleRef has not yet been resolved.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it is referred to by this
+	 *            CDOMTransparentSingleRef.
+	 * @return true if the given Object is the Object to which this
+	 *         CDOMTransparentSingleRef refers; false otherwise.
+	 * @throws IllegalStateException
+	 *             if no underlying CDOMSingleRef has been defined.
+	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -44,6 +88,16 @@ public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 		return subReference.contains(obj);
 	}
 
+	/**
+	 * Returns the given Object this CDOMTransparentSingleRef contains.
+	 * 
+	 * Note that the behavior of this class is undefined if the underlying
+	 * CDOMSingleRef has not yet been resolved.
+	 * 
+	 * @return the given Object this CDOMTransparentSingleRef contains.
+	 * @throws IllegalStateException
+	 *             if no underlying CDOMSingleRef has been defined.
+	 */
 	@Override
 	public T resolvesTo()
 	{
@@ -55,12 +109,31 @@ public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 		return subReference.resolvesTo();
 	}
 
+	/**
+	 * Returns a representation of this CDOMTransparentSingleRef, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the identifier of the underlying reference (of
+	 * the types given at construction), often the "key" in LST terminology.
+	 * 
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 */
 	@Override
 	public String getLSTformat()
 	{
 		return getName();
 	}
 
+	/**
+	 * Returns true if this CDOMTransparentSingleRef is equal to the given
+	 * Object. Equality is defined as being another CDOMTransparentSingleRef
+	 * object with equal Class represented by the reference and equal name of
+	 * the underlying reference. This is NOT a deep .equals, in that neither the
+	 * actual contents of this CDOMTransparentSingleRef nor the underlying
+	 * CDOMSingleRef are tested.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -73,12 +146,30 @@ public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 		return false;
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this
+	 * CDOMTransparentSingleRef
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return getReferenceClass().hashCode() ^ getName().hashCode();
 	}
 
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * CDOMTransparentSingleRef is resolved using an underlying CDOMSingleRef.
+	 * 
+	 * @see Resolve(ReferenceManufacturer<T, ?>)
+	 * 
+	 * @param obj
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a CDOMTransparentSingleRef is resolved using an
+	 *             underlying CDOMSingleRef.
+	 */
 	@Override
 	public void addResolution(T obj)
 	{
@@ -86,6 +177,24 @@ public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 				"Cannot resolve a Transparent Reference");
 	}
 
+	/**
+	 * Resolves this CDOMTransparentSingleRef using the given
+	 * ReferenceManufacturer. The underlying CDOMSingleRef for this
+	 * CDOMTransparentSingleRef will be set to a CDOMSingleRef constructed by
+	 * the given ReferenceManufacturer (using the identifier provided during
+	 * construction of this CDOMTransparentSingleRef)
+	 * 
+	 * This method may be called more than once; each time it is called it will
+	 * overwrite the existing CDOMSingleRef to which this
+	 * CDOMTransparentSingleRef delegates its behavior.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the Reference Class of the given ReferenceManufacturer is
+	 *             different than the Reference Class of this
+	 *             CDOMTransparentSingleRef
+	 * @throws NullPointerException
+	 *             if the given ReferenceManufacturer is null
+	 */
 	public void resolve(ReferenceManufacturer<T, ?> rm)
 	{
 		if (rm.getReferenceClass().equals(getReferenceClass()))
@@ -100,6 +209,23 @@ public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 		}
 	}
 
+	/**
+	 * Returns a Collection containing the single Object to which this
+	 * CDOMTransparentSingleRef refers.
+	 * 
+	 * The semantics of this method are defined solely by the semantics of the
+	 * underlying CDOMSingleRef. Ownership of the Collection returned by this
+	 * method may or may not be transferred to the calling object (check the
+	 * documentation of the underlying CDOMSingleRef).
+	 * 
+	 * Note that if you know this CDOMTransparentSingleRef is a CDOMSingleRef,
+	 * you are better off using resolvesTo() as the result will be much faster
+	 * than having to extract the object out of the Collection returned by this
+	 * method.
+	 * 
+	 * @return A Collection containing the single Object to which this
+	 *         CDOMTransparentSingleRef refers.
+	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{

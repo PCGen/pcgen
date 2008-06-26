@@ -80,6 +80,8 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	 *            CDOMAllRef.
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this CDOMAllRef refers; false otherwise.
+	 * @throws IllegalStateException
+	 *             if this CDOMAllRef has not been resolved
 	 */
 	@Override
 	public boolean contains(T obj)
@@ -126,6 +128,11 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	 * @param obj
 	 *            An object to be included in the Collection of objects to which
 	 *            this CDOMAllRef refers.
+	 * @throws IllegalArgumentException
+	 *             if the given object for addition to this CDOMAllRef is not of
+	 *             the class that this CDOMAllRef represents
+	 * @throws NullPointerException
+	 *             if the given object is null
 	 */
 	@Override
 	public void addResolution(T obj)

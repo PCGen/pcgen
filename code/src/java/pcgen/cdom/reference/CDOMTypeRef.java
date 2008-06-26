@@ -91,6 +91,8 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	 *            CDOMTypeRef.
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this CDOMTypeRef refers; false otherwise.
+	 * @throws IllegalStateException
+	 *             if the CDOMTypeRef has not been resolved
 	 */
 	@Override
 	public boolean contains(T obj)
@@ -142,6 +144,11 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	 * @param obj
 	 *            An object to be included in the Collection of objects to which
 	 *            this CDOMTypeRef refers.
+	 * @throws IllegalArgumentException
+	 *             if the given object for addition to this CDOMTypeRef is not
+	 *             of the class that this CDOMTypeRef represents
+	 * @throws NullPointerException
+	 *             if the given object is null
 	 */
 	@Override
 	public void addResolution(T obj)
