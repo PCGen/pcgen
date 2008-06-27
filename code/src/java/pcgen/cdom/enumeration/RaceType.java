@@ -94,10 +94,7 @@ public final class RaceType implements TypeSafeConstant
 	 */
 	public static RaceType getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<RaceType>();
-		}
+		initializeTypeMap();
 		RaceType o = typeMap.get(s);
 		if (o == null)
 		{
@@ -120,10 +117,7 @@ public final class RaceType implements TypeSafeConstant
 	 */
 	public static RaceType valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<RaceType>();
-		}
+		initializeTypeMap();
 		RaceType o = typeMap.get(s);
 		if (o == null)
 		{
@@ -131,6 +125,17 @@ public final class RaceType implements TypeSafeConstant
 					+ " is not a previously defined RaceType");
 		}
 		return o;
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<RaceType>();
+		}
 	}
 
 	/**

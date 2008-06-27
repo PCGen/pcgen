@@ -44,7 +44,7 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	/**
 	 * The Types of objects this CDOMTypeRef contains
 	 */
-	private String[] types;
+	private final String[] types;
 
 	/**
 	 * Constructs a new CDOMTypeRef for the given Class to be represented by

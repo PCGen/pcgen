@@ -40,7 +40,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	/**
 	 * The integer die for this HitDie
 	 */
-	private int die;
+	private final int die;
 
 	/**
 	 * Constructs a new HitDie with the given int value.

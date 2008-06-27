@@ -94,10 +94,7 @@ public final class Region implements TypeSafeConstant
 	 */
 	public static Region getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<Region>();
-		}
+		initializeTypeMap();
 		Region o = typeMap.get(s);
 		if (o == null)
 		{
@@ -105,6 +102,17 @@ public final class Region implements TypeSafeConstant
 			typeMap.put(s, o);
 		}
 		return o;
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<Region>();
+		}
 	}
 
 	/**
@@ -120,10 +128,7 @@ public final class Region implements TypeSafeConstant
 	 */
 	public static Region valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<Region>();
-		}
+		initializeTypeMap();
 		Region o = typeMap.get(s);
 		if (o == null)
 		{

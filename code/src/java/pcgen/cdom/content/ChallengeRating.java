@@ -66,7 +66,7 @@ public class ChallengeRating extends ConcretePrereqObject
 		catch (NumberFormatException e)
 		{
 			throw new IllegalArgumentException(
-					"Challenge Rating must be a positive integer i or 1/i");
+					"Challenge Rating must be a positive integer i or 1/i", e);
 		}
 		rating = FormulaFactory.getFormulaFor(string);
 	}
@@ -88,7 +88,7 @@ public class ChallengeRating extends ConcretePrereqObject
 	public String getLSTformat()
 	{
 		String str = rating.toString();
-		if (str.startsWith("-"))
+		if (str.charAt(0) == '-')
 		{
 			str = "1/" + str.substring(1);
 		}

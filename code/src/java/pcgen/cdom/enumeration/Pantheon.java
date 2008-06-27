@@ -94,10 +94,7 @@ public final class Pantheon implements TypeSafeConstant
 	 */
 	public static Pantheon getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<Pantheon>();
-		}
+		initializeTypeMap();
 		Pantheon o = typeMap.get(s);
 		if (o == null)
 		{
@@ -105,6 +102,17 @@ public final class Pantheon implements TypeSafeConstant
 			typeMap.put(s, o);
 		}
 		return o;
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<Pantheon>();
+		}
 	}
 
 	/**
@@ -120,10 +128,7 @@ public final class Pantheon implements TypeSafeConstant
 	 */
 	public static Pantheon valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<Pantheon>();
-		}
+		initializeTypeMap();
 		Pantheon o = typeMap.get(s);
 		if (o == null)
 		{

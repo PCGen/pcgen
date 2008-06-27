@@ -95,7 +95,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * probably not too problematic, in the sense that a few extra CDOMReference
 	 * objects really isn't that big of a deal. But it's still imperfect...
 	 */
-	private Map<String[], TRT> typeReferences = new HashMap<String[], TRT>();
+	private final Map<String[], TRT> typeReferences = new HashMap<String[], TRT>();
 
 	/**
 	 * Storage for individual references. This ensures that only one reference
@@ -104,7 +104,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * also stores the reference so that it can be appropriately resolved when
 	 * resolveReferences() is called.
 	 */
-	private Map<String, SRT> referenced = new TreeMap<String, SRT>(
+	private final Map<String, SRT> referenced = new TreeMap<String, SRT>(
 			String.CASE_INSENSITIVE_ORDER);
 
 	/**
@@ -112,7 +112,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * are objects that have been constructed or imported into the
 	 * AbstractReferenceManufacturer.
 	 */
-	private Map<String, T> active = new TreeMap<String, T>(
+	private final Map<String, T> active = new TreeMap<String, T>(
 			String.CASE_INSENSITIVE_ORDER);
 
 	/**
@@ -131,7 +131,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * developing a MapToList that is backed by a TreeMap and also an
 	 * "InstanceList"
 	 */
-	private HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
+	private final HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
 
 	/**
 	 * Contains a list of deferred objects. Identifiers for objects for which
@@ -141,7 +141,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * if no object with the matching identifier has been constructed or
 	 * imported into this AbstractReferenceManufacturer.
 	 */
-	private List<String> deferred = new ArrayList<String>();
+	private final List<String> deferred = new ArrayList<String>();
 
 	/**
 	 * Constructs a new AbstractReferenceManufacturer for the given Class.
@@ -493,7 +493,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	{
 		if (!refClass.isInstance(obj))
 		{
-			// TODO Error
+			throw new IllegalArgumentException(
+					"Object to be forgotten does not match Class of this AbstractReferenceManufacturer");
 		}
 		/*
 		 * TODO This is a bug - the key name is not necessarily loaded into the
@@ -578,7 +579,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			throw new IllegalArgumentException(
 					"Cannot request a reference to null identifier");
 		}
-		if (val.equals(""))
+		if (val.length() == 0)
 		{
 			throw new IllegalArgumentException(
 					"Cannot request a reference to an empty identifier");
@@ -771,8 +772,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			String keyName = activeObj.getKeyName();
 			if (keyName == null)
 			{
-				System.err.println(activeObj.getClass() + " "
-						+ activeObj.get(StringKey.NAME));
+				Logging
+						.errorPrint(activeObj.getClass() + " "
+								+ activeObj.get(StringKey.NAME)
+								+ " has a null KeyName");
 			}
 			else if (!keyName.equalsIgnoreCase(second.toString()))
 			{
@@ -790,13 +793,13 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 						.getUndecoratedName(s, throwaway);
 				if (!active.containsKey(undec) && !deferred.contains(undec))
 				{
-					if (!s.toString().startsWith("*"))
+					if (s.charAt(0) != '*')
 					{
 						Logging.errorPrint("Unconstructed Reference: "
 								+ getReferenceDescription() + " " + s);
 						returnGood = false;
 					}
-					constructObject(s.toString());
+					constructObject(s);
 				}
 			}
 		}

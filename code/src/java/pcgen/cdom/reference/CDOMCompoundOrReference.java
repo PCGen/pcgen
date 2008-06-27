@@ -44,7 +44,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * The list of underlying references that this CDOMCompoundOrReference
 	 * contains
 	 */
-	private ArrayList<CDOMReference<T>> references = new ArrayList<CDOMReference<T>>();
+	private final ArrayList<CDOMReference<T>> references = new ArrayList<CDOMReference<T>>();
 
 	/**
 	 * Creates a new CDOMCompoundOrReference with the given name which will

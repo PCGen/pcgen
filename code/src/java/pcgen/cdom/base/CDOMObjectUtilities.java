@@ -23,8 +23,13 @@ import java.util.Collection;
  * CDOMObjectUtilities is a utility class designed to provide utility methods
  * when working with pcgen.cdom.base.CDOMObject Objects
  */
-public class CDOMObjectUtilities
+public final class CDOMObjectUtilities
 {
+
+	private CDOMObjectUtilities()
+	{
+		//Utility class should not be constructed
+	}
 
 	/**
 	 * Concatenates the Key Name given Collection of CDOMObjects into a String

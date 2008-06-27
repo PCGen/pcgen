@@ -65,7 +65,8 @@ public class CDOMTransparentTypeRef<T extends PrereqObject> extends
 	public CDOMTransparentTypeRef(Class<T> cl, String[] val)
 	{
 		super(cl, cl.getSimpleName() + " " + Arrays.deepToString(val));
-		types = val;
+		types = new String[val.length];
+		System.arraycopy(val, 0, types, 0, val.length);
 	}
 
 	/**

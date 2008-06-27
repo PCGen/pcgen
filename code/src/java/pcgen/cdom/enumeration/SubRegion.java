@@ -94,10 +94,7 @@ public final class SubRegion implements TypeSafeConstant
 	 */
 	public static SubRegion getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<SubRegion>();
-		}
+		initializeTypeMap();
 		SubRegion o = typeMap.get(s);
 		if (o == null)
 		{
@@ -105,6 +102,17 @@ public final class SubRegion implements TypeSafeConstant
 			typeMap.put(s, o);
 		}
 		return o;
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<SubRegion>();
+		}
 	}
 
 	/**
@@ -120,10 +128,7 @@ public final class SubRegion implements TypeSafeConstant
 	 */
 	public static SubRegion valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<SubRegion>();
-		}
+		initializeTypeMap();
 		SubRegion o = typeMap.get(s);
 		if (o == null)
 		{

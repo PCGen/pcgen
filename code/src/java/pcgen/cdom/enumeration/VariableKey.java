@@ -93,10 +93,7 @@ public final class VariableKey implements TypeSafeConstant
 	 */
 	public static VariableKey getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<VariableKey>();
-		}
+		initializeTypeMap();
 		VariableKey o = typeMap.get(s);
 		if (o == null)
 		{
@@ -104,6 +101,17 @@ public final class VariableKey implements TypeSafeConstant
 			typeMap.put(s, o);
 		}
 		return o;
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<VariableKey>();
+		}
 	}
 
 	/**
@@ -119,10 +127,7 @@ public final class VariableKey implements TypeSafeConstant
 	 */
 	public static VariableKey valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<VariableKey>();
-		}
+		initializeTypeMap();
 		VariableKey o = typeMap.get(s);
 		if (o == null)
 		{

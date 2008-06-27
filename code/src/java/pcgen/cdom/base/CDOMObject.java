@@ -143,7 +143,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		Formula f = get(fk);
 		return f == null ? fk.getDefault() : f;
 	}
-	
+
 	public final Formula put(FormulaKey arg0, Formula arg1)
 	{
 		return formulaChar.put(arg0, arg1);
@@ -350,16 +350,17 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		if (!cdomListMods.equals(cdo.cdomListMods))
 		{
-			 System.err.println("CDOM Inequality ListMods");
-			 System.err.println(cdomListMods + " " + cdo.cdomListMods);
-			 System.err.println(cdomListMods.getKeySet() + " "
-			 + cdo.cdomListMods.getKeySet());
-			 for (CDOMReference<? extends CDOMList<? extends PrereqObject>> key
-			 : cdomListMods.getKeySet())
-			 {
-			 System.err.println(cdomListMods.getSecondaryKeySet(key));
-			 System.err.println(cdo.cdomListMods.getSecondaryKeySet(key));
-			 }
+			// System.err.println("CDOM Inequality ListMods");
+			// System.err.println(cdomListMods + " " + cdo.cdomListMods);
+			// System.err.println(cdomListMods.getKeySet() + " "
+			// + cdo.cdomListMods.getKeySet());
+			// for (CDOMReference<? extends CDOMList<? extends PrereqObject>>
+			// key : cdomListMods
+			// .getKeySet())
+			// {
+			// System.err.println(cdomListMods.getSecondaryKeySet(key));
+			// System.err.println(cdo.cdomListMods.getSecondaryKeySet(key));
+			// }
 			return false;
 		}
 		return true;
@@ -396,7 +397,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		return set;
 	}
-	
+
 	public final <BT extends CDOMObject> Collection<CDOMReference<BT>> getSafeListMods(
 			CDOMReference<? extends CDOMList<BT>> list)
 	{

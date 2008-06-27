@@ -33,8 +33,7 @@ import pcgen.cdom.base.CDOMObject;
 public class TransparentReferenceManufacturer<T extends CDOMObject>
 		extends
 		AbstractReferenceManufacturer<T, CDOMTransparentSingleRef<T>, CDOMTransparentTypeRef<T>, CDOMTransparentAllRef<T>>
-		implements ReferenceManufacturer<T, CDOMTransparentSingleRef<T>>,
-		Cloneable
+		implements ReferenceManufacturer<T, CDOMTransparentSingleRef<T>>
 {
 	/**
 	 * Constructs a new TransparentReferenceManufacturer for the given Class.

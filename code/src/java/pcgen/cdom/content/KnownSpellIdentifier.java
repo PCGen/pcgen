@@ -145,9 +145,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		{
 			return other.spellLevel == null && ref.equals(other.ref);
 		}
-		return ((spellLevel == null && other.spellLevel == null) || spellLevel
-				.equals(other.spellLevel))
-				&& ref.equals(other.ref);
+		return spellLevel.equals(other.spellLevel) && ref.equals(other.ref);
 	}
 
 	/**

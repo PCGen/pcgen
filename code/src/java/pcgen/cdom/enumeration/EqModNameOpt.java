@@ -74,7 +74,7 @@ public enum EqModNameOpt
 		@Override
 		public String returnName(EquipmentModifier mod)
 		{
-			return mod.getDisplayName().toString().trim().replace('|', ' ');
+			return mod.getDisplayName().trim().replace('|', ' ');
 		}
 	},
 	NONAME

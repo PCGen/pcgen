@@ -94,10 +94,7 @@ public final class RaceSubType implements TypeSafeConstant
 	 */
 	public static RaceSubType getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<RaceSubType>();
-		}
+		initializeTypeMap();
 		RaceSubType o = typeMap.get(s);
 		if (o == null)
 		{
@@ -105,6 +102,17 @@ public final class RaceSubType implements TypeSafeConstant
 			typeMap.put(s, o);
 		}
 		return o;
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<RaceSubType>();
+		}
 	}
 
 	/**
@@ -120,10 +128,7 @@ public final class RaceSubType implements TypeSafeConstant
 	 */
 	public static RaceSubType valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<RaceSubType>();
-		}
+		initializeTypeMap();
 		RaceSubType o = typeMap.get(s);
 		if (o == null)
 		{

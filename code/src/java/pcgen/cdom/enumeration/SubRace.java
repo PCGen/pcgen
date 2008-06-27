@@ -94,10 +94,7 @@ public final class SubRace implements TypeSafeConstant
 	 */
 	public static SubRace getConstant(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<SubRace>();
-		}
+		initializeTypeMap();
 		SubRace o = typeMap.get(s);
 		if (o == null)
 		{
@@ -105,6 +102,17 @@ public final class SubRace implements TypeSafeConstant
 			typeMap.put(s, o);
 		}
 		return o;
+	}
+
+	/**
+	 * Thread safe construction of typeMap
+	 */
+	private static synchronized void initializeTypeMap()
+	{
+		if (typeMap == null)
+		{
+			typeMap = new CaseInsensitiveMap<SubRace>();
+		}
 	}
 
 	/**
@@ -120,10 +128,7 @@ public final class SubRace implements TypeSafeConstant
 	 */
 	public static SubRace valueOf(String s)
 	{
-		if (typeMap == null)
-		{
-			typeMap = new CaseInsensitiveMap<SubRace>();
-		}
+		initializeTypeMap();
 		SubRace o = typeMap.get(s);
 		if (o == null)
 		{
