@@ -35,7 +35,7 @@ public class WeaponProfList extends CDOMListObject<WeaponProf>
 	{
 		WeaponProfList wpl = new WeaponProfList();
 		wpl.setName("*Starting");
-		STARTING = new CDOMDirectSingleRef<WeaponProfList>(wpl);
+		STARTING = CDOMDirectSingleRef.getRef(wpl);
 	}
 
 	/**

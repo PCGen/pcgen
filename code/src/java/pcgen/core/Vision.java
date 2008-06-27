@@ -28,10 +28,17 @@ import pcgen.cdom.list.VisionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.enumeration.VisionType;
 
-public class Vision extends CDOMObject implements Comparable<Vision> {
+public class Vision extends CDOMObject implements Comparable<Vision>
+{
 
-	public static final CDOMReference<VisionList> VISIONLIST = new CDOMDirectSingleRef<VisionList>(
-			new VisionList());
+	public static final CDOMReference<VisionList> VISIONLIST;
+
+	static
+	{
+		VisionList wpl = new VisionList();
+		wpl.setName("*Vision");
+		VISIONLIST = CDOMDirectSingleRef.getRef(wpl);
+	}
 
 	private final VisionType visionType;
 

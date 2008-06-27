@@ -38,8 +38,14 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
  */
 public final class Deity extends PObject
 {
-	public static final CDOMReference<DomainList> DOMAINLIST = CDOMDirectSingleRef
-			.getRef(new DomainList());
+	public static final CDOMReference<DomainList> DOMAINLIST;
+
+	static
+	{
+		DomainList wpl = new DomainList();
+		wpl.setName("*Domains");
+		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
+	}
 
 	/**
 	 * @return the name of the holy item of this deity

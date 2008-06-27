@@ -49,8 +49,14 @@ import pcgen.util.enumeration.Tab;
  */
 public final class Ability extends PObject implements Categorisable, CategorizedCDOMObject<Ability>
 {
-	public static final CDOMReference<AbilityList> FEATLIST = CDOMDirectSingleRef
-			.getRef(new AbilityList());
+	public static final CDOMReference<AbilityList> FEATLIST;
+
+	static
+	{
+		AbilityList wpl = new AbilityList();
+		wpl.setName("*Feats");
+		FEATLIST = CDOMDirectSingleRef.getRef(wpl);
+	}
 
 	/** An enum for the various types of ability options. */
 	public enum Nature {

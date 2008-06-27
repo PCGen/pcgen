@@ -32,8 +32,14 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
  */
 public final class WeaponProf extends PObject implements Comparable<Object>
 {
-	public static final CDOMReference<WeaponProfList> STARTING_LIST = new CDOMDirectSingleRef<WeaponProfList>(
-			new WeaponProfList());
+	public static final CDOMReference<WeaponProfList> STARTING_LIST;
+
+	static
+	{
+		WeaponProfList wpl = new WeaponProfList();
+		wpl.setName("*Starting");
+		STARTING_LIST = CDOMDirectSingleRef.getRef(wpl);
+	}
 
 	/**
 	 * Compares keyName only.

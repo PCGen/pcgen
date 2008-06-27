@@ -38,8 +38,14 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
  */
 public final class Language extends PObject implements Comparable<Object>
 {
-	public static final CDOMReference<LanguageList> STARTING_LIST = new CDOMDirectSingleRef<LanguageList>(
-			new LanguageList());
+	public static final CDOMReference<LanguageList> STARTING_LIST;
+
+	static
+	{
+		LanguageList wpl = new LanguageList();
+		wpl.setName("*Starting");
+		STARTING_LIST = CDOMDirectSingleRef.getRef(wpl);
+	}
 
 	/**
 	 * Compares keyName only

@@ -94,11 +94,19 @@ import pcgen.util.enumeration.AttackType;
 public class PCClass extends PObject
 {
 
-	public static final CDOMReference<ClassSkillList> MONSTER_SKILL_LIST = new CDOMDirectSingleRef<ClassSkillList>(
-			new ClassSkillList());
+	public static final CDOMReference<ClassSkillList> MONSTER_SKILL_LIST;
+	
+	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;
 
-	public static final CDOMReference<DomainList> ALLOWED_DOMAINS = CDOMDirectSingleRef
-			.getRef(new DomainList());
+	static
+	{
+		ClassSkillList wpl = new ClassSkillList();
+		wpl.setName("*MonsterSkill");
+		MONSTER_SKILL_LIST = CDOMDirectSingleRef.getRef(wpl);
+		DomainList dl = new DomainList();
+		dl.setName("*Allowed");
+		ALLOWED_DOMAINS = CDOMDirectSingleRef.getRef(dl);
+	}
 
 	/*
 	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
