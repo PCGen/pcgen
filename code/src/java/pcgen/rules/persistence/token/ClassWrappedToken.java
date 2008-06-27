@@ -18,9 +18,9 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 
 	private static final Integer ONE = Integer.valueOf(1);
 
-	private CDOMToken<PCClass> wrappedToken;
+	private final CDOMToken<PCClass> wrappedToken;
 
-	private int priority = wrapIndex++;
+	private final int priority = wrapIndex++;
 
 	public Class<PCClassLevel> getTokenClass()
 	{

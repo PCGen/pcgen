@@ -20,9 +20,9 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCClass;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractFormulaTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CRFormulaTokenTest extends AbstractFormulaTokenTestCase<PCClass>
 {

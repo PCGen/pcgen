@@ -72,7 +72,7 @@ public class TokenSupport
 
 	public <T> String[] unparse(LoadContext context, T cdo, String tokenName)
 	{
-		char separator = tokenName.startsWith("*") ? ':' : '|';
+		char separator = tokenName.charAt(0) == '*' ? ':' : '|';
 		Set<String> set = new TreeSet<String>();
 		Class<T> cl = (Class<T>) cdo.getClass();
 		TokenFamilySubIterator<T> it = new TokenFamilySubIterator<T>(cl,

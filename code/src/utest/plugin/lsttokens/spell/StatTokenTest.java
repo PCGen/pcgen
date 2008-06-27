@@ -26,9 +26,9 @@ import pcgen.core.PCStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class StatTokenTest extends AbstractTokenTestCase<Spell>
 {

@@ -322,18 +322,16 @@ public class ObjectContext
 	public static class TrackingObjectCommitStrategy implements
 			ObjectCommitStrategy
 	{
-		private static String CLEAR = ".CLEAR";
-
-		private DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject>(
+		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject>(
 				HashMap.class, IdentityHashMap.class);
 
-		private DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject>(
+		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject>(
 				HashMap.class, IdentityHashMap.class);
 
-		private DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, ListKey<?>>(
+		private final DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, ListKey<?>>(
 				HashMap.class, IdentityHashMap.class);
 
-		private TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet = new TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String>(
+		private final TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet = new TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String>(
 				HashMap.class, IdentityHashMap.class, HashMap.class);
 
 		private URI sourceURI;
@@ -427,8 +425,8 @@ public class ObjectContext
 		public String getString(CDOMObject cdo, StringKey sk)
 		{
 			String added = getPositive(extractURI, cdo).get(sk);
-			boolean hasClear = CLEAR.equals(getNegative(extractURI, cdo)
-					.get(sk));
+			boolean hasClear = Constants.LST_DOT_CLEAR.equals(getNegative(
+					extractURI, cdo).get(sk));
 			if (hasClear)
 			{
 				if (added == null)

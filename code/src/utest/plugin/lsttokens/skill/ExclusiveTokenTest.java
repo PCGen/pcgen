@@ -23,9 +23,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class ExclusiveTokenTest extends AbstractTokenTestCase<Skill>
 {

@@ -21,20 +21,20 @@ public class TokenLibrary
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
-	static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
+	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 
-//	private final static List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
+//	private static final List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
 //
-//	private final static DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>>();
+//	private static final DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>>();
 //
-//	private final static DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap = new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
+//	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap = new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
 
-	private final static Set<TokenFamily> tokenSources = new TreeSet<TokenFamily>();
+	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
 
 	static
 	{
-		tokenSources.add(TokenFamily.CURRENT);
-		tokenSources.add(TokenFamily.REV514);
+		TOKEN_FAMILIES.add(TokenFamily.CURRENT);
+		TOKEN_FAMILIES.add(TokenFamily.REV514);
 	}
 
 //	public static <T> PrimitiveToken<T> getPrimitive(Class<T> name,
@@ -176,7 +176,7 @@ public class TokenLibrary
 			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
 					tok.compatibilitySubLevel(), tok.compatibilityPriority());
 			fam.putToken(tok);
-			tokenSources.add(fam);
+			TOKEN_FAMILIES.add(fam);
 			if (fam.compareTo(TokenFamily.REV514) <= 0
 					&& PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
@@ -215,7 +215,7 @@ public class TokenLibrary
 		public AbstractTokenIterator(Class<C> cl, String key)
 		{
 			rootClass = cl;
-			subIterator = tokenSources.iterator();
+			subIterator = TOKEN_FAMILIES.iterator();
 			tokenKey = key;
 		}
 

@@ -18,7 +18,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
 
-public class TokenFamily implements Comparable<TokenFamily>
+public final class TokenFamily implements Comparable<TokenFamily>
 {
 
 	public static final TokenFamily CURRENT = new TokenFamily(new Revision(
@@ -39,9 +39,10 @@ public class TokenFamily implements Comparable<TokenFamily>
 
 	private final DoubleKeyMap<Class<?>, String, CDOMToken<?>> tokenMap = new DoubleKeyMap<Class<?>, String, CDOMToken<?>>();
 
-	private static final TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>> subTokenMap = new TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>>();
+	private final TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>> subTokenMap = new TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>>();
 
-//	private final DoubleKeyMap<Class<?>, String, ChoiceSetToken> chooseTokenMap = new DoubleKeyMap<Class<?>, String, ChoiceSetToken>();
+	// private final DoubleKeyMap<Class<?>, String, ChoiceSetToken>
+	// chooseTokenMap = new DoubleKeyMap<Class<?>, String, ChoiceSetToken>();
 
 	private final Map<CaseInsensitiveString, PrerequisiteParserInterface> preTokenMap = new HashMap<CaseInsensitiveString, PrerequisiteParserInterface>();
 
@@ -83,15 +84,15 @@ public class TokenFamily implements Comparable<TokenFamily>
 		return subTokenMap.values(cl, token);
 	}
 
-//	public void putChooseToken(ChoiceSetToken<?> token)
-//	{
-//		chooseTokenMap.put(token.getTokenClass(), token.getTokenName(), token);
-//	}
-//
-//	public <T> ChoiceSetToken<T> getChooseToken(Class<T> cl, String key)
-//	{
-//		return chooseTokenMap.get(cl, key);
-//	}
+	// public void putChooseToken(ChoiceSetToken<?> token)
+	// {
+	// chooseTokenMap.put(token.getTokenClass(), token.getTokenName(), token);
+	// }
+	//
+	// public <T> ChoiceSetToken<T> getChooseToken(Class<T> cl, String key)
+	// {
+	// return chooseTokenMap.get(cl, key);
+	// }
 
 	public void putPrerequisiteToken(PrerequisiteParserInterface token)
 	{
@@ -107,13 +108,11 @@ public class TokenFamily implements Comparable<TokenFamily>
 	}
 
 	/**
-	 * Constructs a new SequencedConstant with the given String as the Constant
-	 * name and the given integer as the Sequence
+	 * Constructs a new TokenFamily with the given primary, secondary and
+	 * tertiary values as the Sequence characteristics
 	 * 
-	 * @param s
-	 *            The String to be used as the SequencedConstants name
-	 * @return The new SequencedConstant built with the given name and sequence
-	 *         number
+	 * @return The new TokenFamily built with the given primary, secondary and
+	 *         tertiary values
 	 */
 	public static TokenFamily getConstant(int primary, int secondary,
 			int tertiary)
@@ -222,4 +221,18 @@ public class TokenFamily implements Comparable<TokenFamily>
 	{
 		return "Token Family: " + rev.toString();
 	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return obj == this || obj instanceof TokenFamily
+				&& compareTo((TokenFamily) obj) == 0;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return rev.hashCode();
+	}
+
 }

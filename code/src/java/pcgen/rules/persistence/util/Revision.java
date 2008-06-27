@@ -51,4 +51,19 @@ class Revision implements Comparable<Revision>
 		return primarySequence + "." + secondarySequence + "-"
 				+ tertiarySequence;
 	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return obj == this || obj instanceof Revision
+				&& compareTo((Revision) obj) == 0;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return primarySequence * secondarySequence + tertiarySequence;
+	}
+	
+	
 }

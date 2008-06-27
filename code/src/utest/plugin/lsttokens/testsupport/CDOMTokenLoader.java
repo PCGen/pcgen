@@ -1,4 +1,4 @@
-package pcgen.rules.persistence;
+package plugin.lsttokens.testsupport;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +19,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.CDOMLoader;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 

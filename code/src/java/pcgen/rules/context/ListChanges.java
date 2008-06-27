@@ -16,11 +16,11 @@ import pcgen.rules.persistence.TokenUtilities;
 public class ListChanges<T extends PrereqObject> implements
 		AssociatedChanges<CDOMReference<T>>
 {
-	private String tokenName;
-	private CDOMObject positive;
-	private CDOMObject negative;
-	private CDOMReference<? extends CDOMList<T>> list;
-	private boolean clear;
+	private final String tokenName;
+	private final CDOMObject positive;
+	private final CDOMObject negative;
+	private final CDOMReference<? extends CDOMList<T>> list;
+	private final boolean clear;
 
 	public ListChanges(String token, CDOMObject added, CDOMObject removed,
 			CDOMReference<? extends CDOMList<T>> listref,

@@ -7,9 +7,9 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 
 public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 {
-	private MapToList<T, AssociatedPrereqObject> positive;
-	private MapToList<T, AssociatedPrereqObject> negative;
-	private boolean clear;
+	private final MapToList<T, AssociatedPrereqObject> positive;
+	private final MapToList<T, AssociatedPrereqObject> negative;
+	private final boolean clear;
 
 	public AssociatedCollectionChanges(
 		MapToList<T, AssociatedPrereqObject> added,

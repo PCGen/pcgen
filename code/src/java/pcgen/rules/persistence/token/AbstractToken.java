@@ -28,13 +28,13 @@ import pcgen.util.Logging;
 
 public abstract class AbstractToken
 {
-	private final PreParserFactory PRE_PARSER;
+	private final PreParserFactory prereqParser;
 
 	protected AbstractToken()
 	{
 		try
 		{
-			PRE_PARSER = PreParserFactory.getInstance();
+			prereqParser = PreParserFactory.getInstance();
 		}
 		catch (PersistenceLayerException ple)
 		{
@@ -52,7 +52,7 @@ public abstract class AbstractToken
 		 */
 		try
 		{
-			return PRE_PARSER.parse(token);
+			return prereqParser.parse(token);
 		}
 		catch (PersistenceLayerException ple)
 		{

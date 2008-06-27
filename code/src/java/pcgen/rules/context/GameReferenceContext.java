@@ -32,10 +32,11 @@ import pcgen.cdom.reference.TransparentReferenceManufacturer;
 
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private Map<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
+	private final Map<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
 
-	private DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
+	private final DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
 
+	@Override
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl)
 	{

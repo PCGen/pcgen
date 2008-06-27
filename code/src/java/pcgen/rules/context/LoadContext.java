@@ -62,23 +62,23 @@ public abstract class LoadContext
 		obj = oc;
 	}
 
-	public <T extends PrereqObject> CDOMGroupRef<T> groupChildNodesOfClass(
-			PrereqObject parent, Class<T> child)
-	{
-		/*
-		 * Create a new Group in the graph and then (defer to end of build)
-		 * create edges between the new Group and all of the children of the
-		 * given parent.
-		 */
-		// TODO FIXME
-		return null;
-	}
+//	public <T extends PrereqObject> CDOMGroupRef<T> groupChildNodesOfClass(
+//			PrereqObject parent, Class<T> child)
+//	{
+//		/*
+//		 * Create a new Group in the graph and then (defer to end of build)
+//		 * create edges between the new Group and all of the children of the
+//		 * given parent.
+//		 */
+//		// TODO FIXME
+//		return null;
+//	}
 
 	private int writeMessageCount = 0;
 
 	public void addWriteMessage(String string)
 	{
-		System.err.println("!!" + string);
+		Logging.errorPrint("!!" + string);
 		// TODO FIXME Silently consume for now - these are message generated
 		// during LST write...
 		writeMessageCount++;
@@ -156,8 +156,8 @@ public abstract class LoadContext
 		ref.resolveReferences();
 	}
 
-	public void resolveDeferredTokens()
-	{
+//	public void resolveDeferredTokens()
+//	{
 //		for (DeferredToken<? extends CDOMObject> token : TokenLibrary
 //				.getDeferredTokens())
 //		{
@@ -180,7 +180,7 @@ public abstract class LoadContext
 //			// System.err.println(container.getActors());
 //			// System.err.println("@" + cs);
 //		}
-	}
+//	}
 
 //	private <T extends CDOMObject> void processRes(DeferredToken<T> token)
 //	{
@@ -191,7 +191,7 @@ public abstract class LoadContext
 //		}
 //	}
 
-	private TokenSupport support = new TokenSupport();
+	private final TokenSupport support = new TokenSupport();
 
 //	public <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
 //			Class<T> poClass, String value)
@@ -217,11 +217,11 @@ public abstract class LoadContext
 		return support.processToken(this, derivative, typeStr, argument);
 	}
 	
-	public <T extends CDOMObject> void unconditionallyProcess(T obj, String key, String value)
+	public <T extends CDOMObject> void unconditionallyProcess(T cdo, String key, String value)
 	{
 		try
 		{
-			if (processToken(obj, key, value))
+			if (processToken(cdo, key, value))
 			{
 				commit();
 			}
@@ -268,14 +268,14 @@ public abstract class LoadContext
 		return newObj;
 	}
 
-	private static final PrerequisiteWriter prereqWriter =
+	private static final PrerequisiteWriter PREREQ_WRITER =
 			new PrerequisiteWriter();
 
 	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
 	{
 		try
 		{
-			return prereqWriter.getPrerequisiteString(prereqs);
+			return PREREQ_WRITER.getPrerequisiteString(prereqs);
 		}
 		catch (PersistenceLayerException e)
 		{

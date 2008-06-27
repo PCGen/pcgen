@@ -22,9 +22,9 @@ import org.junit.Test;
 import pcgen.core.Language;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class LangbonusTokenTest extends
 		AbstractListTokenTestCase<Race, Language>

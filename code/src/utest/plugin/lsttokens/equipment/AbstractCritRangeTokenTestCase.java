@@ -22,8 +22,8 @@ import org.junit.Test;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public abstract class AbstractCritRangeTokenTestCase extends
 		AbstractTokenTestCase<Equipment>

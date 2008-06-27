@@ -5,9 +5,9 @@ import java.util.Collection;
 
 public class CollectionChanges<T> implements Changes<T>
 {
-	private Collection<T> positive;
-	private Collection<T> negative;
-	private boolean clear;
+	private final Collection<T> positive;
+	private final Collection<T> negative;
+	private final boolean clear;
 
 	public CollectionChanges(Collection<T> added, Collection<T> removed,
 		boolean globallyCleared)

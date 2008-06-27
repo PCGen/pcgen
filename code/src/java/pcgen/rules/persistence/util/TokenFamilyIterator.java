@@ -19,7 +19,7 @@ public class TokenFamilyIterator<C> implements
 	private boolean needNewToken = true;
 	private Class<?> actingClass;
 	private Iterator<CDOMToken<?>> subIterator;
-	private Set<String> used = new HashSet<String>();
+	private final Set<String> used = new HashSet<String>();
 
 	public TokenFamilyIterator(Class<C> cl)
 	{

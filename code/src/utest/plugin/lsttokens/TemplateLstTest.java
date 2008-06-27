@@ -23,9 +23,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalListTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class TemplateLstTest extends
 		AbstractGlobalListTokenTestCase<PCTemplate>

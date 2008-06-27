@@ -21,7 +21,7 @@ public class TokenFamilySubIterator<C> implements
 	private Class<?> actingClass;
 	private final String parentToken;
 	private Iterator<CDOMSubToken<?>> subIterator;
-	private Set<String> used = new HashSet<String>();
+	private final Set<String> used = new HashSet<String>();
 
 	public TokenFamilySubIterator(Class<C> cl, String parentName)
 	{

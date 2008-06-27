@@ -20,9 +20,9 @@ package plugin.lsttokens.deity;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class WorshippersTokenTest extends AbstractStringTokenTestCase<Deity>
 {

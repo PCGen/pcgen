@@ -350,10 +350,10 @@ public class ListContext
 		edge.setAssociation(ak, assoc.getAssociation(ak));
 	}
 
-	public class TrackingListCommitStrategy implements ListCommitStrategy
+	public static class TrackingListCommitStrategy implements ListCommitStrategy
 	{
 
-		protected class CDOMShell extends CDOMObject
+		protected static class CDOMShell extends CDOMObject
 		{
 			@Override
 			public CDOMObject clone() throws CloneNotSupportedException
@@ -396,13 +396,13 @@ public class ListContext
 		 * TODO These maps (throughout this entire class) are probably problems
 		 * because they are not using Identity characteristics
 		 */
-		private TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
+		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
 
-		private TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
+		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
 		
-		private HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI> masterClearSet = new HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI>();
+		private final HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI> masterClearSet = new HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI>();
 
-		private HashMapToList<String, OwnerURI> masterAllClear = new HashMapToList<String, OwnerURI>();
+		private final HashMapToList<String, OwnerURI> masterAllClear = new HashMapToList<String, OwnerURI>();
 
 		public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
 				String tokenName, CDOMObject owner,
@@ -495,11 +495,11 @@ public class ListContext
 					owner));
 		}
 
-		private DoubleKeyMap<URI, CDOMObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>();
+		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>();
 
-		private DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>();
+		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>();
 
-		private DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>>();
+		private final DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>>();
 
 		private CDOMObject getPositive(URI source, CDOMObject cdo)
 		{

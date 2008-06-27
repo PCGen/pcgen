@@ -23,9 +23,9 @@ import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.CDOMTokenLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class DeityWeapTokenTest extends
 		AbstractListTokenTestCase<Deity, WeaponProf>
