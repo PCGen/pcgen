@@ -137,7 +137,7 @@ public class MoncskillToken extends AbstractToken implements
 	{
 		if (Constants.LST_LIST.equals(tokText))
 		{
-			return new AssociationReference<Skill>(Skill.class, context.ref
+			return new AssociationReference<Skill>(context.ref
 					.getCDOMAllReference(SKILL_CLASS), r);
 		}
 		else if (tokText.endsWith(Constants.LST_PATTERN))
