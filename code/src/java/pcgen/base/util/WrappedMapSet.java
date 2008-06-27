@@ -41,6 +41,8 @@ import java.util.Set;
  * for developers who should be familiar with the base classes included in the
  * JDK, as well as performance, as it is expected that the classes in the JDK
  * will have better performance and test coverage than this class)
+ * 
+ * @param <T> The type of object stored in this WrappedMapSet
  */
 public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 {
@@ -200,7 +202,7 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	}
 
 	/**
-	 * Removes all objects from the WrappedMapSet
+	 * Removes all objects from the WrappedMapSet.
 	 * 
 	 * @see java.util.AbstractCollection#clear()
 	 */

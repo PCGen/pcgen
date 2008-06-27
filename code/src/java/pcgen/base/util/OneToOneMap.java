@@ -28,6 +28,11 @@ import java.util.Set;
  * time. Each Key references a single Value and each Value may only be
  * referenced by a single Key. In this way, any Value can be determined uniquely
  * for any Key and any Key can be determined uniquely for any Value.
+ * 
+ * @param <K>
+ *            The Class of the key for this OneToOneMap
+ * @param <V>
+ *            The Class of the Value for this OneToOneMap
  */
 public class OneToOneMap<K, V>
 {
@@ -161,7 +166,7 @@ public class OneToOneMap<K, V>
 	 * instance of that Key or Value in the Map (as determined by the iterator
 	 * of the given Map) will be stored in the OneToOneMap.
 	 * 
-	 * @param dkm
+	 * @param m
 	 *            The Map for which the key/value combinations should be placed
 	 *            into this OneToOneMap
 	 * @throws NullPointerException
@@ -180,10 +185,9 @@ public class OneToOneMap<K, V>
 	 * that was removed from the OneToOneMap. If this OneToOneMap did not have a
 	 * mapping for the given key, null is returned.
 	 * 
-	 * @param key1
-	 *            The primary key for retrieving the given value
-	 * @param key2
-	 *            The secondary key for retrieving the given value
+	 * @param key
+	 *            The key used to identify which object to remove from thsi
+	 *            OneToOneMap
 	 * @return Object The value previously mapped to the given keys
 	 */
 	public V remove(Object key)
@@ -194,7 +198,7 @@ public class OneToOneMap<K, V>
 	}
 
 	/**
-	 * Returns the number of entries (key-value pairs) in the OneToOneMap
+	 * Returns the number of entries (key-value pairs) in the OneToOneMap.
 	 * 
 	 * @return the number of entries (key-value pairs) in the OneToOneMap
 	 */
@@ -204,7 +208,7 @@ public class OneToOneMap<K, V>
 	}
 
 	/**
-	 * Returns a Collection of the values for this OneToOneMap
+	 * Returns a Collection of the values for this OneToOneMap.
 	 * 
 	 * Note: This Collection is reference-semantic. The ownership of the
 	 * Collection is transferred to the calling Object; therefore, changes to

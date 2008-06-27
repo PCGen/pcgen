@@ -61,6 +61,13 @@ import java.util.Map.Entry;
  * class (of preventing accidental modification of underlying parts of a two-key
  * Map structure, then this is a convenience method and is not appropriate for
  * use in Java 1.5 (Typed Collections are probably more appropriate).
+ * 
+ * @param <K1>
+ *            The Class of the primary key for this DoubleKeyMap
+ * @param <K2>
+ *            The Class of the secondary key for this DoubleKeyMap
+ * @param <V>
+ *            The Class of the Value for this DoubleKeyMap
  */
 public class DoubleKeyMap<K1, K2, V> implements Cloneable
 {
@@ -90,7 +97,8 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public DoubleKeyMap()
 	{
 		super();
-		firstClass = secondClass = HashMap.class;
+		firstClass = HashMap.class;
+		secondClass = firstClass;
 		map = new HashMap<K1, Map<K2, V>>();
 	}
 
@@ -192,7 +200,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @throws NullPointerException
 	 *             if the given DoubleKeyMap is null
 	 */
-	public void putAll(DoubleKeyMap<K1, K2, V> dkm)
+	public final void putAll(DoubleKeyMap<K1, K2, V> dkm)
 	{
 		for (Entry<K1, Map<K2, V>> me : dkm.map.entrySet())
 		{
@@ -417,12 +425,15 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * 
 	 * @param key1
 	 *            The primary key for removing the given value
+	 * @param obj
+	 *            The object stored under the given primary key (and any
+	 *            secondary key) to be removed from the DoubleKeyMap.
 	 * @return Object true if there was a mapping removed for the given value
 	 *         under the given primary key; false otherwise
 	 */
-	public boolean removeValue(K1 class1, V obj)
+	public boolean removeValue(K1 key1, V obj)
 	{
-		final Map<K2, V> localMap = map.get(class1);
+		final Map<K2, V> localMap = map.get(key1);
 		if (localMap != null)
 		{
 			return localMap.values().remove(obj);

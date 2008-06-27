@@ -45,6 +45,11 @@ import java.util.Set;
  * 
  * NOTE: This is a convenience method for use in Java 1.4 and is less beneficial
  * in Java 1.5 (Typed Collections may be more appropriate)
+ * 
+ * @param <K>
+ *            The Class of the key for this AbstractMapToList
+ * @param <V>
+ *            The Class of the Value for this AbstractMapToList
  */
 public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 {

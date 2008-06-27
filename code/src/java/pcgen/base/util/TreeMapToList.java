@@ -53,6 +53,11 @@ import java.util.TreeSet;
  * CAUTION: This is a convenience method for use in Java 1.4 and is not
  * appropriate for use in Java 1.5 (Typed Collections are probably more
  * appropriate)
+ * 
+ * @param <K>
+ *            The Class of the key for this TreeMapToList
+ * @param <V>
+ *            The Class of the Value for this TreeMapToList
  */
 public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 {
@@ -70,7 +75,7 @@ public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 
 	/**
 	 * Creates a new TreeMapToList using the given Comparator as the Comparator
-	 * for the underlying TreeSet
+	 * for the underlying TreeSet.
 	 * 
 	 * @param comp
 	 *            The Comparator to be used as the Comparator for the keys in
@@ -83,7 +88,7 @@ public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 	}
 
 	/**
-	 * Creates a new TreeSet for use by AbstractMapToList
+	 * Creates a new TreeSet for use by AbstractMapToList.
 	 * 
 	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
 	 */

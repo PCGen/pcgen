@@ -51,10 +51,12 @@ public final class RandomUtil
 
 	/**
 	 * Get a random integer between 0 (inclusive) and the given value
-	 * (exclusive)
+	 * (exclusive).
 	 * 
 	 * @param high
-	 * @return random int
+	 *            The upper limit (exclusive) to be used to select a random
+	 *            value.
+	 * @return a Random Integer that is 0 < x < high
 	 */
 	public static int getRandomInt(final int high)
 	{
@@ -70,7 +72,7 @@ public final class RandomUtil
 		if (Logging.isDebugMode())
 		{
 			Logging.debugPrint("Generated random number between " //$NON-NLS-1$
-				+ "0 and " + high + ": " + rand); //$NON-NLS-1$//$NON-NLS-2$
+					+ "0 and " + high + ": " + rand); //$NON-NLS-1$//$NON-NLS-2$
 		}
 		return rand;
 	}

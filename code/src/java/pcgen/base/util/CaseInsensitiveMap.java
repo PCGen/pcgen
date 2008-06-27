@@ -96,6 +96,12 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 	/**
 	 * Puts the given key/value pair into this CaseInsensitiveMap
 	 * 
+	 * @param key
+	 *            The key indicating the location in this CaseInsensitiveMap
+	 *            where the given value should be stored
+	 * @param value
+	 *            The value to be stored in this CaseInsensensitiveMap under the
+	 *            given key
 	 * @return the value previously mapped to this key or null if no value was
 	 *         previously mapped to the given key
 	 */

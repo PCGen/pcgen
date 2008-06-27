@@ -47,6 +47,11 @@ import java.util.Set;
  * CAUTION: This is a convenience method for use in Java 1.4 and is not
  * appropriate for use in Java 1.5 (Typed Collections are probably more
  * appropriate)
+ * 
+ * @param <K>
+ *            The Class of the key for this HashMapToInstanceList
+ * @param <V>
+ *            The Class of the Value for this HashMapToInstanceList
  */
 public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 {

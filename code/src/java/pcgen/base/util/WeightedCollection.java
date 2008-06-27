@@ -45,7 +45,7 @@ import java.util.TreeSet;
  * <code>get(4)</code> will return Item 2.
  * <p>
  * 
- * @author boomer70 and Tom Parker <thpr@users.sourceforge.net>
+ * @author boomer70 and Tom Parker (thpr@users.sourceforge.net)
  * @param <E>
  *            The Class stored in the WeightedCollection
  * @see java.util.Collection
@@ -98,7 +98,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 	/**
 	 * Constructs an empty WeightedCollection with the given Comparator used to
-	 * establish equality and order in the WeightedCollection
+	 * establish equality and order in the WeightedCollection.
 	 * 
 	 * @param comp
 	 *            The Comparator this Set will use to determine equality and
@@ -442,7 +442,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @see java.util.List#addAll(int, java.util.Collection)
 	 */
-	public boolean addAll(final Collection<? extends E> c, final int aWeight)
+	public final boolean addAll(final Collection<? extends E> c, final int aWeight)
 	{
 		boolean modified = false;
 		for (E item : c)

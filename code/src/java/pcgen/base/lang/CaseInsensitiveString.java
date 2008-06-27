@@ -20,7 +20,7 @@
 package pcgen.base.lang;
 
 /**
- * @author Tom Parker <thpr@users.sourceforge.net>
+ * @author Tom Parker (thpr@users.sourceforge.net)
  * 
  * CaseInsensitiveString is designed to be a String-like Object which is fast in
  * dealing with case sensitive comparisons in "consistent with equals"

@@ -50,7 +50,7 @@ import java.util.Set;
  * @param <V>
  *            The type of the values in this TripleKeyMapToList
  */
-public class TripleKeyMapToList<K1, K2, K3, V> implements Cloneable
+public class TripleKeyMapToList<K1, K2, K3, V>
 {
 
 	/**
@@ -80,7 +80,7 @@ public class TripleKeyMapToList<K1, K2, K3, V> implements Cloneable
 	}
 
 	/**
-	 * Constructs a new (empty) TripleKeyMapToList
+	 * Constructs a new (empty) TripleKeyMapToList.
 	 * 
 	 * @throws IllegalArgumentException if any of the given Classes is null
 	 */

@@ -85,7 +85,8 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public DoubleKeyMapToList()
 	{
 		super();
-		firstClass = secondClass = HashMap.class;
+		firstClass = HashMap.class;
+		secondClass = firstClass;
 		mtmtl = new HashMap<K1, MapToList<K2, V>>();
 	}
 

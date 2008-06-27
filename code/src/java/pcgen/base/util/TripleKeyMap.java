@@ -47,6 +47,15 @@ import java.util.Map.Entry;
  * three-key Map structure, then this is a convenience method and is not
  * appropriate for use in Java 1.5 (Typed Collections are probably more
  * appropriate).
+ * 
+ * @param <K1>
+ *            The Class of the primary key for this TripleKeyMap
+ * @param <K2>
+ *            The Class of the secondary key for this TripleKeyMap
+ * @param <K3>
+ *            The Class of the tertiary key for this TripleKeyMap
+ * @param <V>
+ *            The Class of the Value for this TripleKeyMap
  */
 public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 {
@@ -144,8 +153,6 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 *            The secondary key used to get the value in this TripleKeyMap.
 	 * @param key3
 	 *            The tertiary key used to get the value in this TripleKeyMap.
-	 * @param value
-	 *            The value stored in this TripleKeyMap for the given keys.
 	 * @return the Object stored in this TripleKeyMap for the given keys. null
 	 *         if this TripleKeyMap does not have an object stored with the
 	 *         given keys.
@@ -276,9 +283,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * @return A Set containing the secondary keys for the given primary key
 	 *         within this TripleKeyMap.
 	 */
-	public Set<K2> getSecondaryKeySet(final K1 aPrimaryKey)
+	public Set<K2> getSecondaryKeySet(final K1 key1)
 	{
-		final Map<K2, Map<K3, V>> localMap = map.get(aPrimaryKey);
+		final Map<K2, Map<K3, V>> localMap = map.get(key1);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
@@ -329,7 +336,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	}
 
 	/**
-	 * Returns true if the TripleKeyMap is empty
+	 * Returns true if the TripleKeyMap is empty.
 	 * 
 	 * @return true if the TripleKeyMap is empty; false otherwise
 	 */
@@ -339,7 +346,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	}
 
 	/**
-	 * Returns the number of primary keys in this TripleKeyMap
+	 * Returns the number of primary keys in this TripleKeyMap.
 	 * 
 	 * @return the number of primary keys in this TripleKeyMap
 	 */

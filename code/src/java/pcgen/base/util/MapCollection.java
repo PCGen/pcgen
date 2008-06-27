@@ -75,7 +75,7 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Builds a new MapCollection, providing a facade to the given Map. The
 	 * given Map must be non-null.
 	 * 
-	 * @m The map to be treated as a Collection.
+	 * @param m The map to be treated as a Collection.
 	 * @throws IllegalArgumentException
 	 *             if the given Map is null
 	 */
@@ -280,7 +280,7 @@ public class MapCollection extends AbstractCollection<Object>
 
 	private static class MapCollectionIterator implements Iterator<Object>
 	{
-		Entry<?, ?> workingEntry;
+		private Entry<?, ?> workingEntry;
 
 		private boolean returnedKey = false;
 

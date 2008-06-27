@@ -51,6 +51,11 @@ import java.util.Set;
  * CAUTION: This is a convenience method for use in Java 1.4 and is not
  * appropriate for use in Java 1.5 (Typed Collections are probably more
  * appropriate)
+ * 
+ * @param <K>
+ *            The Class of the key for this GenericMapToList
+ * @param <V>
+ *            The Class of the Value for this GenericMapToList
  */
 public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 {
@@ -89,8 +94,8 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 * 
 	 * @param <K>
 	 *            The type used as the Key in the GenericMapToList
-	 * @param <V>The
-	 *            type used as values in the GenericMapToList
+	 * @param <V>
+	 *            The type used as values in the GenericMapToList
 	 * @param cl
 	 *            The class to be used as the underlying class in the
 	 *            GenericMapToList

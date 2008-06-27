@@ -35,6 +35,11 @@ import java.util.Set;
  * MapToList and does not define equality against any other MapToList, then that
  * difference in behavior should be clearly documented in the class implementing
  * MapToList without MapToList equality.
+ * 
+ * @param <K>
+ *            The Class of the key for this MapToList
+ * @param <V>
+ *            The Class of the Value for this MapToList
  */
 public interface MapToList<K, V>
 {
@@ -190,7 +195,7 @@ public interface MapToList<K, V>
 	public V getElementInList(K key, int i);
 
 	/**
-	 * Clears this MapToList (removes all keys/list combiantions)
+	 * Clears this MapToList (removes all keys/list combiantions).
 	 */
 	public void clear();
 

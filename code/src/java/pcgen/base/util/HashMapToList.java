@@ -58,6 +58,11 @@ import java.util.Set;
  * class (of preventing accidental modification, then this is a convenience
  * method and is not appropriate for use in Java 1.5 (Typed Collections are
  * probably more appropriate).
+ * 
+ * @param <K>
+ *            The Class of the key for this HashMapToList
+ * @param <V>
+ *            The Class of the Value for this HashMapToList
  */
 public class HashMapToList<K, V> extends AbstractMapToList<K, V>
 {

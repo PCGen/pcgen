@@ -32,6 +32,8 @@ import java.util.Set;
  * than the Map that is typically used) as the internal representation of the
  * Set. This is most useful to minimize the memory footprint for very small sets
  * where search time will not be a concern.
+ * 
+ * @param <T> The type of object stored in this ListSet
  */
 public class ListSet<T> extends AbstractSet<T> implements Set<T>
 {
