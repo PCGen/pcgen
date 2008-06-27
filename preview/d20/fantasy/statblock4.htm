@@ -61,9 +61,19 @@ $Date$
 |VISION|, 
 |ENDIF|
 |ENDFOR|
-Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
+Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|, 
+<!-- Sense TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Sense";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|FEATALLLIST.TYPE=Sense| |ABILITYALLLIST.Special Ability.TYPE=Sense|
+|ENDIF|
+<!-- End Sense TYPE Abilities -->
+<br>
 
-<!-- TODO: Aura - needs to be defined by Ability objects -->
+<!-- Aura TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Aura";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Aura </b> |FEATALLLIST.TYPE=Aura| |ABILITYALLLIST.Special Ability.TYPE=Aura|<br>
+|ENDIF|
+<!-- End Aura TYPE Abilities -->
 
 |FOR,%LanguageTest,STRLEN[LANGUAGES],STRLEN[LANGUAGES],1,0|
 |IIF(%LanguageTest:0)|
@@ -96,8 +106,18 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 
 <br>
 
-<!-- TODO: Imunities need to be defined by Abilty Objects -->
-<!-- TODO: Resitences need to be defined by Abilty Objects -->
+<!-- Immunity TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Immunity </b> |FEATALLLIST.TYPE=Immunity| |ABILITYALLLIST.Special Ability.TYPE=Immunity|<br>
+|ENDIF|
+<!-- End Immunity TYPE Abilities -->
+
+<!-- Resistance TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Resistance </b> |FEATALLLIST.TYPE=Aura| |ABILITYALLLIST.Special Ability.TYPE=Resistance|<br>
+|ENDIF|
+<!-- End Resistance TYPE Abilities -->
+
 |IIF(SR:0)|
 |ELSE|
 <b>SR</b> |SR|<br>
@@ -105,7 +125,11 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 
 <b>Fort</b> |CHECK.FORTITUDE.TOTAL|, <b>Ref</b> |CHECK.REFLEX.TOTAL|, <b>Will</b> |CHECK.2.TOTAL|<br>
 
-<!-- TODO: Weaknesses need to be defined by Abilty Objects -->
+<!-- Weakness TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Weakness";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Weakness </b> |FEATALLLIST.TYPE=Aura| |ABILITYALLLIST.Special Ability.TYPE=Weakness|<br>
+|ENDIF|
+<!-- End Weakness TYPE Abilities -->
 
 <hr />
 
@@ -177,9 +201,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
  - 
 |ENDIF|
 
+<!-- AttackOption TYPE Abilities -->
 |IIF(count("ABILITIES";"TYPE=AttackOption";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <br><b>Atk Options: </b> |FEATALLLIST.TYPE=AttackOption| |ABILITYALLLIST.Special Ability.TYPE=AttackOption|
 |ENDIF|
+<!-- End AttackOption TYPE Abilities -->
+
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <br><b>Special Actions </b> |ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack|
 |ENDIF|
@@ -346,9 +373,9 @@ at will)
 |TEXT.TITLECASE.STAT.%stat.NAME| |STAT.%stat|
 |ENDFOR|
 <br>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Special Qualities </b> 
-|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")-1,1,0| 
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality|, 
 |ENDFOR|
 <br>
@@ -369,11 +396,11 @@ at will)
 <br>
 
 <b>Possessions </b>
-|FOR,%equip,0,COUNT[EQUIPMENT.Not.Contained.NOT.Container]-1,1,1|
-|IIF(EQ.NOT.CONTAINED.NOT.Container.%equip.QTY.INTVAL:1)|
-<i>|TEXT.LOWER.EQ.NOT.CONTAINED.NOT.Container.%equip.NAME|; </i>
+|FOR,%equip,0,COUNT[EQUIPMENT.Not.Contained.NOT.Container.NOT.Natural]-1,1,1|
+|IIF(EQ.NOT.CONTAINED.NOT.Container.NOT.Natural.%equip.QTY.INTVAL:1)|
+<i>|TEXT.LOWER.EQ.NOT.CONTAINED.NOT.Container.NOT.Natural.%equip.NAME|; </i>
 |ELSE|
-<i>|TEXT.LOWER.EQ.NOT.CONTAINED.NOT.Container.%equip.NAME| (x|TEXT.LOWER.EQ.NOT.Contained.NOT.CONTAINER.%equip.QTY.INTVAL|); </i>
+<i>|TEXT.LOWER.EQ.NOT.CONTAINED.NOT.Container.NOT.Natural.%equip.NAME| (x|TEXT.LOWER.EQ.NOT.Contained.NOT.CONTAINER.NOT.Natural.%equip.QTY.INTVAL|); </i>
 |ENDIF|
 |ENDFOR|
 
@@ -443,5 +470,20 @@ at will)
 <!-- End SpellBooks -->
 
 <hr />
+
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+<p><b>|ABILITYALL.Special Ability.VISIBLE.%allAbilities|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+</b> |ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|</p>
+|ENDFOR|
+
 </body>
 </html>

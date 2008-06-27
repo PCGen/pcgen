@@ -82,8 +82,8 @@ Init |INITIATIVEMOD|
 |ENDFOR|
 |ENDIF|
 SA: 
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")>0)|
-|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")-1,1,0| 
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE:Extraordinary)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities| (Ex), 
 |ELSE|
