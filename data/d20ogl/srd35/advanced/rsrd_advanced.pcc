@@ -56,6 +56,8 @@ KIT:rsrd_kits_treasure_wands.lst
 KIT:rsrd_kits_treasure_weapons.lst
 KIT:rsrd_kits_treasure_wondrous_items.lst
 
+SPELL:rsrd_spells_class_prestige.lst
+
 #
 # End
 #

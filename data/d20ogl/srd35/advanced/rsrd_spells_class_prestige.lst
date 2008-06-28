@@ -1,0 +1,65 @@
+# CVS $Revision: 6746 $ $Author: amaitland $ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+###Block: Prestige class spells
+# Spell Name	Classes of caster		School			Type		Components	Casting Time			Range		Item		Target Area or Effect		Duration					Save Info		Spell Resistance	Description							Source Page
+Corrupt Weapon	CLASSES:Blackguard=1	SCHOOL:Transmutation	TYPE:Divine	COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch	ITEM:Potion	TARGETAREA:Weapon touched	DURATION:(CASTERLEVEL) minutes	SAVEINFO:None	SPELLRES:No		DESC:Weapon strikes true against good foes.	SOURCEPAGE:PrestigeClasses.rtf
+
+###Block: Modified Basic spells
+# Spell Name				Classes of caster
+Alter Self.MOD				CLASSES:Assassin=2
+Bull's Strength.MOD			CLASSES:Blackguard=2
+Cat's Grace.MOD				CLASSES:Assassin=2
+Cause Fear.MOD				CLASSES:Blackguard=1
+Clairaudience/Clairvoyance.MOD	CLASSES:Assassin=4
+Contagion.MOD				CLASSES:Blackguard=3
+Cure Critical Wounds.MOD		CLASSES:Blackguard=4
+Cure Light Wounds.MOD			CLASSES:Blackguard=1
+Cure Moderate Wounds.MOD		CLASSES:Blackguard=2
+Cure Serious Wounds.MOD			CLASSES:Blackguard=3
+Darkness.MOD				CLASSES:Assassin,Blackguard=2
+Death Knell.MOD				CLASSES:Blackguard=2
+Deep Slumber.MOD				CLASSES:Assassin=3
+Deeper Darkness.MOD			CLASSES:Assassin,Blackguard=3
+Detect Poison.MOD				CLASSES:Assassin=1
+Dimension Door.MOD			CLASSES:Assassin=4
+Disguise Self.MOD				CLASSES:Assassin=1
+Doom.MOD					CLASSES:Blackguard=1
+Eagle's Splendor.MOD			CLASSES:Blackguard=2
+False Life.MOD				CLASSES:Assassin=3
+Feather Fall.MOD				CLASSES:Assassin=1
+Fox's Cunning.MOD				CLASSES:Assassin=2
+Freedom of Movement.MOD			CLASSES:Assassin,Blackguard=4
+Ghost Sound.MOD				CLASSES:Assassin=1
+Glibness.MOD				CLASSES:Assassin=4
+Illusory Script.MOD			CLASSES:Assassin=2
+Inflict Critical Wounds.MOD		CLASSES:Blackguard=4
+Inflict Light Wounds.MOD		CLASSES:Blackguard=1
+Inflict Moderate Wounds.MOD		CLASSES:Blackguard=2
+Inflict Serious Wounds.MOD		CLASSES:Blackguard=3
+Invisibility (Greater).MOD		CLASSES:Assassin=4
+Invisibility.MOD				CLASSES:Assassin=2
+Jump.MOD					CLASSES:Assassin=1
+Locate Creature.MOD			CLASSES:Assassin=4
+Magic Circle against Good.MOD		CLASSES:Assassin=3
+Magic Weapon.MOD				CLASSES:Blackguard=1
+Misdirection.MOD				CLASSES:Assassin=3
+Modify Memory.MOD				CLASSES:Assassin=4
+Nondetection.MOD				CLASSES:Assassin=3
+Obscuring Mist.MOD			CLASSES:Assassin=1
+Pass without Trace.MOD			CLASSES:Assassin=2
+Poison.MOD					CLASSES:Assassin,Blackguard=4
+Protection from Energy.MOD		CLASSES:Blackguard=3
+Shatter.MOD					CLASSES:Blackguard=2
+Sleep.MOD					CLASSES:Assassin=1
+Spider Climb.MOD				CLASSES:Assassin=2
+Summon Monster I.MOD			CLASSES:Blackguard=1
+Summon Monster II.MOD			CLASSES:Blackguard=2
+Summon Monster III.MOD			CLASSES:Blackguard=3
+Summon Monster IV.MOD			CLASSES:Blackguard=4
+True Strike.MOD				CLASSES:Assassin=1
+Undetectable Alignment.MOD		CLASSES:Assassin=2
+
+#
+# Done
+#
