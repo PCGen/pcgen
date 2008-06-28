@@ -80,11 +80,13 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		myClass.addSkillToList("Spot");
+		character.setDirty(true); //Need to throw out the cache
 
 		assertTrue("Character has spot class skills", PrereqHandler.passes(
 			prereq, character, null));
 
 		myClass.addCSkill("Spy 1");
+		character.setDirty(true); //Need to throw out the cache
 
 		assertTrue("Character has spot class skills", PrereqHandler.passes(
 			prereq, character, null));
@@ -95,6 +97,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		myClass.addCSkill("Spy 2");
+		character.setDirty(true); //Need to throw out the cache
 
 		assertTrue("Character has 2 Spy class skills", PrereqHandler.passes(
 			prereq, character, null));
@@ -110,6 +113,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 			prereq, character, null));
 
 		myClass.addCSkill("Spy 3");
+		character.setDirty(true); //Need to throw out the cache
 
 		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
 
