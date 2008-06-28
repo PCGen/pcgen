@@ -8726,7 +8726,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void calcActiveBonuses()
 	{
-		if (isImporting() || (race == null))
+		if (isImporting() || (race == null) || rebuildingAbilities)
 		{
 			return;
 		}
@@ -15884,7 +15884,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// pool of feats remaining to distribute
 	private double feats = 0;
-
+	/** Status flag so that ability lists aren't cleared mid way through being rebuilt. */
+	private boolean rebuildingAbilities = false;
+	
 	/**
 	 * Set aggregate Feats stable
 	 * 
@@ -15898,6 +15900,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void setAggregateAbilitiesStable(final AbilityCategory aCategory,
 		final boolean stable)
 	{
+		if (!stable && rebuildingAbilities)
+		{
+			return;
+		}
+		
 		if (!stable)
 		{
 			cachedWeaponProfs = null;
@@ -17210,6 +17217,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	private synchronized void rebuildAggregateAbilityList()
 	{
+		rebuildingAbilities  = true;
 		getVariableProcessor().pauseCache();
 		
 		try
@@ -17225,6 +17233,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		finally
 		{
 			getVariableProcessor().restartCache();
+			rebuildingAbilities  = false;
 		}
 	}
 
@@ -17274,6 +17283,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 //				+ theAbilities /*, new Throwable()*/);
 			prevHashCode = theAbilities.deepSize(); 
 			i++;
+			List<PCTemplate> templateList = new ArrayList<PCTemplate>();
 			List<? extends PObject> pobjectList = getPObjectList();
 			for (AbilityCategory cat : theAbilities.getKeySet())
 			{
@@ -17295,8 +17305,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 								if (added != null)
 								{
 									added.setFeatType(nature);
+									for (CDOMReference<PCTemplate> ref : added.getSafeListFor(ListKey.TEMPLATE))
+									{
+										templateList.addAll(ref.getContainedObjects());
+									}
 								}
 							}
+							// May have added templates, so scan for them
+							addTemplatesIfMissing(templateList);
 						}
 
 						if (cat == AbilityCategory.FEAT
@@ -17318,6 +17334,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		cachedWeaponProfs = null;
 		rebuildFeatAggreagateList();
+	}
+
+	private void addTemplatesIfMissing(List<PCTemplate> templateList)
+	{
+		for (PCTemplate pct : templateList)
+		{
+			addTemplate(pct);
+		}
 	}
 
 	private List<Ability> getStableAggregateFeatList()
