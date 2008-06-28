@@ -234,7 +234,7 @@ public class ObjectContext
 				}
 			}
 		}
-		decommit();
+		rollback();
 	}
 
 	private <T> void removeListKey(CDOMObject cdo, ListKey<T> key,
@@ -260,7 +260,7 @@ public class ObjectContext
 		commit.put(cdo, key, neg.get(key));
 	}
 
-	public void decommit()
+	public void rollback()
 	{
 		edits.decommit();
 	}

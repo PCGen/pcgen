@@ -142,11 +142,11 @@ public abstract class LoadContext
 		getObjectContext().commit();
 	}
 
-	public void decommit()
+	public void rollback()
 	{
-		getGraphContext().decommit();
-		getListContext().decommit();
-		getObjectContext().decommit();
+		getGraphContext().rollback();
+		getListContext().rollback();
+		getObjectContext().rollback();
 	}
 
 	public void resolveReferences()

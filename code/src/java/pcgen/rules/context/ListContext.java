@@ -224,7 +224,7 @@ public class ListContext
 				commit.clearAllMasterLists(token, ou.owner);
 			}
 		}
-		decommit();
+		rollback();
 	}
 
 	private <T extends CDOMObject> void commitDirect(
@@ -268,7 +268,7 @@ public class ListContext
 		}
 	}
 
-	public void decommit()
+	public void rollback()
 	{
 		edits.decommit();
 	}
