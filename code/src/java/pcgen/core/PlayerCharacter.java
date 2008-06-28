@@ -14935,7 +14935,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.templateList.addAll(getTemplateList());
 		for (String s : this.variableList)
 		{
-			aClone.variableList.add(new String(s));
+			aClone.variableList.add(s);
 		}
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
