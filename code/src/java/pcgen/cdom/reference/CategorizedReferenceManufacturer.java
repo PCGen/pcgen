@@ -51,17 +51,15 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * @param cl
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
-	 * @throws IllegalArgumentException
-	 *             if the given Cagegory is null
 	 */
 	public CategorizedReferenceManufacturer(Class<T> cl, Category<T> cat)
 	{
 		super(cl);
-		if (cat == null)
-		{
-			throw new IllegalArgumentException("Category for "
-					+ getClass().getName() + " cannot be null");
-		}
+		/*
+		 * Note: null must be a legal value here, as Categorized objects (e.g.
+		 * Ability) are constructed with the "null" Category and then reassigned
+		 * once the CATEGORY: token is struck.
+		 */
 		category = cat;
 	}
 
