@@ -24,7 +24,6 @@ package pcgen.core.levelability;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserInterface;

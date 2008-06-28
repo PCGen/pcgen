@@ -24,7 +24,6 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.gui.tabs.InfoSkills;
 import pcgen.gui.utils.PObjectNode;
 

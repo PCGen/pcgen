@@ -26,7 +26,6 @@ import java.io.Serializable;
 import java.util.*;
 
 import pcgen.core.*;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;

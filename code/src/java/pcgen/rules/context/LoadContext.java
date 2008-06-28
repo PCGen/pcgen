@@ -25,8 +25,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PrereqObject;
-import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;

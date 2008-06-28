@@ -31,7 +31,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;

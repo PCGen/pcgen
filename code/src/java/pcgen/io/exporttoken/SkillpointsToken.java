@@ -28,7 +28,6 @@ package pcgen.io.exporttoken;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;

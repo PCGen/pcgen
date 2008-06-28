@@ -112,7 +112,6 @@ import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.SkillModifier;
-import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;

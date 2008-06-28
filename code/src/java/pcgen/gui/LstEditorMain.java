@@ -75,7 +75,6 @@ import pcgen.gui.editor.EditorMainForm;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
