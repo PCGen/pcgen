@@ -142,7 +142,7 @@ public class HdToken implements CDOMPrimaryToken<PCTemplate>
 			{
 				hd.append('+');
 			}
-			else if (max != min)
+			else if (!max.equals(min))
 			{
 				hd.append('-').append(max);
 			}
