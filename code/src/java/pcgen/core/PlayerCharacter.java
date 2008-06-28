@@ -17275,9 +17275,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			prevHashCode = theAbilities.deepSize(); 
 			i++;
 			List<? extends PObject> pobjectList = getPObjectList();
-			for (AbilityCategory cat : catSet)
+			for (AbilityCategory cat : theAbilities.getKeySet())
 			{
-				for (Ability.Nature nature : Ability.Nature.values())
+				for (Ability.Nature nature : theAbilities.getSecondaryKeySet(cat))
 				{
 					if (nature != Ability.Nature.ANY)
 					{
