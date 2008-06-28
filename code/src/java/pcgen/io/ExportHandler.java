@@ -3197,7 +3197,7 @@ public final class ExportHandler
 			PlayerCharacter currPC = (0 <= i && i < PCs.length) ? PCs[i] : null;
 			// Globals.setCurrentPC(currPC);
 
-			String[] tokens = forParser.tokenString().split("\\\\");
+			String[] tokens = forParser.tokenString().split("\\\\\\\\");
 
 			for (String tok : tokens)
 			{
