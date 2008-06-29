@@ -4115,9 +4115,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		int iTimes = 1;
 
-		final String aType = aBonus.getTypeOfBonus();
-
-		if ("VAR".equals(aType))
+		if ("VAR".equals(aBonus.getTypeOfBonus()))
 		{
 			iTimes = Math.max(1, getAssociatedCount());
 

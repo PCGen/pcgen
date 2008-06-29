@@ -3141,7 +3141,7 @@ public class PCClass extends PObject
 					final String xString =
 							new StringBuffer().append(firstPart).append(
 								getAssociated(i)).append(secondPart).toString();
-					retVal += calcPartialBonus(xString, iTimes, aBonus, aPC);
+					retVal += iTimes * calcPartialBonus(xString, aBonus, aPC);
 				}
 
 				bString =
@@ -3150,7 +3150,7 @@ public class PCClass extends PObject
 			}
 		}
 
-		retVal += calcPartialBonus(bString, iTimes, aBonus, aPC);
+		retVal += iTimes * calcPartialBonus(bString, aBonus, aPC);
 
 		return retVal;
 	}
@@ -5032,14 +5032,12 @@ public class PCClass extends PObject
 	 * @param bString
 	 *            Either the entire BONUS:COMBAT|AC|2 string or part of a %LIST
 	 *            or %VAR bonus section
-	 * @param iTimes
-	 *            multiply bonus * iTimes
 	 * @param aBonus
 	 *            The bonuse Object used for calcs
 	 * @param anObj
 	 * @return partial bonus
 	 */
-	private double calcPartialBonus(final String bString, final int iTimes,
+	private double calcPartialBonus(final String bString, 
 		final BonusObj aBonus, final PlayerCharacter aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(bString, "|", false);
@@ -5053,17 +5051,13 @@ public class PCClass extends PObject
 		aTok.nextToken(); // Is this intended to be thrown away? Why?
 
 		final String aList = aTok.nextToken();
-		final String aVal = aTok.nextToken();
-
-		double iBonus = 0;
 
 		if (aList.equals("ALL"))
 		{
 			return 0;
 		}
-
-		iBonus = aPC.getVariableValue(aVal, classKey).doubleValue();
-		return iBonus * iTimes;
+		final String aVal = aTok.nextToken();
+		return aPC.getVariableValue(aVal, classKey).doubleValue();
 	}
 
 	/*
