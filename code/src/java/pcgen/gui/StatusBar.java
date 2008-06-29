@@ -196,7 +196,7 @@ public class StatusBar
 	{
 		private MemoryArea()
 		{
-			super(SwingConstants.CENTER, 3, false);
+			super(SwingConstants.CENTER, 5, false);
 
 			setToolTipText(
 					"<html>Used v. total memory in MB.<br>Click to release memory.");
