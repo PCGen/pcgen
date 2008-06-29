@@ -664,7 +664,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		nymphClass.setLevel(1, pc);
 		bonusList = nymphClass.getBonusList();
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|(CL-3+3)/3", bonusList.get(0).toString());
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(0).toString());
 		assertEquals("Only one bonus", 1, bonusList.size());
 	}
 
@@ -683,7 +683,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		nymphClass.setLevel(1, pc);
 		bonusList = nymphClass.getBonusList();
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|(CL-0+0)/4", bonusList.get(0).toString());
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/4", bonusList.get(0).toString());
 		assertEquals("Only one bonus", 1, bonusList.size());
 	}
 
@@ -701,7 +701,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		humanoidClass.setLevel(1, pc);
 		bonusList = humanoidClass.getBonusList();
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|(CL-3+3)/3", bonusList.get(3).toString());
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(3).toString());
 		assertEquals("Only one new bonus", 4, bonusList.size());
 	}
 
@@ -720,7 +720,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		humanoidClass.setLevel(1, pc);
 		bonusList = humanoidClass.getBonusList();
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|(CL-0+0)/4", bonusList.get(3).toString());
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/4", bonusList.get(3).toString());
 		assertEquals("Only one new bonus", 4, bonusList.size());
 	}
 

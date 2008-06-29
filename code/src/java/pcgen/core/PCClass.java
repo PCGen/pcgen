@@ -1823,10 +1823,18 @@ public class PCClass extends PObject
 						}
 						else
 						{
-							StringBuffer aBuf = new StringBuffer(
-									"0|FEAT|PCPOOL|(CL-" + startLevel + "+"
-									+ rangeLevel + ")/");
-							aBuf.append(divisor);
+							StringBuffer aBuf =
+								new StringBuffer("0|FEAT|PCPOOL|")
+									.append("max(CL");
+							// Make sure we only take off the startlevel value once
+							if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
+							{
+								aBuf.append("-").append(startLevel);
+								aBuf.append("+").append(rangeLevel);
+							}
+							aBuf.append(",0)/").append(divisor);
+//							Logging.debugPrint("Feat bonus for " + this + " is "
+//								+ aBuf.toString());
 							BonusObj bon = Bonus.newBonus(aBuf.toString());
 							bon.setCreatorObject(this);
 							addBonusList(bon);
