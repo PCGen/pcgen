@@ -5780,14 +5780,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param aType
 	 * @param aName
-	 * @param subSearch
 	 * @return feat bonus to
 	 */
-	public double getFeatBonusTo(String aType, String aName,
-		final boolean subSearch)
+	public double getFeatBonusTo(String aType, String aName)
 	{
 		return getPObjectWithCostBonusTo(aggregateFeatList(), aType
-			.toUpperCase(), aName.toUpperCase(), subSearch);
+			.toUpperCase(), aName.toUpperCase());
 	}
 
 	/**
@@ -7013,14 +7011,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param aType
 	 * @param aName
-	 * @param subSearch
 	 * @return template bonus to
 	 */
-	public double getTemplateBonusTo(String aType, String aName,
-		final boolean subSearch)
+	public double getTemplateBonusTo(String aType, String aName)
 	{
 		return getPObjectWithCostBonusTo(templateList, aType.toUpperCase(),
-			aName.toUpperCase(), subSearch);
+			aName.toUpperCase());
 	}
 
 	/**
@@ -9263,7 +9259,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ("FEATS".equals(tokens[i]))
 			{
-				save += (int) getFeatBonusTo("CHECKS", saveType, true);
+				save += (int) getFeatBonusTo("CHECKS", saveType);
 			}
 
 			if ("STATMOD".equals(tokens[i]))
@@ -9291,7 +9287,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ("NOFEATS".equals(tokens[i]))
 			{
-				save -= (int) getFeatBonusTo("CHECKS", saveType, true);
+				save -= (int) getFeatBonusTo("CHECKS", saveType);
 			}
 
 			if ("NOSTAT".equals(tokens[i]) || "NOSTATMOD".equals(tokens[i]))
@@ -12032,12 +12028,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aList
 	 * @param aType
 	 * @param aName
-	 * @param subSearch
 	 * @return double
 	 */
 	private double getPObjectWithCostBonusTo(
 		final List<? extends PObject> aList, final String aType,
-		final String aName, final boolean subSearch)
+		final String aName)
 	{
 		double iBonus = 0;
 
@@ -12050,7 +12045,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final List<BonusObj> tempList =
 					anObj.getBonusListOfType(aType, aName);
-			iBonus += calcBonusWithCostFromList(tempList, subSearch);
+			iBonus += calcBonusWithCostFromList(tempList);
 		}
 
 		return iBonus;
@@ -13298,15 +13293,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param aList
 	 *            a list of bonus objects
-	 * @param subSearch
-	 *            whether to take account of how many times the bonus was
-	 *            chosen.
-	 * 
 	 * @return the calculated cumulative bonus
 	 */
 
-	private double calcBonusWithCostFromList(final List<BonusObj> aList,
-		final boolean subSearch)
+	private double calcBonusWithCostFromList(final List<BonusObj> aList)
 	{
 		double totalBonus = 0;
 
@@ -13331,7 +13321,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						(int) (anObj.getAssociatedCount() *
 								anObj.getSafe(ObjectKey.SELECTION_COST).doubleValue()));
 
-			if (subSearch && (anObj.getAssociatedCount() > 0))
+			if (anObj.getAssociatedCount() > 0)
 			{
 				k = 0;
 

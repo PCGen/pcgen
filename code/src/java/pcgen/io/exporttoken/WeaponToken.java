@@ -991,11 +991,10 @@ public class WeaponToken extends Token
 			profName = ref.resolvesTo().getKeyName();
 		}
 		int featBonus =
-				(int) pc.getFeatBonusTo("WEAPON", "DAMAGE", true)
-					- (int) pc.getFeatBonusTo("WEAPON", "DAMAGE-SHORTRANGE",
-						true)
+				(int) pc.getFeatBonusTo("WEAPON", "DAMAGE")
+					- (int) pc.getFeatBonusTo("WEAPON", "DAMAGE-SHORTRANGE")
 					+ (int) pc.getFeatBonusTo("WEAPONPROF=" + profName,
-						"DAMAGE", true)
+						"DAMAGE")
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE",
 						WPTYPEBONUS_FEAT);
 		return featBonus;
@@ -1020,9 +1019,9 @@ public class WeaponToken extends Token
 			profName = ref.resolvesTo().getKeyName();
 		}
 		int featBonus =
-				(int) pc.getFeatBonusTo("WEAPON", "TOHIT", true)
+				(int) pc.getFeatBonusTo("WEAPON", "TOHIT")
 					+ (int) pc.getFeatBonusTo("WEAPONPROF=" + profName,
-						"TOHIT", true)
+						"TOHIT")
 					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT",
 						WPTYPEBONUS_FEAT);
 		return featBonus;
@@ -1047,9 +1046,9 @@ public class WeaponToken extends Token
 			profName = ref.resolvesTo().getKeyName();
 		}
 		int templateBonus =
-				(int) pc.getTemplateBonusTo("WEAPON", "DAMAGE", true)
+				(int) pc.getTemplateBonusTo("WEAPON", "DAMAGE")
 					+ (int) pc.getTemplateBonusTo("WEAPONPROF="
-						+ profName, "DAMAGE", true)
+						+ profName, "DAMAGE")
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE",
 						WPTYPEBONUS_TEMPLATE);
 		return templateBonus;
@@ -1074,9 +1073,9 @@ public class WeaponToken extends Token
 			profName = ref.resolvesTo().getKeyName();
 		}
 		int templateBonus =
-				(int) pc.getTemplateBonusTo("WEAPON", "TOHIT", true)
+				(int) pc.getTemplateBonusTo("WEAPON", "TOHIT")
 					+ (int) pc.getTemplateBonusTo("WEAPONPROF="
-						+ profName, "TOHIT", true)
+						+ profName, "TOHIT")
 					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT",
 						WPTYPEBONUS_TEMPLATE);
 		return templateBonus;
@@ -2900,13 +2899,13 @@ public class WeaponToken extends Token
 					case WPTYPEBONUS_FEAT:
 						bonus +=
 								(int) pc.getFeatBonusTo("WEAPONPROF=TYPE."
-									+ tString, bonusType, true);
+									+ tString, bonusType);
 						break;
 
 					case WPTYPEBONUS_TEMPLATE:
 						bonus +=
 								(int) pc.getTemplateBonusTo("WEAPONPROF=TYPE."
-									+ tString, bonusType, true);
+									+ tString, bonusType);
 						break;
 
 					default:

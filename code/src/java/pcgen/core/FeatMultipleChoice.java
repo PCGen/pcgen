@@ -61,6 +61,7 @@ public final class FeatMultipleChoice extends AssociatedChoice<String> implement
 	 * Add a choice to the list
 	 * @param aChoice
 	 */
+	@Override
 	public void addChoice(final String aChoice)
 	{
 		addChoice( String.valueOf( size() ), aChoice );
@@ -123,6 +124,7 @@ public final class FeatMultipleChoice extends AssociatedChoice<String> implement
 	 * Get the list of chosen items.
 	 * @return choices
 	 */
+	@Override
 	public List<String> getChoices()
 	{
 		return new ArrayList<String>(choices.values());
