@@ -4705,28 +4705,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return bonus * iTimes;
 	}
 
-	/**
-	 * calcPartialBonus calls appropriate getVariableValue() for a Bonus
-	 * @param aBonus  		The bonus Object used for calcs
-	 * @param listString 	String returned after %LIST substitution, if applicable
-	 * @param aPC
-	 *
-	 * @return partial bonus
-	 */
-	public double calcPartialBonus(final BonusObj aBonus, final String listString, final PlayerCharacter aPC)
-	{
-		double r;
-		if (aBonus.isValueStatic())
-		{
-			r = aBonus.getValueAsdouble();
-		}
-		else
-		{
-			r = calculatePartialFormulaBonus(aBonus.getValue(), listString, aPC);
-		}
-		return r;
-	}
-
 	public double calculatePartialFormulaBonus(String aVal,
 		final String listString, final PlayerCharacter aPC)
 	{
