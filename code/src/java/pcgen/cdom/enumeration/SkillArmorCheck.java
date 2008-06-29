@@ -86,25 +86,19 @@ public enum SkillArmorCheck
 
 	public int calculateBonus(PlayerCharacter pc)
 	{
-		int min;
-		int max;
-		int multiplier;
+		int min = 0;
+		int max = 0;
+		int multiplier = getMultiplier();
+
+		/*
+		 * Simulate taking everything off before going swimming. Freq #505977
+		 */
 		if (Globals.checkRule(RuleConstants.SYS_WTPSK))
 		{
-			multiplier = getMultiplier();
-			min = calculateMin(pc) * multiplier;
-			max = calculateMax(pc) * multiplier;
+			min = calculateMin(pc);
+			max = calculateMax(pc);
 		}
-		else
-		{
-			/*
-			 * Do nothing. This is to simulate taking everything off before
-			 * going swimming. Freq #505977
-			 */
-			min = 0;
-			max = 0;
-		}
-		return Math.min(min, max + (int) pc.getTotalBonusTo("MISC", "ACCHECK"));
+		return Math.min(min * multiplier, (max + (int) pc.getTotalBonusTo("MISC", "ACCHECK"))  * multiplier);
 	}
 
 	protected int getMultiplier()
