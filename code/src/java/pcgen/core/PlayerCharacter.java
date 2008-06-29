@@ -7633,11 +7633,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public List<Vision> getVisionList()
 	{
-		if (!cache.containsListFor(ListKey.VISION_CACHE))
+		/*
+		 * TODO This is a temporary hack until a better cache dirty method
+		 * is established - the problem is that initializeVisionCache triggers
+		 * cache reset, which is a problem for getting back the right value 
+		 * from this method unless the cache is maintained :P
+		 */
+		ObjectCache myCache = cache;
+		if (!myCache.containsListFor(ListKey.VISION_CACHE))
 		{
-			cache.initializeVisionCache(this);
+			myCache.initializeVisionCache(this);
 		}
-		return cache.getListFor(ListKey.VISION_CACHE);
+		return myCache.getListFor(ListKey.VISION_CACHE);
 	}
 
 	public String getVision()
