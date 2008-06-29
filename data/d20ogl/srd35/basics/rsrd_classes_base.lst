@@ -337,7 +337,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Combat Trees
 1	BONUS:VAR|RangerCombatTreeLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ranger Combat Tree
 ###Block: Level progression
-1				BONUS:VAR|WildEmpathy|CL		ABILITY:Special Ability|AUTOMATIC|Wild Empathy						FEATAUTO:Track
+1				BONUS:VAR|WildEmpathy|CL		ABILITY:Special Ability|AUTOMATIC|Wild Empathy						AUTO:FEAT|Track
 2
 3										ABILITY:Special Ability|AUTOMATIC|Endurance
 4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Ranger Animal Companion
