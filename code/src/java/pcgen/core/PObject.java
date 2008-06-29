@@ -4706,10 +4706,18 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public double calcPartialBonus(final BonusObj aBonus, final String listString, final PlayerCharacter aPC)
 	{
+		if (aBonus.isValueStatic())
+		{
+			return aBonus.getValueAsdouble();
+		}
 		String aVal = aBonus.getValue();
 
-		double iBonus = 0;
+		return calculatePartialFormulaBonus(aVal, listString, aPC);
+	}
 
+	private double calculatePartialFormulaBonus(String aVal,
+		final String listString, final PlayerCharacter aPC)
+	{
 		if (listString != null)
 		{
 			int listIndex = aVal.indexOf("%LIST");
@@ -4754,16 +4762,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 
-		if (aBonus.isValueStatic())
-		{
-			iBonus = aBonus.getValueAsdouble();
-		}
-		else
-		{
-			iBonus = aPC.getVariableValue(aVal, "").doubleValue();
-		}
-
-		return iBonus;
+		return aPC.getVariableValue(aVal, "").doubleValue();
 	}
 
 	public void clearAdds() {
