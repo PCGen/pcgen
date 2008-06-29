@@ -4108,6 +4108,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			final String    listString,
 			PlayerCharacter aPC)
 	{
+		if (aBonus.getBonusInfo().equals("ALL"))
+		{
+			return 0;
+		}
+
 		int iTimes = 1;
 
 		final String aType = aBonus.getTypeOfBonus();
@@ -4123,7 +4128,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 
-		return calcPartialBonus(iTimes, aBonus, listString, aPC);
+		return iTimes * calcPartialBonus(aBonus, listString, aPC);
 	}
 
 	/**
@@ -4693,24 +4698,17 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	/**
 	 * calcPartialBonus calls appropriate getVariableValue() for a Bonus
-	 *
-	 * @param iTimes  		multiply bonus * iTimes
 	 * @param aBonus  		The bonus Object used for calcs
 	 * @param listString 	String returned after %LIST substitution, if applicable
 	 * @param aPC
+	 *
 	 * @return partial bonus
 	 */
-	public double calcPartialBonus(final int iTimes, final BonusObj aBonus, final String listString, final PlayerCharacter aPC)
+	public double calcPartialBonus(final BonusObj aBonus, final String listString, final PlayerCharacter aPC)
 	{
-		final String aList = aBonus.getBonusInfo();
 		String aVal = aBonus.getValue();
 
 		double iBonus = 0;
-
-		if (aList.equals("ALL"))
-		{
-			return 0;
-		}
 
 		if (listString != null)
 		{
@@ -4765,7 +4763,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			iBonus = aPC.getVariableValue(aVal, "").doubleValue();
 		}
 
-		return iBonus * iTimes;
+		return iBonus;
 	}
 
 	public void clearAdds() {
