@@ -4127,8 +4127,17 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				iTimes = 1;
 			}
 		}
+		double r;
+		if (aBonus.isValueStatic())
+		{
+			r = aBonus.getValueAsdouble();
+		}
+		else
+		{
+			r = calculatePartialFormulaBonus(aBonus.getValue(), listString, aPC);
+		}
 
-		return iTimes * calcPartialBonus(aBonus, listString, aPC);
+		return iTimes * r;
 	}
 
 	/**
@@ -4706,16 +4715,19 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public double calcPartialBonus(final BonusObj aBonus, final String listString, final PlayerCharacter aPC)
 	{
+		double r;
 		if (aBonus.isValueStatic())
 		{
-			return aBonus.getValueAsdouble();
+			r = aBonus.getValueAsdouble();
 		}
-		String aVal = aBonus.getValue();
-
-		return calculatePartialFormulaBonus(aVal, listString, aPC);
+		else
+		{
+			r = calculatePartialFormulaBonus(aBonus.getValue(), listString, aPC);
+		}
+		return r;
 	}
 
-	private double calculatePartialFormulaBonus(String aVal,
+	public double calculatePartialFormulaBonus(String aVal,
 		final String listString, final PlayerCharacter aPC)
 	{
 		if (listString != null)

@@ -219,8 +219,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addAssociated("INT");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
-
-		int bonusVal = (int) testBonus.calcPartialBonus(bonus, "VISION.DARKVISION:MAGICAL BOON", character);
+		int bonusVal = (int) testBonus.calculatePartialFormulaBonus(bonus.getValue(),
+			"VISION.DARKVISION:MAGICAL BOON", character);
 		assertEquals(14, bonusVal);
 		
 		
