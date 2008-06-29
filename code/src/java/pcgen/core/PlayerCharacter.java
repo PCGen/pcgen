@@ -4307,7 +4307,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			iBonus += anObj.calcBonusFrom(bonus, this, this);
+			iBonus += anObj.calcBonusFrom(bonus, this);
 		}
 
 		return iBonus;
@@ -7000,7 +7000,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			final PObject aCreator = (PObject) creObj;
-			bonus += aCreator.calcBonusFrom(bonusObj, this, this);
+			bonus += aCreator.calcBonusFrom(bonusObj, this);
 		}
 
 		return bonus;
@@ -13313,7 +13313,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (aBonus.qualifies(this))
 			{
-				iBonus = anObj.calcBonusFrom(aBonus, this, this);
+				iBonus = anObj.calcBonusFrom(aBonus, this);
 			}
 
 			int k =
@@ -14194,7 +14194,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (String bString : aBonus.getStringListFromBonus(anObj))
 		{
 			final double iBonus =
-					anObj.calcBonusFrom(aBonus, this, bString, this);
+					anObj.calcBonusFrom(aBonus, bString, this);
 			setActiveBonusStack(iBonus, bString, getActiveBonusMap());
 			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
 				+ iBonus + " : " + bString);

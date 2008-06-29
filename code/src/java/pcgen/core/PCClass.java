@@ -3094,13 +3094,11 @@ public class PCClass extends PObject
 	 * Calculate a Bonus given a BonusObj
 	 * 
 	 * @param aBonus
-	 * @param anObj
 	 * @param aPC
 	 * @return double
 	 */
 	@Override
-	public double calcBonusFrom(final BonusObj aBonus, final Object anObj,
-		PlayerCharacter aPC)
+	public double calcBonusFrom(final BonusObj aBonus, PlayerCharacter aPC)
 	{
 		double retVal = 0;
 		int iTimes = 1;
@@ -3143,7 +3141,7 @@ public class PCClass extends PObject
 					final String xString =
 							new StringBuffer().append(firstPart).append(
 								getAssociated(i)).append(secondPart).toString();
-					retVal += calcPartialBonus(xString, iTimes, aBonus, anObj);
+					retVal += calcPartialBonus(xString, iTimes, aBonus, aPC);
 				}
 
 				bString =
@@ -3152,7 +3150,7 @@ public class PCClass extends PObject
 			}
 		}
 
-		retVal += calcPartialBonus(bString, iTimes, aBonus, anObj);
+		retVal += calcPartialBonus(bString, iTimes, aBonus, aPC);
 
 		return retVal;
 	}
@@ -3161,16 +3159,15 @@ public class PCClass extends PObject
 	 * Calculate a Bonus given a BonusObj
 	 * 
 	 * @param aBonus
-	 * @param anObj
 	 * @param listString
 	 * @param aPC
 	 * @return double
 	 */
 	@Override
-	public double calcBonusFrom(final BonusObj aBonus, final Object anObj,
-		final String listString, PlayerCharacter aPC)
+	public double calcBonusFrom(final BonusObj aBonus, final String listString,
+		PlayerCharacter aPC)
 	{
-		return calcBonusFrom(aBonus, anObj, aPC);
+		return calcBonusFrom(aBonus, aPC);
 	}
 
 	/*
@@ -5043,7 +5040,7 @@ public class PCClass extends PObject
 	 * @return partial bonus
 	 */
 	private double calcPartialBonus(final String bString, final int iTimes,
-		final BonusObj aBonus, final Object anObj)
+		final BonusObj aBonus, final PlayerCharacter aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(bString, "|", false);
 
@@ -5065,27 +5062,7 @@ public class PCClass extends PObject
 			return 0;
 		}
 
-		if (anObj instanceof PlayerCharacter)
-		{
-			iBonus =
-					((PlayerCharacter) anObj).getVariableValue(aVal, classKey)
-						.doubleValue();
-		}
-		else
-		{
-			try
-			{
-				iBonus = Float.parseFloat(aVal);
-			}
-			catch (NumberFormatException e)
-			{
-				// Should this be ignored?
-				Logging
-					.errorPrint("PCClass calcPartialBonus NumberFormatException in BONUS: "
-						+ bString);
-			}
-		}
-
+		iBonus = aPC.getVariableValue(aVal, classKey).doubleValue();
 		return iBonus * iTimes;
 	}
 

@@ -484,7 +484,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			}
 			else if (bonusValue instanceof String && creatorObj instanceof PObject)
 			{
-				value = ((PObject) creatorObj).calcBonusFrom(this, aPC, "", aPC);
+				value = ((PObject) creatorObj).calcBonusFrom(this, "", aPC);
 			}
 			else
 			{
@@ -646,7 +646,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			else if (bonusValue instanceof String && creatorObj instanceof PObject)
 			{
 				sb.append(Delta.toString((float) ((PObject) creatorObj)
-					.calcBonusFrom(this, aPC, "", aPC)));
+					.calcBonusFrom(this, "", aPC)));
 			}
 			else
 			{

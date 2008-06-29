@@ -4088,26 +4088,23 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/**
 	 * Calculate a Bonus given a BonusObj
 	 * @param aBonus
-	 * @param anObj
 	 * @param aPC
 	 * @return bonus
 	 */
-	public double calcBonusFrom(final BonusObj aBonus, final Object anObj, PlayerCharacter aPC)
+	public double calcBonusFrom(final BonusObj aBonus, PlayerCharacter aPC)
 	{
-		return calcBonusFrom(aBonus, anObj, null, aPC);
+		return calcBonusFrom(aBonus, null, aPC);
 	}
 
 	/**
 	 * Calculate a Bonus given a BonusObj
 	 * @param aBonus
-	 * @param anObj
 	 * @param listString
 	 * @param aPC
 	 * @return bonus
 	 */
 	public double calcBonusFrom(
 			final BonusObj  aBonus,
-			final Object    anObj,
 			final String    listString,
 			PlayerCharacter aPC)
 	{
@@ -4126,7 +4123,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 
-		return calcPartialBonus(iTimes, aBonus, anObj, listString, aPC);
+		return calcPartialBonus(iTimes, aBonus, listString, aPC);
 	}
 
 	/**
@@ -4699,12 +4696,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 *
 	 * @param iTimes  		multiply bonus * iTimes
 	 * @param aBonus  		The bonus Object used for calcs
-	 * @param anObj
 	 * @param listString 	String returned after %LIST substitution, if applicable
 	 * @param aPC
 	 * @return partial bonus
 	 */
-	public double calcPartialBonus(final int iTimes, final BonusObj aBonus, final Object anObj, final String listString, final PlayerCharacter aPC)
+	public double calcPartialBonus(final int iTimes, final BonusObj aBonus, final String listString, final PlayerCharacter aPC)
 	{
 		final String aList = aBonus.getBonusInfo();
 		String aVal = aBonus.getValue();
@@ -4764,25 +4760,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			iBonus = aBonus.getValueAsdouble();
 		}
-		else if (anObj instanceof PlayerCharacter)
-		{
-			iBonus = ((PlayerCharacter) anObj).getVariableValue(aVal, "").doubleValue();
-		}
-		else if (anObj instanceof Equipment)
-		{
-			iBonus = ((Equipment) anObj).getVariableValue(aVal, "", aPC).doubleValue();
-		}
 		else
 		{
-			try
-			{
-				iBonus = Float.parseFloat(aVal);
-			}
-			catch (NumberFormatException e)
-			{
-				//Should this be ignored?
-				Logging.errorPrint("calcPartialBonus NumberFormatException in BONUS: " + aVal);
-			}
+			iBonus = aPC.getVariableValue(aVal, "").doubleValue();
 		}
 
 		return iBonus * iTimes;

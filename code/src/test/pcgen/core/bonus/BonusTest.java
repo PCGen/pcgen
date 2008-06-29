@@ -95,7 +95,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter pc = getCharacter();
 		rideSkill.activateBonuses(pc);
-		final double iBonus = rideSkill.calcBonusFrom(saddleBonus, pc, pc);
+		final double iBonus = rideSkill.calcBonusFrom(saddleBonus, pc);
 		assertEquals("Bonus value", -5.0, iBonus, 0.05);
 		assertTrue("No saddle, should have a penalty", saddleBonus.isApplied());
 
@@ -196,7 +196,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		sp.addBonusList(spCost);
 		sp.activateBonuses(character);
 		
-		Double a = sp.calcBonusFrom(spCost, character, character);
+		Double a = sp.calcBonusFrom(spCost, character);
 		assertEquals(10, spCosts + a.intValue());
 	}
 	
@@ -210,7 +210,6 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		Globals.setCurrentPC(character);
 		setPCStat(character, "INT", 18);
-		int statMod = character.getStatList().getStatModFor("INT");
 		final BonusObj bonus =
 				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
@@ -221,7 +220,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
-		int bonusVal = (int) testBonus.calcPartialBonus(1, bonus, character, "VISION.DARKVISION:MAGICAL BOON", character);
+		int bonusVal = (int) testBonus.calcPartialBonus(1, bonus, "VISION.DARKVISION:MAGICAL BOON", character);
 		assertEquals(14, bonusVal);
 		
 		
