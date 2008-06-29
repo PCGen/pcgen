@@ -88,8 +88,6 @@ public enum SkillArmorCheck
 	{
 		int min = 0;
 		int max = 0;
-		int multiplier = getMultiplier();
-
 		/*
 		 * Simulate taking everything off before going swimming. Freq #505977
 		 */
@@ -98,7 +96,8 @@ public enum SkillArmorCheck
 			min = calculateMin(pc);
 			max = calculateMax(pc);
 		}
-		return Math.min(min * multiplier, (max + (int) pc.getTotalBonusTo("MISC", "ACCHECK"))  * multiplier);
+		return getMultiplier()
+			* Math.min(min, (max + (int) pc.getTotalBonusTo("MISC", "ACCHECK")));
 	}
 
 	protected int getMultiplier()
