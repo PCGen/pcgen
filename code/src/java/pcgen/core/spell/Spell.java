@@ -1066,11 +1066,7 @@ public final class Spell extends PObject
 							}
 							if(getBonus)
 							{
-								String value = b.getValue();
-								if(value != null)
-								{
-									runningTotal += Integer.parseInt(value);
-								}
+								runningTotal += b.resolve(aPC).intValue();
 							}
 						}
 					}

@@ -13244,7 +13244,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			for (String bString : bonus.getStringListFromBonus(anObj))
 			{
-				final double iBonus = bonus.getValueAsdouble();
+				final double iBonus = bonus.resolve(this).doubleValue();
 				setActiveBonusStack(iBonus, bString, getActiveBonusMap());
 				Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : "
 					+ iBonus + " : " + bString);

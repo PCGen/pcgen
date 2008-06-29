@@ -443,15 +443,15 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * Get the bonus value as a double
 	 * @return bonus value as a double
 	 */
-	public double getValueAsdouble()
+	public Number resolve(PlayerCharacter pc)
 	{
-		return bonusFormula.resolve(null, "").doubleValue();
+		return bonusFormula.resolve(pc, "");
 	}
 
 
 	/**
-	 * Calculate the value fo the bonus object for the supplied
-	 * character. If the value fo the bonus is a formula, this
+	 * Calculate the value of the bonus object for the supplied
+	 * character. If the value of the bonus is a formula, this
 	 * formula will be evaluated for the character. Other the
 	 * static value will be returned.
 	 *
@@ -467,7 +467,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		else
 		{
-			value = getValueAsdouble();
+			value = resolve(aPC).doubleValue();
 		}
 		return value;
 	}
@@ -893,7 +893,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public void expandToken(final String token, final String tokenValue)
 	{
-		final String value = getValue();
+		final String value = bonusFormula.toString();
 		setValue(value.replaceAll(Pattern.quote(token), tokenValue));
 
 		if ( hasPrerequisites() )

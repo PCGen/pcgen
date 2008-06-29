@@ -4130,7 +4130,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		double r;
 		if (aBonus.isValueStatic())
 		{
-			r = aBonus.getValueAsdouble();
+			r = aBonus.resolve(aPC).doubleValue();
 		}
 		else
 		{
