@@ -89,4 +89,9 @@ public class JEPFormula implements Formula
 	{
 		return character.getVariableValue(formula, source);
 	}
+
+	public boolean isStatic()
+	{
+		return false;
+	}
 }

@@ -38,6 +38,11 @@ public interface Formula
 		{
 			return Integer.valueOf(0);
 		}
+
+		public boolean isStatic()
+		{
+			return true;
+		}
 	};
 
 	/*
@@ -47,4 +52,6 @@ public interface Formula
 	 */
 
 	public Number resolve(PlayerCharacter pc, String source);
+
+	public boolean isStatic();
 }

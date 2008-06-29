@@ -104,4 +104,9 @@ public class FixedSizeFormula implements Formula
 	{
 		return Globals.sizeInt(size.getAbbreviation());
 	}
+
+	public boolean isStatic()
+	{
+		return true;
+	}
 }

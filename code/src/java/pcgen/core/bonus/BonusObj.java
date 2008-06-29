@@ -33,8 +33,10 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -54,7 +56,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 {
 	private List<Object>    bonusInfo       = new ArrayList<Object>();
 	private Map<String, String>     dependMap  = new HashMap<String, String>();
-	private Object  bonusValue;
+	private Formula bonusFormula = Formula.ZERO;
 	private Object  creatorObj;
 	private Object  targetObj;
 	/** The name of the bonus e.g. STAT or COMBAT */
@@ -63,7 +65,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private String  bonusType            = Constants.EMPTY_STRING;
 	private String  varPart              = Constants.EMPTY_STRING;
 	private boolean isApplied;
-	private boolean valueIsStatic        = true;
 	private int     pcLevel              = -1;
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation = null;
@@ -422,22 +423,10 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public void setValue(final String bValue)
 	{
-		try
+		bonusFormula = FormulaFactory.getFormulaFor(bValue);
+		if (!bonusFormula.isStatic())
 		{
-			bonusValue = Integer.valueOf(bValue);
-		}
-		catch (NumberFormatException e1)
-		{
-			try
-			{
-				bonusValue = new Float(bValue);
-			}
-			catch (Exception e2)
-			{
-				bonusValue = bValue.toUpperCase();
-				valueIsStatic = false;
-				buildDependMap(bValue.toUpperCase());
-			}
+			buildDependMap(bValue.toUpperCase());
 		}
 	}
 
@@ -447,7 +436,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public String getValue()
 	{
-		return bonusValue.toString();
+		return bonusFormula.toString();
 	}
 
 	/**
@@ -456,7 +445,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public double getValueAsdouble()
 	{
-		return Double.parseDouble(bonusValue.toString());
+		return bonusFormula.resolve(null, "").doubleValue();
 	}
 
 
@@ -472,26 +461,14 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	public double getCalculatedValue(final PlayerCharacter aPC)
 	{
 		double value = 0;
-		if (bonusValue != null)
+		if (creatorObj instanceof PObject)
 		{
-			if (bonusValue instanceof Integer)
-			{
-				value = ((Integer)bonusValue).longValue();
-			}
-			else if (bonusValue instanceof Float)
-			{
-				value = ((Float)bonusValue).floatValue();
-			}
-			else if (bonusValue instanceof String && creatorObj instanceof PObject)
-			{
-				value = ((PObject) creatorObj).calcBonusFrom(this, "", aPC);
-			}
-			else
-			{
-				value = getValueAsdouble();
-			}
+			value = ((PObject) creatorObj).calcBonusFrom(this, "", aPC);
 		}
-
+		else
+		{
+			value = getValueAsdouble();
+		}
 		return value;
 	}
 
@@ -501,7 +478,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public boolean isValueStatic()
 	{
-		return valueIsStatic;
+		return bonusFormula.isStatic();
 	}
 
 	/**
@@ -577,10 +554,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				sb.append("|ERROR");
 			}
 	
-			if (bonusValue != null)
-			{
-				sb.append('|').append(bonusValue.toString());
-			}
+			sb.append('|').append(bonusFormula.toString());
 			
 			PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 			try
@@ -633,30 +607,8 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		final StringBuffer sb = new StringBuffer(50);
 
-		if (bonusValue != null)
-		{
-			if (bonusValue instanceof Integer)
-			{
-				sb.append(Delta.toString((Integer) bonusValue));
-			}
-			else if (bonusValue instanceof Float)
-			{
-				sb.append(Delta.toString((Float) bonusValue));
-			}
-			else if (bonusValue instanceof String && creatorObj instanceof PObject)
-			{
-				sb.append(Delta.toString((float) ((PObject) creatorObj)
-					.calcBonusFrom(this, "", aPC)));
-			}
-			else
-			{
-				sb.append(bonusValue.toString());
-			}
-		}
-		else
-		{
-			sb.append("+0");
-		}
+		sb.append(Delta
+			.toString(bonusFormula.resolve(aPC, "").floatValue()));
 
 		boolean bEmpty = true;
 		sb.append('[');
@@ -913,10 +865,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		bonusObj.bonusInfo = new ArrayList<Object>(bonusInfo);
 
 		bonusObj.dependMap = new HashMap<String, String>();
-		if (bonusValue != null)
-		{
-			bonusObj.setValue( bonusValue.toString() );
-		}
+		bonusObj.setValue( bonusFormula.toString() );
 
 		// we want to keep the same references to these objects
 		// creatorObj

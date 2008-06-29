@@ -54,7 +54,15 @@ public final class FormulaFactory
 		catch (NumberFormatException e)
 		{
 			// Okay, just not an integer
-			return new JEPFormula(s);
+			try
+			{
+				return getFormulaFor(Double.valueOf(s));
+			}
+			catch (NumberFormatException e2)
+			{
+				// Okay, just not a double
+				return new JEPFormula(s);
+			}
 		}
 	}
 
@@ -70,6 +78,20 @@ public final class FormulaFactory
 	public static Formula getFormulaFor(Integer i)
 	{
 		return new IntegerFormula(i);
+	}
+
+	/**
+	 * Returns a Formula for the given Integer.
+	 * 
+	 * @param e
+	 *            The double to be converted to a Formula
+	 * @return A Formula for the given Double.
+	 * @throws IllegalArgumentException
+	 *             if the given Double is null
+	 */
+	public static Formula getFormulaFor(Double d)
+	{
+		return new DoubleFormula(d);
 	}
 
 	/**
@@ -146,5 +168,89 @@ public final class FormulaFactory
 					&& ((IntegerFormula) o).i.equals(i);
 		}
 
+		public boolean isStatic()
+		{
+			return true;
+		}
+	}
+
+	/**
+	 * DoubleFormula is a fixed-value formula for a specific Double.
+	 */
+	private static class DoubleFormula implements Formula
+	{
+
+		/**
+		 * The Double value of this DoubleFormula
+		 */
+		private final Double i;
+
+		/**
+		 * Creates a new DoubleFormula from the given Double.
+		 * 
+		 * @param in
+		 *            The Double value of this DoubleFormula.
+		 * @throws IllegalArgumentException
+		 *             if the given Double is null
+		 */
+		public DoubleFormula(Double in)
+		{
+			if (in == null)
+			{
+				throw new IllegalArgumentException(
+						"Cannot create an DoubleFormula with a null Double");
+			}
+			i = in;
+		}
+
+		/**
+		 * Resolves this DoubleFormula, returning the Double in this
+		 * DoubleFormula.
+		 * 
+		 * @return the Double in this DoubleFormula.
+		 */
+		public Double resolve(PlayerCharacter pc, String source)
+		{
+			return i;
+		}
+
+		/**
+		 * Returns a String representation of this DoubleFormula.
+		 */
+		@Override
+		public String toString()
+		{
+			return i.toString();
+		}
+
+		/**
+		 * Returns the consistent-with-equals hashCode for this DoubleFormula
+		 * 
+		 * @see java.lang.Object#hashCode()
+		 */
+		@Override
+		public int hashCode()
+		{
+			return i.intValue();
+		}
+
+		/**
+		 * Returns true if this DoubleFormula is equal to the given Object.
+		 * Equality is defined as being another DoubleFormula object with equal
+		 * value.
+		 * 
+		 * @see java.lang.Object#equals(java.lang.Object)
+		 */
+		@Override
+		public boolean equals(Object o)
+		{
+			return (o instanceof DoubleFormula)
+					&& ((DoubleFormula) o).i.equals(i);
+		}
+
+		public boolean isStatic()
+		{
+			return true;
+		}
 	}
 }
