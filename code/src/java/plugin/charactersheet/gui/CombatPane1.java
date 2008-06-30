@@ -441,7 +441,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		add(jLabel10, gridBagConstraints);
 
 		jLabel11.setFont(FONT_NINE);
-		jLabel11.setText(FLAT);
+		jLabel11.setText(TOUCH);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 3;
@@ -449,7 +449,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		add(jLabel11, gridBagConstraints);
 
 		jLabel12.setFont(FONT_NINE);
-		jLabel12.setText(TOUCH);
+		jLabel12.setText(FLAT);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
 		gridBagConstraints.gridy = 3;
@@ -672,7 +672,7 @@ public class CombatPane1 extends javax.swing.JPanel
 
 		flatAc.setFont(FONT_TEN);
 		flatAc.setText(SPACE);
-		jPanel8.add(flatAc);
+		jPanel8.add(touchAc);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -685,7 +685,7 @@ public class CombatPane1 extends javax.swing.JPanel
 
 		touchAc.setFont(FONT_TEN);
 		touchAc.setText(SPACE);
-		jPanel7.add(touchAc);
+		jPanel7.add(flatAc);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 5;
