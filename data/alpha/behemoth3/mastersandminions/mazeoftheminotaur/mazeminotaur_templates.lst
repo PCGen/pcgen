@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jul  1 10:48:42 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
 #Original Entry by: Aaron Divinsky
 
 ###Block: Racial templates
 
-# Template Name	Visible	Subrace	GENDERLOCK
+# Template Name	Visible	Subrace	Lock Gender Selection
 Bull Lord		VISIBLE:NO	SUBRACE:YES
 Minotaur		VISIBLE:NO			GENDERLOCK:Male
 Minotrice		VISIBLE:NO			GENDERLOCK:Female
@@ -31,7 +31,7 @@ Powerful Charge (Large)		VISIBLE:NO	SAB:Powerful Charge (Ex)	PRESIZEEQ:L		BONUS:
 
 ###Block: Favored Classes
 
-# Template Name						Visible	Template																Define				Required var. value		!PREVAREQ				FAVOREDCLASS
+# Template Name						Visible	Template																Define				Required Var. value		Prohibited Var. Value		Favored Class
 Minotaur Favored Class					VISIBLE:NO	TEMPLATE:CHOOSE:Minotaur Favored Class (Class)|Minotaur Favored Class (Monster)				DEFINE:DoneMonsterProg|0
 Minotaur Favored Class (Class)			VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Minotaur|Barbarian
 Minotaur Favored Class (Monster)			VISIBLE:NO																												!PREVAREQ:DoneMonsterProg,1	FAVOREDCLASS:Minotaur
