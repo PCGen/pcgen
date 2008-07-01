@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 28 17:37:02 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Jul  1 10:41:06 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
@@ -7,14 +7,14 @@ SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.sword
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blood Witch	HD:4		TYPE:PC.Prestige	ABB:BlW		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat										Required Skill
+# Class Name	Multiple Requirements										Required Skill
 CLASS:Blood Witch	PREMULT:2,[PREFEAT:1,Skill Focus(Concentration)],[PREFEAT:2,TYPE=Metamagic]	PRESKILL:2,Concentration=10,Knowledge (Arcana)=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
-# Class Name	Spell Stat		Spell Type		Caster level
+# Class Name	Spell Stat		Spell Type		Caster level				Use Spell List
 CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL	SPELLLIST:1|Druid
 1					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-2					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Nature Magic	
+2					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Nature Magic
 3					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
 4					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Alter Self
 5					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
@@ -38,11 +38,11 @@ CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowled
 ###Block: Level progression
 1															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Extended Necromancy
 2															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Undead Appearance
-3	BONUS:VAR|EnergyDrainResistance|5									ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Energy Drain Resistance
+3									BONUS:VAR|EnergyDrainResistance|5	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Energy Drain Resistance
 4															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Undead Familiar
-5							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	ADD:SPELLCASTER|1|ANY
+5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|1|ANY
 6															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Raise the Dead
-7							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	ADD:SPELLCASTER|1|ANY
+7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|1|ANY
 8															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Undead
 9															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Energy Drain Immunity
 10															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Lichdom
@@ -57,7 +57,7 @@ CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concent
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form			AUTO:FEAT|Reincarnate|Fixed Alignment
+1	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form																AUTO:FEAT|Reincarnate|Fixed Alignment
 2	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 3	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 4	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
@@ -65,8 +65,8 @@ CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concent
 6	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 7	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 8	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-9	BONUS:PCLEVEL|Druid|1								ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
-10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form			AUTO:FEAT|Designate Life Form
+9	BONUS:PCLEVEL|Druid|1								ABILITY:Special Ability|AUTOMATIC|Timeless Body		TEMPLATE:Timeless Body
+10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form																AUTO:FEAT|Designate Life Form
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -103,7 +103,7 @@ CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Save checks bonus											Combat bonus
 CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Skill						Req. Spell Type
+# Class Name	Required Skill							Req. Spell Type
 CLASS:Sea Witch	PRESKILL:2,Concentration=8,Profession (Sailor)=8	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sea Witch	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Knowledge|TYPE.Profession|Sense Motive|Speak Language|Swim|Use Rope
@@ -169,9 +169,9 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1	SPELLLEVEL:CLASS|Vigilant=3|Endurance,Neutralize Poison,Remove Disease,Water Walk,Spike Growth
 1	SPELLLEVEL:CLASS|Vigilant=4|Freedom of Movement,Repel Vermin,Spike Stones,Wind Wall
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:0,0																AUTO:FEAT|Sprint
 2	CAST:0,0										ADD:FEAT|1|Vigilant Favored Enemy	AUTO:FEAT|Tireless
@@ -202,31 +202,31 @@ CLASS:Sorcerer.MOD	CSKILL:Ritual Casting
 CLASS:Wizard.MOD	CSKILL:Ritual Casting
 #
 
-# Class Name	Cross-class Skill
+# Class Name	Cross-Class Skill
 CLASS:Paladin.MOD	CCSKILL:Ritual Casting
 
-# Class Name	Cross-class Skill
+# Class Name	Cross-Class Skill
 CLASS:Ranger.MOD	CCSKILL:Ritual Casting
 ###
 ###This File -
 
-# Class Name			Class Skill
-CLASS:Blood Witch.MOD		CSKILL:Ritual Casting
+# Class Name		Class Skill
+CLASS:Blood Witch.MOD	CSKILL:Ritual Casting
 
-# Class Name			Class Skill
-CLASS:Crypt Lord.MOD		CSKILL:Ritual Casting
+# Class Name		Class Skill
+CLASS:Crypt Lord.MOD	CSKILL:Ritual Casting
 
-# Class Name			Class Skill
-CLASS:Incarnate.MOD		CSKILL:Ritual Casting
+# Class Name		Class Skill
+CLASS:Incarnate.MOD	CSKILL:Ritual Casting
 
 # Class Name			Class Skill
 CLASS:Penumbral Lord.MOD	CSKILL:Ritual Casting
 
-# Class Name			Class Skill
-CLASS:Summoner.MOD		CSKILL:Ritual Casting
+# Class Name		Class Skill
+CLASS:Summoner.MOD	CSKILL:Ritual Casting
 
-# Class Name			Class Skill
-CLASS:Vigilant.MOD		CSKILL:Ritual Casting
+# Class Name		Class Skill
+CLASS:Vigilant.MOD	CSKILL:Ritual Casting
 
-# Class Name			Class Skill
-CLASS:Sea Witch.MOD		CSKILL:Ritual Casting
+# Class Name		Class Skill
+CLASS:Sea Witch.MOD	CSKILL:Ritual Casting
