@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Tue Jul  1 17:46:38 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+# Copied from the RSRD, referenced by Monsters
+
+# Spell Name		Output Name					School			Sub-School			Spell Descriptors			Type				Components		Casting Time			Range			Item		Target Area or Effect									Duration									Save Info					Spell Resistance	Description									Source Page
+Deep Slumber								SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	TYPE:Arcane			COMPS:V, S, M	CASTTIME:1 round			RANGE:Close		ITEM:Potion	TARGETAREA:One or more living creatures within a 10-ft.-radius burst	DURATION:(CASTERLEVEL) minutes					SAVEINFO:Will negates			SPELLRES:Yes	DESC:Puts 10 HD of creatures to sleep.				SOURCEPAGE:SpellsD-E.rtf
+Dispel Magic (Greater)	OUTPUTNAME:Dispel Magic, Greater	SCHOOL:Abjuration											TYPE:Arcane.Divine	COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium	ITEM:Potion	TARGETAREA:One spellcaster, creature, or object; or 20-ft.-radius burst	DURATION:Instantaneous							SAVEINFO:None				SPELLRES:No		DESC:As dispel magic, but +20 on check.				SOURCEPAGE:SpellsD-E.rtf
+Entangle									SCHOOL:Transmutation										TYPE:Divine			COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Long		ITEM:Potion	TARGETAREA:Plants in a 40-ft.-radius spread					DURATION:(CASTERLEVEL) minutes [D]					SAVEINFO:Reflex partial; see text	SPELLRES:No		DESC:Plants entangle everyone in 40-ft.-radius circle.	SOURCEPAGE:SpellsD-E.rtf
+Speak with Plants								SCHOOL:Divination											TYPE:Arcane.Divine	COMPS:V, S		CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You										DURATION:(CASTERLEVEL) minutes					SAVEINFO:None				SPELLRES:No		DESC:You can talk to normal plants and plant creatures.	SOURCEPAGE:SpellsS.rtf
+Tree Shape									SCHOOL:Transmutation										TYPE:Divine			COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You										DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:None				SPELLRES:No		DESC:You look exactly like a tree for (CASTERLEVEL) hours.	SOURCEPAGE:SpellsT-Z.rtf
+Tree Stride									SCHOOL:Conjuration	SUBSCHOOL:Teleportation						TYPE:Divine			COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You										DURATION:(CASTERLEVEL) hours or until expended; see text	SAVEINFO:None				SPELLRES:No		DESC:Step from one tree to another far away.			SOURCEPAGE:SpellsT-Z.rtf
+
+#
+# End
+#
