@@ -18,12 +18,12 @@ Bowling ball								PROFICIENCY:WEAPON|Bowling ball		TYPE:Weapon.Sport.Ranged.St
 Arrow (tranquilizer)	OUTPUTNAME:Arrow, tranquilizer	PROFICIENCY:WEAPON|Arrow (tranquilizer)	TYPE:Weapon.Exotic.Ranged.STandard.Piercing										COST:15	WT:0.25				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:50	SIZE:S
 
 ##Block:Martial weapons-firearms
-.25 pistol									PROFICIENCY:WEAPON|.25 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=10	COST:300	WT:2		PRESTAT:1,STR=9	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:S
-.35 pistol									PROFICIENCY:WEAPON|.35 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=10	COST:400	WT:2		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S
-.45 pistol									PROFICIENCY:WEAPON|.45 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=8		COST:600	WT:4		PRESTAT:1,STR=14	CRITMULT:X3			CRITRANGE:1			DAMAGE:1d12	RANGE:50	SIZE:S
-.55 pistol									PROFICIENCY:WEAPON|.55 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:1000	WT:6		PRESTAT:1,STR=16	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d8	RANGE:50	SIZE:S
-.25 rifle									PROFICIENCY:WEAPON|.25 rifle			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:300	WT:5		PRESTAT:1,STR=9	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d4	RANGE:90	SIZE:M
-.45 rifle									PROFICIENCY:WEAPON|.45 rifle			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:700	WT:6		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:1			DAMAGE:2d6	RANGE:120	SIZE:M
-20GA Scattergun								PROFICIENCY:WEAPON|20GA Scattergun		TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:500	WT:5		PRESTAT:1,STR=12	CRITMULT:X3			CRITRANGE:2			DAMAGE:2d6	RANGE:20	SIZE:M
-10GA Scattergun								PROFICIENCY:WEAPON|10GA Scattergun		TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:1100	WT:5		PRESTAT:1,STR=14	CRITMULT:X3			CRITRANGE:2			DAMAGE:4d6	RANGE:20	SIZE:M
-Bringdown Launcher							PROFICIENCY:WEAPON|Bringdown Launcher	TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=3		COST:500	WT:8		PRESTAT:1,STR=12	CRITMULT:X2			CRITRANGE:1			DAMAGE:5d6	RANGE:20	SIZE:M
+.25 pistol									PROFICIENCY:WEAPON|.25 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=10	COST:300	WT:2		PRESTAT:1,STR=9	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:S
+.35 pistol									PROFICIENCY:WEAPON|.35 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=10	COST:400	WT:2		PRESTAT:1,STR=12	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	RANGE:50	SIZE:S
+.45 pistol									PROFICIENCY:WEAPON|.45 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=8		COST:600	WT:4		PRESTAT:1,STR=14	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12	RANGE:50	SIZE:S
+.55 pistol									PROFICIENCY:WEAPON|.55 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:1000	WT:6		PRESTAT:1,STR=16	CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	RANGE:50	SIZE:S
+.25 rifle									PROFICIENCY:WEAPON|.25 rifle			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:300	WT:5		PRESTAT:1,STR=9	CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4	RANGE:90	SIZE:M
+.45 rifle									PROFICIENCY:WEAPON|.45 rifle			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:700	WT:6		PRESTAT:1,STR=12	CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	RANGE:120	SIZE:M
+20GA Scattergun								PROFICIENCY:WEAPON|20GA Scattergun		TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:500	WT:5		PRESTAT:1,STR=12	CRITMULT:x3			CRITRANGE:2			DAMAGE:2d6	RANGE:20	SIZE:M
+10GA Scattergun								PROFICIENCY:WEAPON|10GA Scattergun		TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=5		COST:1100	WT:5		PRESTAT:1,STR=14	CRITMULT:x3			CRITRANGE:2			DAMAGE:4d6	RANGE:20	SIZE:M
+Bringdown Launcher							PROFICIENCY:WEAPON|Bringdown Launcher	TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=3		COST:500	WT:8		PRESTAT:1,STR=12	CRITMULT:x2			CRITRANGE:1			DAMAGE:5d6	RANGE:20	SIZE:M

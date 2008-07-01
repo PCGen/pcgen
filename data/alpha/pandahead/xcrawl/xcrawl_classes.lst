@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 13:27:13 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jul  1 11:15:41 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
-# Class Name	Removed Class Skill	Class Skill
+# Class Name	Remove Class Skill	Class Skill
 CLASS:Bard.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive
 
 # Class Name	Class Skill
@@ -23,22 +23,22 @@ CLASS:Rogue.MOD	CSKILL:Drive|Perform
 CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Astronomy)=2]
 1	KIT:1|MageGuild
 
-# Class Name		Removed Class Skill	Class Skill
+# Class Name		Remove Class Skill	Class Skill
 CLASS:Sorcerer.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|TYPE.Knowledge|Perform
 
 # Class Name	Multiple Requirements
 CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,INT=12],[PREMULT:2,[PRERACE:1,Human],[PRESTAT:1,INT=10]]]],[PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Astronomy)=2]
 1	KIT:1|MageGuild
 
-# Class Name	Removed Class Skill	Class Skill
+# Class Name	Remove Class Skill	Class Skill
 CLASS:Wizard.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|Perform
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus										Combat bonus
-CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|floor((CL+2)*2/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus										Combat bonus
+CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|floor((CL+2)*2/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Dungeon Crawl)|Knowledge (Sports)|Perform|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Weapon Proficiencies|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE.Sport
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Weapon Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Sport
 ###Block: Normal Level Progression
 1	SAB:Constant Training	SAB:% Favored Sports|FavSports	BONUS:VAR|FavSports|CL/5+1	DEFINE:FavSports|0	ADD:FEAT|1|TYPE=Athlete
 4																				ADD:FEAT|1|TYPE=Athlete
@@ -70,7 +70,7 @@ CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Handle Animal=6,Knowledge (Mon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hide|Intuit Direction|Knowledge (Monster Lore)|Listen|Move Silently|Search|Sense Motive|Spot|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|All Automatic Weapon Proficiencies	AUTO:WEAPONPROF|Net|Tranquilizer Rifle
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|Net|Tranquilizer Rifle
 ###Block: Normal Level Progression
 1	SAB:Subdual Specialist	SAB:Favored Prey
 2	SAB:Scent	SAB:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT|1|Exotic Weapon Proficiency
@@ -90,7 +90,7 @@ CLASS:Guild DJ	PREATT:3	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=10,Knowledge (
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guild DJ	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Knowledge (Dungeon Crawl)|Perform|Sense Motive
 ###Block: Proficiencies
-1	AUTO:FEAT|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
 1	SAB:Mastery %|GDJM	SAB:Poker Face	SAB:Creature Language	BONUS:VAR|GDJM|(CL+1)/2	DEFINE:GDJM|0	ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
 2																			ADD:LANGUAGE|1|Abyssal,Aquan,Auran,Celestial,Draconic,Goblin,Giant,Gnoll,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon	ADD:FEAT|1|Skill Focus
