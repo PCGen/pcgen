@@ -46,6 +46,6 @@ DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst|(INCLUDE:Blood|D
 CLASS:aeg_gods_classes_prestige_35e.lst
 DOMAIN:aeg_gods_domains_35e.lst
 EQUIPMENT:aeg_gods_equip_magic_35e.lst
-FEAT:aeg_gods_feats_hidden_35e.lst
+ABILITY:aeg_gods_feats_hidden_35e.lst
 
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst|(INCLUDE:RING|ADAMANT_WONDROUS)

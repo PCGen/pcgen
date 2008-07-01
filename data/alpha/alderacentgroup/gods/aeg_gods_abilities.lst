@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jul  1 12:23:32 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
@@ -31,6 +31,7 @@ Bonus Known Spell 9	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DI
 
 ###Block: Barbarian Totem Animals
 # Feat Name		Output Name			Type			Visible	Special ABility																	Template				Combat bonus				Bonus to skill									Class Skill			Vision				Damage Reduction	Natural Attacks
+# Ability Name	Output Name			Category of Ability		Type			Visible	Special ABility																	Template				Combat bonus				Bonus to skill									Class Skill			Vision				Damage Reduction	Natural Attacks
 Totem Animal					CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Totem Animal - You have formed a spiritual connection with a living representative of your totem animal.
 Totem (Badger)	OUTPUTNAME:[name] Totem	CATEGORY:Special Ability	TYPE:TotemAnimal	VISIBLE:NO	SAB:Badger Totem																	TEMPLATE:Totem (Badger)
 Totem (Bat)		OUTPUTNAME:[name] Totem	CATEGORY:Special Ability	TYPE:TotemAnimal	VISIBLE:NO	SAB:Bat Totem																	TEMPLATE:Totem (Bat)																							VISION:Blindsight (120')
@@ -62,6 +63,7 @@ Totem (Wolverine)	OUTPUTNAME:[name] Totem	CATEGORY:Special Ability	TYPE:TotemAni
 
 ###Block: Medicine Man Class Abilities (Complete)
 # Feat Name			Type			Visible	Special ABility																	Define				Innate Spells
+# Ability Name		Category of Ability		Type			Visible	Special ABility																	Define				Innate Spells
 Read Spirit			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Read Spirit
 Shared Life			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Shared Life
 Improved Augury		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Improved Augury																					SPELLS:Class|TIMES=3+CHA|CASTERLEVEL=classlevel("Medicine Man")|Augury,WIS+12
@@ -75,12 +77,14 @@ Shape of the Beast	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Sha
 
 ###Block: Hunter Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility																										Define
+# Ability Name	Category of Ability		Type			Visible	Special ABility																										Define
 Crack Shot		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Crack Shot - The critical multiplier for Ranged Weapons for which you have taken a Weapon Focus feat is increased by % (max total multiplier is x5)|CrackShotMult	DEFINE:CrackShotMult|0
 Vital Shot		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Vital Shot - The critical range for up to % Ranged Weapon(s) for which you have taken a Weaon Focus feat on is increased by 1|VitalShotCritRangeBonusedWeapons	DEFINE:VitalShotCritRangeBonusedWeapons|0
 Arrow of Death	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Arrow of Death
 
 ###Block: Slaver Class Abilities (Complete)
 # Feat Name			Type			Visible	Special ABility														Define				Innate Spells													Modify VAR
+# Ability Name		Category of Ability		Type			Visible	Special ABility														Define				Innate Spells													Modify VAR
 Break Slave			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Break Slave
 Slaver Command		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Slaver Command													DEFINE:SlaverCommandTimes|0	SPELLS:Class|TIMES=SlaverCommandTimes|CASTERLEVEL=classlevel("Slaver")|Command,11+CHA
 Terrifying Visage		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Terrifying Visage
@@ -97,6 +101,7 @@ Frightful Presence	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Fri
 
 ###Block: Poison Masters Class Abilities (Complete)
 # Feat Name			Type			Visible	Special ABility
+# Ability Name		Category of Ability		Type			Visible	Special ABility
 Brew Poison			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Brew Poison
 Poison Use			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Poison Use
 Delay Poison		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Delay Poison
@@ -111,6 +116,7 @@ Breath of Poison		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Brea
 
 ###Block: Spider Warrior Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility																				Define				Innate Spells
+# Ability Name	Category of Ability		Type			Visible	Special ABility																				Define				Innate Spells
 Spider Mount	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Mount
 Immunity to Webs	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Immunity to Webs
 Summon Spiders	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Summon Spiders - You can summon any number and size of spiders up to % CR % times per day|CL=Spider Warrior|SummonSpidersTimes	DEFINE:SummonSpidersTimes|0
@@ -123,6 +129,7 @@ Spider Shape	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Sh
 
 ###Block: Karhollan Guard Class Abilities (Complete)
 # Feat Name			Type			Visible	Special ABility																Define					Innate Spells											Bonus to skill
+# Ability Name		Category of Ability		Type			Visible	Special ABility																Define					Innate Spells											Bonus to skill
 Personal Presence		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Personal Presence - Recieve a +% insight bonus to Diplomacy and Intimidate|PersonalPresenceBonus		DEFINE:PersonalPresenceBonus|0														BONUS:SKILL|Diplomacy,Intimidate|PersonalPresenceBonus
 Ranged Combat Defense	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Ranged Combat Defense - Recieve +% dodge bonus to AC against all ranged weapons|RangedCombatDefense	DEFINE:RangedCombatDefense|0
 Prayer Circle		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Prayer Circle - % ft radius|PrayerCircleRadius										DEFINE:PrayerCircleRadius|0
@@ -134,6 +141,7 @@ Flame Strike		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Flame St
 
 ###Block: The Returned Class Abilities (Demon in Form needs to have NATURALWEAPON tag added to cover the appropriate natural weapons.)
 # Feat Name			Type			Visible	Special ABility		Define		Stat bonus
+# Ability Name		Category of Ability		Type			Visible	Special ABility		Define		Stat bonus
 Demons Heart		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Demon's Heart
 Demons Mark			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Demon's Mark
 Unholy Glory		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Unholy Glory		DEFINE:UGBonus|0	BONUS:STAT|CHA|UGBonus
@@ -152,6 +160,7 @@ Demon in Fact		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Demon i
 # Feat Name				Type				Visible		Special ABility
 # Strength of Purpose removes all bu the aligned domain that the Examplar has access to. This is not currently possible.
 # Feat Name			Type			Visible	Special ABility																																																									Stackable?	Multiple?	Choose		Caster level
+# Ability Name		Category of Ability		Type			Visible	Special ABility																																																									Stackable?	Multiple?	Choose		Caster level
 Strength of Purpose	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Strength of Purpose																																																								STACK:NO	MULT:YES	CHOOSE:DOMAIN|PC	BONUS:CASTERLEVEL|DOMAIN.%LIST
 Divine Wrath		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Divine Wrath - All weapons act as magical weapons with a bonus of +% against Outsiders of opposing alignment.|var("CLASSLEVEL=Exemplar")/2|!PRECLASS:1,Exemplar=5	SAB:Divine Wrath - All weapons act as magical weapons with a bonus of +% against Outsiders and spellcasters of opposing alignment|var("CLASSLEVEL=Exemplar")/2|PRECLASS:1,Exemplar=5
 Enlightened Madness	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Enlightened Madness
@@ -166,6 +175,7 @@ Exemplar Revealed		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:The
 
 ###Block: Servant of the One Class Abilities
 # Feat Name				Type			Visible	Special ABility																																		Innate Spells
+# Ability Name			Category of Ability		Type			Visible	Special ABility																																		Innate Spells
 Lost Souls				CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lost Souls - Spells, spell-like abilities, supernatural abilities, extraordinary abilities and magic items that effect the sould have no effect.
 One Heart Many Hands		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:One Heart, Many Hands - You may contact your fellow servants by sendings %/day.|var("CLASSLEVEL=Servants of the One")
 Hollow Heart			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Hollow Heart - Resistant to effects that would sway the emotions.|!PRECLASS:1,Servants of the One=8	SAB:Hollow Heart - Immune to effects that would sway the emotions.|PRECLASS:1,Servants of the One=8
@@ -181,6 +191,7 @@ Eternitys Humble Offerings	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO
 
 ###Block: Humanoid Hunter Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility																												Define													Modify VAR
+# Ability Name	Category of Ability		Type			Visible	Special ABility																												Define													Modify VAR
 Smite Humanoid	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Smite Humanoid - may smite a humanoid with one normal melee attack % times/day with a % bonus to hit and % bonus to damage|HHSmiteTimes|HHSmiteToHitBonus|HHSmiteDamageBonus	DEFINE:HHSmiteTimes|0	DEFINE:HHSmiteToHitBonus|0	DEFINE:HHSmiteDamageBonus|0	BONUS:VAR|HHSmiteTimes|1	BONUS:VAR|HHSmiteTimes|1|PRECLASS:1,Humanoid Hunter=8	BONUS:VAR|HHSmiteToHitBonus|if(INT>=0,INT,0)	BONUS:VAR|HHSmiteDamageBonus|var("CLASSLEVEL=Humanoid Hunter")
 Hide the Beast	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Hide the Beast (Su)
 Death Blow		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Death Blow
@@ -191,6 +202,7 @@ Death Blow		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Death Blow
 
 ###Block: The Broken One Class Abilities
 # Feat Name		Type			Visible	Special ABility															Define
+# Ability Name	Category of Ability		Type			Visible	Special ABility															Define
 The Wasting		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:The Wasting
 No Pain		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:No Pain
 Unnatural Drives	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Unnatural Drives
@@ -205,6 +217,7 @@ Beyond Pain		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Pa
 
 ###Block: Master of the Swamp Class Abilities
 # Feat Name			Type			Visible	Special ABility																	Define					Stackable?	Multiple?	Bonus to skill							Stat bonus
+# Ability Name		Category of Ability		Type			Visible	Special ABility																	Define					Stackable?	Multiple?	Bonus to skill							Stat bonus
 Lizardfolk Ally		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lizardfolk Ally - +% circumstance bonus to attack when in combat with lizardfolk allies.|LizardFolkAllyBonus	DEFINE:LizardfolkAllyBonus|0		STACK:NO	MULT:NO
 Increased Agility		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Increased Agility																DEFINE:IncreasedAgilityBonus|0	STACK:NO	MULT:NO	BONUS:SKILL|Balance,Jump,Swim|IncreasedAgilityBonus
 Water Breathing		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Water Breathing																						STACK:NO	MULT:NO
@@ -217,15 +230,17 @@ Power of Istos		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Power 
 
 ###Block: Black Nail Class Abilities
 # Feat Name			Type			Visible	Special ABility				Automaticaly Gained Weapon Prof.
-Oversize Greataxe		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)	AUTO:WEAPONPROF|Weapon Focus(Greataxe)
-Thick Hide			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide		BONUS:COMBAT|AC|BlackNailAC|TYPE=NaturalArmor	DEFINE:BlackNailAC|0
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Define			Automaticaly Gained Weapon Prof.		Combat bonus
+Oversize Greataxe		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)					AUTO:WEAPONPROF|Weapon Focus(Greataxe)
+Thick Hide			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide				DEFINE:BlackNailAC|0								BONUS:COMBAT|AC|BlackNailAC|TYPE=NaturalArmor
 Battle Cry			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Battle Cry
 Formation Fighting	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Fighting Formation
-Oversize Longspear	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Longspear)	AUTO:WEAPONPROF|Weapon Focus(Longspear)
+Oversize Longspear	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Longspear)					AUTO:WEAPONPROF|Weapon Focus(Longspear)
 Great Leadership		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Great Leadership
 
 ###Block: Black Nail Class Abilities
 # Feat Name		Output Name						Type			Visible	Special ABility				Define				Innate Spells															Stackable?	Multiple?	Modify VAR
+# Ability Name	Output Name						Category of Ability		Type			Visible	Special ABility				Define				Innate Spells															Stackable?	Multiple?	Modify VAR
 Voice of Thunder								CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Voice of Thunder			DEFINE:VoiceofThunderTimes|0	SPELLS:Class|TIMES=VoiceofThunderTimes|CASTERLEVEL=classlevel("Black Nail")|Greater Command,15+CHA	STACK:NO	MULT:NO	BONUS:VAR|VoiceofThunderTimes|1
 Blessing o God	OUTPUTNAME:Zohl'Nahk's Blessing		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Zohl'Nahk's Blessing																								STACK:NO	MULT:NO	BONUS:VAR|LeadershipScore|5
 Hand of God		OUTPUTNAME:Hand of Zohl'Kahn			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Hand of Zohl'Kahn																									STACK:NO	MULT:NO
@@ -238,6 +253,7 @@ Dispel Good									CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Di
 
 ###Block: Keeper of Secrets Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Add
+# Ability Name	Category of Ability		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Add
 Shadow Walker	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow Walker - Gains luck bonus to Bluff checks when creating a diversion.
 Lore of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lore of Sathus - Gains knowledge of extra arcane spells.																						STACK:YES	MULT:YES	ADD:ABILITY|3|KSKnownSpellBonus|AUTOMATIC|TYPE=KSBonusKnownSpell
 Envoy of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Envoy of Sathus - Gains an insight bonus to Diplomacy and Intimidation when dealing with Orcs.
@@ -247,6 +263,7 @@ Shadow Double	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow D
 
 ###Block: Underworld Druid of Thovis Class Abilities
 # Feat Name			Type			Visible	Special ABility																				Stackable?	Multiple?	Move			Vision
+# Ability Name		Category of Ability		Type			Visible	Special ABility																				Stackable?	Multiple?	Move			Vision
 Underworld Denizen	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:The effects of spells effecting plants extend to fungi.	SAB:The effects of spells effecting animals are extended to vermin.	STACK:NO	MULT:NO				VISION:Darkvision
 Blessing of Thovis	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:The effects of spells effecting only animals are extended to orcs and half-orcs.								STACK:NO	MULT:NO
 Underworld Forms		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:May Wild Shape into underworld vermin shapes.
@@ -255,6 +272,7 @@ Chosen of Thovis		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO									
 
 ###Block: Underworld Druid of Thovis Class Abilities
 # Feat Name			Output Name					Type			Visible	Special ABility			Stackable?	Multiple?
+# Ability Name		Output Name					Category of Ability		Type			Visible	Special ABility			Stackable?	Multiple?
 Channel Urogs Might	OUTPUTNAME:Channel Urog's Might	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Channel Urog's Might	STACK:NO	MULT:NO
 Urogs Toughness		OUTPUTNAME:Urog's Toughness		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Urog's Toughness		STACK:NO	MULT:NO
 Urogs Strength		OUTPUTNAME:Urog's Strength		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Urog's Strength		STACK:NO	MULT:NO
@@ -269,7 +287,8 @@ Urogs Endurance		OUTPUTNAME:Urog's Endurance		CATEGORY:Special Ability	TYPE:Clas
 
 ###Block: Dryad Ranger Class Abilities
 # Feat Name	Type			Visible	Special ABility
-Freedom	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Dryad may sever her connection to her Treant, drawing energy from nature itself.	SAB:Regeneration
+# Ability Name	Category of Ability		Type			Visible	Special ABility
+Freedom		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Dryad may sever her connection to her Treant, drawing energy from nature itself.	SAB:Regeneration
 
 ##
 ## Troll Abilities
@@ -277,6 +296,7 @@ Freedom	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Dryad may seve
 
 ###Block: Chosen of Vendak Class Abilities
 # Feat Name			Type			Visible	Special ABility														Define				Innate Spells														Adjust PC Size				Bonus to skill					Stat bonus
+# Ability Name		Category of Ability		Type			Visible	Special ABility														Define				Innate Spells														Adjust PC Size				Bonus to skill					Stat bonus
 Ancestral Knowledge	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Ancestral Knowledge													DEFINE:AncestralKnowledge|0																														BONUS:STAT|INT|AncestralKnowledge
 Blessing of Vendak	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Blessing of Vendak -  Divine bonus to all saves against spells and spell0like effects.
 Improved Regeneration	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Improved Regeneration
@@ -288,10 +308,12 @@ Voice of Vendak		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Voice
 
 ###Block: Weapon Proficiencies
 # Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
+# Ability Name			Category of Ability		Type			Visible	Automaticaly Gained Weapon Prof.
 Slaver Weapon Proficiencies	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	AUTO:WEAPONPROF|Sap|Whip
 
 ###Block: Abilities
 # Feat Name			Output Name				Type			Visible	Special ABility
+# Ability Name		Output Name				Category of Ability		Type			Visible	Special ABility
 Woodlands Stride		OUTPUTNAME:Woodland Stride	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Woodland Stride
 AEG Trackless Step	OUTPUTNAME:Trackless Step	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Trackless Step
 

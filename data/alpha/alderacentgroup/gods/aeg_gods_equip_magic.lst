@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jul  1 12:23:32 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Armor and Shields
@@ -46,7 +46,7 @@ Staff (Poison Thorns)	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff
 Staff of the Bull							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:28000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:WOOD.DEFEND.PLUS2W				ALTEQMOD:WOOD.DEFEND.PLUS2W	SIZE:H	SOURCEPAGE:pg.96												BONUS:COMBAT|AC|2|TYPE=Natural Armor
 
 ###Block: Wonderous Items
-# Equipment Name						Output Name						Type						Cost		Weight	Slot Needed	Modifier			Source Page		Vision				Innate Spells																																						Combat bonus			Bonus to skill							Modify VAR							Special Property			Natural Attacks
+# Equipment Name						Output Name						Type						Cost		Weight	Slot Needed	Modifier			Source Page		Vision				Innate Spells																																						Combat bonus			Bonus to skill							Modify VAR							Special Property
 Aboleth Slave Choker												TYPE:Magic.Wondrous			COST:0	WT:1								SOURCEPAGE:pg.74
 Amulet of ZohlKahn												TYPE:Magic.Wondrous.Amulet		COST:40000	WT:20				EQMOD:BRONZE		SOURCEPAGE:pg.105						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Destruction,20
 Bison Horn Head Dress					OUTPUTNAME:Bison Horn Head-Dress		TYPE:Magic.Wondrous.Headgear		COST:10000	WT:1								SOURCEPAGE:pg.12
@@ -88,7 +88,7 @@ Stone of Entangling												TYPE:Magic.Wondrous			COST:100	WT:1				EQMOD:STON
 Stone Wards														TYPE:Magic.Wondrous			COST:200	WT:1				EQMOD:STONE			SOURCEPAGE:pg.82
 Teeth (Hound)						OUTPUTNAME:Hound's Teeth			TYPE:Magic.Wondrous			COST:650	WT:0								SOURCEPAGE:pg.53
 Thirst Pebbles													TYPE:Magic.Wondrous			COST:100	WT:0				EQMOD:STONE			SOURCEPAGE:pg.36
-Tooth of Steel													TYPE:Magic.Wondrous			COST:8500	WT:0				EQMOD:STEEL			SOURCEPAGE:pg.140																																																																									SPROP:2d8 bite damage as +2 magic weapon
+Tooth of Steel													TYPE:Magic.Wondrous			COST:8500	WT:0				EQMOD:STEEL			SOURCEPAGE:pg.140																																																																				SPROP:2d8 bite damage as +2 magic weapon
 # Need to find another way to apply NATURALATTACKS to Tooth of Steel
 Tooth of Venom													TYPE:Magic.Wondrous			COST:9600	WT:0								SOURCEPAGE:pg.140
 Water Barrier													TYPE:Magic.Wondrous			COST:6000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.90						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Air Bubble,16
@@ -122,27 +122,27 @@ Totem Mask (Wolverine)	OUTPUTNAME:[NAME] Totem Mask	TYPE:Magic.Wondrous.Headgear
 
 ###Block: Barbarian Totem Stone
 # Equipment Name		Output Name				Type				Cost		Weight	Source Page
-Totem Stone (Badger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Bat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Bear)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Boar)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Camel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Cat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Cheetah)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Crocodile)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Dog)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Eagle)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Hawk)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Horse)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Lion)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Lizard)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Monkey)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Owl)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Pony)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Rat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Raven)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Snake)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Tiger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Weasel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Wolf)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Wolverine)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Badger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Bat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Bear)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Boar)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Camel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Cat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Cheetah)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Crocodile)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Dog)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Eagle)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Hawk)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Horse)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Lion)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Lizard)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Monkey)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Owl)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Pony)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Rat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Raven)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Snake)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Tiger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Weasel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Wolf)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Wolverine)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
