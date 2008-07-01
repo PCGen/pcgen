@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 10 23:56:26 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jul  1 11:49:56 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
 
 #CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
@@ -14,19 +14,20 @@ Mount Quality (Steed)		OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Increase Animal By 1|In
 Mount Quality (Noble Steed)	OUTPUTNAME:[NAME]	TEMPLATE:CHOOSE:Increase Animal By 2|Increase Dragon By 2|Increase Magical Beast By 2	SOURCEPAGE:p.8	BONUS:MOVEADD|TYPE.Walk|25	BONUS:STAT|STR,DEX|4
 
 ###BLOCK: number of hit die change
-# Template Name			Visible	Required Race				ADDLEVEL
-Decrease Animal By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|-2
-Decrease Animal By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|-1
+# Template Name			Visible	Required Race				Add Levels
+Decrease Animal By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Animal
+Decrease Animal By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Animal
 Increase Animal By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|1
 Increase Animal By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Animal		ADDLEVEL:Animal|2
-Decrease Dragon By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|-2
-Decrease Dragon By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|-1
+Decrease Dragon By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon
+Decrease Dragon By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon
 Increase Dragon By 1		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|1
 Increase Dragon By 2		VISIBLE:NO	PRERACE:1,RACETYPE=Dragon		ADDLEVEL:Dragon|2
-Decrease Magical Beast By 2	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|-2
-Decrease Magical Beast By 1	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|-1
+Decrease Magical Beast By 2	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast
+Decrease Magical Beast By 1	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast
 Increase Magical Beast By 1	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|1
 Increase Magical Beast By 2	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL:Magical Beast|2
+#TODO: I've removed the ADDLEVEL tags with negatives, ADDLEVEL can only take positive number, I don't think there is a way to remove levels with a template or anything else  -Eddy
 
 ###BLOCK: Mount trait
 # Template Name				Output Name		Template														Source Page		Special ABility				Combat bonus					Bonus to HP				Add to base move			Bonus to skill		Stat bonus			Feat
