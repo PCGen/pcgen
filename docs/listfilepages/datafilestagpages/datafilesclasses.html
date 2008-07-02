@@ -1233,25 +1233,24 @@
 <hr>
 
 	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> TEMPLATE:x</p>
-	<p class="indent1"><strong>Variables Used:</strong> Text (Template Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CHOOSE:Text (Template name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ADDCHOICE:Text (Template name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a | (pipe) delimited list of templates that are granted to the class.</p>
+	<ul class="indent2">
+		<li>This is a pipe-delimited (|) list of templates that are granted to the class.</li>
+		<li>Including <code>CHOOSE:</code> will present a popup window of the pipe-delimited 
+			template choices and allow the user to pick one (1) from the list.</li>
+		<li>Including <code>ADDCHOICE:</code> presents a pipe-delimited (|) list of template 
+			choices that are added to the list presented by the original <code>TEMPLATE:CHOOSE</code> 
+			tag found here or in other lst files.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>
 	<p class="indent3">The class uses the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;
 		templates.</p>
-	<p class="indent1"></p>
-	<p class="indent1"><strong> Variables Used (x):</strong> TEMPLATE:CHOOSE:</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent1">CHOOSE will supply a popup window of the choices presented in the tag that are | (pipe) delimited and allow the user to pick ONE from the list.</p>
-	<p class="indent1"><strong> Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
 	<p class="indent3">The class can choose either the &quot;Celestial&quot; or &quot;Outsider&quot; templates.</p>
-	<p class="indent1"></p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ADDCHOICE</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a | (pipe) delimited list of template choices that are added to the list presented by the original	TEMPLATE:CHOOSE tag found here or in other lst files.</p>
-	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>
 	<p class="indent3">The class can choose from the &quot;Demihuman&quot; or &quot;Beast&quot; templates
 		in addition to others already entitled.</p>
