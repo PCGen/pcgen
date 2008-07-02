@@ -52,9 +52,7 @@ public class ObjectCache extends CDOMObject
 
 	public void initializeVisionCache(PlayerCharacter pc)
 	{
-System.err.println(getListFor(ListKey.VISION_CACHE));
 		initializeListFor(ListKey.VISION_CACHE);
-System.err.println(getListFor(ListKey.VISION_CACHE));
 		Map<VisionType, Integer> map = new HashMap<VisionType, Integer>();
 		for (CDOMObject cdo : pc.getCDOMObjectList())
 		{
@@ -88,7 +86,6 @@ System.err.println(getListFor(ListKey.VISION_CACHE));
 				}
 			}
 		}
-System.err.println(getListFor(ListKey.VISION_CACHE));
 
 		/*
 		 * parse through the global list of vision tags and see if this PC has
@@ -112,7 +109,6 @@ System.err.println(getListFor(ListKey.VISION_CACHE));
 			set.add(new Vision(me.getKey(), me.getValue().toString()));
 		}
 		addAllToListFor(ListKey.VISION_CACHE, set);
-System.err.println(getListFor(ListKey.VISION_CACHE));
 	}
 	
 	private final DoubleKeyMap<String, PCClass, SkillCost> skillCostMap = new DoubleKeyMap<String, PCClass, SkillCost>();
