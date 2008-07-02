@@ -53,6 +53,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
+import pcgen.core.LevelInfo;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
 import pcgen.core.PCSpell;
@@ -783,9 +784,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		final List<PCLevelInfo> pcLevelInfoList =
 				new ArrayList<PCLevelInfo>(thePC.getLevelInfo());
-		thePC.getLevelInfo().clear();
 		if (cache.containsKey(TAG_CLASSABILITIESLEVEL))
 		{
+			thePC.getLevelInfo().clear();
 			for (String line : cache.get(TAG_CLASSABILITIESLEVEL))
 			{
 				parseClassAbilitiesLevelLine(line, pcLevelInfoList);
@@ -3109,7 +3110,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.setRace(aRace);
 
-			final int hitDice = aRace.hitDice(thePC);
+			int hitDice = aRace.hitDice(thePC);
 
 			if (sTok.hasMoreTokens())
 			{
@@ -3120,55 +3121,52 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					final StringTokenizer aTok =
 							new StringTokenizer(aString.substring(TAG_HITPOINTS
 								.length()), TAG_END, false);
-					int i = 0;
-
+					
 					if (hitDice > 0)
 					{
 						final HashMap<String, Integer> hitPointMap =
-								new HashMap<String, Integer>();
-						while (aTok.hasMoreTokens())
-						{
-							if (i >= hitDice)
-							{
-								final String msg =
-										PropertyFactory.getFormattedString(
-											"Warnings.PCGenParser.RaceFewerHD", //$NON-NLS-1$
-											race_name);
-								warnings.add(msg);
-
-								break;
-							}
-
-							try
-							{
-								hitPointMap.put(Integer.toString(i++), Integer
-									.valueOf(aTok.nextToken()));
-							}
-							catch (NumberFormatException ex)
-							{
-								throw new PCGParseException(
-									"parseRaceLine", aString, ex.getMessage()); //$NON-NLS-1$
-							}
-						}
-
-						if (i < hitDice)
-						{
-							final String msg =
-									PropertyFactory.getFormattedString(
-										"Warnings.PCGenParser.RaceMoreHD", //$NON-NLS-1$
-										race_name);
-							warnings.add(msg);
-						}
-
+							processHitPoints(race_name, hitDice, aString,
+								aTok);
 						thePC.getRace().setHitPointMap(hitPointMap);
 					}
 					else
 					{
 						String msgKey = "Warnings.PCGenParser.RaceNoHD"; //$NON-NLS-1$
 
-						if (!SettingsHandler.isMonsterDefault())
+						Race race = thePC.getRace();
+						if ((race.getMonsterClass(thePC) != null)
+							&& (race.getMonsterClassLevels(thePC) != 0))
 						{
-							msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
+							final PCClass mclass =
+									Globals.getContext().ref
+										.silentlyGetConstructedCDOMObject(
+											PCClass.class, race
+												.getMonsterClass(thePC));
+
+							if (mclass != null)
+							{
+								thePC
+									.incrementClassLevel(race
+										.getMonsterClassLevels(thePC), mclass,
+										true);
+								final HashMap<String, Integer> hitPointMap =
+										processHitPoints(race_name, race
+											.getMonsterClassLevels(thePC),
+											aString, aTok);
+								for (String lvlStr : hitPointMap.keySet())
+								{
+									int lvl = Integer.parseInt(lvlStr);
+									PCLevelInfo info =
+											thePC.getLevelInfo().get(lvl);
+									PCClass pcClass =
+											thePC.getClassKeyed(info
+												.getClassKeyName());
+									pcClass.setHitPoint(lvl, hitPointMap
+										.get(lvlStr));
+
+								}
+								msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
+							}
 						}
 						final String msg =
 								PropertyFactory.getFormattedString(msgKey,
@@ -3197,6 +3195,58 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		// TODO
 		// adjust for more information according to PCGVer1Creator.appendRaceLine
+	}
+
+	/**
+	 * Translate the string of hitpoint values into a map.
+	 * @param race_name The name of the race, for error reporting.
+	 * @param hitDice The number of hitdice expected
+	 * @param aString The original string, for error reporting
+	 * @param aTok The hit point string already tokenized
+	 * @return A map of the levels and their hitpoint values.
+	 * @throws PCGParseException If the value cannot be parsed.
+	 */
+	private HashMap<String, Integer> processHitPoints(final String race_name,
+		int hitDice, final String aString, final StringTokenizer aTok)
+		throws PCGParseException
+	{
+		int i = 0;
+		final HashMap<String, Integer> hitPointMap =
+			new HashMap<String, Integer>();
+		while (aTok.hasMoreTokens())
+		{
+			if (i >= hitDice)
+			{
+				final String msg =
+						PropertyFactory.getFormattedString(
+							"Warnings.PCGenParser.RaceFewerHD", //$NON-NLS-1$
+							race_name);
+				warnings.add(msg);
+
+				break;
+			}
+
+			try
+			{
+				hitPointMap.put(Integer.toString(i++), Integer
+					.valueOf(aTok.nextToken()));
+			}
+			catch (NumberFormatException ex)
+			{
+				throw new PCGParseException(
+					"parseRaceLine", aString, ex.getMessage()); //$NON-NLS-1$
+			}
+		}
+
+		if (i < hitDice)
+		{
+			final String msg =
+					PropertyFactory.getFormattedString(
+						"Warnings.PCGenParser.RaceMoreHD", //$NON-NLS-1$
+						race_name);
+			warnings.add(msg);
+		}
+		return hitPointMap;
 	}
 
 	/*

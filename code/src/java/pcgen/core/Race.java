@@ -557,7 +557,7 @@ public final class Race extends PObject
 		return intSR;
 	}
 
-	String getMonsterClass(final PlayerCharacter aPC)
+	public String getMonsterClass(final PlayerCharacter aPC)
 	{
 		return getMonsterClass(aPC, true);
 	}
