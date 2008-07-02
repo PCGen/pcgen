@@ -29,6 +29,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusObj.BonusPair;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 
@@ -159,17 +160,25 @@ public final class SkillModifier
 		String keyName = sk.getKeyName();
 		for (BonusObj bonus : aPC.getActiveBonusList())
 		{
-			double bonusVal = bonus.getCalculatedValue(aPC);
-			if (bonus.isApplied() && !CoreUtility.doublesEqual(bonusVal, 0.0)
-					&& "SKILL".equals(bonus.getBonusName())
-					&& bonus.getBonusInfoList().contains(keyName.toUpperCase()))
+			// calculate bonus and add to activeBonusMap
+			if (bonus.isApplied() && "SKILL".equals(bonus.getBonusName())
+				&& bonus.getBonusInfoList().contains(keyName.toUpperCase()))
 			{
-				if (bonusDetails.length() > 0)
+				double iBonus = 0;
+				for (BonusPair bp : bonus.getStringListFromBonus())
 				{
-					bonusDetails.append(' ');
+					iBonus += bp.resolve(aPC).doubleValue();
 				}
-				bonusDetails.append(bonus.getDescription(shortForm, aPC));
-				bonusObjTotal += bonusVal;
+				if (!CoreUtility.doublesEqual(iBonus, 0.0))
+				{
+					if (bonusDetails.length() > 0)
+					{
+						bonusDetails.append(' ');
+					}
+					bonusDetails.append(Delta.toString((int) iBonus));
+					bonusDetails.append(bonus.getBonusContext(shortForm));
+					bonusObjTotal += iBonus;
+				}
 			}
 		}
 

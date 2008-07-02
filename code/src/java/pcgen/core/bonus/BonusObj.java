@@ -27,6 +27,7 @@ package pcgen.core.bonus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -441,35 +443,12 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 	/**
 	 * Get the bonus value as a double
+	 * @param string 
 	 * @return bonus value as a double
 	 */
-	public Number resolve(PlayerCharacter pc)
+	public Number resolve(PlayerCharacter pc, String string)
 	{
-		return bonusFormula.resolve(pc, "");
-	}
-
-
-	/**
-	 * Calculate the value of the bonus object for the supplied
-	 * character. If the value of the bonus is a formula, this
-	 * formula will be evaluated for the character. Other the
-	 * static value will be returned.
-	 *
-	 * @param aPC The character the bonus is to be evaluated for.
-	 * @return The value of the bonus.
-	 */
-	public double getCalculatedValue(final PlayerCharacter aPC)
-	{
-		double value = 0;
-		if (creatorObj instanceof PObject)
-		{
-			value = ((PObject) creatorObj).calcBonusFrom(this, "", aPC);
-		}
-		else
-		{
-			value = resolve(aPC).doubleValue();
-		}
-		return value;
+		return bonusFormula.resolve(pc, string);
 	}
 
 	/**
@@ -605,11 +584,17 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public String getDescription(final boolean shortForm, final PlayerCharacter aPC)
 	{
-		final StringBuffer sb = new StringBuffer(50);
+		final StringBuilder sb = new StringBuilder(50);
 
-		sb.append(Delta
-			.toString(bonusFormula.resolve(aPC, "").floatValue()));
+		sb.append(Delta.toString(bonusFormula.resolve(aPC, "").floatValue()));
 
+		return sb.append(getBonusContext(shortForm)).toString();
+	}
+
+	public String getBonusContext(final boolean shortForm)
+	{
+		final StringBuilder sb = new StringBuilder(50);
+		
 		boolean bEmpty = true;
 		sb.append('[');
 		if (hasPrerequisites()) {
@@ -905,6 +890,15 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 	}
 
+	private static final String VALUE_TOKEN_PATTERN = Pattern.quote(VALUE_TOKEN_REPLACEMENT);
+	private static final String VAR_TOKEN_REPLACEMENT = "%VAR"; //$NON-NLS-1$
+	private static final String VAR_TOKEN_PATTERN = Pattern.quote(VAR_TOKEN_REPLACEMENT);
+	
+	private static final AssociatedChoice<String> NO_ASSOC = new AssociatedChoice<String>("");
+	
+	private static final List<AssociatedChoice<String>> NO_ASSOC_LIST = Collections
+			.singletonList(NO_ASSOC);
+	
 	/**
 	 * TODO - This method should be changed to not return a string.
 	 * <p>
@@ -915,145 +909,152 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * 
 	 * @return List of bonus strings
 	 */
-	public List<String> getStringListFromBonus(final PObject anObj)
+	public List<BonusPair> getStringListFromBonus()
 	{
-		final List<String> aList = new ArrayList<String>();
+		List<BonusPair> bonusList = new ArrayList<BonusPair>();
 
-		final String bInfoString = getBonusInfo();
-		final StringTokenizer aTok = new StringTokenizer(bInfoString, ",");
-		int listindex = 0;
-
-		while (aTok.hasMoreTokens())
-		{
-			final String info = aTok.nextToken();
-
-			// Some BONUS statements use %LIST to represent
-			// a possible list or selection made
-			// Need to deconstruct for proper bonus stacking
-			if (anObj.getAssociatedCount() > 0)
-			{
-				// There are three forms:
-				// 1) has %LIST in the bonusName
-				// 2) has %LIST in the bonusInfo
-				// 3) has no %LIST at all
-
-
-				// Must use getBonusName because it
-				// contains the unaltered bonusType
-				final String name = getBonusName();
-				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
-				{
-					for (int i = 0; i < anObj.getAssociatedCount(); ++i)
-					{
-						final StringBuffer ab = new StringBuffer();
-						final String tName =
-								name.replaceFirst(Pattern.quote(VALUE_TOKEN_REPLACEMENT),
-								                  anObj.getAssociated(i));
-						ab.append(tName).append('.');
-						ab.append(info);
-
-						if (hasTypeString())
-						{
-							ab.append(':').append(getTypeString());
-						}
-
-						aList.add(ab.toString().toUpperCase());
-					}
-				}
-				else if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
-				{
-					for (int i = 0; i < anObj.getAssociatedCount(true); ++i)
-					{
-						final StringBuffer ab = new StringBuffer();
-						final String tName = 
-								info.replaceFirst(Pattern.quote(VALUE_TOKEN_REPLACEMENT),
-								                  anObj.getAssociated(i, true));
-						ab.append(getTypeOfBonus()).append('.');
-						ab.append(tName);
-
-						if (hasTypeString())
-						{
-							ab.append(':').append(getTypeString());
-						}
-						aList.add(ab.toString().toUpperCase());
-					}
-				}
-				else
-				{
-					final int cnt = anObj.getAssociatedCount();
-
-					if (cnt <= listindex && info.equals(LIST_TOKEN_REPLACEMENT))
-					{
-						continue;
-					}
-
-					while (true)
-					{
-						final StringBuffer ab = new StringBuffer();
-						ab.append(getTypeOfBonus()).append('.');
-						if (info.equals(LIST_TOKEN_REPLACEMENT))
-						{
-							ab.append(anObj.getAssociated(listindex));
-						}
-						else
-						{
-							ab.append(info);
-						}
-
-						if (hasTypeString())
-						{
-							ab.append(':').append(getTypeString());
-						}
-
-						listindex++;
-
-						aList.add(ab.toString().toUpperCase());
-
-						// If we have processed all of the entries, or if this object
-						// has multiple bonuses, don't add any more copies.
-						if (aTok.countTokens() > 0
-							|| listindex >= cnt
-							|| addOnceOnly)
-						{
-							break;
-						}
-					}
-				}
+		List<AssociatedChoice<String>> associatedList;
+		PObject anObj = null;
+		if (creatorObj instanceof PObject)
+ 		{
+			anObj = (PObject) creatorObj;
+			associatedList = (anObj).getAssociatedList();
+			if (associatedList.isEmpty())
+ 			{
+				associatedList = NO_ASSOC_LIST;
 			}
-			else if (hasVariable())
+		}
+		else
+		{
+			associatedList = NO_ASSOC_LIST;
+		}
+
+		// Must use getBonusName because it contains the unaltered bonusType
+		String name = getBonusName();
+		String[] infoArray = getBonusInfo().split(",");
+		String thisType = getTypeString();
+
+		if (addOnceOnly)
+		{
+			String thisName = name;
+			Formula newFormula;
+			if (bonusFormula.isStatic())
 			{
-				// Some bonuses have a variable as part
-				// of their name, such as
-				//  BONUS:WEAPONPROF=AbcXyz|TOHIT|3
-				// so parse out the correct value
-				final StringBuffer ab = new StringBuffer();
-				ab.append(getTypeOfBonus());
-				ab.append(getVariable()).append('.');
-				ab.append(info);
-
-				if (hasTypeString())
-				{
-					ab.append(':').append(getTypeString());
-				}
-
-				aList.add(ab.toString().toUpperCase());
+				newFormula = bonusFormula;
 			}
 			else
 			{
-				final StringBuffer ab = new StringBuffer();
-				ab.append(getTypeOfBonus()).append('.');
-				ab.append(info);
-
+				newFormula = FormulaFactory.getFormulaFor(bonusFormula.toString());
+			}
+			for (String thisInfo : infoArray)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(thisName).append('.').append(thisInfo);
 				if (hasTypeString())
 				{
-					ab.append(':').append(getTypeString());
+					sb.append(':').append(thisType);
 				}
-
-				aList.add(ab.toString().toUpperCase());
+				bonusList.add(new BonusPair(sb.toString(), newFormula));
 			}
 		}
+		else
+		{
+			for (AssociatedChoice<String> assoc : associatedList)
+			{
+				String thisName;
+				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+				{
+					thisName =
+							name.replaceAll(VALUE_TOKEN_PATTERN, anObj
+								.getCompressedChoice(assoc));
+				}
+				else
+				{
+					thisName = name;
+				}
+				List<String> infoList = new ArrayList<String>(4);
+				for (String info : infoArray)
+				{
+					if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+					{
+						for (String expInfo : assoc.getChoices())
+						{
+							infoList.add(info.replaceAll(VALUE_TOKEN_PATTERN,
+								expInfo));
+						}
+					}
+					else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
+					{
+						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN, anObj
+							.getCompressedChoice(assoc)));
+					}
+					else if (info.equals(LIST_TOKEN_REPLACEMENT))
+					{
+						infoList.add(anObj.getCompressedChoice(assoc));
+					}
+					else
+					{
+						infoList.add(info);
+					}
+				}
+				Formula newFormula;
+				if (bonusFormula.isStatic())
+				{
+					newFormula = bonusFormula;
+				}
+				else
+				{
+					String value = bonusFormula.toString();
 
-		return aList;
+					// A %LIST substitution also needs to be done in the val section
+					int listIndex = value.indexOf(VALUE_TOKEN_REPLACEMENT);
+					String thisValue = value;
+					if (listIndex >= 0)
+					{
+						thisValue =
+								value.replaceAll(VALUE_TOKEN_PATTERN, anObj
+									.getCompressedChoice(assoc));
+					}
+					newFormula = FormulaFactory.getFormulaFor(thisValue);
+				}
+				for (String thisInfo : infoList)
+				{
+					StringBuilder sb = new StringBuilder();
+					sb.append(thisName).append('.').append(thisInfo);
+					if (hasTypeString())
+					{
+						sb.append(':').append(thisType);
+					}
+					bonusList.add(new BonusPair(sb.toString(), newFormula));
+				}
+			}
+		}
+		return bonusList;
 	}
 
+	public class BonusPair
+	{
+		private Formula formula;
+		public String bonusKey;
+
+		public BonusPair(String key, Formula f)
+		{
+			bonusKey = key;
+			formula = f;
+		}
+
+		public Number resolve(PlayerCharacter aPC)
+		{
+			String source;
+			if (creatorObj instanceof PObject)
+			{
+				source = ((PObject) creatorObj).getQualifiedKey();
+			}
+			else
+			{
+				source = Constants.EMPTY_STRING;
+			}
+			return formula.resolve(aPC, source);
+		}
+	}
 }

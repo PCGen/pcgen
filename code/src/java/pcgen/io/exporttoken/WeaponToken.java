@@ -2610,7 +2610,6 @@ public class WeaponToken extends Token
 		{
 			bonus += (int) pc.getTotalBonusTo("COMBAT", "DAMAGE.Finesseable");
 		}
-
 		if (eq.isMelee() && (meleeDamageStatBonus > 0))
 		{
 			// getTotalBonusTo() includes the Stat Bonuses

@@ -24,6 +24,7 @@
 package pcgen.core.bonus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -33,6 +34,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.bonus.BonusObj.BonusPair;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
 import plugin.bonustokens.Var;
@@ -95,7 +97,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter pc = getCharacter();
 		rideSkill.activateBonuses(pc);
-		final double iBonus = rideSkill.calcBonusFrom(saddleBonus, pc);
+		double iBonus = saddleBonus.resolve(pc, "").doubleValue();
 		assertEquals("Bonus value", -5.0, iBonus, 0.05);
 		assertTrue("No saddle, should have a penalty", saddleBonus.isApplied());
 
@@ -196,8 +198,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		sp.addBonusList(spCost);
 		sp.activateBonuses(character);
 		
-		Double a = sp.calcBonusFrom(spCost, character);
-		assertEquals(10, spCosts + a.intValue());
+		int a = spCost.resolve(character, "").intValue();
+		assertEquals(10, spCosts + a);
 	}
 	
 	/**
@@ -219,15 +221,72 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addAssociated("INT");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
-		int bonusVal = (int) testBonus.calculatePartialFormulaBonus(bonus.getValue(),
-			"VISION.DARKVISION:MAGICAL BOON", character);
-		assertEquals(14, bonusVal);
-		
-		
+		List<BonusPair> bonusPairs = bonus.getStringListFromBonus();
+		assertEquals(1, bonusPairs.size());
+		BonusPair bp = bonusPairs.get(0);
+		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
+		assertEquals(14, bp.resolve(character).intValue());
+	}
 
-		
-		
-		
-		//Double a = sp.calcBonusFrom(spCost, character, character);
+	public void testBonuswithLISTValueTwoAssoc()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Globals.setCurrentPC(character);
+		setPCStat(character, "INT", 18);
+		setPCStat(character, "STR", 16);
+		final BonusObj bonus =
+				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
+		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		bonusList.add(bonus);
+		final Ability testBonus = new Ability();
+		testBonus.addBonusList(bonus);
+		testBonus.addAssociated("INT");
+		testBonus.addAssociated("STR");
+		bonus.setCreatorObject(testBonus);
+		character.addFeat(testBonus, null);
+
+		List<BonusPair> bonusPairs = bonus.getStringListFromBonus();
+		assertEquals(2, bonusPairs.size());
+		int totalBonus = 0;
+		BonusPair bp = bonusPairs.get(0);
+		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
+		totalBonus += bp.resolve(character).intValue();
+		bp = bonusPairs.get(1);
+		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
+		totalBonus += bp.resolve(character).intValue();
+		assertEquals(27, totalBonus);
+	}
+
+	public void testBonuswithLISTValueTwoAssocInfoList()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Globals.setCurrentPC(character);
+		setPCStat(character, "INT", 18);
+		setPCStat(character, "STR", 16);
+		final BonusObj bonus = Bonus.newBonus("STAT|%LIST|%LIST+1");
+		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		bonusList.add(bonus);
+		final Ability testBonus = new Ability();
+		testBonus.addBonusList(bonus);
+		testBonus.addAssociated("INT");
+		testBonus.addAssociated("STR");
+		bonus.setCreatorObject(testBonus);
+		character.addFeat(testBonus, null);
+
+		List<BonusPair> bonusPairs = bonus.getStringListFromBonus();
+		assertEquals(2, bonusPairs.size());
+		for (BonusPair bp : bonusPairs)
+		{
+			if (bp.bonusKey.equals("STAT.INT"))
+			{
+				assertEquals(5, bp.resolve(character).intValue());
+			}
+			else
+			{
+				assertEquals(4, bp.resolve(character).intValue());
+			}
+		}
 	}
 }

@@ -86,6 +86,7 @@ import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusObj.BonusPair;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSet;
@@ -4300,14 +4301,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (BonusObj bonus : aList)
 		{
-			final PObject anObj = (PObject) bonus.getCreatorObject();
-
-			if (anObj == null)
-			{
-				continue;
-			}
-
-			iBonus += anObj.calcBonusFrom(bonus, this);
+			iBonus += bonus.resolve(this, "").doubleValue();
 		}
 
 		return iBonus;
@@ -6946,7 +6940,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<BonusObj> aList =
 				statList.getBonusListOfType(aType.toUpperCase(), aName
 					.toUpperCase());
-
 		return calcBonusFromList(aList);
 	}
 
@@ -6999,8 +6992,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			final PObject aCreator = (PObject) creObj;
-			bonus += aCreator.calcBonusFrom(bonusObj, this);
+			bonus += bonusObj.resolve(this, "").doubleValue();
 		}
 
 		return bonus;
@@ -13249,12 +13241,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Keep track of which bonuses have been calculated
 			processedBonusList.add(bonus);
 
-			for (String bString : bonus.getStringListFromBonus(anObj))
+			for (BonusPair bp : bonus.getStringListFromBonus())
 			{
-				final double iBonus = bonus.resolve(this).doubleValue();
-				setActiveBonusStack(iBonus, bString, getActiveBonusMap());
+				final double iBonus = bp.resolve(this).doubleValue();
+				setActiveBonusStack(iBonus, bp.bonusKey, getActiveBonusMap());
 				Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : "
-					+ iBonus + " : " + bString);
+					+ iBonus + " : " + bp.bonusKey);
 			}
 		}
 
@@ -13320,7 +13312,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (aBonus.qualifies(this))
 			{
-				iBonus = anObj.calcBonusFrom(aBonus, this);
+				iBonus = aBonus.resolve(this, anObj.getQualifiedKey()).doubleValue();
 			}
 
 			int k =
@@ -14198,13 +14190,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// calculate bonus and add to activeBonusMap
-		for (String bString : aBonus.getStringListFromBonus(anObj))
+		for (BonusPair bp : aBonus.getStringListFromBonus())
 		{
-			final double iBonus =
-					anObj.calcBonusFrom(aBonus, bString, this);
-			setActiveBonusStack(iBonus, bString, getActiveBonusMap());
+			final double iBonus = bp.resolve(this).doubleValue();
+			setActiveBonusStack(iBonus, bp.bonusKey, getActiveBonusMap());
 			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
-				+ iBonus + " : " + bString);
+				+ iBonus + " : " + bp.bonusKey);
 		}
 		prevProcessed.remove(aBonus);
 	}
@@ -14826,15 +14817,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					// Grab the list of relevant types so that we can build up
 					// the
 					// bonuses with the stacking rules applied.
-					List<String> typeList =
-							bonus.getStringListFromBonus((PObject) bonus
-								.getCreatorObject());
-					for (String element : typeList)
+					for (BonusPair bp : bonus.getStringListFromBonus())
 					{
-						if (element.startsWith(prefix))
+						if (bp.bonusKey.startsWith(prefix))
 						{
-							setActiveBonusStack(bonus.getCalculatedValue(this),
-								element, bonusMap);
+							setActiveBonusStack(bp.resolve(this).doubleValue(),
+								bp.bonusKey, bonusMap);
 						}
 					}
 				}

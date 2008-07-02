@@ -28,7 +28,10 @@ import java.util.List;
 import pcgen.base.lang.StringUtil;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.io.PCGIOHandler;
+import pcgen.util.Logging;
 
 /**
  * This is the chooser that deals with choosing from a list of SAs.
@@ -126,8 +129,18 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 			{
 				if (bString.startsWith(prefix))
 				{
-					pobject.addBonusList(bString.substring(bString.indexOf('|') + 1));
-
+					BonusObj aBonus = Bonus.newBonus(bString.substring(bString.indexOf('|') + 1));
+					
+					if (aBonus == null)
+					{
+						Logging.errorPrint("Unable to build BONUS from: " + bString);
+					}
+					else
+					{
+						aBonus.setCreatorObject(pobject);
+						aBonus.setAddOnceOnly(true);
+						pobject.addBonusList(aBonus);
+					}
 					break;
 				}
 			}

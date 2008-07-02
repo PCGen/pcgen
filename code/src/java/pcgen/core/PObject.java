@@ -4086,59 +4086,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Calculate a Bonus given a BonusObj
-	 * @param aBonus
-	 * @param aPC
-	 * @return bonus
-	 */
-	public double calcBonusFrom(final BonusObj aBonus, PlayerCharacter aPC)
-	{
-		return calcBonusFrom(aBonus, null, aPC);
-	}
-
-	/**
-	 * Calculate a Bonus given a BonusObj
-	 * @param aBonus
-	 * @param listString
-	 * @param aPC
-	 * @return bonus
-	 */
-	public double calcBonusFrom(
-			final BonusObj  aBonus,
-			final String    listString,
-			PlayerCharacter aPC)
-	{
-		if (aBonus.getBonusInfo().equals("ALL"))
-		{
-			return 0;
-		}
-
-		int iTimes = 1;
-
-		if ("VAR".equals(aBonus.getTypeOfBonus()))
-		{
-			iTimes = Math.max(1, getAssociatedCount());
-
-			String choiceString = getChoiceString();
-			if (choiceString.startsWith("SALIST|") && (choiceString.indexOf("|VAR|") >= 0))
-			{
-				iTimes = 1;
-			}
-		}
-		double r;
-		if (aBonus.isValueStatic())
-		{
-			r = aBonus.resolve(aPC).doubleValue();
-		}
-		else
-		{
-			r = calculatePartialFormulaBonus(aBonus.getValue(), listString, aPC);
-		}
-
-		return iTimes * r;
-	}
-
-	/**
 	 * Add a new bonus to the list of bonuses
 	 * @param aString The unparsed bonus to be added
 	 * @return true if new bonus is not null
@@ -4703,56 +4650,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return bonus * iTimes;
 	}
 
-	public double calculatePartialFormulaBonus(String aVal,
-		final String listString, final PlayerCharacter aPC)
-	{
-		if (listString != null)
-		{
-			int listIndex = aVal.indexOf("%LIST");
-			while (listIndex >= 0)
-			{
-				//A %LIST substitution also needs to be done in the val section
-				//first, find out which one
-				//this is a bit of a hack but it was the best I could figure out so far
-				boolean found = false;
-				final StringBuffer sb = new StringBuffer();
-				for (int i = 0; i < getAssociatedCount(); ++i)
-				{
-					final String associatedStr = getAssociated(i).toUpperCase();
-					
-					if (listString.indexOf(associatedStr) >= 0)
-					{
-						
-						if (listIndex > 0)
-						{
-							sb.append(aVal.substring(0, listIndex));
-						}
-						sb.append(associatedStr);
-						if (aVal.length() > (listIndex + 5))
-						{
-							sb.append(aVal.substring(listIndex + 5));
-						}
-						aVal = sb.toString();
-						found = true;
-						break;
-					}
-					else 
-					{
-                       if (i != 0) 
-                        { 
-                        	sb.append("+"); 
-                        } 
-                        sb.append(associatedStr);
-					}
-				}
-				aVal = aVal.replace("%LIST", sb.toString());
-				listIndex = (found) ? aVal.indexOf("%LIST") : -1;
-			}
-		}
-
-		return aPC.getVariableValue(aVal, "").doubleValue();
-	}
-
 	public void clearAdds() {
 		levelAbilityList.clear();
 	}
@@ -4900,4 +4797,15 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //		}
 //		return Collections.unmodifiableList(spellLikeAbilities);
 //	}
+	
+	public String getCompressedChoice(AssociatedChoice<String> c)
+	{
+		if (c instanceof FeatMultipleChoice)
+		{
+			return c.toString();
+		}
+
+		return c.getDefaultChoice();
+	}
+
 }

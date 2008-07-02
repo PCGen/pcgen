@@ -24,7 +24,6 @@ package pcgen.core.spell;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1018,11 +1017,6 @@ public final class Spell extends PObject
 	public int getSpellPointCostActual(PlayerCharacter aPC)
 	{	
 		int runningTotal = 0;
-		List<BonusObj> bonusList = aPC.getActiveBonusList();
-		Set<BonusObj> bonuses = new HashSet<BonusObj>();
-		bonuses.addAll(bonusList);
-
-		
 		Map<String,Integer> spCost = getSpellPointCostActualParts();
 		for (String aComponent: spCost.keySet())
 		{
@@ -1032,7 +1026,7 @@ public final class Spell extends PObject
 		{
 			return runningTotal;
 		}
-		for (BonusObj b: bonuses)
+		for (BonusObj b: aPC.getActiveBonusList())
 		{
 			if (b.toString().contains("SPELLPOINTCOST"))
 			{
@@ -1066,7 +1060,7 @@ public final class Spell extends PObject
 							}
 							if(getBonus)
 							{
-								runningTotal += b.resolve(aPC).intValue();
+								runningTotal += b.resolve(aPC, "").intValue();
 							}
 						}
 					}

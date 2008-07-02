@@ -3090,86 +3090,6 @@ public class PCClass extends PObject
 		return substitutionClassList;
 	}
 
-	/**
-	 * Calculate a Bonus given a BonusObj
-	 * 
-	 * @param aBonus
-	 * @param aPC
-	 * @return double
-	 */
-	@Override
-	public double calcBonusFrom(final BonusObj aBonus, PlayerCharacter aPC)
-	{
-		double retVal = 0;
-		int iTimes = 1;
-
-		final String aType = aBonus.getTypeOfBonus();
-
-		// String aName = aBonus.getBonusInfo();
-		if ("VAR".equals(aType))
-		{
-			iTimes = Math.max(1, getAssociatedCount());
-
-			String choiceString = getChoiceString();
-			if (choiceString.startsWith("SALIST|")
-				&& (choiceString.indexOf("|VAR|") >= 0))
-			{
-				iTimes = 1;
-			}
-		}
-
-		String bString = aBonus.toString();
-
-		if (getAssociatedCount() != 0)
-		{
-			int span = 4;
-			int idx = bString.indexOf("%VAR");
-
-			if (idx == -1)
-			{
-				idx = bString.indexOf("%LIST");
-				span = 5;
-			}
-
-			if (idx >= 0)
-			{
-				final String firstPart = bString.substring(0, idx);
-				final String secondPart = bString.substring(idx + span);
-
-				for (int i = 1; i < getAssociatedCount(); ++i)
-				{
-					final String xString =
-							new StringBuffer().append(firstPart).append(
-								getAssociated(i)).append(secondPart).toString();
-					retVal += iTimes * calcPartialBonus(xString, aBonus, aPC);
-				}
-
-				bString =
-						new StringBuffer().append(firstPart).append(
-							getAssociated(0)).append(secondPart).toString();
-			}
-		}
-
-		retVal += iTimes * calcPartialBonus(bString, aBonus, aPC);
-
-		return retVal;
-	}
-
-	/**
-	 * Calculate a Bonus given a BonusObj
-	 * 
-	 * @param aBonus
-	 * @param listString
-	 * @param aPC
-	 * @return double
-	 */
-	@Override
-	public double calcBonusFrom(final BonusObj aBonus, final String listString,
-		PlayerCharacter aPC)
-	{
-		return calcBonusFrom(aBonus, aPC);
-	}
-
 	/*
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
@@ -5024,40 +4944,6 @@ public class PCClass extends PObject
 		}
 		Collections.sort(choiceList); // sort the SubstitutionClass's 
 		choiceList.add(0, this); // THEN add the base class as the first choice
-	}
-
-	/**
-	 * calcPartialBonus calls appropriate getVariableValue() for a Bonus
-	 * 
-	 * @param bString
-	 *            Either the entire BONUS:COMBAT|AC|2 string or part of a %LIST
-	 *            or %VAR bonus section
-	 * @param aBonus
-	 *            The bonuse Object used for calcs
-	 * @param anObj
-	 * @return partial bonus
-	 */
-	private double calcPartialBonus(final String bString, 
-		final BonusObj aBonus, final PlayerCharacter aPC)
-	{
-		final StringTokenizer aTok = new StringTokenizer(bString, "|", false);
-
-		if (aBonus.getPCLevel() >= 0)
-		{
-			// discard first token (Level)
-			aTok.nextToken();
-		}
-
-		aTok.nextToken(); // Is this intended to be thrown away? Why?
-
-		final String aList = aTok.nextToken();
-
-		if (aList.equals("ALL"))
-		{
-			return 0;
-		}
-		final String aVal = aTok.nextToken();
-		return aPC.getVariableValue(aVal, classKey).doubleValue();
 	}
 
 	/*

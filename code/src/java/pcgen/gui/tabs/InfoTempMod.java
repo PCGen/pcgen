@@ -1959,7 +1959,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				tbWrap.getTarget();
 				aType = aBonus.getTypeOfBonus();
 				aTo = aBonus.getBonusInfo();
-				aVal = aBonus.resolve(pc).toString();
+				aVal = aBonus.resolve(pc, "").toString();
 			}
 			else if (fn.getItem() instanceof String)
 			{
