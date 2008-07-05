@@ -39,7 +39,7 @@ CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|T
 3	SAB:Dimension Step (Su)																							ADD:SPELLCASTER|Psionic						SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
 4	SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)														ADD:SPELLCASTER|Psionic
 5																BONUS:VAR|OpportunisticStrike|2
-6																											ADD:SPELLCASTER|Psionic	ADD:FEAT|Elocator Transporter
+6																											ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Elocator Choice|1
 7	SAB:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)												ADD:SPELLCASTER|Psionic
 8																BONUS:VAR|OpportunisticStrike|2
 9	SAB:Dimension Spring Attack (Su)(1x/day)																				ADD:SPELLCASTER|Psionic
@@ -69,12 +69,12 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 2	KNOWN:0,2
 3	KNOWN:0,2,1
 4	KNOWN:0,2,2
-5	KNOWN:0,2,2,1					ADD:FEAT|TYPE=Psionic
+5	KNOWN:0,2,2,1							BONUS:ABILITYPOOL|Psionic Fist Feat|1
 6	KNOWN:0,2,2,2
 7	KNOWN:0,2,2,2,1
 8	KNOWN:0,2,2,2,2
 9	KNOWN:0,2,2,2,2,1
-10	KNOWN:0,2,2,2,2,2					ADD:FEAT|TYPE=Psionic
+10	KNOWN:0,2,2,2,2,2							BONUS:ABILITYPOOL|Psionic Fist Feat|1
 ###TODO: Set up Abilitypool for Psionic Fist - Psionic
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
@@ -162,9 +162,9 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Cr
 ###Block: Class Info
 1	SAB:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	BONUS:VAR|ThrallherdScore|(TL+CHA+CL)	DEFINE:ThrallherdScore|0
 2																							ADD:SPELLCASTER|Psionic
-3																							ADD:SPELLCASTER|Psionic	ADD:FEAT|Thrallherd Charm
+3																							ADD:SPELLCASTER|Psionic		BONUS:ABILITYPOOL|Thrallherd Charm Choice|1
 4																							ADD:SPELLCASTER|Psionic
-5																							ADD:SPELLCASTER|Psionic	ADD:FEAT|Thrallherd Dominate
+5																							ADD:SPELLCASTER|Psionic		BONUS:ABILITYPOOL|Thrallherd Dominate Choice|1
 6																							ADD:SPELLCASTER|Psionic
 7	SAB:Greater Dominate (Ex)																		ADD:SPELLCASTER|Psionic
 8																							ADD:SPELLCASTER|Psionic

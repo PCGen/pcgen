@@ -22,6 +22,7 @@ INFOTEXT:RSRD Epic options. Requires the RSRD Basics set.
 # Epic
 ABILITY:rsrd_abilities_class_epic.lst
 ABILITYCATEGORY:rsrd_ability_categories_epic.lst
+
 CLASS:rsrd_classes_base_epic.lst
 CLASS:rsrd_classes_epic.lst
 CLASS:rsrd_classes_monsters_dragons_epic.lst

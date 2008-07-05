@@ -21,6 +21,8 @@ INFOTEXT:Subset of the RSRD that contains the Monsters.  Requires the RSRD Basic
 
 ABILITY:rsrd_monsters_abilities_racial.lst
 
+ABILITYCATEGORY:rsrd_monsters_ability_categories_monster.lst
+
 CLASS:rsrd_classes_monsters_dragons.lst
 CLASS:rsrd_classes_monsters_specific.lst
 

@@ -5,7 +5,12 @@
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object					Plural description for UI	Display Location
 ABILITYCATEGORY:Psion Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psionic.Metapsionic.ItemCreation	PLURAL:Psion Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Psychic Warrior Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psionic.Fighter				PLURAL:Psychic Warrior Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psionic Fist Feat			TYPE:Psionic	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT					PLURAL:Psionic Fist Feats	DISPLAYLOCATION:Feats
 
+
+ABILITYCATEGORY:Elocator Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocatorChoice			PLURAL:Elocator Choices				DISPLAYLOCATION:Class Abilities					
+ABILITYCATEGORY:Thrallherd Charm Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdCharm			PLURAL:Thrallherd Charm Choices		DISPLAYLOCATION:Class Abilities					
+ABILITYCATEGORY:Thrallherd Dominate Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdDominate			PLURAL:Thrallherd Dominate Choices		DISPLAYLOCATION:Class Abilities					
 #
 # End
 #
