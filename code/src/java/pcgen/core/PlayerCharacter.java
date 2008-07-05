@@ -2341,6 +2341,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		// Setup the default EquipSet if not already present
+		if (getEquipSet().size() == 0)
+		{
+			String id = getNewIdPath(null);
+			EquipSet eSet = new EquipSet(id, PropertyFactory.getString("in_ieDefault"));
+			addEquipSet(eSet);
+		}
+		
 		oldCompanionMods.removeAll(companionModList);
 		for (CompanionMod cMod : oldCompanionMods)
 		{
