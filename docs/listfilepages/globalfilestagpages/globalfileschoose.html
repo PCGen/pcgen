@@ -882,18 +882,22 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
 	<p class="indent3">The user can select the same choice more than once, but the user will never be allowed more than
-	3 choices total, each made one at a time.</p>
+		3 choices total, each made one at a time.</p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=6|SKILLSNAMED|Craft%|3</code></p>
 	<p class="indent3">The user can select this chooser multiple times and will be allowed to select upto 3 Craft
-	subskills each time the chooser is selected, but may only make 6 Craft subskill sellection total.</p>
+		subskills each time the chooser is selected, but may only make 6 Craft subskill sellection total.</p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|TYPE=Intelligence|TYPE=Wisdom</code></p>
 	<p class="indent3">The user will be allowed to select one skill from &quot;Strength&quot; &quot;Dexterity&quot;
-	&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; skills each time the chooser
-	is takem but is limited to a maximum of three such selections through this chooser.</p>
+		&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; skills each time the chooser
+		is takem but is limited to a maximum of three such selections through this chooser.</p>
 	<p class="indent2"><code>SELECT:3 &lt;tab&gt; CHOOSE:NUMCHOICES=6|SKILLSNAMED|TYPE=Knowledge</code></p>
 	<p class="indent3">The user can select three (3) &quot;Knowledge&quot; type skills each time he takes the
-	associated feat but may take no more than six (6) &quot;Knowledge&quot; type skills total no matter how
-	many times the feat is taken.</p>
+		associated feat but may take no more than six (6) &quot;Knowledge&quot; type skills total no matter how
+		many times the feat is taken.</p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|NOCHOICE</code></p>
+	<p class="indent3">A feat, or ability, containing this tag will only be called and applied three times, with no CHOOSER 
+		window being displayed, as long as there is no <code>SELECT</code> tag included giving more than 1 choice per feat 
+		application.</p>
 	<p></p>
 <hr>
 
