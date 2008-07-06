@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
+# CVS $Revision$ $Author$ -- Sun Jul  6 00:06:40 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 # SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Epic Core Class Feat Pools
@@ -44,6 +44,10 @@ ABILITYCATEGORY:Guardian Paramount Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 ABILITYCATEGORY:High Proselytizer Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:HighProselytizer		PLURAL:High Proselytizer Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Legendary Dreadnought Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:LegendaryDreadnought	PLURAL:Legendary Dreadnought Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Perfect Wight Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:PerfectWight			PLURAL:Perfect Wight Feats		DISPLAYLOCATION:Feats
+
+###Block: Epic Spellcasting Support
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
+ABILITYCATEGORY:Epic Spellcasting Type	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EpicSpells	PLURAL:Epic Spellcasting Types	DISPLAYLOCATION:Feats
 
 #
 # End

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 14 13:24:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Jul  6 00:06:40 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -26,6 +26,15 @@ Concealment Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:
 Subterfuge Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Subterfuge) +%|EISubterfuge	DEFINE:EISubterfuge|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Hide,Move Silently,Open Lock,Sleight of Hand|EISubterfuge			BONUS:VAR|EISubterfuge|3	SOURCEPAGE:epicprestigeclasses.rtf
 Espionage Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Espionage) +%|EIEspionage	DEFINE:EIEspionage|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Listen,Search,Spot|EIEspionage							BONUS:VAR|EIEspionage|3		SOURCEPAGE:epicprestigeclasses.rtf
 Interaction Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Interaction) +%|EIInteraction	DEFINE:EIInteraction|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Diplomacy,Gather Information,Intimidate,Sense Motive|EIInteraction	BONUS:VAR|EIInteraction|3	SOURCEPAGE:epicprestigeclasses.rtf
+
+###Block: Epic Spellcasting Support
+# Ability Name					Category of Ability		Type			Visible		Add 							Bonus to spell cast/day
+Epic Spellcaster (Arcane/INT Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Arcane/INT)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/INT);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Arcane/WIS Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Arcane/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/WIS);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Arcane/CHA Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Arcane/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/CHA);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/INT Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/INT)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/INT);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/WIS Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/WIS);LEVEL=10|EpicSpellsPerDay
+Epic Spellcaster (Divine/CHA Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/CHA);LEVEL=10|EpicSpellsPerDay
 
 #
 # End
