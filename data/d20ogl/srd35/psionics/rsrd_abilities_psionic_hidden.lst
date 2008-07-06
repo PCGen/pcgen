@@ -1,4 +1,4 @@
-# CVS $Revision: 4721 $ $Author: amaitland $ -- Sat Jul  5 22:04:12 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision: 4721 $ $Author: amaitland $ -- Sat Jul  5 22:37:05 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -21,9 +21,9 @@ Psicrystal (Sneaky)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality								
 Psicrystal (Sympathetic)	CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Sense Motive|3	SOURCEPAGE:PsionicClasses.rtf
 
 ###Block: count feat for Psionic Talent: workaround for COUNT[FEATNAME bug
-# Ability Name			Category of Ability		Type			Visible	Define							Bonus to HP						Modify VAR																															Source Page
-Psionic Talent Power Points	CATEGORY:Special Ability	TYPE:PsiTalentPP	VISIBLE:NO	DEFINE:PsiTalentCount|1	DEFINE:PsiTalentBonus|0								BONUS:VAR|PsiTalentCount|COUNT[FEATNAME=Psionic Talent]	BONUS:VAR|PsiTalentBonus|(-1 +(.5*PsiTalentCount) + (.5*(PsiTalentCount*PsiTalentCount)))	BONUS:VAR|BasePowerPoints|PsiTalentBonus	SOURCEPAGE:PsionicFeats.rtf
-Psionic Body Hit Points		CATEGORY:Special Ability	TYPE:PsiBodyHP	VISIBLE:NO	DEFINE:PsiFeatCount|0					BONUS:HP|CURRENTMAX|(2*PsiFeatCount)	BONUS:VAR|PsiFeatCount|COUNT[FEATTYPE=Psionic]																									SOURCEPAGE:PsionicFeats.rtf
+# Ability Name			Category of Ability		Type			Visible	Define							Modify VAR																															Source Page
+Psionic Talent Power Points	CATEGORY:Special Ability	TYPE:PsiTalentPP	VISIBLE:NO	DEFINE:PsiTalentCount|1	DEFINE:PsiTalentBonus|0	BONUS:VAR|PsiTalentCount|COUNT[FEATNAME=Psionic Talent]	BONUS:VAR|PsiTalentBonus|(-1 +(.5*PsiTalentCount) + (.5*(PsiTalentCount*PsiTalentCount)))	BONUS:VAR|BasePowerPoints|PsiTalentBonus	SOURCEPAGE:PsionicFeats.rtf
+#Psionic Body Hit Points		CATEGORY:Special Ability	TYPE:PsiBodyHP	VISIBLE:NO	DEFINE:PsiFeatCount|0					BONUS:HP|CURRENTMAX|2*COUNT[FEATTYPE=Psionic]																								SOURCEPAGE:PsionicFeats.rtf
 
 #Weapon Proficiencies for .MOD capabilities in classes.
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
