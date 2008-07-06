@@ -24,9 +24,9 @@ INFOTEXT:RSRD Psionics options. Requires the RSRD Basics set.
 
 # Psionics
 ABILITY:rsrd_abilities_psionic_hidden.lst
+ABILITY:rsrd_abilities_psionic.lst
 
 ABILITYCATEGORY:rsrd_ability_categories_psionic.lst
-
 
 BIOSET:rsrd_biosettings_base_psionic.lst
 RACE:rsrd_races__base_psionic.lst

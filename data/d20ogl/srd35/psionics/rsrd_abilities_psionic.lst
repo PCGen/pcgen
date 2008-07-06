@@ -1,0 +1,25 @@
+# CVS $Revision: 4721 $ $Author: amaitland $ -- Sat Jul  5 22:37:05 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original Entry by: TaluronIscandar
+
+#Psicrystal personalities
+# Ability Name			Category of Ability		Type					Save checks bonus			Combat bonus			Bonus to skill			Source Page
+Psicrystal (Artiste)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|TYPE.Craft|3	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Bully)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Intimidate|3	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Coward)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Hide|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Friendly)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Diplomacy|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Hero)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	BONUS:CHECKS|Fortitude|2											SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Liar)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Bluff|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Meticulous)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Search|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Nimble)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality						BONUS:COMBAT|INITIATIVE|2						SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Observant)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Spot|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Poised)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Balance|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Resolved)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	BONUS:CHECKS|Will|2												SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sage)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality																SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Single Minded)	CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Concentration|3	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sneaky)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Move Silently|3	SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sympathetic)	CATEGORY:Special Ability	TYPE:PsicrystalPersonality											BONUS:SKILL|Sense Motive|3	SOURCEPAGE:PsionicClasses.rtf
+
+#
+# End
+#
