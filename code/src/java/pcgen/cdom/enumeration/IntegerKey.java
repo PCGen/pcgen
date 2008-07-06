@@ -58,8 +58,6 @@ public class IntegerKey
 
 	public static final IntegerKey BONUS_CLASS_SKILL_POINTS = getConstant("BONUS_CLASS_SKILL_POINTS");
 
-	public static final IntegerKey BONUS_FEATS = getConstant("BONUS_FEATS");
-
 	public static final IntegerKey CRIT_MULT = getConstant("CRIT_MULT");
 
 	public static final IntegerKey CRIT_RANGE = getConstant("CRIT_RANGE");

@@ -70,7 +70,6 @@ public class TemplateBasePanel extends BasePanel
 	private static final String[] sizeAbbrev =
 			new String[]{"", "F", "D", "T", "S", "M", "L", "H", "G", "C"};
 	private JCheckBox chkRemovable;
-	private JComboBoxEx cmbBonusFeats;
 	private JComboBoxEx cmbBonusSkillPoints;
 	private JComboBoxEx cmbGenderLock;
 	private JComboBoxEx cmbNonProficiencyPenalty;
@@ -90,27 +89,6 @@ public class TemplateBasePanel extends BasePanel
 	{
 		initComponents();
 		initComponentContents();
-	}
-
-	/**
-	 * Set the bonus feats
-	 * @param bonusFeats
-	 */
-	public void setBonusFeats(final int bonusFeats)
-	{
-		if ((bonusFeats >= 0) && (bonusFeats < cmbBonusFeats.getItemCount()))
-		{
-			cmbBonusFeats.setSelectedIndex(bonusFeats);
-		}
-	}
-
-	/**
-	 * Get the bonus feats
-	 * @return the bonus feats
-	 */
-	public int getBonusFeats()
-	{
-		return cmbBonusFeats.getSelectedIndex();
 	}
 
 	/**
@@ -444,7 +422,6 @@ public class TemplateBasePanel extends BasePanel
 			thisPCTemplate.put(ObjectKey.SUBRACE, SubRace.getConstant(subRace));
 		}
 		thisPCTemplate.put(IntegerKey.BONUS_CLASS_SKILL_POINTS, getBonusSkillPoints());
-		thisPCTemplate.put(IntegerKey.BONUS_FEATS, getBonusFeats());
 		thisPCTemplate.put(ObjectKey.CR_MODIFIER, new BigDecimal(getCR()));
 		thisPCTemplate.put(FormulaKey.LEVEL_ADJUSTMENT, FormulaFactory.getFormulaFor(getLevelAdjustment()));
 		thisPCTemplate.put(IntegerKey.NONPP, getNonProficiencyPenalty());
@@ -529,7 +506,6 @@ public class TemplateBasePanel extends BasePanel
 		setSubRace(thisPCTemplate.getSubRace());
 		setBonusSkillPoints(thisPCTemplate.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS));
 		setNonProficiencyPenalty(thisPCTemplate.get(IntegerKey.NONPP));
-		setBonusFeats(thisPCTemplate.getSafe(IntegerKey.BONUS_FEATS));
 		setCR(thisPCTemplate.getCR(-1, -1));
 		setLevelAdjustment(thisPCTemplate.get(FormulaKey.LEVEL_ADJUSTMENT));
 		setTemplateSize(thisPCTemplate.get(FormulaKey.SIZE));
@@ -548,7 +524,6 @@ public class TemplateBasePanel extends BasePanel
 		}
 
 		cmbBonusSkillPoints.setModel(new DefaultComboBoxModel(values));
-		cmbBonusFeats.setModel(new DefaultComboBoxModel(values));
 		values = new String[11];
 
 		values[0] = "(no change)";
@@ -574,7 +549,6 @@ public class TemplateBasePanel extends BasePanel
 		chkRemovable = new JCheckBox();
 		cmbGenderLock = new JComboBoxEx();
 		cmbBonusSkillPoints = new JComboBoxEx();
-		cmbBonusFeats = new JComboBoxEx();
 		cmbNonProficiencyPenalty = new JComboBoxEx();
 		cmbVisible = new JComboBoxEx();
 		txtCR = new JTextField();
@@ -681,24 +655,6 @@ public class TemplateBasePanel extends BasePanel
 		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
 		gridBagConstraints.weightx = 0.4;
 		pnlTemplateMisc.add(cmbBonusSkillPoints, gridBagConstraints);
-
-		tempLabel = new JLabel("Bonus Starting Feats");
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
-		gridBagConstraints.anchor = GridBagConstraints.WEST;
-		gridBagConstraints.weightx = 0.1;
-		pnlTemplateMisc.add(tempLabel, gridBagConstraints);
-
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 3;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
-		gridBagConstraints.weightx = 0.4;
-		pnlTemplateMisc.add(cmbBonusFeats, gridBagConstraints);
 
 		tempLabel = new JLabel("CR");
 		gridBagConstraints = new GridBagConstraints();
