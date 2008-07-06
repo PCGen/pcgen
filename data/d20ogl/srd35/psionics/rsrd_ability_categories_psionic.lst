@@ -1,16 +1,17 @@
-# CVS $Revision: 1375 $ $Author: frank_kliewe $ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
+# CVS $Revision: 1375 $ $Author: frank_kliewe $ -- Sat Jul  5 22:04:12 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object					Plural description for UI	Display Location
-ABILITYCATEGORY:Psion Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psionic.Metapsionic.ItemCreation	PLURAL:Psion Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Psychic Warrior Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psionic.Fighter				PLURAL:Psychic Warrior Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Psionic Fist Feat			TYPE:Psionic	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT					PLURAL:Psionic Fist Feats	DISPLAYLOCATION:Feats
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI			Display Location
+ABILITYCATEGORY:Psion Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Metapsionic.ItemCreation	PLURAL:Psion Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Warrior Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Fighter				PLURAL:Psychic Warrior Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psionic Fist Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic					PLURAL:Psionic Fist Feats			DISPLAYLOCATION:Feats
 
+ABILITYCATEGORY:Improved Psicrystal Personality	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalPersonality			PLURAL:Improved Psicrystal Personalities	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Elocator Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocatorChoice			PLURAL:Elocator Choices				DISPLAYLOCATION:Class Abilities					
-ABILITYCATEGORY:Thrallherd Charm Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdCharm			PLURAL:Thrallherd Charm Choices		DISPLAYLOCATION:Class Abilities					
-ABILITYCATEGORY:Thrallherd Dominate Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdDominate			PLURAL:Thrallherd Dominate Choices		DISPLAYLOCATION:Class Abilities					
+ABILITYCATEGORY:Elocator Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocatorChoice				PLURAL:Elocator Choices				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Thrallherd Charm Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdCharm				PLURAL:Thrallherd Charm Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Thrallherd Dominate Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdDominate				PLURAL:Thrallherd Dominate Choices		DISPLAYLOCATION:Class Abilities
 #
 # End
 #
