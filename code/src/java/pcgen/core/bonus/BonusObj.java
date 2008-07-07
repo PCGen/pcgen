@@ -534,7 +534,13 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			}
 	
 			sb.append('|').append(bonusFormula.toString());
+
+			if (bonusType.length() != 0)
+			{
+				sb.append("|TYPE=").append(bonusType);
+			}
 			
+			// And put the prereqs at the end of the string.
 			PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 			try
 			{
@@ -549,11 +555,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			catch (PersistenceLayerException e)
 			{
 				Logging.errorPrint("Error writing Prerequisite: " + e);
-			}
-
-			if (bonusType.length() != 0)
-			{
-				sb.append("|TYPE=").append(bonusType);
 			}
 	
 			stringRepresentation = sb.toString();
