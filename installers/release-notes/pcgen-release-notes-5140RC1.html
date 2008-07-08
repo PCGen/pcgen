@@ -95,6 +95,26 @@ For full details of the new changes in 5.14, see the <a href="#ChangeLog514">Cha
 		<p>This revamp of abilities is something we would like your feedback on. So please have a play 
 			with them and send your thoughts to the <a href="http://groups.yahoo.com/group/pcgen">PCGen list</a>.</p>
 
+		<h3>Feat Pool Issues</h3>
+
+		<p>Many classes grant bonus feats, one of the major advancements in 5.14 is that 
+		  these feats are now selected in a separate pool from general feats. Instead 
+		  of a pop up appearing when the character is leveled up a new Feat Pool is created 
+		  on the Feats subtab from which those feats can be chosen. A side effect of this 
+		  new feature is that some previously created characters will have an incorrect 
+		  number of feat slots when loaded in 5.14 for the first time, this is because 
+		  they now have an empty pool for their bonus feats even though they have already 
+		  previously been selected and put into the general feat pool. This must be corrected 
+		  manually because PCGen has no way to know which feats were selected as bonus 
+		  feats.</p>
+		
+		<p>To fix this problem, you can take the following steps:</p>
+		<ol>
+			<li>Determine which Feats in the standard Feat Pool were chosen as Bonus Feats.</li>
+			<li>Remove those Feats from the standard Pool and change the number in the Feats Remaining field to 0.</li>
+			<li>Select the Bonus Feat Pool and add your Feats back.</li>
+		</ol>
+		
 		<h3>Fantasy Character Changes</h3>
 
 		<p>When a pre-generated SRD (3rd ed) or RSRD (3.5 ed) ranger, archmage or high level rogue 
