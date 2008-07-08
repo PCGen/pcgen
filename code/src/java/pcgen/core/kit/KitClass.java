@@ -47,6 +47,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient PCClass theClass = null;
+	private String theOrigSubClass = null;
 	private transient int theLevel = -1;
 	private transient boolean doLevelAbilities = true;
 
@@ -124,6 +125,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
+		theOrigSubClass = theClass.getSubClassKey();
 		if (getSubClass() != null)
 		{
 			// try and set a subclass too.
@@ -150,6 +152,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	public void apply(PlayerCharacter aPC)
 	{
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
+		theClass.setSubClassKey(theOrigSubClass);
 		theClass = null;
 	}
 
