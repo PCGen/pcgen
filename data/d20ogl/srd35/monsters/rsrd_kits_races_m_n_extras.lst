@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Mummy Lord	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
+STARTPACK:Mummy Lord	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
 STAT:STR=12|DEX=12|INT=12|WIS=16|CHA=13
 RACE:Mummy	!PRERACE:1,%
 NAME:Mummy Lord
@@ -25,7 +25,7 @@ GEAR:Ring (Energy Resistance/Fire/Minor)			LOCATION:Equipped
 GEAR:Brooch of Shielding					LOCATION:Equipped
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic=2|Guidance|Read Magic|Resistance|Virtue|Bane|Command|Deathwatch|Divine Favor|Doom|Sanctuary|Shield of Faith|Bull's Strength|Death Knell|Hold Person|Resist Energy|Silence|Spiritual Weapon|Animate Dead|Deeper Darkness|Dispel Magic|Invisibility Purge|Searing Light|Air Walk|Dismissal|Divine Power|Giant Vermin|Spell Immunity|Insect Plague|Slay Living|Spell Resistance|Symbol of Pain
 
-STARTPACK:Nightmare (Cauchemar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare]
+STARTPACK:Nightmare (Cauchemar)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare]
 STAT:STR=15|DEX=12|CON=14|INT=14|WIS=10|CHA=10
 TEMPLATE:Default Cauchemar Nightmare
 RACE:Nightmare	!PRERACE:1,%

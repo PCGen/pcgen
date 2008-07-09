@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Ogre Barbarian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
+STARTPACK:Ogre Barbarian	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
 NAME:Ogre Barbarian
 STAT:STR=16|DEX=13|CON=14|INT=12|WIS=10|CHA=8
 RACE:Ogre	!PRERACE:1,%
@@ -21,7 +21,7 @@ GEAR:Ring (Protection +1)			LOCATION:Equipped
 GEAR:Greatclub			SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W
 GEAR:Javelin			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Elder Black Pudding	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Black Pudding)]
+STARTPACK:Elder Black Pudding	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Black Pudding)]
 RACE:Ooze (Black Pudding)	!PRERACE:1,%
 NAME:Elder Black Pudding
 ALIGN:TN

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Sahuagin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
+STARTPACK:Sahuagin Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Sahuagin	!PRERACE:1,%
 NAME:Sahuagin
@@ -14,13 +14,13 @@ FEAT:Great Fortitude
 GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
 GEAR:Trident		SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Sahuagin (Mutant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
+STARTPACK:Sahuagin (Mutant) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]
 RACE:Sahuagin	!PRERACE:1,%
 KIT:Sahuagin Default
 TEMPLATE:Sahuagin (Mutant)
 NAME:Mutant Sahuagin
 
-STARTPACK:Sahuagin (Malenti) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Malenti)]
+STARTPACK:Sahuagin (Malenti) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin (Malenti)]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Sahuagin (Malenti)	!PRERACE:1,%
 NAME:Malenti
@@ -34,7 +34,7 @@ GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
 GEAR:Trident		SIZE:PC	LOCATION:Both Hands
 
 
-STARTPACK:Salamander (Average) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Average)]
+STARTPACK:Salamander (Average) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Average)]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Salamander (Average)	!PRERACE:1,%
 NAME:Salamander (Average)
@@ -51,7 +51,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 GEAR:Spear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Salamander (Flamebrother) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Flamebrother)]
+STARTPACK:Salamander (Flamebrother) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Flamebrother)]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Salamander (Flamebrother)	!PRERACE:1,%
 NAME:Salamander (Flamebrother)
@@ -65,7 +65,7 @@ FEAT:Alertness
 FEAT:Multiattack
 GEAR:Spear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Salamander (Noble) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Noble)]
+STARTPACK:Salamander (Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Noble)]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Salamander (Noble)	!PRERACE:1,%
 NAME:Salamander (Noble)
@@ -84,7 +84,7 @@ FEAT:Power Attack
 FEAT:Skill Focus(Craft (Blacksmithing))
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W
 
-STARTPACK:Satyr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satyr]
+STARTPACK:Satyr Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satyr]
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 RACE:Satyr	!PRERACE:1,%
 NAME:Satyr
@@ -101,7 +101,7 @@ FEAT:Mobility
 GEAR:Dagger		SIZE:PC	LOCATION:Carried
 GEAR:Shortbow	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Sea Cat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Cat]
+STARTPACK:Sea Cat Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Cat]
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 RACE:Sea Cat	!PRERACE:1,%
 NAME:Sea Cat
@@ -112,7 +112,7 @@ FEAT:Alertness
 FEAT:Endurance
 FEAT:Iron Will
 
-STARTPACK:Shadow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]
+STARTPACK:Shadow Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 RACE:Shadow	!PRERACE:1,%
 NAME:Shadow
@@ -124,7 +124,7 @@ SKILL:Spot		RANK:2
 FEAT:Alertness
 FEAT:Dodge
 
-STARTPACK:Shadow Mastiff Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Mastiff]
+STARTPACK:Shadow Mastiff Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Mastiff]
 STAT:STR=11|DEX=11|CON=11|CHA=11|INT=10|WIS=10
 RACE:Shadow Mastiff	!PRERACE:1,%
 NAME:Shadow Mastiff
@@ -138,7 +138,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Track
 
-STARTPACK:Shambling Mound Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shambling Mound]
+STARTPACK:Shambling Mound Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shambling Mound]
 STAT:STR=11|CON=11|INT=11|CHA=11|DEX=10|WIS=10
 RACE:Shambling Mound	!PRERACE:1,%
 NAME:Shambling Mound
@@ -150,13 +150,13 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Weapon Focus(Slam)
 
-STARTPACK:Shield Guardian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shield Guardian]
+STARTPACK:Shield Guardian Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shield Guardian]
 RACE:Shield Guardian	!PRERACE:1,%
 NAME:Shield Guardian
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=11
 
-STARTPACK:Shocker Lizard Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shocker Lizard]
+STARTPACK:Shocker Lizard Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shocker Lizard]
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 RACE:Shocker Lizard	!PRERACE:1,%
 NAME:Shocker Lizard
@@ -168,7 +168,7 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Improved Initiative
 
-STARTPACK:Skeleton (Human Warrior) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Human Warrior)]
+STARTPACK:Skeleton (Human Warrior) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Human Warrior)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Human Warrior)	!PRERACE:1,%
 NAME:Skeleton (Human Warrior)
@@ -177,35 +177,35 @@ FEAT:Improved Initiative
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Scimitar			SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Skeleton (Wolf) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Wolf)]
+STARTPACK:Skeleton (Wolf) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Wolf)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Wolf)	!PRERACE:1,%
 NAME:Skeleton (Wolf)
 ALIGN:NE
 FEAT:Improved Initiative
 
-STARTPACK:Skeleton (Owlbear) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Owlbear)]
+STARTPACK:Skeleton (Owlbear) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Owlbear)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Owlbear)	!PRERACE:1,%
 NAME:Skeleton (Owlbear)
 ALIGN:NE
 FEAT:Improved Initiative
 
-STARTPACK:Skeleton (Troll) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Troll)]
+STARTPACK:Skeleton (Troll) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Troll)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Troll)	!PRERACE:1,%
 NAME:Skeleton (Troll)
 ALIGN:NE
 FEAT:Improved Initiative
 
-STARTPACK:Skeleton (Chimera) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Chimera)]
+STARTPACK:Skeleton (Chimera) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Chimera)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Chimera)	!PRERACE:1,%
 NAME:Skeleton (Chimera)
 ALIGN:NE
 FEAT:Improved Initiative
 
-STARTPACK:Skeleton (Ettin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Ettin)]
+STARTPACK:Skeleton (Ettin) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Ettin)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Ettin)	!PRERACE:1,%
 NAME:Skeleton (Ettin)
@@ -214,14 +214,14 @@ FEAT:Improved Initiative
 GEAR:Morningstar		SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin	QTY:2	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Skeleton (Advanced Megaraptor) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Advanced Megaraptor)]
+STARTPACK:Skeleton (Advanced Megaraptor) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Advanced Megaraptor)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Advanced Megaraptor)	!PRERACE:1,%
 NAME:Skeleton (Advanced Megaraptor)
 ALIGN:NE
 FEAT:Improved Initiative
 
-STARTPACK:Skeleton (Cloud Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Cloud Giant)]
+STARTPACK:Skeleton (Cloud Giant) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Cloud Giant)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Cloud Giant)	!PRERACE:1,%
 NAME:Skeleton (Cloud Giant)
@@ -229,14 +229,14 @@ ALIGN:NE
 FEAT:Improved Initiative
 GEAR:Morningstar	SIZE:G	LOCATION:Both Hands
 
-STARTPACK:Skeleton (Young Adult Red Dragon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Young Adult Red Dragon)]
+STARTPACK:Skeleton (Young Adult Red Dragon) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Young Adult Red Dragon)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Skeleton (Young Adult Red Dragon)	!PRERACE:1,%
 NAME:Skeleton (Young Adult Red Dragon)
 ALIGN:NE
 FEAT:Improved Initiative
 
-STARTPACK:Skum Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skum]
+STARTPACK:Skum Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skum]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Skum	!PRERACE:1,%
 NAME:Skum
@@ -247,7 +247,7 @@ SKILL:Move Silently	RANK:5	FREE:YES
 SKILL:Spot			RANK:5	FREE:YES
 FEAT:Alertness
 
-STARTPACK:Spectre Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spectre]
+STARTPACK:Spectre Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spectre]
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 RACE:Spectre	!PRERACE:1,%
 NAME:Spectre
@@ -262,7 +262,7 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Improved Initiative
 
-STARTPACK:Sphinx (Androsphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Androsphinx)]
+STARTPACK:Sphinx (Androsphinx) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Androsphinx)]
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 RACE:Sphinx (Androsphinx)	!PRERACE:1,%
 NAME:Androsphinx
@@ -281,7 +281,7 @@ FEAT:Track		FREE:YES
 DEITY:None	DOMAIN:Good|Healing
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bull's Strength|Cure Minor Wounds|Cure Serious Wounds|Daylight|Detect Magic|Divine Favor|Guidance|Invisibility Purge|Light|Protection from Evil|Remove Fear|Remove Paralysis|Resist Energy|Resistance|Searing Light|Shield Other|Shield of Faith|Summon Monster I|Summon Monster II
 
-STARTPACK:Sphinx (Criosphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Criosphinx)]
+STARTPACK:Sphinx (Criosphinx) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Criosphinx)]
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 RACE:Sphinx (Criosphinx)	!PRERACE:1,%
 NAME:Criosphinx
@@ -293,7 +293,7 @@ FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Power Attack
 
-STARTPACK:Sphinx (Gynosphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Gynosphinx)]
+STARTPACK:Sphinx (Gynosphinx) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Gynosphinx)]
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 RACE:Sphinx (Gynosphinx)	!PRERACE:1,%
 NAME:Gynosphinx
@@ -308,7 +308,7 @@ FEAT:Combat Casting
 FEAT:Improved Initiative
 FEAT:Iron Will
 
-STARTPACK:Sphinx (Hieracosphinx) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Hieracosphinx)]
+STARTPACK:Sphinx (Hieracosphinx) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Hieracosphinx)]
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 RACE:Sphinx (Hieracosphinx)	!PRERACE:1,%
 NAME:Hieracosphinx
@@ -320,7 +320,7 @@ FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Power Attack
 
-STARTPACK:Spider Eater Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Eater]
+STARTPACK:Spider Eater Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Eater]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Spider Eater	!PRERACE:1,%
 NAME:Spider Eater
@@ -330,7 +330,7 @@ SKILL:Listen	RANK:3
 FEAT:Alertness
 FEAT:Dodge
 
-STARTPACK:Sprite (Grig) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Grig)]
+STARTPACK:Sprite (Grig) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Grig)]
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 RACE:Sprite (Grig)	!PRERACE:1,%
 NAME:Grig
@@ -345,7 +345,7 @@ FEAT:Weapon Finesse
 GEAR:Longbow		SIZE:PC	LOCATION:Carried
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Sprite (Nixie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Nixie)]
+STARTPACK:Sprite (Nixie) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Nixie)]
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 RACE:Sprite (Nixie)	!PRERACE:1,%
 NAME:Nixie
@@ -362,7 +362,7 @@ FEAT:Weapon Finesse
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Sprite (Pixie) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Pixie)]
+STARTPACK:Sprite (Pixie) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sprite (Pixie)]
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 RACE:Sprite (Pixie)	!PRERACE:1,%
 NAME:Pixie
@@ -381,7 +381,7 @@ FEAT:Dodge
 GEAR:Longbow		SIZE:PC	LOCATION:Carried
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Stirge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stirge]
+STARTPACK:Stirge Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stirge]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Stirge	!PRERACE:1,%
 NAME:Stirge
@@ -391,7 +391,7 @@ SKILL:Spot		RANK:1
 SKILL:Hide		RANK:2
 FEAT:Alertness
 
-STARTPACK:Swarm (Bat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Bat)]
+STARTPACK:Swarm (Bat) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Bat)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Swarm (Bat)	!PRERACE:1,%
 NAME:Bat Swarm
@@ -401,13 +401,13 @@ SKILL:Spot		RANK:3
 FEAT:Alertness
 FEAT:Lightning Reflexes
 
-STARTPACK:Swarm (Centipede) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Centipede)]
+STARTPACK:Swarm (Centipede) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Centipede)]
 STAT:DEX=11|STR=10|CON=10|WIS=10|CHA=10
 RACE:Swarm (Centipede)	!PRERACE:1,%
 NAME:Centipede Swarm
 ALIGN:TN
 
-STARTPACK:Swarm (Hellwasp) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Hellwasp)]
+STARTPACK:Swarm (Hellwasp) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Hellwasp)]
 STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 RACE:Swarm (Hellwasp)	!PRERACE:1,%
 NAME:Hellwasp Swarm
@@ -421,13 +421,13 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Toughness
 
-STARTPACK:Swarm (Locust) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Locust)]
+STARTPACK:Swarm (Locust) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Locust)]
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Swarm (Locust)	!PRERACE:1,%
 NAME:Locust Swarm
 ALIGN:TN
 
-STARTPACK:Swarm (Rat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Rat)]
+STARTPACK:Swarm (Rat) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Rat)]
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Swarm (Rat)	!PRERACE:1,%
 NAME:Rat Swarm
@@ -437,13 +437,13 @@ SKILL:Listen	RANK:3
 FEAT:Weapon Finesse
 FEAT:Alertness
 
-STARTPACK:Swarm (Spider) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Spider)]
+STARTPACK:Swarm (Spider) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Spider)]
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Swarm (Spider)	!PRERACE:1,%
 NAME:Spider Swarm
 ALIGN:TN
 
-STARTPACK:Tarrasque Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tarrasque]
+STARTPACK:Tarrasque Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tarrasque]
 STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
 RACE:Tarrasque	!PRERACE:1,%
 NAME:Tarrasque
@@ -470,7 +470,7 @@ FEAT:Toughness
 FEAT:Toughness
 FEAT:Toughness
 
-STARTPACK:Tendriculos Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]
+STARTPACK:Tendriculos Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]
 STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
 RACE:Tendriculos	!PRERACE:1,%
 NAME:Tendriculos
@@ -481,7 +481,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Stealthy
 
-STARTPACK:Thoqqua Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thoqqua]
+STARTPACK:Thoqqua Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thoqqua]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Thoqqua	!PRERACE:1,%
 ALIGN:TN
@@ -492,7 +492,7 @@ SKILL:Survival		RANK:2
 FEAT:Alertness
 FEAT:Track
 
-STARTPACK:Titan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan]
+STARTPACK:Titan Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan]
 STAT:STR=11|CON=11|INT=11|DEX=10|WIS=10|CHA=10
 RACE:Titan	!PRERACE:1,%
 NAME:Titan
@@ -524,7 +524,7 @@ GEAR:Javelin	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.PLUS3W
 GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS4A
 GEAR:Warhammer	SIZE:G	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.ADAMANT_WEAP
 
-STARTPACK:Tojanida (Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Adult)]
+STARTPACK:Tojanida (Adult) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Adult)]
 STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
 RACE:Tojanida (Adult)	!PRERACE:1,%
 NAME:Adult Tojanida
@@ -540,7 +540,7 @@ FEAT:Blind Fight
 FEAT:Dodge
 FEAT:Power Attack
 
-STARTPACK:Tojanida (Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Elder)]
+STARTPACK:Tojanida (Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Elder)]
 STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
 RACE:Tojanida (Elder)	!PRERACE:1,%
 NAME:Elder Tojanida
@@ -560,7 +560,7 @@ FEAT:Dodge
 FEAT:Improved Sunder
 FEAT:Power Attack
 
-STARTPACK:Tojanida (Juvenile) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Juvenile)]
+STARTPACK:Tojanida (Juvenile) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tojanida (Juvenile)]
 STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
 RACE:Tojanida (Juvenile)	!PRERACE:1,%
 NAME:Juvenile Tojanida
@@ -575,7 +575,7 @@ SKILL:Sense Motive		RANK:6
 FEAT:Blind Fight
 FEAT:Dodge
 
-STARTPACK:Treant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treant]
+STARTPACK:Treant Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treant]
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 RACE:Treant	!PRERACE:1,%
 NAME:Treant
@@ -590,7 +590,7 @@ FEAT:Improved Sunder
 FEAT:Iron Will
 FEAT:Power Attack
 
-STARTPACK:Triton Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]
+STARTPACK:Triton Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 RACE:Triton	!PRERACE:1,%
 NAME:Triton
@@ -609,7 +609,7 @@ FEAT:Ride By Attack
 GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
 GEAR:Trident		SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Troglodyte Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troglodyte]
+STARTPACK:Troglodyte Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troglodyte]
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Troglodyte	!PRERACE:1,%
 NAME:Troglodyte
@@ -620,7 +620,7 @@ FEAT:Weapon Focus(Javelin)
 GEAR:Club		SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Troll Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll%]
+STARTPACK:Troll Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll%]
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 ALIGN:CE
 RACE:Troll	!PRERACE:1,%
@@ -632,7 +632,7 @@ FEAT:Alertness
 FEAT:Iron Will
 FEAT:Track
 
-STARTPACK:Troll (Scrag) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
+STARTPACK:Troll (Scrag) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
 RACE:Troll	!PRERACE:1,%
 KIT:Troll Default
 NAME:Scrag

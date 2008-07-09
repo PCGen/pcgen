@@ -1,54 +1,54 @@
 # CVS $Revision: 1.3 $ $Author: eddyanthony $ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Aboleth with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
+STARTPACK:Aboleth with Treasure Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
 KIT:Aboleth Default
 KIT:Treasure Table
 KIT:Treasure Table
 
-STARTPACK:Achaierai with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaierai]
+STARTPACK:Achaierai with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaierai]
 KIT:Achaierai Default
 KIT:Treasure Table
 KIT:Treasure Table
 
-STARTPACK:Angel (Astral Deva) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Astral Deva)]
+STARTPACK:Angel (Astral Deva) with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Astral Deva)]
 KIT:Angel (Astral Deva) Default
 KIT:Treasure Table Goods CR14
 KIT:Treasure Table Goods CR14
 KIT:Treasure Table Items CR14
 
-STARTPACK:Angel (Planetar) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Planetar)]
+STARTPACK:Angel (Planetar) with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Planetar)]
 KIT:Angel (Planetar) Default
 KIT:Treasure Table Goods CR16
 KIT:Treasure Table Goods CR16
 KIT:Treasure Table Items CR16
 
-STARTPACK:Angel (Solar) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Solar)]
+STARTPACK:Angel (Solar) with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Solar)]
 KIT:Angel (Solar) Default
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
 
-STARTPACK:Aranea with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aranea]
+STARTPACK:Aranea with Treasure Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aranea]
 KIT:Aranea Default
 KIT:Treasure Table Coins CR4
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Items CR4
 
-STARTPACK:Archon (Hound) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Hound)]
+STARTPACK:Archon (Hound) with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Hound)]
 KIT:Archon (Hound) Default
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Items CR4
 
-STARTPACK:Archon (Trumpet) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Trumpet)]
+STARTPACK:Archon (Trumpet) with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Trumpet)]
 KIT:Archon (Trumpet) Default
 KIT:Treasure Table Goods CR14
 KIT:Treasure Table Goods CR14
 KIT:Treasure Table Items CR14
 
-STARTPACK:Assassin Vine with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Assassin Vine]
+STARTPACK:Assassin Vine with Treasure Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Assassin Vine]
 KIT:Assassin Vine Default
 KIT:Treasure Table 1/10 Coins CR3
 SELECT:roll("1d100")
@@ -56,20 +56,20 @@ KIT:Treasure Table Goods CR3		OPTION:1,50
 SELECT:roll("1d100")
 KIT:Treasure Table Items CR3		OPTION:1,50
 
-STARTPACK:Athach with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Athach]
+STARTPACK:Athach with Treasure Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Athach]
 KIT:Athach Default
 KIT:Treasure Table 1/2 Coins CR8
 KIT:Treasure Table Goods CR8
 KIT:Treasure Table Goods CR8
 KIT:Treasure Table Items CR8
 
-STARTPACK:Avoral with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Avoral]
+STARTPACK:Avoral with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Avoral]
 KIT:Avoral Default
 KIT:Treasure Table Goods CR9
 KIT:Treasure Table Goods CR9
 KIT:Treasure Table Items CR9
 
-STARTPACK:Azer with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Azer]
+STARTPACK:Azer with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Azer]
 KIT:Azer Default
 KIT:Treasure Table Coins CR2
 # Nonflammables Only
@@ -77,31 +77,31 @@ KIT:Treasure Table Goods CR2
 KIT:Treasure Table Goods CR2
 KIT:Treasure Table Items CR2
 
-STARTPACK:Barghest with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest]
+STARTPACK:Barghest with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest]
 KIT:Barghest Default
 KIT:Treasure Table
 KIT:Treasure Table
 
-STARTPACK:Barghest (Greater) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest (Greater)]
+STARTPACK:Barghest (Greater) with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest (Greater)]
 KIT:Barghest (Greater) Default
 KIT:Treasure Table
 KIT:Treasure Table
 
-STARTPACK:Basilisk (Abyssal/Greater) with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
+STARTPACK:Basilisk (Abyssal/Greater) with Treasure Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
 KIT:Basilisk (Abyssal/Greater) Default
 KIT:Treasure Table
 
-STARTPACK:Behir with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behir]
+STARTPACK:Behir with Treasure Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behir]
 KIT:Behir Default
 KIT:Treasure Table
 
-STARTPACK:Bralani with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bralani]
+STARTPACK:Bralani with Treasure Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bralani]
 KIT:Bralani Default
 KIT:Treasure Table Goods CR6
 KIT:Treasure Table Goods CR6
 KIT:Treasure Table Items CR6
 
-STARTPACK:Bugbear with Treasure Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
+STARTPACK:Bugbear with Treasure Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
 KIT:Bugbear Default
 KIT:Treasure Table
 

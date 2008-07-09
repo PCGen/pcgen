@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Greater Shadow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]
+STARTPACK:Greater Shadow	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]
 RACE:Shadow	!PRERACE:1,%
 NAME:Greater Shadow
 ALIGN:CE
@@ -20,7 +20,7 @@ SKILL:Spot		RANK:2
 FEAT:Mobility
 FEAT:Spring Attack
 
-STARTPACK:Troll Hunter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
+STARTPACK:Troll Hunter	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]
 RACE:Troll	!PRERACE:1,%
 NAME:Troll Hunter
 ALIGN:CE
