@@ -2,7 +2,7 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Medium Staffs	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Medium Staffs	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Staff (Charming)		OPTION:1,15
 GEAR:Staff (Fire)			OPTION:16,30
@@ -13,7 +13,7 @@ GEAR:Staff (Illumination)	OPTION:76,90
 GEAR:Staff (Frost)		OPTION:91,95
 GEAR:Staff (Defense)		OPTION:96,100
 
-STARTPACK:Major Staffs	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Major Staffs	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Staff (Charming)		OPTION:1,3
 GEAR:Staff (Fire)			OPTION:4,9
