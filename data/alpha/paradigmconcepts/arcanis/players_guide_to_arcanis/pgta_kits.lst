@@ -2,19 +2,19 @@
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 #Original Entry: Eddy Anthony
 
-STARTPACK:Gentry (Val)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Gentry (Val)	TYPE:StartingKit	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Altherian Flintlock (Pistol)
 GEAR:Blastpowder (20)
 
 
-STARTPACK:Shining Patrol Service	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Shining Patrol Service	TYPE:StartingKit	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Scimitar				SIZE:PC
 GEAR:Outfit (Traveler's)		SIZE:PC
 GEAR:Altherian Flintlock (Rifle)			PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
 GEAR:Blastpowder (20)					PREMULT:1,[PREREGION:Altheria],[PRERACE:1,Val],[PREFEAT:1,Gentry]
 
 
-STARTPACK:Soldier of Retribution	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Soldier of Retribution	TYPE:StartingKit	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Longsword			SIZE:PC
 GEAR:TYPE=Armor.Light.Suit	SIZE:PC	MAXCOST:500
 

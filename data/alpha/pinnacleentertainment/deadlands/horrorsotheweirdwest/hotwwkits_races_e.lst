@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:El Diablo Negro Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,El Diablo Negro]
+STARTPACK:El Diablo Negro Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,El Diablo Negro]
 RACE:El Diablo Negro	!PRERACE:1,%
 NAME:El Diablo Negro
 ALIGN:NE
@@ -16,7 +16,7 @@ FEAT:Dodge
 FEAT:Multiattack
 FEAT:Track
 
-STARTPACK:El Diablo Rojo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,El Diablo Rojo]
+STARTPACK:El Diablo Rojo Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,El Diablo Rojo]
 RACE:El Diablo Rojo	!PRERACE:1,%
 NAME:El Diablo Rojo
 ALIGN:NE

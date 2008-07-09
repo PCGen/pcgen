@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Flesh Jacket Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flesh Jacket]
+STARTPACK:Flesh Jacket Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flesh Jacket]
 RACE:Flesh Jacket	!PRERACE:1,%
 NAME:Flesh Jacket
 ALIGN:CE
@@ -13,7 +13,7 @@ SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 FEAT:Blind-Fight
 
-STARTPACK:Default Frankenstein's Monster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frankenstein's Monster]
+STARTPACK:Default Frankenstein's Monster	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frankenstein's Monster]
 RACE:Frankenstein's Monster	!PRERACE:1,%
 NAME:Frankenstein's Monster
 ALIGN:CN

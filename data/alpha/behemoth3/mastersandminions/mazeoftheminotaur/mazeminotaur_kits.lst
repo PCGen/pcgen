@@ -4,11 +4,11 @@ SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.
 
 REGION:None
 
-STARTPACK:Bull Lord Default Equipment	VISIBLE:NO	EQUIPBUY:0
+STARTPACK:Bull Lord Default Equipment	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
 GEAR:Greataxe (Large)
 GEAR:Chain Shirt (Large)
 
-STARTPACK:Minotrice Maze Mage Default Equipment	VISIBLE:NO	EQUIPBUY:0
+STARTPACK:Minotrice Maze Mage Default Equipment	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
 GEAR:Leather
 
 #

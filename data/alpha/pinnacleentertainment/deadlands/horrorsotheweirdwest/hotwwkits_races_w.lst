@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
 
-STARTPACK:Default Walkin' Fossil	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Walkin' Fossil]
+STARTPACK:Default Walkin' Fossil	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Walkin' Fossil]
 RACE:Walkin' Fossil	!PRERACE:1,%
 NAME:Walkin' Fossil
 ALIGN:TN
@@ -13,7 +13,7 @@ SKILL:Move Silently	RANK:4
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Wave Shadow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wave Shadow]
+STARTPACK:Wave Shadow Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wave Shadow]
 RACE:Wave Shadow	!PRERACE:1,%
 NAME:Wave Shadow
 ALIGN:LE
@@ -25,7 +25,7 @@ SKILL:Search		RANK:6
 SKILL:Swim			RANK:8
 FEAT:Endurance
 
-STARTPACK:Weeping Widow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Weeping Widow]
+STARTPACK:Weeping Widow Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Weeping Widow]
 RACE:Weeping Widow	!PRERACE:1,%
 NAME:Weeping Widow
 ALIGN:CE
@@ -39,7 +39,7 @@ SKILL:Knowledge (Local)	RANK:8
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Were-Shark Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Were-Shark]
+STARTPACK:Were-Shark Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Were-Shark]
 RACE:Were-Shark	!PRERACE:1,%
 NAME:Were-Shark
 SKILL:Climb			RANK:4
@@ -51,7 +51,7 @@ SKILL:Spot			RANK:8
 SKILL:Swim			RANK:8
 FEAT:Multiattack
 
-STARTPACK:Default Will-o'-the-Wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Will-o'-the-Wisp]
+STARTPACK:Default Will-o'-the-Wisp	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Will-o'-the-Wisp]
 RACE:Will-o'-the-Wisp	!PRERACE:1,%
 NAME:Will-o'-the-Wisp
 ALIGN:CE
