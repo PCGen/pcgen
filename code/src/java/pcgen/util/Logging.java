@@ -21,8 +21,10 @@
 package pcgen.util;
 
 import java.awt.Toolkit;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -303,8 +305,10 @@ public class Logging
 	 */
 	public static void errorPrint(final String s, final Throwable thr)
 	{
-		errorPrint(s);
-		thr.printStackTrace(System.err);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(baos);
+		thr.printStackTrace(ps);
+		errorPrint(s + "\n" + baos.toString());
 	}
 
 	/**
@@ -349,8 +353,10 @@ public class Logging
 	 */
 	public static void errorPrintLocalised(final String s, final Throwable thr)
 	{
-		errorPrint(PropertyFactory.getString(s));
-		thr.printStackTrace(System.err);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(baos);
+		thr.printStackTrace(ps);
+		errorPrint(PropertyFactory.getString(s) + "\n" + baos.toString());
 	}
 
 	/**
