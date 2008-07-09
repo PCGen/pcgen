@@ -1,9 +1,11 @@
 package plugin.lsttokens.spell;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with CT Token
@@ -16,9 +18,21 @@ public class CtToken implements CDOMPrimaryToken<Spell>
 		return "CT";
 	}
 
-	public String[] unparse(LoadContext context, Spell obj)
+	public String[] unparse(LoadContext context, Spell spell)
 	{
-		return null;
+		Integer i = context.getObjectContext().getInteger(spell,
+				IntegerKey.CASTING_THRESHOLD);
+		if (i == null)
+		{
+			return null;
+		}
+		if (i.intValue() < 0)
+		{
+			context.addWriteMessage(getTokenName()
+					+ " requires a positive Integer");
+			return null;
+		}
+		return new String[] { i.toString() };
 	}
 
 	public Class<Spell> getTokenClass()
@@ -26,9 +40,27 @@ public class CtToken implements CDOMPrimaryToken<Spell>
 		return Spell.class;
 	}
 
-	public boolean parse(LoadContext context, Spell obj, String value)
+	public boolean parse(LoadContext context, Spell spell, String value)
 			throws PersistenceLayerException
 	{
-		return false;
+		try
+		{
+			Integer ct = Integer.valueOf(value);
+			if (ct.intValue() < 0)
+			{
+				Logging.errorPrint(getTokenName()
+						+ " requires a positive Integer");
+				return false;
+			}
+			context.getObjectContext().put(spell, IntegerKey.CASTING_THRESHOLD, ct);
+			return true;
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint(getTokenName()
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
+			return false;
+		}
 	}
 }
