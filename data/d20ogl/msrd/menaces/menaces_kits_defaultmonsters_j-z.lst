@@ -15,7 +15,7 @@ SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:
 #	be 4, are already 5
 #Tiny Star Doppelganger has probably typo in skill Move Silently 11, if it is 1 than skill ranks would be correct.
 
-STARTPACK:Jynx Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jynx]
+STARTPACK:Jynx Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jynx]
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 RACE:Jynx	!PRERACE:1,%
 NAME:Jynx
@@ -34,7 +34,7 @@ FEAT:Dodge
 FEAT:Mobility
 FEAT:Weapon Finesse (Claw)
 
-STARTPACK:Kinori Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kinori]
+STARTPACK:Kinori Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kinori]
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 RACE:Kinori	!PRERACE:1,%
 NAME:Kinori
@@ -49,17 +49,17 @@ SKILL:Spot			RANK:3
 SKILL:Survival		RANK:5
 SKILL:Swim			RANK:1
 
-STARTPACK:Litter Brute Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Litter Brute]
+STARTPACK:Litter Brute Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Litter Brute]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Litter Brute	!PRERACE:1,%
 NAME:Litter Brute
 
-STARTPACK:Litter Brute (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Litter Brute (Advanced)]
+STARTPACK:Litter Brute (Advanced) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Litter Brute (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Litter Brute (Advanced)	!PRERACE:1,%
 NAME:Advanced Litter Brute
 
-STARTPACK:Luciferan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Luciferan]
+STARTPACK:Luciferan Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Luciferan]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Luciferan	!PRERACE:1,%
 NAME:Luciferan
@@ -69,35 +69,35 @@ FEAT:Personal Firearms Proficiency
 GEAR:Colt Python (.357 revolver)			LOCATION:Primary Hand
 GEAR:Bullet (.357)			QTY:12
 
-STARTPACK:Man o War (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Man o War (Giant)]
+STARTPACK:Man o War (Giant) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Man o War (Giant)]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Man o War (Giant)	!PRERACE:1,%
 NAME:Giant Man-'o-War
 SKILL:Hide			RANK:10
 SKILL:Move Silently	RANK:6
 
-STARTPACK:Mapinguari Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mapinguari]
+STARTPACK:Mapinguari Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mapinguari]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Mapinguari	!PRERACE:1,%
 NAME:Mapinguari
 SKILL:Climb		RANK:4
 SKILL:Listen	RANK:4
 
-STARTPACK:Mapinguari (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mapinguari (Advanced)]
+STARTPACK:Mapinguari (Advanced) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mapinguari (Advanced)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Mapinguari (Advanced)	!PRERACE:1,%
 NAME:Advanced Mapinguari
 SKILL:Climb		RANK:4
 SKILL:Listen	RANK:4
 
-STARTPACK:Megalodon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon]
+STARTPACK:Megalodon Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon]
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 RACE:Megalodon	!PRERACE:1,%
 NAME:Megalodon
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 
-STARTPACK:Megalodon (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon (Advanced)]
+STARTPACK:Megalodon (Advanced) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon (Advanced)]
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 RACE:Megalodon (Advanced)	!PRERACE:1,%
 NAME:Advanced Megalodon
@@ -105,14 +105,14 @@ SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 SKILL:Hide		RANK:4
 
-STARTPACK:Mongolian Death Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongolian Death Worm]
+STARTPACK:Mongolian Death Worm Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongolian Death Worm]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 RACE:Mongolian Death Worm	!PRERACE:1,%
 NAME:Mongolian Death Worm
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:7
 
-STARTPACK:Mongolian Death Worm (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongolian Death Worm (Advanced)]
+STARTPACK:Mongolian Death Worm (Advanced) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongolian Death Worm (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 RACE:Mongolian Death Worm (Advanced)	!PRERACE:1,%
 NAME:Advanced Mongolian Death Worm
@@ -120,7 +120,7 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:7
 FEAT:Alertness
 
-STARTPACK:Monitor Lizard Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monitor Lizard]
+STARTPACK:Monitor Lizard Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monitor Lizard]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Monitor Lizard	!PRERACE:1,%
 NAME:Monitor Lizard
@@ -129,7 +129,7 @@ SKILL:Hide		RANK:1
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 
-STARTPACK:Montauk Monster Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Montauk Monster]
+STARTPACK:Montauk Monster Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Montauk Monster]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Montauk Monster	!PRERACE:1,%
 NAME:Montauk Monster
@@ -140,7 +140,7 @@ SKILL:Spot			RANK:7
 FEAT:Alertness
 FEAT:Lightning Reflexes
 
-STARTPACK:Montauk Monster (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Montauk Monster (Advanced)]
+STARTPACK:Montauk Monster (Advanced) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Montauk Monster (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Montauk Monster (Advanced)	!PRERACE:1,%
 NAME:Advanced Montauk Monster
@@ -153,7 +153,7 @@ FEAT:Combat Reflexes
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 
-STARTPACK:Mothfolk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mothfolk]
+STARTPACK:Mothfolk Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mothfolk]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Mothfolk	!PRERACE:1,%
 NAME:Mothfolk
@@ -166,7 +166,7 @@ SKILL:Spot			RANK:2
 ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
 FEAT:Stealthy
 
-STARTPACK:Neothelid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]
+STARTPACK:Neothelid Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Neothelid	!PRERACE:1,%
 NAME:Neothelid
@@ -179,7 +179,7 @@ FEAT:Power Attack
 FEAT:Sunder
 FEAT:Weapon Focus (Tentacle Rake)
 
-STARTPACK:Night Terror Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Terror]
+STARTPACK:Night Terror Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Terror]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Night Terror	!PRERACE:1,%
 NAME:Night Terror
@@ -201,23 +201,23 @@ FEAT:Renown
 GEAR:Cleaver				LOCATION:Primary Hand
 GEAR:Collection of beheaded Dolls	LOCATION:Carried
 
-STARTPACK:Robot (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Small)]
+STARTPACK:Robot (Small) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Small)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Robot (Small)	!PRERACE:1,%
 NAME:Small Robot
 
-STARTPACK:Robot (Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Medium)]
+STARTPACK:Robot (Medium) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Medium)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Robot (Medium)	!PRERACE:1,%
 NAME:Medium Robot
 
-STARTPACK:Robot (Police Assault Drone) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Police Assault Drone)]
+STARTPACK:Robot (Police Assault Drone) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Police Assault Drone)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Robot (Police Assault Drone)	!PRERACE:1,%
 NAME:Police Assault Drone
 GEAR:Mossberg (12 gauge shotgun)	LOCATION:Both Hands
 
-STARTPACK:Rod Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rod]
+STARTPACK:Rod Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rod]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Rod	!PRERACE:1,%
 NAME:Rod
@@ -225,7 +225,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
 
-STARTPACK:Rogue Tulpa Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rogue Tulpa]
+STARTPACK:Rogue Tulpa Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rogue Tulpa]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Rogue Tulpa	!PRERACE:1,%
 NAME:Rogue Tulpa
@@ -236,7 +236,7 @@ SKILL:Spot			RANK:9
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Rogue Tulpa (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rogue Tulpa (Advanced)]
+STARTPACK:Rogue Tulpa (Advanced) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rogue Tulpa (Advanced)]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Rogue Tulpa (Advanced)	!PRERACE:1,%
 NAME:Advanced Rogue Tulpa
@@ -249,7 +249,7 @@ FEAT:Cleave
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Sasquatch (Weren) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sasquatch (Weren)]
+STARTPACK:Sasquatch (Weren) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sasquatch (Weren)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Sasquatch (Weren)	!PRERACE:1,%
 NAME:Sasquatch (Weren)
@@ -259,24 +259,24 @@ SKILL:Spot		RANK:2
 ABILITY:CATEGORY=Giant Proficiency|Simple Weapons Proficiency
 FEAT:Alertness
 
-STARTPACK:Satanic Ichor Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satanic Ichor]
+STARTPACK:Satanic Ichor Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satanic Ichor]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Satanic Ichor	!PRERACE:1,%
 NAME:Satanic Ichor
 
-STARTPACK:Satanic Ichor (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satanic Ichor (Advanced)]
+STARTPACK:Satanic Ichor (Advanced) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satanic Ichor (Advanced)]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 RACE:Satanic Ichor (Advanced)	!PRERACE:1,%
 NAME:Advanced Satanic Ichor
 
-STARTPACK:Scorpion Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion]
+STARTPACK:Scorpion Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Scorpion	!PRERACE:1,%
 NAME:Scorpion
 SKILL:Climb	RANK:4
 SKILL:Spot	RANK:3
 
-STARTPACK:Sea Serpent Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Serpent]
+STARTPACK:Sea Serpent Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Serpent]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 RACE:Sea Serpent	!PRERACE:1,%
 NAME:Sea Serpent
@@ -286,7 +286,7 @@ SKILL:Spot		RANK:5
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Sea Serpent (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Serpent (Advanced)]
+STARTPACK:Sea Serpent (Advanced) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Serpent (Advanced)]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 RACE:Sea Serpent (Advanced)	!PRERACE:1,%
 NAME:Advanced Sea Serpent
@@ -298,24 +298,24 @@ FEAT:Great Cleave
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Sewer Sludge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sewer Sludge]
+STARTPACK:Sewer Sludge Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sewer Sludge]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 RACE:Sewer Sludge	!PRERACE:1,%
 NAME:Sewer Sludge
 
-STARTPACK:Sewer Sludge (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sewer Sludge (Advanced)]
+STARTPACK:Sewer Sludge (Advanced) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sewer Sludge (Advanced)]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 RACE:Sewer Sludge (Advanced)	!PRERACE:1,%
 NAME:Advanced Sewer Sludge
 
-STARTPACK:Shark (Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Huge)]
+STARTPACK:Shark (Huge) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Huge)]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 RACE:Shark (Huge)	!PRERACE:1,%
 NAME:Shark, Huge
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 
-STARTPACK:Skin Feaster Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skin Feaster]
+STARTPACK:Skin Feaster Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skin Feaster]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Skin Feaster	!PRERACE:1,%
 NAME:Skin Feaster
@@ -325,7 +325,7 @@ SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 ABILITY:CATEGORY=Undead Proficiency|Simple Weapons Proficiency
 
-STARTPACK:Skin Feaster (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skin Feaster (Advanced)]
+STARTPACK:Skin Feaster (Advanced) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skin Feaster (Advanced)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Skin Feaster (Advanced)	!PRERACE:1,%
 NAME:Advanced Skin Feaster
@@ -337,7 +337,7 @@ ABILITY:CATEGORY=Undead Proficiency|Simple Weapons Proficiency
 FEAT:Agile Riposte
 FEAT:Dodge
 
-STARTPACK:Snake (Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Cobra)]
+STARTPACK:Snake (Cobra) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Cobra)]
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=11|CHA=10
 RACE:Snake (Cobra)	!PRERACE:1,%
 NAME:Snake, Cobra
@@ -345,7 +345,7 @@ SKILL:Hide		RANK:3
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 
-STARTPACK:Snake (Black Mamba) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Black Mamba)]
+STARTPACK:Snake (Black Mamba) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Black Mamba)]
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=11|CHA=10
 RACE:Snake (Black Mamba)	!PRERACE:1,%
 NAME:Snake, Black Mamba
@@ -353,17 +353,17 @@ SKILL:Hide		RANK:3
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 
-STARTPACK:Snake (Hoop) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Hoop)]
+STARTPACK:Snake (Hoop) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Hoop)]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Snake (Hoop)	!PRERACE:1,%
 NAME:Hoop Snake
 
-STARTPACK:Snake (Advanced Hoop) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Advanced Hoop)]
+STARTPACK:Snake (Advanced Hoop) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Advanced Hoop)]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Snake (Advanced Hoop)	!PRERACE:1,%
 NAME:Advanced Hoop Snake
 
-STARTPACK:Star Doppelganger (Tiny) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STARTPACK:Star Doppelganger (Tiny) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Star Doppelganger	!PRERACE:1,%
 NAME:Tiny Star Doppelganger
@@ -381,7 +381,7 @@ FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
 
-STARTPACK:Star Doppelganger (Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STARTPACK:Star Doppelganger (Small) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Star Doppelganger	!PRERACE:1,%
 NAME:Small Star Doppelganger
@@ -400,7 +400,7 @@ FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
 
-STARTPACK:Star Doppelganger (Medium-size) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STARTPACK:Star Doppelganger (Medium-size) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Star Doppelganger	!PRERACE:1,%
 NAME:Medium-size Star Doppelganger
@@ -420,7 +420,7 @@ FEAT:Alertness
 FEAT:Athletic
 FEAT:Builder
 
-STARTPACK:Star Doppelganger (Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STARTPACK:Star Doppelganger (Large) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Star Doppelganger	!PRERACE:1,%
 NAME:Large Star Doppelganger
@@ -441,7 +441,7 @@ FEAT:Athletic
 FEAT:Builder
 FEAT:Power Attack
 
-STARTPACK:Star Doppelganger (Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
+STARTPACK:Star Doppelganger (Huge) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Doppelganger]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Star Doppelganger	!PRERACE:1,%
 NAME:Huge Star Doppelganger
@@ -464,7 +464,7 @@ FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Power Attack
 
-STARTPACK:Thought Eater Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
+STARTPACK:Thought Eater Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 RACE:Thought Eater	!PRERACE:1,%
 NAME:Thought Eater
@@ -472,7 +472,7 @@ SKILL:Hide		RANK:6
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 
-STARTPACK:Thunderbird (Chick) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird (Chick)]
+STARTPACK:Thunderbird (Chick) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird (Chick)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 RACE:Thunderbird (Chick)	!PRERACE:1,%
 NAME:Thunderbird (Chick)
@@ -483,7 +483,7 @@ SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Thunderbird (Adult) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird (Adult)]
+STARTPACK:Thunderbird (Adult) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird (Adult)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Thunderbird (Adult)	!PRERACE:1,%
 NAME:Thunderbird (Adult)
@@ -499,27 +499,27 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Toxic Sludge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxic Sludge]
+STARTPACK:Toxic Sludge Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxic Sludge]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Toxic Sludge	!PRERACE:1,%
 NAME:Toxic Sludge
 
-STARTPACK:Toxic Sludge (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxic Sludge (Advanced)]
+STARTPACK:Toxic Sludge (Advanced) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxic Sludge (Advanced)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Toxic Sludge (Advanced)	!PRERACE:1,%
 NAME:Advanced Toxic Sludge
 
-STARTPACK:Udoroot Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
+STARTPACK:Udoroot Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Udoroot	!PRERACE:1,%
 NAME:Udoroot
 
-STARTPACK:Udoroot (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot (Advanced)]
+STARTPACK:Udoroot (Advanced) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot (Advanced)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 RACE:Udoroot (Advanced)	!PRERACE:1,%
 NAME:Advanced Udoroot
 
-STARTPACK:Whisperer in the Dark Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whisperer in the Dark]
+STARTPACK:Whisperer in the Dark Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whisperer in the Dark]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 RACE:Whisperer in the Dark	!PRERACE:1,%
 NAME:Whisperer in the Dark
@@ -536,7 +536,7 @@ FEAT:Combat Reflexes
 FEAT:Frightful Presence
 FEAT:Improved Initiative
 
-STARTPACK:Yeti Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeti]
+STARTPACK:Yeti Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeti]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 RACE:Yeti	!PRERACE:1,%
 NAME:Yeti
@@ -545,7 +545,7 @@ SKILL:Hide			RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Survival		RANK:6
 
-STARTPACK:Yeti (Advanced) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeti (Advanced)]
+STARTPACK:Yeti (Advanced) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeti (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 RACE:Yeti (Advanced)	!PRERACE:1,%
 NAME:Abominable Snowman (Advanced Yeti)
@@ -556,7 +556,7 @@ SKILL:Survival		RANK:11
 FEAT:Power Attack
 FEAT:Track
 
-STARTPACK:Zap Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zap]
+STARTPACK:Zap Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zap]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 RACE:Zap	!PRERACE:1,%
 NAME:Zap
@@ -564,7 +564,7 @@ SKILL:Hide		RANK:4
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:4
 
-STARTPACK:Zeikune Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zeikune]
+STARTPACK:Zeikune Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zeikune]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Zeikune	!PRERACE:1,%
 NAME:Zeikune

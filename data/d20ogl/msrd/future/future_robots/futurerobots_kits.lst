@@ -19,7 +19,7 @@ STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 
 # Sample Robots
 
-STARTPACK:Sample Robot (Spot Security Robot)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Biomorph/Medium)]
+STARTPACK:Sample Robot (Spot Security Robot)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Biomorph/Medium)]
 RACE:Robot (Biomorph/Medium)	!PRERACE:1,%
 NAME:Spot Security Robot
 GEAR:Robot Locomotion (Legs/Multiple)		LOCATION:Equipped
@@ -34,7 +34,7 @@ GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|
 GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|Move Silently
 GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|Spot
 
-STARTPACK:Sample Robot (APE Police Robot)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Biodroid/Medium)]
+STARTPACK:Sample Robot (APE Police Robot)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Biodroid/Medium)]
 RACE:Robot (Biodroid/Medium)	!PRERACE:1,%
 NAME:APE Police Robot
 GEAR:Robot Locomotion (Legs/Pair)							LOCATION:Equipped	EQMOD:ROBOT_SPEED_10
@@ -54,7 +54,7 @@ GEAR:Robot Accessory (Weapon Mount/Small/Medium)				LOCATION:Equipped
 GEAR:Robot Feat Software (Personal Firearms Proficiency)			LOCATION:Equipped
 GEAR:Robot Feat Software (Exotic Firearms Proficiency/Grenade Launcher)	LOCATION:Equipped
 
-STARTPACK:Sample Robot ('Nuyu' Doppelganger Robot)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Bioreplica/Medium)]
+STARTPACK:Sample Robot ('Nuyu' Doppelganger Robot)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Bioreplica/Medium)]
 RACE:Robot (Bioreplica/Medium)	!PRERACE:1,%
 NAME:"Nuyu" Doppelganger Robot
 GEAR:Robot Locomotion (Legs/Pair)					LOCATION:Equipped	EQMOD:ROBOT_SPEED_10
