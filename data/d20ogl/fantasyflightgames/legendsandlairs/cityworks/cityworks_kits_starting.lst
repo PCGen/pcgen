@@ -4,7 +4,7 @@ SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www
 
 REGION:None
 
-STARTPACK:Acrobat Starting Package	PRECLASS:1,Acrobat=1	SOURCEPAGE:p.17
+STARTPACK:Acrobat Starting Package	TYPE:StartingKit	PRECLASS:1,Acrobat=1	SOURCEPAGE:p.17
 GEAR:Leather
 GEAR:Quarterstaff
 GEAR:Crossbow (Light)
@@ -18,7 +18,7 @@ FEAT:Dodge				PRERACE:1,Human	PRESTAT:1,DEX=13
 FEAT:Expertise			PRERACE:1,Human	PRESTAT:1,INT=13
 
 
-STARTPACK:Assassin Starting Package	PRECLASS:1,Assassin (CW)=1	SOURCEPAGE:p.21
+STARTPACK:Assassin Starting Package	TYPE:StartingKit	PRECLASS:1,Assassin (CW)=1	SOURCEPAGE:p.21
 GEAR:Leather
 GEAR:Greatsword				PRERACE:1,Dwarf%,Elf%,Half-Elf,Half-Orc,Human
 GEAR:Longsword				PRERACE:1,Gnome,Halfling
@@ -33,7 +33,7 @@ FEAT:Improved Initiative			PRERACE:1,Human
 GEAR:Kukri
 
 
-STARTPACK:Pit Fighter Starting Package	PRECLASS:1,Pit Fighter=1	SOURCEPAGE:p.25
+STARTPACK:Pit Fighter Starting Package	TYPE:StartingKit	PRECLASS:1,Pit Fighter=1	SOURCEPAGE:p.25
 GEAR:Studded Leather
 GEAR:Chain (Spiked)
 GEAR:Net

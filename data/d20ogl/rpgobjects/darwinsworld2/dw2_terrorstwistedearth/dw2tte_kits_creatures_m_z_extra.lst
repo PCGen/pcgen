@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
 SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
-STARTPACK:Mongoliant Raider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mongoliant],[!PRERACE:1,%]
+STARTPACK:Mongoliant Raider Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mongoliant],[!PRERACE:1,%]
 RACE:Mongoliant	!PRERACE:1,%
 NAME:Mongoliant Raider
 CLASS:Raider	LEVEL:3
@@ -21,7 +21,7 @@ ABILITY:CATEGORY=FEAT|Power Attack				FREE:NO
 GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Greataxe		LOCATION:Carried
 
-STARTPACK:Sandman Strong Hero Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Sandman],[!PRERACE:1,%]
+STARTPACK:Sandman Strong Hero Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Sandman],[!PRERACE:1,%]
 RACE:Sandman	!PRERACE:1,%
 NAME:Sandman Strong Hero
 CLASS:Strong	LEVEL:3	SUBCLASS:Strong Hero
@@ -42,7 +42,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative	FREE:NO
 ABILITY:CATEGORY=FEAT|Cleave			FREE:NO
 ABILITY:CATEGORY=FEAT|Power Attack		FREE:NO
 
-STARTPACK:Shadow Person Psionic Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Shadow People],[!PRERACE:1,%]
+STARTPACK:Shadow Person Psionic Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Shadow People],[!PRERACE:1,%]
 RACE:Shadow People	!PRERACE:1,%
 NAME:Shadow Person Psionic
 CLASS:Psionic	LEVEL:3
@@ -68,7 +68,7 @@ GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Falchion		LOCATION:Primary Hand
 GEAR:Javelin		LOCATION:Carried
 
-STARTPACK:Terminal Strong Hero Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Terminal],[!PRERACE:1,%]
+STARTPACK:Terminal Strong Hero Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Terminal],[!PRERACE:1,%]
 RACE:Terminal	!PRERACE:1,%
 NAME:Terminal Strong Hero
 CLASS:Strong	LEVEL:3	SUBCLASS:Strong Hero
@@ -88,7 +88,7 @@ ABILITY:CATEGORY=FEAT|Toughness		FREE:YES
 GEAR:Shortspear	LOCATION:Primary Hand
 GEAR:Javelin	LOCATION:Carried
 
-STARTPACK:Underling Fast Hero Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Underling],[!PRERACE:1,%]
+STARTPACK:Underling Fast Hero Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Underling],[!PRERACE:1,%]
 RACE:Underling	!PRERACE:1,%
 NAME:Underling Fast Hero
 CLASS:Fast	LEVEL:3	SUBCLASS:Fast Hero
@@ -111,7 +111,7 @@ GEAR:Longspear			LOCATION:Both Hands
 GEAR:Dart			QTY:4	LOCATION:Carried
 GEAR:Leather Armor		LOCATION:Equipped
 
-STARTPACK:Wild Man Fast Hero Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wild Man],[!PRERACE:1,%]
+STARTPACK:Wild Man Fast Hero Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wild Man],[!PRERACE:1,%]
 RACE:Wild Man	!PRERACE:1,%
 NAME:Wild Man Fast Hero
 CLASS:Fast	LEVEL:3	SUBCLASS:Fast Hero
@@ -131,7 +131,7 @@ ABILITY:CATEGORY=FEAT|Mobility	FREE:NO
 GEAR:Club		LOCATION:Primary Hand
 GEAR:Javelin	LOCATION:Carried
 
-STARTPACK:Winged One Raider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Winged One],[!PRERACE:1,%]
+STARTPACK:Winged One Raider Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Winged One],[!PRERACE:1,%]
 RACE:Winged One	!PRERACE:1,%
 NAME:Winged One Raider
 CLASS:Raider	LEVEL:3
