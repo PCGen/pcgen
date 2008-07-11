@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Wind Walker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wind Walker]
+STARTPACK:Wind Walker Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wind Walker]
 RACE:Wind Walker	!PRERACE:1,%
 NAME:Wind Walker
 ALIGN:TN
@@ -15,7 +15,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Toughness
 
-STARTPACK:Witherstench Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witherstench]
+STARTPACK:Witherstench Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witherstench]
 RACE:Witherstench	!PRERACE:1,%
 NAME:Witherstench
 ALIGN:TN
@@ -24,13 +24,13 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Witherweed Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witherweed]
+STARTPACK:Witherweed Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witherweed]
 RACE:Witherweed	!PRERACE:1,%
 NAME:Witherweed
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
 
-STARTPACK:Wizard's Shackle Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wizard's Shackle]
+STARTPACK:Wizard's Shackle Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wizard's Shackle]
 RACE:Wizard's Shackle	!PRERACE:1,%
 NAME:Wizard's Shackle
 ALIGN:TN
@@ -39,7 +39,7 @@ SKILL:Hide		RANK:3
 SKILL:Listen	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Wolf (Ghoul) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Ghoul)]
+STARTPACK:Wolf (Ghoul) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Ghoul)]
 RACE:Wolf (Ghoul)	!PRERACE:1,%
 NAME:Ghoul Wolf
 ALIGN:NE
@@ -50,7 +50,7 @@ SKILL:Survival	RANK:2
 FEAT:Alertness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Wolf (Dire Ghoul) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Dire Ghoul)]
+STARTPACK:Wolf (Dire Ghoul) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Dire Ghoul)]
 RACE:Wolf (Dire Ghoul)	!PRERACE:1,%
 NAME:Dire Ghoul Wolf
 ALIGN:NE
@@ -66,7 +66,7 @@ FEAT:Run
 FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Wolf (Shadow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Shadow)]
+STARTPACK:Wolf (Shadow) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Shadow)]
 RACE:Wolf (Shadow)	!PRERACE:1,%
 NAME:Wolf, Shadow
 ALIGN:CE
@@ -77,7 +77,7 @@ SKILL:Survival	RANK:1
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Wolf-in-Sheep's-Clothing Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf-In-Sheep's-Clothing]
+STARTPACK:Wolf-in-Sheep's-Clothing Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf-In-Sheep's-Clothing]
 RACE:Wolf-In-Sheep's-Clothing	!PRERACE:1,%
 NAME:Wolf-In-Sheep's-Clothing
 ALIGN:TN
@@ -91,7 +91,7 @@ FEAT:Lightning Reflexes
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Tentacle)
 
-STARTPACK:Wolf-Spider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf-Spider]
+STARTPACK:Wolf-Spider Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf-Spider]
 RACE:Wolf-Spider	!PRERACE:1,%
 NAME:Wolf-Spider
 ALIGN:NE

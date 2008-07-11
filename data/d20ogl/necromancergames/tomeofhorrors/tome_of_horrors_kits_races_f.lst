@@ -2,25 +2,25 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:False Spider (Pedipalp) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Pedipalp)]
+STARTPACK:False Spider (Pedipalp) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Pedipalp)]
 ALIGN:TN
 RACE:False Spider (Pedipalp)	!PRERACE:1,%
 NAME:Pedipalp
 STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:False Spider (Pedipalp/Poisonous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Pedipalp/Poisonous)]
+STARTPACK:False Spider (Pedipalp/Poisonous) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Pedipalp/Poisonous)]
 ALIGN:TN
 RACE:False Spider (Pedipalp/Poisonous)	!PRERACE:1,%
 NAME:Poisonous Pedipalp
 STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:False Spider (Solifugid) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Solifugid)]
+STARTPACK:False Spider (Solifugid) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,False Spider (Solifugid)]
 ALIGN:TN
 RACE:False Spider (Solifugid)	!PRERACE:1,%
 NAME:Solifugid
 STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:Fen Witch Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fen Witch]
+STARTPACK:Fen Witch Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fen Witch]
 ALIGN:CE
 RACE:Fen Witch	!PRERACE:1,%
 NAME:Fen Witch
@@ -34,7 +34,7 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Great Fortitude
 
-STARTPACK:Fire Lizard Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Lizard]
+STARTPACK:Fire Lizard Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Lizard]
 ALIGN:TN
 RACE:Fire Lizard	!PRERACE:1,%
 NAME:Fire Lizard
@@ -46,7 +46,7 @@ FEAT:Cleave
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Fire Nymph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Nymph]
+STARTPACK:Fire Nymph Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Nymph]
 ALIGN:CN
 RACE:Fire Nymph	!PRERACE:1,%
 NAME:Fire Nymph
@@ -64,7 +64,7 @@ SKILL:Spot				RANK:5
 SKILL:Survival			RANK:5
 FEAT:Dodge
 
-STARTPACK:Fire Snake Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Snake]
+STARTPACK:Fire Snake Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Snake]
 ALIGN:TN
 RACE:Fire Snake	!PRERACE:1,%
 NAME:Fire Snake
@@ -76,7 +76,7 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 FEAT:Weapon Finesse
 
-STARTPACK:Firefiend Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Firefiend]
+STARTPACK:Firefiend Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Firefiend]
 ALIGN:CE
 RACE:Firefiend	!PRERACE:1,%
 NAME:Firefiend
@@ -90,7 +90,7 @@ GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand 2
 
-STARTPACK:Flail Snail Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flail Snail]
+STARTPACK:Flail Snail Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flail Snail]
 ALIGN:TN
 RACE:Flail Snail	!PRERACE:1,%
 NAME:Flail Snail
@@ -100,7 +100,7 @@ SKILL:Listen	RANK:3
 FEAT:Alertness
 FEAT:Weapon Focus (Tentacle Slam)
 
-STARTPACK:Flind Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flind]
+STARTPACK:Flind Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flind]
 ALIGN:LE
 RACE:Flind	!PRERACE:1,%
 NAME:Flind
@@ -113,7 +113,7 @@ GEAR:Club				SIZE:PC	LOCATION:Carried
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Floating Eye Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Floating Eye]
+STARTPACK:Floating Eye Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Floating Eye]
 ALIGN:TN
 RACE:Floating Eye	!PRERACE:1,%
 NAME:Floating Eye
@@ -122,7 +122,7 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Alertness
 
-STARTPACK:Flumph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flumph]
+STARTPACK:Flumph Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flumph]
 ALIGN:LG
 RACE:Flumph	!PRERACE:1,%
 NAME:Flumph
@@ -134,13 +134,13 @@ SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Fly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant)]
+STARTPACK:Fly (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant)]
 ALIGN:TN
 RACE:Fly (Giant)	!PRERACE:1,%
 NAME:Fly, Giant
 STAT:STR=10|DEX=11|CON=10|WIS=10|CHA=11
 
-STARTPACK:Fogwarden Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fogwarden]
+STARTPACK:Fogwarden Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fogwarden]
 ALIGN:NE
 RACE:Fogwarden	!PRERACE:1,%
 NAME:Fogwarden
@@ -154,13 +154,13 @@ SKILL:Spot			RANK:3
 FEAT:Alertness
 FEAT:Weapon Focus (Lightning Bolt)
 
-STARTPACK:Forester's Bane Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forester's Bane]
+STARTPACK:Forester's Bane Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forester's Bane]
 ALIGN:TN
 RACE:Forester's Bane	!PRERACE:1,%
 NAME:Forester's Bane (Snapper Saw)
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
 
-STARTPACK:Frog (Monstrous/Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Giant)]
+STARTPACK:Frog (Monstrous/Giant) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Giant)]
 ALIGN:TN
 RACE:Frog (Monstrous/Giant)	!PRERACE:1,%
 NAME:Frog, Monstrous (Giant)
@@ -168,7 +168,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide	RANK:3
 SKILL:Spot	RANK:2
 
-STARTPACK:Frog (Monstrous/Giant Dire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Giant Dire)]
+STARTPACK:Frog (Monstrous/Giant Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Giant Dire)]
 ALIGN:TN
 RACE:Frog (Monstrous/Giant Dire)	!PRERACE:1,%
 NAME:Frog, Monstrous (Giant Dire)
@@ -176,7 +176,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide	RANK:4
 SKILL:Spot	RANK:3
 
-STARTPACK:Frog (Monstrous/Killer) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Killer)]
+STARTPACK:Frog (Monstrous/Killer) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Killer)]
 ALIGN:TN
 RACE:Frog (Monstrous/Killer)	!PRERACE:1,%
 NAME:Frog, Monstrous (Killer)
@@ -184,7 +184,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide	RANK:2
 SKILL:Spot	RANK:2
 
-STARTPACK:Frog (Monstrous/Abyssal Dire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Abyssal Dire)]
+STARTPACK:Frog (Monstrous/Abyssal Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Abyssal Dire)]
 ALIGN:CE
 RACE:Frog (Monstrous/Abyssal Dire)	!PRERACE:1,%
 NAME:Frog, Monstrous (Abyssal Dire)
@@ -198,7 +198,7 @@ FEAT:Alertness
 FEAT:Power Attack
 FEAT:Weapon Focus (Tongue)
 
-STARTPACK:Frog (Monstrous/Poisonous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Poisonous)]
+STARTPACK:Frog (Monstrous/Poisonous) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Poisonous)]
 ALIGN:TN
 RACE:Frog (Monstrous/Poisonous)	!PRERACE:1,%
 NAME:Frog, Monstrous (Poisonous)
@@ -206,7 +206,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Jump	RANK:4
 SKILL:Spot	RANK:1
 
-STARTPACK:Froghemoth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Froghemoth]
+STARTPACK:Froghemoth Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Froghemoth]
 ALIGN:TN
 RACE:Froghemoth	!PRERACE:1,%
 NAME:Froghemoth
@@ -222,7 +222,7 @@ FEAT:Power Attack
 FEAT:Skill Focus (Hide)
 FEAT:Toughness
 
-STARTPACK:Frost Man Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Man]
+STARTPACK:Frost Man Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Man]
 ALIGN:LE
 RACE:Frost Man	!PRERACE:1,%
 NAME:Frost Man

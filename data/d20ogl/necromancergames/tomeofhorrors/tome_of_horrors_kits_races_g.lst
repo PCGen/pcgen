@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Gambado Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gambado]
+STARTPACK:Gambado Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gambado]
 ALIGN:CN
 RACE:Gambado	!PRERACE:1,%
 NAME:Gambado
@@ -13,7 +13,7 @@ SKILL:Jump	RANK:3
 FEAT:Alertness
 FEAT:Skill Focus (Hide)
 
-STARTPACK:Gargoyle (Four-Armed) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Four-Armed)]
+STARTPACK:Gargoyle (Four-Armed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Four-Armed)]
 ALIGN:CE
 RACE:Gargoyle (Four-Armed)	!PRERACE:1,%
 NAME:Gargoyle, Four-Armed
@@ -24,7 +24,7 @@ SKILL:Spot		RANK:2
 FEAT:Multiattack
 FEAT:Toughness
 
-STARTPACK:Gargoyle (Green Guardian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Green Guardian)]
+STARTPACK:Gargoyle (Green Guardian) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Green Guardian)]
 ALIGN:CE
 RACE:Gargoyle (Green Guardian)	!PRERACE:1,%
 NAME:Gargoyle, Green Guardian
@@ -35,7 +35,7 @@ SKILL:Spot		RANK:2
 FEAT:Multiattack
 FEAT:Toughness
 
-STARTPACK:Gargoyle (Margoyle) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Margoyle)]
+STARTPACK:Gargoyle (Margoyle) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Margoyle)]
 ALIGN:CE
 RACE:Gargoyle (Margoyle)	!PRERACE:1,%
 NAME:Gargoyle, Margoyle
@@ -47,7 +47,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Toughness
 
-STARTPACK:Ghoul-Stirge Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul-Stirge]
+STARTPACK:Ghoul-Stirge Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul-Stirge]
 ALIGN:CE
 RACE:Ghoul-Stirge	!PRERACE:1,%
 NAME:Ghoul-Stirge
@@ -58,7 +58,7 @@ SKILL:Spot		RANK:5
 FEAT:Alertness
 FEAT:Weapon Finesse
 
-STARTPACK:Giant (Sand) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Sand)]
+STARTPACK:Giant (Sand) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Sand)]
 ALIGN:NE
 RACE:Giant (Sand)	!PRERACE:1,%
 NAME:Giant, Sand
@@ -76,7 +76,7 @@ FEAT:Weapon Focus (Greatsword)
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Giant (Wood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Wood)]
+STARTPACK:Giant (Wood) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Wood)]
 ALIGN:CG
 RACE:Giant (Wood)	!PRERACE:1,%
 NAME:Giant, Wood
@@ -93,7 +93,7 @@ GEAR:Leather			SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword			SIZE:PC	LOCATION:Carried
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:BOWSTR|5
 
-STARTPACK:Gloomwing Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
+STARTPACK:Gloomwing Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
 ALIGN:TN
 RACE:Gloomwing	!PRERACE:1,%
 NAME:Gloomwing
@@ -105,7 +105,7 @@ SKILL:Spot			RANK:8
 FEAT:Flyby Attack
 FEAT:Weapon Finesse
 
-STARTPACK:Golem (Blood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Blood)]
+STARTPACK:Golem (Blood) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Blood)]
 ALIGN:TN
 RACE:Golem (Blood)	!PRERACE:1,%
 NAME:Golem, Blood
@@ -116,31 +116,31 @@ FEAT:Alertness
 FEAT:Great Fortitude
 FEAT:Toughness
 
-STARTPACK:Golem (Ice) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Ice)]
+STARTPACK:Golem (Ice) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Ice)]
 ALIGN:TN
 RACE:Golem (Ice)	!PRERACE:1,%
 NAME:Golem, Ice
 STAT:STR=11|DEX=11|WIS=11|CHA=11
 
-STARTPACK:Golem (Stone Guardian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stone Guardian)]
+STARTPACK:Golem (Stone Guardian) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stone Guardian)]
 ALIGN:TN
 RACE:Golem (Stone Guardian)	!PRERACE:1,%
 NAME:Golem, Stone Guardian
 STAT:STR=11|DEX=11|WIS=11|CHA=11
 
-STARTPACK:Golem (Tallow) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Tallow)]
+STARTPACK:Golem (Tallow) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Tallow)]
 ALIGN:TN
 RACE:Golem (Tallow)	!PRERACE:1,%
 NAME:Golem, Tallow
 STAT:STR=11|DEX=11|WIS=11|CHA=11
 
-STARTPACK:Golem (Wood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Wood)]
+STARTPACK:Golem (Wood) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Wood)]
 ALIGN:TN
 RACE:Golem (Wood)	!PRERACE:1,%
 NAME:Golem, Wood
 STAT:STR=10|DEX=11|WIS=11|CHA=11
 
-STARTPACK:Gorbel Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorbel]
+STARTPACK:Gorbel Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorbel]
 ALIGN:TN
 RACE:Gorbel	!PRERACE:1,%
 NAME:Gorbel
@@ -150,7 +150,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Flyby Attack
 
-STARTPACK:Gorgimera Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgimera]
+STARTPACK:Gorgimera Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgimera]
 ALIGN:TN
 RACE:Gorgimera	!PRERACE:1,%
 NAME:Gorgimera
@@ -163,7 +163,7 @@ FEAT:Hover
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Gorgon (True/Sthenno) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon (True/Sthenno)]
+STARTPACK:Gorgon (True/Sthenno) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon (True/Sthenno)]
 ALIGN:LE
 RACE:Gorgon (True/Sthenno)	!PRERACE:1,%
 NAME:Sthenno
@@ -192,7 +192,7 @@ FEAT:Weapon Focus (Claw)
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Snakes)
 
-STARTPACK:Gorgon (True/Euryale) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon (True/Euryale)]
+STARTPACK:Gorgon (True/Euryale) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon (True/Euryale)]
 ALIGN:LE
 RACE:Gorgon (True/Euryale)	!PRERACE:1,%
 NAME:Euryale
@@ -221,7 +221,7 @@ FEAT:Weapon Focus (Claw)
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Snakes)
 
-STARTPACK:Gorilla Bear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorilla Bear]
+STARTPACK:Gorilla Bear Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorilla Bear]
 ALIGN:TN
 RACE:Gorilla Bear	!PRERACE:1,%
 NAME:Gorilla Bear
@@ -233,7 +233,7 @@ SKILL:Swim		RANK:3
 FEAT:Alertness
 FEAT:Toughness
 
-STARTPACK:Grippli Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grippli]
+STARTPACK:Grippli Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grippli]
 ALIGN:TN
 RACE:Grippli	!PRERACE:1,%
 NAME:Grippli
@@ -248,7 +248,7 @@ GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Dart			SIZE:PC	LOCATION:Carried
 GEAR:Net			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Groaning Spirit Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Groaning Spirit]
+STARTPACK:Groaning Spirit Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Groaning Spirit]
 ALIGN:CE
 RACE:Groaning Spirit	!PRERACE:1,%
 NAME:Groaning Spirit
@@ -264,7 +264,7 @@ FEAT:Ability Focus(Keening)
 FEAT:Blind Fight
 FEAT:Improved Initiative
 
-STARTPACK:Gryph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gryph]
+STARTPACK:Gryph Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gryph]
 ALIGN:NE
 RACE:Gryph	!PRERACE:1,%
 NAME:Gryph
@@ -274,7 +274,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Guardian Daemon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Guardian Daemon]
+STARTPACK:Guardian Daemon Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Guardian Daemon]
 ALIGN:TN
 RACE:Guardian Daemon	!PRERACE:1,%
 NAME:Guardian Daemon

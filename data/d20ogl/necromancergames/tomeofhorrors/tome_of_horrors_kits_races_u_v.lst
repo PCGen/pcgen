@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Ubue Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ubue]
+STARTPACK:Ubue Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ubue]
 RACE:Ubue	!PRERACE:1,%
 NAME:Ubue
 ALIGN:CG|CN|CE
@@ -19,13 +19,13 @@ GEAR:Club	SIZE:PC	LOCATION:Primary Hand
 GEAR:Club	SIZE:PC	LOCATION:Secondary Hand
 GEAR:Club	SIZE:PC	LOCATION:Secondary Hand2
 
-STARTPACK:Vampire Rose Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire Rose]
+STARTPACK:Vampire Rose Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire Rose]
 RACE:Vampire Rose	!PRERACE:1,%
 NAME:Vampire Rose
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=10
 
-STARTPACK:Vegepygmy (Commoner) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Commoner)]
+STARTPACK:Vegepygmy (Commoner) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Commoner)]
 RACE:Vegepygmy (Commoner)	!PRERACE:1,%
 NAME:Commoner
 ALIGN:TN
@@ -37,7 +37,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Vegepygmy (Worker) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Worker)]
+STARTPACK:Vegepygmy (Worker) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Worker)]
 RACE:Vegepygmy (Worker)	!PRERACE:1,%
 NAME:Worker
 ALIGN:TN
@@ -49,7 +49,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Vegepygmy (Guard) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Guard)]
+STARTPACK:Vegepygmy (Guard) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Guard)]
 RACE:Vegepygmy (Guard)	!PRERACE:1,%
 NAME:Guard
 ALIGN:TN
@@ -62,7 +62,7 @@ FEAT:Alertness
 FEAT:Toughness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Vegepygmy (Bodyguard) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Bodyguard)]
+STARTPACK:Vegepygmy (Bodyguard) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Bodyguard)]
 RACE:Vegepygmy (Bodyguard)	!PRERACE:1,%
 NAME:Bodyguard
 ALIGN:TN
@@ -75,7 +75,7 @@ FEAT:Alertness
 FEAT:Toughness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Vegepygmy (Subchief) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Subchief)]
+STARTPACK:Vegepygmy (Subchief) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Subchief)]
 RACE:Vegepygmy (Subchief)	!PRERACE:1,%
 NAME:Subchief
 ALIGN:TN
@@ -88,7 +88,7 @@ FEAT:Alertness
 FEAT:Weapon Focus (Longspear)
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Vegepygmy (Chief) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Chief)]
+STARTPACK:Vegepygmy (Chief) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Chief)]
 RACE:Vegepygmy (Chief)	!PRERACE:1,%
 NAME:Chief
 ALIGN:TN
@@ -102,7 +102,7 @@ FEAT:Toughness
 FEAT:Weapon Focus (Longspear)
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Vilstrak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vilstrak]
+STARTPACK:Vilstrak Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vilstrak]
 RACE:Vilstrak	!PRERACE:1,%
 NAME:Vilstrak (Tunnel Thug)
 ALIGN:TN
@@ -112,7 +112,7 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Alertness
 
-STARTPACK:Volt Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Volt]
+STARTPACK:Volt Default	TYPE:DefaultMonster.PlaAberrationnt	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Volt]
 RACE:Volt	!PRERACE:1,%
 NAME:Volt
 ALIGN:TN
@@ -121,7 +121,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:3
 FEAT:Weapon Finesse
 
-STARTPACK:Vulchling Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vulchling]
+STARTPACK:Vulchling Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vulchling]
 RACE:Vulchling	!PRERACE:1,%
 NAME:Vulchling
 ALIGN:CE

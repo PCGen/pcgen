@@ -10,7 +10,7 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 ###         Spot +2 Stat +2 Ranks = +4 OK
 ###         Swim +4 Stat +4 Racial = +8 listed as +7
 ###         9 skill points left over.
-STARTPACK:Babbler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Babbler]
+STARTPACK:Babbler Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Babbler]
 ALIGN:CE
 RACE:Babbler	!PRERACE:1,%
 NAME:Babbler
@@ -21,7 +21,7 @@ SKILL:Hide		RANK:3
 FEAT:Improved Initiative
 FEAT:Multiattack
 
-STARTPACK:Banderlog Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banderlog]
+STARTPACK:Banderlog Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banderlog]
 ALIGN:TN
 RACE:Banderlog	!PRERACE:1,%
 NAME:Banderlog
@@ -34,7 +34,7 @@ FEAT:Weapon Focus (Coconut)
 GEAR:Club		SIZE:PC	LOCATION:Primary Hand
 GEAR:Coconut	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Baric Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Baric]
+STARTPACK:Baric Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Baric]
 ALIGN:TN
 RACE:Baric	!PRERACE:1,%
 NAME:Baric
@@ -43,7 +43,7 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
 FEAT:Multiattack
 
-STARTPACK:Barrow Wight Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barrow Wight]
+STARTPACK:Barrow Wight Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barrow Wight]
 ALIGN:CE
 RACE:Barrow Wight	!PRERACE:1,%
 NAME:Barrow Wight
@@ -58,13 +58,13 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Power Attack
 
-STARTPACK:Basidirond Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basidirond]
+STARTPACK:Basidirond Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basidirond]
 ALIGN:TN
 RACE:Basidirond	!PRERACE:1,%
 NAME:Basidirond
 STAT:STR=11|DEX=11|CON=10|WIS=11|CHA=11
 
-STARTPACK:Basilisk (Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk (Greater)]
+STARTPACK:Basilisk (Greater) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk (Greater)]
 ALIGN:TN
 RACE:Basilisk (Greater)	!PRERACE:1,%
 NAME:Basilisk, Greater
@@ -77,7 +77,7 @@ FEAT:Great Fortitude
 FEAT:Multiattack
 FEAT:Power Attack
 
-STARTPACK:Bat (Doombat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat (Doombat)]
+STARTPACK:Bat (Doombat) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat (Doombat)]
 ALIGN:NE
 RACE:Bat (Doombat)	!PRERACE:1,%
 NAME:Doombat
@@ -88,7 +88,7 @@ FEAT:Alertness
 FEAT:Stealthy
 FEAT:Skill Focus (Move Silently)
 
-STARTPACK:Bat (Mobat) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat (Mobat)]
+STARTPACK:Bat (Mobat) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat (Mobat)]
 ALIGN:TN
 RACE:Bat (Mobat)	!PRERACE:1,%
 NAME:Mobat
@@ -102,31 +102,31 @@ FEAT:Alertness
 FEAT:Stealthy
 FEAT:Skill Focus (Move Silently)
 
-STARTPACK:Beetle (Giant Boring) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Boring)]
+STARTPACK:Beetle (Giant Boring) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Boring)]
 ALIGN:TN
 RACE:Beetle (Giant Boring)	!PRERACE:1,%
 NAME:Beetle, Giant Boring
 STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=11
 
-STARTPACK:Beetle (Giant Death Watch) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Death Watch)]
+STARTPACK:Beetle (Giant Death Watch) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Death Watch)]
 ALIGN:TN
 RACE:Beetle (Giant Death Watch)	!PRERACE:1,%
 NAME:Beetle, Giant Death Watch
 STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=11
 
-STARTPACK:Beetle (Giant Rhinoceros) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Rhinoceros)]
+STARTPACK:Beetle (Giant Rhinoceros) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Rhinoceros)]
 ALIGN:TN
 RACE:Beetle (Giant Rhinoceros)	!PRERACE:1,%
 NAME:Beetle, Giant Rhinoceros
 STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=11
 
-STARTPACK:Beetle (Giant Slicer) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Slicer)]
+STARTPACK:Beetle (Giant Slicer) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Giant Slicer)]
 ALIGN:TN
 RACE:Beetle (Giant Slicer)	!PRERACE:1,%
 NAME:Beetle, Giant Slicer
 STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=11
 
-STARTPACK:Belabra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Belabra]
+STARTPACK:Belabra Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Belabra]
 ALIGN:TN
 RACE:Belabra	!PRERACE:1,%
 NAME:Belabra
@@ -138,7 +138,7 @@ FEAT:Alertness
 FEAT:Toughness
 
 ### ERRATA: Listen and Spot can not have 11 ranks (excedes MAXRANK of 10)
-STARTPACK:Bhuta Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bhuta]
+STARTPACK:Bhuta Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bhuta]
 ALIGN:LE|NE|CE
 RACE:Bhuta	!PRERACE:1,%
 NAME:Bhuta
@@ -153,7 +153,7 @@ FEAT:Power Attack
 FEAT:Toughness
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Blindheim Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blindheim]
+STARTPACK:Blindheim Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blindheim]
 ALIGN:CE
 RACE:Blindheim	!PRERACE:1,%
 NAME:Blindheim
@@ -163,7 +163,7 @@ SKILL:Listen	RANK:4
 FEAT:Alertness
 FEAT:Weapon Finesse
 
-STARTPACK:Blood Hawk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blood Hawk]
+STARTPACK:Blood Hawk Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blood Hawk]
 ALIGN:TN
 RACE:Blood Hawk	!PRERACE:1,%
 NAME:Blood Hawk
@@ -172,7 +172,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 
-STARTPACK:Bloody Bones Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bloody Bones]
+STARTPACK:Bloody Bones Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bloody Bones]
 ALIGN:CE
 RACE:Bloody Bones	!PRERACE:1,%
 NAME:Bloody Bones
@@ -186,7 +186,7 @@ SKILL:Spot			RANK:7
 FEAT:Great Fortitude
 FEAT:Weapon Focus (Tendril)
 
-STARTPACK:Boalisk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boalisk]
+STARTPACK:Boalisk Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boalisk]
 ALIGN:TN
 RACE:Boalisk	!PRERACE:1,%
 NAME:Boalisk
@@ -200,7 +200,7 @@ SKILL:Swim		RANK:1
 FEAT:Alertness
 FEAT:Toughness
 
-STARTPACK:Bog Beast Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bog Beast]
+STARTPACK:Bog Beast Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bog Beast]
 ALIGN:TN
 RACE:Bog Beast	!PRERACE:1,%
 NAME:Bog Beast
@@ -210,7 +210,7 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Track
 
-STARTPACK:Bog Mummy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bog Mummy]
+STARTPACK:Bog Mummy Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bog Mummy]
 ALIGN:CE
 RACE:Bog Mummy	!PRERACE:1,%
 NAME:Bog Mummy
@@ -223,7 +223,7 @@ FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Toughness
 
-STARTPACK:Boggart Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boggart]
+STARTPACK:Boggart Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boggart]
 ALIGN:CE
 RACE:Boggart	!PRERACE:1,%
 NAME:Boggart
@@ -238,7 +238,7 @@ FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Dodge
 
-STARTPACK:Bone Cobbler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bone Cobbler]
+STARTPACK:Bone Cobbler Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bone Cobbler]
 ALIGN:CE
 RACE:Bone Cobbler	!PRERACE:1,%
 NAME:Bone Cobbler
@@ -254,7 +254,7 @@ FEAT:Weapon Focus (Hammer (Light))
 GEAR:Hammer (Light)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Hammer (Light)	SIZE:PC	LOCATION:Secondary Hand
 
-STARTPACK:Bonesnapper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bonesnapper]
+STARTPACK:Bonesnapper Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bonesnapper]
 ALIGN:TN
 RACE:Bonesnapper	!PRERACE:1,%
 NAME:Bonesnapper
@@ -264,7 +264,7 @@ SKILL:Spot		RANK:3
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Tail Slap)
 
-STARTPACK:Bonesucker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bonesucker]
+STARTPACK:Bonesucker Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bonesucker]
 ALIGN:TN
 RACE:Bonesucker	!PRERACE:1,%
 NAME:Bonesucker
@@ -278,7 +278,7 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Lightning Reflexes
 
-STARTPACK:Brownie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brownie]
+STARTPACK:Brownie Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brownie]
 ALIGN:LG
 RACE:Brownie	!PRERACE:1,%
 NAME:Brownie
@@ -297,7 +297,7 @@ SKILL:Spot				RANK:3
 FEAT:Dodge
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Buckawn Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Buckawn]
+STARTPACK:Buckawn Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Buckawn]
 ALIGN:TN
 RACE:Buckawn	!PRERACE:1,%
 NAME:Buckawn
@@ -313,7 +313,7 @@ FEAT:Dodge
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 GEAR:Dart	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Bunyip Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bunyip]
+STARTPACK:Bunyip Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bunyip]
 ALIGN:TN
 RACE:Bunyip	!PRERACE:1,%
 NAME:Bunyip

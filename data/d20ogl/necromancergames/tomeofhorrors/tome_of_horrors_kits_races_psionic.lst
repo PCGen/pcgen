@@ -2,18 +2,18 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Algoid (Psionic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Algoid (Psionic)]
+STARTPACK:Algoid (Psionic) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Algoid (Psionic)]
 RACE:Algoid (Psionic)	!PRERACE:1,%
 NAME:Algoid
 KIT:Common Algoid
 
-STARTPACK:Al-mi'raj (Psionic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Al-mi'raj%]
+STARTPACK:Al-mi'raj (Psionic) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Al-mi'raj%]
 RACE:Al-mi'raj (Psionic)	!PRERACE:1,%
 NAME:Al-mi'raj, Psionic
 KIT:Common Al-mi'raj
 SKILL:Listen	RANK:1
 
-STARTPACK:Elemental (Psionic/Small) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Small)]
+STARTPACK:Elemental (Psionic/Small) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Small)]
 RACE:Elemental (Psionic/Small)	!PRERACE:1,%
 NAME:Elemental, Psionic - Small
 ALIGN:TN
@@ -25,7 +25,7 @@ SKILL:Listen			RANK:1
 SKILL:Spot				RANK:1
 FEAT:Combat Manifestation
 
-STARTPACK:Elemental (Psionic/Medium) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Medium)]
+STARTPACK:Elemental (Psionic/Medium) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Medium)]
 RACE:Elemental (Psionic/Medium)	!PRERACE:1,%
 NAME:Elemental, Psionic - Medium
 ALIGN:TN
@@ -38,7 +38,7 @@ SKILL:Spot				RANK:2
 FEAT:Combat Manifestation
 FEAT:Combat Reflexes
 
-STARTPACK:Elemental (Psionic/Large) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Large)]
+STARTPACK:Elemental (Psionic/Large) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Large)]
 RACE:Elemental (Psionic/Large)	!PRERACE:1,%
 NAME:Elemental, Psionic - Large
 ALIGN:TN
@@ -52,7 +52,7 @@ FEAT:Combat Manifestation
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Elemental (Psionic/Huge) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Huge)]
+STARTPACK:Elemental (Psionic/Huge) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Huge)]
 RACE:Elemental (Psionic/Huge)	!PRERACE:1,%
 NAME:Elemental, Psionic - Huge
 ALIGN:TN
@@ -69,7 +69,7 @@ FEAT:Improved Initiative
 FEAT:Rapid Metabolism
 FEAT:Weapon Finesse
 
-STARTPACK:Elemental (Psionic/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Greater)]
+STARTPACK:Elemental (Psionic/Greater) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Greater)]
 RACE:Elemental (Psionic/Greater)	!PRERACE:1,%
 NAME:Elemental, Psionic - Greater
 ALIGN:TN
@@ -89,7 +89,7 @@ FEAT:Psionic Hole
 FEAT:Rapid Metabolism
 FEAT:Weapon Finesse
 
-STARTPACK:Elemental (Psionic/Elder) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Elder)]
+STARTPACK:Elemental (Psionic/Elder) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Elder)]
 RACE:Elemental (Psionic/Elder)	!PRERACE:1,%
 NAME:Elemental, Psionic - Elder
 ALIGN:TN
@@ -109,7 +109,7 @@ FEAT:Psionic Hole
 FEAT:Rapid Metabolism
 FEAT:Weapon Finesse
 
-STARTPACK:Rat (Brain/Psionic) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Brain/Psionic)]
+STARTPACK:Rat (Brain/Psionic) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Brain/Psionic)]
 RACE:Rat (Brain/Psionic)	!PRERACE:1,%
 NAME:Rat, Brain
 ALIGN:TN

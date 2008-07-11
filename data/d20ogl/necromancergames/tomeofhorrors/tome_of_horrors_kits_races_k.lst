@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Common Kamadan	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan%]
+STARTPACK:Common Kamadan	TYPE:DefaultMonster.MagicalBeast	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan%]
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
 SKILL:Hide			RANK:1
@@ -12,17 +12,17 @@ SKILL:Spot			RANK:2
 FEAT:Alertness
 FEAT:Dodge
 
-STARTPACK:Kamadan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan]
+STARTPACK:Kamadan Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan]
 RACE:Kamadan	!PRERACE:1,%
 NAME:Kamadan
 KIT:Common Kamadan
 
-STARTPACK:Kamadan (Poisonous) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan (Poisonous)]
+STARTPACK:Kamadan (Poisonous) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan (Poisonous)]
 RACE:Kamadan (Poisonous)	!PRERACE:1,%
 NAME:Poisonous Kamadan
 KIT:Common Kamadan
 
-STARTPACK:Kampfult Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kampfult]
+STARTPACK:Kampfult Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kampfult]
 ALIGN:TN
 RACE:Kampfult	!PRERACE:1,%
 NAME:Kampfult (Sinewy Mugger)
@@ -32,7 +32,7 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:1
 FEAT:Skill Focus (Hide)
 
-STARTPACK:Kech Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kech]
+STARTPACK:Kech Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kech]
 ALIGN:NE
 RACE:Kech	!PRERACE:1,%
 NAME:Kech
@@ -45,7 +45,7 @@ SKILL:Spot			RANK:2
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Kelp Devil Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelp Devil]
+STARTPACK:Kelp Devil Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelp Devil]
 ALIGN:NE
 RACE:Kelp Devil	!PRERACE:1,%
 NAME:Kelp Devil
@@ -57,7 +57,7 @@ FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Iron Will
 
-STARTPACK:Kelpie Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]
+STARTPACK:Kelpie Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]
 ALIGN:NE
 RACE:Kelpie	!PRERACE:1,%
 NAME:Kelpie
@@ -69,7 +69,7 @@ SKILL:Spot		RANK:2
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Khargra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Khargra]
+STARTPACK:Khargra Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Khargra]
 ALIGN:TN
 RACE:Khargra	!PRERACE:1,%
 NAME:Khargra
@@ -84,7 +84,7 @@ FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Multiattack
 
-STARTPACK:Killmoulis Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Killmoulis]
+STARTPACK:Killmoulis Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Killmoulis]
 ALIGN:CN
 RACE:Killmoulis	!PRERACE:1,%
 NAME:Killmoulis
@@ -99,7 +99,7 @@ SKILL:Spot							RANK:3
 FEAT:Dodge
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Korred Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred]
+STARTPACK:Korred Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred]
 ALIGN:CN
 RACE:Korred	!PRERACE:1,%
 NAME:Korred

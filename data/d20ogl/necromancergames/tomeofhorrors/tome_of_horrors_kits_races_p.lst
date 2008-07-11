@@ -2,7 +2,7 @@
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Pech Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pech]
+STARTPACK:Pech Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pech]
 RACE:Pech	!PRERACE:1,%
 NAME:Pech
 ALIGN:TN
@@ -19,7 +19,7 @@ FEAT:Alertness
 FEAT:Power Attack
 GEAR:Pick (Heavy)	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Phantom Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phantom Stalker]
+STARTPACK:Phantom Stalker Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phantom Stalker]
 RACE:Phantom Stalker	!PRERACE:1,%
 NAME:Phantom Stalker
 ALIGN:TN
@@ -30,13 +30,13 @@ FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Phycomid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phycomid]
+STARTPACK:Phycomid Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phycomid]
 RACE:Phycomid	!PRERACE:1,%
 NAME:Phycomid
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|WIS=11|CHA=11
 
-STARTPACK:Poltergeist Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poltergeist]
+STARTPACK:Poltergeist Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poltergeist]
 RACE:Poltergeist	!PRERACE:1,%
 NAME:Poltergeist
 ALIGN:LE
@@ -45,7 +45,7 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
 FEAT:Alertness
 
-STARTPACK:Protector Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protector]
+STARTPACK:Protector Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protector]
 RACE:Protector	!PRERACE:1,%
 NAME:Protector
 ALIGN:LN
@@ -75,25 +75,25 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Align Weapon|Consecrate|Resist
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Daylight|Magic Circle against Evil|Remove Curse
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power|Cure Critical Wounds
 
-STARTPACK:Pudding (Brown) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pudding (Brown)]
+STARTPACK:Pudding (Brown) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pudding (Brown)]
 RACE:Pudding (Brown)	!PRERACE:1,%
 NAME:Pudding, Brown
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|WIS=11|CHA=11
 
-STARTPACK:Pudding (Dun) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pudding (Dun)]
+STARTPACK:Pudding (Dun) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pudding (Dun)]
 RACE:Pudding (Dun)	!PRERACE:1,%
 NAME:Pudding, Dun
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|WIS=11|CHA=11
 
-STARTPACK:Pudding (White) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pudding (White)]
+STARTPACK:Pudding (White) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pudding (White)]
 RACE:Pudding (White)	!PRERACE:1,%
 NAME:Pudding, White
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|WIS=11|CHA=11
 
-STARTPACK:Pyrolisk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pyrolisk]
+STARTPACK:Pyrolisk Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pyrolisk]
 RACE:Pyrolisk	!PRERACE:1,%
 NAME:Pyrolisk
 ALIGN:NE
