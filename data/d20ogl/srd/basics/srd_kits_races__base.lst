@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Feb 19 22:17:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Dwarf Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf%]
+STARTPACK:Dwarf Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf%]
 RACE:Dwarf	!PRERACE:1,%
 NAME:Dwarf
 ALIGN:LG
@@ -16,7 +16,7 @@ GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
 GEAR:Shortbow			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Elf Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf%]
+STARTPACK:Elf Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf%]
 RACE:Elf	!PRERACE:1,%
 NAME:Elf
 ALIGN:CG
@@ -31,7 +31,7 @@ GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Gnome Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome%]
+STARTPACK:Gnome Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome%]
 RACE:Gnome	!PRERACE:1,%
 NAME:Gnome
 ALIGN:NG
@@ -45,7 +45,7 @@ GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Sword (Short)		SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Halfling Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Halfling%]
+STARTPACK:Halfling Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Halfling%]
 RACE:Halfling	!PRERACE:1,%
 NAME:Halfling
 ALIGN:TN
