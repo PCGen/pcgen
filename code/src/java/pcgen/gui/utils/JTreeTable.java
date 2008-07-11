@@ -43,6 +43,7 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -689,10 +690,31 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	{
 		// Last table/tree row asked to render
 		private int visibleRow;
+                private DefaultTableCellRenderer tableCellRenderer;
 
 		TreeTableCellRenderer(TreeModel model)
 		{
 			super(model);
+                        this.tableCellRenderer = new DefaultTableCellRenderer()
+                        {
+
+                            @Override
+                            public void setBounds(int x, int y, int width,
+                                                   int height)
+                            {
+                                super.setBounds(x, y, width, height);
+                                TreeTableCellRenderer.this.setBounds(x, y, width,
+                                                                     height);
+                            }
+
+                            @Override
+                            public void paint(final Graphics g)
+                            {
+                                TreeTableCellRenderer.this.paint(g);
+                                paintBorder(g);
+                            }
+
+                        };
 		}
 
 		/**
@@ -760,7 +782,10 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 			visibleRow = row;
 
-			return this;
+			return tableCellRenderer.getTableCellRendererComponent(table, value,
+                                                                   isSelected,
+                                                                   hasFocus, row,
+                                                                   column);
 		}
 
 		/**
@@ -781,15 +806,20 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		@Override
 		public void paint(final Graphics g)
 		{
-			g.translate(0, -visibleRow * JTreeTable.this.getRowHeight());
-			try
-			{
-				super.paint(g);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle this?
-			}
+			int offset = -visibleRow * JTreeTable.this.getRowHeight();
+                        g.translate(0, offset);
+                        try
+                        {
+                            super.paint(g);
+                        }
+                        catch (Exception e)
+                        {
+                        // TODO Handle this?
+                        }
+                        finally
+                        {
+                            g.translate(0, -offset);
+                        }
 		}
 
 		/**
