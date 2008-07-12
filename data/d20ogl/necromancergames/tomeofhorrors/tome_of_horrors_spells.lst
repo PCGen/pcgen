@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Jul 11 22:21:47 2008 -- reformated by prettylst.pl v1.38 (build 7077)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -53,6 +53,12 @@ Teleport (Greater/Self Only)					OUTPUTNAME:Teleport, Greater (self plus 50 poun
 Tongues (Self Only)																													SCHOOL:Divination													TYPE:Arcane.Divine	COMPS:V, M/DF	CASTTIME:1 standard action	RANGE:Personal		TARGETAREA:You																								DURATION:(CASTERLEVEL*10) minutes																														DESC:Speak any language.																																																									SOURCEPAGE:p. 101
 Wall of Acid																														SCHOOL:Evocation						DESCRIPTOR:Acid					TYPE:Arcane.Divine	COMPS:V, S, M/DF	CASTTIME:1 standard action	RANGE:Medium		TARGETAREA:Opaque sheet of acid up to (CASTERLEVEL*20) ft. long or a ring of acid with a radius of up to ((CASTERLEVEL/2)*5) ft; either form 20 ft. high	DURATION:Concentration + (CASTERLEVEL) rounds						SAVEINFO:None												SPELLRES:Yes						DESC:Deals 2d4 acid damage out 10 ft. and 1d4 out 20 ft. Passing through wall deals 2d6+(CASTERLEVEL) damage																																											SOURCEPAGE:p. 114
 Wish (Grant Another's)						OUTPUTNAME:Grant Another's Wish																		SCHOOL:Universal													TYPE:Arcane			COMPS:V, XP		CASTTIME:1 standard action	RANGE:See text		TARGETAREA:See text																							DURATION:See text											SAVEINFO:See text												SPELLRES:Yes				XPCOST:5000	DESC:As limited wish, but with fewer limits.																																																						SOURCEPAGE:p. 84
+
+###Block: Imported from Relics and Rituals
+SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
+# Spell Name	Product Identity?	Classes of caster			School		Spell Descriptors	Type		Components		Casting Time		Range			Item		Target Area or Effect					Duration			Save Info		Spell Resistance	Description													Source Page
+Bloodstorm		NAMEISPI:YES	CLASSES:Sorcerer,Wizard=3	SCHOOL:Evocation	DESCRIPTOR:Fear	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 full round	RANGE:Medium	ITEM:Potion	TARGETAREA:Column 25 ft. wide, 40 ft. high	DURATION:1 round/level	SAVEINFO:See Text	SPELLRES:Yes	DESC:Summons whirlwind of blood that obscures vision, damages foes, causes fear	SOURCEPAGE:p.54
+
 #
 # Done
 #
