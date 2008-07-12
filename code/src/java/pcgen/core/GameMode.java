@@ -70,6 +70,7 @@ public final class GameMode implements Comparable<Object>
 	private List<String> bonusStackList = new ArrayList<String>();
 	private List<String> bonusStatLevels = new ArrayList<String>();
 	private List<ClassType> classTypeList = new ArrayList<ClassType>();
+	private List<String> defaultDataSetList = new ArrayList<String>();
 	private List<String> defaultDeityList = new ArrayList<String>();
 	private Map<String, LevelInfo> levelInfo = new HashMap<String, LevelInfo>();
 	private List<String> loadStrings = new ArrayList<String>();
@@ -1200,6 +1201,28 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
+	 * Add a data set to the list of Default Data Sets
+	 * @param dataSetKey The key of the data set to add.
+	 */
+	public void addDefaultDataSet(final String dataSetKey)
+	{
+		if (defaultDataSetList == null)
+		{
+			defaultDataSetList = new ArrayList<String>();
+		}
+
+		defaultDataSetList.add(dataSetKey);
+	}
+
+	/**
+	 * Empty the list of Default Data Sets.
+	 */
+	public void clearDefaultDataSetList()
+	{
+		defaultDataSetList.clear();
+	}
+	
+	/**
 	 * Add Diety List
 	 * @param argDeityLine
 	 */
@@ -1458,6 +1481,16 @@ public final class GameMode implements Comparable<Object>
 	List<String> getDeityList()
 	{
 		return defaultDeityList;
+	}
+
+	/**
+	 * Gets the list of default data sets.
+	 * 
+	 * @return the default data set list
+	 */
+	public List<String> getDefaultDataSetList()
+	{
+		return defaultDataSetList;
 	}
 
 	int getDisplayOrder()

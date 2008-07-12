@@ -5212,6 +5212,14 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DEFAULTDATASET.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/DefaultdatasetToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DEFAULTSPELLBOOK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

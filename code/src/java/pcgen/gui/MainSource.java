@@ -76,6 +76,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.core.CampaignURL;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -258,6 +259,37 @@ public class MainSource extends FilterAdapterPanel
 		selectedCampaigns.clear();
 		//resetViewNodes();
 		unloadAllCampaigns_actionPerformed();
+		
+		selectDefaultCampaigns();		
+	}
+
+	/**
+	 * Add the previous or default data sets to the selected list.
+	 */
+	private void selectDefaultCampaigns()
+	{
+		GameMode game = SettingsHandler.getGame();
+		List<String> campaignsToAdd = new ArrayList<String>();;
+		if (!game.getDefaultDataSetList().isEmpty())
+		{
+			campaignsToAdd.addAll(game.getDefaultDataSetList());
+		}
+		for (String string : campaignsToAdd)
+		{
+			final Campaign theCamp = Globals.getCampaignKeyed(string);
+			if (theCamp != null && !selectedCampaigns.contains(theCamp))
+			{
+				selectedCampaigns.add(theCamp);
+			}
+			
+		}
+	
+		Collections.sort(selectedCampaigns);
+	
+		updateModels();
+
+		//Remember what we just did...
+		rememberSourceChanges();
 	}
 
 	/**
@@ -1095,14 +1127,17 @@ public class MainSource extends FilterAdapterPanel
 		this.add(bsplit, BorderLayout.CENTER);
 
 		//go ahead and auto-load campaigns now, if that option is set
+		selectCampaignsByURI(PersistenceManager.getInstance().getChosenCampaignSourcefiles());
 		if (SettingsHandler.isLoadCampaignsAtStart())
 		{
-			selectCampaignsByURI(PersistenceManager.getInstance().getChosenCampaignSourcefiles());
-
 			if (selectedCampaigns.size() > 0)
 			{
 				loadCampaigns();
 			}
+		}
+		if (selectedCampaigns.size() == 0)
+		{
+			selectDefaultCampaigns();
 		}
 	}
 
