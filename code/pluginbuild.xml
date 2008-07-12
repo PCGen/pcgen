@@ -1409,6 +1409,15 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRECAMPAIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreCampaignParser.class" />
+					<include name="plugin/pretokens/test/PreCampaignTester.class" />
+					<include name="plugin/pretokens/writer/PreCampaignWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${preplugins.dir}/PreToken-PRECHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

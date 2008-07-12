@@ -193,7 +193,7 @@ public class PrereqHandler {
 
 	public static boolean passes(final Prerequisite prereq, final PlayerCharacter character, final PObject caller)
 	{
-		if (character == null)
+		if (character == null && prereq.isCharacterRequired())
 		{
 			return true;
 		}
@@ -212,7 +212,8 @@ public class PrereqHandler {
 		boolean autoQualifies = false;
 		int total = 0;
 
-		if ((caller != null) && character.checkQualifyList(caller) && (!overrideQualify))
+		if ((caller != null) && character != null
+			&& character.checkQualifyList(caller) && (!overrideQualify))
 		{
 			autoQualifies = true;
 		}

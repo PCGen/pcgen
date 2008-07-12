@@ -1,5 +1,5 @@
 /*
- * InfoInventory.java Copyright 2003 (C) Frugal <frugal@purplewombat.co.uk>
+ * Prerequisite.java Copyright 2003 (C) Frugal <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General
  * Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option)
@@ -28,11 +28,15 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * @author frugal@purplewombat.co.uk
- *
+ * The Class <code>Prerequisite</code> is the storage format for all 
+ * prerequisites. It is populated by a parser, written out by a writer
+ * and tested by a Tester class. Each kind of prerequisite will have 
+ * one of each of these three classes that is responsible for managing
+ * its lifecycle. 
  */
 public class Prerequisite implements Cloneable
 {
+	
 	/** Kind to be used for a clear prerequisite request. */
 	public static final String CLEAR_KIND = "clear";
 	public static final String APPLY_KIND = "APPLY";
@@ -47,19 +51,29 @@ public class Prerequisite implements Cloneable
 	 * added together when checking for a value.
 	 */
 	private boolean totalValues;
-	/** Indicates that the number of qualifying objects should be tallied
-	 * when checking for a value.
-	 */
+	
+	/** Is a character required to test this prereq against?. */
+	private boolean characterRequired = true;
+	
+	/** Indicates that the number of qualifying objects should be tallied when checking for a value. */
 	private boolean countMultiples;
 	private boolean overrideQualify = false;
 	private int levelQualifier = -1; // used for classes only - classlevel at which this prereq is checked
 	private String categoryName; // used for abilities only - category to restrict matches to.
 
+	/**
+	 * Instantiates a new prerequisite.
+	 */
 	public Prerequisite()
 	{
 		// Empty Constructor
 	}
 
+	/**
+	 * Instantiates a new prerequisite based on another prerequisite. 
+	 * 
+	 * @param that the other prereq
+	 */
 	public Prerequisite(final Prerequisite that)
 	{
 		this.kind = that.kind;
@@ -85,6 +99,7 @@ public class Prerequisite implements Cloneable
 	{
 		return totalValues;
 	}
+	
 	/**
 	 * @param totalValues The totalValues to set.
 	 */
@@ -92,6 +107,7 @@ public class Prerequisite implements Cloneable
 	{
 		this.totalValues = totalValues;
 	}
+	
 	/**
 	 * @param countMultiples
 	 *            The countMultiples to set.
@@ -376,8 +392,9 @@ public class Prerequisite implements Cloneable
 	/**
 	 * Retrieve the description of the prerequisite. This can either be
 	 * in long form 'skill TUMBLE gteq 5' or in short form 'TUMBLE'.
-	 *
+	 * 
 	 * @param shortForm True if the abbreviated form should be used.
+	 * 
 	 * @return The description of the prerequisite
 	 */
 	public String getDescription(final boolean shortForm)
@@ -572,4 +589,23 @@ public class Prerequisite implements Cloneable
 		return deprecated;
 	}
 
+	/**
+	 * Checks if a character is required to test this prerequisite.
+	 * 
+	 * @return true, if a character required
+	 */
+	public boolean isCharacterRequired()
+	{
+		return characterRequired;
+	}
+
+	/**
+	 * Sets whether a character is required.
+	 * 
+	 * @param characterRequired is a character required
+	 */
+	public void setCharacterRequired(boolean characterRequired)
+	{
+		this.characterRequired = characterRequired;
+	}
 }

@@ -77,11 +77,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.core.CampaignURL;
 import pcgen.core.Globals;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
 import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.filter.FilterAdapterPanel;
@@ -463,6 +465,7 @@ public class MainSource extends FilterAdapterPanel
 				.append(aCamp.getType())
 				.append("&nbsp; ");
 		}
+
 		sb.append("<b>RANK</b>: ")
 			.append(aCamp.getSafe(IntegerKey.CAMPAIGN_RANK));
 		if (aCamp.getGameModeString().length() > 0)
@@ -486,6 +489,16 @@ public class MainSource extends FilterAdapterPanel
 		{
 			sb.append("<br><b>SURVEY</b>: ");
 			sb.append(buildURLListString(surveyURLs));
+			sb.append("\n");
+		}
+
+		String preString = PrerequisiteUtilities.preReqHTMLStringsForList(null,
+				null, aCamp.getPrerequisiteList(), false);
+		if (preString.length() > 0)
+		{
+			sb.append(PropertyFactory.getFormattedString(
+				"in_InfoRequirements", //$NON-NLS-1$
+				preString));
 			sb.append("\n");
 		}
 		
@@ -741,6 +754,11 @@ public class MainSource extends FilterAdapterPanel
 		hookupPopupMenu(selectedTable);
 	}
 
+	/**
+	 * Adds or removes a campaign from the selected list.
+	 * 
+	 * @param select Should we be selecting the campaign?
+	 */
 	private void doCampaign(boolean select)
 	{
 		if (lastSelection == null)
@@ -754,7 +772,9 @@ public class MainSource extends FilterAdapterPanel
 
 			if (select)
 			{
-				if (!selectedCampaigns.contains(theCamp))
+				if (!selectedCampaigns.contains(theCamp)
+					&& PrereqHandler.passesAll(theCamp.getPrerequisiteList(),
+						null, (PObject) null))
 				{
 					selectedCampaigns.add(theCamp);
 				}
@@ -1160,6 +1180,16 @@ public class MainSource extends FilterAdapterPanel
 			return;
 		}
 
+		for (Campaign campaign : selectedCampaigns)
+		{
+			if (!PrereqHandler.passesAll(campaign.getPrerequisiteList(), null, (PObject)null))
+			{
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getFormattedString("in_Src_Bad_Combo_Load", campaign
+						.getDisplayName()), PropertyFactory.getString("in_error"), MessageType.ERROR);
+				return;
+			}
+		}
 		final PersistenceObserver observer = new PersistenceObserver();
 		final PersistenceManager pManager = PersistenceManager.getInstance();
 		try
@@ -1281,7 +1311,9 @@ public class MainSource extends FilterAdapterPanel
 				{
 					if (select)
 					{
-						if (!selectedCampaigns.contains(aCamp))
+						if (!selectedCampaigns.contains(aCamp)
+							&& PrereqHandler.passesAll(aCamp
+								.getPrerequisiteList(), null, (PObject) null))
 						{
 							selectedCampaigns.add(aCamp);
 						}
@@ -1370,7 +1402,7 @@ public class MainSource extends FilterAdapterPanel
 
 		Globals.emptyLists();
 		PersistenceManager.getInstance().emptyLists();
-		PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList<URI>());
+		//PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList<URI>());
 
 		for (Campaign aCamp : Globals.getCampaignList())
 		{
