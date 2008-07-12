@@ -42,7 +42,7 @@
 
 <hr>
 
-		<h3>Introduction</h3>
+		<h2>Introduction</h2>
 		<p class="indent0">Beginning with PCGen 5.12, and maturing in PCGen 5.14, the Ability 
 			object has been available to the lst monkey as a more flexible tool than the existing 
 			Feat object. Though it was originally conceived as a replacement for the Feat, it will 
@@ -57,44 +57,26 @@
 			Feats listed in the sourcebooks as feats are implmented with the standard feat object.</p>
 		<p class="indent0">What this lesson will not tell you is how to create either Feats or 
 			Abilities. Both are very similar in construction, using the same set of general tags 
-			to provide the functionality required to implement varied game rules used. The specific 
-			differences are covered below.</p>
-		<p class="indent0">For those of you that have gone through the previous LST Classes, some of 
-			the global tags will be repetitive. feel free to skip those portions if you like. These 
-			classes are being written for the new LST-Monkey, so there will be some overlap, but a 
-			student of the classes does not need to take them in order.</p>
+			to provide the functionality required to implement varied game rules used. The primary 
+			difference is that each &quot;ABILITY&quot; is assigned to a specific &quot;CATEGORY&quot;. 
+			This means that you can have several abilities with the same name, but each will be of a 
+			separate category. The tags required to do this are covered below.</p>
 		<p></p>
 
 		<h3>Sample Feat</h3>
-		<p class="indent0">The following sample feat will be used in this LST file class.</p>
-		<blockquote>
-			<p class="indent2"><code>My Cool Feat</code></p>
-			<p class="indent2"><code>TYPE:Special</code></p>
-			<p class="indent2"><code>VISIBLE:NO</code></p>
-			<p class="indent2"><code>SAB:Some really cool ability</code></p>
-			<p class="indent2"><code>BONUS:COMBAT|AC|5|TYPE=Racial</code></p>
-			<p class="indent2"><code>BONUS:SKILL|Hide,Move Silently|10|TYPE=Racial</code></p>
-			<p class="indent2"><code>BONUS:MISC|ACCHECK|3</code></p>
-			<p class="indent2"><code>DESC:My cool racial special ability description</code></p>
-		</blockquote>
+		<p class="indent0">The <span clss="lstobj">Expert Defense</span> hidden feat, included below, 
+			will be used as our example in this LST file class.</p>
+		<p></p>
+		<p class="indent2"><code>Expert Defense</code></p>
+		<p class="indent2"><code>TYPE:Special</code></p>
+		<p class="indent2"><code>VISIBLE:NO</code></p>
+		<p class="indent2"><code>SAB:Expert Defense ~ Add % bonus to AC|INT</code></p>
+		<p class="indent2"><code>BONUS:COMBAT|AC|INT</code></p>
+		<p class="indent0">Note: This hidden feat has been created specifically for this LST File class.</p>
 
-		<h3>Before we Begin</h3>
-		<p class="indent0">Because HTML formatting cannot exactly replicate what you would see in a LST 
-  		file we are going to use certain conventions to convey these ideas:</p>
-		<p class="indent1">1) Coding examples and PCGen tags are identified by <code>code</code> 
-			style.</p>
-		<p class="indent1">2) When referencing a specific PCGen object, i.e. domain, feat, weapon, etc., 
-			I have included the name as a <span class="lstobj">LST Object</span> text, except for when 
-			the object is part of a <code>&lt;code&gt;</code> example.</p>
-		<p class="indent1">3) Each new line should be considered a <code>&lt;TAB&gt;</code> in the actual file.</p>
-		<blockquote>
-			<p class="indent1">So examples in this lesson will appear as:</p>
-			<p class="indent2"><code>ABILITYCATEGORY:My Ability Category</code></p>
-			<p class="indent2"><code>CATEGORY:FEAT</code></p>
-			<p class="indent1">Will in the LST file appear as:</p>
-			<p class="indent2"><code>ABILITYCATEGORY:My Ability Category</code> &lt;tab&gt; <code>CATEGORY:FEAT</code></p>
-		</blockquote>
-		<p class="indent0">Finally, you will see several LST files referenced within this lesson.  The 
+		<h3>Before We Begin</h3>
+		<h4>File Names</h4>
+		<p class="indent0">You will see several LST files referenced within this lesson.  The 
 			files names used are generic file names and do not represent what your files will need to 
 			be called. The general convention used for official datasets within PCGen can be found in 
 			the <a href="../../listfilepages/listfileLSTstandards.html">Official Release Standards</a>. 
@@ -102,30 +84,57 @@
 			to include the object type contained within the file in the name of the file, i.e. the 
 			<span class=lstfile>my_campaign_abilities.lst</span> file would contain the Abilities I 
 			have created for My Campaign setting.</p>
+
+		<h4>LST File Class Style Guide</h4>
+		<p class="indent0">Because HTML formatting cannot exactly replicate what you would see in a LST 
+  		file we are going to use certain conventions to convey these ideas:</p>
+		<p class="indent1">1) Coding examples and PCGen tags are identified by <code>code</code> 
+			style.</p>
+		<p class="indent1">2) When referencing a specific PCGen object, i.e. domain, feat, weapon, etc., 
+			I have included the name as a <span class="lstobj">LST Object</span> text, except for when 
+			the object is part of a <code>code</code> example.</p>
+		<p class="indent1">3) Each new line should be considered a <code>&lt;TAB&gt;</code> in the actual file.</p>
+		<blockquote>
+			<p class="indent1">Examples in this lesson will appear as:</p>
+			<p class="indent2"><code>ABILITYCATEGORY:MySpecialAbilityCategory</code></p>
+			<p class="indent2"><code>CATEGORY:Special Ability</code></p>
+			<p class="indent1">Will in the LST file appear as:</p>
+			<p class="indent2"><code>ABILITYCATEGORY:MySpecialAbilityCategory</code> &lt;tab&gt; <code>CATEGORY:Special Ability</code></p>
+		</blockquote>
+
+		<h4>Special Note for the LST Student</h4>
+		<p class="indent0">Finally, for those of you that have gone through the previous LST Classes, some of 
+			the global tags will be repetitive. feel free to skip those portions if you like. These 
+			classes are being written for the new LST-Monkey, so there will be some overlap, but a 
+			student of the classes does not need to take them in order.</p>
 		<p></p>
 
 <hr style="height:3px">
 
-		<h2><a name="SECTION1">Section 1: The Basic Conversion</a></h2>
+		<h2>The Conversion</h2>
 		
 		<p class="indent0">The basic process of converting &quot;Feats&quot; to &quot;Abilities&quot; 
 			is to create a new file called <span class="lstfile">my_abilities.lst</span> and then copy 
 			the homebrew feats that you wish to convert to the new file and removing them from the 
 			<span class="lstfile">my_feat.lst</span> file. You will then need to add the appropriate 
 			<code>CATEGORY</code> tag to the copied feats. The next step is to modify your hombrew 
-			<span class="lstfile">my_campaign.pcc</span> file by adding the <code>ABILITY</code> tag.</p>
+			<span class="lstfile">my_campaign.pcc</span> file by adding the <code>ABILITY</code> and 
+			<code>ABILITYCATEGORY</code> tags.</p>
+		<p class="sidebar1">Note: You can name your homebrew files anything you wish as long as you 
+			include them in the your homebrew PCC file. See the <a href="lfc_lesson01_pcc.html">PCC 
+			LST File Class</a></p>
 		<p class="indent0">The relevant files and tags are explained below.</p>
 		<p></p>
 
-<hr style="height:3px">
+<hr>
 
 		<h3>Ability.lst File</h3>
-		<p class="indent0">This file is where your converted feat will be placed. In fact, 
-			the <span class="lstfile">ability.lst</span> file, and the tags you use in it, 
-			are very similar to the <span class="lstfile">feat.lst</span> file. The major 
-			diference between the two is that you will need to add the <code>CATEGORY</code> 
-			tag to your feat to make it an ability.  To get an idea of how to build feats, 
-			you can look up <a href="lfc_lesson12_feat1.html">LST File Class #12</a> and 
+		<p class="indent0">This file is where your converted feat will be placed. Fortunately, 
+			the tags you use in the <span class="lstfile">ability.lst</span> file are very 
+			similar to those used in the <span class="lstfile">feat.lst</span> file. The major 
+			difference between the two files is that you will need to add the <code>CATEGORY</code> 
+			tag to your feat to make it an ability. To get an idea of how to build feats, you 
+			can look up <a href="lfc_lesson12_feat1.html">LST File Class #12</a> and 
 			<a href="lfc_lesson13_feat2.html">LST File Class #13</a>, Feat LST Classes Parts 
 			1 and 2. There will eventually be a LST FIle Class for Abilities so you can check 
 			back periodically to see if its been released yet.</p>
@@ -133,99 +142,82 @@
 
 <hr>
 
-		<p class="indent0"><strong>&lt;Ability Name&gt;</strong></p>
-		<p class="indent0">The ability line begins with the name of the ability. You can have any name 
-			you prefer but it is a good idea to select a name that makes sense. You can see the name 
-			of our example ability below.</p>
+		<h4>&lt;Ability Name&gt;</h4>
+		<p class="indent0">Every ability line must begin with the name of the ability. You can use 
+			any name you prefer as long as it conforms to the standard requirements for feat names. 
+			For our purposes in this class, we will be using the same name we used for our sample 
+			feat. This means our new ability will be called <code>Expert Defense</code>.</p>
+		<p class="sidebar1">Note: You can have two abilities with the same name as long as they 
+			are of different categories, i.e. the <code>CATEGORY</code> tag specifies a different 
+			category for each ability.</p>
 		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>My First Cool Ability</code></p>
+		<p class="indent1"><code>Expert Defense</code></p>
+		<p class="indent2">Amazingly enough, our new ability has the same name as our old feat.</p>
 		<p></p
 
 <hr>
 
-		<p class="indent0"><strong>CATEGORY</strong></p>
-		<p class="indent0">This tag identifies the 'category' in which your new ability will be placed. 
-			In the case of our example ability, we are placing it in the <strong>FEAT</strong> category. 
-			Note the <strong>ALL CAPS</strong>? While abilitiy categories can be named whatever you decide 
-			upon, when using the hardcoded <strong>FEAT</strong> category, you must use all caps as that 
-			is the way it is hardcoded within PCGen.</p>
-		<p class="sidebar1"><strong>NOTE:</strong> Any category, besides 'FEAT', must have been defined in the 
-			<span class="lstfile">miscinfo.lst</span> or <span class="lstfile">abilitycategory.lst</span> 
-			file to be valid. See the <a href="#SECTION2">Advanced Conversion</a> section for more 
-			information.</p>
+		<h4>CATEGORY</h4>
+		<p class="indent0">This tag identifies the 'category' in which your new ability 
+			will be placed. In the case of our example ability, we are placing it in the 
+			<span class="lstobj">MySpecialAbilityCategory</span> category. Any category, 
+			besides 'FEAT', must have been defined in the <span class="lstfile">miscinfo.lst</span> 
+			or <span class="lstfile">abilitycategory.lst</span> file to be valid. See 
+			<span class="lstfile">Abilitycategory.lst</span> file below.</p>
+		<p class="sidebar1">Note: While abilitiy categories can be named whatever you decide upon, 
+			when using the hardcoded <span class="lstobj">FEAT</span> category, you must use 
+			all caps as that is the way it is hardcoded within PCGen.</p>
 		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>CATEGORY:FEAT</code></p>
+		<p class="indent1"><code>CATEGORY:MySpecialAbilityCategory</code></p>
+		<p class="indent2">The category to which this new ability is assigned is <span class="lstobj">MySpecialAbilityCategory</span>. 
+			See the <span class="lstfile">Abilitycategory.lst</span> file explanation below.</p>
 		<p></p>
 
 <hr>
 
-		<p class="indent0"><strong>PREABILITY</strong></p>
-		<p class="indent0">You may continue to use 
-			<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a> when 
-			testing for the converted abilities as a prerequisite, as long as you use the 
-			<code>CATEGORY:FEAT</code> tag, but it is recommended that you use 
-			<a href="../globalfilestagpages/globalfilesprexxx.html#PREABILITY">PREABILITY</a> instead. 
-			If you use any other category, you MUST use the <code>PREABILITY</code> tag.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>PREABILITY:1,CATEGORY=FEAT,My First Cool Ability</code></p>
+		<h4>Our New Ability</h4>
+		<p class="indent0">All other tags in our example feat are used as is in our new ability.  The final 
+			Ability object is shown below:</p>
 		<p></p>
-
+		<p class="indent2"><code>Expert Defense</code></p>
+		<p class="indent2"><code>CATEGORY:MySpecialAbilityCategory</code></p>
+		<p class="indent2"><code>TYPE:Special</code></p>
+		<p class="indent2"><code>VISIBLE:NO</code></p>
+		<p class="indent2"><code>SAB:Expert Defense ~ Add % bonus to AC|INT</code></p>
+		<p class="indent2"><code>BONUS:COMBAT|AC|INT</code></p>
+		<p></p>
 		
 <hr style="height:3px">
 
-		<h3>The PCC File</h3>
-		<p class="indent0">PCGen uses the <span class="lstfile">*.pcc</span> file to identify which source 
-			files to load as well as other information about the 'campaign'. Without these files and the
-			related information, PCGen would not be able to load any datafiles. For the purposes of this 
-			lesson, there are only two tags we need to cover. The <code>ABILITY</code> tag and the
-			<code>ABILITYCATEGORY</code> tag. Both of these tags will be covered in some detail below.</p>
-		<p class="indent0">More information about PCC files can be found in the <a href="lfc_lesson01_pcc.html">PCC LST File Class</a>.</p>
+		<h3>Abilitycategory.lst  File</h3>
+
+		<p class="indent0">This defines the Ability Category that an ability is assigned to. This category 
+			will determine where, within the PCGen user interface, under the &quot;Feats & Abilities&quot; 
+			tab, to show the related abilities.</p>
+		<p class="indent0">There are a number of ability categories built into PCGen's various datasets, 
+			all defined in either the loaded gamemode's <span class="lstfile">miscinfo.lst</span> file 
+			or the loaded dataset's <span class="lstfile">abilitycategory.lst</span> file. For Homebrews, 
+			you'll need to either use one of these existing ability categories or set up your own &quot;Ability 
+			Category&quot;, which in turn will create a separate &quot;pool&quot; with which to manage 
+			your converted abilities. To demonstrate how this is done, we'll use the 
+			<span class="lstobj">MySpecialAbilityCategory</span> category.</p>
+		<p></p>
 
 <hr>
-		<p class="indent0"><strong><code>ABILITY</code></strong></p>
-		<p class="indent0">PCGen uses the <code>ABILITY:&lt;ability file&gt;</code> tag to identify the 
-			files in which PCGen's new &quot;Ability&quot; objects can be found and loaded into PCGen. 
-			For our purposes, we will be using the name <span class="lstfile">my_ability.lst</span> to build 
-			our converted abilities.</p>
+
+		<h4>ABILITYCATEGORY or &lt;ability category name&gt;</h4>
+		<p class="indent0">The first entry in the ABILITYCATEGORY line is the name of the new ability 
+			category. This can be done without the &quot;ABILITYCATEGORY&quot; tag but current PCGn standard 
+			preactice is to include the tag.</p>
 		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>ABILITY:my_ability.lst</code></p>
+		<p class="indent1"><code>ABILITYCATEGORY:MySpecialAbilityCategory</code></p>
+		<p class="indent2">The name of our new ability category is 
+			<span class="lstobj">MySpecialAbilityCategory</span>.</p>
 		<p></p>
 
 <hr>
 
-		<p class="indent0"><strong><code>ABILITYCATEGORY</code></strong></p>
-		<p class="indent0">The <code>ABILITYCATEGORY:&lt;ability category file&gt;</code> tag is used to 
-			identify the files in which PCGen will find the &quot;Ability Categories&quot; required to 
-			implement our new abilities.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>ABILITYCATEGORY:my_abilitycategory.lst</code></p>
-		<p></p>
-
-<hr style="height:3px">
-
-		<h2><a name="SECTION2">Section 2: The Advanced Conversion</a></h2>
-		
-		<p class="indent1">TBD</p>
-		<p class="indent1">The relevant tags are explained below.</p>
-		<p></p>
-
-<hr style="height:3px">
-
-		<h3>Miscinfo.lst or Abilitycategory.lst  File</h3>
-		<p class="indent0">For Homebrews you'll need to set up any special &quot;abilities&quot; 
-			in their own pools. To demonstrate this, we'll use the sample ability category shown below:</p>
-
-<hr>
-
-		<p class="indent0"><strong><code>ABILITYCATEGORY</code></strong></p>
-		<p class="indent0">This defines the Ability Category. This is what will show in the PCGen user interface, under the FEATs tab.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>ABILITYCATEGORY:My Ability Category</code></p>
-		<p></p>
-
-<hr>
-
-		<p class="indent0"><strong><code>CATEGORY</code></strong></p>
+		<h4>CATEGORY</h4>
 		<p class="indent0">This is a 'sub-category'. You'll note we leave it the same for this example 
 			but you can have the same ability name as long as it has a different category name. As an 
 			example, you could have an ability <span class="lstobj">FooBarSneak</span> of 
@@ -240,7 +232,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>PLURAL</code></strong></p>
+		<h4>PLURAL</h4>
 		<p class="indent0">This has to do with the internationalization. An example is: in_feats which sets the 
 			Category key to 'in_feats'. It also shows up with the 'Plural' of the name. Ex. Feat would be Feats 
 			(Feats would display in the drop down bar).</p>
@@ -250,7 +242,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>EDITABLE</code></strong></p>
+		<h4>EDITABLE</h4>
 		<p class="indent0">This defines whether a user can modify the abilities in the category. NO would be 
 			appropriate for class abilities which aren't chosen by the user.</p>
 		<p class="indent0"><strong>Example:</strong></p>
@@ -259,7 +251,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>EDITPOOL</code></strong></p>
+		<h4>EDITPOOL</h4>
 		<p class="indent0">This defines whether a user can modify the pool number or not. Each ability has a 
 			'cost' (Default is 1) if this option is set to 'NO' the user cannot add or subtract from the pool. 
 			For feats, the default is 'YES'.</p>
@@ -269,7 +261,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>FRACTIONALPOOL</code></strong></p>
+		<h4>FRACTIONALPOOL</h4>
 		<p class="indent0">This defines whether the pool must be a whole number or can be fractions. Some 
 			abilities may have a cost less than '1' like .5 or .25. &lt;YES / NO&gt;</p>
 		<p class="indent0"><strong>Example:</strong></p>
@@ -278,7 +270,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>POOL</code></strong></p>
+		<h4>POOL</h4>
 		<p class="indent0">0 unless you want a formula to determine the pool number. Example: TL/2 would 
 			grant one point every 2 levels to the character. </p>
 		<p class="indent0"><strong>Example:</strong></p>
@@ -287,7 +279,7 @@
 
 <hr>
 
-		<p class="indent0"><strong><code>VISIBLE</code></strong></p>
+		<h4>VISIBLE</h4>
 		<p class="indent0">Defines whether this category is visible on the UI or hidden. Usefull for hidden 
 			abilities and class abilities that require no interaction from the user. &lt;Options are - YES, 
 			NO, QUALIFY&gt;</p>
@@ -297,8 +289,34 @@
 
 <hr style="height:3px">
 
-		<h2>Conclusion: The LST Files</h2>
-		
+		<h3>The PCC File</h3>
+		<p class="indent0">PCGen uses the <span class="lstfile">*.pcc</span> file to identify which source 
+			files to load as well as other information about the 'campaign'. Without these files and the
+			related information, PCGen would not be able to load any datafiles. For the purposes of this 
+			lesson, there are only two tags we need to cover. The <code>ABILITY</code> tag and the
+			<code>ABILITYCATEGORY</code> tag. Both of these tags will be covered in some detail below.</p>
+		<p class="indent0">More information about PCC files can be found in the <a href="lfc_lesson01_pcc.html">PCC LST File Class</a>.</p>
+
+<hr>
+		<h4>ABILITY</h4>
+		<p class="indent0">PCGen uses the <code>ABILITY:&lt;ability file&gt;</code> tag to identify the 
+			files in which PCGen's new &quot;Ability&quot; objects can be found and loaded into PCGen. 
+			For our purposes, we will be using the name <span class="lstfile">my_ability.lst</span> to build 
+			our converted abilities.</p>
+		<p class="indent0"><strong>Example:</strong></p>
+		<p class="indent1"><code>ABILITY:my_ability.lst</code></p>
+		<p></p>
+
+<hr>
+
+		<h4>ABILITYCATEGORY</h4>
+		<p class="indent0">The <code>ABILITYCATEGORY:&lt;ability category file&gt;</code> tag is used to 
+			identify the files in which PCGen will find the &quot;Ability Categories&quot; required to 
+			implement our new abilities.</p>
+		<p class="indent0"><strong>Example:</strong></p>
+		<p class="indent1"><code>ABILITYCATEGORY:my_abilitycategory.lst</code></p>
+		<p></p>
+
 <hr style="height:3px">
 
 		<h2>Final Thoughts</h2>
@@ -313,6 +331,13 @@
 			in the .pcc file. Basically pretend that an ability.lst is a feat file as far as what tags 
 			you can use in it and you'll be ok (fair warning though, there may be exceptions to that 
 			rule of thumb).</p>
+		<p class="indent0">You may continue to use 
+			<a href="../globalfilestagpages/globalfilesprexxx.html#PREFEAT">PREFEAT</a> when 
+			testing for the converted abilities as a prerequisite, as long as you use the 
+			<code>CATEGORY:FEAT</code> tag, but it is recommended that you use 
+			<a href="../globalfilestagpages/globalfilesprexxx.html#PREABILITY">PREABILITY</a> instead. 
+			If you use any other category, e.g. <code>CATEGORY:MySpecialAbility</code> you MUST use the 
+			<code>PREABILITY</code> tag to check for your new abilities as prerequisites.</p>
 		<p></p>
 
 		<p class="indent0">Andrew</p>
