@@ -247,7 +247,7 @@ public class MainSource extends FilterAdapterPanel
 	@Override
 	public int getSelectionMode()
 	{
-		return FilterConstants.DISABLED_MODE;
+		return FilterConstants.MULTI_MULTI_MODE;
 	}
 
 	/**
@@ -265,7 +265,7 @@ public class MainSource extends FilterAdapterPanel
 	 */
 	public void initializeFilters()
 	{
-		// Do Nothing
+		FilterFactory.registerAllSourceFilters(this);
 	}
 
 	/**

@@ -396,6 +396,7 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (sourceFilters.size() == 0)
 		{
+			sourceFilters.add(FilterFactory.createQualifyFilter());
 			for ( final String source : PersistenceManager.getInstance().getSources() )
 			{
 				sourceFilters.add(FilterFactory.createSourceFilter(source));
