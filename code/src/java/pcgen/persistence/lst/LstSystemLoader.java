@@ -35,8 +35,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Properties;
@@ -184,8 +186,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private EquipSlotLoader eqSlotLoader = new EquipSlotLoader();
 	private final List<CampaignSourceEntry> bioSetFileList =
 			new ArrayList<CampaignSourceEntry>();
-	private final List<URI> chosenCampaignSourcefiles =
-			new ArrayList<URI>();
+	private final Map<String, List<URI>> chosenCampaignSourcefiles =
+			new HashMap<String, List<URI>>();
 	private final List<CampaignSourceEntry> classFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> classSkillFileList =
@@ -312,19 +314,37 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	}
 
-	public void setChosenCampaignSourcefiles(List<URI> l)
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.SystemLoader#setChosenCampaignSourcefiles(java.util.List, pcgen.core.GameMode)
+	 */
+	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
-		chosenCampaignSourcefiles.clear();
-		chosenCampaignSourcefiles.addAll(l);
+		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
+		if (files == null)
+		{
+			files = new ArrayList<URI>();
+			chosenCampaignSourcefiles.put(game.getName(), files);
+		}
+		files.clear();
+		files.addAll(l);
 		SettingsHandler.getOptions().setProperty(
-			"pcgen.files.chosenCampaignSourcefiles",
-			StringUtil.join(chosenCampaignSourcefiles, ", "));
+			"pcgen.files.chosenCampaignSourcefiles." + game.getName(),
+			StringUtil.join(files, ", "));
 //		CoreUtility.join(chosenCampaignSourcefiles, ','));
 	}
 
-	public List<URI> getChosenCampaignSourcefiles()
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.SystemLoader#getChosenCampaignSourcefiles(pcgen.core.GameMode)
+	 */
+	public List<URI> getChosenCampaignSourcefiles(GameMode game)
 	{
-		return chosenCampaignSourcefiles;
+		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
+		if (files == null)
+		{
+			files = new ArrayList<URI>();
+			chosenCampaignSourcefiles.put(game.getName(), files);
+		}
+		return files;
 	}
 
 	////////////////////////////////////////////////////////////
@@ -355,7 +375,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	public void emptyLists()
 	{
 		loadedFiles.clear();
-		chosenCampaignSourcefiles.clear();
+		//chosenCampaignSourcefiles.clear();
 		licensesToDisplayString = new StringBuffer();
 		matureCampaigns = new StringBuffer();
 		//Globals.getBioSet().clearUserMap();
@@ -441,7 +461,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			sortCampaignsByRank(aSelectedCampaignsList);
 
 			// Read the campaigns
-			readPccFiles(context, aSelectedCampaignsList, null);
+			readPccFiles(context, aSelectedCampaignsList, null, SettingsHandler.getGame());
 
 			// Add custom campaign files at the start of the lists
 			addCustomFilesToStartOfList();
@@ -547,6 +567,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		catch (Throwable thr)
 		{
 			Logging.errorPrint("Exception loading files.", thr);
+			//TODO: Add user message here.
 		}
 		finally
 		{
@@ -817,19 +838,20 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * of files to be loaded to raceFileList, classFileList etc.
 	 * @param aCamp
 	 */
-	private void loadCampaignFile(Campaign aCamp)
+	private void loadCampaignFile(Campaign aCamp, GameMode game)
 	{
 		aCamp.setIsLoaded(true);
 
 		final URI sourceFile = aCamp.getSourceURI();
 
+		List<URI> files = getChosenCampaignSourcefiles(game);
 		// Update the list of chosen campaign source files
-		if (!chosenCampaignSourcefiles.contains(sourceFile))
+		if (!files.contains(sourceFile))
 		{
-			chosenCampaignSourcefiles.add(sourceFile);
+			files.add(sourceFile);
 			SettingsHandler.getOptions().setProperty(
-				"pcgen.files.chosenCampaignSourcefiles",
-				StringUtil.join(chosenCampaignSourcefiles, ", "));
+				"pcgen.files.chosenCampaignSourcefiles." + game.getName(),
+				StringUtil.join(files, ", "));
 //			CoreUtility.join(chosenCampaignSourcefiles, ','));
 		}
 
@@ -1249,10 +1271,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *
 	 * @param aSelectedCampaignsList List of Campaigns to load
 	 * @param currentPC
+	 * @param game The gamemode that the campaigns are part of.
 	 */
 	private void readPccFiles(LoadContext context,
 			final List<Campaign> aSelectedCampaignsList,
-			final PlayerCharacter currentPC)
+			final PlayerCharacter currentPC,
+			final GameMode game)
 	{
 		// Prime options based on currently selected preferences
 		if (SettingsHandler.isOptionAllowedInSources())
@@ -1266,7 +1290,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// along with any options required by the campaigns...
 		for (Campaign campaign : aSelectedCampaignsList)
 		{
-			loadCampaignFile(campaign);
+			loadCampaignFile(campaign, game);
 			if (loadedSet.add(campaign))
 			{
 				campaign.applyTo(context.ref);

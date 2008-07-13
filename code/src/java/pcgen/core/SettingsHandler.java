@@ -715,6 +715,8 @@ public final class SettingsHandler
 		game.setPurchaseMethodName(getPCGenOption("gameMode." + key + ".purchaseMethodName", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		game.setAllStatsValue(getPCGenOption("gameMode." + key + ".allStatsValue", 10));
 		game.setRollMethod(getPCGenOption("gameMode." + key + ".rollMethod", 0)); //$NON-NLS-1$
+
+		getChosenCampaignFiles(game);
 	}
 
 	public static GameMode getGame()
@@ -1069,20 +1071,6 @@ public final class SettingsHandler
 			setBrowserPath(null);
 		}
 
-		List<String> uriStringList = CoreUtility.split(getOptions().getProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
-							""), ',');
-		List<URI> uriList = new ArrayList<URI>(uriStringList.size());
-		for (String str : uriStringList)
-		{
-			try {
-				uriList.add(new URI(str));
-			} catch (URISyntaxException e) {
-				Logging.errorPrint("Settings error: Unable to convert " + str
-						+ " to a URI: " + e.getLocalizedMessage());
-			}
-		}
-		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList); //$NON-NLS-1$
-
 		setLeftUpperCorner(new Point(getPCGenOption("windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
 				getPCGenOption("windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
 
@@ -1283,6 +1271,31 @@ public final class SettingsHandler
 		parseRuleChecksFromOptions(getPCGenOption("ruleChecks", "")); //$NON-NLS-1$ //$NON-NLS-2$
 
 		return d;
+	}
+
+	/**
+	 * Retreive the chosen campaign files from properties for
+	 * use by the rest of PCGen.
+	 * 
+	 * @param gameMode The GameMode to reteieve the files for.
+	 */
+	private static void getChosenCampaignFiles(GameMode gameMode)
+	{
+		List<String> uriStringList =
+				CoreUtility.split(getOptions().getProperty(
+					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
+					""), ',');
+		List<URI> uriList = new ArrayList<URI>(uriStringList.size());
+		for (String str : uriStringList)
+		{
+			try {
+				uriList.add(new URI(str));
+			} catch (URISyntaxException e) {
+				Logging.errorPrint("Settings error: Unable to convert " + str
+						+ " to a URI: " + e.getLocalizedMessage());
+			}
+		}
+		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
 	}
 
 	/**

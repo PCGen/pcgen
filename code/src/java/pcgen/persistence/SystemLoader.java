@@ -28,6 +28,7 @@ import java.util.Observer;
 import java.util.Set;
 
 import pcgen.core.Campaign;
+import pcgen.core.GameMode;
 
 /**
  * <code>SystemLoader</code> is an abstract factory class that hides
@@ -46,17 +47,20 @@ public interface SystemLoader
 	public static final String TAB_DELIM = "\t";
 
 	/**
-	 * This method sets a List of campaigns  selected by the user.
+	 * This method sets a List of campaigns selected for a particular game 
+	 * mode by the user.
 	 * @param l List containing the chosen campaign source files
+	 * @param game The game mode
 	 */
-	public void setChosenCampaignSourcefiles(List<URI> l);
+	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game);
 
 	/**
 	 * This method gets a List of campaigns previously or currently
-	 * selected by the user.
+	 * selected for a particular game mode by the user.
+	 * @param game The game mode
 	 * @return List containing the chosen campaign source files
 	 */
-	public List<URI> getChosenCampaignSourcefiles();
+	public List<URI> getChosenCampaignSourcefiles(GameMode game);
 
 	/**
 	 * This method indicates whether custom items have been successfully

@@ -20,13 +20,6 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.core.Campaign;
-import pcgen.core.SettingsHandler;
-import pcgen.core.Source;
-import pcgen.io.FileAccess;
-import pcgen.util.Logging;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,8 +29,15 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.Campaign;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Source;
+import pcgen.io.FileAccess;
+import pcgen.util.Logging;
+
 /**
- * <code>CampaignOutput</code>.
+ * <code>CampaignOutput</code> writes out data sets to PCC files.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
@@ -113,7 +113,7 @@ public final class CampaignOutput
 			FileAccess.write(out, "GENRE:" + campaign.getGenre());
 			FileAccess.newLine(out);
 
-			for (Iterator i = campaign.getOptionsList().iterator(); i.hasNext();)
+			for (Iterator<String> i = campaign.getOptionsList().iterator(); i.hasNext();)
 			{
 				FileAccess.write(out, "OPTION:"
 					+ campaign.getOptions().getProperty((String) i.next()));

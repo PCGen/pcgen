@@ -23,7 +23,9 @@
 package pcgen.persistence;
 
 import pcgen.core.Campaign;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
 
 import java.net.URI;
@@ -82,21 +84,41 @@ public final class PersistenceManager
 	}
 
 	/**
-	 * Set the source files for the chosen campaign
+	 * Set the source files for the chosen campaign for the current game mode.
 	 * @param l
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l)
 	{
-		instance.setChosenCampaignSourcefiles(l);
+		instance.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
 	}
 
 	/**
-	 * Get the chosen campaign source files
+	 * Set the source files for the chosen campaign for the specific game mode.
+	 * @param l
+	 * @param game The game mode.
+	 */
+	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
+	{
+		instance.setChosenCampaignSourcefiles(l, game);
+	}
+
+	/**
+	 * Get the chosen campaign source files for the current game mode.
 	 * @return the chosen campaign source files
 	 */
 	public List<URI> getChosenCampaignSourcefiles()
 	{
-		return instance.getChosenCampaignSourcefiles();
+		return instance.getChosenCampaignSourcefiles(SettingsHandler.getGame());
+	}
+
+	/**
+	 * Get the chosen campaign source files for the specific game mode.
+	 * @param game The game mode.
+	 * @return the chosen campaign source files
+	 */
+	public List<URI> getChosenCampaignSourcefiles(GameMode game)
+	{
+		return instance.getChosenCampaignSourcefiles(game);
 	}
 
 	/**

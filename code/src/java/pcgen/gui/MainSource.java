@@ -259,17 +259,26 @@ public class MainSource extends FilterAdapterPanel
 		selectedCampaigns.clear();
 		//resetViewNodes();
 		unloadAllCampaigns_actionPerformed();
-		
-		selectDefaultCampaigns();		
+
+		List<URI> chosenCampaigns =
+				PersistenceManager.getInstance().getChosenCampaignSourcefiles();  
+		if (!chosenCampaigns.isEmpty())
+		{
+			selectCampaignsByURI(chosenCampaigns);
+		}
+		else
+		{
+			selectDefaultCampaigns();
+		}
 	}
 
 	/**
-	 * Add the previous or default data sets to the selected list.
+	 * Add the default data sets to the selected list.
 	 */
 	private void selectDefaultCampaigns()
 	{
 		GameMode game = SettingsHandler.getGame();
-		List<String> campaignsToAdd = new ArrayList<String>();;
+		List<String> campaignsToAdd = new ArrayList<String>();
 		if (!game.getDefaultDataSetList().isEmpty())
 		{
 			campaignsToAdd.addAll(game.getDefaultDataSetList());
