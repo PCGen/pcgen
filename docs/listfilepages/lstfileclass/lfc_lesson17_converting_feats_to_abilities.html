@@ -9,7 +9,7 @@
 
 	<body>
 
-		<h1>Lesson #17: .lst - Converting Feats to Abilities </h1>
+		<h1>Lesson #17: .lst - Converting Feats to Abilities, The Basic Conversion </h1>
 
 		<p class="indent0">By Andrew A. Maitland (LegacyKing) and Eric C Smith (Maredudd)</p>
 
@@ -81,9 +81,13 @@
 			be called. The general convention used for official datasets within PCGen can be found in 
 			the <a href="../../listfilepages/listfileLSTstandards.html">Official Release Standards</a>. 
 			You are free to call your homebrew datasets by what name you will, though I find it helps 
-			to include the object type contained within the file in the name of the file, i.e. the 
-			<span class=lstfile>my_campaign_abilities.lst</span> file would contain the Abilities I 
-			have created for My Campaign setting.</p>
+			to include the object type contained within the file in the name of the file. For the 
+			purposes of this LST File class, we will use the following file names:
+		<p class="indent1"><span class="lstfile">my_abilities.lst</span> file for the converted abilities.</p>
+		<p class="indent1"><span class="lstfile">my_abilitycategpries.lst</span> file for the new abilities categories.</p>
+		<p class="indent1"><span class="lstfile">my_campaign.pcc</span> file for the campaign pcc file.</p>
+		<p class="sidebar1">Note: You can name your homebrew files anything you wish as long as you 
+			include them in the your homebrew PCC file.</p>
 
 		<h4>LST File Class Style Guide</h4>
 		<p class="indent0">Because HTML formatting cannot exactly replicate what you would see in a LST 
@@ -96,10 +100,10 @@
 		<p class="indent1">3) Each new line should be considered a <code>&lt;TAB&gt;</code> in the actual file.</p>
 		<blockquote>
 			<p class="indent1">Examples in this lesson will appear as:</p>
-			<p class="indent2"><code>ABILITYCATEGORY:MySpecialAbilityCategory</code></p>
+			<p class="indent2"><code>ABILITYCATEGORY:My Special Ability Category</code></p>
 			<p class="indent2"><code>CATEGORY:Special Ability</code></p>
 			<p class="indent1">Will in the LST file appear as:</p>
-			<p class="indent2"><code>ABILITYCATEGORY:MySpecialAbilityCategory</code> &lt;tab&gt; <code>CATEGORY:Special Ability</code></p>
+			<p class="indent2"><code>ABILITYCATEGORY:My Special Ability Category</code> &lt;tab&gt; <code>CATEGORY:Special Ability</code></p>
 		</blockquote>
 
 		<h4>Special Note for the LST Student</h4>
@@ -117,27 +121,25 @@
 			is to create a new file called <span class="lstfile">my_abilities.lst</span> and then copy 
 			the homebrew feats that you wish to convert to the new file and removing them from the 
 			<span class="lstfile">my_feat.lst</span> file. You will then need to add the appropriate 
-			<code>CATEGORY</code> tag to the copied feats. The next step is to modify your hombrew 
-			<span class="lstfile">my_campaign.pcc</span> file by adding the <code>ABILITY</code> and 
-			<code>ABILITYCATEGORY</code> tags.</p>
-		<p class="sidebar1">Note: You can name your homebrew files anything you wish as long as you 
-			include them in the your homebrew PCC file. See the <a href="lfc_lesson01_pcc.html">PCC 
-			LST File Class</a></p>
-		<p class="indent0">The relevant files and tags are explained below.</p>
+			<code>CATEGORY</code> tag to the copied feats, making sure that any new ability categories 
+			are properly defined in the <span class="lstfile">my_abilitycategories.lst</span> file. 
+			The next step is to modify your hombrew <span class="lstfile">my_campaign.pcc</span> file 
+			by adding the <code>ABILITY</code> and <code>ABILITYCATEGORY</code> tags. The relevant files 
+			and tags to acomplish this are explained below.</p>
 		<p></p>
 
 <hr>
 
-		<h3>Ability.lst File</h3>
-		<p class="indent0">This file is where your converted feat will be placed. Fortunately, 
-			the tags you use in the <span class="lstfile">ability.lst</span> file are very 
-			similar to those used in the <span class="lstfile">feat.lst</span> file. The major 
-			difference between the two files is that you will need to add the <code>CATEGORY</code> 
-			tag to your feat to make it an ability. To get an idea of how to build feats, you 
-			can look up <a href="lfc_lesson12_feat1.html">LST File Class #12</a> and 
-			<a href="lfc_lesson13_feat2.html">LST File Class #13</a>, Feat LST Classes Parts 
-			1 and 2. There will eventually be a LST FIle Class for Abilities so you can check 
-			back periodically to see if its been released yet.</p>
+		<h3>The Ability File</h3>
+		<p class="indent0">The <span class="lstfile">my_abilities.lst</span> file is where your converted 
+			feats will be placed. Fortunately, the tags you use in this file are very similar to those 
+			used in the <span class="lstfile">feat.lst</span> file. The major difference between these 
+			two files is that you will need to add the <code>CATEGORY</code> tag to your converted feat 
+			to make it an ability. To get an idea of how to build feats, you can look up 
+			<a href="lfc_lesson12_feat1.html">LST File Class #12</a> and 
+			<a href="lfc_lesson13_feat2.html">LST File Class #13</a>, Feat LST Classes Parts 1 and 2. 
+			There will eventually be a LST FIle Class for Abilities so you can check back periodically 
+			to see if its been released yet.</p>
 		<p></p>
 
 <hr>
@@ -157,20 +159,16 @@
 
 <hr>
 
-		<h4>CATEGORY</h4>
+		<h4><code>CATEGORY:My Super Ability</code></h4>
 		<p class="indent0">This tag identifies the 'category' in which your new ability 
 			will be placed. In the case of our example ability, we are placing it in the 
-			<span class="lstobj">MySpecialAbilityCategory</span> category. Any category, 
-			besides 'FEAT', must have been defined in the <span class="lstfile">miscinfo.lst</span> 
+			<span class="lstobj">My Super Ability</span> category. Any category, besides 
+			'FEAT', must have been defined in the <span class="lstfile">miscinfo.lst</span> 
 			or <span class="lstfile">abilitycategory.lst</span> file to be valid. See 
-			<span class="lstfile">Abilitycategory.lst</span> file below.</p>
+			&quot;The Ability Category File&quot; file below.</p>
 		<p class="sidebar1">Note: While abilitiy categories can be named whatever you decide upon, 
 			when using the hardcoded <span class="lstobj">FEAT</span> category, you must use 
 			all caps as that is the way it is hardcoded within PCGen.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>CATEGORY:MySpecialAbilityCategory</code></p>
-		<p class="indent2">The category to which this new ability is assigned is <span class="lstobj">MySpecialAbilityCategory</span>. 
-			See the <span class="lstfile">Abilitycategory.lst</span> file explanation below.</p>
 		<p></p>
 
 <hr>
@@ -180,7 +178,7 @@
 			Ability object is shown below:</p>
 		<p></p>
 		<p class="indent2"><code>Expert Defense</code></p>
-		<p class="indent2"><code>CATEGORY:MySpecialAbilityCategory</code></p>
+		<p class="indent2"><code>CATEGORY:My Super Ability</code></p>
 		<p class="indent2"><code>TYPE:Special</code></p>
 		<p class="indent2"><code>VISIBLE:NO</code></p>
 		<p class="indent2"><code>SAB:Expert Defense ~ Add % bonus to AC|INT</code></p>
@@ -189,132 +187,149 @@
 		
 <hr style="height:3px">
 
-		<h3>Abilitycategory.lst  File</h3>
+		<h3>The Ability Category  File</h3>
 
-		<p class="indent0">This defines the Ability Category that an ability is assigned to. This category 
-			will determine where, within the PCGen user interface, under the &quot;Feats & Abilities&quot; 
-			tab, to show the related abilities.</p>
+		<p class="indent0">The <span class="lstfile">my_abilitycategories.lst</span> file defines 
+			the various ability categories that an ability can be assigned to. These categories 
+			will determine where, within the PCGen user interface, the related abilities will appear. 
+			In general, they will appear in a sub-tab on the &quot;Feats & Abilities&quot; tag.</p>
 		<p class="indent0">There are a number of ability categories built into PCGen's various datasets, 
 			all defined in either the loaded gamemode's <span class="lstfile">miscinfo.lst</span> file 
 			or the loaded dataset's <span class="lstfile">abilitycategory.lst</span> file. For Homebrews, 
 			you'll need to either use one of these existing ability categories or set up your own &quot;Ability 
 			Category&quot;, which in turn will create a separate &quot;pool&quot; with which to manage 
 			your converted abilities. To demonstrate how this is done, we'll use the 
-			<span class="lstobj">MySpecialAbilityCategory</span> category.</p>
+			<span class="lstobj">My Super Ability</span> category.</p>
 		<p></p>
 
 <hr>
 
 		<h4>ABILITYCATEGORY or &lt;ability category name&gt;</h4>
-		<p class="indent0">The first entry in the ABILITYCATEGORY line is the name of the new ability 
-			category. This can be done without the &quot;ABILITYCATEGORY&quot; tag but current PCGn standard 
-			preactice is to include the tag.</p>
+		<p class="indent0">The first entry in the ABILITYCATEGORY line is the name of the new 
+			ability category. This can be done without the &quot;ABILITYCATEGORY&quot; tag but 
+			current PCGen standard practice is to include the tag.</p>
+		<p class="indent0">If this ability category is defines as &quot;visible&quot; (See the 
+			&quot;VISIBLE&quot; tag below), any ability given this category will appear in the 
+			&quot;Feats & Abilities&quot; tab under a sub-tab of the same name as this ability 
+			category.</p>
 		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>ABILITYCATEGORY:MySpecialAbilityCategory</code></p>
-		<p class="indent2">The name of our new ability category is 
-			<span class="lstobj">MySpecialAbilityCategory</span>.</p>
+		<p class="indent1"><code>ABILITYCATEGORY:My Super Ability</code></p>
+		<p class="indent2">The name of our new ability category is <span class="lstobj">My Super Ability</span>.</p>
+		<p class="indent1"><code>My Super Ability</code></p>
+		<p class="indent2">The name of our new ability category is <span class="lstobj">My Super Ability</span>.</p>
 		<p></p>
 
 <hr>
 
-		<h4>CATEGORY</h4>
-		<p class="indent0">This is a 'sub-category'. You'll note we leave it the same for this example 
-			but you can have the same ability name as long as it has a different category name. As an 
-			example, you could have an ability <span class="lstobj">FooBarSneak</span> of 
-			<code>CATEGORY:Ambush</code>, and an ability <span class="lstobj">FooBarSneak</span> 
-			of <code>CATEGORY:Rogue</code> with no conflicts within PCGen.</p>
+		<h4><code>CATEGORY:My Super Ability</code></h4>
+		<p class="indent0">This is a 'super-category', or parent category, to which our new ability 
+			category belongs. This tag is optional but if included must list an existing ability category.</p>
 		<p class="sidebar1">NOTE: Categories may be different, you can make any category you want as long as 
 			it is defined in either the <span class="lstfile">miscinfo.lst</span> or 
 			<span class="lstfile">miscinfo.lst</span> file.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>CATEGORY:FEAT</code></p>
 		<p></p>
 
 <hr>
 
-		<h4>PLURAL</h4>
+		<h4><code>PLURAL:My Super Abilities</code></h4>
 		<p class="indent0">This has to do with the internationalization. An example is: in_feats which sets the 
 			Category key to 'in_feats'. It also shows up with the 'Plural' of the name. Ex. Feat would be Feats 
 			(Feats would display in the drop down bar).</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>PLURAL:Class Ability Categories</code></p>
 		<p></p>
 
 <hr>
 
-		<h4>EDITABLE</h4>
+		<h4><code>EDITABLE:NO</code></h4>
 		<p class="indent0">This defines whether a user can modify the abilities in the category. NO would be 
 			appropriate for class abilities which aren't chosen by the user.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>EDITABLE:YES</code></p>
 		<p></p>
 
 <hr>
 
-		<h4>EDITPOOL</h4>
+		<h4><code>EDITPOOL:NO</code></h4>
 		<p class="indent0">This defines whether a user can modify the pool number or not. Each ability has a 
 			'cost' (Default is 1) if this option is set to 'NO' the user cannot add or subtract from the pool. 
 			For feats, the default is 'YES'.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>EDITPOOL:NO</code></p>
 		<p></p>
 
 <hr>
 
-		<h4>FRACTIONALPOOL</h4>
+		<h4><code>FRACTIONALPOOL:NO</code></h4>
 		<p class="indent0">This defines whether the pool must be a whole number or can be fractions. Some 
 			abilities may have a cost less than '1' like .5 or .25. &lt;YES / NO&gt;</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>FRACTIONALPOOL:NO</code></p>
 		<p></p>
 
 <hr>
 
-		<h4>POOL</h4>
-		<p class="indent0">0 unless you want a formula to determine the pool number. Example: TL/2 would 
-			grant one point every 2 levels to the character. </p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>POOL:0</code></p>
+		<h4><code>POOL:0</code></h4>
+		<p class="indent0">This tag  establishes the base ability pool for the defined ability category. 
+			It will take a number, formula, or variable. If a variable is used, the variable <strong>MUST</strong>
+			be defined by a <code>DEFINE</code> tag. For our new ability category, we will start with an 
+			ability pool of zero (0).</p>
 		<p></p>
 
 <hr>
 
-		<h4>VISIBLE</h4>
+		<h4><code>VISIBLE:NO</code></h4>
 		<p class="indent0">Defines whether this category is visible on the UI or hidden. Usefull for hidden 
 			abilities and class abilities that require no interaction from the user. &lt;Options are - YES, 
 			NO, QUALIFY&gt;</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>VISIBLE:YES</code></p>
 		<p></p>
 
+<hr>
+
+		<h4>DISPLAYLOCATION</h4>
+		<p class="indent0">The <code>DISPLAYLOCATION</code> is optioonal but will identify the sub-tab 
+			upon which the associated abilities will be displayed. Examples of some standard locations 
+			defined in the RSRD data set are &quot;Class Abilities&quot; and &quot;Special Qualities and 
+			Attacks&quot;. If it is not included the <code>PLURAL</code> taxt will be used instead.</p>
+		<p class="indent0">We will not be including this tag in our example ability category so you can 
+			look for our converted abilities under the &quot;My Special Abilities&quot; sub-tab.</p>
+		<p class="indent0">Well, you could if we had not included the <code>VISIBLE:NO</code> tag in our 
+			ability category entry.</p>
+		<p></p>
+
+<hr>
+
+		<h4>Our New Ability Category</h4>
+		<p class="indent0">The new entry in <span class="lstfile">my_abilitycategories.lst</span> is shown below:</p>
+		<p></p>
+		<p class="indent2"><code>ABILITYCATEGORY:My Super Ability</code></p>
+		<p class="indent2"><code>CATEGORY:Special Ability</code></p>
+		<p class="indent2"><code>PLURAL:My Super Abilities</code></p>
+		<p class="indent2"><code>EDITABLE:NO</code></p>
+		<p class="indent2"><code>EDITPOOL:NO</code></p>
+		<p class="indent2"><code>FRACTIONALPOOL:NO</code></p>
+		<p class="indent2"><code>POOL:0</code></p>
+		<p class="indent2"><code>VISIBLE:NO</code></p>
+		<p></p>
+		
 <hr style="height:3px">
 
 		<h3>The PCC File</h3>
-		<p class="indent0">PCGen uses the <span class="lstfile">*.pcc</span> file to identify which source 
-			files to load as well as other information about the 'campaign'. Without these files and the
-			related information, PCGen would not be able to load any datafiles. For the purposes of this 
-			lesson, there are only two tags we need to cover. The <code>ABILITY</code> tag and the
-			<code>ABILITYCATEGORY</code> tag. Both of these tags will be covered in some detail below.</p>
-		<p class="indent0">More information about PCC files can be found in the <a href="lfc_lesson01_pcc.html">PCC LST File Class</a>.</p>
-
-<hr>
-		<h4>ABILITY</h4>
-		<p class="indent0">PCGen uses the <code>ABILITY:&lt;ability file&gt;</code> tag to identify the 
-			files in which PCGen's new &quot;Ability&quot; objects can be found and loaded into PCGen. 
-			For our purposes, we will be using the name <span class="lstfile">my_ability.lst</span> to build 
-			our converted abilities.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>ABILITY:my_ability.lst</code></p>
-		<p></p>
-
-<hr>
-
-		<h4>ABILITYCATEGORY</h4>
-		<p class="indent0">The <code>ABILITYCATEGORY:&lt;ability category file&gt;</code> tag is used to 
-			identify the files in which PCGen will find the &quot;Ability Categories&quot; required to 
-			implement our new abilities.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>ABILITYCATEGORY:my_abilitycategory.lst</code></p>
+		<p class="indent0">PCGen will use our <span class="lstfile">my_campaign.pcc</span> file to identify 
+			which source files to load as well as other information about the 'campaign'. Without these files 
+			and the related information, PCGen would not be able to load any datafiles. For the purposes of 
+			this lesson, there are only two tags we need to cover: The <code>ABILITY:my_abilities.lst</code> 
+			tag and the <code>ABILITYCATEGORY:my_abilitycategories.lst</code> tag.</p>
+		<p class="indent0">PCGen will look in the <span class="lstfile">my_abilities.lst</span> file for our 
+			newly converted abilities and in <span class="lstfile">my_abilitycategories.lst</span> file for 
+			any new ability categories required to define the new abilities. These file references are relative 
+			to the PCC file itself so if you provide no specific path beyond the file names, PCGen will look 
+			in the same directory in which the pcc file is contained.</p>
+		<p class="indent0">There are three ways to call a file from an absolute location within the PCGen 
+			installation. These are:</p>
+		<ol class="indent1">
+			<li>The &quot;at&quot; symbol (@) will load the file from a path relative to the data folder. 
+				(Example: <code>ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst</code>)</li>
+			<li>The ampersand (&amp;) will load the file from a path relative to the vendor data folder. 
+				(Example: <code>ABILITY:&/complete_monkey/complete_monkey_abilities.lst</code>)</li>
+			<li>The asterisk (*) will load the file from a path relative to the vendor data folder and if that 
+				does not exist, uses a path relative to the data folder. (Example: 
+				<code>ABILITYCATEGORY:*/d20ogl/srd35/basics/rsrd_ability_categories_core.lst</code>)</li>
+		</ol>
+		<p class="indent0">More information about PCC files can be found in the 
+			<a href="lfc_lesson01_pcc.html">PCC LST File Class</a>.</p>
 		<p></p>
 
 <hr style="height:3px">
@@ -340,7 +355,8 @@
 			<code>PREABILITY</code> tag to check for your new abilities as prerequisites.</p>
 		<p></p>
 
-		<p class="indent0">Andrew</p>
+		<p class="indent0">Andrew<br>
+		LST Chimp</p>
 
 <hr>
 
