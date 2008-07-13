@@ -102,10 +102,13 @@
 		<p class="indent0"><strong><a name="MODIFIER">Tag Name:</a></strong> MODIFIER:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Allows the normal load calculation to be modified</p>
+		<ul class="indent2">
+			<li>Provides the maximum load value.</li>
+			<li>This tag is optional. If not included, the maximum load is the internally generated $$SCORE$$.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>MODIFIER:$$SCORE$$*(1+EquipLoadBonusMult)</code><br>
-		<p class="indent3">The load score is bonused by an additional multiplier EquipLoadBonusMult.</p>
+		<p class="indent3">The load score, $$SCORE$$, is modified by a multiplier of EquipLoadBonusMult+1.</p>
 		<p></p>
 
 <hr>
