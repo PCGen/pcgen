@@ -64,4 +64,10 @@ public abstract class CDOMListObject<T extends PrereqObject> extends CDOMObject
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getKeyName();
+	}
 }
