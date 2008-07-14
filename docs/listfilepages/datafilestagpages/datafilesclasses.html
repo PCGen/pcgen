@@ -88,8 +88,8 @@
 		<li>Only the Sub-Class Level Lines that contain tags need to be included.</li>
 		<li>Only tags identified as Sub-Class Line or Class Line tags should be used on this line.
 		<ul>
-			<li><code>SPELLLIST</code> does not work on Class Line if a subclass or substitution class is present. 
-				In these cases, the <code>SPELLLIST</code> tag must be placed on each SubClass or Substitution 
+			<li><code>SPELLLIST</code> does not work on Class Line if a subclass or substitution class is present.
+				In these cases, the <code>SPELLLIST</code> tag must be placed on each SubClass or Substitution
 				Class Line (Not the SubClass/Substitution Level Line).</li>
 		</ul>
 		</li>
@@ -376,11 +376,13 @@
 		<li>This grants additional domain choices to the character, it is a decimal (.) delimited list of names.</li>
 		<li>It does not add them to the character's domains, but merely adds them to the list they can choose
 			from.</li>
-		<li>If the character gets a choice for a bonus domain, it may need to be paired with a
-		BONUS:DOMAIN|NUMBER|x tag.</li>
+		<li>If the character gets a choice for a bonus domain, it may need to be paired with a BONUS:DOMAIN|NUMBER|x tag.</li>
+		<li>If used in the Class Level block it should be put on the third line with the SPELLSTAT:and SPELLTYPE: entries.</li>
 		<li>It can contain PRExxx tags, in brackets ([PRExxx]), immediately after the domain name.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>CLASS:Foo &lt;tab&gt ADDDOMAINS:Travel.Sun &lt;tab&gt SPELLSTAT:CHA &lt;tab&gt SPELLTYPE:Arcane</code></p>
+	<p class="indent3">The class gets the Travel and Sun domains as a choice regardless of the deity selected.</p>
 	<p class="indent2"><code>ADDDOMAINS:Sun</code></p>
 	<p class="indent3">The class gets the Sun domain as a choice regardless of the deity selected.</p>
 	<p class="indent2"><code>ADDDOMAINS:Sun.Law</code></p>
@@ -389,7 +391,7 @@
 	<p class="indent3">The class gets a to choose between the Sun domain, if the character follows the diety Ra
 		&amp; the Law domain regardless	of the deity selected.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class Level Line.</p>
+	<p class="indent2">Class Level and Class Level Line.</p>
 	<p></p>
 
 <hr>
@@ -699,14 +701,14 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> DOMAIN.Text (Domain Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This is an optional tag with PCGen defaulting to the class name as the name of the spell list if this 
+		<li>This is an optional tag with PCGen defaulting to the class name as the name of the spell list if this
 			tag is not included.</li>
 		<li>Following the number of choices (x), this is a pipe-delimited (|) list of class names (y) that the class
 			can choose from to duplicate spell casting ability.</li>
 <!--
 	The next line item represents a work-around for a bug that may or may not get fixed. If it is then this LI will need to be removed.
 -->
-		<li>For a spellcasting class with subclasses that have separate spell lists, the <code>SPELLLIST</code> 
+		<li>For a spellcasting class with subclasses that have separate spell lists, the <code>SPELLLIST</code>
 			tag should be included in the subclass line only.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -795,15 +797,15 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Determies whether the base class will be presented as a choice when selecting a subclass.</li>
-		<li>Used with classes which have subclasses.</li> 
-		<li>This tag is optional.</li> 
+		<li>Used with classes which have subclasses.</li>
+		<li>This tag is optional.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>ALLOWBASECLASS:NO</code></p>
 	<p class="indent3">The base class cannot be selected, only subclasses are allowed.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Line</p>
-	
+
 <hr>
 
 	<p class="new">*** Updated 5.13.x</p>
@@ -816,7 +818,7 @@
 	<ul class="indent2">
 		<li>Indicates the specialty, by descriptor, school, or subschool, applicable to the subclass/specialty selected.</li>
 		<li>All descriptors, schools, and subschools used within the loaded lst files are valid choices.</li>
-		<li><strong>Note:</strong> Due to the diversity of publishers and material we support, we cannot list 
+		<li><strong>Note:</strong> Due to the diversity of publishers and material we support, we cannot list
 			all descriptors, schools, or subschools available.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -1239,10 +1241,10 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This is a pipe-delimited (|) list of templates that are granted to the class.</li>
-		<li>Including <code>CHOOSE:</code> will present a popup window of the pipe-delimited 
+		<li>Including <code>CHOOSE:</code> will present a popup window of the pipe-delimited
 			template choices and allow the user to pick one (1) from the list.</li>
-		<li>Including <code>ADDCHOICE:</code> presents a pipe-delimited (|) list of template 
-			choices that are added to the list presented by the original <code>TEMPLATE:CHOOSE</code> 
+		<li>Including <code>ADDCHOICE:</code> presents a pipe-delimited (|) list of template
+			choices that are added to the list presented by the original <code>TEMPLATE:CHOOSE</code>
 			tag found here or in other lst files.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
