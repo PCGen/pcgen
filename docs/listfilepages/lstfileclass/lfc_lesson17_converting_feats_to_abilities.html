@@ -204,29 +204,41 @@
 
 <hr>
 
-		<h4>ABILITYCATEGORY or &lt;ability category name&gt;</h4>
+		<h4><code>ABILITYCATEGORY:My Super Ability</code></h4>
 		<p class="indent0">The first entry in the ABILITYCATEGORY line is the name of the new 
-			ability category. This can be done without the &quot;ABILITYCATEGORY&quot; tag but 
-			current PCGen standard practice is to include the tag.</p>
+			ability category which identifies the &quot;ABILITYPOOL&quot;. This ability pool 
+			governs how many abilities can be taken, if they cost anything at all. The 
+			&quot;ABILITYCATEGORY&quot; tag is not strictly required as PCGen will take the 
+			first data entry as the name of the ability category, and thus the ability pool, 
+			but current PCGen standard practice is to include the tag.</p>
 		<p class="indent0">If this ability category is defines as &quot;visible&quot; (See the 
 			&quot;VISIBLE&quot; tag below), any ability given this category will appear in the 
 			&quot;Feats & Abilities&quot; tab under a sub-tab of the same name as this ability 
-			category.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>ABILITYCATEGORY:My Super Ability</code></p>
-		<p class="indent2">The name of our new ability category is <span class="lstobj">My Super Ability</span>.</p>
-		<p class="indent1"><code>My Super Ability</code></p>
-		<p class="indent2">The name of our new ability category is <span class="lstobj">My Super Ability</span>.</p>
+			category. In this case, <span class="lstobj">My Super Ability</span>.</p>
 		<p></p>
 
 <hr>
 
-		<h4><code>CATEGORY:My Super Ability</code></h4>
-		<p class="indent0">This is a 'super-category', or parent category, to which our new ability 
-			category belongs. This tag is optional but if included must list an existing ability category.</p>
-		<p class="sidebar1">NOTE: Categories may be different, you can make any category you want as long as 
-			it is defined in either the <span class="lstfile">miscinfo.lst</span> or 
+		<h4><code>CATEGORY:Special Ability</code></h4>
+		<p class="indent0">This is a 'super-category', or parent, to which our new ability category 
+			belongs. This tag is optional but if included must list an existing ability category that 
+			has been defined in either the <span class="lstfile">miscinfo.lst</span> or 
 			<span class="lstfile">miscinfo.lst</span> file.</p>
+		<p></p>
+
+<hr>
+
+		<h4><code>TYPE:Special</code></h4>
+		<p class="indent0">This is a TYPE, or list of types, assigned to abilities of this catgory. While some 
+			types do not have an effect other than allowing additional filtering in the GUI, as is the case 
+			with the type <span class="lstobj">Special</span>, there are a number of standard ability types 
+			used within PCGen that effect PCGen in different ways. <span class="lstobj">SpecialQuality</span> 
+			and <span class="lstobj">SpecialAttack</span> are used to determine where on the Output Sheet the 
+			associated abilities will be placed. <span class="lstobj">FavoredEnemy</span>, 
+			<span class="lstobj">RogueAbilities</span>,  and <span class="lstobj">General</span> effect which 
+			sub-tab the associated abilities will appear on in the PCGen GUI.</p>
+		<p class="indent0">A complete list of standard feat and ability types can be found on the 
+			<a href="../globalfilestagpages/globalfilestype.html#Feat">Global TYPE</a> page.</p>
 		<p></p>
 
 <hr>
