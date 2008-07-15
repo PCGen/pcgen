@@ -1,0 +1,88 @@
+# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:ae1		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat			Required Skill				Req. Spell Type
+CLASS:Crusader	PREATT:5	PREFEAT:1,Weapon Focus (%)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Subterranean Cultures)|Knowledge (Religion)|Scry|Spellcraft
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
+###Block: Normal Level Progression
+1							ADD:SPELLCASTER|1|Divine	ADD:FEAT|1|TYPE=CrusaderFavored
+2							ADD:SPELLCASTER|1|Divine	ADD:LANGUAGE|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Gnome,Goblin,Giant,Gnoll,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
+3							ADD:SPELLCASTER|1|Divine
+4	SAB:Find the Path				ADD:SPELLCASTER|1|Divine
+5							ADD:SPELLCASTER|1|Divine
+6	SAB:Improved Spontaneous Casting	ADD:SPELLCASTER|1|Divine
+7							ADD:SPELLCASTER|1|Divine
+8	SAB:Spells					ADD:SPELLCASTER|1|Divine
+9							ADD:SPELLCASTER|1|Divine
+10	SAB:Turn Chosen Enemy			ADD:SPELLCASTER|1|Divine
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat			Multiple Requirements													Req. Spell Type
+CLASS:Demolitionist	PREFEAT:1,Craft Wondrous Item	PREMULT:2,[PRESKILL:1,Alchemy=8],[PRESKILL:1,Craft (Blacksmithing)=8,Craft (Metalworking)=8]	PRESPELLTYPE:1,Arcane=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Demolitionist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitionist|CL
+1	AUTO:FEAT|Wizard Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SAB:Produce Explosives(%d6)|ProduceExplosive	BONUS:VAR|ProduceExplosive|(CL+2)/3+1	DEFINE:ProduceExplosive|0	ADD:SPELLCASTER|1|Arcane
+2	SAB:Time Delay Explosives																ADD:SPELLCASTER|1|Arcane
+3	SAB:Craft Flash Bombs																	ADD:SPELLCASTER|1|Arcane
+4																					ADD:SPELLCASTER|1|Arcane
+5	SAB:Craft Musket																		ADD:SPELLCASTER|1|Arcane
+6																					ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Exotic Weapon Proficiency(Pistol)|Exotic Weapon Proficiency(Musket)
+7																					ADD:SPELLCASTER|1|Arcane
+8	SAB:Master of Destruction																ADD:SPELLCASTER|1|Arcane
+9																					ADD:SPELLCASTER|1|Arcane	AUTO:FEAT|Uncanny Dodge
+10																					ADD:SPELLCASTER|1|Arcane
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat					Required Race
+CLASS:Shock Trooper	PREATT:5	PREFEAT:3,Power Attack,Quick Draw,Run	PRERACE:1,Dwarf%,Gnome%
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Intuit Direction|Jump|Listen|Tumble
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
+###Block: Normal Level Progression
+1													BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
+2	SAB:Bonus Damage (%d6) vs. large or bigger creatures|LargeAttack																						DEFINE:LargeAttack|1
+3	SAB:Improved Aid Another (+4 vs. size large or bigger)
+4																													BONUS:VAR|LargeAttack|1
+5	SAB:Focused Attack
+6																													BONUS:VAR|LargeAttack|1
+7	SAB:Improved Dodge (+2 AC vs size large or bigger)
+8																													BONUS:VAR|LargeAttack|1
+9	SAB:Into The Breach
+10	SAB:Improved Critical (size large or bigger regardless of weapon used)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat			Required Skill
+CLASS:Treasure Hunter	PREFEAT:1,Lightning Reflexes	PRESKILL:3,Knowledge (Ancient History)=4,Disable Device=8,Search=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Treasure Hunter	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|Decipher Script|Disable Device|Escape Artist|Hide|Jump|Knowledge (Ancient History)|Listen|Move Silently|Open Lock|Search|Spot|Tumble|Use Magic Device|Use Rope
+1	AUTO:FEAT|Rogue Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	SAB:Danger Sense (+%)|DangerSense|PREVARLT:CL,10	SAB:Treasure Lore		BONUS:SKILL|Appraise|2						DEFINE:DangerSense|1
+2	SAB:+% Reflex save vs. Traps and +% dodge AC bonus vs. trap attacks|TrapSave					BONUS:VAR|TrapSave|(CL+1)/3	DEFINE:TrapSave|0
+3	SAB:+% bonus to Fort vs. Poison|PoisonSave															DEFINE:PoisonSave|1
+4																		BONUS:VAR|DangerSense|1
+5
+6																		BONUS:VAR|PoisonSave|1
+7																		BONUS:VAR|DangerSense|1
+8
+9																											ABILITY:Special Ability|VIRTUAL|Improved Evasion
+10	SAB:Uncanny Sense (Danger Sense +%)|DangerSense										BONUS:VAR|DangerSense|1
