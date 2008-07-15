@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Sun Jun 15 15:43:54 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+
+# Class Name		List of Class Spells by Level
+CLASS:Beast Handler.MOD	SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide from Animals,Reduce Person|Beast Handler=2|Charm Animal,Magic Fang (Greater),Summon Nature's Ally II
+# Class Name		Remove Class Skill	Class Skill
+CLASS:Beast Handler.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
+
+# Class Name			Clear Prereq.	Req. Att.	Required Feat				Required Race		Required Skill
+CLASS:Elf Treerunner.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Climb=8,Survival=4,Jump=6,Balance=6
+# Class Name			Remove Class Skill	Class Skill
+CLASS:Elf Treerunner.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Survival|Swim
+
+# Class Name		Remove Class Skill	Class Skill
+CLASS:Epic Athlete.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|TYPE.Perform|Ride|Spot|Swim|Tumble
+
+# Class Name	Clear Prereq.	Req. Att.	Required Feat				Maximum Size
+CLASS:Footman.MOD	PRE:.CLEAR		PREATT:3	PREFEAT:2,Dodge,Combat Expertise	PRESIZELTEQ:S
+
+# Class Name			Remove Class Skill	Class Skill
+CLASS:Gutter Fighter.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Search|Sleight of Hand|Spot|Swim|Tumble
+8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	AUTO:FEAT|.CLEAR.Uncanny Dodge
+
+# Class Name			Remove Class Skill	Class Skill
+CLASS:Knight Chaplain.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Heal|Listen|Ride|Search|Spot
+1	SPELLLEVEL:CLASS|Knight Chaplain=1|Enlarge Person,Reduce Person
+1	SPELLLEVEL:CLASS|Knight Chaplain=2|Restoration (Lesser),Bear's Endurance
+1	SPELLLEVEL:CLASS|Knight Chaplain=4|Globe of Invulnerability (Lesser)
+1	SPELLLEVEL:CLASS|Knight Chaplain=5|Cure Light Wounds (Mass)
+
+# Class Name
+CLASS:Lancer.MOD
+7	VFEAT:Two Weapon Fighting
+
+# Class Name			Remove Class Skill	Class Skill
+CLASS:Mercenary Captain.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|Intimidate|Listen|TYPE.Perform|Ride|Search|Sense Motive|Spot
+
+# Class Name	Clear Prereq.	Req. Att.	Required Feat			Required Skill
+CLASS:Rake.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:1,Combat Expertise	PRESKILL:2,Bluff=8,Intimidate=8
+# Class Name	Remove Class Skill	Class Skill
+CLASS:Rake.MOD	CSKILL:.CLEAR		CSKILL:Balance|Bluff|Climb|Gather Information|Intimidate|Jump|TYPE.Perform|Sleight of Hand|Tumble
+
+# Class Name			Automaticaly Gained Feat
+CLASS:Wandering Squire.MOD	AUTO:FEAT|Combat Expertise
+# Class Name			Clear Prereq.	Req. Att.	Required Feat
+CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:3,Dodge,Two Weapon Fighting,Weapon Focus(Quarterstaff)
+
+# Class Name	Remove Class Skill	Class Skill
+CLASS:Warmage.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
+
+# Class Name		Clear Prereq.	Req. Att.	Required Feat					Required Skill				Var. Min. Value
+CLASS:Wild Rider.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:3,Ride=8,Heal=6,Survival=6	PREVARGTEQ:RageTimes,1
+# Class Name		Remove Class Skill	Class Skill
+CLASS:Wild Rider.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Listen|TYPE.Profession|Ride|Survival|Swim
