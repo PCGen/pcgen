@@ -425,29 +425,21 @@
 		two handed)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage multiplier)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Increases damage multiplier by the number specified.</p>
-	<p class="indent2">System lst files define the following:</p>
-	<p class="indent3"><code>BONUS:COMBAT|DAMAGEMULT:0|0.5</code></p>
-	<p class="indent3"><code>BONUS:COMBAT|DAMAGEMULT:1|1</code></p>
-	<p class="indent3"><code>BONUS:COMBAT|DAMAGEMULT:2|1.5</code></p>
-	<p class="indent2">Which means off hand wielded weapons have a damage bonus of half your strength bonus,
-		primary wielded weapons have a damage bonus of your full strength bonus and weapons wielded with two
-		hand have a damage bonus of your strength and half again.</p>
-	<p class="indent2">This sub-tag can also be used in the <a href="#WEAPON">BONUS:WEAPON</a> and
-		<a href="#WEAPONPROF">BONUS:WEAPONPROF</a> tags though the syntax is slightly different so examples are
-		provided here.</p>
+	<ul class="indent2">
+		<li>Increases damage multiplier by the number specified.</li>
+		<li>Bonuses are additive between each BONUS. Two <code>BONUS:WEAPON|DAMAGEMULT:0|1.5</code> 
+			tags will do a total of x3 (1.5 + 1.5), not 2.25.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:0|0.5</code></p>
 	<p class="indent3">Increases the damage multiplier by half your strength bonus. Combined with the
 		existing bonus this bonus will total your full strength bonus for an off hand weapon.</p>
-	<p class="indent2"><code>BONUS:WEAPON|DAMAGEMULT:1|.5</code></p>
-	<p class="indent3">Increases the damage multiplier of the weapon by half your strength bonus when
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:1|1</code></p>
+	<p class="indent3">Increases the damage multiplier of the weapon by your strength bonus when
 		wielding in your primary hand.</p>
-	<p class="indent2"><code>BONUS:WEAPONPROF=Dagger|DAMAGEMULT:0|.5</code></p>
-	<p class="indent3">Increases the damage multiplier of the dagger weapon by half your strength bonus when
-		wielding it off handed.</p>
-	<p class="indent1"><strong>NOTE:</strong> BONUSes are additive between each BONUS.  Two
-		<code>BONUS:WEAPON|DAMAGEMULT:0|1.5</code> tags will do a total of x3 (1.5 + 1.5), not 2.25.
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:2|1.5</code></p>
+	<p class="indent3">Increases the damage multiplier of the weapon by one and a half your strength 
+		bonus when wielding it two-handed.</p>
 	<p></p>
 
 <hr>
@@ -457,35 +449,81 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of steps
 		along the damage dice scale)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Increases or decreases damage dice size along the same scale as is used for weapons
-		size.</p>
-	<p class="indent2">This effects all damage dice associated with the PC including Unarmed damage.</p>
-	<p class="indent2">The DAMAGESIZE property can also be used in the
-		<a href="#WEAPON">BONUS:WEAPON</a> and
-		<a href="#WEAPONPROF">BONUS:WEAPONPROF</a> tags.</p>
-	<p class="indent2">The scale is defined in the miscinfo.lst gameMode file and is as follows:</p>
-	<p class="indent3">Base Damage Dice:1d2</p>
-	<p class="indent4">Scaling Up:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1,0</p>
-	<p class="indent3">Base Damage Dice:1d3</p>
-	<p class="indent4">Scaling Up:1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1d2,1,0</p>
-	<p class="indent3">Base Damage Dice:1d4</p>
-	<p class="indent4">Scaling Up:1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1d3,1d2,1,0</p>
-	<p class="indent3">Base Damage Dice:1d6</p>
-	<p class="indent4">Scaling Up:1d8,2d6,3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1d4,1d3,1d2,1</p>
-	<p class="indent3">Base Damage Dice:1d8</p>
-	<p class="indent4">Scaling Up:2d6,3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1d6,1d4,1d3,1d2</p>
-	<p class="indent3">Base Damage Dice:1d10</p>
-	<p class="indent4">Scaling Up:2d8,3d8,4d8,6d8,8d8,12d8 <br>Scaling Down:1d8,1d6,1d4,1d3</p>
-	<p class="indent3">Base Damage Dice:1d12</p>
-	<p class="indent4">Scaling Up:3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1d10,1d8,1d6,1d4</p>
-	<p class="indent3">Base Damage Dice:2d4</p>
-	<p class="indent4">Scaling Up:2d6,3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1d6,1d4,1d3,1d2</p>
-	<p class="indent3">Base Damage Dice:2d6</p>
-	<p class="indent4">Scaling Up:3d6,4d6,6d6,8d6,12d6 <br>Scaling Down:1d10,1d8,1d6,1d4</p>
-	<p class="indent3">Base Damage Dice:2d8</p>
-	<p class="indent4">Scaling Up:3d8,4d8,6d8,8d8,12d8 <br>Scaling Down:2d6,1d10,1d8,1d6</p>
-	<p class="indent3">Base Damage Dice:2d10</p>
-	<p class="indent4">Scaling Up:4d8,6d8,8d8,12d8 <br>Scaling Down:2d8,2d6,1d10,1d8</p>
+	<ul class="indent2">
+		<li>Increases or decreases damage dice size along the same scale as is used for weapons
+		size.</li>
+		<li>This effects all damage dice associated with the PC including Unarmed damage.</li>
+		<li>The scale is defined in the miscinfo.lst gameMode file and is as follows:
+			<ul>
+				<li>Base Damage Dice:1d2
+					<ul>
+						<li>Scaling Up:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1,0</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:1d3
+					<ul>
+						<li>Scaling Up:1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1d2,1,0</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:1d4
+					<ul>
+						<li>Scaling Up:1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1d3,1d2,1,0</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:1d6
+					<ul>
+						<li>Scaling Up:1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1d4,1d3,1d2,1</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:1d8
+					<ul>
+						<li>Scaling Up:2d6,3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1d6,1d4,1d3,1d2</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:1d10
+					<ul>
+						<li>Scaling Up:2d8,3d8,4d8,6d8,8d8,12d8</li>
+						<li>Scaling Down:1d8,1d6,1d4,1d3</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:1d12
+					<ul>
+						<li>Scaling Up:3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1d10,1d8,1d6,1d4</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:2d4
+					<ul>
+						<li>Scaling Up:2d6,3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1d6,1d4,1d3,1d2</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:2d6
+					<ul>
+						<li>Scaling Up:3d6,4d6,6d6,8d6,12d6</li>
+						<li>Scaling Down:1d10,1d8,1d6,1d4</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:2d8
+					<ul>
+						<li>Scaling Up:3d8,4d8,6d8,8d8,12d8</li>
+						<li>Scaling Down:2d6,1d10,1d8,1d6</li>
+					</ul>
+				</li>
+				<li>Base Damage Dice:2d10
+					<ul>
+						<li>Scaling Up:4d8,6d8,8d8,12d8</li>
+						<li>Scaling Down:2d8,2d6,1d10,1d8</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGESIZE|2</code></p>
 	<p class="indent3">If the base damage dice is 1d8 this would scale it up to 3d6.</p>
@@ -1823,6 +1861,9 @@
 	<p class="indent3">Raises the weapons wieldcatagory, if it were Light it becomes OneHanded.</p>
 	<p class="indent2"><code>BONUS:WEAPON|DAMAGE,TOHIT|min(2,(TL/6)|TYPE=Enhancement|PRELEVEL:6</code></p>
 	<p class="indent3">Raises the weapons damage and to-hit, between 2 and (Total Level divided by 6) if character is over level 6.</p>
+	<p class="indent2"><code>BONUS:WEAPON|DAMAGEMULT:1|.5</code></p>
+	<p class="indent3">Increases the damage multiplier of the weapon by half your strength bonus 
+		when wielding in your primary hand.</p>
 	<p></p>
 
 <hr>
@@ -1877,6 +1918,9 @@
 	<p class="indent3">Chooser for weapons proficiency to add 2 to the damager of a Weapon Focus.</p>
   	<p class="indent2"><code>BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty</code></p>
   	<p class="indent3">Subtracts two from the to hit of Cannons due to gunnery.</p>
+  	<p class="indent2"><code>BONUS:WEAPONPROF=Dagger|DAMAGEMULT:0|.5</code></p>
+  	<p class="indent3">Increases the damage multiplier of the dagger weapon by half your 
+  		strength bonus when wielding it off handed.</p>
 	<p></p>
 
 <hr>
