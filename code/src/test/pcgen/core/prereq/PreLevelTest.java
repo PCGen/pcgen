@@ -106,13 +106,6 @@ public class PreLevelTest extends AbstractCharacterTestCase
 		prereq = factory.parse("!PRELEVEL:MAX=3");
 		assertTrue("Character is 3rd or higher level", PrereqHandler.passes(prereq,
 				character, null));
-		
-		
-		
-		
-		
-		
-		
 	}
 
 	/**
@@ -230,8 +223,14 @@ public class PreLevelTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
+		PCClass raceClass = new PCClass();
+		raceClass.setName("Race Class");
+		raceClass.setKeyName("RaceClass");
+		Globals.getContext().ref.importObject(raceClass);
+
 		race.setName("Gnoll");
-		race.setHitDice(2);
+		race.setMonsterClass("RaceClass");
+		race.setMonsterClassLevels(2);
 
 		myClass.setName("My Class");
 		myClass.setKeyName("MY_CLASS");

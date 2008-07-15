@@ -213,7 +213,6 @@ public final class SettingsHandler
 	private static final File tempPath = new File(getTmpPath());
 	private static boolean toolTipTextShown = true;
 	private static boolean useHigherLevelSlotsDefault = false;
-	private static boolean useMonsterDefault = true;
 	private static boolean wantToLoadMasterworkAndMagic = false;
 	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
 	private static boolean weaponProfPrintout = Constants.PRINTOUT_WEAPONPROF;
@@ -1013,16 +1012,6 @@ public final class SettingsHandler
 		return allowMetamagicInCustomizer;
 	}
 
-	public static void setMonsterDefault(final boolean aBool)
-	{
-		useMonsterDefault = aBool;
-	}
-
-	public static boolean isMonsterDefault()
-	{
-		return useMonsterDefault;
-	}
-
 	public static void setNameDisplayStyle(final int style)
 	{
 		nameDisplayStyle = style;
@@ -1189,7 +1178,6 @@ public final class SettingsHandler
 		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
 		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
 		setMetamagicAllowedInEqBuilder(getPCGenOption("allowMetamagicInCustomizer", false)); //$NON-NLS-1$
-		setMonsterDefault(getPCGenOption("useMonsterDefault", false)); //$NON-NLS-1$
 		setOptionAllowedInSources(getPCGenOption("optionAllowedInSources", true)); //$NON-NLS-1$
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1638,7 +1626,6 @@ public final class SettingsHandler
 		setPCGenOption("TemplateTab.selectedListMode", getTemplateSelTab_ListMode()); //$NON-NLS-1$
 		setPCGenOption("toolTipTextShown", isToolTipTextShown()); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
-		setPCGenOption("useMonsterDefault", isUseMonsterDefault()); //$NON-NLS-1$
 		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
 		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
@@ -3143,11 +3130,6 @@ public final class SettingsHandler
 	private static String getTmpPath()
 	{
 		return tmpPath;
-	}
-
-	private static boolean isUseMonsterDefault()
-	{
-		return useMonsterDefault;
 	}
 
 	private static String convertTabPlacementToString(final int placement)

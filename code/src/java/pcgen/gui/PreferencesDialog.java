@@ -397,7 +397,6 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox showImagePreview = new JCheckBox();
 
 	// "Monsters"
-	private JCheckBox useMonsterDefault = new JCheckBox();
 	private JCheckBox useOutputNamesEquipment = new JCheckBox();
 	private JCheckBox useOutputNamesSpells = new JCheckBox();
 	private JCheckBox waitCursor = new JCheckBox();
@@ -728,7 +727,6 @@ final class PreferencesDialog extends JDialog
 		//		SettingsHandler.setIntCrossClassSkillCost(crossClassSkillCostCombo.getSelectedIndex());
 
 		// Monsters
-		SettingsHandler.setMonsterDefault(useMonsterDefault.isSelected());
 		SettingsHandler.setHideMonsterClasses(hideMonsterClasses.isSelected());
 		SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
 
@@ -1251,7 +1249,6 @@ final class PreferencesDialog extends JDialog
 		//		crossClassSkillCostCombo.setSelectedIndex(SettingsHandler.getIntCrossClassSkillCost());
 
 		// Monsters
-		useMonsterDefault.setSelected(SettingsHandler.isMonsterDefault());
 		hideMonsterClasses.setSelected(SettingsHandler.hideMonsterClasses());
 		ignoreMonsterHDCap.setSelected(SettingsHandler.isIgnoreMonsterHDCap());
 
@@ -2954,8 +2951,6 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(label, c);
 		monstersPanel.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-		gridbag.setConstraints(useMonsterDefault, c);
-		monstersPanel.add(useMonsterDefault);
 
 		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
 		label =

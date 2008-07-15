@@ -726,7 +726,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		//
 		// Race needs to have a MONSTERCLASS:<class>,<levels> tag
 		//
-		final String monsterClass = pc.getRace().getMonsterClass(pc, false);
+		final String monsterClass = pc.getRace().getMonsterClass();
 
 		if (monsterClass != null)
 		{
@@ -743,10 +743,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				if (numHD < 0)
 				{
 					final int minHD =
-							pc.getRace().getMonsterClassLevels(pc)
-								+ pc.getRace().hitDice(pc);
+							pc.getRace().getMonsterClassLevels();
 					final PCClass pcClass = pc.getClassKeyed(monsterClass);
-					int currentHD = pc.getRace().hitDice(pc);
+					int currentHD = 0;
 
 					if (pcClass != null)
 					{
@@ -2254,9 +2253,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					classComboBox.setSelectedItem(lastSelection);
 				}
 			}
-			else if (pc.getRace().getMonsterClass(pc, false) != null)
+			else if (pc.getRace().getMonsterClass() != null)
 			{
-				String monsterClass = pc.getRace().getMonsterClass(pc, false);
+				String monsterClass = pc.getRace().getMonsterClass();
 				classComboBox.setSelectedItem(Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, monsterClass));
 			}
 			else
@@ -2660,20 +2659,18 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		if (pc != null)
 		{
-			final String monsterClass = pc.getRace().getMonsterClass(pc, false);
+			final String monsterClass = pc.getRace().getMonsterClass();
 
 			if (monsterClass != null)
 			{
-				monsterHD = pc.getRace().hitDice(pc);
 				minLevel =
-						pc.getRace().hitDice(pc)
-							+ pc.getRace().getMonsterClassLevels(pc);
+							pc.getRace().getMonsterClassLevels();
 
 				final PCClass aClass = pc.getClassKeyed(monsterClass);
 
 				if (aClass != null)
 				{
-					monsterHD += aClass.getLevel();
+					monsterHD = aClass.getLevel();
 				}
 			}
 		}
@@ -2865,7 +2862,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				if (pnlHD.isVisible())
 				{
 					final String monsterClass =
-							oldRace.getMonsterClass(pc, false);
+							oldRace.getMonsterClass();
 
 					if (monsterClass != null)
 					{
@@ -2875,7 +2872,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						{
 							final int numLevels =
 									aClass.getLevel()
-										- oldRace.getMonsterClassLevels(pc);
+										- oldRace.getMonsterClassLevels();
 
 							if (numLevels > 0)
 							{
@@ -2900,11 +2897,6 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				pane.setPaneForUpdate(pane.infoSpells());
 				infoSpecialAbilities.refresh();
 				pane.refreshToDosAsync();
-
-				if (pc.getRace().hitDice(pc) != 0)
-				{
-					pc.getRace().rollHP(pc);
-				}
 
 				showPointPool();
 				updateHP();

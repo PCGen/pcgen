@@ -53,7 +53,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
-import pcgen.core.LevelInfo;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
 import pcgen.core.PCSpell;
@@ -3110,8 +3109,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.setRace(aRace);
 
-			int hitDice = aRace.hitDice(thePC);
-
 			if (sTok.hasMoreTokens())
 			{
 				final String aString = sTok.nextToken();
@@ -3122,57 +3119,40 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							new StringTokenizer(aString.substring(TAG_HITPOINTS
 								.length()), TAG_END, false);
 					
-					if (hitDice > 0)
-					{
-						final HashMap<String, Integer> hitPointMap =
-							processHitPoints(race_name, hitDice, aString,
-								aTok);
-						thePC.getRace().setHitPointMap(hitPointMap);
-					}
-					else
-					{
-						String msgKey = "Warnings.PCGenParser.RaceNoHD"; //$NON-NLS-1$
+					String msgKey = "Warnings.PCGenParser.RaceNoHD"; //$NON-NLS-1$
 
-						Race race = thePC.getRace();
-						if ((race.getMonsterClass(thePC) != null)
-							&& (race.getMonsterClassLevels(thePC) != 0))
+					Race race = thePC.getRace();
+					if ((race.getMonsterClass() != null)
+							&& (race.getMonsterClassLevels() != 0))
+					{
+						final PCClass mclass = Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(
+										PCClass.class, race.getMonsterClass());
+
+						if (mclass != null)
 						{
-							final PCClass mclass =
-									Globals.getContext().ref
-										.silentlyGetConstructedCDOMObject(
-											PCClass.class, race
-												.getMonsterClass(thePC));
-
-							if (mclass != null)
+							thePC.incrementClassLevel(race
+									.getMonsterClassLevels(), mclass, true);
+							final HashMap<String, Integer> hitPointMap = processHitPoints(
+									race_name, race.getMonsterClassLevels(),
+									aString, aTok);
+							for (String lvlStr : hitPointMap.keySet())
 							{
-								thePC
-									.incrementClassLevel(race
-										.getMonsterClassLevels(thePC), mclass,
-										true);
-								final HashMap<String, Integer> hitPointMap =
-										processHitPoints(race_name, race
-											.getMonsterClassLevels(thePC),
-											aString, aTok);
-								for (String lvlStr : hitPointMap.keySet())
-								{
-									int lvl = Integer.parseInt(lvlStr);
-									PCLevelInfo info =
-											thePC.getLevelInfo().get(lvl);
-									PCClass pcClass =
-											thePC.getClassKeyed(info
-												.getClassKeyName());
-									pcClass.setHitPoint(lvl, hitPointMap
+								int lvl = Integer.parseInt(lvlStr);
+								PCLevelInfo info = thePC.getLevelInfo()
+										.get(lvl);
+								PCClass pcClass = thePC.getClassKeyed(info
+										.getClassKeyName());
+								pcClass.setHitPoint(lvl, hitPointMap
 										.get(lvlStr));
 
-								}
-								msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
 							}
+							msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
 						}
-						final String msg =
-								PropertyFactory.getFormattedString(msgKey,
-									race_name);
-						warnings.add(msg);
 					}
+					final String msg = PropertyFactory.getFormattedString(
+							msgKey, race_name);
+					warnings.add(msg);
 				}
 				else
 				{

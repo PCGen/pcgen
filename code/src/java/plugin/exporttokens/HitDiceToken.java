@@ -81,15 +81,6 @@ public class HitDiceToken extends Token
 		StringBuffer ret = new StringBuffer();
 		String del = "";
 
-		if (pc.getRace().hitDice(pc) > 0)
-		{
-			ret.append("(");
-			ret.append(Integer.toString(pc.getRace().hitDice(pc)));
-			ret.append("d");
-			ret.append(Integer.toString(pc.getRace().getHitDiceSize(pc)));
-			ret.append(")");
-			del = "+";
-		}
 		for (PCClass pcClass : pc.getClassList())
 		{
 			HashMap<Integer, Integer> hdMap =
@@ -124,18 +115,7 @@ public class HitDiceToken extends Token
 		//
 		// Get CON bonus contribution to hitpoint total
 		//
-		int temp = (int) pc.getStatBonusTo("HP", "BONUS");
-		int a = pc.getRace().hitDice(pc);
-		int b = 0;
-		if (pc.isMonsterDefault())
-		{
-			b = pc.totalNonMonsterLevels();
-		}
-		else
-		{
-			b = pc.getTotalLevels();
-		}
-		temp *= (a + b);
+		int temp = (int) pc.getStatBonusTo("HP", "BONUS") * pc.getTotalLevels();
 
 		//
 		// Add in feat bonus
@@ -159,7 +139,7 @@ public class HitDiceToken extends Token
 	{
 		int dice;
 
-		dice = pc.getRace().hitDice(pc);
+		dice = 0;
 
 		for (PCClass pcClass : pc.getClassList())
 		{

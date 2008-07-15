@@ -44,18 +44,6 @@ public class PlayerCharacterUtilities
 	 *
 	 * @return  false
 	 */
-	static boolean canReassignRacialFeats()
-	{
-		return false;
-	}
-
-	/**
-	 * Bryan wanted this to be optional, but if you can reassign racial auto
-	 * feats, when you reopen the character, you get the feats that were
-	 * exchanged back
-	 *
-	 * @return  false
-	 */
 	static boolean canReassignTemplateFeats()
 	{
 		return false;

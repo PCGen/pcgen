@@ -146,7 +146,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListBookToken()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -171,7 +170,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListCastToken()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -191,7 +189,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListClassToken()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -210,7 +207,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListDcStatToken()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -229,7 +225,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListDcToken()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -260,7 +255,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListTypeToken()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);

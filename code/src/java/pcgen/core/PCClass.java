@@ -1780,8 +1780,8 @@ public class PCClass extends PObject
 			if (level > curLevel || aPC.isImporting())
 			{
 					final boolean isMonsterClass =
-							aPC.getRace().getMonsterClass(aPC, false) != null
-								&& aPC.getRace().getMonsterClass(aPC, false)
+							aPC.getRace().getMonsterClass() != null
+								&& aPC.getRace().getMonsterClass()
 									.equalsIgnoreCase(this.getKeyName());
 					Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
 					int startLevel;
@@ -1804,41 +1804,21 @@ public class PCClass extends PObject
 					}
 					if (divisor > 0)
 					{
-						if (SettingsHandler.isMonsterDefault() && isMonsterClass)
+						StringBuffer aBuf =
+							new StringBuffer("0|FEAT|PCPOOL|")
+								.append("max(CL");
+						// Make sure we only take off the startlevel value once
+						if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
 						{
-							int monLev =
-									aPC.getRace().getMonsterClassLevels(aPC,
-										false);
-
-							StringBuffer aBuf = new StringBuffer(
-									"0|FEAT|MONSTERPOOL|");
-							aBuf.append("max(0,floor((CL-");
-							aBuf.append(monLev);
-							aBuf.append(")/");
-							aBuf.append(divisor);
-							aBuf.append("))");
-							BonusObj bon = Bonus.newBonus(aBuf.toString());
-							bon.setCreatorObject(this);
-							addBonusList(bon);
+							aBuf.append("-").append(startLevel);
+							aBuf.append("+").append(rangeLevel);
 						}
-						else
-						{
-							StringBuffer aBuf =
-								new StringBuffer("0|FEAT|PCPOOL|")
-									.append("max(CL");
-							// Make sure we only take off the startlevel value once
-							if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
-							{
-								aBuf.append("-").append(startLevel);
-								aBuf.append("+").append(rangeLevel);
-							}
-							aBuf.append(",0)/").append(divisor);
-//							Logging.debugPrint("Feat bonus for " + this + " is "
-//								+ aBuf.toString());
-							BonusObj bon = Bonus.newBonus(aBuf.toString());
-							bon.setCreatorObject(this);
-							addBonusList(bon);
-						}
+						aBuf.append(",0)/").append(divisor);
+//						Logging.debugPrint("Feat bonus for " + this + " is "
+//							+ aBuf.toString());
+						BonusObj bon = Bonus.newBonus(aBuf.toString());
+						bon.setCreatorObject(this);
+						addBonusList(bon);
 					}
 			}
 
@@ -3216,16 +3196,66 @@ public class PCClass extends PObject
 
 	public int recalcSkillPointMod(final PlayerCharacter aPC, final int total)
 	{
-		final int spMod;
-
-		if (isMonster() && aPC.isMonsterDefault())
+		// int spMod = getSkillPoints();
+		int lockedMonsterSkillPoints;
+		int spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
+				classKey).intValue();
+		
+		spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
+		
+		if (isMonster())
 		{
-			spMod = getMonsterSkillPointMod(aPC, total);
+			lockedMonsterSkillPoints =
+					(int) aPC.getTotalBonusTo("MONSKILLPTS", "LOCKNUMBER");
+			if (lockedMonsterSkillPoints > 0)
+			{
+				spMod = lockedMonsterSkillPoints;
+			}
+			else if (total == 1)
+			{
+				int monSkillPts =
+						(int) aPC.getTotalBonusTo("MONSKILLPTS", "NUMBER");
+				if (monSkillPts != 0)
+				{
+					spMod = monSkillPts;
+				}
+			}
+		
+			if (total != 1)
+			{
+				// If this level is one that is not entitled to skill points
+				// based
+				// on the monster's size, zero out the skills for this level
+				final int nonSkillHD =
+						(int) aPC.getTotalBonusTo("MONNONSKILLHD", "NUMBER");
+				if (total <= nonSkillHD)
+				{
+					spMod = 0;
+				}
+			}
+		}
+		
+		spMod = updateBaseSkillMod(aPC, spMod);
+		
+		if (total == 1)
+		{
+			if (SettingsHandler.getGame().isPurchaseStatMode())
+			{
+				aPC.setPoolAmount(0);
+			}
+		
+			spMod *= aPC.getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
+			if (aPC.getAge() <= 0)
+			{
+				// Only generate a random age if the user hasn't set one!
+				Globals.getBioSet().randomize("AGE", aPC);
+			}
 		}
 		else
 		{
-			spMod = getNonMonsterSkillPointMod(aPC, total);
+			spMod *= Globals.getSkillMultiplierForLevel(total);
 		}
+		
 		return spMod;
 	}
 
@@ -3862,7 +3892,6 @@ public class PCClass extends PObject
 		if (aPC.getTotalLevels() > total)
 		{
 			boolean processBonusStats = true;
-			boolean processBonusFeats = true;
 			total = aPC.getTotalLevels();
 
 			if (isMonster())
@@ -3872,25 +3901,9 @@ public class PCClass extends PObject
 				// 4 levels of Giant, so it does not get a stat increase at
 				// 4th level because that is already taken into account in
 				// its racial stat modifiers, but it will get one at 8th
-				if (total <= aPC.getRace().getMonsterClassLevels(aPC))
+				if (total <= aPC.getRace().getMonsterClassLevels())
 				{
 					processBonusStats = false;
-				}
-
-				/*
-				 * If we are using default monsters and we have not yet added
-				 * all of the racial monster levels then we can not add any
-				 * feats. i.e. a default monster Ogre will not get a feat at 1st
-				 * or 3rd level because they have already been allocated in the
-				 * race, but a non default monster will get the 2 bonus feats
-				 * instead. Both versions of the monster will get one at 6th
-				 * level. i.e. default Ogre with 2 class levels, or no default
-				 * Ogre with 4 giant levels and 2 class levels.
-				 */
-				if (aPC.isMonsterDefault()
-					&& total <= aPC.getRace().getMonsterClassLevels(aPC))
-				{
-					processBonusFeats = false;
 				}
 			}
 
@@ -4657,77 +4670,6 @@ public class PCClass extends PObject
 		if (spMod < 0)
 		{
 			spMod = 0;
-		}
-
-		return spMod;
-	}
-
-	/*
-	 * This method calculates skill modifier for a non-monster character.
-	 * 
-	 * Created(Extracted from addLevel) 20 Nov 2002 by sage_sam for bug #629643
-	 */
-	private int getNonMonsterSkillPointMod(final PlayerCharacter aPC,
-		final int total)
-	{
-		// int spMod = getSkillPoints();
-		int lockedMonsterSkillPoints;
-		int spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
-				classKey).intValue();
-
-		spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
-
-		if (isMonster())
-		{
-			lockedMonsterSkillPoints =
-					(int) aPC.getTotalBonusTo("MONSKILLPTS", "LOCKNUMBER");
-			if (lockedMonsterSkillPoints > 0)
-			{
-				spMod = lockedMonsterSkillPoints;
-			}
-			else if (total == 1)
-			{
-				int monSkillPts =
-						(int) aPC.getTotalBonusTo("MONSKILLPTS", "NUMBER");
-				if (monSkillPts != 0)
-				{
-					spMod = monSkillPts;
-				}
-			}
-
-			if (total != 1)
-			{
-				// If this level is one that is not entitled to skill points
-				// based
-				// on the monster's size, zero out the skills for this level
-				final int nonSkillHD =
-						(int) aPC.getTotalBonusTo("MONNONSKILLHD", "NUMBER");
-				if (total <= nonSkillHD)
-				{
-					spMod = 0;
-				}
-			}
-		}
-
-		spMod = updateBaseSkillMod(aPC, spMod);
-
-		if (total == 1)
-		{
-			if (SettingsHandler.getGame().isPurchaseStatMode())
-			{
-				aPC.setPoolAmount(0);
-			}
-
-			spMod *= aPC.getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			if (aPC.getAge() <= 0)
-			{
-				// Only generate a random age if the user hasn't set one!
-				Globals.getBioSet().randomize("AGE", aPC);
-			}
-		}
-		else
-		{
-			spMod *= Globals.getSkillMultiplierForLevel(total);
 		}
 
 		return spMod;

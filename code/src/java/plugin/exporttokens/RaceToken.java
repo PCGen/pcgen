@@ -148,7 +148,7 @@ public class RaceToken extends Token
 
 		if (SettingsHandler.hideMonsterClasses())
 		{
-			final String monsterClass = pc.getRace().getMonsterClass(pc, false);
+			final String monsterClass = pc.getRace().getMonsterClass();
 
 			if (monsterClass != null)
 			{
@@ -157,10 +157,8 @@ public class RaceToken extends Token
 				if (aClass != null)
 				{
 					int minHD =
-							pc.getRace().hitDice(pc)
-								+ pc.getRace().getMonsterClassLevels(pc);
-					int monsterHD =
-							pc.getRace().hitDice(pc) + aClass.getLevel();
+							pc.getRace().getMonsterClassLevels();
+					int monsterHD = aClass.getLevel();
 
 					if (monsterHD != minHD)
 					{

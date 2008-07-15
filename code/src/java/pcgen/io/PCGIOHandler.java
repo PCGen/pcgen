@@ -350,42 +350,6 @@ public final class PCGIOHandler extends IOHandler
 		int iRoll;
 		final int oldHp = aPC.hitPoints();
 
-		final Race aRace = aPC.getRace();
-
-		if (aRace.hitDice(aPC) != 0)
-		{
-			iSides = aRace.getHitDiceSize(aPC);
-
-			//
-			// If pcg was saved with "Use Default Monsters off" and
-			// now loading with "Use Default Monsters on"
-			// generate some random hit points
-			//
-			if (aRace.getHitPointMapSize() < 1)
-			{
-				for (int i = 0; i <= aRace.hitDice(aPC); i++)
-				{
-					final int roll = RollingMethods.roll(iSides);
-					aRace.setHitPoint(i, Integer.valueOf(roll));
-				}
-
-				warnings
-					.add("Character was saved with \"Use Default Monsters\" off. Random hit points added for race hit dice.");
-				bFixMade = true;
-			}
-
-			for (int i = 0; i <= aRace.hitDice(aPC); i++)
-			{
-				iRoll = aRace.getHitPoint(i).intValue();
-
-				if (iRoll > iSides)
-				{
-					aRace.setHitPoint(i, Integer.valueOf(iSides));
-					bFixMade = true;
-				}
-			}
-		}
-		
 		// Recalc the feat pool if required
 		if (parser.isCalcFeatPoolAfterLoad())
 		{

@@ -1728,8 +1728,6 @@ final class PCGVer0Parser implements PCGParser
 	private void parseRaceLine(String line) throws PCGParseException
 	{
 		final StringTokenizer aTok = new StringTokenizer(line, ":");
-		int x = 0;
-		HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
 		Race aRace = null;
 		String token;
 
@@ -1824,27 +1822,6 @@ final class PCGVer0Parser implements PCGParser
 					break;
 
 				default:
-
-					try
-					{
-						hitPointMap.put(Integer.toString(x++), Integer
-							.valueOf(token));
-					}
-					catch (NumberFormatException ex)
-					{
-						throw new PCGParseException("parseRaceLine", line, ex
-							.getMessage());
-					}
-
-					if (aRace != null)
-					{
-						if (x == aRace.hitDice(aPC))
-						{
-							aPC.getRace().setHitPointMap(hitPointMap);
-
-							return;
-						}
-					}
 			}
 		}
 	}

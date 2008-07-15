@@ -25,9 +25,7 @@ package pcgen.core;
 import java.awt.geom.Point2D;
 import java.math.BigDecimal;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -60,15 +58,6 @@ public final class Race extends PObject
 	private String monsterClass = null;
 	private int monsterClassLevels = 0;
 	
-	/*
-	 * TODO These four items are Deprecated, Default Monster Mode
-	 */
-	private String mFeatList = Constants.EMPTY_STRING;
-	private int hitDice = 0;
-	private int hitDiceSize = 0;
-	private Map<String, Integer> hitPointMap = new HashMap<String, Integer>();
-
-
 	/**
 	 * Checks if this race's advancement is limited.
 	 * 
@@ -84,11 +73,6 @@ public final class Race extends PObject
 	public void setBonusInitialFeats(final BonusObj bon)
 	{
 		addBonusList(bon);
-	}
-
-	public int getBonusInitialFeats()
-	{
-		return 0;
 	}
 
 	public String getDisplayVision(final PlayerCharacter aPC)
@@ -145,101 +129,9 @@ public final class Race extends PObject
 		this.featList = featList;
 	}
 
-	public String getFeatList(final PlayerCharacter aPC)
+	public String getFeatList()
 	{
-		return getFeatList(aPC, true);
-	}
-
-	public String getFeatList(final PlayerCharacter aPC, final boolean checkPC)
-	{
-		// This was messing up feats by race for several PC races.
-		// so a new tag MFEAT has been added.
-		// --- arcady 1/18/2002
-
-		if (checkPC && (aPC != null) && aPC.isMonsterDefault()
-			&& !"".equals(mFeatList))
-		{
-			return featList + "|" + mFeatList;
-		}
-		else if (!checkPC || (aPC != null))
-		{
-			return featList;
-		}
-		else
-		{
-			return "";
-		}
-	}
-
-	public void setHitDice(final int newHitDice)
-	{
-		if (newHitDice < 0)
-		{
-			ShowMessageDelegate.showMessageDialog(
-				"Invalid number of hit dice in race " + displayName, "PCGen",
-				MessageType.ERROR);
-
-			return;
-		}
-
-		hitDice = newHitDice;
-	}
-
-	public void setHitDiceSize(final int newHitDiceSize)
-	{
-		hitDiceSize = newHitDiceSize;
-	}
-
-	public int getHitDiceSize(final PlayerCharacter aPC)
-	{
-		return getHitDiceSize(aPC, true);
-	}
-
-	public int getHitDiceSize(final PlayerCharacter aPC, final boolean checkPC)
-	{
-		if (!checkPC || ((aPC != null) && aPC.isMonsterDefault()))
-		{
-			return hitDiceSize;
-		}
-		return 0;
-	}
-
-	public void setHitPoint(final int aLevel, final Integer iRoll)
-	{
-		hitPointMap.put(Integer.toString(aLevel), iRoll);
-	}
-
-	public Integer getHitPoint(final int j)
-	{
-		final Integer aHP = hitPointMap.get(Integer.toString(j));
-
-		if (aHP == null)
-		{
-			return Integer.valueOf(0);
-		}
-
-		return aHP;
-	}
-
-	public void setHitPointMap(final HashMap<String, Integer> newMap)
-	{
-		hitPointMap.clear();
-		hitPointMap.putAll(newMap);
-	}
-
-	public int getHitPointMapSize()
-	{
-		return hitPointMap.size();
-	}
-
-	public void setMFeatList(final String mFeatList)
-	{
-		this.mFeatList = mFeatList;
-	}
-
-	public String getMFeatList()
-	{
-		return mFeatList;
+		return featList;
 	}
 
 	public void setMonsterClass(final String string)
@@ -247,14 +139,9 @@ public final class Race extends PObject
 		monsterClass = string;
 	}
 
-	public String getMonsterClass(final PlayerCharacter aPC,
-		final boolean checkPC)
+	public String getMonsterClass()
 	{
-		if (!checkPC || ((aPC != null) && !aPC.isMonsterDefault()))
-		{
-			return monsterClass;
-		}
-		return null;
+		return monsterClass;
 	}
 
 	public void setMonsterClassLevels(final int num)
@@ -262,19 +149,9 @@ public final class Race extends PObject
 		monsterClassLevels = num;
 	}
 
-	public int getMonsterClassLevels(final PlayerCharacter aPC)
+	public int getMonsterClassLevels()
 	{
-		return getMonsterClassLevels(aPC, true);
-	}
-
-	public int getMonsterClassLevels(final PlayerCharacter aPC,
-		final boolean checkPC)
-	{
-		if (!checkPC || ((aPC != null) && !aPC.isMonsterDefault()))
-		{
-			return monsterClassLevels;
-		}
-		return 0;
+		return monsterClassLevels;
 	}
 
 	public boolean isNonAbility(final int statIdx)
@@ -471,9 +348,6 @@ public final class Race extends PObject
 			aRace.favoredClass = favoredClass;
 
 			aRace.featList = featList;
-			aRace.hitDice = hitDice;
-			aRace.hitDiceSize = hitDiceSize;
-			aRace.hitPointMap = new HashMap<String, Integer>(hitPointMap);
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -492,96 +366,6 @@ public final class Race extends PObject
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
-	}
-
-	public int hitDice(final PlayerCharacter aPC)
-	{
-		return hitDice(aPC, true);
-	}
-
-	public int hitDice(final PlayerCharacter aPC, final boolean checkPC)
-	{
-		if (!checkPC || ((aPC != null) && aPC.isMonsterDefault()))
-		{
-			return hitDice;
-		}
-		return 0;
-	}
-
-	/**
-	 * TODO: Note that this code does *not* work like that in PCClass
-	 * Does it need to be?
-	 * @param aPC
-	 **/
-	public void rollHP(final PlayerCharacter aPC)
-	{
-		if (!aPC.isImporting())
-		{
-			final int min = 1 + (int) aPC.getTotalBonusTo("HD", "MIN");
-			final int max =
-					hitDiceSize + (int) aPC.getTotalBonusTo("HD", "MAX");
-
-			for (int x = 0; x < hitDice; ++x)
-			{
-				setHitPoint(x, Integer.valueOf(Globals.rollHP(min, max,
-					getKeyName(), x + 1)));
-			}
-		}
-
-		aPC.setCurrentHP(aPC.hitPoints());
-	}
-
-	@Override
-	public int getSR(final PlayerCharacter aPC)
-	{
-		int intSR;
-
-		//if there's a current PC, go ahead and evaluate the formula
-		if ((getSRFormula() != null) && (aPC != null))
-		{
-			return aPC.getVariableValue(getSRFormula(), "").intValue();
-		}
-
-		//otherwise do what we can
-		try
-		{
-			//try to convert the string to an int to return
-			intSR = Integer.parseInt(getSRFormula());
-		}
-		catch (NumberFormatException nfe)
-		{
-			//if the parseInt failed then just punt... return 0
-			intSR = 0;
-		}
-
-		return intSR;
-	}
-
-	public String getMonsterClass(final PlayerCharacter aPC)
-	{
-		return getMonsterClass(aPC, true);
-	}
-
-	int calcHitPoints(final int iConMod)
-	{
-		int total = 0;
-
-		for (int i = 0; i <= hitDice; i++)
-		{
-			if (getHitPoint(i).intValue() > 0)
-			{
-				int iHp = getHitPoint(i).intValue() + iConMod;
-
-				if (iHp < 1)
-				{
-					iHp = 1;
-				}
-
-				total += iHp;
-			}
-		}
-
-		return total;
 	}
 
 	boolean canBeAlignment(final String aString)

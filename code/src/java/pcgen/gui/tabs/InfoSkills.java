@@ -2219,22 +2219,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		totalSkillPointsLeft.setValue(pc.getSkillPoints());
 
-		if (SettingsHandler.isMonsterDefault())
-		{
-			maxSkillRank.setText(String.valueOf(SkillUtilities
-				.maxClassSkillForLevel(pc.getTotalLevels() + pc.totalHitDice(),
-					pc)));
-			maxCrossSkillRank.setText(String.valueOf(SkillUtilities
-				.maxCrossClassSkillForLevel(pc.getTotalLevels()
-					+ pc.totalHitDice(), pc)));
-		}
-		else
-		{
-			maxSkillRank.setText(String.valueOf(SkillUtilities
-				.maxClassSkillForLevel(pc.getTotalLevels(), pc)));
-			maxCrossSkillRank.setText(String.valueOf(SkillUtilities
-				.maxCrossClassSkillForLevel(pc.getTotalLevels(), pc)));
-		}
+		maxSkillRank.setText(String.valueOf(SkillUtilities
+			.maxClassSkillForLevel(pc.getTotalLevels(), pc)));
+		maxCrossSkillRank.setText(String.valueOf(SkillUtilities
+			.maxCrossClassSkillForLevel(pc.getTotalLevels(), pc)));
 
 		resetSelectedModel = true;
 		updateAvailableModel();

@@ -144,7 +144,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpontaneousCasterKnown()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = getCharacter();
 		String spellBook = "Travel";
 		character.setRace(human);
@@ -176,7 +175,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testPreparedCaster()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter character = getCharacter();
 		String spellBook = "Travel";
 		character.setRace(human);

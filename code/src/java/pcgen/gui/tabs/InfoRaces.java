@@ -822,11 +822,6 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// If the either race was monstrous, natural weapons in the gear need
 			// updated.  sage_sam 20 March 2003
-			if (getPc().getRace().hitDice(getPc()) != 0)
-			{
-				getPc().getRace().rollHP(getPc());
-			}
-
 			raceText.setText(getPc().getRace().piString());
 			raceText.setMinimumSize(new Dimension(120, 25));
 			setInfoLabelText(getPc().getRace());
@@ -886,20 +881,18 @@ public class InfoRaces extends BaseCharacterInfoTab
 		if (getPc() != null)
 		{
 			final Race race = getPc().getRace();
-			final String monsterClass = race.getMonsterClass(getPc(), false);
+			final String monsterClass = race.getMonsterClass();
 
 			if (monsterClass != null)
 			{
-				monsterHD = race.hitDice(getPc());
 				minLevel =
-						race.hitDice(getPc())
-							+ race.getMonsterClassLevels(getPc());
+							race.getMonsterClassLevels();
 
 				final PCClass aClass = getPc().getClassKeyed(monsterClass);
 
 				if (aClass != null)
 				{
-					monsterHD += aClass.getLevel();
+					monsterHD = aClass.getLevel();
 				}
 			}
 			btnAddHD.setEnabled(race.containsListFor(ListKey.HITDICE_ADVANCEMENT)

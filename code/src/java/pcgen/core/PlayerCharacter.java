@@ -274,9 +274,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// Should we resize the gear automatically?
 	private boolean autoResize = SettingsHandler.getGearTab_AutoResize();
 
-	private final boolean useMonsterDefault =
-			SettingsHandler.isMonsterDefault();
-
 	// output sheet locations
 	private String outputSheetHTML = Constants.EMPTY_STRING;
 	private String outputSheetPDF = Constants.EMPTY_STRING;
@@ -2264,7 +2261,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Add additional HD if required
 		// newClass = Globals.getClassNamed(race.getType());
 		PCClass aClass =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass(this, false));
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass());
 
 		final int usedHD = followerMaster.getUsedHD();
 		addHD -= usedHD;
@@ -2527,17 +2524,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// no Name and no FileName match, so must not be loaded
 		return null;
-	}
-
-	/**
-	 * Returns the state of the default monster flag when the character was
-	 * created.
-	 * 
-	 * @return <tt>true</tt> if the character used the default monster flag.
-	 */
-	public boolean isMonsterDefault()
-	{
-		return useMonsterDefault;
 	}
 
 	/**
@@ -5984,11 +5970,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int levelForSkillPurposes = getTotalLevels();
 		final BigDecimal maxRanks;
 
-		if (SettingsHandler.isMonsterDefault())
-		{
-			levelForSkillPurposes += totalHitDice();
-		}
-
 		final Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
 
 		if (aSkill == null)
@@ -6010,24 +5991,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			if (SettingsHandler.isMonsterDefault())
-			{
-				levelForSkillPurposes += totalHitDice();
-			}
-
 			if (levelForSkillPurposes == 0)
 			{
 				// No classes qualify for this exclusive skill, so treat it as a
 				// cross-class skill
 				// This does not seem right to me! JD
-				if (SettingsHandler.isMonsterDefault())
-				{
-					levelForSkillPurposes = (getTotalLevels() + totalHitDice());
-				}
-				else
-				{
-					levelForSkillPurposes = (getTotalLevels());
-				}
+				levelForSkillPurposes = (getTotalLevels());
 
 				maxRanks =
 						SkillUtilities.maxCrossClassSkillForLevel(
@@ -6247,69 +6216,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final Race oldRace = getRace();
 		final boolean raceIsNull = (oldRace == null); // needed because race
 		// is set to null later
-		final boolean firstLevel = getTotalClassLevels() == 1;
 
 		// remove current race attributes
 		if (!raceIsNull)
 		{
 			oldRace.getSpellSupport().clearCharacterSpells();
-
-			if (PlayerCharacterUtilities.canReassignRacialFeats())
-			{
-				final StringTokenizer aTok =
-						new StringTokenizer(oldRace.getFeatList(this),
-							Constants.PIPE);
-
-				while (aTok.hasMoreTokens())
-				{
-					final String aString = aTok.nextToken();
-
-					if (aString.endsWith(")")
-						&& (Globals.getAbilityKeyed(Constants.FEAT_CATEGORY,
-							aString) == null))
-					{
-						final String featKey =
-								aString.substring(0, aString.indexOf('(') - 1);
-
-						final Ability anAbility =
-								Globals.getAbilityKeyed(
-									Constants.FEAT_CATEGORY, featKey);
-
-						if (anAbility != null)
-						{
-							AbilityUtilities.modFeat(this, null, aString, true,
-								false);
-							// setFeats(feats - anAbility.getCost(this));
-							adjustFeats(-anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-						}
-					}
-					else
-					{
-						final Ability anAbility =
-								Globals.getAbilityKeyed(
-									Constants.FEAT_CATEGORY, aString);
-
-						if (anAbility != null)
-						{
-							final String featKey = anAbility.getKeyName();
-
-							if ((hasRealFeat(anAbility) || hasFeatAutomatic(featKey)))
-							{
-								AbilityUtilities.modFeat(this, null, aString,
-									true, false);
-								// setFeats(feats - anAbility.getCost(this));
-								adjustFeats(-anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-							}
-						}
-						else
-						{
-							ShowMessageDelegate.showMessageDialog(
-								"Removing unknown feat: " + aString,
-								Constants.s_APPNAME, MessageType.INFORMATION);
-						}
-					}
-				}
-			}
 
 			languages.removeAll(oldRace.getSafeListFor(ListKey.AUTO_LANGUAGES));
 
@@ -6323,16 +6234,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			removeNaturalWeapons(race);
 			removeTemplatesFrom(race);
-
-			if ((race.getMonsterClass(this) != null)
-				&& (race.getMonsterClassLevels(this) != 0))
+			if ((race.getMonsterClass() != null)
+				&& (race.getMonsterClassLevels() != 0))
 			{
 				final PCClass mclass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass(this));
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass());
 
 				if (mclass != null)
 				{
-					incrementClassLevel(race.getMonsterClassLevels(this) * -1,
+					incrementClassLevel(race.getMonsterClassLevels() * -1,
 						mclass, true);
 				}
 			}
@@ -6377,17 +6287,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final List<PCLevelInfo> existingLevelInfo =
 					new ArrayList<PCLevelInfo>(pcLevelInfo);
 			pcLevelInfo.clear();
-
 			// Make sure monster classes are added first
-			if (!isImporting() && (race.getMonsterClass(this) != null)
-				&& (race.getMonsterClassLevels(this) != 0))
+			if (!isImporting() && (race.getMonsterClass() != null)
+				&& (race.getMonsterClassLevels() != 0))
 			{
 				final PCClass mclass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass(this));
-
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass());
 				if (mclass != null)
 				{
-					incrementClassLevel(race.getMonsterClassLevels(this),
+					incrementClassLevel(race.getMonsterClassLevels(),
 						mclass, true);
 				}
 			}
@@ -6434,70 +6342,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			addNaturalWeapons(race.getNaturalWeapons());
-
-			if (PlayerCharacterUtilities.canReassignRacialFeats())
-			{
-				final StringTokenizer aTok =
-						new StringTokenizer(getRace().getFeatList(this),
-							Constants.PIPE);
-
-				while (aTok.hasMoreTokens())
-				{
-					final String aString = aTok.nextToken();
-
-					if (aString.endsWith(")")
-						&& (Globals.getAbilityKeyed(Constants.FEAT_CATEGORY,
-							aString) == null))
-					{
-						// we want the first instance of it, in case of Weapon
-						// Focus(Longbow (Composite))
-						final String featKey =
-								aString.substring(0, aString.indexOf('(') - 1);
-
-						final Ability anAbility =
-								Globals.getAbilityKeyed(
-									Constants.FEAT_CATEGORY, featKey);
-
-						if (anAbility != null)
-						{
-							// setFeats(feats + anAbility.getCost(this));
-							adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-							AbilityUtilities.modFeat(this, null, aString, true,
-								true);
-						}
-					}
-					else
-					{
-						final Ability anAbility =
-								Globals.getAbilityKeyed(
-									Constants.FEAT_CATEGORY, aString);
-
-						if (anAbility != null)
-						{
-							final String featKey = anAbility.getKeyName();
-
-							if ((!this.hasRealFeat(anAbility) && !this
-								.hasFeatAutomatic(featKey)))
-							{
-								// setFeats(feats + anAbility.getCost(this));
-								adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-
-								// modFeat(featName, true,
-								// featName.endsWith("Proficiency"));
-								AbilityUtilities.modFeat(this, null, aString,
-									true, true);
-							}
-						}
-						else
-						{
-							ShowMessageDelegate.showMessageDialog(
-								"Adding unknown feat: " + aString,
-								Constants.s_APPNAME, MessageType.INFORMATION);
-						}
-					}
-				}
-			}
-
 			getAutoLanguages();
 			getRacialFavoredClasses();
 
@@ -8832,27 +8676,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public float calcCR()
 	{
 		float CR = 0;
-		final int rhd = race.hitDice(this);
-
-		// If the racial HD is greater than 0 then calculate the ratio of racial HD 
-		// to total HD
-		if (rhd > 0)
-		{
-			float hitDieRatio = (float) totalHitDice() / rhd;
-
-			// Add 2 to the CR while the hitDieRatio is >= to 2
-			while (hitDieRatio >= 2)
-			{
-				CR = CR + 2;
-				hitDieRatio = hitDieRatio / 2;
-			}
-
-			// If the hitDieRatio is stll 1.5 or above then add another 1 to the CR
-			if (hitDieRatio >= 1.5)
-			{
-				++CR;
-			}
-		}
 
 		// Calculate and add the CR from the PC Classes
 		for (PCClass pcClass : classList)
@@ -9615,11 +9438,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		else
 		{
 			final double iConMod = getStatBonusTo("HP", "BONUS");
-
-			if (race.hitDice(this) != 0)
-			{
-				total = race.calcHitPoints((int) iConMod);
-			}
 
 			for (PCClass pcClass : classList)
 			{
@@ -10900,7 +10718,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int totalHitDice()
 	{
-		return race.hitDice(this) + totalMonsterLevels();
+		return totalMonsterLevels();
 	}
 
 	public int totalNonMonsterLevels()
@@ -17374,11 +17192,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		// add racial feats
 		//
-		if ((getRace() != null)
-			&& !PlayerCharacterUtilities.canReassignRacialFeats())
+		if (getRace() != null)
 		{
 			final StringTokenizer aTok =
-					new StringTokenizer(getRace().getFeatList(this),
+					new StringTokenizer(getRace().getFeatList(),
 						Constants.PIPE);
 
 			while (aTok.hasMoreTokens())
@@ -17396,7 +17213,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			addAutoProfsToList(getRace().getSafeListFor(
 				ListKey.SELECTED_WEAPON_PROF_BONUS), abilities);
-
 		}
 
 		for (final PCClass aClass : getClassList())

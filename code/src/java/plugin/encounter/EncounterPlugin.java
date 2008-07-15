@@ -373,8 +373,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 				}
 
 				PCClass monsterClass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aPC.getRace().getMonsterClass(
-				aPC, false));
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aPC.getRace().getMonsterClass());
 
 				if (monsterClass != null)
 				{
@@ -916,43 +915,21 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private void handleMonster(PlayerCharacter aPC, PCClass monsterClass)
 	{
 		Race race = aPC.getRace();
-		int racehd = aPC.getRace().hitDice(aPC);
+		monsterClass.put(ObjectKey.IS_MONSTER, true);
 
-		//Use Default monsters for the time being
-		if (racehd > 0)
+		int levels = race.getMonsterClassLevels();
+		Logging.debugPrint("Monster Class: " + monsterClass.getDisplayName()
+				+ " Level: " + levels);
+		PCClass pcClass = aPC.getClassKeyed(monsterClass.getKeyName());
+
+		int currentLevels = 0;
+		if (pcClass != null)
 		{
-			int bonus = (int) aPC.getTotalBonusTo("HD", "MIN");
-			int size = aPC.getRace().getHitDiceSize(aPC);
-
-			for (int x = 0; x < racehd; ++x)
-			{
-				aPC.getRace().setHitPoint(x,
-					Integer.valueOf(new Dice(1, size, bonus).roll()));
-			}
-
-			aPC.setCurrentHP(aPC.hitPoints());
+			currentLevels = pcClass.getLevel();
 		}
-		else
+		if (currentLevels < levels)
 		{
-			monsterClass.put(ObjectKey.IS_MONSTER, true);
-			
-			int levels = race.getMonsterClassLevels(aPC, false);
-			Logging.debugPrint("Monster Class: "
-				+ monsterClass.getDisplayName() + " Level: " + levels);
-			PCClass pcClass = aPC.getClassKeyed(monsterClass.getKeyName());
-
-			int currentLevels = 0;
-			if (pcClass != null)
-			{
-				currentLevels = pcClass.getLevel();
-			}
-			if (currentLevels < levels)
-			{
-				aPC.incrementClassLevel(levels - currentLevels, monsterClass);
-			}
-			//rollHP(aPC);
-
-			//SettingsHandler.setMonsterDefault(true);
+			aPC.incrementClassLevel(levels - currentLevels, monsterClass);
 		}
 	}
 

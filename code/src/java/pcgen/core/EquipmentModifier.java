@@ -181,28 +181,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * A test of whether this object has a bonus that stringifys to the same as
-	 * the string passed in
-	 *
-	 * @param   aString  a string representation of the bonus we're looking for
-	 *
-	 * @return  True if the string matches, false otherwise
-	 */
-	@Override
-	public boolean getBonusListString(final String aString)
-	{
-		for ( BonusObj bonus : getBonusList() )
-		{
-			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * set the cost of this object
 	 *
 	 * @param  aString  representing the cost
@@ -467,6 +445,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getSafe(ObjectKey.NAME_OPT).returnName(this);
 	}
 
+	@Override
 	public int getSR(final PlayerCharacter aPC)
 	{
 		if (getSRFormula() == null)

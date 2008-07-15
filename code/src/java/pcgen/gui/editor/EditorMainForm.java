@@ -214,7 +214,6 @@ public final class EditorMainForm extends JDialog
 // FAVCLASS
 // FEAT
 // HANDS
-// HITDICE
 // HITDIE
 // HITDICEADVANCEMENT
 // INIT
@@ -222,7 +221,6 @@ public final class EditorMainForm extends JDialog
 // LANGNUM
 // LEGS
 // LEVELADJUSTMENT
-// MFEAT
 // MONSTERCLASS
 // MOVE
 // NATURALATTACKS
@@ -1530,7 +1528,7 @@ public final class EditorMainForm extends JDialog
 					availableRaceFeatList.add(anAbility.getKeyName());
 				}
 
-				aString = ((Race) thisPObject).getFeatList(null, false);
+				aString = ((Race) thisPObject).getFeatList();
 				aTok = new StringTokenizer(aString, "|", false);
 
 				while (aTok.hasMoreTokens())

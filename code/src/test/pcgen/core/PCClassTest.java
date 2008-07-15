@@ -143,7 +143,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testMonsterSkillPoints()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		// Create a medium bugbear first level
 		PlayerCharacter bugbear = new PlayerCharacter();
 		bugbear.setRace(bugbearRace);
@@ -656,7 +655,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testDefaultLevelsPerFeatMonster()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = nymphClass.getBonusList();
@@ -674,7 +672,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testLevelsPerFeatMonster()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
@@ -693,7 +690,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testDefaultLevelsPerFeatNonMonster()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = humanoidClass.getBonusList();
@@ -711,7 +707,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testLevelsPerFeatNonMonster()
 	{
-		SettingsHandler.setMonsterDefault(false);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		humanoidClass.put(IntegerKey.LEVELS_PER_FEAT, 4);

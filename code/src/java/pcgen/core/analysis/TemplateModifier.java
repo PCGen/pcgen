@@ -59,11 +59,11 @@ public class TemplateModifier
 				mods.append("CR:").append(cr).append(' ');
 			}
 
-			int x = pct.getSR(aPC);
+			String srf = pct.getSRFormula();
 
-			if (x != 0)
+			if (srf != null)
 			{
-				mods.append("SR:").append(x).append(' ');
+				mods.append("SR:").append(srf).append(' ');
 			}
 
 			// if ((getDR() != null) && !"".equals(getDR()))

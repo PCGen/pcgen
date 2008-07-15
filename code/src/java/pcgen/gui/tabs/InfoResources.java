@@ -654,12 +654,6 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		newPC.setAlignment(pc.getAlignment(), true, true);
 		newPC.setRace(race);
-
-		if (newPC.getRace().hitDice(pc) != 0)
-		{
-			newPC.getRace().rollHP(pc);
-		}
-
 		newPC.setDirty(true);
 
 		aType = target.getType();
@@ -1203,11 +1197,6 @@ public class InfoResources extends FilterAdapterPanel implements
 			}
 
 			b.appendLineBreak();
-			b.appendI18nElement("in_hdLabel", //$NON-NLS-1$
-				String.valueOf(aRace.hitDice(null, false))); 
-			b.append("d"); //$NON-NLS-1$
-			b.append(String.valueOf(aRace.getHitDiceSize(null, false)));
-
 			String bString = "";
 			List<Movement> movements = aRace.getMovements();
 			if (movements != null && !movements.isEmpty())

@@ -1761,20 +1761,6 @@ final class PCGVer2Creator implements IOConstants
 	{
 		buffer.append(TAG_RACE).append(':');
 		buffer.append(EntityEncoder.encode(thePC.getRace().getKeyName()));
-
-		final int hitDice = thePC.getRace().hitDice(thePC);
-
-		if (hitDice != 0)
-		{
-			buffer.append('|').append(TAG_HITPOINTS);
-
-			for (int j = 0; j < hitDice; ++j)
-			{
-				buffer.append(':').append(
-					thePC.getRace().getHitPoint(j).toString());
-			}
-		}
-
 		buffer.append(LINE_SEP);
 	}
 

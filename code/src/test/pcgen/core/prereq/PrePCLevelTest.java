@@ -233,7 +233,6 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		super.setUp();
 
 		race.setName("Gnoll");
-		race.setHitDice(2);
 
 		myClass.setName("My Class");
 		myClass.setKeyName("MY_CLASS");

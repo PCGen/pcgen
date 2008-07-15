@@ -170,22 +170,9 @@ final class MainHP extends JPanel
 		else
 		{
 			PCClass aClass = null;
-			Race aRace = null;
 
 			if (aPC != null)
 			{
-				aRace = aPC.getRace();
-
-				if (aRace != null)
-				{
-					if (iRow < aRace.hitDice(aPC))
-					{
-						aRace.setHitPoint(iRow, Integer.valueOf(iRoll));
-					}
-
-					iRow -= aRace.hitDice(aPC);
-				}
-
 				if ((iRow >= 0) && (iRow < aPC.getLevelInfoSize()))
 				{
 					aClass = aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(iRow));
@@ -410,11 +397,6 @@ final class MainHP extends JPanel
 
 			if (aPC != null)
 			{
-				if (aPC.getRace() != null)
-				{
-					iRows += aPC.getRace().hitDice(aPC);
-				}
-
 				if (aPC.getClassList() != null)
 				{
 					for (PCClass aClass : aPC.getClassList())
@@ -444,26 +426,6 @@ final class MainHP extends JPanel
 			if (aPC != null)
 			{
 				final Race aRace = aPC.getRace();
-
-				if (aRace != null)
-				{
-					if (rowIndex < aRace.hitDice(aPC))
-					{
-						iHp = aRace.getHitPoint(rowIndex).intValue();
-						iSides = aRace.getHitDiceSize(aPC);
-
-						//
-						// Sanity check
-						//
-						if (iHp > iSides)
-						{
-							aRace.setHitPoint(rowIndex, Integer.valueOf(iSides));
-							iHp = iSides;
-						}
-					}
-
-					rowIndex -= aRace.hitDice(aPC);
-				}
 
 				PCClass aClass = null;
 

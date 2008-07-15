@@ -230,7 +230,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetMonsterBonusFeatsForNewLevel1() throws Exception
 	{
-		SettingsHandler.setMonsterDefault(false);
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(giantRace);
@@ -248,7 +247,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValue1() throws Exception
 	{
-		SettingsHandler.setMonsterDefault(false);
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
 		giantRace.addVariable(-9, "GiantVar1", "0");
