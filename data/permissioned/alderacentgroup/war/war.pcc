@@ -33,5 +33,3 @@ SPELL:warspells.lst
 DEITY:wardeities.lst
 DOMAIN:wardomains.lst
 WEAPONPROF:war_profs_weapon.lst
-
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Uncanny Dodge,Sneak Attack)

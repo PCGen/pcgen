@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Dec 15 15:30:19 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus					List of Class Spells by Level
@@ -9,8 +9,8 @@ CLASS:Beast Handler	PREATT:4	PREFEAT:2,Exotic Weapon Proficiency (Whip),Skill Fo
 CLASS:Beast Handler	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1							SAB:Ward Animal
 2	CAST:0		KNOWN:2		SAB:Animal Training (% total)|AnimalTraining	BONUS:VAR|AnimalTraining|CL-1	DEFINE:AnimalTraining|0
@@ -21,7 +21,7 @@ CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 7	CAST:3,2,0		KNOWN:4,4,2
 8	CAST:3,3,1		KNOWN:4,4,3
 9	CAST:3,3,2		KNOWN:4,4,3
-10	CAST:3,3,2,0	KNOWN:4,4,3,2	ABILITY:Special Ability|AUTOMATIC|Special Mount
+10	CAST:3,3,2,0	KNOWN:4,4,3,2																		ABILITY:Special Ability|AUTOMATIC|Special Mount
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -30,9 +30,9 @@ CLASS:Brute		HD:10		TYPE:PC.Prestige	ABB:Brt		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:
 CLASS:Brute		PREATT:7	PREFEAT:2,Power Attack,Toughness	PRESKILL:1,Intimidate=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brute		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Ride|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Improved Power Attack											AUTO:FEAT|Toughness
 2	SAB:Battle Cry %/day|BattleCry	BONUS:VAR|BattleCry|(CL+2)/4	DEFINE:BattleCry|0
@@ -51,11 +51,11 @@ CLASS:Elf Treerunner	HD:10		TYPE:PC.Prestige	ABB:ETr		MAXLEVEL:10	SOURCEPAGE:p.5
 CLASS:Elf Treerunner	PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Climb=8,Wilderness Lore=4,Jump=6,Balance=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Swim|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1					SAB:Treewalking (Ex)|PREVARLT:CL,3
-2					ABILITY:Special Ability|AUTOMATIC|Trackless Step
+2																					ABILITY:Special Ability|AUTOMATIC|Trackless Step
 3					SAB:Treewalking (Su)
 4					SAB:Speak with Plants %/day|SpeakPlants		BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
 5					SAB:Arboreal Ally (Su)
@@ -71,18 +71,18 @@ CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	ABB:Ath		MAXLEVEL:10	SOURCEPAGE:p.56	
 CLASS:Epic Athlete	PREATT:5	!PRECLASS:1,Monk=1	PREFEAT:3,Improved Unarmed Strike,Run,Toughness	PRESKILL:5,Jump=8,Balance=4,Tumble=4,Climb=6,Swim=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic Athlete	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|Perform|Ride|Spot|Swim|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 ###Block: Normal Level Progression
-1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																																						BONUS:SKILL|STAT=CHA|2|TYPE=Competence
-2	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																				BONUS:MOVEADD|TYPE=Walk|15|PREVARLTEQ:COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT],0
+1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																																	BONUS:SKILL|STAT=CHA|2|TYPE=Competence
+2	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12															BONUS:MOVEADD|TYPE=Walk|15|PREVARLTEQ:COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT],0
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Far Throw
 4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Grappler
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:The Epic
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Prodigious Leap																																	BONUS:SKILL|Jump|4|TYPE=Competence
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Prodigious Leap																												BONUS:SKILL|Jump|4|TYPE=Competence
 7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Giant Killer
 8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Bear Hug
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Hearty Constitution
-10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Immunity to disease and poison	SAB:Regeneration (Ex) % HP/ Hour|Regen	BONUS:VAR|Regen|max(CON,0)																										DEFINE:Regen|0
+10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Immunity to disease and poison	SAB:Regeneration (Ex) % HP/ Hour|Regen																										BONUS:VAR|Regen|max(CON,0)	DEFINE:Regen|0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Footman	HD:8		TYPE:PC.Prestige	ABB:Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -90,9 +90,9 @@ CLASS:Footman	HD:8		TYPE:PC.Prestige	ABB:Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:C
 CLASS:Footman	PREATT:3	PREFEAT:2,Dodge,Expertise	PRESIZELTEQ:S
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Footman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Jump|TYPE.Profession|Ride|Swim|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Shield Ally	SAB:Support Ally	SAB:Coordinated Strike +%|Coordinated	DEFINE:Coordinated|(CL+1)/2
 2	SAB:Protect Ally
@@ -104,18 +104,18 @@ CLASS:Gutter Fighter	HD:10		TYPE:PC.Prestige	ABB:Gtr		MAXLEVEL:10	SOURCEPAGE:p.6
 CLASS:Gutter Fighter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:1,Weapon Finesse	PRESIZELTEQ:S	PRESKILL:2,Intimidate=6,Hide=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Gutter Fighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Pick Pocket|TYPE.Profession|Search|Spot|Swim|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Dirty Blow
 2	SAB:Strike and Fade
-3						BONUS:VAR|SneakAttack|CL/3									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-4											BONUS:COMBAT|AC|1|TYPE=Dodge|PREFEAT:1,Dodge	AUTO:FEAT|Dodge
+3														BONUS:VAR|SneakAttack|CL/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4						BONUS:COMBAT|AC|1|TYPE=Dodge|PREFEAT:1,Dodge														AUTO:FEAT|Dodge
 5	SAB:Scaling the Mountain
-6											BONUS:COMBAT|AC|CL/3|TYPE=NaturalArmor.REPLACE
+6						BONUS:COMBAT|AC|CL/3|TYPE=NaturalArmor.REPLACE
 7	SAB:Hobbling Strike
-8						BONUS:VAR|UncannyDodge|1									ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+8														BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 10	SAB:Agonizing Strike
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -134,9 +134,9 @@ CLASS:Knight Chaplain	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:CASTERLE
 1	SPELLLEVEL:CLASS|Knight Chaplain=4|Cure Critical Wounds,Death Ward,Freedom of Movement,Locate Creature,Minor Globe of Invulnerability,Neutralize Poison,Status
 1	SPELLLEVEL:CLASS|Knight Chaplain=5|Break Enchantment,Healing Circle,Prying Eyes,Raise Dead,Remove Curse,Sending,Spell Resistance
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Protection
 1	CAST:3,1										AUTO:FEAT|Combat Casting|Skill Focus(Concentration)
 2	CAST:4,2		SAB:Healing Focus
@@ -155,8 +155,8 @@ CLASS:Lancer	HD:10		TYPE:PC.Prestige	ABB:Lnc		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:
 CLASS:Lancer	PREATT:6	PREFEAT:1,Weapon Focus(Longspear),Weapon Focus(Glaive),Weapon Focus(Guisarme),Weapon Focus(Ranseur),Weapon Focus(Lance%)	PREFEAT:3,Dodge,Mobility,Skill Focus(Jump)	PRESKILL:2,Jump=4,Tumble=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lancer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Close Combat
 2	SAB:Pole-Vault
@@ -174,9 +174,9 @@ CLASS:Mercenary Captain	HD:10		TYPE:PC.Prestige	ABB:MCp		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Mercenary Captain	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:4,Improved Initiative,Leadership,Weapon Focus,Weapon Specialization	PRESKILL:4,Intimidate=6,Bluff=4,Ride=4,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mercenary Captain	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Innuendo|Intimidate|Listen|Perform|Ride|Search|Sense Motive|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Grizzled	SAB:War Cry
 2	SAB:Attack Drill %/day|Drill						DEFINE:Drill|CL/2
@@ -195,8 +195,8 @@ CLASS:Rake		HD:6		TYPE:PC.Prestige	ABB:Rak		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:CH
 CLASS:Rake		PREATT:4	PREFEAT:1,Expertise	PRESKILL:2,Bluff=8,Intimidate=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuendo|Intimidate|Jump|Perform|Pick Pocket|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1										BONUS:VAR|SneakAttack|(CL+1)/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Taunt (Intimidate)|PREVARLT:CL,4
@@ -230,9 +230,9 @@ CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.74	
 CLASS:Shieldbearer	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Lightning Reflexes
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shieldbearer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Handle Animal|Jump|Ride|Spot|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Shield Another %|ShieldAnother	DEFINE:ShieldAnother|(CL+4)/5
 2												ADD:FEAT|1|TYPE=Fighter
@@ -251,9 +251,9 @@ CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	ABB:SpB		MAXLEVEL:10	SOURCEPAGE:p.76	B
 CLASS:Spellbreaker	PREATT:5	PRERACE:1,Dwarf%	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Knowledge (Arcana)|Ride|Spellcraft|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Neutralize Magic %/day|Neutralize			BONUS:VAR|Neutralize|(CL+1)/2	DEFINE:Neutralize|0
 2	SAB:Disrupt Spellcaster
@@ -268,9 +268,9 @@ CLASS:Wandering Squire	HD:10		TYPE:PC.Prestige	ABB:WSq		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Wandering Squire	PREATT:5	PREFEAT:3,Dodge,Two-Weapon Fighting,Weapon Focus(Quarterstaff)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wandering Squire	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Gather Information|Heal|Intimidate|Jump|Listen|TYPE.Profession|Ride|Spot|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Staff Expert																AUTO:FEAT|Expertise
 2	SAB:Stunning Attack %/day|Stun	BONUS:COMBAT|AC|1|TYPE=Dodge	DEFINE:Stun|1
@@ -289,20 +289,20 @@ CLASS:Warleader	HD:10		TYPE:PC.Prestige	ABB:Wrl		MAXLEVEL:10	SOURCEPAGE:p.81	BON
 CLASS:Warleader	PREATT:6	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warleader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Diplomacy|Intimidate|TYPE.Profession|Ride|Sense Motive|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Lead Counsel
 2	SAB:Inspire Bravery
 3																		ADD:FEAT|1|TYPE=Fighter
 4	SAB:Concerted Attack
-5												BONUS:STAT|CHA|2
+5								BONUS:STAT|CHA|2
 6																		ADD:FEAT|1|TYPE=Fighter
 7	SAB:Snap to Attention
-8	SAB:Motivate the Troops %/day|Motivate	BONUS:VAR|Motivate|1				DEFINE:Motivate|0
-9								BONUS:VAR|Motivate|1							ADD:FEAT|1|TYPE=Fighter
-10	SAB:Rally the Troops				BONUS:VAR|Motivate|1
+8	SAB:Motivate the Troops %/day|Motivate				BONUS:VAR|Motivate|1	DEFINE:Motivate|0
+9											BONUS:VAR|Motivate|1				ADD:FEAT|1|TYPE=Fighter
+10	SAB:Rally the Troops							BONUS:VAR|Motivate|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Warmage	HD:6		TYPE:PC.Prestige	ABB:WMg		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -310,17 +310,17 @@ CLASS:Warmage	HD:6		TYPE:PC.Prestige	ABB:WMg		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:
 CLASS:Warmage	PREFEAT:1,TYPE=Metamagic	PREFEAT:2,Combat Casting,Dodge	PRESKILL:2,Concentration=8,Knowledge (Arcana)=6	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warmage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Arcane Accuracy +1 / level
-2	SAB:Armored Mage: -% Failure Chance|ArmoredMage	BONUS:VAR|ArmoredMage|5																						DEFINE:ArmoredMage|0	ADD:SPELLCASTER|1|Arcane
-3													BONUS:COMBAT|AC|1|TYPE=Dodge	BONUS:COMBAT|AC|2|PREFEAT:1,Dodge|TYPE=Dodge
-4									BONUS:VAR|ArmoredMage|5																										ADD:SPELLCASTER|1|Arcane
-5																										BONUS:SKILL|Concentration|4|TYPE=Competence
-6									BONUS:VAR|ArmoredMage|5																										ADD:SPELLCASTER|1|Arcane
+2	SAB:Armored Mage: -% Failure Chance|ArmoredMage																						BONUS:VAR|ArmoredMage|5	DEFINE:ArmoredMage|0	ADD:SPELLCASTER|1|Arcane
+3									BONUS:COMBAT|AC|1|TYPE=Dodge	BONUS:COMBAT|AC|2|PREFEAT:1,Dodge|TYPE=Dodge
+4																														BONUS:VAR|ArmoredMage|5					ADD:SPELLCASTER|1|Arcane
+5																						BONUS:SKILL|Concentration|4|TYPE=Competence
+6																														BONUS:VAR|ArmoredMage|5					ADD:SPELLCASTER|1|Arcane
 7	SAB:Dodge Missile Fire +1
-8									BONUS:VAR|ArmoredMage|5																										ADD:SPELLCASTER|1|Arcane
+8																														BONUS:VAR|ArmoredMage|5					ADD:SPELLCASTER|1|Arcane
 9	SAB:Arcane Tactician
 10	SAB:Arcane Warrior																																		ADD:SPELLCASTER|1|Arcane
 
@@ -330,9 +330,9 @@ CLASS:Wild Rider	HD:10		TYPE:PC.Prestige	ABB:Wld		MAXLEVEL:10	SOURCEPAGE:p.85	BO
 CLASS:Wild Rider	PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:4,Ride=8,Animal Empathy=6,Heal=6,Wilderness Lore=6	PREVARGTEQ:RageTimes,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wild Rider	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|TYPE.Profession|Ride|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Improved Mounted Archery
 2	SAB:Inspired Horsemanship

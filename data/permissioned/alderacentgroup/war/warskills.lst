@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Sep 28 04:07:44 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
 
-# Skill Name		Key Stat	Untrained?		Type					Bonus to skill																						Source Page
-Craft (Gunsmith)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		BONUS:SKILL|Craft (Gunsmith)|SynergyBonus|PRESKILL:1,Craft (Blacksmithing)=5,Craft (Weaponsmithing)=5,Profession (Artillery)=5|TYPE=Synergy.STACK	SOURCEPAGE:p.40
-Profession (Artillery)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Profession	BONUS:SKILL|Profession (Artillery)|SynergyBonus|PRESKILL:1,Profession (Siege Engineer)=5|TYPE=Synergy.STACK							SOURCEPAGE:p.43
-Strategy			KEYSTAT:INT				TYPE:Intelligence			BONUS:SKILL|Strategy|floor(SynergyBonus/2)|PRESKILL:1,Tactics=1|TYPE=Synergy.STACK											SOURCEPAGE:p.
-Tactics			KEYSTAT:INT				TYPE:Intelligence			BONUS:SKILL|Tactics|floor(SynergyBonus/2)|PRESKILL:1,Strategy=1|TYPE=Synergy.STACK											SOURCEPAGE:p.
+# Skill Name		Key Stat	Untrained?		Type					Source Page		Bonus to skill
+Craft (Gunsmith)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.40	BONUS:SKILL|Craft (Gunsmith)|SynergyBonus|PRESKILL:1,Craft (Blacksmithing)=5,Craft (Weaponsmithing)=5,Profession (Artillery)=5|TYPE=Synergy.STACK
+Profession (Artillery)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Profession	SOURCEPAGE:p.43	BONUS:SKILL|Profession (Artillery)|SynergyBonus|PRESKILL:1,Profession (Siege Engineer)=5|TYPE=Synergy.STACK
+Strategy			KEYSTAT:INT				TYPE:Intelligence			SOURCEPAGE:p.	BONUS:SKILL|Strategy|floor(SynergyBonus/2)|PRESKILL:1,Tactics=1|TYPE=Synergy.STACK
+Tactics			KEYSTAT:INT				TYPE:Intelligence			SOURCEPAGE:p.	BONUS:SKILL|Tactics|floor(SynergyBonus/2)|PRESKILL:1,Strategy=1|TYPE=Synergy.STACK

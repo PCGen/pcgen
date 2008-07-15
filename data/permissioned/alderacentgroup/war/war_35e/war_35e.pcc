@@ -31,3 +31,4 @@ FEAT:../warfeats.lst
 SKILL:../warskills.lst
 SPELL:../warspells.lst
 DEITY:../wardeities.lst
+WEAPONPROF:../war_profs_weapon.lst

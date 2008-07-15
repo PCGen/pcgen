@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 28 17:37:35 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20
 
@@ -8,9 +8,9 @@ CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOUR
 CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PREATT:5	PRESKILL:1,Knowledge (Arcana)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Ride|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Leader of the Dead (Sp)
 2							ADD:FEAT|1|TYPE=Fighter
@@ -134,8 +134,8 @@ CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|
 3					SAB:Turn Resistance % (Su)|TurnResistance																			DEFINE:TurnResistance|2
 4					SAB:Bonds of Death (Su)
 5					SAB:Aura of Doom (Su)
-6					SAB:Energy Drain 3/day (Sp)											BONUS:SKILL|Diplomacy|-2	BONUS:SKILL|Intimidate|2
-7															BONUS:VAR|TurnResistance|2
+6					SAB:Energy Drain 3/day (Sp)						BONUS:SKILL|Diplomacy|-2	BONUS:SKILL|Intimidate|2
+7																									BONUS:VAR|TurnResistance|2
 8					SAB:Incorporeality (Su)
 10					SAB:Darkness form Darkness (Su)
 
@@ -147,20 +147,20 @@ CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion)=8
 CLASS:Paladin of the Pale	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Ride
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin of the Pale|CL
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Atonement
-2								BONUS:VAR|TurnLevelBase|max(CL-1,0)|TYPE=Level.REPLACE	BONUS:PCLEVEL|Paladin|1
-3	SAB:Searing Light %/day (Sp)|SearingLight	BONUS:VAR|SearingLight|CL/3						BONUS:PCLEVEL|Paladin|1	DEFINE:SearingLight|0
-4	SAB:Last Rites (Su)|PREVARLT:CL,8												BONUS:PCLEVEL|Paladin|1
-5	SAB:Life from Death (Ex)													BONUS:PCLEVEL|Paladin|1
-6																		BONUS:PCLEVEL|Paladin|1
-7	SAB:Protection from Evil (Sp)													BONUS:PCLEVEL|Paladin|1
-8	SAB:Last Rites (Advanced) (Su)												BONUS:PCLEVEL|Paladin|1
-9																		BONUS:PCLEVEL|Paladin|1
-10	SAB:Holy Terror (Su)														BONUS:PCLEVEL|Paladin|1
+2								BONUS:PCLEVEL|Paladin|1	BONUS:VAR|TurnLevelBase|max(CL-1,0)|TYPE=Level.REPLACE
+3	SAB:Searing Light %/day (Sp)|SearingLight	BONUS:PCLEVEL|Paladin|1	BONUS:VAR|SearingLight|CL/3						DEFINE:SearingLight|0
+4	SAB:Last Rites (Su)|PREVARLT:CL,8		BONUS:PCLEVEL|Paladin|1
+5	SAB:Life from Death (Ex)			BONUS:PCLEVEL|Paladin|1
+6								BONUS:PCLEVEL|Paladin|1
+7	SAB:Protection from Evil (Sp)			BONUS:PCLEVEL|Paladin|1
+8	SAB:Last Rites (Advanced) (Su)		BONUS:PCLEVEL|Paladin|1
+9								BONUS:PCLEVEL|Paladin|1
+10	SAB:Holy Terror (Su)				BONUS:PCLEVEL|Paladin|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|0*CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -255,7 +255,7 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|
 
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required AL	Required Feat			Required Skill															Required Spell School		Req. Spell Type		Required Text
+# Class Name		Required AL	Required Feat			Required Skill													Required Spell School		Req. Spell Type		Required Text
 CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:4,Knowledge (Arcana)=4,Wilderness Lore=8,Knowledge (Nature)=8,Animal Empathy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
@@ -265,13 +265,13 @@ CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.C
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1													BONUS:PCLEVEL|Druid|1
-2	SAB:Undead Form %/day|UndeadForm			BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1	DEFINE:UndeadForm|0
-3	SAB:Death Domain										BONUS:PCLEVEL|Druid|1
-4	SAB:Sustenance (Su)					BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1
-5	SAB:Healing Domain									BONUS:PCLEVEL|Druid|1
-6	SAB:Lifeless Pallor (Su)								BONUS:PCLEVEL|Druid|1
-7													BONUS:PCLEVEL|Druid|1					ADD:FEAT|Wasteland Druid Destruction Domain,Wasteland Druid Undead Domain
-8									BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1
-9	SAB:Companions of the Grave	SAB:Fire Domain					BONUS:PCLEVEL|Druid|1
-10									BONUS:VAR|UndeadForm|1	BONUS:PCLEVEL|Druid|1
+1									BONUS:PCLEVEL|Druid|1
+2	SAB:Undead Form %/day|UndeadForm			BONUS:PCLEVEL|Druid|1	BONUS:VAR|UndeadForm|1	DEFINE:UndeadForm|0
+3	SAB:Death Domain						BONUS:PCLEVEL|Druid|1
+4	SAB:Sustenance (Su)					BONUS:PCLEVEL|Druid|1	BONUS:VAR|UndeadForm|1
+5	SAB:Healing Domain					BONUS:PCLEVEL|Druid|1
+6	SAB:Lifeless Pallor (Su)				BONUS:PCLEVEL|Druid|1
+7									BONUS:PCLEVEL|Druid|1									ADD:FEAT|Wasteland Druid Destruction Domain,Wasteland Druid Undead Domain
+8									BONUS:PCLEVEL|Druid|1	BONUS:VAR|UndeadForm|1
+9	SAB:Companions of the Grave	SAB:Fire Domain	BONUS:PCLEVEL|Druid|1
+10									BONUS:PCLEVEL|Druid|1	BONUS:VAR|UndeadForm|1
