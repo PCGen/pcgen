@@ -56,10 +56,12 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
@@ -70,6 +72,7 @@ import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
@@ -133,7 +136,8 @@ public class MainSource extends FilterAdapterPanel
 
 	//column positions for tables
 	private static final int COL_NAME = 0;
-	private static final int COL_LOADED = 1;
+	private static final int COL_BOOKTYPE = 1;
+	private static final int COL_LOADED = 2;
 
 	//view modes for tables
 	private static final int VIEW_PRODUCT = 0;
@@ -599,12 +603,6 @@ public class MainSource extends FilterAdapterPanel
 		return sb.toString();
 	}
 
-	private void setLoadedColMaxWidth()
-	{
-		//make the "Loaded" checkbox column a reasonable size
-		selectedTable.getColumnModel().getColumn(COL_LOADED).setMaxWidth(50);
-	}
-
 	private int getSelectedIndex(ListSelectionEvent e)
 	{
 		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
@@ -730,6 +728,7 @@ public class MainSource extends FilterAdapterPanel
 		btree.setRootVisible(false);
 		btree.setShowsRootHandles(true);
 		btree.setCellRenderer(new LabelTreeCellRenderer());
+
 		selectedTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
@@ -793,6 +792,27 @@ public class MainSource extends FilterAdapterPanel
 
 		hookupPopupMenu(availableTable);
 		hookupPopupMenu(selectedTable);
+	}
+
+	/**
+	 * Adds the column manager button to the table.
+	 * 
+	 * @param table the table
+	 * @param model the model for the table
+	 */
+	private JScrollPane addColumnManagerButton(JTable table, TableColumnManagerModel model)
+	{
+		final JScrollPane scrollPane =
+			new JScrollPane(table,
+				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		final JButton columnButton = new JButton();
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
+		// TODO - This should probably be an icon.
+		columnButton.setText("^"); //$NON-NLS-1$
+		new TableColumnManager(table, columnButton, model);
+		return scrollPane;
 	}
 
 	/**
@@ -866,7 +886,7 @@ public class MainSource extends FilterAdapterPanel
 			bsplit.setDividerLocation(.75);
 			asplit.setDividerSize(10);
 			asplit.setDividerLocation(.5);
-			setLoadedColMaxWidth();
+			//setLoadedColMaxWidth();
 		}
 	}
 
@@ -1002,7 +1022,7 @@ public class MainSource extends FilterAdapterPanel
 		avaLabel.setText(PropertyFactory.getString("in_available"));
 		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
-		JScrollPane scrollPane = new JScrollPane(availableTable);
+		JScrollPane scrollPane = addColumnManagerButton(availableTable, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		rightButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
@@ -1017,13 +1037,13 @@ public class MainSource extends FilterAdapterPanel
 		aPanel.add(viewSelectComboBox);
 		rightPane.add(aPanel, BorderLayout.NORTH);
 
-		scrollPane = new JScrollPane(selectedTable);
+		scrollPane = addColumnManagerButton(selectedTable, selectedModel);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		leftButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
 		rightPane.add(buildModSpellPanel(leftButton, "Click to remove the source"), BorderLayout.SOUTH);
 
-		selectedTable.setColAlign(COL_LOADED, SwingConstants.CENTER);
+//		selectedTable.setColAlign(COL_LOADED, SwingConstants.CENTER);
 
 		bLeftPane = new JPanel(new BorderLayout());
 		JPanel bRightPane = new JPanel();
@@ -1480,7 +1500,7 @@ public class MainSource extends FilterAdapterPanel
 		updateAvailableModel();
 		updateSelectedModel();
 
-		setLoadedColMaxWidth();
+		//setLoadedColMaxWidth();
 
 		/* Toggle the Load, et al, buttons */
 		if (selectedTable.getTree().getRowCount() == 0)
@@ -1545,13 +1565,20 @@ public class MainSource extends FilterAdapterPanel
 	 * Leafs are like files and non-leafs are like directories.
 	 **/
 	final class CampaignModel extends AbstractTreeTableModel
+		implements TableColumnManagerModel	
 	{
-		final String[] availNameList = { "Source Material" };
-		final String[] selNameList = { "Source Material", "Loaded" };
 
 		// Types of the columns.
 		int modelType = MODEL_AVAIL;
+		
+		final String prefix;
 
+		private String[] names =
+				{"Source Material", "Book Type", "Loaded"};
+		private int[] widths = {100, 60, 30};
+
+		private List<Boolean> displayList;
+		
 		/**
 		 * Creates a CampaignModel
 		 * @param mode
@@ -1564,6 +1591,25 @@ public class MainSource extends FilterAdapterPanel
 			if (!available)
 			{
 				modelType = MODEL_SELECT;
+			}
+			prefix = "source." //$NON-NLS-1$
+				+ (available ? "avail" : "select"); //$NON-NLS-1$  $NON-NLS-2$
+			int i = 1;
+			displayList = new ArrayList<Boolean>();
+			displayList.add(Boolean.TRUE); // Source Material
+			if (available)
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Book Type
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Loaded
+			}
+			else
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Book Type
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Loaded
 			}
 			resetModel(mode, available, true);
 		}
@@ -1583,21 +1629,10 @@ public class MainSource extends FilterAdapterPanel
 		@Override
 		public Class<?> getColumnClass(int column)
 		{
-			switch (column)
+			if (column == COL_NAME)
 			{
-				case COL_LOADED: //is source loaded?
-					return String.class;
-
-				case COL_NAME: //source material name
-					return TreeTableModel.class;
-
-				default:
-					Logging.errorPrint("In MainSource.CampaignModel.getColumnClass the column " + column
-						+ " is not handled.");
-
-					break;
+				return TreeTableModel.class;
 			}
-
 			return String.class;
 		}
 
@@ -1609,11 +1644,7 @@ public class MainSource extends FilterAdapterPanel
 		 */
 		public int getColumnCount()
 		{
-			if (modelType == MODEL_AVAIL)
-			{
-				return availNameList.length;
-			}
-			return selNameList.length;
+			return names.length;
 		}
 
 		/**
@@ -1623,11 +1654,7 @@ public class MainSource extends FilterAdapterPanel
 		 */
 		public String getColumnName(int column)
 		{
-			if (modelType == MODEL_AVAIL)
-			{
-				return availNameList[column];
-			}
-			return selNameList[column];
+			return names[column];
 		}
 
 		/**
@@ -1649,10 +1676,10 @@ public class MainSource extends FilterAdapterPanel
 		/**
 		 * Returns Object value of the column.
 		 * @param node
-		 * @param column
+		 * @param aColumn
 		 * @return value
 		 */
-		public Object getValueAt(Object node, int column)
+		public Object getValueAt(Object node, int aColumn)
 		{
 			try {
 				final PObjectNode fn = (PObjectNode) node;
@@ -1663,7 +1690,7 @@ public class MainSource extends FilterAdapterPanel
 					aCamp = (Campaign) fn.getItem();
 				}
 
-				switch (column)
+				switch (aColumn)
 				{
 					case COL_NAME: // Name
 
@@ -1674,6 +1701,14 @@ public class MainSource extends FilterAdapterPanel
 
 						Logging.errorPrint("Somehow we have no active node when doing getValueAt in MainSource.");
 						return "";
+
+					case COL_BOOKTYPE: 
+
+						if (aCamp != null)
+						{
+							return aCamp.getBookType();
+						}
+						break;
 
 					case COL_LOADED: //is source loaded?
 
@@ -1688,24 +1723,17 @@ public class MainSource extends FilterAdapterPanel
 
 						break;
 
-					case -1:
-
-						if (fn != null)
-						{
-							return fn.getItem();
-						}
-
-						Logging.errorPrint("Somehow we have no active node when doing getValueAt in MainSource.");
-						return null;
-
 					default:
-						Logging.errorPrint("In MainSource.CampaignModel.getValueAt the column " + column
+						Logging.errorPrint("In MainSource.CampaignModel.getValueAt the column " + aColumn
 							+ " is not handled.");
 
 						break;
 				}
-			} catch(Exception e) {
-				// TODO Handle this?
+			}
+			catch (Exception e)
+			{
+				Logging.errorPrint("Failed to get value for column " + aColumn
+					+ " of " + node, e);
 			}
 
 			return null;
@@ -1720,169 +1748,190 @@ public class MainSource extends FilterAdapterPanel
 		public void resetModel(int mode, boolean available, boolean newCall)
 		{
 		    final List<String> allowedModes = Globals.getAllowedGameModes();
-		    PCGen_Frame1 mainFrame = PCGen_Frame1.getInst();
-		    PlayerCharacter aPC = null;
-		    if (mainFrame != null)
-		    {
-			aPC = mainFrame.getCurrentPC();
-		    }
+			PCGen_Frame1 mainFrame = PCGen_Frame1.getInst();
+			PlayerCharacter aPC = null;
+			if (mainFrame != null)
+			{
+				aPC = mainFrame.getCurrentPC();
+			}
 
-		    List<Campaign> campList;
+			List<Campaign> campList;
 
-		    if (available)
-		    {
-			campList = Globals.getCampaignList();
-		    }
-		    else
-		    {
-			campList = selectedCampaigns;
-		    }
+			if (available)
+			{
+				campList = Globals.getCampaignList();
+			}
+			else
+			{
+				campList = selectedCampaigns;
+			}
 
-		    switch (mode)
-		    {
-			case VIEW_PUBFMTSET: // by Publisher/Format/Setting/Product Name
-			case VIEW_PUBSET:
-			case VIEW_PUBLISH:
-			    /*
-			     * The following algorithm by cpmeister aka The Dragon Monkey
-			     */
-			    PObjectNode root = new PObjectNode();
-			    Map<String, PObjectNode> nodeMap = new TreeMap<String, PObjectNode>();
-			    for (Campaign camp : campList)
-			    {
-				if (camp.isGameMode(allowedModes) && shouldDisplayThis(camp, aPC) && (available ^ selectedCampaigns.contains(camp)))
-				{
-				    int typeCount = camp.getMyTypeCount();
-				    if (typeCount > 0)
-				    {
-					String pub = camp.getMyType(0);
-					if (!nodeMap.containsKey(pub))
+			switch (mode)
+			{
+				case VIEW_PUBFMTSET: // by Publisher/Format/Setting/Product Name
+				case VIEW_PUBSET:
+				case VIEW_PUBLISH:
+					/*
+					 * The following algorithm by cpmeister aka The Dragon Monkey
+					 */
+					PObjectNode root = new PObjectNode();
+					Map<String, PObjectNode> nodeMap =
+							new TreeMap<String, PObjectNode>();
+					for (Campaign camp : campList)
 					{
-					    PObjectNode node = new PObjectNode(pub);
-					    nodeMap.put(pub, node);
-					}
-					if (mode == VIEW_PUBLISH)
-					{
-					    PObjectNode node = new PObjectNode(camp);
-					    nodeMap.get(pub).addChild(node);
-					}
-					else if (typeCount > 1)
-					{
-					    String fmt = camp.getMyType(1);
-					    String pubfmt = pub + "." + fmt;
-					    if (mode == VIEW_PUBFMTSET && !nodeMap.containsKey(pubfmt))
-					    {
-						PObjectNode node = new PObjectNode(fmt);
-						nodeMap.put(pubfmt, node);
-						nodeMap.get(pub).addChild(node);
-					    }
-					    if (typeCount > 2)
-					    {
-						String set = camp.getMyType(2);
-						if (mode == VIEW_PUBFMTSET)
+						if (camp.isGameMode(allowedModes)
+							&& shouldDisplayThis(camp, aPC)
+							&& (available ^ selectedCampaigns.contains(camp)))
 						{
-						    String pubfmtset = pubfmt + "." + set;
-						    if (!nodeMap.containsKey(pubfmtset))
-						    {
-							PObjectNode node = new PObjectNode(set);
-							nodeMap.put(pubfmtset, node);
-							nodeMap.get(pubfmt).addChild(node);
-						    }
-						    nodeMap.get(pubfmtset).addChild(new PObjectNode(camp));
+							int typeCount = camp.getMyTypeCount();
+							if (typeCount > 0)
+							{
+								String pub = camp.getMyType(0);
+								if (!nodeMap.containsKey(pub))
+								{
+									PObjectNode node = new PObjectNode(pub);
+									nodeMap.put(pub, node);
+								}
+								if (mode == VIEW_PUBLISH)
+								{
+									PObjectNode node = new PObjectNode(camp);
+									nodeMap.get(pub).addChild(node);
+								}
+								else if (typeCount > 1)
+								{
+									String fmt = camp.getMyType(1);
+									String pubfmt = pub + "." + fmt;
+									if (mode == VIEW_PUBFMTSET
+										&& !nodeMap.containsKey(pubfmt))
+									{
+										PObjectNode node = new PObjectNode(fmt);
+										nodeMap.put(pubfmt, node);
+										nodeMap.get(pub).addChild(node);
+									}
+									if (typeCount > 2)
+									{
+										String set = camp.getMyType(2);
+										if (mode == VIEW_PUBFMTSET)
+										{
+											String pubfmtset =
+													pubfmt + "." + set;
+											if (!nodeMap.containsKey(pubfmtset))
+											{
+												PObjectNode node =
+														new PObjectNode(set);
+												nodeMap.put(pubfmtset, node);
+												nodeMap.get(pubfmt).addChild(
+													node);
+											}
+											nodeMap.get(pubfmtset).addChild(
+												new PObjectNode(camp));
+										}
+										else
+										{
+											String pubset = pub + "." + set;
+											if (!nodeMap.containsKey(pubset))
+											{
+												PObjectNode node =
+														new PObjectNode(set);
+												nodeMap.put(pubset, node);
+												nodeMap.get(pub).addChild(node);
+											}
+											nodeMap.get(pubset).addChild(
+												new PObjectNode(camp));
+										}
+									}
+									else if (mode == VIEW_PUBFMTSET)
+									{
+										nodeMap.get(pubfmt).addChild(
+											new PObjectNode(camp));
+									}
+									else
+									{
+										nodeMap.get(pub).addChild(
+											new PObjectNode(camp));
+									}
+								}
+								else
+								{
+									nodeMap.get(pub).addChild(
+										new PObjectNode(camp));
+								}
+							}
+							else
+							{
+								String key = "Other";
+								if (!nodeMap.containsKey(key))
+								{
+									nodeMap.put(key, new PObjectNode(key));
+								}
+								nodeMap.get(key)
+									.addChild(new PObjectNode(camp));
+							}
 						}
-						else
+					}
+					for (String key : nodeMap.keySet())
+					{
+						if (key.indexOf('.') == -1)
 						{
-						    String pubset = pub + "." + set;
-						    if (!nodeMap.containsKey(pubset))
-						    {
-							PObjectNode node = new PObjectNode(set);
-							nodeMap.put(pubset, node);
-							nodeMap.get(pub).addChild(node);
-						    }
-						    nodeMap.get(pubset).addChild(new PObjectNode(camp));
+							root.addChild(nodeMap.get(key));
 						}
-					    }
-					    else if (mode == VIEW_PUBFMTSET)
-					    {
-						nodeMap.get(pubfmt).addChild(new PObjectNode(camp));
-					    }
-					    else
-					    {
-						nodeMap.get(pub).addChild(new PObjectNode(camp));
-					    }
 					}
-					else
+					setRoot(root);
+					break;
+
+				case VIEW_PRODUCT: // by Product Name
+					setRoot(new PObjectNode()); // just need a blank one
+					String qFilter = this.getQFilter();
+
+					for (Campaign aCamp : campList)
 					{
-					    nodeMap.get(pub).addChild(new PObjectNode(camp));
+						PObjectNode rootAsPObjectNode =
+								(PObjectNode) super.getRoot();
+
+						// filter out campaigns here
+						if (!shouldDisplayThis(aCamp, aPC)
+							|| !aCamp.isGameMode(allowedModes))
+						{
+							continue;
+						}
+
+						//don't display selected campaigns in the available table
+						if (available && selectedCampaigns.contains(aCamp))
+						{
+							continue;
+						}
+
+						if (qFilter == null
+							|| (aCamp.getKeyName().toLowerCase().indexOf(
+								qFilter) >= 0 || aCamp.getType().toLowerCase()
+								.indexOf(qFilter) >= 0))
+						{
+							PObjectNode aFN = new PObjectNode();
+							aFN.setParent(rootAsPObjectNode);
+							aFN.setItem(aCamp);
+							PrereqHandler.passesAll(
+								aCamp.getPrerequisiteList(), aPC, aCamp);
+							rootAsPObjectNode.addChild(aFN);
+						}
 					}
-				    }
-				    else
-				    {
-					String key = "Other";
-					if(!nodeMap.containsKey(key))
-					{
-					    nodeMap.put(key, new PObjectNode(key));
-					}
-					nodeMap.get(key).addChild(new PObjectNode(camp));
-				    }
-				}
-			    }
-			    for (String key : nodeMap.keySet())
-			    {
-				if (key.indexOf('.') == -1)
-				{
-				    root.addChild(nodeMap.get(key));
-				}
-			    }
-			    setRoot(root);
-			    break;
 
-			case VIEW_PRODUCT: // by Product Name
-			    setRoot(new PObjectNode()); // just need a blank one
-			    String qFilter = this.getQFilter();
+					break;
 
-			    for (Campaign aCamp : campList)
-			    {
-				PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+				default:
+					Logging
+						.errorPrint("In MainSource.CampaignlModel.resetModel the mode "
+							+ mode + " is not handled.");
 
-				// filter out campaigns here
-				if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
-				{
-				    continue;
-				}
+					break;
+			}
 
-				//don't display selected campaigns in the available table
-				if (available && selectedCampaigns.contains(aCamp))
-				{
-				    continue;
-				}
+			PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 
-				if (qFilter == null ||
-					(aCamp.getKeyName().toLowerCase().indexOf(qFilter) >= 0 ||
-					aCamp.getType().toLowerCase().indexOf(qFilter) >= 0))
-				{
-				    PObjectNode aFN = new PObjectNode();
-				    aFN.setParent(rootAsPObjectNode);
-				    aFN.setItem(aCamp);
-				    PrereqHandler.passesAll(aCamp.getPrerequisiteList(), aPC, aCamp);
-				    rootAsPObjectNode.addChild(aFN);
-				}
-			    }
-
-			    break;
-
-			default:
-			    Logging.errorPrint("In MainSource.CampaignlModel.resetModel the mode " + mode + " is not handled.");
-
-			    break;
-		    }
-
-		    PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-
-		    if (rootAsPObjectNode.getChildCount() > 0)
-		    {
-			fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
-		    }
+			if (rootAsPObjectNode.getChildCount() > 0)
+			{
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
+			}
 		}
 
 		/**
@@ -1900,6 +1949,93 @@ public class MainSource extends FilterAdapterPanel
 			}
 
 			return ((modelType == MODEL_SELECT) || accept(aPC, aCamp));
+		}
+
+		/**
+		 * @see pcgen.gui.TableColumnManagerModel#getMColumnList()
+		 */
+		public List<String> getMColumnList()
+		{
+			final List<String> retList = new ArrayList<String>();
+
+			for (int i = 1; i < names.length; i++)
+			{
+				retList.add(names[i]);
+			}
+			return retList;
+		}
+
+		/**
+		 * @see pcgen.gui.TableColumnManagerModel#isMColumnDisplayed(int)
+		 */
+		public boolean isMColumnDisplayed(final int col)
+		{
+			return (displayList.get(col)).booleanValue();
+		}
+
+		private boolean getColumnViewOption(String colName, boolean defaultVal)
+		{
+			return SettingsHandler.getPCGenOption(prefix
+				+ "." + colName, defaultVal); //$NON-NLS-1$ 
+		}
+
+		private void setColumnViewOption(String colName, boolean val)
+		{
+			SettingsHandler.setPCGenOption(prefix + "." + colName, val); //$NON-NLS-1$ 
+		}
+		
+		/**
+		 * @see pcgen.gui.TableColumnManagerModel#setMColumnDisplayed(int, boolean)
+		 */
+		public void setMColumnDisplayed(int col, boolean disp)
+		{
+			setColumnViewOption(modelType + "." + names[col], disp);
+			displayList.set(col, Boolean.valueOf(disp));
+		}
+
+		/**
+		 * @see pcgen.gui.TableColumnManagerModel#getMColumnOffset()
+		 */
+		public int getMColumnOffset()
+		{
+			return 1;
+		}
+
+		/**
+		 * @see pcgen.gui.TableColumnManagerModel#getMColumnDefaultWidth(int)
+		 */
+		public int getMColumnDefaultWidth(int col)
+		{
+			return SettingsHandler.getPCGenOption(prefix + ".sizecol."
+				+ names[col], widths[col]);
+		}
+
+		/**
+		 * @see pcgen.gui.TableColumnManagerModel#setMColumnDefaultWidth(int, int)
+		 */
+		public void setMColumnDefaultWidth(final int col, final int width)
+		{
+			SettingsHandler.setPCGenOption(prefix + ".sizecol." + names[col],
+				width);
+		}
+
+		/**
+		 * @see pcgen.gui.TableColumnManagerModel#resetMColumn(int, javax.swing.table.TableColumn)
+		 */
+		public void resetMColumn(final int col, final TableColumn tColumn)
+		{
+			int colNum = tColumn.getModelIndex();
+			switch (colNum)
+			{
+				case COL_LOADED:
+					tColumn
+						.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(
+							SwingConstants.CENTER));
+					break;
+
+				default:
+					break;
+			}
 		}
 	}
 
