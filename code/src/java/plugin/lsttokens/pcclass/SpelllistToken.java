@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.choiceset.SpellReferenceChoiceSet;
 import pcgen.cdom.content.TransitionChoice;
@@ -44,22 +46,10 @@ public class SpelllistToken extends AbstractToken implements
 			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		int count;
-		try
+		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
+		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
 		{
-			count = Integer.parseInt(tok.nextToken());
-			if (count <= 0)
-			{
-				Logging.addParseMessage(Logging.LST_ERROR, "Number in "
-						+ getTokenName() + " must be greater than zero: "
-						+ value);
-				return false;
-			}
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Invalid Number in "
-					+ getTokenName() + ": " + value);
+			Logging.errorPrint("Count in " + getTokenName() + " must be > 0");
 			return false;
 		}
 		if (!tok.hasMoreTokens())
@@ -111,6 +101,8 @@ public class SpelllistToken extends AbstractToken implements
 		TransitionChoice<CDOMListObject<Spell>> tc = new TransitionChoice<CDOMListObject<Spell>>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SPELLLIST_CHOICE, tc);
+		tc.setTitle("Select class whose list of spells this class will use");
+		tc.setRequired(false);
 		return true;
 	}
 

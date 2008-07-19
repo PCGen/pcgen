@@ -16,8 +16,14 @@ import java.util.StringTokenizer;
 public class SabLst implements GlobalLstToken
 {
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Template's LevelToken adjustment done by modifying
+	 * getSpecialAbilityList() in PlayerCharacter and getSAToken in
+	 * TemplateToken (export)
+	 */
+	/*
+	 * TODO When this is converted to the new sytnax, getSpecialAbilityList in
+	 * PlayerCharacter needs to be converted to look at class levels (use
+	 * getCDOMObjects())
 	 */
 
 	public String getTokenName()

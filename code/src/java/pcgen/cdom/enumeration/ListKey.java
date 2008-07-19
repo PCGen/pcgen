@@ -29,6 +29,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.Quality;
@@ -201,6 +202,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
+	public static final ListKey<TransitionChoice<?>> ADD = new ListKey<TransitionChoice<?>>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

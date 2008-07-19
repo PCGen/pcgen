@@ -48,6 +48,8 @@ interface IOConstants
 	/**  ABILITY */
 	String TAG_ABILITY = "ABILITY";
 
+	String TAG_ADDTOKEN = "ADD";
+	
 	/** Tag for Follower ADJUSTMENT */
 	String TAG_ADJUSTMENT = "ADJUSTMENT";
 

@@ -41,7 +41,6 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.HitDie;
@@ -3982,6 +3981,7 @@ public class PCClass extends PObject
 					KitUtilities.makeKitSelections(0, l.get(i), i, aPC);
 				}
 				makeRegionSelection(0, aPC);
+				addAdds(aPC);
 			}
 
 			List<String> l = getSafeListFor(ListKey.KITS);
@@ -4180,6 +4180,10 @@ public class PCClass extends PObject
 		// for bug #688564 -- sage_sam, 18 March 2003
 		aPC.calcActiveBonuses();
 		addAddsForLevel(newLevel, aPC, pcLevelInfo);
+		if (!aPC.isImporting() && aPC.doLevelAbilities())
+		{
+			getClassLevel(newLevel).addAdds(aPC);
+		}
 	}
 
 	/**
@@ -5192,24 +5196,7 @@ public class PCClass extends PObject
 		}
 
 		clearClassSkillList();
-
-		ChoiceSet<? extends ClassSkillList> choiceSet = csc.getChoices();
-		Set<? extends ClassSkillList> lists = choiceSet.getSet(null);
-		if (lists.size() == 1)
-		{
-			addClassSkill(lists.iterator().next());
-			return;
-		}
-
-		final ChooserInterface c = ChooserFactory.getChooserInstance();
-		c.setTitle("Select class whose class-skills this class will inherit");
-		c.setTotalChoicesAvail(csc.getCount());
-		c.setPoolFlag(false);
-		c.setAvailableList(new ArrayList<ClassSkillList>(lists));
-		c.setVisible(true);
-
-		List<ClassSkillList> selectedList = c.getSelectedList();
-		for (ClassSkillList st : selectedList)
+		for (ClassSkillList st : csc.driveChoice(null))
 		{
 			addClassSkill(st);
 		}
@@ -5229,24 +5216,7 @@ public class PCClass extends PObject
 		}
 
 		clearClassSpellList();
-
-		ChoiceSet<? extends CDOMListObject<Spell>> choiceSet = csc.getChoices();
-		Set<? extends CDOMListObject<Spell>> lists = choiceSet.getSet(null);
-		if (lists.size() == 1)
-		{
-			addClassSpellList(lists.iterator().next());
-			return;
-		}
-
-		final ChooserInterface c = ChooserFactory.getChooserInstance();
-		c.setTitle("Select class whose list of spells this class will use");
-		c.setTotalChoicesAvail(csc.getCount());
-		c.setPoolFlag(false);
-		c.setAvailableList(new ArrayList<CDOMListObject<Spell>>(lists));
-		c.setVisible(true);
-
-		List<CDOMListObject<Spell>> selectedList = c.getSelectedList();
-		for (CDOMListObject<Spell> st : selectedList)
+		for (CDOMListObject<Spell> st : csc.driveChoice(null))
 		{
 			addClassSpellList(st);
 		}

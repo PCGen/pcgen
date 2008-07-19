@@ -227,6 +227,12 @@ public class TemplateToken extends Token
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		template.addSpecialAbilitiesToList(saList, pc);
 		template.addSABToList(saList, pc);
+		List<PCTemplate> subList = new ArrayList<PCTemplate>();
+		template.getConditionalTemplates(pc.getTotalLevels(), pc.totalHitDice(), subList);
+		for (PCTemplate subt : subList)
+		{
+			subt.addSABToList(saList, pc);
+		}
 		List<String> saDescList = new ArrayList<String>();
 		for (SpecialAbility sa : saList)
 		{

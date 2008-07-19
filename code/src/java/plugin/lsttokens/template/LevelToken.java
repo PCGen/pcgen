@@ -96,7 +96,7 @@ public class LevelToken extends AbstractToken implements
 		}
 		else
 		{
-			if (PObjectLoader.parseTagLevel(template, typeStr + ":" + argument, lvl))
+			if (PObjectLoader.parseTagLevel(derivative, typeStr + ":" + argument, -9))
 			{
 				Logging.clearParseMessages();
 				return true;

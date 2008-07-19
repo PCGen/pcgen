@@ -127,7 +127,7 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  */
 public final class PlayerCharacter extends Observable implements Cloneable,
-		VariableContainer
+		VariableContainer, AssociationStore
 {
 	// Constants for use in getBonus
 	/** ATTACKBONUS = 0 */
@@ -137,6 +137,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private static String lastVariable = null;
 
 	private ObjectCache cache = new ObjectCache();
+	private AssociationSupport assocSupt = new AssociationSupport();
 
 	// List of Armor Proficiencies
 	private final List<String> armorProfList = new ArrayList<String>();
@@ -2355,6 +2356,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (CompanionMod cMod : newCompanionMods)
 		{
 			cMod.addAddsForLevel(-9, this, null);
+			cMod.addAdds(this);
 
 			for (CDOMReference<PCTemplate> ref : cMod.getSafeListFor(ListKey.TEMPLATE))
 			{
@@ -3137,6 +3139,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			aList.addAll(al);
 			aPObj.addSABToList(aList, this);
+		}
+		//		for (CDOMObject cdo : getCDOMObjectList())
+		//		{
+		//			//TODO this is for once SAB: is converted to new token style
+		//		}
+		for (PObject po : getConditionalTemplateObjects())
+		{
+			po.addSABToList(aList, this);
 		}
 
 		Collections.sort(aList);
@@ -8725,6 +8735,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				drList.addAll(obj.getDRList());
 			}
 		}
+		for (PObject obj : getConditionalTemplateObjects())
+		{
+			drList.addAll(obj.getDRList());
+		}
+		//TODO need to use getCDOMObject once DR: is converted to new token syntax
 		return DamageReduction.getDRList(this, drList);
 	}
 
@@ -9509,6 +9524,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (pcload == null)
 		{
 			pcload = Load.LIGHT;
+			/*
+			 * Can't use getCDOMObjectList here due to override in Class LST file :P
+			 */
 			for (PObject po : getPObjectList())
 			{
 				if (po != null && !(po instanceof PCClass))
@@ -12474,40 +12492,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return list;
 	}
 	
-	private List<CDOMObject> getConditionalTemplateObjects()
+	private List<PObject> getConditionalTemplateObjects()
 	{
-		List<CDOMObject> list = new ArrayList<CDOMObject>();
+		List<PObject> list = new ArrayList<PObject>();
 		int totalLevels = getTotalLevels();
 		int totalHitDice = totalHitDice();
 		for (PCTemplate templ : getTemplateList())
 		{
-			for (PCTemplate rlt : templ.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
-			{
-				for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-				{
-					if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-					{
-						list.add(lt);
-					}
-				}
-			}
-
-			for (PCTemplate lt : templ.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-				{
-					list.add(lt);
-				}
-			}
-
-			for (PCTemplate lt : templ.getSafeListFor(ListKey.HD_TEMPLATES))
-			{
-				if (lt.get(IntegerKey.HD_MAX) <= totalHitDice
-						&& lt.get(IntegerKey.HD_MIN) >= totalHitDice)
-				{
-					list.add(lt);
-				}
-			}
+			templ.getConditionalTemplates(totalLevels, totalHitDice, list);
 		}
 		return list;
 	}
@@ -17096,7 +17088,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			i++;
 			List<PCTemplate> templateList = new ArrayList<PCTemplate>();
 			List<Equipment> naturalWeaponsList = new ArrayList<Equipment>();
-			List<? extends PObject> pobjectList = getPObjectList();
+			List<PObject> pobjectList = getConditionalTemplateObjects();
+			pobjectList.addAll(getPObjectList());
+			//TODO pobjectList needs to be getCDOMObjects() once Ability & AUTO are new syntax
 			for (AbilityCategory cat : theAbilities.getKeySet())
 			{
 				for (Ability.Nature nature : theAbilities.getSecondaryKeySet(cat))
@@ -17470,14 +17464,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void addAddsFromAllObjForLevel()
 	{
+		int totalCharacterLevel = getTotalCharacterLevel();
 		for (PObject pobj : getPObjectList())
 		{
 			if (!(pobj instanceof PCClass))
 			{
-				pobj.addAddsForLevel(this.getTotalCharacterLevel(), this, null);
+				pobj.addAddsForLevel(totalCharacterLevel, this, null);
 			}
 		}
-
+		for (PObject pobj : getConditionalTemplateObjects())
+		{
+			pobj.addAddsForLevel(totalCharacterLevel, this, null);
+		}
 	}
 
 	/**
@@ -17851,4 +17849,41 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return cache.getSkillCost(this, sk, cl);
 	}
+
+	public void addAssociation(Object obj, Object o)
+	{
+		assocSupt.addAssociation(obj, o);
+	}
+
+	public boolean containsAssociated(Object obj, Object o)
+	{
+		return assocSupt.containsAssociated(obj, o);
+	}
+
+	public int getAssociationCount(Object obj)
+	{
+		return assocSupt.getAssociationCount(obj);
+	}
+
+	public List<Object> getAssociationList(Object obj)
+	{
+		return assocSupt.getAssociationList(obj);
+	}
+
+	public boolean hasAssociations(Object obj)
+	{
+		return assocSupt.hasAssociations(obj);
+	}
+
+	public List<Object> removeAllAssociations(Object obj)
+	{
+		return assocSupt.removeAllAssociations(obj);
+	}
+
+	public void removeAssociation(Object obj, Object o)
+	{
+		assocSupt.removeAssociation(obj, o);
+	}
+
+	
 }

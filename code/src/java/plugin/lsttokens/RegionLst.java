@@ -14,8 +14,8 @@ import pcgen.persistence.lst.GlobalLstToken;
 public class RegionLst implements GlobalLstToken
 {
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Note: Don't need to wait for Template's LevelToken before this can be converted
+	 * as there is a REGION token in Template, so this is never hit by Templates
 	 */
 
 	public String getTokenName()

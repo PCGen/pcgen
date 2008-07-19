@@ -27,6 +27,7 @@ package pcgen.core;
 
 import java.awt.geom.Point2D;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -36,6 +37,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SubRace;
 import pcgen.cdom.enumeration.SubRegion;
+import pcgen.core.bonus.BonusObj;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -311,4 +313,63 @@ public final class PCTemplate extends PObject
 		}
 		return new Point2D.Double(width.doubleValue(), height.doubleValue());
 	}
+
+	public void getConditionalTemplates(int totalLevels, int totalHitDice,
+		List<? super PCTemplate> list)
+	{
+		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		{
+			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			{
+				if (lt.get(IntegerKey.LEVEL) <= totalLevels)
+				{
+					list.add(lt);
+				}
+			}
+		}
+
+		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		{
+			if (lt.get(IntegerKey.LEVEL) <= totalLevels)
+			{
+				list.add(lt);
+			}
+		}
+
+		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
+		{
+			if (lt.get(IntegerKey.HD_MAX) <= totalHitDice
+				&& lt.get(IntegerKey.HD_MIN) >= totalHitDice)
+			{
+				list.add(lt);
+			}
+		}
+	}
+
+	@Override
+	public List<BonusObj> getBonusList()
+	{
+		List<BonusObj> list = new ArrayList<BonusObj>(super.getBonusList());
+		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		{
+			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			{
+				list.addAll(lt.getBonusList());
+			}
+		}
+
+		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		{
+			list.addAll(lt.getBonusList());
+		}
+
+		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
+		{
+			list.addAll(lt.getBonusList());
+		}
+		
+		return list;
+	}
+	
+	
 }

@@ -37,8 +37,11 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
@@ -77,6 +80,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -966,6 +970,7 @@ final class PCGVer2Creator implements IOConstants
 				// Remember what choices were made for each of the ADD: tags
 				//
 				appendLevelAbilityInfo(buffer, pcClass, lvl);
+				appendAddTokenInfo(buffer, pcClass.getClassLevel(lvl + 1));
 			}
 
 			List<PCLevelInfoStat> statList = pcl.getModifiedStats(true);
@@ -2550,6 +2555,43 @@ final class PCGVer2Creator implements IOConstants
 	private void appendLevelAbilityInfo(StringBuffer buffer, PObject pObj)
 	{
 		appendLevelAbilityInfo(buffer, pObj, -10);
+		appendAddTokenInfo(buffer, pObj);
+	}
+
+	private void appendAddTokenInfo(StringBuffer buffer, CDOMObject pObj)
+	{
+		List<TransitionChoice<?>> addList = pObj.getListFor(ListKey.ADD);
+		if (addList == null)
+		{
+			return;
+		}
+		for (TransitionChoice<?> tc : addList)
+		{
+			List<Object> assocList = thePC.getAssociationList(tc);
+			if (assocList == null)
+			{
+				continue;
+			}
+			//
+			// |ADD:[PROMPT:SUBTOKEN|blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
+			//
+			ChoiceSet<?> choices = tc.getChoices();
+			buffer.append('|').append(TAG_ADDTOKEN).append(':').append('[');
+			buffer.append(EntityEncoder.encode(StringPClassUtil
+				.getStringFor(choices.getChoiceClass()))).append(':');
+			buffer.append(EntityEncoder.encode(choices.getLSTformat()));
+
+			for (Object assoc : assocList)
+			{
+				buffer
+					.append('|')
+					.append(TAG_CHOICE)
+					.append(':')
+					.append(EntityEncoder.encode(((CDOMObject) assoc).getKeyName()));
+			}
+
+			buffer.append(']');
+		}
 	}
 
 	private void appendLevelAbilityInfo(StringBuffer buffer, PObject pObj,

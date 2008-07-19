@@ -28,6 +28,7 @@ import java.util.Set;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,6 +36,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
+import pcgen.core.PlayerCharacter;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
 		Cloneable
@@ -487,4 +489,22 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		return false;
 	}
+
+	public void addAdds(final PlayerCharacter aPC)
+	{
+		List<TransitionChoice<?>> addList = getListFor(ListKey.ADD);
+		if (addList != null)
+		{
+			for (TransitionChoice<?> tc : addList)
+			{
+				driveChoice(tc, aPC);
+			}
+		}
+	}
+
+	private <T> void driveChoice(TransitionChoice<T> tc, final PlayerCharacter aPC)
+	{
+		tc.act(tc.driveChoice(aPC), aPC);
+	}
+
 }

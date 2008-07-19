@@ -20,8 +20,8 @@ import pcgen.util.Logging;
 public class MoveLst implements GlobalLstToken
 {
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Note: Don't need to wait for Template's LevelToken before this can be converted
+	 * as there is no level support in templates for this token
 	 */
 
 	public String getTokenName()

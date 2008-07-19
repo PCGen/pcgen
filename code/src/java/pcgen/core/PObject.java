@@ -48,6 +48,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -1086,21 +1087,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public void addNaturalWeapon(final Equipment weapon, final int level)
 	{
 		addToListFor(ListKey.NATURAL_WEAPONS, weapon);
-	}
-
-	/**
-	 * Returns true if this object has a variable named variableName
-	 * @param variableName
-	 * @return true if this object has a variable named variableName
-	 */
-	public final boolean hasVariableNamed(final String variableName)
-	{
-		if (variableList == null)
-		{
-			return false;
-		}
-
-		return variableList.hasVariableNamed(variableName);
 	}
 
 	/**
@@ -2774,9 +2760,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (
 			aPC == null ||
 			aPC.isImporting() ||
-			levelAbilityList == null   ||
-			levelAbilityList.isEmpty() ||
 			!aPC.doLevelAbilities())
+		{
+			return;
+		}
+
+		if (levelAbilityList == null || levelAbilityList.isEmpty())
 		{
 			return;
 		}
@@ -2921,11 +2910,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			final PCClass aClass = (PCClass) this;
 			final PCLevelInfo pcLevelInfo = aPC.getLevelInfoFor(getKeyName(), aClass.level);
 			addAddsForLevel(aClass.level, aPC, pcLevelInfo);
+			aClass.getClassLevel(aClass.level).addAdds(aPC);
 		}
 		else
 		{
 			addAddsForLevel(-9, aPC, null);
 			addAddsForLevel(0, aPC, null);
+			addAdds(aPC);
 		}
 
 		activateBonuses(aPC);

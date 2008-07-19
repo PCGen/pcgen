@@ -22,13 +22,14 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <code>SubClass</code>.
@@ -107,6 +108,7 @@ public final class SubstitutionClass extends PCClass
 				aClass.removeAllAutoAbilites(aLevel);
 				aClass.removeAllVirtualAbilites(aLevel);
 				aClass.removeAllLevelAbilities(aLevel);
+				aClass.getClassLevel(aLevel).removeListFor(ListKey.ADD);
 				aClass.clearSABList(aLevel);
 				aClass.removeLevelDR(aLevel);
 				aClass.removelevelVariable(aLevel);

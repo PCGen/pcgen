@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -38,22 +40,10 @@ public class SkilllistToken extends AbstractToken implements
 			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		int count;
-		try
+		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
+		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
 		{
-			count = Integer.parseInt(tok.nextToken());
-			if (count <= 0)
-			{
-				Logging.addParseMessage(Logging.LST_ERROR, "Number in "
-						+ getTokenName() + " must be greater than zero: "
-						+ value);
-				return false;
-			}
-		}
-		catch (NumberFormatException nfe)
-		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Invalid Number in "
-					+ getTokenName() + ": " + value);
+			Logging.errorPrint("Count in " + getTokenName() + " must be > 0");
 			return false;
 		}
 		if (!tok.hasMoreTokens())
@@ -99,6 +89,8 @@ public class SkilllistToken extends AbstractToken implements
 		TransitionChoice<ClassSkillList> tc = new TransitionChoice<ClassSkillList>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SKILLLIST_CHOICE, tc);
+		tc.setTitle("Select class whose class-skills this class will inherit");
+		tc.setRequired(false);
 		return true;
 	}
 

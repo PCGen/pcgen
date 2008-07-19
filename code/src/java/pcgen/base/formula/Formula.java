@@ -45,6 +45,24 @@ public interface Formula
 		}
 	};
 
+	/**
+	 * A Formula for the integer constant ONE. This is done in order to
+	 * minimize memory usage in the many cases where a default Formula of ONE
+	 * is required.
+	 */
+	public final Formula ONE = new Formula()
+	{
+		public Integer resolve(PlayerCharacter pc, String source)
+		{
+			return Integer.valueOf(1);
+		}
+
+		public boolean isStatic()
+		{
+			return true;
+		}
+	};
+
 	/*
 	 * The idea is to hide JEP behind this interface, so that Formula are type
 	 * safe and other optimizations can be performed that may help speed up

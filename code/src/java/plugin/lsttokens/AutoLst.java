@@ -18,8 +18,12 @@ public class AutoLst implements GlobalLstToken
 {
 
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Template's LevelToken for AUTO:FEAT handled in
+	 * rebuildAggregateAbilityListWorker() ; other subtokens do not support
+	 * levels
+	 * 
+	 * TODO rebuildAggregateAbilityListWorker needs to be updated to use
+	 * getCDOMObjects() once this is new token (due to class levels)
 	 */
 	public String getTokenName()
 	{

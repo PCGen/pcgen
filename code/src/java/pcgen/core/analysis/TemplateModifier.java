@@ -1,6 +1,8 @@
 package pcgen.core.analysis;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.DamageReduction;
@@ -44,10 +46,19 @@ public class TemplateModifier
 			}
 		}
 
-		if (pct.getDRList().size() != 0)
+		List<DamageReduction> drList = new ArrayList<DamageReduction>();
+		int totalLevels = aPC.getTotalLevels();
+		int totalHitDice = aPC.totalHitDice();
+		List<PCTemplate> templList = new ArrayList<PCTemplate>();
+		templList.add(pct);
+		pct.getConditionalTemplates(totalLevels, totalHitDice, templList);
+		for (PCTemplate subt : templList)
 		{
-			mods.append("DR:").append(
-					DamageReduction.getDRString(aPC, pct.getDRList()));
+			drList.addAll(subt.getDRList());
+		}
+		if (drList.size() != 0)
+		{
+			mods.append("DR:").append(DamageReduction.getDRString(aPC, drList));
 		}
 
 		if (aPC == null)
@@ -81,19 +92,18 @@ public class TemplateModifier
 			mods.append("AC BONUS:").append(nat);
 		}
 
-		if (pct.getCR(aPC.getTotalLevels(), aPC.totalHitDice()) != 0)
+		if (pct.getCR(totalLevels, totalHitDice) != 0)
 		{
 			mods.append("CR:").append(
-					pct.getCR(aPC.getTotalLevels(), aPC.totalHitDice()))
+					pct.getCR(totalLevels, totalHitDice))
 					.append(' ');
 		}
 
 		if (TemplateSR
-				.getSR(pct, aPC.getTotalLevels(), aPC.totalHitDice(), aPC) != 0)
+				.getSR(pct, totalLevels, totalHitDice, aPC) != 0)
 		{
 			mods.append("SR:").append(
-					TemplateSR.getSR(pct, aPC.getTotalLevels(), aPC
-							.totalHitDice(), aPC)).append(' ');
+					TemplateSR.getSR(pct, totalLevels, totalHitDice, aPC)).append(' ');
 		}
 
 		// if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(""))

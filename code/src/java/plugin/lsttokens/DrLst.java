@@ -23,8 +23,12 @@ import java.util.StringTokenizer;
 public class DrLst implements GlobalLstToken
 {
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Template's LevelToken adjustment effectively completed by altering getDRList in PlayerCharacter.
+	 */
+	/*
+	 * TODO When this is converted to the new sytnax, getDRList in
+	 * PlayerCharacter needs to be converted to look at class levels (use
+	 * getCDOMObjects())
 	 */
 
 	public String getTokenName()

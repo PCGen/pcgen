@@ -20,6 +20,10 @@ public class SrLst implements GlobalLstToken
 	 * %CHOICE usage in EquipmentModifier not being handled by JEP due to use of %
 	 * [which is the modulo function to JEP]
 	 */
+	/*
+	 * Note: Don't need to wait for Template's LevelToken before this can be converted
+	 * as there is no level support in templates for this token
+	 */
 
 	public String getTokenName()
 	{

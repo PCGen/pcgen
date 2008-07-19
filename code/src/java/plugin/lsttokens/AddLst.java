@@ -4,21 +4,26 @@
  */
 package plugin.lsttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PObject;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AddLoader;
 import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  * 
  */
-public class AddLst implements GlobalLstToken
+public class AddLst implements GlobalLstToken, CDOMPrimaryToken<CDOMObject>
 {
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Template's LevelToken adjustment done in addAddsFromAllObjForLevel() in
+	 * PlayerCharacter
 	 */
 
 	public String getTokenName()
@@ -32,13 +37,13 @@ public class AddLst implements GlobalLstToken
 		if (barLoc == -1)
 		{
 			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
-					+ value + " ... must have a PIPE");
+				+ value + " ... must have a PIPE");
 			return false;
 		}
 		else if (barLoc == 0)
 		{
 			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
-					+ value + " ... cannot start with a PIPE");
+				+ value + " ... cannot start with a PIPE");
 			return false;
 		}
 		String key = value.substring(0, barLoc);
@@ -46,10 +51,40 @@ public class AddLst implements GlobalLstToken
 		if (contents == null || contents.length() == 0)
 		{
 			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
-					+ value + " ... cannot end with a PIPE");
+				+ value + " ... cannot end with a PIPE");
 			return false;
 		}
 		// Guaranteed to be the new syntax here...
 		return AddLoader.parseLine(obj, key, contents, anInt);
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+		throws PersistenceLayerException
+	{
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		if (pipeLoc == -1)
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+				+ " requires a SubToken");
+			return false;
+		}
+		String key = value.substring(0, pipeLoc);
+		if (".CLEAR".equals(key))
+		{
+			context.getObjectContext().removeList(obj, ListKey.ADD);
+		}
+		return context.processSubToken(obj, getTokenName(), key, value
+			.substring(pipeLoc + 1));
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		//TODO Need to unparse .CLEAR
+		return context.unparse(obj, getTokenName());
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

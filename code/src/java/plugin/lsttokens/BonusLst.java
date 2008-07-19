@@ -20,8 +20,11 @@ public class BonusLst implements GlobalLstToken
 	 * take place in BonusToken, which is currently calling PObjectLoader
 	 */
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Template's LevelToken adjustment performed by adding getBonusList() to
+	 * PCTemplate
+	 * 
+	 * TODO need to do an update (to getBonusList()?) in PCClass once this is a
+	 * new token
 	 */
 	/**
 	 * Returns token name

@@ -600,6 +600,7 @@ public final class Skill extends PObject
 				if (iCount == 0)
 				{
 					addAddsForLevel(-9, aPC, null);
+					addAdds(aPC);
 				}
 			}
 		}

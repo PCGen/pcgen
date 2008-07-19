@@ -65,8 +65,8 @@ public class TokenSupport
 		/*
 		 * CONSIDER Better option than toString, given that T != CDOMObject
 		 */
-		Logging.errorPrint("Illegal " + tokenName + " subtoken '" + key + "' '"
-				+ value + "' for " + cdo.toString());
+		Logging.addParseMessage(Logging.LST_ERROR, "Illegal " + tokenName
+			+ " subtoken '" + key + "' '" + value + "' for " + cdo.toString());
 		return false;
 	}
 

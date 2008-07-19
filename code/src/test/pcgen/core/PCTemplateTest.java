@@ -26,6 +26,7 @@ package pcgen.core;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Test;
@@ -238,9 +239,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 				template,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
-		assertEquals(2, keys.size());
+		assertEquals(1, keys.size());
+		assertEquals(ab2.getKeyName(), keys.get(0));
+		List<PCTemplate> list = new ArrayList<PCTemplate>();
+		template.getConditionalTemplates(2, 0, list);
+		assertEquals(1, list.size());
+		PCTemplate level2 = list.get(0);
+		keys = level2.getAbilityKeys(null, cat, Nature.AUTOMATIC);
+		assertEquals(1, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
-		assertEquals(ab2.getKeyName(), keys.get(1));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
@@ -302,9 +309,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 				template,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
-		assertEquals(2, keys.size());
+		assertEquals(1, keys.size());
+		assertEquals(ab2.getKeyName(), keys.get(0));
+		List<PCTemplate> list = new ArrayList<PCTemplate>();
+		template.getConditionalTemplates(2, 0, list);
+		assertEquals(1, list.size());
+		PCTemplate level2 = list.get(0);
+		keys = level2.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
+		assertEquals(1, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
-		assertEquals(ab2.getKeyName(), keys.get(1));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();

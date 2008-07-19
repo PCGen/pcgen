@@ -90,8 +90,10 @@ public class AbilityLst implements GlobalLstToken
 {
 
 	/*
-	 * FIXME Template's LevelToken needs adjustment before this can be converted
-	 * to the new syntax, since this is level-dependent
+	 * Template's LevelToken handled in rebuildAggregateAbilityListWorker()
+	 * 
+	 * TODO rebuildAggregateAbilityListWorker needs to be updated to use
+	 * getCDOMObjects() once this is new token (due to class levels)
 	 */
 	/**
 	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)

@@ -34,10 +34,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
@@ -84,8 +88,10 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.StringPClassUtil;
 
 /**
  * <code>PCGVer2Parser</code>
@@ -1674,6 +1680,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				parseLevelAbilityInfo(element, aPCClass, level);
 			}
+			else if (tag.equals(TAG_ADDTOKEN))
+			{
+				parseAddTokenInfo(element, aPCClass.getClassLevel(level));
+			}
 
 			//
 			// abbrev=score
@@ -1761,6 +1771,50 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		// need to add some consistency checks here to avoid
 		// - duplicate entries for one and the same class/level pair
 		// - missing entries for a given class/level pair
+	}
+
+	private void parseAddTokenInfo(PCGElement element, CDOMObject cdo)
+	{
+		Iterator<PCGElement> it2 = element.getChildren().iterator();
+
+		List<TransitionChoice<?>> addList = cdo.getListFor(ListKey.ADD);
+		if (addList == null)
+		{
+			//TODO Error
+			return;
+		}
+		if (!it2.hasNext())
+		{
+			//TODO Error
+			return;
+		}
+		LoadContext context = Globals.getContext();
+		PCGElement addType = it2.next();
+		Class<? extends CDOMObject> cl = StringPClassUtil.getClassFor(addType.getName());
+		String dString = EntityEncoder.decode(addType.getText());
+		for (TransitionChoice<?> tc : addList)
+		{
+			ChoiceSet<?> choices = tc.getChoices();
+			if (dString.equals(choices.getLSTformat()))
+			{
+				//Match
+				while (it2.hasNext())
+				{
+					String choice = EntityEncoder.decode(it2.next().getText());
+					CDOMObject obj =
+							context.ref.silentlyGetConstructedCDOMObject(cl,
+								choice);
+					if (obj == null)
+					{
+						//TODO Error
+					}
+					else
+					{
+						thePC.addAssociation(tc, obj);
+					}
+				}
+			}
+		}
 	}
 
 	/*
@@ -2611,6 +2665,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				parseLevelAbilityInfo(element, aFeat);
 			}
+			else if (tag.equals(TAG_ADDTOKEN))
+			{
+				parseAddTokenInfo(element, aFeat);
+			}
 		}
 
 		return added;
@@ -3407,6 +3465,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else if (tag.equals(TAG_LEVELABILITY))
 			{
 				parseLevelAbilityInfo(element, aSkill);
+			}
+			else if (tag.equals(TAG_ADDTOKEN))
+			{
+				parseAddTokenInfo(element, aSkill);
 			}
 		}
 	}
