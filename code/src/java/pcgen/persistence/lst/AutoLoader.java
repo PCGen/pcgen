@@ -52,7 +52,7 @@ public final class AutoLoader
 			LstUtils.deprecationCheck(token, target, value);
 			if (!token.parse(target, value, level))
 			{
-				Logging.errorPrint("Error parsing AUTO: " + key + ":" + value);
+				Logging.errorPrint("Error parsing AUTO: " + key + "|" + value);
 				return false;
 			}
 			return true;

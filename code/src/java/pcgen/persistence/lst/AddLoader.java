@@ -52,7 +52,7 @@ public final class AddLoader
 			LstUtils.deprecationCheck(token, target, value);
 			if (!token.parse(target, value, level))
 			{
-				Logging.errorPrint("Error parsing ADD: " + key + ":" + value);
+				Logging.errorPrint("Error parsing ADD: " + key + "|" + value);
 				return false;
 			}
 			return true;

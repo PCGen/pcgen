@@ -53,7 +53,7 @@ public final class RemoveLoader
 			if (!token.parse(target, value, level))
 			{
 				Logging
-					.errorPrint("Error parsing REMOVE: " + key + ":" + value);
+					.errorPrint("Error parsing REMOVE: " + key + "|" + value);
 				return false;
 			}
 			return true;
