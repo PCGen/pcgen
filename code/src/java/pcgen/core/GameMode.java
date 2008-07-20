@@ -72,7 +72,7 @@ public final class GameMode implements Comparable<Object>
 	private List<ClassType> classTypeList = new ArrayList<ClassType>();
 	private List<String> defaultDataSetList = new ArrayList<String>();
 	private List<String> defaultDeityList = new ArrayList<String>();
-	private Map<String, LevelInfo> levelInfo = new HashMap<String, LevelInfo>();
+	private Map<String, Map<String, LevelInfo>> levelInfo = new HashMap<String, Map<String, LevelInfo>>();
 	private List<String> loadStrings = new ArrayList<String>();
 	private List<String> skillMultiplierLevels = new ArrayList<String>();
 	private List<String> wcStepsList = new ArrayList<String>();
@@ -192,6 +192,9 @@ public final class GameMode implements Comparable<Object>
 
 	private List<String> resizableTypeList = new ArrayList<String>();
 	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
+
+	private List<String> xpTableNames = new ArrayList<String>();
+	private String currXpTableName;
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -566,21 +569,30 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * map of LevelInfo objects
+	 * map of LevelInfo objects.
+	 * 
+	 * @param xpTable the xp table to be used
+	 * 
 	 * @return level info map
 	 */
-	public Map<String, LevelInfo> getLevelInfo()
+	public Map<String, LevelInfo> getLevelInfo(final String xpTable)
 	{
-		return levelInfo;
+		return levelInfo.get(xpTable);
 	}
 
 	/**
 	 * Add the level info
 	 * @param levInfo
 	 */
-	public void addLevelInfo(final LevelInfo levInfo)
+	public void addLevelInfo(final String xpTable, final LevelInfo levInfo)
 	{
-		levelInfo.put(levInfo.getLevelString(),levInfo);
+		Map<String, LevelInfo> tableInfo = levelInfo.get(xpTable);
+		if (tableInfo == null)
+		{
+			tableInfo = new HashMap<String, LevelInfo>();
+			levelInfo.put(xpTable, tableInfo);
+		}
+		tableInfo.put(levInfo.getLevelString(),levInfo);
 	}
 
 	/**
@@ -3451,6 +3463,59 @@ public final class GameMode implements Comparable<Object>
 	{
 		Set<String> set = hiddenTypes.get(cl);
 		return set != null && set.contains(type);
+	}
+
+	/**
+	 * Gets the name of the currently selected experience table
+	 * 
+	 * @return the XP table name
+	 */
+	public String getXpTableName()
+	{
+		if (currXpTableName == null || currXpTableName.equals(""))
+		{
+			if (xpTableNames.isEmpty())
+			{
+				xpTableNames.add("Default");
+			}
+			currXpTableName = xpTableNames.get(0);
+		}
+		return currXpTableName;
+	}
+
+	/**
+	 * Sets the name of the currently selected experience table
+	 * 
+	 * @param tableName the new XP table name
+	 */
+	public void setXpTableName(String tableName)
+	{
+		currXpTableName = tableName;
+	}
+
+	/**
+	 * Gets the array of names of defined experience tables.
+	 * 
+	 * @return the xp table names
+	 */
+	public List<String> getAvailXpTableNames()
+	{
+		return xpTableNames;
+	}
+
+	/**
+	 * Sets the array of names of defined experience tables.
+	 * 
+	 * @param names the new avail XP table names
+	 */
+	public void setAvailXpTableNames(List<String> names)
+	{
+		xpTableNames = names;
+	}
+
+	public void addXpTable(String name)
+	{
+		xpTableNames.add(name);
 	}
 }
 

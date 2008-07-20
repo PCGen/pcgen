@@ -1013,7 +1013,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 
 		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
-
+		String xpTable = "";
 		for (int i = 0; i < fileLines.length; i++)
 		{
 			String aLine = fileLines[i];
@@ -1031,9 +1031,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 			else if (aType.equals("level"))
 			{
-				final LevelInfo level = new LevelInfo();
-				LevelLoader.parseLine(level, aLine, i + 1, uri);
-				gameMode.addLevelInfo(level);
+				xpTable = LevelLoader.parseLine(gameMode, aLine, i + 1, uri, xpTable);
 			}
 			else if (aType.equals("rules"))
 			{

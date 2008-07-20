@@ -96,7 +96,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		levelInfo.setMaxClassSkillString("LEVEL+3");
 		levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
 		GameMode gamemode = SettingsHandler.getGame();
-		gamemode.addLevelInfo(levelInfo);
+		gamemode.addLevelInfo("Default", levelInfo);
 
 		//Stats
 		setPCStat(character, "DEX", 16);

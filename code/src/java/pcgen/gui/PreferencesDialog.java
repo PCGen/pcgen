@@ -63,6 +63,9 @@ import pcgen.core.system.GameModeRollMethod;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.prefs.ExperiencePanel;
+import pcgen.gui.prefs.MonsterPanel;
+import pcgen.gui.prefs.PCGenPrefsPanel;
 import pcgen.gui.utils.*;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -367,11 +370,9 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox expertGUICheckBox = new JCheckBox();
 	private JCheckBox featDescriptionShown = new JCheckBox();
 	//	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
-	private JCheckBox hideMonsterClasses = new JCheckBox();
 
 	// Level Up
 	private JCheckBox hpDialogShownAtLevelUp = new JCheckBox();
-	private JCheckBox ignoreMonsterHDCap = new JCheckBox();
 	private JCheckBox loadURL = new JCheckBox();
 	private JCheckBox maxHpAtFirstLevel = new JCheckBox();
 	private JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
@@ -396,7 +397,6 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox showMemory = new JCheckBox();
 	private JCheckBox showImagePreview = new JCheckBox();
 
-	// "Monsters"
 	private JCheckBox useOutputNamesEquipment = new JCheckBox();
 	private JCheckBox useOutputNamesSpells = new JCheckBox();
 	private JCheckBox waitCursor = new JCheckBox();
@@ -508,6 +508,12 @@ final class PreferencesDialog extends JDialog
 	private String[] pModeMethodName;
 	private String[] paperNames = null;
 	private String[] unitSetNames = null;
+
+	// "Monsters"
+	private PCGenPrefsPanel monsterPanel;
+
+	// "Experience"
+	private PCGenPrefsPanel experiencePanel;
 
 	//Plugins
 	private static PreferencesComponent compInst;
@@ -727,8 +733,10 @@ final class PreferencesDialog extends JDialog
 		//		SettingsHandler.setIntCrossClassSkillCost(crossClassSkillCostCombo.getSelectedIndex());
 
 		// Monsters
-		SettingsHandler.setHideMonsterClasses(hideMonsterClasses.isSelected());
-		SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
+		monsterPanel.setOptionsBasedOnControls();
+
+		// Expereience
+		experiencePanel.setOptionsBasedOnControls();
 
 		// Tab Options
 		switch (mainTabPlacementCombo.getSelectedIndex())
@@ -1249,9 +1257,11 @@ final class PreferencesDialog extends JDialog
 		//		crossClassSkillCostCombo.setSelectedIndex(SettingsHandler.getIntCrossClassSkillCost());
 
 		// Monsters
-		hideMonsterClasses.setSelected(SettingsHandler.hideMonsterClasses());
-		ignoreMonsterHDCap.setSelected(SettingsHandler.isIgnoreMonsterHDCap());
-
+		monsterPanel.applyOptionValuesToControls();
+		
+		// Experience
+		experiencePanel.applyOptionValuesToControls();
+		
 		// Colors
 		prereqQualifyColor.setForeground(new Color(SettingsHandler
 			.getPrereqQualifyColor()));
@@ -2924,65 +2934,6 @@ final class PreferencesDialog extends JDialog
 		return lafPanel;
 	}
 
-	private JPanel buildMonstersPanel()
-	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JLabel label;
-		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_monsters);
-		JPanel monstersPanel = new JPanel();
-
-		title1.setTitleJustification(TitledBorder.LEFT);
-		monstersPanel.setBorder(title1);
-		gridbag = new GridBagLayout();
-		monstersPanel.setLayout(gridbag);
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
-		c.insets = new Insets(2, 2, 2, 2);
-
-		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
-		label =
-				new JLabel(PropertyFactory
-					.getString("in_Prefs_defaultMonsters")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		monstersPanel.add(label);
-		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-
-		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
-		label =
-				new JLabel(PropertyFactory
-					.getString("in_Prefs_hideMonsterClasses")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		monstersPanel.add(label);
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		gridbag.setConstraints(hideMonsterClasses, c);
-		monstersPanel.add(hideMonsterClasses);
-
-		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
-		label =
-				new JLabel(PropertyFactory
-					.getString("in_Prefs_ignoreMonsterHDCap")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		monstersPanel.add(label);
-		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
-		gridbag.setConstraints(ignoreMonsterHDCap, c);
-		monstersPanel.add(ignoreMonsterHDCap);
-
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
-		gridbag.setConstraints(label, c);
-		monstersPanel.add(label);
-
-		return monstersPanel;
-	}
-
 	private JPanel buildOutputPanel()
 	{
 		GridBagLayout gridbag = new GridBagLayout();
@@ -3236,7 +3187,12 @@ final class PreferencesDialog extends JDialog
 		characterNode.add(new DefaultMutableTreeNode(in_houseRules));
 		settingsPanel.add(buildHouseRulesPanel(), in_houseRules);
 		characterNode.add(new DefaultMutableTreeNode(in_monsters));
-		settingsPanel.add(buildMonstersPanel(), in_monsters);
+		monsterPanel = new MonsterPanel();
+		settingsPanel.add(monsterPanel, monsterPanel.getTitle());
+		experiencePanel = new ExperiencePanel();
+		characterNode
+			.add(new DefaultMutableTreeNode(experiencePanel.getTitle()));
+		settingsPanel.add(experiencePanel, experiencePanel.getTitle());
 		rootNode.add(characterNode);
 
 		appearanceNode = new DefaultMutableTreeNode(in_appearance);

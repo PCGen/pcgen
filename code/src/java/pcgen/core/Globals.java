@@ -1240,7 +1240,13 @@ public final class Globals
 	 */
 	public static Map<String, LevelInfo> getLevelInfo()
 	{
-		return SettingsHandler.getGame().getLevelInfo();
+		GameMode game = SettingsHandler.getGame();
+		Map<String, LevelInfo> levelInfo = game.getLevelInfo(game.getXpTableName());
+		if (levelInfo == null)
+		{
+			levelInfo = new HashMap<String, LevelInfo>();
+		}
+		return levelInfo;
 	}
 
 	/**
