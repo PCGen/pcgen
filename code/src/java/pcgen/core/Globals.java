@@ -2360,13 +2360,13 @@ public final class Globals
 		return SettingsHandler.getGame().getBonusFeatLevels().get(0);
 	}
 
-	static int getBonusStatsForLevel(final int level)
+	static int getBonusStatsForLevel(final int level, final PlayerCharacter aPC)
 	{
 		int num = 0;
 
 		for (String s : SettingsHandler.getGame().getBonusStatLevels())
 		{
-			num = bonusParsing(s, level, num);
+			num = bonusParsing(s, level, num, aPC);
 		}
 
 		return num;
@@ -2845,17 +2845,23 @@ public final class Globals
 		return useGUI;
 	}
 
-	private static int bonusParsing(final String l, final int level, int num)
+	private static int bonusParsing(final String l, final int level, int num, final PlayerCharacter aPC)
 	{
-		// should be in format levelnum,rangenum
+		// should be in format levelnum,rangenum[,numchoices] 
 		final StringTokenizer aTok = new StringTokenizer(l, "|", false);
 		final int startLevel = Integer.parseInt(aTok.nextToken());
-		final int rangeLevel = Integer.parseInt(aTok.nextToken());
+		final String rangeLevelFormula = aTok.nextToken();
+		final int rangeLevel = aPC.getVariableValue(rangeLevelFormula, "").intValue();
+		int numChoices = 1;
+		if (aTok.hasMoreTokens())
+		{
+			numChoices = Integer.parseInt(aTok.nextToken());
+		}
 
 		if ((level == startLevel)
 			|| ((level > startLevel) && (rangeLevel > 0) && (((level - startLevel) % rangeLevel) == 0)))
 		{
-			++num;
+			num+=numChoices;
 		}
 
 		return num;

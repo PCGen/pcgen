@@ -3924,7 +3924,7 @@ public class PCClass extends PObject
 
 				if (processBonusStats)
 				{
-					final int bonusStats = Globals.getBonusStatsForLevel(total);
+					final int bonusStats = Globals.getBonusStatsForLevel(total, aPC);
 					if (bonusStats > 0)
 					{
 						aPC.setPoolAmount(aPC.getPoolAmount() + bonusStats);
