@@ -17088,56 +17088,51 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			i++;
 			List<PCTemplate> templateList = new ArrayList<PCTemplate>();
 			List<Equipment> naturalWeaponsList = new ArrayList<Equipment>();
+			addNonAbilityAutoFeats(theAbilities.get(AbilityCategory.FEAT,
+					Ability.Nature.AUTOMATIC));
 			List<PObject> pobjectList = getConditionalTemplateObjects();
 			pobjectList.addAll(getPObjectList());
 			//TODO pobjectList needs to be getCDOMObjects() once Ability & AUTO are new syntax
-			for (AbilityCategory cat : theAbilities.getKeySet())
+			for (final PObject pobj : pobjectList)
 			{
-				for (Ability.Nature nature : theAbilities.getSecondaryKeySet(cat))
+				for (AbilityCategory cat : pobj.getAbilityCategories())
 				{
-					if (nature != Ability.Nature.ANY)
+					for (Ability.Nature nature : pobj.getAbilityNatures(cat))
 					{
 						List<Ability> abilities = theAbilities.get(cat, nature);
-						for (final PObject pobj : pobjectList)
+						final List<String> abilityKeys = pobj.getAbilityKeys(
+								this, cat, nature);
+						for (final String key : abilityKeys)
 						{
-							final List<String> abilityKeys =
-									pobj.getAbilityKeys(this, cat, nature);
-							for (final String key : abilityKeys)
+							final Ability added = AbilityUtilities
+									.addCloneOfGlobalAbilityToListWithChoices(
+											abilities, cat, key);
+							if (added != null)
 							{
-								final Ability added =
-										AbilityUtilities
-											.addCloneOfGlobalAbilityToListWithChoices(
-												abilities, cat, key);
-								if (added != null)
+								added.setFeatType(nature);
+								for (CDOMReference<PCTemplate> ref : added
+										.getSafeListFor(ListKey.TEMPLATE))
 								{
-									added.setFeatType(nature);
-									for (CDOMReference<PCTemplate> ref : added.getSafeListFor(ListKey.TEMPLATE))
-									{
-										templateList.addAll(ref.getContainedObjects());
-									}
-									naturalWeaponsList.addAll(added.getNaturalWeapons());
+									templateList.addAll(ref
+											.getContainedObjects());
 								}
+								naturalWeaponsList.addAll(added
+										.getNaturalWeapons());
 							}
 						}
-
-						if (cat == AbilityCategory.FEAT
-							&& nature == Ability.Nature.AUTOMATIC)
-						{
-							addNonAbilityAutoFeats(abilities);
-						}
+						// May have added templates, so scan for them
+						addTemplatesIfMissing(templateList);
+						addNaturalWeaponsIfMissing(naturalWeaponsList);
 					}
-					// May have added templates, so scan for them
-					addTemplatesIfMissing(templateList);
-					addNaturalWeaponsIfMissing(naturalWeaponsList);
 				}
 				// Feats have a second list which we need to populate
-				if (cat == AbilityCategory.FEAT)
-				{
-					stableAggregateFeatList = new ArrayList<Ability>();
-					stableAggregateFeatList.addAll(theAbilities.get(cat, Ability.Nature.NORMAL));
-					stableAggregateFeatList.addAll(theAbilities.get(cat, Ability.Nature.AUTOMATIC));
-					stableAggregateFeatList.addAll(theAbilities.get(cat, Ability.Nature.VIRTUAL));
-				}
+				stableAggregateFeatList = new ArrayList<Ability>();
+				stableAggregateFeatList.addAll(theAbilities.get(
+						AbilityCategory.FEAT, Ability.Nature.NORMAL));
+				stableAggregateFeatList.addAll(theAbilities.get(
+						AbilityCategory.FEAT, Ability.Nature.AUTOMATIC));
+				stableAggregateFeatList.addAll(theAbilities.get(
+						AbilityCategory.FEAT, Ability.Nature.VIRTUAL));
 			}
 		}
 		cachedWeaponProfs = null;
