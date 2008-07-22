@@ -6,6 +6,7 @@
   </properties>  
   <body> 
     <release version="5.15.0" date="In SVN" description="Alpha Release">
+      <action dev="jdempsey" type="update" issue="2005316">[4E] BONUSSTATLEVELSTARTINTERVAL tag enhancement</action>  
       <action dev="jdempsey" type="add" issue="2016413">Allow multiple experience tables</action>  
     </release> 
     <release version="5.14.0 RC1" date="2008-05-04" description="Release Candidate">

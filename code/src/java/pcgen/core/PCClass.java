@@ -27,6 +27,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -4789,10 +4790,12 @@ public class PCClass extends PObject
 		}
 
 		int iCount = 0;
-
+		Set<String> statsAlreadyBonused = new HashSet<String>();
+		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
 			final StringBuffer sStats = new StringBuffer();
+			final List<String> selectableStats = new ArrayList<String>();
 
 			for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
 			{
@@ -4810,9 +4813,20 @@ public class PCClass extends PObject
 
 				sStats.append(" (").append(
 					aPC.getStatList().getStatModFor(aStat.getAbb())).append(
-					")\n");
+					")");
+
+				if (allowStacks || !statsAlreadyBonused.contains(aStat.getAbb()))
+				{
+					sStats.append("\n");
+					selectableStats.add(aStat.getDisplayName());
+				}
+				else
+				{
+					sStats.append(" * Already incremented.\n");
+				}
 			}
 
+			final String[] selectionValues = selectableStats.toArray(new String[]{});
 			final InputInterface ii = InputFactory.getInputInstance();
 			final Object selectedValue =
 					ii
@@ -4824,8 +4838,8 @@ public class PCClass extends PObject
 								+ "Current Stats:\n"
 								+ sStats + "\n", Constants.s_APPNAME,
 							MessageType.INFORMATION,
-							SettingsHandler.getGame().s_ATTRIBLONG,
-							SettingsHandler.getGame().s_ATTRIBLONG[0]);
+							selectionValues,
+							selectionValues[0]);
 
 			if (selectedValue != null)
 			{
@@ -4840,6 +4854,7 @@ public class PCClass extends PObject
 						aPC.saveStatIncrease(aStat.getAbb(), 1, isPre);
 						aStat.setBaseScore(aStat.getBaseScore() + 1);
 						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
+						statsAlreadyBonused.add(aStat.getAbb());
 						++iCount;
 
 						break;

@@ -118,6 +118,7 @@ public final class GameMode implements Comparable<Object>
 	private SortedMap<String, RuleCheck> ruleCheckMap = new TreeMap<String, RuleCheck>();
 	private Map<Tab,TabInfo> tInfo = new HashMap<Tab,TabInfo>(); 
 	private boolean allowAutoResize = false;
+	private boolean bonusStatAllowsStack = false;
 	private boolean showClassDefense;
 	private int babAttCyc = 5; //6
 	private int babMaxAtt = Integer.MAX_VALUE; //4
@@ -3517,5 +3518,24 @@ public final class GameMode implements Comparable<Object>
 	{
 		xpTableNames.add(name);
 	}
-}
 
+	/**
+	 * Checks if bonus stat stacking is allowed
+	 * 
+	 * @return true, if is bonus stat stacking allowed
+	 */
+	public boolean isBonusStatAllowsStack()
+	{
+		return bonusStatAllowsStack;
+	}
+
+	/**
+	 * Sets the bonus stat stacking allowed value.
+	 * 
+	 * @param bonusStatAllowsStack the new bonus stat allows stack
+	 */
+	public void setBonusStatAllowsStack(boolean bonusStatAllowsStack)
+	{
+		this.bonusStatAllowsStack = bonusStatAllowsStack;
+	}
+}
