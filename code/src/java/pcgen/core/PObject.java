@@ -48,7 +48,6 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -109,8 +108,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private SourceEntry theSource = new SourceEntry();
 
-	private HashMap<String, String> pluginDataMap = new HashMap<String, String>();
-
 	/** The Non-internationalized name to use to refer to this object. */
 	protected String keyName = Constants.EMPTY_STRING;
 	/** The name to display to the user.  This should be internationalized. */
@@ -125,7 +122,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private Movement movement;
 	private SpellSupport spellSupport = new SpellSupport();
-//	private List<SpellLikeAbility> spellLikeAbilities = null;
 	
 	private VariableList variableList = null;
 
@@ -468,24 +464,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return Collections.unmodifiableList(theDescriptions);
 	}
 	
-	/**
-	 * Get the plugin data for this object
-	 * @param key
-	 * @return the plugin data for this object
-	 */
-	public final String getPluginData(final String key) {
-		return pluginDataMap.get(key);
-	}
-
-	/**
-	 * Put into the map the plugin data for this object
-	 * @param key
-	 * @param value
-	 */
-	public final void putPluginData(final String key, final String value) {
-		pluginDataMap.put(key, value);
-	}
-
 	/**
 	 * Set the KIT string, should be in the form of #|KIT1|KIT2|KIT3|etc
 	 * @param arg
