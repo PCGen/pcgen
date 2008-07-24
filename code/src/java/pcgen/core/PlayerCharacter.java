@@ -5774,6 +5774,35 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
+	 * Calculates the level of the character's favored class
+	 * 
+	 * @return level
+	 */
+	public int getFavoredClassLevel()
+	{
+		final SortedSet<String> aList = getFavoredClasses();
+		int level = 0;
+		
+		if (aList.contains("ANY"))
+		{
+			for (PCClass pcClass : classList)
+			{
+				level = Math.max(level, pcClass.getLevel());
+			}
+		}
+		else
+		{
+			for (PCClass pcClass : classList)
+			{
+				if (aList.contains(pcClass.getDisplayClassName()))
+				{
+					level += pcClass.getLevel();
+				}
+			}
+		}
+		return level;
+	}
+	/**
 	 * Calculates total bonus from Feats
 	 * 
 	 * @param aType

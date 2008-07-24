@@ -674,6 +674,10 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			valString = getPc().getRace().getMovements().get(0).getDoubleMovement().toString();
 		}
+		else if ("FAVCLASSLEVEL".equals(valString))
+		{
+			valString = Integer.toString(getPc().getFavoredClassLevel());
+		}
 		else if (valString.startsWith("MOVE["))
 		{
 			final String moveString = valString.substring(5, valString.lastIndexOf("]"));
