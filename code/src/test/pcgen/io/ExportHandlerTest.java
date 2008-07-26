@@ -457,7 +457,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		String result = evaluatePartyToken(outputToken, pcs).trim();
 		assertEquals(
 			"Party skills output",
-			"<combatants>\r\n" + 
+			"<combatants>" + System.getProperty("line.separator") + 
 			"<combatant>	<name></name>	<skills> Balance: +9;  KNOWLEDGE (ARCANA): +11;  KNOWLEDGE (RELIGION): +8;  Tumble: +10; </skills></combatant>   </combatants>",
 			result);
 	}
