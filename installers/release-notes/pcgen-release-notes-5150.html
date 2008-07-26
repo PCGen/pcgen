@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.15.0</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.15.0</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.15.0</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#PDFIssue">PDF Known Issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.15.0</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.15.0</a></h2>
+
+<p>PCGen v5.15.0 is the first alpha release from our development branch to allow 
+experimentation and testing of our latest work.
+Please give it a shot and let us know how it works for you. 
+		 Some notable changes in this release are listed below.</p>
+<ul>
+<li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> [4E] BONUSSTATLEVELSTARTINTERVAL tag enhancement. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2005316">2005316</a> (<a href="http://pcgen.sourceforge.net/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> Allow multiple experience tables. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2016413">2016413</a> (<a href="http://pcgen.sourceforge.net/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> Remove tags that were deprecated in 5.14. (<a href="http://pcgen.sourceforge.net/team-list.html#thpr">thpr</a>)</li>
+<li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> Remove documentation for tags that were deprecated in 5.14. (<a href="http://pcgen.sourceforge.net/team-list.html#maredudd800">maredudd800</a>)</li>
+</ul>
+<!--
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.13.14</p>
+
+		<ul>
+		
+		</ul>
+ -->
+<p><i>James Dempsey</i> for the PCGEN Team -- 26 July, 2008.</p>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>Characters from the 5.14 series of PCGen should load seamlessly in 5.15.0.
+		</p>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="PDFIssue">PDF Known Issue</a></h2>
+		
+		<p>When exporting to PDF format from any of the fantasy gameModes the console will report the following error:</p>
+
+		<blockquote><p><code>SEVERE Thread-7 PlayerCharacter:8707 Invalid ACType: Equipment</code></p></blockquote>
+
+		<p>This results from the use of an AC type in the base.xml file which does not 
+		  exist in fantasy settings (it's used in d20 Modern). This error does not cause 
+		  any problems generating PDF's and can be safely ignored.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.15.0 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_full.zip?download">pcgen5150_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_partial.zip?download">pcgen5150_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_win_install.exe?download">pcgen5150_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_mac_install.dmg?download">pcgen5150_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5150_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.15.0</a></h2>
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1296646">1296646</a> ]	PREPOINTBUYMETHOD tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1296657">1296657</a> ]	Allow hiding of stat table columns on summary tab</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1296670">1296670</a> ]	Allow non-numeric stat descriptions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1298910">1298910</a> ]	PRECAMPAIGN tag for .pcc files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1317121">1317121</a> ]	Allow text skill rank descriptions</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1612793">1612793</a> ]	[Data Dependent] Extract Monster Hit Die into GameMode</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1967041">1967041</a> ]	Auto convert Default Monster Mode characters</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980132">1980132</a> ]	Remove code for deprecated Classes ADD:CLASSSKILLS syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980133">1980133</a> ]	Remove code for deprecated Classes MULTIPREREQS tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980138">1980138</a> ]	Remove code for deprecated Classes REPEATLEVEL syntax/loc</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980749">1980749</a> ]	Remove code for deprecated Equipment ALTCRITICAL tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980756">1980756</a> ]	Remove code for deprecated Races MFEAT tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980768">1980768</a> ]	Remove code for deprecated Skills COST tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980770">1980770</a> ]	Remove code for deprecated Skills REQ tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980798">1980798</a> ]	Remove code for deprecated Template HITDICESIZE tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1980804">1980804</a> ]	Remove code for deprecated Template REMOVE:FEAT syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1984590">1984590</a> ]	All a class skill indicator column to the skill tab</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994620">1994620</a> ]	Remove code for deprecated global ADD tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994637">1994637</a> ]	Remove code for global CHOOSE tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994647">1994647</a> ]	Remove code for deprecated global CHOOSE COUNT tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994653">1994653</a> ]	Remove code for deprecated PREDEFAULTMONSTER tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1995095">1995095</a> ]	Remove code for deprecated Races HITDICE tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2005316">2005316</a> ]	[4E] BONUSSTATLEVELSTARTINTERVAL tag enhancement</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2005321">2005321</a> ]	DEFAULTDATASET miscinfo.lst tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2005322">2005322</a> ]	Remember what datasets I have loaded in each gameMode</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2016413">2016413</a> ]	[Pathfinder] Experience point tables</li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1678619">1678619</a> ]	[MSRD] Move class abilities to ABILITY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970441">1970441</a> ]	Convert PRECHECK to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970443">1970443</a> ]	Convert PRECHECKBASE to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970445">1970445</a> ]	Convert PRECLASSLEVELMAX to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970448">1970448</a> ]	Convert PRECLASS to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970454">1970454</a> ]	Convert PRESKILL to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970455">1970455</a> ]	Convert PRESKILLMULT to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970462">1970462</a> ]	Convert PREDR to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1992547">1992547</a> ]	BONUS_ACFLAT &amp; BONUS_ACTOUCH aren&#039;t used in code</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2011488">2011488</a> ]	Convert BONUSFEATS in templates to BONUS:FEAT|POOL|</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012868">2012868</a> ]	[AEG - War] review and move to d20ogl  </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012869">2012869</a> ]	[AEG - Undead] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012870">2012870</a> ]	[AEG - Dungeons] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012871">2012871</a> ]	[AEG - Dragons] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012994">2012994</a> ]	Populate Kit TYPE tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2016769">2016769</a> ]	Exclude comma&#039;s from CAMPAIGN names</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2016820">2016820</a> ]	Implement DEFAULTDATASET miscinfo.lst tag </li>
+</ul>
+
+<!-- 
+<h3>New Release Steps</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1960272">1960272</a> ]	AbstractSetMapGraph &amp; AbstractIdentityEdge to 100% coverage</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1960279">1960279</a> ]	GraphMismatchException 100% coverage</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1960288">1960288</a> ]	TypeSafeMap constructor buggy?</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1961021">1961021</a> ]	WeightedCollectionTest to 100% coverage</li>
+</ul>
+-->
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979855">1979855</a> ]	Remove Classes ADD:CLASSSKILLS(y,y)z tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979856">1979856</a> ]	Remove Classes MULTIPREREQS tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979865">1979865</a> ]	Remove Classes REPEATLEVEL:x|y|z:etc tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979872">1979872</a> ]	Remove Equipment ALTCRITICAL tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979885">1979885</a> ]	Remove Races AGE tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979887">1979887</a> ]	Remove Races HEIGHT tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979890">1979890</a> ]	Remove Race WEIGHT tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979894">1979894</a> ]	Remove Skills COST tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979895">1979895</a> ]	Remove Skills REQ tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979896">1979896</a> ]	Remove Skill SYNERGY tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979909">1979909</a> ]	Remove Spell DESCISPI tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979911">1979911</a> ]	Remove Spell EFFECTS tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979912">1979912</a> ]	Remove Spell EFFECTTYPE tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979913">1979913</a> ]	Remove Spell SPELLLEVEL:CLASS:x:DOMAIN tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979914">1979914</a> ]	Remove Template HITDICESIZE tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979916">1979916</a> ]	Remove Template NATURALATTACKS tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979918">1979918</a> ]	Remove Template REMOVE:FEAT tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979921">1979921</a> ]	Remove Weapon Proficiency SIZE tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986743">1986743</a> ]	Remove global ADD tag syntax docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986769">1986769</a> ]	Remove global BONUS:TOHIT-SHORTRANGE tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986773">1986773</a> ]	Remove global CHOOSE tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986775">1986775</a> ]	Remove global CHOOSE:CCSKILLLIST tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986776">1986776</a> ]	Remove global CHOOSE:NONCLASSSKILLLIST tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986783">1986783</a> ]	Remove global CHOOSE COUNT tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986787">1986787</a> ]	Remove global SPELL tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986790">1986790</a> ]	Remove global SPELLLEVEL:CLASS tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986791">1986791</a> ]	Remove global SPELLLEVEL:DOMAIN tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986806">1986806</a> ]	Remove gamemode HEIGHTUNITABBREV tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986811">1986811</a> ]	Remove gamemode WEIGHTUNITABBREV tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986814">1986814</a> ]	Remove systemfilesbonusstacks.html file from docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1992540">1992540</a> ]	BONUS_ACFLAT + BONUS_ACTOUCH not valid in Game Mode</li>
+</ul>
+
+<h3>Output Sheet Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994114">1994114</a> ]	code/testsuite/base.xml needs to be updated for Abilities</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786280">1786280</a> ]	Hardcoded PREDEFAULTMONSTER tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1984035">1984035</a> ]	UI Doesn&#039;t properly sort Skills</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2011540">2011540</a> ]	Odd names in spelllist chooser</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2011560">2011560</a> ]	Spells tab blank</li>
+</ul>
+
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786937">1786937</a> ]	CHOOSER for Tenacious Magic incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1993504">1993504</a> ]	Mongoose Quint Rogue</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1993518">1993518</a> ]	Malhavoc Web Enhancements</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1993520">1993520</a> ]	Malhavoc Hallowed Might needs Feat-&gt; Ability update</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994017">1994017</a> ]	Ability Conversion Broke Destruction Domain</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994520">1994520</a> ]	Eldritch PCC file error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994522">1994522</a> ]	Improved Evasion referred to as FEAT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994523">1994523</a> ]	Abilities referred to as Feats</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2006141">2006141</a> ]	[RSRD} Ranger Broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2007087">2007087</a> ]	Fast Healing has incorrect SAB...</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2018307">2018307</a> ]	DEITYWEAP incorrect information</li>
+</ul>
+	</body>
+</html>
