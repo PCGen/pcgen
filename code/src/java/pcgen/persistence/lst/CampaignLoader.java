@@ -111,11 +111,7 @@ public class CampaignLoader extends LstLineFileLoader
 		String key = inputLine.substring(0, colonLoc);
 		String value = (colonLoc == inputLine.length() - 1) ? null : inputLine
 				.substring(colonLoc + 1);
-		if (context.processToken(campaign, key, value))
-		{
-			context.commit();
-		}
-		else if (tokenMap.containsKey(key))
+		if (tokenMap.containsKey(key))
 		{
 			CampaignLstToken token = (CampaignLstToken) tokenMap.get(key);
 			LstUtils.deprecationCheck(token, campaign, value);
@@ -124,6 +120,10 @@ public class CampaignLoader extends LstLineFileLoader
 				Logging.errorPrint("Error parsing campaign "
 					+ campaign.getDisplayName() + ':' + inputLine);
 			}
+		}
+		else if (context.processToken(campaign, key, value))
+		{
+			context.commit();
 		}
 		else if (!PObjectLoader.parseTag(campaign, inputLine))
 		{
