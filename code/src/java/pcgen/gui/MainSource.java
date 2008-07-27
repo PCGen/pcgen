@@ -1575,7 +1575,7 @@ public class MainSource extends FilterAdapterPanel
 
 		private String[] names =
 				{"Source Material", "Book Type", "Loaded"};
-		private int[] widths = {100, 60, 30};
+		private int[] widths = {250, 120, 60};
 
 		private List<Boolean> displayList;
 		
