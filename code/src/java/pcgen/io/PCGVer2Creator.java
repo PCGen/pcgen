@@ -874,35 +874,39 @@ final class PCGVer2Creator implements IOConstants
 
 			for (String save : pcClass.getSafeListFor(ListKey.SAVE))
 			{
-				final SpecialAbility specialAbility =
-						pcClass.getSpecialAbilityKeyed(save);
-
-				if (specialAbility != null)
+				boolean found = false;
+				for ( SpecialAbility sa : pcClass.getListFor(ListKey.SPECIAL_ABILITY) )
 				{
-					int relevantLevel = 1;
-					final String source = specialAbility.getSASource();
-
-					try
+					if (sa.getKeyName().equalsIgnoreCase(save))
 					{
-						relevantLevel =
-								Integer.parseInt(source.substring(source
-									.lastIndexOf('|') + 1));
+						found = true;
+						int relevantLevel = 1;
+						final String source = sa.getSASource();
 
-						if (relevantLevel < 0)
+						try
 						{
-							relevantLevel = 1;
-						}
-					}
-					catch (NumberFormatException nfe)
-					{
-						Logging.errorPrint("Error parsing SA relevant level: " //$NON-NLS-1$
-							+ source.substring(source.lastIndexOf('|') + 1));
-					}
+							relevantLevel =
+									Integer.parseInt(source.substring(source
+										.lastIndexOf('|') + 1));
 
-					specials.put(pcClass.getKeyName() + TAG_SA
-						+ (relevantLevel - 1), specialAbility.getKeyName());
+							if (relevantLevel < 0)
+							{
+								relevantLevel = 1;
+							}
+						}
+						catch (NumberFormatException nfe)
+						{
+							Logging.errorPrint("Error parsing SA relevant level: " //$NON-NLS-1$
+								+ source.substring(source.lastIndexOf('|') + 1));
+						}
+
+						specials.put(pcClass.getKeyName() + TAG_SA
+							+ (relevantLevel - 1), sa.getKeyName());
+						break;
+					}
 				}
-				else
+
+				if (!found)
 				{
 					specials.put(key, save);
 				}

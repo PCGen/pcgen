@@ -296,22 +296,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 		
-		List<SpecialAbility> saList = obj.getListFor(ListKey.SPECIAL_ABILITY);
-
-		if ((saList != null) && (saList.size() != 0))
-		{
-			for (Iterator<SpecialAbility> se = saList.iterator(); se.hasNext();)
-			{
-				final SpecialAbility sa = se.next();
-				String src = sa.getSASource();
-				String lev = src.substring(src.lastIndexOf('|') + 1);
-
-				LevelTag lt = new LevelTag(lev, LevelTag.TAG_SAB, sa.toString());
-				levelTagList.add(lt);
-			}
-		}
-
-		saList = new ArrayList<SpecialAbility>();
+		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		obj.addSABToList(saList, null);
 
 		if (!saList.isEmpty())

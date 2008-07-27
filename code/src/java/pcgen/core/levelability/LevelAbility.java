@@ -22,6 +22,7 @@
  */
 package pcgen.core.levelability;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -320,7 +321,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			final SpecialAbility sa = new SpecialAbility(
 					zString,
 					"PCCLASS|" + owner.getKeyName() + '|' + level);
-			owner.addSpecialAbilityToList(sa);
+			owner.addToListFor(ListKey.SPECIAL_ABILITY, sa);
 			owner.addSave(zString);
 		}
 	}

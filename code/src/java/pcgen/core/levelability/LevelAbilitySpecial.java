@@ -20,6 +20,7 @@
  */
 package pcgen.core.levelability;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.util.chooser.ChooserInterface;
@@ -104,7 +105,7 @@ final class LevelAbilitySpecial extends LevelAbility
 				sa = new SpecialAbility(selection);
 			}
 
-			this.owner.addSpecialAbilityToList(sa);
+			this.owner.addToListFor(ListKey.SPECIAL_ABILITY, sa);
 			this.owner.addSave(selection);
 		}
 		return true;

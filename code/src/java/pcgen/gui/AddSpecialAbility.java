@@ -25,6 +25,7 @@
  **/
 package pcgen.gui;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -154,7 +155,7 @@ public final class AddSpecialAbility extends JFrame
 			PCClass aClass = aPC.getClassList().get(0);
 			String aString = (selectedValue).trim();
 			SpecialAbility sa = new SpecialAbility(aString, "PCCLASS|" + aClass.getKeyName() + "|0");
-			aClass.addSpecialAbilityToList(sa);
+			aClass.addToListFor(ListKey.SPECIAL_ABILITY, sa);
 			aClass.addSave(aString);
 
 			if (owner != null)

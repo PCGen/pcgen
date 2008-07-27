@@ -845,15 +845,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add the SA to the character list
-	 * @param sa
-	 */
-	public final void addSpecialAbilityToList(final SpecialAbility sa)
-	{
-		addToListFor(ListKey.SPECIAL_ABILITY, sa);
-	}
-
-	/**
 	 * Add to the list of temporary bonuses
 	 * @param aBonus
 	 */
@@ -1520,24 +1511,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 	
 	/**
-	 * Get the SA by key
-	 * @param aKey
-	 * @return the SA
-	 */
-	public final SpecialAbility getSpecialAbilityKeyed(final String aKey)
-	{
-		for ( SpecialAbility sa : getListFor(ListKey.SPECIAL_ABILITY) )
-		{
-			if (sa.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return sa;
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * Returns a hardcoded "POBJECT|" + name of this object
 	 * @return "POBJECT|" + name of this object
 	 */
@@ -1580,14 +1553,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public List<PCSpell> getSpellList()
 	{
 		return spellSupport.getSpellList(-1);
-	}
-
-	/**
-	 * Clear the special ability list
-	 */
-	public final void clearSpecialAbilityList()
-	{
-		removeListFor(ListKey.SPECIAL_ABILITY);
 	}
 
 	public void addSAB(SpecialAbility sa, int level)
@@ -2623,18 +2588,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append(writer);
 		}
 
-		List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
-		if (!(this instanceof PCClass) && (specialAbilityList != null) && (specialAbilityList.size() != 0))
-		{
-			for (SpecialAbility sa : specialAbilityList)
-			{
-				txt.append("\tSAB:").append(sa.toString());
-			}
-		}
-		
 		if (!(this instanceof PCClass))
 		{
-			specialAbilityList = new ArrayList<SpecialAbility>();
+			ArrayList<SpecialAbility> specialAbilityList = new ArrayList<SpecialAbility>();
 			addSABToList(specialAbilityList, null);
 			for (SpecialAbility sa : specialAbilityList)
 			{
@@ -3584,14 +3540,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public SpellSupport getSpellSupport()
 	{
 		return spellSupport;
-	}
-
-	/**
-	 * Remove the speical ability from the list
-	 * @param sa
-	 */
-	public void removeSpecialAbility(SpecialAbility sa) {
-		removeFromListFor(ListKey.SPECIAL_ABILITY, sa);
 	}
 
 	/**

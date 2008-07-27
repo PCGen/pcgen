@@ -475,7 +475,7 @@ final class PCGVer0Parser implements PCGParser
 											+ cTok.nextToken());
 									}
 
-									aClass.addSpecialAbilityToList(sa);
+									aClass.addToListFor(ListKey.SPECIAL_ABILITY, sa);
 								}
 							}
 						}
@@ -495,7 +495,7 @@ final class PCGVer0Parser implements PCGParser
 							}
 
 							//sa.setSource(src);
-							aClass.addSpecialAbilityToList(sa);
+							aClass.addToListFor(ListKey.SPECIAL_ABILITY, sa);
 						}
 
 						if (!aClass.containsInList(saveKey, token)

@@ -2444,20 +2444,6 @@ public class PCClass extends PObject
 			}
 		}
 
-		final List<SpecialAbility> specialAbilityList =
-				getListFor(ListKey.SPECIAL_ABILITY);
-
-		if ((specialAbilityList != null) && (specialAbilityList.size() != 0))
-		{
-			for (SpecialAbility sa : specialAbilityList)
-			{
-				final String src = sa.getSASource();
-				final String lev = src.substring(src.lastIndexOf('|') + 1);
-				pccTxt.append(lineSep).append(lev).append("\tSAB:").append(
-					sa.toString());
-			}
-		}
-
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		addSABToList(saList, null);
 		for (SpecialAbility sa : saList)
@@ -3323,77 +3309,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * REFACTOR TO DELETEMETHOD I don't understand why the .CLEAR related
-	 * functionality only exists in PCClass and not other PObjects??? Perhaps
-	 * this should be up in PObject and therefore not be necessary here?... No,
-	 * I suspect this is level related based on how SpecialAbilitys store their
-	 * source and then use that to check if the PC qualifies for the Special
-	 * Ability. Hopefully that String processing can be factored out and this
-	 * can only load the appropriate SpecialAbilitys into the PCClassLevels that
-	 * a PlayerCharacter has.
-	 */
-	@Override
-	public List<SpecialAbility> addSpecialAbilitiesToList(
-		final List<SpecialAbility> aList, final PlayerCharacter aPC)
-	{
-		final List<SpecialAbility> specialAbilityList =
-				getListFor(ListKey.SPECIAL_ABILITY);
-
-		if ((specialAbilityList == null) || specialAbilityList.isEmpty())
-		{
-			return aList;
-		}
-
-		final List<SpecialAbility> bList = new ArrayList<SpecialAbility>();
-
-		for (SpecialAbility sa : specialAbilityList)
-		{
-			if (sa.pcQualifiesFor(aPC))
-			{
-				final String saKey = sa.getKeyName();
-				if (saKey.startsWith(".CLEAR"))
-				{
-					if (".CLEARALL".equals(saKey))
-					{
-						bList.clear();
-					}
-					else if (saKey.startsWith(".CLEAR."))
-					{
-						final String saToRemove = saKey.substring(7);
-
-						for (int itIdx = bList.size() - 1; itIdx >= 0; --itIdx)
-						{
-							final String subKey = bList.get(itIdx).getKeyName();
-
-							if (subKey.equals(saToRemove))
-							{
-								bList.remove(itIdx);
-							}
-							else if (subKey.indexOf('(') >= 0)
-							{
-								if (subKey.substring(0, subKey.indexOf('('))
-									.trim().equals(saToRemove))
-								{
-									bList.remove(itIdx);
-								}
-							}
-						}
-					}
-					//CONSIDER else what?  No error checking here?
-
-					continue;
-				}
-
-				bList.add(sa);
-			}
-		}
-
-		aList.addAll(bList);
-
-		return aList;
-	}
-
-	/*
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
@@ -4217,30 +4132,6 @@ public class PCClass extends PObject
 		// Go through the specialty list (SA) and adjust the class to the new
 		// name
 		//
-		final List<SpecialAbility> specialAbilityList =
-				getListFor(ListKey.SPECIAL_ABILITY);
-
-		if (specialAbilityList != null)
-		{
-			for (int idx = specialAbilityList.size() - 1; idx >= 0; --idx)
-			{
-				SpecialAbility sa = specialAbilityList.get(idx);
-
-				// TODO - This looks like it should have always been a reference
-				// to getSASource not getSource.
-				if (sa.getSASource().length() != 0)
-				// if (sa.getSource().length() != 0)
-				{
-					removeSpecialAbility(sa);
-					sa =
-							new SpecialAbility(sa.getKeyName(), sa
-								.getSASource(), sa.getSADesc());
-					sa.setQualificationClass(oldClass, newClass);
-					addSpecialAbilityToList(sa);
-				}
-			}
-		}
-
 		for (int lev : mapChar.getSecondaryKeySet(MapKey.SAB))
 		{
 			for (SpecialAbility sa : mapChar.getListFor(MapKey.SAB, lev))
@@ -5322,12 +5213,6 @@ public class PCClass extends PObject
 		if (otherClass.getRegionString() != null)
 		{
 			setRegionString(otherClass.getRegionString());
-		}
-
-		for (SpecialAbility sa : otherClass
-			.getSafeListFor(ListKey.SPECIAL_ABILITY))
-		{
-			addSpecialAbilityToList(sa);
 		}
 
 		for (int lev : otherClass.mapChar.getSecondaryKeySet(MapKey.SAB))

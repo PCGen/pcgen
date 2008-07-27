@@ -3102,43 +3102,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			List<SpecialAbility> al = new ArrayList<SpecialAbility>();
-			al = aPObj.addSpecialAbilitiesToList(al, this);
-			ArrayList<SpecialAbility> masterList =
-					new ArrayList<SpecialAbility>(al);
-			for (SpecialAbility sa : masterList)
-			{
-				if (sa.getKeyName().startsWith(".CLEAR.") && sa.qualifies(this))
-				{
-					al.remove(sa);
-					String key = sa.getKeyName().substring(7);
-					for (Iterator<SpecialAbility> it = al.iterator(); it
-						.hasNext();)
-					{
-						String saKey = it.next().getKeyName();
-						if (saKey.startsWith(key))
-						{
-							int baseLength = key.length();
-							int thisLength = saKey.length();
-							if (thisLength == baseLength)
-							{
-								it.remove();
-							}
-							else if (thisLength > baseLength)
-							{
-								if (saKey.charAt(baseLength + 1) == '('
-									|| thisLength + 1 > baseLength
-									&& saKey.charAt(baseLength + 1) == ' '
-									&& saKey.charAt(baseLength + 2) == '(')
-								{
-									it.remove();
-								}
-							}
-						}
-					}
-				}
-			}
-			aList.addAll(al);
+			aPObj.addSpecialAbilitiesToList(aList, this);
 			aPObj.addSABToList(aList, this);
 		}
 		//		for (CDOMObject cdo : getCDOMObjectList())

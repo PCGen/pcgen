@@ -623,7 +623,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			}
 
 			aClass.removeSave(sa.getKeyName());
-			aClass.removeSpecialAbility(sa);
+			aClass.removeFromListFor(ListKey.SPECIAL_ABILITY, sa);
 		}
 
 		//		pc = null; // forces everything to re-display it's broken

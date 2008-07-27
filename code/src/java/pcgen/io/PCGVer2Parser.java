@@ -1666,7 +1666,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{
-						aPCClass.addSpecialAbilityToList(specialAbility);
+						aPCClass.addToListFor(ListKey.SPECIAL_ABILITY, specialAbility);
 					}
 
 					if (!aPCClass.containsInList(ListKey.SAVE,

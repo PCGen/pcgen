@@ -6280,7 +6280,7 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 
 	<target name="jar-deprecated-plugin" depends="manifest" description="Build (Link) plugin jar files">
-		<jar jarfile="${lstplugins.dir}/ClassLstToken-HASSPELLFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-DEPRECATED-HASSPELLFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/HasspellformulaToken.class" />
