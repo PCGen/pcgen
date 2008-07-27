@@ -14605,7 +14605,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					if (element instanceof MissingObject)
 					{
 						String name = ((MissingObject) element).getObjectName();
-						if ("%LIST".equals(name) && bonus.getCreatorObject() instanceof PObject)
+						if (("%LIST".equals(name) || "LIST".equals(name))
+							&& bonus.getCreatorObject() instanceof PObject)
 						{
 							PObject creator = (PObject) bonus.getCreatorObject();
 							for (AssociatedChoice<String> assoc : creator.getAssociatedList())
