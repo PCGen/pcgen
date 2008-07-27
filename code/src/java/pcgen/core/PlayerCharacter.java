@@ -87,6 +87,7 @@ import pcgen.core.analysis.TemplateStat;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusObj.BonusPair;
+import pcgen.core.bonus.util.MissingObject;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSet;
@@ -14615,7 +14616,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            Should equipment bonuses be included?
 	 * @return The bonus to the stat.
 	 */
-	@Deprecated
 	public int getPartialStatBonusFor(String statAbbr, boolean useTemp,
 		boolean useEquip)
 	{
@@ -14636,6 +14636,23 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						found = true;
 						break;
+					}
+					//TODO: This should be put into a proper object when parisng.
+					if (element instanceof MissingObject)
+					{
+						String name = ((MissingObject) element).getObjectName();
+						if ("%LIST".equals(name) && bonus.getCreatorObject() instanceof PObject)
+						{
+							PObject creator = (PObject) bonus.getCreatorObject();
+							for (AssociatedChoice<String> assoc : creator.getAssociatedList())
+							{
+								if (assoc.getChoices().contains(statAbbr))
+								{
+									found = true;
+									break;
+								}
+							}
+						}
 					}
 				}
 				if (!found)
