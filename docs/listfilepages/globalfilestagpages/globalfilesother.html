@@ -732,51 +732,6 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.x.x - Remove 5.16.0 - Use <a href="#SAB">SAB</a></p>
-	<p class="indent0"><strong><a name="SA">Tag Name:</a></strong> SA:x</p>
-	<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
-	<p><strong> Variables Used (x):</strong>.CLEAR.Text (Clear Special Ability Totals)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This grants the character a Special Ability that will get listed together with all other special
-			abilities the character has.</li>
-		<li>The &quot;%&quot; tag will fill in a number from a variable listed after a &quot;|&quot; (pipe).</li>
-		<li>This can be done numerous times, with each successive &quot;%&quot; relating to the
-			next variable listed after  another &quot;|&quot; (pipe).</li>
-		<li>This can be specified via number of %#, with each successive numbered &quot;%&quot; relating to
-			the next variable listed after another &quot;|&quot; (pipe). The count starts at 0 and counts up.</li>
-		<li>Each variable needs to be defined (via the global DEFINE tag.)</li>
-		<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
-		<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object (class, template,
-			etc.). It will not clear them across objects.</li>
-		<li><code>SA:.CLEAR.Text to be removed</code> must include the exact text of the SA to be removed but
-			only the exact text up to the first &quot;(&quot;. The CLEAR and Replace tags should be at the end
-			of the line, so the new and old tags are not</li>
-		<li>SA tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
-			SA tags qualified with PRExxx tags will not display unless the character meets the
-			prerequisites.</li>
-		<li>SA tags can be used with %CHOICE tags to display the result of a CHOOSE tag result.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>SA:Fire in the Hole</code></p>
-	<p class="indent3">Grants the special ability &quot;Fire in the Hole&quot;.</p>
-	<p class="indent2"><code>SA:Sneak Attack +%d%|Sneak Attack|Sneak Attack Die</code></p>
-	<p class="indent3">If the PCs &lt;Sneak Attack&gt; was 5 and &lt;Sneak Attack
-		Die&gt; was 6, this would grant the special ability &quot;Sneak Attack&quot; at +5d6.</p>
-	<p class="indent2"><code>SA:.CLEAR.+1d6 to natural weapons SA:+1d8 to natural weapons </code></p>
-	<p class="indent3">Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
-	<p class="indent2"><code>SA:Banana toss|PRERACE:monkey</code></p>
-	<p class="indent3">Grants the special ability &quot;Banana toss&quot; if the characters race is &quot;monkey&quot;.</p>
-	<p class="indent2"><code>SA:Banana toss via (%CHOICE) &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
-		CHOOSE:Air|Earth|Fire|Water</code></p>
-		<p class="indent3">Offers a Choice between Air/Earth/Fire/Water for banana tossing, may be used multiple
-		times, but selected only once.</p>
-	<p class="indent2"><code> 4 &lt;tab&gt; SA:.CLEAR.Shield Brother (full round action) &lt;tab&gt; SA:Shield Brother (standard action)</code></p>
-	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
-	<p></p>
-
-<hr>
-
 	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="SAB">Tag Name:</a></strong> SAB:x</p>
 	<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
