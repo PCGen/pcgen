@@ -59,7 +59,7 @@ Readonly my $RELEASE_NAME       => "pcgen$VER_NUMBER$VER_NUMBER_SUFIX";
 # ------------------------------------------
 
 # Main folder for the source files
-Readonly my $SRC_BRANCH         => 'E:/Projects/pcgen-release';
+Readonly my $SRC_BRANCH         => 'D:/eclipse/pcgen';
 
 # Release notes
 Readonly my $SRC_RELEASE_NOTES  => "$SRC_BRANCH/pcgen/installers/release-notes/pcgen-release-notes-$VER_NUMBER$VER_NUMBER_SUFIX.html";
