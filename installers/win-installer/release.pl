@@ -59,18 +59,19 @@ Readonly my $RELEASE_NAME       => "pcgen$VER_NUMBER$VER_NUMBER_SUFIX";
 # ------------------------------------------
 
 # Main folder for the source files
+#Readonly my $SRC_BRANCH         => 'C:/Projects/pcgen-release/pcgen';
 Readonly my $SRC_BRANCH         => 'D:/eclipse/pcgen';
 
 # Release notes
-Readonly my $SRC_RELEASE_NOTES  => "$SRC_BRANCH/pcgen/installers/release-notes/pcgen-release-notes-$VER_NUMBER$VER_NUMBER_SUFIX.html";
+Readonly my $SRC_RELEASE_NOTES  => "$SRC_BRANCH/installers/release-notes/pcgen-release-notes-$VER_NUMBER$VER_NUMBER_SUFIX.html";
 
 # Sub folders needed (there are variables for these
 # since they are all part of different repository)
-Readonly my $SRC_PCGEN          => "$SRC_BRANCH/pcgen";
-Readonly my $SRC_DATA           => "$SRC_BRANCH/pcgen/data";
-Readonly my $SRC_OUTPUTSHEETS   => "$SRC_BRANCH/pcgen/outputsheets";
-Readonly my $SRC_DOCS           => "$SRC_BRANCH/pcgen/docs";
-Readonly my $SRC_NSIS           => "$SRC_BRANCH/pcgen/installers/win-installer";
+Readonly my $SRC_PCGEN          => "$SRC_BRANCH";
+Readonly my $SRC_DATA           => "$SRC_BRANCH/data";
+Readonly my $SRC_OUTPUTSHEETS   => "$SRC_BRANCH/outputsheets";
+Readonly my $SRC_DOCS           => "$SRC_BRANCH/docs";
+Readonly my $SRC_NSIS           => "$SRC_BRANCH/installers/win-installer";
 
 Readonly my $SRC_NSIS_LICENCE_FILE => "$SRC_NSIS/PCGenLicense.txt";
 
