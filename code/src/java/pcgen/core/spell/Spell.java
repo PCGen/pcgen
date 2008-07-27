@@ -688,7 +688,7 @@ public final class Spell extends PObject
 			int result = -1;
 			if (spellList == null)
 			{
-				System.err.println("Skipping " + objectType + " " + objectName);
+				Logging.debugPrint("Skipping " + objectType + " " + objectName);
 			}
 			else
 			{
