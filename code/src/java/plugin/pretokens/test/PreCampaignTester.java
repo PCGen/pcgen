@@ -23,15 +23,19 @@
 package plugin.pretokens.test;
 
 import java.net.URI;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.persistence.PersistenceManager;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -52,16 +56,87 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
 	{
+		final int number;
+		try
+		{
+			number = Integer.parseInt(prereq.getOperand());
+		}
+		catch (NumberFormatException exceptn)
+		{
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
+		}
+
 		int runningTotal = 0;
-		Campaign campaign = Globals.getCampaignKeyed(prereq.getKey());
+		if (prereq.getKey().startsWith("BOOKTYPE="))
+		{
+			runningTotal +=
+					countCampaignByBookType(prereq.getKey().substring(9));
+		}
+		else
+		{
+			runningTotal += countCampaignByName(prereq.getKey());
+		}
+
+		runningTotal = prereq.getOperator().compare(runningTotal, number);
+		return countedTotal(prereq, runningTotal);
+	}
+
+	/**
+	 * Count the number of campaign currently loaded or selected that 
+	 * are of the book type.
+	 * 
+	 * @param bookType the book type
+	 * 
+	 * @return the number of matching campaigns
+	 */
+	private int countCampaignByBookType(String bookType)
+	{
+		Set<Campaign> matchingCampaigns = new HashSet<Campaign>();
+		List<Campaign> campList = Globals.getCampaignList();
+		for (Campaign campaign : campList)
+		{
+			if (campaign.isLoaded()
+				&& bookType.equalsIgnoreCase(campaign.getBookType()))
+			{
+				Logging.errorPrint("Adding campaign " + campaign.isLoaded() + " type:" + campaign.getBookType());
+				matchingCampaigns.add(campaign);
+			}
+		}
+
+		List<URI> selCampaigns =
+				PersistenceManager.getInstance().getChosenCampaignSourcefiles();
+		for (URI element : selCampaigns)
+		{
+			final Campaign aCampaign = Globals.getCampaignByURI(element);
+
+			if (bookType.equalsIgnoreCase(aCampaign.getBookType()))
+			{
+				matchingCampaigns.add(aCampaign);
+			}
+		}
+		return matchingCampaigns.size();
+	}
+
+	/**
+	 * Count the campaigns currently loaded or selected that match the 
+	 * supplied key name.
+	 * 
+	 * @param key The key to be checked for
+	 * @return The number of matching campaigns
+	 */
+	private int countCampaignByName(final String key)
+	{
+		int total = 0;
+		Campaign campaign = Globals.getCampaignKeyed(key);
 		if (campaign != null)
 		{
-			if (campaign.getKeyName().equals(prereq.getKey())
+			if (campaign.getKeyName().equals(key)
 				&& campaign.isLoaded())
 			{
-				++runningTotal;
+				++total;
 			}
 			else
 			{
@@ -75,12 +150,12 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 
 					if (campaign.equals(aCampaign))
 					{
-						++runningTotal;
+						++total;
 					}
 				}
 			}
 		}
-		return countedTotal(prereq, runningTotal);
+		return total;
 	}
 
 	/* (non-Javadoc)
