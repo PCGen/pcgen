@@ -8,7 +8,8 @@
 		$Date$ 
 		$Revision$ 
 		
-		Contributors: Eric C Smith - mareduddATblackrootDOTorg 
+		Contributors: 
+		Eric C Smith - mareduddATblackrootDOTorg 
 		Andrew McDougall (Tir Gwaith) - TirDOTGwaithATgmailDOTcom 
 		
 		Description: Provides information on List files. 
@@ -123,7 +124,7 @@
 		style.</p>
 
 		<p class="indent0">3) When referencing a specific PCGen object, i.e. deity, feat,
-		weapon, etc., I have included the name as <strong><em>EMPHASISED</em></strong>
+		weapon, etc., I have included the name as <span class="lstobj">BOLD</span>
 		text, except for when the object is part of a <code>&lt;code&gt;</code>
 		example.</p>
 
@@ -140,7 +141,7 @@
 
 <hr>
 
-		<p class="indent0"><code><strong>&lt;Deity Name&gt;</strong></code></p>
+		<h4>&lt;Deity Name&gt;</h4>
 
 		<p class="indent0">The deity file is currently a *.lst file that has one deity
 		entry per line. The first thing on each line must be the name of the
@@ -156,67 +157,58 @@
 
 <hr>
 
-		<p class="indent0"><code><strong>DOMAINS</strong></code></p>
+		<h4>DOMAINS</h4>
 
-		<p class="indent0"><strong>Tag Format:</strong> <code>DOMAINS:&lt;domain
-		list&gt;</code></p>
+		<p class="indent0"><strong>Tag Format:</strong> <code>DOMAINS:&lt;domain list&gt;</code></p>
 
 		<p class="indent0">This tag sets the domains the deity makes available to divine
-		casters. The text following the tag is a comma-delimited list of domain
-		names with no spaces included. It is important that the domains listed
-		must be defined in a <em><strong>domain.lst</strong></em>
-		file that has been loaded into PCGen. When making your own deity, you
-		may include as many domains as you wish, though prudence may dictate
-		limiting the number for if a deity has all domains, which can be done
-		by simply using <code>ALL</code> as the sole argument,
-		there is no need for additional deities, and what fun would that be.</p>
+		casters. The text following the tag is a comma-delimited list of domain names with 
+		no spaces included. It is important that the domains listed must be defined in a 
+		<span class="lstfile">domain.lst</span> file that has been loaded into PCGen. When 
+		making your own deity, you may include as many domains as you wish, though prudence 
+		may dictate limiting the number for if a deity has all domains, which can be done by 
+		simply using <code>ALL</code> as the sole argument, there is no need for additional 
+		deities, and what fun would that be.</p>
 
-		<p class="indent0">The <code>PRExxx</code> tag may be used as an
-		optional tag added at the end of the domain list, separated by a pipe
-		(|). These prerequisites are checked against the divine caster to
-		determine if he/she is allowed to select the domains listed in that
-		particular <code>DOMAINS</code> tag. Typically, the <code>PREALIGN</code>
-		tag is used to restrict what alignments a cleric/class with access to
-		domains can be to have access to the domains. For more depth on <code>PREALIGN</code>
-		syntax and usage itself, scroll down a bit. It can be used by itself on
-		the line (with slightly different meaning for the user) and is
-		explained more in depth there.</p>
+		<p class="indent0">The <code>PRExxx</code> tag may be used as an optional tag added 
+		at the end of the domain list, separated by a pipe (|). These prerequisites are checked 
+		against the divine caster to determine if he/she is allowed to select the domains listed 
+		in that particular <code>DOMAINS</code> tag. Typically, the <code>PREALIGN</code> tag is 
+		used to restrict what alignments a cleric/class with access to domains can be to have 
+		access to the domains. For more depth on <code>PREALIGN</code> syntax and usage itself, 
+		scroll down a bit. It can be used by itself on the line (with slightly different meaning 
+		for the user) and is explained more in depth there.</p>
 
-		<p class="indent0">PCGen provides some flexibility in how the <code>DOMAINS</code>
-		tags are applied, allowing some fairly complex application, but most
-		usage of this tag is fairly simple so you might just skip over the next
-		paragraph. On the other, if you wish to explore this flexibility, the
-		following explanation can get you started.</p>
+		<p class="indent0">PCGen provides some flexibility in how the <code>DOMAINS</code> tags 
+		are applied, allowing some fairly complex application, but most usage of this tag is fairly 
+		simple so you might just skip over the next paragraph. On the other, if you wish to explore 
+		this flexibility, the following explanation can get you started.</p>
 
-		<p class="indent0">When using the <code>PRExxx</code> tags at the
-		end of the <code>DOMAINS</code> tag, all domains listed in
-		that tag will be restricted if the <code>PRExxx</code> tag
-		isn't satisfied. Fortunately, PCGen allows the placement of multiple <code>DOMAINS</code>
-		tags in the same deity line, and each <code>DOMAINS </code>
-		tag can have its own <code>PRExxx</code> tag, or none at
-		all. With multiple <code>DOMAINS </code> tags, the <code>PRExxx</code>
-		tags are applied only to the domains included in that specific <code>DOMAINS</code>
-		tag but all domains included in each <code>DOMAINS</code>
-		tags are made available to the divine caster, that is if the
+		<p class="indent0">When using the <code>PRExxx</code> tags at the end of the <code>DOMAINS</code> 
+		tag, all domains listed in that tag will be restricted if the <code>PRExxx</code> tag isn't 
+		satisfied. Fortunately, PCGen allows the placement of multiple <code>DOMAINS</code> tags in the 
+		same deity line, and each <code>DOMAINS </code> tag can have its own <code>PRExxx</code> tag, or 
+		none at all. With multiple <code>DOMAINS </code> tags, the <code>PRExxx</code> tags are applied 
+		only to the domains included in that specific <code>DOMAINS</code> tag but all domains included 
+		in each <code>DOMAINS</code> tags are made available to the divine caster, that is if the
 		appropriate prerequisites have been satisfied.</p>
 
 		<p class="indent0">At this point we are ready to build the <code>DOMAINS</code>
 		tags for our two example deities.</p>
 
-		<p class="indent0"><strong><em>MoSaT</em></strong> is
-		listed as having the domains of <em><strong>Chaos</strong></em>,
-		<em><strong>Knowledge</strong></em>, and <em><strong>Animal</strong></em>,
-		so this tag will appear as <code>DOMAINS:Chaos,Knowledge,Animal</code>.
-		If we wish to restrict the selection of the <em><strong>Chaos</strong></em>
-		domain to only those divine casters who are chaotic, we can break the <code>DOMAINS</code>
-		tag into the following two tags: <code>DOMAINS:Chaos|PREALIGN:CG,CN</code>
-		&lt;tab&gt; <code>DOMAINS:Knowledge,Animal</code>.</p>
+		<p class="indent0"><span class="lstobj">MoSaT</span> is listed as having the domains of 
+		<span class="lstobj">Chaos</span>, <span class="lstobj">Knowledge</span>, and 
+		<span class="lstobj">Animal</span>, so this tag will appear as 
+		<code>DOMAINS:Chaos,Knowledge,Animal</code>. If we wish to restrict the selection of the 
+		<span class="lstobj">Chaos</span> domain to only those divine casters who are chaotic, 
+		we can break the <code>DOMAINS</code> tag into the following two tags: 
+		<code>DOMAINS:Chaos|PREALIGN:CG,CN</code> &lt;tab&gt; <code>DOMAINS:Knowledge,Animal</code>.</p>
 
-		<p class="indent0"><em><strong>Thalia</strong></em> is
-		listed as having the domains of <em><strong>Good</strong></em>,
-		<em><strong>Knowledge</strong></em>, and <em><strong>Poetry</strong></em>,
+		<p class="indent0"><span class="lstobj">Thalia</span> is
+		listed as having the domains of <span class="lstobj">Good</span>,
+		<span class="lstobj">Knowledge</span>, and <span class="lstobj">Poetry</span>,
 		so this tag will appear as <code>DOMAINS:Good,Knowledge,Poetry</code>.
-		If we wish to restrict the selection of the <em><strong>Good</strong></em>
+		If we wish to restrict the selection of the <span class="lstobj">Good</span>
 		domain to only those divine casters who are good, we can break the <code>DOMAINS</code>
 		tag into the following two tags: <code>DOMAINS:Good|PREALIGN:LG,NG,CG</code>
 		&lt;tab&gt; <code>DOMAINS:Knowledge,Poetry</code></p>
@@ -260,10 +252,9 @@
 		tags.</p>
 
 		<p class="indent0">If you examine the stat blocks for our example deities, you
-		will find each lists an alignment: 'Chaotic Good' for <em><strong>MoSaT</strong></em>,
-		and 'Neutral Good' for <em><strong>Thalia</strong></em>.
-		Using the appropriate abbreviations, we get the tag implementations
-		listed below.</p>
+		will find each lists an alignment: 'Chaotic Good' for <span class="lstobj">MoSaT</span>,
+		and 'Neutral Good' for <span class="lstobj">Thalia</span>. Using the appropriate 
+		abbreviations, we get the tag implementations listed below.</p>
 
 		<p class="indent0"><strong>Example:</strong></p>
 
@@ -277,7 +268,7 @@
 
 		<p class="indent0"><strong><code>PREALIGN</code></strong></p>
 
-		<p class="indent0"><strong>Tag Format: </strong><code>PREALIGN:&lt;alignment
+		<p class="indent0"><strong>Tag Format:</strong> <code>PREALIGN:&lt;alignment
 		abbreviation&gt;</code></p>
 
 		<p class="indent0">This tag establishes a restriction, based on the electing
@@ -294,14 +285,14 @@
 		representing the following alignments: Lawful Good, Neutral Good,
 		Chaotic Good, Lawful Neutral, True Neutral, Chaotic Neutral, Lawful
 		Evil, Neutral Evil and Chaotic Evil. These abbreviations are defined in
-		the <em>statsandchecks.lst</em> file in the Game Mode
+		the <span class="lstfile">statsandchecks.lst</span> file in the Game Mode
 		section of the PCGen documentation. There is one additional 'alignment'
 		which can be included. That is <code>deity</code>, which
 		simply refers back to the selected deities own alignment.</p>
 
 		<p class="indent0">If you examine the stat blocks for our example deities, you
-		will find each includes a 'Cleric's Alignment' listed. <em><strong>MoSaT</strong></em>'s
-		clerics must be neutral-good, chaotic-good and chaotic- neutral while <em><strong>Thalia's</strong></em>
+		will find each includes a 'Cleric's Alignment' listed. MoSaT's
+		clerics must be neutral-good, chaotic-good and chaotic- neutral while Thalia's
 		clergy must be lawful-good, neutral-good, true-neutral, or
 		chaotic-good. Using the syntax described above and the appropriate
 		abbreviations, we get the tag implementations listed below.</p>
@@ -321,26 +312,21 @@
 		<p class="indent0"><strong>Tag Format:</strong> <code>DEITYWEAP:&lt;favored
 		weapon&gt;</code></p>
 
-		<p class="indent0">This tag provides the deity's favored weapon. This entry is a
-		pipe (|) delimited list of weapon proficiencies (defined in <em><strong>weaponprof.lst</strong></em>
-		file, or the tag won't really do anything.) This is included with the
-		basic tags because, unlike purely descriptive tags, this information is
-		used in the game mechanics, at least in a minor way. The easiest
-		example is if a character is a cleric for a deity of war, that being a
-		deity that has the <em><strong>War </strong></em>
-		domain as one of his domains, and if that cleric has chosen the <strong><em>War
-		</em></strong> domain as one of his domains, then
-		proficiency with the deity's favored weapon is automatically granted.
-		Note that it is important that any favored weapon for a deity with the <strong><em>War</em></strong>
-		domain must be included in at least one of the loaded datasets. The
-		game mechanic is also there for other bonuses and checks to see that
-		the character has the Deity's favored weapon, but that is more advanced
-		stuff, so we'll leave for a different class.</p>
+		<p class="indent0">This tag provides the deity's favored weapon. This entry is a pipe-delimited 
+		(|) list of weapon proficiencies (defined in <span class="lstfile">weaponprof.lst</span> file, 
+		or the tag won't really do anything.) This is included with the basic tags because, unlike purely 
+		descriptive tags, this information is used in the game mechanics, at least in a minor way. The easiest
+		example is if a character is a cleric for a deity of war, that being a deity that has the 
+		<span class="lstobj">War</span> domain as one of his domains, and if that cleric has chosen the 
+		<span class="lstobj">War</span> domain as one of his domains, then proficiency with the deity's 
+		favored weapon is automatically granted. Note that it is important that any favored weapon for a 
+		deity with the <span class="lstobj">War</span> domain must be included in at least one of the loaded 
+		datasets. The game mechanic is also there for other bonuses and checks to see that the character has 
+		the Deity's favored weapon, but that is more advanced stuff, so we'll leave for a different class.</p>
 
-		<p class="indent0">Examining the stat blocks for our deities, we find <em><strong>MoSaT</strong></em>
-		uses 'Tiger Claws' while <em><strong>Thalia</strong></em>
-		uses the 'Shepherds Crook'. The implementation of this tag for our
-		deities is shown below.</p>
+		<p class="indent0">Examining the stat blocks for our deities, we find <span class="lstobj">MoSaT</span>
+		uses 'Tiger Claws' while <span class="lstobj">Thalia</span> uses the 'Shepherds Crook'. The implementation 
+		of this tag for our deities is shown below.</p>
 
 		<p class="indent0"><strong>Example:</strong></p>
 
@@ -383,9 +369,8 @@
 		practical use, this tag is used to allow deities to be sorted during
 		character generation, in this case, by the pantheon that it belongs to.</p>
 
-		<p class="indent0">The deity stat blocks above list the pantheon for <em><strong>MoSaT</strong></em>
-		as BoD and for <em><strong>Thalia</strong></em>
-		as 'Olympia', leading to the tag implementation listed below.</p>
+		<p class="indent0">The deity stat blocks above list the pantheon for <span class="lstobj">MoSaT</span>
+		as BoD and for <span class="lstobj">Thalia</span> as 'Olympia', leading to the tag implementation listed below.</p>
 
 		<p class="indent0"><strong>Example:</strong></p>
 
@@ -405,8 +390,8 @@
 		<p class="indent0">This tag provides the deity's descriptive title, providing an
 		element of storytelling, or flavor to your game. The argument for the
 		tag is a simple text entry. For our two deities you will find the title
-		listed just beneath the deity's name, thus <strong><em>MoSaT</em></strong>
-		is called 'The CONTENTed One' and <em><strong>Thalia</strong></em>
+		listed just beneath the deity's name, thus <span class="lstobj">MoSaT</span>
+		is called 'The CONTENTed One' and <span class="lstobj">Thalia</span>
 		is called 'The Flourishing One'. You can see the implementation of this
 		tag for each deity below.</p>
 
@@ -524,7 +509,7 @@
 		<p class="indent0">As for this tag itself, it is fairly simple to implement as
 		the argument for the tag is a simple boolean and will take only <code>YES</code>
 		or <code>NO</code> as values. For our sample deities, the
-		first created as an example in the <em><strong>my_deity.lst</strong></em>
+		first created as an example in the <span class="lstfile">my_deity.lst</span>
 		file, and the other created out-of-thin-air for this lst class, the
 		descriptions are not PI; therefore, we would implement this tag as <code>DESCISPI:NO</code>.
 		Or we would if it was really necessary for if the tag is not included
@@ -538,19 +523,15 @@
 		<p class="indent0"><strong>Tag Format:</strong> <code>SOURCEPAGE:&lt;source
 		page text&gt;</code></p>
 
-		<p class="indent0">Simply put, this tag provides the specific page reference
-		within the source from which the deity information was taken. The
-		source page text generally takes the form of <code>&lt;p.#&gt;</code>
-		with the pound sign (#) being replaced by the page number on which the
-		deity information can be found within the source material. For our
-		sample deity <em><strong>MoSat</strong></em>,
-		the source material is PCGen's <em><strong>my_deity.lst</strong></em>
-		file so our<code> SOURCEPAGE</code> tag will take the form
-		of <code>SOURCEPAGE:my_deity.lst</code>. As for <em><strong>Thalia</strong></em>,
-		our invented-from-thin-air deity, there is no source page, but many
-		functions and filters in PCGen use it, so it is good to include it.
-		Therefore, we will include the tag with an <code>n/a</code>
-		for the source page.</p>
+		<p class="indent0">Simply put, this tag provides the specific page reference within the source 
+		from which the deity information was taken. The source page text generally takes the form of 
+		<code>&lt;p.#&gt;</code> with the pound sign (#) being replaced by the page number on which the
+		deity information can be found within the source material. For our sample deity 
+		<span class="lstobj">MoSat</span>, the source material is PCGen's <span class="lstobj">my_deity.lst</span>
+		file so our <code>SOURCEPAGE</code> tag will take the form of <code>SOURCEPAGE:my_deity.lst</code>. 
+		As for <span class="lstobj">Thalia</span>, our invented-from-thin-air deity, there is no source page, 
+		but many functions and filters in PCGen use it, so it is good to include it. Therefore, we will include 
+		the tag with an <code>n/a</code> for the source page.</p>
 
 		<p class="indent0"><strong>Example:</strong></p>
 
