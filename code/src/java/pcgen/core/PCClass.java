@@ -1846,6 +1846,12 @@ public class PCClass extends PObject
 		{
 			pcClass.calculateKnownSpellsForClassLevel(aPC);
 		}
+
+		// check to see if we have dropped a level.
+		if (curLevel > newLevel)
+		{
+			aPC.resetEpicCache();
+		}
 	}
 
 	/*

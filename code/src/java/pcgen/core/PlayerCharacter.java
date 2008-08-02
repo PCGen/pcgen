@@ -354,6 +354,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// private Map<String, List<TypedBonus>> theBonusMap = new HashMap<String,
 	// List<TypedBonus>>();
 
+	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
+	Integer epicBAB = null;
+	HashMap<Integer, Integer> epicCheckMap = new HashMap<Integer, Integer>();
+
 	private IdentityHashMap<PCTemplate, String> chosenFeatStrings = null;
 	private HashMapToList<CDOMObject, PCTemplate> templatesAdded = new HashMapToList<CDOMObject, PCTemplate>();
 
@@ -4662,12 +4666,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int masterTotal = -9999;
 		final PlayerCharacter nPC = getMasterPC();
 
+				
+		// check for Epic
+		/* 
 		final int totalClassLevels = getTotalCharacterLevel();
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
 
 		if (totalClassLevels > SettingsHandler.getGame().getBabMaxLvl())
 		{
+			String epicAttack = epicAttackMap.get(cacheLookup);
 			totalLvlMap = getTotalLevelHashMap();
 			classLvlMap =
 					getCharacterLevelHashMap(SettingsHandler.getGame()
@@ -4677,7 +4685,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getVariableProcessor().pauseCache();
 			setClassLevelsBrazenlyTo(classLvlMap);
 		}
-
+*/
 		if ((nPC != null) && (getCopyMasterBAB().length() > 0))
 		{
 			masterBAB = nPC.baseAttackBonus();
@@ -4744,14 +4752,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				attackCycle = i;
 			}
 		}
-
+/*
 		// restore class levels to original value if altered
 		if (totalLvlMap != null)
 		{
 			setClassLevelsBrazenlyTo(totalLvlMap);
 			getVariableProcessor().restartCache();
 		}
-
+*/
 		// total Number of Attacks for this PC
 		int attackTotal = ab.get(attackCycle).intValue();
 
@@ -5001,8 +5009,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getBaseCheck(final int checkInd)
 	{
 		final String cacheLookup = "getBaseCheck:" + checkInd; //$NON-NLS-1$
-		final Float total =
-				getVariableProcessor().getCachedVariable(cacheLookup);
+		
+		Float total = null;
+		if (epicCheckMap.containsKey(checkInd))
+		{
+			total = epicCheckMap.get(checkInd).floatValue();
+		}
+		else
+		{
+			total = getVariableProcessor().getCachedVariable(cacheLookup);
+		}
 
 		if (total != null)
 		{
@@ -5010,6 +5026,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		double bonus = 0;
+		boolean isEpic = false;
 		final int totalClassLevels;
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
@@ -5021,14 +5038,24 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			totalClassLevels = getTotalCharacterLevel();
 			if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
 			{
-				totalLvlMap = getTotalLevelHashMap();
-				classLvlMap =
-						getCharacterLevelHashMap(SettingsHandler.getGame()
-							.getChecksMaxLvl());
-				getVariableProcessor().pauseCache();
-				setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels
-				// total is below some
-				// value (e.g. 20)
+				isEpic = true;
+				Integer epicCheck = epicCheckMap.get(checkInd);
+				if (epicCheck == null)
+				{
+					totalLvlMap = getTotalLevelHashMap();
+					classLvlMap =
+							getCharacterLevelHashMap(SettingsHandler.getGame()
+								.getChecksMaxLvl());
+					getVariableProcessor().pauseCache();
+					setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels
+					// total is below some
+					// value (e.g. 20)
+				}
+				else
+				{
+					//Logging.errorPrint("getBaseCheck(): '" + cacheLookup + "' = epic='" + epicCheck + "'"); //$NON-NLS-1$
+					return epicCheck;
+				}
 			}
 
 			final String checkName =
@@ -5052,6 +5079,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				// use masters save if better
 				bonus = Math.max(bonus, masterBonus);
+			}
+
+			if (isEpic)
+			{
+				epicCheckMap.put(checkInd, (int) bonus);
 			}
 
 			if (totalLvlMap != null)
@@ -8433,14 +8465,23 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int baseAttackBonus()
 	{
+		// check for cached version
 		final String cacheLookup = "BaseAttackBonus";
-		final Float total =
-				getVariableProcessor().getCachedVariable(cacheLookup);
+		Float total;
+		if (epicBAB != null)
+		{
+			total = epicBAB.floatValue();
+		}
+		else
+		{
+			total = getVariableProcessor().getCachedVariable(cacheLookup);
+		}
 		if (total != null)
 		{
 			return total.intValue();
 		}
 
+		// get Master's BAB
 		final PlayerCharacter nPC = getMasterPC();
 
 		if ((nPC != null) && (getCopyMasterBAB().length() > 0))
@@ -8455,24 +8496,38 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return masterBAB;
 		}
 
+		// Check for Epic
 		final int totalClassLevels = getTotalCharacterLevel();
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
-
+		boolean isEpic = false;
 		if (totalClassLevels > SettingsHandler.getGame().getBabMaxLvl())
 		{
-			totalLvlMap = getTotalLevelHashMap();
-			classLvlMap =
-					getCharacterLevelHashMap(SettingsHandler.getGame()
-						.getBabMaxLvl());
+			isEpic = true;
+			if (epicBAB == null)
+			{
+				totalLvlMap = getTotalLevelHashMap();
+				classLvlMap =
+						getCharacterLevelHashMap(SettingsHandler.getGame()
+							.getBabMaxLvl());
 
-			// insure total class-levels below some value (e.g. 20)
-			getVariableProcessor().pauseCache();
-			setClassLevelsBrazenlyTo(classLvlMap);
+				// ensure total class-levels below some value (e.g. 20)
+				getVariableProcessor().pauseCache();
+				setClassLevelsBrazenlyTo(classLvlMap);
+			}
+			else
+			{
+				//Logging.errorPrint("baseAttackBonus(): '" + cacheLookup + "' = epic:'" + epicBAB + "'"); //$NON-NLS-1$
+				return epicBAB;
+			}
 		}
 
 		final int bab = (int) getTotalBonusTo("COMBAT", "BAB");
 
+		if (isEpic)
+		{
+			epicBAB = bab;
+		}
 		if (totalLvlMap != null)
 		{
 			setClassLevelsBrazenlyTo(totalLvlMap);
@@ -17526,6 +17581,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return false;
 	}
 
+	public void resetEpicCache()
+	{
+		epicBAB = null;
+		epicCheckMap.clear();
+	}
+	
 	// public double getBonusValue(final String aBonusType, final String
 	// aBonusName )
 	// {
