@@ -232,12 +232,6 @@
       <url>http://www.l2fprod.com/</url>
     </dependency>
     <dependency>
-      <groupId>wraplf</groupId>
-      <artifactId>wraplf</artifactId>
-      <version>0.2</version>
-      <url>https://wraplf.dev.java.net/</url>
-    </dependency>
-    <dependency>
       <groupId>fop</groupId>
       <artifactId>fop</artifactId>
       <version>0.20.5</version>
@@ -246,7 +240,7 @@
     <dependency>
       <groupId>jep</groupId>
       <artifactId>jep</artifactId>
-      <version>2.24</version>
+      <version>2.4.1</version>
       <url>http://www.singularsys.com/jep/</url>
     </dependency>
     <dependency>

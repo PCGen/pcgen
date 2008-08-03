@@ -95,14 +95,14 @@ public final class PJEP extends JEP
 		addVariable("FALSE", 0);
 	}
 
-	public void parseExpression(String expression_in)
+	public Node parseExpression(String expression_in)
 	{
 		if (updateVariables())
 		{
 			initSymTab();
 		}
 
-		super.parseExpression(expression_in);
+		return super.parseExpression(expression_in);
 	}
 
 	/**
