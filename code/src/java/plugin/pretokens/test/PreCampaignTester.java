@@ -101,7 +101,7 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 			if (campaign.isLoaded()
 				&& bookType.equalsIgnoreCase(campaign.getBookType()))
 			{
-				Logging.errorPrint("Adding campaign " + campaign.isLoaded() + " type:" + campaign.getBookType());
+				Logging.debugPrint("Adding campaign " + campaign.isLoaded() + " type:" + campaign.getBookType());
 				matchingCampaigns.add(campaign);
 			}
 		}
