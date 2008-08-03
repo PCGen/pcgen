@@ -319,6 +319,20 @@ public class MainSource extends FilterAdapterPanel
 	public void refreshCampaigns()
 	{
 		PersistenceManager.getInstance().refreshCampaigns();
+		
+		// After the refresh the selected campaigns list needs to be updated with the new campaigns
+		List<Campaign> refreshedCamps = new ArrayList<Campaign>();
+		for (Campaign oldCamp : selectedCampaigns)
+		{
+			Campaign newCamp = Globals.getCampaignKeyed(oldCamp.getKeyName());
+			if (newCamp != null)
+			{
+				refreshedCamps.add(newCamp);
+			}
+		}
+		selectedCampaigns.clear();
+		selectedCampaigns.addAll(refreshedCamps);
+		
 		updateModels();
 	}
 

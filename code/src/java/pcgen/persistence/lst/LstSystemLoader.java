@@ -630,6 +630,18 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			.getAbsolutePath());
 		loadPCCFilesInDirectory(SettingsHandler.getPcgenVendorDataDir()
 			.getAbsolutePath());
+
+		// Now that those are loaded, make sure to initialize the recursive campaigns
+		try
+		{
+			campaignLoader.initRecursivePccFiles();
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging.errorPrint("Failed to refresh campaigns", e);
+		}
+
+		Globals.sortPObjectListByName(Globals.getCampaignList());
 	}
 
 	/**
