@@ -2468,7 +2468,7 @@ public final class EditorMainForm extends JDialog
 	private static void moveGrantedTemplatesFromAvailableToSelected(PObject cdo, List<String> selectedList,
 		List<String> selectedList2, List<String> availableList)
 	{
-		for (CDOMReference<PCTemplate> ref : cdo.getListFor(ListKey.TEMPLATE))
+		for (CDOMReference<PCTemplate> ref : cdo.getSafeListFor(ListKey.TEMPLATE))
 		{
 			for (PCTemplate pct : ref.getContainedObjects())
 			{
@@ -2478,7 +2478,7 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
-		for (CDOMReference<PCTemplate> ref : cdo.getListFor(ListKey.TEMPLATE_CHOOSE))
+		for (CDOMReference<PCTemplate> ref : cdo.getSafeListFor(ListKey.TEMPLATE_CHOOSE))
 		{
 			for (PCTemplate pct : ref.getContainedObjects())
 			{

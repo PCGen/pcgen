@@ -73,8 +73,6 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.editor.EditorConstants;
 import pcgen.gui.editor.EditorMainForm;
 import pcgen.gui.utils.IconUtilitities;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -247,18 +245,8 @@ public final class LstEditorMain extends JFrame
 		else if (originalItem instanceof PCClass)
 		{
 			PCClass copyClass = (PCClass) copyItem;
-			PCClassLstToken token =
-					(PCClassLstToken) TokenStore.inst().getTokenMap(
-						PCClassLstToken.class).get("SPELLLIST");
-			if (token == null)
-			{
-				//TODO This is due to the change to CDOMPrimaryToken<PCClass> - need to know how these are stored and referenced
-				Logging.errorPrint("Failed to find SPELLLIST token class in map!");
-			}
-			else
-			{
-				token.parse(copyClass, "1|" + originalItem.getKeyName(), -9);
-			}
+			Globals.getContext().unconditionallyProcess(copyClass, "SPELLLIST",
+					"1|" + originalItem.getKeyName());
 		}
 	}
 

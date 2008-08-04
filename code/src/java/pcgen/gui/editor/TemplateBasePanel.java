@@ -309,6 +309,10 @@ public class TemplateBasePanel extends BasePanel
 	public void setTemplateSize(final Formula aString)
 	{
 		cmbSize.setSelectedIndex(0);
+		if (aString == null)
+		{
+			return;
+		}
 
 		for (int index = 0; index < sizeAbbrev.length; index++)
 		{
@@ -505,7 +509,7 @@ public class TemplateBasePanel extends BasePanel
 		setSubRegion(thisPCTemplate.getSubRegion());
 		setSubRace(thisPCTemplate.getSubRace());
 		setBonusSkillPoints(thisPCTemplate.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS));
-		setNonProficiencyPenalty(thisPCTemplate.get(IntegerKey.NONPP));
+		setNonProficiencyPenalty(thisPCTemplate.getSafe(IntegerKey.NONPP));
 		setCR(thisPCTemplate.getCR(-1, -1));
 		setLevelAdjustment(thisPCTemplate.get(FormulaKey.LEVEL_ADJUSTMENT));
 		setTemplateSize(thisPCTemplate.get(FormulaKey.SIZE));
