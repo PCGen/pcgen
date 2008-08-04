@@ -1,0 +1,6 @@
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+### WEapons, Melee
+# Equipment Name				Output Name					Required Proficiency				Type																	Cost		Weight	Slot Needed	Crit Mult		Crit Range		Damage			Modifier		Wield Category	Range	Size		Source Page				Virtual Feat	Ability			Innate Spells			Save checks bonus			Modify VAR			Weapon prop. bonus																	Quality and value															Special Property
+Runechill Hatchet											PROFICIENCY:WEAPON|Handaxe			TYPE:Enhancement.Weapon.Melee.Finesseable.Martial.Specific.Slashing.Axe	COST:5312	WT:6				CRITMULT:x3		CRITRANGE:1		DAMAGE:1d6		EQMOD:STEEL		WIELD:OneHanded			SIZE:L		SOURCEPAGE:Pg.46																												BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement

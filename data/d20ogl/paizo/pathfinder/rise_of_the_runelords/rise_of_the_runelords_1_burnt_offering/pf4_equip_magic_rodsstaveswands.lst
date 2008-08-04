@@ -1,0 +1,12 @@
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+### Rods
+# Equipment Name		Type						Cost		Weight	Source Page			Special Ability		Save checks bonus
+
+### Staves
+# Equipment Name			Output Name						Type				Cost		Weight	Base Item for EQMOD		Modifier							Source Page				Save checks bonus						Combat bonus			Weapon prop. bonus
+Staff (Heaven and Earth)	OUTPUTNAME:Staff of [NAME]		TYPE:Magic.Staff	COST:53000	WT:5	BASEITEM:Staff			EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:Pg.23
+
+### Wands
+# Equipment Name		Type						Cost		Weight	Source Page			Special Ability		Save checks bonus
