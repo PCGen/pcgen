@@ -33,6 +33,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -56,8 +57,6 @@ import pcgen.util.chooser.ChooserInterface;
 public final class EquipmentModifier extends PObject implements Comparable<Object>
 {
 	private static final String s_CHARGES           = "CHARGES";
-	private String              cost                = "0";
-	private String              preCost             = "0";
 
 	/**
 	 * returns all BonusObj's that are "active", for example, ones that pass all
@@ -181,26 +180,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * set the cost of this object
-	 *
-	 * @param  aString  representing the cost
-	 */
-	public void setCost(final String aString)
-	{
-		cost = aString;
-	}
-
-	/**
-	 * get the cost of this object
-	 *
-	 * @return  the cost.
-	 */
-	public String getCost()
-	{
-		return cost;
-	}
-
-	/**
 	 * Does this Equipment Modifier add aType to the equipment it is applied
 	 * to? If aType begins with an &#34; (Exclamation Mark) the &#34; will
 	 * be removed before checking the type.
@@ -218,25 +197,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * Set pre cost
-	 *
-	 * @param aString
-	 */
-	public void setPreCost(final String aString)
-	{
-		preCost = aString;
-	}
-
-	/**
-	 * Get pre cost
-	 * @return pre cost
-	 */
-	public String getPreCost()
-	{
-		return preCost;
 	}
 
 	/**
@@ -800,13 +760,12 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	protected String getCost(final int eqIdx)
 	{
 		final String listEntry   = getAssociated(eqIdx);
-		String       costFormula = cost;
-		String costFormula1 = costFormula;
+		String       costFormula = getSafe(FormulaKey.COST).toString();
 		String modChoice = "";
 		
-		while (costFormula1.indexOf("%SPELLLEVEL") >= 0)
+		while (costFormula.indexOf("%SPELLLEVEL") >= 0)
 		{
-			final int idx = costFormula1.indexOf("%SPELLLEVEL");
+			final int idx = costFormula.indexOf("%SPELLLEVEL");
 		
 			if (modChoice.length() == 0)
 			{
@@ -822,11 +781,10 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				}
 			}
 		
-			costFormula1 = costFormula1.substring(0, idx) + modChoice +
-				costFormula1.substring(idx + 11);
+			costFormula = costFormula.substring(0, idx) + modChoice
+					+ costFormula.substring(idx + 11);
 		}
 
-		costFormula = costFormula1;
 		costFormula = replaceCostSpellCost(costFormula, listEntry);
 		costFormula = replaceCostSpellXPCost(costFormula, listEntry);
 		costFormula = replaceCostCasterLevel(costFormula, listEntry);

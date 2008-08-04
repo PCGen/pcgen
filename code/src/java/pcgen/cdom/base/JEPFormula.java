@@ -18,6 +18,7 @@
 package pcgen.cdom.base;
 
 import pcgen.base.formula.Formula;
+import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -93,5 +94,11 @@ public class JEPFormula implements Formula
 	public boolean isStatic()
 	{
 		return false;
+	}
+
+	public Number resolve(Equipment equipment, boolean primary,
+			PlayerCharacter apc, String string)
+	{
+		return equipment.getVariableValue(formula, "", primary, apc);
 	}
 }

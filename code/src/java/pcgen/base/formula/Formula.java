@@ -17,6 +17,7 @@
  */
 package pcgen.base.formula;
 
+import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -27,6 +28,10 @@ import pcgen.core.PlayerCharacter;
 public interface Formula
 {
 
+	public static final Integer INT_ONE = Integer.valueOf(1);
+
+	public static final Integer INT_ZERO = Integer.valueOf(0);
+
 	/**
 	 * A Formula for the integer constant ZERO. This is done in order to
 	 * minimize memory usage in the many cases where a default Formula of ZERO
@@ -36,31 +41,45 @@ public interface Formula
 	{
 		public Integer resolve(PlayerCharacter pc, String source)
 		{
-			return Integer.valueOf(0);
+			return INT_ZERO;
+		}
+
+		public Integer resolve(Equipment equipment, boolean primary,
+				PlayerCharacter apc, String string)
+		{
+			return INT_ZERO;
 		}
 
 		public boolean isStatic()
 		{
 			return true;
 		}
+
 	};
 
 	/**
-	 * A Formula for the integer constant ONE. This is done in order to
-	 * minimize memory usage in the many cases where a default Formula of ONE
-	 * is required.
+	 * A Formula for the integer constant ONE. This is done in order to minimize
+	 * memory usage in the many cases where a default Formula of ONE is
+	 * required.
 	 */
 	public final Formula ONE = new Formula()
 	{
 		public Integer resolve(PlayerCharacter pc, String source)
 		{
-			return Integer.valueOf(1);
+			return INT_ONE;
+		}
+
+		public Integer resolve(Equipment equipment, boolean primary,
+				PlayerCharacter apc, String string)
+		{
+			return INT_ONE;
 		}
 
 		public boolean isStatic()
 		{
 			return true;
 		}
+
 	};
 
 	/*
@@ -72,4 +91,6 @@ public interface Formula
 	public Number resolve(PlayerCharacter pc, String source);
 
 	public boolean isStatic();
+
+	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter apc, String string);
 }

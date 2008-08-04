@@ -41,9 +41,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EqModFormatCat;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -706,8 +708,9 @@ public final class Equipment extends PObject implements Serializable,
 				iCount = 1;
 			}
 
-			final BigDecimal eqModCost = new BigDecimal(getVariableValue(
-					eqMod.getPreCost(), "", true, aPC).toString());
+			Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
+			Number bc = baseCost.resolve(this, true, aPC, "");
+			final BigDecimal eqModCost = new BigDecimal(bc.toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
 					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
 			c = c.add(eqMod.addItemCosts(aPC, "ITEMCOST",
@@ -721,8 +724,9 @@ public final class Equipment extends PObject implements Serializable,
 				iCount = 1;
 			}
 
-			final BigDecimal eqModCost = new BigDecimal(getVariableValue(
-					eqMod.getPreCost(), "", false, aPC).toString());
+			Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
+			Number bc = baseCost.resolve(this, false, aPC, "");
+			final BigDecimal eqModCost = new BigDecimal(bc.toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
 					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
 			c = c.add(eqMod.addItemCosts(aPC, "ITEMCOST", iCount, this));
@@ -770,7 +774,8 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			BigDecimal eqModCost;
-			String costFormula = eqMod.getCost();
+			Formula cost = eqMod.getSafe(FormulaKey.COST);
+			String costFormula = cost.toString();
 			Pattern pat = Pattern.compile("BASECOST");
 			Matcher mat;
 
@@ -798,7 +803,7 @@ public final class Equipment extends PObject implements Serializable,
 
 				iCount = 1;
 			} else {
-				mat = pat.matcher(eqMod.getCost());
+				mat = pat.matcher(cost.toString());
 				costFormula = mat.replaceAll("(BASECOST/" + getSafe(IntegerKey.BASE_QUANTITY) + ")");
 
 				eqModCost = new BigDecimal(getVariableValue(costFormula, "",
@@ -833,9 +838,9 @@ public final class Equipment extends PObject implements Serializable,
 				iCount = 1;
 			}
 
-			final String costFormula = eqMod.getCost();
-			final BigDecimal eqModCost = new BigDecimal(getVariableValue(
-					costFormula, "", false, aPC).toString());
+			Formula cost = eqMod.getSafe(FormulaKey.BASECOST);
+			Number bc = cost.resolve(this, false, aPC, "");
+			final BigDecimal eqModCost = new BigDecimal(bc.toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
 					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
 			altPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);

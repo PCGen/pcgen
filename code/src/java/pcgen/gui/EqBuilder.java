@@ -65,7 +65,9 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumn;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -2137,28 +2139,28 @@ final class EqBuilder extends JPanel
 				eCost.append("Plus:").append(iPlus);
 			}
 
-			String sCost = e.getPreCost();
+			Formula baseCost = e.getSafe(FormulaKey.BASECOST);
 
-			if (!"0".equals(sCost))
+			if (!"0".equals(baseCost.toString()))
 			{
 				if (eCost.length() != 0)
 				{
 					eCost.append(", ");
 				}
 
-				eCost.append("Precost:").append(sCost);
+				eCost.append("Precost:").append(baseCost);
 			}
 
-			sCost = e.getCost();
+			Formula cost = e.getSafe(FormulaKey.BASECOST);
 
-			if (!"0".equals(sCost))
+			if (!"0".equals(cost.toString()))
 			{
 				if (eCost.length() != 0)
 				{
 					eCost.append(", ");
 				}
 
-				eCost.append("Cost:").append(sCost);
+				eCost.append("Cost:").append(cost);
 			}
 
 			sRet = eCost.toString();

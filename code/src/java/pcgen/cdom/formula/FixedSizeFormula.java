@@ -19,6 +19,7 @@ package pcgen.cdom.formula;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
@@ -101,6 +102,12 @@ public class FixedSizeFormula implements Formula
 	 *         represents.
 	 */
 	public Integer resolve(PlayerCharacter pc, String source)
+	{
+		return Globals.sizeInt(size.getAbbreviation());
+	}
+
+	public Number resolve(Equipment equipment, boolean primary,
+			PlayerCharacter apc, String string)
 	{
 		return Globals.sizeInt(size.getAbbreviation());
 	}

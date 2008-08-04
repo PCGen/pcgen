@@ -18,6 +18,7 @@
 package pcgen.cdom.base;
 
 import pcgen.base.formula.Formula;
+import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -134,6 +135,12 @@ public final class FormulaFactory
 			return i;
 		}
 
+		public Integer resolve(Equipment equipment, boolean primary,
+				PlayerCharacter apc, String string)
+		{
+			return i;
+		}
+
 		/**
 		 * Returns a String representation of this IntegerFormula.
 		 */
@@ -210,6 +217,12 @@ public final class FormulaFactory
 		 * @return the Double in this DoubleFormula.
 		 */
 		public Double resolve(PlayerCharacter pc, String source)
+		{
+			return i;
+		}
+
+		public Double resolve(Equipment equipment, boolean primary,
+				PlayerCharacter apc, String string)
 		{
 			return i;
 		}
