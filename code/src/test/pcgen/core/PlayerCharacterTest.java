@@ -39,11 +39,14 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.bonus.Bonus;
@@ -249,11 +252,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
-		giantRace.addVariable(-9, "GiantVar1", "0");
+		giantRace.put(VariableKey.getConstant("GiantVar1"), Formula.ZERO);
 		final BonusObj raceBonus = Bonus.newBonus("1|VAR|GiantVar1|7+HD");
 		giantClass.addBonusList(raceBonus);
 
-		giantClass.addVariable(1, "GiantClass1", "0");
+		giantClass.getClassLevel(1).put(VariableKey.getConstant("GiantClass1"),
+				Formula.ZERO);
 		final BonusObj babClassBonus =
 				Bonus.newBonus("1|VAR|GiantClass1|CL=Giant");
 		giantClass.addBonusList(babClassBonus);
@@ -732,7 +736,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testIsNonAbility()
 	{
 		PlayerCharacter pc = getCharacter();
-		int index = pc.getStatList().getIndexOfStatFor("STR");
+		StatList statList = pc.getStatList();
+		int index = statList.getIndexOfStatFor("STR");
+		PCStat str = statList.getStatAt(index);
 
 		//Base
 		assertEquals("Initially character should not have a locked ability", false, pc.isNonAbility(index));
@@ -740,7 +746,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// With template lock
 		PCTemplate nonAbilityLocker = new PCTemplate();
 		nonAbilityLocker.setName("locker");
-		nonAbilityLocker.addVariable(-9, "LOCK.STR", "10");
+		nonAbilityLocker.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(10)));
 		pc.addTemplate(nonAbilityLocker);
 		assertEquals("STR now locked to non ability", true, pc.isNonAbility(index));
 		pc.removeTemplate(nonAbilityLocker);
@@ -749,19 +755,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// With race lock
 		Race nonAbilityLockerRace = new Race();
 		nonAbilityLockerRace.setName("locker");
-		nonAbilityLockerRace.addVariable(-9, "LOCK.STR", "10");
+		nonAbilityLockerRace.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(10)));
 		pc.setRace(nonAbilityLockerRace);
 		assertEquals("STR now locked to non ability", true, pc.isNonAbility(index));
 		
 		// With template unlock
-		nonAbilityLocker.addVariable(-9, "UNLOCK.STR", "");
+		nonAbilityLocker.addToListFor(ListKey.UNLOCKED_STATS, str);
 		pc.addTemplate(nonAbilityLocker);
 		assertEquals("STR now unlocked from a non ability by template", false, pc.isNonAbility(index));
 		pc.removeTemplate(nonAbilityLocker);
 		assertEquals("STR no longer locked to non ability", true, pc.isNonAbility(index));
 		
 		// With race unlock
-		nonAbilityLockerRace.addVariable(-9, "UNLOCK.STR", "");
+		nonAbilityLockerRace.addToListFor(ListKey.UNLOCKED_STATS, str);
 		pc.setRace(nonAbilityLockerRace);
 		assertEquals("STR now unlocked from a non ability by race", false, pc.isNonAbility(index));
 	}

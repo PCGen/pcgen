@@ -8,6 +8,8 @@ package pcgen;
 
 import gmgen.pluginmgr.PluginLoader;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -185,8 +187,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			final PCStat stat = pc.getStatList().getStatAt(index);
 			stat.setBaseScore(value);
 			stat.setStatMod("floor(SCORE/2)-5");
-			stat.addVariable(-9, "MAXLEVELSTAT=" + statName, statName
-				+ "SCORE-10");
+			stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + statName),
+					FormulaFactory.getFormulaFor(statName + "SCORE-10"));
 		}
 	}
 }

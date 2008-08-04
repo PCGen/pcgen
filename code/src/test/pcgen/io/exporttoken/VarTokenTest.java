@@ -26,6 +26,8 @@ package pcgen.io.exporttoken;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
@@ -61,10 +63,10 @@ public class VarTokenTest extends AbstractCharacterTestCase
 
 		final PCClass varClass = new PCClass();
 		varClass.setName("varClass");
-		varClass.addVariable(1, "Pos", "100.35");
-		varClass.addVariable(1, "Neg", "-555.55");
-		varClass.addVariable(1, "PosInt", "105");
-		varClass.addVariable(1, "NegInt", "-560");
+		varClass.put(VariableKey.getConstant("Pos"), FormulaFactory.getFormulaFor(100.35));
+		varClass.put(VariableKey.getConstant("Neg"), FormulaFactory.getFormulaFor(-555.55));
+		varClass.put(VariableKey.getConstant("PosInt"), FormulaFactory.getFormulaFor(105));
+		varClass.put(VariableKey.getConstant("NegInt"), FormulaFactory.getFormulaFor(-560));
 
 		// Set a couple of vars one positive and one negative
 		character.incrementClassLevel(1, varClass);

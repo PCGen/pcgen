@@ -35,6 +35,8 @@ import org.nfunk.jep.SymbolTable;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
@@ -301,7 +303,8 @@ public class PJepTest extends AbstractCharacterTestCase
 			.doubleValue(), 0.1);
 
 		Race giantRace = TestHelper.makeRace("Ogre");
-		giantRace.addVariable(-9, "UseAlternateDamage", "2");
+		giantRace.put(VariableKey.getConstant("UseAlternateDamage"),
+				FormulaFactory.getFormulaFor(2));
 		character.setRace(giantRace);
 
 		val = character.getVariableValue("var(\"UseAlternateDamage\")", "");

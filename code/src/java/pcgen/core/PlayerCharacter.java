@@ -77,6 +77,8 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
@@ -239,7 +241,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 	private String tabName = Constants.EMPTY_STRING;
 	private String gender = Globals.getAllGenders().get(0);
-	private HashSet<String> variableSet = new HashSet<String>();
+	private TreeSet<String> variableSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 
 	// Weapon, Armor and Shield proficiencies
 	// private final TreeSet<WeaponProf> weaponProfList = new
@@ -3689,8 +3691,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String varInList =
 					checkForVariableInList(obj, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, decrement);
+						found, value, decrement);
 
 			if (varInList.length() > 0)
 			{
@@ -3706,8 +3707,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String varInList =
 					checkForVariableInList(obj, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, 0);
+						found, value, 0);
 
 			if (varInList.length() > 0)
 			{
@@ -3722,8 +3722,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String eS =
 					checkForVariableInList(obj, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, 0);
+						found, value, 0);
 
 			if (eS.length() > 0)
 			{
@@ -3737,8 +3736,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				final String varInList =
 						checkForVariableInList(em, variableString, isMax,
-							Constants.EMPTY_STRING, Constants.EMPTY_STRING,
-							found, value, decrement);
+							found, value,
+							decrement);
 
 				if (varInList.length() > 0)
 				{
@@ -3753,8 +3752,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				final String varInList =
 						checkForVariableInList(em, variableString, isMax,
-							Constants.EMPTY_STRING, Constants.EMPTY_STRING,
-							found, value, decrement);
+							found, value,
+							decrement);
 
 				if (varInList.length() > 0)
 				{
@@ -3770,8 +3769,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, decrement);
+						found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3786,8 +3784,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, decrement);
+						found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3802,8 +3799,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(race, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, decrement);
+						found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3818,8 +3814,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(deity, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, decrement);
+						found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3839,8 +3834,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			final String aString =
 					checkForVariableInList(obj.getDomain(), variableString,
-						isMax, Constants.EMPTY_STRING, Constants.EMPTY_STRING,
-						found, value, decrement);
+						isMax, found, value,
+						decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3875,8 +3870,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, decrement);
+						found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3892,8 +3886,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						Constants.EMPTY_STRING, Constants.EMPTY_STRING, found,
-						value, decrement);
+						found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -4349,17 +4342,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		// Building the PObject list relies on variables for evaluating prereqs,
 		// so we have to grab it before clearing out the variables.
-		List<? extends PObject> pObjList = getPObjectList();
+		List<? extends CDOMObject> pObjList = getCDOMObjectList();
 		variableSet.clear();
 
 		// Go through all objects that could add a VAR
 		// and build the HashSet
 		// Try all possible POBjects
-		for (PObject aPObj : pObjList)
+		for (CDOMObject aPObj : pObjList)
 		{
-			if (aPObj != null)
+			for (VariableKey vk : aPObj.getVariableKeys())
 			{
-				variableSet.addAll(aPObj.getVariableNamesAsUnmodifiableSet());
+				variableSet.add(vk.toString());
 			}
 		}
 
@@ -13643,48 +13636,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private String checkForVariableInList(final PObject obj,
 		final String variableString, final boolean isMax,
-		final String matchSrc, final String matchSubSrc, boolean found,
-		double value, int decrement)
+		boolean found, double value, int decrement)
 	{
 		boolean flag = false;
 
-		for (int i = 0, x = obj.getVariableCount(); i < x; ++i)
+		String src = obj.getSpellKey();
+		
+		for (VariableKey vk : obj.getVariableKeys())
 		{
-			final String vString = obj.getVariableDefinition(i);
-			final StringTokenizer aTok = new StringTokenizer(vString, "|");
-			final String src = aTok.nextToken();
-
-			if ((matchSrc.length() > 0) && !src.equals(matchSrc))
-			{
-				continue;
-			}
-
-			if ((matchSubSrc.length() > 0) || (matchSrc.length() > 0))
-			{
-				final String subSrc = aTok.nextToken();
-
-				if ((matchSubSrc.length() > 0) && !subSrc.equals(matchSubSrc))
-				{
-					continue;
-				}
-			}
-
-			if (!aTok.hasMoreTokens())
-			{
-				continue;
-			}
-
-			final String nString = aTok.nextToken();
-
-			if (!aTok.hasMoreTokens())
-			{
-				continue;
-			}
+			String nString = vk.toString();
 
 			if (nString.equalsIgnoreCase(variableString))
 			{
-				final String sString = aTok.nextToken();
-				final Float newValue = getVariableValue(sString, src);
+				Float newValue = getVariableValue(obj.get(vk).toString(), src);
 
 				if (!found)
 				{
@@ -13706,7 +13670,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (flag)
 		{
-			return value + Constants.EMPTY_STRING;
+			return Double.toString(value);
 		}
 		return Constants.EMPTY_STRING; // signifies that the variable was found
 		// in this list
@@ -17988,5 +17952,35 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		assocSupt.removeAssociation(obj, o);
 	}
 
-	
+	public boolean hasUnlockedStat(PCStat stat)
+	{
+		for (CDOMObject cdo : getCDOMObjectList())
+		{
+			if (cdo.containsInList(ListKey.UNLOCKED_STATS, stat))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Number getLockedStat(PCStat stat)
+	{
+		for (CDOMObject cdo : getCDOMObjectList())
+		{
+			List<StatLock> lockList = cdo.getListFor(ListKey.STAT_LOCKS);
+			if (lockList != null)
+			{
+				for (StatLock lock : lockList)
+				{
+					if (lock.getLockedStat().equals(stat))
+					{
+						return lock.getLockValue().resolve(this, cdo.getKeyName());
+					}
+				}
+			}
+		}
+		return null;
+	}
+
 }

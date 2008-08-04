@@ -28,6 +28,8 @@ package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -118,7 +120,8 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testSimpleVariableReplacement()
 	{
 		final Race dummy = new Race();
-		dummy.addVariable(-9, "TestVar", "2");
+		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
+				.getFormulaFor(2));
 
 		final Description desc = new Description("%1");
 		desc.addVariable("TestVar");
@@ -190,7 +193,8 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testComplexVariableReplacement()
 	{
 		final Race dummy = new Race();
-		dummy.addVariable(-9, "TestVar", "2");
+		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
+				.getFormulaFor(2));
 		dummy.addAssociated("Associated 1");
 		dummy.addAssociated("Associated 2");
 

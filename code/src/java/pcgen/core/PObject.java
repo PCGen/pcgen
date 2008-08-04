@@ -48,10 +48,12 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -61,7 +63,6 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.EmptyIterator;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.core.utils.MapKey;
 import pcgen.core.utils.MapKeyMapToList;
@@ -122,8 +123,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private SpellSupport spellSupport = new SpellSupport();
 	
-	private VariableList variableList = null;
-
 	private boolean isNewItem = true;
 
 	private List<DamageReduction> drList = new ArrayList<DamageReduction>();
@@ -608,34 +607,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Get the count of variables on this object
-	 * @return the count of variables on this object
-	 */
-	public final int getVariableCount()
-	{
-		if (variableList == null)
-		{
-			return 0;
-		}
-
-		return variableList.size();
-	}
-
-	/**
-	 * Get an unmodifiable set of variable names for this object
-	 * @return an unmodifiable set of variable names for this object
-	 */
-	public final Set<String> getVariableNamesAsUnmodifiableSet()
-	{
-		if (variableList == null)
-		{
-			variableList = new VariableList();
-		}
-
-		return variableList.getVariableNamesAsUnmodifiableSet();
-	}
-
-	/**
 	 * Get the list of virtual feats for this object
 	 * @return the list of virtual feats for this object
 	 */
@@ -848,52 +819,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add a variable to the variable list
-	 * @param level
-	 * @param variableName
-	 * @param defaultFormula
-	 */
-	public final void addVariable(final int level, final String variableName, final String defaultFormula)
-	{
-		if (variableList == null)
-		{
-			variableList = new VariableList();
-		}
-
-		variableList.add(level, variableName, defaultFormula);
-	}
-	/**
-	 * Add a variable to the variable list
-	 * @param level
-	 * @param variableName
-	 * @param defaultFormula
-	 */
-	public final void removelevelVariable(final int level)
-	{
-		VariableList tempVariableList = new VariableList();
-		if (variableList == null)
-		{
-			variableList = new VariableList();
-			return;
-		}
-		
-		Iterator<Variable> vInt = variableList.iterator();
-		while (vInt.hasNext())
-		{
-			Variable var = vInt.next();
-			if ((var.getLevel() != level))
-			{
-				tempVariableList.add(var.getLevel(), var.getName(),var.getValue() );
-			}
-		}
-		variableList = tempVariableList;
-		
-		
-	
-	}
-	
-	
-	/**
 	 * Add a virtual feat to the character list
 	 * @param aFeat
 	 */
@@ -916,17 +841,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 	}
 	
-	/**
-	 * Clear the variable list
-	 */
-	public final void clearVariableList()
-	{
-		if (variableList != null)
-		{
-			variableList.clear();
-		}
-	}
-
 	/**
 	 * Get a list of WeaponProf|ProfType strings from changeProfMap
 	 * @param character
@@ -1096,11 +1010,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				retVal.drList.add(orig.clone());
 
 			}
-		}
-
-		if (variableList != null)
-		{
-			retVal.variableList = (VariableList) variableList.clone();
 		}
 
 		if (bonusMap != null)
@@ -1689,50 +1598,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				addMyType(aType);
 			}
 		}
-	}
-
-	/**
-	 * Get the variable by index
-	 * @param i
-	 * @return the variable by index
-	 */
-	public final Variable getVariable(final int i)
-	{
-		if (variableList != null)
-		{
-			return variableList.getVariable(i);
-		}
-		return null;
-	}
-
-	/**
-	 * This gets the entire definition for a variable, | values and all
-	 * <p/>
-	 * not-yet-deprecated This should be replaced by getVariable
-	 * @param i
-	 * @return variable definition
-	 */
-	public final String getVariableDefinition(final int i)
-	{
-		if (variableList != null)
-		{
-			return variableList.getDefinition(i);
-		}
-		return null;
-	}
-
-	/**
-	 * This gets an unmodifiable representation of a variable
-	 * @return Iterator
-	 */
-	public final Iterator<Variable> getVariableIterator()
-	{
-		if (variableList == null)
-		{
-			return EmptyIterator.emptyIterator();
-		}
-
-		return variableList.iterator();
 	}
 
 	/**
@@ -2393,29 +2258,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return 0;
 	}
 
-	protected final void setVariable(final int idx, final int level, final String variableName, final String defaultFormula)
-	{
-		if (variableList == null)
-		{
-			variableList = new VariableList();
-		}
-
-		variableList.set(idx, level, variableName, defaultFormula);
-	}
-
-	protected final void addAllVariablesFrom(final PObject other)
-	{
-		if (other.getVariableCount() > 0)
-		{
-			if (variableList == null)
-			{
-				variableList = new VariableList();
-			}
-
-			variableList.addAll(other.variableList);
-		}
-	}
-
 	/**
 	 * Get the PCC text with the saved name
 	 * @return the PCC text with the saved name
@@ -2499,23 +2341,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if ((aString != null) && (aString.length() != 0))
 		{
 			txt.append("\tCHOOSE:").append(aString);
-		}
-
-		int iCount = getVariableCount();
-
-		if (!(this instanceof PCClass) && (iCount != 0))
-		{
-			for (int i = 0; i < iCount; ++i)
-			{
-				aString = getVariableDefinition(i);
-
-				if (aString.startsWith("-9|"))
-				{
-					aString = aString.substring(3);
-				}
-
-				txt.append("\tDEFINE:").append(aString);
-			}
 		}
 
 		for (DamageReduction reduction : getDRList())
@@ -4658,5 +4483,4 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		return c.getDefaultChoice();
 	}
-
 }

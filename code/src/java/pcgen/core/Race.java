@@ -33,6 +33,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.StatLock;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
@@ -165,15 +166,15 @@ public final class Race extends PObject
 			return false;
 		}
 
-		final String aStat = "|LOCK." + statList.get(statIdx).getAbb() + "|10";
-
-		for (int i = 0, x = getVariableCount(); i < x; ++i)
+		PCStat stat = statList.get(statIdx);
+		for (StatLock sl : getSafeListFor(ListKey.STAT_LOCKS))
 		{
-			final String varString = getVariableDefinition(i);
-
-			if (varString.endsWith(aStat))
+			if (sl.getLockedStat().equals(stat))
 			{
-				return true;
+				if (sl.getLockValue().toString().equals("10"))
+				{
+					return true;
+				}
 			}
 		}
 
@@ -200,18 +201,7 @@ public final class Race extends PObject
 			return false;
 		}
 
-		String aStat = "|UNLOCK." + statList.get(statIdx).getAbb() + "|";
-		for (int i = 0, x = getVariableCount(); i < x; ++i)
-		{
-			final String varString = getVariableDefinition(i);
-
-			if (varString.endsWith(aStat))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return containsInList(ListKey.UNLOCKED_STATS, statList.get(statIdx));
 	}
 
 	/**

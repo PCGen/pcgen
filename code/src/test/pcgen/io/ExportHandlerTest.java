@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
@@ -389,7 +390,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		Globals.setCurrentPC(pc);
 
 		// Create a variable
-		dummyFeat.addVariable(-1, "NegLevels", "0");
+		dummyFeat.put(VariableKey.getConstant("NegLevels"), FormulaFactory
+				.getFormulaFor(0));
 
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();

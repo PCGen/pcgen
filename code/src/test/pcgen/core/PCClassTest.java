@@ -37,12 +37,16 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -122,20 +126,32 @@ public class PCClassTest extends AbstractCharacterTestCase
 		myClass.setName("myClass");
 		myClass.setKeyName("KEY_myClass");
 
-		myClass
-			.addVariable(2, "someVar", "(CL=KEY_myClass/2) + CL=KEY_myClass");
+		PCClassLevel cl2 = myClass.getClassLevel(2);
+		cl2.put(VariableKey.getConstant("someVar"), FormulaFactory
+				.getFormulaFor("(CL=KEY_myClass/2) + CL=KEY_myClass"));
 
-		Variable var = myClass.getVariable(0);
-		assertEquals("someVar", var.getName());
-		assertEquals(2, var.getLevel());
-		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", var.getValue());
+		assertEquals(1, cl2.getVariableKeys().size());
+		assertEquals("someVar", cl2.getVariableKeys().iterator().next()
+				.toString());
+		assertNotNull(cl2.get(VariableKey.getConstant("someVar")));
+		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
+				VariableKey.getConstant("someVar")).toString());
 
 		myClass.fireNameChanged("myClass", "someOtherClass");
-		var = myClass.getVariable(0);
-		assertEquals("someVar", var.getName());
-		assertEquals(2, var.getLevel());
-		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", var.getValue());
 
+		assertEquals(1, cl2.getVariableKeys().size());
+		assertEquals("someVar", cl2.getVariableKeys().iterator().next()
+				.toString());
+		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
+				VariableKey.getConstant("someVar")).toString());
+
+		myClass.fireNameChanged("KEY_myClass", "someOtherClass");
+
+		assertEquals(1, cl2.getVariableKeys().size());
+		assertEquals("someVar", cl2.getVariableKeys().iterator().next()
+				.toString());
+		assertEquals("(CL=someOtherClass/2) + CL=someOtherClass", cl2.get(
+				VariableKey.getConstant("someVar")).toString());
 	}
 
 	/**
@@ -233,8 +249,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
 		aNqClass.setKeyName("KEY_NonQualClass");
-		aNqClass.addVariable(0, "Foo", "1");
-		aNqClass.addVariable(2, "Foo", "2");
+		aNqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
+		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
+				FormulaFactory.getFormulaFor(2));
 
 		// Setup character without prereqs
 		final PlayerCharacter character = getCharacter();
@@ -304,8 +321,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
 		aNqClass.setKeyName("KEY_NonQualClass");
-		aNqClass.addVariable(0, "Foo", "1");
-		aNqClass.addVariable(2, "Foo", "2");
+		aNqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
+		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
+				FormulaFactory.getFormulaFor(2));
 
 		// Setup character without prereqs
 		final PlayerCharacter character = getCharacter();
@@ -849,8 +867,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");
 		nqClass.setKeyName("KEY_NonQualClass");
-		nqClass.addVariable(0, "Foo", "1");
-		nqClass.addVariable(2, "Foo", "2");
-
+		nqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
+		nqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
+				FormulaFactory.getFormulaFor(2));
 	}
 }

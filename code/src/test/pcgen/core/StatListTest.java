@@ -26,6 +26,9 @@ package pcgen.core;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.StatLock;
 import pcgen.util.TestHelper;
 
 /**
@@ -51,16 +54,19 @@ public class StatListTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		PlayerCharacter pc = getCharacter();
+		StatList statList = pc.getStatList();
+		int index = statList.getIndexOfStatFor("STR");
+		PCStat str = statList.getStatAt(index);
 		locker = new PCTemplate();
 		locker.setName("locker");
-		locker.addVariable(-9, "LOCK.STR", "12");
+		locker.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
 		unlocker = new PCTemplate();
 		unlocker.setName("unlocker");
-		unlocker.addVariable(-9, "UNLOCK.STR", "");
+		unlocker.addToListFor(ListKey.UNLOCKED_STATS, str);
 		bonus = TestHelper.makeAbility("Bonus", "FEAT", "General.Fighter");
 		bonus.addBonusList("STAT|STR|7|TYPE=Enhancement");
 
-		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, "STR", 6);
 	}
 

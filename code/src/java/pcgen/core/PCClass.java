@@ -41,6 +41,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -54,6 +55,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
@@ -2408,14 +2410,6 @@ public class PCClass extends PObject
 			pccTxt.append("\tBONUS:").append(bonusString);
 		}
 
-		for (int x = 0; x < getVariableCount(); ++x)
-		{
-			final String c = getVariableDefinition(x);
-			final int y = c.indexOf('|');
-			pccTxt.append(lineSep).append(c.substring(0, y))
-				.append("\tDEFINE:").append(c.substring(y + 1));
-		}
-
 		List<LevelAbility> levelAbilityList = getLevelAbilityList();
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
@@ -4071,6 +4065,10 @@ public class PCClass extends PObject
 	void doPlusLevelMods(final int newLevel, final PlayerCharacter aPC,
 		final PCLevelInfo pcLevelInfo)
 	{
+		if (newLevel == 1)
+		{
+			addVariablesForLevel(0, aPC);
+		}
 		addVariablesForLevel(newLevel, aPC);
 
 		// moved after changeSpecials and addVariablesForLevel
@@ -4133,16 +4131,17 @@ public class PCClass extends PObject
 		// Go through the variable list (DEFINE) and adjust the class to the new
 		// name
 		//
-		if (getVariableCount() > 0)
+		for (VariableKey vk : getVariableKeys())
 		{
-			for (int idx = getVariableCount() - 1; idx >= 0; --idx)
+			put(vk, FormulaFactory.getFormulaFor(get(vk).toString().replaceAll(
+					"=" + oldClass, "=" + newClass)));
+		}
+		for (PCClassLevel pcl : getClassLevelCollection())
+		{
+			for (VariableKey vk : pcl.getVariableKeys())
 			{
-				final Variable variable = getVariable(idx);
-				String formula = variable.getValue();
-
-				formula = formula.replaceAll("=" + oldClass, "=" + newClass);
-
-				variable.setValue(formula);
+				pcl.put(vk, FormulaFactory.getFormulaFor(pcl.get(vk).toString()
+						.replaceAll("=" + oldClass, "=" + newClass)));
 			}
 		}
 
@@ -4597,26 +4596,23 @@ public class PCClass extends PObject
 	private void addVariablesForLevel(final int aLevel,
 		final PlayerCharacter aPC)
 	{
-		if (getVariableCount() == 0)
+		StringBuilder prefix = new StringBuilder();
+		prefix.append(classKey).append('|').append(aLevel);
+		CDOMObject cdo;
+		if (aLevel == 0)
 		{
-			return;
+			cdo = this;
 		}
-
-		if (aLevel == 1)
+		else
 		{
-			addVariablesForLevel(0, aPC);
+			cdo = getClassLevel(aLevel);
 		}
-
-		final String prefix = classKey + '|';
-
-		for (Iterator<Variable> i = getVariableIterator(); i.hasNext();)
+		for (VariableKey vk : cdo.getVariableKeys())
 		{
-			final Variable v = i.next();
-
-			if (v.getLevel() == aLevel)
-			{
-				aPC.addVariable(prefix + v.getDefinition());
-			}
+			StringBuilder sb = new StringBuilder();
+			sb.append(prefix).append('|').append(vk.toString()).append('|')
+					.append(cdo.get(vk));
+			aPC.addVariable(sb.toString());
 		}
 	}
 
@@ -5172,9 +5168,9 @@ public class PCClass extends PObject
 			getBonusList().addAll(otherClass.getBonusList());
 		}
 
-		if (otherClass.getVariableCount() > 0)
+		for (VariableKey vk : otherClass.getVariableKeys())
 		{
-			addAllVariablesFrom(otherClass);
+			put(vk, otherClass.get(vk));
 		}
 
 		if (otherClass.getCSkillList() != null)

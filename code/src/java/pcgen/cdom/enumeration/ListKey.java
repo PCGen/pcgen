@@ -33,6 +33,7 @@ import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.Quality;
+import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -44,6 +45,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.Language;
+import pcgen.core.PCStat;
 import pcgen.core.Movement;
 import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
@@ -203,6 +205,8 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
 	public static final ListKey<TransitionChoice<?>> ADD = new ListKey<TransitionChoice<?>>();
+	public static final ListKey<PCStat> UNLOCKED_STATS = new ListKey<PCStat>();
+	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<StatLock>();
 	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<TransitionChoice<Kit>>();
 	public static final ListKey<Movement> MOVEMENT = new ListKey<Movement>();
 

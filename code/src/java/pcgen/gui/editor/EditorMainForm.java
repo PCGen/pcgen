@@ -60,6 +60,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
@@ -87,7 +88,6 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SpellSupport;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
-import pcgen.core.Variable;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
@@ -344,29 +344,17 @@ public final class EditorMainForm extends JDialog
 		return wasCancelled;
 	}
 
-	private static void addVariables(List<String> availableList, Collection objList)
+	private static void addVariables(List<String> availableList, Collection<? extends CDOMObject> objList)
 	{
-		for (Iterator e = objList.iterator(); e.hasNext();)
+		for (CDOMObject obj : objList)
 		{
-			final Object obj = e.next();
-
-			if (obj instanceof PObject)
+			for (VariableKey vk : obj.getVariableKeys())
 			{
-				PObject pobj = (PObject) obj;
-
-				for (Iterator i = pobj.getVariableIterator(); i.hasNext();)
+				String vname = vk.toString();
+				if (!availableList.contains(vname))
 				{
-					Variable var = (Variable) i.next();
-
-					if (!var.getUpperName().startsWith("LOCK.") && !availableList.contains(var.getName()))
-					{
-						availableList.add(var.getName());
-					}
+					availableList.add(vname);
 				}
-			}
-			else
-			{
-				Logging.errorPrint(PropertyFactory.getString("in_demEr1") + ": " + obj.getClass().getName());
 			}
 		}
 	}
@@ -629,7 +617,7 @@ public final class EditorMainForm extends JDialog
 		pnlMainTab.updateData(thisPObject);
 
 		thisPObject.getBonusList().clear();
-		thisPObject.clearVariableList();
+		thisPObject.removeAllVariables();
 //		thisPObject.setDR(".CLEAR");
 		thisPObject.clearDR();
 		thisPObject.clearPrerequisiteList();
@@ -2167,7 +2155,8 @@ public final class EditorMainForm extends JDialog
 				//
 				List<String> availableVariableList = new ArrayList<String>();
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class));
-				addVariables(availableVariableList, Globals.getUnmodifiableAbilityList("FEAT")); //TODO this list is a list of Ability objects, unfortunately in a List<? extends Categorisable>. Don't know how to typesafe this. JK070101 
+				List unmodifiableAbilityList = Globals.getUnmodifiableAbilityList("FEAT");
+				addVariables(availableVariableList, unmodifiableAbilityList);
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Skill.class));
 				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class));
@@ -3133,16 +3122,10 @@ public final class EditorMainForm extends JDialog
 
 		if (anEditType != EditorConstants.EDIT_CLASS)
 		{
-			for (int i = 0, x = thisPObject.getVariableCount(); i < x; ++i)
+			for (VariableKey vk : thisPObject.getVariableKeys())
 			{
-				String aString = thisPObject.getVariableDefinition(i);
-
-				if (aString.startsWith("-9|"))
-				{
-					aString = aString.substring(3);
-				}
-
-				selectedList.add("DEFINE:" + aString);
+				selectedList.add("DEFINE:" + vk.toString() + "|"
+						+ thisPObject.get(vk));
 			}
 		}
 

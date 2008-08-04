@@ -36,11 +36,18 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Ability;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PObject;
-import pcgen.core.Variable;
+import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 public class PObjectLoaderTest extends PCGenTestCase
 {
@@ -66,11 +73,11 @@ public class PObjectLoaderTest extends PCGenTestCase
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
-		PObjectLoader.parseTag(feat, "DEFINE:Foo|0");
+		Globals.getContext().unconditionallyProcess(feat, "DEFINE", "Foo|0");
 
-		Variable var = feat.getVariable(0);
-		assertEquals("Foo", var.getName());
-		assertEquals("0", var.getValue());
+		assertEquals(1, feat.getVariableKeys().size());
+		assertEquals("Foo", feat.getVariableKeys().iterator().next().toString());
+		assertEquals("0", feat.get(VariableKey.getConstant("Foo")).toString());
 	}
 
 	public void testBadDefine() throws Exception
@@ -82,7 +89,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		try
 		{
-			is(PObjectLoader.parseTag(feat, "DEFINE:Foo"), eq(false),
+			is(Globals.getContext().processToken(feat, "DEFINE", "Foo"), eq(false),
 				"Parse fails for badly formed define");
 		}
 		catch (PersistenceLayerException ple)
@@ -93,16 +100,30 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 	public void testUnlockDefine() throws Exception
 	{
+		LoadContext context = Globals.getContext();
+		
+		PCStat con = new PCStat();
+		con.setName("Constitution");
+		con.setAbb("CON");
+		context.ref.registerAbbreviation(con, con.getAbb());
+
+		PCStat intel = new PCStat();
+		intel.setName("Intelligence");
+		intel.setAbb("INT");
+		context.ref.registerAbbreviation(intel, intel.getAbb());
+		
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
-		is(PObjectLoader.parseTag(feat, "DEFINE:UNLOCK.INT"), eq(true),
+		is(context.processToken(feat, "DEFINE", "UNLOCK.INT"), eq(true),
 			"Parse fails for unlock");
+		context.commit();
+		Logging.clearParseMessages();
 
-		Variable var = feat.getVariable(0);
-		assertEquals("UNLOCK.INT", var.getName());
-		assertEquals("", var.getValue());
+		List<PCStat> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
+		assertEquals(1, statList.size());
+		assertEquals("INT", statList.get(0).getAbb());
 	}
 
 	public void testBadUnlockDefine() throws Exception
@@ -111,7 +132,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
-		is(PObjectLoader.parseTag(feat, "DEFINE:UNLOCK.INT|0"), eq(false),
+		is(Globals.getContext().processToken(feat, "DEFINE", "UNLOCK.INT|0"), eq(false),
 			"Parse fails to catch bad unlock define");
 	}
 

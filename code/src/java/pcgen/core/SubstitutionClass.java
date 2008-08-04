@@ -111,7 +111,7 @@ public final class SubstitutionClass extends PCClass
 				aClass.getClassLevel(aLevel).removeListFor(ListKey.ADD);
 				aClass.clearSABList(aLevel);
 				aClass.removeLevelDR(aLevel);
-				aClass.removelevelVariable(aLevel);
+				aClass.getClassLevel(aLevel).removeAllVariables();
 				
 				
 				// Now add in each new level line in turn.

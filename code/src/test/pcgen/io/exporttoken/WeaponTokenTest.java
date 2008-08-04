@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
@@ -114,7 +115,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		stat.addBonusList("COMBAT|DAMAGEMULT:0|0.5*(STR>=0)");
 		stat.addBonusList("COMBAT|DAMAGEMULT:1|1");
 		stat.addBonusList("COMBAT|DAMAGEMULT:2|1.5*(STR>=0)");
-		stat.addVariable(0, "OFFHANDLIGHTBONUS", "2");
+		stat.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
+				.getFormulaFor(2));
 
 		stat = character.getStatList().getStatAt(3);
 		stat.addBonusList("MODSKILLPOINTS|NUMBER|INT");

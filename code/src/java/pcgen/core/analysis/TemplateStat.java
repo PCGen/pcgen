@@ -2,6 +2,8 @@ package pcgen.core.analysis;
 
 import java.util.List;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
@@ -40,15 +42,16 @@ public class TemplateStat
 		{
 			return false;
 		}
-	
-		String aStat = "|LOCK." + statList.get(statIdx).getAbb() + "|10";
-		for (int i = 0, x = pct.getVariableCount(); i < x; ++i)
+		
+		PCStat stat = statList.get(statIdx);
+		for (StatLock sl : pct.getSafeListFor(ListKey.STAT_LOCKS))
 		{
-			final String varString = pct.getVariableDefinition(i);
-	
-			if (varString.endsWith(aStat))
+			if (sl.getLockedStat().equals(stat))
 			{
-				return true;
+				if (sl.getLockValue().toString().equals("10"))
+				{
+					return true;
+				}
 			}
 		}
 	
@@ -73,19 +76,8 @@ public class TemplateStat
 		{
 			return false;
 		}
-	
-		String aStat = "|UNLOCK." + statList.get(statIdx).getAbb() + "|";
-		for (int i = 0, x = pct.getVariableCount(); i < x; ++i)
-		{
-			final String varString = pct.getVariableDefinition(i);
-	
-			if (varString.endsWith(aStat))
-			{
-				return true;
-			}
-		}
-	
-		return false;
+
+		return pct.containsInList(ListKey.UNLOCKED_STATS, statList.get(statIdx));
 	}
 
 }

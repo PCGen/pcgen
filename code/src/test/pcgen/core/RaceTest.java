@@ -23,6 +23,9 @@
 package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.StatLock;
 
 /**
  * <code>RaceTest</code> tests the function of the Race class.
@@ -43,11 +46,13 @@ public class RaceTest extends AbstractCharacterTestCase
 	{
 		Race race = new Race();
 		race.setName("Test Race");
-		int index = getCharacter().getStatList().getIndexOfStatFor("STR");
+		StatList statList = getCharacter().getStatList();
+		int index = statList.getIndexOfStatFor("STR");
+		PCStat str = statList.getStatAt(index);
 		assertEquals("Template has not been unlocked", false, race.isUnlocked(index));
-		race.addVariable(-9, "LOCK.STR", "12");
+		race.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
 		assertEquals("Template has not been unlocked", false, race.isUnlocked(index));
-		race.addVariable(-9, "UNLOCK.STR", "");
+		race.addToListFor(ListKey.UNLOCKED_STATS, str);
 		assertEquals("Template has been unlocked", true, race.isUnlocked(index));
 	}
 	
@@ -58,13 +63,15 @@ public class RaceTest extends AbstractCharacterTestCase
 	{
 		Race race = new Race();
 		race.setName("Test Race");
-		int index = getCharacter().getStatList().getIndexOfStatFor("STR");
+		StatList statList = getCharacter().getStatList();
+		int index = statList.getIndexOfStatFor("STR");
+		PCStat str = statList.getStatAt(index);
 		assertEquals("Template has not been locked to a nonability", false, race.isNonAbility(index));
-		race.addVariable(-9, "LOCK.STR", "12");
+		race.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
 		assertEquals("Template has been locked to an ability", false, race.isNonAbility(index));
-		race.addVariable(-9, "LOCK.STR", "10");
+		race.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(10)));
 		assertEquals("Template has been locked to a nonability", true, race.isNonAbility(index));
-		race.addVariable(-9, "UNLOCK.STR", "");
+		race.addToListFor(ListKey.UNLOCKED_STATS, str);
 		assertEquals("Template has been unlocked", false, race.isNonAbility(index));
 	}
 }

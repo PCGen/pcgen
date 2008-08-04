@@ -55,6 +55,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
@@ -204,18 +205,24 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			Collection<CDOMReference<Domain>> domains =
 					pcl.getListMods(PCClass.ALLOWED_DOMAINS);
+			int lvl = pcl.getSafe(IntegerKey.LEVEL);
 			if (domains != null)
 			{
 				for (CDOMReference<Domain> ref : domains)
 				{
 					for (Domain d : ref.getContainedObjects())
 					{
-						int l = pcl.getSafe(IntegerKey.LEVEL);
 						String t = d.getKeyName();
-						LevelTag lt = new LevelTag(l, LevelTag.TAG_ADDDOMAINS, t);
+						LevelTag lt = new LevelTag(lvl, LevelTag.TAG_ADDDOMAINS, t);
 						levelTagList.add(lt);
 					}
 				}
+			}
+			for (VariableKey vk : pcl.getVariableKeys())
+			{
+				LevelTag lt = new LevelTag(lvl, LevelTag.TAG_DEFINE, vk.toString()
+						+ '|' + obj.get(vk));
+				levelTagList.add(lt);
 			}
 		}
 
@@ -237,11 +244,12 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(lt);
 		}
 
-		for (int x = 0; x < obj.getVariableCount(); ++x)
+		StringBuilder prefix = new StringBuilder();
+		prefix.append(-9).append('|');
+
+		for (VariableKey vk : obj.getVariableKeys())
 		{
-			String c = obj.getVariableDefinition(x);
-			int y = c.indexOf('|');
-			LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_DEFINE, c.substring(y + 1));
+			LevelTag lt = new LevelTag(0, LevelTag.TAG_DEFINE, vk.toString() + '|' + obj.get(vk));
 			levelTagList.add(lt);
 		}
 

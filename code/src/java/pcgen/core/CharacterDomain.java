@@ -25,8 +25,8 @@
  */
 package pcgen.core;
 
-import java.util.Collections;
-import java.util.Set;
+import pcgen.cdom.enumeration.VariableKey;
+
 
 /**
  * <code>CharacterDomain</code>.
@@ -173,20 +173,6 @@ public final class CharacterDomain
 	}
 
 	/**
-	 * Gets the variable names as a set that cannot be modified
-	 * @return Set
-	 */
-	public Set<String> getVariableNamesAsUnmodifiableSet()
-	{
-		if (domain != null)
-		{
-			return domain.getVariableNamesAsUnmodifiableSet();
-		}
-
-		return Collections.emptySet();
-	}
-
-	/**
 	 * Converts this object to a String
 	 * The String format is as follows (without the braces) :
 	 * <ul>
@@ -287,19 +273,22 @@ public final class CharacterDomain
 
 		if ((aPC != null) && (aDomain != null))
 		{
-			final String aString = "DOMAIN:" + aDomain.getKeyName() + '|';
+			StringBuilder prefix = new StringBuilder();
+			prefix.append("DOMAIN:").append(aDomain.getKeyName()).append('|')
+					.append(-9).append('|');
 
-			for (int i = 0; i < aDomain.getVariableCount(); i++)
+			for (VariableKey vk : aDomain.getVariableKeys())
 			{
-				final String aVar = aString + aDomain.getVariableDefinition(i);
+				StringBuilder sb = new StringBuilder();
+				sb.append(prefix).append(vk.toString()).append('|').append(aDomain.get(vk));
 
 				if (addIt)
 				{
-					aPC.addVariable(aVar);
+					aPC.addVariable(sb.toString());
 				}
 				else
 				{
-					aPC.removeVariable(aVar);
+					aPC.removeVariable(sb.toString());
 				}
 			}
 		}

@@ -186,6 +186,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return variableChar.remove(arg0);
 	}
 
+	public final void removeAllVariables()
+	{
+		variableChar.clear();
+	}
+
 	public final boolean containsKey(ObjectKey<?> arg0)
 	{
 		return objectChar.containsKey(arg0);

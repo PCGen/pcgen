@@ -25,13 +25,13 @@
  */
 package pcgen.core;
 
-import pcgen.core.bonus.BonusObj;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import pcgen.core.bonus.BonusObj;
 
 /**
  * <code>StatList</code>.
@@ -61,12 +61,12 @@ public final class StatList implements Iterable<PCStat>
 		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		// Only check for a lock if the stat hasn't been unlocked
-		if (!aPC.hasVariable("UNLOCK." + stat.getAbb()))
+		if (!aPC.hasUnlockedStat(stat))
 		{
-			int z = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
-			if ((z != 0) || ((z == 0) && aPC.hasVariable("LOCK." + stat.getAbb())))
+			Number val = aPC.getLockedStat(stat);
+			if (val != null)
 			{
-				return z;
+				return val.intValue();
 			}
 		}
 		
@@ -208,12 +208,12 @@ public final class StatList implements Iterable<PCStat>
 		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		// Only check for a lock if the stat hasn't been unlocked
-		if (!aPC.hasVariable("UNLOCK." + stat.getAbb()))
+		if (!aPC.hasUnlockedStat(stat))
 		{
-			x = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
-			if ((x != 0) || ((x == 0) && aPC.hasVariable("LOCK." + stat.getAbb())))
+			Number val = aPC.getLockedStat(stat);
+			if (val != null)
 			{
-				return x;
+				return val.intValue();
 			}
 		}
 
@@ -262,11 +262,10 @@ public final class StatList implements Iterable<PCStat>
 
 		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
-		x = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
-
-		if ((x != 0) || ((x == 0) && aPC.hasVariable("LOCK." + stat.getAbb())))
+		Number val = aPC.getLockedStat(stat);
+		if (val != null)
 		{
-			return x;
+			return val.intValue();
 		}
 
 		y += aPC.getPartialStatBonusFor(stat.getAbb(), useTemp, useEquip);
