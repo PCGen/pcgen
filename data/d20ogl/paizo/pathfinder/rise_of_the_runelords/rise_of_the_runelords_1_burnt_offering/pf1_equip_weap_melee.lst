@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Mar  2 22:49:32 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
-
-####Block: Martial Weapons
-#-----two handed -------
-# Equipment Name	Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page
-Horsechopper	PROFICIENCY:WEAPON|Horsechopper	TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:TwoHanded	SIZE:S	SOURCEPAGE:p.13
