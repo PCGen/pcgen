@@ -12,6 +12,7 @@ import javax.swing.tree.TreePath;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.FollowerOption;
@@ -255,7 +256,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 				 * race null, return null That's inconsistent and should
 				 * probably be cleaned up...
 				 */
-				List<Movement> movements = race.getMovements();
+				List<Movement> movements = race.getListFor(ListKey.MOVEMENT);
 				if (movements != null && !movements.isEmpty())
 				{
 					sRet = movements.get(0).toString();

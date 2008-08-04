@@ -8343,7 +8343,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		List<Movement> mms = getRace().getMovements();
+		List<Movement> mms = getRace().getListFor(ListKey.MOVEMENT);
 		if (mms == null || mms.isEmpty() || (!mms.get(0).isInitialized()))
 		{
 			return;
@@ -8355,7 +8355,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		movementMult = movement.getMovementMult();
 		movementMultOp = movement.getMovementMultOp();
 
-		setMoveFromList(getPObjectList());
+		setMoveFromList(getCDOMObjectList());
 
 		// temp mods
 		// TODO This would never do anything since setMoveFromList only
@@ -11767,11 +11767,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return lvlMap;
 	}
 
-	private void setMoveFromList(final List<? extends PObject> aList)
+	private void setMoveFromList(final List<? extends CDOMObject> aList)
 	{
-		for (PObject pObj : aList)
+		for (CDOMObject pObj : aList)
 		{
-			List<Movement> ml = pObj.getMovements();
+			List<Movement> ml = pObj.getListFor(ListKey.MOVEMENT);
 			if (ml == null || ml.isEmpty())
 			{
 				continue;

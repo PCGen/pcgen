@@ -348,7 +348,7 @@ public class Movement
 	 */
 	public String toLSTString()
 	{
-		StringBuffer txt = new StringBuffer();
+		StringBuilder txt = new StringBuilder();
 		txt.append("\tMOVE");
 		switch (moveRatesFlag)
 		{
@@ -360,6 +360,12 @@ public class Movement
 				break;
 		}
 		txt.append(':');
+		addTokenContents(txt);
+		return txt.toString();
+	}
+
+	public void addTokenContents(StringBuilder txt)
+	{
 		for (int index = 0; index < movementTypes.length; ++index)
 		{
 			if (index > 0)
@@ -382,7 +388,6 @@ public class Movement
 				txt.append(new DecimalFormat("###0.#").format(movements[index]));
 			}
 		}
-		return txt.toString();
 	}
 
 	/**

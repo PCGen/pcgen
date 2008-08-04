@@ -4,34 +4,62 @@
  */
 package plugin.lsttokens;
 
+import java.util.Collection;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
 import pcgen.core.Movement;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  * 
  */
-public class MoveLst implements GlobalLstToken
+public class MoveLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
-	/*
-	 * Note: Don't need to wait for Template's LevelToken before this can be converted
-	 * as there is no level support in templates for this token
-	 */
 
+	@Override
 	public String getTokenName()
 	{
 		return "MOVE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	private void validateMove(String value, String mod)
+	{
+		try
+		{
+			if (Integer.parseInt(mod) < 0)
+			{
+				Logging.addParseMessage(Logging.LST_ERROR,
+						"Invalid movement (cannot be negative): " + mod
+								+ " in MOVE: " + value);
+			}
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.addParseMessage(Logging.LST_ERROR,
+					"Invalid movement (must be an integer >= 0): " + mod
+							+ " in MOVE: " + value);
+		}
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Equipment)
+		{
+			return false;
+		}
+		if (isEmpty(value) || hasIllegalSeparator(',', value))
 		{
 			return false;
 		}
@@ -59,29 +87,38 @@ public class MoveLst implements GlobalLstToken
 			}
 			if (moves.countTokens() != 0)
 			{
-				Logging.errorPrint("Badly formed MOVE token "
-					+ "(extra value at end of list): " + value);
+				Logging.addParseMessage(Logging.LST_ERROR,
+						"Badly formed MOVE token "
+								+ "(extra value at end of list): " + value);
 			}
 		}
 		cm.setMoveRatesFlag(0);
-		obj.setMovement(cm, anInt);
+		context.obj.addToList(obj, ListKey.MOVEMENT, cm);
 		return true;
 	}
 
-	private void validateMove(String value, String mod)
+	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		try
+		Changes<Movement> changes = context.getObjectContext().getListChanges(
+				obj, ListKey.MOVEMENT);
+		Collection<Movement> added = changes.getAdded();
+		if (added == null || added.isEmpty())
 		{
-			if (Integer.parseInt(mod) < 0)
-			{
-				Logging.errorPrint("Invalid movement (cannot be negative): "
-					+ mod + " in MOVE: " + value);
-			}
+			// Zero indicates no Token
+			return null;
 		}
-		catch (NumberFormatException nfe)
+		Set<String> set = new TreeSet<String>();
+		for (Movement m : added)
 		{
-			Logging.errorPrint("Invalid movement (must be an integer >= 0): "
-				+ mod + " in MOVE: " + value);
+			StringBuilder sb = new StringBuilder();
+			m.addTokenContents(sb);
+			set.add(sb.toString());
 		}
+		return set.toArray(new String[set.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

@@ -1176,7 +1176,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				List<Movement> movements = race.getMovements();
+				List<Movement> movements = race.getListFor(ListKey.MOVEMENT);
 				if (movements != null && !movements.isEmpty())
 				{
 					return movements.get(0).toString();

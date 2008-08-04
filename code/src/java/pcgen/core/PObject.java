@@ -120,7 +120,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private HashMap<String, String> changeProfMap = new HashMap<String, String>();
 
-	private Movement movement;
 	private SpellSupport spellSupport = new SpellSupport();
 	
 	private VariableList variableList = null;
@@ -568,19 +567,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public final List<String> getCSkillList()
 	{
 		return getListFor(ListKey.CLASS_SKILLS);
-	}
-
-	/**
-	 * Get the movement for this object
-	 * @return the movement for this object
-	 */
-	public List<Movement> getMovements()
-	{
-		if (movement == null)
-		{
-			return Collections.emptyList();
-		}
-		return Collections.singletonList(movement);
 	}
 
 	/**
@@ -2545,11 +2531,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 
-		if (movement != null && movement.getNumberOfMovements() > 0)
-		{
-			txt.append(movement.toLSTString());
-		}
-
 		if (hasPrerequisites())
 		{
 			final StringWriter writer = new StringWriter();
@@ -3484,15 +3465,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	protected void removeMyType(final String myType)
 	{
 		types.remove(myType);
-	}
-
-	/**
-	 * Set the movement
-	 * @param cm
-	 */
-	public void setMovement(Movement cm, int level)
-	{
-		movement = cm;
 	}
 
 	/**

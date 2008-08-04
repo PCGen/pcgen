@@ -76,6 +76,7 @@ import javax.swing.tree.TreePath;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Equipment;
@@ -1198,7 +1199,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 			b.appendLineBreak();
 			String bString = "";
-			List<Movement> movements = aRace.getMovements();
+			List<Movement> movements = aRace.getListFor(ListKey.MOVEMENT);
 			if (movements != null && !movements.isEmpty())
 			{
 				bString = movements.get(0).toString();

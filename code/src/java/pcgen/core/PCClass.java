@@ -109,11 +109,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
-	 */
-	private List<LevelProperty<Movement>> movementList = null;
-
-	/*
 	 * FUTURETYPESAFETY This is an interesting case of Type Safety, that may not be
 	 * possible, as this is a big magical in what it could be - School,
 	 * Subschool, and other things. Need lots of investigation as to what the
@@ -5479,35 +5474,6 @@ public class PCClass extends PObject
 			return -1;
 		}
 		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
-	}
-
-	@Override
-	public void setMovement(Movement m, int level)
-	{
-		if (movementList == null)
-		{
-			movementList = new ArrayList<LevelProperty<Movement>>();
-		}
-		movementList.add(LevelProperty.getLevelProperty(level, m));
-
-	}
-
-	@Override
-	public List<Movement> getMovements()
-	{
-		if (movementList == null)
-		{
-			return Collections.emptyList();
-		}
-		List<Movement> returnList = new ArrayList<Movement>();
-		for (LevelProperty<Movement> prop : movementList)
-		{
-			if (prop.getLevel() <= level)
-			{
-				returnList.add(prop.getObject());
-			}
-		}
-		return returnList;
 	}
 
 	public void removeAllAutoAbilites(final int alevel)

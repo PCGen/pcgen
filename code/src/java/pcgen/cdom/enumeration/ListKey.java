@@ -44,6 +44,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.Language;
+import pcgen.core.Movement;
 import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
@@ -203,6 +204,7 @@ public final class ListKey<T> {
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
 	public static final ListKey<TransitionChoice<?>> ADD = new ListKey<TransitionChoice<?>>();
 	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<TransitionChoice<Kit>>();
+	public static final ListKey<Movement> MOVEMENT = new ListKey<Movement>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

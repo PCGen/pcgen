@@ -27,6 +27,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.SkillModifier;
@@ -672,7 +673,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("MOVEBASE".equals(valString))
 		{
-			valString = getPc().getRace().getMovements().get(0).getDoubleMovement().toString();
+			valString = getPc().getRace().getSafeListFor(ListKey.MOVEMENT).get(0).getDoubleMovement().toString();
 		}
 		else if ("FAVCLASSLEVEL".equals(valString))
 		{

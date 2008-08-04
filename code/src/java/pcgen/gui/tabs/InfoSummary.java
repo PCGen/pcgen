@@ -915,7 +915,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			Formula sz = aRace.get(FormulaKey.SIZE);
 			b.appendI18nElement("in_sumSize", sz == null ? "" : sz.toString()); //$NON-NLS-1
 
-			List<Movement> movements = aRace.getMovements();
+			List<Movement> movements = aRace.getListFor(ListKey.MOVEMENT);
 			if (movements != null && !movements.isEmpty())
 			{
 				final String movelabel = movements.get(0).toString();

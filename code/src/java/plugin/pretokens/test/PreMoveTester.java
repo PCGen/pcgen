@@ -28,6 +28,7 @@ package plugin.pretokens.test;
 
 import java.util.List;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Movement;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -116,7 +117,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 		{
 			return false;
 		}
-		List<Movement> movements = r.getMovements();
+		List<Movement> movements = r.getListFor(ListKey.MOVEMENT);
 		if (movements == null || movements.isEmpty())
 		{
 			return false;

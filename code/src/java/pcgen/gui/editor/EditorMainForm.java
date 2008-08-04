@@ -721,10 +721,10 @@ public final class EditorMainForm extends JDialog
 
 				Race thisRace = (Race) thisPObject;
 
-				//thisRace.setMovements(pnlMovement.getMoveRates());
+				thisRace.removeListFor(ListKey.MOVEMENT);
 				Movement cm = Movement.getMovementFrom(pnlMovement.getMoveValues());
 				cm.setMovementTypes(pnlMovement.getMoveTypes());
-				thisRace.setMovement(cm, -9);
+				thisRace.addToListFor(ListKey.MOVEMENT, cm);
 				
 				thisRace.removeAllFromList(Vision.VISIONLIST);
 				List<Vision> visionList = pnlVision.getVision();
@@ -877,9 +877,10 @@ public final class EditorMainForm extends JDialog
 			case EditorConstants.EDIT_TEMPLATE:
 
 				PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
+				thisPCTemplate.removeListFor(ListKey.MOVEMENT);
 				Movement cmv = Movement.getMovementFrom(pnlMovement.getMoveValues());
 				cmv.setMoveRatesFlag(pnlMovement.getMoveRateType());
-				thisPCTemplate.setMovement(cmv, -9);
+				thisPCTemplate.addToListFor(ListKey.MOVEMENT, cmv);
 
 				thisPCTemplate.removeAllFromList(Vision.VISIONLIST);
 				List<Vision> tplVisionList = pnlVision.getVision();
@@ -1595,7 +1596,7 @@ public final class EditorMainForm extends JDialog
 				//
 				movementValues = new ArrayList<String>();
 
-				List<Movement> mms = thisPObject.getMovements();
+				List<Movement> mms = thisPObject.getListFor(ListKey.MOVEMENT);
 				if (mms != null && !mms.isEmpty())
 				{
 					Movement cm = mms.get(0);
@@ -1962,7 +1963,7 @@ public final class EditorMainForm extends JDialog
 				//
 				movementValues = new ArrayList<String>();
 
-				List<Movement> mmsl = thisPObject.getMovements();
+				List<Movement> mmsl = thisPObject.getListFor(ListKey.MOVEMENT);
 				if (mmsl != null && !mmsl.isEmpty())
 				{
 					Movement cmv = mmsl.get(0);
