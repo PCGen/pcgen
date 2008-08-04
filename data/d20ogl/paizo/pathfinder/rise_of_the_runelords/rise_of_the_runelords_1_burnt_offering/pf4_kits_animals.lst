@@ -1,0 +1,5 @@
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+### Standard Animals
+#STARTPACK:			VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,]	SOURCEPAGE:pg.

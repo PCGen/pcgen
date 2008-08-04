@@ -1,0 +1,5 @@
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+# Template Name	CR		Level Adjustment	Source Page			Required Race		Required Size	Bonus to Ability Pool	Combat bonus		Stat bonus																		Subrace		Main Race Type	Vision		Movement						Abilities
+Rune Slave									SOURCEPAGE:Pg.90	PRERACE:1,Giant%																BONUS:STAT|STR|4	BONUS:STAT|INT|-2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-2											BONUS:MOVEADD|TYPE.Walk|20		ABILITY:Special Ability|AUTOMATIC|Arcane Decay|Arcane Surge|Vulnerable Mind|Immune to Fear|Immune to Pain

@@ -1,0 +1,6 @@
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+# Equipment Name	Output Name					Type						Cost		Weight		Source Page				Vision			Combat bonus		Add to base move		Bonus to skill			Stat bonus							Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus																																																																											Automatic Languages	Special Property																																																	Special ABility
+Robe (Runes)		OUTPUTNAME:Robe of [NAME]	TYPE:Magic.Wondrous.Robe	COST:44000	WT:1		SOURCEPAGE:Pg.50																							BONUS:STAT|INT|4|TYPE=Enhancement
+Lenses (Fogcutting)	OUTPUTNAME:[NAME] Lenses	TYPE:Magic.Wondrous			COST:8000	WT:1		SOURCEPAGE:Pg.50

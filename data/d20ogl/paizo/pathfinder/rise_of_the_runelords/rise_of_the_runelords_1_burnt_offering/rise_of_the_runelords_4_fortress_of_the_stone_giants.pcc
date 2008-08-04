@@ -1,0 +1,38 @@
+CAMPAIGN:Paizo - Rise of the Runelords - Chapter 4: Fortress of the Stone Giants
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Chronicles.Rise of the Runelords
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants
+SOURCESHORT:PF4
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm
+SOURCEDATE:2007-09
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 4: Fortress of the Stone Giants, Copyright 2007, Paizo Publishing, LLC; Author Wolfgang Baur.
+COPYRIGHT:Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
+COPYRIGHT:Tome of Horrors II, Copyright 2004, Necromancer Games, Inc.; Author Scott Greene; Additional Authors: Erica Balsley, Kevin Baase, Casey Christofferson, Jim Collura, Meghan Greene, Lance Hawvermale, Travis Hawvermale, Bill Kenower, Patrick Lawinger, Nathan Paul, Clark Peterson, Bill Webb, and Monte Cook.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 4: Fortress of the Stone Giants" Copyright 2008, PCGen Data Team (including, but not limited to Eric C. Smith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:pf4_OGL.txt
+
+# Data files
+ABILITY:pf4_abilities.lst
+EQUIPMENT:pf4_equip_magic_weapons_melee.lst
+EQUIPMENT:pf4_equip_magic_rodsstaveswands.lst
+EQUIPMENT:pf4_equip_magic_wondrousitems.lst
+FEAT:pf4_feats.lst
+#KIT:pf4_kits_animals.lst
+#KIT:pf4_kits_npcs.lst
+#KIT:pf4_kits_races.lst
+RACE:pf4_races.lst
+TEMPLATE:pf4_templates.lst
+#WEAPONPROF:pf4_weaponprofs.lst

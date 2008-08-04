@@ -1,0 +1,23 @@
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+### Racial Kits
+
+#STARTPACK:	Deathweb
+STARTPACK:Deathweb Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deathweb]	SOURCEPAGE:p.79
+
+#STARTPACK:	Redcap
+STARTPACK:Redcap Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Redcap]	SOURCEPAGE:p.80
+
+#STARTPACK: Hound of Tindalos
+STARTPACK:Hound of Tindalos Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hound of Tindalos]	SOURCEPAGE:p.82
+
+#STARTPACK: Tiaga Giant
+STARTPACK:Tianga Giant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Tiaga)]	SOURCEPAGE:p.84
+
+#STARTPACK: Scanderig
+STARTPACK:Scanderig Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scanderig]	SOURCEPAGE:p.86
+
+#STARTPACK: Shining Child of Thassilon
+STARTPACK:Shining Child of Thassilon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shining child of Thassilon]	SOURCEPAGE:p.88
+
