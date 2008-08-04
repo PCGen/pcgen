@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -613,10 +614,9 @@ public final class Skill extends PObject
 	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
 	{
 		aPC.setArmorProfListStable(false);
-		List<String> l = getSafeListFor(ListKey.KITS);
-		for (int i = 0; i > l.size(); i++)
+		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 		{
-			KitUtilities.makeKitSelections(0, l.get(i), i, aPC);
+			kit.act(kit.driveChoice(aPC), aPC);
 		}
 		makeRegionSelection(aPC);
 

@@ -100,8 +100,7 @@ public class TransitionChoice<T>
 		}
 		c.setTitle(title);
 		Set<? extends T> set = choices.getSet(pc);
-
-		if (c.pickAll())
+		if (c.pickAll() || intValue == set.size())
 		{
 			return set;
 		}

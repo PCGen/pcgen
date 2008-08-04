@@ -66,6 +66,7 @@ import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
@@ -2378,10 +2379,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			final List<String> kits = cMod.getSafeListFor(ListKey.KITS);
-			for (int i1 = 0; i1 < kits.size(); i1++)
+			for (TransitionChoice<Kit> kit : cMod.getSafeListFor(ListKey.KIT_CHOICE))
 			{
-				KitUtilities.makeKitSelections(0, kits.get(i1), i1, this);
+				kit.act(kit.driveChoice(this), this);
 			}
 		}
 		setDirty(true);
@@ -8183,11 +8183,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		this.setArmorProfListStable(false);
-		List<String> l = inTmpl.getSafeListFor(ListKey.KITS);
-		for (int i1 = 0; i1 < l.size(); i1++)
-		{
-			KitUtilities.makeKitSelections(0, l.get(i1), i1, this);
-		}
 
 		calcActiveBonuses();
 

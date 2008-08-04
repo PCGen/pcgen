@@ -465,25 +465,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 	
 	/**
-	 * Set the KIT string, should be in the form of #|KIT1|KIT2|KIT3|etc
-	 * @param arg
-	 */
-	public final void setKitString(final String arg)
-	{
-		if (arg.equals(".CLEAR"))
-		{
-			removeListFor(ListKey.KITS);
-		}
-		else
-		{
-			if (!containsInList(ListKey.KITS, arg))
-			{
-				addToListFor(ListKey.KITS, arg);
-			}
-		}
-	}
-
-	/**
 	 * Get the level ability list for this object
 	 * @return the level ability list for this object
 	 */
@@ -2664,14 +2645,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append("\tREGION:").append(regionString.substring(2));
 		}
 
-		for (String s : getSafeListFor(ListKey.KITS))
-		{
-			if (s.startsWith("0|"))
-			{
-				txt.append("\tKIT:").append(s.substring(2));
-			}
-		}
-
 		// SPELLLEVEL
 		txt.append('\t').append(getSpellSupport().getPCCText());
 		
@@ -2827,10 +2800,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
 	{
 		aPC.setArmorProfListStable(false);
-		List<String> l = getSafeListFor(ListKey.KITS);
-		for (int i = 0; i > l.size(); i++)
+		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 		{
-			KitUtilities.makeKitSelections(0, l.get(i), i, aPC);
+			kit.act(kit.driveChoice(aPC), aPC);
 		}
 		makeRegionSelection(aPC);
 
@@ -3521,16 +3493,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public void setMovement(Movement cm, int level)
 	{
 		movement = cm;
-	}
-
-	/**
-	 * Set the list of Kits
-	 * @param l
-	 */
-	public void setKitList(List<String> l)
-	{
-		removeListFor(ListKey.KITS);
-		addAllToListFor(ListKey.KITS, l);
 	}
 
 	/**

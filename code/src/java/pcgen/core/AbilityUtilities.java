@@ -24,6 +24,7 @@
 package pcgen.core;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -418,10 +419,9 @@ public class AbilityUtilities
 
 		if (addIt)
 		{
-			final List<String> kitList = ability.getSafeListFor(ListKey.KITS);
-			for (int i = 0; i < kitList.size(); i++)
+			for (TransitionChoice<Kit> kit : ability.getSafeListFor(ListKey.KIT_CHOICE))
 			{
-				KitUtilities.makeKitSelections(0, kitList.get(i), 1, aPC);
+				kit.act(kit.driveChoice(aPC), aPC);
 			}
 		}
 

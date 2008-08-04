@@ -42,6 +42,7 @@ import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
@@ -121,8 +122,6 @@ public final class ListKey<T> {
 	public static final ListKey<CampaignSourceEntry> FILE_WEAPON_PROF = new ListKey<CampaignSourceEntry>();
 	/** GAME_MODE - a ListKey */
 	public static final ListKey<String> GAME_MODE = new ListKey<String>();
-	/** KITS - a ListKey */
-	public static final ListKey<String> KITS = new ListKey<String>();
 	/** LICENSE - a ListKey */
 	public static final ListKey<String> LICENSE = new ListKey<String>();
 	/** LICENSE_FILE - a ListKey */
@@ -203,6 +202,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
 	public static final ListKey<TransitionChoice<?>> ADD = new ListKey<TransitionChoice<?>>();
+	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<TransitionChoice<Kit>>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

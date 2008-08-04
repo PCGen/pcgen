@@ -2337,25 +2337,6 @@ public class PCClass extends PObject
 				"\tREGION:").append(regionString.substring(x + 1));
 		}
 
-		// if (kitString != null && !kitString.startsWith("0|"))
-		// {
-		// int x = kitString.indexOf('|');
-		// pccTxt.append(lineSep + kitString.substring(0,
-		// x)).append("\tKIT:").append(kitString.substring(x + 1));
-		// }
-		List<String> kits = getSafeListFor(ListKey.KITS);
-		for (int iKit = 0; iKit < kits.size(); ++iKit)
-		{
-			final String kitString = kits.get(iKit);
-			final int x = kitString.indexOf('|');
-
-			if (x >= 0)
-			{
-				pccTxt.append(lineSep + kitString.substring(0, x)).append(
-					"\tKIT:").append(kitString.substring(x + 1));
-			}
-		}
-
 		pccTxt.append('\t');
 		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
@@ -3897,19 +3878,18 @@ public class PCClass extends PObject
 
 			if (newLevel == 1)
 			{
-				List<String> l = getSafeListFor(ListKey.KITS);
-				for (int i = 0; i > l.size(); i++)
+				for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 				{
-					KitUtilities.makeKitSelections(0, l.get(i), i, aPC);
+					kit.act(kit.driveChoice(aPC), aPC);
 				}
 				makeRegionSelection(0, aPC);
 				addAdds(aPC);
 			}
 
-			List<String> l = getSafeListFor(ListKey.KITS);
-			for (int i = 0; i > l.size(); i++)
+			for (TransitionChoice<Kit> kit : getClassLevel(newLevel)
+					.getSafeListFor(ListKey.KIT_CHOICE))
 			{
-				KitUtilities.makeKitSelections(newLevel, l.get(i), i, aPC);
+				kit.act(kit.driveChoice(aPC), aPC);
 			}
 			makeRegionSelection(newLevel, aPC);
 
@@ -5214,7 +5194,9 @@ public class PCClass extends PObject
 			addAllCcSkills(otherClass.getCcSkillList());
 		}
 
-		otherClass.setKitList(getSafeListFor(ListKey.KITS));
+		removeListFor(ListKey.KIT_CHOICE);
+		addAllToListFor(ListKey.KIT_CHOICE, otherClass
+				.getSafeListFor(ListKey.KIT_CHOICE));
 
 		if (otherClass.getRegionString() != null)
 		{

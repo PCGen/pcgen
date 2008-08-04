@@ -26,6 +26,7 @@
 package pcgen.core;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -353,15 +354,15 @@ public final class BioSet extends PObject
 
 			if (aString.startsWith("KIT:"))
 			{
-				temporaryPObject.setKitString("0|" + aString.substring(4));
+				Globals.getContext().unconditionallyProcess(temporaryPObject,
+						"KIT", aString.substring(4));
 			}
 		}
 
 		pc.setArmorProfListStable(false);
-		List<String> l = temporaryPObject.getSafeListFor(ListKey.KITS);
-		for (int i = 0; i > l.size(); i++)
+		for (TransitionChoice<Kit> kit : temporaryPObject.getSafeListFor(ListKey.KIT_CHOICE))
 		{
-			KitUtilities.makeKitSelections(0, l.get(i), i, pc);
+			kit.act(kit.driveChoice(pc), pc);
 		}
 		pc.setHasMadeKitSelectionForAgeSet(ageSet, true);
 	}
