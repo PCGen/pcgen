@@ -12045,29 +12045,65 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (rfc.startsWith("CHOOSE:"))
 		{
 			final List<PCClass> availableList = new ArrayList<PCClass>();
-			final StringTokenizer tok =
-					new StringTokenizer(rfc.substring(7), "|");
-			while (tok.hasMoreTokens())
+			
+			// WARNING: This is a temporary hack to make favored class selection work for 
+			// the Pathfinder gamemode until the new FAVCLASS mechanism can be implemented
+			// and the race object can call choosers.
+			//
+			// FAVCLASS:CHOOSE:ALL creates a chooser of all visible non-monster base classes
+			//
+			if (rfc.equalsIgnoreCase("CHOOSE:ALL"))
 			{
-				String cl = tok.nextToken();
-				int dotLoc = cl.indexOf(".");
-				if (dotLoc == -1)
+				for (PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 				{
-					//Base Class
-					final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl);
-					if (pcClass != null)
+					if (pcClass.isType("Base") && !pcClass.isType("Monster") && 
+							pcClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
 					{
-						availableList.add(pcClass);
+						if (pcClass.hasSubClass())
+						{
+							if (pcClass.getSafe(ObjectKey.ALLOWBASECLASS))
+							{
+								availableList.add(pcClass);
+							}
+							for (PCClass subClass : pcClass.getSubClassList())
+							{
+								availableList.add(subClass);
+							}
+						}
+						else
+						{
+							availableList.add(pcClass);
+						}
 					}
 				}
-				else
-				{
-					//Sub Class
-					final PCClass pcClass =
-							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl.substring(dotLoc + 1));
-					if (pcClass != null)
+			}
+			else
+			{
+				final StringTokenizer tok =
+					new StringTokenizer(rfc.substring(7), "|");
+				while (tok.hasMoreTokens())
+				{	
+					String cl = tok.nextToken();
+					int dotLoc = cl.indexOf(".");
+					if (dotLoc == -1)
 					{
-						availableList.add(pcClass);
+						//Base Class
+						final PCClass pcClass = 
+							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl);
+						if (pcClass != null)
+						{
+							availableList.add(pcClass);
+						}
+					}
+					else
+					{
+						//Sub Class
+						final PCClass pcClass =
+							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl.substring(dotLoc + 1));
+						if (pcClass != null)
+						{
+							availableList.add(pcClass);
+						}
 					}
 				}
 			}

@@ -1544,7 +1544,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			favored = fav.substring(7);
 		}
 		
-		if (favored.equalsIgnoreCase("ANY"))
+		if (favored.equalsIgnoreCase("ANY") || favored.equalsIgnoreCase("ALL"))
 		{
 			return;
 		}
