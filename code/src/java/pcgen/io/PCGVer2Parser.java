@@ -3242,9 +3242,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseFavoredClassLine(final String line)
 	{
-		String decode = EntityEncoder.decode(line.substring(TAG_FAVOREDCLASS.length() + 1));
-		thePC.setStringFor(StringKey.RACIAL_FAVORED_CLASS,
-				decode);
+		String favClass = EntityEncoder.decode(line.substring(TAG_FAVOREDCLASS.length() + 1));
+		if (thePC.addFavoredClass(favClass))
+		{
+			thePC.setStringFor(StringKey.RACIAL_FAVORED_CLASS, favClass);
+		}
+		else
+		{
+			thePC.removeStringFor(StringKey.RACIAL_FAVORED_CLASS);
+		}
+
 	}
 
 

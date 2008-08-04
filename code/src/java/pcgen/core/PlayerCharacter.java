@@ -11296,7 +11296,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return -1;
 	}
 
-	boolean addFavoredClass(final String aString)
+	public boolean addFavoredClass(final String aString)
 	{
 		if (aString.length() == 0)
 		{
