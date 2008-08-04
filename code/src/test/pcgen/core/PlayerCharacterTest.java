@@ -47,6 +47,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.bonus.Bonus;
@@ -57,12 +58,11 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.StatToken;
-import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Visibility;
-import plugin.lsttokens.AbilityLst;
 
 /**
  * @author wardc
@@ -668,7 +668,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		arClass.setName("AbilityRichClass");
 		arClass.setSpellType("ARCANE");
 	
-		Globals.getContext().ref.importObject(arClass);
+		LoadContext context = Globals.getContext();
+		context.ref.importObject(arClass);
 	
 		TestHelper.makeAbilityFromString(
 			"TestARc01\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
@@ -681,21 +682,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		TestHelper.makeAbilityFromString(
 			"TestARc05\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
 	
-		AbilityLst abl = new AbilityLst();
-	
-	
-		try
-		{
-			abl.parse(arClass, "FEAT|NORMAL|TestARc01",    1);
-			abl.parse(arClass, "FEAT|AUTOMATIC|TestARc02", 1);
-			abl.parse(arClass, "FEAT|VIRTUAL|TestARc03",   2);
-			abl.parse(arClass, "FEAT|AUTOMATIC|TestARc04", 3);
-			abl.parse(arClass, "FEAT|AUTOMATIC|TestARc05", 3);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Oops, Parse exception" + e);
-		}
+		PCClassLevel lvl1 = arClass.getClassLevel(1);
+		context.unconditionallyProcess(lvl1, "ABILITY", "FEAT|NORMAL|TestARc01");
+		context.unconditionallyProcess(lvl1, "ABILITY", "FEAT|AUTOMATIC|TestARc02");
+		context.unconditionallyProcess(arClass.getClassLevel(2), "ABILITY", "FEAT|VIRTUAL|TestARc03");
+		PCClassLevel lvl3 = arClass.getClassLevel(3);
+		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc04");
+		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc05");
+		context.resolveReferences();
 		
 		final PlayerCharacter pc = new PlayerCharacter();
 	
@@ -706,33 +700,33 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, arClass, true);
 
 		map = pc.getAbilitiesSet();
-		
-		is(map.get(Ability.Nature.NORMAL).size(),    eq(1), "First Level human with class AbilityRichClass has 1 normal feat");
-		is(map.get(Ability.Nature.AUTOMATIC).size(), eq(1), "First Level human with class AbilityRichClass has 1 automatic feat");
-		is(map.get(Ability.Nature.VIRTUAL).size(),   eq(0), "First Level human with class AbilityRichClass has 0 virtual feats");
+
+		assertEquals(map.get(Ability.Nature.NORMAL).size(),    1);//"First Level human with class AbilityRichClass has 1 normal feat");
+		assertEquals(map.get(Ability.Nature.AUTOMATIC).size(), 1);// "First Level human with class AbilityRichClass has 1 automatic feat");
+		assertEquals(map.get(Ability.Nature.VIRTUAL).size(),   0);// "First Level human with class AbilityRichClass has 0 virtual feats");
 	
 		pc.incrementClassLevel(1, arClass, true);
 		
 		map = pc.getAbilitiesSet();
 		
-		is(map.get(Ability.Nature.NORMAL).size(),    eq(1), "Second Level human with class AbilityRichClass has 1 normal feat");
-		is(map.get(Ability.Nature.AUTOMATIC).size(), eq(1), "Second Level human with class AbilityRichClass has 1 automatic feat");
-		is(map.get(Ability.Nature.VIRTUAL).size(),   eq(1), "Second Level human with class AbilityRichClass has 1 virtual feat");
+		assertEquals(map.get(Ability.Nature.NORMAL).size(),    1);//, "Second Level human with class AbilityRichClass has 1 normal feat");
+		assertEquals(map.get(Ability.Nature.AUTOMATIC).size(), 1);//, "Second Level human with class AbilityRichClass has 1 automatic feat");
+		assertEquals(map.get(Ability.Nature.VIRTUAL).size(),   1);//, "Second Level human with class AbilityRichClass has 1 virtual feat");
 	
 		pc.incrementClassLevel(1, arClass, true);
 		
 		map = pc.getAbilitiesSet();
 		
-		is(map.get(Ability.Nature.NORMAL).size(),    eq(1), "Third Level human with class AbilityRichClass has 1 normal feat");
-		is(map.get(Ability.Nature.AUTOMATIC).size(), eq(3), "Third Level human with class AbilityRichClass has 3 automatic feats");
-		is(map.get(Ability.Nature.VIRTUAL).size(),   eq(1), "Third Level human with class AbilityRichClass has 1 virtual feat");
+		assertEquals(map.get(Ability.Nature.NORMAL).size(),    1);//, "Third Level human with class AbilityRichClass has 1 normal feat");
+		assertEquals(map.get(Ability.Nature.AUTOMATIC).size(), 3);//, "Third Level human with class AbilityRichClass has 3 automatic feats");
+		assertEquals(map.get(Ability.Nature.VIRTUAL).size(),   1);//, "Third Level human with class AbilityRichClass has 1 virtual feat");
 		
 		GameMode gm = SettingsHandler.getGame();
 		AbilityCategory ac = gm.getAbilityCategory("FEAT");
 		Logging.errorPrint("Real abilities: " + pc.getRealAbilitiesList(ac).size());
 	
 	}
-	
+
 	public void testIsNonAbility()
 	{
 		PlayerCharacter pc = getCharacter();

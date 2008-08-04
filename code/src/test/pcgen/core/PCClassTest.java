@@ -30,6 +30,7 @@ package pcgen.core;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -39,6 +40,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -644,10 +647,30 @@ public class PCClassTest extends AbstractCharacterTestCase
 					+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft\n"
 					+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
 		PCClass pcclass = parsePCClassText(classPCCText, source);
-		List<String> keys = pcclass.getAbilityKeys(null, cat, Nature.AUTOMATIC);
-		assertEquals(2, keys.size());
-		assertEquals(ab1.getKeyName(), keys.get(0));
-		assertEquals(ab2.getKeyName(), keys.get(1));
+		LoadContext context = Globals.getContext();
+		ab1.setCDOMCategory(cat);
+		ab2.setCDOMCategory(cat);
+		context.ref.importObject(ab1);
+		context.ref.importObject(ab2);
+		context.resolveReferences();
+		Collection<CDOMReference<Ability>> mods = pcclass.getListMods(Ability.ABILITYLIST);
+		assertEquals(1, mods.size());
+		CDOMReference<Ability> ref = mods.iterator().next();
+		Collection<Ability> abilities = ref.getContainedObjects();
+		assertEquals(1, abilities.size());
+		assertEquals(ab1, abilities.iterator().next());
+		Collection<AssociatedPrereqObject> assocs = pcclass.getListAssociations(Ability.ABILITYLIST, ref);
+		assertEquals(1, assocs.size());
+		
+		PCClassLevel level = pcclass.getClassLevel(2);
+		mods = level.getListMods(Ability.ABILITYLIST);
+		assertEquals(1, mods.size());
+		ref = mods.iterator().next();
+		abilities = ref.getContainedObjects();
+		assertEquals(1, abilities.size());
+		assertEquals(ab2, abilities.iterator().next());
+		assocs = level.getListAssociations(Ability.ABILITYLIST, ref);
+		assertEquals(1, assocs.size());
 
 		// Add the class to the character
 		PlayerCharacter pc = getCharacter();

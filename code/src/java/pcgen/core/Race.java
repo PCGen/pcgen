@@ -49,8 +49,6 @@ import pcgen.core.utils.ShowMessageDelegate;
 public final class Race extends PObject
 {
 	private String favoredClass = Constants.EMPTY_STRING;
-	// TODO - ABILITYOBJECT - Remove this.
-	private String featList = Constants.EMPTY_STRING;
 	private String monsterClass = null;
 	private int monsterClassLevels = 0;
 	
@@ -118,16 +116,6 @@ public final class Race extends PObject
 	public String getFavoredClass()
 	{
 		return favoredClass;
-	}
-
-	public void setFeatList(final String featList)
-	{
-		this.featList = featList;
-	}
-
-	public String getFeatList()
-	{
-		return featList;
 	}
 
 	public void setMonsterClass(final String string)
@@ -308,11 +296,6 @@ public final class Race extends PObject
 			txt.append(':').append(monsterClassLevels);
 		}
 
-		if ((featList != null) && (featList.length() > 0))
-		{
-			txt.append("\tFEAT:").append(featList);
-		}
-
 		return txt.toString();
 	}
 
@@ -325,8 +308,6 @@ public final class Race extends PObject
 		{
 			aRace = (Race) super.clone();
 			aRace.favoredClass = favoredClass;
-
-			aRace.featList = featList;
 		}
 		catch (CloneNotSupportedException exc)
 		{

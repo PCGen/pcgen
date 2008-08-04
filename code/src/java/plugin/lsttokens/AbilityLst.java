@@ -23,23 +23,29 @@
 package plugin.lsttokens;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PCClass;
-import pcgen.core.PObject;
-import pcgen.core.QualifiedObject;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.SettingsHandler;
-import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 
 /**
  * Implements the ABILITY: global LST token.
@@ -86,151 +92,172 @@ import pcgen.util.PropertyFactory;
  * @since 5.11.1
  *
  */
-public class AbilityLst implements GlobalLstToken
-{
+public class AbilityLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject> {
 
-	/*
-	 * Template's LevelToken handled in rebuildAggregateAbilityListWorker()
-	 * 
-	 * TODO rebuildAggregateAbilityListWorker needs to be updated to use
-	 * getCDOMObjects() once this is new token (due to class levels)
-	 */
-	/**
-	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)
-	 */
-	public boolean parse(PObject anObj, String aValue, int anInt)
-		throws PersistenceLayerException
-	{
-		final StringTokenizer tok = new StringTokenizer(aValue, Constants.PIPE);
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
-		final String cat = tok.nextToken();
-		final AbilityCategory category =
-				SettingsHandler.getGame().getAbilityCategory(cat);
-		if (category == null)
-		{
-			throw new PersistenceLayerException(PropertyFactory.getFormattedString(
-				"Errors.LstTokens.ValueNotFound", //$NON-NLS-1$
-				getClass().getName(), "Ability Category", cat));
-		}
-
-		if (tok.hasMoreTokens())
-		{
-			final String natureKey = tok.nextToken();
-			final Ability.Nature nature = Ability.Nature.valueOf(natureKey);
-			if (nature == null)
-			{
-				throw new PersistenceLayerException(PropertyFactory.getFormattedString(
-					"Errors.LstTokens.ValueNotFound", //$NON-NLS-1$
-					getClass().getName(), "Ability Nature", cat));
-			}
-
-			ArrayList<Prerequisite> preReqs =
-					new ArrayList<Prerequisite>();
-			if (anInt > -9)
-			{
-				try
-				{
-					PreParserFactory factory =
-							PreParserFactory.getInstance();
-					String preLevelString = "PRELEVEL:MIN=" + anInt; //$NON-NLS-1$
-					if (anObj instanceof PCClass)
-					{
-						// Classes handle this differently
-						preLevelString =
-								"PRECLASS:1," + anObj.getKeyName() + "=" + anInt; //$NON-NLS-1$ //$NON-NLS-2$
-					}
-					Prerequisite r = factory.parse(preLevelString);
-					preReqs.add(r);
-				}
-				catch (PersistenceLayerException notUsed)
-				{
-					return false;
-				}
-			}
-			final List<String> abilityList = new ArrayList<String>();
-			boolean isPre = false;
-			boolean isFirst = true;
-			while (tok.hasMoreTokens())
-			{
-				final String key = tok.nextToken();
-				if (PreParserFactory.isPreReqString(key))
-				{
-					isPre = true;
-					final PreParserFactory factory =
-							PreParserFactory.getInstance();
-					final Prerequisite r = factory.parse(key);
-					preReqs.add(r);
-				}
-				else
-				{
-					if (isPre)
-					{
-						Logging.errorPrint("Invalid " + getTokenName() + ": " + aValue);
-						Logging.errorPrint("  PRExxx must be at the END of the Token");
-						isPre = false;
-					}
-					if (".CLEAR".equals(key))
-					{
-						if (isFirst)
-						{
-							for (QualifiedObject<String> ab : new ArrayList<QualifiedObject<String>>(
-									anObj.getRawAbilityObjects(category, nature)))
-							{
-								QualifiedObject.LevelAwareQualifiedObject<String> aqo = (LevelAwareQualifiedObject<String>) ab;
-								if (aqo.level == anInt)
-								{
-									anObj.removeAbility(category, nature, ab);
-								}
-							}
-						}
-						else
-						{
-							Logging.errorPrint("Invalid " + getTokenName()
-									+ ": .CLEAR non-sensical unless it appears first");
-							return false;
-						}
-					}
-					else if (key.startsWith(".CLEAR."))
-					{
-						String abil = key.substring(7);
-						for (QualifiedObject<String> ab : new ArrayList<QualifiedObject<String>>(
-								anObj.getRawAbilityObjects(category, nature)))
-						{
-							QualifiedObject.LevelAwareQualifiedObject<String> aqo = (LevelAwareQualifiedObject<String>) ab;
-							if (abil.equalsIgnoreCase(ab.getObject(null))
-									&& aqo.level == anInt)
-							{
-								anObj.removeAbility(category, nature, ab);
-							}
-						}
-					}
-					else
-					{
-						abilityList.add(key);
-					}
-				}
-				isFirst = false;
-			}
-			for (final String ability : abilityList)
-			{
-				anObj.addAbility(category, nature,
-						new QualifiedObject.LevelAwareQualifiedObject<String>(anInt,
-								ability, preReqs));
-			}
-			return true;
-		}
-
-		throw new PersistenceLayerException(PropertyFactory.getFormattedString(
-			"Errors.LstTokens.InvalidTokenFormat", //$NON-NLS-1$
-			getClass().getName(), aValue));
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
+	@Override
 	public String getTokenName()
 	{
-		return "ABILITY"; //$NON-NLS-1$
+		return "ABILITY";
 	}
 
+	public boolean parse(LoadContext context, CDOMObject obj, String value) throws PersistenceLayerException
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
+		
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		String cat = tok.nextToken();
+		final AbilityCategory category = SettingsHandler.getGame()
+				.getAbilityCategory(cat);
+		if (category == null)
+		{
+			Logging.errorPrint(getTokenName()
+					+ " refers to invalid Ability Category: " + cat);
+			return false;
+		}
+		if (!tok.hasMoreTokens())
+		{
+
+			Logging.errorPrint(getTokenName() + " must have a Nature, "
+					+ "Format is: CATEGORY|NATURE|AbilityName: " + value);
+			return false;
+		}
+		final String natureKey = tok.nextToken();
+		final Ability.Nature nature = Ability.Nature.valueOf(natureKey);
+		if (nature == null)
+		{
+			Logging.errorPrint(getTokenName()
+					+ " refers to invalid Ability Nature: " + natureKey);
+			return false;
+		}
+		if (!tok.hasMoreTokens())
+		{
+			Logging.errorPrint(getTokenName()
+					+ " must have abilities, Format is: "
+					+ "CATEGORY|NATURE|AbilityName: " + value);
+			return false;
+		}
+	
+		String token = tok.nextToken();
+
+		if (token.startsWith("PRE") || token.startsWith("!PRE"))
+		{
+			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+					+ getTokenName() + ": " + value);
+			return false;
+		}
+
+		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
+
+		while (true)
+		{
+			CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(
+					context, ABILITY_CLASS, category, token);
+			if (ability == null)
+			{
+				return false;
+			}
+			AssociatedPrereqObject assoc = context.getListContext().addToList(
+					getTokenName(), obj, Ability.ABILITYLIST, ability);
+			assoc.setAssociation(AssociationKey.NATURE, nature);
+			assoc.setAssociation(AssociationKey.CATEGORY, category);
+			if (token.indexOf('(') != -1)
+			{
+				List<String> choices = new ArrayList<String>();
+				AbilityUtilities.getUndecoratedName(token, choices);
+				assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+			}
+			edgeList.add(assoc);
+
+			if (!tok.hasMoreTokens())
+			{
+				// No prereqs, so we're done
+				return true;
+			}
+			token = tok.nextToken();
+			if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			{
+				break;
+			}
+		}
+
+		while (true)
+		{
+			Prerequisite prereq = getPrerequisite(token);
+			if (prereq == null)
+			{
+				Logging.errorPrint("   (Did you put feats after the "
+						+ "PRExxx tags in " + getTokenName() + ":?)");
+				return false;
+			}
+			for (AssociatedPrereqObject edge : edgeList)
+			{
+				edge.addPrerequisite(prereq);
+			}
+			if (!tok.hasMoreTokens())
+			{
+				break;
+			}
+			token = tok.nextToken();
+		}
+
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		AssociatedChanges<CDOMReference<Ability>> changes = context
+				.getListContext().getChangesInList(getTokenName(), obj,
+						Ability.ABILITYLIST);
+		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
+				.getAddedAssociations();
+		if (mtl == null || mtl.isEmpty())
+		{
+			// Zero indicates no Token
+			return null;
+		}
+		Collection<CDOMReference<Ability>> added = changes.getAdded();
+		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
+		StringBuilder sb = new StringBuilder();
+		if (changes.includesGlobalClear())
+		{
+			if (removedItems != null && !removedItems.isEmpty())
+			{
+				context.addWriteMessage("Non-sensical relationship in "
+						+ getTokenName()
+						+ ": global .CLEAR and local .CLEAR. performed");
+				return null;
+			}
+			sb.append(Constants.LST_DOT_CLEAR);
+		}
+		else if (removedItems != null && !removedItems.isEmpty())
+		{
+			context.addWriteMessage(getTokenName() + " does not support "
+					+ Constants.LST_DOT_CLEAR_DOT);
+			return null;
+		}
+		if (added != null && !added.isEmpty())
+		{
+			if (sb.length() != 0)
+			{
+				sb.append(Constants.PIPE);
+			}
+			sb.append(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
+		}
+		if (sb.length() == 0)
+		{
+			return null;
+		}
+		return new String[] { sb.toString() };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
 }

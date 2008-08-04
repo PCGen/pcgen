@@ -25,18 +25,23 @@ package pcgen.core;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
+import java.util.Collection;
+import java.util.Iterator;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
@@ -339,14 +344,17 @@ public class PObjectTest extends AbstractCharacterTestCase
 	public void testAddAbility() throws PersistenceLayerException
 	{
 		// Create some abilities to be added
+		AbilityCategory cat = new AbilityCategory("TestCat");
+		SettingsHandler.getGame().addAbilityCategory(cat);
+		new AbilityCategoryLoader().parseLine(Globals.getContext(), "TestCat\tCATEGORY:TestCat", null);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
+		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
 		ab1.setCategory("TestCat");
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCategory("TestCat");
-		AbilityCategory cat = new AbilityCategory("TestCat");
-		SettingsHandler.getGame().addAbilityCategory(cat);
+		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
@@ -368,10 +376,20 @@ public class PObjectTest extends AbstractCharacterTestCase
 				Globals.getContext(),
 				race,
 				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		List<String> keys = race.getAbilityKeys(null, cat, Nature.AUTOMATIC);
-		assertEquals(2, keys.size());
-		assertEquals(ab1.getKeyName(), keys.get(0));
-		assertEquals(ab2.getKeyName(), keys.get(1));
+		Globals.getContext().ref.importObject(ab1);
+		Globals.getContext().ref.importObject(ab2);
+		Globals.getContext().resolveReferences();
+		Collection<CDOMReference<Ability>> listMods = race.getListMods(Ability.ABILITYLIST);
+		assertEquals(2, listMods.size());
+		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+		CDOMReference<Ability> ref1 = iterator.next();
+		CDOMReference<Ability> ref2 = iterator.next();
+		Collection<Ability> contained1 = ref1.getContainedObjects();
+		Collection<Ability> contained2 = ref2.getContainedObjects();
+		assertEquals(1, contained1.size());
+		assertEquals(1, contained2.size());
+		assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
+		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();

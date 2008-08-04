@@ -19,6 +19,10 @@ import pcgen.util.Logging;
 public class VfeatToken implements PCClassLstToken
 {
 
+	/*
+	 * No need to convert this to a new token - only difference from global token is the PRExxx
+	 */
+
 	public String getTokenName()
 	{
 		return "VFEAT";

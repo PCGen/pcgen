@@ -141,5 +141,11 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		obj.setCDOMCategory(category);
 		return obj;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return this.getClass().getName() + " [" + getReferenceClass() + " " + category + "]";
+	}
 
 }

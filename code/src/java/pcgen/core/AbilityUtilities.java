@@ -84,6 +84,11 @@ public class AbilityUtilities
 	{
 		Ability newAbility = null;
 
+		/*
+		 * TODO I believe this is a bug, but need to check.  This implies that anything
+		 * that is MULT:YES and is added virtually is added without cause for whether it stacks
+		 * - thpr Jul 24 08
+		 */
 		if (anAbility != null && (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED) || getAbilityFromList(addList, anAbility) == null))
 		{
 			newAbility = anAbility.clone();
@@ -246,7 +251,6 @@ public class AbilityUtilities
 		final boolean multFirst  = getIsMultiples(first);
 		final boolean multSecond = getIsMultiples(second);
 		boolean nameCheck  = false;
-
 		if (multFirst && multSecond) {
 			/*
 			 * The are both Multiply applicable, so strip the decorations (parts
@@ -296,28 +300,6 @@ public class AbilityUtilities
 		final Categorisable newSecond = new AbilityInfo(first.getCategory(), second);
 		return areSameAbility(first, newSecond);
 	}
-
-	/**
-	 * Do the strings passed in represent the same Ability object in the
-	 * Category category?
-	 *
-	 * @param category
-	 * @param first
-	 * @param second
-	 * @return true if the same object is represented
-	 */
-	public static boolean areSameAbility(
-			final String category,
-			final String first,
-			final String second)
-	{
-		if (category == null || first == null || second == null) {
-			return false;
-		}
-		final Categorisable newFirst = new AbilityInfo(category, first);
-		return areSameAbility(newFirst, second);
-	}
-
 
 	/**
 	 * If an ability in Global storage matches the category and name passed
@@ -521,10 +503,6 @@ public class AbilityUtilities
 		final Categorisable abilityInfo,
 		final Ability.Nature           abilityType)
 	{
-		if (anAbilityList.isEmpty()) {
-			return null;
-		}
-
 		for ( Ability ability : anAbilityList )
 		{
 			if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
@@ -1195,4 +1173,34 @@ public class AbilityUtilities
 		return abilityList;
 	}
 	
+	/**
+	 * Clone anAbility, apply choices and add it to the addList, provided the
+	 * Ability allows it (if not isMultiples check if it's already there before
+	 * adding it).
+	 *
+	 * @param   anAbility
+	 * @param   choices
+	 * @param   addList
+	 * @return the Ability added, or null if Ability was not added to the list.
+	 */
+	public static Ability addAbilityToListwithChoices(
+		final Ability anAbility,
+		final List<String>    choices,
+		final List<Ability>    addList)
+	{
+		Ability abil = getAbilityFromList(addList, anAbility);
+		if (abil == null)
+		{
+			abil = anAbility.clone();
+			addList.add(abil);
+		}
+
+		if (choices != null)
+		{
+			addChoicesToAbility(abil, choices);
+		}
+
+		return abil;
+	}
+
 }

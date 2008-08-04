@@ -79,6 +79,7 @@ public class FeatToken extends AbstractToken implements
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getTokenName(), obj, Ability.FEATLIST,
 								ability);
+				assoc.setAssociation(AssociationKey.NATURE, Ability.Nature.AUTOMATIC);
 				if (token.indexOf('(') != -1)
 				{
 					List<String> choices = new ArrayList<String>();

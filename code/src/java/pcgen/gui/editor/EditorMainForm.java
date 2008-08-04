@@ -770,17 +770,11 @@ public final class EditorMainForm extends JDialog
 				// Save feats
 				//
 				sel = pnlFeats.getSelectedList();
-				aString = EditUtil.delimitArray(sel, '|');
-				thisRace.setFeatList(aString);
+				for (Object o : sel)
+				{
+					context.unconditionallyProcess(thisRace, "FEAT", o.toString());
+				}
 
-				//
-				// Save virtual feats
-				//
-				/*
-				   sel = pnlVFeats.getSelectedList();
-				   aString = EditUtil.delimitArray(sel, '|');
-				   thisRace.setVFeatList(aString);
-				 */
 				//
 				// Save bonus languages
 				//
@@ -1508,7 +1502,6 @@ public final class EditorMainForm extends JDialog
 				//
 				List<String> availableRaceFeatList = new ArrayList<String>();
 				List<String> selectedRaceFeatList = new ArrayList<String>();
-				List<String> selectedRaceFeatList2 = new ArrayList<String>();
 
 				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
@@ -1516,17 +1509,13 @@ public final class EditorMainForm extends JDialog
 					availableRaceFeatList.add(anAbility.getKeyName());
 				}
 
-				aString = ((Race) thisPObject).getFeatList();
-				aTok = new StringTokenizer(aString, "|", false);
-
-				while (aTok.hasMoreTokens())
+				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
 				{
-					String featName = aTok.nextToken();
-
-					if (!selectedRaceFeatList.contains(featName))
+					String lst = ref.getLSTformat();
+					if (!selectedRaceFeatList.contains(lst))
 					{
-						availableRaceFeatList.remove(featName);
-						selectedRaceFeatList.add(featName);
+						availableRaceFeatList.remove(lst);
+						selectedRaceFeatList.add(lst);
 					}
 				}
 

@@ -61,6 +61,7 @@ import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
@@ -12560,7 +12561,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		for (PCClass cl : classList)
 		{
-			for (int i = 0; i < cl.getLevel(); i++)
+			for (int i = 1; i <= cl.getLevel(); i++)
 			{
 				PCClassLevel classLevel = cl.getClassLevel(i);
 				list.add(classLevel);
@@ -15970,6 +15971,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		return list;
 	}
+	
 	public List<Ability> getRealAbilitiesList(final AbilityCategory aCategory)
 	{
 		List<Ability> abilities =
@@ -17154,6 +17156,59 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			i++;
 			List<PCTemplate> templateList = new ArrayList<PCTemplate>();
 			List<Equipment> naturalWeaponsList = new ArrayList<Equipment>();
+			for (CDOMObject cdo : getCDOMObjectList())
+			{
+				for (CDOMReference<Ability> ref : cdo
+						.getSafeListMods(Ability.FEATLIST)) {
+					Collection<AssociatedPrereqObject> assoc = cdo
+							.getListAssociations(Ability.FEATLIST, ref);
+					for (Ability ab : ref.getContainedObjects()) {
+						for (AssociatedPrereqObject apo : assoc) {
+							List<String> choices = apo
+									.getAssociation(AssociationKey.ASSOC_CHOICES);
+							if (choices == null) {
+								choices = Collections.emptyList();
+							}
+							Nature nature = apo
+									.getAssociation(AssociationKey.NATURE);
+							List<Ability> abilities = theAbilities.get(
+									AbilityCategory.FEAT, nature);
+							Ability added = AbilityUtilities
+									.addAbilityToListwithChoices(ab, choices,
+											abilities);
+							if (added != null) {
+								added.setFeatType(nature);
+							}
+						}
+					}
+				}
+				for (CDOMReference<Ability> ref : cdo
+						.getSafeListMods(Ability.ABILITYLIST)) {
+					Collection<AssociatedPrereqObject> assoc = cdo
+							.getListAssociations(Ability.ABILITYLIST, ref);
+					for (Ability ab : ref.getContainedObjects()) {
+						for (AssociatedPrereqObject apo : assoc) {
+							List<String> choices = apo
+									.getAssociation(AssociationKey.ASSOC_CHOICES);
+							if (choices == null) {
+								choices = Collections.emptyList();
+							}
+							Nature nature = apo
+									.getAssociation(AssociationKey.NATURE);
+							AbilityCategory cat = apo
+									.getAssociation(AssociationKey.CATEGORY);
+							List<Ability> abilities = theAbilities.get(
+									cat, nature);
+							Ability added = AbilityUtilities
+									.addAbilityToListwithChoices(ab, choices,
+											abilities);
+							if (added != null) {
+								added.setFeatType(nature);
+							}
+						}
+					}
+				}
+			}
 			addNonAbilityAutoFeats(theAbilities.get(AbilityCategory.FEAT,
 					Ability.Nature.AUTOMATIC));
 			List<PObject> pobjectList = getConditionalTemplateObjects();
@@ -17249,23 +17304,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		if (getRace() != null)
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(getRace().getFeatList(),
-						Constants.PIPE);
-
-			while (aTok.hasMoreTokens())
-			{
-				Ability added =
-						AbilityUtilities
-							.addCloneOfGlobalAbilityToListWithChoices(
-								abilities, Constants.FEAT_CATEGORY, aTok
-									.nextToken());
-				if (added != null)
-				{
-					added.setFeatType(Ability.Nature.AUTOMATIC);
-				}
-			}
-
 			addAutoProfsToList(getRace().getSafeListFor(
 				ListKey.SELECTED_WEAPON_PROF_BONUS), abilities);
 		}
@@ -17368,7 +17406,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 									choices = Collections.emptyList();
 								}
 								Ability added = AbilityUtilities
-										.addCloneOfAbilityToListwithChoices(ab,
+										.addAbilityToListwithChoices(ab,
 												choices, abilities);
 								if (added != null)
 								{

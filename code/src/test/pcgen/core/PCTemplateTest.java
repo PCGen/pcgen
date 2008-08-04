@@ -26,7 +26,8 @@ package pcgen.core;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import junit.framework.Test;
@@ -34,7 +35,9 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.Ability.Nature;
@@ -42,9 +45,7 @@ import pcgen.core.analysis.TemplateStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCTemplateLoader;
-import pcgen.rules.context.ConsolidatedListCommitStrategy;
-import pcgen.rules.context.ReferenceContext;
-import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
@@ -92,7 +93,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Returns all the test methods in this class.
+	 * Returns all the test methasVFeatshods in this class.
 	 * @return A <tt>TestSuite</tt>
 	 */
 	public static Test suite()
@@ -109,14 +110,16 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	public void testAddAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		// Create some abilities to be added
+		AbilityCategory cat = new AbilityCategory("TestCat");
+		SettingsHandler.getGame().addAbilityCategory(cat);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCategory("TestCat");
+		ab1.setCDOMCategory(cat);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCategory("TestCat");
-		AbilityCategory cat = new AbilityCategory("TestCat");
-		SettingsHandler.getGame().addAbilityCategory(cat);
+		ab2.setCDOMCategory(cat);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
@@ -134,15 +137,26 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
+		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-				new RuntimeLoadContext(new ReferenceContext(), new ConsolidatedListCommitStrategy()),
+				context,
 				template,
 				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
-		assertEquals(2, keys.size());
-		assertEquals(ab1.getKeyName(), keys.get(0));
-		assertEquals(ab2.getKeyName(), keys.get(1));
+		context.ref.importObject(ab1);
+		context.ref.importObject(ab2);
+		context.resolveReferences();
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		assertEquals(2, listMods.size());
+		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+		CDOMReference<Ability> ref1 = iterator.next();
+		CDOMReference<Ability> ref2 = iterator.next();
+		Collection<Ability> contained1 = ref1.getContainedObjects();
+		Collection<Ability> contained2 = ref2.getContainedObjects();
+		assertEquals(1, contained1.size());
+		assertEquals(1, contained2.size());
+		assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
+		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
@@ -166,9 +180,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCategory(AbilityCategory.FEAT.getKeyName());
+		ab1.setCDOMCategory(AbilityCategory.FEAT);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCategory(AbilityCategory.FEAT.getKeyName());
+		ab2.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
@@ -184,15 +200,26 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
+		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					new RuntimeLoadContext(new ReferenceContext(), new ConsolidatedListCommitStrategy()),
+					context,
 				template,
 				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
-		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
-		assertEquals(2, keys.size());
-		assertEquals(ab1.getKeyName(), keys.get(0));
-		assertEquals(ab2.getKeyName(), keys.get(1));
+		Globals.getContext().ref.importObject(ab1);
+		Globals.getContext().ref.importObject(ab2);
+		Globals.getContext().resolveReferences();
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		assertEquals(2, listMods.size());
+		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+		CDOMReference<Ability> ref1 = iterator.next();
+		CDOMReference<Ability> ref2 = iterator.next();
+		Collection<Ability> contained1 = ref1.getContainedObjects();
+		Collection<Ability> contained2 = ref2.getContainedObjects();
+		assertEquals(1, contained1.size());
+		assertEquals(1, contained2.size());
+		assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
+		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
@@ -212,15 +239,17 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
 	{
+		AbilityCategory cat = new AbilityCategory("TestCat");
+		SettingsHandler.getGame().addAbilityCategory(cat);
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCategory("TestCat");
+		ab1.setCDOMCategory(cat);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCategory("TestCat");
-		AbilityCategory cat = new AbilityCategory("TestCat");
-		SettingsHandler.getGame().addAbilityCategory(cat);
+		ab2.setCDOMCategory(cat);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
@@ -236,21 +265,35 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
+		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					new RuntimeLoadContext(new ReferenceContext(), new ConsolidatedListCommitStrategy()),
+					context,
 				template,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
-		assertEquals(1, keys.size());
-		assertEquals(ab2.getKeyName(), keys.get(0));
-		List<PCTemplate> list = new ArrayList<PCTemplate>();
-		template.getConditionalTemplates(2, 0, list);
-		assertEquals(1, list.size());
-		PCTemplate level2 = list.get(0);
-		keys = level2.getAbilityKeys(null, cat, Nature.AUTOMATIC);
-		assertEquals(1, keys.size());
-		assertEquals(ab1.getKeyName(), keys.get(0));
+		context.ref.importObject(ab1);
+		context.ref.importObject(ab2);
+		context.resolveReferences();
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		assertEquals(1, listMods.size());
+		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+		CDOMReference<Ability> ref1 = iterator.next();
+		Collection<Ability> contained1 = ref1.getContainedObjects();
+		assertEquals(1, contained1.size());
+		assertTrue(contained1.contains(ab2));
+
+		List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
+		assertEquals(1, lvlTemplates.size());
+		PCTemplate lvl2 = lvlTemplates.get(0);
+		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
+		
+		listMods = lvl2.getListMods(Ability.ABILITYLIST);
+		assertEquals(1, listMods.size());
+		iterator = listMods.iterator();
+		ref1 = iterator.next();
+		contained1 = ref1.getContainedObjects();
+		assertEquals(1, contained1.size());
+		assertTrue(contained1.contains(ab1));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
@@ -288,9 +331,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCategory(AbilityCategory.FEAT.getKeyName());
+		ab1.setCDOMCategory(AbilityCategory.FEAT);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCategory(AbilityCategory.FEAT.getKeyName());
+		ab2.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
@@ -306,21 +351,35 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
+		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					new RuntimeLoadContext(new ReferenceContext(), new ConsolidatedListCommitStrategy()),
+					context,
 				template,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
-		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
-		assertEquals(1, keys.size());
-		assertEquals(ab2.getKeyName(), keys.get(0));
-		List<PCTemplate> list = new ArrayList<PCTemplate>();
-		template.getConditionalTemplates(2, 0, list);
-		assertEquals(1, list.size());
-		PCTemplate level2 = list.get(0);
-		keys = level2.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
-		assertEquals(1, keys.size());
-		assertEquals(ab1.getKeyName(), keys.get(0));
+		context.ref.importObject(ab1);
+		context.ref.importObject(ab2);
+		context.resolveReferences();
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		assertEquals(1, listMods.size());
+		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
+		CDOMReference<Ability> ref1 = iterator.next();
+		Collection<Ability> contained1 = ref1.getContainedObjects();
+		assertEquals(1, contained1.size());
+		assertTrue(contained1.contains(ab2));
+
+		List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
+		assertEquals(1, lvlTemplates.size());
+		PCTemplate lvl2 = lvlTemplates.get(0);
+		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
+		
+		listMods = lvl2.getListMods(Ability.ABILITYLIST);
+		assertEquals(1, listMods.size());
+		iterator = listMods.iterator();
+		ref1 = iterator.next();
+		contained1 = ref1.getContainedObjects();
+		assertEquals(1, contained1.size());
+		assertTrue(contained1.contains(ab1));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
