@@ -173,8 +173,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	private BigDecimal costMod = BigDecimal.ZERO;
 
-	private String baseItem = Constants.EMPTY_STRING;
-
 	private List<EquipmentModifier> eqModifierList = new ArrayList<EquipmentModifier>();
 
 	private List<SpecialProperty> specialPropertyList = new ArrayList<SpecialProperty>();
@@ -661,25 +659,16 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Set the base item
-	 * 
-	 * @param argBaseItem
-	 */
-	public void setBaseItem(final String argBaseItem) {
-		baseItem = argBaseItem;
-	}
-
-	/**
 	 * Gets the baseItemName attribute of the Equipment object
 	 * 
 	 * @return The baseItemName value
 	 */
 	public String getBaseItemName() {
-		if (baseItem.length() == 0) {
+		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
+		if (baseItem == null) {
 			return getKeyName();
 		}
-
-		return baseItem;
+		return baseItem.resolvesTo().getKeyName();
 	}
 
 	/**
@@ -1131,7 +1120,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return item name based off the modifiers
 	 */
 	public String getItemNameFromModifiers() {
-		if (baseItem.length() == 0) {
+		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
+		if (baseItem == null)
+		{
 			return getName();
 		}
 
@@ -1147,8 +1138,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<EquipmentModifier> altModListByFC[] = initSplitModList();
 		final List<EquipmentModifier> commonListByFC[] = initSplitModList();
 
-		final Equipment baseEquipment = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Equipment.class, baseItem);
+		final Equipment baseEquipment = baseItem.resolvesTo();
 		//
 		// Remove any modifiers on the base item so they don't confuse the
 		// naming
@@ -2849,15 +2839,15 @@ public final class Equipment extends PObject implements Serializable,
 
 		final Equipment base;
 
-		if (baseItem.length() != 0) {
-			base = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Equipment.class, baseItem);
+		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
+		if (baseItem == null) {
+			base = this;
+			sbuf.append(getBaseItemName());
+		} else {
+			base = baseItem.resolvesTo();
 			sbuf.append(baseItem);
 			sbuf.append(sep).append("NAME").append(endPart).append(
 					toString(false));
-		} else {
-			base = this;
-			sbuf.append(getBaseItemName());
 		}
 
 		if (base == null) {
@@ -3037,7 +3027,6 @@ public final class Equipment extends PObject implements Serializable,
 		final StringTokenizer aTok = new StringTokenizer(aLine, sep);
 		final int endPartLen = endPart.length();
 		String newSize = size.getAbbreviation();
-		baseItem = getKeyName();
 
 		while (aTok.hasMoreTokens()) {
 			final String aString = aTok.nextToken();
@@ -3319,81 +3308,100 @@ public final class Equipment extends PObject implements Serializable,
 		final int iOldSize = sizeInt();
 		int iNewSize = Globals.sizeInt(newSize);
 
-		if (iNewSize != iOldSize) {
+		if (iNewSize != iOldSize)
+		{
 			setSize(newSize);
-			final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Equipment.class, baseItem);
+			CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
 
-			if (eq != null) {
-				put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(aPC, newSize));
-				put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(aPC, newSize));
-				adjustACForSize(aPC, eq, newSize);
-				String dam = eq.getDamageAdjustedForSize(newSize, true);
-				if (dam != null && dam.length() > 0)
-				{
-					getEquipmentHead(1).put(StringKey.DAMAGE, dam);
-				}
-				String adam = eq.getDamageAdjustedForSize(newSize, false);
-				if (adam != null && adam.length() > 0)
-				{
-					getEquipmentHead(2).put(StringKey.DAMAGE, adam);
-				}
-				//
-				// Adjust the capacity of the container (if it is one)
-				//
-				if (containerCapacityString.length() > 0) {
-					double mult = 1.0;
-					final SizeAdjustment newSA = SettingsHandler.getGame()
-							.getSizeAdjustmentNamed(newSize);
-
-					if (newSA != null) {
-						mult = newSA.getBonusTo(aPC, "ITEMCAPACITY", eq
-								.typeList(), 1.0);
-					}
-
-					if (containerWeightCapacity.intValue() != -1) {
-						containerWeightCapacity = new Float(
-								eq.containerWeightCapacity.doubleValue() * mult);
-					}
-
-					if (getAcceptsTypeCount() > 0) {
-						for (String aString : eq.d_acceptsTypes.keySet()) {
-							Float aWeight = eq.getAcceptsType(aString);
-
-							if (aWeight.intValue() != -1) {
-								aWeight = new Float(aWeight.doubleValue()
-										* mult);
-								setAcceptsType(aString, aWeight);
-							}
-						}
-					}
-
-					updateContainerCapacityString();
-				}
+			Equipment eq;
+			if (baseItem == null)
+			{
+				eq = this;
+			}
+			else
+			{
+				eq = baseItem.resolvesTo();
 			}
 
-			//
-			// Since we've just resized the item, we need to modify any PRESIZE
-			// prerequisites
-			//
-			if (hasPrerequisites())
+			put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(aPC, newSize));
+			put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(aPC, newSize));
+			adjustACForSize(aPC, eq, newSize);
+			String dam = eq.getDamageAdjustedForSize(newSize, true);
+			if (dam != null && dam.length() > 0)
 			{
-				for (Prerequisite aBonus : getPrerequisiteList()) {
-					if ("SIZE".equalsIgnoreCase(aBonus.getKind())) {
-						final int iOldPre = Globals.sizeInt(aBonus.getOperand());
-						iNewSize += (iOldPre - iOldSize);
+				getEquipmentHead(1).put(StringKey.DAMAGE, dam);
+			}
+			String adam = eq.getDamageAdjustedForSize(newSize, false);
+			if (adam != null && adam.length() > 0)
+			{
+				getEquipmentHead(2).put(StringKey.DAMAGE, adam);
+			}
+			//
+			// Adjust the capacity of the container (if it is one)
+			//
+			if (containerCapacityString.length() > 0)
+			{
+				double mult = 1.0;
+				final SizeAdjustment newSA =
+						SettingsHandler.getGame().getSizeAdjustmentNamed(
+							newSize);
 
-						if ((iNewSize >= 0)
-								&& (iNewSize <= (SettingsHandler.getGame()
-										.getSizeAdjustmentListSize() - 1))) {
-							// Note: This actually impacts the Prereq in this
-							// Equipment, since it is returned
-							// by reference from the get above ... thus no need to
-							// perform a set
-							aBonus.setOperand(SettingsHandler.getGame()
-									.getSizeAdjustmentAtIndex(iNewSize)
-									.getAbbreviation());
+				if (newSA != null)
+				{
+					mult =
+							newSA.getBonusTo(aPC, "ITEMCAPACITY",
+								eq.typeList(), 1.0);
+				}
+
+				if (containerWeightCapacity.intValue() != -1)
+				{
+					containerWeightCapacity =
+							new Float(eq.containerWeightCapacity.doubleValue()
+								* mult);
+				}
+
+				if (getAcceptsTypeCount() > 0)
+				{
+					for (String aString : eq.d_acceptsTypes.keySet())
+					{
+						Float aWeight = eq.getAcceptsType(aString);
+
+						if (aWeight.intValue() != -1)
+						{
+							aWeight = new Float(aWeight.doubleValue() * mult);
+							setAcceptsType(aString, aWeight);
 						}
+					}
+				}
+
+				updateContainerCapacityString();
+			}
+		}
+
+		//
+		// Since we've just resized the item, we need to modify any PRESIZE
+		// prerequisites
+		//
+		if (hasPrerequisites())
+		{
+			for (Prerequisite aBonus : getPrerequisiteList())
+			{
+				if ("SIZE".equalsIgnoreCase(aBonus.getKind()))
+				{
+					final int iOldPre = Globals.sizeInt(aBonus.getOperand());
+					iNewSize += (iOldPre - iOldSize);
+
+					if ((iNewSize >= 0)
+						&& (iNewSize <= (SettingsHandler.getGame()
+							.getSizeAdjustmentListSize() - 1)))
+					{
+						// Note: This actually impacts the Prereq in this
+						// Equipment, since it is returned
+						// by reference from the get above ... thus no need to
+						// perform a set
+						aBonus.setOperand(SettingsHandler.getGame()
+							.getSizeAdjustmentAtIndex(iNewSize)
+							.getAbbreviation());
 					}
 				}
 			}
@@ -3706,16 +3714,13 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC
 	 */
 	private void setBase(final PlayerCharacter aPC) {
-		if (baseItem.length() == 0) {
-			baseItem = getKeyName();
-		}
-
+		
 		String prof = consolidatedProfName();
 		if (prof.length() == 0) {
-			final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Equipment.class, baseItem);
-
-			if (eq != null) {
+			CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
+			if (baseItem != null)
+			{
+				Equipment eq = baseItem.resolvesTo();
 				CDOMSingleRef<WeaponProf> wpRef = eq.get(ObjectKey.WEAPON_PROF);
 				if (wpRef != null)
 				{

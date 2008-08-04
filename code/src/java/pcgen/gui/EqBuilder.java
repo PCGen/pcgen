@@ -1196,7 +1196,7 @@ final class EqBuilder extends JPanel
 		//
 		if (aNewEq.getBaseItemName().toUpperCase().startsWith(Constants.s_GENERIC_ITEM.toUpperCase()))
 		{
-			aNewEq.setBaseItem("");
+			aNewEq.remove(ObjectKey.BASE_ITEM);
 		}
 
 		Globals.getContext().ref.importObject(aNewEq);
@@ -1814,7 +1814,7 @@ final class EqBuilder extends JPanel
 			//
 			if (aNewEq.getBaseItemName().toUpperCase().startsWith(Constants.s_GENERIC_ITEM.toUpperCase()))
 			{
-				aNewEq.setBaseItem("");
+				aNewEq.remove(ObjectKey.BASE_ITEM);
 			}
 
 			setEquipment(aNewEq, true);

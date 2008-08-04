@@ -94,6 +94,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Quality;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -1194,15 +1195,13 @@ public final class InfoGear extends FilterAdapterPanel implements
 					}
 					else
 					{
-						final String existingName = selectedEquipment.getName();
 						final Equipment newEq =
 								selectedEquipment.clone();
 
-						// This may seem insane, but if the base item is not set,
-						// getBaseItemName returns the result of getName
-						if (newEq.getBaseItemName().equals(existingName))
+						if (!newEq.containsKey(ObjectKey.BASE_ITEM))
 						{
-							newEq.setBaseItem(existingName);
+							newEq.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef
+								.getRef(selectedEquipment));
 						}
 
 						newEq.setName(newName);

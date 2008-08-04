@@ -32,7 +32,9 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 
 /**
  * Equipment Test
@@ -297,7 +299,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		// Create a base item
 		Equipment custEq = eq.clone();
 		custEq.setKeyName("Custom");
-		custEq.setBaseItem(eq.getKeyName());
+		custEq.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eq));
 		Globals.getContext().ref.importObject(custEq);
 		Globals.getContext().ref.importObject(eq);
 

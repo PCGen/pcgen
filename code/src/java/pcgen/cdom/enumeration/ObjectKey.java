@@ -43,6 +43,7 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.ShieldProf;
@@ -196,6 +197,8 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Load> UNENCUMBERED_LOAD = new ObjectKey<Load>(Load.LIGHT);
 
 	public static final ObjectKey<Load> UNENCUMBERED_ARMOR = new ObjectKey<Load>(Load.LIGHT);
+
+	public static final ObjectKey<CDOMSingleRef<Equipment>> BASE_ITEM = new ObjectKey<CDOMSingleRef<Equipment>>(null);
 
 	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 
