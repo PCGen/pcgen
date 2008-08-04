@@ -3466,6 +3466,11 @@ public final class GameMode implements Comparable<Object>
 		return set != null && set.contains(type);
 	}
 
+	public int sizeIndex(SizeAdjustment sz)
+	{
+		return sizeAdjustmentList.indexOf(sz);
+	}
+
 	/**
 	 * Gets the name of the currently selected experience table
 	 * 

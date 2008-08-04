@@ -2277,6 +2277,11 @@ public final class Globals
 		return defaultValue;
 	}
 
+	public static int sizeInt(SizeAdjustment sz)
+	{
+		return SettingsHandler.getGame().sizeIndex(sz);
+	}
+
 	/**
 	 * Sorts chooser lists using the appropriate method, based on the type of the first item in either list.
 	 * Not pretty, but it works.

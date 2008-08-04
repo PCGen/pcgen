@@ -1670,8 +1670,8 @@ final class PCSizeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Equipment)
 		{
-			return ((Equipment) pObject).getSize().toUpperCase().equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-					aPC.sizeInt()).getAbbreviation());
+			return ((Equipment) pObject).getSizeAdj().equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(
+					aPC.sizeInt()));
 		}
 
 		return true;
@@ -2463,10 +2463,8 @@ final class SizeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Equipment)
 		{
-			final String aEquipSize = ((Equipment) pObject).getSize();
-
-			return aEquipSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getAbbreviation())
-			|| aEquipSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getDisplayName());
+			return ((Equipment) pObject).getSizeAdj().equals(
+					SettingsHandler.getGame().getSizeAdjustmentAtIndex(size));
 		}
 		else if (pObject instanceof Race)
 		{

@@ -1,6 +1,8 @@
 package plugin.lsttokens.equipment;
 
 import pcgen.core.Equipment;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.EquipmentLstToken;
 
 /**
@@ -16,7 +18,13 @@ public class SizeToken implements EquipmentLstToken
 
 	public boolean parse(Equipment eq, String value)
 	{
-		eq.setSize(value, true);
+		if (value.length() > 1) {
+			value = value.toUpperCase().substring(0, 1);
+		}
+		
+		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed(value);
+		eq.setSize(sa);
+		eq.setBaseSize(sa);
 		return true;
 	}
 }

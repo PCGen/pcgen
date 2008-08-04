@@ -93,7 +93,9 @@ public class EquipmentListTest extends PCGenTestCase
 
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
-		this.eq.setSize("M", true);
+		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
+		eq.setSize(sa);
+		eq.setBaseSize(sa);
 		this.eq.setTypeInfo("WEAPON.MELEE.CHOCOLATE");
 
 		this.eq.setKeyName(originalKey);

@@ -29,6 +29,7 @@ import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -149,12 +150,16 @@ public class PreEquipTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		// Test 3.0 Style
-		longsword.setSize("M", true);
+		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
+		longsword.setSize(sa);
+		longsword.setBaseSize(sa);
 
 		assertTrue("Weapon is M therefore OneHanded", PrereqHandler.passes(
 			prereq, character, null));
 
-		longsword.setSize("L", true);
+		sa = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
+		longsword.setSize(sa);
+		longsword.setBaseSize(sa);
 
 		assertFalse("Weapon is L therefore TwoHanded", PrereqHandler.passes(
 			prereq, character, null));

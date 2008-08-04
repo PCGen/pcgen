@@ -50,6 +50,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -154,7 +155,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn.getEquipmentHead(2).put(IntegerKey.CRIT_RANGE, 1);
 		dblWpn.put(IntegerKey.SLOTS, 2);
 		dblWpn.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
-		dblWpn.setSize("M", true);
+		SizeAdjustment sam = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
+		dblWpn.setSize(sam);
+		dblWpn.setBaseSize(sam);
 		character.addEquipment(dblWpn);
 		EquipSet def = new EquipSet("0.1", "Default");
 		character.addEquipSet(def);
@@ -186,7 +189,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		bastardSword.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
-		bastardSword.setSize("M", true);
+		bastardSword.setSize(sam);
+		bastardSword.setBaseSize(sam);
 
 		wp = new WeaponProf();
 		wp.setName("Longsword");
@@ -205,7 +209,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		largeSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
-		largeSword.setSize("L", true);
+		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
+		largeSword.setSize(sal);
+		largeSword.setBaseSize(sal);
 
 		fineSword = new Equipment();
 		fineSword.setName("Longsword (Fine)");
@@ -218,7 +224,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		fineSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
-		fineSword.setSize("M", true);
+		fineSword.setSize(sam);
+		fineSword.setBaseSize(sam);
 
 		longSpear = new Equipment();
 		longSpear.setName("Longspear");
@@ -229,7 +236,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 		longSpear.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
-		longSpear.setSize("M", true);
+		longSpear.setSize(sam);
+		longSpear.setBaseSize(sam);
 		longSpear.put(IntegerKey.REACH, 10);
 
 		GameMode gm = SettingsHandler.getGame();
@@ -254,7 +262,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.put(StringKey.OUTPUT_NAME, "Silly Bite (For Test)");
 		bite.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-		bite.setSize("M", true);
+		bite.setSize(sam);
+		bite.setBaseSize(sam);
 		bite.addBonusList("WEAPON|ATTACKS|" + 7);
 		bite.setOnlyNaturalWeapon(false);
 		bite.put(IntegerKey.SLOTS, 0);

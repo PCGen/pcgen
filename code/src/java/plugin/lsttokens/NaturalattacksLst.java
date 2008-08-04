@@ -21,6 +21,8 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -178,7 +180,13 @@ public class NaturalattacksLst implements GlobalLstToken
 		anEquip.setName(attackName);
 		anEquip.setTypeInfo(profType);
 		anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-		anEquip.setSize(aSize, true);
+		if (aSize.length() > 1) {
+			aSize = aSize.toUpperCase().substring(0, 1);
+		}
+		
+		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed(aSize);
+		anEquip.setSize(sa);
+		anEquip.setBaseSize(sa);
 
 		String numAttacks = aTok.nextToken();
 		boolean attacksProgress = true;

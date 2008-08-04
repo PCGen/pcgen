@@ -854,8 +854,7 @@ public class EqToken extends Token
 	 */
 	public static String getSizeLongToken(Equipment eq)
 	{
-		return SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-			Globals.sizeInt(eq.getSize())).getDisplayName();
+		return eq.getSizeAdj().getDisplayName();
 	}
 
 	/**

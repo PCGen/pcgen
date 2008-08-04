@@ -94,7 +94,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
-		this.eq.setSize("M", true);
+		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
+		eq.setSize(sa);
+		eq.setBaseSize(sa);
 
 		this.eq.setKeyName(this.OriginalKey);
 	}
@@ -208,7 +210,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize005()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize("Large", false);
+		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (Large)");
 		eq.setKeyName(newKey);
 
@@ -229,7 +231,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize006()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize("Large", false);
+		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (+1/Large)");
 		eq.setKeyName(newKey);
 
@@ -250,7 +252,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize007()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize("Large", false);
+		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (+1/Large/Speed)");
 		eq.setKeyName(newKey);
 
@@ -270,7 +272,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize008()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize("Large", false);
+		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (+1/Speed)");
 		eq.setKeyName(newKey);
 
