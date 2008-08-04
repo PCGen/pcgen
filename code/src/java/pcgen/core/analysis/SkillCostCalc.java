@@ -21,9 +21,12 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -35,6 +38,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.Skill;
 
 public final class SkillCostCalc
@@ -75,7 +79,7 @@ public final class SkillCostCalc
 
 		if (aClass.isMonster())
 		{
-			if (aPC.getRace().hasMonsterCSkill(sk))
+			if (hasMonsterClassSkill(aPC.getRace(), sk))
 			{
 				return true;
 			}
@@ -245,7 +249,7 @@ public final class SkillCostCalc
 
 		if (aClass.isMonster())
 		{
-			if (aPC.getRace().hasMonsterCCSkill(sk))
+			if (hasMonsterCCSkill(aPC.getRace(), sk))
 			{
 				return true;
 			}
@@ -303,6 +307,56 @@ public final class SkillCostCalc
 			}
 		}
 
+		return false;
+	}
+
+	public static boolean hasMonsterCCSkill(Race r, Skill s)
+	{
+		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
+		Collection<CDOMReference<Skill>> mods = r.getListMods(mList);
+		if (mods == null)
+		{
+			return false;
+		}
+		for (CDOMReference<Skill> ref : mods)
+		{
+			for (AssociatedPrereqObject apo : r.getListAssociations(mList, ref))
+			{
+				if (SkillCost.CROSS_CLASS.equals(apo
+						.getAssociation(AssociationKey.SKILL_COST)))
+				{
+					if (ref.contains(s))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasMonsterClassSkill(Race r, Skill s)
+	{
+		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
+		Collection<CDOMReference<Skill>> mods = r.getListMods(mList);
+		if (mods == null)
+		{
+			return false;
+		}
+		for (CDOMReference<Skill> ref : mods)
+		{
+			for (AssociatedPrereqObject apo : r.getListAssociations(mList, ref))
+			{
+				if (SkillCost.CLASS.equals(apo
+						.getAssociation(AssociationKey.SKILL_COST)))
+				{
+					if (ref.contains(s))
+					{
+						return true;
+					}
+				}
+			}
+		}
 		return false;
 	}
 

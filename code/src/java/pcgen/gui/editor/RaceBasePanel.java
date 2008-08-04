@@ -451,7 +451,7 @@ public class RaceBasePanel extends BasePanel
 		setMonsterClass(thisRace.getMonsterClass());
 		setMonsterLevel(thisRace.getMonsterClassLevels());
 		setRaceSize(thisRace.get(FormulaKey.SIZE));
-		setReach(thisRace.getReach());
+		setReach(thisRace.getSafe(IntegerKey.REACH));
 		setSkillMultiplier(thisRace.getSafe(IntegerKey.INITIAL_SKILL_MULT));
 	}
 

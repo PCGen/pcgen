@@ -17544,7 +17544,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int reach = 0;
 		if (aRace != null)
 		{
-			reach = aRace.getReach();
+			reach = aRace.getSafe(IntegerKey.REACH);
 		}
 
 		// Scan templates for any overrides

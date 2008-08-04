@@ -104,7 +104,7 @@ public class IntegerKey
 	public static final IntegerKey CAMPAIGN_RANK = getConstant("CAMPAIGN_RANK",
 			9);
 
-	public static final IntegerKey REACH = getConstant("REACH");
+	public static final IntegerKey REACH = getConstant("REACH", 5);
 
 	public static final IntegerKey REACH_MULT = getConstant("REACH_MULT", 1);
 

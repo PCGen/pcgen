@@ -28,16 +28,11 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
@@ -331,12 +326,6 @@ public final class Race extends PObject
 		return txt.toString();
 	}
 
-	public int getReach()
-	{
-		Integer reach = get(IntegerKey.REACH);
-		return reach == null ? 5 : reach;
-	}
-
 	@Override
 	public Race clone()
 	{
@@ -406,56 +395,6 @@ public final class Race extends PObject
 		}
 
 		return true;
-	}
-
-	public boolean hasMonsterCCSkill(Skill s)
-	{
-		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
-		Collection<CDOMReference<Skill>> mods = getListMods(mList);
-		if (mods == null)
-		{
-			return false;
-		}
-		for (CDOMReference<Skill> ref : mods)
-		{
-			for (AssociatedPrereqObject apo : getListAssociations(mList, ref))
-			{
-				if (SkillCost.CROSS_CLASS.equals(apo
-						.getAssociation(AssociationKey.SKILL_COST)))
-				{
-					if (ref.contains(s))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	public boolean hasMonsterCSkill(Skill s)
-	{
-		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
-		Collection<CDOMReference<Skill>> mods = getListMods(mList);
-		if (mods == null)
-		{
-			return false;
-		}
-		for (CDOMReference<Skill> ref : mods)
-		{
-			for (AssociatedPrereqObject apo : getListAssociations(mList, ref))
-			{
-				if (SkillCost.CLASS.equals(apo
-						.getAssociation(AssociationKey.SKILL_COST)))
-				{
-					if (ref.contains(s))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
 	}
 
 	int maxHitDiceAdvancement()
