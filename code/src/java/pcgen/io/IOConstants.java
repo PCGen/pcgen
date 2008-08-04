@@ -221,6 +221,8 @@ interface IOConstants
 	/** Character feats */
 	String TAG_FEAT = "FEAT";
 
+	/** FAVORED CLASS */
+	String TAG_FAVOREDCLASS = "FAVOREDCLASS";
 	/** FEATLIST */
 	String TAG_FEATLIST = "FEATLIST";
 	/** FEATPOOL */

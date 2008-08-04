@@ -676,6 +676,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			parseRaceLine(cache.get(TAG_RACE).get(0));
 		}
 
+		if (cache.containsKey(TAG_FAVOREDCLASS))
+		{
+			parseFavoredClassLine(cache.get(TAG_FAVOREDCLASS).get(0));
+		}
+
 		/*
 		 * #System Information
 		 * CAMPAIGNS:>:-delimited list<
@@ -3234,6 +3239,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		// TODO
 		// adjust for more information according to PCGVer1Creator.appendRaceLine
 	}
+
+	private void parseFavoredClassLine(final String line)
+	{
+		String decode = EntityEncoder.decode(line.substring(TAG_FAVOREDCLASS.length() + 1));
+		thePC.setStringFor(StringKey.RACIAL_FAVORED_CLASS,
+				decode);
+	}
+
 
 	/**
 	 * Translate the string of hitpoint values into a map.

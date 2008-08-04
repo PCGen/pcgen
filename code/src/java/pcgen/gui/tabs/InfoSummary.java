@@ -78,6 +78,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
@@ -932,14 +933,25 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				StringBuffer favClassSet = new StringBuffer();
 				String fav = aRace.getFavoredClass();
-				StringTokenizer tok = new StringTokenizer(fav, Constants.PIPE);
-				while (tok.hasMoreTokens())
+				if (fav.startsWith("CHOOSE:"))
 				{
-					if (favClassSet.length() != 0)
+					fav = fav.substring(7);
+				}
+				if (fav.equalsIgnoreCase("ALL"))
+				{
+					favClassSet.append("Any");
+				}
+				else
+				{
+					StringTokenizer tok = new StringTokenizer(fav, Constants.PIPE);
+					while (tok.hasMoreTokens())
 					{
-						favClassSet.append(", ");
+						if (favClassSet.length() != 0)
+						{
+							favClassSet.append(", ");
+						}
+						favClassSet.append(tok.nextToken());
 					}
-					favClassSet.append(tok.nextToken());
 				}
 
 				String favClassName = favClassSet.length() == 0 ? 
@@ -1106,6 +1118,15 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					.append("</i>: ").append(Delta.toString(bonus)); //$NON-NLS-1$
 			}
 
+			//
+			// Show character's favored class
+			//
+			String favClass = pc.getStringFor(StringKey.RACIAL_FAVORED_CLASS);
+			if (favClass != null && favClass != "" && !favClass.equalsIgnoreCase("ANY"))
+			{
+				statBuf
+					.append("<br><b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>: ").append(favClass); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			}
 			//
 			// Show character's current size
 			//

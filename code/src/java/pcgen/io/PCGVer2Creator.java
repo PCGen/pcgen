@@ -44,6 +44,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -236,6 +237,7 @@ final class PCGVer2Creator implements IOConstants
 		appendStatLines(buffer);
 		appendAlignmentLine(buffer);
 		appendRaceLine(buffer);
+		appendFavoredClassLine(buffer);
 
 		/*
 		 * #Character Class(es)
@@ -1772,6 +1774,14 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(EntityEncoder.encode(thePC.getRace().getKeyName()));
 		buffer.append(LINE_SEP);
 	}
+
+	private void appendFavoredClassLine(StringBuffer buffer)
+	{
+		buffer.append(TAG_FAVOREDCLASS).append(':');
+		buffer.append(EntityEncoder.encode(thePC.getStringFor(StringKey.RACIAL_FAVORED_CLASS)));
+		buffer.append(LINE_SEP);
+	}
+
 
 	private void appendResidenceLine(StringBuffer buffer)
 	{

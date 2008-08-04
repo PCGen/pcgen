@@ -5777,23 +5777,24 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getFavoredClassLevel()
 	{
-		final SortedSet<String> aList = getFavoredClasses();
 		int level = 0;
-		
-		if (aList.contains("ANY"))
+		if (getRace().getFavoredClass().equalsIgnoreCase("ANY"))
 		{
 			for (PCClass pcClass : classList)
 			{
-				level = Math.max(level, pcClass.getLevel());
+				if (pcClass.isType("Base"))
+				{
+					level = Math.max(level, pcClass.getLevel());
+				}
 			}
 		}
 		else
 		{
 			for (PCClass pcClass : classList)
 			{
-				if (aList.contains(pcClass.getDisplayClassName()))
+				if (pcClass.getDisplayName().equals(getStringFor(StringKey.RACIAL_FAVORED_CLASS)))
 				{
-					level += pcClass.getLevel();
+					level = pcClass.getLevel();
 				}
 			}
 		}
@@ -6379,7 +6380,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			addNaturalWeapons(race.getNaturalWeapons());
 			getAutoLanguages();
-			getRacialFavoredClasses();
+
+			if (!isImporting())
+			{
+				getRacialFavoredClasses();
+			}
 
 			selectTemplates(race, isImporting()); // gets and adds templates
 
