@@ -77,6 +77,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -416,11 +417,9 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 			if (Globals.getGameModeShowSpellTab())
 			{
-				aString = aClass.getSpellType();
+				aString = aClass.get(StringKey.SPELLTYPE);
 
-				if (isSubClass
-					&& ((aString.length() == 0) || aString
-						.equalsIgnoreCase(Constants.s_NONE)))
+				if (isSubClass && aString == null)
 				{
 					aString = lastClass.getSpellType();
 				}

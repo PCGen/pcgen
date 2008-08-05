@@ -1,12 +1,15 @@
 package plugin.lsttokens.pcclass;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
-import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with SPELLTYPE Token
  */
-public class SpelltypeToken implements PCClassLstToken
+public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
 {
 
 	public String getTokenName()
@@ -14,13 +17,36 @@ public class SpelltypeToken implements PCClassLstToken
 		return "SPELLTYPE";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
-		/*
-		 * CONSIDER In the future it may be useful here to check for "" or
-		 * "None" and filter those out (never set the spell type) - thpr 11/9/06
-		 */
-		pcclass.setSpellType(value);
+		if (value == null || value.length() == 0)
+		{
+			// CONSIDER Deprecate this behavior
+			return true;
+		}
+		if (value.equalsIgnoreCase(Constants.LST_NONE))
+		{
+			// CONSIDER Deprecate this behavior
+			return true;
+		}
+		context.getObjectContext().put(pcc, StringKey.SPELLTYPE, value);
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, PCClass pcc)
+	{
+		String target = context.getObjectContext().getString(pcc,
+				StringKey.SPELLTYPE);
+		if (target == null)
+		{
+			return null;
+		}
+		return new String[] { target };
+	}
+
+	public Class<PCClass> getTokenClass()
+	{
+		return PCClass.class;
+	}
+
 }

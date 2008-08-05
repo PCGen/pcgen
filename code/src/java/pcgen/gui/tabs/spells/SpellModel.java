@@ -32,6 +32,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -1115,7 +1116,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 		for (PCClass aClass : classes)
 		{
-			if (!aClass.getSpellType().equals(Constants.s_NONE))
+			if (aClass.get(StringKey.SPELLTYPE) != null)
 			{
 				if (aClass.zeroCastSpells() && !aClass.hasKnownList())
 				{

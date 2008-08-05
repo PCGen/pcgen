@@ -47,6 +47,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.inst.PCClassLevel;
@@ -474,7 +475,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.setSpellType("ARCANE");
+		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
@@ -545,7 +546,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.setSpellType("ARCANE");
+		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);

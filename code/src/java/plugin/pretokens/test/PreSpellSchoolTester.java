@@ -55,7 +55,7 @@ public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
 
 		final List<Spell> aArrayList =
 				character.aggregateSpellList(
-					"Any", school, "A", "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
+					school, "A", "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
 		final int runningTotal =
 				prereq.getOperator().compare(aArrayList.size(), requiredNumber);

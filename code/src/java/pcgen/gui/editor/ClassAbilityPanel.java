@@ -44,6 +44,7 @@ import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -184,12 +185,12 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		 * 
 		 * Ditto SpellBaseStat above...
 		 */
-		obj.setSpellType(Constants.s_NONE);
+		obj.remove(StringKey.SPELLTYPE);
 		a = (String) spellType.getSelectedItem();
 
-		if ((a != null) && (a.length() > 0))
+		if ((a != null) && (a.length() > 0) && !a.equalsIgnoreCase(Constants.LST_NONE))
 		{
-			obj.setSpellType(a);
+			obj.put(StringKey.SPELLTYPE, a);
 		}
 
 		a = maxLevel.getText().trim();

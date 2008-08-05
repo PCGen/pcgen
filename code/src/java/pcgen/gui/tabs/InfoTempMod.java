@@ -2448,8 +2448,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Do all the PC's spells
-				for (Spell aSpell : pc.aggregateSpellList("Any", "", "", "", 0,
-					9))
+				for (Spell aSpell : pc.aggregateSpellList("", "", "", 0, 9))
 				{
 					if (aSpell == null)
 					{

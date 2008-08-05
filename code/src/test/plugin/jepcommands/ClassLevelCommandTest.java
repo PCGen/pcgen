@@ -29,6 +29,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Campaign;
 import pcgen.core.Description;
@@ -106,7 +107,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 
 		megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.setSpellType("ARCANE");
+		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
 		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);

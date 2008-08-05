@@ -116,13 +116,13 @@ public class PreMultTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.setSpellType("ARCANE");
+		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();

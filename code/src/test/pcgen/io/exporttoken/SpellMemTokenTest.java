@@ -29,6 +29,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -100,7 +101,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
 		arcaneClass.setKeyName("KEY_TEST_ARCANE");
-		arcaneClass.setSpellType("ARCANE");
+		arcaneClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
@@ -115,7 +116,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
 		divineClass.setKeyName("KEY_TEST_DIVINE");
-		divineClass.setSpellType("DIVINE");
+		divineClass.put(StringKey.SPELLTYPE, "DIVINE");
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);

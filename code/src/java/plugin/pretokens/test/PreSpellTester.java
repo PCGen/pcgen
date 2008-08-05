@@ -67,7 +67,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 
 		// Build a list of all possible spells
 		final List<Spell> aArrayList =
-				character.aggregateSpellList("Any", "", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				character.aggregateSpellList("", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		//Needs to add domain spells as well
 		for (CharacterDomain aCD : character.getCharacterDomainList())

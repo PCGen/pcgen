@@ -1534,26 +1534,16 @@ public final class Globals
 	{
 		final List<Spell> aList = new ArrayList<Spell>();
 		final StringBuffer aBuf = new StringBuffer();
-		String spellType = Constants.EMPTY_STRING;
 
 		if (classKey.length() > 0)
 		{
-			final PCClass aClass;
-
 			if (classKey.indexOf('|') < 0)
 			{
-				aClass = getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 				aBuf.append("CLASS|").append(classKey);
 			}
 			else
 			{
-				aClass = getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey.substring(classKey.indexOf(Constants.PIPE) + 1));
 				aBuf.append(classKey);
-			}
-
-			if (aClass != null)
-			{
-				spellType = aClass.getSpellType();
 			}
 		}
 
@@ -1572,8 +1562,6 @@ public final class Globals
 			{
 				aBuf.append(domainKey);
 			}
-
-			spellType = "DIVINE";
 		}
 		for (String aKey : spellMap.keySet())
 		{

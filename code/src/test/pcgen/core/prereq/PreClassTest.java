@@ -32,6 +32,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -71,7 +72,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
@@ -125,7 +126,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -151,7 +152,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
@@ -183,13 +184,13 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.setSpellType("ARCANE");
+		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
@@ -220,13 +221,13 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.setSpellType("ARCANE");
+		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
@@ -258,13 +259,13 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.setSpellType("ARCANE");
+		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
@@ -292,7 +293,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -362,7 +363,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 
@@ -388,7 +389,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterTypeFail() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -414,7 +415,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 
@@ -440,7 +441,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 
@@ -542,7 +543,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -564,11 +565,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.setSpellType("DIVINE");
+		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -594,11 +595,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.setSpellType("DIVINE");
+		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -619,11 +620,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.setSpellType("DIVINE");
+		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
 
 		final PlayerCharacter character = getCharacter();
 
@@ -642,11 +643,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.setSpellType("DIVINE");
+		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
 
 		final PlayerCharacter character = getCharacter();
 
@@ -667,12 +668,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		pcClass.addBonusList("0|CASTERLEVEL|MyClass|CL");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.setSpellType("DIVINE");
+		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
 		pcClass.addBonusList("0|CASTERLEVEL|MyClass2|CL");
 
 		final PlayerCharacter character = getCharacter();
@@ -691,12 +692,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		pcClass.addBonusList("0|CASTERLEVEL|MyClass|CL");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.setSpellType("ARCANE");
+		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		pcClass.addBonusList("0|CASTERLEVEL|MyClass2|CL");
 
 		final PlayerCharacter character = getCharacter();

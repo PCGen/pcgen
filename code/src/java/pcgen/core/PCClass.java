@@ -383,7 +383,6 @@ public class PCClass extends PObject
 	 */
 	protected int level = 0; // TODO - This should be moved.
 
-	private SpellProgressionInfo castInfo = null;
 	private SpellProgressionCache spellCache = null;
 	private boolean spellCacheValid = false;
 
@@ -723,7 +722,7 @@ public class PCClass extends PObject
 					// Assume no null check on castInfo requried, because
 					// getNumFromCastList above would have returned -1
 					if ((ix > 0)
-						&& "DIVINE".equalsIgnoreCase(castInfo.getSpellType()))
+						&& "DIVINE".equalsIgnoreCase(getSpellType()))
 					{
 						for (CharacterDomain cd : aPC.getCharacterDomainList())
 						{
@@ -1251,26 +1250,13 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass since 
-	 * it is a Tag
-	 */
-	public final void setSpellType(final String newType)
-	{
-		if (castInfo == null && Constants.s_NONE.equals(newType))
-		{
-			//Don't create a SpellProgressionInfo to set to default!!
-			return;
-		}
-		getConstructingSpellProgressionInfo().setSpellType(newType);
-	}
-
-	/*
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellType()
 	{
-		return castInfo == null ? Constants.s_NONE : castInfo.getSpellType();
+		String castInfo = get(StringKey.SPELLTYPE);
+		return castInfo == null ? Constants.s_NONE : castInfo;
 	}
 
 	/*
@@ -1475,7 +1461,7 @@ public class PCClass extends PObject
 
 			// if the spelllevel is >0 and this class has a characterdomain
 			// associated with it, return +1
-			if ((spellLevel > 0) && "DIVINE".equalsIgnoreCase(getSpellType()))
+			if ((spellLevel > 0) && "DIVINE".equalsIgnoreCase(get(StringKey.SPELLTYPE)))
 			{
 				for (CharacterDomain cd : aPC.getCharacterDomainList())
 				{
@@ -2312,12 +2298,6 @@ public class PCClass extends PObject
 			pccTxt.append(StringUtil.join(prohibitedSchools, ","));
 		}
 
-		if (castInfo != null)
-		{
-			checkAdd(pccTxt, Constants.s_NONE, "SPELLTYPE:", castInfo
-				.getSpellType());
-		}
-
 		if (itemCreationMultiplier.length() != 0)
 		{
 			pccTxt.append("\tITEMCREATE:").append(itemCreationMultiplier);
@@ -2611,15 +2591,6 @@ public class PCClass extends PObject
 		substitutionClassList.add(sClass);
 	}
 
-	private SpellProgressionInfo getConstructingSpellProgressionInfo()
-	{
-		if (castInfo == null)
-		{
-			castInfo = new SpellProgressionInfo();
-		}
-		return castInfo;
-	}
-
 	/**
 	 * Add a level of this class to the character. Note this call is assumed to
 	 * only be used when loading characters, and some behaviour is tailored for
@@ -2875,10 +2846,6 @@ public class PCClass extends PObject
 			{
 				aClass.prohibitedSchools =
 						new ArrayList<String>(prohibitedSchools);
-			}
-			if (castInfo != null)
-			{
-				aClass.castInfo = castInfo.clone();
 			}
 			spellCache = null;
 			spellCacheValid = false;

@@ -29,6 +29,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.character.Follower;
@@ -398,11 +399,11 @@ public class VariableProcessorPC extends VariableProcessor
 
 			for ( PCClass pcClass : getPc().getClassList() )
 			{
-				if (!pcClass.getSpellType().equals(Constants.s_NONE))
+				String spellType = pcClass.get(StringKey.SPELLTYPE);
+				if (spellType != null)
 				{
 					final String classKey = pcClass.getKeyName();
 					final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", classKey);
-					String spellType = pcClass.getSpellType();
 
 					if (CoreUtility.doublesEqual(getPc().getTotalBonusTo("CASTERLEVEL", classKey), 0.0))
 					{
@@ -432,7 +433,7 @@ public class VariableProcessorPC extends VariableProcessor
 			final PCClass spClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 
 			String spellType = Constants.s_NONE;
-			if ((spClass != null) && (!spClass.getSpellType().equals(Constants.s_NONE)))
+			if ((spClass != null) && (spClass.get(StringKey.SPELLTYPE) != null))
 			{
 				spellType = spClass.getSpellType();
 			}

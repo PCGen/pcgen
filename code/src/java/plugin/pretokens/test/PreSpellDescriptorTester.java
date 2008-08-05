@@ -54,7 +54,7 @@ public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 
 		final List<Spell> aArrayList =
 				character.aggregateSpellList(
-					"Any", "No-Match", "A", descriptor, requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
+					"No-Match", "A", descriptor, requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
 		final int runningTotal =
 				prereq.getOperator().compare(aArrayList.size(), requiredNumber);

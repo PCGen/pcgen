@@ -25,6 +25,7 @@ package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -61,7 +62,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
-		arcaneClass.setSpellType("ARCANE");
+		arcaneClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
@@ -75,7 +76,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
-		divineClass.setSpellType("DIVINE");
+		divineClass.put(StringKey.SPELLTYPE, "DIVINE");
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
@@ -84,7 +85,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 
 		psionicClass = new PCClass();
 		psionicClass.setName("TestPsion");
-		psionicClass.setSpellType("PSIONIC");
+		psionicClass.put(StringKey.SPELLTYPE, "PSIONIC");
 		context.unconditionallyProcess(psionicClass, "SPELLSTAT", "CHA");
 		psionicClass.put(ObjectKey.SPELLBOOK, false);
 		psionicClass.put(ObjectKey.MEMORIZE_SPELLS, false);

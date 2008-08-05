@@ -137,7 +137,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		Globals.getContext().ref.importObject(pcClass);
 	
 		classWarmind = new PCClass();
@@ -666,7 +666,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// do so setup that is specific to testing this method
 		arClass = new PCClass();
 		arClass.setName("AbilityRichClass");
-		arClass.setSpellType("ARCANE");
+		arClass.put(StringKey.SPELLTYPE, "ARCANE");
 	
 		LoadContext context = Globals.getContext();
 		context.ref.importObject(arClass);

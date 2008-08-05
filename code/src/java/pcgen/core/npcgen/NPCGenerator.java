@@ -29,6 +29,7 @@ import java.util.List;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -687,7 +688,7 @@ public class NPCGenerator
 					
 					selectDomains( aPC, pcClass );
 					
-					if ( !pcClass.getSpellType().equals( Constants.s_NONE ) )
+					if (pcClass.get(StringKey.SPELLTYPE) != null)
 					{
 						// This is a spellcasting class.  We may have to select
 						// spells of some sort (known or prepared).

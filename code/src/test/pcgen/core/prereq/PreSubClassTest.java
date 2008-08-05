@@ -32,6 +32,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import plugin.pretokens.test.PreSubClassTester;
@@ -72,7 +73,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setKeyName("KEY_MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		pcClass.setSubClassKey("MySubClass");
 
 		final PlayerCharacter character = getCharacter();
@@ -97,7 +98,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
@@ -126,7 +127,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		pcClass.setSubClassKey("MySubClass");
 
 		final PCClass pcClass2 = new PCClass();
@@ -156,7 +157,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -180,7 +181,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setSpellType("ARCANE");
+		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		pcClass.setSubClassKey("MySubClass");
 
 		final PlayerCharacter character = getCharacter();

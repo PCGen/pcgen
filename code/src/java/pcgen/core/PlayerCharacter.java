@@ -6604,7 +6604,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (PCClass pcClass : classList)
 		{
-			if (!pcClass.getSpellType().equalsIgnoreCase(Constants.s_NONE)
+			if (pcClass.get(StringKey.SPELLTYPE) != null
 				&& (pcClass.getLevel() <= maxLevel))
 			{
 				return true;
@@ -8394,27 +8394,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public List<Spell> aggregateSpellList(final String aType,
-		final String school, final String subschool, final String descriptor,
-		final int minLevel, final int maxLevel)
+	public List<Spell> aggregateSpellList(final String school,
+		final String subschool, final String descriptor, final int minLevel,
+		final int maxLevel)
 	{
 		final List<Spell> retList = new ArrayList<Spell>();
-		final boolean isAny = "Any".equalsIgnoreCase(aType);
 		
 		for (PObject pObj : getSpellClassList())
 		{
-			String cName = pObj.getKeyName();
-			String spellType = "";
-			if (pObj instanceof PCClass)
-			{
-				PCClass pcClass = (PCClass) pObj;
-				spellType = pcClass.getSpellType();
-			}
-
-			if (isAny
-				|| aType.equalsIgnoreCase(spellType)
-				|| aType.equalsIgnoreCase(cName))
-			{
 				for (int a = minLevel; a <= maxLevel; a++)
 				{
 					final List<CharacterSpell> aList =
@@ -8434,7 +8421,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						{
 							retList.add(aSpell);
 						}
-					}
 				}
 			}
 		}
@@ -8916,12 +8902,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (PCClass aClass : classList)
 		{
-			String classSpellType = aClass.getSpellType();
-			// Check for Constants.s_NONE just in case
-			// a programmer sends in a "" string
-			if (("Any".equalsIgnoreCase(spellType) || classSpellType
-				.equalsIgnoreCase(spellType))
-				&& !classSpellType.equalsIgnoreCase(Constants.s_NONE))
+			String classSpellType = aClass.get(StringKey.SPELLTYPE);
+			if (classSpellType != null
+					&& ("Any".equalsIgnoreCase(spellType) || classSpellType
+							.equalsIgnoreCase(spellType)))
 			{
 				// Get the number of known spells for the level
 				int knownForLevel = aClass.getKnownForLevel(spellLevel, this);
@@ -12805,7 +12789,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		boolean available = false;
 		final boolean isDivine =
-				("Divine".equalsIgnoreCase(aClass.getSpellType()));
+				("Divine".equalsIgnoreCase(aClass.get(StringKey.SPELLTYPE)));
 		final boolean canUseHigher =
 				knownLearned ? getUseHigherKnownSlots()
 					: getUseHigherPreppedSlots();
@@ -13626,7 +13610,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCClass pcClass : classList)
 		{
-			if (!pcClass.getSpellType().equalsIgnoreCase(Constants.s_NONE))
+			if (pcClass.get(StringKey.SPELLTYPE) != null)
 			{
 				aList.add(pcClass);
 			}

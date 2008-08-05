@@ -25,6 +25,7 @@
 package pcgen.core.levelability;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.util.Logging;
@@ -182,15 +183,14 @@ public class LevelAbilitySpellCaster extends LevelAbility
 			// if the class has a valid spelltype and the class is not the owning
 			// class
 			else if (
-				!"".equals(aClass.getSpellType()) &&
-				!(Constants.s_NONE.equals(aClass.getSpellType())) &&
+				aClass.get(StringKey.SPELLTYPE) != null &&
 				!aClass.getKeyName().equals(owner.getKeyName()))
 			{
 				// if the string is ANY or if the string matches the class' spell
 				// type
 				if (
 					(token.equalsIgnoreCase("ANY")) ||
-					(token.equalsIgnoreCase(aClass.getSpellType())))
+					(token.equalsIgnoreCase(aClass.get(StringKey.SPELLTYPE))))
 				{
 					anArrayList.add(aClass.getKeyName());
 				}
