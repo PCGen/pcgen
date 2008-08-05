@@ -6399,10 +6399,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addNaturalWeapons(race.getNaturalWeapons());
 			getAutoLanguages();
 
-			if (!isImporting())
-			{
-				getRacialFavoredClasses();
-			}
+			getRacialFavoredClasses(isImporting());
 
 			selectTemplates(race, isImporting()); // gets and adds templates
 
@@ -12037,11 +12034,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return hasWeaponProfKeyed(wp.getKeyName());
 	}
 
-	private SortedSet<String> getRacialFavoredClasses()
+	private SortedSet<String> getRacialFavoredClasses(boolean isImporting)
 	{
 		String rfc = getRace().getFavoredClass();
 
-		if (rfc.startsWith("CHOOSE:"))
+		if (!isImporting && rfc.startsWith("CHOOSE:"))
 		{
 			final List<PCClass> availableList = new ArrayList<PCClass>();
 			
