@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -14,19 +17,22 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
 
-public class StringPClassUtil {
+public class StringPClassUtil
+{
 
 	private static Map<String, Class<? extends PObject>> classMap;
 	private static Map<Class<? extends PObject>, String> stringMap;
-	
-	static {
+
+	static
+	{
 		classMap = new HashMap<String, Class<? extends PObject>>();
 		stringMap = new HashMap<Class<? extends PObject>, String>();
-		
+
 		classMap.put("DEITY", Deity.class);
 		classMap.put("DOMAIN", Domain.class);
 		classMap.put("EQUIPMENT", Equipment.class);
@@ -39,7 +45,7 @@ public class StringPClassUtil {
 		classMap.put("SKILL", Skill.class);
 		classMap.put("TEMPLATE", PCTemplate.class);
 		classMap.put("WEAPONPROF", WeaponProf.class);
-		
+
 		stringMap.put(Deity.class, "DEITY");
 		stringMap.put(Domain.class, "DOMAIN");
 		stringMap.put(Equipment.class, "EQUIPMENT");
@@ -53,17 +59,33 @@ public class StringPClassUtil {
 		stringMap.put(PCTemplate.class, "TEMPLATE");
 		stringMap.put(WeaponProf.class, "WEAPONPROF");
 	}
-	
-	public static Class<? extends PObject> getClassFor(String key) {
+
+	public static Class<? extends PObject> getClassFor(String key)
+	{
 		return classMap.get(key);
 	}
-	
-	public static Set<String> getValidStrings() {
+
+	public static Set<String> getValidStrings()
+	{
 		return classMap.keySet();
 	}
 
-	public static String getStringFor(Class<?> cl) {
+	public static String getStringFor(Class<?> cl)
+	{
 		return stringMap.get(cl);
+	}
+
+	public static <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
+		Class<T> cl, String s)
+	{
+		if (cl.equals(Ability.class))
+		{
+			return (Category) SettingsHandler.getGame().silentlyGetAbilityCategory(s);
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 }

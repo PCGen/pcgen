@@ -61,7 +61,6 @@ import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
@@ -79,6 +78,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
@@ -4281,21 +4281,44 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		 * for the 5.10.* format of Qualify - which is "allow anything all at once"
 		 *  - Tom Parker 1/17/07
 		 */
-		// Try all possible POBjects
-		for (PObject pObj : getPObjectList())
+		// Try all possible CDOMOjects
+		for (CDOMObject cdo : getCDOMObjectList())
 		{
-			if (pObj == null)
-			{
-				continue;
-			}
-
-			if (pObj.grantsQualify(testQualObj))
+			if (grantsQualify(cdo, testQualObj))
 			{
 				return true;
 			}
 		}
 		return false;
 	}
+
+	public final boolean grantsQualify(CDOMObject owner, CDOMObject qualTestObject)
+	{
+		List<Qualifier> qualList = owner.getListFor(ListKey.QUALIFY);
+		if (qualList == null)
+		{
+			return false;
+		}
+		Class<? extends CDOMObject> cl = qualTestObject.getClass();
+		for (Qualifier qual : qualList)
+		{
+			if (cl.equals(qual.getQualifiedClass()))
+			{
+				CDOMReference qRef = qual.getQualifiedReference();
+				if (checkRef(qRef, qualTestObject))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	private <T extends CDOMObject> boolean checkRef(CDOMReference<T> ref, T qualTestObject)
+	{
+		return ref.contains(qualTestObject);
+	}
+
 
 	/**
 	 * Checks to see if this PC has the weapon proficiency key aKey

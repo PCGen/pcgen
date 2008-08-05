@@ -32,6 +32,7 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.PointCost;
+import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.Quality;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.list.ClassSkillList;
@@ -206,6 +207,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
 	public static final ListKey<TransitionChoice<?>> ADD = new ListKey<TransitionChoice<?>>();
+	public static final ListKey<Qualifier> QUALIFY = new ListKey<Qualifier>();
 	public static final ListKey<DamageReduction> DAMAGE_REDUCTION = new ListKey<DamageReduction>();
 	public static final ListKey<PCStat> UNLOCKED_STATS = new ListKey<PCStat>();
 	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<StatLock>();

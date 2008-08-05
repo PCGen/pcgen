@@ -72,7 +72,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
-import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -135,7 +134,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private List<Description> theDescriptions = null;
 	
-	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
 	private HashMap<String,List<String>> servesAsList =null;
 	
 	private URI sourceURI = null;
@@ -1220,53 +1218,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Clear all qualify entries for the object. 
-	 */
-	public void clearQualify()
-	{
-		qualifyKeys = new DoubleKeyMap<Class, String, List<String>>();
-	}
-
-	/**
-	 * Set the qualify string
-	 */
-	public void putQualifyString(Class cl, String category, String key) {
-		if (qualifyKeys == null)
-		{
-			qualifyKeys = new DoubleKeyMap<Class, String, List<String>>();
-		}
-		List<String> list = qualifyKeys.get(cl, category);
-		if (list == null) {
-			list = new ArrayList<String>();
-			qualifyKeys.put(cl, category, list);
-		}
-		list.add(key);
-		//No need to put list back in qualifyKeys, it is fetched by reference
-	}
-
-	public final boolean grantsQualify(CDOMObject qualTestObject)
-	{
-		if (qualifyKeys == null) {
-			return false;
-		}
-		Class<? extends CDOMObject> cl = qualTestObject.getClass();
-		String key = qualTestObject.getKeyName();
-		String category = Ability.class.equals(cl) ? ((Ability) qualTestObject)
-				.getCategory() : null;
-		List<String> directList = qualifyKeys.get(cl, category);
-		List<String> oldSyntaxList = qualifyKeys
-				.get(Object.class, category);
-		return (directList != null && directList.contains(key))
-				|| (oldSyntaxList != null && oldSyntaxList.contains(key));
-	}
-	
-	//TODO This exposes internal structure - be careful.
-	public final DoubleKeyMap<Class, String, List<String>> getQualifyMap()
-	{
-		return qualifyKeys;
-	}
-
-	/**
 	 * Set the SR
 	 * @param newSR
 	 */
@@ -2348,40 +2299,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			for (SpecialAbility sa : specialAbilityList)
 			{
 				txt.append("\tSAB:").append(sa.toString());
-			}
-		}
-
-		DoubleKeyMap<Class, String, List<String>> dkm = getQualifyMap();
-		if (dkm != null) 
-		{
-			for (Class cl : dkm.getKeySet())
-			{
-				String s = StringPClassUtil.getStringFor(cl);
-				for (String category : dkm.getSecondaryKeySet(cl))
-				{
-					List<String> l = dkm.get(cl, category);
-					if (l != null) {
-						boolean started = false;
-						for (String key : l) {
-							if (!"alwaysValid".equals(key) && !"".equals(key)) {
-								if (started) {
-									txt.append(Constants.PIPE);
-								} else {
-									txt.append("\tQUALIFY:");
-									if (s != null && s.length() > 0) {
-										txt.append(s);
-									}
-									if (category != null) {
-										txt.append('=').append(category);
-									}
-									txt.append(Constants.PIPE);
-									started = true;
-								}
-								txt.append(key);
-							}
-						}
-					}
-				}
 			}
 		}
 

@@ -50,6 +50,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.helper.Qualifier;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
@@ -247,7 +249,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
-		aQClass.putQualifyString(PCClass.class, null, "KEY_PreReqClass");
+		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
+		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
 		//aQClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 
 		final PCClass aNqClass = new PCClass();
@@ -319,8 +322,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
-		aQClass.putQualifyString(Object.class, null, "KEY_PreReqClass");
-		aQClass.putQualifyString(Object.class, null, "PreReqVar");
+		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
+		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
@@ -886,8 +889,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		qClass = new PCClass();
 		qClass.setName("QualClass");
 		qClass.setKeyName("KEY_QualClass");
-		qClass.putQualifyString(PCClass.class, null, "KEY_PreReqClass");
-		//qClass.setQualifyString("KEY_PreReqClass|PreReqVar");
+		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(prClass);
+		qClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
 		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");
 		nqClass.setKeyName("KEY_NonQualClass");

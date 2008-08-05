@@ -34,12 +34,17 @@ import javax.swing.JTextField;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.Qualifier;
+import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -48,6 +53,7 @@ import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -120,7 +126,7 @@ class ClassBasePanel extends BasePanel
 			Formula f = FormulaFactory.getFormulaFor(form);
 			obj.put(FormulaKey.START_SKILL_POINTS, f);
 		}
-		obj.clearQualify();
+		obj.removeListFor(ListKey.QUALIFY);
 		if (qualify.getText().trim().length() > 0)
 		{
 			GlobalLstToken token =
@@ -194,14 +200,23 @@ class ClassBasePanel extends BasePanel
 		exchangeLevel.setText(obj.getLevelExchange());
 		Formula spf = obj.get(FormulaKey.START_SKILL_POINTS);
 		startSkillPoints.setText(spf == null ? "" : spf.toString());
-		DoubleKeyMap<Class, String, List<String>> dkm = obj.getQualifyMap();
-		if (dkm != null)
+		List<Qualifier> qualList = obj.getListFor(ListKey.QUALIFY);
+		if (qualList != null)
 		{
-			List<String> ol = dkm.get(Object.class, null);
-			if (ol != null && !ol.isEmpty())
+			List<String> ol = new ArrayList<String>();
+			for (Qualifier qual : qualList)
 			{
-				qualify.setText(StringUtil.join(ol, "|"));
+				String cl = StringPClassUtil.getStringFor(qual.getQualifiedClass());
+				CDOMReference<? extends CDOMObject> ref = qual.getQualifiedReference();
+				if (ref instanceof CategorizedCDOMReference)
+				{
+					Category<?> cat =
+							((CategorizedCDOMReference<?>) ref).getCDOMCategory();
+					cl += '=' + cat.toString();
+				}
+				ol.add(cl + "|" + ref.getLSTformat());
 			}
+			qualify.setText(StringUtil.join(ol, "|"));
 		}
 		exClass.setText(obj.getExClass());
 		hasSubClass.setSelected(obj.hasSubClass());
