@@ -1001,16 +1001,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			retVal.ownBonuses();
 		}
 
-		if (drList != null)
-		{
-			retVal.drList = new ArrayList<DamageReduction>();
-			for (DamageReduction orig : drList)
-			{
-				retVal.drList.add(orig.clone());
-
-			}
-		}
-
 		if (bonusMap != null)
 		{
 			retVal.bonusMap = new HashMap<String, String>(bonusMap);
@@ -1116,19 +1106,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
 	}
 
-	public void addDR(DamageReduction aDR)
-	{
-		drList.add(aDR);
-	}
-
-	public void clearDR()
-	{
-		drList.clear();
-	}
-
 	public List<DamageReduction> getDRList()
 	{
-		return Collections.unmodifiableList(drList);
+		return getListFor(ListKey.DAMAGE_REDUCTION);
 	}
 
 	/**
@@ -2340,19 +2320,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if ((aString != null) && (aString.length() != 0))
 		{
 			txt.append("\tCHOOSE:").append(aString);
-		}
-
-		for (DamageReduction reduction : getDRList())
-		{
-			boolean levelBased = false;
-			if (this instanceof PCClass)
-			{
-				levelBased = reduction.isForClassLevel(getKeyName());
-			}
-			if (!levelBased)
-			{
-				txt.append("\t").append(reduction.getPCCText(true));
-			}
 		}
 
 		if (hasPrerequisites())

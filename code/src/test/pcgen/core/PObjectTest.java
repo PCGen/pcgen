@@ -35,6 +35,7 @@ import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -110,17 +111,17 @@ public class PObjectTest extends AbstractCharacterTestCase
 		race.setName("Template");
 
 		//		race.setDR("5/Good");
-		race.addDR(new DamageReduction("5", "Good"));
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction("5", "Good"));
 		assertEquals("Basic DR set.", "5/Good", race.getDRList().get(0)
 			.toString());
 
-		race.clearDR();
+		race.removeListFor(ListKey.DAMAGE_REDUCTION);
 		//		race.setDR("0/-");
-		race.addDR(new DamageReduction("0", "-"));
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction("0", "-"));
 		assertEquals("Basic DR set.", "0/-", race.getDRList().get(0).toString());
 
 		//		template.setDR("0/-");
-		template.addDR(new DamageReduction("0", "-"));
+		template.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction("0", "-"));
 		template.addBonusList("DR|-|1");
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(race);

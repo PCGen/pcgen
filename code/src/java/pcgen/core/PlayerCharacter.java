@@ -8757,18 +8757,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<DamageReduction> getDRList()
 	{
 		List<DamageReduction> drList = new ArrayList<DamageReduction>();
-		for (PObject obj : getPObjectList())
+		for (CDOMObject obj : getCDOMObjectList())
 		{
-			if (obj != null)
+			List<DamageReduction> objList = obj
+					.getListFor(ListKey.DAMAGE_REDUCTION);
+			if (objList != null)
 			{
-				drList.addAll(obj.getDRList());
+				drList.addAll(objList);
 			}
 		}
-		for (PObject obj : getConditionalTemplateObjects())
-		{
-			drList.addAll(obj.getDRList());
-		}
-		//TODO need to use getCDOMObject once DR: is converted to new token syntax
 		return DamageReduction.getDRList(this, drList);
 	}
 

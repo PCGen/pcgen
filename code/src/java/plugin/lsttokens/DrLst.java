@@ -4,95 +4,126 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.PCClass;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.core.DamageReduction;
-import pcgen.persistence.PersistenceLayerException;
-
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.DamageReduction;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
- *
+ * 
  */
 
-public class DrLst implements GlobalLstToken
+public class DrLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
-	/*
-	 * Template's LevelToken adjustment effectively completed by altering getDRList in PlayerCharacter.
-	 */
-	/*
-	 * TODO When this is converted to the new sytnax, getDRList in
-	 * PlayerCharacter needs to be converted to look at class levels (use
-	 * getCDOMObjects())
-	 */
-
+	@Override
 	public String getTokenName()
 	{
 		return "DR";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		ArrayList<Prerequisite> preReqs = new ArrayList<Prerequisite>();
-		if (anInt > -9)
-		{
-			try
-			{
-				PreParserFactory factory = PreParserFactory.getInstance();
-				String preLevelString = "PRELEVEL:MIN=" + anInt;
-				if (obj instanceof PCClass)
-				{
-					// Classes handle this differently
-					preLevelString =
-							"PRECLASS:1," + obj.getKeyName() + "=" + anInt;
-				}
-				Prerequisite r = factory.parse(preLevelString);
-				preReqs.add(r);
-			}
-			catch (PersistenceLayerException notUsed)
-			{
-				return false;
-			}
-		}
-
 		if (".CLEAR".equals(value))
 		{
-			obj.clearDR();
+			context.getObjectContext()
+					.removeList(obj, ListKey.DAMAGE_REDUCTION);
 			return true;
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, "|");
-		String[] values = tok.nextToken().split("/");
-		if (values.length != 2)
+		DamageReduction dr;
+		try
 		{
+			String[] values = tok.nextToken().split("/");
+			if (values.length != 2)
+			{
+				Logging.errorPrint(getTokenName()
+						+ " failed to build DamageReduction with value "
+						+ value);
+				Logging
+						.errorPrint("  ...expected a String with one / as a separator");
+				return false;
+			}
+			if (values[0].length() == 0)
+			{
+				Logging.errorPrint("Amount of Reduction in " + getTokenName()
+						+ " cannot be empty");
+				return false;
+			}
+			if (values[1].length() == 0)
+			{
+				Logging.errorPrint("Damage Type in " + getTokenName()
+						+ " cannot be empty");
+				return false;
+			}
+			dr = new DamageReduction(values[0], values[1]);
+		}
+		catch (IllegalArgumentException iae)
+		{
+			Logging.errorPrint(getTokenName()
+					+ " failed to build DamageReduction with value " + value
+					+ " ... " + iae.getLocalizedMessage());
 			return false;
 		}
-		DamageReduction dr = new DamageReduction(values[0], values[1]);
 
 		if (tok.hasMoreTokens())
 		{
-			try
-			{
-				PreParserFactory factory = PreParserFactory.getInstance();
-				Prerequisite r = factory.parse(tok.nextToken());
-				preReqs.add(r);
-			}
-			catch (PersistenceLayerException notUsed)
+			String currentToken = tok.nextToken();
+			Prerequisite prereq = getPrerequisite(currentToken);
+			if (prereq == null)
 			{
 				return false;
 			}
-		}
-		for (Prerequisite prereq : preReqs)
-		{
 			dr.addPrerequisite(prereq);
 		}
-
-		obj.addDR(dr);
+		context.getObjectContext().addToList(obj, ListKey.DAMAGE_REDUCTION, dr);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Changes<DamageReduction> changes = context.getObjectContext()
+				.getListChanges(obj, ListKey.DAMAGE_REDUCTION);
+		Collection<DamageReduction> added = changes.getAdded();
+		List<String> list = new ArrayList<String>();
+		if (changes.includesGlobalClear())
+		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		else if (added == null || added.isEmpty())
+		{
+			// Zero indicates no Token (and no global clear, so nothing to do)
+			return null;
+		}
+		Set<String> set = new TreeSet<String>();
+		if (added != null)
+		{
+			for (DamageReduction lw : added)
+			{
+				set.add(lw.getLSTformat());
+			}
+		}
+		list.addAll(set);
+		return list.toArray(new String[list.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

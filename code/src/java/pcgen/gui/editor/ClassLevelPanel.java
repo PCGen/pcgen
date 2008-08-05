@@ -71,7 +71,6 @@ import pcgen.core.PObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;
@@ -218,6 +217,13 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 					}
 				}
 			}
+			for (DamageReduction dr : pcl.getSafeListFor(ListKey.DAMAGE_REDUCTION))
+			{
+				String src = dr.getReduction() + "/" + dr.getBypass();
+				LevelTag lt = new LevelTag(pcl.getSafe(IntegerKey.LEVEL),
+					LevelTag.TAG_DR, src);
+				levelTagList.add(lt);
+			}
 			for (VariableKey vk : pcl.getVariableKeys())
 			{
 				LevelTag lt = new LevelTag(lvl, LevelTag.TAG_DEFINE, vk.toString()
@@ -287,25 +293,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		}
 
-		List<DamageReduction> drList = obj.getDRList();
-		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext();)
-		{
-			DamageReduction dr = i.next();
-			List<Prerequisite> preList = dr.getPrerequisiteList();
-			for (Iterator<Prerequisite> j = preList.iterator(); j.hasNext();)
-			{
-				Prerequisite prereq = j.next();
-				if (DamageReduction.isPrereqForClassLevel(prereq, obj
-					.getKeyName()))
-				{
-					String src = dr.getReduction() + "/" + dr.getBypass();
-					LevelTag lt = new LevelTag(prereq.getOperand(),
-						LevelTag.TAG_DR, src);
-					levelTagList.add(lt);
-				}
-			}
-		}
-		
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		obj.addSABToList(saList, null);
 

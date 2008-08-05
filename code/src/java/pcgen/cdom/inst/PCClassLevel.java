@@ -23,7 +23,7 @@ import pcgen.cdom.base.CDOMObject;
  * A PCClassLevel is a CDOMObject that represents items gained in a specific
  * level of a PCClass.
  */
-public final class PCClassLevel extends CDOMObject
+public final class PCClassLevel extends CDOMObject implements Cloneable
 {
 
 	/**
@@ -65,5 +65,11 @@ public final class PCClassLevel extends CDOMObject
 	public boolean isType(String str)
 	{
 		return false;
+	}
+
+	@Override
+	public PCClassLevel clone() throws CloneNotSupportedException
+	{
+		return (PCClassLevel) super.clone();
 	}
 }

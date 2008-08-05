@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.DamageReduction;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -75,14 +76,14 @@ public class PreDRTest extends AbstractCharacterTestCase
 		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
 			character, null));
 
-		race.addDR(drPlus1);
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
 		character.setRace(race);
 
 		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus1_10 = new DamageReduction("10", "+1");
-		race.addDR(drPlus1_10);
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1_10);
 		character.setRace(race);
 
 		assertTrue("Character has DR 10/+1", PrereqHandler.passes(prereq,
@@ -106,14 +107,14 @@ public class PreDRTest extends AbstractCharacterTestCase
 		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
 			character, null));
 
-		race.addDR(drPlus1);
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
 		character.setRace(race);
 
 		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus2_5 = new DamageReduction("5", "+2");
-		race.addDR(drPlus2_5);
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus2_5);
 		character.setRace(race);
 
 		assertTrue("Character has DR 5/+2", PrereqHandler.passes(prereq,
@@ -133,21 +134,21 @@ public class PreDRTest extends AbstractCharacterTestCase
 		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
 			character, null));
 
-		race.addDR(drPlus1);
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
 		character.setRace(race);
 
 		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus2_5 = new DamageReduction("5", "+2");
-		race.addDR(drPlus2_5);
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus2_5);
 		character.setRace(race);
 
 		assertFalse("Character has DR 5/+2", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus1_10 = new DamageReduction("10", "+1");
-		race.addDR(drPlus1_10);
+		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1_10);
 		character.setRace(race);
 
 		assertTrue("Character has DR 10/+1 and 5/+2", PrereqHandler.passes(

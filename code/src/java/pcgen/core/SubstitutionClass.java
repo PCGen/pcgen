@@ -104,16 +104,13 @@ public final class SubstitutionClass extends PCClass
 			if (newLevels.size() >1)
 			{
 				// remove all stuff from the original level
+				aClass.resetClassLevel(aLevel);
 				aClass.removeAllBonuses(aLevel);
 				aClass.removeAllAutoAbilites(aLevel);
 				aClass.removeAllVirtualAbilites(aLevel);
 				aClass.removeAllLevelAbilities(aLevel);
-				aClass.getClassLevel(aLevel).removeListFor(ListKey.ADD);
 				aClass.clearSABList(aLevel);
-				aClass.removeLevelDR(aLevel);
-				aClass.getClassLevel(aLevel).removeAllVariables();
-				
-				
+
 				// Now add in each new level line in turn.
 				for (String theLine: newLevels)
 				{

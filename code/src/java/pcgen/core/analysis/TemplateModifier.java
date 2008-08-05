@@ -1,10 +1,9 @@
 package pcgen.core.analysis;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.DamageReduction;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -54,35 +53,16 @@ public class TemplateModifier
 		pct.getConditionalTemplates(totalLevels, totalHitDice, templList);
 		for (PCTemplate subt : templList)
 		{
-			drList.addAll(subt.getDRList());
+			List<DamageReduction> tList = subt
+					.getListFor(ListKey.DAMAGE_REDUCTION);
+			if (tList != null)
+			{
+				drList.addAll(tList);
+			}
 		}
 		if (drList.size() != 0)
 		{
 			mods.append("DR:").append(DamageReduction.getDRString(aPC, drList));
-		}
-
-		if (aPC == null)
-		{
-			BigDecimal cr = pct.get(ObjectKey.CR_MODIFIER);
-
-			if (cr != null)
-			{
-				mods.append("CR:").append(cr).append(' ');
-			}
-
-			String srf = pct.getSRFormula();
-
-			if (srf != null)
-			{
-				mods.append("SR:").append(srf).append(' ');
-			}
-
-			// if ((getDR() != null) && !"".equals(getDR()))
-			// {
-			// mods.append("DR:").append(getDR()).append(' ');
-			// }
-
-			return mods.toString();
 		}
 
 		int nat = (int) pct.bonusTo("COMBAT", "AC", aPC, aPC);

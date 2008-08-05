@@ -2324,19 +2324,6 @@ public class PCClass extends PObject
 					.unparse(me.getValue()), "\t"));
 		}
 
-		// Output the level based DR only
-		for (DamageReduction reduction : getDRList())
-		{
-			for (Prerequisite prereq : reduction.getPrerequisiteList())
-			{
-				if (DamageReduction.isPrereqForClassLevel(prereq, getKeyName()))
-				{
-					pccTxt.append(lineSep).append(prereq.getOperand()).append(
-						"\t").append(reduction.getPCCText(false));
-				}
-			}
-		}
-
 		if (SR != null)
 		{
 			for (LevelProperty<String> lp : SR)
@@ -2903,6 +2890,12 @@ public class PCClass extends PObject
 			{
 				aClass.naturalWeapons =
 						new ArrayList<LevelProperty<Equipment>>(naturalWeapons);
+			}
+			
+			levelMap = new TreeMap<Integer, PCClassLevel>();
+			for (Map.Entry<Integer, PCClassLevel> me : aClass.levelMap.entrySet())
+			{
+				levelMap.put(me.getKey(), me.getValue().clone());
 			}
 		}
 		catch (CloneNotSupportedException exc)
@@ -4138,21 +4131,6 @@ public class PCClass extends PObject
 				}
 			}
 		}
-
-		//
-		// Go through the damage reduction list (DR) and adjust the class to the
-		// new name
-		//
-		for (DamageReduction reduction : getDRList())
-		{
-			for (Prerequisite prereq : reduction.getPrerequisiteList())
-			{
-				if (DamageReduction.isPrereqForClassLevel(prereq, oldClass))
-				{
-					prereq.setKey(newClass);
-				}
-			}
-		}
 	}
 
 	@Override
@@ -5170,21 +5148,8 @@ public class PCClass extends PObject
 			}
 		}
 
-		if (!otherClass.getDRList().isEmpty())
-		{
-			for (DamageReduction dr : otherClass.getDRList())
-			{
-				try
-				{
-					addDR(dr.clone());
-				}
-				catch (CloneNotSupportedException e)
-				{
-					Logging.errorPrint("Failed to clone DR for PCClass "
-						+ keyName + ".", e);
-				}
-			}
-		}
+		addAllToListFor(ListKey.DAMAGE_REDUCTION, otherClass
+				.getListFor(ListKey.DAMAGE_REDUCTION));
 
 		if (otherClass.SR != null)
 		{
@@ -5478,32 +5443,6 @@ public class PCClass extends PObject
 			}
 		}
 	}
-	/**
-	 * Remove the level based DR.  Used by Substitution class levels
-	 * @param level
-	 */
-	public void removeLevelDR(int level)
-	{
-		List<DamageReduction> newDR = new ArrayList<DamageReduction>();
-		for (DamageReduction reduction : getDRList())
-		{
-			for (Prerequisite prereq : reduction.getPrerequisiteList())
-			{
-				if (!DamageReduction.isPrereqForClassLevel(prereq, getKeyName())
-					&& !prereq.getOperand().equals(Integer.toString(level))
-					)
-				{
-					newDR.add(reduction);
-				}
-			}
-		}
-		clearDR();
-		for (DamageReduction reduction : newDR)
-		{
-			addDR(reduction);
-		}
-		
-	}
 
 	//	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
 	//	{
@@ -5541,6 +5480,11 @@ public class PCClass extends PObject
 		return levelMap.size();
 	}
 
+	public void resetClassLevel(int lvl)
+	{
+		levelMap.remove(lvl);
+	}
+	
 	public Collection<PCClassLevel> getClassLevelCollection()
 	{
 		return Collections.unmodifiableCollection(levelMap.values());

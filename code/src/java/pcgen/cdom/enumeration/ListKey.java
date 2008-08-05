@@ -38,6 +38,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.DamageReduction;
 import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Domain;
@@ -205,6 +206,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
 	public static final ListKey<TransitionChoice<?>> ADD = new ListKey<TransitionChoice<?>>();
+	public static final ListKey<DamageReduction> DAMAGE_REDUCTION = new ListKey<DamageReduction>();
 	public static final ListKey<PCStat> UNLOCKED_STATS = new ListKey<PCStat>();
 	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<StatLock>();
 	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<TransitionChoice<Kit>>();

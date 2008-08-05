@@ -67,7 +67,6 @@ import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
-import pcgen.core.DamageReduction;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -618,8 +617,7 @@ public final class EditorMainForm extends JDialog
 
 		thisPObject.getBonusList().clear();
 		thisPObject.removeAllVariables();
-//		thisPObject.setDR(".CLEAR");
-		thisPObject.clearDR();
+		thisPObject.removeListFor(ListKey.DAMAGE_REDUCTION);
 		thisPObject.clearPrerequisiteList();
 		thisPObject.clearAllSABLists();
 		thisPObject.clearSRList();
@@ -3139,20 +3137,13 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
+		String[] drs = Globals.getContext().unparse(thisPObject, "DR");
 
-		// Add only those DR entries that are not level based.
-		List<DamageReduction> drList = thisPObject.getDRList();
-		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext();)
+		if (drs != null)
 		{
-			DamageReduction dr = i.next();
-			boolean levelBased = false;
-			if (anEditType == EditorConstants.EDIT_CLASS)
+			for (String dr : drs)
 			{
-				levelBased = dr.isForClassLevel(thisPObject.getKeyName());
-			}
-			if (!levelBased)
-			{
-				selectedList.add(dr.getPCCText(true));
+				selectedList.add("DR:" + dr);
 			}
 		}
 
