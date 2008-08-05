@@ -31,6 +31,7 @@ package pcgen.core.prereq;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -62,7 +63,7 @@ public class PrereqHandler {
 	 * @param caller The object that we are testing qualification for.
 	 * @return True if the character passes all prereqs.
 	 */
-	public static boolean passesAll(final Collection<Prerequisite> prereqList, final PlayerCharacter character, final PObject caller)
+	public static boolean passesAll(final Collection<Prerequisite> prereqList, final PlayerCharacter character, final CDOMObject caller)
 	{
 		if (prereqList == null || prereqList.isEmpty())
 		{
@@ -191,7 +192,7 @@ public class PrereqHandler {
 		return false;
 	}
 
-	public static boolean passes(final Prerequisite prereq, final PlayerCharacter character, final PObject caller)
+	public static boolean passes(final Prerequisite prereq, final PlayerCharacter character, final CDOMObject caller)
 	{
 		if (character == null && prereq.isCharacterRequired())
 		{

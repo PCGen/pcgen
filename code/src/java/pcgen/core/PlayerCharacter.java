@@ -4274,7 +4274,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return iBonus;
 	}
 
-	public boolean checkQualifyList(PObject testQualObj)
+	public boolean checkQualifyList(CDOMObject testQualObj)
 	{
 		/*
 		 * The use of Object.class here is the "universalizer" to account
@@ -17186,8 +17186,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.getSafeListMods(Ability.ABILITYLIST)) {
 					Collection<AssociatedPrereqObject> assoc = cdo
 							.getListAssociations(Ability.ABILITYLIST, ref);
-					for (Ability ab : ref.getContainedObjects()) {
-						for (AssociatedPrereqObject apo : assoc) {
+					for (AssociatedPrereqObject apo : assoc) {
+						if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
+						{
+							continue;
+						}
+						for (Ability ab : ref.getContainedObjects()) {
 							List<String> choices = apo
 									.getAssociation(AssociationKey.ASSOC_CHOICES);
 							if (choices == null) {

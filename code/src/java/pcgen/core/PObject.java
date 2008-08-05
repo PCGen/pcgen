@@ -1264,12 +1264,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		//No need to put list back in qualifyKeys, it is fetched by reference
 	}
 
-	public final boolean grantsQualify(PObject qualTestObject)
+	public final boolean grantsQualify(CDOMObject qualTestObject)
 	{
 		if (qualifyKeys == null) {
 			return false;
 		}
-		Class<? extends PObject> cl = qualTestObject.getClass();
+		Class<? extends CDOMObject> cl = qualTestObject.getClass();
 		String key = qualTestObject.getKeyName();
 		String category = Ability.class.equals(cl) ? ((Ability) qualTestObject)
 				.getCategory() : null;
