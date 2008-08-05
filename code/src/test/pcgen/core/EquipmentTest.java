@@ -313,13 +313,15 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		is(custEq.getSize(), eq("M"), "starting size");
 		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");
 
+		final GameMode gamemode = SettingsHandler.getGame();
+		
 		// Drop the size
-		custEq.resizeItem(getCharacter(), "S");
+		custEq.resizeItem(getCharacter(), gamemode.getSizeAdjustmentNamed("S"));
 		is(custEq.getSize(), eq("S"), "reduce size size");
 		is(custEq.getDamage(getCharacter()), eq("1d4"), "reduce size damage");
 
 		// Increase the size
-		custEq.resizeItem(getCharacter(), "L");
+		custEq.resizeItem(getCharacter(), gamemode.getSizeAdjustmentNamed("L"));
 		is(custEq.getSize(), eq("L"), "reduce size size");
 		is(custEq.getDamage(getCharacter()), eq("1d8"), "reduce size damage");
 	}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.util.WeightedCollection;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.util.Logging;
@@ -85,7 +86,7 @@ public class EquipmentItem
 					}
 					// We need setBase() called.  The only way to do that is to resize.
 					// We will set the size to itself.
-					eq.resizeItem(null, eq.getSize());
+					eq.resizeItem(null, eq.getSafe(ObjectKey.SIZE));
 					eq.nameItemFromModifiers(null);
 				}
 			}

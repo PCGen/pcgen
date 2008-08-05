@@ -8,6 +8,7 @@ import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -87,7 +88,7 @@ public class TabUtils
 						//
 						if (!pcSize.equals(eq.getSize()))
 						{
-							eq.resizeItem(aPC, pcSize);
+							eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentNamed(pcSize));
 						}
 
 						eq.setCostMod('-' + eq.getCost(aPC).toString()); // make cost 0

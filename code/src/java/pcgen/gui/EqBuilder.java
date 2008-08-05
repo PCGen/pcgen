@@ -78,6 +78,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
@@ -1138,7 +1139,7 @@ final class EqBuilder extends JPanel
 					aNewEq.addSpecialProperty(SpecialProperty.createFromLst(oldName.toString()));
 				}
 
-				final String aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize()).getAbbreviation();
+				final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());
 				aNewEq.resizeItem(aPC, aSize);
 				showItemInfo(aPC);
 			}
@@ -1246,7 +1247,7 @@ final class EqBuilder extends JPanel
 				aNewEq.addSpecialProperty(SpecialProperty.createFromLst(aString));
 			}
 
-			final String aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize()).getAbbreviation();
+			final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());
 			aNewEq.resizeItem(aPC, aSize);
 			showItemInfo(aPC);
 		}
@@ -1465,7 +1466,7 @@ final class EqBuilder extends JPanel
 		{
 			if (aNewEq != null)
 			{
-				final String aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize()).getAbbreviation();
+				final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());
 				aNewEq.resizeItem(aPC, aSize);
 				showItemInfo(aPC);
 			}

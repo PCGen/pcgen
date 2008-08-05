@@ -291,7 +291,10 @@ public class EquipmentList {
 			if (bError) { return null; }
 
 			if (sizList.size() != 0) {
-				eq.resizeItem(aPC, sizList.get(0));
+				/*
+				 * CONSIDER This size can be further optimized by changing sizList
+				 */
+				eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentNamed(sizList.get(0)));
 				bModified = true;
 
 				if (sizList.size() > 1) {
@@ -682,7 +685,7 @@ public class EquipmentList {
 			}
 
 			if ((iSize >= 0) && (iSize <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1))) {
-				eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize).getDisplayName());
+				eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize));
 			}
 
 			//

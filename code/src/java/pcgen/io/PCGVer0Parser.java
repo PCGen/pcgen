@@ -51,6 +51,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
@@ -950,12 +951,17 @@ final class PCGVer0Parser implements PCGParser
 						.getEqModifierList(false).size()) != 0)
 					|| (customProp.length() != 0))
 				{
+					SizeAdjustment sz;
 					if (sized.length() == 0)
 					{
-						sized = eq.getSize();
+						sz = eq.getSafe(ObjectKey.SIZE);
+					}
+					else
+					{
+						sz = SettingsHandler.getGame().getSizeAdjustmentNamed(sized);
 					}
 
-					eq.resizeItem(aPC, sized);
+					eq.resizeItem(aPC, sz);
 					eq.nameItemFromModifiers(aPC);
 				}
 

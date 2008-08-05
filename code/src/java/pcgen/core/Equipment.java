@@ -3012,7 +3012,7 @@ public final class Equipment extends PObject implements Serializable,
 			final String endPart, final PlayerCharacter aPC) {
 		final StringTokenizer aTok = new StringTokenizer(aLine, sep);
 		final int endPartLen = endPart.length();
-		String newSize = getSize();
+		SizeAdjustment newSize = getSafe(ObjectKey.SIZE);
 
 		while (aTok.hasMoreTokens()) {
 			final String aString = aTok.nextToken();
@@ -3022,7 +3022,8 @@ public final class Equipment extends PObject implements Serializable,
 			} else if (aString.startsWith("KEY" + endPart)) {
 				setKeyName(aString.substring(3 + endPartLen));
 			} else if (aString.startsWith("SIZE" + endPart)) {
-				newSize = aString.substring(4 + endPartLen);
+				newSize = SettingsHandler.getGame().getSizeAdjustmentNamed(
+						aString.substring(4 + endPartLen));
 			} else if (aString.startsWith("EQMOD" + endPart)) {
 				addEqModifiers(aString.substring(5 + endPartLen), true, true);
 			} else if (aString.startsWith("ALTEQMOD" + endPart)) {
@@ -3288,7 +3289,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param newSize
 	 *            the new size for the item
 	 */
-	public void resizeItem(final PlayerCharacter aPC, final String newSize) {
+	public void resizeItem(final PlayerCharacter aPC, SizeAdjustment newSize) {
 		setBase(aPC);
 
 		final int iOldSize = sizeInt();
@@ -3296,7 +3297,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (iNewSize != iOldSize)
 		{
-			setSize(newSize);
+			put(ObjectKey.SIZE, newSize);
 			CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
 
 			Equipment eq;
@@ -3328,9 +3329,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (containerCapacityString.length() > 0)
 			{
 				double mult = 1.0;
-				final SizeAdjustment newSA =
-						SettingsHandler.getGame().getSizeAdjustmentNamed(
-							newSize);
+				final SizeAdjustment newSA = newSize;
 
 				if (newSA != null)
 				{
@@ -3345,7 +3344,6 @@ public final class Equipment extends PObject implements Serializable,
 							new Float(eq.containerWeightCapacity.doubleValue()
 								* mult);
 				}
-
 				if (getAcceptsTypeCount() > 0)
 				{
 					for (String aString : eq.d_acceptsTypes.keySet())
@@ -3724,10 +3722,6 @@ public final class Equipment extends PObject implements Serializable,
 				}
 			}
 		}
-
-		if (getSize().length() == 0) {
-			setSize("M");
-		}
 	}
 
 	public String consolidatedProfName()
@@ -3788,14 +3782,12 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The costAdjustedForSize value
 	 */
 	private BigDecimal getCostAdjustedForSize(final PlayerCharacter aPC,
-			final String aSize) {
+			final SizeAdjustment saSize) {
 		BigDecimal c = getSafe(ObjectKey.COST);
 
 		//
 		// Scale everything to medium before conversion
 		//
-		final SizeAdjustment saSize = SettingsHandler.getGame()
-				.getSizeAdjustmentNamed(aSize);
 		final SizeAdjustment saBase = get(ObjectKey.BASESIZE);
 
 		if ((saSize == null) || (saBase == null)) {
@@ -4096,13 +4088,11 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The weightAdjustedForSize value
 	 */
 	private BigDecimal getWeightAdjustedForSize(final PlayerCharacter aPC,
-			final String aSize) {
+			final SizeAdjustment newSA) {
 		if (this.isVirtual()) {
 			return BigDecimal.ZERO;
 		}
 
-		final SizeAdjustment newSA = SettingsHandler.getGame()
-				.getSizeAdjustmentNamed(aSize);
 		final SizeAdjustment currSA = getSafe(ObjectKey.SIZE);
 
 		if ((newSA == null) || (currSA == null)) {
@@ -4164,11 +4154,9 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The size to adjust for
 	 */
 	private void adjustACForSize(final PlayerCharacter aPC,
-			final Equipment baseEq, final String aSize) {
+			final Equipment baseEq, final SizeAdjustment newSA) {
 		if ((getBonusList() != null) && isArmor()) {
 			double mult = 1.0;
-			final SizeAdjustment newSA = SettingsHandler.getGame()
-					.getSizeAdjustmentNamed(aSize);
 			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE);
 
 			if ((newSA != null) && (currSA != null)) {
@@ -5331,13 +5319,7 @@ public final class Equipment extends PObject implements Serializable,
 			iMod = SettingsHandler.getGame().getSizeAdjustmentListSize() - 1;
 		}
 
-		final SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(iMod);
-		String adjAbbrev = "";
-		if (sadj != null)
-		{
-			adjAbbrev = sadj.getAbbreviation();
-		}
-		return adjustDamage(dam, adjAbbrev);
+		return adjustDamage(dam, SettingsHandler.getGame().getSizeAdjustmentAtIndex(iMod));
 	}
 
 	/**
@@ -5896,7 +5878,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aSize   The size to adjust for
 	 * @return     The adjusted damage
 	 */
-	private String adjustDamage(final String aDamage, final String aSize)
+	private String adjustDamage(final String aDamage, final SizeAdjustment aSize)
 	{
 		if (aDamage == null)
 		{
@@ -5904,7 +5886,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 		if (!"special".equalsIgnoreCase(aDamage) && !"-".equals(aDamage))
 		{
-			return Globals.adjustDamage(aDamage, getSize(), aSize);
+			return Globals.adjustDamage(aDamage, getSize(), aSize.getAbbreviation());
 		}
 
 		return aDamage;
@@ -5917,7 +5899,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param bPrimary
 	 * @return     The damageAdjustedForSize value
 	 */
-	private String getDamageAdjustedForSize(final String aSize, final boolean bPrimary)
+	private String getDamageAdjustedForSize(final SizeAdjustment aSize, final boolean bPrimary)
 	{
 		int headnum = bPrimary ? 1 : 2;
 		EquipmentHead head = getEquipmentHeadReference(headnum);

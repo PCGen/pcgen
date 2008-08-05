@@ -22,6 +22,7 @@
  */
 package pcgen.core.kit;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.core.character.EquipSet;
 import pcgen.util.Logging;
@@ -326,8 +327,8 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		// natural (weapon)
 		boolean tryResize = false;
 
-		String sizeToSet = SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-			aPC.sizeInt()).getAbbreviation();
+		SizeAdjustment sizeToSet = SettingsHandler.getGame().getSizeAdjustmentAtIndex(
+			aPC.sizeInt());
 
 		if (getSize() == null)
 		{
@@ -345,7 +346,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			}
 			else
 			{
-				sizeToSet = getSize();
+				sizeToSet = SettingsHandler.getGame().getSizeAdjustmentNamed(getSize());
 				tryResize = true;
 			}
 		}
@@ -358,7 +359,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		{
 			// We need setBase() called.  The only way to do that is to resize.
 			// We will set the size to itself.
-			theEquipment.resizeItem(aPC, theEquipment.getSize());
+			theEquipment.resizeItem(aPC, theEquipment.getSafe(ObjectKey.SIZE));
 		}
 
 		//
