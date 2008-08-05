@@ -195,7 +195,7 @@ public final class WieldCategory
 					final int newSizeInt = eq.sizeInt() + aBump;
 					final SizeAdjustment sadj = SettingsHandler.getGame().
 						getSizeAdjustmentAtIndex(newSizeInt);
-					eq.setSize(sadj);
+					eq.put(ObjectKey.SIZE, sadj);
 				}
 			}
 			final PrerequisiteParserInterface parser = PreParserFactory.
@@ -233,7 +233,7 @@ public final class WieldCategory
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			}
-			eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed(oldEqSize));
+			eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed(oldEqSize));
 		}
 		catch (PersistenceLayerException ple)
 		{

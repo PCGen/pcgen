@@ -151,15 +151,15 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		// Test 3.0 Style
 		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
-		longsword.setSize(sa);
-		longsword.setBaseSize(sa);
+		longsword.put(ObjectKey.SIZE, sa);
+		longsword.put(ObjectKey.BASESIZE, sa);
 
 		assertTrue("Weapon is M therefore OneHanded", PrereqHandler.passes(
 			prereq, character, null));
 
 		sa = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
-		longsword.setSize(sa);
-		longsword.setBaseSize(sa);
+		longsword.put(ObjectKey.SIZE, sa);
+		longsword.put(ObjectKey.BASESIZE, sa);
 
 		assertFalse("Weapon is L therefore TwoHanded", PrereqHandler.passes(
 			prereq, character, null));

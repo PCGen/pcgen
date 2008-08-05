@@ -78,7 +78,6 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
@@ -364,7 +363,7 @@ final class EqBuilder extends JPanel
 
 		jButtonDamage.setVisible(aEq.isWeapon());
 
-		setItemSize(aEq.getSizeAdj().getDisplayName());
+		setItemSize(aEq.getSafe(ObjectKey.SIZE).getDisplayName());
 
 		if (!bReloading)
 		{

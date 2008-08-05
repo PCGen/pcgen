@@ -46,7 +46,9 @@ import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
+import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
@@ -71,8 +73,10 @@ import pcgen.util.enumeration.Visibility;
  * @param <T>
  *            The class of object stored by this ObjectKey.
  */
-public final class ObjectKey<T>
+public class ObjectKey<T>
 {
+
+	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
 
 	public static final ObjectKey<Boolean> USE_UNTRAINED = new ObjectKey<Boolean>(Boolean.TRUE);
 
@@ -199,8 +203,39 @@ public final class ObjectKey<T>
 	public static final ObjectKey<Load> UNENCUMBERED_ARMOR = new ObjectKey<Load>(Load.LIGHT);
 
 	public static final ObjectKey<CDOMSingleRef<Equipment>> BASE_ITEM = new ObjectKey<CDOMSingleRef<Equipment>>(null);
+	
+	public static final ObjectKey<SizeAdjustment> BASESIZE;
 
-	private static CaseInsensitiveMap<ObjectKey<?>> map = null;
+	public static final ObjectKey<SizeAdjustment> SIZE;
+
+	/*
+	 * TODO Okay, this is a hack.
+	 */
+
+	static
+	{
+		buildMap();
+		BASESIZE = new ObjectKey<SizeAdjustment>(null)
+		{
+			@Override
+			public SizeAdjustment getDefault()
+			{
+				return SettingsHandler.getGame().getDefaultSizeAdjustment();
+			}
+
+		};
+		map.put(BASESIZE.toString(), BASESIZE);
+		SIZE = new ObjectKey<SizeAdjustment>(null)
+		{
+			@Override
+			public SizeAdjustment getDefault()
+			{
+				return SettingsHandler.getGame().getDefaultSizeAdjustment();
+			}
+
+		};
+		map.put(SIZE.toString(), SIZE);
+	}
 
 	private final T defaultValue;
 	

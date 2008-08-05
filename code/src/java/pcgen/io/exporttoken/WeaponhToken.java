@@ -142,8 +142,8 @@ public class WeaponhToken extends WeaponToken
 		}
 		
 		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed(sizeString);
-		eq.setSize(sa);
-		eq.setBaseSize(sa);
+		eq.put(ObjectKey.SIZE, sa);
+		eq.put(ObjectKey.BASESIZE, sa);
 
 		return eq;
 	}

@@ -226,11 +226,6 @@ public final class Equipment extends PObject implements Serializable,
 	// player added note
 	private String noteString = "";
 
-	// How fast the weapon can be fired.
-	private SizeAdjustment size = null;
-
-	private SizeAdjustment sizeBase = null;
-
 	private boolean automatic = false;
 
 	private boolean bonusPrimary = true;
@@ -262,7 +257,7 @@ public final class Equipment extends PObject implements Serializable,
 		final SizeAdjustment sizeAdj = SettingsHandler.getGame()
 				.getDefaultSizeAdjustment();
 		if (sizeAdj != null) {
-			setSize(sizeAdj);
+			put(ObjectKey.SIZE, sizeAdj);
 		}
 	}
 
@@ -1225,10 +1220,9 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		// Put size in name if not the same as the base item
 		//
-		final int iSize = Globals.sizeInt(getSizeAdj());
-		if (Globals.sizeInt(getBaseSize()) != iSize) {
-			itemName.append((SettingsHandler.getGame()
-					.getSizeAdjustmentAtIndex(iSize)).getDisplayName());
+		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE);
+		if (!getSafe(ObjectKey.BASESIZE).equals(thisSize)) {
+			itemName.append(thisSize.getDisplayName());
 			itemName.append('/');
 		}
 
@@ -1856,22 +1850,13 @@ public final class Equipment extends PObject implements Serializable,
 		return displayName;
 	}
 
-	public void setBaseSize(SizeAdjustment sa)
-	{
-		sizeBase = sa;
-	}
-
 	/**
 	 * Gets the size attribute of the Equipment object
 	 * 
 	 * @return The size value
 	 */
 	public String getSize() {
-		return size.getAbbreviation();
-	}
-
-	public SizeAdjustment getSizeAdj() {
-		return size;
+		return getSafe(ObjectKey.SIZE).getAbbreviation();
 	}
 
 	/**
@@ -2863,8 +2848,9 @@ public final class Equipment extends PObject implements Serializable,
 					this.getKeyName());
 		}
 
-		if (!size.equals(base.getSizeAdj())) {
-			sbuf.append(sep).append("SIZE").append(endPart).append(size);
+		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE);
+		if (!thisSize.equals(base.getSafe(ObjectKey.SIZE))) {
+			sbuf.append(sep).append("SIZE").append(endPart).append(thisSize);
 		}
 
 		String aString = getEqModifierString(true); // key1.key2|assoc1|assoc2.key3.key4
@@ -3026,7 +3012,7 @@ public final class Equipment extends PObject implements Serializable,
 			final String endPart, final PlayerCharacter aPC) {
 		final StringTokenizer aTok = new StringTokenizer(aLine, sep);
 		final int endPartLen = endPart.length();
-		String newSize = size.getAbbreviation();
+		String newSize = getSize();
 
 		while (aTok.hasMoreTokens()) {
 			final String aString = aTok.nextToken();
@@ -3414,7 +3400,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return size as int
 	 */
 	public int sizeInt() {
-		return Globals.sizeInt(getSizeAdj());
+		return Globals.sizeInt(getSafe(ObjectKey.SIZE));
 	}
 
 	/**
@@ -3766,15 +3752,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the baseSize attribute of the Equipment object
-	 * 
-	 * @return The baseSize value
-	 */
-	private SizeAdjustment getBaseSize() {
-		return sizeBase;
-	}
-
-	/**
 	 * Gets the acceptsTypes attribute of the Equipment object
 	 * 
 	 * @param aString
@@ -3819,7 +3796,7 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		final SizeAdjustment saSize = SettingsHandler.getGame()
 				.getSizeAdjustmentNamed(aSize);
-		final SizeAdjustment saBase = getBaseSize();
+		final SizeAdjustment saBase = get(ObjectKey.BASESIZE);
 
 		if ((saSize == null) || (saBase == null)) {
 			return c;
@@ -3963,12 +3940,7 @@ public final class Equipment extends PObject implements Serializable,
 			sizeString = sizeString.toUpperCase().substring(0, 1);
 		}
 		
-		setSize(SettingsHandler.getGame().getSizeAdjustmentNamed(sizeString));
-	}
-
-	public void setSize(SizeAdjustment sz)
-	{
-		size = sz;
+		put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed(sizeString));
 	}
 
 	/**
@@ -4131,7 +4103,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final SizeAdjustment newSA = SettingsHandler.getGame()
 				.getSizeAdjustmentNamed(aSize);
-		final SizeAdjustment currSA = getSizeAdj();
+		final SizeAdjustment currSA = getSafe(ObjectKey.SIZE);
 
 		if ((newSA == null) || (currSA == null)) {
 			return getBaseWeight();
@@ -4197,7 +4169,7 @@ public final class Equipment extends PObject implements Serializable,
 			double mult = 1.0;
 			final SizeAdjustment newSA = SettingsHandler.getGame()
 					.getSizeAdjustmentNamed(aSize);
-			final SizeAdjustment currSA = baseEq.getSizeAdj();
+			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE);
 
 			if ((newSA != null) && (currSA != null)) {
 				mult = newSA.getBonusTo(aPC, "ACVALUE", baseEq.typeList(), 1.0)
@@ -4975,12 +4947,9 @@ public final class Equipment extends PObject implements Serializable,
 		String thisName = getName();
 		String upName = thisName.toUpperCase();
 
-		String thisSize = getSize();
-
 		// Get the full name of the current size
-		sa = getSizeAdj();
-		thisSize = (sa == null) ? "Medium" : sa.getDisplayName();
-		String upThisSize = thisSize.toUpperCase();
+		sa = getSafe(ObjectKey.SIZE);
+		String upThisSize = sa.getDisplayName().toUpperCase();
 
 		int start = upName.indexOf(upThisSize);
 		int end = start + upThisSize.length();

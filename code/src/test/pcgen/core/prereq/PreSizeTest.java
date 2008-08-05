@@ -29,9 +29,13 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 public class PreSizeTest extends AbstractCharacterTestCase
@@ -46,6 +50,12 @@ public class PreSizeTest extends AbstractCharacterTestCase
 		super.setUp();
 
 		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
+		for (SizeAdjustment sz : SettingsHandler.getGame()
+				.getUnmodifiableSizeAdjustmentList())
+		{
+			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
+		}
 
 		TestHelper.makeEquipment("Item One\tTYPE:Goods.Magic\tSIZE:S");
 		TestHelper.makeEquipment("Item Two\tTYPE:Goods.General\tSIZE:M");

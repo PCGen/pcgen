@@ -185,8 +185,8 @@ public class NaturalattacksLst implements GlobalLstToken
 		}
 		
 		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed(aSize);
-		anEquip.setSize(sa);
-		anEquip.setBaseSize(sa);
+		anEquip.put(ObjectKey.SIZE, sa);
+		anEquip.put(ObjectKey.BASESIZE, sa);
 
 		String numAttacks = aTok.nextToken();
 		boolean attacksProgress = true;

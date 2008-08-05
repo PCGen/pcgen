@@ -33,6 +33,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Quality;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
@@ -854,7 +855,7 @@ public class EqToken extends Token
 	 */
 	public static String getSizeLongToken(Equipment eq)
 	{
-		return eq.getSizeAdj().getDisplayName();
+		return eq.getSafe(ObjectKey.SIZE).getDisplayName();
 	}
 
 	/**

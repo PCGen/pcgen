@@ -97,8 +97,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
 		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
-		eq.setSize(sa);
-		eq.setBaseSize(sa);
+		eq.put(ObjectKey.SIZE, sa);
+		eq.put(ObjectKey.BASESIZE, sa);
 
 		this.eq.setKeyName(this.OriginalKey);
 	}
@@ -212,7 +212,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize005()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
+		eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (Large)");
 		eq.setKeyName(newKey);
 
@@ -233,7 +233,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize006()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
+		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
+		eq.put(ObjectKey.SIZE, sal);
+		eq.put(ObjectKey.BASESIZE, sal);
 		eq.setName("Pointy Stick (+1/Large)");
 		eq.setKeyName(newKey);
 
@@ -254,7 +256,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize007()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
+		eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (+1/Large/Speed)");
 		eq.setKeyName(newKey);
 
@@ -274,7 +276,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize008()
 	{
 		String newKey = eq.createKeyForAutoResize("L");
-		eq.setSize(SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
+		eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (+1/Speed)");
 		eq.setKeyName(newKey);
 
