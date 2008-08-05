@@ -1407,9 +1407,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// space remains for another domain, so add it
 		if (existingDomain == null)
 		{
+			addedDomain.applyDomain(pc);
 			aCD.setDomain(addedDomain, pc);
 			pc.addCharacterDomain(aCD);
-			addedDomain.setIsLocked(true, pc);
 
 			if (!selectedDomainList.contains(addedDomain))
 			{

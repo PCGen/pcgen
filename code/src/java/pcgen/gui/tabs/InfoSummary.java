@@ -90,6 +90,8 @@ import pcgen.core.RollingMethods;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
+import pcgen.core.analysis.RaceStat;
+import pcgen.core.display.VisionDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -879,7 +881,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; ++i)
 			{
-				if (aRace.isNonAbility(i))
+				if (RaceStat.isNonAbility(i, aRace))
 				{
 					if (aString.length() > 0)
 					{
@@ -927,7 +929,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 
 			b.appendSpacer();
-			b.appendI18nElement("in_sumVision", aRace.getDisplayVision(pc)); //$NON-NLS-1
+			b.appendI18nElement("in_sumVision", VisionDisplay.getVision(pc, aRace)); //$NON-NLS-1
 
 			if (aRace.getFavoredClass().length() != 0)
 			{

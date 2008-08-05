@@ -85,6 +85,7 @@ import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
+import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
@@ -6175,7 +6176,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean isNonAbility(final int i)
 	{
 		//Unlocked overrides any lock to a non ability so check for it first
-		if (race.isUnlocked(i))
+		if (RaceStat.isUnlocked(i, race))
 		{
 			return false;
 		}
@@ -6187,7 +6188,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		if (race.isNonAbility(i))
+		if (RaceStat.isNonAbility(i, race))
 		{
 			return true;
 		}

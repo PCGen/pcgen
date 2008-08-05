@@ -36,7 +36,7 @@ public class StartfeatsToken implements RaceLstToken
 			final Prerequisite prereq = factory.parse(buf.toString());
 			bon.addPrerequisite(prereq);
 
-			race.setBonusInitialFeats(bon);
+			race.addBonusList(bon);
 			return true;
 		}
 		catch (NumberFormatException nfe)

@@ -22,6 +22,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
+import pcgen.core.display.VisionDisplay;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.HTMLUtils;
@@ -268,7 +269,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 
 				if (race != null)
 				{
-					sRet = race.getDisplayVision(this.pc);
+					sRet = VisionDisplay.getVision(this.pc, race);
 				}
 
 				break;

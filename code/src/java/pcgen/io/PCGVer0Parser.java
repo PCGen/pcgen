@@ -714,7 +714,7 @@ final class PCGVer0Parser implements PCGParser
 								}
 							}
 
-							aDomain.setIsLocked(true, aPC);
+							aDomain.applyDomain(aPC);
 						}
 						else
 						{

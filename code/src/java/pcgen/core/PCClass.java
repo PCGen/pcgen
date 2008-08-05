@@ -5244,7 +5244,7 @@ public class PCClass extends PObject
 					aCD.setDomain(aDomain, aPC);
 					aPC.addCharacterDomain(aCD);
 					aDomain = aCD.getDomain();
-					aDomain.setIsLocked(true, aPC);
+					aDomain.applyDomain(aPC);
 				}
 			}
 			else

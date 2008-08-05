@@ -307,7 +307,7 @@ public class TestHelper
 			bon.addPrerequisite(prereq);
 			bon.setCreatorObject(aRace);
 
-			aRace.setBonusInitialFeats(bon);
+			aRace.addBonusList(bon);
 		}
 		catch (PersistenceLayerException e)
 		{

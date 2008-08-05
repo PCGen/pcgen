@@ -442,7 +442,7 @@ public class NPCGenerator
 			// space remains for another domain, so add it
 			if (existingDomain == null)
 			{
-				domain.setIsLocked(true, aPC);
+				domain.applyDomain(aPC);
 				aCD.setDomain(domain, aPC);
 				aPC.addCharacterDomain(aCD);
 

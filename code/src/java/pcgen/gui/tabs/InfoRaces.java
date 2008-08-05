@@ -81,6 +81,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.RaceStat;
+import pcgen.core.display.VisionDisplay;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.GuiConstants;
@@ -1118,7 +1120,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 				for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; i++)
 				{
-					if (race.isNonAbility(i))
+					if (RaceStat.isNonAbility(i, race))
 					{
 						if (retString.length() > 0)
 						{
@@ -1190,7 +1192,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				return race.getDisplayVision(getPc());
+				return VisionDisplay.getVision(getPc(), race);
 			}
 			return null;
 		}

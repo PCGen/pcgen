@@ -45,34 +45,20 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Domain extends PObject
 {
-	private boolean isLocked;
-
 	/**
 	 * Sets the locked flag on a PC
-	 * @param aBool
 	 * @param pc
 	 */
-	public void setIsLocked(final boolean aBool, final PlayerCharacter pc)
+	public void applyDomain(final PlayerCharacter pc)
 	{
-		// The effect of this method is per character, so a global flag cannot be used for optimisation
-//		if (isLocked == aBool)
-//		{
-//			return;
-//		}
-
-		isLocked = aBool;
-
-		if (aBool)
-		{
-			final PlayerCharacter aPC    = pc;
-			final CharacterDomain aCD    = aPC.getCharacterDomainForDomain(keyName);
+			final CharacterDomain aCD    = pc.getCharacterDomainForDomain(keyName);
 			PCClass               aClass = null;
 
 			if (aCD != null)
 			{
 				if (aCD.isFromPCClass())
 				{
-					aClass = aPC.getClassKeyed(aCD.getObjectName());
+					aClass = pc.getClassKeyed(aCD.getObjectName());
 
 					if (aClass != null)
 					{
@@ -80,7 +66,7 @@ public final class Domain extends PObject
 
 						for (maxLevel = 0; maxLevel < 10; maxLevel++)
 						{
-							if (aClass.getCastForLevel(maxLevel, aPC) == 0)
+							if (aClass.getCastForLevel(maxLevel, pc) == 0)
 							{
 								break;
 							}
@@ -97,7 +83,7 @@ public final class Domain extends PObject
 
 							for ( Spell gcs : aList )
 							{
-								if (gcs.levelForKey("DOMAIN", keyName, aPC) < maxLevel)
+								if (gcs.levelForKey("DOMAIN", keyName, pc) < maxLevel)
 								{
 									if (aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0)
 									{
@@ -128,7 +114,7 @@ public final class Domain extends PObject
 
 					final String book = pcSpell.getSpellbook();
 
-					if (PrereqHandler.passesAll(pcSpell.getPrerequisiteList(), aPC, this))
+					if (PrereqHandler.passesAll(pcSpell.getPrerequisiteList(), pc, this))
 					{
 						final List<CharacterSpell> aList = aClass.getSpellSupport()
 							.getCharacterSpell(aSpell, book, -1);
@@ -148,7 +134,7 @@ public final class Domain extends PObject
 
 			if (
 				(choiceString.length() > 0) &&
-				!aPC.isImporting() &&
+				!pc.isImporting() &&
 				!choiceString.startsWith("FEAT|"))
 			{
 				ChooserUtilities.modChoices(
@@ -156,17 +142,16 @@ public final class Domain extends PObject
 					new ArrayList(),
 					new ArrayList(),
 					true,
-					aPC,
+					pc,
 					true,
 					null);
 			}
 
-			if (!aPC.isImporting())
+			if (!pc.isImporting())
 			{
-				globalChecks(aPC);
-				activateBonuses(aPC);
+				globalChecks(pc);
+				activateBonuses(pc);
 			}
-		}
 	}
 
 	@Override
@@ -183,7 +168,6 @@ public final class Domain extends PObject
 		try
 		{
 			aObj                = (Domain) super.clone();
-			aObj.isLocked       = false;
 		}
 		catch (CloneNotSupportedException exc)
 		{

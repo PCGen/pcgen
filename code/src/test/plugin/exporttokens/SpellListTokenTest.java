@@ -106,7 +106,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		human = new Race();
 
 		final BonusObj bon = Bonus.newBonus("FEAT|POOL|2");
-		human.setBonusInitialFeats(bon);
+		human.addBonusList(bon);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");

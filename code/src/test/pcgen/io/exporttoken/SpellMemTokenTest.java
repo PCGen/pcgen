@@ -88,7 +88,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		// Human
 		human = new Race();
 		final BonusObj bon = Bonus.newBonus("FEAT|POOL|2");
-		human.setBonusInitialFeats(bon);
+		human.addBonusList(bon);
 
 		testSpell = new Spell();
 		testSpell.setName("Test Spell");

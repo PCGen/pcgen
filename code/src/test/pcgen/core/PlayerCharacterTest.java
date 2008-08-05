@@ -108,7 +108,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Human
 		human = new Race();
 		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
-		human.setBonusInitialFeats(humanRaceFeatBonus);
+		human.addBonusList(humanRaceFeatBonus);
 	
 		// Giant Race
 		giantRace = new Race();
@@ -119,7 +119,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
 	
-		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
+		giantRace.addBonusList(giantRaceFeatBonus);
 	
 		Globals.getContext().ref.importObject(giantRace);
 	

@@ -265,7 +265,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 				}
 				domainsToAdd.add(domain);
 
-				domain.setIsLocked(true, aPC);
+				domain.applyDomain(aPC);
 				aCD.setDomain(domain, aPC);
 				aPC.addCharacterDomain(aCD);
 			}
@@ -305,7 +305,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 				// Shouldn't happen
 				continue;
 			}
-			domain.setIsLocked(true, aPC);
+			domain.applyDomain(aPC);
 			aCD.setDomain(domain, aPC);
 			aPC.addCharacterDomain(aCD);
 		}

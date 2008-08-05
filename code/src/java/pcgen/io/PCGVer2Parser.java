@@ -2103,7 +2103,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 
 				thePC.addCharacterDomain(aCharacterDomain);
-				aDomain.setIsLocked(true, thePC);
+				aDomain.applyDomain(thePC);
 
 				// TODO
 				// set associated list

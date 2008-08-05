@@ -24,17 +24,13 @@ package pcgen.core;
 
 import java.awt.geom.Point2D;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.StatLock;
-import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -62,39 +58,6 @@ public final class Race extends PObject
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		return hda == null
 				|| Integer.MAX_VALUE == hda.get(hda.size() - 1).intValue();
-	}
-
-	public void setBonusInitialFeats(final BonusObj bon)
-	{
-		addBonusList(bon);
-	}
-
-	public String getDisplayVision(final PlayerCharacter aPC)
-	{
-		if (aPC == null)
-		{
-			return "";
-		}
-		Collection<CDOMReference<Vision>> mods = getListMods(Vision.VISIONLIST);
-		if (mods == null)
-		{
-			return "";
-		}
-
-		StringBuilder visionString = new StringBuilder(25);
-		for (CDOMReference<Vision> ref : mods)
-		{
-			for (Vision v : ref.getContainedObjects())
-			{
-				if (visionString.length() > 0)
-				{
-					visionString.append(';');
-				}
-				visionString.append(v.toString(aPC));
-			}
-		}
-
-		return visionString.toString();
 	}
 
 	public Point2D.Double getFace()
@@ -136,60 +99,6 @@ public final class Race extends PObject
 	public int getMonsterClassLevels()
 	{
 		return monsterClassLevels;
-	}
-
-	public boolean isNonAbility(final int statIdx)
-	{
-		final List<PCStat> statList =
-				SettingsHandler.getGame().getUnmodifiableStatList();
-
-		if ((statIdx < 0) || (statIdx >= statList.size()))
-		{
-			return true;
-		}
-
-		// An unlock will always override a lock, so check it first
-		if (isUnlocked(statIdx))
-		{
-			return false;
-		}
-
-		PCStat stat = statList.get(statIdx);
-		for (StatLock sl : getSafeListFor(ListKey.STAT_LOCKS))
-		{
-			if (sl.getLockedStat().equals(stat))
-			{
-				if (sl.getLockValue().toString().equals("10"))
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Takes an integer input which it uses to access Games mode's 
-	 * "statlist" array. Test if that stat has been unlocked via a 
-	 * DEFINE|UNLOCK 
-	 * 
-	 * @param statIdx
-	 *            index number of the stat in question
-	 * 
-	 * @return Whether this has been unlocked
-	 */
-	public boolean isUnlocked(final int statIdx)
-	{
-		final List<PCStat> statList =
-				SettingsHandler.getGame().getUnmodifiableStatList();
-
-		if ((statIdx < 0) || (statIdx >= statList.size()))
-		{
-			return false;
-		}
-
-		return containsInList(ListKey.UNLOCKED_STATS, statList.get(statIdx));
 	}
 
 	/**

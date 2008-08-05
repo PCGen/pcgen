@@ -389,7 +389,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 						classKey);
 				aCD.setDomain(aDom, aPC);
 				aPC.addCharacterDomain(aCD);
-				aDom.setIsLocked(true, aPC);
+				aDom.applyDomain(aPC);
 				--dnum;
 			}
 		}

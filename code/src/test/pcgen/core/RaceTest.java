@@ -23,6 +23,7 @@
 package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.analysis.RaceStat;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
@@ -49,11 +50,11 @@ public class RaceTest extends AbstractCharacterTestCase
 		StatList statList = getCharacter().getStatList();
 		int index = statList.getIndexOfStatFor("STR");
 		PCStat str = statList.getStatAt(index);
-		assertEquals("Template has not been unlocked", false, race.isUnlocked(index));
+		assertEquals("Template has not been unlocked", false, RaceStat.isUnlocked(index, race));
 		race.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
-		assertEquals("Template has not been unlocked", false, race.isUnlocked(index));
+		assertEquals("Template has not been unlocked", false, RaceStat.isUnlocked(index, race));
 		race.addToListFor(ListKey.UNLOCKED_STATS, str);
-		assertEquals("Template has been unlocked", true, race.isUnlocked(index));
+		assertEquals("Template has been unlocked", true, RaceStat.isUnlocked(index, race));
 	}
 	
 	/**
@@ -66,12 +67,12 @@ public class RaceTest extends AbstractCharacterTestCase
 		StatList statList = getCharacter().getStatList();
 		int index = statList.getIndexOfStatFor("STR");
 		PCStat str = statList.getStatAt(index);
-		assertEquals("Template has not been locked to a nonability", false, race.isNonAbility(index));
+		assertEquals("Template has not been locked to a nonability", false, RaceStat.isNonAbility(index, race));
 		race.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
-		assertEquals("Template has been locked to an ability", false, race.isNonAbility(index));
+		assertEquals("Template has been locked to an ability", false, RaceStat.isNonAbility(index, race));
 		race.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(10)));
-		assertEquals("Template has been locked to a nonability", true, race.isNonAbility(index));
+		assertEquals("Template has been locked to a nonability", true, RaceStat.isNonAbility(index, race));
 		race.addToListFor(ListKey.UNLOCKED_STATS, str);
-		assertEquals("Template has been unlocked", false, race.isNonAbility(index));
+		assertEquals("Template has been unlocked", false, RaceStat.isNonAbility(index, race));
 	}
 }
