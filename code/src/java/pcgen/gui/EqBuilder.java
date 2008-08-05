@@ -1136,7 +1136,7 @@ final class EqBuilder extends JPanel
 
 				if (!oldName.toString().toUpperCase().startsWith(Constants.s_GENERIC_ITEM.toUpperCase()))
 				{
-					aNewEq.addSpecialProperty(SpecialProperty.createFromLst(oldName.toString()));
+					aNewEq.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(oldName.toString()));
 				}
 
 				final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());
@@ -1241,10 +1241,10 @@ final class EqBuilder extends JPanel
 		}
 		else
 		{
-			aNewEq.clearSpecialProperties();
+			aNewEq.removeListFor(ListKey.SPECIAL_PROPERTIES);
 			if (!aString.equals(""))
 			{
-				aNewEq.addSpecialProperty(SpecialProperty.createFromLst(aString));
+				aNewEq.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(aString));
 			}
 
 			final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());

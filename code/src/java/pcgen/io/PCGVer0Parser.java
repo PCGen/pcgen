@@ -939,8 +939,8 @@ final class PCGVer0Parser implements PCGParser
 
 				if (customProp.length() != 0)
 				{
-					eq.addSpecialProperty(SpecialProperty
-						.createFromLst(customProp));
+					eq.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty
+							.createFromLst(customProp));
 				}
 
 				eq.addEqModifiers(head1, true);

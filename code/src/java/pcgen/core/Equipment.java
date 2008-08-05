@@ -175,8 +175,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	private List<EquipmentModifier> eqModifierList = new ArrayList<EquipmentModifier>();
 
-	private List<SpecialProperty> specialPropertyList = new ArrayList<SpecialProperty>();
-
 	private EquipmentCollection d_parent = null;
 
 	private List<Equipment> d_containedEquipment = null;
@@ -1798,10 +1796,11 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return raw special propertie
 	 */
 	public String getRawSpecialProperties() {
+		//CONSIDER standardize this with other joins?
 		final StringBuffer retString = new StringBuffer();
 		boolean first = true;
-		for (int i = 0; i < specialPropertyList.size(); i++) {
-			final SpecialProperty sprop = specialPropertyList.get(i);
+		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
+		{
 			if (!first) {
 				retString.append(", ");
 			}
@@ -1898,23 +1897,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Clears all special properties of an Equipment.
-	 */
-	public void clearSpecialProperties() {
-		specialPropertyList.clear();
-	}
-
-	/**
-	 * Sets special properties of an Equipment.
-	 * 
-	 * @param sprop
-	 *            The properties to set
-	 */
-	public void addSpecialProperty(final SpecialProperty sprop) {
-		specialPropertyList.add(sprop);
-	}
-
-	/**
 	 * Returns special properties of an Equipment.
 	 * 
 	 * @param aPC
@@ -1944,8 +1926,8 @@ public final class Equipment extends PObject implements Serializable,
 		final StringBuffer sp = new StringBuffer();
 
 		boolean first = true;
-		for (int i = 0; i < specialPropertyList.size(); i++) {
-			final SpecialProperty sprop = specialPropertyList.get(i);
+		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
+		{
 			final String text = sprop.getParsedText(aPC, this);
 			if (!text.equals("")) {
 				if (!first) {
@@ -2748,10 +2730,6 @@ public final class Equipment extends PObject implements Serializable,
 
 			eq.eqModifierList = cloneEqModList(true);
 			eq.altEqModifierList = cloneEqModList(false);
-
-			// Make sure any lists aren't shared
-			eq.specialPropertyList = new ArrayList<SpecialProperty>();
-			eq.specialPropertyList.addAll(specialPropertyList);
 		} catch (CloneNotSupportedException e) {
 			ShowMessageDelegate.showMessageDialog(e.getMessage(),
 					Constants.s_APPNAME, MessageType.ERROR);
@@ -3029,8 +3007,8 @@ public final class Equipment extends PObject implements Serializable,
 			} else if (aString.startsWith("ALTEQMOD" + endPart)) {
 				addEqModifiers(aString.substring(8 + endPartLen), false);
 			} else if (aString.startsWith("SPROP" + endPart)) {
-				addSpecialProperty(SpecialProperty.createFromLst(aString
-						.substring(5 + endPartLen)));
+				addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty
+						.createFromLst(aString.substring(5 + endPartLen)));
 			} else if (aString.startsWith("COSTMOD" + endPart)) {
 				setCostMod(aString.substring(7 + endPartLen));
 			} else if (aString.startsWith("WEIGHTMOD" + endPart)) {
