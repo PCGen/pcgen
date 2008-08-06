@@ -33,11 +33,11 @@ public class StringPClassUtil
 		classMap = new HashMap<String, Class<? extends PObject>>();
 		stringMap = new HashMap<Class<? extends PObject>, String>();
 
+		classMap.put("ABILITY", Ability.class);
 		classMap.put("DEITY", Deity.class);
 		classMap.put("DOMAIN", Domain.class);
 		classMap.put("EQUIPMENT", Equipment.class);
 		classMap.put("EQMOD", EquipmentModifier.class);
-		classMap.put("FEAT", Ability.class);
 		classMap.put("CLASS", PCClass.class);
 		classMap.put("LANGUAGE", Language.class);
 		classMap.put("RACE", Race.class);
@@ -50,7 +50,7 @@ public class StringPClassUtil
 		stringMap.put(Domain.class, "DOMAIN");
 		stringMap.put(Equipment.class, "EQUIPMENT");
 		stringMap.put(EquipmentModifier.class, "EQMOD");
-		stringMap.put(Ability.class, "FEAT");
+		stringMap.put(Ability.class, "ABILITY");
 		stringMap.put(PCClass.class, "CLASS");
 		stringMap.put(Language.class, "LANGUAGE");
 		stringMap.put(Race.class, "RACE");

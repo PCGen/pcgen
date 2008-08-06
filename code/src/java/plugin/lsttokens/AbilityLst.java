@@ -23,14 +23,17 @@
 package plugin.lsttokens;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 import pcgen.base.util.MapToList;
+import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -128,8 +131,12 @@ public class AbilityLst extends AbstractToken implements
 			return false;
 		}
 		final String natureKey = tok.nextToken();
-		final Ability.Nature nature = Ability.Nature.valueOf(natureKey);
-		if (nature == null)
+		Ability.Nature nature;
+		try
+		{
+			nature = Ability.Nature.valueOf(natureKey);
+		}
+		catch (IllegalArgumentException iae)
 		{
 			Logging.errorPrint(getTokenName()
 					+ " refers to invalid Ability Nature: " + natureKey);
@@ -221,39 +228,44 @@ public class AbilityLst extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		Collection<CDOMReference<Ability>> added = changes.getAdded();
-		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
-		StringBuilder sb = new StringBuilder();
-		if (changes.includesGlobalClear())
+		
+		
+		
+		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		for (CDOMReference<Ability> ab : mtl.getKeySet())
 		{
-			if (removedItems != null && !removedItems.isEmpty())
+			for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
-				return null;
+				Ability.Nature nature = assoc
+						.getAssociation(AssociationKey.NATURE);
+				AbilityCategory cat = assoc
+						.getAssociation(AssociationKey.CATEGORY);
+				m.addToListFor(nature, cat, assoc.getPrerequisiteList(), ab);
 			}
-			sb.append(Constants.LST_DOT_CLEAR);
 		}
-		else if (removedItems != null && !removedItems.isEmpty())
+
+		Set<String> returnSet = new TreeSet<String>();
+		for (Ability.Nature nature : m.getKeySet())
 		{
-			context.addWriteMessage(getTokenName() + " does not support "
-					+ Constants.LST_DOT_CLEAR_DOT);
-			return null;
-		}
-		if (added != null && !added.isEmpty())
-		{
-			if (sb.length() != 0)
+			for (Category<Ability> category : m.getSecondaryKeySet(nature))
 			{
-				sb.append(Constants.PIPE);
+				for (List<Prerequisite> prereqs : m.getTertiaryKeySet(nature, category))
+				{
+					StringBuilder sb = new StringBuilder();
+					sb.append(category).append(Constants.PIPE);
+					sb.append(nature).append(Constants.PIPE);
+					sb.append(ReferenceUtilities.joinLstFormat(m.getListFor(nature,
+							category, prereqs), Constants.PIPE));
+					if (prereqs != null && !prereqs.isEmpty())
+					{
+						sb.append(Constants.PIPE);
+						sb.append(getPrerequisiteString(context, prereqs));
+					}
+					returnSet.add(sb.toString());
+				}
 			}
-			sb.append(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
-		if (sb.length() == 0)
-		{
-			return null;
-		}
-		return new String[] { sb.toString() };
+		return returnSet.toArray(new String[returnSet.size()]);
 	}
 
 	public Class<CDOMObject> getTokenClass()
