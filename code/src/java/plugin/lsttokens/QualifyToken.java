@@ -118,7 +118,15 @@ public class QualifyToken extends AbstractToken implements
 					+ StringPClassUtil.getValidStrings());
 				return false;
 			}
-			rm = foo(context, (Class) c, categoryName);
+			rm = getReferenceManufacturer(context, (Class) c, categoryName);
+			if (rm == null)
+			{
+				Logging.errorPrint("  Error encountered parsing "
+						+ getTokenName());
+				Logging.errorPrint("  " + className + " Category: "
+						+ categoryName + " not found");
+				return false;
+			}
 		}
 		else
 		{
@@ -149,7 +157,7 @@ public class QualifyToken extends AbstractToken implements
 		return true;
 	}
 
-	private <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<? extends CDOMObject, ?> foo(
+	private <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<? extends CDOMObject, ?> getReferenceManufacturer(
 		LoadContext context, Class<T> c, String categoryName)
 	{
 		Category<T> cat = StringPClassUtil.getCategoryFor(c, categoryName);
