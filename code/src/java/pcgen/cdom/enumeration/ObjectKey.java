@@ -37,6 +37,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
@@ -212,6 +213,10 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<CDOMSingleRef<Equipment>> BASE_ITEM = new ObjectKey<CDOMSingleRef<Equipment>>(null);
 	
+	public static final ObjectKey<LevelExchange> EXCHANGE_LEVEL = new ObjectKey<LevelExchange>(null);
+
+	public static final ObjectKey<CDOMSingleRef<PCClass>> EX_CLASS = new ObjectKey<CDOMSingleRef<PCClass>>(null);
+
 	public static final ObjectKey<SizeAdjustment> BASESIZE;
 
 	public static final ObjectKey<SizeAdjustment> SIZE;

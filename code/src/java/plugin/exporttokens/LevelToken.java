@@ -25,15 +25,17 @@
  */
 package plugin.exporttokens;
 
+import java.util.Iterator;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.Iterator;
-import java.util.StringTokenizer;
 
 /**
  * LEVEL token
@@ -46,6 +48,7 @@ public class LevelToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -54,6 +57,7 @@ public class LevelToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -156,7 +160,8 @@ public class LevelToken extends Token
 			aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 			if (aClass != null)
 			{
-				aClass = pc.getClassKeyed(aClass.getExClass());
+				CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);
+				aClass = pc.getClassKeyed(exc.resolvesTo().getKeyName());
 			}
 		}
 		if (aClass != null)

@@ -49,6 +49,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -233,26 +234,6 @@ public class PCClass extends PObject
 	// really working properly
 
 	/*
-	 * FUTURETYPESAFETY This should not be a String, but a member of a Typesafe
-	 * Enumeration of Classes... unfortunately, that really requires a two-pass
-	 * design for the LST files... because the EX Class may not exist at the 
-	 * time this tag is hit.
-	 */
-	/*
-	 * FINALALLCLASSLEVELS Because this indicates what a Class becomes when the
-	 * prerequisites are no longer met, this must be passed into each and every
-	 * PCClassLevel (though it can be given in its pure form).
-	 */
-	/*
-	 * REFACTOR Consideration of HOW to actually perform this given the
-	 * characteristics of PCClass vs. PCClassLevel are rather interesting...
-	 * exactly how do you impose an ExClass on something in a way that is
-	 * reasonably safe - given object structure - as well as being reasonably
-	 * efficient?
-	 */
-	private String exClass = Constants.EMPTY_STRING;
-
-	/*
 	 * STRINGREFACTOR This is currently taking in a complex formula-ish string
 	 * and needs to be put back into the Tag!
 	 */
@@ -269,23 +250,6 @@ public class PCClass extends PObject
 	 * PCClassLevel factory method.
 	 */
 	private String itemCreationMultiplier = Constants.EMPTY_STRING;
-
-	/*
-	 * STRINGREFACTOR This is currently processed outside of this set (format is
-	 * of the form EXCHANGELEVEL:Ex Paladin|11|10|1). Should be processed in the
-	 * tag and passed in here as an object.
-	 */
-	/*
-	 * TYPESAFETY This is actually passing around a Class, and thus can be made
-	 * type safe to the list of classes.
-	 */
-	/*
-	 * UNKNOWNDESTINATION Don't know where to put this yet... this is a
-	 * COMPLICATED function that allows the exchange of levels (presumably on a
-	 * one-time basis). Thus, this needs to be tagged as performed, and thus
-	 * unrepeatable.
-	 */
-	private String levelExchange = Constants.EMPTY_STRING;
 
 	/*
 	 * UNKNOWNDESTINATION This is (yet again) a bit complicated due to the fact
@@ -829,24 +793,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass since it
-	 * is a Tag
-	 */
-	public final void setExClass(final String aString)
-	{
-		exClass = aString;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public final String getExClass()
-	{
-		return exClass;
-	}
-
-	/*
 	 * PCCLASSONLY Since this is a reference variable, it will likely
 	 * only appear in PCCLASS
 	 */
@@ -871,30 +817,6 @@ public class PCClass extends PObject
 	public final int getLevel()
 	{
 		return level;
-	}
-
-	/*
-	 * UNKNOWNDESTINATION Because this is a VERY strange variable and function,
-	 * I have yet to architect exactly how this will work in the PCGen system.
-	 * There will end up having to do some form of verification across multiple
-	 * PCClassLevels, so this is really a similar solution to how the Challenge
-	 * Rating (CRFormula) works.
-	 */
-	public final void setLevelExchange(final String aString)
-	{
-		levelExchange = aString;
-	}
-
-	/*
-	 * UNKNOWNDESTINATION Because this is a VERY strange variable and function,
-	 * I have yet to architect exactly how this will work in the PCGen system.
-	 * There will end up having to do some form of verification across multiple
-	 * PCClassLevels, so this is really a similar solution to how the Challenge
-	 * Rating (CRFormula) works.
-	 */
-	public final String getLevelExchange()
-	{
-		return levelExchange;
 	}
 
 	/**
@@ -2276,9 +2198,6 @@ public class PCClass extends PObject
 		final StringBuffer pccTxt = new StringBuffer(200);
 		pccTxt.append("CLASS:").append(getDisplayName());
 		pccTxt.append(super.getPCCText(false));
-		checkAdd(pccTxt, "", "EXCLASS:", exClass);
-
-		checkAdd(pccTxt, "", "EXCHANGELEVEL:", levelExchange);
 
 		if (hasSubClass)
 		{
@@ -2855,8 +2774,6 @@ public class PCClass extends PObject
 			aClass.classSkillList = null;
 			aClass.classSpellList = null;
 			aClass.stableSpellKey = null;
-
-			aClass.setLevelExchange(levelExchange);
 
 			List<KnownSpellIdentifier> ksl = getListFor(ListKey.KNOWN_SPELLS);
 			if (ksl != null)
@@ -3889,8 +3806,8 @@ public class PCClass extends PObject
 		//
 		// Allow exchange of classes only when assign 1st level
 		//
-		if ((levelExchange.length() != 0) && (getLevel() == 1)
-			&& !aPC.isImporting())
+		if (containsKey(ObjectKey.EXCHANGE_LEVEL) && (getLevel() == 1)
+				&& !aPC.isImporting())
 		{
 			exchangeLevels(aPC);
 		}
@@ -3904,42 +3821,15 @@ public class PCClass extends PObject
 	 */
 	private void exchangeLevels(final PlayerCharacter aPC)
 	{
-		final StringTokenizer aTok =
-				new StringTokenizer(levelExchange, "|", false);
-
-		if (aTok.countTokens() != 4)
-		{
-			Logging.errorPrint("levelExhange: invalid token count: "
-				+ aTok.countTokens());
-		}
-		else
-		{
+		LevelExchange le = get(ObjectKey.EXCHANGE_LEVEL);
+		
 			try
-			{
-				final String classKey = aTok.nextToken(); // Class to get
-				// levels from
-				final int iMinLevel = Integer.parseInt(aTok.nextToken()); // Minimum
-				// level
-				// required
-				// in
-				// donating
-				// class
-				int iMaxDonation = Integer.parseInt(aTok.nextToken()); // Maximum
-				// levels
-				// donated
-				// from
-				// class
-				final int iLowest = Integer.parseInt(aTok.nextToken()); // Lowest
-				// that
-				// donation
-				// can
-				// lower
-				// donating
-				// class
-				// level
-				// to
-
-				final PCClass aClass = aPC.getClassKeyed(classKey);
+ 			{
+				PCClass cl = le.getExchangeClass().resolvesTo();
+				int iMinLevel = le.getMinDonatingLevel();
+				int iMaxDonation = le.getMaxDonatedLevels();
+				int iLowest = le.getDonatingLowerLevelBound();
+				final PCClass aClass = aPC.getClassKeyed(cl.getKeyName());
 
 				if (aClass != null)
 				{
@@ -4005,7 +3895,6 @@ public class PCClass extends PObject
 					+ Constants.s_LINE_SEP + exc.getMessage(),
 					Constants.s_APPNAME, MessageType.ERROR);
 			}
-		}
 	}
 
 	/*
@@ -4722,20 +4611,6 @@ public class PCClass extends PObject
 		}
 		Collections.sort(choiceList); // sort the SubstitutionClass's 
 		choiceList.add(0, this); // THEN add the base class as the first choice
-	}
-
-	/*
-	 * DELETEMETHOD through refactoring this to another location. While this is
-	 * yet another potentially useful utility function, PCClass really isn't the
-	 * appropriate place for this method.
-	 */
-	private static void checkAdd(final StringBuffer txt, final String comp,
-		final String label, final String value)
-	{
-		if ((value != null) && !comp.equals(value))
-		{
-			txt.append('\t').append(label).append(value);
-		}
 	}
 
 	/*

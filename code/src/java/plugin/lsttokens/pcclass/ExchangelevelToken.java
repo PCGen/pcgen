@@ -1,22 +1,117 @@
 package plugin.lsttokens.pcclass;
 
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.LevelExchange;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
-import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with EXCHANGELEVEL Token
  */
-public class ExchangelevelToken implements PCClassLstToken
+public class ExchangelevelToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "EXCHANGELEVEL";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
-		pcclass.setLevelExchange(value);
-		return true;
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
+
+		final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		if (tok.countTokens() != 4)
+		{
+			Logging.errorPrint(getTokenName()
+					+ " must have 4 | delimited arguments : " + value);
+			return false;
+		}
+
+		String classString = tok.nextToken();
+		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
+				classString);
+		String mindlString = tok.nextToken();
+		int mindl;
+		try
+		{
+			mindl = Integer.parseInt(mindlString);
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint(getTokenName() + " expected an integer: "
+					+ mindlString);
+			return false;
+		}
+		String maxdlString = tok.nextToken();
+		int maxdl;
+		try
+		{
+			maxdl = Integer.parseInt(maxdlString);
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint(getTokenName() + " expected an integer: "
+					+ maxdlString);
+			return false;
+		}
+		String minremString = tok.nextToken();
+		int minrem;
+		try
+		{
+			minrem = Integer.parseInt(minremString);
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint(getTokenName() + " expected an integer: "
+					+ minremString);
+			return false;
+		}
+		try
+		{
+			LevelExchange le = new LevelExchange(cl, mindl, maxdl, minrem);
+			context.getObjectContext().put(pcc, ObjectKey.EXCHANGE_LEVEL, le);
+			return true;
+		}
+		catch (IllegalArgumentException e)
+		{
+			Logging.errorPrint("Error in " + getTokenName() + " "
+					+ e.getMessage());
+			Logging.errorPrint("  Token contents: " + value);
+			return false;
+		}
+	}
+
+	public String[] unparse(LoadContext context, PCClass pcc)
+	{
+		LevelExchange le = context.getObjectContext().getObject(pcc,
+				ObjectKey.EXCHANGE_LEVEL);
+		if (le == null)
+		{
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(le.getLSTformat()).append(Constants.PIPE);
+		sb.append(le.getMinDonatingLevel()).append(Constants.PIPE);
+		sb.append(le.getMaxDonatedLevels()).append(Constants.PIPE);
+		sb.append(le.getDonatingLowerLevelBound());
+		return new String[] { sb.toString() };
+	}
+
+	public Class<PCClass> getTokenClass()
+	{
+		return PCClass.class;
 	}
 }

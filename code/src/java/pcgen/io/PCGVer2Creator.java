@@ -930,7 +930,7 @@ final class PCGVer2Creator implements IOConstants
 
 				if (pcClass != null)
 				{
-					pcClass = thePC.getClassKeyed(pcClass.getExClass());
+					pcClass = thePC.getClassKeyed(pcClass.get(ObjectKey.EX_CLASS).resolvesTo().getKeyName());
 				}
 			}
 

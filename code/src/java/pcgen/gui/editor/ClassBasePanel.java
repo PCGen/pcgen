@@ -51,6 +51,7 @@ import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.StringPClassUtil;
@@ -118,8 +119,9 @@ class ClassBasePanel extends BasePanel
 
 		PCClass obj = (PCClass) thisPObject;
 		obj.put(StringKey.OUTPUT_NAME, txtDisplayName.getText().trim());
-		Globals.getContext().ref.registerAbbreviation(obj, abbreviation.getText().trim());
-		obj.setLevelExchange(exchangeLevel.getText().trim());
+		LoadContext context = Globals.getContext();
+		context.ref.registerAbbreviation(obj, abbreviation.getText().trim());
+		context.unconditionallyProcess(obj, "EXCHANGELEVEL", exchangeLevel.getText().trim());
 		String form = startSkillPoints.getText().trim();
 		if (form.length() > 0)
 		{
@@ -141,7 +143,7 @@ class ClassBasePanel extends BasePanel
 				Logging.errorPrint("Invalid QUALIFY: " + qualify.getText(), e);
 			}
 		}
-		obj.setExClass(exClass.getText().trim());
+		context.unconditionallyProcess(obj, "EXCLASS", exClass.getText().trim());
 		obj.setHasSubClass(hasSubClass.getSelectedObjects() != null);
 		obj.put(ObjectKey.MOD_TO_SKILLS, modToSkills.getSelectedObjects() != null);
 		obj.put(ObjectKey.VISIBILITY, chkVisible.getSelectedObjects() == null ? Visibility.HIDDEN : Visibility.DEFAULT);
@@ -197,7 +199,9 @@ class ClassBasePanel extends BasePanel
 		setTypesSelectedList(selectedList, true);
 		txtDisplayName.setText(obj.getOutputName());
 		abbreviation.setText(obj.getAbbrev());
-		exchangeLevel.setText(obj.getLevelExchange());
+		LoadContext context = Globals.getContext();
+		String[] le = context.unparse(obj, "EXCHANGELEVEL");
+		exchangeLevel.setText(le == null ? "" : le[0]);
 		Formula spf = obj.get(FormulaKey.START_SKILL_POINTS);
 		startSkillPoints.setText(spf == null ? "" : spf.toString());
 		List<Qualifier> qualList = obj.getListFor(ListKey.QUALIFY);
@@ -218,7 +222,8 @@ class ClassBasePanel extends BasePanel
 			}
 			qualify.setText(StringUtil.join(ol, "|"));
 		}
-		exClass.setText(obj.getExClass());
+		String[] exc = context.unparse(obj, "EXCLASS");
+		exClass.setText(exc == null ? "" : exc[0]);
 		hasSubClass.setSelected(obj.hasSubClass());
 		Boolean mts = obj.get(ObjectKey.MOD_TO_SKILLS);
 		modToSkills.setSelected(mts == null ? true : mts);

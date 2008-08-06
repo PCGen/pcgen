@@ -1426,23 +1426,20 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		for (PCClass aClass : classList)
 		{
-
 			pc.setAlignment(oldAlignment, false, true);
-
-			if (aClass.isQualified(pc))
 			{
-				pc.setAlignment(newAlignment, false, true);
-
-				if (!aClass.isQualified(pc)
-					&& (aClass.getExClass().length() != 0))
+				if (!aClass.isQualified(pc))
 				{
-					if (unqualified.length() > 0)
+					if (aClass.containsKey(ObjectKey.EX_CLASS))
 					{
-						unqualified.append(", "); //$NON-NLS-1$
-					}
+						if (unqualified.length() > 0)
+						{
+							unqualified.append(", "); //$NON-NLS-1$
+						}
 
-					unqualified.append(aClass.getKeyName());
-					exclassList.add(aClass);
+						unqualified.append(aClass.getKeyName());
+						exclassList.add(aClass);
+					}
 				}
 			}
 		}

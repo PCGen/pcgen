@@ -9897,27 +9897,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void makeIntoExClass(final PCClass aClass)
 	{
-		final String exClass = aClass.getExClass();
-
-		if (exClass.length() == 0)
-		{
-			return;
-		}
+		CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);
 
 		try
 		{
-			PCClass bClass = getClassKeyed(exClass);
+			PCClass cl = exc.resolvesTo();
+			PCClass bClass = getClassKeyed(cl.getKeyName());
 
 			if (bClass == null)
 			{
-				bClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, exClass);
-
-				if (bClass == null)
-				{
-					return;
-				}
-
-				bClass = bClass.clone();
+				bClass = cl.clone();
 
 				rebuildLists(bClass, aClass, aClass.getLevel(), this);
 
@@ -9963,14 +9952,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			//
 			for (Skill skill : getSkillList())
 			{
-				skill.replaceClassRank(aClass.getKeyName(), exClass);
+				skill.replaceClassRank(aClass.getKeyName(), cl.getKeyName());
 			}
 
 			bClass.setSkillPool(aClass.getSkillPool(this));
 		}
-		catch (NumberFormatException exc)
+		catch (NumberFormatException nfe)
 		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(),
+			ShowMessageDelegate.showMessageDialog(nfe.getMessage(),
 				Constants.s_APPNAME, MessageType.INFORMATION);
 		}
 	}
