@@ -144,7 +144,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	/**
 	 *  Constructor for the InfoSpells object
 	 * @param pc
-	 * @param tabID
+	 * @param aTab
 	 *
 	 */
 	public InfoSpellsSubTab(PlayerCharacter pc, Tab aTab)
@@ -814,25 +814,28 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				b.append(" ").append(addString); //$NON-NLS-1$
 			}
 
-			StringBuffer levelString = new StringBuffer();
+            //compute the String that displays the spell's level
+            StringBuffer levelString = new StringBuffer();
 			if (cs.getOwner() != null)
 			{
 
 				Integer[] levels =
 						aSpell.levelForKey(cs.getOwner().getSpellKey(), pc);
 
-				for (int index = 0; index < levels.length; ++index)
+				for (Integer level : levels)
 				{
-					if (levels[index] == -1)
+                    //ignore the -1 in the level array
+                    if (level == -1)
 					{
 						continue;
 					}
-					if (index > 0)
+                    //if it's not the first level in the list, add a ","
+                    if (levelString.length() > 0)
 					{
 						levelString.append(',');
 					}
-
-					levelString.append(levels[index]);
+                    //add the current level
+					levelString.append(level);
 				}
 			}
 			else
@@ -844,19 +847,18 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 			b.append(PropertyFactory.getFormattedString(
 				"InfoSpells.html.spell.details", //$NON-NLS-1$
-				new Object[]{
-					aSpell.getSchool(),
-					aSpell.getSubschool(),
-					aSpell.descriptor(),
-					aSpell.getComponentList(),
-					aSpell.getCastingTime(),
-					pc.parseSpellString(aSpell, aSpell.getDuration(), cs
-						.getOwner()),
-					pc.getSpellRange(aSpell, cs.getOwner(), si),
-					pc.parseSpellString(aSpell, aSpell.getTarget(), cs
-						.getOwner()),
-					aSpell.getSaveInfo(),
-					aSpell.getSpellResistance()}));
+                    aSpell.getSchool(),
+                    aSpell.getSubschool(),
+                    aSpell.descriptor(),
+                    aSpell.getComponentList(),
+                    aSpell.getCastingTime(),
+                    pc.parseSpellString(aSpell, aSpell.getDuration(), cs
+                        .getOwner()),
+                    pc.getSpellRange(aSpell, cs.getOwner(), si),
+                    pc.parseSpellString(aSpell, aSpell.getTarget(), cs
+                        .getOwner()),
+                    aSpell.getSaveInfo(),
+                    aSpell.getSpellResistance()));
 			
 			if (Globals.hasSpellPPCost())
 			{
