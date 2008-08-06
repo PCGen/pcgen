@@ -78,6 +78,10 @@ public class FavoredclassToken extends AbstractToken implements
 				}
 				else
 				{
+					if (hasIllegalSeparator('.', token))
+					{
+						return false;
+					}
 					// SubClass
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
