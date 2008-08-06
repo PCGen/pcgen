@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# Free download source - http://files.auran.com/d20/downloads/apothecary_notes_vol1.zip
+SOURCELONG:Auran d20 - Web - Notes from the Apothecary, Vol. 1	SOURCESHORT:Apothecary	SOURCEWEB:http://www.auran.com/d20
+
+# Drugs
+# Equipment Name	Type							Cost		Weight	Source Page
+Illixia		TYPE:Goods.Drug.Consumable.Psychotropic	COST:40	WT:0		SOURCEPAGE:p.1 - Apothecary_notes_vol1.pdf
+Laqueera		TYPE:Goods.Drug.Consumable.Aphrodisiac	COST:1	WT:0		SOURCEPAGE:p.2 - Apothecary_notes_vol1.pdf
