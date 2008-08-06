@@ -11,7 +11,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -79,7 +78,8 @@ public class FeatToken extends AbstractToken implements
 				AssociatedPrereqObject assoc = context.getListContext()
 						.addToList(getTokenName(), obj, Ability.FEATLIST,
 								ability);
-				assoc.setAssociation(AssociationKey.NATURE, Ability.Nature.AUTOMATIC);
+				assoc.setAssociation(AssociationKey.NATURE,
+						Ability.Nature.AUTOMATIC);
 				if (token.indexOf('(') != -1)
 				{
 					List<String> choices = new ArrayList<String>();
@@ -104,7 +104,8 @@ public class FeatToken extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		Collection<CDOMReference<Ability>> added = changes.getAdded();
+		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> added = changes
+				.getAddedAssociations();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
 		StringBuilder sb = new StringBuilder();
 		if (changes.includesGlobalClear())
@@ -126,11 +127,20 @@ public class FeatToken extends AbstractToken implements
 		}
 		if (added != null && !added.isEmpty())
 		{
-			if (sb.length() != 0)
+			boolean needsPipe = sb.length() != 0;
+			for (CDOMReference<Ability> ref : added.getKeySet())
 			{
-				sb.append(Constants.PIPE);
+				String lstFormat = ref.getLSTformat();
+				for (int i = 0; i < added.sizeOfListFor(ref); i++)
+				{
+					if (needsPipe)
+					{
+						sb.append(Constants.PIPE);
+					}
+					needsPipe = true;
+					sb.append(lstFormat);
+				}
 			}
-			sb.append(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
 		if (sb.length() == 0)
 		{

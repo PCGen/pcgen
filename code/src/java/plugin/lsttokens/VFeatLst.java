@@ -3,8 +3,11 @@ package plugin.lsttokens;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
+import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
@@ -60,7 +63,7 @@ public class VFeatLst extends AbstractToken implements
 		
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Ability.Nature.VIRTUAL;
-		CDOMReference<AbilityList> list = Ability.ABILITYLIST;
+		CDOMReference<AbilityList> list = Ability.FEATLIST;
 		while (true)
 		{
 			if (token.equals(Constants.LST_DOT_CLEAR))
@@ -72,7 +75,7 @@ public class VFeatLst extends AbstractToken implements
 					return false;
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
-						Ability.FEATLIST);
+						list);
 			}
 			else
 			{
@@ -144,9 +147,10 @@ public class VFeatLst extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		Collection<CDOMReference<Ability>> added = changes.getAdded();
+		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> added = changes
+				.getAddedAssociations();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
-		StringBuilder sb = new StringBuilder();
+		List<String> returnList = new ArrayList<String>();
 		if (changes.includesGlobalClear())
 		{
 			if (removedItems != null && !removedItems.isEmpty())
@@ -156,7 +160,7 @@ public class VFeatLst extends AbstractToken implements
 						+ ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			sb.append(Constants.LST_DOT_CLEAR);
+			returnList.add(Constants.LST_DOT_CLEAR);
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
@@ -166,17 +170,34 @@ public class VFeatLst extends AbstractToken implements
 		}
 		if (added != null && !added.isEmpty())
 		{
-			if (sb.length() != 0)
+			HashMapToList<List<Prerequisite>, CDOMReference<Ability>> m = new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
+			for (CDOMReference<Ability> ab : mtl.getKeySet())
 			{
-				sb.append(Constants.PIPE);
+				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+				{
+					m.addToListFor(assoc.getPrerequisiteList(), ab);
+				}
 			}
-			sb.append(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
+
+			Set<String> returnSet = new TreeSet<String>();
+			for (List<Prerequisite> prereqs : m.getKeySet())
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(ReferenceUtilities.joinLstFormat(m.getListFor(prereqs), Constants.PIPE));
+				if (prereqs != null && !prereqs.isEmpty())
+				{
+					sb.append(Constants.PIPE);
+					sb.append(getPrerequisiteString(context, prereqs));
+				}
+				returnSet.add(sb.toString());
+			}
+			returnList.addAll(returnSet);
 		}
-		if (sb.length() == 0)
+		if (returnList.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { sb.toString() };
+		return returnList.toArray(new String[returnList.size()]);
 	}
 
 	public Class<CDOMObject> getTokenClass()

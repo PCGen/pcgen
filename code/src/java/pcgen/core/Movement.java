@@ -366,6 +366,22 @@ public class Movement
 
 	public void addTokenContents(StringBuilder txt)
 	{
+		if (moveRatesFlag == 2)
+		{
+			txt.append(movementTypes[0]);
+			txt.append(',');
+			txt.append(movementTypes[1]);
+			txt.append(',');
+			if (movementMultOp[1].length() > 0)
+			{
+				txt.append(movementMultOp[1]).append(movementMult[1].intValue());
+			}
+			else
+			{
+				txt.append(new DecimalFormat("###0").format(movements[1]));
+			}
+			return;
+		}
 		for (int index = 0; index < movementTypes.length; ++index)
 		{
 			if (index > 0)
@@ -385,7 +401,7 @@ public class Movement
 			}
 			else
 			{
-				txt.append(new DecimalFormat("###0.#").format(movements[index]));
+				txt.append(new DecimalFormat("###0").format(movements[index]));
 			}
 		}
 	}

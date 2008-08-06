@@ -90,6 +90,20 @@ public class MovecloneLst extends AbstractToken implements
 				return false;
 			}
 		}
+		else
+		{
+			try
+			{
+				Integer.parseInt(formulaString);
+			}
+			catch (NumberFormatException e)
+			{
+				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+						+ " was expecting a Formula as the final value, was : "
+						+ formulaString);
+				return false;
+			}
+		}
 		Movement cm = new Movement(2);
 		cm.assignMovement(0, oldType, "0");
 		cm.assignMovement(1, newType, formulaString);

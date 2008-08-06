@@ -229,8 +229,6 @@ public class AbilityLst extends AbstractToken implements
 			return null;
 		}
 		
-		
-		
 		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
 		for (CDOMReference<Ability> ab : mtl.getKeySet())
 		{

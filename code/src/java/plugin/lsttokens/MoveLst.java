@@ -34,7 +34,7 @@ public class MoveLst extends AbstractToken implements
 		return "MOVE";
 	}
 
-	private void validateMove(String value, String mod)
+	private boolean validateMove(String value, String mod)
 	{
 		try
 		{
@@ -43,6 +43,7 @@ public class MoveLst extends AbstractToken implements
 				Logging.addParseMessage(Logging.LST_ERROR,
 						"Invalid movement (cannot be negative): " + mod
 								+ " in MOVE: " + value);
+				return false;
 			}
 		}
 		catch (NumberFormatException nfe)
@@ -50,7 +51,9 @@ public class MoveLst extends AbstractToken implements
 			Logging.addParseMessage(Logging.LST_ERROR,
 					"Invalid movement (must be an integer >= 0): " + mod
 							+ " in MOVE: " + value);
+			return false;
 		}
+		return true;
 	}
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
@@ -70,7 +73,10 @@ public class MoveLst extends AbstractToken implements
 		{
 			cm = new Movement(1);
 			String mod = moves.nextToken();
-			validateMove(value, mod);
+			if (!validateMove(value, mod))
+			{
+				return false;
+			}
 			cm.assignMovement(0, "Walk", mod);
 		}
 		else
@@ -82,7 +88,10 @@ public class MoveLst extends AbstractToken implements
 			{
 				String type = moves.nextToken();
 				String mod = moves.nextToken();
-				validateMove(value, mod);
+				if (!validateMove(value, mod))
+				{
+					return false;
+				}
 				cm.assignMovement(x++, type, mod);
 			}
 			if (moves.countTokens() != 0)
@@ -90,6 +99,7 @@ public class MoveLst extends AbstractToken implements
 				Logging.addParseMessage(Logging.LST_ERROR,
 						"Badly formed MOVE token "
 								+ "(extra value at end of list): " + value);
+				return false;
 			}
 		}
 		cm.setMoveRatesFlag(0);
