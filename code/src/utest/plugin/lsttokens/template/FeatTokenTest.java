@@ -210,15 +210,15 @@ public class FeatTokenTest extends
 	// construct(secondaryContext, "TestWP2");
 	// runRoundRobin("TestWP1|PRECLASS:1,Fighter=1", "TestWP2");
 	// }
-	//
-	// @Test
-	// public void testRoundRobinDupe() throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP1");
-	// runRoundRobin("TestWP1|TestWP1");
-	// }
-	//
+
+	@Test
+	public void testRoundRobinDupe() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1|TestWP1");
+	}
+
 	// @Test
 	// public void testRoundRobinDupeOnePrereq() throws
 	// PersistenceLayerException
