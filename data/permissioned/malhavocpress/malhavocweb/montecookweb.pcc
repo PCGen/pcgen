@@ -29,6 +29,7 @@ ABILITY:montecookwebclassfeats.lst
 
 CLASS:montecookwebclasses.lst
 FEAT:montecookwebfeats.lst
+LANGUAGE:montecookweblanguages.lst
 RACE:montecookwebraces.lst
 SPELL:montecookwebspells.lst
 

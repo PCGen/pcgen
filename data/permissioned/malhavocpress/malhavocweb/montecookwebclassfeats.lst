@@ -1,9 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Aug  6 15:29:39 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com
 
 # Feat Name			Clear Prereq.	Required Class						Required Feat											Prohibited Feat
-CATEGORY=Special Ability|Favored Enemy I.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=1,Ranger (Monte Cook's)=1											!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy I
-CATEGORY=Special Ability|Favored Enemy II.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=5,Ranger (Monte Cook's)=5	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy I		!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy II
-CATEGORY=Special Ability|Favored Enemy III.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=10,Ranger (Monte Cook's)=10	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy II	!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy III
-CATEGORY=Special Ability|Favored Enemy IV.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=15,Ranger (Monte Cook's)=15	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy III	!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy IV
-CATEGORY=Special Ability|Favored Enemy V.MOD	PRE:.CLEAR		PRECLASS:1,Ranger=20,Ranger (Monte Cook's)=20	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy IV	!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy V
+# Ability Name						Clear Prereq.	Required Ability								Restricted Ability							Required Class
+CATEGORY=Special Ability|Favored Enemy I.MOD	PRE:.CLEAR												!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy I	PRECLASS:1,Ranger=1,Ranger (Monte Cook's)=1
+CATEGORY=Special Ability|Favored Enemy II.MOD	PRE:.CLEAR		PREABILITY:1,CATEGORY=Special Ability,Favored Enemy I		!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy II	PRECLASS:1,Ranger=5,Ranger (Monte Cook's)=5
+CATEGORY=Special Ability|Favored Enemy III.MOD	PRE:.CLEAR		PREABILITY:1,CATEGORY=Special Ability,Favored Enemy II	!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy III	PRECLASS:1,Ranger=10,Ranger (Monte Cook's)=10
+CATEGORY=Special Ability|Favored Enemy IV.MOD	PRE:.CLEAR		PREABILITY:1,CATEGORY=Special Ability,Favored Enemy III	!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy IV	PRECLASS:1,Ranger=15,Ranger (Monte Cook's)=15
+CATEGORY=Special Ability|Favored Enemy V.MOD	PRE:.CLEAR		PREABILITY:1,CATEGORY=Special Ability,Favored Enemy IV	!PREABILITY:1,CATEGORY=Special Ability,Favored Enemy V	PRECLASS:1,Ranger=20,Ranger (Monte Cook's)=20
