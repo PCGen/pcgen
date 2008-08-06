@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Malhavoc Press - Book of Eldritch Might II	SOURCESHORT:BoEM2	SOURCEWEB:http://www.montecook.com
-#Errata applied as per http://shadow.wizards.com/dnd/files/DMGErrata.pdf
-
-# Equipment Name		Output Name				Type			Cost		Weight	Source Page
-Ring (Angel's Ring)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:10000	WT:0		SOURCEPAGE:p.54
-Ring (Scorched Mind)	OUTPUTNAME:Ring of the [NAME]	TYPE:Magic.Ring	COST:150000	WT:0		SOURCEPAGE:p.54
