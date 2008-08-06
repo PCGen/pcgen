@@ -315,4 +315,37 @@ public class Description extends ConcretePrereqObject
 	{
 		return getPCCText();
 	}
+
+
+	@Override
+	public int hashCode()
+	{
+		return theComponents.size() + 7 * getPrerequisiteCount() + 31
+			* (theVariables == null ? 0 : theVariables.size());
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o == this)
+		{
+			return true;
+		}
+		if (!(o instanceof Description))
+		{
+			return false;
+		}
+		Description other = (Description) o;
+		if (theVariables == null)
+		{
+			if (other.theVariables != null)
+			{
+				return false;
+			}
+		}
+		return theComponents.equals(other.theComponents)
+			&& (theVariables == null || theVariables.equals(other.theVariables))
+			&& equalsPrereqObject(other);
+	}
+
 }

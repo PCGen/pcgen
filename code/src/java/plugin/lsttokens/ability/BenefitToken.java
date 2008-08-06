@@ -49,8 +49,12 @@ public class BenefitToken extends AbstractToken implements
 			return true;
 		}
 
-		context.getObjectContext().addToList(ability, ListKey.BENEFIT,
-				parseBenefit(value));
+		Description ben = parseBenefit(value);
+		if (ben == null)
+		{
+			return false;
+		}
+		context.getObjectContext().addToList(ability, ListKey.BENEFIT, ben);
 		return true;
 	}
 
@@ -90,7 +94,7 @@ public class BenefitToken extends AbstractToken implements
 		{
 			for (Description d : added)
 			{
-				list.add(EntityEncoder.encode(d.getPCCText()));
+				list.add(d.getPCCText());
 			}
 		}
 		if (list.isEmpty())
@@ -109,10 +113,21 @@ public class BenefitToken extends AbstractToken implements
 	 */
 	public Description parseBenefit(final String aDesc)
 	{
+		if (isEmpty(aDesc) || hasIllegalSeparator('|', aDesc))
+		{
+			return null;
+		}
 		final StringTokenizer tok = new StringTokenizer(aDesc, Constants.PIPE);
 
-		final Description desc = new Description(EntityEncoder.decode(tok
-				.nextToken()));
+		String firstToken = tok.nextToken();
+		if (PreParserFactory.isPreReqString(firstToken))
+		{
+			Logging.errorPrint("Invalid " + getTokenName() + ": " + aDesc);
+			Logging.errorPrint("  PRExxx can not be only value");
+			return null;
+		}
+		final Description desc = new Description(EntityEncoder
+				.decode(firstToken));
 
 		boolean isPre = false;
 		while (tok.hasMoreTokens())
@@ -131,7 +146,7 @@ public class BenefitToken extends AbstractToken implements
 							+ aDesc);
 					Logging
 							.errorPrint("  PRExxx must be at the END of the Token");
-					isPre = false;
+					return null;
 				}
 				desc.addVariable(token);
 			}
