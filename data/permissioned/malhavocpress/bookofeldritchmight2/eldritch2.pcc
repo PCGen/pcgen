@@ -6,6 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:Malhavoc Press.Supplement
+PRECAMPAIGN:1,MP - Book of Eldritch Might - Source Book
 PUBNAMELONG:Malhavoc Press
 PUBNAMESHORT:Malhavoc
 PUBNAMEWEB:http://www.montecook.com
@@ -41,6 +42,3 @@ EQUIPMENT:eldritch2equiprodstaffwands.lst
 EQUIPMENT:eldritch2equipwondrousitems.lst
 FEAT:eldritch2feats.lst
 SPELL:eldritch2spells.lst
-
-# For the Evasion and Improved Evasion pseudo-feats
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion)
