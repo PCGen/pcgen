@@ -44,7 +44,7 @@ import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.TemplateStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.PCTemplateLoader;
+import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -59,7 +59,7 @@ import pcgen.rules.context.LoadContext;
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
-	private PCTemplateLoader loader = new PCTemplateLoader();
+	private GenericLoader<PCTemplate> loader = new GenericLoader<PCTemplate>(PCTemplate.class);
 	
 	/**
 	 * Constructs a new <code>PCTemplateTest</code>.
@@ -123,10 +123,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
-		// Link them to a template
-		PCTemplate template = new PCTemplate();
-		//CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
-
 		CampaignSourceEntry source;
 		try
 		{
@@ -140,9 +136,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-				context,
-				template,
+				Globals.getContext(),
+				null,
 				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
+		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
 		context.resolveReferences();
@@ -188,8 +185,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
-		// Link them to a template
-		PCTemplate template = new PCTemplate();
 		CampaignSourceEntry source;
 		try
 		{
@@ -203,9 +198,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					context,
-				template,
+					Globals.getContext(),
+					null,
 				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
+		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		Globals.getContext().ref.importObject(ab1);
 		Globals.getContext().ref.importObject(ab2);
 		Globals.getContext().resolveReferences();
@@ -253,8 +249,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
-		// Link them to a template
-		PCTemplate template = new PCTemplate();
 		CampaignSourceEntry source;
 		try
 		{
@@ -268,9 +262,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					context,
-				template,
+					Globals.getContext(),
+					null,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
+		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
 		context.resolveReferences();
@@ -339,8 +334,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 
-		// Link them to a template
-		PCTemplate template = new PCTemplate();
 		CampaignSourceEntry source;
 		try
 		{
@@ -354,9 +347,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					context,
-				template,
+					Globals.getContext(),
+				null,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
+		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
 		context.resolveReferences();

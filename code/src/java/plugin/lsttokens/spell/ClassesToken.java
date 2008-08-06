@@ -15,6 +15,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -288,7 +289,7 @@ public class ClassesToken extends AbstractToken implements
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 		SortedSet<CDOMReference<ClassSpellList>> set = new TreeSet<CDOMReference<ClassSpellList>>(
-				TokenUtilities.REFERENCE_SORTER);
+				ReferenceUtilities.REFERENCE_SORTER);
 		SortedSet<Integer> levelSet = new TreeSet<Integer>();
 		for (Prerequisite prereq : dkmtl.getKeySet())
 		{

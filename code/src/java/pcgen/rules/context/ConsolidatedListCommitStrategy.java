@@ -12,12 +12,12 @@ import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.rules.persistence.TokenUtilities;
 
 public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		MasterListInterface
@@ -125,7 +125,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		Set<CDOMObject> added = masterList.getSecondaryKeySet(swl);
 		MapToList<T, AssociatedPrereqObject> owned =
 				new TreeMapToList<T, AssociatedPrereqObject>(
-					TokenUtilities.CDOM_SORTER);
+					CDOMObjectUtilities.CDOM_SORTER);
 		for (CDOMObject lw : added)
 		{
 			List<AssociatedPrereqObject> list = masterList.getListFor(swl, lw);

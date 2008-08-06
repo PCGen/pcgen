@@ -21,10 +21,10 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.rules.persistence.TokenUtilities;
 
 /**
  * A LevelCommandFactory is used to identify a PCClass which is to be applied
@@ -159,7 +159,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 */
 	public int compareTo(LevelCommandFactory other)
 	{
-		int i = TokenUtilities.REFERENCE_SORTER.compare(pcClass, other.pcClass);
+		int i = ReferenceUtilities.REFERENCE_SORTER.compare(pcClass, other.pcClass);
 		if (i == 0)
 		{
 			if (levels.equals(other.levels))

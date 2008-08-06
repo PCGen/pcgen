@@ -31,6 +31,7 @@ import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -311,6 +312,7 @@ public abstract class AbstractReferenceContext
 			List<SubClass> subc = pcc.getSubClassList();
 			if (subc != null)
 			{
+				SubClassCategory cat = SubClassCategory.getConstant(key);
 				for (SubClass subcl : subc)
 				{
 					String subKey = subcl.getKeyName();
@@ -319,6 +321,12 @@ public abstract class AbstractReferenceContext
 					// spellcasters...
 					constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
 					// constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
+					/*
+					 * CONSIDER For right now, this is easiest to do here, though
+					 * doing this 'live' may be more appropriate in the end.
+					 */
+					subcl.setCDOMCategory(cat);
+					importObject(subcl);
 				}
 			}
 		}

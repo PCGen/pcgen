@@ -39,6 +39,7 @@ import javax.swing.filechooser.FileFilter;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -372,12 +373,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 					continue;
 				}
 
-				PCClass monsterClass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aPC.getRace().getMonsterClass());
+				LevelCommandFactory lcf = aPC.getRace().get(ObjectKey.MONSTER_CLASS);
 
-				if (monsterClass != null)
+				if (lcf != null)
 				{
-					handleMonster(aPC, monsterClass);
+					handleMonster(aPC, lcf);
 				}
 				else
 				{
@@ -912,15 +912,18 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		aPC.setCalcEquipmentList();
 	}
 
-	private void handleMonster(PlayerCharacter aPC, PCClass monsterClass)
+	private void handleMonster(PlayerCharacter aPC, LevelCommandFactory lcf)
 	{
-		Race race = aPC.getRace();
-		monsterClass.put(ObjectKey.IS_MONSTER, true);
+		PCClass cl = lcf.getPCClass();
+		/*
+		 * CONSIDER - this is adding to the master Class - BAD!
+		 */
+		cl.put(ObjectKey.IS_MONSTER, true);
 
-		int levels = race.getMonsterClassLevels();
-		Logging.debugPrint("Monster Class: " + monsterClass.getDisplayName()
+		int levels = lcf.getLevelCount().resolve(aPC, "").intValue();
+		Logging.debugPrint("Monster Class: " + cl.getDisplayName()
 				+ " Level: " + levels);
-		PCClass pcClass = aPC.getClassKeyed(monsterClass.getKeyName());
+		PCClass pcClass = aPC.getClassKeyed(cl.getKeyName());
 
 		int currentLevels = 0;
 		if (pcClass != null)
@@ -929,7 +932,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 		if (currentLevels < levels)
 		{
-			aPC.incrementClassLevel(levels - currentLevels, monsterClass);
+			aPC.incrementClassLevel(levels - currentLevels, cl);
 		}
 	}
 

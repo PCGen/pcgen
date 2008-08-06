@@ -70,6 +70,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -883,15 +884,13 @@ public class InfoRaces extends BaseCharacterInfoTab
 		if (getPc() != null)
 		{
 			final Race race = getPc().getRace();
-			final String monsterClass = race.getMonsterClass();
+			LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
 
-			if (monsterClass != null)
+			if (lcf != null)
 			{
-				minLevel =
-							race.getMonsterClassLevels();
-
-				final PCClass aClass = getPc().getClassKeyed(monsterClass);
-
+				PCClass aClass = getPc().getClassKeyed(
+						lcf.getPCClass().getKeyName());
+				minLevel = lcf.getLevelCount().resolve(getPc(), "").intValue();
 				if (aClass != null)
 				{
 					monsterHD = aClass.getLevel();
@@ -1202,9 +1201,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (fn.getItem() instanceof Race)
 			{
 				Race race = (Race) fn.getItem();
-				return (!".".equals(race.getFavoredClass())) ? race
-					.getFavoredClass() : PropertyFactory
-					.getString("in_various");
+				String[] favClass = Globals.getContext().unparse(race, "FAVCLASS");
+				return StringUtil.join(favClass, "");
 			}
 			return null;
 		}

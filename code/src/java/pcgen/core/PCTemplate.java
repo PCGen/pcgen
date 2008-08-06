@@ -52,8 +52,6 @@ public final class PCTemplate extends PObject
 	// Static properties
 	// /////////////////////////////////////////////////////////////////////
 
-	private String favoredClass = "";
-
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
 	 * level (Class and Hit Dice). This will include the absolute adjustment
@@ -101,30 +99,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Set the name of a favoured class to add to the Character this Template is
-	 * applied to
-	 * 
-	 * @param newClass
-	 *            the name of the class
-	 */
-	public void setFavoredClass(final String newClass)
-	{
-		favoredClass = newClass;
-	}
-
-	/**
-	 * Get a string that is the name of a single favoured class to be added to
-	 * the character this Template is applied to. Each Template can only add a
-	 * single favoured class.
-	 * 
-	 * @return the name of the favoured class to add
-	 */
-	public String getFavoredClass()
-	{
-		return favoredClass;
-	}
-
-	/**
 	 * Produce a tailored PCC output, used for saving custom templates.
 	 * 
 	 * @return PCC Text
@@ -143,11 +117,6 @@ public final class PCTemplate extends PObject
 			&& (getChooseLanguageAutos().length() > 0))
 		{
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
-		}
-
-		if ((favoredClass != null) && (favoredClass.length() > 0))
-		{
-			txt.append("\tFAVOREDCLASS:").append(favoredClass);
 		}
 
 		txt.append(super.getPCCText(false));

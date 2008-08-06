@@ -43,6 +43,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -51,8 +52,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.helper.Qualifier;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -869,7 +870,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Medium")));
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
-		nymphRace.setMonsterClass(nymphClass.getKeyName());
+		nymphRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+				CDOMDirectSingleRef.getRef(nymphClass), FormulaFactory
+						.getFormulaFor(0)));
 		Globals.getContext().ref.importObject(nymphRace);
 
 		// Setup class with prereqs and var based abilities with prereqs.

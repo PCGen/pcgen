@@ -44,9 +44,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Race extends PObject
 {
-	private String favoredClass = Constants.EMPTY_STRING;
-	private String monsterClass = null;
-	private int monsterClassLevels = 0;
 	
 	/**
 	 * Checks if this race's advancement is limited.
@@ -69,36 +66,6 @@ public final class Race extends PObject
 			return null;
 		}
 		return new Point2D.Double(width.doubleValue(), height.doubleValue());
-	}
-
-	public void setFavoredClass(final String newClass)
-	{
-		favoredClass = newClass;
-	}
-
-	public String getFavoredClass()
-	{
-		return favoredClass;
-	}
-
-	public void setMonsterClass(final String string)
-	{
-		monsterClass = string;
-	}
-
-	public String getMonsterClass()
-	{
-		return monsterClass;
-	}
-
-	public void setMonsterClassLevels(final int num)
-	{
-		monsterClassLevels = num;
-	}
-
-	public int getMonsterClassLevels()
-	{
-		return monsterClassLevels;
 	}
 
 	/**
@@ -137,11 +104,6 @@ public final class Race extends PObject
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
 		txt.append("\t");
-
-		if ((favoredClass != null) && (favoredClass.length() > 0))
-		{
-			txt.append("\tFAVCLASS:").append(favoredClass);
-		}
 
 		if ((getChooseLanguageAutos() != null)
 			&& (getChooseLanguageAutos().length() > 0))
@@ -199,12 +161,6 @@ public final class Race extends PObject
 			txt.append("\tNATURALATTACKS:").append(buffer.toString());
 		}
 
-		if (monsterClass != null && !"(None)".equals(monsterClass))
-		{
-			txt.append("\tMONSTERCLASS:").append(monsterClass);
-			txt.append(':').append(monsterClassLevels);
-		}
-
 		return txt.toString();
 	}
 
@@ -216,7 +172,6 @@ public final class Race extends PObject
 		try
 		{
 			aRace = (Race) super.clone();
-			aRace.favoredClass = favoredClass;
 		}
 		catch (CloneNotSupportedException exc)
 		{

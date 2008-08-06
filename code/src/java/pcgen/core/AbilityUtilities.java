@@ -24,7 +24,7 @@
 package pcgen.core;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.content.TransitionChoice;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.pclevelinfo.PCLevelInfo;

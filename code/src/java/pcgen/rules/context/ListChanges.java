@@ -11,7 +11,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.rules.persistence.TokenUtilities;
+import pcgen.cdom.reference.ReferenceUtilities;
 
 public class ListChanges<T extends PrereqObject> implements
 		AssociatedChanges<CDOMReference<T>>
@@ -49,7 +49,7 @@ public class ListChanges<T extends PrereqObject> implements
 	public Collection<CDOMReference<T>> getAdded()
 	{
 		TreeSet<CDOMReference<T>> set = new TreeSet<CDOMReference<T>>(
-				TokenUtilities.REFERENCE_SORTER);
+				ReferenceUtilities.REFERENCE_SORTER);
 		Collection<CDOMReference<T>> listMods = positive.getListMods(list);
 		if (listMods != null)
 		{
@@ -81,7 +81,7 @@ public class ListChanges<T extends PrereqObject> implements
 	public Collection<CDOMReference<T>> getRemoved()
 	{
 		TreeSet<CDOMReference<T>> set = new TreeSet<CDOMReference<T>>(
-				TokenUtilities.REFERENCE_SORTER);
+				ReferenceUtilities.REFERENCE_SORTER);
 		if (negative == null)
 		{
 			return set;
@@ -117,7 +117,7 @@ public class ListChanges<T extends PrereqObject> implements
 	public MapToList<CDOMReference<T>, AssociatedPrereqObject> getAddedAssociations()
 	{
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned = new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(
-				TokenUtilities.REFERENCE_SORTER);
+				ReferenceUtilities.REFERENCE_SORTER);
 		Collection<CDOMReference<T>> mods = positive.getListMods(list);
 		if (mods == null)
 		{
@@ -146,7 +146,7 @@ public class ListChanges<T extends PrereqObject> implements
 	public MapToList<CDOMReference<T>, AssociatedPrereqObject> getRemovedAssociations()
 	{
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned = new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(
-				TokenUtilities.REFERENCE_SORTER);
+				ReferenceUtilities.REFERENCE_SORTER);
 		if (negative == null)
 		{
 			return owned;

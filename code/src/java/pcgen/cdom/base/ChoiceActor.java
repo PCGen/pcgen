@@ -1,4 +1,4 @@
-package pcgen.cdom.content;
+package pcgen.cdom.base;
 
 import pcgen.core.PlayerCharacter;
 

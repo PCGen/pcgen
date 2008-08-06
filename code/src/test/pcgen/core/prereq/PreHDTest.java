@@ -25,9 +25,12 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -88,9 +91,9 @@ public class PreHDTest extends AbstractCharacterTestCase
 		raceClass.put(ObjectKey.IS_MONSTER, true);
 		Globals.getContext().ref.importObject(raceClass);
 
-		race.setMonsterClass("RaceClass");
-		race.setMonsterClassLevels(3);
-
+		race.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+				CDOMDirectSingleRef.getRef(raceClass), FormulaFactory
+						.getFormulaFor(3)));
 
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -143,8 +146,10 @@ public class PreHDTest extends AbstractCharacterTestCase
 		race1.setName("Bugbear");
 		race1.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Large")));
-		race1.setMonsterClass("Humanoid");
-		race1.setMonsterClassLevels(3);
+
+		race1.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+				CDOMDirectSingleRef.getRef(monClass), FormulaFactory
+						.getFormulaFor(3)));
 		Globals.getContext().ref.importObject(race1);
 
 		final PlayerCharacter character = new PlayerCharacter();

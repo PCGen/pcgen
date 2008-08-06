@@ -42,7 +42,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -73,12 +72,15 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
@@ -729,58 +731,50 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		//
 		// Race needs to have a MONSTERCLASS:<class>,<levels> tag
 		//
-		final String monsterClass = pc.getRace().getMonsterClass();
+		LevelCommandFactory lcf = pc.getRace().get(ObjectKey.MONSTER_CLASS);
 
-		if (monsterClass != null)
+		if (lcf != null)
 		{
 			//
-			// Class must exist in Global list
+			// Can't allow HD to drop below racial minimum
 			//
-			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, monsterClass);
-
-			if (aClass != null)
+			if (numHD < 0)
 			{
-				//
-				// Can't allow HD to drop below racial minimum
-				//
-				if (numHD < 0)
+				final int minHD = lcf.getLevelCount().resolve(pc, "").intValue();
+				final PCClass pcClass = pc.getClassKeyed(lcf.getPCClass().getKeyName());
+				int currentHD = 0;
+
+				if (pcClass != null)
 				{
-					final int minHD =
-							pc.getRace().getMonsterClassLevels();
-					final PCClass pcClass = pc.getClassKeyed(monsterClass);
-					int currentHD = 0;
-
-					if (pcClass != null)
-					{
-						currentHD += pcClass.getLevel();
-					}
-
-					//
-					// Don't allow a number so big it causes us to drop below minimum level
-					//
-					Logging
-						.errorPrint("minHD=" + minHD + "  currentHD=" + currentHD + "  numHD=" + numHD); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-
-					if ((currentHD + numHD) < minHD)
-					{
-						numHD = minHD - currentHD;
-						Logging.errorPrint("numHD modified to: " + numHD); //$NON-NLS-1$
-					}
-
-					if ((pcClass == null) || (numHD == 0)
-						|| ((currentHD + numHD) < minHD))
-					{
-						ShowMessageDelegate
-							.showMessageDialog(
-								PropertyFactory
-									.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
-
-						return;
-					}
+					currentHD += pcClass.getLevel();
 				}
 
-				addClass(aClass, numHD);
+				//
+				// Don't allow a number so big it causes us to drop below
+				// minimum level
+				//
+				Logging
+						.errorPrint("minHD=" + minHD + "  currentHD=" + currentHD + "  numHD=" + numHD); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+
+				if ((currentHD + numHD) < minHD)
+				{
+					numHD = minHD - currentHD;
+					Logging.errorPrint("numHD modified to: " + numHD); //$NON-NLS-1$
+				}
+
+				if ((pcClass == null) || (numHD == 0)
+						|| ((currentHD + numHD) < minHD))
+				{
+					ShowMessageDelegate
+							.showMessageDialog(
+									PropertyFactory
+											.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+
+					return;
+				}
 			}
+
+			addClass(lcf.getPCClass(), numHD);
 		}
 	}
 
@@ -931,34 +925,33 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			b.appendSpacer();
 			b.appendI18nElement("in_sumVision", VisionDisplay.getVision(pc, aRace)); //$NON-NLS-1
 
-			if (aRace.getFavoredClass().length() != 0)
-			{
-				StringBuffer favClassSet = new StringBuffer();
-				String fav = aRace.getFavoredClass();
-				if (fav.startsWith("CHOOSE:"))
-				{
-					fav = fav.substring(7);
-				}
-				if (fav.equalsIgnoreCase("ALL"))
-				{
-					favClassSet.append("Any");
-				}
-				else
-				{
-					StringTokenizer tok = new StringTokenizer(fav, Constants.PIPE);
-					while (tok.hasMoreTokens())
-					{
-						if (favClassSet.length() != 0)
-						{
-							favClassSet.append(", ");
-						}
-						favClassSet.append(tok.nextToken());
-					}
-				}
+			List<CDOMReference<? extends PCClass>> favClass = aRace
+					.getListFor(ListKey.FAVORED_CLASS);
 
-				String favClassName = favClassSet.length() == 0 ? 
+			String fcs = null;
+			if (favClass != null && favClass.size() != 0)
+			{
+				fcs = ReferenceUtilities.joinLstFormat(favClass, ", ");
+			}
+			else if (aRace.getSafe(ObjectKey.ANY_FAVORED_CLASS))
+			{
+				fcs = "Any (Highest Level Class)";
+			}
+			else
+			{
+				TransitionChoice<PCClass> fcc = aRace
+						.get(ObjectKey.FAVCLASS_CHOICE);
+				if (fcc != null)
+				{
+					fcs = "CHOOSE:" + fcc.getChoices().getLSTformat();
+				}
+			}
+
+			if (fcs != null)
+			{
+				String favClassName = fcs.length() == 0 ? 
 					PropertyFactory.getString("in_sumVarious"): //$NON-NLS-1$
-						favClassSet.toString();
+						fcs;
 				
 				b.appendSpacer();
 				b.appendI18nElement("in_sumFavoredClass", favClassName); //$NON-NLS-1
@@ -1123,12 +1116,13 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			//
 			// Show character's favored class
 			//
-			String favClass = pc.getStringFor(StringKey.RACIAL_FAVORED_CLASS);
-			if (favClass != null && favClass != "" && !favClass.equalsIgnoreCase("ANY"))
+			PCClass favClass = pc.getSelectedFavoredClass();
+			if (favClass != null)
 			{
 				statBuf
-					.append("<br><b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>: ").append(favClass); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append("<br><b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>: ").append(favClass.getDisplayName()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
+
 			//
 			// Show character's current size
 			//
@@ -2276,16 +2270,20 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					classComboBox.setSelectedItem(lastSelection);
 				}
 			}
-			else if (pc.getRace().getMonsterClass() != null)
-			{
-				String monsterClass = pc.getRace().getMonsterClass();
-				classComboBox.setSelectedItem(Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, monsterClass));
-			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
-					.getString("in_sumClassKindErrMsg"), Constants.s_APPNAME, //$NON-NLS-1$
-					MessageType.ERROR);
+				LevelCommandFactory lcf = pc.getRace().get(ObjectKey.MONSTER_CLASS);
+
+				if (lcf == null)
+				{
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+							.getString("in_sumClassKindErrMsg"), Constants.s_APPNAME, //$NON-NLS-1$
+							MessageType.ERROR);
+				}
+				else
+				{
+					classComboBox.setSelectedItem(lcf.getPCClass());
+				}
 			}
 		}
 		final PCClass pcSelectedClass =
@@ -2682,14 +2680,12 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		if (pc != null)
 		{
-			final String monsterClass = pc.getRace().getMonsterClass();
+			LevelCommandFactory lcf = pc.getRace().get(ObjectKey.MONSTER_CLASS);
 
-			if (monsterClass != null)
+			if (lcf != null)
 			{
-				minLevel =
-							pc.getRace().getMonsterClassLevels();
-
-				final PCClass aClass = pc.getClassKeyed(monsterClass);
+				minLevel = lcf.getLevelCount().resolve(pc, "").intValue();
+				PCClass aClass = pc.getClassKeyed(lcf.getPCClass().getKeyName());
 
 				if (aClass != null)
 				{
@@ -2884,23 +2880,17 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				//
 				if (pnlHD.isVisible())
 				{
-					final String monsterClass =
-							oldRace.getMonsterClass();
+					LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
 
-					if (monsterClass != null)
+					if (lcf != null)
 					{
-						final PCClass aClass = pc.getClassKeyed(monsterClass);
-
-						if (aClass != null)
+						PCClass aClass = pc.getClassKeyed(lcf.getPCClass().getKeyName());
+						final int numLevels =
+								aClass.getLevel()
+								- lcf.getLevelCount().resolve(pc, "").intValue();
+						if (numLevels > 0)
 						{
-							final int numLevels =
-									aClass.getLevel()
-										- oldRace.getMonsterClassLevels();
-
-							if (numLevels > 0)
-							{
-								addClass(aClass, -numLevels);
-							}
+							addClass(aClass, -numLevels);
 						}
 					}
 				}

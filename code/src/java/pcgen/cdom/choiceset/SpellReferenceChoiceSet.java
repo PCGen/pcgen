@@ -29,9 +29,9 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
-import pcgen.rules.persistence.TokenUtilities;
 
 /**
  * A SpellReferenceChoiceSet contains references to CDOMListObjects. This is a
@@ -93,7 +93,7 @@ public class SpellReferenceChoiceSet implements
 	public String getLSTformat()
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
-				TokenUtilities.REFERENCE_SORTER);
+				ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(set);
 		StringBuilder sb = new StringBuilder();
 		List<CDOMReference<?>> domainList = new ArrayList<CDOMReference<?>>();

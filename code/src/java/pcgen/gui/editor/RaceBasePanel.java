@@ -38,6 +38,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -354,8 +355,8 @@ public class RaceBasePanel extends BasePanel
 		context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
 		thisRace.put(IntegerKey.LEGS, getLegs());
 		thisRace.put(FormulaKey.LEVEL_ADJUSTMENT, getLevelAdjustment());
-		thisRace.setMonsterClass(getMonsterClass());
-		thisRace.setMonsterClassLevels(getMonsterLevel());
+		context.unconditionallyProcess(thisRace, "MONSTERCLASS",
+				getMonsterClass() + ":" + getMonsterLevel());
 		thisRace.put(FormulaKey.SIZE, new FixedSizeFormula(getRaceSize()));
 		thisRace.put(IntegerKey.REACH, getReach());
 		thisRace.put(IntegerKey.INITIAL_SKILL_MULT, getSkillMultiplier());
@@ -448,8 +449,12 @@ public class RaceBasePanel extends BasePanel
 		setHitDiceAdvancement(thisRace);
 		setLegs(thisRace.getSafe(IntegerKey.LEGS));
 		setLevelAdjustment(thisRace.getSafe(FormulaKey.LEVEL_ADJUSTMENT).toString());
-		setMonsterClass(thisRace.getMonsterClass());
-		setMonsterLevel(thisRace.getMonsterClassLevels());
+		LevelCommandFactory lcf = thisRace.get(ObjectKey.MONSTER_CLASS);
+		if (lcf != null)
+		{
+			setMonsterClass(lcf.getPCClass().getKeyName());
+			setMonsterLevel(lcf.getLevelCount().resolve(null, "").intValue());
+		}
 		setRaceSize(thisRace.get(FormulaKey.SIZE));
 		setReach(thisRace.getSafe(IntegerKey.REACH));
 		setSkillMultiplier(thisRace.getSafe(IntegerKey.INITIAL_SKILL_MULT));

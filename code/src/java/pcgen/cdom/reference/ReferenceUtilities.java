@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -31,6 +32,15 @@ import pcgen.cdom.base.CDOMReference;
  */
 public final class ReferenceUtilities
 {
+
+	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = new Comparator<CDOMReference<?>>()
+	{
+	
+		public int compare(CDOMReference<?> arg0, CDOMReference<?> arg1)
+		{
+			return compareRefs(arg0, arg1);
+		}
+	};
 
 	private ReferenceUtilities()
 	{
@@ -120,5 +130,22 @@ public final class ReferenceUtilities
 		}
 
 		return StringUtil.join(resultSet, separator);
+	}
+
+	public static int compareRefs(CDOMReference<?> arg0, CDOMReference<?> arg1)
+	{
+		if (arg0 instanceof CDOMSingleRef)
+		{
+			if (!(arg1 instanceof CDOMSingleRef))
+			{
+				return -1;
+			}
+			return arg0.getName().compareTo(arg1.getName());
+		}
+		if (arg1 instanceof CDOMSingleRef)
+		{
+			return 1;
+		}
+		return arg0.getName().compareTo(arg1.getName());
 	}
 }

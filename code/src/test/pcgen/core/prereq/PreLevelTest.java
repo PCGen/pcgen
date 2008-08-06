@@ -26,7 +26,10 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -229,8 +232,9 @@ public class PreLevelTest extends AbstractCharacterTestCase
 		Globals.getContext().ref.importObject(raceClass);
 
 		race.setName("Gnoll");
-		race.setMonsterClass("RaceClass");
-		race.setMonsterClassLevels(2);
+		race.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+				CDOMDirectSingleRef.getRef(raceClass), FormulaFactory
+						.getFormulaFor(2)));
 
 		myClass.setName("My Class");
 		myClass.setKeyName("MY_CLASS");

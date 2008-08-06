@@ -22,7 +22,6 @@ import pcgen.core.Domain;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -184,7 +183,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
 				Set<CDOMReference<Domain>> domainSet = new TreeSet<CDOMReference<Domain>>(
-						TokenUtilities.REFERENCE_SORTER);
+						ReferenceUtilities.REFERENCE_SORTER);
 				domainSet.addAll(m.getListFor(prereqs));
 				StringBuilder sb = new StringBuilder(ReferenceUtilities
 						.joinLstFormat(domainSet, Constants.COMMA));

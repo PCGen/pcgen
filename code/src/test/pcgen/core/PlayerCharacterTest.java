@@ -42,6 +42,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -105,6 +106,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 	
+		// Giant Class
+		giantClass = new PCClass();
+		giantClass.setName("Giant");
+		giantClass.addMyType("MONSTER");
+		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
+		giantClass.addBonusList(babClassBonus);
+		Globals.getContext().ref.importObject(giantClass);
+	
 		// Human
 		human = new Race();
 		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
@@ -113,8 +122,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Giant Race
 		giantRace = new Race();
 		giantRace.setName("Ogre");
-		giantRace.setMonsterClass("Giant");
-		giantRace.setMonsterClassLevels(4);
+		giantRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
+				CDOMDirectSingleRef.getRef(giantClass), FormulaFactory
+						.getFormulaFor(4)));
 		giantRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, 100);
 
 		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
@@ -126,14 +136,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Create the monster class type
 		SettingsHandler.getGame().addClassType(
 			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
-	
-		// Giant Class
-		giantClass = new PCClass();
-		giantClass.setName("Giant");
-		giantClass.addMyType("MONSTER");
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
-		giantClass.addBonusList(babClassBonus);
-		Globals.getContext().ref.importObject(giantClass);
 	
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");

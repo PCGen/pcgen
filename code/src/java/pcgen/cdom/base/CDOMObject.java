@@ -28,7 +28,6 @@ import java.util.Set;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMapToList;
-import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;

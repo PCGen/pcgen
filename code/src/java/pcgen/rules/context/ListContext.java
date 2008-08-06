@@ -14,11 +14,11 @@ import pcgen.base.util.TripleKeyMap;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.rules.persistence.TokenUtilities;
 
 public class ListContext
 {
@@ -467,7 +467,7 @@ public class ListContext
 				CDOMReference<? extends CDOMList<T>> swl)
 		{
 			MapToList<T, AssociatedPrereqObject> map = new TreeMapToList<T, AssociatedPrereqObject>(
-					TokenUtilities.CDOM_SORTER);
+					CDOMObjectUtilities.CDOM_SORTER);
 			OwnerURI lo = new OwnerURI(extractURI, owner);
 			Set<CDOMObject> added = positiveMasterMap
 					.getTertiaryKeySet(swl, lo);

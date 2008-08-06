@@ -18,6 +18,8 @@
 package pcgen.cdom.base;
 
 import java.util.Collection;
+import java.util.Comparator;
+
 
 /**
  * CDOMObjectUtilities is a utility class designed to provide utility methods
@@ -25,6 +27,16 @@ import java.util.Collection;
  */
 public final class CDOMObjectUtilities
 {
+
+	public static final Comparator<CDOMObject> CDOM_SORTER =
+	new Comparator<CDOMObject>()
+	{
+	
+		public int compare(CDOMObject arg0, CDOMObject arg1)
+		{
+			return compareKeys(arg0, arg1);
+		}
+	};
 
 	private CDOMObjectUtilities()
 	{
@@ -71,6 +83,33 @@ public final class CDOMObjectUtilities
 		}
 
 		return result.toString();
+	}
+
+	public static int compareKeys(CDOMObject arg0, CDOMObject arg1)
+	{
+		String base = arg0.getKeyName();
+		if (base == null)
+		{
+			if (arg1.getKeyName() == null)
+			{
+				return 0;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+		else
+		{
+			if (arg1.getKeyName() == null)
+			{
+				return 1;
+			}
+			else
+			{
+				return base.compareTo(arg1.getKeyName());
+			}
+		}
 	}
 
 }

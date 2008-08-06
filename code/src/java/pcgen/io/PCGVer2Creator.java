@@ -41,10 +41,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.TransitionChoice;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -1777,9 +1776,13 @@ final class PCGVer2Creator implements IOConstants
 
 	private void appendFavoredClassLine(StringBuffer buffer)
 	{
-		buffer.append(TAG_FAVOREDCLASS).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getStringFor(StringKey.RACIAL_FAVORED_CLASS)));
-		buffer.append(LINE_SEP);
+		PCClass sfc = thePC.getSelectedFavoredClass();
+		if (sfc != null)
+		{
+			buffer.append(TAG_FAVOREDCLASS).append(':');
+			buffer.append(EntityEncoder.encode(sfc.getKeyName()));
+			buffer.append(LINE_SEP);
+		}
 	}
 
 

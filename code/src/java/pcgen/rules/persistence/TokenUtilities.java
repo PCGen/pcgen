@@ -17,64 +17,17 @@
  */
 package pcgen.rules.persistence;
 
-import java.util.Comparator;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 public final class TokenUtilities
 {
-
-	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = new Comparator<CDOMReference<?>>()
-	{
-
-		public int compare(CDOMReference<?> arg0, CDOMReference<?> arg1)
-		{
-			return compareRefs(arg0, arg1);
-		}
-	};
-	
-	public static final Comparator<CDOMObject> CDOM_SORTER =
-		new Comparator<CDOMObject>()
-		{
-
-			public int compare(CDOMObject arg0, CDOMObject arg1)
-			{
-				return compareKeys(arg0, arg1);
-			}
-		};
-
-
-
-	// public static final Comparator<CategorizedCDOMReference<?>>
-	// CAT_REFERENCE_SORTER =
-	// new Comparator<CategorizedCDOMReference<?>>()
-	// {
-	//
-	// public int compare(CategorizedCDOMReference<?> arg0,
-	// CategorizedCDOMReference<?> arg1)
-	// {
-	// if (arg0 instanceof CDOMSingleRef)
-	// {
-	// if (!(arg1 instanceof CDOMSingleRef))
-	// {
-	// return -1;
-	// }
-	// return arg0.getName().compareTo(arg1.getName());
-	// }
-	// if (arg1 instanceof CDOMSingleRef)
-	// {
-	// return 1;
-	// }
-	// return arg0.getName().compareTo(arg1.getName());
-	// }
-	// };
 
 	private TokenUtilities()
 	{
@@ -158,50 +111,6 @@ public final class TokenUtilities
 		else
 		{
 			return context.ref.getCDOMReference(cl, cat, s);
-		}
-	}
-
-	public static int compareRefs(CDOMReference<?> arg0, CDOMReference<?> arg1)
-	{
-		if (arg0 instanceof CDOMSingleRef)
-		{
-			if (!(arg1 instanceof CDOMSingleRef))
-			{
-				return -1;
-			}
-			return arg0.getName().compareTo(arg1.getName());
-		}
-		if (arg1 instanceof CDOMSingleRef)
-		{
-			return 1;
-		}
-		return arg0.getName().compareTo(arg1.getName());
-	}
-
-	public static int compareKeys(CDOMObject arg0, CDOMObject arg1)
-	{
-		String base = arg0.getKeyName();
-		if (base == null)
-		{
-			if (arg1.getKeyName() == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return -1;
-			}
-		}
-		else
-		{
-			if (arg1.getKeyName() == null)
-			{
-				return 1;
-			}
-			else
-			{
-				return base.compareTo(arg1.getKeyName());
-			}
 		}
 	}
 }

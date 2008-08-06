@@ -13,6 +13,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
@@ -167,7 +168,7 @@ public class KnownspellsToken extends AbstractToken implements
 		if (added != null && !added.isEmpty())
 		{
 			Map<CDOMReference<?>, Integer> map = new TreeMap<CDOMReference<?>, Integer>(
-					TokenUtilities.REFERENCE_SORTER);
+					ReferenceUtilities.REFERENCE_SORTER);
 			for (KnownSpellIdentifier ksi : added)
 			{
 				CDOMReference<Spell> ref = ksi.getSpellReference();

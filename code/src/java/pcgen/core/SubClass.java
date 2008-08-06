@@ -25,6 +25,8 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -37,7 +39,7 @@ import pcgen.util.Logging;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class SubClass extends PCClass
+public final class SubClass extends PCClass implements CategorizedCDOMObject<SubClass>
 {
 	private List<String> levelArray = null;
 	private String choice = null;
@@ -195,4 +197,24 @@ public final class SubClass extends PCClass
 		}
 		return displayInfo.toString();
 	}
+
+	private Category<SubClass> category;
+	
+	public Category<SubClass> getCDOMCategory()
+	{
+		return category;
+	}
+
+	public void setCDOMCategory(Category<SubClass> cat)
+	{
+		category = cat;
+	}
+
+	@Override
+	public String getFullKey()
+	{
+		return category.toString() + "." + super.getFullKey();
+	}
+	
+	
 }

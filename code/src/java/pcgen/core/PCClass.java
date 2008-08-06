@@ -45,10 +45,11 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
-import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -1762,10 +1763,6 @@ public class PCClass extends PObject
 		{
 			if (level > curLevel || aPC.isImporting())
 			{
-					final boolean isMonsterClass =
-							aPC.getRace().getMonsterClass() != null
-								&& aPC.getRace().getMonsterClass()
-									.equalsIgnoreCase(this.getKeyName());
 					Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
 					int startLevel;
 					int rangeLevel;
@@ -3752,7 +3749,14 @@ public class PCClass extends PObject
 				// 4 levels of Giant, so it does not get a stat increase at
 				// 4th level because that is already taken into account in
 				// its racial stat modifiers, but it will get one at 8th
-				if (total <= aPC.getRace().getMonsterClassLevels())
+				LevelCommandFactory lcf = aPC.getRace().get(ObjectKey.MONSTER_CLASS);
+				int monLevels = 0;
+				if (lcf != null)
+				{
+					monLevels = lcf.getLevelCount().resolve(aPC, "").intValue();
+				}
+
+				if (total <= monLevels)
 				{
 					processBonusStats = false;
 				}
@@ -5554,6 +5558,11 @@ public class PCClass extends PObject
 			spellCacheValid = true;
 		}
 		return spellCache != null;
+	}
+
+	public String getFullKey()
+	{
+		return getKeyName();
 	}
 
 }

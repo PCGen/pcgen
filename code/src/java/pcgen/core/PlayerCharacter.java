@@ -60,13 +60,14 @@ import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
-import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
@@ -219,7 +220,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private Map<String, String> activeBonusMap = new TreeMap<String, String>();
 	private Race race = null;
-	private final SortedSet<String> favoredClasses = new TreeSet<String>();
+	private PCClass selectedFavoredClass = null;
 	private final StatList statList = new StatList(this);
 
 	// List of Kit objects
@@ -2268,21 +2269,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		//
 		// Add additional HD if required
-		// newClass = Globals.getClassNamed(race.getType());
-		PCClass aClass =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass());
+		LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
 
 		final int usedHD = followerMaster.getUsedHD();
 		addHD -= usedHD;
 
 		// if ((newClass != null) && (addHD != 0))
-		if ((aClass != null) && (addHD != 0))
+		if ((lcf != null) && (addHD != 0))
 		{
 			// set the new HD (but only do it once!)
-			// incrementClassLevel(addHD, newClass, true);
-			incrementClassLevel(addHD, aClass, true);
+			incrementClassLevel(addHD, lcf.getPCClass(), true);
 			followerMaster.setUsedHD(addHD + usedHD);
 			setDirty(true);
 		}
@@ -2308,7 +2305,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							.intValue())
 						{
 							// first zero current
-							fSkill.setZeroRanks(aClass, this);
+							fSkill.setZeroRanks(lcf == null ? null : lcf.getPCClass(), this);
 							// We don't pass in a class here so that the real
 							// skills can be distinguished from the ones from
 							// the master.
@@ -5766,21 +5763,37 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @author Thomas Behr 08-03-02
 	 */
-	public SortedSet<String> getFavoredClasses()
+	public SortedSet<PCClass> getFavoredClasses()
 	{
-		final SortedSet<String> favored = new TreeSet<String>(favoredClasses);
+		/*
+		 * CONSIDER Can this be cached?
+		 */
+		SortedSet<PCClass> favored = new TreeSet<PCClass>(CDOMObjectUtilities.CDOM_SORTER);
+
+		if (selectedFavoredClass != null)
+		{
+			favored.add(selectedFavoredClass);
+		}
+		
+		List<CDOMReference<? extends PCClass>> favClass = getRace().getListFor(
+				ListKey.FAVORED_CLASS);
+		if (favClass != null)
+		{
+			for (CDOMReference<? extends PCClass> ref : favClass)
+			{
+				favored.addAll(ref.getContainedObjects());
+			}
+		}
 
 		for (PCTemplate template : templateList)
 		{
-			StringTokenizer aTok =
-					new StringTokenizer(template.getFavoredClass(), "|");
-			while (aTok.hasMoreTokens())
+			List<CDOMReference<? extends PCClass>> fc = template
+					.getListFor(ListKey.FAVORED_CLASS);
+			if (fc != null)
 			{
-				String favoredClass = aTok.nextToken();
-				if ((favoredClass.length() != 0)
-					&& !favored.contains(favoredClass))
+				for (CDOMReference<? extends PCClass> ref : fc)
 				{
-					favored.add(favoredClass);
+					favored.addAll(ref.getContainedObjects());
 				}
 			}
 		}
@@ -5795,29 +5808,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getFavoredClassLevel()
 	{
+		final SortedSet<PCClass> aList = getFavoredClasses();
 		int level = 0;
-		if (getRace().getFavoredClass().equalsIgnoreCase("ANY"))
+		int max = 0;
+		boolean isAny = getRace().getSafe(ObjectKey.ANY_FAVORED_CLASS);
+
+		for (PCClass cl : aList)
 		{
 			for (PCClass pcClass : classList)
 			{
-				if (pcClass.isType("Base"))
+				if (isAny)
 				{
-					level = Math.max(level, pcClass.getLevel());
+					max = Math.max(max, pcClass.getLevel());
+				}
+				if (cl.getKeyName().equals(pcClass.getKeyName()))
+				{
+					level += pcClass.getLevel();
+					break;
 				}
 			}
 		}
-		else
-		{
-			for (PCClass pcClass : classList)
-			{
-				if (pcClass.getDisplayName().equals(getStringFor(StringKey.RACIAL_FAVORED_CLASS)))
-				{
-					level = pcClass.getLevel();
-				}
-			}
-		}
-		return level;
+		return Math.max(level, max);
 	}
+
 	/**
 	 * Calculates total bonus from Feats
 	 * 
@@ -6281,25 +6294,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			cachedWeaponProfs = null;
 
-			if (stringChar.containsKey(StringKey.RACIAL_FAVORED_CLASS))
-			{
-				removeFavoredClass(stringChar
-					.get(StringKey.RACIAL_FAVORED_CLASS));
-			}
-
 			removeNaturalWeapons(race);
 			removeTemplatesFrom(race);
-			if ((race.getMonsterClass() != null)
-				&& (race.getMonsterClassLevels() != 0))
+			selectedFavoredClass = null;
+			LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
+			if (lcf != null)
 			{
-				final PCClass mclass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass());
-
-				if (mclass != null)
-				{
-					incrementClassLevel(race.getMonsterClassLevels() * -1,
+				final PCClass mclass = lcf.getPCClass();
+				incrementClassLevel(lcf.getLevelCount().resolve(this, "").intValue() * -1,
 						mclass, true);
-				}
 			}
 		}
 
@@ -6343,15 +6346,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					new ArrayList<PCLevelInfo>(pcLevelInfo);
 			pcLevelInfo.clear();
 			// Make sure monster classes are added first
-			if (!isImporting() && (race.getMonsterClass() != null)
-				&& (race.getMonsterClassLevels() != 0))
+			if (!isImporting())
 			{
-				final PCClass mclass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, race.getMonsterClass());
-				if (mclass != null)
+				LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
+				if (lcf != null)
 				{
-					incrementClassLevel(race.getMonsterClassLevels(),
-						mclass, true);
+					PCClass mclass = lcf.getPCClass();
+					incrementClassLevel(lcf.getLevelCount().resolve(this, "")
+							.intValue(), mclass, true);
 				}
 			}
 
@@ -6398,8 +6400,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			addNaturalWeapons(race.getNaturalWeapons());
 			getAutoLanguages();
-
-			getRacialFavoredClasses(isImporting());
+			if (!isImporting())
+			{
+				selectRacialFavoredClass();
+			}
 
 			selectTemplates(race, isImporting()); // gets and adds templates
 
@@ -10278,8 +10282,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public double multiclassXPMultiplier()
 	{
 		final HashSet<PCClass> unfavoredClasses = new HashSet<PCClass>();
-		final SortedSet<String> aList = getFavoredClasses();
-		boolean hasAny = false;
+		final SortedSet<PCClass> aList = getFavoredClasses();
+		boolean hasAny = hasAnyFavoredClass();
 		PCClass maxClass = null;
 		PCClass secondClass = null;
 		int maxClassLevel = 0;
@@ -10287,56 +10291,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int xpPenalty = 0;
 		double xpMultiplier = 1.0;
 
-		if (aList.contains("Any"))
-		{
-			hasAny = true;
-		}
-
 		for (PCClass pcClass : classList)
 		{
 			if (!pcClass.hasXPPenalty())
 			{
 				continue;
 			}
-			boolean found = false;
-			String classKey = pcClass.getKeyName();
 			String subClassKey = pcClass.getSubClassKey();
-			if (subClassKey.equals("None"))
+			PCClass evalClass = pcClass;
+			if (!subClassKey.equals("None"))
 			{
-				subClassKey = "";
+				evalClass = pcClass.getSubClassKeyed(subClassKey);
 			}
-			if (aList.contains(pcClass.getDisplayClassName()))
-			{
-				//Old 5.x style match
-				found = true;
-			}
-			else if (aList.contains(pcClass.toString()))
-			{
-				//Old 5.x style match
-				found = true;
-			}
-			else
-			{
-				if (subClassKey.length() == 0)
-				{
-					if (aList.contains(classKey)
-						|| aList.contains(classKey + "." + classKey))
-					{
-						//6.x style match (key)
-						found = true;
-					}
-				}
-				else
-				{
-					//Sub Class or Subst Class
-					if (aList.contains(classKey + "." + subClassKey))
-					{
-						//New 6.x style match
-						found = true;
-					}
-				}
-			}
-			if (!found)
+			if (!aList.contains(evalClass))
 			{
 				unfavoredClasses.add(pcClass);
 
@@ -10387,6 +10354,23 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return xpMultiplier;
+	}
+
+	public boolean hasAnyFavoredClass()
+	{
+		if (getRace().getSafe(ObjectKey.ANY_FAVORED_CLASS))
+		{
+			return true;
+		}
+
+		for (PCTemplate template : templateList)
+		{
+			if (template.getSafe(ObjectKey.ANY_FAVORED_CLASS))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public int naturalAC()
@@ -11287,49 +11271,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return -1;
 	}
 
-	public boolean addFavoredClass(final String aString)
-	{
-		if (aString.length() == 0)
-		{
-			return false;
-		}
-		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
-		while (tok.hasMoreTokens())
-		{
-			String fc = tok.nextToken();
-			if ((fc.length() != 0) && !favoredClasses.contains(fc))
-			{
-				favoredClasses.add(fc);
-				setDirty(true);
-			}
-		}
-
-		return true;
-	}
-
 	void addFreeLanguage(final Language aLang)
 	{
 		this.languages.add(aLang);
 		++freeLangs;
 		setDirty(true);
-	}
-
-	boolean removeFavoredClass(final String aString)
-	{
-		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
-		boolean mod = false;
-		while (tok.hasMoreTokens())
-		{
-			String fc = tok.nextToken();
-			if ((fc.length() != 0) && favoredClasses.contains(fc))
-			{
-				favoredClasses.remove(fc);
-				setDirty(true);
-				mod = true;
-			}
-		}
-
-		return mod;
 	}
 
 	void removeVariable(final String variableString)
@@ -12034,91 +11980,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return hasWeaponProfKeyed(wp.getKeyName());
 	}
 
-	private SortedSet<String> getRacialFavoredClasses(boolean isImporting)
+	private void selectRacialFavoredClass()
 	{
-		String rfc = getRace().getFavoredClass();
-
-		if (!isImporting && rfc.startsWith("CHOOSE:"))
+		TransitionChoice<PCClass> fcChoice = getRace().get(
+				ObjectKey.FAVCLASS_CHOICE);
+		if (fcChoice != null)
 		{
-			final List<PCClass> availableList = new ArrayList<PCClass>();
-			
-			// WARNING: This is a temporary hack to make favored class selection work for 
-			// the Pathfinder gamemode until the new FAVCLASS mechanism can be implemented
-			// and the race object can call choosers.
-			//
-			// FAVCLASS:CHOOSE:ALL creates a chooser of all visible non-monster base classes
-			//
-			if (rfc.equalsIgnoreCase("CHOOSE:ALL"))
-			{
-				for (PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
-				{
-					if (pcClass.isType("Base") && !pcClass.isType("Monster") && 
-							pcClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
-					{
-						if (pcClass.hasSubClass())
-						{
-							if (pcClass.getSafe(ObjectKey.ALLOWBASECLASS))
-							{
-								availableList.add(pcClass);
-							}
-							for (PCClass subClass : pcClass.getSubClassList())
-							{
-								availableList.add(subClass);
-							}
-						}
-						else
-						{
-							availableList.add(pcClass);
-						}
-					}
-				}
-			}
-			else
-			{
-				final StringTokenizer tok =
-					new StringTokenizer(rfc.substring(7), "|");
-				while (tok.hasMoreTokens())
-				{	
-					String cl = tok.nextToken();
-					int dotLoc = cl.indexOf(".");
-					if (dotLoc == -1)
-					{
-						//Base Class
-						final PCClass pcClass = 
-							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl);
-						if (pcClass != null)
-						{
-							availableList.add(pcClass);
-						}
-					}
-					else
-					{
-						//Sub Class
-						final PCClass pcClass =
-							Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl.substring(dotLoc + 1));
-						if (pcClass != null)
-						{
-							availableList.add(pcClass);
-						}
-					}
-				}
-			}
-			final List<PCClass> selectedList = new ArrayList<PCClass>(1);
-			Globals.getChoiceFromList("Select favored class", availableList,
-				selectedList, 1, true);
-			rfc = selectedList.get(0).getKeyName();
+			selectedFavoredClass = fcChoice.driveChoice(this).iterator().next();
 		}
-
-		if (addFavoredClass(rfc))
-		{
-			setStringFor(StringKey.RACIAL_FAVORED_CLASS, rfc);
-		}
-		else
-		{
-			removeStringFor(StringKey.RACIAL_FAVORED_CLASS);
-		}
-
-		return favoredClasses;
 	}
 
 	private List<String> getSelectedArmorProfList()
@@ -14846,7 +14715,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tempBonusList.addAll(tempBonusList);
 		aClone.tempBonusFilters.addAll(tempBonusFilters);
 		aClone.race = race;
-		aClone.favoredClasses.addAll(favoredClasses);
+		aClone.selectedFavoredClass = selectedFavoredClass;
 
 		aClone.statList.clear();
 		for (PCStat stat : statList)
@@ -18025,6 +17894,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return null;
+	}
+
+	public PCClass getSelectedFavoredClass()
+	{
+		return selectedFavoredClass;
+	}
+
+	public void setSelectedFavoredClass(PCClass sfc)
+	{
+		selectedFavoredClass = sfc;
 	}
 
 }

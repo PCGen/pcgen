@@ -43,14 +43,12 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Properties;
 import java.util.Set;
-import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
@@ -61,13 +59,10 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.LevelInfo;
 import pcgen.core.PCAlignment;
-import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
@@ -236,7 +231,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private LocationLoader locationLoader = new LocationLoader();
 	private final Set<URI> loadedFiles = new HashSet<URI>();
 	private PCClassLoader classLoader = new PCClassLoader();
-	private PCTemplateLoader templateLoader = new PCTemplateLoader();
+	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<PCTemplate>(PCTemplate.class);
 	private EquipmentLoader equipmentLoader = new EquipmentLoader();
 	private EquipmentModifierLoader eqModLoader = new EquipmentModifierLoader();
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
@@ -546,7 +541,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			// Verify weapons are melee or ranged
 			verifyWeaponsMeleeOrRanged();
-			verifyFavClassSyntax();
 
 			//  Auto-gen additional equipment
 			if (!SettingsHandler.wantToLoadMasterworkAndMagic())
@@ -1520,80 +1514,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						+ " cannot calculate \"to hit\" unless one of these is selected."
 						+ Constants.s_LINE_SEP + "Source: "
 						+ aEq.getSourceURI());
-			}
-		}
-	}
-
-	private void verifyFavClassSyntax() throws PersistenceLayerException
-	{
-		for (Race r : Globals.getContext().ref.getConstructedCDOMObjects(Race.class)) {
-			validateFavClassString(r.getKeyName(), "RACE", "FAVCLASS", r.getFavoredClass());
-		}
-		for (PCTemplate t : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
-		{
-			validateFavClassString(t.getKeyName(), "TEMPLATE", "FAVOREDCLASS", t.getFavoredClass());
-		}
-	}
-
-	private void validateFavClassString(String key, String type, String tag, String fav)
-			throws PersistenceLayerException
-	{
-		String favored = fav;
-		if (fav.startsWith("CHOOSE:"))
-		{
-			favored = fav.substring(7);
-		}
-		
-		if (favored.equalsIgnoreCase("ANY") || favored.equalsIgnoreCase("ALL"))
-		{
-			return;
-		}
-
-		final StringTokenizer tok = new StringTokenizer(favored, "|");
-		while (tok.hasMoreTokens())
-		{
-			String cl = tok.nextToken();
-			int dotLoc = cl.indexOf(".");
-			if (dotLoc == -1)
-			{
-				// Base Class
-				PCClass pcclass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, cl);
-				if (pcclass == null)
-				{
-					Logging.deprecationPrint("Class entry in " + tag
-							+ " token in " + type + " " + key + ": " + cl
-							+ " likely references a SubClass.  Should use "
-							+ tag + ":PARENT.SUBCLASS syntax");
-				}
-			}
-			else
-			{
-				String parent = cl.substring(0, dotLoc);
-				PCClass pcclass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, parent);
-				if (pcclass == null)
-				{
-					Logging.errorPrint("Invalid Class entry in " + tag
-							+ " token in " + type + " " + key + ": " + cl
-							+ " ... " + parent + " does not exist as a Class");
-				}
-				String subclass = cl.substring(dotLoc + 1);
-				if (parent.equals(subclass))
-				{
-					if(pcclass.getSafe(ObjectKey.ALLOWBASECLASS) == false)
-					{
-						Logging.errorPrint("Invalid Class entry in " + tag
-							+ " token in " + type + " " + key + ": " + cl
-							+ " ... Base class is prohibited in " + parent);
-					}
-					 
-				}
-				else if (pcclass.getSubClassKeyed(subclass) == null)
-				{
-					Logging.errorPrint("Invalid Class entry in " + tag
-							+ " token in " + type + " " + key + ": " + cl
-							+ " ... " + subclass
-							+ " does not exist as a SubClass of " + parent);
-				}
 			}
 		}
 	}

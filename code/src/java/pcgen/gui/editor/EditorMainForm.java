@@ -755,7 +755,7 @@ public final class EditorMainForm extends JDialog
 				//
 				sel = pnlClasses.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
-				thisRace.setFavoredClass(aString);
+				context.unconditionallyProcess(thisRace, "FAVCLASS", aString);
 
 				//
 				// Save choice of auto languages
@@ -901,7 +901,7 @@ public final class EditorMainForm extends JDialog
 				//
 				sel = pnlClasses.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
-				thisPCTemplate.setFavoredClass(aString);
+				context.unconditionallyProcess(thisPCTemplate, "FAVOREDCLASS", aString);
 
 				//
 				// Save choice of auto languages
@@ -1469,26 +1469,15 @@ public final class EditorMainForm extends JDialog
 				}
 
 				availableFavouredClassList.add("Any");
-				aString = ((Race) thisPObject).getFavoredClass();
-				aTok = new StringTokenizer(aString, "|", false);
-
-				while (aTok.hasMoreTokens())
+				List<CDOMReference<? extends PCClass>> favClass = thisPObject
+					.getListFor(ListKey.FAVORED_CLASS);
+				if (favClass != null)
 				{
-					String favouredClass = aTok.nextToken();
-
-					if (!selectedFavouredClassList.contains(favouredClass))
+					for (CDOMReference<? extends PCClass> ref : favClass)
 					{
-						final int idx = availableFavouredClassList.indexOf(favouredClass);
-
-						if (idx < 0)
-						{
-							Logging.errorPrint("Unknown class: " + favouredClass);
-
-							continue;
-						}
-
-						availableFavouredClassList.remove(idx);
-						selectedFavouredClassList.add(favouredClass);
+						String cl = ref.getLSTformat();
+						availableFavouredClassList.remove(cl);
+						selectedFavouredClassList.add(cl);
 					}
 				}
 
@@ -1879,29 +1868,16 @@ public final class EditorMainForm extends JDialog
 				}
 
 				availableFavouredClassesList.add("Any");
-				aString = ((PCTemplate) thisPObject).getFavoredClass();
-				aTok = new StringTokenizer(aString, "|", false);
-
-				while (aTok.hasMoreTokens())
+				favClass = thisPObject.getListFor(ListKey.FAVORED_CLASS);
+				if (favClass != null)
 				{
-					String favouredClass = aTok.nextToken();
-
-					if (!selectedFavouredClassesList.contains(favouredClass))
+					for (CDOMReference<? extends PCClass> ref : favClass)
 					{
-						final int idx = availableFavouredClassesList.indexOf(favouredClass);
-
-						if (idx < 0)
-						{
-							Logging.errorPrint("Unknown class: " + favouredClass);
-
-							continue;
-						}
-
-						availableFavouredClassesList.remove(idx);
-						selectedFavouredClassesList.add(favouredClass);
+						String cl = ref.getLSTformat();
+						availableFavouredClassesList.remove(cl);
+						selectedFavouredClassesList.add(cl);
 					}
 				}
-
 				pnlClasses.setAvailableList(availableFavouredClassesList, true);
 				pnlClasses.setSelectedList(selectedFavouredClassesList, true);
 

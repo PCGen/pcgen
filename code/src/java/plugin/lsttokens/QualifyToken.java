@@ -31,7 +31,6 @@ import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -187,7 +186,7 @@ public class QualifyToken extends AbstractToken implements
 			map.addToListFor(key, ref);
 		}
 		Set<CDOMReference<?>> set =
-				new TreeSet<CDOMReference<?>>(TokenUtilities.REFERENCE_SORTER);
+				new TreeSet<CDOMReference<?>>(ReferenceUtilities.REFERENCE_SORTER);
 		Set<String> returnSet = new TreeSet<String>();
 		for (String key : map.getKeySet())
 		{

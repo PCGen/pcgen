@@ -25,7 +25,7 @@
  */
 package plugin.exporttokens;
 
-import pcgen.base.lang.StringUtil;
+import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -47,6 +47,7 @@ public class FavoredListToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -55,6 +56,7 @@ public class FavoredListToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -68,6 +70,20 @@ public class FavoredListToken extends Token
 	 */
 	public static String getFavoredListToken(PlayerCharacter pc)
 	{
-		return StringUtil.join(pc.getFavoredClasses(), ", ");
+		if (pc.hasAnyFavoredClass())
+		{
+			return "Any";
+		}
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+		for (PCClass pcc : pc.getFavoredClasses())
+		{
+			if (!first)
+			{
+				sb.append(", ");
+			}
+			sb.append(pcc.getFullKey());
+		}
+		return sb.toString();
 	}
 }

@@ -15,14 +15,13 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.content;
+package pcgen.cdom.base;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;

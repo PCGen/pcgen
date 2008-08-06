@@ -33,10 +33,11 @@ import java.util.Map;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
-import pcgen.cdom.content.TransitionChoice;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -45,6 +46,7 @@ import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
@@ -201,6 +203,12 @@ public class ObjectKey<T>
 	public static final ObjectKey<Load> UNENCUMBERED_LOAD = new ObjectKey<Load>(Load.LIGHT);
 
 	public static final ObjectKey<Load> UNENCUMBERED_ARMOR = new ObjectKey<Load>(Load.LIGHT);
+
+	public static final ObjectKey<Boolean> ANY_FAVORED_CLASS = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<TransitionChoice<PCClass>> FAVCLASS_CHOICE = new ObjectKey<TransitionChoice<PCClass>>(null);
+
+	public static final ObjectKey<LevelCommandFactory> MONSTER_CLASS = new ObjectKey<LevelCommandFactory>(null);
 
 	public static final ObjectKey<CDOMSingleRef<Equipment>> BASE_ITEM = new ObjectKey<CDOMSingleRef<Equipment>>(null);
 	

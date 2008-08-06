@@ -37,11 +37,11 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.TransitionChoice;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
@@ -3185,33 +3185,27 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					String msgKey = "Warnings.PCGenParser.RaceNoHD"; //$NON-NLS-1$
 
 					Race race = thePC.getRace();
-					if ((race.getMonsterClass() != null)
-							&& (race.getMonsterClassLevels() != 0))
+					LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
+
+					if (lcf != null)
 					{
-						final PCClass mclass = Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(
-										PCClass.class, race.getMonsterClass());
+						final PCClass mclass = lcf.getPCClass();
 
-						if (mclass != null)
+						int levels = lcf.getLevelCount().resolve(thePC, "")
+								.intValue();
+						thePC.incrementClassLevel(levels, mclass, true);
+						final HashMap<String, Integer> hitPointMap = processHitPoints(
+								race_name, levels, aString, aTok);
+						for (String lvlStr : hitPointMap.keySet())
 						{
-							thePC.incrementClassLevel(race
-									.getMonsterClassLevels(), mclass, true);
-							final HashMap<String, Integer> hitPointMap = processHitPoints(
-									race_name, race.getMonsterClassLevels(),
-									aString, aTok);
-							for (String lvlStr : hitPointMap.keySet())
-							{
-								int lvl = Integer.parseInt(lvlStr);
-								PCLevelInfo info = thePC.getLevelInfo()
-										.get(lvl);
-								PCClass pcClass = thePC.getClassKeyed(info
-										.getClassKeyName());
-								pcClass.setHitPoint(lvl, hitPointMap
-										.get(lvlStr));
+							int lvl = Integer.parseInt(lvlStr);
+							PCLevelInfo info = thePC.getLevelInfo().get(lvl);
+							PCClass pcClass = thePC.getClassKeyed(info
+									.getClassKeyName());
+							pcClass.setHitPoint(lvl, hitPointMap.get(lvlStr));
 
-							}
-							msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
 						}
+						msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
 					}
 					final String msg = PropertyFactory.getFormattedString(
 							msgKey, race_name);
@@ -3243,17 +3237,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parseFavoredClassLine(final String line)
 	{
 		String favClass = EntityEncoder.decode(line.substring(TAG_FAVOREDCLASS.length() + 1));
-		if (thePC.addFavoredClass(favClass))
+		PCClass cl = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCClass.class, favClass);
+		if (cl != null)
 		{
-			thePC.setStringFor(StringKey.RACIAL_FAVORED_CLASS, favClass);
+			thePC.setSelectedFavoredClass(cl);
 		}
-		else
-		{
-			thePC.removeStringFor(StringKey.RACIAL_FAVORED_CLASS);
-		}
-
 	}
-
 
 	/**
 	 * Translate the string of hitpoint values into a map.

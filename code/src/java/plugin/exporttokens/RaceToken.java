@@ -29,6 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -148,16 +150,16 @@ public class RaceToken extends Token
 
 		if (SettingsHandler.hideMonsterClasses())
 		{
-			final String monsterClass = pc.getRace().getMonsterClass();
+			LevelCommandFactory lcf = pc.getRace().get(ObjectKey.MONSTER_CLASS);
 
-			if (monsterClass != null)
+			if (lcf != null)
 			{
-				final PCClass aClass = pc.getClassKeyed(monsterClass);
+				PCClass monsterClass = lcf.getPCClass();
+				final PCClass aClass = pc.getClassKeyed(monsterClass.getKeyName());
 
 				if (aClass != null)
 				{
-					int minHD =
-							pc.getRace().getMonsterClassLevels();
+					int minHD = lcf.getLevelCount().resolve(pc, "").intValue();
 					int monsterHD = aClass.getLevel();
 
 					if (monsterHD != minHD)

@@ -30,6 +30,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -2422,13 +2423,19 @@ final class FavoredClassFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Race)
 		{
-			String fav = ((Race) pObject).getFavoredClass();
-			StringTokenizer tok = new StringTokenizer(fav, Constants.PIPE);
-			while (tok.hasMoreTokens())
+			List<CDOMReference<? extends PCClass>> favClass = pObject
+					.getListFor(ListKey.FAVORED_CLASS);
+			/*
+			 * CONSIDER Given SubClass issues, this is probably wrong
+			 */
+			for (CDOMReference<? extends PCClass> ref : favClass)
 			{
-				if (tok.nextToken().equalsIgnoreCase(className))
+				for (PCClass cl : ref.getContainedObjects())
 				{
-					return true;
+					if (cl.getKeyName().equalsIgnoreCase(className))
+					{
+						return true;
+					}
 				}
 			}
 			return false;
