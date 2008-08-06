@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Aug  6 17:34:54 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com
 # Original Entry by: Mynex
 
@@ -11,8 +11,8 @@ CLASS:Assassin (Mong)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Clim
 ###Block: Assassination/Sneak Attack
 1	SAB:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	DEFINE:Assassination|0	DEFINE:AssassinationDie|6	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Proficiencies
-1	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency
+1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 2	SAB:Poison Use|PREVARLT:CL,5
 4	SAB:Meticulous Planning (+%)|MeticulousPlanning	BONUS:VAR|MeticulousPlanning|(CL+2)/6	DEFINE:MeticulousPlanning|0

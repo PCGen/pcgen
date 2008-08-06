@@ -39,5 +39,3 @@ EQUIPMENT:assassinequipweapmelee.lst
 EQUIPMENT:assassinequipweapranged.lst
 EQUIPMOD:assassinequipmods.lst
 WEAPONPROF:assassinweapprofs.lst
-
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack)
