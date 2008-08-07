@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
+# Original entry by wizofice2001
+
+# Language	Type
+Ancient	TYPE:Spoken
+Computer	TYPE:Spoken.Computer
+Gutter Talk	TYPE:Spoken
+Trade		TYPE:Spoken
+Unislang	TYPE:Spoken
