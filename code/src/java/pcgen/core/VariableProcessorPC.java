@@ -216,7 +216,7 @@ public class VariableProcessorPC extends VariableProcessor
 	 * visible feats
 	 *
 	 * @param argFeatList The feats to look through.
-	 * @param featName The name of the feat to find.
+	 * @param featKey The key of the feat to find.
 	 * @param countVisible  Count visible feats
 	 * @param countHidden Count hidden feats
 	 * @return  An int containing the number of matching feats in the list

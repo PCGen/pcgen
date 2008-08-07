@@ -7153,7 +7153,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return variableProcessor;
 	}
 
-	int getTotalCasterLevelWithSpellBonus(final Spell aSpell,
+	public int getTotalCasterLevelWithSpellBonus(final Spell aSpell,
 		final String spellType, final String classOrRace, final int casterLev)
 	{
 		if (aSpell != null && aSpell.getFixedCasterLevel() != null)
@@ -12386,7 +12386,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	private int getLevelBefore(final String classKey, final int charLevel)
+	public int getLevelBefore(final String classKey, final int charLevel)
 	{
 		String thisClassKey;
 		int lvl = 0;
@@ -13369,7 +13369,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aString
 	 * @return spells in a book
 	 */
-	int countSpellsInBook(final String aString)
+	public int countSpellsInBook(final String aString)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aString, ".");
 		final int classNum = Integer.parseInt(aTok.nextToken());
