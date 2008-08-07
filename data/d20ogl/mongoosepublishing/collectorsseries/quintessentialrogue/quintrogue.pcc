@@ -41,7 +41,7 @@ EQUIPMENT:quintrogueequipweapranged.lst
 EQUIPMENT:quintrogueequipwondrousitems.lst
 EQUIPMOD:quintrogueequipmods.lst
 FEAT:quintroguefeats.lst
-FEAT:quintrogue_feats_hidden.lst
+ABILITY:quintrogue_abilities.lst
 SKILL:quintrogueskills.lst
 WEAPONPROF:quintrogueweapprofs.lst
 ARMORPROF:quintrogue_profs_armor.lst
