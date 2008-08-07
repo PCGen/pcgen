@@ -1,4 +1,5 @@
 # CVS $Revision$ $Author$
+# Original Entry by wizofice2001
 CAMPAIGN:RPGObjects - Darwin's World - World Rules
 GAMEMODE:3e
 RANK:2
@@ -6,6 +7,7 @@ GENRE:Future
 BOOKTYPE:Campaign Setting
 SETTING:Darwin's World
 TYPE:RPGObjects.Core.Darwin's World
+!PRECAMPAIGN:1,RPGObjects - Darwin's World - Complete World Rules
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/
@@ -18,29 +20,30 @@ COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.;Autho
 COPYRIGHT:Darwins World Copyright 2001, RPGObjects; Authors Dominic Covey and Chris Davis.
 COPYRIGHT:PCGen dataset conversion for Darwin's World: World Rules Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001)
 
-# Original Entry by wizofice2001
-# Automatically loads PHB info, do not load it separately.
-INFOTEXT:Automatically loads PHB info, do not load it separately.
+INFOTEXT:Automatically loads SRD info, do not load it separately.
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-LSTEXCLUDE:phbclasses.lst
-LSTEXCLUDE:phbclassskills.lst
-LSTEXCLUDE:phbclassspells.lst
-LSTEXCLUDE:phbdeities.lst
-LSTEXCLUDE:phbdomains.lst
-LSTEXCLUDE:phbequipcoins.lst
-LSTEXCLUDE:phblanguage.lst
-LSTEXCLUDE:phbraces.lst
-LSTEXCLUDE:phbspells.lst
-LSTEXCLUDE:phbweapprofs.lst
+# SRD Imports
+ABILITYCATEGORY:@/d20ogl/srd/basics/srd_ability_categories_core.lst
+ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack,All Martial Weapon Proficiencies,All Automatic Proficiencies,Leadership Score,Nature Sense,Rage)
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_armorshields.lst|(EXCLUDE:Padded|Chain Mail|Breastplate|Splint Mail|Banded Mail|Full Plate|Shield (Tower)|Barding (Padded)|Barding (Leather)|Barding (Studded Leather)|Barding (Chain Shirt)|Barding (Hide)|Barding (Scale Mail)|Barding (Breastplate)|Barding (Splint Mail)|Barding (Banded Mail)|Barding (Half-Plate)|Barding (Full Plate)|Barding (Chainmail))
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ranged.lst
+EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
+FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Brew Potion,Combat Casting,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Empower Spell,Enlarge Spell,Extend Spell,Extra Turning,Forge Ring,Great Cleave,Heighten Spell,Maximize Spell,Quicken Spell,Scribe Scroll,Silent Spell,Spell Focus,Spell Mastery,Spell Penetration,Still Spell)
+SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Knowledge (The Planes)|Knowledge (Religion)|Knowledge (Undead)|Knowledge (Underdark)|Scry|Spellcraft|Use Magic Device)
+ARMORPROF:@/d20ogl/srd/basics/srd_profs_armor.lst
+SHIELDPROF:@/d20ogl/srd/basics/srd_profs_shield.lst
+WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
 
+
+# Darwin's World data
 BIOSET:worldrulesbiosettings.lst
-
 CLASS:worldrulesclasses.lst
-
-
 EQUIPMENT:worldrulesequip.lst
 EQUIPMENT:worldrulesequiparmorshields.lst
 EQUIPMENT:worldrulesequipcoins.lst
@@ -56,16 +59,3 @@ TEMPLATE:worldrulestemplates.lst
 TEMPLATE:worldrulestemplatesmutations.lst
 TEMPLATE:worldrulestemplatesdefects.lst
 WEAPONPROF:worldrulesweapprofs.lst
-
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_armorshields.lst|(EXCLUDE:Padded|Chain Mail|Breastplate|Splint Mail|Banded Mail|Full Plate|Shield (Tower)|Barding (Padded)|Barding (Leather)|Barding (Studded Leather)|Barding (Chain Shirt)|Barding (Hide)|Barding (Scale Mail)|Barding (Breastplate)|Barding (Splint Mail)|Barding (Banded Mail)|Barding (Half-Plate)|Barding (Full Plate)|Barding (Chainmail))
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ammo.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_melee.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ranged.lst
-EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
-FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Brew Potion,Combat Casting,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Empower Spell,Enlarge Spell,Extend Spell,Extra Turning,Forge Ring,Great Cleave,Heighten Spell,Maximize Spell,Quicken Spell,Scribe Scroll,Silent Spell,Spell Focus,Spell Mastery,Spell Penetration,Still Spell)
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack)
-SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Knowledge (The Planes)|Knowledge (Religion)|Knowledge (Undead)|Knowledge (Underdark)|Scry|Spellcraft|Use Magic Device)
-ARMORPROF:@/d20ogl/srd/basics/srd_profs_armor.lst
-
-

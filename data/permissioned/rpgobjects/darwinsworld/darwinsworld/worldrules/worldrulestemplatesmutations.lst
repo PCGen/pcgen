@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 14:00:52 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Aug  6 21:30:02 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 
@@ -11,7 +11,7 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCE
 # Simian Deformity: Move stacking?
 
 
-# Template Name						Size		Source Page			Special ABility									Required Race											Prohibited Template					Var. Min. Value		Combat bonus						Add to base move						Bonus to skill							Stat bonus								Modify VAR								Feat				Move		Vision			Optionnal Weapon Prof.
+# Template Name						Size		Source Page			Special ABility									Required Race											Prohibited Template					Var. Min. Value		Combat bonus						Add to base move						Bonus to skill							Stat bonus								Modify VAR								Feat				Move		Vision
 Aberrant Endoskeletal Encasing					SOURCEPAGE:p.37		SAB:1/2 damage from piercing attacks					PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant									PREVARGTEQ:MPoints,2																																			BONUS:VAR|MPoints|-2	BONUS:VAR|MPointsSpent|2
 Aberrant Horn Development						SOURCEPAGE:p.37		SAB:Horn-Butt attack								PRERACE:1,2nd Generation Mutant,3rd Generation Mutant													PREVARGTEQ:MPoints,1																	BONUS:SKILL|Disguise|-2															BONUS:VAR|MPoints|-1	BONUS:VAR|MPointsSpent|1
 Abnormal Joint Flexibility						SOURCEPAGE:p.37													PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant									PREVARGTEQ:MPoints,1																	BONUS:SKILL|Escape Artist|4														BONUS:VAR|MPoints|-1	BONUS:VAR|MPointsSpent|1
@@ -31,7 +31,7 @@ Claws										SOURCEPAGE:p.38		SAB:Claw attacks									PRERACE:1,2nd Generatio
 Complete Wing Development						SOURCEPAGE:p.38													PRERACE:1,3rd Generation Mutant																PREVARGTEQ:MPoints,3																	BONUS:SKILL|Disguise|-2															BONUS:VAR|MPoints|-3	BONUS:VAR|MPointsSpent|3					MOVE:Fly,60
 Density Alteration							SOURCEPAGE:p.38		SAB:Spider Climb									PRERACE:1,2nd Generation Mutant,3rd Generation Mutant													PREVARGTEQ:MPoints,3																	BONUS:SKILL|Balance|8															BONUS:VAR|MPoints|-3	BONUS:VAR|MPointsSpent|3
 Dermal Poison Sap								SOURCEPAGE:p.38		SAB:Touch attack (Poison)							PRERACE:1,3rd Generation Mutant																PREVARGTEQ:MPoints,3																																			BONUS:VAR|MPoints|-3	BONUS:VAR|MPointsSpent|3
-Dermal Spike Growth							SOURCEPAGE:p.38		SAB:Armor Spikes									PRERACE:1,2nd Generation Mutant,3rd Generation Mutant													PREVARGTEQ:MPoints,2																																			BONUS:VAR|MPoints|-2	BONUS:VAR|MPointsSpent|2											WEAPONBONUS:Martial
+Dermal Spike Growth							SOURCEPAGE:p.38		SAB:Armor Spikes									PRERACE:1,2nd Generation Mutant,3rd Generation Mutant													PREVARGTEQ:MPoints,2																																			BONUS:VAR|MPoints|-2	BONUS:VAR|MPointsSpent|2
 Diurnal (Dexterity)							SOURCEPAGE:p.38		SAB:+2 DEX (6AM to 6PM)								PRERACE:1,3rd Generation Mutant								!PRETEMPLATE:1,Nocturnal (Dexterity)		PREVARGTEQ:MPoints,1																																			BONUS:VAR|MPoints|-1	BONUS:VAR|MPointsSpent|1
 Diurnal (Strength)							SOURCEPAGE:p.38		SAB:+2 STR (6AM to 6PM)								PRERACE:1,3rd Generation Mutant								!PRETEMPLATE:1,Nocturnal (Strength)			PREVARGTEQ:MPoints,1																																			BONUS:VAR|MPoints|-1	BONUS:VAR|MPointsSpent|1
 Dual Cerebellum								SOURCEPAGE:p.38													PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant									PREVARGTEQ:MPoints,2																	BONUS:SKILL|TYPE=Intelligence|INT													BONUS:VAR|MPoints|-2	BONUS:VAR|MPointsSpent|2

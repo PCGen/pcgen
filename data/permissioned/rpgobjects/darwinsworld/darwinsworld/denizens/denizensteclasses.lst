@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Aug  6 21:55:45 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 #Orginal entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHORT:DenizensTE	SOURCEWEB:http://www.darwinrpg.com
 
@@ -31,14 +31,14 @@ CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Cartel Trade Master	HD:6		TYPE:PC.Prestige	ABB:CTM		MAXLEVEL:5	SOURCEPAGE:p. 25, 26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name			Required AL			Required Language	Req. Special Ability	Required Skill			Required Stat
+# Class Name			Required AL			Required Language	Req. Special Ability	Required Skill				Required Stat
 CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit Polish	PRESKILL:2,Bluff=7,Diplomacy=7	PRESTAT:1,CHA=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Sense Motive|Speak Language
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1																AUTO:FEAT|Skill Focus(Diplomacy)
 2	SAB:Make a Deal
@@ -53,9 +53,9 @@ CLASS:Champion	PREATT:10	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=5	!PRETEMPLAT
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Listen|Ride|Sense Motive|Spot|Tumble
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Rallying Cry
 3	SAB:Study Foe
@@ -95,8 +95,8 @@ CLASS:Foundationist Paladin	HD:10		TYPE:PC.Prestige	ABB:FPa		MAXLEVEL:10	SOURCEP
 CLASS:Foundationist Paladin	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:1,Knowledge (Ancient Lore)=8	PRESTAT:1,INT=15	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Knowledge (Ancient Lore)|Knowledge (Vehicle Operations)|Ride
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Exotic Weapon Proficiency|All Exotic Weapon Proficiencies
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	SAB:Ancient Lore									ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
 3	SAB:Command %|Command	BONUS:VAR|Command|3	DEFINE:Command|0
@@ -130,13 +130,13 @@ CLASS:Mech		PREFEAT:1,Skill Focus(Craft (Mechanics)),Skill Focus(Knowledge (Tech
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mech		STARTSKILLPTS:4	CSKILL:TYPE.Craft|Decipher Script|Disable Device|Knowledge (Ancient Lore)|Knowledge (Computers)|Knowledge (Technology)|Open Lock|TYPE.Profession
 1	SAB:Repair Mechanical Damage
-2	SAB:Growing Toolkit +%|GrowingToolkit	BONUS:VAR|GrowingToolkit|5*floor((CL+2)/4)	BONUS:SKILL|TYPE.Craft|min(5*floor((CL+2)/4),15)|TYPE=Competence	DEFINE:GrowingToolkit|0
+2	SAB:Growing Toolkit +%|GrowingToolkit	BONUS:SKILL|TYPE.Craft|min(5*floor((CL+2)/4),15)|TYPE=Competence	BONUS:VAR|GrowingToolkit|5*floor((CL+2)/4)	DEFINE:GrowingToolkit|0
 3	SAB:Identify
-4	SAB:Artifice (%000 cp max)|Artifice		BONUS:VAR|Artifice|8																DEFINE:Artifice|0
+4	SAB:Artifice (%000 cp max)|Artifice													BONUS:VAR|Artifice|8					DEFINE:Artifice|0
 5	SAB:Minor Helper
-7								BONUS:VAR|Artifice|8
+7																			BONUS:VAR|Artifice|8
 9	SAB:Major Helper
-10								BONUS:VAR|Artifice|16
+10																			BONUS:VAR|Artifice|16
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Ranger (DW)	HD:10		TYPE:PC.Prestige	ABB:RDW		MAXLEVEL:5	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -144,11 +144,11 @@ CLASS:Ranger (DW)	HD:10		TYPE:PC.Prestige	ABB:RDW		MAXLEVEL:5	SOURCEPAGE:p.33	BO
 CLASS:Ranger (DW)	PREALIGN:LG,LN	PREATT:7	PREFEAT:2,Iron Will,Toughness	PRESTAT:1,CON=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Listen|Move Silently|Ride|Sense Motive|Speak Language|Spot|Use Rope|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
 1	SAB:Rigorous Training
-2	SAB:Wanderer's Reputation +%|WanderersReputation	BONUS:VAR|WanderersReputation|2	BONUS:SKILL|Diplomacy,Intimidate|CL)	DEFINE:WanderersReputation|CL
+2	SAB:Wanderer's Reputation +%|WanderersReputation	BONUS:SKILL|Diplomacy,Intimidate|CL)	BONUS:VAR|WanderersReputation|2	DEFINE:WanderersReputation|CL
 3																												ADD:FEAT|1|Feel for Weapon
 4	SAB:Do It with Eyes Closed
 5	SAB:Leave No One Behind
@@ -159,7 +159,7 @@ CLASS:Road Warrior	HD:8		TYPE:PC.Prestige	ABB:RWa		MAXLEVEL:5	SOURCEPAGE:p.35	BO
 CLASS:Road Warrior	PREATT:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics)=4,Knowledge (Vehicle Operations)=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disable Device|Escape Artist|Intuit Direction|Jump|Knowledge (Vehicle Operations)|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 ###Block: Normal Level Progression
 1	SAB:Boarding Party	SAB:Offensive Driving
 2	SAB:Defensive Driving
