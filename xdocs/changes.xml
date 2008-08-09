@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.15.1" date="In SVN" description="Alpha Release"> 
+      <action dev="jdempsey" type="fix" issue="1660908" due-to="frugal">Performance difference at 21st level</action>  
+    </release>  
     <release version="5.15.0" date="2008-07-27" description="Alpha Release"> 
       <action dev="jdempsey" type="update" issue="2005316">[4E] BONUSSTATLEVELSTARTINTERVAL tag enhancement</action>  
       <action dev="jdempsey" type="add" issue="2016413">Allow multiple experience tables</action> 
