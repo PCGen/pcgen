@@ -180,7 +180,7 @@ for (@data) {
 
 	my $result = "<li><img alt=\"${type}\" title=\"${type}\" src=\"http://pcgen.sourceforge.net/autobuilds/images/${type}.gif\"> " .
 		$desc . ". Fixes <a href=\"http://sourceforge.net/support/tracker.php?aid=${issue}\">${issue}</a> (" .
-		"<a href=\"http://pcgen.sourceforge.net/team-list.html#${dev}\">${dev}</a>)</li>";
+		"<a href=\"http://pcgen.sourceforge.net/autobuilds/team-list.html#${dev}\">${dev}</a>)</li>";
    	print WHATSNEW $result . "\n";
 }
 close WHATSNEW;
