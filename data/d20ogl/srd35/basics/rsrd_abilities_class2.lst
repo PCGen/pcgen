@@ -1,9 +1,0 @@
-# CVS $Revision: 6501 $ $Author: amaitland $ -- Wed Jun 11 18:48:28 2008 -- reformated by prettylst.pl v1.38 (build 6503)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
-# Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
-# Modified by: Andrew Maitland (2008)
-
-###Block: CMP Set Compatibility Project -----------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type			Visible	Define				Modify VAR
-Animal Companion ~ CMP		CATEGORY:Special Ability	TYPE:Support	VISIBLE:NO	DEFINE:AnimalCompanionLvl|0	BONUS:VAR|CompLevel|AnimalCompanionLvl
-Ranger Favored Enemy ~ CMP	CATEGORY:Special Ability	TYPE:Support	VISIBLE:NO	DEFINE:RangerFELvl|0		BONUS:VAR|RangerFELvl|RangerFavoredEnemyLVL

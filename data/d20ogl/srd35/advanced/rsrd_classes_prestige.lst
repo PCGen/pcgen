@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 18 22:29:50 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Sat Aug  9 14:14:08 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -81,7 +81,7 @@ CLASS:Blackguard	HD:10		TYPE:PC.Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:Prestig
 CLASS:Blackguard	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:3,Cleave,Improved Sunder,Power Attack	PRESKILL:2,Hide=5,Knowledge (Religion)=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Hide|Intimidate|Knowledge (Religion)|TYPE.Profession|Ride
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|CL
 # Turning
 3	BONUS:VAR|TurnLevelBase|CL-2								ABILITY:Special Ability|AUTOMATIC|Rebuke Undead|Basic Turning
@@ -214,7 +214,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Feat						Req. Spell Type
+# Class Name		Required Ability										Req. Spell Type
 CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
@@ -297,7 +297,7 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 ###Block: Normal Level Progression
 1																							ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Assassin)
 2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base
-3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL											ABILITY:Special Ability|AUTOMATIC|Shadow Illusion|Summon Shadow
+3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL																						AUTO:FEAT|Summon Shadow
 4					BONUS:VAR|ShadowJump|20															ABILITY:Special Ability|AUTOMATIC|Shadow Jump
 5																							ABILITY:Special Ability|AUTOMATIC|Defensive Roll
 6					BONUS:VAR|ShadowJump|20
@@ -312,7 +312,7 @@ CLASS:Thaumaturgist	PREFEAT:1,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE.Profession|Sense Motive|Speak Language|Spellcraft
 1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Improved Ally
-2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Augment Summoning
+2	ADD:SPELLCASTER|ANY											AUTO:FEAT|Augment Summoning
 3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Extended Summoning
 4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Contingent Conjuration
 5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Planar Cohort

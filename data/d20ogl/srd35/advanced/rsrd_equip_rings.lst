@@ -36,7 +36,7 @@ Ring (Energy Resistance/Electricity/Greater)	OUTPUTNAME:Greater Ring of Energy R
 Ring (Energy Resistance/Fire/Greater)		OUTPUTNAME:Greater Ring of Energy Resistance (Fire)		TYPE:Magic.Ring	COST:44000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																												SPROP:Absorbs 30 points of Fire damage
 Ring (Energy Resistance/Sonic/Greater)		OUTPUTNAME:Greater Ring of Energy Resistance (Sonic)		TYPE:Magic.Ring	COST:44000	WT:0		SOURCEPAGE:MagicItemsIII.rtf																												SPROP:Absorbs 30 points of Sonic damage
 #Ring (Energy Resistance/Greater)			OUTPUTNAME:Ring of Energy Resistance, Greater (%CHOICE)	TYPE:Magic.Ring	COST:44000	WT:0		CHOOSE:Energy Type|Acid|Cold|Electricity|Fire|Sonic	SOURCEPAGE:MagicItemsIII.rtf																								SPROP:Absorbs 30 points of %CHOICE damage
-Ring (Evasion)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:25000	WT:0		SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|:Evasion
+Ring (Evasion)						OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:25000	WT:0		SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Evasion
 Ring (Feather Falling)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:2200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Ring (Force Shield)					OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:8500	WT:0		SOURCEPAGE:MagicItemsIII.rtf								BONUS:COMBAT|AC|2
 Ring (Freedom of Movement)				OUTPUTNAME:Ring of [NAME]						TYPE:Magic.Ring	COST:40000	WT:0		SOURCEPAGE:MagicItemsIII.rtf
