@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.15.1</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.15.1</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.15.1</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#PDFIssue">PDF Known Issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.15.1</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.15.1</a></h2>
+
+<p>PCGen v5.15.1 is the an alpha release from our development branch to allow 
+experimentation and testing of our latest work.
+Please give it a shot and let us know how it works for you. 
+		 Some notable changes in this release are listed below.</p>
+<ul>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"> Performance difference at 21st level. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1660908">1660908</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#frugal">frugal</a>)</li>
+</ul>
+<!--
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.15.1</p>
+
+		<ul>
+		
+		</ul>
+ -->
+<p><i>James Dempsey</i> for the PCGEN Team -- 10 August, 2008.</p>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>Characters from the 5.14 series of PCGen should load seamlessly in 5.15.1.
+		</p>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="PDFIssue">PDF Known Issue</a></h2>
+		
+		<p>When exporting to PDF format from any of the fantasy gameModes the console will report the following error:</p>
+
+		<blockquote><p><code>SEVERE Thread-7 PlayerCharacter:8707 Invalid ACType: Equipment</code></p></blockquote>
+
+		<p>This results from the use of an AC type in the base.xml file which does not 
+		  exist in fantasy settings (it's used in d20 Modern). This error does not cause 
+		  any problems generating PDF's and can be safely ignored.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.15.1 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_full.zip?download">pcgen5151_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_partial.zip?download">pcgen5151_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_win_install.exe?download">pcgen5151_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_mac_install.dmg?download">pcgen5151_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5151_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.15.1</a></h2>
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=856855">856855</a> ]	.CLEAR for CASTTIME and COMPS</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=881865">881865</a> ]	FACE tag in templates</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1071809">1071809</a> ]	[5.7.9] PREREGION tag not working with multiple choices</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1660908">1660908</a> ]	Performance difference at 21st level</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1726460">1726460</a> ]	Upgrade to new JEP 2.4.1?</li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012841">2012841</a> ]	[Darwin&#039;s World] Review and move to d20</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012843">2012843</a> ]	[Mongoose, Seas of Blood] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012845">2012845</a> ]	[Mongoose, Troglodytes] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012846">2012846</a> ]	[Mongoose, Hobgoblins] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012848">2012848</a> ]	[Mongoose, Gnolls] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012849">2012849</a> ]	[Mongoose, Centaurs] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012852">2012852</a> ]	[Mongoose, Amazons] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012854">2012854</a> ]	[Mongoose, Gladiators] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012855">2012855</a> ]	[Mongoose, Quintessential Rogue]  review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012858">2012858</a> ]	[Malhavoc, Demon God&#039;s Fane] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012859">2012859</a> ]	[Malhavoc, Book of Eldritch Might II] review and move to d20</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012860">2012860</a> ]	[Avalanche - Jade and Steel] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012861">2012861</a> ]	[Auran - Dark Awakenings]  review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012862">2012862</a> ]	[Auran, Notes from the Apothercary] review, move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012863">2012863</a> ]	[Atlas, Touched by the Gods] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012864">2012864</a> ]	[Atlas, Thieves in the Forest] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012865">2012865</a> ]	[Atlas, Beyond the Veil] review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012867">2012867</a> ]	[Atlas, Backdrops] review and move to d20ogl</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1845580">1845580</a> ]	[LST File Class] Lesson 14:The Deity File</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1979888">1979888</a> ]	Remove Races MFEAT tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1981511">1981511</a> ]	Remove Class and Global SA docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986794">1986794</a> ]	Remove PREDEFAULTMONSTER tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1995091">1995091</a> ]	Remove Races HITDICE tag docs</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2016449">2016449</a> ]	stray comma in Spell Info display</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2030737">2030737</a> ]	Can&#039;t add domain spells to Prepared spelllists</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2037511">2037511</a> ]	[5.15.0] Races not editable/unable to add new</li>
+</ul>
+
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2023858">2023858</a> ]	Wondrous magical item creation costs</li>
+
+</ul>
+	</body>
+</html>
