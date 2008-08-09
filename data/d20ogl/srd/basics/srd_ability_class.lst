@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jun 19 21:54:04 2008 -- reformated by prettylst.pl v1.38 (build 6748)
+# CVS $Revision$ $Author$ -- Sat Aug  9 15:13:06 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by Tir Gwaith
 # Ranger Favored enemies aren't perfect but better than the ADD: in classes.. - Tir Gwaith 10/26/02
@@ -31,15 +31,15 @@ Favored Enemy IV	CATEGORY:Special Ability	TYPE:FavoredEnemy	VISIBLE:DISPLAY	PREA
 Favored Enemy V	CATEGORY:Special Ability	TYPE:FavoredEnemy	VISIBLE:DISPLAY	PREABILITY:4,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	SAB:favored enemy (%CHOICE) +%|FavoredEnemy5	DEFINE:FavoredEnemy5|FavoredEnemies-4				MULT:YES	CHOOSE:STRING|NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	BONUS:VAR|FavoredEnemies|1
 
 ###Block:Rogue special abilities
-# Ability Name	Category of Ability		Type				Visible		Special ABility			Stackable?	Multiple?	Selections		Choose			Bonus Number of Feats	Source Page
+# Ability Name	Category of Ability		Type				Visible		Special ABility			Stackable?	Multiple?	Choose			Selections		Bonus Number of Feats	Source Page
 Crippling Strike	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY	SAB:Crippling Strike																	SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Defensive Roll	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY	SAB:Defensive Roll																	SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Evasion		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO		SAB:Evasion (Ex)																		SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY	SAB:Improved Evasion (Ex)																SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Opportunist		CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY	SAB:Opportunist																		SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY	SAB:Skill Mastery (%CHOICE)	STACK:NO	MULT:YES	SELECT:3+INT	CHOOSE:SKILLSNAMED|ALL					SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY	SAB:Skill Mastery (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	SELECT:3+INT					SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Slippery Mind	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY	SAB:Slippery Mind																		SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Rogue Bonus Feat	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY						STACK:YES	MULT:YES				CHOOSE:NOCHOICE		BONUS:FEAT|POOL|1		SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Rogue Bonus Feat	CATEGORY:Special Ability	TYPE:RogueAbilities	VISIBLE:DISPLAY						STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:FEAT|POOL|1		SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 
 
@@ -159,7 +159,7 @@ Uncanny Dodge		CATEGORY:Special Ability	VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus 
 Defensive Awareness	CATEGORY:Special Ability	VISIBLE:NO	SAB:Defensive Awareness (Dex bonus to AC)|UncannyDodge	SAB:Defensive Awareness (can't be flanked)|ImprovedUncannyDodge	SAB:Defensive Awareness (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 
 ###Block: Proficiencies
-# Ability Name				Category of Ability		Type			Visible	Automaticaly Gained Weapon Prof.
+# Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
 All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
 All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
 Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
@@ -179,6 +179,10 @@ Leadership Score	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOS
 # Ability Name	Category of Ability		Type				Visible	Special ABility																							Define			Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill
 Negative Levels	CATEGORY:Special Ability	TYPE:NegativeLevels	VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels
 
+###Block: Expert Class Skills
+# Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose						Class Skill
+Expert Class Skills	CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS|CROSSCLASS		CSKILL:LIST
+Expert Exclusive Skills	CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|SKILLSNAMED|EXCLUSIVE	CSKILL:LIST
 
 
 
