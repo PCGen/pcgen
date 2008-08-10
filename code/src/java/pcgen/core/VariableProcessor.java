@@ -53,8 +53,6 @@ public abstract class VariableProcessor
 {
 	/** The current indenting to be used for debug output of jep evaluations. */
 	protected String jepIndent = "";
-	//TODO: This never gets set - perhaps it can be removed?
-	protected int decrement;
 	private PlayerCharacter pc;
 
 	/**

@@ -193,8 +193,7 @@ public class ClassToken extends Token {
 				for (int j = 0; j < varCount; ++j) {
 					// Get the value for each variable
 					final String vString = varTok.nextToken();
-					varValue[j] = aPC.getVariable(vString, true, true, "", "",
-							0).intValue();
+					varValue[j] = aPC.getVariable(vString).intValue();
 				}
 			}
 

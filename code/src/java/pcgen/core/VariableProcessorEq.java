@@ -69,8 +69,7 @@ public class VariableProcessorEq extends VariableProcessor
 		Float retVal = null;
 		if (getPc().hasVariable(element))
 		{
-			final Float value = getPc().getVariable(element, true, true, src,
-				"", decrement);
+			final Float value = getPc().getVariable(element, true, src, "");
 			Logging.debugPrint(jepIndent + "variable for: '" + element + "' = "
 							   + value);
 			retVal = new Float(value.doubleValue());

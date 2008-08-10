@@ -3596,12 +3596,37 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getSafeStringFor(StringKey.TRAIT2);
 	}
 
-	public Float getVariable(final String variableString, final boolean isMax,
-		final boolean includeBonus, final String matchSrc,
-		final String matchSubSrc, int decrement)
+	/**
+	 * Most of the time when you're looking up a PC variable you want the
+	 * standard behaviour (i.e. you don't care about the source and you want
+	 * the search to recurse and you want the result to include any bonuses
+	 * that have been defined for this variable).  If that's what you want,
+	 * this is the routine to call.
+	 * 
+	 * note: most of the code was calling the method this delegates to and
+	 * passing the exact same five constant values.
+	 * 
+	 * @param variableString The variable to lookup and return the value of.
+	 * @return Float
+	 */
+	
+	public Float getVariable(final String variableString)
 	{
-		return getVariable(variableString, isMax, includeBonus, matchSrc,
-			matchSubSrc, true, decrement);
+		return getVariable(variableString, true, true, "", "", true);
+	}
+
+	public Float getVariable(
+			final String variableString,
+			final boolean isMax,
+			final String matchSrc,
+			final String matchSubSrc)
+	{
+		return getVariable(variableString,
+						   isMax,
+						   true,
+						   matchSrc,
+						   matchSubSrc,
+						   true);
 	}
 
 	private double getMinMaxFirstValue(final boolean isNewValue,
@@ -3626,12 +3651,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param matchSrc
 	 * @param matchSubSrc
 	 * @param recurse
-	 * @param decrement
 	 * @return Float
 	 */
-	public Float getVariable(final String variableString, final boolean isMax,
-		boolean includeBonus, final String matchSrc, final String matchSubSrc,
-		final boolean recurse, int decrement)
+	public Float getVariable(
+			final String variableString,
+			final boolean isMax,
+			boolean includeBonus, 
+			final String matchSrc,
+			final String matchSubSrc,
+			final boolean recurse)
 	{
 		double value = 0.0;
 		boolean found = false;
@@ -3690,7 +3718,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String varInList =
 					checkForVariableInList(obj, variableString, isMax,
-						found, value, decrement);
+						found, value);
 
 			if (varInList.length() > 0)
 			{
@@ -3706,7 +3734,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String varInList =
 					checkForVariableInList(obj, variableString, isMax,
-						found, value, 0);
+						found, value);
 
 			if (varInList.length() > 0)
 			{
@@ -3721,7 +3749,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String eS =
 					checkForVariableInList(obj, variableString, isMax,
-						found, value, 0);
+						found, value);
 
 			if (eS.length() > 0)
 			{
@@ -3735,8 +3763,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				final String varInList =
 						checkForVariableInList(em, variableString, isMax,
-							found, value,
-							decrement);
+							found, value);
 
 				if (varInList.length() > 0)
 				{
@@ -3751,8 +3778,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				final String varInList =
 						checkForVariableInList(em, variableString, isMax,
-							found, value,
-							decrement);
+							found, value);
 
 				if (varInList.length() > 0)
 				{
@@ -3768,7 +3794,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						found, value, decrement);
+						found, value);
 
 			if (aString.length() > 0)
 			{
@@ -3783,7 +3809,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						found, value, decrement);
+						found, value);
 
 			if (aString.length() > 0)
 			{
@@ -3798,7 +3824,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(race, variableString, isMax,
-						found, value, decrement);
+						found, value);
 
 			if (aString.length() > 0)
 			{
@@ -3813,7 +3839,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(deity, variableString, isMax,
-						found, value, decrement);
+						found, value);
 
 			if (aString.length() > 0)
 			{
@@ -3833,8 +3859,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			final String aString =
 					checkForVariableInList(obj.getDomain(), variableString,
-						isMax, found, value,
-						decrement);
+						isMax, found, value);
 
 			if (aString.length() > 0)
 			{
@@ -3869,7 +3894,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						found, value, decrement);
+						found, value);
 
 			if (aString.length() > 0)
 			{
@@ -3885,7 +3910,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax,
-						found, value, decrement);
+						found, value);
 
 			if (aString.length() > 0)
 			{
@@ -11822,7 +11847,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	int getNumAttacks()
+	public int getNumAttacks()
 	{
 		return Math.min(Math.max(baseAttackBonus() / 5, 4), 1);
 	}
@@ -13464,7 +13489,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return sa;
 	}
 
-	int getSpellClassCount()
+	public int getSpellClassCount()
 	{
 		return getSpellClassList().size();
 	}
@@ -13495,9 +13520,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return aList;
 	}
 
-	private String checkForVariableInList(final PObject obj,
-		final String variableString, final boolean isMax,
-		boolean found, double value, int decrement)
+	private String checkForVariableInList(
+			final PObject obj, final String variableString, final boolean isMax,
+			boolean found, double value)
 	{
 		boolean flag = false;
 
@@ -13545,7 +13570,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return <code>true</code> if the character has the Deity,
 	 *         <code>false</code> otherwise.
 	 */
-	boolean hasDeity(final String deityName)
+	public boolean hasDeity(final String deityName)
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("DEITY");
