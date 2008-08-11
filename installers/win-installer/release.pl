@@ -26,6 +26,7 @@ use Archive::Zip  qw( :ERROR_CODES );
 #use Fatal qw( mkpath rmtree fcopy unlink );
 use Fatal qw( mkpath rmtree unlink );
 
+use vars qw($SRC_BRANCH $DEST_BASE_FOLDER);
 # ------------------------------------------
 # Application control
 # ------------------------------------------
@@ -54,13 +55,35 @@ if ($index > 0) {
 
 Readonly my $RELEASE_NAME       => "pcgen$VER_NUMBER$VER_NUMBER_SUFIX";
 
+
+
+# ==========================================
+# Local Overide of file locations 
+# ==========================================
+# Main folder for the source files
+$SRC_BRANCH         = 'D:/eclipse/pcgen';
+
+# Destination folder for the release files
+$DEST_BASE_FOLDER   = "$SRC_BRANCH/../release";
+
+eval { require "includes/localpaths.pl"};
+if ($@) {
+  print "$@\n";
+  print "Default file locations will be used.\n\n";
+  print "includes/localpaths.pl should look something like\n";
+  print "#!/usr/bin/perl\n";
+  print "\$SRC_BRANCH = 'C:/Projects/pcgen-release/pcgen';\n";
+  print "\$DEST_BASE_FOLDER   = '\$SRC_BRANCH/../../release';\n\n";
+}
+print "=================\n";
+print "Paths in use are:\n";
+print "\$SRC_BRANCH is $SRC_BRANCH\n";
+print "\$DEST_BASE_FOLDER is $DEST_BASE_FOLDER\n";
+print "=================\n\n";
+
 # ------------------------------------------
 # Source files definitions
 # ------------------------------------------
-
-# Main folder for the source files
-#Readonly my $SRC_BRANCH         => 'C:/Projects/pcgen-release/pcgen';
-Readonly my $SRC_BRANCH         => 'D:/eclipse/pcgen';
 
 # Release notes
 Readonly my $SRC_RELEASE_NOTES  => "$SRC_BRANCH/installers/release-notes/pcgen-release-notes-$VER_NUMBER$VER_NUMBER_SUFIX.html";
@@ -80,8 +103,6 @@ Readonly my $SRC_LOGGING_PROP_FILE => "$SRC_PCGEN/logging.properties";
 # ------------------------------------------
 # Destination folder and file information
 # ------------------------------------------
-
-Readonly my $DEST_BASE_FOLDER   => "$SRC_BRANCH/../release";
 
 Readonly my $DEST_FULL_FOLDER
     => "$DEST_BASE_FOLDER/$RELEASE_NAME" . '_full';
@@ -122,6 +143,7 @@ Readonly my @FILES_TO_SKIP => (
     qr{     \.bak             \z}xmsi,  # Backup files
     qr{ [/] \.cvsignore       \z}xmsi,  # The .cvsignore files
 );
+
 
 
 # ==========================================
