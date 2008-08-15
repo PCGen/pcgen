@@ -18,38 +18,53 @@
  */
 package pcgen.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeCellEditor;
+import javax.swing.tree.TreeCellRenderer;
+import javax.swing.tree.TreeModel;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.Logging;
 import pcgen.io.PCGFile;
-
-import javax.swing.*;
-import javax.swing.tree.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.io.*;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import pcgen.util.Logging;
 
 /**
  * PCCCreator is the main class of the PCCCreator application.  It scans PCGen's data
  * directory, building a tree based on the directory structure contained therein, with
  * .lst files as the leaves.  It then presents this tree to the user, allowing her to
  * select items, and generate .pcc files based on those selections.
- * <p/>
- * The TODO list is as follows (in no particular order):
- * <ul>
- * <li> Remember location of PCGen data dir.
- * <li> Include icons to indicate selection status?
- * <li> Fix color not changing on combobox selection bug
- * </ul>
- * </p>
- *
+ * 
  * @version $Revision$
  * @author    Ryan Koppenhaver <rlkoppenhaver@yahoo.com>
  * @see       <a href="http://pcgen.sourceforge.net">PCGen</a>
@@ -58,11 +73,11 @@ final class PCCCreator extends JFrame
 {
 	static final long serialVersionUID = 923830359956243549L;
 
-	/** The main panel of our GUI */
+	/** The main panel of our GUI. */
 	private JPanel mainPanel = new JPanel(new BorderLayout());
 	private MainSource mSrc;
 
-	/** A mapping of lst files to their types, obtained by scanning pcc files */
+	/** A mapping of lst files to their types, obtained by scanning pcc files. */
 	private Map<String, String> lstTypes = new HashMap<String, String>();
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -79,7 +94,8 @@ final class PCCCreator extends JFrame
 	/**
 	 * The PCCCreator constructor calls methods to scan the data directory and build
 	 * the GUI.
-	 * @param ms
+	 * 
+	 * @param ms the Sources panel 
 	 */
 	public PCCCreator(MainSource ms)
 	{
@@ -109,13 +125,15 @@ final class PCCCreator extends JFrame
 
 	/**
 	 * Calls itself recursively to build the the tree of SourceNodes.
-	 *
-	 * @param    parent    The node to attach children to.
-	 * @param    f    A File object representing the directory associated with the "parent" node.
+	 * 
+	 * @param parent the parent
+	 * @param f the f
+	 * @param pccTree the pcc tree
+	 * 
 	 * @return    true if any children were added to the "parent" parameter.  Determines whether the parent
 	 * gets added to it's parent.
 	 */
-	private boolean buildSubTree(SourceNode parent, File f)
+	private boolean buildSubTree(SourceNode parent, File f, boolean pccTree)
 	{
 		boolean addedChildren = false;
 		File[] children = f.listFiles();
@@ -129,21 +147,22 @@ final class PCCCreator extends JFrame
 			if (children[i].isDirectory())
 			{
 				//Recurse subdirectory, and add node to tree if subnodes added to node.
-				addThis = buildSubTree(n, children[i]) || addThis;
+				addThis = buildSubTree(n, children[i], pccTree) || addThis;
 			}
 			else
 			{
 				//Add .lst files to tree
-				if (PCGFile.isPCGenListFile(children[i]))
+				if (!pccTree && PCGFile.isPCGenListFile(children[i]))
 				{
 					addThis = true;
 				}
-				else if (PCGFile.isPCGenPartyFile(children[i]))
+				else if (!pccTree && PCGFile.isPCGenPartyFile(children[i]))
 				{
 					extractLSTTypes(children[i]);
 				}
 				else if (PCGFile.isPCGenCampaignFile(children[i]))
 				{
+					addThis = pccTree;
 					extractLSTTypes(children[i]);
 				}
 			}
@@ -169,8 +188,16 @@ final class PCCCreator extends JFrame
 		root = new SourceNode(SettingsHandler.getPccFilesLocation());
 		root.nodeName = "All Source Materials";
 
+		SourceNode pccRoot = new SourceNode(SettingsHandler.getPccFilesLocation());
+		pccRoot.nodeName = "Campaigns/Data Sets";
+		root.add(pccRoot);
+		SourceNode filesRoot = new SourceNode(SettingsHandler.getPccFilesLocation());
+		filesRoot.nodeName = "Data Files";
+		root.add(filesRoot);
+		
 		//Build the tree data model down from the root
-		buildSubTree(root, root.nodeFile);
+		buildSubTree(pccRoot, pccRoot.nodeFile, true);
+		buildSubTree(filesRoot, filesRoot.nodeFile, false);
 
 		//Build the JTree, and set basic properties.
 		DefaultTreeModel dtm = new DefaultTreeModel(root);
@@ -193,12 +220,18 @@ final class PCCCreator extends JFrame
 	/**
 	 * Scans a pcc file for lst file references, and adds them to {@link #lstTypes lstTypes} for use
 	 * when printing our custom pcc file.
-	 * @param f
+	 * 
+	 * @param f the f
 	 */
 	private void extractLSTTypes(File f)
 	{
 		BufferedReader in = null;
 
+		if (PCGFile.isPCGenCampaignFile(f))
+		{
+			String lstName = f.getName();
+			lstTypes.put(lstName, "PCC");
+		}
 		try
 		{
 			//BufferedReader in = new BufferedReader(new FileReader(f));
@@ -280,6 +313,7 @@ final class PCCCreator extends JFrame
 	 * @param n
 	 * @param force
 	 */
+	@SuppressWarnings("unchecked")
 	private void recurseNodes(PrintStream pr, SourceNode n, boolean force)
 	{
 		if (!force && (n.getSelectedState() == SourceNode.NONE))
@@ -363,8 +397,9 @@ final class PCCCreator extends JFrame
 	////////////////////////////////////////////////////////////////////////////////
 
 	/**
-	 * TODO: documentation
+	 * TODO: documentation.
 	 */
+	@SuppressWarnings("serial")
 	static final class SourceNode extends DefaultMutableTreeNode
 	{
 		public static final int NONE = 0;
@@ -376,6 +411,11 @@ final class PCCCreator extends JFrame
 		public String nodeName;
 		JComboBoxEx combo;
 
+		/**
+		 * Instantiates a new source node.
+		 * 
+		 * @param f the file the node represents.
+		 */
 		public SourceNode(File f)
 		{
 			super(f);
@@ -385,26 +425,39 @@ final class PCCCreator extends JFrame
 			//getSelectedState() = NONE;
 		}
 
-		public JPanel getPanel()
+		/**
+		 * Retrieve the detail panel for the tree node. The panel will
+		 * be built the first time this method is called.
+		 * 
+		 * @param treeModel the tree model the node is a part of.
+		 * @param state the state the node should be initialised to. Only used on the the first call.
+		 * 
+		 * @return the detail panel for the node
+		 */
+		public JPanel getPanel(final TreeModel treeModel, int state)
 		{
 			if (panel == null)
 			{
-				panel = new JPanel();
+				panel = new NodePanel(this);
 				label = new JLabel(nodeName);
 				combo = new JComboBoxEx()
 						{
 							protected void fireItemStateChanged(ItemEvent e)
 							{
 								super.fireItemStateChanged(e);
+								if (this.getParent() != null)
+								{
+									((NodePanel)this.getParent()).node.processSelect((DefaultTreeModel) treeModel);
+								}
 							}
 						};
 
 				//NOTE: Order of insertion is significant.
 				if (nodeFile.isDirectory())
 				{
-					combo.addItem("INCLUDE NONE");
-					combo.addItem("INCLUDE ALL");
-					combo.addItem("MIXED");
+					combo.addItem("Include None");
+					combo.addItem("Include All");
+					combo.addItem("Mixed");
 
 					if (isRoot())
 					{
@@ -412,67 +465,85 @@ final class PCCCreator extends JFrame
 					}
 					else
 					{
-						combo.setSelectedIndex(NONE);
+						combo.setSelectedIndex(state);
 					}
 				}
 				else
 				{
-					combo.addItem("EXCLUDE");
-					combo.addItem("INCLUDE");
-					combo.setSelectedIndex(ALL);
+					combo.addItem("Exclude");
+					combo.addItem("Include");
+					combo.setSelectedIndex(state);
 				}
 
-				//combo.setBackground(Color.white);
-				//panel.setBackground(Color.white);
 				panel.setOpaque(false);
 
 				panel.add(combo);
 				panel.add(label);
 			}
 
-			if (isRelevant())
-			{
-				combo.setEnabled(true);
-				label.setForeground((getSelectedState() == MIXED) ? Color.black
-																  : ((getSelectedState() == ALL) ? Color.green : Color.red));
-			}
-			else
-			{
-				combo.setEnabled(false);
-				label.setForeground(Color.gray);
-			}
+			combo.setEnabled(true);
+			label.setForeground((getSelectedState() == MIXED) ? Color.black
+				: ((getSelectedState() == ALL) ? Color.decode("#006600")
+					: Color.gray));
 
 			return panel;
 		}
 
-		public boolean isRelevant()
+		/**
+		 * Process a change of the node's combo box's selected state for the node.
+		 * 
+		 * @param treeModel the tree model the node is part of.
+		 */
+		@SuppressWarnings("unchecked")
+		protected void processSelect(DefaultTreeModel treeModel)
 		{
-			/*
-			 * jikes says:
-			 *   "Ambiguous reference to member named 'getParent' inherited
-			 *    from type 'java/awt/Component' but also declared or
-			 *    inherited in the enclosing type 'pcgen/gui/PCCCreator$SourceNode'.
-			 *    Explicit qualification is required."
-			 * Well, let's do what jikes wants us to do ;-)
-			 *
-			 * author: Thomas Behr 15-04-02
-			 */
-			TreeNode t = SourceNode.this.getParent();
-
-			if (t == null)
+			treeModel.nodeChanged(this);
+			int state = getSelectedState();
+			if (state == MIXED)
 			{
-				return true;
+				return;
 			}
-			else if (((SourceNode) t).isRelevant())
+			boolean enabled = state == ALL;
+			SourceNode n = (SourceNode) getParent();
+			while (n != null)
 			{
-				return (((SourceNode) t).getSelectedState() == MIXED);
+				if (enabled && n.getSelectedState() == NONE)
+				{
+					n.combo.setSelectedIndex(MIXED);
+					treeModel.nodeChanged(n);
+				}
+				else if (!enabled && n.getSelectedState() == ALL)
+				{
+					n.combo.setSelectedIndex(MIXED);
+					treeModel.nodeChanged(n);
+				}
+				n = (SourceNode) n.getParent();
 			}
-			else
+	
+			for (Enumeration<SourceNode> e = breadthFirstEnumeration(); e.hasMoreElements();)
 			{
-				return false;
+				SourceNode child = e.nextElement();
+				if (child != this && child != null && child.combo != null)
+				{
+					if (enabled)
+					{
+						child.combo.setSelectedIndex(ALL);
+						treeModel.nodeChanged(child);
+					}
+					else if (!enabled)
+					{
+						child.combo.setSelectedIndex(NONE);
+						treeModel.nodeChanged(child);
+					}
+				}
 			}
 		}
 
+		/**
+		 * Gets the selected state.
+		 * 
+		 * @return the selected state
+		 */
 		public int getSelectedState()
 		{
 			if (combo != null)
@@ -491,6 +562,9 @@ final class PCCCreator extends JFrame
 			}
 		}
 
+		/* (non-Javadoc)
+		 * @see javax.swing.tree.DefaultMutableTreeNode#toString()
+		 */
 		@Override
 		public String toString()
 		{
@@ -498,9 +572,11 @@ final class PCCCreator extends JFrame
 		}
 	}
 
+	@SuppressWarnings("serial")
 	static final class SourceNodeTreeCellEditorAndRenderer extends DefaultCellEditor implements TreeCellRenderer,
 		TreeCellEditor
 	{
+		
 		public SourceNodeTreeCellEditorAndRenderer()
 		{
 			super(new JComboBoxEx()); //Have to feed it something
@@ -511,12 +587,7 @@ final class PCCCreator extends JFrame
 		{
 			SourceNode sNode = (SourceNode) value;
 
-			//if (sNode.isRelevant()) {
-			return sNode.getPanel();
-
-			//} else {
-			//	return sNode.getLabel();
-			//}
+			return sNode.getPanel(tree.getModel(), getState(sNode, leaf));
 		}
 
 		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded,
@@ -524,12 +595,54 @@ final class PCCCreator extends JFrame
 		{
 			SourceNode sNode = (SourceNode) value;
 
-			//if (sNode.isRelevant()) {
-			return sNode.getPanel();
+			return sNode.getPanel(tree.getModel(), getState(sNode, leaf));
+		}
+		
+		/**
+		 * Retrieves the node's state.
+		 * 
+		 * @param sNode the node
+		 * @param leaf Is the node a leaf node?
+		 * 
+		 * @return the state of the node.
+		 */
+		private int getState(SourceNode sNode, boolean leaf)
+		{
+			if (sNode.getParent() == null)
+			{
+				return SourceNode.MIXED;
+			}
+			int parentState =
+					((SourceNode) sNode.getParent()).combo.getSelectedIndex();
+			if (leaf)
+			{
+				return parentState == SourceNode.ALL ? SourceNode.ALL
+					: SourceNode.NONE;
+			}
 
-			//} else {
-			//	return sNode.getLabel();
-			//}
+			return parentState;
+		}
+	}
+	
+	/**
+	 * A panel which holds a reference to the tree node. The panel will 
+	 * act as the display of the tree node. 
+	 */
+	@SuppressWarnings("serial")
+	static final class NodePanel extends JPanel
+	{
+		
+		/** The tree node the panel is. */
+		SourceNode node;
+		
+		/**
+		 * Instantiates a new node panel.
+		 * 
+		 * @param node the tree node 
+		 */
+		public NodePanel(SourceNode node)
+		{
+			this.node = node;
 		}
 	}
 }
