@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.15.2" date="In SVN" description="Alpha Release"> 
+      <action dev="jdempsey" type="add" issue="2038169">[4E] ASPECT tag for Abilities and Feats</action> 
+    </release>  
     <release version="5.15.1" date="2008-08-11" description="Alpha Release"> 
       <action dev="jdempsey" type="fix" issue="1660908" due-to="frugal">Performance difference at 21st level</action> 
     </release>  
