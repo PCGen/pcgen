@@ -1,4 +1,4 @@
-ABILITYCATEGORY:GhostAbility	TYPE:GhostAbility	CATEGORY:Special Ability	DISPLAYLOCATION:Monster Abilities
+ABILITYCATEGORY:GhostAbility	TYPE:GhostAbility	CATEGORY:Special Ability	VISIBLE:QUALIFY	DISPLAYLOCATION:Monster Abilities
 
 
 
