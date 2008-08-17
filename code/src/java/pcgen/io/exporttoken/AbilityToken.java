@@ -28,7 +28,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -294,7 +296,7 @@ public class AbilityToken extends Token
 	 * Calculate the token value for the ability token.
 	 * 
 	 * @param tokenSource The text of the export token.
-	 * @param pc The character ebign exported.
+	 * @param pc The character being exported.
 	 * @param eh The export handler.
 	 * @param abilityIndex The location f the ability in the list.
 	 * @param aList The list of abilities.
@@ -350,6 +352,24 @@ public class AbilityToken extends Token
 			{
 				retString += aAbility.getDefaultSourceString();
 			}
+			else if (tokenSource.endsWith(".ASPECT"))
+			{
+				retString += getAspectString(pc, aAbility);
+			}
+			else if (tokenSource.indexOf(".ASPECT.") > -1)
+			{
+				final String key = tokenSource.substring(tokenSource.indexOf(".ASPECT.")+8);
+				retString += getAspectString(pc, aAbility, key);
+			}
+			else if (tokenSource.endsWith(".ASPECTCOUNT"))
+			{
+				retString += aAbility.getSizeOfListFor(ListKey.ASPECT);
+			}
+			else if (tokenSource.indexOf(".HASASPECT.") > -1)
+			{
+				final String key = tokenSource.substring(tokenSource.indexOf(".HASASPECT.")+11);
+				retString += getHasAspectString(pc, aAbility, key);
+			}
 //			else if (tokenSource.indexOf(".IS=") != -1)
 //			{
 //				final String type = tokenSource.substring(tokenSource.indexOf(".IS=")+4);
@@ -370,6 +390,121 @@ public class AbilityToken extends Token
 		}
 
 		return retString;
+	}
+
+	/**
+	 * Gets the aspect string.
+	 * 
+	 * @param pc The character being exported.
+	 * @param ability the ability
+	 * 
+	 * @return the aspect string
+	 */
+	private String getAspectString(PlayerCharacter pc, Ability ability)
+	{
+		List<Aspect> aspectList = ability.getSafeListFor(ListKey.ASPECT);
+		StringBuffer buff = new StringBuffer(); 
+		for (Aspect aspect : aspectList)
+		{
+			if (buff.length() > 0)
+			{
+				buff.append(", ");
+			}
+			buff.append(aspect.getName()).append(": ");
+			buff.append(aspect.getAspectText(pc, ability));
+		}
+		return buff.toString();
+	}
+
+	/**
+	 * Gets the aspect string for an aspect identified by position or name.
+	 * 
+	 * @param pc The character being exported.
+	 * @param ability the ability being queried.
+	 * @param key the key (number or name) of the aspect to retrieve
+	 * 
+	 * @return the aspect string
+	 */
+	private String getAspectString(PlayerCharacter pc, Ability ability, String key)
+	{
+		if (key == null)
+		{
+			return "";
+		}
+		
+		int index = -1;
+		try
+		{
+			index = Integer.parseInt(key);
+		}
+		catch (NumberFormatException e)
+		{
+			// Ignore exception - expect this
+		}
+		Aspect target = null;
+		if (index > -1)
+		{
+			if (index < ability.getSizeOfListFor(ListKey.ASPECT))
+			{
+				target = ability.getElementInList(ListKey.ASPECT, index);
+			}
+		}
+		else
+		{
+			target = getAspectByName(ability, key);
+		}
+
+		StringBuffer buff = new StringBuffer(); 
+		if (target != null)
+		{
+			if (index > -1)
+			{
+				buff.append(target.getName()).append(": ");
+			}
+			buff.append(target.getAspectText(pc, ability));
+		}
+		return buff.toString();
+	}
+
+	/**
+	 * Gets the boolean (Y/N) string for the presence of the named aspect.
+	 * 
+	 * @param pc The character being exported.
+	 * @param ability the ability being queried.
+	 * @param key the key (name only) of the aspect to check
+	 * 
+	 * @return Y if the aspect is present, N if not.
+	 */
+	private String getHasAspectString(PlayerCharacter pc, Ability ability,
+		String key)
+	{
+		Aspect target = getAspectByName(ability, key);
+		return target == null ? "N" : "Y";
+	}
+
+	/**
+	 * Retrieve a named aspect from the ability.
+	 * 
+	 * @param ability The ability to query
+	 * @param key The name of the aspect
+	 * @return The aspect, or null if not present.
+	 */
+	private Aspect getAspectByName(Ability ability, String key)
+	{
+		if (key == null)
+		{
+			return null;
+		}
+
+		List<Aspect> aspectList = ability.getSafeListFor(ListKey.ASPECT);
+		for (Aspect aspect : aspectList)
+		{
+			if (key.equals(aspect.getName()))
+			{
+				return aspect;
+			}
+		}
+		return null;
 	}
 
 	/**

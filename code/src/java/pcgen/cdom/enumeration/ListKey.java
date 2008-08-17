@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.Qualifier;
@@ -76,6 +77,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
  */
 public final class ListKey<T> {
 
+	public static final ListKey<Aspect> ASPECT = new ListKey<Aspect>();
 	/** CLASS_SKILLS - a ListKey */
 	public static final ListKey<String> CLASS_SKILLS = new ListKey<String>();
 	/** CROSS_CLASS_SKILLS - a ListKey */
