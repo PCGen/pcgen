@@ -1111,8 +1111,9 @@
         <p class="indent3">Takes the number 10 as the starting point, then it adds the spells level and finally the primary stat bonus of the caster to come to the total.</p>
 
 		<p></p><hr>
-        <p class="indent0"><strong><a name="SPELLRANGE">Tag Name:</a></strong> SPELLRANGE:x</p>
-        <p class="indent1"><strong>Variables Used (x)|(y):</strong> Text Name|Formula</p>
+        <p class="indent0"><strong><a name="SPELLRANGE">Tag Name:</a></strong> SPELLRANGE:x|y</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (Range name)</p>
+	    <p class="indent1"><strong>Variables Used (y):</strong> Formula</p>
         <p class="indent1"><strong>What it does:</strong></p>
         <p class="indent2">Takes the defined name and uses the formula to replace the name in the Spells.lst under the range. </p>
         <p class="indent2">Each value is a seperate TAG </p>
@@ -1134,6 +1135,23 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SQUARESIZE:5</code></p>
 		<p class="indent3">Sets the size of a battlemap square to 5 feet.</p>
+
+		<p></p><hr>
+		<p class="indent0"><strong><a name="STATROLLTEXT">Tag Name:</a></strong> STATROLLTEXT:x &lt;tab&gt; y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Stat number)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Alternate stat number descriptive text)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Provides a text-based descripter for stat roll numbers.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>STATROLLTEXT:1 &lt;tab&gt; Poor</code></p>
+		<p class="indent2"><code>STATROLLTEXT:2 &lt;tab&gt; Low</code></p>
+		<p class="indent2"><code>STATROLLTEXT:3 &lt;tab&gt; Average</code></p>
+		<p class="indent2"><code>STATROLLTEXT:4 &lt;tab&gt; High</code></p>
+		<p class="indent2"><code>STATROLLTEXT:5 &lt;tab&gt; Exceptional</code></p>
+		<p class="indent2"><code>STATROLLTEXT:6 &lt;tab&gt; Awesome</code></p>
+		<p class="indent3">Character skills with ranks of 1 through 7 will be labeled as 
+			&quot;Poor&quot;, &quot;Low&quot;, &quot;Average&quot;, &quot;High&quot;, 
+			&quot;Exceptional&quot; or &quot;Awesome&quot; as appropriate.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.5.2</p>
