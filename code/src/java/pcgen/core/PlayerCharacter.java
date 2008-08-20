@@ -17893,7 +17893,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Number getLockedStat(PCStat stat)
 	{
-		Number max = Double.NEGATIVE_INFINITY;
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
 			List<StatLock> lockList = cdo.getListFor(ListKey.STAT_LOCKS);
@@ -17903,13 +17902,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					if (lock.getLockedStat().equals(stat))
 					{
-						Number val =
-								lock.getLockValue().resolve(this,
-									cdo.getKeyName());
-						if (val.doubleValue() > max.doubleValue())
-						{
-							max = val;
-						}
+						return lock.getLockValue().resolve(this, cdo.getKeyName());
 					}
 				}
 			}
