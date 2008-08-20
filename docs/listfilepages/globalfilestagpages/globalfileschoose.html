@@ -609,7 +609,9 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR=Text (Spell descriptor)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> PROHIBITED=Boolean (Optional)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> SPELLBOOK=Text (Spellbook name)</p>
+	<!--
 	<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
+	-->
 	<p class="indent1"><strong>Variables Used (y):</strong> CLASSLIST=Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> DOMAINLIST=Text (Domain name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> SPELLTYPE=Text (Spell type)</p>
@@ -627,7 +629,7 @@
 		<li>The <code>LEVELMAX</code> sub-tag references all spells of the specified level and lower within the context of the &quot;y&quot; variable preceding the brackets.</li>
 		<li>The "z" variable <strong>MUST</strong> be contained within a set of square-brackets ([ ]) and paired
 			with a single "y" variable. Only one set of square brackets per "y" variable is allowed.</li>
-		<li>Independent &quot;z&quot; parameters require the use of two sets of square brackets ([ ]),
+		<li>Independent &quot;z&quot; parameters require the use of multiple sets of square brackets ([ ]),
 			one for each &quot;z&quot; parameter paired with is own &quot;y&quot; parameter.
 			(e.g. y[z]|y[z])</li>
 		<li>Dependent &quot;z&quot; parameters can use a common set of square-brackets ([ ]) paired
@@ -645,8 +647,10 @@
 	<p class="indent3">Choose from Arcane Evocation spells</p>
 	<p class="indent2"><code>CHOOSE:SPELLS|DESCRIPTOR=Good</code></p>
 	<p class="indent3">Choose from spells with the Good descriptor</p>
+	<!--
 	<p class="indent2"><code>CHOOSE:SPELLS|ANY[KNOWN=YES]</code></p>
 	<p class="indent3">Choose from spells known by the PC.</p>
+	-->
 	<p class="indent2"><code>CHOOSE:SPELLS|CLASSLIST=Sorcerer[LEVELMIN=1;LEVELMAX=MAXCASTABLE-1]</code></p>
 	<p class="indent3">Choose from Sorcerer spells between first level and one less than your max castable level
 		of spell taken from the Sorcerer list</p>
