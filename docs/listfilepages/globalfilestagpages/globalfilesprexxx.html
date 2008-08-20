@@ -966,17 +966,18 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREREGION">Tag Name:</a></strong> PREREGION:x (y)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (The region name).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The subregion name - optional).</p>
+	<p class="indent0"><strong><a name="PREREGION">Tag Name:</a></strong> PREREGION:x,y (z),y (z)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of regions required)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (The region name).</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Text (The subregion name - optional).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Character's home region must match the listed text.
 		When only the region is specified, any character from that region,
 		but with a specified subregion, will still be considered qualified.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>PREREGION:Slithe</code></p>
+	<p class="indent2"><code>PREREGION:1,Slithe</code></p>
 	<p class="indent3">Character must hail from the &quot;Slithe&quot; region.</p>
-	<p class="indent2"><code>PREREGION:Slithe (Barrows)</code></p>
+	<p class="indent2"><code>PREREGION:1,Slithe (Barrows)</code></p>
 	<p class="indent3">Character must hail from the &quot;Slithe&quot; region and &quot;Barrows&quot; subregion.</p>
 	<p></p>
 
