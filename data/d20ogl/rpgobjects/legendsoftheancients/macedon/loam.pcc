@@ -1,4 +1,4 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Jul 27 23:26:03 2005 -- reformated by prettylst.pl v1.35 (build 469)
+# CVS $Revision$ $Author$ -- Wed Jul 27 23:26:03 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:RPG Objects - Legends of the Ancients - Macedon
 RANK:6
 GAMEMODE:35e
@@ -6,6 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Fantasy
 TYPE:RPG Objects.Legends.Legends of the Ancients
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

@@ -3,11 +3,12 @@ CAMPAIGN:Behemoth3 - Masters and Minions - Horde Book 2: Maze of the Minotaur
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
-BOOKTYPE:PDF
+BOOKTYPE:Supplement
 SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Behemoth3.Masters and Minions
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Behemoth3
 PUBNAMESHORT:Behemoth3
 PUBNAMEWEB:http://www.behemoth3.com/

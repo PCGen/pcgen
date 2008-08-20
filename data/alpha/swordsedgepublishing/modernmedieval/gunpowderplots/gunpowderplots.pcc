@@ -3,11 +3,12 @@ CAMPAIGN:Gunpowder Plots
 GAMEMODE:35e
 RANK:6
 GENRE:Fantasy
-BOOKTYPE:Accessory
+BOOKTYPE:Supplement
 SETTING:Modern Medieval
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Sword's Edge Publishing.Gunpowder Plots
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Swords Edge Publishing
 PUBNAMESHORT:SEP
 PUBNAMEWEB:http://www.swordsedgepublishing.ca

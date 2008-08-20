@@ -4,6 +4,8 @@ GAMEMODE:35e
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Paradigm Concepts.Arcanis
+BOOKTYPE:Core Rules
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PCI - Player's Guide to Arcanis]
 RANK:1
 SOURCELONG:Player's Guide to Arcanis
 SOURCESHORT:PGtA

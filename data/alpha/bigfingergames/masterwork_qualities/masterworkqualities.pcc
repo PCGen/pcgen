@@ -7,6 +7,7 @@ BOOKTYPE:Supplement
 SETTING:Fantasy
 TYPE:Alpha Datasets
 #TYPE:Big Finger Games.Fantasy Folio
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Big Finger Games
 PUBNAMESHORT:BFG
 PUBNAMEWEB:http://www.bigfingergames.com/

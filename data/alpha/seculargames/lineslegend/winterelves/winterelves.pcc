@@ -5,6 +5,8 @@ GAMEMODE:35e
 GENRE:Fantasy
 TYPE:Alpha Datasets
 #TYPE:Secular Games.Lines of Legend.Winter Elves
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Secular Games
 PUBNAMESHORT:SecGame
 PUBNAMEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/index.html

@@ -3,10 +3,11 @@ CAMPAIGN:Secular Games - Advanced Character Guide - Arcane Archer
 RANK:6
 GAMEMODE:35e
 GENRE:Generic
-BOOKTYPE:PDF
+BOOKTYPE:Supplement
 SETTING:Fantasy
 TYPE:Alpha Datasets
 #TYPE:Secular Games.Advanced Character Guide.Arcane Archer
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Secular Games
 PUBNAMESHORT:SG
 PUBNAMEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/index.html

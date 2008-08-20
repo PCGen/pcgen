@@ -8,6 +8,8 @@ SETTING:Murchad's Legacy
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Parent's Basement Games.Campaign.Optional
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+!PRECAMPAIGN:1,PBG - Murchad's Legacy Campaign Setting
 PUBNAMELONG:Parent's Basement Games
 PUBNAMESHORT:PBG
 PUBNAMEWEB:http://www.parentsbasementgames.com

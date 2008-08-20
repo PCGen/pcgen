@@ -3,11 +3,12 @@ CAMPAIGN:BaS - Neiyar Land of Heaven and the Abyss
 RANK:5
 GAMEMODE:35e
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Campaign Setting
 SETTING:Fantasy
 ### WILL REMOVE ACTIVE ALPHA TAG once the set is considered fully tested.
 TYPE:Alpha Datasets
 #TYPE:Bards and Sages
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Bards and Sages
 PUBNAMESHORT:BaS
 PUBNAMEWEB:www.bardsandsages.com

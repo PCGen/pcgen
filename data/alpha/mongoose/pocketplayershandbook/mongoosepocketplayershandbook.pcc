@@ -4,11 +4,12 @@ CAMPAIGN:Mongoose Pocket Players Handbook
 RANK:1
 GAMEMODE:35e
 GENRE:Fantasy
-BOOKTYPE:RSRD
+BOOKTYPE:Core Rules
 SETTING:RSRD
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Mongoose.Pocket Handbook
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Mongoose Pocket Players Handbook]
 PUBNAMELONG:Mongoose Publishing
 PUBNAMESHORT:Mongoose
 PUBNAMEWEB:http://mongoosepublishing.com

@@ -4,11 +4,12 @@ CAMPAIGN:FFG - Dawnforge - Age of Legend - Player's Companion
 GAMEMODE:35e
 RANK:6
 GENRE:Fantasy
-BOOKTYPE:Campaign Sourcebook
+BOOKTYPE:Supplement
 SETTING:Dawnforge
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Fantasy Flight Games.Dawnforge
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,FFG - Dawnforge - Campaign setting
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com

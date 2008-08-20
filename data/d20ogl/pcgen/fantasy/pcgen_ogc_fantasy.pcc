@@ -3,9 +3,10 @@ CAMPAIGN:PCGen Open Gaming Content
 RANK:7
 GAMEMODE:3e|35e
 GENRE:Fantasy
-BOOKTYPE:Web
+BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:PCGen OGL
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:PCGen Open Source Team
 PUBNAMESHORT:PCGen
 PUBNAMEWEB:http://pcgen.sourceforge.net/

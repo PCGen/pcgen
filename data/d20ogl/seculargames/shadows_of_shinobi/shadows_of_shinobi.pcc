@@ -4,6 +4,8 @@ RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 TYPE:Secular Games
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Secular Games
 PUBNAMESHORT:SecGames
 PUBNAMEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/index.html
