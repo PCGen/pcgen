@@ -71,6 +71,52 @@
 
 <hr>
 
+		<p class="new">*** New 5.15.2</p>
+		<p class="indent0"><strong><a name="ASPECT">Tag Name:</a></strong> ASPECT:x|y|z|z</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of Aspect)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Value of Aspect)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number or Formula (Optional. Used for substitutions in y)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Identifies an &quot;aspect&quot; (see examples below) that a feat has and sets it's value.</li> 
+			<li>This tag can be used multiple times within a feat but each time it must identify a new aspect.</li>
+			<li>The text in the y variable can use %z for replacing numerical values set by the z variable, %1 
+				is replaced by the first z, %2 is replaced by the second z, etc..</li>
+			<li>The y text can also use other special variables, also usable in the <code>DESC</code> tag:
+				<ul>
+					<li><code>%CHOICE</code> - Will replace the first associated choice in the object.</li>
+					<li><code>%LIST</code> - Will substitute all choices comma separated into that parameter.</li>
+					<li><code>%NAME</code> - The <code>OUTPUTNAME</code> or name of the object this <code>DESC</code> 
+						tag is in.</li>
+				</ul>
+			</li>
+			<li><code>ASPECT</code> tags can be modified by .MODing the feat and inserting a new <code>ASPECT</code> 
+				tag. Since each aspect name can hold only one value per featm .MODing a new <code>ASPECT</code> tag will 
+				overwrite the only value of the aspect by that name in the feat</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ASPECT:Action Type|Standard Action</code></p>
+		<p class="indent3">Identifies the &quot;Action Type&quot; of an action performed as part of the associated feat 
+			as a &quot;Standard Action&quot;.</p>
+		<p class="indent2"><code>ASPECT:Attack Type|Melee weapon</code></p>
+		<p class="indent3">Identifies the &quot;Attack Type&quot; of an attack performed as part of the associated feat 
+			as a &quot;Melee weapon&quot; attack.</p>
+		<p class="indent2"><code>ASPECT:Target|One creature</code></p>
+		<p class="indent3">Identifies the &quot;Target&quot; of an action performed as part of the associated feat 
+			as &quot;One creature&quot;.</p>
+		<p class="indent2"><code>ASPECT:Attack|Strength vs. AC</code></p>
+		<p class="indent3">Identifies an &quot;Attack&quot; performed as part of the associated feat 
+			as &quot;Strength vs. AC&quot;.</p>
+		<p class="indent2"><code>ASPECT:Attack Type|Ranged %1|PowerRange</code></p>
+		<p class="indent3">Identifies the &quot;Attack Type&quot; of an attack performed as part of the associated feat 
+			as a &quot;Ranged&quot; attack with a range equivalent to the &quot;PowerRange&quot; variable.</p>
+		<p class="indent2"><code>ASPECT:Effect|Double damage to %CHOICE creatures</code></p>
+		<p class="indent3">Identifies the &quot;Effect&quot; of an action performed as part of the associated feat 
+			as &quot;Double damage&quot; to the creature chosen by the associated chooser.</p>
+		<p></p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="BENEFIT">Tag Name:</a></strong> BENEFIT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (feat benefit text)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
