@@ -9,6 +9,7 @@ SETTING:Modern
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Wizards of the Coast.Supplement.d20 Weapons Locker
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/d20modern

@@ -3,9 +3,10 @@ CAMPAIGN:Gallantry - Firearm Arcana
 RANK:6
 GAMEMODE:Modern
 GENRE:Modern
-BOOKTYPE:Pick 'N' Mix
+BOOKTYPE:Supplement
 SETTING:Modern
 TYPE:Gallantry Productions.Pick 'N' Mix
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Gallantry Productions
 PUBNAMESHORT:Gallantry
 PUBNAMEWEB:http://www.enworld.org/shop/index.php?do=publisher&publisher_id=34

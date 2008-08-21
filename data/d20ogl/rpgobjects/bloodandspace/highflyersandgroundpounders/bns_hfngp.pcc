@@ -6,6 +6,7 @@ BOOKTYPE:Supplement
 GENRE:Future
 SETTING:Future
 TYPE:RPGObjects.Blood and Space
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

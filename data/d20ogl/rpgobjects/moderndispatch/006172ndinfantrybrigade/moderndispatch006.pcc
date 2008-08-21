@@ -6,6 +6,7 @@ GENRE:Military
 BOOKTYPE:Magazine
 SETTING:Blood and Guts
 TYPE:RPGObjects.Modern Dispatch
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

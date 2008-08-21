@@ -3,11 +3,12 @@ CAMPAIGN:TGM - Modern Player's Companion
 RANK:6
 GAMEMODE:Modern
 GENRE:Modern
-BOOKTYPE:Soucebook
+BOOKTYPE:Supplement
 SETTING:Modern
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:The Game Mechanics.Sourcebook
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Green Ronin
 PUBNAMESHORT:Ronin
 PUBNAMEWEB:http://www.greenronin.com

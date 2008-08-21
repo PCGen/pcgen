@@ -3,9 +3,10 @@ CAMPAIGN:MSRD - Basics
 RANK:1
 GAMEMODE:Modern
 GENRE:Modern
-BOOKTYPE:SRD
+BOOKTYPE:Core Rules
 SETTING:Modern
 TYPE:MSRD.Complete
+!PRECAMPAIGN:1,Modern - Basics
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern

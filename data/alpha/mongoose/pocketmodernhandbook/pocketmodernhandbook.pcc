@@ -4,11 +4,12 @@ CAMPAIGN:Mongoose Modern Pocket Handbook
 RANK:1
 GAMEMODE:Modern
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Core Rules
 SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Mongoose.Pocket Handbook
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Mongoose Modern Pocket Handbook]
 PUBNAMELONG:Mongoose Publishing
 PUBNAMESHORT:Mongoose
 PUBNAMEWEB:http://mongoosepublishing.com

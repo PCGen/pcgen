@@ -6,6 +6,7 @@ GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Modern
 TYPE:RPGObjects.Modern System.Gangland
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

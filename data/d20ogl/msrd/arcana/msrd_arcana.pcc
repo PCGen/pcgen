@@ -3,9 +3,11 @@ CAMPAIGN:MSRD - Arcana
 GAMEMODE:Modern
 RANK:2
 GENRE:Modern Arcana
-BOOKTYPE:SRD
+BOOKTYPE:Core Supplement
 SETTING:Modern FX
 TYPE:MSRD.Complete
+PRECAMPAIGN:1,MSRD - Basics,Modern - Basics
+!PRECAMPAIGN:1,Arcana - Basics,Arcana - Creatures,Arcana - Psionics
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern

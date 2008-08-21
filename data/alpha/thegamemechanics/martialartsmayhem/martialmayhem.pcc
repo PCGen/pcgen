@@ -3,11 +3,12 @@ CAMPAIGN:TGM - Martial Arts Mayhem
 GAMEMODE:Modern
 RANK:6
 GENRE:Modern
-BOOKTYPE:Sourcebook
+BOOKTYPE:Supplement
 SETTING:Martial Arts
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:The Game Mechanics.Sourcebook
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:The Game Mechanics,Inc.
 PUBNAMESHORT:TGM
 PUBNAMEWEB:http://www.thegamemechanics.com

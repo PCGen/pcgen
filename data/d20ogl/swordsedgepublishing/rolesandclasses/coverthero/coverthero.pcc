@@ -3,9 +3,10 @@ CAMPAIGN:SEP - Roles and Classes - Covert Hero
 GAMEMODE:Modern
 RANK:6
 GENRE:Modern
-BOOKTYPE:Sourcebook
+BOOKTYPE:Supplement
 SETTING:Modern
 TYPE:Swords Edge Publishing.Roles and Classes
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Swords Edge Publishing
 PUBNAMESHORT:SEP
 PUBNAMEWEB:http://www.swordsedgepublishing.ca

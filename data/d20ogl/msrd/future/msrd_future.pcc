@@ -3,9 +3,11 @@ CAMPAIGN:MSRD - Future
 RANK:1
 GAMEMODE:Modern
 GENRE:Sci-Fi
-BOOKTYPE:SRD
+BOOKTYPE:Core Supplement
 SETTING:Modern Future
 TYPE:MSRD.Complete
+PRECAMPAIGN:1,MSRD - Basics,Modern - Basics
+!PRECAMPAIGN:1,Future - Basics
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern

@@ -3,9 +3,10 @@ CAMPAIGN:MSRD - Menaces
 RANK:1
 GAMEMODE:Modern
 GENRE:Modern
-BOOKTYPE:SRD
+BOOKTYPE:Core Supplement
 SETTING:Modern
 TYPE:MSRD.Complete
+PRECAMPAIGN:1,MSRD - Basics,Modern - Basics
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern

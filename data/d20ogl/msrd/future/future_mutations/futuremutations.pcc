@@ -3,9 +3,11 @@ CAMPAIGN:Future - Mutations
 RANK:3
 GAMEMODE:Modern
 GENRE:Sci-Fi
-BOOKTYPE:SRD
+BOOKTYPE:Core Supplement
 SETTING:Modern Future
 TYPE:MSRD.Partial.Future
+PRECAMPAIGN:1,Future - Basics
+!PRECAMPAIGN:1,MSRD - Future
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern

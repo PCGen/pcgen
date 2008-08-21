@@ -3,9 +3,10 @@ CAMPAIGN:RPGObjects - Blood and Guts 2 - On the Ground
 RANK:6
 GAMEMODE:Modern
 GENRE:Military
-BOOKTYPE:PDF
+BOOKTYPE:Supplement
 SETTING:Modern
 TYPE:RPGObjects.Blood and Guts 2
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:RPG Objects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com

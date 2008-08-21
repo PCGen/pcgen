@@ -1,18 +1,19 @@
 # CVS $Revision$ $Author$ -- Fri Aug 26 02:34:05 2005 -- reformated by prettylst.pl v1.34 (build 455)
 CAMPAIGN:MDS - Dark Inheritance - Campaign Setting
 RANK:5
+GAMEMODE:Modern
+BOOKTYPE:Campaign Setting
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Mythic Dreams Studios.Dark Inheritance
-GAMEMODE:Modern
-ISOGL:YES
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting
 SOURCESHORT:Dark Inheritance
 SOURCEWEB:http://www.mythicdreams.com
-BOOKTYPE:Campaign Setting
 PUBNAMELONG:Mythic Dreams Studios LLC.
 PUBNAMESHORT:MDS
 PUBNAMEWEB:http://www.mythicdreams.com
+ISOGL:YES
 ISLICENSED:YES
 LICENSE:FILE=dark_inheritance_license.htm
 

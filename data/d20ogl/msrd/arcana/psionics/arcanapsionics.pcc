@@ -3,9 +3,11 @@ CAMPAIGN:Arcana - Psionics
 RANK:2
 GAMEMODE:Modern
 GENRE:Modern Arcana
-BOOKTYPE:SRD
+BOOKTYPE:Core Supplement
 SETTING:Modern FX
 TYPE:MSRD.Partial.Arcana
+PRECAMPAIGN:1,Arcana - Basics
+!PRECAMPAIGN:1,MSRD - Arcana
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern

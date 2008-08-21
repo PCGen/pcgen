@@ -6,6 +6,7 @@ GENRE:Pulp
 BOOKTYPE:Supplement
 SETTING:Pulp Fantasy
 TYPE:Battlefield Press.Pulp Fantasy
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Battlefield Press
 PUBNAMESHORT:Battlefield
 PUBNAMEWEB:http://battlefieldpress.com

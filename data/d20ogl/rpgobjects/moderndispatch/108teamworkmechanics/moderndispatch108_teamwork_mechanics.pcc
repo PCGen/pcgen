@@ -6,6 +6,7 @@ GENRE:Modern
 BOOKTYPE:Magazine
 SETTING:Modern
 TYPE:RPGObjects.Modern Dispatch
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:RPG Objects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

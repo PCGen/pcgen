@@ -8,6 +8,7 @@ SETTING:Future
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:RPGObjects.Blood and Space
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:RPG Objects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

@@ -3,9 +3,11 @@ CAMPAIGN:Modern - Creatures
 RANK:1
 GAMEMODE:Modern
 GENRE:Modern
-BOOKTYPE:SRD
+BOOKTYPE:Core Supplement
 SETTING:Modern
 TYPE:MSRD.Partial.Basics
+PRECAMPAIGN:1,Modern - Basics
+!PRECAMPAIGN:1,MSRD - Basics
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern
