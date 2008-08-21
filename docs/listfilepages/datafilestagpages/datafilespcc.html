@@ -222,6 +222,44 @@
 
 <hr>
 
+	<p class="new">*** New 5.15.2</p>
+	<p class="indent0"><strong><a name="PRECAMPAIGN">Tag Name:</a></strong> PRECAMPAIGN:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of items required to pass)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Data set name as set by the CAMPAIGN tag).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> BOOKTYPE=Text (Data set name as set by the CAMPAIGN tag).</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This tag is used as a stand alone tag in .pcc files.</li>
+		<li><code>PRECAMPAIGN</code> sets specific data sets as required or prohibited for the associated 
+			data set to be loaded. In the Source tab a data set which requires another data set will appear 
+			in red until that set is added to the right load pane.</li>
+		<li>When the tag is used inversely (i.e. !PRECAMPAIGN) a data set which prohibits itself from being 
+			used with another data set will appear in red when that data set is added to the right load pane. 
+			If this same data set is in the right pane when the set it prohibits is added it will be removed 
+			from the right load pane.</li>
+		<li>Enclosing the data set name or <code>BOOKTYPE</code> sub-tag and text in square-brackets ([]) will exclude 
+			the relevant data sets from the prerequisite evaluation.</li>
+		<li>This tag is a global tag and so may be used in any LST file to set prerequisites for specific data sets. 
+			If the set is loaded it passes, if not it doesn't.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>PRECAMPAIGN:1,3.5 RSRD,3.5 RSRD Basics</code></p>
+	<p class="indent3">Will cause a data set to be loaded only if the &quot;3.5 RSRD&quot; or the &quot;3.5 RSRD 
+		Basics&quot; data set is loaded.</p>
+	<p class="indent2"><code>!PRECAMPAIGN:1,3.5 RSRD</code></p>
+	<p class="indent3">Will prohibit the loading of the associated data set if the &quot;3.5 RSRD&quot; data set is loaded.</p>
+	<p class="indent2"><code>PRECAMPAIGN:1,3.5 RSRD Basics</code></p>
+	<p class="indent3">Will cause the associated data set to be loaded only if the &quot;3.5 RSRD Basics&quot; data set is loaded.</p>
+	<p class="indent2"><code>PRECAMPAIGN:1,BOOKTYPE=Core,3.5 RSRD Basics</code></p>
+	<p class="indent3">Will cause the associated data set to be loaded only if the &quot;3.5 RSRD Basics&quot; data set is loaded.</p>
+	<p class="indent2"><code>!PRECAMPAIGN:1,BOOKTYPE=Core,3.5 RSRD Basics</code></p>
+	<p class="indent3">Will cause the associated data set to be loaded only if the &quot;3.5 RSRD Basics&quot; data set is loaded.</p>
+	<p class="indent2"><code>!PRECAMPAIGN:1,BOOKTYPE=Core,[BOOKTYPE=CoreSupplement]</code></p>
+	<p class="indent3">Will cause the associated data set to be loaded only if the &quot;3.5 RSRD Basics&quot; data set is loaded.</p>
+	<p></p>
+
+<hr>
+
 	<p class="new">*** New 4.3.10</p>
 	<p class="indent0"><strong><a name="PUBNAMELONG">Tag Name:</a></strong> PUBNAMELONG:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (Long name of publisher)</p>
