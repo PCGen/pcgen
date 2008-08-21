@@ -3,9 +3,10 @@ CAMPAIGN:Fantasy Community Council - Netbook of Magical Treasures
 GAMEMODE:3e
 RANK:6
 GENRE:Fantasy
-BOOKTYPE:Web
+BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:FanCC.Web Enhancement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Fantasy Community Council
 PUBNAMESHORT:FanCC
 PUBNAMEWEB:http://fancc.net/

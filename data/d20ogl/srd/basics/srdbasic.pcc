@@ -3,9 +3,10 @@ CAMPAIGN:3.0 SRD Basics
 RANK:1
 GAMEMODE:3e
 GENRE:Fantasy
-BOOKTYPE:SRD
+BOOKTYPE:Core Rules
 SETTING:SRD
 TYPE:SRD.Partial
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.0 SRD Basics]
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd

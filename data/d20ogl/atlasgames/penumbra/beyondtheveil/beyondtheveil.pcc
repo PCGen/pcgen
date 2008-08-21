@@ -3,9 +3,10 @@ CAMPAIGN:Atlas Games - Penumbra - Beyond the Veil
 GAMEMODE:3e
 RANK:9
 GENRE:Fantasy
-BOOKTYPE:Module
+BOOKTYPE:Adventure
 SETTING:Penumbra
 TYPE:Atlas Games.Module.Penumbra
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Atlas Games
 PUBNAMESHORT:Atlas
 PUBNAMEWEB:http://www.atlas-games.com/

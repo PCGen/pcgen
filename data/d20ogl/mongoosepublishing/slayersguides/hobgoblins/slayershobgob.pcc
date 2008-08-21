@@ -3,9 +3,10 @@ CAMPAIGN:Mongoose - Slayers Guide - Hobgoblins
 GAMEMODE:3e
 RANK:6
 GENRE:Fantasy
-BOOKTYPE:Accessory
+BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:Mongoose.Accessory.Slayers Guides
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Mongoose Publishing
 PUBNAMESHORT:Mongoose
 PUBNAMEWEB:http://mongoosepublishing.com

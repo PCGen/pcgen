@@ -3,9 +3,10 @@ CAMPAIGN:Auran - Notes from the Apothercary
 GAMEMODE:3e
 RANK:7
 GENRE:Fantasy
-BOOKTYPE:Web Ehancement
+BOOKTYPE:Web Enhancement
 SETTING:Generic
 TYPE:Auran d20.Web
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Auran d20
 PUBNAMESHORT:Auran
 PUBNAMEWEB:http://www.auran.com/d20

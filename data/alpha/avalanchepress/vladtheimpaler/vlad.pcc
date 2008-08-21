@@ -8,6 +8,7 @@ SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Avalanche Press.Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Avalanche Press
 PUBNAMESHORT:Avalanche
 PUBNAMEWEB:http://www.avalanchepress.com

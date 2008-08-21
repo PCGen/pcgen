@@ -3,9 +3,10 @@ CAMPAIGN:Fantasy Community Council - Netbook of Spells and Magic
 RANK:9
 GAMEMODE:3e
 GENRE:Fantasy
-BOOKTYPE:Web
+BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:FanCC.Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Fantasy Community Council
 PUBNAMESHORT:FanCC
 PUBNAMEWEB:http://fancc.net/

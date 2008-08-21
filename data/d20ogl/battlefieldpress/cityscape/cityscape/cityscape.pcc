@@ -6,6 +6,7 @@ GENRE:Planar
 BOOKTYPE:Campaign Setting
 SETTING:Cityscape
 TYPE:Battlefield Press.Sourcebook
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Battlefield Press
 PUBNAMESHORT:Battlefield
 PUBNAMEWEB:http://battlefieldpress.com

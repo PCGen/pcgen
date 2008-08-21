@@ -3,7 +3,7 @@ CAMPAIGN:RPGObjects - Darwin's World - Denizens of the Twisted Earth
 GAMEMODE:3e
 RANK:3
 GENRE:Future
-BOOKTYPE:Campaign Setting
+BOOKTYPE:Supplement
 SETTING:Darwin's World
 TYPE:RPGObjects.Core.Darwin's World
 !PRECAMPAIGN:1,RPGObjects - Darwin's World - Complete World Rules

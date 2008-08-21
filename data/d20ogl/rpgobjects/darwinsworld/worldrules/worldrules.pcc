@@ -4,10 +4,10 @@ CAMPAIGN:RPGObjects - Darwin's World - World Rules
 GAMEMODE:3e
 RANK:2
 GENRE:Future
-BOOKTYPE:Campaign Setting
+BOOKTYPE:Core Rules
 SETTING:Darwin's World
 TYPE:RPGObjects.Core.Darwin's World
-!PRECAMPAIGN:1,RPGObjects - Darwin's World - Complete World Rules
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,RPGObjects - Darwin's World - Complete World Rules,[RPGObjects - Darwin's World - World Rules]
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

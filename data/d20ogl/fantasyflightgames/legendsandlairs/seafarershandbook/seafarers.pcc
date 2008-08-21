@@ -3,9 +3,10 @@ CAMPAIGN:FFG - Seafarer's Handbook - Source Book
 GAMEMODE:3e
 RANK:9
 GENRE:Fantasy
-BOOKTYPE:SRD
+BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:Fantasy Flight Games.Legends and Lairs
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com/

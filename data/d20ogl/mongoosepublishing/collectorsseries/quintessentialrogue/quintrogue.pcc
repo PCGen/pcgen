@@ -6,6 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:Mongoose.Supplement.Collectors Series
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Mongoose Publishing
 PUBNAMESHORT:Mongoose
 PUBNAMEWEB:http://mongoosepublishing.com

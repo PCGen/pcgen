@@ -3,9 +3,10 @@ CAMPAIGN:FFG - City Works - Source Book
 GAMEMODE:3e
 RANK:6
 GENRE:Fantasy
-BOOKTYPE:Sourcebook
+BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:Fantasy Flight Games.Legends and Lairs
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com

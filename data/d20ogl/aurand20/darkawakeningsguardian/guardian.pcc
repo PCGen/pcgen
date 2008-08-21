@@ -3,9 +3,10 @@ CAMPAIGN:Auran - Dark Awakenings - Guardian
 GAMEMODE:3e
 RANK:7
 GENRE:Fantasy
-BOOKTYPE:Module
+BOOKTYPE:Adventure
 SETTING:Generic
 TYPE:Auran d20.Module
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Auran d20
 PUBNAMESHORT:Auran
 PUBNAMEWEB:http://www.auran.com/d20
