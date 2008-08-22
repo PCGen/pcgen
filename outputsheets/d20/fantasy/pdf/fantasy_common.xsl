@@ -95,13 +95,21 @@
 	TEMPLATE - GENERIC Process 
 ====================================
 ====================================-->
+
+<!-- use "attack" for what you want to Output
+          "bab" for the character's bab (and so the limit on reiterative attacks)
+     backwards compatible with the default of attack and bab being the same.
+   - Tir Gwaith
+-->
 	<xsl:template name="process.attack.string">
 		<xsl:param name="bab"/>
+		<xsl:param name="attack" select="$bab"/>
 		<xsl:param name="string" select="''"/>
 		
 		<xsl:choose>
-			<xsl:when test="starts-with($bab, '+')">
+			<xsl:when test="starts-with($attack, '+')">
 				<xsl:call-template name="process.attack.string">
+					<xsl:with-param name="attack" select="substring($attack, 2)"/>
 					<xsl:with-param name="bab" select="substring($bab, 2)"/>
 					<xsl:with-param name="string" select="$string"/>
 				</xsl:call-template>
@@ -110,18 +118,19 @@
 				<xsl:choose>
 					<xsl:when test="$bab &gt; 5">
 						<xsl:call-template name="process.attack.string">
+							<xsl:with-param name="attack" select="$attack - 5"/>
 							<xsl:with-param name="bab" select="$bab - 5"/>
 							<xsl:with-param name="string">
-								<xsl:value-of select="$string"/>+<xsl:value-of select="$bab"/>/</xsl:with-param>
+								<xsl:value-of select="$string"/>+<xsl:value-of select="$attack"/>/</xsl:with-param>
 						</xsl:call-template>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="$string"/>+<xsl:value-of select="$bab"/>
+						<xsl:value-of select="$string"/>+<xsl:value-of select="$attack"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:otherwise>
 		</xsl:choose>
-
+		
 	</xsl:template>
 
 	<!--
