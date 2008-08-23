@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Ogre Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
+STARTPACK:Ogre Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
 RACE:Ogre	!PRERACE:1,%
 NAME:Ogre
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -9,7 +9,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Weapon Focus (Greatclub)
 
-STARTPACK:Ogre (Aquatic Merrow) Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre (Aquatic Merrow)]
+STARTPACK:Ogre (Aquatic Merrow) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre (Aquatic Merrow)]
 RACE:Ogre (Aquatic Merrow)	!PRERACE:1,%
 NAME:Ogre (Aquatic Merrow)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -17,7 +17,7 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 FEAT:Weapon Focus (Longspear)
 
-STARTPACK:Ogre Mage Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre Mage]
+STARTPACK:Ogre Mage Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre Mage]
 RACE:Ogre Mage	!PRERACE:1,%
 NAME:Ogre Mage
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -27,25 +27,25 @@ SKILL:Spot			RANK:3
 SKILL:Spellcraft		RANK:2
 FEAT:Improved Initiative
 
-STARTPACK:Ooze (Gray) Default	TYPE:DefaultMonster.Ooze		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Gray)]
+STARTPACK:Ooze (Gray) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Gray)]
 RACE:Ooze (Gray)	!PRERACE:1,%
 NAME:Ooze (Gray)
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:Ooze (Gelatinous Cube) Default	TYPE:DefaultMonster.Ooze		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Gelatinous Cube)]
+STARTPACK:Ooze (Gelatinous Cube) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Gelatinous Cube)]
 RACE:Ooze (Gelatinous Cube)	!PRERACE:1,%
 NAME:Ooze (Gelatinous Cube)
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:Ooze (Ochre Jelly) Default	TYPE:DefaultMonster.Ooze		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Ochre Jelly)]
+STARTPACK:Ooze (Ochre Jelly) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Ochre Jelly)]
 RACE:Ooze (Ochre Jelly)	!PRERACE:1,%
 NAME:Ooze (Ochre Jelly)
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|WIS=10|CHA=10
 
-STARTPACK:Ooze (Black Pudding) Default	TYPE:DefaultMonster.Ooze		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Black Pudding)]
+STARTPACK:Ooze (Black Pudding) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Black Pudding)]
 RACE:Ooze (Black Pudding)	!PRERACE:1,%
 NAME:Ooze (Black Pudding)
 ALIGN:TN

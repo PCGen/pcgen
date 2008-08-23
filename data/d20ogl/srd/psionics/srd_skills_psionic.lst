@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Mon Sep 11 02:57:57 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus - Frank
 
-# Skill Name			Key Stat	Untrained?		Exclusive?		Classes			Type						Bonus to skill														Source Page
-Autohypnosis			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Psionic																			SOURCEPAGE:srdpsionicskills.rtf
-Knowledge (Mortal Enemy Lore)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.Psionic																	SOURCEPAGE:srdpsionicclasses.rtf
-Knowledge (Psionics)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.Psionic	BONUS:SKILL|Knowledge (Psionics)|SynergyBonus|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK	SOURCEPAGE:srdpsionicskills.rtf
-Psicraft				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic		BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Use Psionic Device=5|TYPE=Synergy.STACK		SOURCEPAGE:srdpsionicskills.rtf
-Remote View				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic																		SOURCEPAGE:srdpsionicskills.rtf
-Stabilize Self			KEYSTAT:CON	USEUNTRAINED:NO								TYPE:Constitution.Psionic																		SOURCEPAGE:srdpsionicskills.rtf
-Use Psionic Device		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	CLASSES:Rogue|Bard	TYPE:Charisma				BONUS:SKILL|Use Psionic Device|SynergyBonus|PRESKILL:1,Psicraft=5|TYPE=Synergy.STACK		SOURCEPAGE:srdpsionicskills.rtf
+# Skill Name			Key Stat	Untrained?		Exclusive?		Classes			Type						Source Page					Bonus to skill
+Autohypnosis			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Psionic			SOURCEPAGE:srdpsionicskills.rtf
+Knowledge (Mortal Enemy Lore)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.Psionic	SOURCEPAGE:srdpsionicclasses.rtf
+Knowledge (Psionics)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.Psionic	SOURCEPAGE:srdpsionicskills.rtf	BONUS:SKILL|Knowledge (Psionics)|SynergyBonus|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK
+Psicraft				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic		SOURCEPAGE:srdpsionicskills.rtf	BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Use Psionic Device=5|TYPE=Synergy.STACK
+Remote View				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic		SOURCEPAGE:srdpsionicskills.rtf
+Stabilize Self			KEYSTAT:CON	USEUNTRAINED:NO								TYPE:Constitution.Psionic		SOURCEPAGE:srdpsionicskills.rtf
+Use Psionic Device		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	CLASSES:Rogue|Bard	TYPE:Charisma				SOURCEPAGE:srdpsionicskills.rtf	BONUS:SKILL|Use Psionic Device|SynergyBonus|PRESKILL:1,Psicraft=5|TYPE=Synergy.STACK

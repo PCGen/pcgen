@@ -1,0 +1,39 @@
+# CVS $Revision$ $Author$ -- Sat Aug 23 16:07:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+###Block: Astral Construct menu choices
+# Feat Name				Type					Visible	Special ABility																																					Define																																																																		Stackable?	Multiple?	Choose									Combat bonus				Source Page
+# Ability Name				Output Name						Category of Ability		Type										Visible		Special ABility				Define					Description													Stackable?	Multiple?	Choose		Move			Combat bonus				Modify VAR					Source Page
+AstralC Additional Attack		OUTPUTNAME:Additional Attack			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA.Extraordinary																	DESC:Additional attack at highest attack bonus (both attacks -2 to attack roll)																							SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Armor				OUTPUTNAME:Armor					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary																																								BONUS:COMBAT|AC|1|TYPE=Deflection							SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Fly					OUTPUTNAME:Fly					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary																																					MOVE:Fly,60														SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Resistance (Fire)		OUTPUTNAME:Resistance to Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary				SAB:Fire Resistance(Ex) %|		DEFINE:AstralCFireRes|0																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|AstralCFireRes|5		SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Resistance (Cold)		OUTPUTNAME:Resistance to Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary				SAB:Cold Resistance(Ex) %|		DEFINE:AstralCColdRes|0																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|AstralCColdRes|5		SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Resistance (Acid)		OUTPUTNAME:Resistance to Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary				SAB:Acid Resistance(Ex) %|		DEFINE:AstralCAcidRes|0																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|AstralCAcidRes|5		SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Resistance (Electricity)	OUTPUTNAME:Resistance to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary				SAB:Electricity Resistance(Ex) %|	DEFINE:AstralCElectricityRes|0															STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|AstralCElectricityRes|5	SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Resistance (Sonic)		OUTPUTNAME:Resistance to Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary				SAB:Sonic Resistance(Ex) %|		DEFINE:AstralCSonicRes|0																STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|AstralCSonicRes|5		SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Sprint				OUTPUTNAME:Sprint					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA.Extraordinary																																																				SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Swim				OUTPUTNAME:Swim					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA				VISIBLE:DISPLAY																																		MOVE:Swim,60													SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Trample				OUTPUTNAME:Trample				CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA.Extraordinary																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Trip				OUTPUTNAME:Trip					CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA.Extraordinary																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+
+AstralC Buff				OUTPUTNAME:Buff					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB.Extraordinary																																																				SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Charge				OUTPUTNAME:Charge					CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB.Extraordinary																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Heavy Armor			OUTPUTNAME:Heavy Armor				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB.Extraordinary																																								BONUS:COMBAT|AC|4|TYPE=Deflection							SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Improved Grab			OUTPUTNAME:Improved Grab			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB.Extraordinary																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Smack Down			OUTPUTNAME:Smack Down				CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB.Supernatural																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Squeeze				OUTPUTNAME:Squeeze				CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB.Extraordinary																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+
+AstralC Concussion			OUTPUTNAME:Concussion				CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC.SpellLike																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Cone of Sound			OUTPUTNAME:Cone of Sound			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC.SpellLike																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Dimension Slide			OUTPUTNAME:Dimension Slide			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC.SpellLike																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Extra Buff			OUTPUTNAME:Extra Buff				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC.Extraordinary																																																				SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Gore				OUTPUTNAME:Gore					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC.Extraordinary																																																				SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Invisibility			OUTPUTNAME:Invisibility				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC.SpellLike																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC See Invisibility		OUTPUTNAME:See Invisibility			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC.Supernatural																																																					SOURCEPAGE:srdpsioniccreatures.rtf
+AstralC Superheavy Armor		OUTPUTNAME:Superheavy Armor			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC.Extraordinary																																								BONUS:COMBAT|AC|7|TYPE=Deflection							SOURCEPAGE:srdpsioniccreatures.rtf
+
+
+#
+# End
+#

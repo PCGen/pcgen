@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Feb 19 22:17:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Gargoyle Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle]
+STARTPACK:Gargoyle Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle]
 RACE:Gargoyle	!PRERACE:1,%
 NAME:Gargoyle
 ALIGN:CE
@@ -14,7 +14,7 @@ FEAT:Weapon Finesse (Claw)
 FEAT:Weapon Finesse (Bite)
 FEAT:Weapon Finesse (Gore)
 
-STARTPACK:Genie (Janni) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Janni)]
+STARTPACK:Genie (Janni) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Janni)]
 RACE:Genie (Janni)	!PRERACE:1,%
 NAME:Genie (Janni)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -31,7 +31,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Mobility
 
-STARTPACK:Genie (Djinni) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni)]
+STARTPACK:Genie (Djinni) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni)]
 RACE:Genie (Djinni)	!PRERACE:1,%
 NAME:Genie (Djinni)
 ALIGN:CG
@@ -49,7 +49,7 @@ FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Genie (Djinni Noble) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni Noble)]
+STARTPACK:Genie (Djinni Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni Noble)]
 RACE:Genie (Djinni Noble)	!PRERACE:1,%
 NAME:Genie (Djinni Noble)
 ALIGN:CG
@@ -67,7 +67,7 @@ FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Genie (Efreeti) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Efreeti)]
+STARTPACK:Genie (Efreeti) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Efreeti)]
 RACE:Genie (Efreeti)	!PRERACE:1,%
 NAME:Genie (Efreeti)
 ALIGN:LE
@@ -137,7 +137,7 @@ SKILL:Intuit Direction	RANK:1
 FEAT:Multiattack
 FEAT:Weapon Finesse (Bite)
 
-STARTPACK:Giant (Hill) Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
+STARTPACK:Giant (Hill) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
 RACE:Giant (Hill)	!PRERACE:1,%
 NAME:Giant (Hill)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -148,7 +148,7 @@ FEAT:Cleave
 FEAT:Power Attack
 FEAT:Weapon Focus (Greatclub)
 
-STARTPACK:Giant (Stone) Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Stone)]
+STARTPACK:Giant (Stone) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Stone)]
 RACE:Giant (Stone)	!PRERACE:1,%
 NAME:Giant (Stone)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -161,7 +161,7 @@ FEAT:Point Blank Shot
 FEAT:Power Attack
 FEAT:Precise Shot
 
-STARTPACK:Giant (Frost) Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
+STARTPACK:Giant (Frost) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
 RACE:Giant (Frost)	!PRERACE:1,%
 NAME:Giant (Frost)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -173,7 +173,7 @@ FEAT:Great Cleave
 FEAT:Power Attack
 FEAT:Sunder
 
-STARTPACK:Giant (Fire) Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Fire)]
+STARTPACK:Giant (Fire) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Fire)]
 RACE:Giant (Fire)	!PRERACE:1,%
 NAME:Giant (Fire)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -185,7 +185,7 @@ FEAT:Great Cleave
 FEAT:Power Attack
 FEAT:Sunder
 
-STARTPACK:Giant (Cloud) Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Cloud)]
+STARTPACK:Giant (Cloud) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Cloud)]
 RACE:Giant (Cloud)	!PRERACE:1,%
 NAME:Giant (Cloud)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -198,7 +198,7 @@ FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Power Attack
 
-STARTPACK:Giant (Storm) Default	TYPE:DefaultMonster.Giant		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Storm)]
+STARTPACK:Giant (Storm) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Storm)]
 RACE:Giant (Storm)	!PRERACE:1,%
 NAME:Giant (Storm)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -213,7 +213,7 @@ FEAT:Great Cleave
 FEAT:Power Attack
 FEAT:Sunder
 
-STARTPACK:Giant Eagle Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Eagle]
+STARTPACK:Giant Eagle Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Eagle]
 RACE:Giant Eagle	!PRERACE:1,%
 NAME:Giant Eagle
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -224,7 +224,7 @@ SKILL:Wilderness Lore		RANK:6
 SKILL:Spot				RANK:7
 FEAT:Alertness
 
-STARTPACK:Giant Owl Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Owl]
+STARTPACK:Giant Owl Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Owl]
 RACE:Giant Owl	!PRERACE:1,%
 NAME:Giant Owl
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -315,7 +315,7 @@ NAME:Golem (Iron)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Gorgon Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon]
+STARTPACK:Gorgon Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon]
 RACE:Gorgon	!PRERACE:1,%
 NAME:Gorgon
 ALIGN:TN
@@ -349,7 +349,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:10
 
-STARTPACK:Grimlock Default	TYPE:DefaultMonster.MonstrousHumanoid		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimlock]
+STARTPACK:Grimlock Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimlock]
 RACE:Grimlock	!PRERACE:1,%
 NAME:Grimlock
 ALIGN:NE
@@ -361,7 +361,7 @@ SKILL:Search	RANK:5
 SKILL:Spot		RANK:2
 FEAT:Alertness
 
-STARTPACK:Hag (Sea) Default	TYPE:DefaultMonster.MonstrousHumanoid		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Sea)]
+STARTPACK:Hag (Sea) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Sea)]
 RACE:Hag (Sea)	!PRERACE:1,%
 NAME:Hag (Sea)
 ALIGN:CE
@@ -371,7 +371,7 @@ SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 FEAT:Alertness
 
-STARTPACK:Hag (Annis) Default	TYPE:DefaultMonster.MonstrousHumanoid		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]
+STARTPACK:Hag (Annis) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]
 RACE:Hag (Annis)	!PRERACE:1,%
 NAME:Hag (Annis)
 ALIGN:CE
@@ -384,7 +384,7 @@ FEAT:Alertness
 FEAT:Blind-Fight
 FEAT:Combat Casting
 
-STARTPACK:Hag (Green) Default	TYPE:DefaultMonster.MonstrousHumanoid		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Green)]
+STARTPACK:Hag (Green) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Green)]
 RACE:Hag (Green)	!PRERACE:1,%
 NAME:Hag (Green)
 ALIGN:CE
@@ -481,7 +481,7 @@ SKILL:Search		RANK:3
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Hydra (Five Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Standard)]
+STARTPACK:Hydra (Five Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Standard)]
 RACE:Hydra (Five Standard)	!PRERACE:1,%
 NAME:Hydra (Five Standard)
 ALIGN:TN
@@ -489,7 +489,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
 
-STARTPACK:Hydra (Six Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Standard)]
+STARTPACK:Hydra (Six Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Standard)]
 RACE:Hydra (Six Standard)	!PRERACE:1,%
 NAME:Hydra (Six Standard)
 ALIGN:TN
@@ -497,7 +497,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 
-STARTPACK:Hydra (Seven Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Standard)]
+STARTPACK:Hydra (Seven Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Standard)]
 RACE:Hydra (Seven Standard)	!PRERACE:1,%
 NAME:Hydra (Seven Standard)
 ALIGN:TN
@@ -505,7 +505,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
 
-STARTPACK:Hydra (Eight Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Standard)]
+STARTPACK:Hydra (Eight Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Standard)]
 RACE:Hydra (Eight Standard)	!PRERACE:1,%
 NAME:Hydra (Eight Standard)
 ALIGN:TN
@@ -513,7 +513,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 
-STARTPACK:Hydra (Nine Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Standard)]
+STARTPACK:Hydra (Nine Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Standard)]
 RACE:Hydra (Nine Standard)	!PRERACE:1,%
 NAME:Hydra (Nine Standard)
 ALIGN:TN
@@ -521,7 +521,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:6
 
-STARTPACK:Hydra (Ten Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Standard)]
+STARTPACK:Hydra (Ten Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Standard)]
 RACE:Hydra (Ten Standard)	!PRERACE:1,%
 NAME:Hydra (Ten Standard)
 ALIGN:TN
@@ -529,7 +529,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 
-STARTPACK:Hydra (Eleven Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Standard)]
+STARTPACK:Hydra (Eleven Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Standard)]
 RACE:Hydra (Eleven Standard)	!PRERACE:1,%
 NAME:Hydra (Eleven Standard)
 ALIGN:TN
@@ -537,7 +537,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:7
 
-STARTPACK:Hydra (Twelve Standard) Default	TYPE:DefaultMonster.Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Standard)]
+STARTPACK:Hydra (Twelve Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Standard)]
 RACE:Hydra (Twelve Standard)	!PRERACE:1,%
 NAME:Hydra (Twelve Standard)
 ALIGN:TN
@@ -545,7 +545,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
 
-STARTPACK:Hydra (Five Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Magical)]
+STARTPACK:Hydra (Five Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Magical)]
 RACE:Hydra (Five Magical)	!PRERACE:1,%
 NAME:Hydra (Five Magical)
 ALIGN:TN
@@ -553,7 +553,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
 
-STARTPACK:Hydra (Six Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Magical)]
+STARTPACK:Hydra (Six Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Magical)]
 RACE:Hydra (Six Magical)	!PRERACE:1,%
 NAME:Hydra (Six Magical)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -561,7 +561,7 @@ ALIGN:TN
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 
-STARTPACK:Hydra (Seven Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Magical)]
+STARTPACK:Hydra (Seven Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Magical)]
 RACE:Hydra (Seven Magical)	!PRERACE:1,%
 NAME:Hydra (Seven Magical)
 ALIGN:TN
@@ -569,7 +569,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
 
-STARTPACK:Hydra (Eight Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Magical)]
+STARTPACK:Hydra (Eight Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Magical)]
 RACE:Hydra (Eight Magical)	!PRERACE:1,%
 NAME:Hydra (Eight Magical)
 ALIGN:TN
@@ -577,7 +577,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 
-STARTPACK:Hydra (Nine Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Magical)]
+STARTPACK:Hydra (Nine Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Magical)]
 RACE:Hydra (Nine Magical)	!PRERACE:1,%
 NAME:Hydra (Nine Magical)
 ALIGN:TN
@@ -585,7 +585,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:6
 
-STARTPACK:Hydra (Ten Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Magical)]
+STARTPACK:Hydra (Ten Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Magical)]
 RACE:Hydra (Ten Magical)	!PRERACE:1,%
 NAME:Hydra (Ten Magical)
 ALIGN:TN
@@ -593,7 +593,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 
-STARTPACK:Hydra (Eleven Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Magical)]
+STARTPACK:Hydra (Eleven Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Magical)]
 RACE:Hydra (Eleven Magical)	!PRERACE:1,%
 NAME:Hydra (Eleven Magical)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -601,7 +601,7 @@ ALIGN:TN
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:7
 
-STARTPACK:Hydra (Twelve Magical) Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Magical)]
+STARTPACK:Hydra (Twelve Magical) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Magical)]
 RACE:Hydra (Twelve Magical)	!PRERACE:1,%
 NAME:Hydra (Twelve Magical)
 ALIGN:TN

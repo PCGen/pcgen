@@ -6,18 +6,6 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 # Feat Name		Type			Visible	Minimum Size		Special ABility	Clone Movement
 Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SAB:Dragon Wings	MOVECLONE:Walk,Fly,0
 
-
-
-###Block: Ghost Abilities
-# Feat Name			Type			Visible	Special ABility
-Corrupting Gaze		TYPE:GhostAbility	VISIBLE:NO	SAB:Corrupting Gaze (Su) DC%|GhostAbilityDC
-Corrupting Touch		TYPE:GhostAbility	VISIBLE:NO	SAB:Corrupting Touch (Su) DC%|GhostAbilityDC
-Draining Touch		TYPE:GhostAbility	VISIBLE:NO	SAB:Draining Touch (Su) DC%|GhostAbilityDC
-Frightful Moan		TYPE:GhostAbility	VISIBLE:NO	SAB:Frightful Moan (Su) DC%|GhostAbilityDC
-Horrific Appearance	TYPE:GhostAbility	VISIBLE:NO	SAB:Horrific Appearance (Su) DC%|GhostAbilityDC
-Malevolence			TYPE:GhostAbility	VISIBLE:NO	SAB:Malevolence (Su) DC%|15+max(CHA,0)|PRETEMPLATE:1,Ghost
-Telekinesis			TYPE:GhostAbility	VISIBLE:NO	SAB:Telekinesis (Su) DC%|GhostAbilityDC
-
 ###Block: Monster DR
 # Feat Name			Type			Visible	Damage Reduction
 Monster DR ~ 5 plus 1	TYPE:Special	VISIBLE:NO	DR:5/+1

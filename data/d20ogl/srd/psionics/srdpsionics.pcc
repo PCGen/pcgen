@@ -25,6 +25,7 @@ INFOTEXT:SRD Psionics options. Requires the SRD Basics set.
 ABILITYCATEGORY:srd_ability_categories_psionic.lst
 
 ABILITY:srd_abilities_class_psionic.lst
+ABILITY:srd_abilities_monster_psionic.lst
 
 CLASS:srd_classes_psionic.lst
 

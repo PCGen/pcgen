@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+###Block: Ghost Abilities
+# Feat Name			Type			Visible	Special ABility
+# Ability Name		Category of Ability		Type								Description
+Corrupting Gaze		CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
+Corrupting Touch		CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
+Draining Touch		CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
+Frightful Moan		CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
+Horrific Appearance	CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
+Malevolence			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|15+max(CHA,0)
+Telekinesis			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
+
+#
+# End
+#

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Jan 16 17:25:24 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original entry for Astral Contruct templates by: Ian
 
-# Template Name		Visible	Add to magical move							FAVOREDCLASS
+# Template Name		Visible	Add to magical move							Favored Class
 PP >= 1					BONUS:POSTMOVEADD|TYPE=Walk|10|PREFEAT:1,Speed of Thought
 
 # Race templates
@@ -11,56 +11,56 @@ Fighter Favored		VISIBLE:NO											FAVOREDCLASS:Fighter
 Psychic Warrior Favored	VISIBLE:NO											FAVOREDCLASS:Psychic Warrior
 
 ###Block: Astral Construct menu choices, groups are all possible combinations of A/B/C choices given any set in the group.
-# Template Name				Visible	Template																																																																																					Source Page					Add
-Astral Construct Feats (1 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA
+# Template Name				Visible	Source Page					Bonus to Ability Pool
+Astral Construct Feats (1 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|1
 
-Astral Construct Feats (2 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA
-Astral Construct Feats (0 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuB
+Astral Construct Feats (2 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2
+Astral Construct Feats (0 1 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu B|1
 
-Astral Construct Feats (3 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|3|TYPE=AstralConstructMenuA
-Astral Construct Feats (1 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
+Astral Construct Feats (3 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|3
+Astral Construct Feats (1 1 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|1	BONUS:ABILITYPOOL|Astral Construct Menu B|1
 
-Astral Construct Feats (4 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA
-Astral Construct Feats (2 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
-Astral Construct Feats (0 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuB
-Astral Construct Feats (0 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (4 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|4
+Astral Construct Feats (2 1 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu B|1
+Astral Construct Feats (0 2 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu B|2
+Astral Construct Feats (0 0 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu C|1
 
-Astral Construct Feats (6 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA
-Astral Construct Feats (4 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
-Astral Construct Feats (2 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB
-Astral Construct Feats (2 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (0 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB
-Astral Construct Feats (0 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|1|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
+Astral Construct Feats (6 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|6
+Astral Construct Feats (4 1 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|4	BONUS:ABILITYPOOL|Astral Construct Menu B|1
+Astral Construct Feats (2 2 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu B|2
+Astral Construct Feats (2 0 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (0 3 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|1	BONUS:ABILITYPOOL|Astral Construct Menu B|3
+Astral Construct Feats (0 1 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|1	BONUS:ABILITYPOOL|Astral Construct Menu B|1	BONUS:ABILITYPOOL|Astral Construct Menu C|1
 
-Astral Construct Feats (8 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|8|TYPE=AstralConstructMenuA
-Astral Construct Feats (6 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
-Astral Construct Feats (4 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB
-Astral Construct Feats (4 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (2 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB
-Astral Construct Feats (2 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (0 4 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuB
-Astral Construct Feats (0 2 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (0 0 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuC
+Astral Construct Feats (8 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|8
+Astral Construct Feats (6 1 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|6	BONUS:ABILITYPOOL|Astral Construct Menu B|1
+Astral Construct Feats (4 2 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|4	BONUS:ABILITYPOOL|Astral Construct Menu B|2
+Astral Construct Feats (4 0 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|4	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (2 3 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu B|3
+Astral Construct Feats (2 1 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu B|1	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (0 4 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu B|4
+Astral Construct Feats (0 2 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu B|2	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (0 0 2)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu C|2
 
-Astral Construct Feats (12 0 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|12|TYPE=AstralConstructMenuA
-Astral Construct Feats (10 1 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|10|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB
-Astral Construct Feats (8 2 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|8|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB
-Astral Construct Feats (8 0 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|8|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (6 3 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB
-Astral Construct Feats (6 1 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (4 4 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|4|TYPE=AstralConstructMenuB
-Astral Construct Feats (4 2 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (4 0 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuA	ADD:FEAT|2|TYPE=AstralConstructMenuC
-Astral Construct Feats (2 5 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|5|TYPE=AstralConstructMenuB
-Astral Construct Feats (2 3 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|3|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (2 1 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuA	ADD:FEAT|1|TYPE=AstralConstructMenuB	ADD:FEAT|2|TYPE=AstralConstructMenuC
-Astral Construct Feats (0 6 0)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|6|TYPE=AstralConstructMenuB
-Astral Construct Feats (0 4 1)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|4|TYPE=AstralConstructMenuB	ADD:FEAT|1|TYPE=AstralConstructMenuC
-Astral Construct Feats (0 2 2)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|2|TYPE=AstralConstructMenuB	ADD:FEAT|2|TYPE=AstralConstructMenuC
-Astral Construct Feats (0 0 3)	VISIBLE:NO																																																																																							SOURCEPAGE:srdpsioniccreatures.rtf	ADD:FEAT|3|TYPE=AstralConstructMenuC
+Astral Construct Feats (12 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|12
+Astral Construct Feats (10 1 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|10	BONUS:ABILITYPOOL|Astral Construct Menu B|1
+Astral Construct Feats (8 2 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|8	BONUS:ABILITYPOOL|Astral Construct Menu B|2
+Astral Construct Feats (8 0 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|8	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (6 3 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|6	BONUS:ABILITYPOOL|Astral Construct Menu B|3
+Astral Construct Feats (6 1 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|6	BONUS:ABILITYPOOL|Astral Construct Menu B|1	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (4 4 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|4	BONUS:ABILITYPOOL|Astral Construct Menu B|4
+Astral Construct Feats (4 2 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|4	BONUS:ABILITYPOOL|Astral Construct Menu B|2	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (4 0 2)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|4	BONUS:ABILITYPOOL|Astral Construct Menu C|2
+Astral Construct Feats (2 5 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu B|5
+Astral Construct Feats (2 3 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu B|3	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (2 1 2)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2	BONUS:ABILITYPOOL|Astral Construct Menu B|1	BONUS:ABILITYPOOL|Astral Construct Menu C|2
+Astral Construct Feats (0 6 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu B|6
+Astral Construct Feats (0 4 1)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu B|4	BONUS:ABILITYPOOL|Astral Construct Menu C|1
+Astral Construct Feats (0 2 2)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu B|2	BONUS:ABILITYPOOL|Astral Construct Menu C|2
+Astral Construct Feats (0 0 3)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu C|3
 
-# Astral Construct menu choices (per level)
-# Template Name				Visible	Template																																																																																					Source Page					Add
+###Block: Astral Construct menu choices (per level)
+# Template Name				Visible	Template																																																																																					Source Page
 Astral Construct Feats (1st Level)	VISIBLE:NO	TEMPLATE:CHOOSE:Astral Construct Feats (1 0 0)																																																																															SOURCEPAGE:srdpsioniccreatures.rtf
 Astral Construct Feats (2nd Level)	VISIBLE:NO	TEMPLATE:CHOOSE:Astral Construct Feats (2 0 0)|Astral Construct Feats (0 1 0)																																																																										SOURCEPAGE:srdpsioniccreatures.rtf
 Astral Construct Feats (3rd Level)	VISIBLE:NO	TEMPLATE:CHOOSE:Astral Construct Feats (3 0 0)|Astral Construct Feats (1 1 0)																																																																										SOURCEPAGE:srdpsioniccreatures.rtf

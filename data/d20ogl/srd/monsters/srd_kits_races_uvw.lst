@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Unicorn Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unicorn]
+STARTPACK:Unicorn Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unicorn]
 RACE:Unicorn	!PRERACE:1,%
 NAME:Unicorn
 ALIGN:CG
@@ -67,7 +67,7 @@ FEAT:Blind-Fight
 FEAT:Dodge
 FEAT:Improved Initiative
 
-STARTPACK:Winter Wolf Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winter Wolf]
+STARTPACK:Winter Wolf Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winter Wolf]
 RACE:Winter Wolf	!PRERACE:1,%
 NAME:Winter Wolf
 ALIGN:NE
@@ -79,7 +79,7 @@ SKILL:Move Silently	RANK:6
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Worg Default	TYPE:DefaultMonster.MagicalBeast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Worg]
+STARTPACK:Worg Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Worg]
 RACE:Worg	!PRERACE:1,%
 NAME:Worg
 ALIGN:NE

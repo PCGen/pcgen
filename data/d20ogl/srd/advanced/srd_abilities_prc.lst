@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Mar 10 17:18:49 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block: Arcane Archer
-# Ability Name	Category of Ability		Type						Visible		Special ABility				Define
+# Ability Name	Category of Ability		Type						Visible		Special ABility				Define			Modify VAR
 Enchant Arrow	CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Enchant Arrow +%|EnchantArrow	DEFINE:EnchantArrow|0
 Imbue Arrow		CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Imbue Arrow
 Seeker Arrow	CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Seeker Arrow
@@ -11,8 +11,8 @@ Hail of Arrows	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:
 Arrow of Death	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Arrow of Death
 
 #Class: Assassin
-Death Attack	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO		SAB:Death Attack (DC %)|DeathAttack	DEFINE:DeathAttack|0		BONUS:VAR|DeathAttack|10+INT		
-Poison Use		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO		SAB:Poison Use (Ex)			
+Death Attack	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO		SAB:Death Attack (DC %)|DeathAttack	DEFINE:DeathAttack|0	BONUS:VAR|DeathAttack|10+INT
+Poison Use		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO		SAB:Poison Use (Ex)
 
 
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Specific Templates used in monster races
 #
@@ -39,15 +39,15 @@ Hunting		VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf																												
 Web Spinning	VISIBLE:NO	SOURCEPAGE:srdmonstersvermin.rtf	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|14	DEFINE:MonstrousSpiderWebBreakDC|20	DEFINE:MonstrousSpiderWebHp|0						BONUS:SKILL|Hide,Spot|4|TYPE=Racial													BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC,MonstrousSpiderWebHp|18|PRESIZEEQ:C	REMOVABLE:YES	SUBRACE:Yes
 #
 ###Block: Hydra Variants
-# Template Name		CR	Visible	Source Page				Special ABility																																										Prohibited Template					Removable?		Subrace
-Pyrohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet																													!PRETEMPLATE:1,Cyrohydra,Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
-Cryohydra			CR:1	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet																													!PRETEMPLATE:1,Pyrohydra,Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
-Lernaean			CR:2	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds																									REMOVABLE:YES	SUBRACE:Yes
-Lernaean Pyrohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet	!PRETEMPLATE:1,Cyrohydra,Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
-Lernaean Cryohydra	CR:3	VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet	!PRETEMPLATE:1,Pyrohydra,Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
+# Template Name		Challenge Rating	Visible	Source Page				Special ABility																																										Prohibited Template					Removable?		Subrace
+Pyrohydra			CR:1			VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet																													!PRETEMPLATE:1,Cyrohydra,Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
+Cryohydra			CR:1			VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet																													!PRETEMPLATE:1,Pyrohydra,Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
+Lernaean			CR:2			VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds																									REMOVABLE:YES	SUBRACE:Yes
+Lernaean Pyrohydra	CR:3			VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Fire Subtype(Ex)	SAB:Fire Jets(Ex) once every 1d4 rounds per head - 3d6 fire per jet	!PRETEMPLATE:1,Cyrohydra,Lernaean Cryohydra	REMOVABLE:YES	SUBRACE:Yes
+Lernaean Cryohydra	CR:3			VISIBLE:NO	SOURCEPAGE:srdmonstersh.rtf	SAB:Body immune to all attacks(Ex) except Disintegrate/Finger of Death/Slay Living	SAB:must sever all heads to kill	SAB:2 heads replace severed head in 1d4 rounds	SAB:Cold Subtype(Ex)	SAB:Frost Jets(Ex) once every 1d4 rounds per head - 3d6 cold per jet	!PRETEMPLATE:1,Pyrohydra,Lernaean Pyrohydra	REMOVABLE:YES	SUBRACE:Yes
 #
 ###Block: Drow Genders
-# Template Name	Visible	Source Page				Required Race		Stat bonus		FAVOREDCLASS		Removable?		Subrace		GENDERLOCK
+# Template Name	Visible	Source Page				Required Race		Stat bonus		Favored Class		Removable?		Subrace		Lock Gender Selection
 Drow Male		VISIBLE:NO	SOURCEPAGE:srdmonsterse.rtf	PRERACE:1,Elf (Drow)	BONUS:STAT|CHA|-2	FAVOREDCLASS:Wizard	REMOVABLE:YES	SUBRACE:Male	GENDERLOCK:Male
 Drow Female		VISIBLE:NO	SOURCEPAGE:srdmonsterse.rtf	PRERACE:1,Elf (Drow)	BONUS:STAT|CHA|2	FAVOREDCLASS:Cleric	REMOVABLE:YES	SUBRACE:Female	GENDERLOCK:Female
 ###Block: Pixie
@@ -55,7 +55,7 @@ Drow Female		VISIBLE:NO	SOURCEPAGE:srdmonsterse.rtf	PRERACE:1,Elf (Drow)	BONUS:S
 Irresistible Dance	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	SPELLS:Innate|TIMES=1|CASTERLEVEL=8|Irresistible Dance,21
 Normal Pixie		VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf
 ###Block: Sahuagin
-# Template Name	Visible	Source Page				Required Race		FAVOREDCLASS		Removable?		GENDERLOCK
+# Template Name	Visible	Source Page				Required Race		Favored Class		Removable?		Lock Gender Selection
 Sahuagin Male	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	PRERACE:1,Sahuagin	FAVOREDCLASS:Ranger	REMOVABLE:YES	GENDERLOCK:Male
 Sahuagin Female	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	PRERACE:1,Sahuagin	FAVOREDCLASS:Cleric	REMOVABLE:YES	GENDERLOCK:Female
 ###Block: Goblin Calvary

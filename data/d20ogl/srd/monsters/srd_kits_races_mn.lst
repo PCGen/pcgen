@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 STARTPACK:Magmin Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magmin]
@@ -31,7 +31,7 @@ FEAT:Point Blank Shot
 FEAT:Precise Shot
 FEAT:Weapon Finesse (Snakes)
 
-STARTPACK:Mephit (Air) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Air)]
+STARTPACK:Mephit (Air) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Air)]
 RACE:Mephit (Air)	!PRERACE:1,%
 NAME:Mephit (Air)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -42,7 +42,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Improved Initiative
 
-STARTPACK:Mephit (Dust) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Dust)]
+STARTPACK:Mephit (Dust) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Dust)]
 RACE:Mephit (Dust)	!PRERACE:1,%
 NAME:Mephit (Dust)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -53,7 +53,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Improved Initiative
 
-STARTPACK:Mephit (Earth) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Earth)]
+STARTPACK:Mephit (Earth) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Earth)]
 RACE:Mephit (Earth)	!PRERACE:1,%
 NAME:Mephit (Earth)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -64,7 +64,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Power Attack
 
-STARTPACK:Mephit (Fire) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Fire)]
+STARTPACK:Mephit (Fire) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Fire)]
 RACE:Mephit (Fire)	!PRERACE:1,%
 NAME:Mephit (Fire)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -75,7 +75,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Improved Initiative
 
-STARTPACK:Mephit (Ice) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ice)]
+STARTPACK:Mephit (Ice) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ice)]
 RACE:Mephit (Ice)	!PRERACE:1,%
 NAME:Mephit (Ice)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -86,7 +86,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Improved Initiative
 
-STARTPACK:Mephit (Magma) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Magma)]
+STARTPACK:Mephit (Magma) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Magma)]
 RACE:Mephit (Magma)	!PRERACE:1,%
 NAME:Mephit (Magma)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -97,7 +97,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Improved Initiative
 
-STARTPACK:Mephit (Ooze) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ooze)]
+STARTPACK:Mephit (Ooze) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ooze)]
 RACE:Mephit (Ooze)	!PRERACE:1,%
 NAME:Mephit (Ooze)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -108,7 +108,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Power Attack
 
-STARTPACK:Mephit (Salt) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Salt)]
+STARTPACK:Mephit (Salt) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Salt)]
 RACE:Mephit (Salt)	!PRERACE:1,%
 NAME:Mephit (Salt)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -119,7 +119,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 FEAT:Power Attack
 
-STARTPACK:Mephit (Steam) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Steam)]
+STARTPACK:Mephit (Steam) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Steam)]
 RACE:Mephit (Steam)	!PRERACE:1,%
 NAME:Mephit (Steam)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -130,7 +130,7 @@ SKILL:Spot			RANK:6
 SKILL:Move Silently	RANK:5
 FEAT:Improved Initiative
 
-STARTPACK:Mephit (Water) Default	TYPE:DefaultMonster.Outsider		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Water)]
+STARTPACK:Mephit (Water) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Water)]
 RACE:Mephit (Water)	!PRERACE:1,%
 NAME:Mephit (Water)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11

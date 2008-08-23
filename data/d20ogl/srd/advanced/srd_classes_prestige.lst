@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jun 19 21:54:04 2008 -- reformated by prettylst.pl v1.38 (build 6748)
+# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
@@ -45,7 +45,7 @@ CLASS:Blackguard	HD:10		TYPE:PC.Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:prestig
 CLASS:Blackguard	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:2,Cleave,Sunder	PRESKILL:2,Hide=5,Knowledge (Religion)=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Ride
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|CL
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
@@ -87,14 +87,6 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 2															BONUS:VAR|UncannyDodge|1						ABILITY:Special Ability|AUTOMATIC|Defensive Awareness
 6	DR:3/-													BONUS:VAR|UncannyDodge|1
 10	DR:6/-													BONUS:VAR|UncannyDodge|1
-
-###
-###Block: Normal Level Progression for 3.5 version
-#1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3						AUTO:FEAT|Dwarven Defender Defensive Stance|Dwarven Defender AC Bonus
-#2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE										ADD:FEAT|TYPE=UncannyDodge
-#4	BONUS:VAR|TrapSense|CL/4																					AUTO:FEAT|Trap Sense Ability
-#6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ADD:FEAT|TYPE=UncannyDodge	AUTO:FEAT|Dwarven Defender DR
-#8																										AUTO:FEAT|Dwarven Defender Mobile Defense
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
 CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
