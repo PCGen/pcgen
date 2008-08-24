@@ -12,6 +12,31 @@ Horrific Appearance	CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Sup
 Malevolence			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|15+max(CHA,0)
 Telekinesis			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
 
+
+###Comment: Low priority but start of bring srd closer to rsrd. -AM
+
+###Block: 1/2 dragon template flight capability
+# Feat Name		Type			Visible	Minimum Size		Special ABility	Clone Movement
+Dragon Flight	CATEGORY:Special Ability	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SAB:Dragon Wings	MOVECLONE:Walk,Fly,0
+
+###Block: Monster DR
+# Feat Name			Type			Visible	Damage Reduction
+Monster DR ~ 5 plus 1	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:5/+1
+Monster DR ~ 5 plus 2	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:5/+2
+Monster DR ~ 10 plus 1	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:10/+1
+Monster DR ~ 10 plus 3	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:10/+3
+Monster DR ~ 15 plus 2	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:15/+2
+Monster DR ~ 20 plus 2	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:20/+2
+Monster DR ~ 20 plus 3	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:20/+3
+
+###Block: Wildshape Tempmod Support
+# Feat Name			Type			Visible	Vision
+Wildshape Blindsight	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VISION:Blindsight (120')
+
+#
+# End
+#
+
 #
 # End
 #
