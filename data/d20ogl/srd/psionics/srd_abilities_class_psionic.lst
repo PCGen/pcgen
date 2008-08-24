@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Jan 30 23:19:59 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sun Aug 24 15:04:09 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block: Psionic Combat Modes
 # Feat Name				CATEGORY:Special Ability	TYPE:						Visible	Prohibited Feat			Special ABility
-# Ability Name		Category of Ability			CATEGORY:Special Ability	TYPE:								Visible		Special ABility
+# Ability Name		Category of Ability		Type								Visible		Special ABility
 Ego Whip			CATEGORY:Special Ability	TYPE:SpecialAttack.PsionicAttackMode.BasedOnDex	VISIBLE:DISPLAY	SAB:Ego Whip
 Id Insinuation		CATEGORY:Special Ability	TYPE:SpecialAttack.PsionicAttackMode.BasedOnStr	VISIBLE:DISPLAY	SAB:Id Insinuation
 Mind Blast			CATEGORY:Special Ability	TYPE:SpecialAttack.PsionicAttackMode.BasedOnCha	VISIBLE:DISPLAY	SAB:Mind Blast
@@ -19,17 +19,19 @@ Tower of Iron Will	CATEGORY:Special Ability	TYPE:SpecialQuality.PsionicDefenseMo
 #
 ###Block: Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
 # Feat Name			CATEGORY:Special Ability	TYPE:			Visible	Special ABility																					Define																						Modify VAR
-PsionicClass		CATEGORY:Special Ability	TYPE:PsionicClass	VISIBLE:NO	SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+# Ability Name	Category of Ability		Type			Visible	Special ABility																					Define																						Modify VAR
+PsionicClass	CATEGORY:Special Ability	TYPE:PsionicClass	VISIBLE:NO	SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: Psionic Feat Support
 # Feat Name					CATEGORY:Special Ability	TYPE:					Visible	Required Class			Prohibited Feat					Special ABility	Define									Save checks bonus			Bonus to skill			Modify VAR																															Allow Follower		Allowed Companions																																																			Source Page
-Inner Strength Points			CATEGORY:Special Ability	TYPE:PsionicFeat			VISIBLE:NO																DEFINE:InnerStrFeatCount|0	DEFINE:InnerStrFeatBonus|0											BONUS:VAR|InnerStrFeatCount|var("COUNT[FEATNAME=Inner Strength]")	BONUS:VAR|InnerStrFeatBonus|(InnerStrFeatCount)*((InnerStrFeatCount/2)+.5)	BONUS:VAR|BonusPowerPoints|InnerStrFeatBonus																																																											SOURCEPAGE:srdpsionicfeats.rtf
-Psicrystal					CATEGORY:Special Ability	TYPE:PsionicFeat			VISIBLE:NO													SAB:Psicrystal	DEFINE:PCrystalLevel|0																																																	FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	SOURCEPAGE:srdpsionicclasses.rtf
-Speed of Thought Movement		CATEGORY:Special Ability	TYPE:PsionicFeat			VISIBLE:NO																DEFINE:SOTMOVEBONUS|0																	BONUS:VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))|PREAPPLY:PC																																																																													SOURCEPAGE:srdpsionicfeats.rtf
+# Ability Name			Category of Ability		Type				Visible	Restricted Ability									Required Class			Special ABility														Define									Modify VAR																															Allow Follower		Allowed Companions																																																			Source Page
+Inner Strength Points		CATEGORY:Special Ability	TYPE:PsionicFeat		VISIBLE:NO																																		DEFINE:InnerStrFeatCount|0	DEFINE:InnerStrFeatBonus|0	BONUS:VAR|InnerStrFeatCount|var("COUNT[FEATNAME=Inner Strength]")	BONUS:VAR|InnerStrFeatBonus|(InnerStrFeatCount)*((InnerStrFeatCount/2)+.5)	BONUS:VAR|BonusPowerPoints|InnerStrFeatBonus																																																											SOURCEPAGE:srdpsionicfeats.rtf
+Psicrystal				CATEGORY:Special Ability	TYPE:PsionicFeat		VISIBLE:NO																		SAB:Psicrystal														DEFINE:PCrystalLevel|0																																							FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	SOURCEPAGE:srdpsionicclasses.rtf
+Speed of Thought Movement	CATEGORY:Special Ability	TYPE:PsionicFeat		VISIBLE:NO																																		DEFINE:SOTMOVEBONUS|0							BONUS:VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))|PREAPPLY:PC																																																																													SOURCEPAGE:srdpsionicfeats.rtf
 
 # These feats support the Talented feat, the user must decide which class the free powers are applied to
-Psychic Warrior Free Powers		CATEGORY:Special Ability	TYPE:TalentedFreePowers		VISIBLE:NO	PRECLASS:1,Psychic Warrior=1	!PREABILITY:1,CATEGORY=Special Ability,Psion Free Powers																										BONUS:VAR|PsyWarFreePowers|3|PREFEAT:1,Talented
-Psion Free Powers				CATEGORY:Special Ability	TYPE:TalentedFreePowers		VISIBLE:NO	PRECLASS:1,Psion=1		!PREABILITY:1,CATEGORY=Special Ability,Psychic Warrior Free Powers																								BONUS:VAR|PsionFreePowers|3|PREFEAT:1,Talented
+Psychic Warrior Free Powers	CATEGORY:Special Ability	TYPE:TalentedFreePowers	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Psion Free Powers			PRECLASS:1,Psychic Warrior=1																											BONUS:VAR|PsyWarFreePowers|3|PREFEAT:1,Talented
+Psion Free Powers			CATEGORY:Special Ability	TYPE:TalentedFreePowers	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Psychic Warrior Free Powers	PRECLASS:1,Psion=1																												BONUS:VAR|PsionFreePowers|3|PREFEAT:1,Talented
 
 #Psicrystal personalities
 # Feat Name					CATEGORY:Special Ability	TYPE:					Visible	Required Class			Prohibited Feat					Special ABility	Define									Save checks bonus			Bonus to skill			Modify VAR																															Allow Follower		Allowed Companions																																																			Source Page
@@ -50,57 +52,48 @@ Psion Free Powers				CATEGORY:Special Ability	TYPE:TalentedFreePowers		VISIBLE:N
 #Psicrystal (Sneaky)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Move Silently|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
 #Psicrystal (Sympathetic)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Sense Motive|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
 
-
-Psychic Warrior Weapon Specialization			CATEGORY:Special Ability	TYPE:PsychicWarriorWeaponSpecialChoice			ADD:FEAT|1|Weapon Specialization
-
-
-PsionBasePowers				TYPE:ClassAbility		CATEGORY:Special Ability		SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|0
-PsychicWarriorBasePowers		TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Psychic Warrior 0 level powers (% free / day)|PsyWarFreePowers	DEFINE:PsyWarFreePowers|0
-
-
-
-Power Psicrystal			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Power Psicrystal
+#
+PsionBasePowers			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Psion 0 level powers (% free / day)|PsionFreePowers							DEFINE:PsionFreePowers|0
+PsychicWarriorBasePowers	CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Psychic Warrior 0 level powers (% free / day)|PsyWarFreePowers					DEFINE:PsyWarFreePowers|0
+#
+Power Psicrystal			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Power Psicrystal
 
 #Metamind
-Psychic Vampire			TYPE:ClassAbility	CATEGORY:Special Ability			SAB:Psychic Vampire (Manifest Psychic Vampire power as though using the Trigger Power feat)
-Apotheosis				TYPE:ClassAbility	CATEGORY:Special Ability			SAB:Apotheosis
+Psychic Vampire			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Psychic Vampire (Manifest Psychic Vampire power as though using the Trigger Power feat)
+Apotheosis				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Apotheosis
 
 #Pyrokineticist
-Fire Lash				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fire Lash (PP 11+)	
-Touch Aflame			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Touch Aflame (PP 1+)
-Hand Afire				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Hand Afire (PP 9+)	
-Fire Adaptation			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fire Adaptation (PP 3+)
-Bolt of Fire			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Bolt of Fire (costs 3 PP)
-Weapon Afire			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Weapon Afire (PP 9+)
-Breath of the Dragon		TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Breath of the Dragon
-Nimbus				TYPE:ClassAbility		CATEGORY:Special Ability	SAB:Nimbus (costs 9 PP/min)
-Firewalk				TYPE:ClassAbility		CATEGORY:Special Ability	SAB:Firewalk (1 PP/10 feet)
-Fear no Fire			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fear no Fire (PP 19+)
-Heat Death				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Heat Death (costs 13 PP)
-Fire Lord				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fire Lord
+Fire Lash				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Fire Lash (PP 11+)
+Touch Aflame			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Touch Aflame (PP 1+)
+Hand Afire				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Hand Afire (PP 9+)
+Fire Adaptation			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Fire Adaptation (PP 3+)
+Bolt of Fire			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Bolt of Fire (costs 3 PP)
+Weapon Afire			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Weapon Afire (PP 9+)
+Breath of the Dragon		CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Breath of the Dragon
+Nimbus				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Nimbus (costs 9 PP/min)
+Firewalk				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Firewalk (1 PP/10 feet)
+Fear no Fire			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Fear no Fire (PP 19+)
+Heat Death				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Heat Death (costs 13 PP)
+Fire Lord				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Fire Lord
 
 ##Slayer
-Favored Enemy (Mortal Enemy)		TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Favored Enemy (Mortal Enemy)	
-Mortal Enemy Sense			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Mortal Enemy Sense
-Brain Nausea			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Brain Nausea (Will Save DC 17)
-Lucid Buffer			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Lucid Buffer
-Cerebral Blind		TYPE:ClassAbility		CATEGORY:Special Ability	SAB:Cerebral Blind (15+ PP)
-Breach Power Resistance			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Breach Power Resistance
-Blast Feedback			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Blast Feedback
-
-
+Favored Enemy (Mortal Enemy)	CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Favored Enemy (Mortal Enemy)
+Mortal Enemy Sense		CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Mortal Enemy Sense
+Brain Nausea			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Brain Nausea (Will Save DC 17)
+Lucid Buffer			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Lucid Buffer
+Cerebral Blind			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Cerebral Blind (15+ PP)
+Breach Power Resistance		CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Breach Power Resistance
+Blast Feedback			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Blast Feedback
 
 ##Soulknife
-Imbed Power			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Imbed Power
-Imbed Psionic Attack			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Imbed Psionic Attack
-Free Draw			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Free Draw	
-Sever Life			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Sever Life
-Upgrade			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Upgrade	
-Knife to the Soul			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Knife to the Soul
-	
-	
-	
-Mind-Blade Sneak Attack		TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Mind-blade sneak attack +%d%|MindBladeSneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:MindBladeSneakAttack|0
-Mind-Blade				TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Mind-Blade +%|MindBladeEnchantment	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0
-Throw Mind-Blade			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Throw Mind-Blade % ft.|MindBladeRange												DEFINE:MindBladeRange|0
+Imbed Power				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Imbed Power
+Imbed Psionic Attack		CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Imbed Psionic Attack
+Free Draw				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Free Draw
+Sever Life				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Sever Life
+Upgrade				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Upgrade
+Knife to the Soul			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Knife to the Soul
+#
+Mind-Blade Sneak Attack		CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Mind-blade sneak attack +%d%|MindBladeSneakAttack|SneakAttackDie					DEFINE:SneakAttackDie|6	DEFINE:MindBladeSneakAttack|0
+Mind-Blade				CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Mind-Blade +%|MindBladeEnchantment										DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0
+Throw Mind-Blade			CATEGORY:Special Ability	TYPE:ClassAbility																					SAB:Throw Mind-Blade % ft.|MindBladeRange										DEFINE:MindBladeRange|0
 
