@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
 
@@ -18,7 +18,7 @@ Starship		KEY:AASTARSHIP_LB		SPROP:Defense: %|sDefense	SPROP:Flat-footed Defense
 Starship		KEY:AASTARSHIP_TON	SPROP:Defense: %|sDefense	SPROP:Flat-footed Defense: %|sDefenseFlat	SPROP:Autopilot Defense: %|sDefenseAuto	SPROP:Hardness: %|sHard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sInit	SPROP:Pilot's Class Bonus:+%|sPilotCB	SPROP:Pilot's Dex Modifier: +%|sPilotDEX	SPROP:Gunner's Attack Bonus: +%|sGunnerAB|PREVARGTEQ:sGunnerAB,1	SPROP:Gunner's Attack Bonus: -|sGunnerAB|PREVAREQ:sGunnerAB,0	SPROP:Size: Huge (-2 size)|PREVAREQ:sSize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:sSize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:sSize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|sLength	SPROP:Weight: % Tons|sWeight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|sCrewNUM|PREVAREQ:sCrewTrain,4	SPROP:Crew:% (Expert +8)|sCrewNUM|PREVAREQ:sCrewTrain,8	SPROP:Passenger Capacity: %|sPass	SPROP:Cargo Capacity: % Tons|sCargo	SPROP:Grapple Modifier: +%|sGrapple
 
 ###Block:Attack
-# Modifier Name						Unique Key				Type					Visible		Source Page				Required Type			Special Property											Automaticaly Added to Inventory
+# Modifier Name						Unique Key				Type					Visible		Source Page				Required Type			Special Property											Automatically Added to Inventory
 Antimatter Gun						KEY:ATTK_ANTIMATTER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Antimatter Gun)									AUTO:EQUIP|Antimatter Gun
 Battery of 4 Antimatter Guns				KEY:ATTK_ANTIMATTER_4B		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Battery of 4 Antimatter Guns)						AUTO:EQUIP|Battery of 4 Antimatter Guns
 Automaser							KEY:ATTK_AUTOMASER		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Automaser)									AUTO:EQUIP|Automaser

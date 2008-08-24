@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun  4 01:12:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Barak 11/09/02
 
@@ -11,12 +11,12 @@ CLASS:Soldier	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowle
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Speak Language|Spot|Survival|Swim
 1																								ADD:FEAT|Weapon Focus
-2							BONUS:VAR|WeapSpecQualify|1								DEFINE:WeapSpecQualify|0	ADD:FEAT|Weapon Specialization
-3	BONUS:ABILITYPOOL|Soldier Feat|1	BONUS:VAR|WeapSpecQualify|-1
+2														BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ADD:FEAT|Weapon Specialization
+3	BONUS:ABILITYPOOL|Soldier Feat|1								BONUS:VAR|WeapSpecQualify|-1
 4																															ABILITY:Special Ability|AUTOMATIC|Tactical Aid
 5																								ADD:FEAT|Improved Critical
 6	BONUS:ABILITYPOOL|Soldier Feat|1
-7												BONUS:COMBAT|INITIATIVE|2|TYPE=Competence													ABILITY:Special Ability|AUTOMATIC|Improved Reaction
+7							BONUS:COMBAT|INITIATIVE|2|TYPE=Competence																		ABILITY:Special Ability|AUTOMATIC|Improved Reaction
 8																								ADD:FEAT|Greater Weapon Specialization
 9	BONUS:ABILITYPOOL|Soldier Feat|1
 10																															ABILITY:Special Ability|AUTOMATIC|Critical Strike
@@ -39,15 +39,15 @@ CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Int
 9	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 10	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 ###Block: Normal progression
-1								BONUS:VAR|LivingWeaponDie|6	BONUS:CHECKS|BASE.Reflex|var("CL=Martial Artist")/2+2	ABILITY:Special Ability|AUTOMATIC|Living Weapon
+1								BONUS:CHECKS|BASE.Reflex|var("CL=Martial Artist")/2+2	BONUS:VAR|LivingWeaponDie|6	ABILITY:Special Ability|AUTOMATIC|Living Weapon
 2																						ABILITY:Special Ability|AUTOMATIC|Flying Kick
 3	BONUS:ABILITYPOOL|Martial Artist Feat|1
-4								BONUS:VAR|LivingWeaponDie|2
-5								BONUS:VAR|IronFistLvl|1											ABILITY:Special Ability|AUTOMATIC|Iron Fist
+4																	BONUS:VAR|LivingWeaponDie|2
+5																	BONUS:VAR|IronFistLvl|1		ABILITY:Special Ability|AUTOMATIC|Iron Fist
 6	BONUS:ABILITYPOOL|Martial Artist Feat|1
 7																						ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
-8								BONUS:VAR|LivingWeaponDie|2
-9	BONUS:ABILITYPOOL|Martial Artist Feat|1	BONUS:VAR|IronFistLvl|1
+8																	BONUS:VAR|LivingWeaponDie|2
+9	BONUS:ABILITYPOOL|Martial Artist Feat|1										BONUS:VAR|IronFistLvl|1
 10
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
@@ -73,14 +73,14 @@ CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	ABB:Infi		MAXLEVEL:10	BONUS:CHECKS|BASE
 CLASS:Infiltrator	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Investigate|Jump|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1								BONUS:VAR|SweepLvl|1	BONUS:CHECKS|BASE.Reflex|var("CL=Infiltrator")/2+2	ABILITY:Special Ability|AUTOMATIC|Sweep
+1								BONUS:CHECKS|BASE.Reflex|var("CL=Infiltrator")/2+2	BONUS:VAR|SweepLvl|1	ABILITY:Special Ability|AUTOMATIC|Sweep
 2																					ABILITY:Special Ability|AUTOMATIC|Improvised Implements
 3	BONUS:ABILITYPOOL|Infiltrator Feat|1
 4																					ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 5																					ABILITY:Special Ability|AUTOMATIC|Skill Mastery
 6	BONUS:ABILITYPOOL|Infiltrator Feat|1
 7																					ABILITY:Special Ability|AUTOMATIC|Improvised Weapon Damage
-8								BONUS:VAR|SweepLvl|1
+8																	BONUS:VAR|SweepLvl|1
 9	BONUS:ABILITYPOOL|Infiltrator Feat|1
 10																					ABILITY:Special Ability|AUTOMATIC|Without a Trace
 

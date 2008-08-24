@@ -24,9 +24,9 @@ INFOTEXT:This set loads the Basic options from the Future section of the MSRD in
 
 ABILITYCATEGORY:futurebasics_ability_categories_future.lst
 
+ABILITY:futurebasics_abilities_class.lst
 ABILITY:futurebasics_abilities_occupations.lst
 ABILITY:futurebasics_abilities_talents_mod.lst
-#ABILITY:futurebasics_abilities_class.lst
 
 CLASS:futurebasics_classes_advanced.lst
 

@@ -1,4 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Wed Jun  4 01:12:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Aug 24 16:07:28 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+
+###Block: Shared Abilities ---------------------------------------------------------------------------------
+# Ability Name			Category of Ability		Type					Visible	Special ABility
+Discern Lie				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Discern Lie
+Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapon Damage
+Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
 
 
 ###Block:Soldier ---------------------------------------------------------------------------------
@@ -25,23 +31,21 @@ Bullseye			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Bul
 
 
 ###Block:Infiltrator --------------------------
-# Ability Name			Category of Ability		Type					Visible	Special ABility														Define
-Sweep					CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sweep|PREVAREQ:SweepLvl,1	SAB:Improved Sweep|PREVAREQ:SweepLvl,2					DEFINE:SweepLvl|0
-Improvised Implements		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Implements
-Improved Evasion			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Evasion
-Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
-Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapon Damage
-Without a Trace			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Without a Trace
+# Ability Name		Category of Ability		Type					Visible	Special ABility														Define
+Sweep				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sweep|PREVAREQ:SweepLvl,1	SAB:Improved Sweep|PREVAREQ:SweepLvl,2					DEFINE:SweepLvl|0
+Improvised Implements	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Implements
+Improved Evasion		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Evasion
+Without a Trace		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Without a Trace
 
 
 ###:Block:Daredevil --------------------------------------------
 
-Fearless				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Fearless
-Nip Up				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Nip Up
-Action Boost			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Action Boost
-Adrenaline Rush			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Adrenaline Rush (one ability score)|PREVARLT:CL,8	SAB:Adrenaline Rush (two ability scores)	DEFINE:AdrenalineRushLvl|0
-Delay Damage			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Delay Damage
-Damage Threshold			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Damage Threshold
+Fearless			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Fearless
+Nip Up			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Nip Up
+Action Boost		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Action Boost
+Adrenaline Rush		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Adrenaline Rush (one ability score)|PREVARLT:CL,8	SAB:Adrenaline Rush (two ability scores)	DEFINE:AdrenalineRushLvl|0
+Delay Damage		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Delay Damage
+Damage Threshold		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Damage Threshold
 
 
 ###Block:Bodyguard -------------------------------------------------------------
@@ -58,7 +62,6 @@ Blanket Protection	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO
 # Ability Name			Category of Ability		Type					Visible	Special ABility			Combat bonus
 Smart Defense			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
 Scientific Improvisation	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Scientific Improvisation
-#Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
 Minor Breakthrough		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Minor Breakthrough
 Smart Survival			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Survival
 Smart Weapon			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Weapon
@@ -85,7 +88,6 @@ Medical Miracle		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	S
 Profile		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Profile
 Contact		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Contact (Low-Level)|PREVARGTEQ:ContactLvl,1	SAB:Contact (Mid-Level)|PREVARGTEQ:ContactLvl,2	SAB:Contact (High-level)|PREVARGTEQ:ContactLvl,3	DEFINE:ContactLvl|0
 Nonlethal Force	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Nonlethal Force
-Discern Lie		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Discern Lie
 Sixth Sense		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sixth Sense
 
 

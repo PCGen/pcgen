@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 11 23:56:18 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Wealth
@@ -39,7 +39,7 @@ White Collar		CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DESC:Office wo
 None				CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY																																																																																																											SOURCEPAGE:Occupations.rtf
 
 ###Block: The Skill choices
-# Ability Name							Category of Ability	Type																														Visible		Required Template													Add						Bonus to skill									Class Skill
+# Ability Name							Category of Ability	Type																														Visible		Required Template													Add 						Bonus to skill									Class Skill
 Balance(class skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Athlete_Skills.Emergency_Services_Skills.Rural_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																		CSKILL:Balance
 Balance(+1 to skill)						CATEGORY:Occupation	TYPE:Occupation_Skill.Athlete_Skills.Emergency_Services_Skills.Rural_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																	BONUS:SKILL|Balance|1|TYPE=Competance					CSKILL:Balance
 

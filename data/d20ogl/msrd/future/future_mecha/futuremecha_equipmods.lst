@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Apr  2 00:34:30 2007 -- reformated by prettylst.pl v1.38 (build 2621)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Frank Kliewe
 
@@ -22,7 +22,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 
 
 ###Block: Mecha Base Types
-# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Source Page				Prohibited Type					Bonus to HP						Bonus to skill																Stat bonus											Modify VAR																																										Define															Automaticaly Added to Inventory
+# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Source Page				Prohibited Type					Bonus to HP						Bonus to skill																Stat bonus											Modify VAR																																										Define															Automatically Added to Inventory
 Large Mecha		KEY:LRG_MCH	TYPE:Superstructure	COST:0	VISIBLE:QUALIFY	ITYPE:Large		SOURCEPAGE:FutureMecha.rtf	!PRETYPE:1,Huge,Gargantuan,Colossal		BONUS:HP|CURRENTMAX|m_hp|TYPE=Equipment	BONUS:SKILL|Balance,Climb,Drive,Escape Artist,Hide,Move Silently,Pilot,Tumble|-4|!PREFEAT:1,Mecha Operation	BONUS:STAT|STR|8|TYPE=Equipment							BONUS:VAR|SzMdfr|-1	BONUS:VAR|M_Slots|7	BONUS:VAR|M_hp|100	BONUS:VAR|M_BaseSpeed|30	BONUS:VAR|FightingSpace|10	BONUS:VAR|M_Reach|10	BONUS:VAR|M_BasePurchaseDC|40	BONUS:VAR|MchArmrPnlt|2|PREFEAT:1,Advanced Mecha Operation (Large)	DEFINE:Crush_Num|2	DEFINE:Crush_Dice|6	DEFINE:Sweep_Num|1	DEFINE:Sweep_Dice|6	AUTO:EQUIP|Large Mecha Slam Attack
 Huge Mecha		KEY:HGE_MCH	TYPE:Superstructure	COST:0	VISIBLE:QUALIFY	ITYPE:Huge		SOURCEPAGE:FutureMecha.rtf	!PRETYPE:1,Large,Gargantuan,Colossal	BONUS:HP|CURRENTMAX|m_hp|TYPE=Equipment	BONUS:SKILL|Balance,Climb,Drive,Escape Artist,Hide,Move Silently,Pilot,Tumble|-4|!PREFEAT:1,Mecha Operation	BONUS:STAT|STR|16|TYPE=Equipment							BONUS:VAR|SzMdfr|-2	BONUS:VAR|M_Slots|11	BONUS:VAR|M_hp|200	BONUS:VAR|M_BaseSpeed|40	BONUS:VAR|FightingSpace|15	BONUS:VAR|M_Reach|10	BONUS:VAR|M_BasePurchaseDC|44	BONUS:VAR|MchArmrPnlt|2|PREFEAT:1,Advanced Mecha Operation (Huge)		DEFINE:Crush_Num|2	DEFINE:Crush_Dice|8	DEFINE:Sweep_Num|1	DEFINE:Sweep_Dice|8	AUTO:EQUIP|Huge Mecha Slam Attack
 Gargantuan Mecha	KEY:GRG_MCH	TYPE:Superstructure	COST:0	VISIBLE:QUALIFY	ITYPE:Gargantuan	SOURCEPAGE:FutureMecha.rtf	!PRETYPE:1,Large,Huge,Colossal		BONUS:HP|CURRENTMAX|m_hp|TYPE=Equipment	BONUS:SKILL|Balance,Climb,Drive,Escape Artist,Hide,Move Silently,Pilot,Tumble|-4|!PREFEAT:1,Mecha Operation	BONUS:STAT|STR|24|TYPE=Equipment	BONUS:STAT|DEX|-2|TYPE=Equipment	BONUS:VAR|SzMdfr|-4	BONUS:VAR|M_Slots|17	BONUS:VAR|M_hp|400	BONUS:VAR|M_BaseSpeed|50	BONUS:VAR|FightingSpace|20	BONUS:VAR|M_Reach|15	BONUS:VAR|M_BasePurchaseDC|48	BONUS:VAR|MchArmrPnlt|2|PREFEAT:1,Advanced Mecha Operation (Gargantuan)	DEFINE:Crush_Num|4	DEFINE:Crush_Dice|6	DEFINE:Sweep_Num|2	DEFINE:Sweep_Dice|6	AUTO:EQUIP|Gargantuan Mecha Slam Attack
@@ -186,7 +186,7 @@ Heavy Fortification (PL9)		KEY:HEVY_FORTFCTN	NAMEOPT:NOTHING	TYPE:Superstructure
 #		COST:10	BONUS:ITEMCOST|20|PRETYPE:1,Large	BONUS:ITEMCOST|22|PRETYPE:1,Huge	BONUS:ITEMCOST|24|PRETYPE:1,Gargantuan	BONUS:ITEMCOST|30|PRETYPE:1,Colossal
 
 ###Block: Mecha Ranged Weapons
-# Modifier Name					Unique Key			Naming Option	Type				Visible		Source Page				Required Type					Special Property																		Automaticaly Added to Inventory
+# Modifier Name					Unique Key			Naming Option	Type				Visible		Source Page				Required Type					Special Property																		Automatically Added to Inventory
 A3X Dragon Flame-Thrower (PL 5)		KEY:A3X_DRGN_FLMTHRWR	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- A3X Dragon Flame-Thrower - SLOTS (1), Mil(+3)											AUTO:EQUIP|A3X Dragon Flame-Thrower
 M-9 Barrage Chaingun (PL 5)			KEY:M9_BRRGE_CHAINGUN	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- M-9 Barrage Chaingun - SLOTS (1, must be hand (or arm if Large), arm, or shoulders), Res(+2)			AUTO:EQUIP|M-9 Barrage Chaingun
 M-53 Firestar Rocket Launcher (PL 5)	KEY:M53_FRST_RCKTLNCH	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- M-53 Firestar Rocket Launcher - SLOTS (1, must be hand (or arm if Large), arm, or shoulders), Mil(+3)		AUTO:EQUIP|M-53 Firestar Rocket Launcher
@@ -206,7 +206,7 @@ Tsunami 480 Plasma Cannon (PL 7)		KEY:TSNM_480_PLSM_CNN	NAMEOPT:NOTHING	TYPE:Sup
 LT-5 Longshot Mass Driver (PL 8)		KEY:LT5_LNGSHT_MSSDRV	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- LT-5 Longshot Mass Driver - SLOTS (2, including hand (or arm if Large), arm, or shoulders), Mil(+3)		AUTO:EQUIP|LT-5 Longshot Mass Driver
 
 ###Block: Mecha Melee Weapons
-# Modifier Name				Unique Key			Naming Option	Type				Visible		Source Page				Required Type									Special Property									Automaticaly Added to Inventory
+# Modifier Name				Unique Key			Naming Option	Type				Visible		Source Page				Required Type									Special Property									Automatically Added to Inventory
 PS-15 Panther Claws (PL 5)		KEY:LRG_PS15_PNTR_CLW	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large	PRETYPE:1,Large,Huge,Gargantuan,Colossal		SPROP: -- PS-15 Panther Claws - SLOTS (1, must be arm)		AUTO:EQUIP|PS-15 Panther Claws - Large Mecha
 PS-15 Panther Claws (PL 5)		KEY:HGE_PS15_PNTR_CLW	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Huge	PRETYPE:1,Large,Huge,Gargantuan,Colossal		SPROP: -- PS-15 Panther Claws - SLOTS (1, must be hand)		AUTO:EQUIP|PS-15 Panther Claws - Huge Mecha
 PS-15 Panther Claws (PL 5)		KEY:GRG_PS15_PNTR_CLW	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Gargantuan	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- PS-15 Panther Claws - SLOTS (1, must be hand)		AUTO:EQUIP|PS-15 Panther Claws - Gargantuan Mecha
@@ -266,7 +266,7 @@ Nanorepair Unit (PL 8)			KEY:NANOREPAIR_UNIT	NAMEOPT:NOTHING	TYPE:Superstructure
 #		COST:15	BONUS:ITEMCOST|10|PRETYPE:1,Large	BONUS:ITEMCOST|11|PRETYPE:1,Huge	BONUS:ITEMCOST|12|PRETYPE:1,Gargantuan	BONUS:ITEMCOST|15|PRETYPE:1,Colossal
 
 ###Block: Mecha Ammo
-# Modifier Name							Unique Key				Naming Option	Type				Visible		Source Page				Required Type					Special Property										Automaticaly Added to Inventory
+# Modifier Name							Unique Key				Naming Option	Type				Visible		Source Page				Required Type					Special Property										Automatically Added to Inventory
 6 50-round ammo belts for M-9 Barrage chaingun		KEY:AMMO_M9_BRRGE_CHAINGUN	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- 6 50-round ammo belts for M-9 Barrage chaingun - SLOTS (1)	AUTO:EQUIP|Ammo belts for M-9 Barrage chaingun (6x50-rounds)
 6-rocket pack for M-53 Firestar Rocket Launcher		KEY:AMMO_M53_FRST_RCKTLNCH	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- 6-rocket pack for M-53 Firestar Rocket Launcher - SLOTS (1)	AUTO:EQUIP|Rocket pack for M-53 Firestar Rocket Launcher (6)
 6-rocket pack for M-55 Crud Rocket Launcher		KEY:AMMO_M55_CRUD_RCKTLNCH	NAMEOPT:NOTHING	TYPE:Superstructure	VISIBLE:QUALIFY	SOURCEPAGE:FutureMecha.rtf	PRETYPE:1,Large,Huge,Gargantuan,Colossal	SPROP: -- 6-rocket pack for M-55 Crud Rocket Launcher - SLOTS (1)		AUTO:EQUIP|Rocket pack for M-55 Crud Rocket Launcher (6)

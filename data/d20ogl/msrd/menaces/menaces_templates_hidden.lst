@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Aug 24 16:07:28 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 #removed SA:Blindsight from Toxic Sludge, as it is already included in Ooze template -- Frank Kliewe
@@ -16,9 +16,9 @@ Ghoul Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Mele
 Ghoul Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Slashing,*2,2d6
 
 ###Block: Half-Fiend wings
-# Template Name		CR	Visible	Clone Movement
-Half-Fiend (no wings)	CR:2	VISIBLE:NO
-Half-Fiend (wings)	CR:3	VISIBLE:NO	MOVECLONE:Walk,Fly,*1
+# Template Name		Challenge Rating	Visible	Clone Movement
+Half-Fiend (no wings)	CR:2			VISIBLE:NO
+Half-Fiend (wings)	CR:3			VISIBLE:NO	MOVECLONE:Walk,Fly,*1
 
 ###Block: Half-Fiend natural attacks
 # Template Name		Visible	Required Size	Natural Attacks
@@ -45,7 +45,7 @@ Maniac Gargantuan		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Me
 Maniac Colossal		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,4d6
 
 ###Block: specific templates
-# Template Name	Visible	Template			Special ABility																																																																										Define			Stat bonus			Add											Feat						Bonus Languages	Move			Vision					Innate Spells
+# Template Name	Visible	Template			Special ABility																																																																										Define			Stat bonus			Add 											Feat						Bonus Languages	Move			Vision					Innate Spells
 Animated Object	VISIBLE:NO	TEMPLATE:Construct	SAB:Blind (Ex)	SAB:Constrict (Ex)	SAB:Hardness (Ex)	SAB:Improved Speed (Ex)	SAB:Trample (Ex)																																																												DEFINE:LOCK.INT|10	BONUS:STAT|WIS,CHA|-10																					MOVE:Walk,30	VISION:Darkvision (60')
 Fiend			VISIBLE:NO	TEMPLATE:Outsider																																																																																						ADD:FEAT|Archaic Weapons Proficiency,Simple Weapons Proficiency							LANGBONUS:Abyssal				VISION:Darkvision (60')
 Infester		VISIBLE:NO	TEMPLATE:Vermin		SAB:Boost Host (Ex)	SAB:Host Protection (Ex)	SAB:Infestation (Ex)	SAB:Blindsight (60')																																																																																								MOVE:Walk,30
@@ -57,11 +57,9 @@ Udoroot		VISIBLE:NO	TEMPLATE:Plant		SAB:Blindsight (Ex)	SAB:Cold Resistance 20 (
 Yeti			VISIBLE:NO					SAB:Cold Subtype (Ex)	SAB:Constrict (Ex)	SAB:Improved Grab (Ex)	SAB:+15 species bonus on Hide in snowy conditions																																																																																				MOVE:Walk,40	VISION:Darkvision (60')
 
 ###Block: Robot variants
-# Template Name	Visible	Source Page					Special ABility																																									Define			Combat bonus										Move
-Robot Treads	VISIBLE:NO																																																																		MOVE:Walk,30
-Robot Bipedal	VISIBLE:NO																																																																		MOVE:Walk,30
-Robot Quadrupedal	VISIBLE:NO																																																																		MOVE:Walk,40
-Robot Wheels	VISIBLE:NO																																																																		MOVE:Walk,50
+# Template Name	Visible	Move
+Robot Treads	VISIBLE:NO	MOVE:Walk,30
+Robot Bipedal	VISIBLE:NO	MOVE:Walk,30
+Robot Quadrupedal	VISIBLE:NO	MOVE:Walk,40
+Robot Wheels	VISIBLE:NO	MOVE:Walk,50
 
-###Subtypes
-Incorporeal		VISIBLE:NO	SOURCEPAGE:MenaceCreaturesA-I.rtf	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:Attacks pass through armor	SAB:Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX

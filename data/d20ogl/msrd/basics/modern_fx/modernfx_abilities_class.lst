@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Jun  2 19:58:23 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 
 ###Block:Shadow Slayer -------------------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type					Visible	Special ABility							Define
@@ -27,8 +27,8 @@ Maximize Power		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	S
 
 
 ###Block:Battle Mind --------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type					Visible	Special ABility
-Imprint Tattoo		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
+# Ability Name	Category of Ability		Type					Visible	Special ABility
+Imprint Tattoo	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
 #Concentration ~ Psionic	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
 
 

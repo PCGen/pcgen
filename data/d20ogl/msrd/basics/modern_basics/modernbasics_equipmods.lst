@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 11 23:56:18 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Weapon Accessories?
 # Made weapon accessories into eqmods but not sure how to represent the cost.
@@ -8,7 +8,7 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 #Eqmods to 0 for that matter, and leave a commented out line with the Puchase DC in for later reference:Suppressor (Rifle),
 #Laser Sight, Illuminator, Standard Scope - Frank
 
-# Modifier Name		Unique Key				Naming Option			Type				Cost			Visible		Type granted	Keys to replace																			Source Page							Required Type			Combat bonus			BONUS:EQM						BONUS:EQMARMOR					Modify the item cost		Weapon prop. bonus					Special Property								Choose								Apply to both heads
+# Modifier Name		Unique Key				Naming Option			Type				Cost			Visible		Type granted	Keys to replace																			Source Page							Required Type			Combat bonus			Bonus Equipment Modifiers			Bonus Armor Modifiers				Modify the item cost		Weapon prop. bonus					Special Property								Choose								Apply to both heads
 Mastercraft +1 To Hit	KEY:MASTERCRAFT_WEAP_HIT_1	NAMEOPT:TEXT=Mastercraft +1	TYPE:Ammunition.Weapon	COST:3		VISIBLE:QUALIFY	ITYPE:Mastercraft	REPLACES:MASTERCRAFT_WEAP_HIT_2,MASTERCRAFT_WEAP_HIT_3,MASTERCRAFT_WEAP_DAM_1,MASTERCRAFT_WEAP_DAM_2,MASTERCRAFT_WEAP_DAM_3	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|1|TYPE=Enhancement		SPROP:Mastercraft (+1)																ASSIGNTOALL:YES
 Mastercraft +2 To Hit	KEY:MASTERCRAFT_WEAP_HIT_2	NAMEOPT:TEXT=Mastercraft +2	TYPE:Ammunition.Weapon	COST:6		VISIBLE:QUALIFY	ITYPE:Mastercraft	REPLACES:MASTERCRAFT_WEAP_HIT_1,MASTERCRAFT_WEAP_HIT_3,MASTERCRAFT_WEAP_DAM_1,MASTERCRAFT_WEAP_DAM_2,MASTERCRAFT_WEAP_DAM_3	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|2|TYPE=Enhancement		SPROP:Mastercraft (+2)																ASSIGNTOALL:YES
 Mastercraft +3 To Hit	KEY:MASTERCRAFT_WEAP_HIT_3	NAMEOPT:TEXT=Mastercraft +3	TYPE:Ammunition.Weapon	COST:9		VISIBLE:QUALIFY	ITYPE:Mastercraft	REPLACES:MASTERCRAFT_WEAP_HIT_1,MASTERCRAFT_WEAP_HIT_2,MASTERCRAFT_WEAP_DAM_1,MASTERCRAFT_WEAP_DAM_2,MASTERCRAFT_WEAP_DAM_3	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|3|TYPE=Enhancement		SPROP:Mastercraft (+3)																ASSIGNTOALL:YES
@@ -35,7 +35,7 @@ Masterwork			KEY:MWORKA				NAMEOPT:NORMAL							COST:3*%CHOICE	VISIBLE:QUALIFY	I
 Masterwork			KEY:MWORKT				NAMEOPT:NORMAL							COST:3*%CHOICE	VISIBLE:QUALIFY	ITYPE:Masterwork																						SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	PRETYPE:1,Tool								BONUS:EQM|WEIGHTADD|1|PRETYPE:1,Thief								BONUS:ITEMCOST|TYPE=Thief|20									SPROP:Masterwork applies EXTRA +%CHOICE Bonus beyond normal	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Weapon Bonus		ASSIGNTOALL:YES
 
 ###Block: Base Materials
-# Modifier Name		Unique Key		Output Name			Naming Option	Type														Cost		Visible		Type granted	Keys to replace	Source Page							Required Type			Prohibited Type							BONUS:EQM			Modify the item cost			Weapon prop. bonus												Special Property						Apply to both heads
+# Modifier Name		Unique Key		Output Name			Naming Option	Type														Cost		Visible		Type granted	Keys to replace	Source Page							Required Type			Prohibited Type							Bonus Equipment Modifiers	Modify the item cost			Weapon prop. bonus												Special Property						Apply to both heads
 Aluminium			KEY:ALUMINIUM					NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal					SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Wooden
 Ceramic			KEY:CERAMIC						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
 Cloth				KEY:CLOTH						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
@@ -47,27 +47,27 @@ Paper				KEY:PAPER						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armo
 Rope				KEY:ROPE						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
 Soft Plastic		KEY:PLASTIC_SOFT					NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
 Steel				KEY:STEEL						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal					SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Wooden
-Wood				KEY:WOOD						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden				SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal																																			ASSIGNTOALL:YES
+Wood				KEY:WOOD						NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden				SOURCEPAGE:msrdcombat.rtf									!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal																																				ASSIGNTOALL:YES
 
 
 
 #Add Type							KEY:ADD_TYPE	TYPE:ALL			COST:0											NAMEOPT:NONAME		SOURCEPAGE:																																																									CHOOSE:Select desired TYPE(s)|TYPE=ALL
 
-Autofire			KEY:AUTOFIRE								TYPE:Automatic														VISIBLE:QUALIFY				REPLACES:DBLTAP	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																									BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PREFEAT:1,Advanced Firearms Proficiency	SPROP:Adds 2 dice to damage.
-Burst fire			KEY:BURSTFIRE								TYPE:Automatic														VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	PRETYPE:1,EQMOD=AUTOFIRE																				BONUS:WEAPON|TOHIT|-4
-Double Tap fire		KEY:DBLTAP									TYPE:Semiauto														VISIBLE:QUALIFY				REPLACES:AUTOFIRE	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																									BONUS:WEAPON|TOHIT|-2												SPROP:Adds 1 die to damage.
+Autofire			KEY:AUTOFIRE								TYPE:Automatic														VISIBLE:QUALIFY				REPLACES:DBLTAP	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																										BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PREFEAT:1,Advanced Firearms Proficiency	SPROP:Adds 2 dice to damage.
+Burst fire			KEY:BURSTFIRE								TYPE:Automatic														VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	PRETYPE:1,EQMOD=AUTOFIRE																					BONUS:WEAPON|TOHIT|-4
+Double Tap fire		KEY:DBLTAP									TYPE:Semiauto														VISIBLE:QUALIFY				REPLACES:AUTOFIRE	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																										BONUS:WEAPON|TOHIT|-2												SPROP:Adds 1 die to damage.
 
-Upgrade			KEY:UPGRADE									TYPE:Desktop.Desktop											COST:1	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																					BONUS:ITEMCOST|1|PRETYPE:1,Notebook																SPROP:Applies EXTRA +1 Bonus beyond normal.
-Illuminator			KEY:ILLUMINATOR								TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																						SPROP:Illuminator Purchase DC 7
+Upgrade			KEY:UPGRADE									TYPE:Desktop.Desktop											COST:1	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																						BONUS:ITEMCOST|1|PRETYPE:1,Notebook																SPROP:Applies EXTRA +1 Bonus beyond normal.
+Illuminator			KEY:ILLUMINATOR								TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Illuminator Purchase DC 7
 #Illuminator						KEY:ILLUMINATOR			TYPE:Firearm		COST:7		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
-Laser Sight			KEY:LSR_SIGHT								TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																						SPROP:Laser Sight Purchase DC 15
+Laser Sight			KEY:LSR_SIGHT								TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Laser Sight Purchase DC 15
 #Laser Sight						KEY:LSR_SIGHT			TYPE:Firearm		COST:15		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
-Scope (Standard)		KEY:SCP_STD		OUTPUTNAME:[NAME] Scope				TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																						SPROP:Standard Scope Purchase DC 11
+Scope (Standard)		KEY:SCP_STD		OUTPUTNAME:[NAME] Scope				TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Standard Scope Purchase DC 11
 #Scope (Standard)		OUTPUTNAME:[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:11		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 Scope (Electro-optical)	KEY:SCP_ELE_OP	OUTPUTNAME:[NAME] Scope				TYPE:Firearm												COST:18	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|3
 Speed Loader		KEY:SPEED_LD								TYPE:Firearm												COST:3	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5
-Suppressor (Pistol)	KEY:SPPRSS_PIS	OUTPUTNAME:Suppressor				TYPE:Pistol													COST:12	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf								!PRETYPE:1,SpecialSuppressor					BONUS:EQM|WEIGHTADD|1																						SPROP:Mil(+3)
-Suppressor (Rifle)	KEY:SPPRSS_RFL	OUTPUTNAME:Suppressor				TYPE:Longarm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf								!PRETYPE:1,SpecialSuppressor					BONUS:EQM|WEIGHTADD|4																						SPROP:Suppressor Purchase DC 14,Mil(+3)
+Suppressor (Pistol)	KEY:SPPRSS_PIS	OUTPUTNAME:Suppressor				TYPE:Pistol													COST:12	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf								!PRETYPE:1,SpecialSuppressor					BONUS:EQM|WEIGHTADD|1																							SPROP:Mil(+3)
+Suppressor (Rifle)	KEY:SPPRSS_RFL	OUTPUTNAME:Suppressor				TYPE:Longarm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf								!PRETYPE:1,SpecialSuppressor					BONUS:EQM|WEIGHTADD|4																							SPROP:Suppressor Purchase DC 14,Mil(+3)
 #Suppressor (Rifle)	OUTPUTNAME:Suppressor	KEY:SPPRSS_RFL			TYPE:Longarm		COST:14		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf			!PRETYPE:1,SpecialSuppressor						BONUS:EQM|WEIGHTADD|4																															SPROP:Mil(+3)
 
 ###Block: Vehicle STATS (Workaround for SPROP not taking variables in EQUIPMENT), the KEY starts with AA so it comes first in SPROP output

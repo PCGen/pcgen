@@ -1,4 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Wed Jun  4 01:12:32 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Aug 24 16:07:28 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+
+
+###Block: Shared Abilities ---------------------------------------------------------------------------------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Expert in Your Field	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
+Quick Weapon Draw		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Quick Weapon Draw
 
 
 ###Block:Arcane Arranger ---------------------------------------------------------------------------------------------------------------------------------
@@ -7,16 +13,13 @@ Word on the Street	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:N
 False Allegiance		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:False Allegiance
 Shadow Resources		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Resources
 Pack Rat			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Pack Rat
-Expert in Your Field	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
 Up My Sleeve		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Up My Sleeve - one object up to Small size|PREVAREQ:UpMySleeveLvl,1	SAB:Up My Sleeve - one object up to Large, or three up to Small|PREVAREQ:UpMySleeveLvl,2	DEFINE:UpMySleeveLvl|0
 
 
 ###Block:Archaic Weaponsmaster ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type					Visible	Special ABility				Define
-Imbue Weapon		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imbue Weapon +%|ImbueWeapon	DEFINE:ImbueWeapon|0
-Quick Weapon Draw		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Quick Weapon Draw
-Expert in Your Field	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
-Weapon Stun			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Weapon Stun
+# Ability Name	Category of Ability		Type					Visible	Special ABility				Define
+Imbue Weapon	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imbue Weapon +%|ImbueWeapon	DEFINE:ImbueWeapon|0
+Weapon Stun		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Weapon Stun
 
 
 ###Block:Glamourist ---------------------------------------------------------------------------------------------------------------------------------
@@ -33,7 +36,6 @@ Charm Person		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB
 ###Block:Mystic ---------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type					Visible	Special ABility
 Combat Casting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Combat Casting
-Discern Lie		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Discern Lie
 
 
 ###Block:Shadow Hunter ---------------------------------------------------------------------------------------------------------------------------------
@@ -75,27 +77,25 @@ One with the Machine	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE
 
 
 ###Block:Street Warrior ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type					Visible	Special ABility
-Urban Survival			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Urban Survival
-Improvised Weapons		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapons
-Street Cred				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Street Cred
-Improved Streetfighting		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improved Streetfighting
-Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapon Damage
-Advanced Streetfighting		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Advanced Streetfighting
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Urban Survival		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Urban Survival
+Improvised Weapons	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapons
+Street Cred			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Street Cred
+Improved Streetfighting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Improved Streetfighting
+Advanced Streetfighting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Advanced Streetfighting
 
 
 ###Block:Swashbuckler ---------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type					Visible	Special ABility
-Quick Weapon Draw	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Quick Weapon Draw
 Deflect Missiles	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Deflect Missiles
 Touche		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Touche
 
 
 ###Block:Techno Mage ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type					Visible	Special ABility		Add							Misc bonus
-Arcane Skills	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Skills									BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
+# Ability Name	Category of Ability		Type					Visible	Special ABility		Misc bonus
+Arcane Skills	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Skills		BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
 Machine Empathy	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Machine Empathy
-Program Spell	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Program Spell		
+Program Spell	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Program Spell
 Create Homunculus	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Create Homunculus
 Online Casting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Online Casting
 
@@ -113,16 +113,14 @@ Animal Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO
 Fast Climb			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Fast Climb
 Resist Venom		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Resist Venom
 Call Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Call Companion
-Skill Mastery		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
-#Expert in Your Field		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Expert in Your Field
 Transform Companion	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Transform Companion
 
 
 ###Block:Prestige ----------------------------------------------------------------------------------------------------------------
 #Block:Archmage ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name				Category of Ability		Type					Visible	Special ABility																																							Define							Caster level																																								Save checks bonus								Modify VAR
+# Ability Name				Category of Ability		Type					Visible	Special ABility																																							Define							Caster level																																								Save checks bonus
 Total Spellcasting ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Total Spellcasting																																														BONUS:CASTERLEVEL|Techno Mage|CL=Mage|PRECLASS:1,Techno Mage=1	BONUS:CASTERLEVEL|Mage|CL=Techno Mage|PRECLASS:1,Mage=1
-Increased Spells ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Increased Spells/Day (base number of arcane spells increase by 1/2 round down)|PREVAREQ:IncreasedSpellsProgression,1	SAB:Increased Spells/Day (double base number of arcane spells)|PREVAREQ:IncreasedSpellsProgression,2				DEFINE:IncreasedSpellsProgression|0																																																												
+Increased Spells ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Increased Spells/Day (base number of arcane spells increase by 1/2 round down)|PREVAREQ:IncreasedSpellsProgression,1	SAB:Increased Spells/Day (double base number of arcane spells)|PREVAREQ:IncreasedSpellsProgression,2				DEFINE:IncreasedSpellsProgression|0
 Gifted Incantations			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Gifted Incantations
 Granted Incantations			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Granted Incantations
 

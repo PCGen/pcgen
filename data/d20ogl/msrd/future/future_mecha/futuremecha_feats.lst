@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 21:50:49 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 #Changed the Feat DESCs to show the full benefits as we now do with SRD feats
@@ -10,7 +10,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #
 # -- Frank Kliewe
 
-# Feat Name				Type				Req. Att.	Required Feat					Required Skill		Required Text			Special ABility								Description																																																																																																								Multiple?	Choose							Automaticaly Gained Weapon Prof.	Source Page
+# Feat Name				Type				Req. Att.	Required Feat					Required Skill		Required Text			Special ABility								Description																																																																																																								Multiple?	Choose							Automatically Gained Weapon Prof.	Source Page
 Advanced Mecha Operation	TYPE:General.Mecha			PREFEAT:1,Mecha Operation																						DESC:You have received advanced training or extensive practice in mecha movement. When you are operating a mecha of the chosen size, you gain a +1 dodge bonus to Defense																																																																													MULT:YES	CHOOSE:STRING|Large|Huge|Gargantuan|Colossal							SOURCEPAGE:FutureMecha.rtf
 Hair Trigger			TYPE:General.Mecha																													DESC:You have developed a delicate sense of timing, and your area attacks hit your foes when they're ill-prepared to defend against them. Whenever you make an attack from your mecha that requires enemies to make Reflex saving throws, the DC for such saves is increased by +2																																																																												SOURCEPAGE:FutureMecha.rtf
 Mecha Crush				TYPE:General.Mecha			PREFEAT:1,Mecha Operation												SAB:Mecha Crush Damage: %d%+%|Crush_Num|Crush_Dice|STR*1.5	DESC:As an attack action, you can maneuver your mecha to jump or fall onto opponents, using the mecha's body to crush them. This attack is useful only against creatures at least two size categories smaller than your mecha.																																																																																				SOURCEPAGE:FutureMecha.rtf

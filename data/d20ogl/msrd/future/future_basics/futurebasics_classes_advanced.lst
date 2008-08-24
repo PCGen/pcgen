@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun  4 01:28:09 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
@@ -27,7 +27,7 @@ CLASS:Dogfighter	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Cr
 1	BONUS:ABILITYPOOL|Dogfighter Feat|1
 2													ABILITY:Special Ability|AUTOMATIC|Defender of the Universe
 3	BONUS:ABILITYPOOL|Dogfighter Feat|1
-4							BONUS:VAR|ShakeRattleRoll|(CL-1)/3	ABILITY:Special Ability|AUTOMATIC|Shake, Rattle and Roll
+4							BONUS:VAR|ShakeRattleRoll|(CL-1)/3	ABILITY:Special Ability|AUTOMATIC|Shake Rattle and Roll
 5													ABILITY:Special Ability|AUTOMATIC|To the Max
 6	BONUS:ABILITYPOOL|Dogfighter Feat|1
 8													ABILITY:Special Ability|AUTOMATIC|Keep it Together
@@ -39,10 +39,10 @@ CLASS:Dreadnought	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedC
 CLASS:Dreadnought	PREMULT:2,[PREFEAT:1,Improved Damage Threshold],[PREABILITY:2,CATEGORY=Talent,TYPE=DamageReduction,TYPE=EnergyResistance,TYPE=Unbreakable]	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dreadnought	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Jump|Profession|Survival|Swim|Tumble
-1																					BONUS:MISC|ACHECK|2										ABILITY:Special Ability|AUTOMATIC|Fearless|Stability|Unhindered
-2								BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL														ABILITY:Special Ability|AUTOMATIC|Steamroller				AUTO:FEAT|Ability Surge
+1								BONUS:MISC|ACHECK|2																							ABILITY:Special Ability|AUTOMATIC|Fearless|Stability|Unhindered
+2												BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL										ABILITY:Special Ability|AUTOMATIC|Steamroller				AUTO:FEAT|Ability Surge
 3	BONUS:ABILITYPOOL|Dreadnought Feat|1
-4								BONUS:VAR|MasterDefender|((CL-1)/3)*2																DEFINE:MasterDefender|0	ABILITY:Special Ability|AUTOMATIC|Master Defender
+4												BONUS:VAR|MasterDefender|((CL-1)/3)*2												DEFINE:MasterDefender|0	ABILITY:Special Ability|AUTOMATIC|Master Defender
 5																																		ABILITY:Special Ability|AUTOMATIC|Knockdown
 6	BONUS:ABILITYPOOL|Dreadnought Feat|1
 8																									BONUS:WEAPONPROF=ALL|PCSIZE|1					ABILITY:Special Ability|AUTOMATIC|Heavy Artillery
@@ -121,13 +121,13 @@ CLASS:Space Monkey	PREMULT:2,[PREABILITY:1,CATEGORY=Occupation,Astronaut Trainee
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Space Monkey	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Computer Use|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Escape Artist|Jump|Knowledge (Earth and Life Sciences)|Knowledge (Technology)|Navigate|Pilot|Repair|Search|Survival|Treat Injury|Tumble
 1																						ABILITY:Special Ability|AUTOMATIC|Hibernation Trance
-2								BONUS:VAR|MonkeysWrench|CL/2										ABILITY:Special Ability|AUTOMATIC|Monkey's Wrench
+2																BONUS:VAR|MonkeysWrench|CL/2		ABILITY:Special Ability|AUTOMATIC|Monkey's Wrench
 3	BONUS:ABILITYPOOL|SpaceMonkey Feat|1
 4																						ABILITY:Special Ability|AUTOMATIC|Monkeys Unite
-5								BONUS:VAR|KnowLocation|((CL-2)/3)*2									ABILITY:Special Ability|AUTOMATIC|Know Location
+5																BONUS:VAR|KnowLocation|((CL-2)/3)*2	ABILITY:Special Ability|AUTOMATIC|Know Location
 6	BONUS:ABILITYPOOL|SpaceMonkey Feat|1
 7																						ABILITY:Special Ability|AUTOMATIC|Monkey Shines
-8														BONUS:MISC|ACHECK|1	BONUS:MISC|MAXDEX|1	ABILITY:Special Ability|AUTOMATIC|Space Suitable
+8								BONUS:MISC|ACHECK|1	BONUS:MISC|MAXDEX|1							ABILITY:Special Ability|AUTOMATIC|Space Suitable
 9	BONUS:ABILITYPOOL|SpaceMonkey Feat|1
 10																						ABILITY:Special Ability|AUTOMATIC|Monkey Shot
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jun  2 19:58:23 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -25,7 +25,7 @@ CLASS:Occultist	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,B
 CLASS:Occultist	PREFEAT:2,Educated,Studious	PRESKILL:3,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Occultist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Drive|Investigate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Magic Device
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Occultist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:NO	BONUS:CASTERLEVEL|Occultist|CL
 1							BONUS:VAR|OccultistRes|CL+5		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Occultist
 2							BONUS:VAR|ArcaneResearch|1		ABILITY:Special Ability|AUTOMATIC|Arcane Research
@@ -115,7 +115,7 @@ CLASS:Mage		HD:6		TYPE:Advanced.PC	ABB:Mage		MAXLEVEL:10	BONUS:CHECKS|BASE.Forti
 CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
 1	CAST:3,1																					AUTO:FEAT|Summon Familiar
 2	CAST:4,2																					AUTO:FEAT|Scribe Scroll
@@ -135,7 +135,7 @@ CLASS:Acolyte	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BAS
 CLASS:Acolyte	PREATT:2	PRESKILL:3,Knowledge (Theology and Philosophy)=6,Listen=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spellcraft|Treat Injury
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Acolyte|CL
 ###Block: Turning
 2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead

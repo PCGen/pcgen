@@ -37,7 +37,3 @@ WEAPONPROF:menaces_weaponprofs_natural.lst
 
 #Included from Arcana to avoid duplicates
 LANGUAGE:@/d20ogl/msrd/arcana/basics/arcanabasics_languages_menaces.lst
-WEAPONPROF:@/d20ogl/msrd/arcana/basics/arcanabasics_weaponprofs.lst|(INCLUDE:Greatsword)
-
-#Included from Future to avoid duplicates
-FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Alien Weapons Proficiency)

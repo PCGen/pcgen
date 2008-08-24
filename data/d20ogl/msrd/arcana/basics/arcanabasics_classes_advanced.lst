@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jun  2 19:37:56 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Aug 24 16:07:28 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Paul King
 
@@ -25,15 +25,15 @@ CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:Arcan
 CLASS:Archaic Weaponsmaster	PREATT:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
-1									BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0												AUTO:FEAT|Weapon Specialization
-2									BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0		ABILITY:Special Ability|AUTOMATIC|Imbue Weapon +%|ImbueWeapon
+1									BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0											AUTO:FEAT|Weapon Specialization
+2									BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0		ABILITY:Special Ability|AUTOMATIC|Imbue Weapon
 3	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
 4																				ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
 5																				ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
 6	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
 7																				ABILITY:Special Ability|AUTOMATIC|Weapon Stun
 9	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-10																															AUTO:FEAT|Increased Weapon Critical
+10																														AUTO:FEAT|Increased Weapon Critical
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -92,7 +92,7 @@ CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvanced
 CLASS:Shadow Hunter	PREATT:2	PREFEAT:1,Track	PREFEAT:1,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:3,Investigate=6,Sense Motive=6,Knowledge (Arcane Lore)=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot|Survival
-1								BONUS:VAR|TargetBonus|(CL+2)/3	DEFINE:TargetBonus|0	ABILITY:Special Ability|AUTOMATIC|Target Bonus +%|TargetBonus
+1								BONUS:VAR|TargetBonus|(CL+2)/3	DEFINE:TargetBonus|0	ABILITY:Special Ability|AUTOMATIC|Target Bonus
 2																		ABILITY:Special Ability|AUTOMATIC|Swift Track
 3	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
 4																		ABILITY:Special Ability|AUTOMATIC|No Trace
@@ -125,16 +125,16 @@ CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCl
 CLASS:Speed Demon	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
-1								ADD:FEAT|Uncanny Dodge I,Uncanny Dodge II											QUALIFY:FEAT|Uncanny Dodge I
-2															ABILITY:Special Ability|AUTOMATIC|Hit the Weak Spot
-3	BONUS:ABILITYPOOL|Speed Demon Feat|1								ABILITY:Special Ability|AUTOMATIC|Vehicle Empathy
-4															ABILITY:Special Ability|AUTOMATIC|Need for Speed
-5															ABILITY:Special Ability|AUTOMATIC|Nursing the Turns
-6	BONUS:ABILITYPOOL|Speed Demon Feat|1								ABILITY:Special Ability|AUTOMATIC|Commandeer
-7															ABILITY:Special Ability|AUTOMATIC|Leadfoot
-8															ABILITY:Special Ability|AUTOMATIC|Redlining the Needle
-9	BONUS:ABILITYPOOL|Speed Demon Feat|1								ABILITY:Special Ability|AUTOMATIC|Restore Vehicle
-10															ABILITY:Special Ability|AUTOMATIC|One with the Machine
+1																		TEMPLATE:Uncanny Dodger
+2								ABILITY:Special Ability|AUTOMATIC|Hit the Weak Spot
+3	BONUS:ABILITYPOOL|Speed Demon Feat|1	ABILITY:Special Ability|AUTOMATIC|Vehicle Empathy
+4								ABILITY:Special Ability|AUTOMATIC|Need for Speed
+5								ABILITY:Special Ability|AUTOMATIC|Nursing the Turns
+6	BONUS:ABILITYPOOL|Speed Demon Feat|1	ABILITY:Special Ability|AUTOMATIC|Commandeer
+7								ABILITY:Special Ability|AUTOMATIC|Leadfoot
+8								ABILITY:Special Ability|AUTOMATIC|Redlining the Needle
+9	BONUS:ABILITYPOOL|Speed Demon Feat|1	ABILITY:Special Ability|AUTOMATIC|Restore Vehicle
+10								ABILITY:Special Ability|AUTOMATIC|One with the Machine
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
@@ -176,7 +176,7 @@ CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCl
 CLASS:Techno Mage	PRESKILL:4,Computer Use=6,Craft (Electronic)=6,Knowledge (Arcane Lore)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Techno Mage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Read/Write Language|Repair|Research|Speak Language|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Techno Mage|CL
 ###Block: Spells
 1	SPELLLEVEL:CLASS|Techno Mage=0|Daze,Detect Magical Aura,Light,Mage Hand,Message,Prestidigitation,Read Magic,Resistance|Techno Mage=1|Burning Hands,Cause Fear,Change Self,Comprehend Languages,Feather Fall,Hold Portal,Jump,Mage Armor,Magic Missile,Magic Weapon,Power Device,Ray of Fatigue,Shield,Sleep,True Strike|Techno Mage=2|Arcane Lock,Blur,Darkvision,Enhance Ability,Glitterdust,Invisibility,Knock,Levitate,Locate Object,Magic Mouth,Protection from Arrows/Bullets,Resist Energy,See Invisibility,Spider Climb,Web|Techno Mage=3|Dispel Magic,Displacement,Fireball,Flaming Projectiles,Greater Magic Weapon,Halt Undead,Haste,Hold Person,Invisibility Sphere,Keen Edge,Lightning Bolt,Slow,Tongues,Water Breathing|Techno Mage=4|Animate Dead,Arcane Eye,Bestow Curse,Confusion,Dimension Door,Energy Trap,Fear,Ice Storm,Minor Globe of Invulnerability,Remove Curse,Shout,Stoneskin,Wall of Fire,Wall of Ice|Techno Mage=5|Cloudkill,Cone of Cold,Hold Monster,Passwall,Phantom Watchdog,Telekinesis,Wall of Force,Wall of Iron,Wall of Stone
@@ -198,14 +198,14 @@ CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClas
 CLASS:Thrasher	PREATT:2	PREFEAT:1,Athletic,Endurance	PRESKILL:2,Concentration=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Profession|Read/Write Language|Ride|Speak Language|Spot|Swim|Survival|Tumble
-1																									ABILITY:Special Ability|AUTOMATIC|Tough Defense
-2									BONUS:VAR|AbilitySurge|(CL+1)/3											ABILITY:Special Ability|AUTOMATIC|Ability Surge
+1																		ABILITY:Special Ability|AUTOMATIC|Tough Defense
+2												BONUS:VAR|AbilitySurge|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Ability Surge
 3			BONUS:ABILITYPOOL|Thrasher Feat|1
-4																		ADD:FEAT|Uncanny Dodge I,Uncanny Dodge II									QUALIFY:FEAT|Uncanny Dodge I
+4																										TEMPLATE:Uncanny Dodger
 6			BONUS:ABILITYPOOL|Thrasher Feat|1
 7	DR:5/+1
 9			BONUS:ABILITYPOOL|Thrasher Feat|1
-10															BONUS:DR|+1|5
+10									BONUS:DR|+1|5
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Wildlord	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6

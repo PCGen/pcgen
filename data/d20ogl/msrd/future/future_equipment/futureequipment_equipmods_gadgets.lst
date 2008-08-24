@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 11 23:56:18 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original entry by Frank Kliewe
 
@@ -57,13 +57,13 @@ Voice Recognition System Gadget				KEY:VC_RCGNTN_SYS_GDGT	TYPE:Weapon	COST:1	VIS
 Paint-On LCD Gadget						KEY:PNT_ON_LCD_GDGT_WPN	TYPE:Weapon	COST:4	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																		SPROP:can be used as a display for any piece of computer or communications equipment
 
 ###Block:Universal Armor Gadgets
-# Modifier Name			Unique Key			Type		Cost		Visible		Type granted		Source Page					Required Type				BONUS:EQMARMOR			Add to base move							Special Property																																											Choose
+# Modifier Name			Unique Key			Type		Cost		Visible		Type granted		Source Page					Required Type				Add to base move							Bonus Armor Modifiers		Special Property																																											Choose
 Environment Seal Gadget		KEY:ENVRNMNT_SL_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	ITYPE:Environmental	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,Medium,Heavy,Powered															SPROP:provides the wearer protection from harsh conditions
 Integrated Equipment Gadget	KEY:INT_EQ_GDGT_AMR	TYPE:Armor	COST:2	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:%CHOICE has been integrated into the armor and can be used by the armor's wearer at any time																													CHOOSE:EQUIPMENT|TYPE=Goods
 Integrated Weapon Gadget	KEY:INT_WPN_GDGT		TYPE:Armor	COST:0	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:integrated %CHOICE																																									CHOOSE:EQUIPMENT|TYPE=Weapon
 Storage Compartment Gadget	KEY:STOR_CMPRT_GDGT_AMR	TYPE:Armor	COST:1	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:Storage compartment gadget allows the wearer to carry two items of size Small or smaller in a container built into the armor
 Techno-Organic Makeup Gadget	KEY:T_ORG_MUP_GDGT_AMR	TYPE:Armor	COST:4	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:Armor is composed of living tissue or a biological/mechanical hybrid material	SPROP:Armor heals itself at a rate of one hit point per hour when damaged	SPROP:Armor is susceptible to diseases and poisons specifically designed to target techno-organic material
-Ultralight Composition Gadget	KEY:ULTRLT_CMPSTN_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf							BONUS:EQMARMOR|ACCHECK|-1	BONUS:MOVEADD|TYPE.Walk|5|PRETYPE:1,Medium,Heavy
+Ultralight Composition Gadget	KEY:ULTRLT_CMPSTN_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf							BONUS:MOVEADD|TYPE.Walk|5|PRETYPE:1,Medium,Heavy	BONUS:EQMARMOR|ACCHECK|-1
 Paint-On LCD Gadget		KEY:PNT_ON_LCD_GDGT_AMR	TYPE:Armor	COST:4	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:can be used as a display for any piece of computer or communications equipment
 
 ###Block:Universal Equipment Gadgets
@@ -115,7 +115,7 @@ HUD Software (Ammunition Tracker)	KEY:HUD_SFTWR_AMMO_TRK_AMR	TYPE:Armor	COST:1	V
 Teleporting Magazine Gadget	KEY:TLPRT_MAG_GDGT	TYPE:Weapon	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PREMULT:2,[PRETYPE:1,Ranged],[PRETYPE:1,PL8,PL9]	SPROP:Teleporting Magazine
 
 ###Block:Energy Age Armor Gadgets
-# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Required Type	BONUS:EQMARMOR												Special Property
+# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Required Type	Bonus Armor Modifiers											Special Property
 Gravity Anchor Gadget		KEY:GRVT_ANCHR_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9															SPROP:Character unaffected by low gravity and zero-g conditions
 Morphic Metal Alloy Gadget	KEY:MRPH_MTL_ALL_GDGT	TYPE:Armor	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9	BONUS:EQMARMOR|ACCHECK|1|TYPE=Equipment	BONUS:EQMARMOR|MAXDEX|1|TYPE=Equipment
 Neg-grav Boosters Gadget	KEY:NEG_GRV_BOOST_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9															SPROP:+10 bonus on all Jump checks in any situation where gravity is a factor

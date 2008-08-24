@@ -31,7 +31,6 @@ Hide Power		TYPE:Metapsionic.Telepath.Battlemind					DESC:You can manifest power
 Persistent Power	TYPE:Metapsionic.Telepath.Battlemind	PREFEAT:1,Extend Power	DESC:You make one of your powers last all day							SOURCEPAGE:ArcanaOccupationsandFeats.rtf
 Quicken Power	TYPE:Metapsionic.Telepath.Battlemind					DESC:You can manifest powers as free actions with but a moment’s thought		SOURCEPAGE:ArcanaOccupationsandFeats.rtf
 Twin Power		TYPE:Metapsionic.Telepath.Battlemind					DESC:You can manifest a power simultaneously with another power just like it		SOURCEPAGE:ArcanaOccupationsandFeats.rtf
-Twin Power		TYPE:Metapsionic.Telepath.Battlemind					DESC:You can manifest a power simultaneously with another power just like it		SOURCEPAGE:ArcanaOccupationsandFeats.rtf
 
 #
 # End
