@@ -51,7 +51,7 @@ Psion Free Powers				CATEGORY:Special Ability	TYPE:TalentedFreePowers		VISIBLE:N
 #Psicrystal (Sympathetic)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Sense Motive|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
 
 
-Psychic Warrior Weapon Specialization			CATEGORY:Special Ability	TYPE:PsychicWarriorWeaponSpecialChoice			ADD:VFEAT|1|Weapon Specialization
+Psychic Warrior Weapon Specialization			CATEGORY:Special Ability	TYPE:PsychicWarriorWeaponSpecialChoice			ADD:FEAT|1|Weapon Specialization
 
 
 PsionBasePowers				TYPE:ClassAbility		CATEGORY:Special Ability		SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|0

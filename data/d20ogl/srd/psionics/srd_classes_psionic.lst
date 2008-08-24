@@ -91,7 +91,7 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 3	KNOWN:3,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:3,2
 5	KNOWN:3,3,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1
-6	KNOWN:3,3,2			BONUS:ABILITYPOOL|Psychic Warrior Weapon Specialization Choice|1
+6	KNOWN:3,3,2			BONUS:ABILITYPOOL|Psychic Warrior Weapon Specialization Choice|1	DEFINE:WeapSpecQualify|1
 7	KNOWN:3,3,2,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
 8	KNOWN:3,3,3,1		BONUS:ABILITYPOOL|Psychic Warrior Feat|1
 9	KNOWN:3,3,3,2		BONUS:ABILITYPOOL|Psionic Combat Mode|1
