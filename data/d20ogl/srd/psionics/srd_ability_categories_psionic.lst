@@ -15,6 +15,7 @@ ABILITYCATEGORY:Astral Construct Menu C	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 
 ABILITYCATEGORY:Talented Free Power		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedFreePowers				PLURAL:Talented Free Powers		DISPLAYLOCATION:Feats
 
+ABILITYCATEGORY:Psychic Warrior Weapon Specialization Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsychicWarriorWeaponSpecialChoice				PLURAL:Psychic Warrior Weapon Specialization Choice		DISPLAYLOCATION:Class Abilities
 #
 # End
 #

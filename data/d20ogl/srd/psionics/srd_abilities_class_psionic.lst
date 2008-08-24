@@ -33,21 +33,74 @@ Psion Free Powers				CATEGORY:Special Ability	TYPE:TalentedFreePowers		VISIBLE:N
 
 #Psicrystal personalities
 # Feat Name					CATEGORY:Special Ability	TYPE:					Visible	Required Class			Prohibited Feat					Special ABility	Define									Save checks bonus			Bonus to skill			Modify VAR																															Allow Follower		Allowed Companions																																																			Source Page
-Psicrystal (Artiste)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|	CATEGORY:Special Ability	TYPE:.Craft|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Bully)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Intimidate|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Coward)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Hide|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Friendly)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Diplomacy|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Hero)				CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:CHECKS|Fortitude|2																																																																																																SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Liar)				CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Bluff|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Meticulous)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Search|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Observant)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Spot|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Poised)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Balance|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Resolved)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:CHECKS|Will|2																																																																																																	SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Sage)				CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																																																																																																																														SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Artiste)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|TYPE.Craft|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Bully)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Intimidate|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Coward)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Hide|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Friendly)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Diplomacy|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Hero)				CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:CHECKS|Fortitude|2																																																																																																SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Liar)				CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Bluff|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Meticulous)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Search|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Observant)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Spot|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Poised)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Balance|2																																																																																												SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Resolved)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																										BONUS:CHECKS|Will|2																																																																																																	SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Sage)				CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																																																																																																																														SOURCEPAGE:srdpsionicclasses.rtf
 #	BONUS:SKILLPOOL|NUMBER|2
 # BONUS:SKILLPOOL|NUMBER is only valid in class.lst.
-Psicrystal (Single Minded)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Concentration|1																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Sneaky)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Move Silently|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
-Psicrystal (Sympathetic)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Sense Motive|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Single Minded)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Concentration|1																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Sneaky)			CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Move Silently|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
+#Psicrystal (Sympathetic)		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Sense Motive|2																																																																																											SOURCEPAGE:srdpsionicclasses.rtf
 
+
+Psychic Warrior Weapon Specialization			CATEGORY:Special Ability	TYPE:PsychicWarriorWeaponSpecialChoice			ADD:VFEAT|1|Weapon Specialization
+
+
+PsionBasePowers				TYPE:ClassAbility		CATEGORY:Special Ability		SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|0
+PsychicWarriorBasePowers		TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Psychic Warrior 0 level powers (% free / day)|PsyWarFreePowers	DEFINE:PsyWarFreePowers|0
+
+
+
+Power Psicrystal			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Power Psicrystal
+
+#Metamind
+Psychic Vampire			TYPE:ClassAbility	CATEGORY:Special Ability			SAB:Psychic Vampire (Manifest Psychic Vampire power as though using the Trigger Power feat)
+Apotheosis				TYPE:ClassAbility	CATEGORY:Special Ability			SAB:Apotheosis
+
+#Pyrokineticist
+Fire Lash				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fire Lash (PP 11+)	
+Touch Aflame			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Touch Aflame (PP 1+)
+Hand Afire				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Hand Afire (PP 9+)	
+Fire Adaptation			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fire Adaptation (PP 3+)
+Bolt of Fire			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Bolt of Fire (costs 3 PP)
+Weapon Afire			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Weapon Afire (PP 9+)
+Breath of the Dragon		TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Breath of the Dragon
+Nimbus				TYPE:ClassAbility		CATEGORY:Special Ability	SAB:Nimbus (costs 9 PP/min)
+Firewalk				TYPE:ClassAbility		CATEGORY:Special Ability	SAB:Firewalk (1 PP/10 feet)
+Fear no Fire			TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fear no Fire (PP 19+)
+Heat Death				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Heat Death (costs 13 PP)
+Fire Lord				TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Fire Lord
+
+##Slayer
+Favored Enemy (Mortal Enemy)		TYPE:ClassAbility	CATEGORY:Special Ability		SAB:Favored Enemy (Mortal Enemy)	
+Mortal Enemy Sense			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Mortal Enemy Sense
+Brain Nausea			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Brain Nausea (Will Save DC 17)
+Lucid Buffer			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Lucid Buffer
+Cerebral Blind		TYPE:ClassAbility		CATEGORY:Special Ability	SAB:Cerebral Blind (15+ PP)
+Breach Power Resistance			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Breach Power Resistance
+Blast Feedback			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Blast Feedback
+
+
+
+##Soulknife
+Imbed Power			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Imbed Power
+Imbed Psionic Attack			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Imbed Psionic Attack
+Free Draw			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Free Draw	
+Sever Life			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Sever Life
+Upgrade			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Upgrade	
+Knife to the Soul			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Knife to the Soul
+	
+	
+	
+Mind-Blade Sneak Attack		TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Mind-blade sneak attack +%d%|MindBladeSneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:MindBladeSneakAttack|0
+Mind-Blade				TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Mind-Blade +%|MindBladeEnchantment	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0
+Throw Mind-Blade			TYPE:ClassAbility	CATEGORY:Special Ability	SAB:Throw Mind-Blade % ft.|MindBladeRange												DEFINE:MindBladeRange|0
 

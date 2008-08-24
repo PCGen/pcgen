@@ -19,14 +19,15 @@ SUBCLASS:Nomad	COST:0	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Int
 #SUBCLASS:Nomad	CHOICE:SCHOOL|Psychoportation
 SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
-###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # AUTO:FEAT|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
 # variables that need to be set or modified by PrC's to calculate correct points, it's all done here.
 # Use ADD:SPELLCASTER(Psionic) in PrC's that add to manifester level.
 # Code those that have KNOWN tags similar to this but change the VAR names, i.e. PsionML becomes PsychicWarriorML,
 # PsionBonusPP becomes MetamindBonusPP, etc
-1																																								AUTO:FEAT|PsionicClass
+###Block: Base Psionic
+1	ABILITY:Special Ability|AUTOMATIC|PsionicClass
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsionML|CL	BONUS:VAR|PsionML|var("BL=Psion")																											DEFINE:PsionML|0
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsionML,4
 1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsionML,5	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,6	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,7	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:PsionML,8
@@ -41,7 +42,7 @@ SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Powers per day
-1	SAB:Psion 0 level powers (% free / day)|PsionFreePowers	DEFINE:PsionFreePowers|CL+var("BL=Psion")+3	AUTO:FEAT|Psicrystal
+1	BONUS:VAR|PsionFreePowers|CL+var("BL=Psion")+3	ABILITY:Special Ability|AUTOMATIC|Psicrystal|PsionBasePowers
 ###Block: Level progression
 1	KNOWN:2,0				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|5
 2	KNOWN:2,1				SPECIALTYKNOWN:1,1
@@ -71,7 +72,7 @@ CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentr
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1																																														AUTO:FEAT|PsionicClass
+1																																														ABILITY:Special Ability|AUTOMATIC|PsionicClass
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")																											DEFINE:PsychicWarriorML|0
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychicWarriorML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychicWarriorML,3	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychicWarriorML,4
 1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsychicWarriorML,5	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsychicWarriorML,6	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsychicWarriorML,7	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsychicWarriorML,8
@@ -83,14 +84,14 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Powers per day
-1	SAB:Psychic Warrior 0 level powers (% free / day)|PsyWarFreePowers	DEFINE:PsyWarFreePowers|CL+var("BL=Psychic Warrior")+2
+1	BONUS:VAR|PsyWarFreePowers|CL+var("BL=Psychic Warrior")+2		ABILITY:Special Ability|AUTOMATIC|PsychicWarriorBasePowers
 ###Block: Level progression
 1	KNOWN:2			BONUS:ABILITYPOOL|Psychic Warrior Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|2
 2	KNOWN:3			BONUS:ABILITYPOOL|Psychic Warrior Feat|1
 3	KNOWN:3,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:3,2
 5	KNOWN:3,3,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1
-6	KNOWN:3,3,2																	ADD:VFEAT|1|Weapon Specialization
+6	KNOWN:3,3,2			BONUS:ABILITYPOOL|Psychic Warrior Weapon Specialization Choice|1
 7	KNOWN:3,3,2,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
 8	KNOWN:3,3,3,1		BONUS:ABILITYPOOL|Psychic Warrior Feat|1
 9	KNOWN:3,3,3,2		BONUS:ABILITYPOOL|Psionic Combat Mode|1
@@ -120,8 +121,9 @@ SUBCLASS:Metamind(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRE
 SUBCLASS:Metamind(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion=1]
 SUBCLASS:Metamind(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion=1]
 SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion=1]
+###Block: Base Psionic
+1	ABILITY:Special Ability|AUTOMATIC|PsionicClass
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1																																									AUTO:FEAT|PsionicClass
 1	BONUS:VAR|MetamindML|CL	BONUS:VAR|MetamindML|var("BL=Metamind")																										DEFINE:MetamindML|0
 1	BONUS:VAR|BasePowerPoints|5	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MetamindML,2	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:MetamindML,3	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:MetamindML,4
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:MetamindML,5	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:MetamindML,6	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:MetamindML,7	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:MetamindML,8
@@ -132,7 +134,7 @@ SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUB
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:MetamindML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:MetamindML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:MetamindML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:MetamindML,19
 ###Block: Level progression
-1				SAB:Power Psicrystal																										AUTO:FEAT|Psicrystal
+1				ABILITY:Special Ability|AUTOMATIC|Psicrystal|Power Psicrystal
 1	KNOWN:2																		BONUS:ABILITYPOOL|Psionic Combat Mode|2	BONUS:ABILITYPOOL|Inner Strength|1
 2	KNOWN:3																		BONUS:ABILITYPOOL|Inner Strength|1
 3	KNOWN:3,1																		BONUS:ABILITYPOOL|Psionic Combat Mode|1	BONUS:ABILITYPOOL|Trigger Power|1
@@ -140,9 +142,9 @@ SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUB
 5	KNOWN:3,3,1																		BONUS:ABILITYPOOL|Trigger Power|1
 6	KNOWN:3,3,2																		BONUS:ABILITYPOOL|Inner Strength|1
 7	KNOWN:3,3,2,1																	BONUS:ABILITYPOOL|Psionic Combat Mode|1	BONUS:ABILITYPOOL|Trigger Power|1
-8	KNOWN:3,3,3,1	SAB:Psychic Vampire (Manifest Psychic Vampire power as though using the Trigger Power feat)
+8	KNOWN:3,3,3,1	ABILITY:Special Ability|AUTOMATIC|Psychic Vampire	
 9	KNOWN:3,3,3,2																	BONUS:ABILITYPOOL|Psionic Combat Mode|1	BONUS:ABILITYPOOL|Trigger Power|1
-10	KNOWN:3,3,3,2,1	SAB:Apotheosis														BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:3,3,3,2,1	ABILITY:Special Ability|AUTOMATIC|Apotheosis															BONUS:ABILITYPOOL|Psionic Combat Mode|1
 
 # Class Name		Hit Dice	Type					Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus														Combat bonus
 CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -158,8 +160,9 @@ SUBCLASS:Pyrokineticist(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:
 SUBCLASS:Pyrokineticist(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion=1]
 SUBCLASS:Pyrokineticist(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion=1]
 SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion=1]
+###Block: Base Psionic
+1	ABILITY:Special Ability|AUTOMATIC|PsionicClass
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1																																														AUTO:FEAT|PsionicClass
 1	BONUS:VAR|PyrokineticistML|CL	BONUS:VAR|PyrokineticistML|var("BL=Pyrokineticist")																											DEFINE:PyrokineticistML|0
 1	BONUS:VAR|BasePowerPoints|3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PyrokineticistML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PyrokineticistML,3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PyrokineticistML,4
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:PyrokineticistML,5	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:PyrokineticistML,6	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:PyrokineticistML,7	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PyrokineticistML,8
@@ -170,16 +173,16 @@ SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:PyrokineticistML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:PyrokineticistML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PyrokineticistML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionML,19
 ###Block: Level progression
-1				SAB:Fire Lash (PP 11+)	SAB:Touch Aflame (PP 1+)	BONUS:ABILITYPOOL|Psionic Combat Mode|2
-2				SAB:Hand Afire (PP 9+)	SAB:Fire Adaptation (PP 3+)
-3				SAB:Bolt of Fire (costs 3 PP)					BONUS:ABILITYPOOL|Psionic Combat Mode|1
-4	KNOWN:1		SAB:Weapon Afire (PP 9+)
-5	KNOWN:2		SAB:Breath of the Dragon
-6	KNOWN:2,1		SAB:Nimbus (costs 9 PP/min)
-7	KNOWN:2,2		SAB:Firewalk (1 PP/10 feet)					BONUS:ABILITYPOOL|Psionic Combat Mode|1
-8	KNOWN:2,2,1		SAB:Fear no Fire (PP 19+)
-9	KNOWN:2,2,2		SAB:Heat Death (costs 13 PP)					BONUS:ABILITYPOOL|Psionic Combat Mode|1
-10	KNOWN:2,2,2,1	SAB:Fire Lord							BONUS:ABILITYPOOL|Psionic Combat Mode|1
+1				ABILITY:Special Ability|AUTOMATIC|Fire Lash|Touch Aflame	BONUS:ABILITYPOOL|Psionic Combat Mode|2
+2				ABILITY:Special Ability|AUTOMATIC|Hand Afire|Fire Adaptation
+3				ABILITY:Special Ability|AUTOMATIC|Bolt of Fire					BONUS:ABILITYPOOL|Psionic Combat Mode|1
+4	KNOWN:1		ABILITY:Special Ability|AUTOMATIC|Weapon Afire
+5	KNOWN:2		ABILITY:Special Ability|AUTOMATIC|Breath of the Dragon
+6	KNOWN:2,1		ABILITY:Special Ability|AUTOMATIC|Nimbus
+7	KNOWN:2,2		ABILITY:Special Ability|AUTOMATIC|Firewalk					BONUS:ABILITYPOOL|Psionic Combat Mode|1
+8	KNOWN:2,2,1		ABILITY:Special Ability|AUTOMATIC|Fear no Fire
+9	KNOWN:2,2,2		ABILITY:Special Ability|AUTOMATIC|Heat Death					BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:2,2,2,1	ABILITY:Special Ability|AUTOMATIC|Fire Lord							BONUS:ABILITYPOOL|Psionic Combat Mode|1
 
 
 # Class Name	Hit Dice	Type					Max Level	Source Page					Save checks bonus														Combat bonus
@@ -190,8 +193,9 @@ CLASS:Slayer	PREATT:3	PREFEAT:1,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Slayer|CL	SPELLLIST:1|Psion
+###Block: Base Psionic
+1	ABILITY:Special Ability|AUTOMATIC|PsionicClass
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1																																								AUTO:FEAT|PsionicClass
 1	BONUS:VAR|SlayerML|CL	BONUS:VAR|SlayerML|var("BL=Slayer")																											DEFINE:SlayerML|0
 1	BONUS:VAR|BasePowerPoints|3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:SlayerML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:SlayerML,3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:SlayerML,4
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:SlayerML,5	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:SlayerML,6	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:SlayerML,7	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:SlayerML,8
@@ -206,16 +210,16 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1				SAB:Favored Enemy (Mortal Enemy)	SAB:Mortal Enemy Sense	BONUS:ABILITYPOOL|Psionic Combat Mode|2
-2				SAB:Brain Nausea (Will Save DC 17)
+1				ABILITY:Special Ability|AUTOMATIC|Favored Enemy (Mortal Enemy)|Mortal Enemy Sense	BONUS:ABILITYPOOL|Psionic Combat Mode|2
+2				ABILITY:Special Ability|AUTOMATIC|Brain Nausea
 3														BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|1
-4	KNOWN:1		SAB:Lucid Buffer
+4	KNOWN:1		ABILITY:Special Ability|AUTOMATIC|Lucid Buffer
 5	KNOWN:2												BONUS:ABILITYPOOL|Slayer Feat|1
-6	KNOWN:2,1		SAB:Cerebral Blind (15+ PP)
+6	KNOWN:2,1		ABILITY:Special Ability|AUTOMATIC|Cerebral Blind
 7	KNOWN:2,2												BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|1
-8	KNOWN:2,2,1		SAB:Breach Power Resistance
+8	KNOWN:2,2,1		ABILITY:Special Ability|AUTOMATIC|Breach Power Resistance
 9	KNOWN:2,2,2												BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Psionic Combat Mode|1
-10	KNOWN:2,2,2,1	SAB:Blast Feedback							BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:2,2,2,1	ABILITY:Special Ability|AUTOMATIC|Blast Feedback							BONUS:ABILITYPOOL|Psionic Combat Mode|1
 
 # Class Name	Hit Dice	Type					Max Level	Subclass?		Base class as subclass?	Source Page					Save checks bonus															Combat bonus
 CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -231,8 +235,9 @@ SUBCLASS:Soulknife(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PR
 SUBCLASS:Soulknife(Str)	CHOICE:SCHOOL|Psychometabolism	SPELLSTAT:STR	PREMULT:1,[PRESUBCLASS:1,Egoist],[!PRECLASS:1,Psion=1]
 SUBCLASS:Soulknife(Dex)	CHOICE:SCHOOL|Psychoportation		SPELLSTAT:DEX	PREMULT:1,[PRESUBCLASS:1,Nomad],[!PRECLASS:1,Psion=1]
 SUBCLASS:Soulknife(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUBCLASS:1,Telepath],[!PRECLASS:1,Psion=1]
+###Block: Base Psionic
+1	ABILITY:Special Ability|AUTOMATIC|PsionicClass
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1																																									AUTO:FEAT|PsionicClass
 1	BONUS:VAR|SoulknifeML|CL	BONUS:VAR|SoulknifeML|var("BL=Soulknife")																									DEFINE:SoulknifeML|0
 1	BONUS:VAR|BasePowerPoints|3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:SoulknifeML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:SoulknifeML,3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:SoulknifeML,4
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:SoulknifeML,5	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:SoulknifeML,6	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:SoulknifeML,7	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:SoulknifeML,8
@@ -243,18 +248,18 @@ SUBCLASS:Soulknife(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESU
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:SoulknifeML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:SoulknifeML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:SoulknifeML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:SoulknifeML,19
 ###Block: Mind Blade
-1	SAB:Mind-blade sneak attack +%d%|MindBladeSneakAttack|SneakAttackDie	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|6	AUTO:EQUIP|Mind Blade
-2	SAB:Throw Mind-Blade	SAB:Mind-Blade +%|MindBladeEnchantment		BONUS:VAR|MindBladeRange|30									DEFINE:MindBladeRange|0
+1	ABILITY:Special Ability|AUTOMATIC|Mind-Blade Sneak Attack|Mind-Blade	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2			AUTO:EQUIP|Mind Blade
+2	ABILITY:Special Ability|AUTOMATIC|Throw Mind-Blade				BONUS:VAR|MindBladeRange|30
 ###Block:Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1										BONUS:ABILITYPOOL|Psionic Combat Mode|2
-2				SAB:Imbed Power
-3										BONUS:ABILITYPOOL|Psionic Combat Mode|1
-4	KNOWN:1		SAB:Imbed Psionic Attack
+1														BONUS:ABILITYPOOL|Psionic Combat Mode|2
+2				ABILITY:Special Ability|AUTOMATIC|Imbed Power
+3														BONUS:ABILITYPOOL|Psionic Combat Mode|1
+4	KNOWN:1		ABILITY:Special Ability|AUTOMATIC|Imbed Psionic Attack
 5	KNOWN:2
-6	KNOWN:2,1		SAB:Free Draw	SAB:Sever Life
-7	KNOWN:2,2								BONUS:ABILITYPOOL|Psionic Combat Mode|1
-8	KNOWN:2,2,1		SAB:Upgrade												BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0
-9	KNOWN:2,2,2								BONUS:ABILITYPOOL|Psionic Combat Mode|1
-10	KNOWN:2,2,2,1	SAB:Knife to the Soul			BONUS:ABILITYPOOL|Psionic Combat Mode|1
+6	KNOWN:2,1		ABILITY:Special Ability|AUTOMATIC|Free Draw|Sever Life
+7	KNOWN:2,2												BONUS:ABILITYPOOL|Psionic Combat Mode|1
+8	KNOWN:2,2,1		ABILITY:Special Ability|AUTOMATIC|Upgrade											BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0
+9	KNOWN:2,2,2												BONUS:ABILITYPOOL|Psionic Combat Mode|1
+10	KNOWN:2,2,2,1	ABILITY:Special Ability|AUTOMATIC|Knife to the Soul		BONUS:ABILITYPOOL|Psionic Combat Mode|1
