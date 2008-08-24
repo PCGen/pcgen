@@ -8,16 +8,16 @@ CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	ABB:BldHx		MAXLEVEL:10	SOURCEPAGE:p. 14
 CLASS:Blood Hexer	PREALIGN:CG,CN,CE	PREFEAT:2,Curse of Blood,Curse of Blood - Greater	PRESKILL:1,Knowledge (Arcana),Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Perform|TYPE.Profession|Spellcraft|Use Magic Device
-1	BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY										AUTO:FEAT|Metacurse Affinity|Blood Curse Reprieve
-2	BONUS:VAR|BloodSweatProgression|(CL+3)/5	ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire					AUTO:FEAT|Blood Sweat
-3	BONUS:VAR|MaliciousCurseProgression|CL/3	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic						AUTO:FEAT|Malicious Curse
-4								ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire
+1	BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY										ABILITY:Special Ability|AUTOMATIC|Metacurse Affinity|Blood Curse Reprieve
+2	BONUS:VAR|BloodSweatProgression|(CL+3)/5	ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Curse Repertoire|CL/2			ABILITY:Special Ability|AUTOMATIC|Blood Sweat
+3	BONUS:VAR|MaliciousCurseProgression|CL/3	ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Blood Hexer Feat|1			ABILITY:Special Ability|AUTOMATIC|Malicious Curse
+4								ADD:SPELLCASTER|ANY	
 5								ADD:SPELLCASTER|ANY
-6								ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire
-7								ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic
-8								ADD:SPELLCASTER|ANY	ADD:FEAT|Curse Repertoire
+6								ADD:SPELLCASTER|ANY	
+7								ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Blood Hexer Feat|1
+8								ADD:SPELLCASTER|ANY		
 9								ADD:SPELLCASTER|ANY
-10								ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic	ADD:FEAT|Curse Repertoire
+10								ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Blood Hexer Feat|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -31,10 +31,11 @@ CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
-1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY																						AUTO:FEAT|Expanded Awareness|Evil Eye|Warlock Superstition
-2																	ADD:SPELLCASTER|ANY	ADD:FEAT|Expanded Awareness ~ Enhanced Darkvision	ADD:FEAT|Expanded Awareness ~ Darkvision
+1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness|Evil Eye|Warlock Superstition
+2																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness ~ Enhanced Darkvision|Expanded Awareness ~ Darkvision
+###COMMENT: Can't tell why an ADD:FEAT was used here, no choices pop up as far as I can tell. ADD:FEAT|Expanded Awareness ~ Enhanced Darkvision	ADD:FEAT|Expanded Awareness ~ Darkvision
 3																	ADD:SPELLCASTER|ANY
-4																	ADD:SPELLCASTER|ANY																	TEMPLATE:Evil Eye Subtype
+4																	ADD:SPELLCASTER|ANY																			TEMPLATE:Evil Eye Subtype
 5																	ADD:SPELLCASTER|ANY
 
 
@@ -45,15 +46,15 @@ CLASS:Hexomancer	PREALIGN:LE,NE,CE	PREFEAT:5,Enlarge Spell,Extend Spell,Heighten
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Intimidate|TYPE.Knowledge|TYPE.Profession|Spellcraft
 ###Block: Level Progression
-1									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic	AUTO:FEAT|Extended Curse
-2	BONUS:VAR|EffigyOfControlProgression|CL		ADD:SPELLCASTER|ANY						AUTO:FEAT|Effigy of Control
-3									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic	AUTO:FEAT|Enlarged Curse
+1									ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Hexomancer Choice|CL+1/2	ABILITY:Special Ability|AUTOMATIC|Extended Curse
+2	BONUS:VAR|EffigyOfControlProgression|CL		ADD:SPELLCASTER|ANY									ABILITY:Special Ability|AUTOMATIC|Effigy of Control
+3									ADD:SPELLCASTER|ANY									ABILITY:Special Ability|AUTOMATIC|Enlarged Curse
 4									ADD:SPELLCASTER|ANY
-5	BONUS:VAR|HeightenedCurseProgression|(CL-3)/2	ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic	AUTO:FEAT|Heightened Curse|Deny Solace
+5	BONUS:VAR|HeightenedCurseProgression|(CL-3)/2	ADD:SPELLCASTER|ANY									ABILITY:Special Ability|AUTOMATIC|Heightened Curse|Deny Solace
 6									ADD:SPELLCASTER|ANY
-7									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic
+7									ADD:SPELLCASTER|ANY	
 8									ADD:SPELLCASTER|ANY
-9									ADD:SPELLCASTER|ANY	ADD:FEAT|Corrupting Magic
+9									ADD:SPELLCASTER|ANY	
 10									ADD:SPELLCASTER|ANY
 
 

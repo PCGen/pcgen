@@ -1,0 +1,7 @@
+
+ABILITYCATEGORY:Curse Repertoire	PLURAL:Curse Repertoires	CATEGORY:Special Ability	DISPLAYLOCATION:Class Abilities	TYPE:CurseRepertoire	EDITABLE:YES	EDITPOOL:YES
+
+ABILITYCATEGORY:Blood Hexer Feat	PLURAL:Blood Hexer Feats	CATEGORY:FEAT			DISPLAYLOCATION:Feats			TYPE:Metamagic	EDITABLE:YES	EDITPOOL:YES	
+
+ABILITYCATEGORY:Hexomancer Choice	PLURAL:Hexomancer Choices	CATEGORY:Special Ability	DISPLAYLOCATION:Class Abilities	TYPE:CorruptingMagic	EDITABLE:YES	EDITPOOL:YES
+	
