@@ -89,8 +89,11 @@
 	<p class="indent0"><strong><a name="BOOKTYPE">Tag Name:</a></strong> BOOKTYPE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (Book type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tells PCGen what the book type is.</p>
-	<p class="indent2">Eventually This will be used to filter sources.</p>
+	<ul class="indent2">
+		<li>This tells PCGen what the book type is.</li>
+		<li>The booktype identified by this tag can be used as a prerequisite for loading data sets. 
+			See the <a href="#PRECAMPAIGN">PRECAMPAIGN</a> tag docs for more information.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BOOKTYPE:Supplement</code></p>
 	<p class="indent3">The source data set that this PCC file represents is a &quot;Supplment&quot;.</p>
@@ -247,9 +250,10 @@
 			data set to be loaded. In the Source tab a data set which requires another data set will appear 
 			in red until that set is added to the right load pane.</li>
 		<li>When the tag is used inversely (i.e. !PRECAMPAIGN) a data set which prohibits itself from being 
-			used with another data set will appear in red when that data set is added to the right load pane. 
-			If this same data set is in the right pane when the set it prohibits is added it will be removed 
-			from the right load pane.</li>
+			used with another data set will appear in red when that data set is added to the right load pane.</li>
+		<li>Incompatible data sets will not load together. When incompatible data sets are selected in the 
+			right hand pane (i.e. one or more appears in red) an error message will be displayed if you 
+			click the load button.</li>
 		<li>Enclosing the data set name or <code>BOOKTYPE</code> sub-tag and text in square-brackets ([]) will exclude 
 			the relevant data sets from the prerequisite evaluation.</li>
 		<li>This tag is a global tag and so may be used in any LST file to set prerequisites for specific data sets. 
@@ -270,10 +274,8 @@
 	<p class="indent3">Will cause the associated data set to be loaded only if the a &quot;Core&quot; data set is 
 		loaded but does not include the &quot;3.5 RSRD Basics&quot; data set in the evaluation.</p>
 	<p class="indent2"><code>!PRECAMPAIGN:1,BOOKTYPE=Core,[3.5 RSRD Basics]</code></p>
-	<p class="indent3">Will prohibit the loading of other &quot;Core&quot; data sets but does not the 
-		&quot;3.5 RSRD Basics&quot; data set itself.</p>
-	<p class="indent2"><code>!PRECAMPAIGN:1,BOOKTYPE=Core,[BOOKTYPE=CoreSupplement]</code></p>
-	<p class="indent3">Will prohibit the loading of &quot;Core&quot; data sets, but not &quot;CoreSupplements&quot;.</p>
+	<p class="indent3">Will cause the associated data set to be loaded only if the a "Core" data set 
+		other than the "3.5 RSRD Basics" data set is loaded.</p>
 	<p></p>
 
 <hr>
