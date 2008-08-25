@@ -52,6 +52,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.modifier.ChangeArmorType;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
@@ -3676,6 +3677,17 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC
 	 */
 	private void setBase(final PlayerCharacter aPC) {
+		
+		if (get(ObjectKey.BASE_ITEM) == null)
+		{
+			Equipment eq =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Equipment.class, getKeyName());
+			if (eq != null)
+			{
+				put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eq));
+			}
+		}
 		
 		String prof = consolidatedProfName();
 		if (prof.length() == 0) {
