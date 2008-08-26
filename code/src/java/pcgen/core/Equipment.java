@@ -2809,7 +2809,7 @@ public final class Equipment extends PObject implements Serializable,
 			sbuf.append(getBaseItemName());
 		} else {
 			base = baseItem.resolvesTo();
-			sbuf.append(baseItem);
+			sbuf.append(base);
 			sbuf.append(sep).append("NAME").append(endPart).append(
 					toString(false));
 		}
@@ -2829,7 +2829,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE);
 		if (!thisSize.equals(base.getSafe(ObjectKey.SIZE))) {
-			sbuf.append(sep).append("SIZE").append(endPart).append(thisSize);
+			sbuf.append(sep).append("SIZE").append(endPart).append(thisSize.getAbbreviation());
 		}
 
 		String aString = getEqModifierString(true); // key1.key2|assoc1|assoc2.key3.key4
