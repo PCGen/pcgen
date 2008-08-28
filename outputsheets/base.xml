@@ -408,16 +408,39 @@
 			<epic_mod>|ATTACK.RANGED.EPIC|</epic_mod>
 			<temp_mod/>
 		</ranged>
-		<grapple>
-			<total>|ATTACK.GRAPPLE.TOTAL|</total>
-			<bab>|ATTACK.GRAPPLE.BASE|</bab>
-			<base_attack_bonus>|ATTACK.GRAPPLE|</base_attack_bonus>
-			<stat_mod>|ATTACK.GRAPPLE.STAT|</stat_mod>
-			<size_mod>|ATTACK.GRAPPLE.SIZE|</size_mod>
-			<misc_mod>|ATTACK.GRAPPLE.MISC|</misc_mod>
-			<epic_mod>|ATTACK.GRAPPLE.EPIC|</epic_mod>
-			<temp_mod/>
-		</grapple>
+		<!-- Either CMB block, or Grapple Block -->
+|IIF(HASVAR:CMB)|
+			<combat_maneuver>
+				<cmb>|VAR.CMB|</cmb>
+				<trip_base>|VAR.CMB_Trip|</trip_base>
+				<trip_defense>|VAR.CMB_Trip_DEF|</trip_defense>
+				<trip_attack>|VAR.CMB_Trip_OFF|</trip_attack>
+				<grapple_base>|VAR.CMB_Grapple|</grapple_base>
+				<grapple_defense>|VAR.CMB_Grapple_DEF|</grapple_defense>
+				<grapple_attack>|VAR.CMB_Grapple_OFF|</grapple_attack>
+				<bullrush_base>|VAR.CMB_Bull|</bullrush_base>
+				<bullrush_defense>|VAR.CMB_Bull_DEF|</bullrush_defense>
+				<bullrush_attack>|VAR.CMB_Bull_OFF|</bullrush_attack>
+				<sunder_base>|VAR.CMB_Sunder|</sunder_base>
+				<sunder_defense>|VAR.CMB_Sunder_DEF|</sunder_defense>
+				<sunder_attack>|VAR.CMB_Sunder_OFF|</sunder_attack>
+				<disarm_base>|VAR.CMB_Disarm|</disarm_base>
+				<disarm_defense>|VAR.CMB_Disarm_DEF|</disarm_defense>
+				<disarm_attack>|VAR.CMB_Disarm_OFF|</disarm_attack>
+			</combat_maneuver>
+|ELSE|
+			<grapple>
+				<total>|ATTACK.GRAPPLE.TOTAL|</total>
+				<bab>|ATTACK.GRAPPLE.BASE|</bab>
+				<base_attack_bonus>|ATTACK.GRAPPLE|</base_attack_bonus>
+				<stat_mod>|ATTACK.GRAPPLE.STAT|</stat_mod>
+				<size_mod>|ATTACK.GRAPPLE.SIZE|</size_mod>
+				<misc_mod>|ATTACK.GRAPPLE.MISC|</misc_mod>
+				<epic_mod>|ATTACK.GRAPPLE.EPIC|</epic_mod>
+				<temp_mod/>
+			</grapple>
+|ENDIF|
+		<!-- End CMB / Grapple Block -->
 	</attack>
 	<!--
 	  ====================================
