@@ -390,6 +390,7 @@
 	<attack>
 		<melee>
 			<total>|ATTACK.MELEE.TOTAL|</total>
+			<total_short>|ATTACK.MELEE.TOTAL.SHORT|</total_short>
 			<bab>|ATTACK.MELEE.BASE|</bab>
 			<base_attack_bonus>|ATTACK.MELEE|</base_attack_bonus>
 			<stat_mod>|ATTACK.MELEE.STAT|</stat_mod>
@@ -410,24 +411,37 @@
 		</ranged>
 		<!-- Either CMB block, or Grapple Block -->
 |IIF(HASVAR:CMB)|
-			<combat_maneuver>
-				<cmb>|VAR.CMB|</cmb>
-				<trip_base>|VAR.CMB_Trip|</trip_base>
-				<trip_defense>|VAR.CMB_Trip_DEF|</trip_defense>
-				<trip_attack>|VAR.CMB_Trip_OFF|</trip_attack>
-				<grapple_base>|VAR.CMB_Grapple|</grapple_base>
-				<grapple_defense>|VAR.CMB_Grapple_DEF|</grapple_defense>
-				<grapple_attack>|VAR.CMB_Grapple_OFF|</grapple_attack>
-				<bullrush_base>|VAR.CMB_Bull|</bullrush_base>
-				<bullrush_defense>|VAR.CMB_Bull_DEF|</bullrush_defense>
-				<bullrush_attack>|VAR.CMB_Bull_OFF|</bullrush_attack>
-				<sunder_base>|VAR.CMB_Sunder|</sunder_base>
-				<sunder_defense>|VAR.CMB_Sunder_DEF|</sunder_defense>
-				<sunder_attack>|VAR.CMB_Sunder_OFF|</sunder_attack>
-				<disarm_base>|VAR.CMB_Disarm|</disarm_base>
-				<disarm_defense>|VAR.CMB_Disarm_DEF|</disarm_defense>
-				<disarm_attack>|VAR.CMB_Disarm_OFF|</disarm_attack>
-			</combat_maneuver>
+			<cmb>
+				<!-- Base stuff for standard block -->
+				<title>CMB</title>
+				<total>|VAR.CMB.INTVAL.SIGN|</total>
+				<bab>|ATTACK.MELEE.BASE|</bab>
+				<base_attack_bonus>|ATTACK.MELEE|</base_attack_bonus>
+				<stat_mod>|VAR.CMB_STAT.INTVAL.SIGN|</stat_mod>
+				<size_mod>|VAR.CMB_SizeMod.INTVAL.SIGN|</size_mod>
+				<misc_mod>|VAR.CMB-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|</misc_mod>
+				<epic_mod/>
+				<temp_mod/>
+				<!-- Base values (not yet used) -->
+				<disarm_base>|VAR.CMB_Disarm.INTVAL.SIGN|</disarm_base>
+				<grapple_base>|VAR.CMB_Grapple.INTVAL.SIGN|</grapple_base>
+				<sunder_base>|VAR.CMB_Sunder.INTVAL.SIGN|</sunder_base>
+				<trip_base>|VAR.CMB_Trip.INTVAL.SIGN|</trip_base>
+				<bullrush_base>|VAR.CMB_Bull.INTVAL.SIGN|</bullrush_base>
+				<!-- Attack values -->
+				<bullrush_attack>|VAR.CMB_Bull_OFF.INTVAL.SIGN|</bullrush_attack>
+				<disarm_attack>|VAR.CMB_Disarm_OFF.INTVAL.SIGN|</disarm_attack>
+				<grapple_attack>|VAR.CMB_Grapple_OFF.INTVAL.SIGN|</grapple_attack>
+				<sunder_attack>|VAR.CMB_Sunder_OFF.INTVAL.SIGN|</sunder_attack>
+				<trip_attack>|VAR.CMB_Trip_OFF.INTVAL.SIGN|</trip_attack>
+				<!-- Defense values -->
+				<defense>|VAR.CMB+VAR.CMB_DEF.INTVAL|</defense>
+				<bullrush_defense>|VAR.CMB_Bull_DEF.INTVAL|</bullrush_defense>
+				<disarm_defense>|VAR.CMB_Disarm_DEF.INTVAL|</disarm_defense>
+				<grapple_defense>|VAR.CMB_Grapple_DEF.INTVAL|</grapple_defense>
+				<sunder_defense>|VAR.CMB_Sunder_DEF.INTVAL|</sunder_defense>
+				<trip_defense>|VAR.CMB_Trip_DEF.INTVAL|</trip_defense>
+			</cmb>
 |ELSE|
 			<grapple>
 				<total>|ATTACK.GRAPPLE.TOTAL|</total>
