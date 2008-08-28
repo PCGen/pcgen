@@ -33,20 +33,6 @@
 		<h2><a name="STATS">Defining Statistics</a></h2>
 
 		<p></p><hr>
-		<p class="new">*** New 5.11.13</p>
-		<p class="indent0"><strong><a name="ABILITYADDSPELLLEVEL">Tag Name:</a></strong> ABILITY:ADDSPELLLEVEL|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (with + or -)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Set the increase in spell level that this metamagic feat costs to apply.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ABILITY:ADDSPELLLEVEL|1</code></p>
-		<p class="indent3">Adds 1 to the spell level.</p>
-		<p class="indent2"><code>ABILITY:ADDSPELLLEVEL|+2</code></p>
-		<p class="indent3">Adds 2 to the spell level.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">STATNAME Line.</p>
-
-		<p></p><hr>
 		<p class="indent0"><strong><a name="STATNAME">Tag Name:</a></strong> STATNAME:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The full name of the stat).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -204,7 +190,21 @@
 
 		<hr><h2><a name="SPELLS">Defining Bonus Spells</a></h2>
 
-		<p>This section is used to implement Bonus Spells by level.</p>
+		<p>This section is used to implement Bonus Spells by ability or level.</p>
+
+		<p></p><hr>
+		<p class="new">*** New 5.11.13</p>
+		<p class="indent0"><strong><a name="ABILITYADDSPELLLEVEL">Tag Name:</a></strong> ABILITY:ADDSPELLLEVEL|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (with + or -)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Set the increase in spell level that this metamagic feat costs to apply.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ABILITY:ADDSPELLLEVEL|1</code></p>
+		<p class="indent3">Adds 1 to the spell level.</p>
+		<p class="indent2"><code>ABILITY:ADDSPELLLEVEL|+2</code></p>
+		<p class="indent3">Adds 2 to the spell level.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">STATNAME Line.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="BASESTATSCORE">Tag Name:</a></strong> BASESTATSCORE:x</p>
