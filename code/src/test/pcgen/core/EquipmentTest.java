@@ -26,15 +26,22 @@
  */
 package pcgen.core;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.GenericLoader;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Equipment Test
@@ -94,13 +101,34 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
-		this.eq = new Equipment();
-		this.eq.setName("Dummy");
-		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
-		eq.put(ObjectKey.SIZE, sa);
-		eq.put(ObjectKey.BASESIZE, sa);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 
-		this.eq.setKeyName(this.OriginalKey);
+		GenericLoader<Equipment> eqLoader =
+				new GenericLoader<Equipment>(Equipment.class);
+		eq = eqLoader.parseLine(Globals.getContext(), null,
+			"Dummy	SIZE:M 	KEY:OrigKey", source);
+		eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, OriginalKey);
+		
+		GenericLoader<EquipmentModifier> loader =
+				new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
+		loader
+			.parseLine(
+				Globals.getContext(),
+				null,
+				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO",
+				source);
+		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
 	}
 
 	/*****************************************************************************
@@ -324,5 +352,46 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		custEq.resizeItem(getCharacter(), gamemode.getSizeAdjustmentNamed("L"));
 		is(custEq.getSize(), eq("L"), "reduce size size");
 		is(custEq.getDamage(getCharacter()), eq("1d8"), "reduce size damage");
+	}
+	
+	/**
+	 * Test the loading a output of customised equipment. This time without a set of the base 
+	 * item included, so a limited representation of the object is expected to be output. 
+	 */
+	public void testCustomEquipRoundRobin()
+	{
+		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
+		assertNotNull("Eqmod should be present", eqMod);
+
+		Equipment aEquip = eq.clone();
+		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
+		PlayerCharacter thePC = getCharacter();
+		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
+		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
+		assertEquals("Equip size", "S", aEquip.getSize());
+		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
+		assertEquals("Output", "Falchion +1 (Small)$EQMOD=PLUS1W", aEquip.formatSaveLine('$', '=').trim());
+	}
+	
+	/**
+	 * Test the loading a output of customised equipment. This time with a set of the base 
+	 * item included, so an exact replica of the object is expected to be output. 
+	 */
+	public void testCustomEquipRoundRobinWithBase()
+	{
+		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
+		assertNotNull("Eqmod should be present", eqMod);
+
+		Equipment aEquip = eq.clone();
+		aEquip.setBase(getCharacter());
+		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
+		PlayerCharacter thePC = getCharacter();
+		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
+		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
+		assertEquals("Equip size", "S", aEquip.getSize());
+		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
+		assertEquals("Output", "Dummy$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
 	}
 }

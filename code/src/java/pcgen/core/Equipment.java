@@ -3676,7 +3676,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @param aPC
 	 */
-	private void setBase(final PlayerCharacter aPC) {
+	public void setBase(final PlayerCharacter aPC) {
 		
 		if (get(ObjectKey.BASE_ITEM) == null)
 		{

@@ -4664,6 +4664,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								{
 									// standard item
 									aEquip = aEquip2.clone();
+									aEquip.setBase(thePC);
 									aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 									aEquip.remove(StringKey.OUTPUT_NAME);
 									if (!aEquip.isType(Constants.s_CUSTOM))

@@ -98,6 +98,8 @@ public class TestHelper
 			sa.setAbbreviation(abb);
 
 			gamemode.addToSizeAdjustmentList(sa);
+			Globals.getContext().ref.importObject(sa);
+			Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
 		}
 		gamemode.getSizeAdjustmentNamed("Medium").setIsDefaultSize(true);
 	}
