@@ -1,13 +1,6 @@
-ABILITYCATEGORY:GhostAbility	TYPE:GhostAbility	CATEGORY:Special Ability	VISIBLE:QUALIFY	DISPLAYLOCATION:Monster Abilities
+# CVS $Revision$ $Author$ -- Sat Aug 30 09:23:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+#SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-
-
-
-
-
-
-
-
-
-
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Ghost Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostAbility	PLURAL:Ghost Abilities		DISPLAYLOCATION:Racial Abilities
 
