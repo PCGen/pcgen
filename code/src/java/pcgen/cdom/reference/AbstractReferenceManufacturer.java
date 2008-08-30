@@ -296,16 +296,17 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		List<String> throwaway = new ArrayList<String>();
 		for (Entry<String, SRT> me1 : referenced.entrySet())
 		{
-			String reduced = AbilityUtilities.getUndecoratedName(me1.getKey(),
-					throwaway);
-			T activeObj = active.get(reduced);
+			T activeObj = active.get(me1.getKey());
 			if (activeObj == null)
 			{
-				activeObj = active.get(me1.getKey());
+				String reduced =
+						AbilityUtilities.getUndecoratedName(me1.getKey(),
+							throwaway);
+				activeObj = active.get(reduced);
 				if (activeObj == null)
 				{
 					Logging.errorPrint("Unable to Resolve: " + refClass + " "
-							+ me1.getKey());
+						+ me1.getKey());
 				}
 				else
 				{
