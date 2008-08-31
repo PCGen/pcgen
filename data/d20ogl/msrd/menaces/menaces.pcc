@@ -22,9 +22,10 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 INFOTEXT:This will load the Menace options of the MSRD
 
 
+ABILITY:menaces_abilities_monster.lst
+ABILITYCATEGORY:menaces_ability_categories.lst
 EQUIPMENT:menaces_equipment.lst
 FEAT:menaces_feats.lst
-FEAT:menaces_feats_hidden.lst
 KIT:menaces_kits_defaultmonsters_a-i.lst
 KIT:menaces_kits_defaultmonsters_j-z.lst
 LANGUAGE:menaces_languages.lst
