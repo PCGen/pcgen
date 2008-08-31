@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Aug 31 14:10:57 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
@@ -54,16 +54,16 @@ CLASS:Engineer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClass
 CLASS:Engineer	PRESKILL:5,Computer Use=6,Craft (Electronic)=6,Craft (Mechanical)=6,Knowledge (Technology)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Engineer	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Search|Speak Language
-1							BONUS:VAR|ImproveKit|1		ADD:FEAT|Builder	ABILITY:Special Ability|AUTOMATIC|Improve Kit
-2															ABILITY:Special Ability|AUTOMATIC|Quick Craft|Superior Repair
+1	BONUS:ABILITYPOOL|Builder|1		BONUS:VAR|ImproveKit|1		ABILITY:Special Ability|AUTOMATIC|Improve Kit
+2												ABILITY:Special Ability|AUTOMATIC|Quick Craft|Superior Repair
 3	BONUS:ABILITYPOOL|Engineer Feat|1
-4							BONUS:VAR|ImproveKit|1					ABILITY:Special Ability|AUTOMATIC|Reconfigure Weapon|Sabotage
-5							BONUS:VAR|CraftReserve|CL*100				ABILITY:Special Ability|AUTOMATIC|Quick Craft|Craft XP Reserve
+4							BONUS:VAR|ImproveKit|1		ABILITY:Special Ability|AUTOMATIC|Reconfigure Weapon|Sabotage
+5							BONUS:VAR|CraftReserve|CL*100	ABILITY:Special Ability|AUTOMATIC|Quick Craft|Craft XP Reserve
 6	BONUS:ABILITYPOOL|Engineer Feat|1
-7							BONUS:VAR|ImproveKit|1					ABILITY:Special Ability|AUTOMATIC|Quick Fix
-8															ABILITY:Special Ability|AUTOMATIC|Weapon Upgrade
+7							BONUS:VAR|ImproveKit|1		ABILITY:Special Ability|AUTOMATIC|Quick Fix
+8												ABILITY:Special Ability|AUTOMATIC|Weapon Upgrade
 9	BONUS:ABILITYPOOL|Engineer Feat|1
-10															ABILITY:Special Ability|AUTOMATIC|Unflustered
+10												ABILITY:Special Ability|AUTOMATIC|Unflustered
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus									Combat bonus		Modify VAR
 CLASS:Explorer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
