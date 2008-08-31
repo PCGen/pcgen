@@ -1,0 +1,144 @@
+# CVS $Revision$ $Author$ -- Sun Aug 31 15:52:15 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+
+
+###Block: Fiend Knowledge
+# Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose					Selections	Bonus to skill rank	Source Page
+High Fiend Knowledge	CATEGORY:Special Ability	TYPE:HighFiendKnowledge	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge	SELECT:3	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen
+Low Fiend Knowledge	CATEGORY:Special Ability	TYPE:LowFiendKnowledge	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge			BONUS:SKILLRANK|LIST|5	SOURCEPAGE:Internal pcgen
+
+###Block: Fiend Immunity
+# Ability Name					Category of Ability		Type				Visible		Special ABility					Bonus to Ability Pool			Source Page
+Fiend Immunity (Acid damage)			CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Acid Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Cold damage)			CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Cold Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Sonic/Concussion damage)	CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Sonic/Concussion Immununity (Ex)							SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Electricity damage)		CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Electrical Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Fire damage)			CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Fire Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Radiation damage)		CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Radiation Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Poison damage)		CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Poison Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Ballistic damage)		CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Ballistic Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Bludgeoning damage)		CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Bludgeoning Immununity (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Piercing damage)		CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Piercing Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity (Slashing damage)		CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY	SAB:Slashing Immununity (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Immunity ( Choose two)			CATEGORY:Special Ability	TYPE:CreatureImmunity	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Fiend Immunity|2
+
+###Block: Creature Resistance
+# Ability Name					Category of Ability		Type				Visible		Required Ability											Special ABility					Bonus to Ability Pool				Source Page
+Fiend Resistance (Acid 10)			CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Acid 20)			SAB:Acid Resistance 10 (Ex)										SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Acid 20)			CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Acid 10)			SAB:Acid Resistance 20 (Ex)										SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Cold 10)			CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Cold 20)			SAB:Cold Resistance 10 (Ex)										SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Cold 20)			CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Cold 10)			SAB:Cold Resistance 20 (Ex)										SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Sonic/Concussion 10)	CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Sonic/Concussion 20)	SAB:Sonic/Concussion Resistance 10 (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Sonic/Concussion 20)	CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Sonic/Concussion 10)	SAB:Sonic/Concussion Resistance 20 (Ex)								SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Electrical 10)		CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Electrical 20)		SAB:Electrical Resistance 10 (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Electrical 20)		CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Electrical 10)		SAB:Electrical Resistance 20 (Ex)									SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Fire 10)			CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Fire 20)			SAB:Fire Resistance 10 (Ex)										SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance (Fire 20)			CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiend Resistance (Fire 10)			SAB:Fire Resistance 20 (Ex)										SOURCEPAGE:msrdcreatures.rtf
+Fiend Resistance ( None)			CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY
+Fiend Resistance ( Choose two)		CATEGORY:Special Ability	TYPE:CreatureResistance	VISIBLE:DISPLAY																					BONUS:ABILITYPOOL|Fiend Resistance|2
+
+###Block: Creature DR
+# Ability Name					Category of Ability		Type			Visible		Damage Reduction	Source Page
+Fiend Damage Reduction ( None)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY
+Fiend Damage Reduction (Ballistic 05)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Ballistic	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Ballistic 10)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Ballistic	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Ballistic 20)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Ballistic	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Bludgeoning 05)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Bludgeoning	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Bludgeoning 10)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Bludgeoning	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Bludgeoning 20)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Bludgeoning	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Piercing 05)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Piercing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Piercing 10)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Piercing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Piercing 20)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Piercing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Slashing 05)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Slashing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Slashing 10)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Slashing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Slashing 20)	CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Slashing	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Silver 05)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Silver		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Silver 10)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Silver	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Silver 20)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Silver	SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Wood 05)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Wood		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Wood 10)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Wood		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Wood 20)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Wood		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Iron 05)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Iron		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Iron 10)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Iron		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Iron 20)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Iron		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Steel 05)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Steel		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Steel 10)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Steel		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Steel 20)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Steel		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Alloy 05)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/Alloy		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Alloy 10)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/Alloy		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (Alloy 20)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/Alloy		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (05 +1)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (10 +1)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (15 +1)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:15/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (20 +1)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/+1		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (05 +2)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:5/+2		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (10 +2)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:10/+2		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (15 +2)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:15/+2		SOURCEPAGE:msrdcreatures.rtf
+Fiend Damage Reduction (20 +2)		CATEGORY:Special Ability	TYPE:CreatureDR	VISIBLE:DISPLAY	DR:20/+2		SOURCEPAGE:msrdcreatures.rtf
+
+###Block: Fiend Movement
+# Ability Name			Category of Ability		Type				Visible		Add to base move			Source Page
+Fiend Movement (Walk 05)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 10)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 15)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 20)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 25)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 30)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 35)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 40)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 45)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 50)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 55)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Walk 60)	CATEGORY:Special Ability	TYPE:CreatureMoveLand	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Walk|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 05)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 10)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 15)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 20)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 25)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 30)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 35)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 40)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 45)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 50)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 55)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Climb 60)	CATEGORY:Special Ability	TYPE:CreatureMoveClimb	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Climb|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 05)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 10)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 15)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 20)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 25)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 30)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 35)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 40)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 45)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 50)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 55)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Swim 60)	CATEGORY:Special Ability	TYPE:CreatureMoveWater	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Swim|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 05)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 10)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 15)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 20)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 25)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 30)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 35)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 40)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 45)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 50)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 55)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Fly 60)		CATEGORY:Special Ability	TYPE:CreatureMoveAir	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Fly|60	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 05)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|5	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 10)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|10	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 15)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|15	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 20)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|20	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 25)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|25	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 30)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|30	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 35)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|35	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 40)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|40	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 45)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|45	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 50)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|50	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 55)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|55	SOURCEPAGE:msrdcreatures.rtf
+Fiend Movement (Burrow 60)	CATEGORY:Special Ability	TYPE:CreatureMoveEarth	VISIBLE:DISPLAY	BONUS:MOVEADD|TYPE.Burrow|60	SOURCEPAGE:msrdcreatures.rtf
+
+#
+# End
+#
