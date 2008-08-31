@@ -1,28 +1,61 @@
-# CVS $Revision$ $Author$ -- Sat Aug 30 21:37:47 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Aug 31 16:19:37 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 
 
 ###Block:Dragon spell-like abilities
-# Feat Name						Type						Visible	Innate Spells
-# Ability Name				Unique Key						Category of Ability		Type								Innate Spells
-Daze						KEY:Dragon Daze					CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoung		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Daze,10+CHA
-Detect Magical Aura			KEY:Dragon Detect Magical Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoung		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Detect Magical Aura,10+CHA
-Sleep						KEY:Dragon Sleep					CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeJuvenile	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Sleep,11+CHA
-True Strike					KEY:Dragon True Strike				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeJuvenile	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|True Strike,11+CHA
-Locate Object				KEY:Dragon Locate Object			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoungAdult	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Locate Object,12+CHA
-Zone of Truth				KEY:Dragon Zone of Truth			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoungAdult	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Zone of Truth,12+CHA
-Protection from Arrows/Bullets	KEY:Dragon Protection from Arrows/Bullets	CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAdult		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Protection from Arrows/Bullets,12+CHA
-Resist Energy				KEY:Dragon Resist Energy			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAdult		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Resist Energy,12+CHA
-Blur						KEY:Dragon Blur					CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeMature		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Blur,12+CHA
-Invisibility				KEY:Dragon Invisibility				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeMature		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Invisibility,12+CHA
-Tongues					KEY:Dragon Tongues				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeOld		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Tongues,12+CHA
-Water Breathing				KEY:Dragon Water Breathing			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeOld		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Water Breathing,12+CHA
-Arcane Eye					KEY:Dragon Arcane Eye				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeVeryOld	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Arcane Eye,12+CHA
-Minor Globe of Invulnerability	KEY:Dragon Minor Globe of Invulnerability	CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeVeryOld	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Minor Globe of Invulnerability,12+CHA
-Confusion					KEY:Dragon Confusion				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAncient	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Confusion,14+CHA
-Freedom of Movement			KEY:Dragon Freedom of Movement		CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAncient	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Freedom of Movement,14+CHA
-Break Enchantment				KEY:Dragon Break Enchantment			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeKing		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Break Enchantment,14+CHA
-True Seeing					KEY:Dragon True Seeing				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeKing		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|True Seeing,14+CHA
-Cloudkill					KEY:Dragon Cloudkill				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeEmperor	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Cloudkill,15+CHA
-Telekinesis					KEY:Dragon Telekinesis				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeEmperor	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Telekinesis,15+CHA
+# Ability Name				Unique Key						Category of Ability		Type						Visible		Innate Spells
+Daze						KEY:Dragon Daze					CATEGORY:Special Ability	TYPE:DragonSpellLikeYoung		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Daze,10+CHA
+Detect Magical Aura			KEY:Dragon Detect Magical Aura		CATEGORY:Special Ability	TYPE:DragonSpellLikeYoung		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Detect Magical Aura,10+CHA
+Sleep						KEY:Dragon Sleep					CATEGORY:Special Ability	TYPE:DragonSpellLikeJuvenile		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Sleep,11+CHA
+True Strike					KEY:Dragon True Strike				CATEGORY:Special Ability	TYPE:DragonSpellLikeJuvenile		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|True Strike,11+CHA
+Locate Object				KEY:Dragon Locate Object			CATEGORY:Special Ability	TYPE:DragonSpellLikeYoungAdult	VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Locate Object,12+CHA
+Zone of Truth				KEY:Dragon Zone of Truth			CATEGORY:Special Ability	TYPE:DragonSpellLikeYoungAdult	VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Zone of Truth,12+CHA
+Protection from Arrows/Bullets	KEY:Dragon Protection from Arrows/Bullets	CATEGORY:Special Ability	TYPE:DragonSpellLikeAdult		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Protection from Arrows/Bullets,12+CHA
+Resist Energy				KEY:Dragon Resist Energy			CATEGORY:Special Ability	TYPE:DragonSpellLikeAdult		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Resist Energy,12+CHA
+Blur						KEY:Dragon Blur					CATEGORY:Special Ability	TYPE:DragonSpellLikeMature		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Blur,12+CHA
+Invisibility				KEY:Dragon Invisibility				CATEGORY:Special Ability	TYPE:DragonSpellLikeMature		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Invisibility,12+CHA
+Tongues					KEY:Dragon Tongues				CATEGORY:Special Ability	TYPE:DragonSpellLikeOld			VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Tongues,12+CHA
+Water Breathing				KEY:Dragon Water Breathing			CATEGORY:Special Ability	TYPE:DragonSpellLikeOld			VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Water Breathing,12+CHA
+Arcane Eye					KEY:Dragon Arcane Eye				CATEGORY:Special Ability	TYPE:DragonSpellLikeVeryOld		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Arcane Eye,12+CHA
+Minor Globe of Invulnerability	KEY:Dragon Minor Globe of Invulnerability	CATEGORY:Special Ability	TYPE:DragonSpellLikeVeryOld		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Minor Globe of Invulnerability,12+CHA
+Confusion					KEY:Dragon Confusion				CATEGORY:Special Ability	TYPE:DragonSpellLikeAncient		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Confusion,14+CHA
+Freedom of Movement			KEY:Dragon Freedom of Movement		CATEGORY:Special Ability	TYPE:DragonSpellLikeAncient		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Freedom of Movement,14+CHA
+Break Enchantment				KEY:Dragon Break Enchantment			CATEGORY:Special Ability	TYPE:DragonSpellLikeKing		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Break Enchantment,14+CHA
+True Seeing					KEY:Dragon True Seeing				CATEGORY:Special Ability	TYPE:DragonSpellLikeKing		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|True Seeing,14+CHA
+Cloudkill					KEY:Dragon Cloudkill				CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Cloudkill,15+CHA
+Telekinesis					KEY:Dragon Telekinesis				CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Telekinesis,15+CHA
 
-###EOF
+###Block: Vivilor swap table
+# Ability Name			Category of Ability		Type			Visible		Multiple?	Choose		Bonus to Ability Pool
+2 Vivilor Type A Abilities	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor A Ability|2
+1 Vivilor Type B Ability	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor B Ability|1
+
+###Block: Vivilor A
+# Ability Name			Unique Key						Category of Ability		Type		Visible		Restricted Ability										Special ABility					Move			Combat bonus					Add to base move			Stat bonus
+Aquatic				KEY:Vivilor Aquatic				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																					MOVE:Swim,60
+Bat Wings				KEY:Vivilor Bat Wings				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Feathered Wings										MOVE:Fly,60
+Acid Resistance 5			KEY:Vivilor Acid Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Acid Resistance 15			SAB:Acid Resistance 5 (Ex)
+Cold Resistance 5			KEY:Vivilor Cold Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Cold Resistance 15			SAB:Cold Resistance 5 (Ex)
+Electricity Resistance 5	KEY:Vivilor Electricity Resistance 5	CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Electricity Resistance 15	SAB:Electricty Resistance 5 (Ex)
+Fire Resistance 5			KEY:Vivilor Fire Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Fire Resistance 15			SAB:Fire Resistance 5 (Ex)
+Sonic/Concussion Resistance 5	KEY:Vivilor Sonic/Concussion Resistance 5	CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Sonic/Concussion Resistance 15	SAB:Sonic/Concussion Resistance 5 (Ex)
+Improved Ability Scores		KEY:Vivilor Improved Ability Scores		CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																																				BONUS:STAT|STR,CON|2
+Quadrupedal				KEY:Vivilor Quadrupedal				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																															BONUS:MOVEADD|TYPE=Walk|20
+Tentacles				KEY:Vivilor Tentacles				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Grasping Tentacles													BONUS:COMBAT|REACH|10
+Tougher Skin			KEY:Vivilor Tougher Skin			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Metallic Skin													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+
+###Block: Vivilor B
+# Ability Name				Unique Key							Category of Ability		Type		Visible		Restricted Ability										Special ABility									Move		Combat bonus
+Amorphous					KEY:Vivilor Amorphous					CATEGORY:Special Ability	TYPE:VivB																	SAB:Immune to critical hits and massive damage, can't be flanked
+Acid Resistance 15			KEY:Vivilor Acid Resistance 15			CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Acid Resistance 5			SAB:Acid Resistance 5 (Ex)
+Cold Resistance 15			KEY:Vivilor Cold Resistance 15			CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Cold Resistance 5			SAB:Cold Resistance 5 (Ex)
+Electricity Resistance 15		KEY:Vivilor Electricity Resistance 15		CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Electricity Resistance 5		SAB:Electricty Resistance 5 (Ex)
+Fire Resistance 15			KEY:Vivilor Fire Resistance 15			CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Fire Resistance 5			SAB:Fire Resistance 5 (Ex)
+Sonic/Concussion Resistance 15	KEY:Vivilor Sonic/Concussion Resistance 15	CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Sonic/Concussion Resistance 5	SAB:Sonic/Concussion Resistance 5 (Ex)
+Feathered Wings				KEY:Vivilor Feathered Wings				CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Bat Wings															MOVE:Fly,90
+Grasping Tentacles			KEY:Vivilor Grasping Tentacles			CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Tentacles
+Metallic Skin				KEY:Vivilor Metallic Skin				CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Tougher Skin																	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK
+Serpentine					KEY:Vivilor Serpentine					CATEGORY:Special Ability	TYPE:VivB	VISIBLE:DISPLAY														SAB:Double slam damage
+
+#
+# End
+#

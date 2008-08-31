@@ -2,12 +2,12 @@
 #SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI				Display Location
-ABILITYCATEGORY:Strong Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:StrongPlus				PLURAL:Strong Plus Talents				DISPLAYLOCATION:Talents
-ABILITYCATEGORY:Fast Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:FastPlus				PLURAL:Fast Plus Talents				DISPLAYLOCATION:Talents
-ABILITYCATEGORY:Tough Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:ToughPlus.EnergyResistance	PLURAL:Tough Plus Talents				DISPLAYLOCATION:Talents
-ABILITYCATEGORY:Smart Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:SmartPlus				PLURAL:Smart Plus Talents				DISPLAYLOCATION:Talents
-ABILITYCATEGORY:Dedicated Plus Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:DedicatedPlus			PLURAL:Dedicated Plus Talents				DISPLAYLOCATION:Talents
-ABILITYCATEGORY:Charismatic Plus Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:CharismaticPlus			PLURAL:Charismatic Plus Talents			DISPLAYLOCATION:Talents
+ABILITYCATEGORY:Strong Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:StrongPlus				PLURAL:Strong Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fast Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:FastPlus				PLURAL:Fast Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Tough Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:ToughPlus.EnergyResistance	PLURAL:Tough Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Smart Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:SmartPlus				PLURAL:Smart Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Dedicated Plus Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:DedicatedPlus			PLURAL:Dedicated Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Charismatic Plus Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:CharismaticPlus			PLURAL:Charismatic Plus Talents			DISPLAYLOCATION:Class Abilities
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI				Display Location
 ABILITYCATEGORY:Astronaut Trainee Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation	TYPE:Astronaut_Trainee_Skills		PLURAL:Astronaut Trainee Occupation Skills	DISPLAYLOCATION:Background

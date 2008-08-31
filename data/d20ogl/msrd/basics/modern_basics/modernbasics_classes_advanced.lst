@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Aug 31 16:08:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Barak 11/09/02
 
@@ -10,16 +10,16 @@ CLASS:Soldier	HD:10		TYPE:Advanced.PC	ABB:Sol		MAXLEVEL:10	BONUS:CHECKS|BASE.For
 CLASS:Soldier	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Speak Language|Spot|Survival|Swim
-1																								ADD:FEAT|Weapon Focus
-2														BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ADD:FEAT|Weapon Specialization
-3	BONUS:ABILITYPOOL|Soldier Feat|1								BONUS:VAR|WeapSpecQualify|-1
-4																															ABILITY:Special Ability|AUTOMATIC|Tactical Aid
-5																								ADD:FEAT|Improved Critical
+1	BONUS:ABILITYPOOL|Weapon Focus|1
+2	BONUS:ABILITYPOOL|Weapon Specialization|1										BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
+3	BONUS:ABILITYPOOL|Soldier Feat|1											BONUS:VAR|WeapSpecQualify|-1
+4																											ABILITY:Special Ability|AUTOMATIC|Tactical Aid
+5	BONUS:ABILITYPOOL|Improved Critical|1
 6	BONUS:ABILITYPOOL|Soldier Feat|1
-7							BONUS:COMBAT|INITIATIVE|2|TYPE=Competence																		ABILITY:Special Ability|AUTOMATIC|Improved Reaction
-8																								ADD:FEAT|Greater Weapon Specialization
+7										BONUS:COMBAT|INITIATIVE|2|TYPE=Competence											ABILITY:Special Ability|AUTOMATIC|Improved Reaction
+8	BONUS:ABILITYPOOL|Greater Weapon Specialization|1
 9	BONUS:ABILITYPOOL|Soldier Feat|1
-10																															ABILITY:Special Ability|AUTOMATIC|Critical Strike
+10																											ABILITY:Special Ability|AUTOMATIC|Critical Strike
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	ABB:Mart		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
@@ -56,16 +56,16 @@ CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	ABB:Guns		MAXLEVEL:10	BONUS:CHECKS|BASE
 CLASS:Gunslinger	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand=6,Tumble=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival|Tumble
-1												ABILITY:Special Ability|AUTOMATIC|Close Combat Shot
-2							ADD:FEAT|Weapon Focus
+1								ABILITY:Special Ability|AUTOMATIC|Close Combat Shot
+2	BONUS:ABILITYPOOL|Weapon Focus|1
 3	BONUS:ABILITYPOOL|Gunslinger Feat|1
-4												ABILITY:Special Ability|AUTOMATIC|Defensive Position
-5												ABILITY:Special Ability|AUTOMATIC|Lightning Shot
+4								ABILITY:Special Ability|AUTOMATIC|Defensive Position
+5								ABILITY:Special Ability|AUTOMATIC|Lightning Shot
 6	BONUS:ABILITYPOOL|Gunslinger Feat|1
-7												ABILITY:Special Ability|AUTOMATIC|Sharp Shooting
-8							ADD:FEAT|Greater Weapon Focus
+7								ABILITY:Special Ability|AUTOMATIC|Sharp Shooting
+8	BONUS:ABILITYPOOL|Greater Weapon Focus|1
 9	BONUS:ABILITYPOOL|Gunslinger Feat|1
-10												ABILITY:Special Ability|AUTOMATIC|Bullseye
+10								ABILITY:Special Ability|AUTOMATIC|Bullseye
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	ABB:Infi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 24 16:07:28 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Aug 31 16:08:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------------------------------------------------------
@@ -92,12 +92,13 @@ Touche		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Touch
 
 
 ###Block:Techno Mage ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type					Visible	Special ABility		Misc bonus
-Arcane Skills	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Skills		BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
-Machine Empathy	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Machine Empathy
-Program Spell	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Program Spell
-Create Homunculus	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Create Homunculus
-Online Casting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Online Casting
+# Ability Name			Category of Ability		Type								Visible	Special ABility					Multiple?	Choose							Selections	Misc bonus
+Arcane Skills			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Arcane Skills																	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
+Machine Empathy			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Machine Empathy
+Program Spell			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Program Spell
+Create Homunculus			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Create Homunculus
+Online Casting			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Online Casting
+Arcane Spontaneous Casting	CATEGORY:Special Ability	TYPE:SpecialAbility.ArcaneSpontaneousCasting			SAB:Arcane Spontaneous Casting (%CHOICE)	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Techno Mage[KNOWN=YES]	SELECT:INT
 
 
 ###Block:Thrasher ---------------------------------------------------------------------------------------------------------------------------------
@@ -107,16 +108,17 @@ Ability Surge	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB
 
 
 ###Block:Wildlord ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type					Visible	Special ABility
-Animal Empathy		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Animal Empathy
-Animal Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Animal Companion
-Fast Climb			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Fast Climb
-Resist Venom		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Resist Venom
-Call Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Call Companion
-Transform Companion	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Transform Companion
+# Ability Name		Category of Ability		Type					Visible		Special ABility			Multiple?	Choose
+Animal Empathy		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Animal Empathy
+Animal Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Animal Companion
+Fast Climb			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Fast Climb
+Resist Venom		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Resist Venom
+Call Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Call Companion
+Transform Companion	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Transform Companion
+Wildlord Skill Mastery	CATEGORY:Special Ability	TYPE:WildlordSkillMastery	VISIBLE:DISPLAY	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:STRING|Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
 
 
-###Block:Prestige ----------------------------------------------------------------------------------------------------------------
+###Block: Prestige ----------------------------------------------------------------------------------------------------------------
 #Block:Archmage ---------------------------------------------------------------------------------------------------------------------------------
 # Ability Name				Category of Ability		Type					Visible	Special ABility																																							Define							Caster level																																								Save checks bonus
 Total Spellcasting ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Total Spellcasting																																														BONUS:CASTERLEVEL|Techno Mage|CL=Mage|PRECLASS:1,Techno Mage=1	BONUS:CASTERLEVEL|Mage|CL=Techno Mage|PRECLASS:1,Mage=1

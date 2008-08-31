@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Aug 31 16:08:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -117,16 +117,16 @@ CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lo
 CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
-1	CAST:3,1																					AUTO:FEAT|Summon Familiar
-2	CAST:4,2																					AUTO:FEAT|Scribe Scroll
-3	CAST:4,2,1		BONUS:ABILITYPOOL|Mage Feat|1															AUTO:FEAT|Brew Potion
-4	CAST:4,3,2																					AUTO:FEAT|Scribe Tattoo
-5	CAST:4,3,2,1						ADD:FEAT|Spell Mastery
+1	CAST:3,1																		AUTO:FEAT|Summon Familiar
+2	CAST:4,2																		AUTO:FEAT|Scribe Scroll
+3	CAST:4,2,1		BONUS:ABILITYPOOL|Mage Feat|1												AUTO:FEAT|Brew Potion
+4	CAST:4,3,2																		AUTO:FEAT|Scribe Tattoo
+5	CAST:4,3,2,1	BONUS:ABILITYPOOL|Spell Mastery|1
 6	CAST:4,3,3,2	BONUS:ABILITYPOOL|Mage Feat|1
-7	CAST:4,4,3,2,1										ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage
-8	CAST:4,4,3,3,2						ADD:FEAT|Spell Mastery
+7	CAST:4,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage
+8	CAST:4,4,3,3,2	BONUS:ABILITYPOOL|Spell Mastery|1
 9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Mage Feat|1
-10	CAST:4,4,4,3,3,2																				AUTO:FEAT|Maximize Spell
+10	CAST:4,4,4,3,3,2																	AUTO:FEAT|Maximize Spell
 
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus						Modify VAR

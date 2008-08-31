@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Aug 31 16:08:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 
 ###Block:Shadow Slayer -------------------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type					Visible	Special ABility							Define
@@ -33,8 +33,9 @@ Imprint Tattoo	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SA
 
 
 ###Block:Mage -----------------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type					Visible	Special ABility
+# Ability Name		Category of Ability		Type					Visible	Special ABility							Description																			Multiple?	Choose						Selections	Source Page
 Concentration ~ Mage	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while casting defensively
+Spell Mastery		CATEGORY:Special Ability	TYPE:SpellMastery					SAB:Spell Mastery (%CHOICE)					DESC:Choose a number of spells equal to your Intelligence modifier, those spells may be prepared without a spell book	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Mage[KNOWN=YES]	SELECT:INT	SOURCEPAGE:msrdadvancedclassesII.rtf
 
 
 ###Block:Acolyte --------------------------------------------------------------------------------------------------------------------------------

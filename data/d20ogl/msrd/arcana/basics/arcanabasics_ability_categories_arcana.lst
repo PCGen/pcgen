@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 30 21:37:47 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Aug 31 16:08:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 #SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI			Display Location
@@ -37,6 +37,15 @@ ABILITYCATEGORY:Wildlord Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 ABILITYCATEGORY:CraftArtifice Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:CraftArtifice	PLURAL:Craft Artifice Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Artificer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Artificer		PLURAL:Artificer Feats		DISPLAYLOCATION:Feats
 
+###Block: Arcana Prestige Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Techno Mage Spontaneous Casting	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcaneSpontaneousCasting	PLURAL:Techno Mage Spontaneous Casting	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wildlord Skill Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WildlordSkillMastery	PLURAL:Wildlord Skill Mastery			DISPLAYLOCATION:Class Abilities
+
+###Block: Arcana Basics Racial Feat
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Shadowkind Human Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Wildlord	PLURAL:Shadowkind Human Feats	DISPLAYLOCATION:Feats
+
 ###Block: Dragon Spelllike Abilities
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location
 ABILITYCATEGORY:Dragon Spelllike Ability ~ Young		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeYoung		PLURAL:Dragon Spelllike Abilities ~ Young		DISPLAYLOCATION:Racial Abilities
@@ -49,6 +58,12 @@ ABILITYCATEGORY:Dragon Spelllike Ability ~ Very Old		VISIBLE:QUALIFY	EDITABLE:YE
 ABILITYCATEGORY:Dragon Spelllike Ability ~ Ancient		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeAncient		PLURAL:Dragon Spelllike Abilities ~ Ancient	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Dragon Spelllike Ability ~ King			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeKing		PLURAL:Dragon Spelllike Abilities ~ King		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Dragon Spelllike Ability ~ Emperor		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		PLURAL:Dragon Spelllike Abilities ~ Emperor	DISPLAYLOCATION:Racial Abilities
+
+###Block: Vivilor Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Vivilor A Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VivA		PLURAL:Vivilor A Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vivilor B Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VivB		PLURAL:Vivilor B Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vivilor Ability Swap	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VivSwap1	PLURAL:Vivilor Ability Swap	DISPLAYLOCATION:Racial Abilities
 
 #
 ## EOF

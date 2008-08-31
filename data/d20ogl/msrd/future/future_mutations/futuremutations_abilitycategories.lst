@@ -3,7 +3,7 @@
 
 ###Block: Mutations
 # Ability Category		Visible	Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Mutation	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:Mutation		PLURAL:Mutations			DISPLAYLOCATION:Mutations
+ABILITYCATEGORY:Mutation	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:Mutation		PLURAL:Mutations			DISPLAYLOCATION:Racial Abilities
 
 #
 # End

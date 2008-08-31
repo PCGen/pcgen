@@ -10,13 +10,6 @@ Negative Levels	TYPE:Special	VISIBLE:NO	SAB:% negative level(s) (-% effective le
 Electronic Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SAB:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
 Mechanical Mastercraft	TYPE:TechieMastercraft	VISIBLE:YES	PRECLASS:1,Techie=5	SAB:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
 
-###Block: Soldier and Gunslinger pseudofeats
-# Feat Name				Type			Visible	Required Feat						Var. Min. Value			Special ABility						Description		Multiple?	Choose					Weapon prof. bonus				Source Page
-Weapon Specialization		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus					PREVARGTEQ:WeapSpecQualify,1	SAB:Weapon Specialization (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
-Greater Weapon Specialization	TYPE:Special	VISIBLE:NO	PREFEAT:2,Weapon Focus,Weapon Specialization						SAB:Greater Weapon Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization	BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
-Improved Critical			TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Specialization								SAB:Improved Critical (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Specialization	BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:msrdadvancedclasses.rtf
-Greater Weapon Focus		TYPE:Special	VISIBLE:NO	PREFEAT:1,Weapon Focus										SAB:Greater Weapon Focus (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:msrdadvancedclasses.rtf
-
 ###Block: Creature Feats
 # Feat Name			Type			Visible	Description		Stackable?	Multiple?	Choose					Selections	Bonus to skill rank	Source Page
 HighFiendKnowledge	TYPE:General	VISIBLE:NO	DESC:See text	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge	SELECT:3	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen

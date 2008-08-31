@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 24 16:07:28 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Aug 30 20:26:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type					Visible	Special ABility
@@ -49,9 +49,9 @@ Damage Threshold		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	
 
 
 ###Block:Bodyguard -------------------------------------------------------------
-# Ability Name		Category of Ability		Type					Visible	Special ABility				Define			Add
+# Ability Name		Category of Ability		Type					Visible	Special ABility				Define
 Harm's Way			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Harm's Way
-Combat Sense		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Combat Sense +%|CombatSense	DEFINE:CombatSense|0	ADD:FEAT|TYPE=Bodyguard
+Combat Sense		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Combat Sense +%|CombatSense	DEFINE:CombatSense|0
 Sudden Action		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sudden Action
 Improved Charge		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Charge
 Defensive Strike		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Defensive Strike
@@ -107,6 +107,13 @@ Talk Down		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Tal
 No Sweat		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:No sweat
 Sow Distrust	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sow Distrust
 
+###Block: Soldier and Gunslinger Abilities
+# Feat Name				Type			Visible	Required Feat						Var. Min. Value																Special ABility						Description		Multiple?	Choose								Weapon prof. bonus				Source Page
+# Ability Name			Category of Ability		Type								Required Ability											Var. Min. Value			Special ABility						Description		Multiple?	Choose								Weapon prof. bonus				Source Page
+Weapon Specialization		CATEGORY:Special Ability	TYPE:SpecialAbility.WeaponSpecialization		PREABILITY:1,CATEGORY=Special Ability,Weapon Focus					PREVARGTEQ:WeapSpecQualify,1	SAB:Weapon Specialization (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus					BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponSpecialization	PREABILITY:2,CATEGORY=Special Ability,Weapon Focus,Weapon Specialization						SAB:Greater Weapon Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:ABILITY|Special Ability|Weapon Specialization	BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:msrdadvancedclasses.rtf
+Improved Critical			CATEGORY:Special Ability	TYPE:SpecialAbility.ImprovedCritical		PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization									SAB:Improved Critical (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:ABILITY|Special Ability|Weapon Specialization	BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Focus		CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponFocus		PREABILITY:1,CATEGORY=Special Ability,Weapon Focus										SAB:Greater Weapon Focus (%CHOICE)			DESC:See Text	MULT:YES	CHOOSE:FEAT=Weapon Focus					BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:msrdadvancedclasses.rtf
 
 
 
