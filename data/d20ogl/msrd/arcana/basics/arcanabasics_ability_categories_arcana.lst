@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Aug 30 21:37:47 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 #SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI			Display Location
@@ -17,7 +17,7 @@ ABILITYCATEGORY:Psychic Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 ABILITYCATEGORY:Shadow Scholar Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShadowScholar		PLURAL:Shadow Scholar Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Squire Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Squire				PLURAL:Squire Feats				DISPLAYLOCATION:Feats
 
-###Block:Arcana Basics Class Feat
+###Block: Arcana Basics Class Feat
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Arcane Arranger Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ArcaneArranger		PLURAL:Arcane Arranger Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Archaic Weaponmaster Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ArchaicWeaponmaster	PLURAL:Archaic Weaponmaster Feats	DISPLAYLOCATION:Feats
@@ -32,13 +32,23 @@ ABILITYCATEGORY:Techno Mage Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRA
 ABILITYCATEGORY:Thrasher Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Thrasher			PLURAL:Thrasher Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Wildlord Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Wildlord			PLURAL:Wildlord Feats			DISPLAYLOCATION:Feats
 
-###Block:Arcana Prestige Feats ------------------------------------------------------------
-
+###Block: Arcana Prestige Feats
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
 ABILITYCATEGORY:CraftArtifice Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:CraftArtifice	PLURAL:Craft Artifice Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Artificer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Artificer		PLURAL:Artificer Feats		DISPLAYLOCATION:Feats
 
-
+###Block: Dragon Spelllike Abilities
+# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Young		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeYoung		PLURAL:Dragon Spelllike Abilities ~ Young		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Juvenile		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeJuvenile		PLURAL:Dragon Spelllike Abilities ~ Juvenile	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Young Adult	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeYoungAdult	PLURAL:Dragon Spelllike Abilities ~ Young Adult	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Adult		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeAdult		PLURAL:Dragon Spelllike Abilities ~ Adult		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Mature		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeMature		PLURAL:Dragon Spelllike Abilities ~ Mature	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Old			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeOld			PLURAL:Dragon Spelllike Abilities ~ Old		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Very Old		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeVeryOld		PLURAL:Dragon Spelllike Abilities ~ Very Old	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Ancient		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeAncient		PLURAL:Dragon Spelllike Abilities ~ Ancient	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ King			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeKing		PLURAL:Dragon Spelllike Abilities ~ King		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dragon Spelllike Ability ~ Emperor		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		PLURAL:Dragon Spelllike Abilities ~ Emperor	DISPLAYLOCATION:Racial Abilities
 
 #
 ## EOF

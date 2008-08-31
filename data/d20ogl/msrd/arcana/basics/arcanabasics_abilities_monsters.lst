@@ -1,0 +1,28 @@
+# CVS $Revision$ $Author$ -- Sat Aug 30 21:37:47 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+
+
+###Block:Dragon spell-like abilities
+# Feat Name						Type						Visible	Innate Spells
+# Ability Name				Unique Key						Category of Ability		Type								Innate Spells
+Daze						KEY:Dragon Daze					CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoung		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Daze,10+CHA
+Detect Magical Aura			KEY:Dragon Detect Magical Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoung		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Detect Magical Aura,10+CHA
+Sleep						KEY:Dragon Sleep					CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeJuvenile	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Sleep,11+CHA
+True Strike					KEY:Dragon True Strike				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeJuvenile	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|True Strike,11+CHA
+Locate Object				KEY:Dragon Locate Object			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoungAdult	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Locate Object,12+CHA
+Zone of Truth				KEY:Dragon Zone of Truth			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeYoungAdult	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Zone of Truth,12+CHA
+Protection from Arrows/Bullets	KEY:Dragon Protection from Arrows/Bullets	CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAdult		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Protection from Arrows/Bullets,12+CHA
+Resist Energy				KEY:Dragon Resist Energy			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAdult		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Resist Energy,12+CHA
+Blur						KEY:Dragon Blur					CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeMature		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Blur,12+CHA
+Invisibility				KEY:Dragon Invisibility				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeMature		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Invisibility,12+CHA
+Tongues					KEY:Dragon Tongues				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeOld		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Tongues,12+CHA
+Water Breathing				KEY:Dragon Water Breathing			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeOld		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Water Breathing,12+CHA
+Arcane Eye					KEY:Dragon Arcane Eye				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeVeryOld	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Arcane Eye,12+CHA
+Minor Globe of Invulnerability	KEY:Dragon Minor Globe of Invulnerability	CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeVeryOld	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Minor Globe of Invulnerability,12+CHA
+Confusion					KEY:Dragon Confusion				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAncient	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Confusion,14+CHA
+Freedom of Movement			KEY:Dragon Freedom of Movement		CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeAncient	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Freedom of Movement,14+CHA
+Break Enchantment				KEY:Dragon Break Enchantment			CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeKing		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Break Enchantment,14+CHA
+True Seeing					KEY:Dragon True Seeing				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeKing		SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|True Seeing,14+CHA
+Cloudkill					KEY:Dragon Cloudkill				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeEmperor	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Cloudkill,15+CHA
+Telekinesis					KEY:Dragon Telekinesis				CATEGORY:Special Ability	TYPE:SpecialQuality.DragonSpellLikeEmperor	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Telekinesis,15+CHA
+
+###EOF

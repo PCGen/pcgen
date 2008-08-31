@@ -15,29 +15,6 @@ Turn/Rebuke Humans		TYPE:Special.Turn/Rebuke.Humans		VISIBLE:NO										SAB:Tur
 Turn/Rebuke Magical Beasts	TYPE:Special.Turn/Rebuke.MagicalBeasts	VISIBLE:NO										SAB:Turn/Rebuke Magical Beasts (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesMagicalBeasts|TurnLevelMagicalBeasts|TurnDiceMagicalBeasts|TurnDieSizeMagicalBeasts|TurnDamagePlusMagicalBeasts	DEFINE:TurnTimesMagicalBeasts|TurnTimes	DEFINE:TurnLevelMagicalBeasts|TurnLevel	DEFINE:TurnDiceMagicalBeasts|TurnDice	DEFINE:TurnDieSizeMagicalBeasts|TurnDieSize	DEFINE:TurnDamagePlusMagicalBeasts|TurnDamagePlus	DEFINE:TurnCheckMagicalBeasts|TurnCheck
 Wildlord Skill Mastery		TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:STRING|Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
 
-###Block:Dragon spell-like abilities
-# Feat Name						Type						Visible	Innate Spells
-Dragon Daze						TYPE:DragonSpellLikeYoung		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Daze,10+INT
-Dragon Detect Magical Aura			TYPE:DragonSpellLikeYoung		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Detect Magical Aura,10+INT
-Dragon Sleep					TYPE:DragonSpellLikeJuvenile		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Sleep,11+INT
-Dragon True Strike				TYPE:DragonSpellLikeJuvenile		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|True Strike,11+INT
-Dragon Locate Object				TYPE:DragonSpellLikeYoungAdult	VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Locate Object,12+INT
-Dragon Zone of Truth				TYPE:DragonSpellLikeYoungAdult	VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Zone of Truth,12+INT
-Dragon Protection from Arrows/Bullets	TYPE:DragonSpellLikeAdult		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Protection from Arrows/Bullets,12+INT
-Dragon Resist Energy				TYPE:DragonSpellLikeAdult		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Resist Energy,12+INT
-Dragon Blur						TYPE:DragonSpellLikeMature		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Blur,12+INT
-Dragon Invisibility				TYPE:DragonSpellLikeMature		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Invisibility,12+INT
-Dragon Tongues					TYPE:DragonSpellLikeOld			VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Tongues,12+INT
-Dragon Water Breathing				TYPE:DragonSpellLikeOld			VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Water Breathing,12+INT
-Dragon Arcane Eye					TYPE:DragonSpellLikeVeryOld		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Arcane Eye,12+INT
-Dragon Minor Globe of Invulnerability	TYPE:DragonSpellLikeVeryOld		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Minor Globe of Invulnerability,12+INT
-Dragon Confusion					TYPE:DragonSpellLikeAncient		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Confusion,14+INT
-Dragon Freedom of Movement			TYPE:DragonSpellLikeAncient		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Freedom of Movement,14+INT
-Dragon Break Enchantment			TYPE:DragonSpellLikeKing		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Break Enchantment,14+INT
-Dragon True Seeing				TYPE:DragonSpellLikeKing		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|True Seeing,14+INT
-Dragon Cloudkill					TYPE:DragonSpellLikeEmperor		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Cloudkill,15+INT
-Dragon Telekinesis				TYPE:DragonSpellLikeEmperor		VISIBLE:NO	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("BL=Mage")+var("CL=Mage")|Telekinesis,15+INT
-
 ###Block: Rage
 # Feat Name	Type			Visible	Special ABility																															Define																										Combat bonus						Stat bonus													Modify VAR
 Rage		TYPE:Special	VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0	BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC
