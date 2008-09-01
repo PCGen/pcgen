@@ -1,17 +1,173 @@
-{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf230
-{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fswiss\fcharset77 Arial-BoldMT;\f2\fswiss\fcharset77 ArialMT;
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf410
+{\fonttbl\f0\fswiss\fcharset77 Helvetica-Bold;\f1\fswiss\fcharset77 Helvetica;\f2\fswiss\fcharset77 Arial-BoldMT;
+\f3\fswiss\fcharset77 ArialMT;\f4\fswiss\fcharset77 Arial-ItalicMT;\f5\fmodern\fcharset77 CourierNewPSMT;
 }
 {\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww12240\viewh15840\viewkind1\viewscale100
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\margl1440\margr1440\vieww12240\viewh14180\viewkind1\viewscale100
+\deftab720
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\qc
 
-\f0\fs24 \cf0 This installer was built by the PCGen Open Source project, and is distributed as is. The contents thereof, PCGen, is governed by the LGPL as documented below.\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\f0\b\fs54 \cf0 Thank you for using PCGen\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc\pardirnatural
+
+\f1\b0\fs24 \cf0 {{\NeXTGraphic MiniSplashPcgen_514.jpg \width6300 \height3460
+}¬}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\qc\pardirnatural
 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\ql\qnatural\pardirnatural
 
-\f1\b\fs26 GNU LESSER GENERAL PUBLIC LICENSE\
+\f2\b\fs48 \cf0 Mac Installer Notes\
+\pard\pardeftab720\sa280\ql\qnatural
 
-\f2\b0 Version 2.1, February 1999\
+\f3\b0\fs28 \cf0 Welcome to the PCGen Mac build. This package has no installer, you need only drag the application to wherever you want to keep it on your local hard drive. This read me file contains all the notes except the release notes which are available in a separate file.\
+The Mac package has several advantages over using the standard .jar file including better memory management. You will notice that the app is a standalone application file. The program directories are contained within the application package. You can easily access these directories by right clicking or control-clicking the PCGen.app and selecting "Show Package Contents" from the resulting menu. You will find all the familiar PCGen directories in Contents/Resources/Java/. To make access to this folder even easier you can make an alias of the Java folder and place it on the desktop, this is useful because open/save dialogue boxes will not see the PCGen.app as a directory which can be opened but it will be able to use the alias to get to the directory. For ease of use you can set alternate directories for most of these directories in the preferences, this is handy for things like a place to save characters.\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\f2\b\fs36 \cf0 Installing datasets with 5.14.0\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\f3\b0\fs28 \cf0 PCGen 5.14.0 has a new dataset installer feature which can be used on datasets which have be properly prepared for it. You are not even required to unzip the package for such a dataset (In fact you need the .zip file to use this feature). To install datasets using this feature launch PCGen and select
+\f2\b  Tools > Install Dataset
+\f3\b0 . Find and select the dataset zip file to install via the presented "File Selection" dialog. PCGen will verify that the selected dataset is compatible with the version of PCGen being used. Information on the selected archive is displayed and you will be given a choice of "DATA" or "VENDORDATA" folders with the default specified in 
+\f4\i install.lst
+\f3\i0 . Select the destination and click 
+\f2\b Install
+\f3\b0 . The dataset is saved to the selected location and is made available for use within PCGen.\
+If the zip is not configured for the installer a message will tell you so. Below are the instructions for manually installing datasets, you should use caution, using datasets made for a different version of PCGen than the one you are installing it into is likely to have unexpected problems.\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\f2\b\fs36 \cf0 Installing datasets manually
+\f3\b0\fs28 \
+Third party datasets such as those made by Code Monkey Publishing are packaged in zip files who's directory structure mirrors that of the PCGen directory. On a windows system zip files can be unzipped into the PCGen directory directly, this can be done on a Mac as well but it's not as intuitive a procedure. You will need to use the Terminal application used to run Unix line commands on a Mac, you will find it in Applications/Utilities.\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf0 Open two Finder windows -- one to where the .zip files of the CMP datasets live, and one to the folder above the Java folder in the .app distribution. (This should be, if you did a standard installation, /Applications/PCGen\\ 5.8.1.app/Contents/Resources/) \
+\
+Open a Terminal window. \
+\
+Type the following at the command; where you see "<drag XXX>", do exactly that -- dragging a file or folder to a Terminal window inputs the pathname where that file resides: \
+\
+
+\f2\b Code
+\f3\b0 :\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\ql\qnatural\pardirnatural
+
+\f5 \cf0 	unzip -d <drag Java folder> <drag .zip file>\
+\
+
+\f3 Repeat for each .zip distribution. It may ask you if you want to overwrite existing files; do so, as there are many files shared by all of the datasets.\
+\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\f2\b\fs36 \cf0 Increasing memory\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\f3\b0\fs28 \cf0 The PCGen Mac build is set to use up to 256mb of memory space but if you load a large number of datasets or if you run into problems outputting PDF's you may want to increase the amount used. To access this setting right click or control-click the PCGen.app and selecting "Show Package Contents" from the resulting menu. Find the Info.plist file in the Contents folder. Find the line which reads "-Xms128m -Xmx256m", this is the line which sets the memory usage, you can change it to "-Xms256m -Xmx512m" to double the memory.
+\f2\b\fs48 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\fs36 \cf0 Where are all the folders?\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\f3\b0\fs28 \cf0 Since version 5.8.1 the Mac version of PCGen has been configured as a standalone application file. All the file directories are contained within the application package. You can easily access these directories by right clicking or control-clicking the PCGen.app and selecting "Show Package Contents" from the resulting menu. You will find all the familiar directories in Contents/Resources/Java/. For ease of use you can set alternate directories for most of these directories in the preferences, this is handy for things like a place to save characters. \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f2\b\fs36 \cf0 Where is the installer?
+\f3\b0\fs28 \
+\pard\pardeftab720\sa280\ql\qnatural
+\cf0 This package has been created in response to reports of some users with new Intel Macs having problems with the installer. This package has no installer, you need only drag the application to wherever you want to keep it on your local hard drive. This read me file contains all the notes previously displayed through the installer program except the release notes which are available in a separate file.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+\cf0 -- \
+~ Eddy Anthony (MoSaT)\
+~ PCGen Installer Chimp and Mac user\
+
+\f2\b\fs48 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\ql\qnatural
+
+\f1\b0\fs24 \cf0 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f2\b\fs48 \cf0 Credits
+\f1\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\ql\qnatural
+\cf0 This package was created by:\
+Eddy Anthony\
+eddyba@mindspring.com\
+PCGen Development Team\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\ql\qnatural
+
+\f0\b \cf0 \ul \ulc0 The Development Team:
+\f1\b0 \ulnone \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f2\b\fs26\fsmilli13333 \cf0 Chief Code Monkey:
+\f3\b0  Bryan McRoberts (Benevolent Dictator)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Code Monkeys\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone B. K. Oxley (binkley), Jonas Karlsson, Matthew Woodard, Peter Kahle, Tim Dugger, Tom Epperly, Brian Forester, Mario Bonassin, Jason Buchanan, Mark Hulsmanand, Jerry Hill, Eric Statz, Kurt Wimmer, David Fallon, Tyler Bannister, Thomas Clegg, Greg Bingleman, Emily Smirle, Arcady, Thomas Behr, Ryan Koppenhaver, Jayme Cox, Scott Ellsworth, Chris Ryan, James Dempsey, Walter Duncan, Devon Jones, Felipe Diniz, Frugal, Richard Askham, David Hibbs, John Watson, Stefan Radermacher, Ross Lodge, Benjamin Pew, Brian Kuehn, Aaron Divinsky, Andrew Wilson, Brian Hoff, Tom Parker, Andriy Sen, Koen Van Daele, Tobias Wichtrey, Per Christian Henden, Connor Petty (Dragon Monkey)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Data (LST) Monkeys\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone Robert Hilson, KahnB, \'83ric Beaudoin (Space Monkey), Tir Gwaith (Andrew McDougall), Mynex (Rob Reed), Thomas Behr, Tom Deprez, Luc Hermitte, Matt Haffner, Hugo Perez, Michael Telford, Sean Kelly, Ashley McKay, Duane Moore, Tom Cowan, Clint Howarth, Gordon Vincent, Gary Silvers, Rob Bowell, Dan Young, Magus Knightcrawler, Lee Calabrese, Barak (Chris Chandler), Kevin W. Patterson (kwp), Jessica 'Artist Wench' Whiting, Wayne Crawford, oddballmage, Ian Dale, Joshua Nelson (DJ_Chair), Y2Krankor (Greg G), Paul W. King, Jeremy (Duo) Banks, dlm1065 (Doug McMillan), Paul Miller, Eric Beeckmans, Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Andargor the Wise, Beaver (Michael Beaver), Martin Fagerstr\\u00F6m, Anders Lindgren (Blithwyn), Eddy Anthony (MoSaT), Darkon Turas, Emily Smirle, Aaron Divinsky, Frank Kliewe, Sean Silvamiramon, Stefan Radermacher, Andrew Maitland and many more.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Test Monkeys\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone Dave Cortijo, Martin Brabander, John Sussenberger, Stephen Gryphon, Richard O'Doherty-Gregg, Brad Stiles, Chris Andersen, Joseff, and many more.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Engineering\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone Peder (FAQ Monkey), Devon Jones & Paul Lambert (Alpha Monkey), Ed Holley & James Dempsey (Windows Installer) Conor Schutzman & Eddy Anthony (Mac Installer), Loyal & BD (Installer Monkeys), \\u00C9ric Beaudoin & James Dempsey (Release Monkeys), Karianna, James Wright, Anestis Kozakis, Ashlynne, Joseff and Papa (david) (Tracker Monkeys), Chuck Pint, Dimrill (Bj\\u00F6rn Ehlert), Richard O'Doherty-Gregg, Richard Bowers (Outputsheet Monkeys),  Eddy Antony, Shane Molnar, Terry Fitzsimons, Andrew Maitland (Doc Monkey), Reed Thornton, David Rowe, Roy Stringer, Hetter (QA Monkeys), David "Micru" Cuenca (Spanish Translation)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Output Sheets (OS)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone Chuck Pint, Barak (Chris Chandler), Richard O'Doherty-Gregg, Dimrill (Bj\'9arn Ehlert) and many more.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Documentation (Docs)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone Eddy Anthony (MoSaT), Shane Molnar, Sigurdur H. Olafsson, Brandon Blackmoor (Javascripts)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Tracker Monkeys (TM)\
+\pard\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone Paul W. King, David (aka Papa-DRB), Ravagon, Karianna, James Wright, Anestis Kozakis, Ashlynne, Joseff and many more.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa300\ql\qnatural
+
+\f2\b\fs37\fsmilli18667 \cf0 \ul Quality Assurance (QA) Monkeys\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\sa260\qj
+
+\f3\b0\fs26\fsmilli13333 \cf0 \ulnone Reed Thornton (rthornton), Roy Stringer, Hetter (Duke Watson).\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\ql\qnatural
+
+\f1\fs24 \cf0 \
+This installer was built by the PCGen Open Source project, and is distributed as is. The contents thereof, PCGen, is governed by the LGPL as documented below.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural
+\cf0 \
+\
+
+\f2\b\fs26 \
+
+\fs36 GNU LESSER GENERAL PUBLIC LICENSE\
+
+\f3\b0\fs26 Version 2.1, February 1999\
 \
 Copyright (C) 1991, 1999 Free Software Foundation, Inc.\
 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA\
@@ -21,10 +177,10 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 [This is the first released version of the Lesser GPL. It also counts as the successor of the GNU Library Public License, version 2, hence the version number 2.1.]\
 \
 
-\f1\b Preamble\
+\f2\b Preamble\
 \
 
-\f2\b0 The licenses for most software are designed to take away your freedom to share and change it. By contrast, the GNU General Public Licenses are intended to guarantee your freedom to share and change free software--to make sure the software is free for all its users.\
+\f3\b0 The licenses for most software are designed to take away your freedom to share and change it. By contrast, the GNU General Public Licenses are intended to guarantee your freedom to share and change free software--to make sure the software is free for all its users.\
 \
 This license, the Lesser General Public License, applies to some specially designated software packages--typically libraries--of the Free Software Foundation and other authors who decide to use it. You can use it too, but we suggest you first think carefully about whether this license or the ordinary General Public License is the better strategy to use in any particular case, based on the explanations below.\
 \
@@ -53,9 +209,9 @@ Although the Lesser General Public License is Less protective of the users' free
 The precise terms and conditions for copying, distribution and modification follow. Pay close attention to the difference between a "work based on the library" and a "work that uses the library". The former contains code derived from the library, whereas the latter must be combined with the library in order to run.\
 \
 
-\f1\b GNU LESSER GENERAL PUBLIC LICENSE\
+\f2\b GNU LESSER GENERAL PUBLIC LICENSE\
 
-\f2\b0 TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION\
+\f3\b0 TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION\
 \
 0. This License Agreement applies to any software library or other program which contains a notice placed by the copyright holder or other authorized party saying it may be distributed under the terms of this Lesser General Public License (also called "this License"). Each licensee is addressed as "you".\
 \
@@ -154,10 +310,10 @@ Each version is given a distinguishing version number. If the Library specifies 
 14. If you wish to incorporate parts of the Library into other free programs whose distribution conditions are incompatible with these, write to the author to ask for permission. For software which is copyrighted by the Free Software Foundation, write to the Free Software Foundation; we sometimes make exceptions for this. Our decision will be guided by the two goals of preserving the free status of all derivatives of our free software and of promoting the sharing and reuse of software generally.\
 \
 
-\f1\b NO WARRANTY\
+\f2\b NO WARRANTY\
 \
 
-\f2\b0 15. BECAUSE THE LIBRARY IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE LIBRARY, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE LIBRARY IS WITH YOU. SHOULD THE LIBRARY PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.\
+\f3\b0 15. BECAUSE THE LIBRARY IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE LIBRARY, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE LIBRARY IS WITH YOU. SHOULD THE LIBRARY PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.\
 \
 16. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE LIBRARY AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE LIBRARY (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.\
 \
