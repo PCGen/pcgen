@@ -124,11 +124,13 @@ public class AbilityUtilities
 		final Collection<String> choices = new ArrayList<String>();
 		getUndecoratedName(abilityName, choices);
 
-		Ability anAbility = getAbilityFromList(theAbilityList, "FEAT", abilityName, Ability.Nature.ANY);
+		AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(category);
+
+		Ability anAbility = getAbilityFromList(theAbilityList, cat.getAbilityCategory(), abilityName, Ability.Nature.ANY);
 
 		if (anAbility == null)
 		{
-			anAbility = cloneGlobalAbility(category, abilityName);
+			anAbility = cloneGlobalAbility(cat.getAbilityCategory(), abilityName);
 
 			if (anAbility != null)
 			{
