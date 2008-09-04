@@ -129,6 +129,8 @@ KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_wondrous_items.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_dragons.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_specific.lst
 
+COMPANIONMOD:@/d20ogl/srd35/monsters/rsrd_companionmods_monsters.lst
+
 FEAT:@/d20ogl/srd35/monsters/rsrd_feats_templates.lst
 
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races__vermin.lst

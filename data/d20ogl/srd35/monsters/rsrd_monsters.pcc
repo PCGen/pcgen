@@ -28,6 +28,8 @@ ABILITYCATEGORY:rsrd_ability_categories_monster.lst
 CLASS:rsrd_classes_monsters_dragons.lst
 CLASS:rsrd_classes_monsters_specific.lst
 
+COMPANIONMOD:rsrd_companionmods_monsters.lst
+
 FEAT:rsrd_feats_templates.lst
 
 KIT:rsrd_kits_races__vermin.lst
