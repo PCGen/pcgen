@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
+
+###Block: PHB Feat modifications
+# Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose					Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
+Endurance.MOD																																	!PRERACE:1,Gnome
+Skill Focus.MOD																																																																																																												BONUS:SKILL|LIST|3|PRECLASS:1,Patrician|PREVARGT:var("CL=Patrician"),floor(TL/2)
+Weapon Finesse.MOD																!PRECLASS:1,Weapon Savant=2																																																								BONUS:COMBAT|TOHIT.LowWeight|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged|PREITEM:1,TYPE=GlassSteel
+# probably was a reason for this, but I have  no idea why so commenting until reason appears
+#Extra Turning.MOD																																																																														BONUS:VAR|TurnTimesBase|-4|PREVAREQ:FocusTurn,1	BONUS:VAR|ChannelTimesBase|4|TYPE=ExtraTurning.STACK	BONUS:VAR|TurnTimesInfernal|4|TYPE=ExtraTurning.STACK|PREVAREQ:FocusTurn,1
+Brew Potion.COPY=Brew Potion (Abebi)
+Brew Potion (Abebi).MOD							NAMEISPI:YES					VISIBLE:NO																																					DESC:.CLEAR		DESC:Brew as 5th level cleric, only DMG cleric portions																																																															SOURCEPAGE:p.274
+Precise Shot.COPY=Precise Shot (Ranger/Flintlock Combat)
+Precise Shot (Ranger/Flintlock Combat).MOD										VISIBLE:NO																																					DESC:.CLEAR		DESC:Only applies to use of Flintlock weapons																																																																	SOURCEPAGE:Feats.rtf
+Augment Summoning.COPY=Augment Summoning (Canines)
+Spirited Charge.COPY=Spirited Charge Aerial
+Spirited Charge Aerial.MOD																																																			DESC:.CLEARALL	DESC:Only applies to bonded aerial companion
+Spell Mastery.MOD											TYPE:SpellMast
+# Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose					Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
+Greater Weapon Focus.MOD									TYPE:General.Fighter								PREFEAT:1,Weapon Focus																							PREVARGTEQ:WeapSpecQualify,8				DESC:See Text									STACK:NO	MULT:YES	CHOOSE:FEAT=Weapon Focus																																															BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats.rtf
+Greater Weapon Specialization.MOD								TYPE:General.Fighter								PREFEAT:3,Weapon Focus,Greater Weapon Focus,Weapon Specialization																PREVARGTEQ:WeapSpecQualify,12				DESC:See Text											MULT:YES	CHOOSE:FEAT=Greater Weapon Focus																																														BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
+
+Improved Familiar.MOD
+# Use when axiomatic falcon coded - HC Illiir
+#Improved Familiar HD.MOD		TYPE:General	COMPANIONLIST:Familiar|Axiomatic Falcon|PRECLASS:1,Holy Champion (Harbingers)=6
+Improved Familiar.COPY=Improved Familiar HD
+Improved Familiar HD.MOD									TYPE:General																										PRESUBCLASS:1,Harbingers=6
+
+Skill Focus.COPY=Skill Focus (Patrician)
+Skill Focus (Patrician).MOD																				PREFEAT:1,Skill Focus																																																																																			BONUS:SKILL|LIST|6																	SOURCEPAGE:Feats.rtf
+
+# Psionic Feats redone
+# Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose					Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
+Speed of Thought.MOD										TYPE:Psionic																							PRESTAT:1,WIS=13						PRETEMPLATE:1,Psionic									DESC:The energy of your mind energizes the alacrity of your body.																													BONUS:MOVEADD|TYPE.Walk|10|PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0																					SOURCEPAGE:PsionicFeats.rtf
+
+# PGtA Feats - new versions
+Quick Reload.COPY=Quick Reload AS
+Quick Reload AS.MOD																																																				DESC:.CLEAR		DESC:Altherian Flintlock Rifles Only
+
+Alertness.MOD											TYPE:PatricianAdv
+Great Fortitude.MOD										TYPE:PatricianAdv
+Investigator.MOD											TYPE:PatricianAdv
+Iron Will.MOD											TYPE:PatricianAdv
+Lightning Reflexes.MOD										TYPE:PatricianAdv
+Negotiator.MOD											TYPE:PatricianAdv
+Persuasive.MOD											TYPE:PatricianAdv
+Skill Focus.MOD											TYPE:PatricianAdv
+Toughness.MOD											TYPE:PatricianAdv

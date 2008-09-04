@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
+
+# Class Name		Hit Dice	Type		Source, Long Desc.				Source Page		Apply Kit
+CLASS:Spirit Warrior	HD:12		TYPE:Undead	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.270	KIT:1|Spirit Warrior Kit
+# Class Name		Required Template
+CLASS:Spirit Warrior	PRETEMPLATE:1,Undead
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Spirit Warrior	STARTSKILLPTS:2	MODTOSKILLS:YES

@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
+#Exotic Armor
+# Armor Name		Type
+#Lorica Segmentata		TYPE:ExoticArmor
+#Andrean Plate		TYPE:ExoticArmor
+#Milandesian Cuirass	TYPE:ExoticArmor
+# Armor Name	Type
+ExoticArmor		TYPE:ExoticArmor
