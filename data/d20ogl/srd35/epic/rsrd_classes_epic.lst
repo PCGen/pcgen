@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
+# CVS $Revision$ $Author$ -- Fri Sep  5 12:15:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -52,7 +52,7 @@ CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	P
 CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE.Craft|TYPE.Profession
 1			SAB:Improved Cover Identity (Ex/Su) %/day|EICover											BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttack|ceil(CL/3)	DEFINE:EICover|0						ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2:REPEATLEVEL:3											BONUS:ABILITYPOOL|Infiltrator Specialist Training|1
-3			SAB:Read Thoughts (Su) %/day|EIReadThoughts												BONUS:VAR|EIReadThoughts|((CL+1)/4)							DEFINE:EIReadThoughts|0															SPELLS:Class|CASTERLEVEL=15|TIMES=((var("CL=Epic Infiltrator")+5)/8)|Mind Blank,18+INT
+3			SAB:Read Thoughts (Su) %/day|EIReadThoughts												BONUS:VAR|EIReadThoughts|((CL+1)/4)							DEFINE:EIReadThoughts|0													SPELLS:Class|CASTERLEVEL=15|TIMES=((var("CL=Epic Infiltrator")+5)/8)|Mind Blank,18+INT
 4			SAB:Far Senses (Su) %/day % ft|EIFarSenses|FarSensesRange										BONUS:VAR|EIFarSenses|((CL+1)/4)	BONUS:VAR|FarSensesRange|20*(CL+1)	DEFINE:EIFarSenses|0	DEFINE:FarSensesRange|0
 
 # Epic Trapfinding does not exist
@@ -64,7 +64,7 @@ CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	ABB:Gpa		MAXLEVEL:NOLIMIT	SOURCEPAG
 CLASS:Guardian Paramount	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate|Jump|Listen|Spot|TYPE.Profession
-1			SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler									BONUS:VAR|GPEnabler|(2+ceil(CL/3))		DEFINE:GPEnabler|0	BONUS:ABILITYPOOL|Guardian Paramount Feat|1
+1			SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler	BONUS:ABILITYPOOL|Guardian Paramount Feat|1	BONUS:VAR|GPEnabler|(2+ceil(CL/3))		DEFINE:GPEnabler|0
 2			SAB:Evasive Preceptor (Ex) %/day|GPPreceptor									BONUS:VAR|GPPreceptor|floor((CL+1)/3)	DEFINE:GPPreceptor|0
 3			SAB:Protective Aura (Sp) %/day|GPAura										BONUS:VAR|GPAura|CL/3				DEFINE:GPAura|0
 4:REPEATLEVEL:3									BONUS:ABILITYPOOL|Guardian Paramount Feat|1

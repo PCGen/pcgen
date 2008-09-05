@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jul  5 22:37:05 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Fri Sep  5 12:15:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -10,11 +10,11 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #Weapon Proficiencies for .MOD capabilities in classes.
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
 ###Block: Weapon proficiencies
-# Ability Name			Category of Ability		Type			Visible	Automaticaly Gained Weapon Prof.
+# Ability Name			Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
 Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
 
 ###Block: Mind Blade abilities
-# Ability Name			Category of Ability		Type			Visible	Special ABility							Define																Automaticaly Gained Weapon Prof.	Modify VAR
+# Ability Name			Category of Ability		Type			Visible	Special ABility							Define																Automatically Gained Weapon Prof.	Modify VAR
 MindBlade Wielder			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO										DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0	AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
 MindBlade Standard		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Mind Blade
 MindBlade Throw			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Throw Mind Blade

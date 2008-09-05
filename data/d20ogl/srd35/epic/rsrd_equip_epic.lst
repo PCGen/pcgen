@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jun 20 17:47:50 2008 -- reformated by prettylst.pl v1.38 (build 6748)
+# CVS $Revision$ $Author$ -- Fri Sep  5 12:15:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 
@@ -47,7 +47,7 @@ Ring (Epic Psionics X)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:81
 
 
 ###Block:Rods
-# Equipment Name		Output Name					Required Proficiency			Type												Alternative Type				Cost			Weight	Required AL	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Requires Modification?	Size		Source Page					Spell Res.	Damage Reduction	Save checks bonus							Combat bonus				Stat bonus					Modify VAR										Weapon prop. bonus					Special Property					Automaticaly Added to Inventory
+# Equipment Name		Output Name					Required Proficiency			Type												Alternative Type				Cost			Weight	Required AL	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Requires Modification?	Size		Source Page					Spell Res.	Damage Reduction	Save checks bonus							Combat bonus				Stat bonus					Modify VAR										Weapon prop. bonus					Special Property					Automatically Added to Inventory
 Rod (Besiegement)		OUTPUTNAME:Rod of [NAME]		PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Epic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace									COST:447745		WT:6				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light						SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf																																						BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
 Rod (Epic Absorption)	OUTPUTNAME:Rod of [NAME]								TYPE:Magic.Epic.Rod															COST:1500000	WT:5																											EQMOD:CHARGED_ITEM_50|CHARGES[150]										SOURCEPAGE:epicMagicItemsOther.rtf
 Rod (Epic Cancellation)	OUTPUTNAME:Rod of [NAME]								TYPE:Magic.Epic.Rod															COST:330000		WT:5																																										SOURCEPAGE:epicMagicItemsOther.rtf

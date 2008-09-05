@@ -537,7 +537,7 @@ FEAT:Weapon Focus(Chain (Spiked))
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Chain (Spiked)	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Devil (Ice (Gelugon)) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Ice (gelugon))]
+STARTPACK:Devil (Ice (Gelugon)) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Ice (Gelugon))]
 RACE:Devil (Ice (Gelugon))	!PRERACE:1,%
 NAME:Ice Devil (Gelugon)
 ALIGN:LE

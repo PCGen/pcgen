@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 18 21:59:52 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Fri Sep  5 12:51:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -34,16 +34,16 @@ CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentratio
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
-1	SAB:Scorn Earth (Su)	SAB:Sidestep Charge (Ex)																		ADD:SPELLCASTER|Psionic																		AUTO:FEAT|Sidestep Charge
-2	SAB:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
-3	SAB:Dimension Step (Su)																							ADD:SPELLCASTER|Psionic						SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
-4	SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)														ADD:SPELLCASTER|Psionic
-5																BONUS:VAR|OpportunisticStrike|2
-6																											ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Elocator Choice|1
-7	SAB:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)												ADD:SPELLCASTER|Psionic
-8																BONUS:VAR|OpportunisticStrike|2
-9	SAB:Dimension Spring Attack (Su)(1x/day)																				ADD:SPELLCASTER|Psionic
-10	SAB:Accelerated Action (Su)																						ADD:SPELLCASTER|Psionic
+1	SAB:Scorn Earth (Su)	SAB:Sidestep Charge (Ex)																								ADD:SPELLCASTER|Psionic													AUTO:FEAT|Sidestep Charge
+2	SAB:Opportunistic Strike (+%)(Ex)|OpportunisticStrike													BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
+3	SAB:Dimension Step (Su)																													ADD:SPELLCASTER|Psionic	SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
+4	SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)																				ADD:SPELLCASTER|Psionic
+5																						BONUS:VAR|OpportunisticStrike|2
+6																BONUS:ABILITYPOOL|Elocator Choice|1												ADD:SPELLCASTER|Psionic
+7	SAB:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)																		ADD:SPELLCASTER|Psionic
+8																						BONUS:VAR|OpportunisticStrike|2
+9	SAB:Dimension Spring Attack (Su)(1x/day)																										ADD:SPELLCASTER|Psionic
+10	SAB:Accelerated Action (Su)																												ADD:SPELLCASTER|Psionic
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -61,7 +61,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
 
 ###Block:Monk Abilities
-1						BONUS:VAR|MonkACLvl|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
+1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Class Info
@@ -69,12 +69,12 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 2	KNOWN:0,2
 3	KNOWN:0,2,1
 4	KNOWN:0,2,2
-5	KNOWN:0,2,2,1							BONUS:ABILITYPOOL|Psionic Fist Feat|1
+5	KNOWN:0,2,2,1					BONUS:ABILITYPOOL|Psionic Fist Feat|1
 6	KNOWN:0,2,2,2
 7	KNOWN:0,2,2,2,1
 8	KNOWN:0,2,2,2,2
 9	KNOWN:0,2,2,2,2,1
-10	KNOWN:0,2,2,2,2,2							BONUS:ABILITYPOOL|Psionic Fist Feat|1
+10	KNOWN:0,2,2,2,2,2					BONUS:ABILITYPOOL|Psionic Fist Feat|1
 ###TODO: Set up Abilitypool for Psionic Fist - Psionic
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
@@ -123,16 +123,16 @@ CLASS:Psion Uncarnate	PREFEAT:1,Psionic Body	PRESKILL:2,Knowledge (Psionics)=8,P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
-1	SAB:Uncarnate Armor (Su)	SAB:Incorporeal Touch %d6 (3x/day) (Su)|IncorporealTouch			BONUS:VAR|IncorporealTouch|1				DEFINE:IncorporealTouch|0
-2	SAB:Shed Body (Su) (%x/day)|ShedBody											BONUS:VAR|ShedBody|1					DEFINE:ShedBody|0			ADD:SPELLCASTER|Psionic
-3	SAB:Assume Equipment (Su)																										ADD:SPELLCASTER|Psionic
+1	SAB:Uncarnate Armor (Su)	SAB:Incorporeal Touch %d6 (3x/day) (Su)|IncorporealTouch			BONUS:VAR|IncorporealTouch|1					DEFINE:IncorporealTouch|0
+2	SAB:Shed Body (Su) (%x/day)|ShedBody											BONUS:VAR|ShedBody|1						DEFINE:ShedBody|0			ADD:SPELLCASTER|Psionic
+3	SAB:Assume Equipment (Su)																											ADD:SPELLCASTER|Psionic
 4	SAB:Assume Likeness (Su)
-5																		BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
-6																		BONUS:VAR|ShedBody|1										ADD:SPELLCASTER|Psionic
-7	SAB:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	BONUS:VAR|TelekineticForceDC|(14+SPELLSTATMOD)	DEFINE:TelekineticForceDC|0
-8	SAB:Uncarnate Bridge (Su)																										ADD:SPELLCASTER|Psionic
-9																		BONUS:VAR|IncorporealTouch|1									ADD:SPELLCASTER|Psionic
-10	SAB:Uncarnate (Ex)																															TEMPLATE:Incorporeal
+5																		BONUS:VAR|IncorporealTouch|1										ADD:SPELLCASTER|Psionic
+6																		BONUS:VAR|ShedBody|1											ADD:SPELLCASTER|Psionic
+7	SAB:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	BONUS:VAR|TelekineticForceDC|14+max(INT,WIS,CHA)	DEFINE:TelekineticForceDC|0
+8	SAB:Uncarnate Bridge (Su)																											ADD:SPELLCASTER|Psionic
+9																		BONUS:VAR|IncorporealTouch|1										ADD:SPELLCASTER|Psionic
+10	SAB:Uncarnate (Ex)																																TEMPLATE:Incorporeal
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
@@ -160,15 +160,15 @@ CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Inquisitor	PRESKILL:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Diplomacy|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
-1	SAB:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	BONUS:VAR|ThrallherdScore|(TL+CHA+CL)	DEFINE:ThrallherdScore|0
-2																							ADD:SPELLCASTER|Psionic
-3																							ADD:SPELLCASTER|Psionic		BONUS:ABILITYPOOL|Thrallherd Charm Choice|1
-4																							ADD:SPELLCASTER|Psionic
-5																							ADD:SPELLCASTER|Psionic		BONUS:ABILITYPOOL|Thrallherd Dominate Choice|1
-6																							ADD:SPELLCASTER|Psionic
-7	SAB:Greater Dominate (Ex)																		ADD:SPELLCASTER|Psionic
-8																							ADD:SPELLCASTER|Psionic
-9	SAB:Superior Dominate (Ex)																		ADD:SPELLCASTER|Psionic
+1	SAB:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore									BONUS:VAR|ThrallherdScore|(TL+CHA+CL)	DEFINE:ThrallherdScore|0
+2																															ADD:SPELLCASTER|Psionic
+3											BONUS:ABILITYPOOL|Thrallherd Charm Choice|1													ADD:SPELLCASTER|Psionic
+4																															ADD:SPELLCASTER|Psionic
+5											BONUS:ABILITYPOOL|Thrallherd Dominate Choice|1													ADD:SPELLCASTER|Psionic
+6																															ADD:SPELLCASTER|Psionic
+7	SAB:Greater Dominate (Ex)																										ADD:SPELLCASTER|Psionic
+8																															ADD:SPELLCASTER|Psionic
+9	SAB:Superior Dominate (Ex)																										ADD:SPELLCASTER|Psionic
 10	SAB:Twofold Master (Ex)
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR

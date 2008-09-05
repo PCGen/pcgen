@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
+# CVS $Revision$ $Author$ -- Fri Sep  5 12:15:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Masterwork
@@ -46,7 +46,7 @@ Bow_STR		KEY:BOWSTR	NAMEOPT:NONAME	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOU
 
 ###Block: Armor Accesories
 
-# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		Bonus Equipment Modifiers	Bonus Weapon Modifiers		Special Property	Automaticaly Added to Inventory
+# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		Bonus Equipment Modifiers	Bonus Weapon Modifiers		Special Property	Automatically Added to Inventory
 Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor											SPROP:Spiked	AUTO:EQUIP|Armor Spikes
 Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor	BONUS:EQM|WEIGHTADD|5		BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
 Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf										BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
