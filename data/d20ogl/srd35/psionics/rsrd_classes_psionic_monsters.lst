@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:26:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Fri Sep  5 15:26:57 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Eddy Anthony
 
-# Class Name	Hit Dice	Type			Max Level		Source Page					Virtual Feat																				Save checks bonus											Combat bonus
-CLASS:Unbodied	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	VFEAT:Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	VFEAT:Monstrous Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level		Source Page					Ability																														Save checks bonus											Combat bonus
+CLASS:Unbodied	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Unbodied	PRERACETYPE:Monstrous humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
