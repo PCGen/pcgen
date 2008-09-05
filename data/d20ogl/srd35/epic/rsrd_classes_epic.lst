@@ -23,7 +23,7 @@ CLASS:Cosmic Descryer	PREFEAT:2,Spell Focus (Conjuration),Energy Resistance	PREL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Sense Motive|Spellcraft|TYPE.Craft|TYPE.Profession
 1			SAB:Superior Planar Summoning (Ex) +% HD|SuperiorSummoning								BONUS:VAR|SuperiorSummoning|4*ceil(CL/4)		DEFINE:SuperiorSummoning|0
-2																																					AUTO:FEAT|Naturalization
+2																																					ABILITY:Special Ability|AUTOMATIC|Naturalization
 2:REPEATLEVEL:2																		BONUS:VAR|CSNaturalization|1									ADD:SPELLCASTER|ANY
 3			SAB:Enduring Gate (Su) % days|EnduringGate										BONUS:VAR|EnduringGate|floor(CL/3)			DEFINE:EnduringGate|0
 5:REPEATLEVEL:5											BONUS:ABILITYPOOL|Cosmic Descryer Feat|1

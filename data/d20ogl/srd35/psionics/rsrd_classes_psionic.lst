@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 18 21:59:52 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Fri Sep  5 17:54:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -28,7 +28,7 @@ SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:2|Shaper|Psion	CSKILL:Concentra
 SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block:Proficiencies
-1	AUTO:FEAT|Psion Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Psion Weapon Proficiencies
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # TEMPLATE:Psionic qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
@@ -123,16 +123,16 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
 
-1	BONUS:VAR|MndBladeECL|CL	VFEAT:MindBlade Standard|PREVARLTEQ:MndBladeECL,3							AUTO:FEAT|MindBlade Wielder
-1						VFEAT:MindBlade Throw|PREMULT:2,[PREVARGTEQ:MndBladeECL,2],[PREVARLT:MndBladeECL,17]
-1						VFEAT:MindBlade Psychic Strike|PREVARGTEQ:MndBladeECL,3
-1						VFEAT:MindBlade Plus|PREVARGTEQ:MndBladeECL,4
-1						VFEAT:MindBlade Free Draw|PREVARGTEQ:MndBladeECL,5
-1						VFEAT:MindBlade Shape|PREVARGTEQ:MndBladeECL,5
-1						VFEAT:MindBlade Enhancement|PREVARGTEQ:MndBladeECL,6
-1						VFEAT:MindBlade Bladewind|PREVARGTEQ:MndBladeECL,9
-1						VFEAT:MindBlade Knife to the Soul|PREVARGTEQ:MndBladeECL,13
-1						VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
+1	BONUS:VAR|MndBladeECL|CL	ABILITY:Special Ability|AUTOMATIC|MindBlade Standard|PREVARLTEQ:MndBladeECL,3	ABILITY:Special Ability|AUTOMATIC|MindBlade Wielder
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Throw|PREMULT:2,[PREVARGTEQ:MndBladeECL,2],[PREVARLT:MndBladeECL,17]
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Psychic Strike|PREVARGTEQ:MndBladeECL,3
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Plus|PREVARGTEQ:MndBladeECL,4
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Free Draw|PREVARGTEQ:MndBladeECL,5
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Shape|PREVARGTEQ:MndBladeECL,5
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Enhancement|PREVARGTEQ:MndBladeECL,6
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Bladewind|PREVARGTEQ:MndBladeECL,9
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Knife to the Soul|PREVARGTEQ:MndBladeECL,13
+1						ABILITY:Special Ability|AUTOMATIC|MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
 
 ###Block: Class Info
 1	TEMPLATE:Psionic	AUTO:FEAT|Weapon Focus(Mind Blade)|Wild Talent

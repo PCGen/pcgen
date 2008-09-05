@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: Cosmic Descryer Naturalization
 # Feat Name		Type				Visible	Special ABility						Define				Source Page
-Naturalization	TYPE:Naturalization	VISIBLE:NO	SAB:Naturalization (% planes)|CSNaturalization	DEFINE:CSNaturalization|0	SOURCEPAGE:epicclasses.rtf
+#Naturalization	TYPE:Naturalization	VISIBLE:NO	SAB:Naturalization (% planes)|CSNaturalization	DEFINE:CSNaturalization|0	SOURCEPAGE:epicclasses.rtf
 
 ###Block: Epic Spellcasting Support
 

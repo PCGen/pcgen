@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jul  6 00:06:40 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Fri Sep  5 17:54:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -36,8 +36,14 @@ Epic Spellcaster (Divine/INT Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells
 Epic Spellcaster (Divine/WIS Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/WIS);LEVEL=10|EpicSpellsPerDay
 Epic Spellcaster (Divine/CHA Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/CHA);LEVEL=10|EpicSpellsPerDay
 
+###Block: Cosmic Descryer Naturalization
+# Feat Name		Category of Ability		Type				Visible	Special ABility						Define				Source Page
+# Ability Name	Category of Ability		Type				Visible	Special ABility						Define				Source Page
+Naturalization	CATEGORY:Special Ability	TYPE:Naturalization	VISIBLE:NO	SAB:Naturalization (% planes)|CSNaturalization	DEFINE:CSNaturalization|0	SOURCEPAGE:epicclasses.rtf
+
 ###Block: Mod Shadow Jump:
 # Feat Name		Special ABility																																								Define
+# Ability Name					Special ABility																																								Define
 CATEGORY=Special Ability|Shadow Jump.MOD	SAB:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SAB:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SAB:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0
 
 #
