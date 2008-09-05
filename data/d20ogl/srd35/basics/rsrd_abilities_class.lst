@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug  9 14:59:52 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Sep  5 15:55:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -371,16 +371,6 @@ Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AU
 Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Crossbow|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Sword (Short)
 Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|TYPE.Crossbow|TYPE.Dagger|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)
 
-# These should just be feats, commented out so we can find any erronious references to them  -Eddy
-#Proficiency Support - Feats
-#Simple Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Simple Weapon Proficiency
-#Martial Weapon Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Martial Weapon Proficiency
-#Armor Proficiency (Light)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Light)
-#Armor Proficiency (Medium)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Medium)
-#Armor Proficiency (Heavy)		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Armor Proficiency (Heavy)
-#Shield Proficiency			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Shield Proficiency
-#Tower Shield Proficiency		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:FEAT|Tower Shield Proficiency
-
 ###Block: Automatic Creature Type Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Virtual Feat				Ability											Source Page
 Fey Proficiencies				CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
@@ -408,19 +398,10 @@ Plant Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Plant Traits
 Undead Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Undead Traits|!PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ and death effects|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not subject to critical hits/ nonlethal damage/ ability drain/ or energy drain|PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to damage to STR/DEX/CON as well as to fatigue and exhaustion effects|PRERULE:1,DISPLAYTYPETRAITS	SAB:Negative energy can heal undead creatures|PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to any effect that requires a Fortitude save (unless it works on objects or is harmless)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not at risk from death from massive damage (but destroyed when reduced to 0 hp)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not affected by Raise Dead and Reincarnate spells/abilities (but Resurrection and True Resurrection return the undead into their former living self)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Undead do not eat/sleep/breathe|PRERULE:1,DISPLAYTYPETRAITS	SAB:Mindless - Immune to all mind-affecting effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:1,Mindless|PRERULE:1,DISPLAYTYPETRAITS	SAB:Cannot heal damage on own if has no Intelligence score (but can be healed and Fast Healing works)|PRETEMPLATE:1,Mindless|PRERULE:1,DISPLAYTYPETRAITS	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 Vermin Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Vermin Traits|!PRERULE:1,DISPLAYTYPETRAITS	SAB:Vermin eat/sleep/breathe|PRERULE:1,DISPLAYTYPETRAITS	SAB:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:1,Mindless|PRERULE:1,DISPLAYTYPETRAITS																																																																																																																																																																										VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 
-###Block: Special Abilities
-# Ability Name			Output Name							Category of Ability		Type					Visible	Special ABility					Multiple?	Choose			Combat bonus									Weapon prof. bonus																		Source Page
-Oversized Weapon			OUTPUTNAME:Oversized Weapon (Ex)			CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Oversized Weapon (Ex)			MULT:YES	CHOOSE:WEAPONPROFS|LIST												BONUS:WEAPONPROF=%LIST|PCSIZE|1
-Powerful Build			OUTPUTNAME:Powerful Build (Ex)			CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO														BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C					BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
-Superior Two-Weapon Fighting	OUTPUTNAME:Superior Two-Weapon Fighting (Ex)	CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Superior Two-Weapon Fighting (Ex)							BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
-
 ###Block: Leadership feat support
-# Ability Name	Category of Ability		Type				Visible	Multiple?	Choose										Modify VAR							Temporary effect description
-Leadership Score	CATEGORY:Special Ability	TYPE:Special.Internal	VISIBLE:NO	MULT:YES	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+# Ability Name	Category of Ability		Type				Visible	Choose										Modify VAR							Temporary effect description
+Leadership Score	CATEGORY:Special Ability	TYPE:Special.Internal	VISIBLE:NO	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
-###Block:Nightshade support
-# Ability Name	Output Name					Category of Ability		Type					Visible	Special ABility			Save checks bonus										Combat bonus														Bonus to HP											Source Page				Temporary effect description
-Desecrating Aura	OUTPUTNAME:Desecrating Aura (Su)	CATEGORY:Special Ability	TYPE:Special.Supernatural	VISIBLE:NO	SAB:Desecrating Aura (Su)	BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC	SOURCEPAGE:MonstersM-N.rtf	TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
 
 ###Block: Companion support
 # Ability Name	Category of Ability		Type				Visible	Special ABility			Define				Allow Follower			Allowed Companions																																																																																																																																																																																																				Source Page
@@ -429,6 +410,7 @@ Special Mount	CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Special Mo
 Summon Familiar	CATEGORY:Special Ability	TYPE:Special		VISIBLE:YES	SAB:Summon Familiar		DEFINE:FMLevel|0			FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel																																																																																																																																																																																									SOURCEPAGE:ClassesII.rtf
 Fiendish Servant	CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO	SAB:Fiendish Servant		DEFINE:FSLevel|0			FOLLOWERS:Fiendish Servant|1	COMPANIONLIST:Fiendish Servant|Bat,Cat,Dire Animal (Dire Rat),Horse (Heavy),Horse (Light),Horse (Warhorse Heavy),Horse (Warhorse Light),Pony,Raven,Toad																																																																																																																																																																														SOURCEPAGE:PrestigeClasses.rtf
 Undead Companion	CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO	SAB:Undead Companion		DEFINE:UndeadCompanionLVL|0	FOLLOWERS:Undead Companion|1	COMPANIONLIST:Undead Companion|Skeleton (Human Warrior),Zombie (Human Commoner)																																																																																																																																																																																										SOURCEPAGE:PrestigeClasses.rtf
+Summon Shadow	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Summon Shadow (Su)		DEFINE:ShadowCompanion|0	FOLLOWERS:Shadow Companion|1	COMPANIONLIST:Shadow Companion|Shadow																																																																																																																																																																																																	SOURCEPAGE:PrestigeClasses.rtf
 
 
 ###Block: Monk Bonus Feats
