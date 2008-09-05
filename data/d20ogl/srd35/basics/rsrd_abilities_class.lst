@@ -422,13 +422,6 @@ Deflect Arrows	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREA
 Improved Disarm	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip		PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Disarm
 Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Disarm	PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Trip
 
-###Block: Barding Proficiency    - This needs to be moved...
-# Feat Name				Type			Visible	Automaticaly Gained Armor Prof.	Source Page
-# Ability Name			Category of Ability		Type			Visible	Automatically Gained Armor Prof.	Ability								Source Page
-Armor Proficiency (Barding)	CATEGORY:Special Ability	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	ABILITY:FEAT|VIRTUAL|Armor Proficiency (Barding)	SOURCEPAGE:Feats.rtf
-#Armor Proficiency (Barding)	CATEGORY:FEAT			TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf
-#Unknown whether this is an actual feat, or not... leaving as both a Feat and Special Ability for now...
-
 ###Block: Expert Class Skills
 # Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose			Class Skill
 Expert Class Skills	CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	CSKILL:LIST

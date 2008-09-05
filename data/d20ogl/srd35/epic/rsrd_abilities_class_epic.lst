@@ -36,6 +36,10 @@ Epic Spellcaster (Divine/INT Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells
 Epic Spellcaster (Divine/WIS Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/WIS);LEVEL=10|EpicSpellsPerDay
 Epic Spellcaster (Divine/CHA Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/CHA);LEVEL=10|EpicSpellsPerDay
 
+###Block: Mod Shadow Jump:
+# Feat Name		Special ABility																																								Define
+CATEGORY=Special Ability|Shadow Jump.MOD	SAB:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SAB:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SAB:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0
+
 #
 # End
 #
