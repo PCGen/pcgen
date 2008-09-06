@@ -100,7 +100,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	/**
 	 * Storage for individual references. This ensures that only one reference
 	 * is ever built for any identifier. (and allows those references to be
-	 * reused if a refernce to an identifier is requested a second time). This
+	 * reused if a reference to an identifier is requested a second time). This
 	 * also stores the reference so that it can be appropriately resolved when
 	 * resolveReferences() is called.
 	 */

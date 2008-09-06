@@ -17,9 +17,12 @@
  */
 package pcgen.cdom.reference;
 
+import java.util.Collection;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.util.Logging;
 
 /**
  * A CategorizedReferenceManufacturer is a ReferenceManufacturer that will
@@ -45,6 +48,11 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	private final Category<T> category;
 
 	/**
+	 * Stores the reference manager that is dealing with this category's parent category.
+	 */
+	private CategorizedReferenceManufacturer<T> parentCrm = null;
+
+	/**
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
 	 * reference non-categorized CDOMObjects of the given Class.
 	 * 
@@ -62,7 +70,45 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		 */
 		category = cat;
 	}
+	
+	/**
+	 * Sets the reference manager that is dealing with this category's parent category.
+	 * 
+	 * @param parentCrm the reference manager for the parent category
+	 */
+	public void setParentCRM(CategorizedReferenceManufacturer<T> parentCrm)
+	{
+		this.parentCrm = parentCrm;
+	}
 
+	/**
+	 * This is a specialisation of the validate function to cope with 
+	 * categories that have parents (i.e Fighter feats being a child of feats). 
+	 * It checks for active matches in the parent before doing the normal 
+	 * validation. Any matches in the parent for unconstructed references in 
+	 * this class are registered as if they had been made in the child class.
+	 *   
+	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#validate()
+	 */
+	@Override
+	public boolean validate()
+	{
+		if (parentCrm != null)
+		{
+			Collection<CDOMCategorizedSingleRef<T>> childRefs = getReferenced();
+			for (CDOMCategorizedSingleRef<T> ref : childRefs)
+			{
+				String name = ref.getName();
+				if (parentCrm.containsObject(name) && !containsObject(name))
+				{
+					Logging.debugPrint("Found match in parent for " + category + " - " + name);
+					constructObject(name);
+				}
+			}
+		}
+		return super.validate();
+	}
+	
 	/**
 	 * Returns a CDOMCategorizedSingleRef for the given identifier as defined by
 	 * the Class and Category provided when this
@@ -147,5 +193,4 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	{
 		return this.getClass().getName() + " [" + getReferenceClass() + " " + category + "]";
 	}
-
 }

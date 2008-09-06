@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.DoubleKeyMap;
@@ -30,6 +31,9 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.util.Logging;
 
 public class ReferenceContext extends AbstractReferenceContext
 {
@@ -73,6 +77,30 @@ public class ReferenceContext extends AbstractReferenceContext
 		{
 			mfg = new CategorizedReferenceManufacturer<T>(cl, cat);
 			catmap.put(cl, cat, mfg);
+			if (cat != null && cat.getClass().isAssignableFrom(AbilityCategory.class))
+			{
+				Category foo = cat;
+				AbilityCategory child = (AbilityCategory) foo;
+				if (!child.getAbilityCategory().equals(child.getKeyName()))
+				{
+					AbilityCategory parent =
+							AbilityUtilities.getAbilityCategory(child
+								.getAbilityCategory());
+					CategorizedReferenceManufacturer<T> parentMfg =
+							(CategorizedReferenceManufacturer<T>) catmap.get(
+								cl, parent);
+					if (parentMfg == null)
+					{
+						Category parentCat = (Category) parent;
+						parentMfg =
+								new CategorizedReferenceManufacturer<T>(cl,
+									(Category<T>) parentCat);
+						catmap.put(cl, cat, parentMfg);
+					}
+					mfg.setParentCRM(parentMfg);
+				}
+			}
+
 		}
 		return mfg;
 	}
