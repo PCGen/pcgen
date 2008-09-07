@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Sep  6 00:57:41 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Sep  7 15:03:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
 #Original Entry: Andrew Maitland
 
@@ -34,74 +34,76 @@ Charm (Scale +6)	TYPE:Charm	COST:72000						BONUS:COMBAT|AC|6|TYPE=Deflection
 Charm (Clover)	TYPE:Charm	COST:4375	BONUS:CHECKS|ALL|1|TYPE=Luck	BONUS:COMBAT|TOHIT|1|TYPE=Luck
 
 ###Block: Dusts
-# Equipment Name					Product Identity?	Output Name			Required Proficiency		Type					Cost		Modifier				Save checks bonus				Combat bonus			Special Property
-Dust (LVL 0 - Cleric Druid Wiz)																			COST:500
-Dust (LVL 1 - Cleric Druid Wiz)																			COST:1000
-Dust (LVL 2 - Cleric Druid Wiz)																			COST:6000
-Dust (LVL 3 - Cleric Druid Wiz)																			COST:15000
-Dust (LVL 4 - Cleric Druid Wiz)																			COST:28000
-Dust (LVL 5 - Cleric Druid Wiz)																			COST:45000
+# Equipment Name				Cost
+Dust (LVL 0 - Cleric Druid Wiz)	COST:500
+Dust (LVL 1 - Cleric Druid Wiz)	COST:1000
+Dust (LVL 2 - Cleric Druid Wiz)	COST:6000
+Dust (LVL 3 - Cleric Druid Wiz)	COST:15000
+Dust (LVL 4 - Cleric Druid Wiz)	COST:28000
+Dust (LVL 5 - Cleric Druid Wiz)	COST:45000
 # Sorcerer
-Dust (LVL 0 - Sorcerer)																					COST:500
-Dust (LVL 1 - Sorcerer)																					COST:1000
-Dust (LVL 2 - Sorcerer)																					COST:8000
-Dust (LVL 3 - Sorcerer)																					COST:18000
-Dust (LVL 4 - Sorcerer)																					COST:32000
-Dust (LVL 5 - Sorcerer)																					COST:50000
+Dust (LVL 0 - Sorcerer)			COST:500
+Dust (LVL 1 - Sorcerer)			COST:1000
+Dust (LVL 2 - Sorcerer)			COST:8000
+Dust (LVL 3 - Sorcerer)			COST:18000
+Dust (LVL 4 - Sorcerer)			COST:32000
+Dust (LVL 5 - Sorcerer)			COST:50000
 # Bard
-Dust (LVL 0 - Bard)																					COST:500
-Dust (LVL 1 - Bard)																					COST:2000
-Dust (LVL 2 - Bard)																					COST:8000
-Dust (LVL 3 - Bard)																					COST:21000
-Dust (LVL 4 - Bard)																					COST:40000
-Dust (LVL 5 - Bard)																					COST:65000
+Dust (LVL 0 - Bard)			COST:500
+Dust (LVL 1 - Bard)			COST:2000
+Dust (LVL 2 - Bard)			COST:8000
+Dust (LVL 3 - Bard)			COST:21000
+Dust (LVL 4 - Bard)			COST:40000
+Dust (LVL 5 - Bard)			COST:65000
 # Paladin and Ranger
-Dust (LVL 1 - Pal Rng)																					COST:2000
-Dust (LVL 2 - Pal Rng)																					COST:8000
-Dust (LVL 3 - Pal Rng)																					COST:16500
-Dust (LVL 4 - Pal Rng)																					COST:28000
+Dust (LVL 1 - Pal Rng)			COST:2000
+Dust (LVL 2 - Pal Rng)			COST:8000
+Dust (LVL 3 - Pal Rng)			COST:16500
+Dust (LVL 4 - Pal Rng)			COST:28000
 
 ###Block: Traditional Magical Items
-Ironwood Plate Armor of Fire Protection		PROFICIENCY:ARMOR|Full Plate		TYPE:Armor.Heavy.Suit.Standard.MediumItem			WT:50		ACCHECK:-6		EQMOD:IRONWOOD		MAXDEX:1		SOURCEPAGE:Equipment.rtf	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE	COST:78000
+# Equipment Name						Product Identity?	Required Proficiency		Type							Cost		Weight	AC Penalty Check	Modifier						Maximum DEX Bonus	Source Page				% of Spell Failure	Innate Spells									Combat bonus
+Ironwood Plate Armor of Fire Protection					PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Standard.MediumItem	COST:78000	WT:50		ACCHECK:-6		EQMOD:IRONWOOD					MAXDEX:1		SOURCEPAGE:Equipment.rtf	SPELLFAILURE:35													BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
 
 
 Leather.COPY=Leather Armor of the Sprite
 Leather.COPY=Pine Needle Armor of Anadahrl
 Leather.COPY=Scurry's Dampending Mushroom Armor
-Leather Armor of the Sprite.MOD						TYPE:MediumItem			EQMOD:PLUS2A	SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=6|Fly	COST:16160
-Pine Needle Armor of Anadahrl.MOD						TYPE:MinorItem	COST:40800	SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=11|Wall of Thorns
-Scurry's Dampending Mushroom Armor.MOD		NAMEISPI:YES	TYPE:MinorItem	EQMOD:FAERIES_PLNT_LEAF.FAERIES_DAMPEN	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	COST:35000
+Leather Armor of the Sprite.MOD											TYPE:MediumItem					COST:16160						EQMOD:PLUS2A																	SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=6|Fly
+Pine Needle Armor of Anadahrl.MOD											TYPE:MinorItem					COST:40800																									SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=11|Wall of Thorns
+Scurry's Dampending Mushroom Armor.MOD		NAMEISPI:YES						TYPE:MinorItem					COST:35000						EQMOD:FAERIES_PLNT_LEAF.FAERIES_DAMPEN																								BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 
 ###Block: Misc
-Boots of the Ram																	TYPE:Footwear.Boot	COST:8600
-Boots of the Valley of Fire															TYPE:Footwear.Boot	COST:2250
+# Equipment Name				Output Name				Type					Cost		Modifier				Save checks bonus				Combat bonus			Special Property
+Boots of the Ram									TYPE:Footwear.Boot		COST:8600
+Boots of the Valley of Fire							TYPE:Footwear.Boot		COST:2250
 #
-Bracelet (Charm ~ 1)																	TYPE:Bracer	COST:1000
-Bracelet (Charm ~ 2)																	TYPE:Bracer	COST:4000
-Bracelet (Charm ~ 3)																	TYPE:Bracer	COST:9000
-Bracelet (Charm ~ 4)																	TYPE:Bracer	COST:16000
-Bracelet (Charm ~ 5)																	TYPE:Bracer	COST:25000
-Bracelet (Charm ~ 6)																	TYPE:Bracer	COST:36000
-Bracelet (Charm ~ 7)																	TYPE:Bracer	COST:49000
-Bracelet (Charm ~ 8)																	TYPE:Bracer	COST:64000
+Bracelet (Charm ~ 1)								TYPE:Bracer				COST:1000
+Bracelet (Charm ~ 2)								TYPE:Bracer				COST:4000
+Bracelet (Charm ~ 3)								TYPE:Bracer				COST:9000
+Bracelet (Charm ~ 4)								TYPE:Bracer				COST:16000
+Bracelet (Charm ~ 5)								TYPE:Bracer				COST:25000
+Bracelet (Charm ~ 6)								TYPE:Bracer				COST:36000
+Bracelet (Charm ~ 7)								TYPE:Bracer				COST:49000
+Bracelet (Charm ~ 8)								TYPE:Bracer				COST:64000
 #
-Ciclet of Dreams																	TYPE:Headgear.Circlet.Major								BONUS:CHECKS|ALL|2|TYPE=Luck		BONUS:COMBAT|AC|2|TYPE=Luck	COST:200000
+Ciclet of Dreams									TYPE:Headgear.Circlet.Major	COST:200000						BONUS:CHECKS|ALL|2|TYPE=Luck		BONUS:COMBAT|AC|2|TYPE=Luck
 #
-Circlet of the Fey (+1)																TYPE:Headgear	COST:2000
-Circlet of the Fey (+2)																TYPE:Headgear	COST:8000
-Circlet of the Fey (+3)																TYPE:Headgear	COST:18000
-Circlet of the Fey (+4)																TYPE:Headgear	COST:32000
-Circlet of the Fey (+5)																TYPE:Headgear	COST:50000
+Circlet of the Fey (+1)								TYPE:Headgear			COST:2000
+Circlet of the Fey (+2)								TYPE:Headgear			COST:8000
+Circlet of the Fey (+3)								TYPE:Headgear			COST:18000
+Circlet of the Fey (+4)								TYPE:Headgear			COST:32000
+Circlet of the Fey (+5)								TYPE:Headgear			COST:50000
 #
-Fan of Dusting																	TYPE:Item.MinorItem	COST:2250
-Horn of the Knight																TYPE:Horn.MajorItem	COST:50000
+Fan of Dusting									TYPE:Item.MinorItem		COST:2250
+Horn of the Knight								TYPE:Horn.MajorItem		COST:50000
 #
-Ring (Fey Luck)								OUTPUTNAME:Ring of [NAME]					TYPE:Ring.MediumItem	COST:27000
+Ring (Fey Luck)				OUTPUTNAME:Ring of [NAME]	TYPE:Ring.MediumItem		COST:27000
 Blowgun.COPY=Self-Loading Blowgun
-Self-Loading Blowgun.MOD											COST:2000
+Self-Loading Blowgun.MOD												COST:2000
 
-Staff of the Fey																	TYPE:Staff.Magic		COST:200000								BONUS:CHECKS|ALL|1|TYPE=Sacred	BONUS:COMBAT|AC|1|TYPE=Sacred	SPROP:+10 sacred bonus to any Crossing Over checks
+Staff of the Fey									TYPE:Staff.Magic			COST:200000						BONUS:CHECKS|ALL|1|TYPE=Sacred	BONUS:COMBAT|AC|1|TYPE=Sacred	SPROP:+10 sacred bonus to any Crossing Over checks
 
 Longsword.COPY=Foul Feyslayer
-Foul Feyslayer.MOD																TYPE:MajorItem.Artifact	COST:115145			EQMOD:PLUS2W.FAERIES_BANE_FEY
+Foul Feyslayer.MOD								TYPE:MajorItem.Artifact		COST:115145	EQMOD:PLUS2W.FAERIES_BANE_FEY
 

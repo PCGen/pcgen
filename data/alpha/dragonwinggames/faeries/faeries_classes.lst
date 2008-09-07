@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep  6 01:31:06 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Sep  7 15:03:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
 #Original Entry: darkon_turas; clean up by Andrew Maitland
 #
@@ -73,16 +73,16 @@ CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		MAXLEVEL:10	SOURCEPAGE:p.24	BON
 CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently=8,Hide=8,Knowledge (Fey)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|Pick Pocket|TYPE.Profession|Search|Spot|Tumble|Use Rope
-1				BONUS:VAR|StepSideways|1	ABILITY:Special Ability|AUTOMATIC|Step Sideways|Evasion
-2	VISION:Low-light						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge				BONUS:VAR|UncannyDodge|1
-3									ABILITY:Special Ability|AUTOMATIC|Slippery Mind
-4				BONUS:VAR|FaeWalk|15		ABILITY:Special Ability|AUTOMATIC|Fae-walk
-5				BONUS:VAR|StepSideways|1												BONUS:VAR|UncannyDodge|1
-6				BONUS:VAR|FaeWalk|15		ABILITY:Special Ability|AUTOMATIC|Defensive Jaunt
+1				BONUS:VAR|StepSideways|1						ABILITY:Special Ability|AUTOMATIC|Step Sideways|Evasion
+2	VISION:Low-light	BONUS:VAR|UncannyDodge|1						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+3														ABILITY:Special Ability|AUTOMATIC|Slippery Mind
+4				BONUS:VAR|FaeWalk|15							ABILITY:Special Ability|AUTOMATIC|Fae-walk
+5				BONUS:VAR|StepSideways|1	BONUS:VAR|UncannyDodge|1
+6				BONUS:VAR|FaeWalk|15							ABILITY:Special Ability|AUTOMATIC|Defensive Jaunt
 7				BONUS:VAR|StepSideways|1
 8				BONUS:VAR|FaeWalk|30
-9									ABILITY:Special Ability|AUTOMATIC|Improved Evasion			BONUS:VAR|UncannyDodge|1
-10				BONUS:VAR|FaeWalk|60		ABILITY:Special Ability|AUTOMATIC|Stray
+9				BONUS:VAR|UncannyDodge|1						ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+10				BONUS:VAR|FaeWalk|60							ABILITY:Special Ability|AUTOMATIC|Stray
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey Guardian	HD:4		TYPE:PC.Prestige	ABB:FGd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -113,16 +113,16 @@ CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1	CAST:0,1																	SPELLS:Class|TIMES=3|Prestidigitation
-2	CAST:0,2,0																	SPELLS:Class|TIMES=(CL+1)/3|Fey Mask
-3	CAST:0,2,1							ABILITY:Special Ability|AUTOMATIC|Luck of the Fey
+1	CAST:0,1												SPELLS:Class|TIMES=3|Prestidigitation
+2	CAST:0,2,0												SPELLS:Class|TIMES=(CL+1)/3|Fey Mask
+3	CAST:0,2,1		ABILITY:Special Ability|AUTOMATIC|Prankster Luck of the Fey
 4	CAST:0,3,2,0
 5	CAST:0,3,2,1
-6	CAST:0,3,3,2,0						ABILITY:Special Ability|AUTOMATIC|Luck of the True Fey
-7	CAST:0,4,3,2,1						ABILITY:Special Ability|AUTOMATIC|Slippery Mind
+6	CAST:0,3,3,2,0	ABILITY:Special Ability|AUTOMATIC|Luck of the True Fey
+7	CAST:0,4,3,2,1	ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 8	CAST:0,4,3,3,2
 9	CAST:0,4,4,3,2
-10	CAST:0,4,4,3,3						ABILITY:Special Ability|AUTOMATIC|Destined
+10	CAST:0,4,4,3,3	ABILITY:Special Ability|AUTOMATIC|Destined
 #Corrected the SPELLLIST to SPELLLEVEL
 
 
@@ -210,47 +210,48 @@ CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 
 
-# Class Name		Type			Save checks bonus																Combat bonus
-CLASS:Faerie Dragon	TYPE:Monster	MAXLEVEL:12	HASSUBCLASS:YES	ALLOWBASECLASS:NO	BONUS:CHECKS|BASE.Fortitude|4	BONUS:CHECKS|BASE.Reflex|((CL+1)/2)+2	BONUS:CHECKS|BASE.Will|((CL+1)/2)+3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Type			Max Level	Subclass?		Base class as subclass?	Save checks bonus																Combat bonus
+CLASS:Faerie Dragon	TYPE:Monster	MAXLEVEL:12	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|4	BONUS:CHECKS|BASE.Reflex|((CL+1)/2)+2	BONUS:CHECKS|BASE.Will|((CL+1)/2)+3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race
 CLASS:Faerie Dragon	PRERACE:3,RACETYPE=Fey,RACESUBTYPE=Dragon,Faerie Dragon
-CLASS:Faerie Dragon	STARTSKILLPTS:2	
+# Class Name		Skill Pts/Lvl
+CLASS:Faerie Dragon	STARTSKILLPTS:2
 #COMMENT: 1st level is half HD, at 2nd level it becomes a full hd. Using the Template and Remove to facilitate that.
-SUBCLASS:Faerie Dragon Wizard		SPELLLIST:1|Wizard	SPELLSTAT:INT
-SUBCLASSLEVEL:1		ADD:SPELLCASTER|1|Wizard																																					
-SUBCLASSLEVEL:2		BONUS:PCLEVEL|Wizard|1
-SUBCLASSLEVEL:3		BONUS:PCLEVEL|Wizard|1
-SUBCLASSLEVEL:4		BONUS:PCLEVEL|Wizard|1
-SUBCLASSLEVEL:5		BONUS:PCLEVEL|Wizard|1
-SUBCLASSLEVEL:6		BONUS:PCLEVEL|Wizard|1
-SUBCLASSLEVEL:7		BONUS:PCLEVEL|Wizard|1
-SUBCLASSLEVEL:8		BONUS:PCLEVEL|Wizard|1
-SUBCLASSLEVEL:9		BONUS:PCLEVEL|Wizard|2
-SUBCLASSLEVEL:10		BONUS:PCLEVEL|Wizard|2
-SUBCLASSLEVEL:11		BONUS:PCLEVEL|Wizard|2
-SUBCLASSLEVEL:12		BONUS:PCLEVEL|Wizard|2
-SUBCLASS:Faerie Dragon Cleric		SPELLLIST:1|Cleric	SPELLSTAT:WIS
-SUBCLASSLEVEL:1		ADD:SPELLCASTER|1|Cleric																																	
-SUBCLASSLEVEL:2		BONUS:PCLEVEL|Cleric|2
-SUBCLASSLEVEL:3		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:4		BONUS:PCLEVEL|Cleric|2
-SUBCLASSLEVEL:5		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:6		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:7		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:8		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:9		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:10		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:11		BONUS:PCLEVEL|Cleric|1
-SUBCLASSLEVEL:12		BONUS:PCLEVEL|Cleric|1
-1	HITDIE:6	KIT:1|Base Faerie Dragon ~ Stats	TEMPLATE:HalfHD	BONUS:COMBAT|BAB|-1|TYPE=Base.REPLACE	BONUS:VAR|FaerieDragonBreathDC|11+CL+CON	BONUS:VAR|FaerieDragonSR|12+CL
-2																																																																				TEMPLATE:HalfHD.REMOVE
-3	HITDIE:6								BONUS:CHECKS|BASE.Fortitude|1															BONUS:STAT|DEX,INT,WIS,CHA|1																	
-4																						BONUS:HP|CURRENTMAX|2				BONUS:STAT|STR|1																			
-5	HITDIE:6								BONUS:CHECKS|BASE.Fortitude|1								BONUS:HP|CURRENTMAX|-1				BONUS:STAT|DEX,INT,WIS,CHA|1																	
-6																						BONUS:HP|CURRENTMAX|1																									
-7	HITDIE:6								BONUS:CHECKS|BASE.Fortitude|1															BONUS:STAT|STR|1	BONUS:STAT|DEX,INT,WIS,CHA|1														
-8	HITDIE:6																				BONUS:HP|CURRENTMAX|-1																									
-9	HITDIE:6																				BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1																	
-10										BONUS:CHECKS|BASE.Fortitude|1								BONUS:HP|CURRENTMAX|2	BONUS:MISC|SR|1	BONUS:STAT|STR|1																			TEMPLATE:FaerieDragonSizeSmall
-11	HITDIE:6																				BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1																	
-12	HITDIE:6																				BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1																						
+SUBCLASS:Faerie Dragon Wizard	SPELLSTAT:INT	SPELLLIST:1|Wizard
+SUBCLASSLEVEL:1					ADD:SPELLCASTER|1|Wizard
+SUBCLASSLEVEL:2	BONUS:PCLEVEL|Wizard|1
+SUBCLASSLEVEL:3	BONUS:PCLEVEL|Wizard|1
+SUBCLASSLEVEL:4	BONUS:PCLEVEL|Wizard|1
+SUBCLASSLEVEL:5	BONUS:PCLEVEL|Wizard|1
+SUBCLASSLEVEL:6	BONUS:PCLEVEL|Wizard|1
+SUBCLASSLEVEL:7	BONUS:PCLEVEL|Wizard|1
+SUBCLASSLEVEL:8	BONUS:PCLEVEL|Wizard|1
+SUBCLASSLEVEL:9	BONUS:PCLEVEL|Wizard|2
+SUBCLASSLEVEL:10	BONUS:PCLEVEL|Wizard|2
+SUBCLASSLEVEL:11	BONUS:PCLEVEL|Wizard|2
+SUBCLASSLEVEL:12	BONUS:PCLEVEL|Wizard|2
+SUBCLASS:Faerie Dragon Cleric	SPELLSTAT:WIS	SPELLLIST:1|Cleric
+SUBCLASSLEVEL:1					ADD:SPELLCASTER|1|Cleric
+SUBCLASSLEVEL:2	BONUS:PCLEVEL|Cleric|2
+SUBCLASSLEVEL:3	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:4	BONUS:PCLEVEL|Cleric|2
+SUBCLASSLEVEL:5	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:6	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:7	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:8	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:9	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:10	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:11	BONUS:PCLEVEL|Cleric|1
+SUBCLASSLEVEL:12	BONUS:PCLEVEL|Cleric|1
+1	HITDIE:6						BONUS:COMBAT|BAB|-1|TYPE=Base.REPLACE																BONUS:VAR|FaerieDragonBreathDC|11+CL+CON	BONUS:VAR|FaerieDragonSR|12+CL	TEMPLATE:HalfHD				KIT:1|Base Faerie Dragon ~ Stats
+2																																											TEMPLATE:HalfHD.REMOVE
+3	HITDIE:6	BONUS:CHECKS|BASE.Fortitude|1															BONUS:STAT|DEX,INT,WIS,CHA|1
+4															BONUS:HP|CURRENTMAX|2				BONUS:STAT|STR|1
+5	HITDIE:6	BONUS:CHECKS|BASE.Fortitude|1								BONUS:HP|CURRENTMAX|-1				BONUS:STAT|DEX,INT,WIS,CHA|1
+6															BONUS:HP|CURRENTMAX|1
+7	HITDIE:6	BONUS:CHECKS|BASE.Fortitude|1															BONUS:STAT|STR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
+8	HITDIE:6													BONUS:HP|CURRENTMAX|-1
+9	HITDIE:6													BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
+10			BONUS:CHECKS|BASE.Fortitude|1								BONUS:HP|CURRENTMAX|2	BONUS:MISC|SR|1	BONUS:STAT|STR|1																			TEMPLATE:FaerieDragonSizeSmall
+11	HITDIE:6													BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
+12	HITDIE:6													BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1

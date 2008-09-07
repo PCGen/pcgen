@@ -1,81 +1,87 @@
-# CVS $Revision: $ $Author: $ -- Sat Sep  6 01:16:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Sep  7 15:20:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
 #Original Entry: darkon_turas; clean up by Andrew Maitland
 
 ###Block: Faemancer ----------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type				Special ABility								Define							Modify VAR				Allow Follower					Allowed Companions
-Fey Companion (Grig)		CATEGORY:Special Ability					SAB:Fey Companion (Grig)						DEFINE:FaemancerGrigComp|0									FOLLOWERS:Faemancer Grig Companion|1	COMPANIONLIST:Faemancer Grig Companion|Grig
+# Ability Name			Category of Ability		Type				Special ABility				Define				Allow Follower					Allowed Companions
+Fey Companion (Grig)		CATEGORY:Special Ability					SAB:Fey Companion (Grig)		DEFINE:FaemancerGrigComp|0	FOLLOWERS:Faemancer Grig Companion|1	COMPANIONLIST:Faemancer Grig Companion|Grig
 Life Bond				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Life Bond (Su)
 Fey Friend				CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Fey Friend (Ex)
 Fey Companion Advancement	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Fey Companion Advancement (Ex)
 Luck of the Fey			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Luck of the Fey (Ex)
-Fey Companion (Pixie)		CATEGORY:Special Ability					SAB:Fey Companion (Pixie)						DEFINE:FaemancerPixieComp|0									FOLLOWERS:Faemancer Pixie Companion|1	COMPANIONLIST:Faemancer Pixie Companion|Pixie
+Fey Companion (Pixie)		CATEGORY:Special Ability					SAB:Fey Companion (Pixie)		DEFINE:FaemancerPixieComp|0	FOLLOWERS:Faemancer Pixie Companion|1	COMPANIONLIST:Faemancer Pixie Companion|Pixie
 Spirit Bond				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Spirit Bond (Su)
 Mutual Bond				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Mutual Bond (Su)
 
-###:Block: Faerie Hunter ------------------------------------------------------------------------------------------------------
-Fey Wary				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Fey Wary +% (Su)|FeyWary						DEFINE:FeyWary|0
-FaerieFighter			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:FaerieFighter +% (Ex)|FaerieFighter				DEFINE:FaerieFighter|0
-Fey Hunter				CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Fey Hunter +% (Ex)|FeyHunter					DEFINE:FeyHunter|0
-Smite Fey				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Smite Fey (Su) 1/day
-Anchor				CATEGORY:Special Ability	TYPE:Spelllike		SAB:Anchor (Sp)
-Slippery Mind			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Slippery Mind (Ex)
-Craft Blood Item			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Craft Blood Item (Ex)
-Destroy Doorway			CATEGORY:Special Ability					SAB:Destroy Doorway (Su)
+###Block: Faerie Hunter ------------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Type				Special ABility					Define
+Fey Wary		CATEGORY:Special Ability	TYPE:Supernatural		SAB:Fey Wary +% (Su)|FeyWary			DEFINE:FeyWary|0
+FaerieFighter	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:FaerieFighter +% (Ex)|FaerieFighter	DEFINE:FaerieFighter|0
+Fey Hunter		CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Fey Hunter +% (Ex)|FeyHunter		DEFINE:FeyHunter|0
+Smite Fey		CATEGORY:Special Ability	TYPE:Supernatural		SAB:Smite Fey (Su) 1/day
+Anchor		CATEGORY:Special Ability	TYPE:Spelllike		SAB:Anchor (Sp)
+Craft Blood Item	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Craft Blood Item (Ex)
+Destroy Doorway	CATEGORY:Special Ability					SAB:Destroy Doorway (Su)
 
-###:Block: Faerier --------------------------------------------------------------------------------------------------------------
-Fey Sense				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Fey Sense (Su)
-Fey Friend				CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Fey Friend (Ex)
-Detect Doorways			CATEGORY:Special Ability	TYPE:Supernatural		SAB:Detect Doorways (Su)
-Create Doorways and Backroad	CATEGORY:Special Ability	TYPE:Spelllike		SAB:Create Doorways and Backroad (Sp)
-Fey Form				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Fey Form (Su)
-True Fey Form			CATEGORY:Special Ability	TYPE:Supernatural		SAB:True Fey Form (Su)
-Create Doorway and Sideroad	CATEGORY:Special Ability	TYPE:Spelllike		SAB:Create Doorway and Sideroad (Sp)
+###Block: Faerier --------------------------------------------------------------------------------------------------------------
+# Ability Name			Category of Ability		Type			Special ABility
+Fey Sense				CATEGORY:Special Ability	TYPE:Supernatural	SAB:Fey Sense (Su)
+Detect Doorways			CATEGORY:Special Ability	TYPE:Supernatural	SAB:Detect Doorways (Su)
+Create Doorways and Backroad	CATEGORY:Special Ability	TYPE:Spelllike	SAB:Create Doorways and Backroad (Sp)
+Fey Form				CATEGORY:Special Ability	TYPE:Supernatural	SAB:Fey Form (Su)
+True Fey Form			CATEGORY:Special Ability	TYPE:Supernatural	SAB:True Fey Form (Su)
+Create Doorway and Sideroad	CATEGORY:Special Ability	TYPE:Spelllike	SAB:Create Doorway and Sideroad (Sp)
 
-###:Block: Fae-Walker---------------------------------------------------------------------------------------------------------------------------------
-Step Sideways			CATEGORY:Special Ability	TYPE:Supernatural		SAB:Step Sideways % (Su)|StepSideways				DEFINE:StepSideways|0					BONUS:VAR|StepSideways|1
-Slippery Mind			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Slippery Mind (Ex)
-Fae-walk				CATEGORY:Special Ability	TYPE:Spelllike		SAB:Fae-walk % ft. (Sp)|FaeWalk					DEFINE:FaeWalk|0
-Defensive Jaunt			CATEGORY:Special Ability	TYPE:Supernatural		SAB:Defensive Jaunt (Su)
-Stray					CATEGORY:Special Ability	TYPE:Supernatural		SAB:Stray (Su)
+###Block: Fae-Walker---------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Type			Special ABility					Define			Modify VAR
+Step Sideways	CATEGORY:Special Ability	TYPE:Supernatural	SAB:Step Sideways % (Su)|StepSideways	DEFINE:StepSideways|0	BONUS:VAR|StepSideways|1
+Fae-walk		CATEGORY:Special Ability	TYPE:Spelllike	SAB:Fae-walk % ft. (Sp)|FaeWalk		DEFINE:FaeWalk|0
+Defensive Jaunt	CATEGORY:Special Ability	TYPE:Supernatural	SAB:Defensive Jaunt (Su)
+Stray			CATEGORY:Special Ability	TYPE:Supernatural	SAB:Stray (Su)
 
-###:Block: Fey Guardian ------------------------------------------------------------------------------------------------------------------------------------
-Will of the Fey			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Will of the Fey (Ex)
-Mote Form				CATEGORY:Special Ability	TYPE:Supernatural		SAB:Mote Form (Su)
-Transfer				CATEGORY:Special Ability	TYPE:Spelllike		SAB:Transfer (Sp)
+###Block: Fey Guardian ------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Type				Special ABility
+Will of the Fey	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Will of the Fey (Ex)
+Mote Form		CATEGORY:Special Ability	TYPE:Supernatural		SAB:Mote Form (Su)
+Transfer		CATEGORY:Special Ability	TYPE:Spelllike		SAB:Transfer (Sp)
 
-###:Block: Fey Prankster ------------------------------------------------------------------------------------------------------------------------------------------------
-Luck of the Fey			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Luck of the Fey (Ex) 1/day
-Luck of the True Fey		CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Luck of the True Fey (Ex) 2/day
-Destined				CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Destined (Ex)
+###Block: Fey Prankster ------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name			Output Name				Category of Ability		Type				Special ABility
+Prankster Luck of the Fey	OUTPUTNAME:Luck of the Fey	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Luck of the Fey (Ex) 1/day
+Luck of the True Fey							CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Luck of the True Fey (Ex) 2/day
+Destined									CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Destined (Ex)
 
-###:Block: Fey-Touched ------------------------------------------------------------------------------------------------------------------------------------------------------
-Soul of Ages			CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Soul of Ages (Ex)
+###Block: Fey-Touched ------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Type				Special ABility
+Soul of Ages	CATEGORY:Special Ability	TYPE:Extraordinary	SAB:Soul of Ages (Ex)
 
-###:Block: Knight of the Fey----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Shining Beacon			CATEGORY:Special Ability					SAB:Shining Beacon
-Lucky Hit				CATEGORY:Special Ability					SAB:Lucky Hit +% damage %/day|LuckyHitDamage|LuckyHitTimes	DEFINE:LuckyHitDamage|0	DEFINE:LuckyHitTimes|0	BONUS:VAR|LuckyHitTimes|1
-Call Knight of the Fey		CATEGORY:Special Ability	TYPE:Supernatural		SAB:Call Knight of the Fey (Su)
+###Block: Knight of the Fey----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name		Category of Ability		Type			Special ABility								Define							Modify VAR
+Shining Beacon		CATEGORY:Special Ability				SAB:Shining Beacon
+Lucky Hit			CATEGORY:Special Ability				SAB:Lucky Hit +% damage %/day|LuckyHitDamage|LuckyHitTimes	DEFINE:LuckyHitDamage|0	DEFINE:LuckyHitTimes|0	BONUS:VAR|LuckyHitTimes|1
+Call Knight of the Fey	CATEGORY:Special Ability	TYPE:Supernatural	SAB:Call Knight of the Fey (Su)
 
-###:Block: Mage of the Circle -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Encircle				CATEGORY:Special Ability					SAB:Encircle %|Encircle							DEFINE:Encircle|0
-Sand Circles			CATEGORY:Special Ability					SAB:Sand Circles
-Extra Slot				CATEGORY:Special Ability					SAB:Extra Slot
-Circle Mastery			CATEGORY:Special Ability					SAB:Circle Mastery
+###Block: Mage of the Circle -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Special ABility		Define
+Encircle		CATEGORY:Special Ability	SAB:Encircle %|Encircle	DEFINE:Encircle|0
+Sand Circles	CATEGORY:Special Ability	SAB:Sand Circles
+Extra Slot		CATEGORY:Special Ability	SAB:Extra Slot
+Circle Mastery	CATEGORY:Special Ability	SAB:Circle Mastery
 ###Block: Extra Slot Subset ---------------------------------------------------
-# Ability Name		Category of Ability		Type			Required Class				Special ABility													Define										Stackable?	Multiple?	Choose		Bonus to spell cast/day
-Extra Slot LVL 1		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=3																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1
-Extra Slot LVL 2		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=5																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=2|1
-Extra Slot LVL 3		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=7																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=3|1
-Extra Slot LVL 4		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=9																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=4|1
-Extra Slot LVL 5		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=11																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|1
-Extra Slot LVL 6		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=13																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|1
-Extra Slot LVL 7		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=15																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|1
-Extra Slot LVL 8		CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=17																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|1
+# Ability Name	Category of Ability		Type			Required Class				Stackable?	Multiple?	Choose		Bonus to spell cast/day
+Extra Slot LVL 1	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=3	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1
+Extra Slot LVL 2	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=5	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=2|1
+Extra Slot LVL 3	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=7	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=3|1
+Extra Slot LVL 4	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=9	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=4|1
+Extra Slot LVL 5	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=11	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|1
+Extra Slot LVL 6	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=13	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=6|1
+Extra Slot LVL 7	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=15	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|1
+Extra Slot LVL 8	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=17	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|1
 
-###:Block: Mortal Slayer -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Unfurl the Mortal Coil	CATEGORY:Special Ability	TYPE:Spelllike							SAB:Unfurl the Mortal Coil (Sp) DC % %/week|UnfurlMortalCoilDC|UnfurlMortalCoilTimes	DEFINE:UnfurlMortalCoilDC|0	DEFINE:UnfurlMortalCoilTimes|0
-Fey Glade			CATEGORY:Special Ability	TYPE:Supernatural							SAB:Fey Glade (Su)
+###Block: Mortal Slayer -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name		Category of Ability		Type			Special ABility													Define
+Unfurl the Mortal Coil	CATEGORY:Special Ability	TYPE:Spelllike	SAB:Unfurl the Mortal Coil (Sp) DC % %/week|UnfurlMortalCoilDC|UnfurlMortalCoilTimes	DEFINE:UnfurlMortalCoilDC|0	DEFINE:UnfurlMortalCoilTimes|0
+Fey Glade			CATEGORY:Special Ability	TYPE:Supernatural	SAB:Fey Glade (Su)
 
 
 ###Block: Fey Arts ----------------------------------------------------------------------------------------------------
