@@ -17049,6 +17049,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							.getListAssociations(Ability.FEATLIST, ref);
 					for (Ability ab : ref.getContainedObjects()) {
 						for (AssociatedPrereqObject apo : assoc) {
+							if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
+							{
+								continue;
+							}
 							List<String> choices = apo
 									.getAssociation(AssociationKey.ASSOC_CHOICES);
 							if (choices == null) {
