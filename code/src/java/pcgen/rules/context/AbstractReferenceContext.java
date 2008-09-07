@@ -58,6 +58,15 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl);
 
+	/**
+	 * Retrieve the Reference manufacturer that handles this class and category. Note that 
+	 * even though abilities are categorized, the category may not be know initially, so 
+	 * null cat values are legal.   
+	 * 
+	 * @param cl The class that is being processed (Ability, SubClass etc)
+	 * @param cat The category of the class.
+	 * @return The reference manufacturer
+	 */
 	public abstract <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl, Category<T> cat);
 
