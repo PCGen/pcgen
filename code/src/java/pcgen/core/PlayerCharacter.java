@@ -17797,6 +17797,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				removeTemplate(getTemplateKeyed(pct.getKeyName()));
 			}
 		}
+		
+		Collection<CDOMReference<PCTemplate>> refList = po.getListFor(ListKey.TEMPLATE);
+		if (refList != null)
+		{
+			for (CDOMReference<PCTemplate> pctr : refList)
+			{
+				for (PCTemplate pct : pctr.getContainedObjects())
+				{
+					removeTemplate(getTemplateKeyed(pct.getKeyName()));
+				}
+			}
+		}
+		
 	}
 	
 	public Collection<PCTemplate> getTemplatesAdded(PObject po)
