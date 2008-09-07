@@ -20,7 +20,7 @@ ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 1999, 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Faeries Copyright 2003, Bastion Press, Inc.
-COPYRIGHT:PCGen dataset conversion for Faeries Copyright 2004-2005, PCGen Data Team including, but not limited to, Darkon Turas, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith).
+COPYRIGHT:PCGen dataset conversion for Faeries Copyright 2004-2005, PCGen Data Team including, but not limited to, Darkon Turas, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith), Andrew Maitland.
 
 COVER:faeries.jpg
 LOGO:@/publisher_logos/Dragon_Wing_Games.png
@@ -33,12 +33,24 @@ URL:Paizo|http://paizo.com/store/downloads/bastionPress/sourcebooks/v5748btpy81u
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:faeries_abilities_aspects.lst
+ABILITY:faeries_abilities_class.lst
+ABILITY:faeries_abilities_racial.lst
+
+ABILITYCATEGORY:faeries_abilitycategories.lst
+
 CLASS:faeries_classes.lst
+
 DEITY:faeries_deities.lst
+
 DOMAIN:faeries_domains.lst
+
+EQUIPMENT:faeries_equipment.lst
+EQUIPMOD:faeries_equipmods.lst
 FEAT:faeries_feats.lst
-FEAT:faeries_feats_hidden.lst
-FEAT:faeries_feats_aspects.lst
+
+KIT:faeries_kits.lst
+
 LANGUAGE:faeries_languages.lst
 RACE:faeries_races.lst
 SKILL:faeries_skills.lst

@@ -34,4 +34,4 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 System Reference Document Copyright 1999, 2000, Wizards of the Coast, Inc.
 Faeries Copyright 2003, Bastion Press, Inc.
-PCGen dataset conversion for Faeries Copyright 2004-2005, PCGen Data Team including, but not limited to, Darkon Turas, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith).
+PCGen dataset conversion for Faeries Copyright 2004-2005, PCGen Data Team including, but not limited to, Darkon Turas, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith), Andrew Maitland.
