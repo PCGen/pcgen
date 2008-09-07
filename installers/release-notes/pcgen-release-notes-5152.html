@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.15.2</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.15.2</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.15.2</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#PDFIssue">PDF Known Issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.15.2</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.15.2</a></h2>
+
+
+<p>PCGen v5.15.2 is the an alpha release from our development branch to allow 
+experimentation and testing of our latest work.
+Please give it a shot and let us know how it works for you. 
+		 Some notable changes in this release are listed below.</p>
+<ul>
+		<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [4E] ASPECT tag for Abilities and Feats. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2038169">2038169</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+</ul>
+<!--
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.15.2</p>
+
+		<ul>
+		<li>[Mongoose] Quintessential Ranger II </li>
+		<li>[Mongoose] Quintessential Ranger</li>
+		<li>[Paizo] Rise of the Runelords - Chapter 2</li>
+		<li>	[Paizo] Curse of the Crimson Throne - Player&#039;s Guide</li>
+		<li>	[Paizo] Curse of the Crimson Throne: Chapter 1</li>
+		<li>	[Paizo] Curse of the Crimson Throne: Chapter 2</li>
+		<li>	[Paizo]Rise of the Runelords Chapter 3</li>
+		<li>	[Paizo] Rise of the Rune Lords - Chap 5</li>
+		<li>	[Paizo] Rise of the Rune Lords - Chap 6</li>
+		<li>	[Paizo]Rise of the Runelords Chapter 4</li>
+
+		
+		</ul>
+ -->
+<p><i>James Dempsey</i> for the PCGEN Team -- 10 August, 2008.</p>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>Characters from the 5.14 series of PCGen should load seamlessly in 5.15.2.
+		</p>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="PDFIssue">PDF Known Issue</a></h2>
+		
+		<p>When exporting to PDF format from any of the fantasy gameModes the console will report the following error:</p>
+
+		<blockquote><p><code>SEVERE Thread-7 PlayerCharacter:8707 Invalid ACType: Equipment</code></p></blockquote>
+
+		<p>This results from the use of an AC type in the base.xml file which does not 
+		  exist in fantasy settings (it's used in d20 Modern). This error does not cause 
+		  any problems generating PDF's and can be safely ignored.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.15.2 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_full.zip?download">pcgen5152_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_partial.zip?download">pcgen5152_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_win_install.exe?download">pcgen5152_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_mac_install.dmg?download">pcgen5152_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5152_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.15.2</a></h2>
+<h3>New Data Source Development</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1967459">1967459</a> ]	[Mongoose] Quintessential Ranger II </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1974382">1974382</a> ]	[Mongoose] Quintessential Ranger</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2000813">2000813</a> ]	 [Paizo] Rise of the Runelords - Chapter 2</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2005931">2005931</a> ]	[Paizo] Curse of the Crimson Throne - Player&#039;s Guide</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2005932">2005932</a> ]	[Paizo] Curse of the Crimson Throne: Chapter 1</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2005934">2005934</a> ]	[Paizo] Curse of the Crimson Throne: Chapter 2</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2006359">2006359</a> ]	[Paizo]Rise of the Runelords Chapter 3</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2028773">2028773</a> ]	[Paizo] Rise of the Rune Lords - Chap 5</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2028775">2028775</a> ]	[Paizo] Rise of the Rune Lords - Chap 6</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2034612">2034612</a> ]	[Paizo]Rise of the Runelords Chapter 4</li>
+</ul>
+
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1839979">1839979</a> ]	Customize x.pcc</li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1786823">1786823</a> ]	[Paradigm Concepts] Player&#039;s Guide to Arcanis overhaul</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2000180">2000180</a> ]	[SRD Core] Convert ADD:FEAT usage to ABILITYPOOL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2000181">2000181</a> ]	[RSRD Core] Convert ADD:FEAT usage to ABILITYPOOL</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2000182">2000182</a> ]	[MSRD Core] Convert ADD:FEAT usage to ABILITYPOOL </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2062957">2062957</a> ]	Implement PRECAMPAIGN tag in data</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1986779">1986779</a> ]	Remove global CHOOSE:SPELLS tag docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2012988">2012988</a> ]	Document Kit TYPE tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2016671">2016671</a> ]	Document PCC File PRECAMPAIGN tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2016819">2016819</a> ]	Document DEFAULTDATASET miscinfo.lst tag</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2028692">2028692</a> ]	Document game mode tag SKILLRANKTEXT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2030802">2030802</a> ]	Document STATROLLTEXT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2030804">2030804</a> ]	Add STATTABLEHIDDENCOLUMNS docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2055531">2055531</a> ]	Document Ability token ASPECT</li>
+</ul>
+
+<h3>Output Sheet Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2067511">2067511</a> ]	[PDF][Pathfinder] Add CMB table</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2058606">2058606</a> ]	[5.15.0] BASE_ITEM not being set in equipment customizer</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2059135">2059135</a> ]	ABILITY lost capability to use SUBSET Ability Categories</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2065591">2065591</a> ]	ABILITYCATEGORY definition remains unclear</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2068990">2068990</a> ]	[5.15.1] TEMPLATE:CHOOSE broken for Ghost Special Attacks</li>
+</ul>
+
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2018851">2018851</a> ]	[MSRD/RSRD] Monster classes should use LEVELSPERFEAT</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2047328">2047328</a> ]	psion, power, mindlink missing </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2071796">2071796</a> ]	typo in curse_of_the_crimson_thrown_players_guide</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2086576">2086576</a> ]	curse_of_the_crimson_thrown_players_guide bad folder</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2061851">2061851</a> ]	CHOOSE:SPELLS|ANY[KNOWN=YES] invalid at this time</li>
+
+</ul>
+
+	</body>
+</html>
