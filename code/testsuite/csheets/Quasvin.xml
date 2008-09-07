@@ -1374,16 +1374,6 @@ BIO
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
-		<feat>
-			<name>Psion Weapon Proficiencies</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
 	</feats>
 	<!--
 	  ====================================
@@ -1393,6 +1383,18 @@ BIO
 	  ====================================-->
  
 	<ability_objects>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Psion Weapon Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	</ability_objects>
  
  
