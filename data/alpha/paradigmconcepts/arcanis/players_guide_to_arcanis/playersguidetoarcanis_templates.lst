@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Sep  4 12:58:06 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Sep  7 11:28:31 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -255,7 +255,7 @@ Ascendant Elorii							NAMEISPI:YES							VISIBLE:NO																												
 
 ###Block: HC (Fire Dragon) - Apotheosis Templates
 # Template Name			Challenge Rating	Visible		Level Adjustment	Template																								Source Page						Special ABility																								Define				Required Class	Prohibited Class		Required Gender	Required Race			Prohibited Subclass			Combat bonus						Stat bonus					Modify VAR							Favored Class																Main Race Type	Race Subtype		Type					Vision					Natural Attacks
-Dragon Apotheosis			CR:2			VISIBLE:NO		LEVELADJUSTMENT:3	TEMPLATE:CHOOSE:Half Dragon Wings	TEMPLATE:CHOOSE:Bite ~ Claw (Medium)													SOURCEPAGE:MonstersG-H.rtf																													DEFINE:HalfDragonBreathDC|0																						BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|HalfDragonBreathDC|10+HD+max(CON,0)																										TYPE:Dragon				VISION:Darkvision (60')|Low-light
+Dragon Apotheosis			CR:2			VISIBLE:NO		LEVELADJUSTMENT:3	TEMPLATE:CHOOSE:Half Dragon Wings ~ Normal|Half Dragon Wings ~ Fast	TEMPLATE:CHOOSE:Bite ~ Claw (Medium)							SOURCEPAGE:MonstersG-H.rtf																													DEFINE:HalfDragonBreathDC|0																						BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|HalfDragonBreathDC|10+HD+max(CON,0)																										TYPE:Dragon				VISION:Darkvision (60')|Low-light
 Dragon Apotheosis (Red)					VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis																					SOURCEPAGE:pg. 89					SAB:Immunity to Fire (Ex)	SAB:Immune to sleep and paralysis effects (Ex)	SAB:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC																					!PRESUBCLASS:1,Blazing Wyrm=20
 Dragon Apotheosis (Gold)				VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis																					SOURCEPAGE:pg. 89					SAB:Immunity to Fire (Ex)	SAB:Immune to sleep and paralysis effects (Ex)	SAB:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC																					!PRESUBCLASS:1,Blazing Wyrm=20
 
