@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep  6 20:24:37 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Mon Sep  8 13:00:14 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
@@ -129,6 +129,28 @@ Orc Blood																															CATEGORY:Special Ability	TYPE:SpecialQua
 
 # Halfling
 Halfling Morale				OUTPUTNAME:+2 morale bonus on saving throws against fear																	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 morale bonus on saving throws against fear
+
+###Block: Companion Modifier Abilities
+# Ability Name			Output Name											Category of Ability		Type						Visible	Special ABility
+Blood Bond																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Blood Bond (Ex)
+Cannot be Turned			OUTPUTNAME:Cannot be Turned or Rebuked						CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Cannot be Turned or Rebuked
+Cannot be Turned by Other	OUTPUTNAME:Cannot be turned, rebuked, or commanded by any third party	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Cannot be turned, rebuked, or commanded by any third party
+Cannot Create Spawn														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Cannot Create Spawn
+Command Own Kind			OUTPUTNAME:Command creatures of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Command creatures of its kind
+Communiate with Master														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Communiate with Master
+Deliver Touch Spells														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Deliver touch spells
+Devotion																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Devotion (Ex)
+Empathic Link															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Empathic Link
+Improved Speed															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Speed (Ex)
+Link																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Link (Ex)
+Scry on Familiar															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Scry on familiar
+Share saving throws														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Share saving throws
+Share Spells															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Share Spells (Ex)
+Speak One Language														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Speak one language
+Speak with Own Kind		OUTPUTNAME:Speak with animals of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Speak with animals of its kind
+Speak with Blackguard														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Speak with Blackguard (Ex)
+Speak with Master															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Speak with master
+
 
 #
 # End
