@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep  5 15:55:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Mon Sep  8 15:32:13 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -72,6 +72,11 @@ Rebuke Scalykind	CATEGORY:Special Ability	TYPE:Turning.TurnScalykind	VISIBLE:NO	
 Spontaneous casting - Cure spells			CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Spontaneous casting - Can spontaneously cast Cure spells			SOURCEPAGE:ClassesI.rtf
 Spontaneous casting - Inflict spells		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Spontaneous casting - Can spontaneously cast Inflict spells			SOURCEPAGE:ClassesI.rtf
 Spontaneous casting - Summon Nature's Ally	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Spontaneous casting - Can spontaneously cast Summon Nature's Ally spells	SOURCEPAGE:ClassesI.rtf
+
+###Block: Righteous Might DR bonuses
+# Ability Name		Category of Ability		Type			Visible	Damage reduction				Damage Reduction
+RighteousMightDR ~ Good	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	BONUS:DR|Good|RighteousMightDR	DR:0/Good
+RighteousMightDR ~ Evil	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	BONUS:DR|Evil|RighteousMightDR	DR:0/Evil
 
 ###Block: Barbarian Rage
 # Ability Name	Category of Ability		Type					Visible	Special ABility																																																																																																							Define																														Save checks bonus					Combat bonus						Stat bonus													Modify VAR
@@ -425,6 +430,11 @@ Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREAB
 ###Block: Expert Class Skills
 # Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose			Class Skill
 Expert Class Skills	CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	CSKILL:LIST
+
+###Block: Domain Abilities
+# Ability Name	Category of Ability		Type				Visible	Special ABility																										Define
+Insanity		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Insanity score %|Insanity																								DEFINE:Insanity|0
+Death Touch		CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:NO	SAB:Death Touch 1/day, spell-like ability, melee touch attack, %d6 points of damage. If the total at least equals creature's current hit points, it dies|DeathTouch	DEFINE:DeathTouch|0
 
 #
 #EOF

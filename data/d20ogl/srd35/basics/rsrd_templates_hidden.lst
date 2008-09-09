@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Mon Sep  8 21:42:21 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -51,8 +51,8 @@ Awakened Animal_Will		VISIBLE:NO															PRECLASS:1,Animal (Will)=1							
 Awakened Tree																DEFINE:UNLOCK.INT						PRERACE:1,Animated Object%			ADD:LANGUAGE|1|TYPE=Spoken	KIT:1|Awakened Tree								RACETYPE:Plant
 
 ###Block: Righteous Might spell workaround
-# Template Name	Visible	Special ABility										Define
-RighteousMightDR	VISIBLE:NO	SAB:DR %/Evil|RighteousMightDR_Evil	SAB:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
+# Template Name	Visible	Define				Ability
+RighteousMightDR	VISIBLE:NO	DEFINE:RighteousMightDR|0	ABILITY:Special Ability|AUTOMATIC|RighteousMightDR ~ Good|PREVARGT:RighteousMightDR,0|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|AUTOMATIC|RighteousMightDR ~ Evil|PREVARGT:RighteousMightDR,0|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		Minimum Age			Maximum Age			Required Class			Multiple Requirements						Stat bonus
