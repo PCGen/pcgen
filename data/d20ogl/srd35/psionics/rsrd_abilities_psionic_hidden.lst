@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep  5 12:15:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep  9 13:06:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -27,6 +27,14 @@ MindBlade Bladewind		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Bladew
 MindBlade Knife to the Soul	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Knife to the Soul
 MindBlade Multiple Throw	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Multiple Throw
 
+###Block: Wilder Abilities
+# Ability Name		Category of Ability		Type				Visible	Special ABility													Define
+Psychic Enervation	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Psychic Enervation (+% percent/lvl added)|PsychicEnervation					DEFINE:PsychicEnervation|0
+Wild Surge			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Wild Surge (+%)|WildSurge											DEFINE:WildSurge|0
+Elude Touch			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Elude Touch (+% AC vs. Touch Attacks)|EludeTouch							DEFINE:EludeTouch|0
+Surging Euphoria		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Surging Euphoria (+%)|SurgingEuphoria									DEFINE:SurgingEuphoria|0
+Volatile Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Volatile Mind (+% PP cost for telepathy powers used against character)|VolatileMind	DEFINE:VolatileMind|0
+
 ###Block: elocator abilities
 # Ability Name		Category of Ability		Type					Visible	Special ABility		Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
 Elocator Transporter	CATEGORY:Special Ability	TYPE:Special.ElocatorChoice	VISIBLE:YES	SAB:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
@@ -35,3 +43,7 @@ Elocator Transporter	CATEGORY:Special Ability	TYPE:Special.ElocatorChoice	VISIBL
 # Ability Name		Category of Ability		Type						Visible	Special ABility			Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
 Thrallherd Charm		CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:NO	SAB:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
 Thrallherd Dominate	CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:NO	SAB:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
+
+#
+# End
+#

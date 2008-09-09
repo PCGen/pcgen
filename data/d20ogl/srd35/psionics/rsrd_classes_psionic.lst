@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep  5 17:54:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep  9 13:06:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -160,23 +160,23 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 1	BONUS:VAR|BonusPowerPoints|(CHA*WilderML)/2|TYPE=WilderBonusPP
 
 ###Block: Class Info
-1	KNOWN:0,1				SAB:Psychic Enervation (+% percent/lvl added)|PsychicEnervation	SAB:Wild Surge (+%)|WildSurge	BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	DEFINE:PsychicEnervation|0	DEFINE:WildSurge|0
-2	KNOWN:0,2				SAB:Elude Touch (+% AC vs. Touch Attacks)|EludeTouch								BONUS:VAR|EludeTouch|CHA					DEFINE:EludeTouch|0
-3	KNOWN:0,2																				BONUS:VAR|WildSurge|1
-4	KNOWN:0,2,1				SAB:Surging Euphoria (+%)|SurgingEuphoria										BONUS:VAR|SurgingEuphoria|1					DEFINE:SurgingEuphoria|0
-5	KNOWN:0,2,1				SAB:Volatile Mind (+% PP cost for telepathy powers used against character)|VolatileMind		BONUS:VAR|VolatileMind|1					DEFINE:VolatileMind|0
+1	KNOWN:0,1				BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|Wild Surge
+2	KNOWN:0,2				BONUS:VAR|EludeTouch|CHA					ABILITY:Special Ability|AUTOMATIC|Elude Touch
+3	KNOWN:0,2				BONUS:VAR|WildSurge|1
+4	KNOWN:0,2,1				BONUS:VAR|SurgingEuphoria|1					ABILITY:Special Ability|AUTOMATIC|Surging Euphoria
+5	KNOWN:0,2,1				BONUS:VAR|VolatileMind|1					ABILITY:Special Ability|AUTOMATIC|Volatile Mind
 6	KNOWN:0,2,1,1
-7	KNOWN:0,2,1,1																			BONUS:VAR|WildSurge|1
+7	KNOWN:0,2,1,1			BONUS:VAR|WildSurge|1
 8	KNOWN:0,2,1,1,1
-9	KNOWN:0,2,1,1,1																			BONUS:VAR|VolatileMind|1
+9	KNOWN:0,2,1,1,1			BONUS:VAR|VolatileMind|1
 10	KNOWN:0,2,1,1,1,1
-11	KNOWN:0,2,1,1,1,1																			BONUS:VAR|WildSurge|1
-12	KNOWN:0,2,1,1,1,1,1																		BONUS:VAR|SurgingEuphoria|1
-13	KNOWN:0,2,1,1,1,1,1																		BONUS:VAR|VolatileMind|1
+11	KNOWN:0,2,1,1,1,1			BONUS:VAR|WildSurge|1
+12	KNOWN:0,2,1,1,1,1,1		BONUS:VAR|SurgingEuphoria|1
+13	KNOWN:0,2,1,1,1,1,1		BONUS:VAR|VolatileMind|1
 14	KNOWN:0,2,1,1,1,1,1,1
-15	KNOWN:0,2,1,1,1,1,1,1																		BONUS:VAR|WildSurge|1
+15	KNOWN:0,2,1,1,1,1,1,1		BONUS:VAR|WildSurge|1
 16	KNOWN:0,2,1,1,1,1,1,1,1
-17	KNOWN:0,2,1,1,1,1,1,1,1																		BONUS:VAR|VolatileMind|1
+17	KNOWN:0,2,1,1,1,1,1,1,1		BONUS:VAR|VolatileMind|1
 18	KNOWN:0,2,1,1,1,1,1,1,1,1
-19	KNOWN:0,2,1,1,1,1,1,1,1,1																	BONUS:VAR|WildSurge|1
-20	KNOWN:0,2,1,1,1,1,1,1,1,2																	BONUS:VAR|SurgingEuphoria|1
+19	KNOWN:0,2,1,1,1,1,1,1,1,1	BONUS:VAR|WildSurge|1
+20	KNOWN:0,2,1,1,1,1,1,1,1,2	BONUS:VAR|SurgingEuphoria|1
