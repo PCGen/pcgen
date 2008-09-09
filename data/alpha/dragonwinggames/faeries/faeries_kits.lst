@@ -2,8 +2,7 @@
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
 #Original Entry: Andrew Maitland
 
-###KITS:
-#Comment: Still in progress
+#Comment: Kits Still in-progress
 
 STARTPACK:Doorway Guardian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doorway Guardian]
 ALIGN:TN
@@ -37,12 +36,12 @@ SKILL:Wilderness Lore		RANK:0
 #Abilities: Str ., Dex 18, Con 17, Int 19, Wis 24, Cha 20
 
 
-STARTPACK:Base Faerie Dragon ~ Stats	VISIBLE:NO
+STARTPACK:Base Faerie Dragon ~ Stats	TYPE:CreatureDefaultStats	VISIBLE:NO
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 ALIGN:CG
 
 
-STARTPACK:Default Faerie Dragon	VISIBLE:NO
+STARTPACK:Default Faerie Dragon	TYPE:Creature	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Faerie Dragon]
 FEAT:Alertness
 FEAT:Dodge
 FEAT:Improved Initiative
@@ -56,10 +55,12 @@ SKILL:Move Silently	RANK:0
 SKILL:Search		RANK:0
 SKILL:Sense Motive	RANK:0
 SKILL:Spot			RANK:0
+#COMMENT: The faerie Dragon has a base default of skills, which don't follow the rules and only change with stat.
+#COMMENT: Not sure if we can implement it properly
 
 
-STARTPACK:Default Fey Steed	VISIBLE:NO
-
+STARTPACK:Default Fey Steed		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fey Steed]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 #Abilities: Str 20, Dex 17, Con 19, Int 6, Wis 17, Cha 10
 #Skills: Listen +9, Spot +9
 ALIGN:LG|NG|CG
@@ -69,8 +70,9 @@ SKILL:Spot		RANK:0
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Default Jabberwock (Greater)	VISIBLE:NO
-
+STARTPACK:Default Jabberwock (Greater)		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jabberwock (Greater)]
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 #Abilities: Str 27, Dex 11, Con 21 Int 10, Wis 15, Cha 13
 #Skills: Intimidate +12, Listen +15, Move Silently +9, Spot +15
 FEAT:Alertness
@@ -78,34 +80,43 @@ FEAT:Cleave
 FEAT:Improved Critical
 FEAT:Multiattack
 FEAT:Power Attack
+#SKILL:		RANK:0
+
+
+STARTPACK:Default Jabberwock (Lesser)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jabberwock (Lesser)]
 ALIGN:CE
-
-#		RANK:0
-
-STARTPACK:Default Jabberwock (Lesser)	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 #Str 19, Dex 13, Con 17, Int 6, Wis 12, Cha 9
 #Skills:Intimidate +8, Listen +13, Move Silently +9, Spot +13
 FEAT:Alertness
 FEAT:Flyby Attack
 FEAT:Multiattack
-ALIGN:CE
+#SKILL:		RANK:0
 
 
-STARTPACK:Default Faun (Lesser Satyr)	VISIBLE:NO
+
+STARTPACK:Default Faun (Lesser Satyr)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Faun (Lesser Satyr))]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 #Str 9, Dex 13, Con 10,Int 12, Wis 15, Cha 14
 #Hide +12, Jump +8, Listen +12,Move Silently +15, Spot +15
 FEAT:Alertness
 FEAT:Dodge
 FEAT:Mobility
+#SKILL:		RANK:0
 
 
-STARTPACK:Default Korred (Greater Satyr)	VISIBLE:NO
-#Hide +9, Listen +10, Move Silently +10, Spot +12
+STARTPACK:Default Korred (Greater Satyr)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred (Greater Satyr)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 #Str 19, Dex 14, Con 16,Int 8, Wis 10, Cha 11
 FEAT:Alertness
 FEAT:Dodge
 FEAT:Mobility
 FEAT:Spring Attack
+#Hide +9, Listen +10, Move Silently +10, Spot +12
+SKILL:Hide			RANK:0
+SKILL:Listen		RANK:0
+SKILL:Move Silently	RANK:0
+SKILL:Spot			RANK:0
 #Usually chaotic neutral
 ###
 
