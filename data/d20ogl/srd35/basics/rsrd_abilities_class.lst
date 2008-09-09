@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep  8 15:32:13 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep  9 12:50:06 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -402,6 +402,28 @@ Outsider Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Outsider 
 Plant Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Plant Traits|!PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not subject to critical hits|PRERULE:1,DISPLAYTYPETRAITS	SAB:Plants breathe/eat but do not sleep|PRERULE:1,DISPLAYTYPETRAITS																																																																																																																																																	VISION:Low-light				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Undead Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Undead Traits|!PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ and death effects|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not subject to critical hits/ nonlethal damage/ ability drain/ or energy drain|PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to damage to STR/DEX/CON as well as to fatigue and exhaustion effects|PRERULE:1,DISPLAYTYPETRAITS	SAB:Negative energy can heal undead creatures|PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to any effect that requires a Fortitude save (unless it works on objects or is harmless)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not at risk from death from massive damage (but destroyed when reduced to 0 hp)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not affected by Raise Dead and Reincarnate spells/abilities (but Resurrection and True Resurrection return the undead into their former living self)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Undead do not eat/sleep/breathe|PRERULE:1,DISPLAYTYPETRAITS	SAB:Mindless - Immune to all mind-affecting effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:1,Mindless|PRERULE:1,DISPLAYTYPETRAITS	SAB:Cannot heal damage on own if has no Intelligence score (but can be healed and Fast Healing works)|PRETEMPLATE:1,Mindless|PRERULE:1,DISPLAYTYPETRAITS	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 Vermin Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Vermin Traits|!PRERULE:1,DISPLAYTYPETRAITS	SAB:Vermin eat/sleep/breathe|PRERULE:1,DISPLAYTYPETRAITS	SAB:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:1,Mindless|PRERULE:1,DISPLAYTYPETRAITS																																																																																																																																																																										VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
+
+###Block: Creature Subtype Traits
+# Ability Name			Output Name			Category of Ability		Type							Visible	Special ABility																																												Define
+Air Traits								CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Air creatures always have fly speeds and usually have perfect maneuverability
+Angel Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:+4 racial bonus on saves vs. poison
+Aquatic Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Aquatic creatures move in water without making Swim checks/ and breathe underwater
+Archon Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:+4 racial bonus on saves vs. poison
+Chaotic Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
+Evil Traits								CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
+Good Traits								CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
+Incorporeal Traits						CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:Attacks pass through armor	SAB:Always moves silently
+Lawful Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
+Native Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Outsider native to Material Plane
+Swarm Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Not subject to critical hits or flanking	SAB:Takes half damage from slashing and piercing weapons|PRESIZEEQ:T	SAB:Immune to all weapon damage/ susceptible to high winds|PRESIZELTEQ:D	SAB:Immune to any spell or effect that targets a specific number of creatures	DEFINE:CanNotGrapple|1
+Water Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
+
+# Named subtype abilities
+Archon Teleport			OUTPUTNAME:Teleport	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Teleport (Su)
+Aura of Menace							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Aura of Menace (Su)
+Magic Circle against Evil					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Magic Circle against Evil (Su)
+Protective Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Protective Aura (Su)
+Tongues								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Tongues (Su)
 
 ###Block: Leadership feat support
 # Ability Name	Category of Ability		Type				Visible	Choose										Modify VAR							Temporary effect description

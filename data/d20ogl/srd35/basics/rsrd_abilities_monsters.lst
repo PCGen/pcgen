@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep  8 13:00:14 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep  9 10:38:26 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
@@ -12,12 +12,23 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: Core base abilities
 # Ability Name			Output Name			Category of Ability		Type									Visible	Special ABility																				Define											Description																																																																				Multiple?	Choose			Save checks bonus										Combat bonus														Bonus to HP											Modify VAR					Weapon prof. bonus																		Source Page						Temporary effect description
+Air Mastery								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Air Mastery (Ex)
 Amphibious								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Amphibious (Ex)
 Attach								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Attach (Ex)
+Blind									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Blind (Ex)
+Blood Drain								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Blood Drain (Ex)
+Burn									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Burn (Ex)
 Change Shape							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Change Shape (Su)																															DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																																																																																																									SOURCEPAGE:TypesSubtypesAbilities.rtf
 Constrict								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Constrict (Ex)																															DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																																																																														SOURCEPAGE:TypesSubtypesAbilities.rtf
 Desecrating Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Desecrating Aura (Su)																																																																																																									BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC																												SOURCEPAGE:MonstersM-N.rtf			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
+Disease								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Disease (Ex)
+Distraction								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Distraction (Ex)
+Double Damage Against Objects					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Double Damage Against Objects (Ex)
+Drench								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Drench (Ex)
+Earth Glide								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Earth Glide (Ex)
+Earth Mastery							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Earth Mastery (Ex)
 Energy Drain							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption		VISIBLE:NO	SAB:Energy Drain (Su) (Fort DC % remove - % levels per hit)|EnergyDrainDC|EnergyDrainLVLs								DEFINE:EnergyDrainLVLs|0	DEFINE:EnergyDrainDC|10+(TL/2)+CHA		DESC:Automatically sap a living opponent’s vital energy when your melee or ranged attack hits, bestowing %1 negative levels (twice that on a critical hit.)|EnergyDrainLevels																																																																																																																		SOURCEPAGE:TypesSubtypesAbilities.rtf
+Entangle								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Entangle (Ex)
 Fast Healing							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura			VISIBLE:NO	SAB:Fast Healing (Ex) %|FastHealing																	DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing																																																																																																													SOURCEPAGE:TypesSubtypesAbilities.rtf
 Ferocity								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Ferocity (Ex)
 Flight (Ex)				OUTPUTNAME:Flight		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Flight (Ex)																																DESC:You can cease or resume flight as a free action
@@ -40,15 +51,22 @@ Poison								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIB
 Pounce								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Pounce (Ex)																																DESC:When you make a charge, you can follow with a full attack.																																																																																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Powerful Build							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Powerful Build (one size larger for opposed checks if advantageous, also for being affected by special attacks based on size)																																																																																																				BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C																												BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
 Powerful Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Powerful Charge (Ex)																														DESC:When you make a charge, you deal extra damage in addition to the normal benefits and hazards of a charge.																																																																																																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Push									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Push (Ex)
 Rake									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Rake (Ex)																																DESC:You gain extra natural attacks when you grapple or pounce your foe.																																																																																																																																		SOURCEPAGE:TypesSubtypesAbilities.rtf
+Rend									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Rend (Ex)																																																																																																																																																																														SOURCEPAGE:TypesSubtypesAbilities.rtf
 Scent									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Scent (Ex) %-ft. range|ScentRange	SAB:Scent (Ex)|PREVAREQ:ScentRange,0									DEFINE:ScentRange|0
+Shriek								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Shriek (Su)
 Sprint								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Sprint (Ex)
 Stampede								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Stampede (Ex)
 Superior Two-Weapon Fighting					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Superior Two-Weapon Fighting (Ex)																																																																																																																			BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
 Swallow Whole							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Swallow Whole (Ex)																															DESC:If you begin your turn with an opponent held in your mouth, you can attempt a new grapple check (as though attempting to pin the opponent). If successful, you swallow your prey, and the opponent takes bite damage.																																																																																																										SOURCEPAGE:TypesSubtypesAbilities.rtf
 Trample								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Trample (Ex)																				DEFINE:TrampleDC|10									DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																																																																						BONUS:VAR|TrampleDC|STR+(HD/2)																						SOURCEPAGE:TypesSubtypesAbilities.rtf
-Turn Resistance							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Turn Resistance (Ex) +%|TurnResistBonus															DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																																																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Trip									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Trip (Ex)
+Turn Resistance							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Turn Resistance (Ex) +%|TurnResistBonus															DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																																																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Vortex								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Vortex (Su)
+Water Mastery							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Water Mastery (Ex)
+Whirlwind								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Whirlwind (Su)
+Wounding								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Wounding (Ex)
 
 
 ###Block: Immunities
@@ -58,6 +76,7 @@ Cold Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immuni
 Fire Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Fire Immunity			DESC:You never take Fire damage
 Electricity Immunity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Electricity Immunity	DESC:You never take Electricity damage
 Sonic Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Sonic Immunity		DESC:You never take Sonic damage
+Petrification Immunity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Petrification Immunity	DESC:You can never be petrified
 
 ###Block: Resistances
 # Ability Name				Output Name						Category of Ability		Type								Visible		Special ABility								Define					Description																			Ability
