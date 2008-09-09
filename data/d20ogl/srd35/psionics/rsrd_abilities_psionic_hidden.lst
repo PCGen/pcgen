@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 13:06:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep  9 15:38:23 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -35,14 +35,79 @@ Elude Touch			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Elude 
 Surging Euphoria		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Surging Euphoria (+%)|SurgingEuphoria									DEFINE:SurgingEuphoria|0
 Volatile Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Volatile Mind (+% PP cost for telepathy powers used against character)|VolatileMind	DEFINE:VolatileMind|0
 
-###Block: elocator abilities
-# Ability Name		Category of Ability		Type					Visible	Special ABility		Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
-Elocator Transporter	CATEGORY:Special Ability	TYPE:Special.ElocatorChoice	VISIBLE:YES	SAB:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
+###Block: Elocator abilities
+# Ability Name		Category of Ability		Type									Visible		Special ABility													Define				Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+Elocator Transporter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:DISPLAY	SAB:Transporter (Ex)																	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
+Scorn Earth			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Scorn Earth (Su)
+Opportunistic Strike	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO		SAB:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							DEFINE:OpportunisticStrike|0
+Dimension Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Dimension Step (Su)
+Flanker			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO		SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)
+Capricious Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO		SAB:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)
+Dimension Spring Attack	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Dimension Spring Attack (Su)(1x/day)
+Accelerated Action	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Accelerated Action (Su)
 
-###Block: thrallherd abilities
-# Ability Name		Category of Ability		Type						Visible	Special ABility			Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
-Thrallherd Charm		CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:NO	SAB:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
-Thrallherd Dominate	CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:NO	SAB:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
+###Block: Slayer abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility														Define
+Slayer Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Favored Enemy (Specific Psionic Creature)(+%) (Ex)|SlayerFavoredEnemy				DEFINE:SlayerFavoredEnemy|0
+Sense Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Sense Favored Enemy (60')(Su)
+Brain Nausea		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Brain Nausea (Will Save DC:%)(Su)|BrainNausea								DEFINE:BrainNausea|0
+Lucid Buffer		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Lucid Buffer (+4 Save vs. Compulsions, Mind-affecting effects)(Ex)
+Cerebral Blind		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cerebral Blind (Su) (Protection from location detection as long as psionically focused)
+Breech Power Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breech Power Resistance (Su)
+Cerebral Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cerebral Immunity (Su) (Immune to mind influencing effects as long as psionically focused)
+Blast Feedback		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Blast Feedback (Su)
+
+###Block: Metamind abilities
+# Ability Name		Category of Ability		Type				Visible	Special ABility							Define
+Free Manifesting 1	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 1st Level Powers (3x/day)
+Free Manifesting 2	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 2nd Level Powers (3x/day)
+Free Manifesting 3	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 3rd Level Powers (1x/day)
+Free Manifesting 4	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 4th Level Powers (1x/day)
+Free Manifesting 5	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 5th Level Powers (1x/day)
+Font of Power		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Font of Power
+Cognizance Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Cognizance Psicrystal (% points)|CogPsiCrystal	DEFINE:CogPsiCrystal|0
+
+###Block: Psion Uncarnate abilities
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility															Define
+Uncarnate Armor								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Uncarnate Armor (Su)
+Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Incorporeal Touch %d6 (3x/day) (Su)|UncarnateIncorporealTouch							DEFINE:UncarnateIncorporealTouch|0
+Shed Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shed Body (Su) (%x/day)|ShedBody											DEFINE:ShedBody|0
+Assume Equipment								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Assume Equipment (Su)
+Assume Likeness								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Assume Likeness (Su)
+Telekinetic Force								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	DEFINE:TelekineticForceDC|0
+Uncarnate Bridge								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Uncarnate Bridge (Su)
+Uncarnate									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Uncarnate (Ex)
+
+###Block: Pyrokineticist abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility																					Define
+Fire Lash			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Fire Lash (Ps)
+Hand Afire			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Hand Afire (Ps) (+2d6 Fire damage on unarmed attacks)
+Fire Adaptation		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fire Adaptation (Ex) (+4 vs fire,heat effects)|PREVARLT:CL,7
+Bolt of Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Bolt of Fire (Ps) (60' Ranged Touch; %d6 damage)|BoltFire													DEFINE:BoltFire|0
+Weapon Afire		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Weapon Afire (Ps) (+2d6 Fire damage with weapon)
+Nimbus			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Nimbus (Ps) (1x/day for up to % minutes)|NimbusDuration														DEFINE:NimbusDuration|0
+Firewalk			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Firewalk (Su)
+Fear No Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fear No Fire (Ex) (+8 vs fire,heat effects)	SAB:Resistance to Energy (fire) 20
+Greater Weapon Afire	CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Greater Weapon Afire (Ps) (+2d6 additional with Afire abilities)
+Heat Death			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Heat Death (Ps) (1 creature within 30'; Fortitude save (DC:%), die if fail, 4d8 fire if save)|HeatDeathDC					DEFINE:HeatDeathDC|0
+Conflagration		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Conflagration (Ps) (1x/day; 30'burst dealing 15d6 Fire, Reflex save (DC:%) for half + if fail, Fortitude save or die)|ConflagrationDC	DEFINE:ConflagrationDC|0
+
+###Block: Thrallherd abilities
+# Ability Name			Category of Ability		Type						Visible	Special ABility								Define				Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+Thrallherd Charm			CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:NO	SAB:Psionic Charm (Ex)												STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
+Thrallherd Dominate		CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:NO	SAB:Psionic Dominate (Ex)											STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
+Thrallherd				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	DEFINE:ThrallherdScore|0
+Thrallherd Greater Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Greater Dominate (Ex)
+Thrallherd Superior Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Superior Dominate (Ex)
+Twofold Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Twofold Master (Ex)
+
+###Block: War Mind abilities
+# Ability Name			Category of Ability		Type						Visible	Special ABility									Define
+Chain of Personal Superiority	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Chain of Personal Superiority (Ex) (+%)|SuperiorityChain	DEFINE:SuperiorityChain|0
+Chain of Defensive Posture	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Chain of Defensive Posture (Ex) (+%)|DefensivePosture		DEFINE:DefensivePosture|0
+Enduring Body			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Enduring Body (Ex)
+Sweeping Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sweeping Strike (Ex)
+Chain of Overwhelming Force	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Chain of Overwhelming Force (Su) (1x/day)
 
 #
 # End
