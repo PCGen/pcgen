@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep  5 17:54:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep  9 16:29:24 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -45,6 +45,63 @@ Naturalization	CATEGORY:Special Ability	TYPE:Naturalization	VISIBLE:NO	SAB:Natur
 # Feat Name		Special ABility																																								Define
 # Ability Name					Special ABility																																								Define
 CATEGORY=Special Ability|Shadow Jump.MOD	SAB:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SAB:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SAB:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0
+
+###Block: Agent Retriever Abilities
+# Ability Name				Category of Ability		Type					Visible	Special ABility									Define				Modify VAR
+Uncanny Location				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Uncanny Location (Sp)
+Agent Retriever Tracking Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:NO	SAB:Tracking Bonus +%|ARTracking						DEFINE:ARTracking|0
+Force Sphere				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Force Sphere (Sp) %/day DC %|ForceSphereTimes|20+(CL/2)+DEX	DEFINE:ForceSphereTimes|0	BONUS:VAR|ForceSphereTimes|(CL+2)/5
+
+###Block: Cosmic Descryer Abilities
+# Ability Name			Category of Ability		Type						Visible	Special ABility								Define
+Superior Planar Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Superior Planar Summoning (Ex) +% HD|SuperiorSummoning	DEFINE:SuperiorSummoning|0
+Enduring Gate			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Enduring Gate (Su) % days|EnduringGate			DEFINE:EnduringGate|0
+Cosmic Connection			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cosmic Connection (Su) %/day|CosmicConnection		DEFINE:CosmicConnection|0
+
+###Block: Divine Emissary Abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility							Define
+Divine Inspiration	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Divine Inspiration (Sp) %/day|DEDivineInspiration	DEFINE:DEDivineInspiration|0
+Divine Hand			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Divine Hand (Su) %/day|DEDivineHand			DEFINE:DEDivineHand|0
+
+###Block: Epic Infiltrator Abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility								Define
+Improved Cover Identity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Cover Identity (Ex/Su) %/day|EICover		DEFINE:EICover|0
+Read Thoughts		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Read Thoughts (Su) %/day|EIReadThoughts			DEFINE:EIReadThoughts|0
+Far Senses			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Far Senses (Su) %/day % ft|EIFarSenses|FarSensesRange	DEFINE:EIFarSenses|0	DEFINE:FarSensesRange|0
+
+###Block: Guardian Paramount Abilities
+# Ability Name					Output Name				Category of Ability		Type						Visible	Special ABility						Define
+Uncanny Dodge Enabler									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler	DEFINE:GPEnabler|0
+Evasive Preceptor										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Evasive Preceptor (Ex) %/day|GPPreceptor	DEFINE:GPPreceptor|0
+Protective Aura ~ Guardian Paramount	OUTPUTNAME:Protective Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Protective Aura (Sp) %/day|GPAura		DEFINE:GPAura|0
+Adjust Probability									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Adjust Probability (Ex) %/day|GPProbability	DEFINE:GPProbability|0
+Call Back											CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Call Back (Sp) %/day|GPCallBack			DEFINE:GPCallBack|0
+
+###Block: High Proselytizer Abilities
+# Ability Name	Category of Ability		Type					Visible	Special ABility								Define
+Proselytize		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Sp) %/day|HPProsetilyze				DEFINE:HPProsetilyze|0
+Deific Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Touch) (Sp) %/day|HPProsetilyzeDT	DEFINE:HPProsetilyzeDT|0
+Deific Word		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Word) (Sp) %/day|HPProsetilyzeDW	DEFINE:HPProsetilyzeDW|0
+Deific Face		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Face) (Sp) %/day|HPProsetilyzeDF	DEFINE:HPProsetilyzeDF|0
+Deific Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Aura) (Sp) %/day|HPProsetilyzeDA	DEFINE:HPProsetilyzeDA|0
+
+###Block: Legendary Dreadnought Abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility					Define			Damage reduction			Bonus to HP
+Unstoppable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unstoppable (Ex) %/day|LDUnstoppable	DEFINE:LDUnstoppable|0
+Unmovable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unmovable (Ex) %/day|LDUnmovable	DEFINE:LDUnmovable|0
+Shrug Off Punishment	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Shrug Off Punishment (Ex)			DEFINE:LDShrugOff|0						BONUS:HP|CURRENTMAX|LDShrugOff
+Thick Skinned		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Thick Skinned (Ex)				DEFINE:ThickSkinnedDR|0	BONUS:DR|-|ThickSkinnedDR
+
+###Block: Perfect Wight Abilities
+# Ability Name			Output Name			Category of Ability		Type						Visible	Special ABility							Define
+Improved Legerdemain						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Improved Legerdemain (Su) %/day|PWLengerdemain	DEFINE:PWLengerdemain|0
+Incorporeal ~ Perfect Wight	OUTPUTNAME:Incorporeal	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Incorporeal (Su) %/day|PWIncorporeal			DEFINE:PWIncorporeal|0
+Shadow Form								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shadow Form (Su) %/day|PWShadowForm			DEFINE:PWShadowForm|0
+
+###Block: Union Sentinel Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility						Define
+Portal Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Portal Guardian (Su) %/day|USPortalGuardian	DEFINE:USPortalGuardian|0
+Imprisonment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Imprisonment (Sp) %/week|USImprisonment	DEFINE:USImprisonment|0
 
 #
 # End
