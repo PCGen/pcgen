@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 12:50:06 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep  9 17:23:18 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Merton Monk and Glddragon35
 
@@ -31,19 +31,19 @@ Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10				
 Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Creature Subtypes
-# Template Name	Visible	Source Page						Define							Required Race			Combat bonus											Ability																				Automatic Languages	Vision
+# Template Name	Visible	Source Page						Define							Required Race			Combat bonus											Ability																					Automatic Languages	Vision
 Air			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Air Traits
-Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Angel Traits|Acid Immunity|Cold Immunity|Petrification Immunity|Protective Aura|Tongues					VISION:Darkvision (60')|Low-light
+Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Angel Traits|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues					VISION:Darkvision (60')|Low-light
 Aquatic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Aquatic Traits
-Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Archon Traits|Aura of Menace|Magic Circle against Evil|Archon Teleport								VISION:Darkvision (60')|Low-light
+Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Archon Traits|Aura of Menace|Magic Circle against Evil|Archon Teleport									VISION:Darkvision (60')|Low-light
 Augmented		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Chaotic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Chaotic Traits
-Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Cold Immunity|Vulnerability To Fire
+Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire
 Earth			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Evil Traits
 Extraplanar		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Fire Immunity|Vulnerability To Cold
-Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																LANGAUTO:Goblin
+Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
+Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																																																	LANGAUTO:Goblin
 Good			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Good Traits
 Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1						BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits
 Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Lawful Traits
