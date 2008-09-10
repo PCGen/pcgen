@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 12:50:06 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Sep 10 09:38:18 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -218,13 +218,13 @@ Ki Strike		CATEGORY:Special Ability	TYPE:Special.Supernatural	VISIBLE:NO	SAB:Ki 
 Monk Ki Strike Advancement	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Paladin Abilities --------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type				Visible	Special ABility						Define								Innate Spells										Save checks bonus						Modify VAR							Source Page
-Aura of Courage	CATEGORY:Special Ability	TYPE:Supernatural.Aura	VISIBLE:NO	SAB:Aura of Courage (Su)																																									SOURCEPAGE:ClassesII.rtf
-Divine Health	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Divine Health (Ex)																																										SOURCEPAGE:ClassesII.rtf
-Remove Disease	CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																					BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
-Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																						BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
-Divine Grace	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Divine Grace (Su)																										BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
-Detect Evil		CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Detect Evil (Sp)					DEFINE:DetectEvilLVL|0						SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type				Visible	Special ABility													Define								Innate Spells										Save checks bonus						Modify VAR							Source Page
+Aura of Courage	CATEGORY:Special Ability	TYPE:Supernatural.Aura	VISIBLE:NO	SAB:Aura of Courage (Su)																																																SOURCEPAGE:ClassesII.rtf
+Divine Health	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Divine Health (Ex)																																																	SOURCEPAGE:ClassesII.rtf
+Remove Disease	CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease								DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																					BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
+Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Lay on Hands (Su)|PREVAREQ:LayOnHands,0	DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																						BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
+Divine Grace	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Divine Grace (Su)																																	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
+Detect Evil		CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Detect Evil (Sp)												DEFINE:DetectEvilLVL|0						SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Paladin Internals
 # Ability Name		Category of Ability		Type			Visible	Define													Modify VAR																											Source Page
@@ -404,26 +404,19 @@ Undead Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Undead Trai
 Vermin Traits			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Vermin Traits|!PRERULE:1,DISPLAYTYPETRAITS	SAB:Vermin eat/sleep/breathe|PRERULE:1,DISPLAYTYPETRAITS	SAB:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:1,Mindless|PRERULE:1,DISPLAYTYPETRAITS																																																																																																																																																																										VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Creature Subtype Traits
-# Ability Name			Output Name			Category of Ability		Type							Visible	Special ABility																																												Define
-Air Traits								CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Air creatures always have fly speeds and usually have perfect maneuverability
-Angel Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:+4 racial bonus on saves vs. poison
-Aquatic Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Aquatic creatures move in water without making Swim checks/ and breathe underwater
-Archon Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:+4 racial bonus on saves vs. poison
-Chaotic Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
-Evil Traits								CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
-Good Traits								CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
-Incorporeal Traits						CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:Attacks pass through armor	SAB:Always moves silently
-Lawful Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
-Native Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Outsider native to Material Plane
-Swarm Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Not subject to critical hits or flanking	SAB:Takes half damage from slashing and piercing weapons|PRESIZEEQ:T	SAB:Immune to all weapon damage/ susceptible to high winds|PRESIZELTEQ:D	SAB:Immune to any spell or effect that targets a specific number of creatures	DEFINE:CanNotGrapple|1
-Water Traits							CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait		VISIBLE:NO	SAB:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
-
-# Named subtype abilities
-Archon Teleport			OUTPUTNAME:Teleport	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Teleport (Su)
-Aura of Menace							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Aura of Menace (Su)
-Magic Circle against Evil					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Magic Circle against Evil (Su)
-Protective Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Protective Aura (Su)
-Tongues								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Tongues (Su)
+# Ability Name		Category of Ability		Type						Visible	Special ABility																																												Define
+Air Traits			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Air creatures always have fly speeds and usually have perfect maneuverability
+Angel Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+4 racial bonus on saves vs. poison
+Aquatic Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Aquatic creatures move in water without making Swim checks/ and breathe underwater
+Archon Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+4 racial bonus on saves vs. poison
+Chaotic Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
+Evil Traits			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
+Good Traits			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
+Incorporeal Traits	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:Attacks pass through armor	SAB:Always moves silently
+Lawful Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
+Native Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Outsider native to Material Plane
+Swarm Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Not subject to critical hits or flanking	SAB:Takes half damage from slashing and piercing weapons|PRESIZEEQ:T	SAB:Immune to all weapon damage/ susceptible to high winds|PRESIZELTEQ:D	SAB:Immune to any spell or effect that targets a specific number of creatures	DEFINE:CanNotGrapple|1
+Water Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
 
 ###Block: Leadership feat support
 # Ability Name	Category of Ability		Type				Visible	Choose										Modify VAR							Temporary effect description
