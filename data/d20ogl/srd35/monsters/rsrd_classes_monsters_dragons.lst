@@ -16,7 +16,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Water Breathing
 7									DEFINE:DragonAge|2
@@ -53,7 +53,7 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
 9									DEFINE:DragonAge|2
@@ -91,7 +91,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Water Breathing
 8									DEFINE:DragonAge|2
@@ -130,7 +130,7 @@ CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Con
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									DEFINE:DragonAge|1
 10									DEFINE:DragonAge|2
@@ -169,7 +169,7 @@ CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Icewalking
 6									DEFINE:DragonAge|2
@@ -206,7 +206,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1															DEFINE:DragonAge|1														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
 7															DEFINE:DragonAge|2
@@ -246,7 +246,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1															DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Water Breathing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
 9															DEFINE:DragonAge|2
@@ -286,7 +286,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Spider Climb
 8									DEFINE:DragonAge|2
@@ -328,7 +328,7 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 1																					ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																					ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form
 11															DEFINE:DragonAge|2
@@ -371,7 +371,7 @@ CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 1																ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
-1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence|PREVARGTEQ:DragonAge,5
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
 1									BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form
 10															DEFINE:DragonAge|2
