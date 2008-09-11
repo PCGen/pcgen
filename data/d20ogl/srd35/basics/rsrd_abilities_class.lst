@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 10 13:19:21 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Sep 11 13:33:52 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -447,9 +447,10 @@ Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREAB
 Expert Class Skills	CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	CSKILL:LIST
 
 ###Block: Domain Abilities
-# Ability Name	Category of Ability		Type				Visible	Special ABility																										Define
-Insanity		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Insanity score %|Insanity																								DEFINE:Insanity|0
-Death Touch		CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:NO	SAB:Death Touch 1/day, spell-like ability, melee touch attack, %d6 points of damage. If the total at least equals creature's current hit points, it dies|DeathTouch	DEFINE:DeathTouch|0
+# Ability Name	Output Name										Category of Ability		Type						Visible	Special ABility																										Define
+Insanity													CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Insanity score %|Insanity																								DEFINE:Insanity|0
+Death Touch													CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:NO	SAB:Death Touch 1/day, spell-like ability, melee touch attack, %d6 points of damage. If the total at least equals creature's current hit points, it dies|DeathTouch	DEFINE:DeathTouch|0
+Mind Will Save	OUTPUTNAME:+2 on Will saves vs. Enchantment spells and effects	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 on Will saves vs. Enchantment spells and effects
 
 #
 #EOF

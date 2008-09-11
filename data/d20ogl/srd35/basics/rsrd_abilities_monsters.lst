@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Sep 11 12:59:14 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Sep 11 15:35:02 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
@@ -13,7 +13,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 ###Block: Core base abilities
 # Ability Name			Output Name			Category of Ability		Type									Visible	Special ABility																				Define											Description																																																																				Multiple?	Choose			Save checks bonus										Combat bonus														Bonus to HP											Modify VAR					Weapon prof. bonus																		Source Page						Temporary effect description
 
-# Ability Name				Output Name									Category of Ability		Type									Visible	Special ABility																														Define											Description																																																																				Multiple?	Choose			Save checks bonus										Combat bonus														Bonus to HP											Modify VAR					Weapon prof. bonus																		Source Page						Temporary effect description
+# Ability Name				Output Name									Category of Ability		Type									Visible	Special ABility																														Define											Description																																																																				Multiple?	Choose			Save checks bonus										Combat bonus														Bonus to HP											Bonus to skill				Modify VAR					Weapon prof. bonus																		Source Page						Temporary effect description
 Adhesive															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Adhesive (Ex)
 Acid																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Acid (Ex)
 Acid Spray															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Acid Spray (Ex)
@@ -48,7 +48,7 @@ Burn																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		
 Capsize															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Capsize (Ex)
 Captivating Song														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Captivating Song (Su)
 Carapace															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Carapace (Ex)
-Change Shape														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Change Shape (Su)																																									DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																																																																																																									SOURCEPAGE:TypesSubtypesAbilities.rtf
+Change Shape														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Change Shape (Su)																																									DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																																																																																																															SOURCEPAGE:TypesSubtypesAbilities.rtf
 Change Size															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Change Size (Sp)
 Charm Person														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Charm Person (Sp)
 Charm Reptiles														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Charm Reptiles (Sp) %/day|CharmReptilesTimes																								DEFINE:CharmReptilesTimes|3
@@ -57,8 +57,9 @@ Children of the Night													CATEGORY:Special Ability	TYPE:SpecialQuality.S
 Cloudwalking														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Cloudwalking (Su)
 Cold																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Cold (Ex)
 Combustion															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Combustion (Ex)
+Compound Eyes														CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:NO	SAB:Compound Eyes																																																																																																																																																													BONUS:SKILL|Spot|2|TYPE=Racial
 Constitution Drain													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Constitution Drain (Su)
-Constrict															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Constrict (Ex)																																									DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																																																																														SOURCEPAGE:TypesSubtypesAbilities.rtf
+Constrict															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Constrict (Ex)																																									DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Corporeal Instability													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Corporeal Instability (Su)
 Corrosive Slime														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Corrosive Slime (Ex)
 Corrupt Water														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Corrupt Water (Sp) %/day (DC %)|CorruptWaterTimes|CorruptWaterPresDC																				DEFINE:CorruptWaterPresDC|10+(HD/2)+CHA	DEFINE:CorruptWaterTimes|1
@@ -76,7 +77,7 @@ Daylight															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Daylight Powerlessness													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Daylight Powerlessness (Ex)
 Death Gaze															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Death Gaze (Su)
 Death Throes														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Death Throes (Ex)
-Desecrating Aura														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Desecrating Aura (Su)																																																																																																																			BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC																												SOURCEPAGE:MonstersM-N.rtf			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
+Desecrating Aura														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Desecrating Aura (Su)																																																																																																																			BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC																																		SOURCEPAGE:MonstersM-N.rtf			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
 Despair															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Despair (Su)
 Destructive Harmonics													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Destructive Harmonics (Su)
 Detect Gems															CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Detect Gems (Sp) %/day|DetectGemsTimes																									DEFINE:DetectGemsTimes|3
@@ -96,7 +97,7 @@ Drench															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
 Earth Glide															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Earth Glide (Ex)
 Earth Mastery														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Earth Mastery (Ex)
 Elemental Endurance													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Elemental Endurance (Ex)
-Energy Drain														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption		VISIBLE:NO	SAB:Energy Drain (Su) (Fort DC % remove - % levels per hit)|EnergyDrainDC|EnergyDrainLVLs																		DEFINE:EnergyDrainLVLs|0	DEFINE:EnergyDrainDC|10+(TL/2)+CHA		DESC:Automatically sap a living opponent’s vital energy when your melee or ranged attack hits, bestowing %1 negative levels (twice that on a critical hit.)|EnergyDrainLevels																																																																																																																		SOURCEPAGE:TypesSubtypesAbilities.rtf
+Energy Drain														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption		VISIBLE:NO	SAB:Energy Drain (Su) (Fort DC % remove - % levels per hit)|EnergyDrainDC|EnergyDrainLVLs																		DEFINE:EnergyDrainLVLs|0	DEFINE:EnergyDrainDC|10+(TL/2)+CHA		DESC:Automatically sap a living opponent’s vital energy when your melee or ranged attack hits, bestowing %1 negative levels (twice that on a critical hit.)|EnergyDrainLevels																																																																																																																								SOURCEPAGE:TypesSubtypesAbilities.rtf
 Enervation Ray														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Enervation Ray (Su)
 Engulf															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Engulf (Ex)
 Enslave															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Enslave (Su)
@@ -107,7 +108,7 @@ Evil Eye															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinar
 Evil Gaze															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Evil Gaze (Su)
 Explosion															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Explosion (Su)
 Eye Rays															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Eye Rays (Su)
-Fast Healing														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura			VISIBLE:NO	SAB:Fast Healing (Ex)|PREVAREQ:FastHealing,0	SAB:Fast Healing (Ex) %|FastHealing|PREVARGT:FastHealing,0															DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing																																																																																																													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fast Healing														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura			VISIBLE:NO	SAB:Fast Healing (Ex)|PREVAREQ:FastHealing,0	SAB:Fast Healing (Ex) %|FastHealing|PREVARGT:FastHealing,0															DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing																																																																																																																			SOURCEPAGE:TypesSubtypesAbilities.rtf
 Fear																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Fear (Su)
 Feed																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Feed (Su)
 Ferocity															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Ferocity (Ex)
@@ -116,6 +117,7 @@ Fiery Aura															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordin
 Fiery Bite															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Fiery Bite (Su)
 Find Master															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Find Master (Su)
 Find Target															CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Find Target (Sp)
+Fire Acclimated														CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:NO	SAB:Fire Acclimated (+% all saves vs. fire)|FireAcclimatedBonus																						DEFINE:FireAcclimatedBonus|2
 Fists of Thunder and Lightning											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Fists of Thunder and Lightning (Su)
 Flaming Body														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Flaming Body (Su)
 Flaming Hooves														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Flaming Hooves (Su)
@@ -126,10 +128,10 @@ Freeze															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
 Freezing Bite														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Freezing Bite (Su)
 Freezing Fog														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Freezing Fog (Sp) %/day|FreezingFogTimes																									DEFINE:FreezingFogTimes|3
 Freshwater Sensitivity													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Freshwater Sensitivity (Ex)
-Frightful Presence													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MindAffecting.Fear	VISIBLE:NO	SAB:Frightful Presence (Ex) DC %|FrightfulPresenceDC|PREVAREQ:FrightfulPresRange,0	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresenceDC|PREVARGT:FrightfulPresRange,0	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresenceDC|10+(HD/2)+CHA	DESC:Your very presence unsettling to foes. It takes effect automatically when you perform some sort of dramatic action (such as charging, attacking, or snarling). Opponents within range who witness the action may become frightened or shaken.																																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Frightful Presence													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MindAffecting.Fear	VISIBLE:NO	SAB:Frightful Presence (Ex) DC %|FrightfulPresenceDC|PREVAREQ:FrightfulPresRange,0	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresenceDC|PREVARGT:FrightfulPresRange,0	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresenceDC|10+(HD/2)+CHA	DESC:Your very presence unsettling to foes. It takes effect automatically when you perform some sort of dramatic action (such as charging, attacking, or snarling). Opponents within range who witness the action may become frightened or shaken.																																																																																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Gaseous Form (Sp)				OUTPUTNAME:Gaseous Form							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Gaseous Form (Sp)																																									DESC:You have the spell-like ability to take the form of a cloud of vapor or gas
 Gaseous Form (Su)				OUTPUTNAME:Gaseous Form							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Gaseous Form (Su)																																									DESC:You have the supernatural ability to take the form of a cloud of vapor or gas
-Gaze																CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Gaze (Su)																																										DESC:This takes effect when opponents look at your eyes.																																																																																																																																					SOURCEPAGE:TypesSubtypesAbilities.rtf
+Gaze																CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Gaze (Su)																																										DESC:This takes effect when opponents look at your eyes.																																																																																																																																											SOURCEPAGE:TypesSubtypesAbilities.rtf
 Ghoul Fever															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Ghoul Fever (Su)
 Gibbering															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Gibbering (Su)
 Gills																CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:NO	SAB:Gills
@@ -146,7 +148,7 @@ Howl																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		
 Icewalking															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Icewalking (Ex)
 Impale															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Impale (Ex)
 Implant															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Implant (Ex)
-Improved Grab														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Improved Grab (Ex)																																									DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.																																																																										SOURCEPAGE:TypesSubtypesAbilities.rtf
+Improved Grab														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Improved Grab (Ex)																																									DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.																																																																																SOURCEPAGE:TypesSubtypesAbilities.rtf
 Improved Tracking														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Improved Tracking (Ex)
 Infernal Wound														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Infernal Wound (Su)
 Inhabit															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Inhabit (Ex)
@@ -174,9 +176,11 @@ Mummy Rot															CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 Natural Cunning														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Natural Cunning (Ex)
 Natural Invisibility													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Natural Invisibility (Ex)
 Natural Magic Weapons													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Natural weapons treated as magic weapons (Ex)
-Oversized Weapon														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Oversized Weapon (Ex)																																																																																																													MULT:YES	CHOOSE:WEAPONPROFS|LIST																																															BONUS:WEAPONPROF=%LIST|PCSIZE|1
-Paralysis (Ex)				OUTPUTNAME:Paralysis							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Paralysis (Ex)																																									DESC:This special attack renders the victim immobile. Paralyzed creatures cannot move, speak, or take any physical actions. The creature is rooted to the spot, frozen and helpless.																																																																																																																SOURCEPAGE:TypesSubtypesAbilities.rtf
-Paralysis (Su)				OUTPUTNAME:Paralysis							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Paralysis (Su)																																									DESC:This special attack renders the victim immobile. Paralyzed creatures cannot move, speak, or take any physical actions. The creature is rooted to the spot, frozen and helpless.																																																																																																																SOURCEPAGE:TypesSubtypesAbilities.rtf
+Naturally Psionic														CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:NO	SAB:Naturally Psionic|PREVAREQ:RaceBonusPP,0	SAB:Naturally Psionic (+% BonusPP)|RaceBonusPP|PREVARGT:RaceBonusPP,0													DEFINE:RaceBonusPP|0
+Oversized Weapon														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Oversized Weapon (Ex)																																																																																																													MULT:YES	CHOOSE:WEAPONPROFS|LIST																																																					BONUS:WEAPONPROF=%LIST|PCSIZE|1
+Outburst															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Outburst (Ex)
+Paralysis (Ex)				OUTPUTNAME:Paralysis							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Paralysis (Ex)																																									DESC:This special attack renders the victim immobile. Paralyzed creatures cannot move, speak, or take any physical actions. The creature is rooted to the spot, frozen and helpless.																																																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Paralysis (Su)				OUTPUTNAME:Paralysis							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Paralysis (Su)																																									DESC:This special attack renders the victim immobile. Paralyzed creatures cannot move, speak, or take any physical actions. The creature is rooted to the spot, frozen and helpless.																																																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Paralytic Tentacles													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Paralytic Tentacles (Ex)
 Paralyzing Gaze														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Paralyzing Gaze (Su)
 Paralyzing Touch														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Paralyzing Touch (Su)
@@ -185,23 +189,26 @@ Petrifying Gaze														CATEGORY:Special Ability	TYPE:SpecialQuality.Supern
 Pipes																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Pipes (Su)
 Plane Shift															CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Plane Shift (Sp)
 Planewalk															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Planewalk (Su)
-Poison															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC																												DEFINE:PoisonDC|10+(HD/2)+CON								DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																																																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Poison															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC																												DEFINE:PoisonDC|10+(HD/2)+CON								DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																																																																																																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Positive Energy Lash													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Positive Energy Lash (Su)
-Pounce															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Pounce (Ex)																																										DESC:When you make a charge, you can follow with a full attack.																																																																																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Powerful Build														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Powerful Build (one size larger for opposed checks if advantageous, also for being affected by special attacks based on size)																																																																																																														BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C																												BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
-Powerful Charge														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Powerful Charge (Ex)																																								DESC:When you make a charge, you deal extra damage in addition to the normal benefits and hazards of a charge.																																																																																																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Pounce															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Pounce (Ex)																																										DESC:When you make a charge, you can follow with a full attack.																																																																																																																																										SOURCEPAGE:TypesSubtypesAbilities.rtf
+Powerful Build														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Powerful Build (one size larger for opposed checks if advantageous, also for being affected by special attacks based on size)																																																																																																														BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C																																		BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
+Powerful Charge														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Powerful Charge (Ex)																																								DESC:When you make a charge, you deal extra damage in addition to the normal benefits and hazards of a charge.																																																																																																																																		SOURCEPAGE:TypesSubtypesAbilities.rtf
 Protection From Sonics													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Protection From Sonics (Ex)
 Protective Aura														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:NO	SAB:Protective Aura (Su)
 Protective Slime														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Protective Slime (Su)
 Push																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Push (Ex)
 Quickness															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Quickness (Su)
 Quills															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Quills (Ex)
-Rake																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Rake (Ex)																																										DESC:You gain extra natural attacks when you grapple or pounce your foe.																																																																																																																																		SOURCEPAGE:TypesSubtypesAbilities.rtf
+Rake																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Rake (Ex)																																										DESC:You gain extra natural attacks when you grapple or pounce your foe.																																																																																																																																								SOURCEPAGE:TypesSubtypesAbilities.rtf
 Rat Empathy															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Rat Empathy (Ex)
 Regeneration														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Regeneration (Ex)|PREVAREQ:RegenerationRate,0	SAB:Regeneration % (Ex)|RegenerationRate|PREVARGT:RegenerationRate,0												DEFINE:RegenerationRate|0
 Regenerate in Water			OUTPUTNAME:Regenerate only if mostly immersed in water	CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:NO	SAB:Regenerate only if mostly immersed in water
 Rejuvenation														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Rejuvenation (Su)
-Rend																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Rend (Ex)																																																																																																																																																																																								SOURCEPAGE:TypesSubtypesAbilities.rtf
+Repletion															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Repletion (Su)
+Resilience															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Resilience (Su)
+Resistance															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Resistance (Su)
+Rend																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Rend (Ex)																																																																																																																																																																																														SOURCEPAGE:TypesSubtypesAbilities.rtf
 Rend Armor															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Rend Armor (Ex)
 Resilient															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Resilient (Ex)
 Roar																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Roar (Su)
@@ -252,13 +259,13 @@ Summon Mephit														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLik
 Summon Undead														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Summon Undead (Su)
 Sunlight Powerlessness													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Sunlight Powerlessness (Ex)
 Superior Two-Weapon Fighting												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Superior Two-Weapon Fighting (Ex)																																																																																																																													BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
-Swallow Whole														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Swallow Whole (Ex)																																									DESC:If you begin your turn with an opponent held in your mouth, you can attempt a new grapple check (as though attempting to pin the opponent). If successful, you swallow your prey, and the opponent takes bite damage.																																																																																																										SOURCEPAGE:TypesSubtypesAbilities.rtf
+Swallow Whole														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Swallow Whole (Ex)																																									DESC:If you begin your turn with an opponent held in your mouth, you can attempt a new grapple check (as though attempting to pin the opponent). If successful, you swallow your prey, and the opponent takes bite damage.																																																																																																																SOURCEPAGE:TypesSubtypesAbilities.rtf
 Tail Sweep															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Tail Sweep (Ex)
 Telepathy															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Telepathy (Su)
 Teleport															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Teleport (Su)
 Tiger Empathy														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Tiger Empathy (Ex)
 Tongues															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Tongues (Su)
-Trample															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Trample (Ex)																														DEFINE:TrampleDC|10									DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																																																																						BONUS:VAR|TrampleDC|STR+(HD/2)																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trample															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Trample (Ex)																														DEFINE:TrampleDC|10									DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																																																																												BONUS:VAR|TrampleDC|STR+(HD/2)																						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Transparent															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Transparent (Ex)
 Trap Essence														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Trap Essence (Su)
 Tree Dependent														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Tree Dependent (Su)
@@ -266,7 +273,7 @@ Trill																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		
 Trip																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Trip (Ex)
 True Seeing															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:True Seeing (Su)
 Trumpet															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Trumpet (Su)
-Turn Resistance														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Turn Resistance (Ex) +%|TurnResistBonus																									DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																																																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Turn Resistance														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Turn Resistance (Ex) +%|TurnResistBonus																									DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																																																																																																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Unearthly Grace														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Unearthly Grace (Su)
 Unnatural Aura														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Unnatural Aura (Su)
 Unnerving Gaze														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Unnerving Gaze (Su)
@@ -300,8 +307,8 @@ Immunities			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity
 ###Block: Other Immunities
 # Ability Name			Category of Ability		Type								Visible	Special ABility				Description
 Immunity To Banishment		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Banishment (Ex)	DESC:You can never be banished
-Immunity To Charm Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Charm Effects (Ex)
-Immunity To Critical Hits	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Critical Hits (Ex)
+Immunity To Charm Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Charm Effects (Ex)	DESC:You are never subject to charm effects
+Immunity To Critical Hits	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Critical Hits (Ex)	DESC:You are never subject to death effects
 Immunity To Death Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Death Effects (Ex)	DESC:You are never subject to death effects
 Immunity To Disease		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Disease (Ex)		DESC:You never take disease damage
 Immunity To Disintegration	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Disintegration (Ex)	DESC:You can never be disintegrated
@@ -316,7 +323,7 @@ Immunity To Sleep			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.I
 Immunity To Stunning		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Stunning (Ex)		DESC:You can never be stunned
 Immunity To Transformation	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Transformation (Ex)	DESC:You can never be transformed
 Immunity To Transmutation	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Transmutation (Ex)	DESC:You can never be transmutated
-
+Immunity To Phantasms		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Phantasms (Ex)	DESC:You are never subject to death effects
 
 ###Block: Resistances
 # Ability Name				Output Name						Category of Ability		Type								Visible	Special ABility								Define					Description																			Ability
@@ -397,6 +404,8 @@ Halfling Morale				OUTPUTNAME:+2 morale bonus on saving throws against fear					
 # Half Celestial
 Half Celestial Poison Resistance	OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison																	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+4 racial bonus to Fortitude saves vs. Poison
 
+# Xeph
+Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects																CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+1 saves vs. powers, spells, and spell-like effects
 
 ###Block: Companion Modifier Abilities
 # Ability Name			Output Name											Category of Ability		Type						Visible	Special ABility
@@ -418,6 +427,20 @@ Speak One Language														CATEGORY:Special Ability	TYPE:SpecialQuality			V
 Speak with Own Kind		OUTPUTNAME:Speak with animals of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Speak with animals of its kind
 Speak with Blackguard														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Speak with Blackguard (Ex)
 Speak with Master															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Speak with master
+
+
+###Block: Psionic Companion Modifier Abilities
+# Ability Name		Category of Ability		Type				Visible	Special ABility
+Channel Power		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Channel Power
+Deliver Touch Powers	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Deliver touch powers
+Hardness 8			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Hardness 8
+Power Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Power Resistance
+Self Propulsion		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Self Propulsion
+Share Powers		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Share Powers
+Sight Link			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Sight Link
+Telepathic Link		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Telepathic Link
+Telepathic Speech		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Telepathic Speech
+
 
 ###Block: Dragon Breath Weapons
 # Ability Name					Output Name				Category of Ability		Type						Visible	Special ABility																			Define
@@ -459,16 +482,16 @@ Telekinesis			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.GhostAbil
 
 ###Block: Specific Monster Abilities
 # Ability Name		Output Name				Category of Ability		Type						Visible	Special ABility																						Define
-Web ~ Monstrous Spider	OUTPUTNAME:Web			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0
-Touch Attack ~ Lich	OUTPUTNAME:Touch Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Touch Attack (Ex) ~ Negative Energy 1d8+5 DC%|LichAbilityDC
-Fear Aura ~ Lich		OUTPUTNAME:Fear Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Fear Aura (Su) ~ DC%|LichAbilityDC
-Paralyzing Touch ~ Lich	OUTPUTNAME:Paralyzing Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Paralyzing Touch (Su) ~ DC%|LichAbilityDC
 Blood Drain ~ Stirge	OUTPUTNAME:Blood Drain		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Blood Drain (Ex) ~ 1d4 Constitution damage (up to 4 points per Stirge) each round the Stirge begins attached to the victim
-Stench ~ Troglodyte	OUTPUTNAME:Stench			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stench (Ex) DC %|TrogStenchDC																			DEFINE:TrogStenchDC|0
-Dominate ~ Vampire	OUTPUTNAME:Dominate		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Dominate (Su) DC%|VampireAbilityDC
-
 Breath Fire ~ Hydra	OUTPUTNAME:Breath Fire		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Breath Fire ~ % heads every 1d4 rounds/3d6 Fire Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON
 Breath Frost ~ Hydra	OUTPUTNAME:Breath Frost		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Breath Frost ~ % heads every 1d4 rounds/3d6 Cold Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON
+Burst ~ Xeph		OUTPUTNAME:Burst			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Burst (Su) (3x/day; competence bonus to speed of +% for 3 rounds)|BurstBonus											DEFINE:BurstBonus|0
+Dominate ~ Vampire	OUTPUTNAME:Dominate		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Dominate (Su) DC%|VampireAbilityDC
+Fear Aura ~ Lich		OUTPUTNAME:Fear Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Fear Aura (Su) ~ DC%|LichAbilityDC
+Paralyzing Touch ~ Lich	OUTPUTNAME:Paralyzing Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Paralyzing Touch (Su) ~ DC%|LichAbilityDC
+Stench ~ Troglodyte	OUTPUTNAME:Stench			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stench (Ex) DC %|TrogStenchDC																			DEFINE:TrogStenchDC|0
+Touch Attack ~ Lich	OUTPUTNAME:Touch Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Touch Attack (Ex) ~ Negative Energy 1d8+5 DC%|LichAbilityDC
+Web ~ Monstrous Spider	OUTPUTNAME:Web			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0
 
 #
 # End
