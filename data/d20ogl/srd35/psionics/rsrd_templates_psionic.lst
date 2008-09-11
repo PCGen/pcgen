@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Thu Sep 11 17:40:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original entry by: Arknight
 # update by: TaluronIscandar
@@ -9,38 +9,39 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 
 #Basic Psionic Creature		Visible
-# Template Name	Visible		Level Adjustment	Template								Source Page					Special ABility																					Define														Required Race			Prohibited Race				Prohibited Template	Misc bonus												Stat bonus											Modify VAR															Removable?		Spell Res.	Subrace	Main Race Type		Race Subtype			Innate Spells
-Psionic		VISIBLE:EXPORT																			SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0																																									BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints						SUBRACE:YES					RACESUBTYPE:Psionic
-Phrenic		VISIBLE:YES		LEVELADJUSTMENT:2	TEMPLATE:CHOOSE:Phrenic (Animal)	TEMPLATE:Psionic	SOURCEPAGE:PsionicMonsters.rtf	SAB:Naturally Psionic																																								!PRERACE:1,RACESUBTYPE=Psionic	!PRETEMPLATE:1,Mindless	BONUS:MISC|CR|1	BONUS:MISC|CR|1|PREHD:MIN=6	BONUS:MISC|CR|1|PREHD:MIN=11	BONUS:STAT|INT|2|PRESTAT:1,INT=3	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|BonusPowerPoints|1												REMOVABLE:YES	SR:10+HD												SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Precognition (Defensive),11+CHA	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Force Screen,11+CHA	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Empty Mind,11+CHA|Mind Thrust,11+CHA|PREHD:MIN=3	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Body Adjustment,13+CHA|Brain Lock,12+CHA|PREHD:MIN=5	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Aversion,12+CHA|Psionic Blast,13+CHA|PREHD:MIN=7	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Intellect Fortress,14+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Psychic Crush,15+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Dominate (Psionic),14+CHA|PREHD:MIN=11	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Energy Current,15+CHA|Tower of Iron Will,15+CHA|PREHD:MIN=13	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Teleport (Psionic),15+CHA|PREHD:MIN=15	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Fission,17+CHA|PREHD:MIN=17	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Ultrablast,17+CHA|PREHD:MIN=19
-Phrenic (Animal)	VISIBLE:NO														SOURCEPAGE:PsionicMonsters.rtf																																							PRERACE:1,RACETYPE=Animal																																																											RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
+# Template Name	Visible		Level Adjustment	Template								Source Page					Special ABility																					Define														Required Race			Prohibited Race				Prohibited Template	Misc bonus												Stat bonus											Modify VAR															Ability								Removable?		Spell Res.	Subrace	Main Race Type		Race Subtype			Innate Spells
+Psionic		VISIBLE:EXPORT																			SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0																																									BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints															SUBRACE:YES					RACESUBTYPE:Psionic
+Phrenic		VISIBLE:YES		LEVELADJUSTMENT:2	TEMPLATE:CHOOSE:Phrenic (Animal)	TEMPLATE:Psionic	SOURCEPAGE:PsionicMonsters.rtf																																												!PRERACE:1,RACESUBTYPE=Psionic	!PRETEMPLATE:1,Mindless	BONUS:MISC|CR|1	BONUS:MISC|CR|1|PREHD:MIN=6	BONUS:MISC|CR|1|PREHD:MIN=11	BONUS:STAT|INT|2|PRESTAT:1,INT=3	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|BonusPowerPoints|1												ABILITY:Special Ability|AUTOMATIC|Naturally Psionic	REMOVABLE:YES	SR:10+HD												SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Precognition (Defensive),11+CHA	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Force Screen,11+CHA	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Empty Mind,11+CHA|Mind Thrust,11+CHA|PREHD:MIN=3	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Body Adjustment,13+CHA|Brain Lock,12+CHA|PREHD:MIN=5	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Aversion,12+CHA|Psionic Blast,13+CHA|PREHD:MIN=7	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Intellect Fortress,14+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Psychic Crush,15+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Dominate (Psionic),14+CHA|PREHD:MIN=11	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Energy Current,15+CHA|Tower of Iron Will,15+CHA|PREHD:MIN=13	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Teleport (Psionic),15+CHA|PREHD:MIN=15	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Fission,17+CHA|PREHD:MIN=17	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Ultrablast,17+CHA|PREHD:MIN=19
+Phrenic (Animal)	VISIBLE:NO														SOURCEPAGE:PsionicMonsters.rtf																																							PRERACE:1,RACETYPE=Animal																																																																				RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
 
-###Block:Dromite Chitin
-# Template Name				Visible	Damage Reduction	Template																																																									Special ABility																							Required Race			Combat bonus						Damage reduction	Bonus to HP			Add to base move			Stat bonus		Feat					Move			Vision
-Dromite Chitin				VISIBLE:NO				TEMPLATE:CHOOSE:Cold Resist Chitin|Electricity Resist Chitin|Fire Resist Chitin|Sonic Resist Chitin																																																																								BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
-Cold Resist Chitin			VISIBLE:NO																																																														SAB:Resistance to Energy (cold) 5
-Fire Resist Chitin			VISIBLE:NO																																																														SAB:Resistance to Energy (fire) 5
-Electricity Resist Chitin		VISIBLE:NO																																																														SAB:Resistance to Energy (electricity) 5
-Sonic Resist Chitin			VISIBLE:NO																																																														SAB:Resistance to Energy (sonic) 5
+###Block: Dromite Chitin
+# Template Name			Visible	Template																Combat bonus						Modify VAR						Ability
+Dromite Chitin			VISIBLE:NO	TEMPLATE:CHOOSE:Cold Resist Chitin|Electricity Resist Chitin|Fire Resist Chitin|Sonic Resist Chitin	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
+Cold Resist Chitin		VISIBLE:NO																										BONUS:VAR|ColdResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
+Fire Resist Chitin		VISIBLE:NO																										BONUS:VAR|FireResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
+Electricity Resist Chitin	VISIBLE:NO																										BONUS:VAR|ElectricityResistanceBonus|5	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity
+Sonic Resist Chitin		VISIBLE:NO																										BONUS:VAR|SonicResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic
 
-#Astral Construct Menu A Abilities
+###Block: Astral Construct Menu A Abilities
+# Template Name				Visible	Damage Reduction	Template																																																									Special ABility																							Required Race			Combat bonus				Damage reduction	Bonus to HP			Add to base move			Stat bonus		Modify VAR						Ability									Automatically Gained Feat		Move			Vision
 Astral Construct A Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Buff Ability|Celerity Ability|Cleave Ability|Deflection Ability|Fly Ability|Improved Bull Rush Ability|Improved Slam Attack Ability|Mobility Ability|Power Attack Ability|Resistance Ability|Swim Ability|Trip Ability																																													PRERACE:1,Astral Construct%
-Buff Ability				VISIBLE:NO																																																														SAB:Buff (Ex)																																							BONUS:HP|CURRENTMAX|5
-Celerity Ability				VISIBLE:NO																																																														SAB:Celerity (Ex)																																											BONUS:MOVEADD|TYPE.Walk|10
-Cleave Ability				VISIBLE:NO																																																														SAB:Cleave (Ex)																																																			FEAT:Cleave
+Buff Ability				VISIBLE:NO																																																														SAB:Buff (Ex)																																					BONUS:HP|CURRENTMAX|5
+Celerity Ability				VISIBLE:NO																																																														SAB:Celerity (Ex)																																									BONUS:MOVEADD|TYPE.Walk|10
+Cleave Ability				VISIBLE:NO																																																																																																																																		AUTO:FEAT|Cleave
 Deflection Ability			VISIBLE:NO																																																														SAB:Deflection (Ex)																											BONUS:COMBAT|AC|1|TYPE=Deflection
-Fly Ability					VISIBLE:NO																																																														SAB:Fly (Ex)																																																								MOVE:Fly,20
-Improved Bull Rush Ability		VISIBLE:NO																																																														SAB:Improved Bull Rush (Ex)																																																	FEAT:Improved Bull Rush
-Improved Slam Attack Ability		VISIBLE:NO																																																														SAB:Improved Natural Attack (Ex)																																																FEAT:Improved Natural Attack
-Mobility Ability				VISIBLE:NO																																																														SAB:Mobility (Ex)																																																			FEAT:Mobility
-Power Attack Ability			VISIBLE:NO																																																														SAB:Power Attack (Ex)																																																		FEAT:Power Attack
+Fly Ability					VISIBLE:NO																																																														SAB:Fly (Ex)																																																																								MOVE:Fly,20
+Improved Bull Rush Ability		VISIBLE:NO																																																																																																																																		AUTO:FEAT|Improved Bull Rush
+Improved Slam Attack Ability		VISIBLE:NO																																																																																																																																		AUTO:FEAT|Improved Natural Attack
+Mobility Ability				VISIBLE:NO																																																																																																																																		AUTO:FEAT|Mobility
+Power Attack Ability			VISIBLE:NO																																																																																																																																		AUTO:FEAT|Power Attack
 Resistance Ability			VISIBLE:NO				TEMPLATE:CHOOSE:AC Cold Resist|AC Electricity Resist|AC Fire Resist|AC Sonic Resist|AC Acid Resist
-Swim Ability				VISIBLE:NO																																																														SAB:Swim (Ex)																																																								MOVE:Swim,20
-Trip Ability				VISIBLE:NO																																																														SAB:Trip (Ex)
-AC Cold Resist				VISIBLE:NO																																																														SAB:Resistance to Energy (cold) 5
-AC Fire Resist				VISIBLE:NO																																																														SAB:Resistance to Energy (fire) 5
-AC Electricity Resist			VISIBLE:NO																																																														SAB:Resistance to Energy (electricity) 5
-AC Sonic Resist				VISIBLE:NO																																																														SAB:Resistance to Energy (sonic) 5
-AC Acid Resist				VISIBLE:NO																																																														SAB:Resistance to Energy (acid) 5
+Swim Ability				VISIBLE:NO																																																														SAB:Swim (Ex)																																																																								MOVE:Swim,20
+Trip Ability				VISIBLE:NO																																																																																																																								ABILITY:Special Ability|AUTOMATIC|Trip
+AC Cold Resist				VISIBLE:NO																																																																																																																	BONUS:VAR|ColdResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
+AC Fire Resist				VISIBLE:NO																																																																																																																	BONUS:VAR|FireResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
+AC Electricity Resist			VISIBLE:NO																																																																																																																	BONUS:VAR|ElectricityResistanceBonus|5	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity
+AC Sonic Resist				VISIBLE:NO																																																																																																																	BONUS:VAR|SonicResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic
+AC Acid Resist				VISIBLE:NO																																																																																																																	BONUS:VAR|AcidResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Acid
 
 #Astral Construct Menu B Abilities
 Astral Construct B Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability																										PRERACE:1,Astral Construct%
@@ -49,19 +50,19 @@ First A Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Buff Ability|Celerity Ability|C
 Second A Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Buff Ability|Celerity Ability|Cleave Ability|Deflection Ability|Fly Ability|Improved Bull Rush Ability|Improved Slam Attack Ability|Mobility Ability|Power Attack Ability|Resistance Ability|Swim Ability|Trip Ability
 Energy Touch Ability			VISIBLE:NO				TEMPLATE:CHOOSE:AC ETouch Fire|AC ETouch Cold|AC ETouch Acid|AC ETouch Electricity
 Extra Attack Ability			VISIBLE:NO																																																														SAB:Extra Slam Attack (1) (Ex)|PRESIZELTEQ:M	SAB:Extra Slam Attack (2) (Ex)|PRESIZEGT:M
-Fast Healing Ability			VISIBLE:NO																																																														SAB:Fast Healing 2 (Ex)
+Fast Healing Ability			VISIBLE:NO																																																																																																																	BONUS:VAR|FastHealing|2				ABILITY:Special Ability|AUTOMATIC|Fast Healing
 Heavy Deflection Ability		VISIBLE:NO																																																														SAB:Heavy Deflection (Ex)																										BONUS:COMBAT|AC|4|TYPE=Deflection
-Improved Buff Ability			VISIBLE:NO																																																														SAB:Improved Buff (Ex)																																						BONUS:HP|CURRENTMAX|15
-Improved Critical Ability		VISIBLE:NO																																																														SAB:Improved Critical (Ex)																																																	FEAT:Improved Critical
-Improved Damage Reduction Ability	VISIBLE:NO	DR:0/Magic																																																												SAB:Improved Damage Reduction (Ex)																																	BONUS:DR|Magic|3
-Improved Fly Ability			VISIBLE:NO																																																														SAB:Improved Fly (Ex)																																																							MOVE:Fly,40
-Improved Grab Ability			VISIBLE:NO																																																														SAB:Improved Grab (Ex)
-Improved Swim Ability			VISIBLE:NO																																																														SAB:Improved Swim (Ex)																																																							MOVE:Swim,60
-Muscle Ability				VISIBLE:NO																																																														SAB:Muscle (Ex)																																																BONUS:STAT|STR|4
+Improved Buff Ability			VISIBLE:NO																																																														SAB:Improved Buff (Ex)																																				BONUS:HP|CURRENTMAX|15
+Improved Critical Ability		VISIBLE:NO																																																																																																																																		AUTO:FEAT|Improved Critical
+Improved Damage Reduction Ability	VISIBLE:NO	DR:0/Magic																																																																																																BONUS:DR|Magic|3
+Improved Fly Ability			VISIBLE:NO																																																																																																																																								MOVE:Fly,40
+Improved Grab Ability			VISIBLE:NO																																																																																																																								ABILITY:Special Ability|AUTOMATIC|Improved Grab
+Improved Swim Ability			VISIBLE:NO																																																														SAB:Improved Swim (Ex)																																																																							MOVE:Swim,60
+Muscle Ability				VISIBLE:NO																																																														SAB:Muscle (Ex)																																														BONUS:STAT|STR|4
 Poison Touch Ability			VISIBLE:NO																																																														SAB:Poison Touch (Fort Save DC:%) (Ex)|(10+CHA+0)
-Pounce Ability				VISIBLE:NO																																																														SAB:Pounce (Ex)
+Pounce Ability				VISIBLE:NO																																																																																																																								ABILITY:Special Ability|AUTOMATIC|Pounce
 Smite Ability				VISIBLE:NO																																																														SAB:Smite (+HD to dmg) (Su) 1/day
-Trample Ability				VISIBLE:NO																																																														SAB:Trample (Ex)
+Trample Ability				VISIBLE:NO																																																																																																																								ABILITY:Special Ability|AUTOMATIC|Trample
 AC ETouch Acid				VISIBLE:NO																																																														SAB:Energy Touch (Ex) (+1d4 Acid damage)|!PRESUBCLASS:1,Kineticist	SAB:Energy Touch (+1d6 Acid damage)|PRESUBCLASS:1,Kineticist
 AC ETouch Cold				VISIBLE:NO																																																														SAB:Energy Touch (Ex) (+1d4 Cold damage)|!PRESUBCLASS:1,Kineticist	SAB:Energy Touch (+1d6 Cold damage)|PRESUBCLASS:1,Kineticist
 AC ETouch Electricity			VISIBLE:NO																																																														SAB:Energy Touch (Ex) (+1d4 Electricity damage)|!PRESUBCLASS:1,Kineticist	SAB:Energy Touch (+1d6 Electricity damage)|PRESUBCLASS:1,Kineticist
@@ -72,16 +73,16 @@ Astral Construct C Ability		VISIBLE:YES				TEMPLATE:CHOOSE:Two B Abilities|Blind
 Two B Abilities				VISIBLE:NO				TEMPLATE:First B Ability	TEMPLATE:Second B Ability
 First B Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability
 Second B Ability				VISIBLE:NO				TEMPLATE:CHOOSE:Two A Abilities|Energy Touch Ability|Extra Attack Ability|Fast Healing Ability|Heavy Deflection Ability|Improved Buff Ability|Improved Critical Ability|Improved Damage Reduction Ability|Improved Fly Ability|Improved Grab Ability|Improved Swim Ability|Muscle Ability|Poison Touch Ability|Pounce Ability|Smite Ability|Trample Ability
-Blindsight Ability			VISIBLE:NO																																																														SAB:Blindsight (Ex)																																																										VISION:Blindsight (60')
+Blindsight Ability			VISIBLE:NO																																																																																																																																											VISION:Blindsight (60')
 Concussion Ability			VISIBLE:NO																																																														SAB:Concussion (Concussion Blast (7th lvl) 1x/round) (Sp)
-Constrict Ability				VISIBLE:NO																																																														SAB:Constrict (Ex)
+Constrict Ability				VISIBLE:NO																																																																																																																								ABILITY:Special Ability|AUTOMATIC|Constrict
 Dimension Slide Ability			VISIBLE:NO																																																														SAB:Dimension Slide (Dimension Slide (HD lvl) 1x/round) (Sp)
 Energy Bolt Ability			VISIBLE:NO																																																														SAB:Energy Bolt (Energy Bolt (8th lvl) 1x/round) (Sp)
-Extra Buff Ability			VISIBLE:NO																																																														SAB:Extra Buff (Ex)																																						BONUS:HP|CURRENTMAX|30
-Extreme Damage Reduction Ability	VISIBLE:NO																																																														SAB:Extreme Damage Reduction (Ex)																																	BONUS:DR|Magic|6
+Extra Buff Ability			VISIBLE:NO																																																														SAB:Extra Buff (Ex)																																				BONUS:HP|CURRENTMAX|30
+Extreme Damage Reduction Ability	VISIBLE:NO																																																														SAB:Extreme Damage Reduction (Ex)																															BONUS:DR|Magic|6
 Extreme Deflection Ability		VISIBLE:NO																																																														SAB:Extreme Deflection (Ex)																										BONUS:COMBAT|AC|8|TYPE=Deflection
-Natural Invisibility Ability		VISIBLE:NO																																																														SAB:Natural Invisibility (Su)
+Natural Invisibility Ability		VISIBLE:NO																																																																																																																								ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
 Power Resistance Ability		VISIBLE:NO																																																														SAB:Power Resistance (10+HD) (Ex)
-Rend Ability				VISIBLE:NO																																																														SAB:Rend (Ex)
-Spring Attack Ability			VISIBLE:NO																																																														SAB:Spring Attack (Ex)																																																		FEAT:Spring Attack
-Whirlwind Attack Ability		VISIBLE:NO																																																														SAB:Whirlwind Attack (Ex)																																																	FEAT:Whirlwind Attack
+Rend Ability				VISIBLE:NO																																																																																																																								ABILITY:Special Ability|AUTOMATIC|Rend
+Spring Attack Ability			VISIBLE:NO																																																																																																																																		AUTO:FEAT|Spring Attack
+Whirlwind Attack Ability		VISIBLE:NO																																																																																																																																		AUTO:FEAT|Whirlwind Attack

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 15:38:23 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Sep 11 17:47:23 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -68,13 +68,13 @@ Font of Power		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Font 
 Cognizance Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Cognizance Psicrystal (% points)|CogPsiCrystal	DEFINE:CogPsiCrystal|0
 
 ###Block: Psion Uncarnate abilities
-# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility															Define
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility																														Define
 Uncarnate Armor								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Uncarnate Armor (Su)
-Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Incorporeal Touch %d6 (3x/day) (Su)|UncarnateIncorporealTouch							DEFINE:UncarnateIncorporealTouch|0
-Shed Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shed Body (Su) (%x/day)|ShedBody											DEFINE:ShedBody|0
+Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Incorporeal Touch %d6 (3x/day) (Su)|UncarnateIncorporealTouch																						DEFINE:UncarnateIncorporealTouch|0
+Shed Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shed Body (Su) (%x/day)|ShedBody																										DEFINE:ShedBody|0
 Assume Equipment								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Assume Equipment (Su)
 Assume Likeness								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Assume Likeness (Su)
-Telekinetic Force								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC	DEFINE:TelekineticForceDC|0
+Telekinetic Force								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Telekinetic Force (Su)|PREVAREQ:TelekineticForceDC,0	SAB:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC|PREVARGT:TelekineticForceDC,0	DEFINE:TelekineticForceDC|0
 Uncarnate Bridge								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Uncarnate Bridge (Su)
 Uncarnate									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Uncarnate (Ex)
 
