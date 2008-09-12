@@ -62,5 +62,3 @@ EQUIPMENT:completeeldritch_equip_weap_ranged_specific.lst
 EQUIPMOD:completeeldritch_equipmods.lst
 
 KIT:completeeldritch_kits_races.lst
-
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion)

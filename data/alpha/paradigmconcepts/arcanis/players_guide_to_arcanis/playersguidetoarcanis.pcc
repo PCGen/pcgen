@@ -61,7 +61,7 @@ INFOTEXT:This is a campaign dataset, it loads the parts of the RSRD dataset need
 #EXTRAFILE:OGL.txt
 
 # RSRD Imports - Basics
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
 ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric)
@@ -82,8 +82,6 @@ EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ranged.lst
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
-FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst
-FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
@@ -100,7 +98,7 @@ WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
 
 # RSRD Imports - Advanced
 
-ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
 ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst
@@ -115,7 +113,6 @@ EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_wondrousitems.lst
 SPELL:@/d20ogl/srd35/advanced/rsrd_spells_class_prestige.lst
 
 # RSRD Imports - Monsters
-ABILITY:@/d20ogl/srd35/monsters/rsrd_monsters_abilities_racial.lst
 ABILITYCATEGORY:@/d20ogl/srd35/monsters/rsrd_ability_categories_monster.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_dragons.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_specific.lst

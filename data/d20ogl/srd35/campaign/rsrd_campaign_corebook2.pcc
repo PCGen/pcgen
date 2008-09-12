@@ -24,7 +24,7 @@ INFOTEXT:This is a subset of the RSRD containing rules generally found in Core B
 #EXTRAFILE:@/d20ogl/srd35/OGL.txt
 
 # Basics
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
 
 ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
@@ -49,8 +49,6 @@ EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
 
-FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst
-FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Multiattack)
 FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
 
@@ -83,7 +81,7 @@ HIDETYPE:EQUIP|Starting
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource
 
 # Advanced
-ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
 
 ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
 

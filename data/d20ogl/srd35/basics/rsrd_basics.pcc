@@ -20,7 +20,8 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 
 
-ABILITY:rsrd_abilities_class.lst
+ABILITY:rsrd_abilities_class_base.lst
+ABILITY:rsrd_abilities_class_prestige.lst
 ABILITY:rsrd_abilities_monsters.lst
 ABILITYCATEGORY:rsrd_ability_categories_core.lst
 
@@ -46,8 +47,6 @@ EQUIPMOD:rsrd_equipmods_base.lst
 EQUIPMOD:rsrd_equipmods_enhancing.lst
 
 FEAT:rsrd_feats_divine.lst
-FEAT:rsrd_feats_hidden.lst
-FEAT:rsrd_feats_hidden2.lst
 FEAT:rsrd_feats_monster.lst
 FEAT:rsrd_feats.lst
 
