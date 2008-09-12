@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 16:29:24 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Sep 12 12:16:09 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -99,9 +99,9 @@ Incorporeal ~ Perfect Wight	OUTPUTNAME:Incorporeal	CATEGORY:Special Ability	TYPE
 Shadow Form								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shadow Form (Su) %/day|PWShadowForm			DEFINE:PWShadowForm|0
 
 ###Block: Union Sentinel Abilities
-# Ability Name	Category of Ability		Type						Visible	Special ABility						Define
-Portal Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Portal Guardian (Su) %/day|USPortalGuardian	DEFINE:USPortalGuardian|0
-Imprisonment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Imprisonment (Sp) %/week|USImprisonment	DEFINE:USImprisonment|0
+# Ability Name	Category of Ability		Type						Visible	Special ABility																		Define
+Portal Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Portal Guardian (Su) %/day|USPortalGuardian													DEFINE:USPortalGuardian|0
+Imprisonment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Imprisonment (Sp) %/week|USImprisonment|PREVARGT:USImprisonment,0	SAB:Imprisonment (Sp)|PREVAREQ:USImprisonment,0	DEFINE:USImprisonment|0
 
 #
 # End
