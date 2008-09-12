@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 13:29:26 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Sep 11 22:01:25 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -12,6 +12,12 @@ ABILITYCATEGORY:Improved Psicrystal Personality	VISIBLE:QUALIFY	EDITABLE:YES		ED
 ABILITYCATEGORY:Elocator Transporter		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocatorTransporter			PLURAL:Elocator Transporter			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Thrallherd Charm Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdCharm				PLURAL:Thrallherd Charm Choices		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Thrallherd Dominate Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdDominate				PLURAL:Thrallherd Dominate Choices		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Astral Construct Menu A Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuA			PLURAL:Astral Construct Menu A Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astral Construct Menu B Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuB			PLURAL:Astral Construct Menu B Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astral Construct Menu C Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuC			PLURAL:Astral Construct Menu C Abilities	DISPLAYLOCATION:Racial Abilities
+
+
 #
 # End
 #
