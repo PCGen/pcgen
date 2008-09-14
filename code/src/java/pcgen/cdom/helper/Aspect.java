@@ -18,7 +18,7 @@
  *
  * Created on 16/08/2008 16:36:13
  *
- * $Id: $
+ * $Id$
  */
 package pcgen.cdom.helper;
 
@@ -43,11 +43,11 @@ import pcgen.util.Logging;
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision$
  * 
  * @since 5.15.2
  */
