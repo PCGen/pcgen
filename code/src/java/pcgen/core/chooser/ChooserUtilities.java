@@ -366,6 +366,7 @@ public class ChooserUtilities
 		classLookup.put("SALIST",               SAListChoiceManager.class.getName());
 		classLookup.put("SCHOOLS",              SchoolsChoiceManager.class.getName());
 		classLookup.put("MISC",                 MiscChoiceManager.class.getName());
+		classLookup.put("STRING",               MiscChoiceManager.class.getName());
 		classLookup.put("PROFICIENCY",          ProficiencyChoiceManager.class.getName());
 		classLookup.put("SKILLS",               SkillsChoiceManager.class.getName());
 		classLookup.put("SKILLSNAMED",          SkillsNamedChoiceManager.class.getName());

@@ -61,7 +61,7 @@ public class StringToken implements ChooseLstToken
 		{
 			sb.append(prefix).append('|');
 		}
-		sb.append(value);
+		sb.append(getTokenName()).append('|').append(value);
 		po.setChoiceString(sb.toString());
 		return true;
 	}

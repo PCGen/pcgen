@@ -51,7 +51,7 @@ public class MiscChoiceManager extends AbstractBasicStringChoiceManager {
 		/*
 		 * This is a hack for 5.x syntax
 		 */
-		if (!super.typeHandled().equals("MISC"))
+		if (!super.typeHandled().equals("MISC") && !super.typeHandled().equals("STRING"))
 		{
 			getChoiceList().add(0, super.typeHandled());
 		}
