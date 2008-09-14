@@ -508,19 +508,31 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ("MAXCASTABLE".equals(valString) && src.startsWith("CLASS:"))
 		{
 			String classKey = src.substring(6);
-			PCClass spClass = getPc().getClassKeyed(classKey);
-			if (spClass != null)
+			int max = -1;
+			for (PCClass spClass : getPc().getClassList())
 			{
-				int cutoff = spClass.getHighestLevelSpell();
-				int max = 0;
-				for (int i = 0; i < cutoff; i++) {
-					if (spClass.getKnownForLevel(i, getPc()) != 0)
+				StringTokenizer st =
+						new StringTokenizer(spClass.getSpellKey(),
+							Constants.PIPE);
+				while (st.hasMoreTokens())
+				{
+					String type = st.nextToken();
+					//Doesn't need to be guarded - if this throws an exception the problem is in getSpellKey()
+					String key = st.nextToken();
+					if (type.equals("CLASS") && key.equalsIgnoreCase(classKey))
 					{
-						max = Math.max(max,i);
+						int cutoff = spClass.getHighestLevelSpell();
+						for (int i = max + 1; i < cutoff; i++)
+						{
+							if (spClass.getKnownForLevel(i, getPc()) != 0)
+							{
+								max = Math.max(max, i);
+							}
+						}
 					}
 				}
-				valString = Integer.toString(max);
 			}
+			valString = Integer.toString(max);
 		}
 		else if ("MAXCASTABLE".equals(valString) && src.startsWith("DOMAIN:"))
 		{
