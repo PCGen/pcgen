@@ -495,10 +495,22 @@ public class VariableProcessorPC extends VariableProcessor
 				if (typeKey.equalsIgnoreCase(spClass.getSpellType()))
 				{
 					int cutoff = spClass.getHighestLevelSpell();
-					for (int i = 0; i < cutoff; i++) {
-						if (spClass.getKnownForLevel(i, getPc()) != 0)
-						{
-							max = Math.max(max,i);
+					if (spClass.hasCastList())
+					{
+						for (int i = 0; i < cutoff; i++) {
+							if (spClass.getCastForLevel(i, getPc()) != 0)
+							{
+								max = Math.max(max,i);
+							}
+						}
+					}
+					else
+					{
+						for (int i = 0; i < cutoff; i++) {
+							if (spClass.getKnownForLevel(i, getPc()) != 0)
+							{
+								max = Math.max(max,i);
+							}
 						}
 					}
 				}
@@ -522,11 +534,22 @@ public class VariableProcessorPC extends VariableProcessor
 					if (type.equals("CLASS") && key.equalsIgnoreCase(classKey))
 					{
 						int cutoff = spClass.getHighestLevelSpell();
-						for (int i = max + 1; i < cutoff; i++)
+						if (spClass.hasCastList())
 						{
-							if (spClass.getKnownForLevel(i, getPc()) != 0)
-							{
-								max = Math.max(max, i);
+							for (int i = 0; i < cutoff; i++) {
+								if (spClass.getCastForLevel(i, getPc()) != 0)
+								{
+									max = Math.max(max,i);
+								}
+							}
+						}
+						else
+						{
+							for (int i = 0; i < cutoff; i++) {
+								if (spClass.getKnownForLevel(i, getPc()) != 0)
+								{
+									max = Math.max(max,i);
+								}
 							}
 						}
 					}
@@ -548,10 +571,22 @@ public class VariableProcessorPC extends VariableProcessor
 				PCClass spClass = getPc().getClassKeyed(classKey);
 				int cutoff = spClass.getHighestLevelSpell();
 				int max = 0;
-				for (int i = 0; i < cutoff; i++) {
-					if (spClass.getKnownForLevel(i, getPc()) != 0)
-					{
-						max = Math.max(max,i);
+				if (spClass.hasCastList())
+				{
+					for (int i = 0; i < cutoff; i++) {
+						if (spClass.getCastForLevel(i, getPc()) != 0)
+						{
+							max = Math.max(max,i);
+						}
+					}
+				}
+				else
+				{
+					for (int i = 0; i < cutoff; i++) {
+						if (spClass.getKnownForLevel(i, getPc()) != 0)
+						{
+							max = Math.max(max,i);
+						}
 					}
 				}
 				valString = Integer.toString(max);
