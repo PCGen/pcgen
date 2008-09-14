@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AspectName;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -56,7 +57,7 @@ public class Aspect
 	/**
 	 * The name of the name stored in this Aspect.
 	 */
-	private final String name;
+	private final AspectName key;
 
 	private List<String> theComponents = new ArrayList<String>();
 	private List<String> theVariables = null;
@@ -86,8 +87,44 @@ public class Aspect
 			throw new IllegalArgumentException(
 					"Value for Aspect cannot be null");
 		}
-		this.name = name;
+		this.key = AspectName.getConstant(name);
 		
+		parseAspectString(aString);
+	}
+	
+	/**
+	 * Instantiates a new aspect.
+	 * 
+	 * @param name the name of the aspect
+	 * @param aString the aspect string
+	 */
+	public Aspect(final AspectName key, final String aString )
+	{
+		if (key == null)
+		{
+			throw new IllegalArgumentException(
+					"Key for Aspect cannot be null");
+		}
+		if (aString == null)
+		{
+			throw new IllegalArgumentException(
+					"Value for Aspect cannot be null");
+		}
+		this.key = key;
+		
+		parseAspectString(aString);
+	}
+
+	/**
+	 * Parse an aspect definition string and populate the Aspect with 
+	 * the contents. This drives the processing to split the description 
+	 * from the parameters and to identify the references to the 
+	 * parameters. 
+	 *   
+	 * @param aString The aspect definition string.
+	 */
+	private void parseAspectString(final String aString)
+	{
 		int currentInd = 0;
 		int percentInd = -1;
 		while ( (percentInd = aString.indexOf('%', currentInd)) != -1 )
@@ -180,7 +217,7 @@ public class Aspect
 	 */
 	public String getName()
 	{
-		return name;
+		return key.toString();
 	}
 
 	/**
