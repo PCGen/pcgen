@@ -533,6 +533,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// Add default EQ mods
 			eqModLoader.addDefaultEquipmentMods(context);
 			
+			context.ref.buildDeferredObjects();
+			context.ref.buildDerivedObjects();
+			context.ref.validate();
+			context.resolveReferences();
+			context.buildTypeLists();
+
 			// Load custom items
 			loadCustomItems();
 
@@ -548,12 +554,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				EquipmentList.autoGenerateEquipment();
 			}
 			
-			context.ref.buildDeferredObjects();
-			context.ref.buildDerivedObjects();
-			context.ref.validate();
-			context.resolveReferences();
-			context.buildTypeLists();
-
 			//  Show the licenses
 			showLicensesIfNeeded();
 			showSponsorsIfNeeded();
