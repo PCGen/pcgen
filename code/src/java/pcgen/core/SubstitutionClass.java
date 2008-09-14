@@ -101,7 +101,7 @@ public final class SubstitutionClass extends PCClass
 					}
 				}
 			}
-			if (newLevels.size() >1)
+			if (!newLevels.isEmpty())
 			{
 				// remove all stuff from the original level
 				aClass.resetClassLevel(aLevel);
