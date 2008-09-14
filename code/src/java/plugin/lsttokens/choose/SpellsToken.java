@@ -168,6 +168,28 @@ public class SpellsToken implements ChooseLstToken
 								token.length() - 1));
 					}
 				}
+				else if (token.startsWith("ANY"))
+				{
+					int bracketLoc = token.indexOf('[');
+					if (bracketLoc > -1 && bracketLoc != 3)
+					{
+						Logging.errorPrint("Invalid ANY entry for "
+							+ "CHOOSE:SPELLS, bracket must immediately follow 'ANY'");
+						return false;
+					}
+					else
+					{
+						if (!token.endsWith("]"))
+						{
+							Logging.errorPrint("Invalid entry in "
+									+ "CHOOSE:SPELLS: " + token
+									+ " did not have matching brackets");
+							return false;
+						}
+						validateRestriction(token.substring(bracketLoc + 1,
+								token.length() - 1));
+					}
+				}
 				else if (token.startsWith("SCHOOL="))
 				{
 					if (token.length() < 8)

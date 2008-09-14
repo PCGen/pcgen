@@ -93,6 +93,23 @@ public class SpellsChoiceManager extends
 					appendSpells(new TypeKeyFilter("CLASS", token.substring(6),
 							null), aPc, localList);
 				}
+				else if (token.startsWith("ANY"))
+				{
+					int bracketLoc = token.indexOf('[');
+					Restriction r = null;
+					if (bracketLoc != -1)
+					{
+						if (!token.endsWith("]"))
+						{
+							Logging.errorPrint("Invalid entry in "
+									+ "CHOOSE:SPELLS: " + token
+									+ " did not have matching brackets");
+						}
+						r = getRestriction("ANY", token.substring(
+									bracketLoc + 1, token.length() - 1), aPc);
+					}
+					appendSpells(new AnyFilter(r), aPc, localList);
+				}
 				else if (token.startsWith("SPELLTYPE="))
 				{
 					int bracketLoc = token.indexOf('[');
@@ -429,6 +446,67 @@ public class SpellsChoiceManager extends
 						availableList.add(spell);
 						return;
 					}
+				}
+			}
+		}
+
+		private boolean passesRestriction(Spell spell, PlayerCharacter pc,
+				int level)
+		{
+			if (res != null)
+			{
+				if (level > res.maxLevel || level < res.minLevel)
+				{
+					return false;
+				}
+				if (res.knownRequired)
+				{
+					boolean found = false;
+					for (PCClass cl : pc.getClassList())
+					{
+						SpellSupport ss = cl.getSpellSupport();
+						List<CharacterSpell> csl = ss.getCharacterSpell(spell,
+								defaultbook, -1);
+						if (csl != null && !csl.isEmpty())
+						{
+							/*
+							 * Going to assume here that the level doesn't need
+							 * to be rechecked... ?? - thpr Feb 26, 08
+							 */
+							found = true;
+						}
+					}
+					if (!found)
+					{
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+	}
+
+	private class AnyFilter implements SpellFilter
+	{
+		private final Restriction res;
+		private final String defaultbook;
+
+		public AnyFilter(Restriction r)
+		{
+			defaultbook = Globals.getDefaultSpellBook();
+			res = r;
+		}
+
+		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
+			List<Spell> availableList)
+		{
+			Map<String, Integer> levelInfo = spell.getLevelInfo(pc);
+			for (Map.Entry<String, Integer> me : levelInfo.entrySet())
+			{
+				if (passesRestriction(spell, pc, me.getValue()))
+				{
+					availableList.add(spell);
+					return;
 				}
 			}
 		}
