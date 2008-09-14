@@ -509,15 +509,18 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			String classKey = src.substring(6);
 			PCClass spClass = getPc().getClassKeyed(classKey);
-			int cutoff = spClass.getHighestLevelSpell();
-			int max = 0;
-			for (int i = 0; i < cutoff; i++) {
-				if (spClass.getKnownForLevel(i, getPc()) != 0)
-				{
-					max = Math.max(max,i);
+			if (spClass != null)
+			{
+				int cutoff = spClass.getHighestLevelSpell();
+				int max = 0;
+				for (int i = 0; i < cutoff; i++) {
+					if (spClass.getKnownForLevel(i, getPc()) != 0)
+					{
+						max = Math.max(max,i);
+					}
 				}
+				valString = Integer.toString(max);
 			}
-			valString = Integer.toString(max);
 		}
 		else if ("MAXCASTABLE".equals(valString) && src.startsWith("DOMAIN:"))
 		{
