@@ -49,6 +49,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.CustomData;
@@ -440,7 +441,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			// The first thing we need to do is load the
 			// correct statsandchecks.lst file for this gameMode
-			if (SettingsHandler.getGame() == null)
+			GameMode gamemode = SettingsHandler.getGame();
+			if (gamemode == null)
 			{
 				// Autoload campaigns is set but there
 				// is no current gameMode, so just return
@@ -448,7 +450,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 			LoadContext context = Globals.getContext();
 			File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
-			File specificGameModeDir = new File(gameModeDir, SettingsHandler.getGame().getFolderName());
+			File specificGameModeDir = new File(gameModeDir, gamemode.getFolderName());
 			File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
 			statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
 
@@ -456,7 +458,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			sortCampaignsByRank(aSelectedCampaignsList);
 
 			// Read the campaigns
-			readPccFiles(context, aSelectedCampaignsList, null, SettingsHandler.getGame());
+			readPccFiles(context, aSelectedCampaignsList, null, gamemode);
 
 			// Add custom campaign files at the start of the lists
 			addCustomFilesToStartOfList();
@@ -471,18 +473,19 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			// load ability categories first as they used to only be at the game mode
 			abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
+			validateAbilityCategories(gamemode);
 
-			for (PCAlignment al : SettingsHandler.getGame()
+			for (PCAlignment al : gamemode
 					.getUnmodifiableAlignmentList())
 			{
 				context.ref.registerAbbreviation(al, al.getKeyName());
 			}
-			for (PCStat st : SettingsHandler.getGame()
+			for (PCStat st : gamemode
 					.getUnmodifiableStatList())
 			{
 				context.ref.registerAbbreviation(st, st.getAbb());
 			}
-			for (SizeAdjustment sz : SettingsHandler.getGame()
+			for (SizeAdjustment sz : gamemode
 					.getUnmodifiableSizeAdjustmentList())
 			{
 				context.ref.registerAbbreviation(sz, sz.getAbbreviation());
@@ -568,6 +571,22 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			releaseFileData();
 			setChanged();
 			notifyObservers("DONE");
+		}
+	}
+
+	private void validateAbilityCategories(GameMode gamemode)
+	{
+		for (AbilityCategory ac : gamemode.getAllAbilityCategories())
+		{
+			//Must be a universal set if no types
+			if (ac.getAbilityTypes().isEmpty())
+			{
+				if (!ac.getAbilityCategory().equalsIgnoreCase(ac.getKeyName()))
+				{
+					Logging.errorPrint("Ability Category " + ac.getKeyName()
+						+ " had no TYPE, but has a different CATEGORY");
+				}
+			}
 		}
 	}
 
