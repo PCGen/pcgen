@@ -69,12 +69,12 @@
 			<li>In the Get-Info String field, enter the full version of the release (PCGen 5.16.1 for example)</li>
 			<li>In the Short Version field, enter just the version number of the release (5.16.1 for example)</li>
 			<li>In the VM Options field enter: -Xms128m -Xmx512m  (this is the memory defaults for the build)</li>
-			<li>In the Bundle Name field, enter: PCGen <version number> (this is the name of the app)</li>
+			<li>In the Bundle Name field, enter: PCGen &lt;version number&gt; (this is the name of the app)</li>
 			<li>Make sure that "Set Working Directory to Inside Application Package" is checked.</li>
 			<li>Switch back to the Build Information tab and click Choose Icon, navigate to "PCGenApp.icns" 
 				in the mac-installer/graphics/icon folder. You may have to paste it on the app after it is built 
 				anyway, I've found that it does not always stick for some reason.</li>
-			<li>Click the Create Application button.  Save the application as PCGen <version number>.app into 
+			<li>Click the Create Application button.  Save the application as PCGen &lt;version number&gt;.app into 
 				the folder you downloaded off of SF.</li>
 		</ol>
 
@@ -212,13 +212,12 @@
 		<ol style="list-style-type: upper-alpha">
 			<li>Launch /Developer/Applications/Utilities/PackageMaker</li>
 			<li>On the Installer Interface tab, fill in relevant information for the Title and Description 
-				fields (I usually just grab the PCGen boiler plate from the website for the Description field).</li>
-
-			<p class="sidebar1">PCGen is a character generator for role-playing games. It currently is aimed 
-				at supporting as many RPGs as is humanly possible. The project's current focus is on OGL games 
-				(OGL is Wizards of the Coast's Open Gaming License). PCGen runs on Windows, Solaris, Mac OS X, 
-				and Unix/Linux using Java 1.5.</p>
-
+				fields (I usually just grab the PCGen boiler plate from the website for the Description field).
+				<blockquote>PCGen is a character generator for role-playing games. It currently is aimed 
+					at supporting as many RPGs as is humanly possible. The project's current focus is on OGL games 
+					(OGL is Wizards of the Coast's Open Gaming License). PCGen runs on Windows, Solaris, Mac OS X, 
+					and Unix/Linux using Java 1.5.</blockquote>
+			</li>
 			<li>Click the Show Installer Interface Editor, for the background choose Custom background and 
 			navigate to the /mac-installer/graphics/Installer_Background.tif image.</li>
 			<li>Unstuff the mac-installer/text/Welcome.rtfd.zip file, it's stuffed because the file is really 
