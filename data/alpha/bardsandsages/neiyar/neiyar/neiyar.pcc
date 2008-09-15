@@ -35,6 +35,8 @@ URL:RPG Now|http://www.rpgnow.com/index.php?cPath=4008|Buy this pdf from RPGNow.
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:neiyar_permission.htm
 
+ABILITY:neiyar_abilities.lst
+ABILITYCATEGORY:neiyar_ability_categories.lst
 CLASS:neiyar_classes.lst
 DEITY:neiyar_deities.lst
 FEAT:neiyar_feats.lst
