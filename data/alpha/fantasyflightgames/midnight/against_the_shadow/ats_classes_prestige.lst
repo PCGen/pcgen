@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 10:40:13 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Mon Sep 15 13:45:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -31,15 +31,15 @@ CLASS:Aradil's Eye	HD:6		TYPE:PC.Prestige	ABB:ArEye		MAXLEVEL:10	SOURCEPAGE:p. 4
 CLASS:Aradil's Eye	PREFEAT:1,Inconspicuous	PRESKILL:7,Bluff=8,Gather Information=8,Hide=8,Disguise=5,Move Silently=5,Sense Motive=5,Spot=5	PRETEXT:Must be a Caransil that is judged completely loyal to the Witch Queen.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Aradil's Eye	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
-1																AUTO:FEAT|Simple Weapon Proficiency
-1	BONUS:VAR|AlterEgoLvl|CL											AUTO:FEAT|Alter Ego
-1																AUTO:FEAT|Mindbond
-1																AUTO:FEAT|Closed Mind
-2																AUTO:FEAT|Aradil's Eye Spy
+1														AUTO:FEAT|Simple Weapon Proficiency
+1	BONUS:VAR|AlterEgoLvl|CL									AUTO:FEAT|Alter Ego
+1														AUTO:FEAT|Mindbond
+1														AUTO:FEAT|Closed Mind
+2														AUTO:FEAT|Aradil's Eye Spy
 #3	SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL")|Undetectable Alignment
 #4	AUTO:FEAT|Fascinating Speech
 5						ABILITY:Special Ability|AUTOMATIC|Still Mind
-6						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Su)
+6														AUTO:FEAT|Hide in Plain Sight ~ Aradil's Eye
 7						ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 #8	Memory Alteration
 #9	Discerning Mind
@@ -48,9 +48,8 @@ CLASS:Aradil's Eye	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Deciphe
 CLASS:Avenging Knife	HD:6		TYPE:PC.Prestige	ABB:AvKn		MAXLEVEL:10	SOURCEPAGE:p. 45	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
 # Class Name		Required Ability							Required AL				Required Feat						Required Skill									Required Text
 CLASS:Avenging Knife	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:2,Improved Initiative,Inconspicuous	PRESKILL:4,Bluff=5,Gather Information=5,Hide=8,Move Silently=8	PRETEXT:Must have performed a heroic feat against the forces of Izrador
-
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Aradil's Eye	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
+CLASS:Avenging Knife	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1															ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 1																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)

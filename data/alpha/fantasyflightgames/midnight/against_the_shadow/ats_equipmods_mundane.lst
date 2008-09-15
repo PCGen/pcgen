@@ -5,8 +5,6 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 # Modifier Name	Unique Key	Type					Cost		Visible		Type granted	Source Page		Required Type	Bonus Equipment Modifiers	Modify the item cost			Apply to both heads
 Rope			KEY:ROPE	TYPE:BaseMaterial.Weapon	COST:0	VISIBLE:YES		ITYPE:Rope		SOURCEPAGE:p. 81
 Horn			KEY:HORN	TYPE:BaseMaterial.Weapon	COST:0	VISIBLE:YES		ITYPE:Horn		SOURCEPAGE:p. 81
-Bone			KEY:BONE	TYPE:BaseMaterial.Weapon	COST:0	VISIBLE:YES		ITYPE:Bone		SOURCEPAGE:p. 81
-Stone			KEY:STONE	TYPE:BaseMaterial.Weapon	COST:0	VISIBLE:YES		ITYPE:Stone		SOURCEPAGE:p. 81
 
 Foldable		KEY:FOLD	TYPE:Weapon				COST:0	VISIBLE:QUALIFY	ITYPE:Foldable	SOURCEPAGE:p. 86	PRETYPE:1,Weapon	BONUS:EQM|WEIGHTMULT|1.5	BONUS:ITEMCOST|TYPE=Weapon|300	ASSIGNTOALL:YES
 

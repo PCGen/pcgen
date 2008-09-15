@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 11:25:11 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Mon Sep 15 13:45:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 # Original Entry by: Tir Gwaith
 
@@ -61,7 +61,7 @@ CLASS:Legate	HD:8		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:UnlimitedSpel
 CLASS:Legate	PREALIGN:LE,TN,NE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Legate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Scry|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels											Caster level			Use Spell List
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level			Use Spell List
 CLASS:Legate	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Legate|CL	SPELLLIST:1|Cleric
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
@@ -136,7 +136,7 @@ CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.
 2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
 3																																	ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 4																																	ABILITY:Special Ability|AUTOMATIC|Trackless Step
-6																																	ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+6																																	ABILITY:Special Ability|AUTOMATIC|Immune to Poisons
 8	SAB:Fey Friend
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus
