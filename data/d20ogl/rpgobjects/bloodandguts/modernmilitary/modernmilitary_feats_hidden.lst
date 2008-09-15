@@ -14,7 +14,7 @@ Advanced Mountain Training		TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Mountain Warfare 
 Advanced Urban Training			TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Urban Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|UrbanTraining|1
 
 Air Superiority				TYPE:Special		VISIBLE:NO								SAB:Air Superiority +%|AirSuperiority													DEFINE:AirSuperiority|0
-Strafing					TYPE:Special		VISIBLE:NO								SAB:SA:Strafing +%|Strafing															DEFINE:Strafing|0
+Strafing					TYPE:Special		VISIBLE:NO								SAB:Strafing +%|Strafing															DEFINE:Strafing|0
 
 Hostage Rescue				TYPE:Special		VISIBLE:NO								SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
 
