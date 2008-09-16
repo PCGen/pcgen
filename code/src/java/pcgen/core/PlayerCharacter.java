@@ -84,6 +84,7 @@ import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.RaceStat;
@@ -17000,6 +17001,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private synchronized void rebuildAggregateAbilityListWorker()
 	{
 		GameMode gm = SettingsHandler.getGame();
+		Collection<CDOMReference<AbilityList>> abilityLists = AbilityList.getAbilityLists();
 		Set<AbilityCategory> catSet = new HashSet<AbilityCategory>();
 		catSet.addAll(gm.getAllAbilityCategories());
 		for (AbilityCategory cat : catSet)
@@ -17071,32 +17073,35 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						}
 					}
 				}
-				for (CDOMReference<Ability> ref : cdo
-						.getSafeListMods(Ability.ABILITYLIST)) {
-					Collection<AssociatedPrereqObject> assoc = cdo
-							.getListAssociations(Ability.ABILITYLIST, ref);
-					for (AssociatedPrereqObject apo : assoc) {
-						if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
-						{
-							continue;
-						}
-						for (Ability ab : ref.getContainedObjects()) {
-							List<String> choices = apo
-									.getAssociation(AssociationKey.ASSOC_CHOICES);
-							if (choices == null) {
-								choices = Collections.emptyList();
+				for (CDOMReference<AbilityList> list : abilityLists)
+				{
+					for (CDOMReference<Ability> ref : cdo
+							.getSafeListMods(list)) {
+						Collection<AssociatedPrereqObject> assoc = cdo
+								.getListAssociations(list, ref);
+						for (AssociatedPrereqObject apo : assoc) {
+							if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this, cdo))
+							{
+								continue;
 							}
-							Nature nature = apo
-									.getAssociation(AssociationKey.NATURE);
-							AbilityCategory cat = apo
-									.getAssociation(AssociationKey.CATEGORY);
-							List<Ability> abilities = theAbilities.get(
-									cat, nature);
-							Ability added = AbilityUtilities
-									.addAbilityToListwithChoices(ab, choices,
-											abilities);
-							if (added != null) {
-								added.setFeatType(nature);
+							for (Ability ab : ref.getContainedObjects()) {
+								List<String> choices = apo
+										.getAssociation(AssociationKey.ASSOC_CHOICES);
+								if (choices == null) {
+									choices = Collections.emptyList();
+								}
+								Nature nature = apo
+										.getAssociation(AssociationKey.NATURE);
+								AbilityCategory cat = apo
+										.getAssociation(AssociationKey.CATEGORY);
+								List<Ability> abilities = theAbilities.get(
+										cat, nature);
+								Ability added = AbilityUtilities
+										.addAbilityToListwithChoices(ab, choices,
+												abilities);
+								if (added != null) {
+									added.setFeatType(nature);
+								}
 							}
 						}
 					}

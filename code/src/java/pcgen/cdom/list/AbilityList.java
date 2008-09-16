@@ -17,8 +17,17 @@
  */
 package pcgen.cdom.list;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.Ability.Nature;
 
 /**
  * AbilityList is a CDOMListObject designed to reference a List of Ability
@@ -27,6 +36,10 @@ import pcgen.core.Ability;
 public class AbilityList extends CDOMListObject<Ability>
 {
 
+	
+	public static DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>> map =
+			new DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>>();
+	
 	/**
 	 * Returns the Ability Class object (Ability.class)
 	 * 
@@ -46,6 +59,28 @@ public class AbilityList extends CDOMListObject<Ability>
 		return false;
 	}
 
-	// No additional Functionality :)
+	public static CDOMReference<AbilityList> getAbilityListReference(Category<Ability> category,
+		Nature nature)
+	{
+		CDOMReference<AbilityList> list = map.get(category, nature);
+		if (list == null)
+		{
+			AbilityList al = new AbilityList();
+			al.setName("*" + category.toString() + ":" + nature.toString());
+			list = CDOMDirectSingleRef.getRef(al);
+			map.put(category, nature, list);
+		}
+		return list;
+	}
+
+	public static Collection<CDOMReference<AbilityList>> getAbilityLists()
+	{
+		List<CDOMReference<AbilityList>> list = new ArrayList<CDOMReference<AbilityList>>();
+		for (Category<Ability> cat : map.getKeySet())
+		{
+			list.addAll(map.values(cat));
+		}
+		return list;
+	}
 
 }

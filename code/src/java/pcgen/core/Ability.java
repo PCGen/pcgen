@@ -50,16 +50,12 @@ import pcgen.util.enumeration.Tab;
 public final class Ability extends PObject implements Categorisable, CategorizedCDOMObject<Ability>
 {
 	public static final CDOMReference<AbilityList> FEATLIST;
-	public static final CDOMReference<AbilityList> ABILITYLIST;
 
 	static
 	{
 		AbilityList wpl = new AbilityList();
 		wpl.setName("*Feats");
 		FEATLIST = CDOMDirectSingleRef.getRef(wpl);
-		wpl = new AbilityList();
-		wpl.setName("*Abilities");
-		ABILITYLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
 
 	/** An enum for the various types of ability options. */

@@ -37,6 +37,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability.Nature;
@@ -47,6 +48,7 @@ import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.RaceLoader;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 
@@ -347,7 +349,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		// Create some abilities to be added
 		AbilityCategory cat = new AbilityCategory("TestCat");
 		SettingsHandler.getGame().addAbilityCategory(cat);
-		new AbilityCategoryLoader().parseLine(Globals.getContext(), "TestCat\tCATEGORY:TestCat", null);
+		LoadContext context = Globals.getContext();
+		new AbilityCategoryLoader().parseLine(context, "TestCat\tCATEGORY:TestCat", null);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
@@ -374,13 +377,14 @@ public class PObjectTest extends AbstractCharacterTestCase
 		RaceLoader loader = new RaceLoader();
 		loader
 			.parseLine(
-				Globals.getContext(),
+				context,
 				race,
 				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		Globals.getContext().ref.importObject(ab1);
-		Globals.getContext().ref.importObject(ab2);
-		Globals.getContext().resolveReferences();
-		Collection<CDOMReference<Ability>> listMods = race.getListMods(Ability.ABILITYLIST);
+		context.ref.importObject(ab1);
+		context.ref.importObject(ab2);
+		context.resolveReferences();
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Ability.Nature.AUTOMATIC);
+		Collection<CDOMReference<Ability>> listMods = race.getListMods(autoList);
 		assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();

@@ -40,6 +40,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.list.AbilityList;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.TemplateStat;
 import pcgen.persistence.PersistenceLayerException;
@@ -136,14 +137,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-				Globals.getContext(),
+				context,
 				null,
 				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
 		context.resolveReferences();
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Ability.Nature.AUTOMATIC);
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
@@ -198,14 +200,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					Globals.getContext(),
+					context,
 					null,
 				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
-		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
-		Globals.getContext().ref.importObject(ab1);
-		Globals.getContext().ref.importObject(ab2);
-		Globals.getContext().resolveReferences();
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		context.ref.importObject(ab1);
+		context.ref.importObject(ab2);
+		context.resolveReferences();
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(AbilityCategory.FEAT, Ability.Nature.AUTOMATIC);
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
@@ -262,14 +265,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					Globals.getContext(),
+					context,
 					null,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
 		context.resolveReferences();
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Ability.Nature.AUTOMATIC);
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(1, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
@@ -282,7 +286,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate lvl2 = lvlTemplates.get(0);
 		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
 		
-		listMods = lvl2.getListMods(Ability.ABILITYLIST);
+		listMods = lvl2.getListMods(autoList);
 		assertEquals(1, listMods.size());
 		iterator = listMods.iterator();
 		ref1 = iterator.next();
@@ -347,14 +351,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		loader
 			.parseLine(
-					Globals.getContext(),
+					context,
 				null,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
-		PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template = context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.ref.importObject(ab1);
 		context.ref.importObject(ab2);
 		context.resolveReferences();
-		Collection<CDOMReference<Ability>> listMods = template.getListMods(Ability.ABILITYLIST);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(AbilityCategory.FEAT, Ability.Nature.AUTOMATIC);
+		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(1, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
@@ -367,7 +372,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate lvl2 = lvlTemplates.get(0);
 		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
 		
-		listMods = lvl2.getListMods(Ability.ABILITYLIST);
+		listMods = lvl2.getListMods(autoList);
 		assertEquals(1, listMods.size());
 		iterator = listMods.iterator();
 		ref1 = iterator.next();

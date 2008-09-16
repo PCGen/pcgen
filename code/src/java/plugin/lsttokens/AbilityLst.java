@@ -23,6 +23,7 @@
 package plugin.lsttokens;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -31,11 +32,14 @@ import java.util.TreeSet;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -96,7 +100,8 @@ import pcgen.util.Logging;
  *
  */
 public class AbilityLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject> {
+		CDOMPrimaryToken<CDOMObject>
+{
 
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -106,28 +111,29 @@ public class AbilityLst extends AbstractToken implements
 		return "ABILITY";
 	}
 
-	public boolean parse(LoadContext context, CDOMObject obj, String value) throws PersistenceLayerException
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+		throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
-		
+
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		final AbilityCategory category = SettingsHandler.getGame()
-				.getAbilityCategory(cat);
+		final AbilityCategory category =
+				SettingsHandler.getGame().getAbilityCategory(cat);
 		if (category == null)
 		{
 			Logging.errorPrint(getTokenName()
-					+ " refers to invalid Ability Category: " + cat);
+				+ " refers to invalid Ability Category: " + cat);
 			return false;
 		}
 		if (!tok.hasMoreTokens())
 		{
 
 			Logging.errorPrint(getTokenName() + " must have a Nature, "
-					+ "Format is: CATEGORY|NATURE|AbilityName: " + value);
+				+ "Format is: CATEGORY|NATURE|AbilityName: " + value);
 			return false;
 		}
 		final String natureKey = tok.nextToken();
@@ -139,53 +145,84 @@ public class AbilityLst extends AbstractToken implements
 		catch (IllegalArgumentException iae)
 		{
 			Logging.errorPrint(getTokenName()
-					+ " refers to invalid Ability Nature: " + natureKey);
+				+ " refers to invalid Ability Nature: " + natureKey);
 			return false;
 		}
 		if (!tok.hasMoreTokens())
 		{
 			Logging.errorPrint(getTokenName()
-					+ " must have abilities, Format is: "
-					+ "CATEGORY|NATURE|AbilityName: " + value);
+				+ " must have abilities, Format is: "
+				+ "CATEGORY|NATURE|AbilityName: " + value);
 			return false;
 		}
-	
+
 		String token = tok.nextToken();
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
 			Logging.errorPrint("Cannot have only PRExxx subtoken in "
-					+ getTokenName() + ": " + value);
+				+ getTokenName() + ": " + value);
 			return false;
 		}
 
-		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
+		ArrayList<AssociatedPrereqObject> edgeList =
+				new ArrayList<AssociatedPrereqObject>();
+
+		CDOMReference<AbilityList> abilList =
+				AbilityList.getAbilityListReference(category, nature);
+
+		boolean first = true;
 
 		while (true)
 		{
-			CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(
-					context, ABILITY_CLASS, category, token);
-			if (ability == null)
+			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
-				return false;
+				if (!first)
+				{
+					Logging.errorPrint("  Non-sensical " + getTokenName()
+						+ ": .CLEAR was not the first list item: " + value);
+					return false;
+				}
+				context.getListContext().removeAllFromList(getTokenName(), obj,
+					abilList);
 			}
-			AssociatedPrereqObject assoc = context.getListContext().addToList(
-					getTokenName(), obj, Ability.ABILITYLIST, ability);
-			assoc.setAssociation(AssociationKey.NATURE, nature);
-			assoc.setAssociation(AssociationKey.CATEGORY, category);
-			if (token.indexOf('(') != -1)
+			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
-				List<String> choices = new ArrayList<String>();
-				AbilityUtilities.getUndecoratedName(token, choices);
-				assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+				String clearText = token.substring(7);
+				CDOMReference<Ability> ref =
+						TokenUtilities.getTypeOrPrimitive(context,
+							ABILITY_CLASS, category, clearText);
+				context.getListContext().removeFromList(getTokenName(), obj,
+					abilList, ref);
 			}
-			edgeList.add(assoc);
-
+			else
+			{
+				CDOMReference<Ability> ability =
+						TokenUtilities.getTypeOrPrimitive(context,
+							ABILITY_CLASS, category, token);
+				if (ability == null)
+				{
+					return false;
+				}
+				AssociatedPrereqObject assoc =
+						context.getListContext().addToList(getTokenName(), obj,
+							abilList, ability);
+				assoc.setAssociation(AssociationKey.NATURE, nature);
+				assoc.setAssociation(AssociationKey.CATEGORY, category);
+				if (token.indexOf('(') != -1)
+				{
+					List<String> choices = new ArrayList<String>();
+					AbilityUtilities.getUndecoratedName(token, choices);
+					assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+				}
+				edgeList.add(assoc);
+			}
 			if (!tok.hasMoreTokens())
 			{
 				// No prereqs, so we're done
 				return true;
 			}
+			first = false;
 			token = tok.nextToken();
 			if (token.startsWith("PRE") || token.startsWith("!PRE"))
 			{
@@ -199,7 +236,7 @@ public class AbilityLst extends AbstractToken implements
 			if (prereq == null)
 			{
 				Logging.errorPrint("   (Did you put feats after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)");
+					+ "PRExxx tags in " + getTokenName() + ":?)");
 				return false;
 			}
 			for (AssociatedPrereqObject edge : edgeList)
@@ -218,42 +255,51 @@ public class AbilityLst extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		AssociatedChanges<CDOMReference<Ability>> changes = context
-				.getListContext().getChangesInList(getTokenName(), obj,
-						Ability.ABILITYLIST);
-		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
-				.getAddedAssociations();
-		if (mtl == null || mtl.isEmpty())
+		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists =
+				context.getListContext()
+					.getChangedLists(obj, AbilityList.class);
+		if (changedLists == null || changedLists.isEmpty())
 		{
 			// Zero indicates no Token
 			return null;
 		}
-		
-		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
-		for (CDOMReference<Ability> ab : mtl.getKeySet())
+		Set<String> returnSet = new TreeSet<String>();
+		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m =
+				new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		for (CDOMReference ref : changedLists)
 		{
-			for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+			AssociatedChanges<CDOMReference<Ability>> changes =
+					context.getListContext().getChangesInList(getTokenName(),
+						obj, ref);
+			MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl =
+					changes.getAddedAssociations();
+			for (CDOMReference<Ability> ab : mtl.getKeySet())
 			{
-				Ability.Nature nature = assoc
-						.getAssociation(AssociationKey.NATURE);
-				AbilityCategory cat = assoc
-						.getAssociation(AssociationKey.CATEGORY);
-				m.addToListFor(nature, cat, assoc.getPrerequisiteList(), ab);
+				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+				{
+					Ability.Nature nature =
+							assoc.getAssociation(AssociationKey.NATURE);
+					AbilityCategory cat =
+							assoc.getAssociation(AssociationKey.CATEGORY);
+					m
+						.addToListFor(nature, cat, assoc.getPrerequisiteList(),
+							ab);
+				}
 			}
 		}
 
-		Set<String> returnSet = new TreeSet<String>();
 		for (Ability.Nature nature : m.getKeySet())
 		{
 			for (Category<Ability> category : m.getSecondaryKeySet(nature))
 			{
-				for (List<Prerequisite> prereqs : m.getTertiaryKeySet(nature, category))
+				for (List<Prerequisite> prereqs : m.getTertiaryKeySet(nature,
+					category))
 				{
 					StringBuilder sb = new StringBuilder();
 					sb.append(category).append(Constants.PIPE);
 					sb.append(nature).append(Constants.PIPE);
-					sb.append(ReferenceUtilities.joinLstFormat(m.getListFor(nature,
-							category, prereqs), Constants.PIPE));
+					sb.append(ReferenceUtilities.joinLstFormat(m.getListFor(
+						nature, category, prereqs), Constants.PIPE));
 					if (prereqs != null && !prereqs.isEmpty())
 					{
 						sb.append(Constants.PIPE);
@@ -263,6 +309,7 @@ public class AbilityLst extends AbstractToken implements
 				}
 			}
 		}
+
 		return returnSet.toArray(new String[returnSet.size()]);
 	}
 
