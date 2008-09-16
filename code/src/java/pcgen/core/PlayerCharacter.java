@@ -17911,6 +17911,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Number getLockedStat(PCStat stat)
 	{
 		Number max = Double.NEGATIVE_INFINITY;
+		boolean hit = false;
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
 			List<StatLock> lockList = cdo.getListFor(ListKey.STAT_LOCKS);
@@ -17925,13 +17926,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 									cdo.getKeyName());
 						if (val.doubleValue() > max.doubleValue())
 						{
+							hit = true;
 							max = val;
 						}
 					}
 				}
 			}
 		}
-		return null;
+		return hit ? max : null;
 	}
 
 	public PCClass getSelectedFavoredClass()
