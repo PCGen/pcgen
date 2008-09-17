@@ -107,7 +107,7 @@ These files can be renamed and used for releases.
 
 	<!-- The Javadoc CLASSPATH, used by the javadoc process -->
 	<path id="javadoc.classpath">
-		<pathelement path="${build.classes.dir} ${lib.dir}/lib/junit.jar" />
+		<pathelement path="${build.classes.dir} ${lib.dir}/lib/junit-4.1.jar" />
 		<pathelement location="${bin.dir}/${jar.bin.file}" />
 		<path refid="project.jars" />
 	</path>
@@ -116,7 +116,7 @@ These files can be renamed and used for releases.
 	<property name="test.jar.file" value="pcgen-tests.jar" />
 	<property name="test.manifest.file" value="code/manifest-tests" />
 	<property name="test.framework.class" value="AllJUnitTests" />
-	<property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${s}/test/junit.jar ${lib.dir}/test/xmlunit1.0.jar" />
+	<property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${s}/test/junit-4.1.jar ${lib.dir}/test/xmlunit1.0.jar" />
 	<property name="test.all-output.file" value="TEST-test.AllJUnitTests.txt" />
 	<property name="test.bin.pcgen.bat" value="pcgen-tests.bat" />
 	<property name="test.bin.pcgen.sh" value="pcgen-tests.sh" />
@@ -150,6 +150,7 @@ These files can be renamed and used for releases.
 		<mkdir dir="${build.dir}/test-results/xml" />
 		<mkdir dir="${build.src.dir}/pcgen/util" />
 		<mkdir dir="${build.rpt.dir}" />
+		<mkdir dir="${bin.dir}" />
 	</target>
 
 	<!-- Compile the JavaCC sources -->
@@ -744,7 +745,7 @@ pcgen.filepaths=user
 	-->
 
 	<!-- Run the full test cycle -->
-	<target name="test" depends="doquicktest, dotest, reporttest, failure.notice, success.notice" description="Run test suite (include lib/test/junit.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
+	<target name="test" depends="doquicktest, dotest, reporttest, failure.notice, success.notice" description="Run test suite (include lib/test/junit-4.1.jar and lib/test/xmlunit1.0.jar in CLASSPATH)">
 	</target>
 
 	<!-- Run the tests -->
@@ -887,10 +888,10 @@ Class-Path: ${test.manifest.extra.jars}
 	<!-- Create the Windows and POSIX scripts to externally run the tests -->
 	<target name="test.scripts" depends="init">
 		<echo file="${bin.dir}/${test.bin.pcgen.bat}">@echo off
-java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/test/junit.jar;lib/test/xmlunit1.0.jar;lib/fop/xercesImpl-2.2.1.jar;lib/fop/avalon-framework-cvs-20020806.jar;lib/fop/xml-apis.jar;lib/fop/xalan-2.4.1.jar;lib/fop/batik.jar;lib/fop/fop.jar;lib/lnf/kunststoff.jar;lib/lnf/skinlf.jar;lib/lnf/wraplf.jar;lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;lib/fop/xercesImpl-2.2.1.jar;lib/fop/avalon-framework-cvs-20020806.jar;lib/fop/xml-apis.jar;lib/fop/xalan-2.4.1.jar;lib/fop/batik.jar;lib/fop/fop.jar;lib/lnf/kunststoff.jar;lib/lnf/skinlf.jar;lib/lnf/wraplf.jar;lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
 		<echo file="${bin.dir}/${test.bin.pcgen.sh}">#!/bin/sh
-java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/test/junit.jar:lib/test/xmlunit1.0.jar:lib/fop/xercesImpl-2.2.1.jar:lib/fop/avalon-framework-cvs-20020806.jar:lib/fop/xml-apis.jar:lib/fop/xalan-2.4.1.jar:lib/fop/batik.jar:lib/fop/fop.jar:lib/lnf/kunststoff.jar:lib/lnf/skinlf.jar:lib/lnf/wraplf.jar:lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/test/junit-4.1.jar:lib/test/xmlunit1.0.jar:lib/fop/xercesImpl-2.2.1.jar:lib/fop/avalon-framework-cvs-20020806.jar:lib/fop/xml-apis.jar:lib/fop/xalan-2.4.1.jar:lib/fop/batik.jar:lib/fop/fop.jar:lib/lnf/kunststoff.jar:lib/lnf/skinlf.jar:lib/lnf/wraplf.jar:lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
 		<chmod file="${bin.dir}/${test.bin.pcgen.sh}" perm="+x" />
 	</target>
