@@ -138,10 +138,14 @@ BIO
 			<weight_nounit>0</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>0</cost>
+			<cost>-3</cost>
 			<current>2</current>
 		</poolpoints>
 		<notes>
+			<note>
+				<name>Character Sheet Notes</name>
+				<value></value>
+			</note>
 		</notes>
 	</basics>
 	<!--
@@ -376,9 +380,9 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>27</total>
+			<total>69</total>
 			<used>0</used>
-			<unused>27</unused>
+			<unused>69</unused>
 		</skillpoints>
 		<list_mods>Bluff +5, Disguise +5</list_mods>
 		<max_class_skill_level>9</max_class_skill_level>
@@ -910,8 +914,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>Bite</short>
-					<long>Bite (Natural/Primary)</long>
+					<short>Claw</short>
+					<long>Claw (Natural/Primary)</long>
 				</name>
 				<category>Natural-Natural,Melee</category>
 				<critical>
@@ -919,24 +923,24 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+15</hit>
+					<hit>+15/+15</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+15</total_hit>
+					<total_hit>+15/+15</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Carried</hand>
-				<num_attacks>2</num_attacks>
+				<num_attacks>3</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
 				<template></template>
-				<type>BPS</type>
+				<type>PS</type>
 				<weight>0</weight>
 				<sequence>0</sequence>
 			</common>
 			<simple>
-				<to_hit>+15</to_hit>
-				<damage>1d6+9</damage>
+				<to_hit>+15/+15</to_hit>
+				<damage>1d4+9</damage>
 				<range>0 ft.</range>
 			</simple>
 		</weapon>
@@ -986,6 +990,44 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>*Bite</short>
+					<long>*Bite (Natural/Secondary)</long>
+				</name>
+				<category>Natural-Natural,Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+10</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+10</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Off-hand</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>BPS</type>
+				<weight>0</weight>
+				<sequence>2</sequence>
+			</common>
+			<simple>
+				<to_hit>+10</to_hit>
+				<damage>1d6+4</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
+ 
+ 
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
 					<short>*Claw</short>
 					<long>*Claw (Natural/Secondary)</long>
 				</name>
@@ -995,23 +1037,23 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+10/+10</hit>
+					<hit>+10</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+10/+10</total_hit>
+					<total_hit>+10</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Off-hand</hand>
-				<num_attacks>3</num_attacks>
+				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
 				<template></template>
 				<type>PS</type>
 				<weight>0</weight>
-				<sequence>2</sequence>
+				<sequence>3</sequence>
 			</common>
 			<simple>
-				<to_hit>+10/+10</to_hit>
+				<to_hit>+10</to_hit>
 				<damage>1d4+4</damage>
 				<range>0 ft.</range>
 			</simple>
@@ -1096,9 +1138,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Bite (Natural/Primary)</longname>
+			<longname>Claw (Natural/Primary)</longname>
 			<id></id>
-			<name>Bite</name>
+			<name>Claw</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1117,7 +1159,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1144,6 +1186,32 @@ BIO
 			</size>
 			<special_properties></special_properties>
 			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Bite (Natural/Secondary)</longname>
+			<id></id>
+			<name>Bite</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1204,7 +1272,7 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Bite</name>
+					<name>Claw</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
@@ -1220,7 +1288,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1242,6 +1310,27 @@ BIO
 					</size>
 					<special_properties></special_properties>
 					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Bite</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1299,18 +1388,22 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
+			<name>Immunity To Charm Effects (Ex)</name>
+			<description></description>
+		</ability>
+		<ability>
 			<name>Immunity to Fire (Ex)</name>
 			<description></description>
 		</ability>
 		<ability>
-			<name>Immunity to sleep and charm effects</name>
+			<name>Immunity to Sleep (Ex)</name>
 			<description></description>
 		</ability>
 		<ability>
 			<name>Monstrous Humanoid Traits</name>
 			<description></description>
 		</ability>
-		<race>Detect Thoughts (Su), Change Shape (Su), Immunity to sleep and charm effects</race>
+		<race></race>
 		<class>
 			<class>Monstrous humanoid</class>
 			<ability></ability>
@@ -1434,27 +1527,7 @@ BIO
 		</feat>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-		<feat>
-			<name>Natural Weapons (Medium)</name>
-			<description></description>
-			<type>TEMPLATENATURALWEAPONS</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
 <!-- Hidden VFEATS -->
-		<feat>
-			<name>Monstrous Humanoid Traits</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>T</virtual>
-		</feat>
 <!-- END Hidden VFEATS -->
 	</feats>
 	<!--
@@ -1481,6 +1554,28 @@ BIO
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Change Shape</name>
+			<description>You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.</description>
+			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Detect Thoughts</name>
+			<description></description>
+			<type>SPECIALQUALITY.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1522,7 +1617,62 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Breath Weapon</name>
+			<description></description>
+			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity To Charm Effects</name>
+			<description>You are never subject to charm effects</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity To Fire</name>
+			<description>You never take Fire damage</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity To Sleep</name>
+			<description>You are never subject to sleep effects</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Monstrous Humanoid Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Monstrous Humanoid Traits</name>
 			<description></description>
 			<type>SPECIAL</type>
 			<associated></associated>
@@ -1571,8 +1721,23 @@ BIO
 			<cr>0</cr>
 			<dr></dr>
 			<feat></feat>
-			<sa>Immunity to Fire (Ex), Breath Weapon (Ex) 60&#39; Line of Fire 1/day 6d8 (DC16)</sa>
+			<sa></sa>
 			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name></name>
+			<strmod></strmod>
+			<dexmod></dexmod>
+			<conmod></conmod>
+			<intmod></intmod>
+			<wismod></wismod>
+			<chamod></chamod>
+			<cr></cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr></sr>
 			<bonuslist></bonuslist>
 		</template>
 		<template>
