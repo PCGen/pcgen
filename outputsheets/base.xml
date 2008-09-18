@@ -266,7 +266,9 @@
 		<natural>|AC.NaturalArmor|</natural>
 		<class_bonus>|AC.ClassDefense|</class_bonus>
 		<dodge_bonus>|AC.Dodge|</dodge_bonus>
+|IIF(isgamemode("Modern").OR.isgamemode("Darwins_World_2").OR.isgamemode("Sidewinder"))|
 		<equipment_bonus>|AC.Equipment|</equipment_bonus>
+|ENDIF|
 		<misc>|AC.Misc|</misc>
 		<miss_chance/>
 		<max_dex>|MAXDEX|</max_dex>
