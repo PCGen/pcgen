@@ -219,6 +219,16 @@ public class Aspect
 	{
 		return key.toString();
 	}
+	
+	/**
+	 * Gets the key of the aspect.
+	 * 
+	 * @return the aspect key
+	 */
+	public AspectName getKey()
+	{
+		return key;
+	}
 
 	/**
 	 * Gets the name string after having substituting all variables.

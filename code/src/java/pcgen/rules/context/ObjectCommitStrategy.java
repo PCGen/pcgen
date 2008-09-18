@@ -26,6 +26,7 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -61,6 +62,12 @@ public interface ObjectCommitStrategy
 	public <T> T getObject(CDOMObject cdo, ObjectKey<T> ik);
 
 	public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk);
+
+	public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value);
+
+	public <K, V> void remove(CDOMObject cdo, MapKey<K, V> mk, K key);
+
+	public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk);
 
 	public void setExtractURI(URI extractURI);
 

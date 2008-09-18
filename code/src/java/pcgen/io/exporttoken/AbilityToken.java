@@ -25,10 +25,17 @@ package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
+import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
@@ -363,7 +370,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASPECTCOUNT"))
 			{
-				retString += aAbility.getSizeOfListFor(ListKey.ASPECT);
+				retString += aAbility.getSafeSizeOfMapFor(MapKey.ASPECT);
 			}
 			else if (tokenSource.indexOf(".HASASPECT.") > -1)
 			{
@@ -402,10 +409,13 @@ public class AbilityToken extends Token
 	 */
 	private String getAspectString(PlayerCharacter pc, Ability ability)
 	{
-		List<Aspect> aspectList = ability.getSafeListFor(ListKey.ASPECT);
+		Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
+		SortedSet<AspectName> sortedKeys = new TreeSet<AspectName>(aspectKeys);
+		//List<Aspect> aspectList = ability.getSafeListFor(ListKey.ASPECT);
 		StringBuffer buff = new StringBuffer(); 
-		for (Aspect aspect : aspectList)
+		for (AspectName key : sortedKeys)
 		{
+			Aspect aspect = ability.get(MapKey.ASPECT, key);
 			if (buff.length() > 0)
 			{
 				buff.append(", ");
@@ -444,9 +454,12 @@ public class AbilityToken extends Token
 		Aspect target = null;
 		if (index > -1)
 		{
-			if (index < ability.getSizeOfListFor(ListKey.ASPECT))
+			if (index < ability.getSafeSizeOfMapFor(MapKey.ASPECT))
 			{
-				target = ability.getElementInList(ListKey.ASPECT, index);
+				Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
+				List<AspectName> sortedKeys = new ArrayList<AspectName>(aspectKeys);
+				Collections.sort(sortedKeys);
+				target = ability.get(MapKey.ASPECT, sortedKeys.get(index));
 			}
 		}
 		else
@@ -496,15 +509,7 @@ public class AbilityToken extends Token
 			return null;
 		}
 
-		List<Aspect> aspectList = ability.getSafeListFor(ListKey.ASPECT);
-		for (Aspect aspect : aspectList)
-		{
-			if (key.equals(aspect.getName()))
-			{
-				return aspect;
-			}
-		}
-		return null;
+		return ability.get(MapKey.ASPECT, AspectName.getConstant(key));
 	}
 
 	/**

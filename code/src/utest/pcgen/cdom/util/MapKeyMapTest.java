@@ -137,11 +137,11 @@ public class MapKeyMapTest extends TestCase
 		assertEquals("Validate initial value of breed", breedAspect, mapKeyMap
 			.get(MapKey.ASPECT, breedKey));
 		assertTrue("Should be true as item is present", mapKeyMap
-			.removeFromListFor(MapKey.ASPECT, breedKey));
+			.removeFromMapFor(MapKey.ASPECT, breedKey));
 		assertEquals("Validate breed is no longer present", null, mapKeyMap
 			.get(MapKey.ASPECT, breedKey));
 		assertFalse("Should be false as item is no longer present", mapKeyMap
-			.removeFromListFor(MapKey.ASPECT, breedKey));
+			.removeFromMapFor(MapKey.ASPECT, breedKey));
 	}
 
 	/**
@@ -184,12 +184,12 @@ public class MapKeyMapTest extends TestCase
 		assertTrue("Should have TEST now", mapKeyMap.containsMapFor(MapKey.TEST));
 
 		assertTrue("Should be true as item is present", mapKeyMap
-			.removeFromListFor(MapKey.TEST, "foo"));
+			.removeFromMapFor(MapKey.TEST, "foo"));
 		assertTrue("Should have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
 		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.TEST));
 
 		assertTrue("Should be true as item is present", mapKeyMap
-			.removeFromListFor(MapKey.ASPECT, breedKey));
+			.removeFromMapFor(MapKey.ASPECT, breedKey));
 		assertTrue("Should still have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
 		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.TEST));
 	}

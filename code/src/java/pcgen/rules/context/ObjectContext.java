@@ -32,6 +32,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -84,6 +85,11 @@ public class ObjectContext
 		edits.addToList(cdo, key, value);
 	}
 
+	public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value)
+	{
+		edits.put(cdo, mk, key, value);
+	}
+
 	public void put(CDOMObject cdo, FormulaKey fk, Formula f)
 	{
 		edits.put(cdo, fk, f);
@@ -113,7 +119,7 @@ public class ObjectContext
 	{
 		edits.put(cdo, vk, f);
 	}
-
+	
 //	public void give(String sourceToken, CDOMObject cdo, PrereqObject target)
 //	{
 //		addToList(cdo, ListKey.GIVEN, new SourceWrapper(target, sourceToken));
@@ -141,6 +147,11 @@ public class ObjectContext
 	public void removeList(CDOMObject cdo, ListKey<?> lk)
 	{
 		edits.removeList(cdo, lk);
+	}
+
+	public <K, V> void remove(CDOMObject cdo, MapKey<K, V> mk, K key)
+	{
+		edits.remove(cdo, mk, key);
 	}
 
 	public void commit()
@@ -171,6 +182,10 @@ public class ObjectContext
 					for (ListKey<?> key : neg.getListKeys())
 					{
 						removeListKey(cdo, key, neg);
+					}
+					for (MapKey<?, ?> key1 : neg.getMapKeys())
+					{
+						removeMapKey(cdo, key1, neg);
 					}
 				}
 			}
@@ -211,6 +226,10 @@ public class ObjectContext
 					for (ListKey<?> key : pos.getListKeys())
 					{
 						putListKey(cdo, key, pos);
+					}
+					for (MapKey<?, ?> key1 : pos.getMapKeys())
+					{
+						putMapKey(cdo, key1, pos);
 					}
 					/*
 					 * TODO CDOM List Mods
@@ -260,6 +279,25 @@ public class ObjectContext
 		commit.put(cdo, key, neg.get(key));
 	}
 
+	private <K, V> void removeMapKey(CDOMObject cdo, MapKey<K, V> key1,
+			CDOMObject neg)
+	{
+		Set<K> secKeys = neg.getKeysFor(key1); 
+		for (K key2 : secKeys)
+		{
+			commit.remove(cdo, key1, key2);
+		}
+	}
+
+	private <K, V>void putMapKey(CDOMObject cdo, MapKey<K, V> key1, CDOMObject pos)
+	{
+		Set<K> secKeys = pos.getKeysFor(key1); 
+		for (K key2 : secKeys)
+		{
+			commit.put(cdo, key1, key2, pos.get(key1, key2));
+		}
+	}
+
 	public void rollback()
 	{
 		edits.decommit();
@@ -278,6 +316,11 @@ public class ObjectContext
 	public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk)
 	{
 		return commit.getListChanges(cdo, lk);
+	}
+
+	public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
+	{
+		return commit.getMapChanges(cdo, mk);
 	}
 
 //	public <T> Changes<T> getGivenChanges(String sourceToken, CDOMObject cdo, Class<T> cl)
@@ -422,6 +465,26 @@ public class ObjectContext
 			getNegative(sourceURI, cdo).addToListFor(lk, val);
 		}
 
+		// ==== MapKey manipulation functions ====
+
+		public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value)
+		{
+			getPositive(sourceURI, cdo).addToMapFor(mk, key, value);
+		}
+
+		public <K, V> void remove(CDOMObject cdo, MapKey<K, V> mk, K key)
+		{
+			getNegative(sourceURI, cdo).addToMapFor(mk, key, null);
+		}
+
+		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
+		{
+			return new MapChanges<K, V>(getPositive(sourceURI, cdo).getMapFor(
+				mk), getNegative(sourceURI, cdo).getMapFor(mk), false);
+		}
+		
+		// ==== end of MapKey manipulation functions ====
+		
 		public String getString(CDOMObject cdo, StringKey sk)
 		{
 			String added = getPositive(extractURI, cdo).get(sk);

@@ -96,7 +96,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private static boolean dontRecurse = false;
 
 	/** A map of Lists for the object */
-	protected final MapKeyMapToList mapChar = new MapKeyMapToList();
+	protected final MapKeyMapToList mapListChar = new MapKeyMapToList();
 
 	/** List of associated items for the object */
 	// TODO Contains strings or FeatMultipleObjects
@@ -1363,22 +1363,22 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public void addSAB(SpecialAbility sa, int level)
 	{
-		mapChar.addToListFor(MapKey.SAB, level, sa);
+		mapListChar.addToListFor(MapKey.SAB, level, sa);
 	}
 
 	public void clearSABList(int level)
 	{
-		mapChar.removeListFor(MapKey.SAB, level);
+		mapListChar.removeListFor(MapKey.SAB, level);
 	}
 	
 	public void clearAllSABLists()
 	{
-		mapChar.removeListsFor(MapKey.SAB);
+		mapListChar.removeListsFor(MapKey.SAB);
 	}
 	
 	public void removeSAB(String s, int level)
 	{
-		List<SpecialAbility> sabs = mapChar.getListFor(MapKey.SAB, level);
+		List<SpecialAbility> sabs = mapListChar.getListFor(MapKey.SAB, level);
 		if (sabs != null)
 		{
 			for (SpecialAbility sa : sabs)
@@ -1386,7 +1386,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				if (sa.getDisplayName().equals(s)
 					|| sa.getDisplayName().startsWith(s + "|"))
 				{
-					mapChar.removeFromListFor(MapKey.SAB, level, sa);
+					mapListChar.removeFromListFor(MapKey.SAB, level, sa);
 				}
 			}
 		}
@@ -1394,9 +1394,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public void addSABToList(List<SpecialAbility> saList, PlayerCharacter pc)
 	{
-		for (Integer lvl : mapChar.getSecondaryKeySet(MapKey.SAB))
+		for (Integer lvl : mapListChar.getSecondaryKeySet(MapKey.SAB))
 		{
-			List<SpecialAbility> sabs = mapChar.getListFor(MapKey.SAB, lvl);
+			List<SpecialAbility> sabs = mapListChar.getListFor(MapKey.SAB, lvl);
 			if (sabs != null)
 			{
 				for (SpecialAbility sa : sabs)
@@ -1862,7 +1862,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addAutoArray(String arrayName, String item)
 	{
-		mapChar.addToListFor(MapKey.AUTO_ARRAY, arrayName, item);
+		mapListChar.addToListFor(MapKey.AUTO_ARRAY, arrayName, item);
 	}
 
 	/**
@@ -1886,7 +1886,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void clearAutoMap()
 	{
-		mapChar.removeListsFor(MapKey.AUTO_ARRAY);
+		mapListChar.removeListsFor(MapKey.AUTO_ARRAY);
 	}
 
 	/**
@@ -1896,17 +1896,17 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void clearAutoTag(String tag)
 	{
-		mapChar.removeListFor(MapKey.AUTO_ARRAY, tag);
+		mapListChar.removeListFor(MapKey.AUTO_ARRAY, tag);
 	}
 
 	public final Set<String> getAutoMapKeys()
 	{
-		return mapChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
+		return mapListChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
 	}
 	
 	public final List<String> getAuto(String tag)
 	{
-		return mapChar.getListFor(MapKey.AUTO_ARRAY, tag);
+		return mapListChar.getListFor(MapKey.AUTO_ARRAY, tag);
 	}
 	
 	/**
@@ -2229,12 +2229,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append("\tKEY:").append(getKeyName());
 //		}
 
-		Set<String> aaKeys = mapChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
+		Set<String> aaKeys = mapListChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
 		if (aaKeys != null)
 		{
 			for (String s : aaKeys)
 			{
-				List<String> values = mapChar.getListFor(MapKey.AUTO_ARRAY, s);
+				List<String> values = mapListChar.getListFor(MapKey.AUTO_ARRAY, s);
 				for (String value : values)
 				{
 					if (value != null && value.trim().length() > 0)
@@ -2620,7 +2620,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	  */
 	public final void addAutoTagsToList(final String tag, final Collection aList, final PlayerCharacter aPC, boolean expandWeaponTypes)
 	{
-		List<String> list = mapChar.getListFor(MapKey.AUTO_ARRAY, tag);
+		List<String> list = mapListChar.getListFor(MapKey.AUTO_ARRAY, tag);
 		
 		if (list == null)
 		{

@@ -146,20 +146,59 @@ public class MapKeyMap
 	}
 
 	/**
-	 * Removes the given value from the list for the given ListKey. Returns true
-	 * if the value was successfully removed from the list for the given
-	 * ListKey. Returns false if there is not a list for the given ListKey or if
-	 * the list for the given ListKey did not contain the given value object.
+	 * Returns a copy of the List contained in this MapKeyMap for the
+	 * given ListKey. This method returns null if the given key is not in this
+	 * MapKeyMap.
+	 * 
+	 * This method is value-semantic in that no changes are made to the object
+	 * passed into the method and ownership of the returned List is transferred
+	 * to the class calling this method.
 	 * 
 	 * @param key
-	 *            The ListKey indicating which List the given object should be
-	 *            removed from
-	 * @param value
-	 *            The value to be removed from the List for the given key
-	 * @return true if the value was successfully removed from the list for the
-	 *         given key; false otherwise
+	 *            The ListKey for which a copy of the list should be returned.
+	 * @return a copy of the List contained in this MapKeyMap for the
+	 *         given key; null if the given key is not a key in this
+	 *         MapKeyMap.
 	 */
-	public <K, V> boolean removeFromListFor(MapKey<K, V> key1, K key2)
+	public <K, V> Map<K, V> getMapFor(MapKey<K, V> key1)
+	{
+		return map.getMapFor(key1);
+	}
+
+	/**
+	 * Returns a Set of the secondary keys for the given primary key in this
+	 * MapKeyMap. This method returns an empty set if the given key is not in this
+	 * MapKeyMap.
+	 * 
+	 * Note: This Set is reference-semantic. The ownership of the Set is
+	 * transferred to the calling Object; therefore, changes to the returned Set
+	 * will NOT impact the MapKeyMap.
+	 * 
+	 * @param key
+	 *            The MapKey for which a copy of the keys should be returned.
+	 * @return A <tt>Set</tt> of secondary key objects for the given primary
+	 *         key.
+	 */
+	public <K, V> Set<K> getKeysFor(MapKey<K, V> key1)
+	{
+		return map.getSecondaryKeySet(key1);
+	}
+
+	/**
+	 * Removes the given value from the map for the given MapKey. Returns true
+	 * if the value was successfully removed from the map for the given
+	 * MapKey. Returns false if there is not a map for the given MapKey or if
+	 * the map for the given MapKey did not contain the given secondary key.
+	 * 
+	 * @param key1
+	 *            The MapKey indicating which Map the given object should be
+	 *            removed from
+	 * @param key2
+	 *            The key to be removed from the Map
+	 * @return true if the key and its associated value were successfully removed 
+	 *         from the map; false otherwise
+	 */
+	public <K, V> boolean removeFromMapFor(MapKey<K, V> key1, K key2)
 	{
 		return map.remove(key1, key2) != null;
 	}

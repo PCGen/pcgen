@@ -235,6 +235,25 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
+	 * Retrieves the Map from DoubleKeyMap for the given primary key. If this DoubleKeyMap
+	 * does not a mapping for the given key, an empty map is returned.
+	 * 
+	 * @param key1
+	 *            The primary key for retrieving the map
+	 * @return Map<K2, V> The map stored for the given key
+	 */
+	public Map<K2, V> getMapFor(K1 key1)
+	{
+		Map<K2, V> localMap = map.get(key1);
+		Map<K2, V> copy = new HashMap<K2, V>();
+		if (localMap != null)
+		{
+			copy.putAll(localMap);
+		}
+		return copy;
+	}
+
+	/**
 	 * Returns trus if the DoubleKeyMap contains a value stored under the given
 	 * primary key and any secondary key.
 	 * 

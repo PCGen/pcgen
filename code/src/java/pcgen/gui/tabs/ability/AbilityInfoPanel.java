@@ -35,6 +35,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -42,7 +43,9 @@ import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
@@ -179,12 +182,13 @@ public class AbilityInfoPanel extends JPanel
 			"in_InfoDescription", //$NON-NLS-1$
 			theAbility.piDescSubString(thePC)));
 
-		if (theAbility.getSizeOfListFor(ListKey.ASPECT) > 0)
+		if (theAbility.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{
-			List<Aspect> aspectList = theAbility.getSafeListFor(ListKey.ASPECT);
+			Set<AspectName> aspectKeys = theAbility.getKeysFor(MapKey.ASPECT);
 			StringBuffer buff = new StringBuffer();
-			for (Aspect aspect : aspectList)
+			for (AspectName key : aspectKeys)
 			{
+				Aspect aspect = theAbility.get(MapKey.ASPECT, key);
 				if (buff.length() > 0)
 				{
 					buff.append(", ");

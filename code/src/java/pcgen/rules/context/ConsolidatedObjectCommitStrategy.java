@@ -29,6 +29,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -151,11 +152,27 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 		cdo.removeFromListFor(lk, val);
 	}
 
+	public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value)
+	{
+		cdo.addToMapFor(mk, key, value);
+	}
+
+	public <K, V> void remove(CDOMObject cdo, MapKey<K, V> mk, K key)
+	{
+		cdo.removeFromMapFor(mk, key);
+	}
+
 	public void put(ConcretePrereqObject cpo, Prerequisite p)
 	{
 		cpo.addPrerequisite(p);
 	}
 
+	public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
+	{
+		return new MapChanges<K, V>(cdo.getMapFor(mk), null, false);
+	}
+
+	
 	public Changes<Prerequisite> getPrerequisiteChanges(ConcretePrereqObject obj)
 	{
 		return new CollectionChanges<Prerequisite>(obj.getPrerequisiteList(),

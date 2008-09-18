@@ -27,12 +27,13 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.io.EntityEncoder;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.MapChanges;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
@@ -96,8 +97,8 @@ public class AspectToken implements CDOMPrimaryToken<Ability>
 					+ "format is: AspectName|Aspect value|Variable|... was: " + value);
 			return false;
 		}
-		context.getObjectContext().addToList(ability, ListKey.ASPECT,
-			parseAspect(key, val));
+		Aspect a = parseAspect(key, val);
+		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), a);
 
 		return true;
 	}
@@ -129,15 +130,17 @@ public class AspectToken implements CDOMPrimaryToken<Ability>
 	 */
 	public String[] unparse(LoadContext context, Ability obj)
 	{
-		Changes<Aspect> changes =
-				context.getObjectContext().getListChanges(obj, ListKey.ASPECT);
+		MapChanges<AspectName, Aspect> changes =
+				context.getObjectContext().getMapChanges(obj, MapKey.ASPECT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		Set<String> set = new TreeSet<String>();
-		for (Aspect q : changes.getAdded())
+		Set<AspectName> keys = changes.getAdded().keySet();
+		for (AspectName an : keys)
 		{
+			Aspect q = changes.getAdded().get(an);
 			set.add(new StringBuilder().append(q.getName()).append(
 				Constants.PIPE).append(q.getPCCText()).toString());
 		}

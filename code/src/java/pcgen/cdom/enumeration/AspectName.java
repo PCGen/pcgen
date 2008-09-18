@@ -40,7 +40,7 @@ import pcgen.base.util.CaseInsensitiveMap;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public final class AspectName implements TypeSafeConstant
+public final class AspectName implements TypeSafeConstant, Comparable<AspectName>
 {
 
 	/** This Map contains the mappings from Strings to the Type Safe Constant. */
@@ -181,6 +181,14 @@ public final class AspectName implements TypeSafeConstant
 		{
 			nameMap.clear();
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	public int compareTo(AspectName o)
+	{
+		return fieldName.compareTo(o.fieldName);
 	}
 
 }

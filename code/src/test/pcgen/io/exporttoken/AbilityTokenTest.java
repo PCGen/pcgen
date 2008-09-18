@@ -25,7 +25,9 @@ package pcgen.io.exporttoken;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
@@ -78,11 +80,11 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT", "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		ab1.addToListFor(ListKey.ASPECT, new Aspect("Colour", "Green"));
-		ab1.addToListFor(ListKey.ASPECT, new Aspect("Size", "L"));
-		ab1.addToListFor(ListKey.ASPECT, new Aspect("Shape", "Icosahedron"));
-		ab1.addToListFor(ListKey.ASPECT, new Aspect("Sides", "20"));
-		ab1.addToListFor(ListKey.ASPECT, new Aspect("Age In Years", "2000"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Colour"), new Aspect("Colour", "Green"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Size"), new Aspect("Size", "L"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Shape"), new Aspect("Shape", "Icosahedron"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Sides"), new Aspect("Sides", "20"));
+		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), new Aspect("Age In Years", "2000"));
 		character.addAbility(featCategory, ab1, null);
 	}
 
@@ -96,7 +98,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
-			"Colour: Green, Size: L, Shape: Icosahedron, Sides: 20, Age In Years: 2000",
+			"Age In Years: 2000, Colour: Green, Shape: Icosahedron, Sides: 20, Size: L",
 			tok.getToken("ABILITY.FEAT.0.ASPECT", character, eh));
 	}
 

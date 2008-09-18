@@ -27,14 +27,17 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
+import pcgen.cdom.util.MapKeyMap;
 import pcgen.core.PlayerCharacter;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
@@ -70,6 +73,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	// TODO Make this private once PObject is cleaned up
 	protected ListKeyMapToList listChar = new ListKeyMapToList();
 
+	/** A map of Maps for the object */
+	// TODO make this final once clone() is no longer required...
+	private MapKeyMap mapChar = new MapKeyMap();
+	
 	// TODO make this final once clone() is no longer required...
 	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>();
 
@@ -282,6 +289,102 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return listChar.getKeySet();
 	}
 
+	// ===== MapKeyMap Methods =====
+	
+	/**
+	 * Add a value to the map of maps.
+	 * 
+	 * @param mk The MapKey we are adding an entry to
+	 * @param key The key to assign against
+	 * @param value The value to be stored.
+	 */
+	public final <K, V> void addToMapFor(MapKey<K, V> mk, K key, V value)
+	{
+		mapChar.addToMapFor(mk, key, value);
+	}
+
+	/**
+	 * Remove a value from the map of maps.
+	 * 
+	 * @param mk The MapKey we are removing an entry from
+	 * @param key The key to eject
+	 */
+	public final <K, V> void removeFromMapFor(MapKey<K, V> mk, K key)
+	{
+		mapChar.removeFromMapFor(mk, key);
+	}
+
+	/**
+	 * Remove a map from the map of maps.
+	 * 
+	 * @param mk The MapKey we are removing
+	 */
+	public final <K, V> void removeMapFor(MapKey<K, V> mk)
+	{
+		mapChar.removeMapFor(mk);
+	}
+
+	/**
+	 * Retrieve the map of keys and values for the MapKey.
+	 * 
+	 * @param mk The MapKey we are retrieving
+	 * @return The map of keys and values.
+	 */
+	public final <K, V> Map<K, V> getMapFor(MapKey<K, V> mk)
+	{
+		return mapChar.getMapFor(mk);
+	}
+
+	/**
+	 * Retrieve the set of keys for the MapKey.
+	 * 
+	 * @param mk The MapKey we are retrieving
+	 * @return The set of keys.
+	 */
+	public final <K, V> Set<K> getKeysFor(MapKey<K, V> mk)
+	{
+		return mapChar.getKeysFor(mk);
+	}
+
+	/**
+	 * Get the value for the given MapKey and secondary key. If there is 
+	 * not a mapping for the given keys, null is returned.
+	 * 
+	 * @param mk
+	 *            The MapKey for retrieving the given value
+	 * @param key2
+	 *            The secondary key for retrieving the given value
+	 * @return Object The value stored for the given keys
+	 */
+	public final <K, V> V get(MapKey<K, V> mk, K key2)
+	{
+		return mapChar.get(mk, key2);
+	}
+
+	/**
+	 * Remove the value associated with the primary and secondary keys 
+	 * from the map.
+	 *  
+	 * @param mk The MapKey of the entry we are removing
+	 * @param key2 The secondary key of the entry we are removing
+	 * @return true if the key and its associated value were successfully removed 
+	 *         from the map; false otherwise
+	 */
+	public final <K, V> boolean removeFromMap(MapKey<K, V> mk, K key2)
+	{
+		return mapChar.removeFromMapFor(mk, key2);
+	}
+
+	/**
+	 * Retrieve the set of mapkeys held.
+	 * 
+	 * @return The set of mapkeys.
+	 */
+	public final Set<MapKey<?, ?>> getMapKeys()
+	{
+		return mapChar.getKeySet();
+	}
+	
 	public String getKeyName()
 	{
 		// FIXME TODO Patched for now to avoid NPEs, but this is wrong
@@ -292,6 +395,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			returnKey = this.get(StringKey.NAME);
 		}
 		return returnKey;
+	}
+
+	public final int getSafeSizeOfMapFor(MapKey<?, ?> key)
+	{
+		return mapChar.containsMapFor(key) ? mapChar.getKeysFor(key).size() : 0;
 	}
 
 	public String getDisplayName()

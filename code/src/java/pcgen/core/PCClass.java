@@ -3964,13 +3964,13 @@ public class PCClass extends PObject
 		// Go through the specialty list (SA) and adjust the class to the new
 		// name
 		//
-		for (int lev : mapChar.getSecondaryKeySet(MapKey.SAB))
+		for (int lev : mapListChar.getSecondaryKeySet(MapKey.SAB))
 		{
-			for (SpecialAbility sa : mapChar.getListFor(MapKey.SAB, lev))
+			for (SpecialAbility sa : mapListChar.getListFor(MapKey.SAB, lev))
 			{
 				if (sa.getSASource().length() != 0)
 				{
-					mapChar.removeFromListFor(MapKey.SAB, lev, sa);
+					mapListChar.removeFromListFor(MapKey.SAB, lev, sa);
 					sa =
 							new SpecialAbility(sa.getKeyName(), sa
 								.getSASource(), sa.getSADesc());
@@ -5018,9 +5018,9 @@ public class PCClass extends PObject
 			setRegionString(otherClass.getRegionString());
 		}
 
-		for (int lev : otherClass.mapChar.getSecondaryKeySet(MapKey.SAB))
+		for (int lev : otherClass.mapListChar.getSecondaryKeySet(MapKey.SAB))
 		{
-			for (SpecialAbility sa : otherClass.mapChar.getListFor(MapKey.SAB,
+			for (SpecialAbility sa : otherClass.mapListChar.getListFor(MapKey.SAB,
 				lev))
 			{
 				addSAB(sa, lev);
