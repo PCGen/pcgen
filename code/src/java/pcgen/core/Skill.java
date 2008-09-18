@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
@@ -404,28 +405,19 @@ public final class Skill extends PObject
 
 	/**
      * Get the qualified name
+	 * @param pc TODO
      * @return qualified name
      */
-	public String qualifiedName()
+	public String qualifiedName(PlayerCharacter pc)
 	{
-		if (getAssociatedCount() == 0)
+		if (!pc.hasAssociations(this))
 		{
 			return this.getOutputName();
 		}
 
-		final StringBuffer buffer = new StringBuffer(getAssociatedCount() * 20);
+		final StringBuffer buffer = new StringBuffer(pc.getAssociationCount(this) * 20);
 		buffer.append(this.getOutputName()).append("(");
-
-		for (int i = 0; i < getAssociatedCount(); i++)
-		{
-			if (i > 0)
-			{
-				buffer.append(", ");
-			}
-
-			buffer.append(getAssociated(i));
-		}
-
+		buffer.append(StringUtil.joinToStringBuffer(pc.getAssociationList(this), ", "));
 		buffer.append(")");
 
 		return buffer.toString();
@@ -479,7 +471,7 @@ public final class Skill extends PObject
 					}
 					else
 					{
-						final int selectedLanguages = getAssociatedCount();
+						final int selectedLanguages = aPC.getAssociationCount(this);
 						final int maxLanguages = getTotalRank(aPC).intValue();
 
 						if (selectedLanguages > maxLanguages)
@@ -578,7 +570,7 @@ public final class Skill extends PObject
 			int iCount = 0;
 			for ( LevelAbility la : laList )
 			{
-				iCount += la.getAssociatedCount();
+				iCount += aPC.getAssociationCount(la);
 			}
 
 			if (CoreUtility.doublesEqual(getRank().doubleValue() + bonus, 0.0))

@@ -1198,7 +1198,7 @@ final class PCGVer0Parser implements PCGParser
 						true, !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED));
 
 					if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-						&& (anAbility.getAssociatedCount() == 0)
+						&& !aPC.hasAssociations(anAbility)
 						&& (aPC.getFeatKeyed(anAbility.getKeyName()) == null))
 					{
 						aPC.addFeat(anAbility, null);

@@ -305,7 +305,7 @@ public class SkillToken extends Token
 			switch (property)
 			{
 				case SKILL_NAME:
-					retValue.append(aSkill.qualifiedName());
+					retValue.append(aSkill.qualifiedName(pc));
 					break;
 
 				case SKILL_TOTAL:

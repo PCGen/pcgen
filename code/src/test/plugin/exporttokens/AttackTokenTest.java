@@ -72,7 +72,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		PCStat stat =
 				character.getStatList().getStatAt(
 					SettingsHandler.getGame().getStatFromAbbrev("STR"));
-		stat.getBonusList().clear();
+		stat.clearBonusList();
 		stat.addBonusList("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
 //		// Ignoring max dex
 //		stat.addBonusList("COMBAT|AC|DEX|TYPE=Ability");

@@ -74,7 +74,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		PCStat stat =
 				character.getStatList().getStatAt(
 					SettingsHandler.getGame().getStatFromAbbrev("DEX"));
-		stat.getBonusList().clear();
+		stat.clearBonusList();
 		stat.addBonusList("COMBAT|AC|10|TYPE=Base");
 		// Ignoring max dex
 		stat.addBonusList("COMBAT|AC|DEX|TYPE=Ability");

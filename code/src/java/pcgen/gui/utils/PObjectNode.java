@@ -268,7 +268,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				//
 				// If 1st selection has no length, then in is from CHOOSE:NOCHOICE
 				//
-				final int subCount = aFeat.getAssociatedCount();
+				final int subCount = aPC.getAssociationCount(aFeat);
 				if ((subCount > 1)
 					&& (aFeat.getAssociated(0, true).length() == 0))
 				{
@@ -278,7 +278,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				}
 				else
 				{
-					for (int i = 0; i < aFeat.getAssociatedCount(true); i++)
+					for (int i = 0; i < aPC.getExpandedAssociationCount(aFeat); i++)
 					{
 						if (addComma)
 						{

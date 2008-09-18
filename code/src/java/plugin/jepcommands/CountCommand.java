@@ -118,17 +118,17 @@ public class CountCommand extends PCGenCommand
 
 						final Set<PObject> filtered = doFilterP(pt);
 
-						return countData(filtered);
+						return countData(filtered, pc);
 					}
 
-					protected Object countData(final Iterable<PObject> filtered)
+					protected Object countData(final Iterable<PObject> filtered, PlayerCharacter pc)
 					{
 						double accum = 0;
 
 						for (final PObject ab : filtered)
 						{
-							final double ac = ab.getAssociatedCount();
-							accum += 1.01 >= ac ? 1 : ab.getAssociatedCount();
+							final double ac = pc.getAssociationCount(ab);
+							accum += 1.01 >= ac ? 1 : pc.getAssociationCount(ab);
 						}
 						return accum;
 					}

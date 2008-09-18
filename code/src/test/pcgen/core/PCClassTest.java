@@ -705,11 +705,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
-		List<BonusObj> bonusList = nymphClass.getBonusList();
+		List<BonusObj> bonusList = nymphClass.getBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
 
 		nymphClass.setLevel(1, pc);
-		bonusList = nymphClass.getBonusList();
+		bonusList = nymphClass.getBonusList(pc);
 		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(0).toString());
 		assertEquals("Only one bonus", 1, bonusList.size());
 	}
@@ -723,11 +723,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
-		List<BonusObj> bonusList = nymphClass.getBonusList();
+		List<BonusObj> bonusList = nymphClass.getBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
 
 		nymphClass.setLevel(1, pc);
-		bonusList = nymphClass.getBonusList();
+		bonusList = nymphClass.getBonusList(pc);
 		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/4", bonusList.get(0).toString());
 		assertEquals("Only one bonus", 1, bonusList.size());
 	}
@@ -740,11 +740,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
-		List<BonusObj> bonusList = humanoidClass.getBonusList();
+		List<BonusObj> bonusList = humanoidClass.getBonusList(pc);
 		assertEquals("Bonus list starting size", 3, bonusList.size());
 
 		humanoidClass.setLevel(1, pc);
-		bonusList = humanoidClass.getBonusList();
+		bonusList = humanoidClass.getBonusList(pc);
 		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(3).toString());
 		assertEquals("Only one new bonus", 4, bonusList.size());
 	}
@@ -758,11 +758,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		humanoidClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
-		List<BonusObj> bonusList = humanoidClass.getBonusList();
+		List<BonusObj> bonusList = humanoidClass.getBonusList(pc);
 		assertEquals("Bonus list starting size", 3, bonusList.size());
 
 		humanoidClass.setLevel(1, pc);
-		bonusList = humanoidClass.getBonusList();
+		bonusList = humanoidClass.getBonusList(pc);
 		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/4", bonusList.get(3).toString());
 		assertEquals("Only one new bonus", 4, bonusList.size());
 	}

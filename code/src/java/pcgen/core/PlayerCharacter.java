@@ -6468,8 +6468,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		final List<BonusObj> tempList =
-				getRace().getBonusListOfType(aType.toUpperCase(),
-					aName.toUpperCase());
+				getRace().getBonusListOfType(this,
+					aType.toUpperCase(), aName.toUpperCase());
 
 		return calcBonusFromList(tempList);
 	}
@@ -8899,12 +8899,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 					for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 					{
-						SR = Math.max(SR, eqMod.getSR(this));
+						SR = Math.max(SR, eqMod.getSR(eq, this));
 					}
 
 					for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 					{
-						SR = Math.max(SR, eqMod.getSR(this));
+						SR = Math.max(SR, eqMod.getSR(eq, this));
 					}
 				}
 			}
@@ -11395,7 +11395,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (PObject obj : aList)
 		{
 			final List<BonusObj> tempList =
-					obj.getBonusListOfType(aType, aName);
+					obj.getBonusListOfType(this, aType, aName);
 
 			if (!tempList.isEmpty())
 			{
@@ -11893,7 +11893,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (PObject anObj : aList)
 		{
 			final List<BonusObj> tempList =
-					anObj.getBonusListOfType(aType, aName);
+					anObj.getBonusListOfType(this, aType, aName);
 			iBonus += calcBonusWithCostFromList(tempList);
 		}
 
@@ -13100,14 +13100,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			int k =
 					Math.max(1,
-						(int) (anObj.getAssociatedCount() *
+						(int) (getAssociationCount(anObj) *
 								anObj.getSafe(ObjectKey.SELECTION_COST).doubleValue()));
 
-			if (anObj.getAssociatedCount() > 0)
+			if (hasAssociations(anObj))
 			{
 				k = 0;
 
-				for (int f = 0; f < anObj.getAssociatedCount(); ++f)
+				for (int f = 0; f < getAssociationCount(anObj); ++f)
 				{
 					final String aString = anObj.getAssociated(f);
 
@@ -16374,7 +16374,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				continue;
 			}
-			final int subfeatCount = aFeat.getAssociatedCount();
+			final int subfeatCount = getAssociationCount(aFeat);
 			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 			int select =
 					getVariableValue(aFeat.getSelectCount(), "").intValue();
@@ -16414,7 +16414,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (final Ability ability : abilities)
 			{
-				final int subfeatCount = ability.getAssociatedCount();
+				final int subfeatCount = getAssociationCount(ability);
 				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 				int select =
 						getVariableValue(ability.getSelectCount(), "")
@@ -16760,7 +16760,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Ability aggregateFeat = aHashMap.get(vFeat.getKeyName());
 				aggregateFeat = aggregateFeat.clone();
 
-				for (int e1 = 0; e1 < vFeat.getAssociatedCount(); ++e1)
+				for (int e1 = 0; e1 < getAssociationCount(vFeat); ++e1)
 				{
 					final String aString = vFeat.getAssociated(e1);
 
@@ -16790,7 +16790,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Ability aggregateFeat = aHashMap.get(autoFeat.getKeyName());
 				aggregateFeat = aggregateFeat.clone();
 
-				for (int e1 = 0; e1 < autoFeat.getAssociatedCount(); ++e1)
+				for (int e1 = 0; e1 < getAssociationCount(autoFeat); ++e1)
 				{
 					final String aString = autoFeat.getAssociated(e1);
 					if (aggregateFeat.getSafe(ObjectKey.STACKS)
@@ -17259,7 +17259,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (aDomain != null)
 				{
-					for (int e2 = 0; e2 < aDomain.getAssociatedCount(); ++e2)
+					for (int e2 = 0; e2 < getAssociationCount(aDomain); ++e2)
 					{
 						final String aString = aDomain.getAssociated(e2);
 
@@ -17866,39 +17866,89 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return cache.getSkillCost(this, sk, cl);
 	}
 
-	public void addAssociation(Object obj, Object o)
+	public void addAssociation(PObject obj, String o)
 	{
-		assocSupt.addAssociation(obj, o);
+		obj.addAssociated(o);
 	}
 
-	public boolean containsAssociated(Object obj, Object o)
+	public boolean containsAssociated(PObject obj, String o)
 	{
-		return assocSupt.containsAssociated(obj, o);
+		return obj.containsAssociated(o);
 	}
 
-	public int getAssociationCount(Object obj)
+	public int getAssociationCount(PObject obj)
 	{
-		return assocSupt.getAssociationCount(obj);
+		return obj.tempGetAssociatedCount();
 	}
 
-	public List<Object> getAssociationList(Object obj)
+	public List<String> getAssociationList(PObject obj)
 	{
-		return assocSupt.getAssociationList(obj);
+		List<String> list = new ArrayList<String>();
+		for (AssociatedChoice<String> ac : obj.getAssociatedList())
+		{
+			list.add(ac.getDefaultChoice());
+		}
+		return list;
 	}
 
-	public boolean hasAssociations(Object obj)
+	public boolean hasAssociations(PObject obj)
 	{
-		return assocSupt.hasAssociations(obj);
+		return obj.tempGetAssociatedCount() > 0;
 	}
 
-	public List<Object> removeAllAssociations(Object obj)
+	public List<String> removeAllAssociations(PObject obj)
 	{
-		return assocSupt.removeAllAssociations(obj);
+		List<String> list = getAssociationList(obj);
+		for (int i = obj.tempGetAssociatedCount() - 1; i > 0; i--)
+		{
+			obj.removeAssociated(i);
+		}
+		return list;
 	}
 
-	public void removeAssociation(Object obj, Object o)
+	public void removeAssociation(PObject obj, String o)
 	{
-		assocSupt.removeAssociation(obj, o);
+		obj.removeAssociated(o);
+	}
+
+	public int getExpandedAssociationCount(PObject obj)
+	{
+		return obj.tempGetAssociatedCount(true);
+	}
+
+	public void addAssoc(Object obj, Object o)
+	{
+		assocSupt.addAssoc(obj, o);
+	}
+
+	public boolean containsAssoc(Object obj, Object o)
+	{
+		return assocSupt.containsAssoc(obj, o);
+	}
+
+	public int getAssocCount(Object obj)
+	{
+		return assocSupt.getAssocCount(obj);
+	}
+
+	public List<Object> getAssocList(Object obj)
+	{
+		return assocSupt.getAssocList(obj);
+	}
+
+	public boolean hasAssocs(Object obj)
+	{
+		return assocSupt.hasAssocs(obj);
+	}
+
+	public List<Object> removeAllAssocs(Object obj)
+	{
+		return assocSupt.removeAllAssocs(obj);
+	}
+
+	public void removeAssoc(Object obj, Object o)
+	{
+		assocSupt.removeAssoc(obj, o);
 	}
 
 	public boolean hasUnlockedStat(PCStat stat)

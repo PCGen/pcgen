@@ -120,7 +120,9 @@ public class EquipmentModifierTest extends PCGenTestCase
 		eqMod.addBonusList(aBonus);
 		eqMod.addAssociated("+13");
 
-		for (BonusObj bonusObj : eqMod.getBonusList())
+		final Equipment e = new Equipment();
+		
+		for (BonusObj bonusObj : eqMod.getBonusList(e))
 		{
 			assertEquals("((+13)MIN(STR))", bonusObj.getValue());
 		}
@@ -138,7 +140,9 @@ public class EquipmentModifierTest extends PCGenTestCase
 		eqMod.addAssociated("+13");
 		eqMod.addBonusList(aBonus);
 
-		for (BonusObj bonusObj : eqMod.getBonusList())
+		final Equipment e = new Equipment();
+		
+		for (BonusObj bonusObj : eqMod.getBonusList(e))
 		{
 			assertEquals("-2", bonusObj.getValue());
 
@@ -165,7 +169,9 @@ public class EquipmentModifierTest extends PCGenTestCase
 		eqMod.addAssociated("+2");
 		eqMod.addBonusList(aBonus);
 
-		final List<BonusObj> list = eqMod.getBonusList();
+		final Equipment e = new Equipment();
+		
+		final List<BonusObj> list = eqMod.getBonusList(e);
 		int i = 1;
 		for (int j = list.size() - 1; j > 0; j--)
 		{

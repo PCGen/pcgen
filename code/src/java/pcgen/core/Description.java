@@ -190,7 +190,7 @@ public class Description extends ConcretePrereqObject
 					}
 					else if ( var.equals(VAR_CHOICE) )
 					{
-						if ( theOwner != null && theOwner.getAssociatedCount() > 0 )
+						if ( theOwner != null && aPC.hasAssociations(theOwner) )
 						{
 							buf.append(theOwner.getAssociated(0));
 						}
@@ -199,15 +199,15 @@ public class Description extends ConcretePrereqObject
 					{
 						if ( theOwner != null )
 						{
-							for ( int i = 0; i < theOwner.getAssociatedCount(true); i++ )
+							for ( int i = 0; i < aPC.getExpandedAssociationCount(theOwner); i++ )
 							{
 								if ( i > 0 )
 								{
-									if (theOwner.getAssociatedCount(true) != 2)
+									if (aPC.getExpandedAssociationCount(theOwner) != 2)
 									{
 										buf.append(Constants.COMMA + ' ');
 									}
-									if (i == theOwner.getAssociatedCount(true) - 1)
+									if (i == aPC.getExpandedAssociationCount(theOwner) - 1)
 									{
 										buf.append(" and ");
 									}

@@ -152,7 +152,7 @@ public class VariableProcessorPC extends VariableProcessor
 				}
 				else
 				{
-					count += Math.max(1, feat.getAssociatedCount());
+					count += Math.max(1, getPc().getAssociationCount(feat));
 				}
 			}
 		}
@@ -167,7 +167,7 @@ public class VariableProcessorPC extends VariableProcessor
 				}
 				else
 				{
-					count += Math.max(1, feat.getAssociatedCount());
+					count += Math.max(1, getPc().getAssociationCount(feat));
 				}
 			}
 		}

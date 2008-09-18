@@ -214,7 +214,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 7 bonus known spells", (3 * 2) + 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		for (BonusObj bonus : pObj.getBonusList())
+		for (BonusObj bonus : pObj.getBonusList(aPC))
 		{
 			bonus.setAddOnceOnly(true);
 		}

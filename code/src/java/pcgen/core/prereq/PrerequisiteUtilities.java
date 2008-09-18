@@ -249,7 +249,7 @@ public final class PrerequisiteUtilities
 						runningTotal++;
 						if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 						{
-							runningTotal += (ability.getAssociatedCount() - 1);
+							runningTotal += (character.getAssociationCount(ability) - 1);
 						}
 					}
 				}
@@ -338,7 +338,7 @@ public final class PrerequisiteUtilities
 				if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 				{
 					runningTotal +=
-							(aFeat.getAssociatedCount() - 1);
+						(character.getAssociationCount(aFeat) - 1);
 				}
 			}
 			else
@@ -347,8 +347,7 @@ public final class PrerequisiteUtilities
 
 				if (wildCardPos > -1)
 				{
-					for (int k = 0; k < aFeat
-						.getAssociatedCount(); ++k)
+					for (int k = 0; k < character.getAssociationCount(aFeat); ++k)
 					{
 
 						final String fString =

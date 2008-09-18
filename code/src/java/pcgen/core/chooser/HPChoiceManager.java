@@ -69,7 +69,7 @@ public class HPChoiceManager extends AbstractBasicStringChoiceManager {
 
 		availableList.add(choiceSec);
 
-		for (int e1 = 0; e1 < pobject.getAssociatedCount(); ++e1)
+		for (int e1 = 0; e1 < aPc.getAssociationCount(pobject); ++e1)
 		{
 			selectedList.add(choiceSec);
 		}

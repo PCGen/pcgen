@@ -2910,7 +2910,7 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public boolean hasClassSkill(final String aString)
+	public boolean hasClassSkill(PlayerCharacter pc, final String aString)
 	{
 		if ((classSkillList == null) || classSkillList.isEmpty())
 		{
@@ -2921,7 +2921,7 @@ public class PCClass extends PObject
 		{
 			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, key.getLSTformat());
 
-			if ((pcClass != null) && pcClass.hasCSkill(aString))
+			if ((pcClass != null) && pcClass.hasCSkill(pc, aString))
 			{
 				return true;
 			}

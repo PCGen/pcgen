@@ -1063,7 +1063,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		String repeatValue = "";
 
 		// get the bonus string
-		for (BonusObj aBonus : aMod.getBonusList())
+		for (BonusObj aBonus : aMod.getBonusList(aEq == null ? pc : aEq))
 		{
 			String aString = aBonus.toString();
 
@@ -2413,7 +2413,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// first do PC's feats and other abilities
 				for (Ability aFeat : pc.getFullAbilitySet())
 				{
-					for (BonusObj aBonus : aFeat.getBonusList())
+					for (BonusObj aBonus : aFeat.getBonusList(pc))
 					{
 						if (aBonus.isTempBonus())
 						{
@@ -2432,7 +2432,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					Ability aFeat = (Ability) fI.next();
 
-					for (BonusObj aBonus : aFeat.getBonusList())
+					for (BonusObj aBonus : aFeat.getBonusList(pc))
 					{
 						if (aBonus.isTempBonus()
 							&& aBonus
@@ -2455,7 +2455,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						continue;
 					}
 
-					for (BonusObj aBonus : aSpell.getBonusList())
+					for (BonusObj aBonus : aSpell.getBonusList(pc))
 					{
 						if (aBonus.isTempBonus())
 						{
@@ -2475,7 +2475,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						continue;
 					}
-					for (BonusObj aBonus : aCharacterSpell.getSpell().getBonusList())
+					for (BonusObj aBonus : aCharacterSpell.getSpell().getBonusList(pc))
 					{
 						if (aBonus.isTempBonus())
 						{
@@ -2509,7 +2509,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						continue;
 					}
 
-					for (BonusObj aBonus : aSpell.getBonusList())
+					for (BonusObj aBonus : aSpell.getBonusList(pc))
 					{
 						//aBonus.getPrereqString();
 
@@ -2555,7 +2555,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// iterate thru all PC's Classes
 				for (PCClass aClass : pc.getClassList())
 				{
-					for (BonusObj aBonus : aClass.getBonusList())
+					for (BonusObj aBonus : aClass.getBonusList(pc))
 					{
 						final int myLevel = aClass.getLevel();
 						final int level = aBonus.getPCLevel();
@@ -2581,7 +2581,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// Iterate through all the PC's Templates
 				for (PCTemplate aTemp : pc.getTemplateList())
 				{
-					for (BonusObj aBonus : aTemp.getBonusList())
+					for (BonusObj aBonus : aTemp.getBonusList(pc))
 					{
 						if (aBonus.isTempBonus())
 						{
@@ -2596,7 +2596,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// do all Templates to get PREAPPLY:ANYPC
 				for (PCTemplate aTemp : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 				{
-					for (BonusObj aBonus : aTemp.getBonusList())
+					for (BonusObj aBonus : aTemp.getBonusList(pc))
 					{
 						if (aBonus.isTempBonus()
 							&& aBonus
@@ -2620,7 +2620,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
 				for (Skill aSkill : skillList)
 				{
-					for (BonusObj aBonus : aSkill.getBonusList())
+					for (BonusObj aBonus : aSkill.getBonusList(pc))
 					{
 						if (aBonus.isTempBonus())
 						{
@@ -2656,7 +2656,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				boolean found = false;
 
-				for (BonusObj aBonus : lastAvaObject.getBonusList())
+				for (BonusObj aBonus : lastAvaObject.getBonusList(pc))
 				{
 					if (aBonus == null)
 					{
@@ -2683,7 +2683,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					found = false;
 
-					for (BonusObj aBonus : lastAvaObject.getBonusList())
+					for (BonusObj aBonus : lastAvaObject.getBonusList(aEq))
 					{
 						if (aBonus == null)
 						{

@@ -23,6 +23,8 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.core.AssociationStore;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 
 /**
@@ -129,7 +131,8 @@ public class AssociationReference<T extends CDOMObject> extends
 		{
 			return false;
 		}
-		int assocCount = referenceObj.getAssociatedCount();
+		AssociationStore as = Globals.getCurrentPC();
+		int assocCount = as.getAssociationCount(referenceObj);
 		String key = obj.getKeyName();
 		for (int e = 0; e < assocCount; ++e)
 		{
@@ -158,7 +161,8 @@ public class AssociationReference<T extends CDOMObject> extends
 	public Collection<T> getContainedObjects()
 	{
 		List<T> list = new ArrayList<T>();
-		int assocCount = referenceObj.getAssociatedCount();
+		AssociationStore as = Globals.getCurrentPC();
+		int assocCount = as.getAssociationCount(referenceObj);
 		for (T obj : all.getContainedObjects())
 		{
 			String key = obj.getKeyName();
@@ -199,7 +203,8 @@ public class AssociationReference<T extends CDOMObject> extends
 	@Override
 	public int getObjectCount()
 	{
-		return referenceObj.getAssociatedCount();
+		AssociationStore as = Globals.getCurrentPC();
+		return as.getAssociationCount(referenceObj);
 	}
 
 	/**

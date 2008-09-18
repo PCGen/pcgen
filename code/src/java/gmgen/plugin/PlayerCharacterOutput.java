@@ -211,7 +211,7 @@ public class PlayerCharacterOutput
 			}
 
 			firstLine = false;
-			sb.append(feat.qualifiedName());
+			sb.append(feat.qualifiedName(pc));
 		}
 
 		return sb.toString();

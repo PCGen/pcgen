@@ -136,7 +136,7 @@ public class TransitionChoice<T>
 		for (T choice : driveChoice)
 		{
 			choiceActor.applyChoice(choice, apc);
-			apc.addAssociation(this, choice);
+			apc.addAssoc(this, choice);
 		}
 	}
 	

@@ -368,7 +368,7 @@ public class AbilityUtilities
 			final AbilityCategory category)
 	{
 		// how many sub-choices to make
-		double abilityCount = (ability.getAssociatedCount() * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+		double abilityCount = (aPC.getAssociationCount(ability) * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 
 		boolean adjustedAbilityPool = false;
 
@@ -412,7 +412,7 @@ public class AbilityUtilities
 		// if no sub choices made (i.e. all of them removed in Chooser box),
 		// then remove the Feat
 		boolean removed = false;
-		boolean result  = (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && singleChoice) ? (ability.getAssociatedCount() > 0) : addIt ; 
+		boolean result  = (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && singleChoice) ? aPC.hasAssociations(ability) : addIt ; 
 
 		if (! result)
 		{
@@ -438,13 +438,13 @@ public class AbilityUtilities
 			}
 			else if (category == AbilityCategory.FEAT)
 			{
-				int listSize = ability.getAssociatedCount();
+				int listSize = aPC.getAssociationCount(ability);
 
 				for (Ability myAbility : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 				{
 					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
 					{
-						listSize = myAbility.getAssociatedCount();
+						listSize = aPC.getAssociationCount(myAbility);
 					}
 				}
 

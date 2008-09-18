@@ -1646,7 +1646,7 @@ final class EqBuilder extends JPanel
 		{
 			if (eqMod.removeAssociated(addedType))
 			{
-				if (eqMod.getAssociatedCount() == 0)
+				if (!aNewEq.hasAssociations(eqMod))
 				{
 					aNewEq.removeEqModifier(eqMod, true, aPC);
 				}

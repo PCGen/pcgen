@@ -615,7 +615,7 @@ public final class EditorMainForm extends JDialog
 
 		pnlMainTab.updateData(thisPObject);
 
-		thisPObject.getBonusList().clear();
+		thisPObject.clearBonusList();
 		thisPObject.removeAllVariables();
 		thisPObject.removeListFor(ListKey.DAMAGE_REDUCTION);
 		thisPObject.clearPrerequisiteList();

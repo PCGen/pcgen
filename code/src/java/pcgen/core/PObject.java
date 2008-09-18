@@ -210,9 +210,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Get associated count, without expanding
 	 * @return associated count
 	 */
-	public final int getAssociatedCount()
+	public final int tempGetAssociatedCount()
 	{
-		return getAssociatedCount(false);
+		return tempGetAssociatedCount(false);
 	}
 
 	/**
@@ -220,7 +220,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param expand
 	 * @return associated count
 	 */
-	public final int getAssociatedCount(final boolean expand)
+	public final int tempGetAssociatedCount(final boolean expand)
 	{
 		if (associatedList == null)
 		{
@@ -1411,9 +1411,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 							StringBuilder sb = new StringBuilder();
 							sb.append(key.substring(0, idx));
 
-							if (getAssociatedCount() != 0)
+							if (pc.hasAssociations(this))
 							{
-								for (int i = 0; i < getAssociatedCount(); ++i)
+								for (int i = 0; i < pc.getAssociationCount(this); ++i)
 								{
 									if (i != 0)
 									{
@@ -2437,9 +2437,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 					StringBuilder sb = new StringBuilder();
 					sb.append(key.substring(0, idx));
 
-					if (getAssociatedCount() != 0)
+					if (aPC.hasAssociations(this))
 					{
-						for (int i = 0; i < getAssociatedCount(); ++i)
+						for (int i = 0; i < aPC.getAssociationCount(this); ++i)
 						{
 							if (i != 0)
 							{
@@ -2866,7 +2866,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		// This method currently does nothing so it may be overriden in PCClass.
 	}
 
-	public final boolean hasCcSkill(final String aName)
+	public final boolean hasCcSkill(PlayerCharacter pc, final String aName)
 	{
 		List<String> ccSkillList = getCcSkillList();
 		if ((ccSkillList == null) || ccSkillList.isEmpty())
@@ -2884,7 +2884,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			String aString;
 
-			for (int e = 0; e < getAssociatedCount(); ++e)
+			for (int e = 0; e < pc.getAssociationCount(this); ++e)
 			{
 				aString = getAssociated(e);
 
@@ -2911,7 +2911,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return false;
 	}
 
-	public final boolean hasCSkill(final String aName)
+	public final boolean hasCSkill(PlayerCharacter pc, final String aName)
 	{
 		List<String> cSkillList = getCSkillList();
 		if ((cSkillList == null) || cSkillList.isEmpty())
@@ -2928,7 +2928,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			String aString;
 
-			for (int e = 0; e < getAssociatedCount(); ++e)
+			for (int e = 0; e < pc.getAssociationCount(this); ++e)
 			{
 				aString = getAssociated(e);
 
@@ -3040,7 +3040,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 	}
 
-	int numberInList(final String aType)
+	int numberInList(PlayerCharacter pc, final String aType)
 	{
 		return 0;
 	}
@@ -3496,6 +3496,17 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	/**
 	 * Get the list of bonuses for this object
+	 * @param as TODO
+	 * @return the list of bonuses for this object
+	 */
+	public List<BonusObj> getBonusList(AssociationStore as)
+	{
+		return bonusList;
+	}
+
+	/**
+	 * Get the list of bonuses for this object
+	 * @param as TODO
 	 * @return the list of bonuses for this object
 	 */
 	public List<BonusObj> getBonusList()
@@ -3503,15 +3514,21 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return bonusList;
 	}
 
+	public void clearBonusList()
+	{
+		bonusList.clear();
+	}
+	
 	/**
 	 * Get the list of bounuses of a particular type for this object
+	 * @param as TODO
 	 * @param aType
 	 * @param aName
 	 * @return the list of bounuses of a particular type for this object
 	 */
-	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
+	public List<BonusObj> getBonusListOfType(AssociationStore as, final String aType, final String aName)
 	{
-		return BonusUtilities.getBonusFromList(getBonusList(), aType, aName);
+		return BonusUtilities.getBonusFromList(getBonusList(as), aType, aName);
 	}
 
 	/**
@@ -3537,9 +3554,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aPC
 	 * @return the bonus
 	 */
-	public double bonusTo(final String aType, final String aName, final Object obj, final PlayerCharacter aPC)
+	public double bonusTo(final String aType, final String aName, final AssociationStore obj, final PlayerCharacter aPC)
 	{
-		return bonusTo(aType, aName, obj, getBonusList(), aPC);
+		return bonusTo(aType, aName, obj, getBonusList(obj), aPC);
 	}
 
 	/**
@@ -3593,7 +3610,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if ("VAR".equals(aType))
 		{
-			iTimes = Math.max(1, getAssociatedCount());
+			iTimes = Math.max(1, aPC.getAssociationCount(this));
 
 			//
 			// SALIST will stick BONUS:VAR|...
@@ -3610,7 +3627,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			String bString = bonus.toString().toUpperCase();
 
-			if (getAssociatedCount() != 0)
+			if (aPC.hasAssociations(this))
 			{
 				int span = 4;
 				int idx = bString.indexOf("%VAR");
@@ -3626,19 +3643,18 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 					final String firstPart = bString.substring(0, idx);
 					final String secondPart = bString.substring(idx + span);
 
-					for (int i = 1; i < getAssociatedCount(); ++i)
+					for (int i = 0; i < aPC.getAssociationCount(this); ++i)
 					{
 						final String xString = new StringBuffer().append(firstPart).append(getAssociated(i)).append(secondPart)
 							.toString().toUpperCase();
 						retVal += calcBonus(xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
 					}
-
-					bString = new StringBuffer().append(firstPart).append(getAssociated(0)).append(secondPart).toString()
-						.toUpperCase();
 				}
 			}
-
-			retVal += calcBonus(bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
+			else
+			{
+				retVal += calcBonus(bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
+			}
 		}
 
 		return retVal;
@@ -4087,7 +4103,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		String aString = aTok.nextToken();
 
 		if ((!aString.equalsIgnoreCase(aType) && !aString.endsWith("%LIST"))
-			|| (aString.endsWith("%LIST") && (numberInList(aType) == 0)) || (aName.equals("ALL")))
+			|| (aString.endsWith("%LIST") && (numberInList(aPC, aType) == 0)) || (aName.equals("ALL")))
 		{
 			return 0;
 		}
@@ -4156,7 +4172,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if ("LIST".equalsIgnoreCase(aList))
 		{
-			final int iCount = numberInList(aName);
+			final int iCount = numberInList(aPC, aName);
 
 			if (iCount != 0)
 			{

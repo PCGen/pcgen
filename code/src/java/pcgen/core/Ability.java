@@ -308,6 +308,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	/**
 	 * This method generates a name for this Ability which includes any choices
 	 * made and a count of how many times it has been applied.
+	 * @param pc TODO
 	 *
 	 * @return  The name of the full Ability, plus any sub-choices made for this
 	 *          character. Starts with the name of the ability, and then (for
@@ -315,7 +316,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 *          of the times the ability is applied e.g. " (3x)", or a list of
 	 *          the sub-choices e.g. " (Sub1, Sub2, ...)".
 	 */
-	public String qualifiedName()
+	public String qualifiedName(PlayerCharacter pc)
 	{
 		// start with the name of the ability
 		// don't do for Weapon Profs
@@ -325,17 +326,17 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		{
 			return getDisplayName();
 		}
-		if ((getAssociatedCount() > 0)
+		if (pc.hasAssociations(this)
 				&& !getKeyName().startsWith("Armor Proficiency")
 				)
 		{
 			if ((getChoiceString().length() == 0) || (getSafe(ObjectKey.MULTIPLE_ALLOWED) && getSafe(ObjectKey.STACKS)))
 			{
-				if (getAssociatedCount() > 1)
+				if (pc.getAssociationCount(this) > 1)
 				{
 					// number of items only (ie stacking), e.g. " (1x)"
 					aStrBuf.append(" (");
-					aStrBuf.append((int) (getAssociatedCount() * getSafe(ObjectKey.SELECTION_COST).doubleValue()));
+					aStrBuf.append((int) (pc.getAssociationCount(this) * getSafe(ObjectKey.SELECTION_COST).doubleValue()));
 					aStrBuf.append("x)");
 				}
 			}
@@ -347,7 +348,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
                 int i = 0;
 
 				// list of items in associatedList, e.g. " (Sub1, Sub2, ...)"
-				for (int e = 0; e < getAssociatedCount(true); ++e)
+				for (int e = 0; e < pc.getExpandedAssociationCount(this); ++e)
 				{
 					if (i > 0)
 					{
@@ -434,13 +435,12 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	/**
 	 * Enhanced containsAssociated, which parses the input parameter for "=",
 	 * "+num" and "-num" to extract the value to look for.
-	 *
 	 * @param   type  The type we're looking for
 	 *
 	 * @return  enhanced containsAssociated, which parses the input parameter
 	 *          for "=", "+num" and "-num" to extract the value to look for.
 	 */
-	@Override int numberInList(final String type)
+	@Override int numberInList(PlayerCharacter pc, final String type)
 	{
         String aType = type;
 
@@ -473,9 +473,9 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		}
 
         int iCount = 0;
-        for (int i = 0; i < getAssociatedCount(); ++i)
+		for (String assoc : pc.getAssociationList(this))
 		{
-			if (getAssociated(i).equalsIgnoreCase(aType))
+			if (assoc.equalsIgnoreCase(aType))
 			{
 				iCount += 1;
 			}

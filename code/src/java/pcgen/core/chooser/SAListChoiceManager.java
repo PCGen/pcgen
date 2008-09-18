@@ -84,10 +84,9 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 	{
 		// remove previous selections from special abilities
 		// aBonusList contains all possible selections in form: <displayed info>|<special ability>
-		for (int e = 0; e < pobject.getAssociatedCount(); ++e)
+		for (String assoc : aPC.getAssociationList(pobject))
 		{
-			final String aString = pobject.getAssociated(e);
-			final String prefix = aString + "|";
+			final String prefix = assoc + "|";
 
 			for ( String bString : aBonusList )
 			{

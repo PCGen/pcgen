@@ -54,7 +54,7 @@ public final class SkillCostCalc
 
 		String keyName = sk.getKeyName();
 
-		if (aPC.getRace().hasCSkill(keyName))
+		if (aPC.getRace().hasCSkill(aPC, keyName))
 		{
 			return true;
 		}
@@ -66,13 +66,13 @@ public final class SkillCostCalc
 		}
 
 		// hasCSkill is a class.lst loader skill
-		if (aClass.hasCSkill(keyName))
+		if (aClass.hasCSkill(aPC, keyName))
 		{
 			return true;
 		}
 
 		// test for SKILLLIST skill
-		if (aClass.hasClassSkill(keyName))
+		if (aClass.hasClassSkill(aPC, keyName))
 		{
 			return true;
 		}
@@ -89,20 +89,20 @@ public final class SkillCostCalc
 		{
 			if ((aCD.getDomain() != null)
 					&& aCD.isFromPCClass(aClass.getKeyName())
-					&& aCD.getDomain().hasCSkill(keyName))
+					&& aCD.getDomain().hasCSkill(aPC, keyName))
 			{
 				return true;
 			}
 		}
 
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCSkill(keyName))
+		if ((aPC.getDeity() != null) && aPC.getDeity().hasCSkill(aPC, keyName))
 		{
 			return true;
 		}
 
 		for (Ability aFeat : aPC.getFullAbilitySet())
 		{
-			if (aFeat.hasCSkill(keyName))
+			if (aFeat.hasCSkill(aPC, keyName))
 			{
 				return true;
 			}
@@ -111,7 +111,7 @@ public final class SkillCostCalc
 		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if (aSkill.hasCSkill(keyName))
+			if (aSkill.hasCSkill(aPC, keyName))
 			{
 				return true;
 			}
@@ -123,14 +123,14 @@ public final class SkillCostCalc
 		{
 			if (eq.isEquipped())
 			{
-				if (eq.hasCSkill(keyName))
+				if (eq.hasCSkill(aPC, keyName))
 				{
 					return true;
 				}
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					if (eqMod.hasCSkill(keyName))
+					if (eqMod.hasCSkill(aPC, keyName))
 					{
 						return true;
 					}
@@ -138,7 +138,7 @@ public final class SkillCostCalc
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-					if (eqMod.hasCSkill(keyName))
+					if (eqMod.hasCSkill(aPC, keyName))
 					{
 						return true;
 					}
@@ -148,7 +148,7 @@ public final class SkillCostCalc
 
 		for (PCTemplate aTemplate : aPC.getTemplateList())
 		{
-			if (aTemplate.hasCSkill(keyName))
+			if (aTemplate.hasCSkill(aPC, keyName))
 			{
 				return true;
 			}
@@ -222,7 +222,7 @@ public final class SkillCostCalc
 		}
 
 		String keyName = sk.getKeyName();
-		if (aPC.getRace().hasCcSkill(keyName))
+		if (aPC.getRace().hasCcSkill(aPC, keyName))
 		{
 			return true;
 		}
@@ -231,18 +231,18 @@ public final class SkillCostCalc
 		{
 			if ((aCD.getDomain() != null)
 					&& aCD.isFromPCClass(aClass.getKeyName())
-					&& aCD.getDomain().hasCcSkill(keyName))
+					&& aCD.getDomain().hasCcSkill(aPC, keyName))
 			{
 				return true;
 			}
 		}
 
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCcSkill(keyName))
+		if ((aPC.getDeity() != null) && aPC.getDeity().hasCcSkill(aPC, keyName))
 		{
 			return true;
 		}
 
-		if (aClass.hasCcSkill(keyName))
+		if (aClass.hasCcSkill(aPC, keyName))
 		{
 			return true;
 		}
@@ -257,7 +257,7 @@ public final class SkillCostCalc
 
 		for (Ability feat : aPC.getFullAbilitySet())
 		{
-			if (feat.hasCcSkill(keyName))
+			if (feat.hasCcSkill(aPC, keyName))
 			{
 				return true;
 			}
@@ -266,7 +266,7 @@ public final class SkillCostCalc
 		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if (aSkill.hasCcSkill(keyName))
+			if (aSkill.hasCcSkill(aPC, keyName))
 			{
 				return true;
 			}
@@ -276,14 +276,14 @@ public final class SkillCostCalc
 		{
 			if (eq.isEquipped())
 			{
-				if (eq.hasCcSkill(keyName))
+				if (eq.hasCcSkill(aPC, keyName))
 				{
 					return true;
 				}
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					if (eqMod.hasCcSkill(keyName))
+					if (eqMod.hasCcSkill(aPC, keyName))
 					{
 						return true;
 					}
@@ -291,7 +291,7 @@ public final class SkillCostCalc
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-					if (eqMod.hasCcSkill(keyName))
+					if (eqMod.hasCcSkill(aPC, keyName))
 					{
 						return true;
 					}
@@ -301,7 +301,7 @@ public final class SkillCostCalc
 
 		for (PCTemplate template : aPC.getTemplateList())
 		{
-			if (template.hasCcSkill(keyName))
+			if (template.hasCcSkill(aPC, keyName))
 			{
 				return true;
 			}

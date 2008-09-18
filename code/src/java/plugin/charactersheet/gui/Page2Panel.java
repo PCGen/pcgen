@@ -291,7 +291,7 @@ public class Page2Panel extends javax.swing.JPanel
 		for (int i = 0; i < feats.size(); i++)
 		{
 			Ability feat = (Ability) feats.get(i);
-			featMap.put(feat.qualifiedName(), feat.getDescription(aPC));
+			featMap.put(feat.qualifiedName(aPC), feat.getDescription(aPC));
 		}
 		return featMap;
 	}

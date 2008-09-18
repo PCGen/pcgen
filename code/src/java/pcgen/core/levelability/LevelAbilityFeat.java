@@ -85,13 +85,13 @@ class LevelAbilityFeat extends LevelAbility
 	public void subForLevel(final PlayerCharacter aPC)
 	{
 		// If nothing saved, then process as LevelAbility
-		if (getAssociatedCount(false) == 0)
+		if (!aPC.hasAssociations(this))
 		{
 			super.subForLevel(aPC);
 		}
 		else
 		{
-			for (int j = 0; j < getAssociatedCount(); ++j)
+			for (int j = 0; j < aPC.getAssociationCount(this); ++j)
 			{
 				String        featKey  = getAssociatedList().get(j).toString();
 				final Ability anAbility = Globals.getAbilityKeyed("FEAT", featKey);

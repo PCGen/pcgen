@@ -22,7 +22,6 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
@@ -70,11 +69,9 @@ public class UserInputChoiceManager extends AbstractBasicStringChoiceManager
 		final List<String>            availableList,
 		final List<String>            selectedList)
 	{
-		if (pobject.getAssociatedCount() != 0)
+		if (aPc.hasAssociations(pobject))
 		{
-			List<String> abilityKeys = new ArrayList<String>();
-			pobject.addAssociatedTo( abilityKeys );
-			selectedList.addAll(abilityKeys);
+			selectedList.addAll(aPc.getAssociationList(pobject));
 		}
 		availableList.clear();
 		availableList.add(Constants.EMPTY_STRING);

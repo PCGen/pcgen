@@ -130,7 +130,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 			null));
 
 		pc.setUseTempMods(true);
-		BonusObj bonus = spell.getBonusList().get(0);
+		BonusObj bonus = spell.getBonusList(pc).get(0);
 		pc.addTempBonus(bonus);
 		bonus.setTargetObject(pc);
 		pc.calcActiveBonuses();
@@ -211,7 +211,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 			null));
 
 		pc.setUseTempMods(true);
-		BonusObj bonus = spell.getBonusList().get(0);
+		BonusObj bonus = spell.getBonusList(pc).get(0);
 		pc.addTempBonus(bonus);
 		bonus.setTargetObject(pc);
 		pc.calcActiveBonuses();
@@ -293,7 +293,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.calcActiveBonuses();
 
 		pc.setUseTempMods(true);
-		BonusObj bonus = spell.getBonusList().get(0);
+		BonusObj bonus = spell.getBonusList(pc).get(0);
 		pc.addTempBonus(bonus);
 		bonus.setTargetObject(pc);
 		pc.calcActiveBonuses();

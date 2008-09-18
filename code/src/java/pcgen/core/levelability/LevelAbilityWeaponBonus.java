@@ -69,11 +69,11 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 
 				if (aFeat != null)
 				{
-					for (int ii = 0; ii < aFeat.getAssociatedCount(); ++ii)
+					for (String assoc : aPC.getAssociationList(aFeat))
 					{
-						if (!aArrayList.contains(aFeat.getAssociated(ii)))
+						if (!aArrayList.contains(assoc))
 						{
-							aArrayList.add(aFeat.getAssociated(ii));
+							aArrayList.add(assoc);
 						}
 					}
 				}

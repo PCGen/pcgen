@@ -82,7 +82,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 		final List<String>            availableList,
 		final List<String>            selectedList)
 	{
-		if (Ability.class.isInstance(pobject) && chooseAbility())
+		if (Ability.class.isInstance(pobject) && chooseAbility(aPc))
 		{
 			setSpellListSelections(aPc, availableList, selectedList);
 
@@ -175,10 +175,11 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 	 * instance has its own list of choices.  This routine get the user to
 	 * choose one of the instances.  It returns 1 + the instances index, this is
 	 * the account for the item "New" which is first in the list.
+	 * @param pc TODO
 	 *
 	 * @return  true if a valid sub ability was chosen
 	 */
-	private boolean chooseAbility()
+	private boolean chooseAbility(PlayerCharacter pc)
 	{
 		Ability    anAbility = (Ability) pobject;
 		int        i;
@@ -187,7 +188,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 
 		final StringBuffer sb = new StringBuffer(100);
 
-		for (int j = 0; j < anAbility.getAssociatedCount(); ++j)
+		for (int j = 0; j < pc.getAssociationCount(anAbility); ++j)
 		{
 			fmc = (FeatMultipleChoice) anAbility.getAssociatedList().get(j);
 			sb.append(anAbility.getKeyName()).append(" (");

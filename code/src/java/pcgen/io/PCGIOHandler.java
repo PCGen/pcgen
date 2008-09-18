@@ -368,7 +368,7 @@ public final class PCGIOHandler extends IOHandler
 				buildSALIST(aFeat.getChoiceString(), aAvailable, aBonus,
 					currentPC);
 
-				for (int i = 0; i < aFeat.getAssociatedCount(); i++)
+				for (int i = 0; i < aPC.getAssociationCount(aFeat); i++)
 				{
 					String aString = aFeat.getAssociated(i);
 					final String prefix = aString + "|";
@@ -457,7 +457,7 @@ public final class PCGIOHandler extends IOHandler
 				//
 				// Byngl July 12, 2002
 				//
-				for (int it3 = 0; it3 < aFeat.getAssociatedCount(); it3++)
+				for (int it3 = 0; it3 < currentPC.getAssociationCount(aFeat); it3++)
 				{
 					final String skillString = aFeat.getAssociated(it3);
 					try
@@ -471,7 +471,7 @@ public final class PCGIOHandler extends IOHandler
 				}
 			}
 
-			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && (aFeat.getAssociatedCount() == 0))
+			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
 			{
 				aFeat.addAssociated("PLEASE MAKE APPROPRIATE SELECTION");
 				warnings

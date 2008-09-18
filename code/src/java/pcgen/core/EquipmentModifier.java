@@ -45,6 +45,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;
+import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -69,21 +70,14 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  returns all BonusObj's that are "active"
 	 */
-	public List<BonusObj> getActiveBonuses(final PObject caller, final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for ( BonusObj bonus : getBonusList() )
+		for ( BonusObj bonus : getBonusList(caller) )
 		{
-			if (caller instanceof Equipment)
-			{
-				if ( PrereqHandler.passesAll(bonus.getPrerequisiteList(), ((Equipment)caller), aPC) )
-				{
-					bonus.setApplied(true);
-					aList.add(bonus);
-				}
-			}
-			else if ( bonus.qualifies(aPC) )
+			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
+					aPC))
 			{
 				bonus.setApplied(true);
 				aList.add(bonus);
@@ -104,9 +98,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *          include one entry for each associated choice.
 	 */
 	@Override
-	public List<BonusObj> getBonusList()
+	public List<BonusObj> getBonusList(AssociationStore as)
 	{
-		final List<BonusObj> myBonusList = new ArrayList<BonusObj>(super.getBonusList());
+		final List<BonusObj> myBonusList = new ArrayList<BonusObj>(super.getBonusList(as));
 
 		for (int i = myBonusList.size() - 1; i > -1; i--)
 		{
@@ -118,7 +112,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			if (idx >= 0)
 			{
 				// Add an entry for each of the associated list entries
-				for (int j = getAssociatedCount() - 1; j >= 0; j--)
+				for (int j = as.getAssociationCount(this) - 1; j >= 0; j--)
 				{
 					final BonusObj newBonus = Bonus.newBonus(
 							aString.substring(0, idx) + getAssociated(j) +
@@ -155,18 +149,17 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 	/**
 	 * Gets a list of bonuses held in this object that match both name and type
-	 *
 	 * @param   aType  The type to match
 	 * @param   aName  The name to match
 	 *
 	 * @return  a List of bonuses mathing both name and type
 	 */
 	@Override
-	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
+	public List<BonusObj> getBonusListOfType(AssociationStore as, final String aType, final String aName)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for ( BonusObj bonus : getBonusList() )
+		for ( BonusObj bonus : getBonusList(as) )
 		{
 			if (
 				(bonus.getTypeOfBonus().indexOf(aType) >= 0) &&
@@ -219,7 +212,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			// TODO WTF is this loop doing? how many times does it expect "%CHOICE" to
 			// appear in the special property?
 
-			for (int j = 0; j < getAssociatedCount(); j++)
+			for (int j = 0; j < caller.getAssociationCount(this); j++)
 			{
 				propName = propName.replaceFirst("%CHOICE", getAssociated(j));
 			}
@@ -317,55 +310,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		final PlayerCharacter aPC,
 		final String          aType,
 		final String          aName,
-		final Object          obj)
+		final AssociationStore          obj)
 	{
-		return super.bonusTo(aType, aName, obj, getBonusList(), aPC);
-	}
-
-	/**
-	 * Should use this instead of the current getBonusList() but have to find
-	 * everywhere an EquipmentModifier is added from and call this function. JSC
-	 * 08/20/03
-	 */
-	public void calcBonuses()
-	{
-		final List<BonusObj> addList = new ArrayList<BonusObj>();
-		final List<BonusObj> delList = new ArrayList<BonusObj>();
-
-		for ( BonusObj bonus : getBonusList() )
-		{
-			final String   aString = bonus.toString();
-			final int      idx     = aString.indexOf("%CHOICE");
-
-			if (idx >= 0)
-			{
-				delList.add(bonus);
-
-				// Add an entry for each of the
-				// associated list entries
-				for (int j = 0; j < getAssociatedCount(); j++)
-				{
-					final BonusObj newBonus = Bonus.newBonus(
-							aString.substring(0, idx) + getAssociated(j) +
-							aString.substring(idx + 7));
-					newBonus.setCreatorObject(this);
-					addList.add(newBonus);
-				}
-			}
-		}
-
-		if (delList.size() > 0)
-		{
-			for ( BonusObj bonus : delList )
-			{
-				removeBonusList(bonus);
-			}
-
-			for ( BonusObj bonus : addList )
-			{
-				addBonusList(bonus);
-			}
-		}
+		return super.bonusTo(aType, aName, obj, getBonusList(obj), aPC);
 	}
 
 	/**
@@ -408,17 +355,31 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public int getSR(final PlayerCharacter aPC)
 	{
+		Logging.errorPrint("Should not call getSR(PlayerCharacter) on EqMod");
+		return 0;
+	}
+
+	public int getSR(Equipment parent, PlayerCharacter aPC)
+	{
 		if (getSRFormula() == null)
 		{
 			return 0;
 		}
 
-		if ("%CHOICE".equals(getSRFormula()) && (getAssociatedCount() > 0))
+		if ("%CHOICE".equals(getSRFormula()) && parent.hasAssociations(this))
 		{
 			return Delta.parseInt(getAssociatedObject(0).toString());
 		}
 
-		return super.getSR(aPC);
+		final String srFormula = getSRFormula();
+
+		//if there's a current PC, go ahead and evaluate the formula
+		if (srFormula != null)
+		{
+			return parent.getVariableValue(srFormula, getQualifiedKey(), aPC).intValue();
+		}
+
+		return 0;
 	}
 
 	/**
@@ -478,7 +439,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		selectedList = chooser.getSelectedList();
 		setChoice(selectedList, equipChoice);
 
-		return getAssociatedCount();
+		return parent.getAssociationCount(this);
 	}
 
 	void setChoice(final String choice, final EquipmentChoice equipChoice)
@@ -832,9 +793,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return costdouble;
 	}
 
-	void setRemainingCharges(final int remainingCharges)
+	void setRemainingCharges(Equipment parent, final int remainingCharges)
 	{
-		if (getAssociatedCount() > 0)
+		if (parent.getAssociationCount(this) > 0)
 		{
 			String listEntry  = getAssociated(0);
 			String chargeInfo = getSpellInfoString(listEntry, s_CHARGES);
@@ -852,9 +813,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		}
 	}
 
-	int getRemainingCharges()
+	int getRemainingCharges(Equipment parent)
 	{
-		if (getAssociatedCount() > 0)
+		if (parent.getAssociationCount(this) > 0)
 		{
 			return getSpellInfo(getAssociated(0), s_CHARGES);
 		}
@@ -862,9 +823,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return 0;
 	}
 
-	int getUsedCharges()
+	int getUsedCharges(Equipment parent)
 	{
-		return get(IntegerKey.MAX_CHARGES) - getRemainingCharges();
+		return get(IntegerKey.MAX_CHARGES) - getRemainingCharges(parent);
 	}
 
 	public static int getSpellInfo(final String listEntry, final String desiredInfo)
@@ -920,7 +881,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		Set<String> typesToGetBonusesFor = new HashSet<String>();
 
-		for ( BonusObj bonus : getBonusList() )
+		for ( BonusObj bonus : getBonusList(parent) )
 		{
 			boolean        meetsAll = true;
 

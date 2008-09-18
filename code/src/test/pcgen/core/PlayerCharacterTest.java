@@ -477,7 +477,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
 		spell2.addBonusList("STAT|DEX|-2");
-		BonusObj penalty = spell2.getBonusList().get(0);
+		BonusObj penalty = spell2.getBonusList(pc).get(0);
 		pc.addTempBonus(penalty);
 		penalty.setTargetObject(pc);
 		pc.calcActiveBonuses();

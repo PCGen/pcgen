@@ -124,13 +124,11 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 
 		// remove previous selections from bonuses
 		// aBonusList contains the bonuses
-		for (int e = 0; e < pobject.getAssociatedCount(); ++e)
+		for (String assoc : aPc.getAssociationList(pobject))
 		{
-			final String aString = pobject.getAssociated(e);
-
 			for ( String bonus : aBonusList )
 			{
-				pobject.removeBonus(bonus, aString, aPc);
+				pobject.removeBonus(bonus, assoc, aPc);
 			}
 		}
 		pobject.clearAssociated();

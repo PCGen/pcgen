@@ -1158,7 +1158,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(TAG_DOMAIN).append(':');
 			buffer.append(EntityEncoder.encode(domain.getKeyName()));
 
-			for (int i = 0; i < domain.getAssociatedCount(); ++i)
+			for (int i = 0; i < thePC.getAssociationCount(domain); ++i)
 			{
 				buffer.append('|');
 				buffer.append(TAG_ASSOCIATEDDATA).append(':');
@@ -1404,9 +1404,9 @@ final class PCGVer2Creator implements IOConstants
 					{
 						buffer.append(TAG_MULTISELECT).append(':');
 					}
-					for (; it2 < ability.getAssociatedCount(); ++it2)
+					for (; it2 < thePC.getAssociationCount(ability); ++it2)
 					{
-						if (it2 > 0 && it2 < ability.getAssociatedCount())
+						if (it2 > 0 && it2 < thePC.getAssociationCount(ability))
 						{
 							buffer.append(Constants.COMMA);
 						}
@@ -1978,7 +1978,7 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(']');
 				}
 
-				for (int i = 0; i < skill.getAssociatedCount(); ++i)
+				for (int i = 0; i < thePC.getAssociationCount(skill); ++i)
 				{
 					buffer.append('|');
 					buffer.append(TAG_ASSOCIATEDDATA).append(':');
@@ -2584,7 +2584,7 @@ final class PCGVer2Creator implements IOConstants
 		}
 		for (TransitionChoice<?> tc : addList)
 		{
-			List<Object> assocList = thePC.getAssociationList(tc);
+			List<Object> assocList = thePC.getAssocList(tc);
 			if (assocList == null)
 			{
 				continue;
@@ -2624,7 +2624,7 @@ final class PCGVer2Creator implements IOConstants
 					continue;
 				}
 
-				if (la.getAssociatedCount() != 0)
+				if (thePC.hasAssociations(la))
 				{
 					//
 					// |ABILITY:[PROMPT:blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
@@ -2633,7 +2633,7 @@ final class PCGVer2Creator implements IOConstants
 						.append('[').append(TAG_PROMPT).append(':').append(
 							EntityEncoder.encode(la.getTagData()));
 
-					for (int j = 0; j < la.getAssociatedCount(true); ++j)
+					for (int j = 0; j < thePC.getExpandedAssociationCount(la); ++j)
 					{
 						buffer
 							.append('|')

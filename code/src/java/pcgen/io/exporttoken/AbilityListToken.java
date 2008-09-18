@@ -154,7 +154,7 @@ public class AbilityListToken extends Token
 			}
 			needComma = true;
 
-			retString.append(ability.qualifiedName());
+			retString.append(ability.qualifiedName(pc));
 		}
 
 		return retString.toString();

@@ -4,17 +4,23 @@ import java.util.List;
 
 public interface AssociationStore
 {
-	public void addAssociation(Object obj, Object o);
+	public void addAssociation(PObject obj, String o);
 
-	public void removeAssociation(Object obj, Object o);
+	public void removeAssociation(PObject obj, String o);
 
-	public List<Object> removeAllAssociations(Object obj);
+	public List<String> removeAllAssociations(PObject obj);
 
-	public int getAssociationCount(Object obj);
+	public int getAssociationCount(PObject obj);
 
-	public boolean hasAssociations(Object obj);
+	public boolean hasAssociations(PObject obj);
 
-	public List<Object> getAssociationList(Object obj);
+	public List<String> getAssociationList(PObject obj);
 
-	public boolean containsAssociated(Object obj, Object o);
+	public boolean containsAssociated(PObject obj, String o);
+
+	/*
+	 * Temporary
+	 */
+	public int getExpandedAssociationCount(PObject obj);
+
 }

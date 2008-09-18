@@ -333,7 +333,7 @@ public class AbilityToken extends Token
 			{
 				StringBuffer buf = new StringBuffer();
 
-				for (int j = 0; j < aAbility.getAssociatedCount(); j++)
+				for (int j = 0; j < pc.getAssociationCount(aAbility); j++)
 				{
 					if (j != 0)
 					{
@@ -346,7 +346,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASSOCIATEDCOUNT"))
 			{
-				retString += Integer.toString(aAbility.getAssociatedCount());
+				retString += Integer.toString(pc.getAssociationCount(aAbility));
 			}
 			else if (tokenSource.endsWith(".SOURCE"))
 			{
@@ -381,7 +381,7 @@ public class AbilityToken extends Token
 //			}
 			else
 			{
-				retString += aAbility.qualifiedName();
+				retString += aAbility.qualifiedName(pc);
 			}
 		}
 		else if (eh != null && eh.getExistsOnly())

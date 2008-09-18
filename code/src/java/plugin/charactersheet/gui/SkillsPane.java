@@ -381,7 +381,7 @@ public class SkillsPane extends javax.swing.JPanel
 			{
 				check = X;
 			}
-			String name = skill.qualifiedName();
+			String name = skill.qualifiedName(pc);
 			String ability = skill.getKeyStatAbb();
 			String total =
 					Integer.toString(skill.getTotalRank(pc).intValue()

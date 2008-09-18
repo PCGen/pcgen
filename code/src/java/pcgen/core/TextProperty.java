@@ -90,34 +90,13 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	}
 
 	/**
-	 * Parse the property, replace the %CHOICE
-	 * @param text
-	 * @return Parsed property, with replaced the %CHOICE
-	 */
-	public String parse(String text) {
-		for (int i = 0; i < getAssociatedCount(); i++) {
-			text = text.replaceFirst("%CHOICE", getAssociated(i));
-		}
-		return text;
-	}
-
-	/**
-	 * Get the parsed text (%CHOICEs replaced)
-	 * @return the parsed text (%CHOICEs replaced)
-	 */
-	public String getParsedText()
-	{
-		return parse(getText());
-	}
-
-	/**
 	 * Get the parsed text (%CHOICEs replaced)
 	 * @param pc
 	 * @return Get the parsed text (%CHOICEs replaced)
 	 */
 	public String getParsedText(final PlayerCharacter pc, final VariableContainer anOwner)
 	{
-		return getParsedText(pc, parse(getText()), anOwner);
+		return getParsedText(pc, getText(), anOwner);
 	}
 
 	protected String getParsedText(final PlayerCharacter pc, final String fullDesc, final VariableContainer anOwner)

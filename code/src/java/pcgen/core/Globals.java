@@ -2999,4 +2999,9 @@ public final class Globals
 		return aList;
 	}
 
+	public static AssociationStore getCurrentPC()
+	{
+		return currentPC;
+	}
+
 }
