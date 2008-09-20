@@ -26,6 +26,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.lst.AbilityCategoryLstToken;
+import pcgen.util.Logging;
 
 /**
  * Handles the TYPE token on an ABILITYCATEGORY line.
@@ -43,9 +44,34 @@ public class TypeToken implements AbilityCategoryLstToken
 	public boolean parse(final AbilityCategory aCat, final String aValue)
 	{
 		final StringTokenizer tok = new StringTokenizer(aValue, "."); //$NON-NLS-1$
+		boolean errorFlagged = false;
 		while (tok.hasMoreTokens())
 		{
-			aCat.addAbilityType(tok.nextToken());
+			String typeVal = tok.nextToken();
+			if ("*".equals(typeVal))
+			{
+				if (!aCat.getAbilityTypes().isEmpty() && !errorFlagged)
+				{
+					Logging.log(Logging.LST_WARNING,
+						"Use of named types along with TYPE:* in category "
+							+ aCat.getDisplayName()
+							+ " is redundant. Named types " + aCat.getAbilityTypes() + " will be ignored");
+					errorFlagged = true;
+				}
+				aCat.setAllAbilityTypes(true);
+			}
+			else
+			{
+				aCat.addAbilityType(typeVal);
+				if (aCat.isAllAbilityTypes() && !errorFlagged)
+				{
+					Logging.log(Logging.LST_WARNING,
+						"Use of named types along with TYPE:* in category "
+							+ aCat.getDisplayName()
+							+ " is redundant. Named types " + aCat.getAbilityTypes() + "will be ignored");
+					errorFlagged = true;
+				}
+			}
 		}
 		return true;
 	}

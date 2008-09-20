@@ -870,12 +870,20 @@ public final class Globals
 	{
 		final List<? extends Categorisable> abilities = abilityStore.getUnmodifiableList( aCategory.getAbilityCategory() );
 		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
+		final boolean includeAllAbiltiies =
+				aCategory.getAbilityCategory().equalsIgnoreCase(
+					aCategory.getKeyName())
+					|| aCategory.isAllAbilityTypes();
 		for ( final Categorisable ab : abilities )
 		{
 			if ( ab instanceof Ability )
 			{
 				final Ability ability = (Ability)ab;
-				if ( aCategory.getAbilityTypes().size() > 0 )
+				if (includeAllAbiltiies)
+				{
+					ret.add( ability );
+				}
+				else if ( aCategory.getAbilityTypes().size() > 0 )
 				{
 					for ( final String type : aCategory.getAbilityTypes() )
 					{
@@ -885,10 +893,6 @@ public final class Globals
 							break;
 						}
 					}
-				}
-				else
-				{
-					ret.add( ability );
 				}
 			}
 		}

@@ -52,6 +52,7 @@ public class AbilityCategory implements KeyedObject, Category<Ability>
 	
 	private String theAbilityCategory;
 	private Set<String> theAbilityTypes = null;
+	private boolean allAbilityTypes = false;
 	private String thePoolFormula = "0"; //$NON-NLS-1$
 	
 	private String theDisplayLocation;
@@ -172,6 +173,26 @@ public class AbilityCategory implements KeyedObject, Category<Ability>
 		return Collections.unmodifiableSet(theAbilityTypes);
 	}
 	
+	/**
+	 * Should all ability types be included in this category?
+	 * @return true if all types should be included, 
+	 *         false if only those listed should be.
+	 */
+	public boolean isAllAbilityTypes()
+	{
+		return allAbilityTypes;
+	}
+
+	/**
+	 * Configure whether all ability types be included in this category?
+	 * @param allAbilityTypes true if all types should be included, 
+	 *         false if only those listed should be.
+	 */
+	public void setAllAbilityTypes(boolean allAbilityTypes)
+	{
+		this.allAbilityTypes = allAbilityTypes;
+	}
+
 	/**
 	 * Gets the formula to use for calculating the base pool size for this
 	 * category of ability.

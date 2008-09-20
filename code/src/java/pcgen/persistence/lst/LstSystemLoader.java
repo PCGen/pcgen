@@ -579,11 +579,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		for (AbilityCategory ac : gamemode.getAllAbilityCategories())
 		{
 			//Must be a universal set if no types
-			if (ac.getAbilityTypes().isEmpty())
+			if (ac.getAbilityTypes().isEmpty() && !ac.isAllAbilityTypes())
 			{
 				if (!ac.getAbilityCategory().equalsIgnoreCase(ac.getKeyName()))
 				{
-					Logging.errorPrint("Ability Category " + ac.getKeyName()
+					Logging.log(Logging.LST_ERROR, "Ability Category "
+						+ ac.getKeyName()
 						+ " had no TYPE, but has a different CATEGORY");
 				}
 			}
