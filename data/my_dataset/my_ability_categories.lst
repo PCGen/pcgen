@@ -13,10 +13,15 @@
 
 #
 # Ability Categories
-#
-#ABILITYCATEGORY:my_foo abilities	CATEGORY:PooSlinger	PLURAL:PooSlinger		EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	POOL:<myformula or Number>	VISIBLE:YES/NO/QUALIFY
-#ABILITYCATEGORY:AbilitybySkill	CATEGORY:AbilitybySkill	PLURAL:AbilitybySkills	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	POOL:AbilitybySkillPool		VISIBLE:QUALIFY
+#Example of a SuperSet or Parent
+#ABILITYCATEGORY:Special Ability	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	VISIBLE:NO
+#ABILITYCATEGORY:AbilitybySkill	CATEGORY:AbilitybySkill		EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	POOL:AbilitybySkillPool		VISIBLE:QUALIFY	PLURAL:AbilitybySkills
+# No TYPE and Matching ABILITYCATEGORY and CATEGORY names designates these as SUPERSET/PARENT.
 
+
+
+#Examples of a Subset or Child
+#ABILITYCATEGORY:My Class Ability	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	VISIBLE:QUALIFY	TYPE:MyClass	DISPLAYLOCATION:Class Abilities	PLURAL:My Class Abilities
 
 # VISIBLE TAG will take YES, NO or QUALIFY - QUALIFY won't display the Category unless it has one valid selection or the number is 1 or higher in the pool.
 # New tag - DISPLAYLOCATION:<user defined> will allow you to group ABILITIES together in the same "tab"
