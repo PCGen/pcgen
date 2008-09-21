@@ -42,3 +42,5 @@ Wand			TYPE:Wand					COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicItemsI.rtf
 # From Magic Overview "Components"
 Spell Component	TYPE:MaterialComponent.Consumable	COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicOverview.rtf
 Spell Focus		TYPE:SpellFocus				COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicOverview.rtf
+
+Trap (Mechanical)	OUTPUTNAME:[NAME] Trap	TYPE:Trap.Mechanical	COST:1000	MODS:REQUIRED	DEFINE:TrapCR|0	SOURCEPAGE:RSRD Traps.rtf	SPROP:Trap CR %|TrapCR
