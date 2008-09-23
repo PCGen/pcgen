@@ -6,9 +6,9 @@
 	This format is designed to match the official WotC Statblock style 
 	as defined in the 3.5 Edition DMG (II)
 
-$Revision: 1.6 $
-$Author: eddyanthony $
-$Date: 2007/03/01 23:16:07 $
+$Revision$
+$Author$
+$Date$
 
 -->
 <style type="text/css">
@@ -475,6 +475,9 @@ at will)
 |ENDIF|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SpellLike)|
  (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:PsiLike)|
+ (Ps)
 |ENDIF|
 </b> |ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|</p>
 |ENDFOR|

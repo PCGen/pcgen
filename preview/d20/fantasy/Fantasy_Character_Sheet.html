@@ -8,9 +8,9 @@ Email: eddybaATmindspringDOTcom
 Javascript by: Aaron Divinsky
 Email: boomer70ATyahooDOTcom
 
-$Revision:  $
-$Author:  $
-$Date:  $
+$Revision$
+$Author$
+$Date$
 -->
 <head>
 <title>Fantasy Character Sheet</title>
@@ -1807,6 +1807,9 @@ $Date:  $
 |IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
  (Sp)
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.TYPE:PsiLike)|
+ (Ps)
+|ENDIF|
 				</b> ~ |ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.DESC|</td>
 			</tr>
 |ENDFOR|		
@@ -1847,6 +1850,9 @@ $Date:  $
 |ENDIF|
 |IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialQuality.TYPE:SpellLike)|
  (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialQuality.TYPE:PsiLike)|
+ (Ps)
 |ENDIF|
 				</b> ~ |ABILITYALL.Special Ability.%specialQuality.TYPE=SpecialQuality.DESC|</td>
 			</tr>

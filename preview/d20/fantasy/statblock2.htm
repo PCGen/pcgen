@@ -92,7 +92,11 @@ SA:
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE:SpellLike)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities| (Sp), 
 |ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE:PsiLike)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities| (Ps), 
+|ELSE|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities|, 
+|ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|

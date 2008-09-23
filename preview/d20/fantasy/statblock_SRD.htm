@@ -271,7 +271,11 @@ melee
 |IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:SpellLike)|
 |ABILITYALL.Special Ability.%specialAbilities| (Sp), 
 |ELSE|
+|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:PsiLike)|
+|ABILITYALL.Special Ability.%specialAbilities| (Ps), 
+|ELSE|
 |ABILITYALL.Special Ability.%specialAbilities|, 
+|ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|

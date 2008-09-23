@@ -7,7 +7,7 @@
 	as defined in the 3.5 Edition DMG (II)
 
 $Revision$
-$Author: eddyanthony $
+$Author$
 $Date$
 
 -->
@@ -481,6 +481,9 @@ at will)
 |ENDIF|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SpellLike)|
  (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:PsiLike)|
+ (Ps)
 |ENDIF|
 </b> |ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|</p>
 |ENDFOR|

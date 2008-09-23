@@ -11,7 +11,7 @@ Revisions: Barak  10/15/02
 Email: barak@voyager.net
 
 $Revision$
-$Author: eddyanthony $
+$Author$
 $Date$
 -->
 <head>
@@ -2230,6 +2230,9 @@ Wisdom
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)|
  (Sp)
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:PsiLike)|
+ (Ps)
+|ENDIF|
 	 </td>
      <td valign="top" align="left" class="font8">|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.DESC|</td>
     </tr>
@@ -2258,6 +2261,9 @@ Wisdom
 |ENDIF|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
  (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:PsiLike)|
+ (Ps)
 |ENDIF|
 	 </td>
      <td valign="top" align="left" class="font8">|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.DESC|</td>
