@@ -27,11 +27,17 @@
 
 	<h1>The ADD Tag</h1>
 	<p></p>
-	<p><strong>*NOTE:</strong>
-		The ADD tag <span class="underline">MUST</span> be used with at least one valid
-		choice (like the CHOOSE tag) or it will not function.<br />
-		i.e. If <code>ADD:FEAT|TYPE=Foo</code> and the character does not qualify for
-		any TYPE=Foo feat, there will be no pop-up or choice.</p>
+	<p class="indent0"><strong>Notes on Tag Usage:</strong></p>
+	<ol class="indent0">
+		<li>The ADD tag <span class="underline">MUST</span> be used with at least one valid choice 
+			(like the CHOOSE tag) or it will not function, i.e. If <code>ADD:FEAT|TYPE=Foo</code> 
+			and the character does not qualify for any TYPE=Foo feat, there will be no pop-up or 
+			choice.</li>
+		<li>This tag is a &quot;fire and forget&quot; tag. Once the containing object (e.g. Class, 
+			Feat, Race, etc.) is applied, and assuming that the characters qualifies for the object 
+			being added, this tag will fire. If the object is then removed, the effect of this 
+			tag will not be removed.</p>
+	</ol>
 	<p></p>
 
 <hr>
