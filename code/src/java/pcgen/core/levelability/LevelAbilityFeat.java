@@ -195,7 +195,7 @@ class LevelAbilityFeat extends LevelAbility
 								"FEAT",
 								featName,
 								aPC.getDirectVirtualAbilities(AbilityCategory.FEAT),
-								pcLevelInfo);
+								aPC, pcLevelInfo);
 				aPC.setDirty(true);
 
 				if (aFeat != null)

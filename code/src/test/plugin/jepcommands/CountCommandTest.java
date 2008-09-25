@@ -120,8 +120,8 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 
         abArray[1].put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		abArray[1].addAssociated("one");
-		abArray[1].addAssociated("two");
+        character.addAssociation(abArray[1], "one");
+        character.addAssociation(abArray[1], "two");
 
 		for (int i = 0;6 > i;i++) {
             character.addAbility(featCategory, abArray[i], null);
@@ -461,7 +461,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		ab.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		
-		ab.addAssociated("munch");
+		character.addAssociation(ab, "munch");
 		
 		// now the tests
 
@@ -478,12 +478,12 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		ab.addAssociated("devour");
+		character.addAssociation(ab, "devour");
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
 
-		ab.addAssociated("nibble");
+		character.addAssociation(ab, "nibble");
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");

@@ -1235,7 +1235,7 @@ final class PCGVer0Parser implements PCGParser
 					else if ((anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED) && anAbility.getSafe(ObjectKey.STACKS))
 						|| !anAbility.containsAssociated(aString))
 					{
-						anAbility.addAssociated(aString);
+						aPC.addAssociation(anAbility, aString);
 					}
 				}
 			}

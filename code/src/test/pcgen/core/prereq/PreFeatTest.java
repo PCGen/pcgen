@@ -102,7 +102,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability focusFeat = new Ability();
 		focusFeat.setName("Weapon Focus");
-		focusFeat.addAssociated("Rapier");
+		character.addAssociation(focusFeat, "Rapier");
 		character.addFeat(focusFeat, null);
 
 		final Prerequisite preFeat = new Prerequisite();
@@ -156,7 +156,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability spellFocus = new Ability();
 		spellFocus.setName("Spell Focus");
-		spellFocus.addAssociated("Conjuration");
+		character.addAssociation(spellFocus, "Conjuration");
 		character.addFeat(spellFocus, null);
 
 		final Prerequisite preSpellFocus = new Prerequisite();
@@ -201,7 +201,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
-		spellFocus.addAssociated("Evocation");
+		character.addAssociation(spellFocus, "Evocation");
 
 		final Prerequisite preSpellFocus = new Prerequisite();
 		preSpellFocus.setKind("FEAT");
@@ -245,7 +245,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
-		spellFocus.addAssociated("Evocation");
+		character.addAssociation(spellFocus, "Evocation");
 
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
@@ -309,7 +309,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		assertFalse("Should not pass without skill focus", passes);
 
 		character.addFeat(skillFocusKnow, null);
-		skillFocusKnow.addAssociated("Knowledge (Arcana)");
+		character.addAssociation(skillFocusKnow, "Knowledge (Arcana)");
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass with skill focus", passes);
 
@@ -336,12 +336,12 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		assertFalse("Should not pass without spell focus", passes);
 
 		character.addFeat(spellFocus, null);
-		spellFocus.addAssociated("Evocation");
+		character.addAssociation(spellFocus, "Evocation");
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass with only one spell focus", passes);
 
-		spellFocus.addAssociated("Enchantment");
+		character.addAssociation(spellFocus, "Enchantment");
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass with spell focus", passes);

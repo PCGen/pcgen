@@ -54,7 +54,7 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 		pobject.clearAssociated();
 		for (int i = 0; i < selected.size(); i++)
 		{
-			pobject.addAssociated(Constants.EMPTY_STRING);
+			apc.addAssociation(pobject, Constants.EMPTY_STRING);
 		}
 		adjustPool(selected);
 	}

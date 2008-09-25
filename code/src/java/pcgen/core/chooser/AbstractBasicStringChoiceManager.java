@@ -80,6 +80,6 @@ public abstract class AbstractBasicStringChoiceManager extends
 
 	protected void associateChoice(PlayerCharacter pc, String st)
 	{
-		pobject.addAssociated(st);
+		pc.addAssociation(pobject, st);
 	}
 }

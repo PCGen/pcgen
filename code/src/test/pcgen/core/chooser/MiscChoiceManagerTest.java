@@ -110,7 +110,7 @@ public class MiscChoiceManagerTest extends AbstractCharacterTestCase
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
 
-		pObj.addAssociated("Bar");
+		aPC.addAssociation(pObj, "Bar");
 
 		List available = new ArrayList();
 		List selected = new ArrayList();

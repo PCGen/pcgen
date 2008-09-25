@@ -220,7 +220,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
 		testBonus.addBonusList(bonus);
-		testBonus.addAssociated("INT");
+		character.addAssociation(testBonus, "INT");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 		List<BonusPair> bonusPairs = bonus.getStringListFromBonus();
@@ -243,8 +243,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
 		testBonus.addBonusList(bonus);
-		testBonus.addAssociated("INT");
-		testBonus.addAssociated("STR");
+		character.addAssociation(testBonus, "INT");
+		character.addAssociation(testBonus, "STR");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
@@ -272,8 +272,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
 		testBonus.addBonusList(bonus);
-		testBonus.addAssociated("INT");
-		testBonus.addAssociated("STR");
+		character.addAssociation(testBonus, "INT");
+		character.addAssociation(testBonus, "STR");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 

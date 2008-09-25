@@ -221,7 +221,7 @@ public final class SkillLanguage
 			// TODO Fix this to allow Language objects.
 			for (Iterator<?> i = lc.getSelectedList().iterator(); i.hasNext();)
 			{
-				languageSkill.addAssociated(((Language) i.next()).getKeyName());
+				aPC.addAssociation(languageSkill, ((Language) i.next()).getKeyName());
 			}
 			aPC.setDirty(true);
 

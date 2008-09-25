@@ -196,19 +196,19 @@ public class PObjectTest extends AbstractCharacterTestCase
 		PlayerCharacter aPC = getCharacter();
 		aPC.addFeat(pObj, null);
 
-		pObj.addAssociated("TestPsion 1");
+		aPC.addAssociation(pObj, "TestPsion 1");
 		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, false);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		pObj.addAssociated("TestPsion 1");
+		aPC.addAssociation(pObj, "TestPsion 1");
 		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, true);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 3 bonus known spells", (2 * 1) + 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		pObj.addAssociated("TestPsion 1");
+		aPC.addAssociation(pObj, "TestPsion 1");
 		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, false);
 		aPC.calcActiveBonuses();
@@ -250,12 +250,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
-		pObj.addAssociated("");
+		aPC.addAssociation(pObj, "");
 		aPC.addFeat(pObj, null);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		pObj.addAssociated("");
+		aPC.addAssociation(pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());
@@ -289,12 +289,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
-		pObj.addAssociated("+3 HP");
+		aPC.addAssociation(pObj, "+3 HP");
 		aPC.addFeat(pObj, null);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		pObj.addAssociated("+3 HP");
+		aPC.addAssociation(pObj, "+3 HP");
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());

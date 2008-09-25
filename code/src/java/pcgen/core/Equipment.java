@@ -2259,7 +2259,7 @@ public final class Equipment extends PObject implements Serializable,
 					// like number of charges.
 					eqMod.clearAssociated();
 				}
-				eqMod.addAssociated(x.replace('=', '|'));
+				addAssociation(eqMod, x.replace('=', '|'));
 			}
 		}
 	}
@@ -2407,7 +2407,7 @@ public final class Equipment extends PObject implements Serializable,
 			boolean allRemoved = false;
 			if (selectedChoice != null && selectedChoice.length() > 0) {
 				if (!eqMod.getChoiceString().startsWith("EQBUILDER.")) {
-					aMod.setChoice(selectedChoice, equipChoice);
+					aMod.setChoice(this, selectedChoice, equipChoice);
 					allRemoved = !hasAssociations(aMod);
 				}
 			} else if (aMod.getChoice(1, this, true, aPC) == 0) {
@@ -6050,7 +6050,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	public void addAssociation(PObject obj, String o)
 	{
-		obj.addAssociated(o);
+		obj.tempAddAssociated(o);
 	}
 
 	public boolean containsAssociated(PObject obj, String o)
@@ -6066,9 +6066,21 @@ public final class Equipment extends PObject implements Serializable,
 	public List<String> getAssociationList(PObject obj)
 	{
 		List<String> list = new ArrayList<String>();
-		for (AssociatedChoice<String> ac : obj.getAssociatedList())
+		ArrayList<AssociatedChoice<String>> assocList = obj.getAssociatedList();
+		if (assocList != null)
 		{
-			list.add(ac.getDefaultChoice());
+			for (AssociatedChoice<String> ac : assocList)
+			{
+				final String choiceStr = ac.getDefaultChoice();
+				if (choiceStr.equals(Constants.EMPTY_STRING))
+				{
+					list.add(null);
+				}
+				else
+				{
+					list.add(choiceStr);
+				}
+			}
 		}
 		return list;
 	}

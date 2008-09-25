@@ -49,19 +49,19 @@ public class AbilityUtilities
 
 	/**
 	 * Add the choices in the List to the ability if it is legal to do so.
-	 *
+	 * @param pc TODO
 	 * @param ability Ability to add the choices to
 	 * @param choices the iterable collection of choices to add
 	 */
 	private static void addChoicesToAbility(
-			final Ability ability,
-			final Iterable<String> choices)
+			PlayerCharacter pc,
+			final Ability ability, final Iterable<String> choices)
 	{
 		for ( final String choice : choices )
 		{
 			if (ability.canAddAssociation(choice))
 			{
-				ability.addAssociated(choice);
+				pc.addAssociation(ability, choice);
 			}
 		}
 	}
@@ -71,16 +71,17 @@ public class AbilityUtilities
 	 * Clone anAbility, apply choices and add it to the addList, provided the
 	 * Ability allows it (if not isMultiples check if it's already there before
 	 * adding it).
-	 *
+	 * @param pc TODO
 	 * @param   anAbility
 	 * @param   choices
 	 * @param   addList
+	 *
 	 * @return the Ability added, or null if Ability was not added to the list.
 	 */
 	public static Ability addCloneOfAbilityToListwithChoices(
+		PlayerCharacter pc,
 		final Ability anAbility,
-		final List<String>    choices,
-		final List<Ability>    addList)
+		final List<String>    choices, final List<Ability>    addList)
 	{
 		Ability newAbility = null;
 
@@ -95,7 +96,7 @@ public class AbilityUtilities
 
 			if (choices != null)
 			{
-				addChoicesToAbility(newAbility, choices);
+				addChoicesToAbility(pc, newAbility, choices);
 			}
 			addList.add(newAbility);
 		}
@@ -109,7 +110,7 @@ public class AbilityUtilities
 	 * it in global Storage and, if it's there, clone it and add it the List.
 	 * If we got an ability, then add any sub choices from the name to the
 	 * associated list of the ability.
-	 *
+	 * @param pc TODO
 	 * @param  theAbilityList  A list of abilities to add to
 	 * @param category The category of Ability to add
 	 * @param  abilityName     The name of the Ability to Add
@@ -117,9 +118,9 @@ public class AbilityUtilities
 	 * @return The Ability processed
 	 */
 	public static Ability addCloneOfGlobalAbilityToListWithChoices(
+			PlayerCharacter pc,
 			final List<Ability>   theAbilityList,
-			final String category,
-			final String abilityName)
+			final String category, final String abilityName)
 	{
 		final Collection<String> choices = new ArrayList<String>();
 		getUndecoratedName(abilityName, choices);
@@ -130,7 +131,7 @@ public class AbilityUtilities
 
 		if (anAbility == null)
 		{
-			anAbility = cloneGlobalAbility(cat.getAbilityCategory(), abilityName);
+			anAbility = cloneGlobalAbility(pc, cat.getAbilityCategory(), abilityName);
 
 			if (anAbility != null)
 			{
@@ -140,16 +141,16 @@ public class AbilityUtilities
 
 		if (anAbility != null)
 		{
-			addChoicesToAbility(anAbility, choices);
+			addChoicesToAbility(pc, anAbility, choices);
 		}
 
 		return anAbility;
 	}
 
 	public static Ability addCloneOfGlobalAbilityToListWithChoices(
+			PlayerCharacter pc,
 			final List<Ability>   anAbilityList,
-			final AbilityCategory aCategory,
-			final String aKey)
+			final AbilityCategory aCategory, final String aKey)
 	{
 		final Collection<String> choices = new ArrayList<String>();
 		getUndecoratedName(aKey, choices);
@@ -158,7 +159,7 @@ public class AbilityUtilities
 
 		if (anAbility == null)
 		{
-			anAbility = cloneGlobalAbility(aCategory.getAbilityCategory(), aKey);
+			anAbility = cloneGlobalAbility(pc, aCategory.getAbilityCategory(), aKey);
 
 			if (anAbility != null)
 			{
@@ -168,7 +169,7 @@ public class AbilityUtilities
 
 		if (anAbility != null)
 		{
-			addChoicesToAbility(anAbility, choices);
+			addChoicesToAbility(pc, anAbility, choices);
 		}
 
 		return anAbility;
@@ -180,6 +181,7 @@ public class AbilityUtilities
 	 * @param   anAbility
 	 * @param   choices
 	 * @param   addList
+	 * @param pc TODO
 	 * @param   levelInfo
 	 * @return the Ability added
 	 */
@@ -187,14 +189,14 @@ public class AbilityUtilities
 		final Ability     anAbility,
 		final List<String>        choices,
 		final List<Ability>        addList,
-		final PCLevelInfo levelInfo)
+		PlayerCharacter pc, final PCLevelInfo levelInfo)
 	{
 		if (anAbility == null)
 		{
 			return null;
 		}
 
-		final Ability newAbility = addCloneOfAbilityToListwithChoices(anAbility, choices, addList);
+		final Ability newAbility = addCloneOfAbilityToListwithChoices(pc, anAbility, choices, addList);
 
 		if (newAbility != null)
 		{
@@ -217,21 +219,21 @@ public class AbilityUtilities
 	 * @param   category
 	 * @param   aFeatKey
 	 * @param   abilityList
+	 * @param pc TODO
 	 * @param   levelInfo
-	 *
 	 * @return  the Ability added
 	 */
 	public static Ability addVirtualAbility(
 		final String          category,
 		final String          aFeatKey,
 		final List<Ability>   abilityList,
-		final PCLevelInfo     levelInfo)
+		PlayerCharacter pc, final PCLevelInfo     levelInfo)
 	{
 		final List<String> choices = new ArrayList<String>();
 		final String    abilityKey      = getUndecoratedName(aFeatKey, choices);
 		final Ability   anAbility       = Globals.getAbilityKeyed(category, abilityKey);
 
-		return addVirtualAbility(anAbility, choices, abilityList, levelInfo);
+		return addVirtualAbility(anAbility, choices, abilityList, pc, levelInfo);
 	}
 
 
@@ -306,15 +308,15 @@ public class AbilityUtilities
 	/**
 	 * If an ability in Global storage matches the category and name passed
 	 * in, then return a clone of that Ability.
-	 *
+	 * @param pc TODO
 	 * @param category
 	 * @param anAbilityKey
 	 *
 	 * @return a clone of a global ability
 	 */
 	private static Ability cloneGlobalAbility(
-			final String category,
-			final String anAbilityKey)
+			PlayerCharacter pc,
+			final String category, final String anAbilityKey)
 	{
 		final Collection<String> choices  = new ArrayList<String>();
 		final String    baseKey = getUndecoratedName(anAbilityKey, choices);
@@ -336,7 +338,7 @@ public class AbilityUtilities
 
 			if (choices.size() > 0)
 			{
-				addChoicesToAbility(anAbility, choices);
+				addChoicesToAbility(pc, anAbility, choices);
 			}
 
 		}
@@ -384,7 +386,7 @@ public class AbilityUtilities
 			{
 				if (ability.canAddAssociation(choice))
 				{
-					ability.addAssociated(choice);
+					aPC.addAssociation(ability, choice);
 				}
 			}
 			else
@@ -823,7 +825,7 @@ public class AbilityUtilities
 								{
 									if (addIt)
 									{
-										anAbility.addAssociated(wp.getKeyName());
+										aPC.addAssociation(anAbility, wp.getKeyName());
 									}
 									else
 									{
@@ -837,7 +839,7 @@ public class AbilityUtilities
 					{
 						if (addIt)
 						{
-							anAbility.addAssociated(aString);
+							aPC.addAssociation(anAbility, aString);
 						}
 						else
 						{
@@ -1186,6 +1188,7 @@ public class AbilityUtilities
 	 * @return the Ability added, or null if Ability was not added to the list.
 	 */
 	public static Ability addAbilityToListwithChoices(
+		PlayerCharacter pc,
 		final Ability anAbility,
 		final List<String>    choices,
 		final List<Ability>    addList)
@@ -1199,7 +1202,7 @@ public class AbilityUtilities
 
 		if (choices != null)
 		{
-			addChoicesToAbility(abil, choices);
+			addChoicesToAbility(pc, abil, choices);
 		}
 
 		return abil;

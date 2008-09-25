@@ -677,7 +677,7 @@ public class LevelAbilityAbility extends LevelAbility
 						ab,
 						choiceList,
 						aList,
-						pcLevelInfo);
+						aPC, pcLevelInfo);
 
 				aPC.setDirty(true);
 

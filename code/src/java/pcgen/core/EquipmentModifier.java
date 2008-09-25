@@ -235,7 +235,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * TODO store this a separate fields or as a spell object or some other
 	 * way that doesn't involve turning this into a string and then parsing
 	 * the string when we want to do something with the info.
-	 *
+	 * @param parent TODO
 	 * @param  spellCastingClass    a PCClass Object, the class that this spell will be cast as
 	 * @param  theSpell             a Spell Object
 	 * @param  spellVariant         a string
@@ -246,14 +246,14 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * @param  charges              how many times can it be cast
 	 */
 	public void setSpellInfo(
+		Equipment parent,
 		final PObject spellCastingClass,
 		final Spell   theSpell,
 		final String  spellVariant,
 		final String  spellType,
 		final int     spellLevel,
 		final int     spellCasterLevel,
-		final Object[]  spellMetamagicFeats,
-		final int     charges)
+		final Object[]  spellMetamagicFeats, final int     charges)
 	{
 		final StringBuffer spellInfo = new StringBuffer(100);
 		spellInfo.append("SPELLNAME[").append(theSpell.getKeyName()).append("] ");
@@ -295,7 +295,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			spellInfo.append("] ");
 		}
 
-		addAssociated(spellInfo.toString());
+		parent.addAssociation(this, spellInfo.toString());
 	}
 
 	/**
@@ -437,19 +437,19 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		chooser.setVisible(true);
 
 		selectedList = chooser.getSelectedList();
-		setChoice(selectedList, equipChoice);
+		setChoice(parent, selectedList, equipChoice);
 
 		return parent.getAssociationCount(this);
 	}
 
-	void setChoice(final String choice, final EquipmentChoice equipChoice)
+	void setChoice(Equipment parent, final String choice, final EquipmentChoice equipChoice)
 	{
 		final List<String> tempList = new ArrayList<String>();
 		tempList.add(choice);
-		setChoice(tempList, equipChoice);
+		setChoice(parent, tempList, equipChoice);
 	}
 
-	void setChoice(final List<String> selectedList, final EquipmentChoice equipChoice)
+	void setChoice(Equipment parent, final List<String> selectedList, final EquipmentChoice equipChoice)
 	{
 		clearAssociated();
 
@@ -496,7 +496,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 			if (equipChoice.isAllowDuplicates() || !containsAssociated(aString))
 			{
-				addAssociated(aString);
+				parent.addAssociation(this, aString);
 			}
 		}
 	}

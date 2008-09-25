@@ -12255,7 +12255,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
 						&& !anAbility.containsAssociated(aString))
 					{
-						anAbility.addAssociated(aString);
+						addAssociation(anAbility, aString);
 						anAbility.sortAssociated();
 					}
 				}
@@ -12287,7 +12287,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						}
 
 						anAbility = anAbility.clone();
-						anAbility.addAssociated(aString);
+						addAssociation(anAbility, aString);
 
 						if (isAuto)
 						{
@@ -16767,7 +16767,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					if (aggregateFeat.getSafe(ObjectKey.STACKS)
 						|| !aggregateFeat.containsAssociated(aString))
 					{
-						aggregateFeat.addAssociated(aString);
+						addAssociation(aggregateFeat, aString);
 					}
 				}
 
@@ -16796,7 +16796,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					if (aggregateFeat.getSafe(ObjectKey.STACKS)
 						|| !aggregateFeat.containsAssociated(aString))
 					{
-						aggregateFeat.addAssociated(aString);
+						addAssociation(aggregateFeat, aString);
 					}
 				}
 
@@ -17065,7 +17065,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							List<Ability> abilities = theAbilities.get(
 									AbilityCategory.FEAT, nature);
 							Ability added = AbilityUtilities
-									.addAbilityToListwithChoices(ab, choices,
+									.addAbilityToListwithChoices(this, ab, choices,
 											abilities);
 							if (added != null) {
 								added.setFeatType(nature);
@@ -17097,7 +17097,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 								List<Ability> abilities = theAbilities.get(
 										cat, nature);
 								Ability added = AbilityUtilities
-										.addAbilityToListwithChoices(ab, choices,
+										.addAbilityToListwithChoices(this, ab, choices,
 												abilities);
 								if (added != null) {
 									added.setFeatType(nature);
@@ -17124,7 +17124,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						for (final String key : abilityKeys)
 						{
 							final Ability added = AbilityUtilities
-									.addCloneOfGlobalAbilityToListWithChoices(
+									.addCloneOfGlobalAbilityToListWithChoices(this,
 											abilities, cat, key);
 							if (added != null)
 							{
@@ -17235,8 +17235,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							Ability added =
 									AbilityUtilities
 										.addCloneOfGlobalAbilityToListWithChoices(
-											abilities, Constants.FEAT_CATEGORY,
-											aTok.nextToken());
+												this, abilities,
+											Constants.FEAT_CATEGORY, aTok.nextToken());
 							if (added != null)
 							{
 								added.setFeatType(Ability.Nature.AUTOMATIC);
@@ -17272,9 +17272,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 								Ability added =
 										AbilityUtilities
 											.addCloneOfGlobalAbilityToListWithChoices(
+													this,
 												abilities,
-												Constants.FEAT_CATEGORY,
-												aString.substring(idx + 1));
+												Constants.FEAT_CATEGORY, aString.substring(idx + 1));
 								if (added != null)
 								{
 									added.setFeatType(Ability.Nature.AUTOMATIC);
@@ -17304,8 +17304,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 									choices = Collections.emptyList();
 								}
 								Ability added = AbilityUtilities
-										.addAbilityToListwithChoices(ab,
-												choices, abilities);
+										.addAbilityToListwithChoices(this,
+												ab, choices, abilities);
 								if (added != null)
 								{
 									added.setFeatType(Ability.Nature.AUTOMATIC);
@@ -17868,7 +17868,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addAssociation(PObject obj, String o)
 	{
-		obj.addAssociated(o);
+		obj.tempAddAssociated(o);
 	}
 
 	public boolean containsAssociated(PObject obj, String o)
@@ -17884,9 +17884,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<String> getAssociationList(PObject obj)
 	{
 		List<String> list = new ArrayList<String>();
-		for (AssociatedChoice<String> ac : obj.getAssociatedList())
+		ArrayList<AssociatedChoice<String>> assocList = obj.getAssociatedList();
+		if (assocList != null)
 		{
-			list.add(ac.getDefaultChoice());
+			for (AssociatedChoice<String> ac : assocList)
+			{
+				final String choiceStr = ac.getDefaultChoice();
+				if (choiceStr.equals(Constants.EMPTY_STRING))
+				{
+					list.add(null);
+				}
+				else
+				{
+					list.add(choiceStr);
+				}
+			}
 		}
 		return list;
 	}
@@ -17915,7 +17927,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return obj.tempGetAssociatedCount(true);
 	}
-
 	public void addAssoc(Object obj, Object o)
 	{
 		assocSupt.addAssoc(obj, o);

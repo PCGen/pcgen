@@ -611,59 +611,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		return getAbilityKeys(null, AbilityCategory.FEAT, Ability.Nature.VIRTUAL);
 	}
-	
-//	/**
-//	 * Add automatic weapon proficienies for this object
-//	 * @param aString
-//	 */
-//	public final void addWeaponProfAutos(final String aString)
-//	{
-//		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-//
-//		ListKey<String> weaponProfListKey = ListKey.WEAPON_PROF;
-//
-//		while (aTok.hasMoreTokens())
-//		{
-//			final String bString = aTok.nextToken();
-//
-//			if (".CLEAR".equals(bString))
-//			{
-//				removeListFor(weaponProfListKey);
-//			}
-//			else if (bString.startsWith("TYPE=") || bString.startsWith("TYPE."))
-//			{
-//				final Collection<WeaponProf> weaponProfsOfType = Globals.getAllWeaponProfsOfType(bString.substring(5));
-//				if (weaponProfsOfType != null)
-//				{
-//					for (Iterator<WeaponProf> e = weaponProfsOfType.iterator(); e.hasNext();)
-//					{
-//						final String cString = e.next().getKeyName();
-//
-//						if (!containsInList(weaponProfListKey, cString))
-//						{
-//							addToListFor(weaponProfListKey, cString);
-//						}
-//					}
-//				}
-//			}
-//			else
-//			{
-//				if (!containsInList(weaponProfListKey, bString))
-//				{
-//					addToListFor(weaponProfListKey, bString);
-//				}
-//			}
-//		}
-//	}
-
-//	/**
-//	 * Get the automatic weapon proficiencies for this object
-//	 * @return the automatic weapon proficiencies for this object
-//	 */
-//	public List<String> getWeaponProfAutos()
-//	{
-//		return getSafeListFor(ListKey.WEAPON_PROF);
-//	}
 
 	/**
 	 * Add the collection passed in to the associated list for this object
@@ -671,14 +618,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void addAllToAssociated(final Collection<String> collection)
 	{
-		if (associatedList == null)
-		{
-			associatedList = new ArrayList<AssociatedChoice<String>>();
-		}
-
 		for ( String choice : collection )
 		{
-			addAssociated( choice );
+			tempAddAssociated( choice );
 		}
 	}
 
@@ -686,7 +628,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Add the item to the associated list for this object
 	 * @param aString the string to add to the associated list
 	 */
-	public final void addAssociated(final String aString)
+	public final void tempAddAssociated(final String aString)
 	{
 		if (associatedList == null)
 		{
@@ -4279,100 +4221,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return result == null ? new ArrayList<String>() : Collections
 			.unmodifiableList(result);
 	}
-	
-//	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
-//	{
-//		if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))
-//		{
-//			return Collections.emptyList();
-//		}
-//
-//		for ( final BonusObj bonus : getBonusList() )
-//		{
-//			if ( bonus.getTypeOfBonus().equalsIgnoreCase(aBonusType) && bonus.getBonusName().equalsIgnoreCase(aBonusName) )
-//			{
-//				
-//			}
-//		}
-//	}
 
-//	/**
-//	 * Add a Spell-Like Ability granted by this object.
-//	 * 
-//	 * @param anAbility The SLA to grant.
-//	 */
-//	public void addSpellLikeAbility( final SpellLikeAbility anAbility )
-//	{
-//		if ( spellLikeAbilities == null )
-//		{
-//			spellLikeAbilities = new ArrayList<SpellLikeAbility>();
-//		}
-//		spellLikeAbilities.add( anAbility );
-//	}
-//	
-//	/**
-//	 * Adds a list of Spell-Like Abilities to this object granted at a specific
-//	 * level.
-//	 * 
-//	 * @param aLevel The level at which the SLAs will be granted.  For PCClass
-//	 * this will be the level in the specified class for all other objects it
-//	 * is total character level.
-//	 * @param aList List of Spell-Like Abilities to add.
-//	 */
-//	public void addSpellLikeAbilities( final int aLevel, final List<SpellLikeAbility> aList )
-//	{
-//		Prerequisite minLevel = null;
-//		if (aLevel > -9)
-//		{
-//			try
-//			{
-//				PreParserFactory factory = PreParserFactory.getInstance();
-//				String preLevelString = "PRELEVEL:" + aLevel;
-//				// TODO - Refactor this into an overridable method
-//				// getLevelPrereq()
-//				// TODO - Change this to not use the parser to build it.
-//				if (this instanceof PCClass)
-//				{
-//					// Classes handle this differently
-//					preLevelString = "PRECLASS:1," + this.getKeyName() + "=" + aLevel;
-//				}
-//				minLevel = factory.parse(preLevelString);
-//			}
-//			catch (PersistenceLayerException notUsed)
-//			{
-//				// This should never happen
-//				assert false;
-//			}
-//		}
-//		for ( SpellLikeAbility sla : aList )
-//		{
-//			if ( minLevel != null )
-//			{
-//				sla.addPreReq( minLevel );
-//			}
-//			if ( spellLikeAbilities == null )
-//			{
-//				spellLikeAbilities = new ArrayList<SpellLikeAbility>();
-//			}
-//			spellLikeAbilities.add( sla );
-//		}
-//	}
-//	
-//	/**
-//	 * Gets an unmodifiable list of Spell-Like Abilities provided by this
-//	 * object.
-//	 * 
-//	 * @return An unmodifiable Collection of SLAs.
-//	 */
-//	public Collection<SpellLikeAbility> getSpellLikeAbilities()
-//	{
-//		if ( spellLikeAbilities == null )
-//		{
-//			return Collections.emptyList();
-//		}
-//		return Collections.unmodifiableList(spellLikeAbilities);
-//	}
-	
 	public String getCompressedChoice(AssociatedChoice<String> c)
 	{
 		if (c instanceof FeatMultipleChoice)

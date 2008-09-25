@@ -90,13 +90,13 @@ public class AbilityTest extends PCGenTestCase
 				TestHelper.makeAbility("Weapon Throwing", "FEAT",
 					"General.Fighter");
 		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		ab5.addAssociated("Wellies");
+		ab5.tempAddAssociated("Wellies");
 
 		Ability ab6 = ab5.clone();
-		ab6.addAssociated("Bar Stool");
+		ab6.tempAddAssociated("Bar Stool");
 
 		Ability ab7 = ab5.clone();
-		ab7.addAssociated("Tantrum");
+		ab7.tempAddAssociated("Tantrum");
 		ab7.setName("Weapon Throwing (Tantrum)");
 		ab7.setKeyName("KEY_Weapon Throwing (Tantrum)");
 

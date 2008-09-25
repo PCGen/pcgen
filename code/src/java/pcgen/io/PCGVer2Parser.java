@@ -2097,7 +2097,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else if (TAG_ASSOCIATEDDATA.equals(tag))
 					{
-						aCharacterDomain.getDomain().addAssociated(
+						thePC.addAssociation(aCharacterDomain.getDomain(), 
 							EntityEncoder.decode(element.getText()));
 					}
 				}
@@ -2384,7 +2384,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
 					for (String string : assoc)
 					{
-						ability.addAssociated(string);
+						thePC.addAssociation(ability, string);
 					}
 				}
 			}
@@ -2417,7 +2417,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				ability =
 						AbilityUtilities.addVirtualAbility(ability,
 							new ArrayList<String>(), thePC
-								.getDirectVirtualAbilities(category), null);
+								.getDirectVirtualAbilities(category), thePC, null);
 				if (ability == null)
 				{
 					Logging
@@ -2652,7 +2652,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				else if ((aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && aFeat.getSafe(ObjectKey.STACKS))
 					|| !aFeat.containsAssociated(appliedToKey))
 				{
-					aFeat.addAssociated(appliedToKey);
+					thePC.addAssociation(aFeat, appliedToKey);
 				}
 			}
 			else if (TAG_SAVE.equals(tag))
@@ -3470,7 +3470,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_ASSOCIATEDDATA.equals(tag))
 			{
-				aSkill.addAssociated(EntityEncoder.decode(element.getText()));
+				thePC.addAssociation(aSkill, EntityEncoder.decode(element.getText()));
 			}
 			else if (tag.equals(TAG_LEVELABILITY))
 			{
@@ -4244,7 +4244,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					AbilityUtilities.addVirtualAbility(Constants.FEAT_CATEGORY,
 						abilityKey, thePC
 							.getDirectVirtualAbilities(AbilityCategory.FEAT),
-						null);
+						thePC, null);
 			anAbility.setNeedsSaving(true);
 			thePC.setDirty(true);
 		}

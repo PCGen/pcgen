@@ -58,12 +58,12 @@ public abstract class AbstractBasicPObjectChoiceManager<T extends PObject>
 			{
 				if (!pobject.containsAssociated(st))
 				{
-					pobject.addAssociated(st);
+					aPC.addAssociation(pobject, st);
 				}
 			}
 			else
 			{
-				pobject.addAssociated(st);
+				aPC.addAssociation(pobject, st);
 			}
 		}
 		adjustPool(selected);

@@ -28,6 +28,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 
 /**
@@ -122,14 +123,16 @@ public class AspectTest extends AbstractCharacterTestCase
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT
 					.getAbilityCategory(), "Foo");
-		getCharacter().addAbility(AbilityCategory.FEAT, pobj, null);
+		PlayerCharacter pc = getCharacter();
+		pc.addAbility(AbilityCategory.FEAT, pobj, null);
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%CHOICE");
-		assertEquals("", aspect.getAspectText(getCharacter(), pobj));
+		assertEquals("", aspect.getAspectText(pc, pobj));
 
-		pobj.addAssociated("Foo");
-		assertEquals("Foo", aspect.getAspectText(getCharacter(), pobj));
+		pc.addAssociation(pobj, "Foo");
+
+		assertEquals("Foo", aspect.getAspectText(pc, pobj));
 	}
 
 	/**
@@ -140,14 +143,15 @@ public class AspectTest extends AbstractCharacterTestCase
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT
 					.getAbilityCategory(), "Foo");
-		getCharacter().addAbility(AbilityCategory.FEAT, pobj, null);
+		PlayerCharacter pc = getCharacter();
+		pc.addAbility(AbilityCategory.FEAT, pobj, null);
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%LIST");
-		assertEquals("", aspect.getAspectText(getCharacter(), pobj));
+		assertEquals("", aspect.getAspectText(pc, pobj));
 
-		pobj.addAssociated("Foo");
-		assertEquals("Foo", aspect.getAspectText(getCharacter(), pobj));
+		pc.addAssociation(pobj, "Foo");
+		assertEquals("Foo", aspect.getAspectText(pc, pobj));
 	}
 
 	/**
@@ -174,10 +178,11 @@ public class AspectTest extends AbstractCharacterTestCase
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "Testing");
 		aspect.addVariable("%LIST");
-		assertEquals("Testing", aspect.getAspectText(getCharacter(), pobj));
+		PlayerCharacter pc = getCharacter();
+		assertEquals("Testing", aspect.getAspectText(pc, pobj));
 
-		pobj.addAssociated("Foo");
-		assertEquals("Testing", aspect.getAspectText(getCharacter(), pobj));
+		pc.addAssociation(pobj, "Foo");
+		assertEquals("Testing", aspect.getAspectText(pc, pobj));
 	}
 
 	/**
@@ -190,23 +195,24 @@ public class AspectTest extends AbstractCharacterTestCase
 				.getAbilityCategory(), "Foo");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
-		dummy.addAssociated("Associated 1");
-		dummy.addAssociated("Associated 2");
+		PlayerCharacter pc = getCharacter();
+		pc.addAssociation(dummy, "Associated 1");
+		pc.addAssociation(dummy, "Associated 2");
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1 test %3 %2");
 		aspect.addVariable("TestVar");
-		assertEquals("0 test  ", aspect.getAspectText(getCharacter(), dummy));
+		assertEquals("0 test  ", aspect.getAspectText(pc, dummy));
 
-		getCharacter().addAbility(AbilityCategory.FEAT, dummy, null);
-		assertEquals("2 test  ", aspect.getAspectText(getCharacter(), dummy));
+		pc.addAbility(AbilityCategory.FEAT, dummy, null);
+		assertEquals("2 test  ", aspect.getAspectText(pc, dummy));
 
 		aspect.addVariable("%CHOICE");
 		assertEquals("2 test  Associated 1", aspect
-			.getAspectText(getCharacter(), dummy));
+			.getAspectText(pc, dummy));
 
 		aspect.addVariable("%LIST");
 		assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1 and Associated 2 Associated 1", aspect
-				.getAspectText(getCharacter(), dummy));
+				.getAspectText(pc, dummy));
 	}
 }

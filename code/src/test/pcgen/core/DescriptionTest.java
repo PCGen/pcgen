@@ -140,10 +140,11 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%CHOICE");
-		assertTrue(desc.getDescription(getCharacter(), pobj).equals(""));
+		PlayerCharacter pc = getCharacter();
+		assertTrue(desc.getDescription(pc, pobj).equals(""));
 
-		pobj.addAssociated("Foo");
-		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Foo"));
+		pc.addAssociation(pobj, "Foo");
+		assertTrue(desc.getDescription(pc, pobj).equals("Foo"));
 	}
 
 	/**
@@ -155,10 +156,11 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%LIST");
-		assertTrue(desc.getDescription(getCharacter(), pobj).equals(""));
+		PlayerCharacter pc = getCharacter();
+		assertTrue(desc.getDescription(pc, pobj).equals(""));
 
-		pobj.addAssociated("Foo");
-		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Foo"));
+		pc.addAssociation(pobj, "Foo");
+		assertTrue(desc.getDescription(pc, pobj).equals("Foo"));
 	}
 
 	/**
@@ -181,10 +183,11 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Description desc = new Description("Testing");
 		desc.addVariable("%LIST");
-		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Testing"));
+		PlayerCharacter pc = getCharacter();
+		assertTrue(desc.getDescription(pc, pobj).equals("Testing"));
 
-		pobj.addAssociated("Foo");
-		assertTrue(desc.getDescription(getCharacter(), pobj).equals("Testing"));
+		pc.addAssociation(pobj, "Foo");
+		assertTrue(desc.getDescription(pc, pobj).equals("Testing"));
 	}
 
 	/**
@@ -195,23 +198,24 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Race dummy = new Race();
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
-		dummy.addAssociated("Associated 1");
-		dummy.addAssociated("Associated 2");
+		PlayerCharacter pc = getCharacter();
+		pc.addAssociation(dummy, "Associated 1");
+		pc.addAssociation(dummy, "Associated 2");
 
 		final Description desc = new Description("%1 test %3 %2");
 		desc.addVariable("TestVar");
-		assertEquals("0 test  ", desc.getDescription(getCharacter(), dummy));
+		assertEquals("0 test  ", desc.getDescription(pc, dummy));
 
-		getCharacter().setRace(dummy);
-		assertEquals("2 test  ", desc.getDescription(getCharacter(), dummy));
+		pc.setRace(dummy);
+		assertEquals("2 test  ", desc.getDescription(pc, dummy));
 
 		desc.addVariable("%CHOICE");
 		assertEquals("2 test  Associated 1", desc
-			.getDescription(getCharacter(), dummy));
+			.getDescription(pc, dummy));
 
 		desc.addVariable("%LIST");
 		assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1 and Associated 2 Associated 1", desc
-				.getDescription(getCharacter(), dummy));
+				.getDescription(pc, dummy));
 	}
 }

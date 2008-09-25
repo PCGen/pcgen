@@ -96,7 +96,7 @@ public class FeatParser
 				{
 					for (final String choice : choices)
 					{
-						anAbility.addAssociated(choice);
+						anAbility.tempAddAssociated(choice);
 					}
 
 					aList.add(anAbility);

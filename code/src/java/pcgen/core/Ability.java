@@ -666,7 +666,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 
 		for (int i = 0; i < selectedSize; ++i)
 		{
-			anAbility.addAssociated((String) chooser.getSelectedList().get(i));
+			aPC.addAssociation(anAbility, (String) chooser.getSelectedList().get(i));
 		}
 
 		// aPC.calcActiveBonuses();

@@ -118,9 +118,9 @@ public class EquipmentModifierTest extends PCGenTestCase
 		final BonusObj aBonus =
 				Bonus.newBonus("WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
 		eqMod.addBonusList(aBonus);
-		eqMod.addAssociated("+13");
 
 		final Equipment e = new Equipment();
+		e.addAssociation(eqMod, "+13");
 		
 		for (BonusObj bonusObj : eqMod.getBonusList(e))
 		{
@@ -137,11 +137,12 @@ public class EquipmentModifierTest extends PCGenTestCase
 		final EquipmentModifier eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus("WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
-		eqMod.addAssociated("+13");
-		eqMod.addBonusList(aBonus);
 
 		final Equipment e = new Equipment();
 		
+		e.addAssociation(eqMod, "+13");
+		eqMod.addBonusList(aBonus);
+
 		for (BonusObj bonusObj : eqMod.getBonusList(e))
 		{
 			assertEquals("-2", bonusObj.getValue());
@@ -165,12 +166,13 @@ public class EquipmentModifierTest extends PCGenTestCase
 		final EquipmentModifier eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus("WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
-		eqMod.addAssociated("+1");
-		eqMod.addAssociated("+2");
-		eqMod.addBonusList(aBonus);
 
 		final Equipment e = new Equipment();
-		
+
+		e.addAssociation(eqMod, "+1");
+		e.addAssociation(eqMod, "+2");
+		eqMod.addBonusList(aBonus);
+
 		final List<BonusObj> list = eqMod.getBonusList(e);
 		int i = 1;
 		for (int j = list.size() - 1; j > 0; j--)

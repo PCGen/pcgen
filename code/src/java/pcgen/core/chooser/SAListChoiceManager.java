@@ -116,12 +116,12 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 	{
 		if (isMultYes() && !isStackYes())
 		{
-			pobject.addAssociated(name);
+			aPc.addAssociation(pobject, name);
 		}
 		else
 		{
 			final String prefix = name + "|";
-			pobject.addAssociated(name);
+			aPc.addAssociation(pobject, name);
 
 			// SALIST: aBonusList contains all possible selections in form: <displayed info>|<special ability>
 			for ( String bString : aBonusList )

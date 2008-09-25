@@ -446,7 +446,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 						if (anAbility != null)
 						{
-							pobject.addAssociated(
+							aPC.addAssociation(pobject, 
 								"FEAT?" + anAbility.getKeyName() + "(" + aChoice + ")");
 						}
 					}
@@ -469,7 +469,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 						if ((anAbility != null) &&
 							!anAbility.containsAssociated(aChoice))
 						{
-							anAbility.addAssociated(aChoice);
+							aPC.addAssociation(anAbility, aChoice);
 						}
 					}
 				}
