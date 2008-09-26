@@ -264,9 +264,7 @@ public class SpellsChoiceManager extends
 		}
 		availableList.addAll(masterSet);
 
-		List<String> associatedChoices = new ArrayList<String>();
-		pobject.addAssociatedTo(associatedChoices);
-		for (String choice : associatedChoices)
+		for (String choice : aPc.getAssociationList(pobject))
 		{
 			Spell spell = Globals.getSpellKeyed(choice);
 			selectedList.add(spell);

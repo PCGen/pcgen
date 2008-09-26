@@ -450,7 +450,6 @@ public final class Skill extends PObject
 			if ((choiceString.length() > 0) && !CoreUtility.doublesEqual(g, 0)
 				&& !CoreUtility.doublesEqual(curRank, (int) newRank))
 			{
-				final List<String> aArrayList = new ArrayList<String>();
 				final double rankAdjustment = 0.0;
 				String title = "";
 				final StringTokenizer aTok = new StringTokenizer(choiceString, "|");
@@ -495,11 +494,8 @@ public final class Skill extends PObject
 
 					c.setTotalChoicesAvail((int) (g + curRank + rankAdjustment));
 					c.setPoolFlag(false);
-					c.setAvailableList(aArrayList);
-
-					final List<String> s = new ArrayList<String>();
-					addAssociatedTo(s);
-					c.setSelectedList(s);
+					c.setAvailableList(new ArrayList<String>());
+					c.setSelectedList(aPC.getAssociationList(this));
 					c.setVisible(true);
 
 					final int selectedListSize = c.getSelectedList().size();

@@ -23,9 +23,9 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -97,9 +97,7 @@ public class FeatListChoiceManager extends AbstractBasicPObjectChoiceManager<Abi
 			}
 		}
 
-		List<String> abilityKeys = new ArrayList<String>();
-		pobject.addAssociatedTo( abilityKeys );
-		for ( String key : abilityKeys )
+		for (String key : aPc.getAssociationList(pobject))
 		{
 			Ability ability = Globals.getAbilityKeyed( "FEAT", key );
 			if ( ability != null )

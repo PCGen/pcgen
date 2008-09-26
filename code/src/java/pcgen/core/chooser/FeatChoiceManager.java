@@ -26,7 +26,6 @@ package pcgen.core.chooser;
 import java.util.List;
 
 import pcgen.core.Ability;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -75,15 +74,15 @@ public class FeatChoiceManager extends AbstractBasicStringChoiceManager
 		List<Ability> theFeats = aPc.getFeatNamedAnyCat(getChoiceList().get(0));
 		for (Ability ability : theFeats)
 		{
-			for (AssociatedChoice<String> choice : ability.getAssociatedList())
+			for (String assoc : aPc.getAssociationList(ability))
 			{
-				availableList.add(choice.getDefaultChoice());
+				availableList.add(assoc);
 			}
 		}
 
-		for (AssociatedChoice<String> choice : pobject.getAssociatedList())
+		for (String choice : aPc.getAssociationList(pobject))
 		{
-			selectedList.add(choice.getDefaultChoice());
+			selectedList.add(choice);
 		}
 		setPreChooserChoices(selectedList.size());
 	}

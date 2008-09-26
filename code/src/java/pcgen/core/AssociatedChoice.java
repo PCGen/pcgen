@@ -191,4 +191,10 @@ public class AssociatedChoice <T extends Comparable<T>> implements Comparable<As
 		}
 		return 1;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "AssociatedChoice: " + this.getDefaultChoice();
+	}
 }

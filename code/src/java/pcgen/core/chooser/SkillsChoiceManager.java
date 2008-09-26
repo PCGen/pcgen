@@ -68,7 +68,7 @@ public class SkillsChoiceManager extends AbstractBasicStringChoiceManager {
 			availableList.add(aSkill.getKeyName());
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPC.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 

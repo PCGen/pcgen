@@ -27,6 +27,7 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -156,9 +157,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
             }
         }
 
-        List<String> classKeys = new ArrayList<String>();
-        pobject.addAssociatedTo(classKeys);
-        for (String key : classKeys)
+		for (String key : aPc.getAssociationList(pobject))
         {
             PCClass aClass = refContext.silentlyGetConstructedCDOMObject(PCClass.class, key);
             if(aClass != null)

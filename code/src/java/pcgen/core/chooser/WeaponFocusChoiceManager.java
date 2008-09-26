@@ -24,8 +24,8 @@
 package pcgen.core.chooser;
 
 import java.util.List;
+
 import pcgen.core.Ability;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -83,13 +83,11 @@ public class WeaponFocusChoiceManager extends AbstractBasicStringChoiceManager {
 
 			if (aString.startsWith("TYPE."))
 			{
-				final List<AssociatedChoice<String>>   aList = wfFeat.getAssociatedList();
 				final String aType = aString.substring(5);
 
-				for ( AssociatedChoice<String> choice : aList )
+				for ( String strChoice : aPc.getAssociationList(wfFeat) )
 				{
 					final WeaponProf wp;
-					final String strChoice = choice.getDefaultChoice();
 					wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, strChoice );
 
 					if (wp == null)
@@ -115,10 +113,10 @@ public class WeaponFocusChoiceManager extends AbstractBasicStringChoiceManager {
 		}
 		else
 		{
-			wfFeat.addAssociatedTo(availableList);
+			availableList.addAll(aPc.getAssociationList(wfFeat));
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 

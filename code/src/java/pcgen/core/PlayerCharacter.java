@@ -11642,11 +11642,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (eq.isEquipped())
 			{
 				final List<BonusObj> tempList =
-						eq.getBonusListOfType(aType, aName, true);
+						eq.getBonusListOfType(this, aType, aName, true);
 
 				if (eq.isWeapon() && eq.isDouble())
 				{
-					tempList.addAll(eq.getBonusListOfType(aType, aName, false));
+					tempList.addAll(eq.getBonusListOfType(this, aType, aName, false));
 				}
 
 				bonus += calcBonusFromList(tempList);
@@ -12249,11 +12249,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Ability anAbility =
 						AbilityUtilities.getAbilityFromList(aFeatList, "FEAT",
 							featKey, Ability.Nature.ANY);
-
 				if (anAbility != null)
 				{
 					if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-						&& !anAbility.containsAssociated(aString))
+						&& !containsAssociated(anAbility, aString))
 					{
 						addAssociation(anAbility, aString);
 						anAbility.sortAssociated();
@@ -16765,7 +16764,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					final String aString = vFeat.getAssociated(e1);
 
 					if (aggregateFeat.getSafe(ObjectKey.STACKS)
-						|| !aggregateFeat.containsAssociated(aString))
+						|| !containsAssociated(aggregateFeat, aString))
 					{
 						addAssociation(aggregateFeat, aString);
 					}
@@ -16794,7 +16793,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					final String aString = autoFeat.getAssociated(e1);
 					if (aggregateFeat.getSafe(ObjectKey.STACKS)
-						|| !aggregateFeat.containsAssociated(aString))
+						|| !containsAssociated(aggregateFeat, aString))
 					{
 						addAssociation(aggregateFeat, aString);
 					}
@@ -17873,7 +17872,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean containsAssociated(PObject obj, String o)
 	{
-		return obj.containsAssociated(o);
+		return obj.tempContainsAssociated(o);
 	}
 
 	public int getAssociationCount(PObject obj)
@@ -17911,22 +17910,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<String> removeAllAssociations(PObject obj)
 	{
 		List<String> list = getAssociationList(obj);
-		for (int i = obj.tempGetAssociatedCount() - 1; i > 0; i--)
-		{
-			obj.removeAssociated(i);
-		}
+		obj.tempClearAssociated();
 		return list;
 	}
 
 	public void removeAssociation(PObject obj, String o)
 	{
-		obj.removeAssociated(o);
+		obj.tempRemoveAssociated(o);
 	}
 
 	public int getExpandedAssociationCount(PObject obj)
 	{
 		return obj.tempGetAssociatedCount(true);
 	}
+
 	public void addAssoc(Object obj, Object o)
 	{
 		assocSupt.addAssoc(obj, o);

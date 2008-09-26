@@ -349,7 +349,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public String toString()
 	{
-		return getSafe(ObjectKey.NAME_OPT).returnName(this);
+		return getKeyName();
 	}
 
 	@Override
@@ -404,12 +404,10 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			return 1;
 		}
 
-		List<String> selectedList = new ArrayList<String>(); // selected list of choices
-
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setPoolFlag(false);
 		chooser.setVisible(false);
-		addAssociatedTo(selectedList);
+		List<String> selectedList = parent.getAssociationList(this);
 
 		final EquipmentChoice equipChoice = buildEquipmentChoice(
 				pool,
@@ -451,7 +449,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 	void setChoice(Equipment parent, final List<String> selectedList, final EquipmentChoice equipChoice)
 	{
-		clearAssociated();
+		parent.removeAllAssociations(this);
 
 		for (int i = 0; i < selectedList.size(); i++)
 		{
@@ -494,7 +492,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				}
 			}
 
-			if (equipChoice.isAllowDuplicates() || !containsAssociated(aString))
+			if (equipChoice.isAllowDuplicates() || !parent.containsAssociated(this, aString))
 			{
 				parent.addAssociation(this, aString);
 			}
@@ -797,9 +795,10 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		if (parent.getAssociationCount(this) > 0)
 		{
-			String listEntry  = getAssociated(0);
+			List<String> assoc = parent.removeAllAssociations(this);
+			String listEntry  = assoc.get(0);
 			String chargeInfo = getSpellInfoString(listEntry, s_CHARGES);
-
+			 
 			if (chargeInfo.length() != 0)
 			{
 				chargeInfo = s_CHARGES + '[' + chargeInfo + ']';
@@ -808,7 +807,11 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				listEntry = listEntry.substring(0, idx) +
 					listEntry.substring(idx + chargeInfo.length());
 				listEntry += (s_CHARGES + '[' + Integer.toString(remainingCharges) + ']');
-				setAssociated(0, listEntry);
+				assoc.set(0, listEntry);
+			}
+			for (String s : assoc)
+			{
+				parent.addAssociation(this, s);
 			}
 		}
 	}

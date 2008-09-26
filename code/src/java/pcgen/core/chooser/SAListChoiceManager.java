@@ -71,7 +71,7 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 		PCGIOHandler.buildSALIST("SALIST:"
 				+ StringUtil.join(getChoiceList(), "|"), availableList,
 				aBonusList, aPc);
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 

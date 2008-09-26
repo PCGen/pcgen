@@ -25,7 +25,6 @@ package pcgen.core.chooser;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.core.AssociatedChoice;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -59,7 +58,7 @@ public abstract class AbstractEasyStringChoiceManager<T extends PObject>
 	public void getChoices(PlayerCharacter aPc, List<String> availableList,
 			List<String> selectedList)
 	{
-		initializeSelected(selectedList);
+		initializeSelected(aPc, selectedList);
 		setPreChooserChoices(selectedList.size());
 		for (String tempString : getChoiceList())
 		{
@@ -104,11 +103,11 @@ public abstract class AbstractEasyStringChoiceManager<T extends PObject>
 		}
 	}
 
-	protected void initializeSelected(List<String> selectedList)
+	protected void initializeSelected(PlayerCharacter pc, List<String> selectedList)
 	{
-		for (AssociatedChoice<String> choice : pobject.getAssociatedList())
+		for (String choice : pc.getAssociationList(pobject))
 		{
-			selectedList.add(choice.getDefaultChoice());
+			selectedList.add(choice);
 		}
 	}
 

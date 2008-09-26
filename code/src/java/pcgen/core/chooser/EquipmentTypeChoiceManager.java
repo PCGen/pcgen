@@ -23,7 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Equipment;
@@ -76,9 +75,7 @@ public class EquipmentTypeChoiceManager extends AbstractBasicPObjectChoiceManage
 				.get(0);
 		availableList.addAll(EquipmentList.getEquipmentOfType(choiceSec, ""));
 
-		List<String> equipKeys = new ArrayList<String>();
-		pobject.addAssociatedTo( equipKeys );
-		for ( String key : equipKeys )
+		for (String key : aPc.getAssociationList(pobject))
 		{
 			Equipment equip = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Equipment.class,  key );

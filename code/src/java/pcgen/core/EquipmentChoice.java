@@ -403,7 +403,7 @@ final class EquipmentChoice
 				!(sibling.equals(this)) &&
 				sibling.getChoiceString().startsWith(choiceType))
 			{
-				sibling.addAssociatedTo(this.getAvailableList());
+				getAvailableList().addAll(parent.getAssociationList(sibling));
 			}
 		}
 	}

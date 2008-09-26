@@ -23,7 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
@@ -141,9 +140,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			}
 		}
 
-		List<String> domainKeys = new ArrayList<String>();
-		pobject.addAssociatedTo( domainKeys );
-		for ( String key : domainKeys )
+		for (String key : aPc.getAssociationList(pobject))
 		{
 			Domain domain = refContext.silentlyGetConstructedCDOMObject(Domain.class, key);
 			if ( domain != null )

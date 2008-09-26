@@ -752,7 +752,10 @@ public class LevelAbilityAbility extends LevelAbility
 			}
 		}
 
-		addAllToAssociated(selectedList);
+		for (String choice : selectedList)
+		{
+			aPC.addAssociation(this, choice);
+		}
 		return true;
 	}
 

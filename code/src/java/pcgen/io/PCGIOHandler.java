@@ -371,6 +371,7 @@ public final class PCGIOHandler extends IOHandler
 				for (int i = 0; i < aPC.getAssociationCount(aFeat); i++)
 				{
 					String aString = aFeat.getAssociated(i);
+					String orig = aString;
 					final String prefix = aString + "|";
 					boolean bLoop = true;
 
@@ -448,7 +449,8 @@ public final class PCGIOHandler extends IOHandler
 							}
 						}
 
-						aFeat.setAssociated(i, aString);
+						aPC.removeAssociation(aFeat, orig);
+						aPC.addAssociation(aFeat, aString);
 					}
 				}
 			}

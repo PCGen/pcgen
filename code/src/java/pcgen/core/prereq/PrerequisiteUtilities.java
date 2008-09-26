@@ -332,7 +332,7 @@ public final class PrerequisiteUtilities
 		else
 		{
 			if (aFeat.getKeyName().equalsIgnoreCase(key)
-				&& aFeat.containsAssociated(subKey))
+				&& character.containsAssociated(aFeat, subKey))
 			{
 				runningTotal++;
 				if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)

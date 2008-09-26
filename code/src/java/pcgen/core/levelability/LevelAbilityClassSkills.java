@@ -318,7 +318,10 @@ final class LevelAbilityClassSkills extends LevelAbility
 			}
 		}
 
-		addAllToAssociated(selectedList);
+		for (String choice : selectedList)
+		{
+			aPC.addAssociation(this, choice);
+		}
 		return true;
 	}
 }

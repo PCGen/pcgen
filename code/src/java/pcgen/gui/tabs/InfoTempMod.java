@@ -2534,7 +2534,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// iterate thru all PC's equipment objects
 				for (Equipment aEq : pc.getEquipmentList())
 				{
-					for (BonusObj aBonus : aEq.getBonusList())
+					for (BonusObj aBonus : aEq.getBonusList(pc))
 					{
 						if (aBonus.isTempBonus())
 						{

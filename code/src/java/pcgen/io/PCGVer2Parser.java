@@ -2379,7 +2379,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 				}
 				else if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability.getSafe(ObjectKey.STACKS))
-					|| !ability.containsAssociated(appliedToKey))
+						|| !thePC.containsAssociated(ability, appliedToKey))
 				{
 					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
 					for (String string : assoc)
@@ -2650,7 +2650,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 				}
 				else if ((aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && aFeat.getSafe(ObjectKey.STACKS))
-					|| !aFeat.containsAssociated(appliedToKey))
+					|| !thePC.containsAssociated(aFeat, appliedToKey))
 				{
 					thePC.addAssociation(aFeat, appliedToKey);
 				}
@@ -5569,7 +5569,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					la.addAllToAssociated(choiceList);
+					for (String choice : choiceList)
+					{
+						thePC.addAssociation(la, choice);
+					}
 				}
 			}
 		}

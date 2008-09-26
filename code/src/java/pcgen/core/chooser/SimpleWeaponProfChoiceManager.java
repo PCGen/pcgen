@@ -437,7 +437,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 				{
 					if (pobject instanceof Domain)
 					{
-						pobject.clearAssociated();
+						aPC.removeAllAssociations(pobject);
 
 						String  key       = featOrProf.substring(5);
 						Ability anAbility = Globals.getAbilityKeyed("FEAT", key);
@@ -467,7 +467,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 						}
 
 						if ((anAbility != null) &&
-							!anAbility.containsAssociated(aChoice))
+								!aPC.containsAssociated(anAbility, aChoice))
 						{
 							aPC.addAssociation(anAbility, aChoice);
 						}

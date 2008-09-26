@@ -1591,15 +1591,14 @@ final class EqBuilder extends JPanel
 	{
 		boolean bRebuild = false;
 		final int idx = bPrimary ? 0 : 1;
-		ArrayList<String> newTypes = null;
+		List<String> newTypes = null;
 		List<String> oldTypes = newTypeList[idx];
 
 		final EquipmentModifier aEqMod = aNewEq.getEqModifierKeyed("ADDTYPE", bPrimary);
 
 		if (aEqMod != null)
 		{
-			newTypes = new ArrayList<String>();
-			aEqMod.addAssociatedTo(newTypes);
+			newTypes = aNewEq.getAssociationList(aEqMod);
 		}
 
 		if (((oldTypes == null) && (aEqMod != null)) || ((oldTypes != null) && (aEqMod == null)))
@@ -1626,14 +1625,7 @@ final class EqBuilder extends JPanel
 			}
 		}
 
-		if (newTypes != null)
-		{
-			newTypeList[idx] = (ArrayList) newTypes.clone();
-		}
-		else
-		{
-			newTypeList[idx] = null;
-		}
+		newTypeList[idx] = newTypes;
 
 		return bRebuild;
 	}
@@ -1644,12 +1636,10 @@ final class EqBuilder extends JPanel
 
 		if (eqMod != null)
 		{
-			if (eqMod.removeAssociated(addedType))
+			aNewEq.removeAssociation(eqMod, addedType);
+			if (!aNewEq.hasAssociations(eqMod))
 			{
-				if (!aNewEq.hasAssociations(eqMod))
-				{
-					aNewEq.removeEqModifier(eqMod, true, aPC);
-				}
+				aNewEq.removeEqModifier(eqMod, true, aPC);
 			}
 		}
 	}

@@ -316,7 +316,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 				{
 					final Spell          aSpell = cs.getSpell();
 
-					if (!pobject.containsAssociated(aSpell.getKeyName()))
+					if (!aPC.containsAssociated(pobject, aSpell.getKeyName()))
 					{
 						if (!availableList.contains(aSpell.getKeyName()))
 						{

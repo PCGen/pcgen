@@ -247,13 +247,14 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	/**
 	 * Whether we can add newAssociation to the associated list of this
 	 * Ability
-	 *
+	 * @param pc TODO
 	 * @param newAssociation The thing to be associated with this Ability
+	 *
 	 * @return true if we can add the association
 	 */
-	public boolean canAddAssociation(final String newAssociation)
+	public boolean canAddAssociation(PlayerCharacter pc, final String newAssociation)
 	{
-		return 	this.getSafe(ObjectKey.STACKS) || (this.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !this.containsAssociated(newAssociation));
+		return 	this.getSafe(ObjectKey.STACKS) || (this.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc.containsAssociated(this, newAssociation));
 	}
 
 	/**
@@ -662,7 +663,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 
 		// replace old selection(s) with new and update bonuses
 		//
-		anAbility.clearAssociated();
+		aPC.removeAllAssociations(anAbility);
 
 		for (int i = 0; i < selectedSize; ++i)
 		{

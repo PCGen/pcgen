@@ -60,7 +60,7 @@ public abstract class AbstractBasicStringChoiceManager extends
 		{
 			if (isMultYes() && !isStackYes())
 			{
-				if (!pobject.containsAssociated(st))
+				if (!aPC.containsAssociated(pobject, st))
 				{
 					associateChoice(aPC, st);
 				}
@@ -75,7 +75,7 @@ public abstract class AbstractBasicStringChoiceManager extends
 
 	protected void cleanUpAssociated(PlayerCharacter aPC)
 	{
-		pobject.clearAssociated();
+		aPC.removeAllAssociations(pobject);
 	}
 
 	protected void associateChoice(PlayerCharacter pc, String st)

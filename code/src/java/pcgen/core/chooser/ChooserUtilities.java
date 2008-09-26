@@ -264,7 +264,7 @@ public class ChooserUtilities
 			{
 				if (ab.getKeyName().equals(a.getKeyName()))
 				{
-					reservedList.addAll(ab.getAssociatedList());
+					reservedList.addAll(aPC.getAssociationList(ab));
 				}
 			}
 		}

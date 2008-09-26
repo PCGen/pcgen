@@ -32,7 +32,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -326,12 +325,9 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 		}
 		
 		// Add the proficiencies already linked to the object to the selected list
-		for (AssociatedChoice<String> assocChoice : pobject.getAssociatedList())
+		for (String choice : aPc.getAssociationList(pobject))
 		{
-			for (String choice : assocChoice.getChoices())
-			{
-				selectedList.add(refContext.silentlyGetConstructedCDOMObject(WeaponProf.class, choice));
-			}
+			selectedList.add(refContext.silentlyGetConstructedCDOMObject(WeaponProf.class, choice));
 		}
 		setPreChooserChoices(selectedList.size());
 	}

@@ -101,7 +101,7 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 			aPc,
 			Collections.enumeration(getChoiceList()));
 
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 
@@ -131,7 +131,7 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 				pobject.removeBonus(bonus, assoc, aPc);
 			}
 		}
-		pobject.clearAssociated();
+		aPc.removeAllAssociations(pobject);
 	}
 
 

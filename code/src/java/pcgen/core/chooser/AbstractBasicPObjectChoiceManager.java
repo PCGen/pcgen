@@ -50,13 +50,13 @@ public abstract class AbstractBasicPObjectChoiceManager<T extends PObject>
 	@Override
 	public void applyChoices(PlayerCharacter aPC, List<T> selected)
 	{
-		pobject.clearAssociated();
+		aPC.removeAllAssociations(pobject);
 		for (T obj : selected)
 		{
 			String st = obj.getKeyName();
 			if (isMultYes() && !isStackYes())
 			{
-				if (!pobject.containsAssociated(st))
+				if (!aPC.containsAssociated(pobject, st))
 				{
 					aPC.addAssociation(pobject, st);
 				}

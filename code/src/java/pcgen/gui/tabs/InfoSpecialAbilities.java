@@ -551,7 +551,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			boolean addLang = false;
 
 			if ((speakLanguage != null)
-				&& speakLanguage.containsAssociated(aLang.getKeyName()))
+					&& pc.containsAssociated(speakLanguage, aLang.getKeyName()))
 			{
 				addLang = false;
 			}

@@ -59,7 +59,7 @@ public class AbilityUtilities
 	{
 		for ( final String choice : choices )
 		{
-			if (ability.canAddAssociation(choice))
+			if (ability.canAddAssociation(pc, choice))
 			{
 				pc.addAssociation(ability, choice);
 			}
@@ -384,14 +384,14 @@ public class AbilityUtilities
 			}
 			else if (addIt)
 			{
-				if (ability.canAddAssociation(choice))
+				if (ability.canAddAssociation(aPC, choice))
 				{
 					aPC.addAssociation(ability, choice);
 				}
 			}
 			else
 			{
-				ability.removeAssociated(choice);
+				aPC.removeAssociation(ability, choice);
 			}
 		}
 
@@ -829,7 +829,7 @@ public class AbilityUtilities
 									}
 									else
 									{
-										anAbility.removeAssociated(wp.getKeyName());
+										aPC.removeAssociation(anAbility, wp.getKeyName());
 									}
 								}
 							}
@@ -843,7 +843,7 @@ public class AbilityUtilities
 						}
 						else
 						{
-							anAbility.removeAssociated(aString);
+							aPC.removeAssociation(anAbility, aString);
 						}
 					}
 				}

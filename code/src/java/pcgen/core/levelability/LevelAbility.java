@@ -527,7 +527,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			}
 		}
 
-		clearAssociated();
+		aPC.removeAllAssociations(this);
 	}
 
 	/**

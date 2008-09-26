@@ -22,7 +22,7 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 			List<String> selectedList)
 	{
 		availableList.add("NOCHOICE");
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(pc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 
@@ -51,7 +51,7 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 	@Override
 	public void applyChoices(PlayerCharacter apc, List<String> selected)
 	{
-		pobject.clearAssociated();
+		apc.removeAllAssociations(pobject);
 		for (int i = 0; i < selected.size(); i++)
 		{
 			apc.addAssociation(pobject, Constants.EMPTY_STRING);

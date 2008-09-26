@@ -93,7 +93,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 

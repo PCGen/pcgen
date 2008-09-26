@@ -33,7 +33,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.util.Logging;
-import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
@@ -278,9 +277,7 @@ public class ProficiencyChoiceManager extends AbstractBasicPObjectChoiceManager<
 		{
 			Logging.errorPrint("CHOOSE:PROFICIENCY - Unknown type " + typeOfProf);
 		}
-		List<String> wpKeys = new ArrayList<String>();
-		pobject.addAssociatedTo( wpKeys );
-		for ( String key : wpKeys )
+		for (String key : aPc.getAssociationList(pobject))
 		{
 			WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, key );
 			if ( wp != null )

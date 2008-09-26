@@ -110,7 +110,7 @@ class LevelAbilityFeat extends LevelAbility
 				AbilityUtilities.modFeat(aPC, null, featKey, false, false);
 			}
 
-			clearAssociated();
+			aPC.removeAllAssociations(this);
 		}
 	}
 

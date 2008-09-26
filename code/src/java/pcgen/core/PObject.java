@@ -123,8 +123,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	
 	private boolean isNewItem = true;
 
-	private List<DamageReduction> drList = new ArrayList<DamageReduction>();
-
 	private String chooseLanguageAutos = Constants.EMPTY_STRING;
 
 	/** Number of followers of each type allowed */
@@ -147,16 +145,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/* ************
 	 * Methods
 	 * ************/
-
-	/**
-	 * Set the associated list
-	 * @param index
-	 * @param aString
-	 */
-	public final void setAssociated(final int index, final String aString)
-	{
-		associatedList.set(index, new AssociatedChoice<String>(aString));
-	}
 
 	/**
 	 * Get the associated item, without expanding the list
@@ -613,18 +601,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add the collection passed in to the associated list for this object
-	 * @param collection
-	 */
-	public final void addAllToAssociated(final Collection<String> collection)
-	{
-		for ( String choice : collection )
-		{
-			tempAddAssociated( choice );
-		}
-	}
-
-	/**
 	 * Add the item to the associated list for this object
 	 * @param aString the string to add to the associated list
 	 */
@@ -652,25 +628,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		associatedList.add(aFeatChoices);
 	}
 
-	public final void addAssociatedTo( final List<String> choices )
-	{
-		if (associatedList != null)
-		{
-			for ( AssociatedChoice<String> choice : associatedList )
-			{
-				final String choiceStr = choice.getDefaultChoice();
-				if ( choiceStr.equals(Constants.EMPTY_STRING) )
-				{
-					choices.add(null);
-				}
-				else
-				{
-					choices.add( choice.getDefaultChoice() );
-				}
-			}
-		}
-	}
-	
 	public String associatedList()
 	{
 		if (associatedList == null)
@@ -847,7 +804,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param associated
 	 * @return true if the assocaited item is in the associated list for this object
 	 */
-	public final boolean containsAssociated(final String associated)
+	public final boolean tempContainsAssociated(final String associated)
 	{
 		if (associatedList == null)
 		{
@@ -881,7 +838,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/**
 	 * Clear the associated list for this object
 	 */
-	public final void clearAssociated()
+	public final void tempClearAssociated()
 	{
 		associatedList = null;
 	}
@@ -1543,7 +1500,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param associated
 	 * @return true if successful
 	 */
-	public final boolean removeAssociated(final String associated)
+	public final boolean tempRemoveAssociated(final String associated)
 	{
 		boolean ret = false;
 		if (associatedList == null)
@@ -2656,10 +2613,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 			else if ("%LIST".equals(tok))
 			{
-				for (Iterator<AssociatedChoice<String>> e =
-						getAssociatedList().iterator(); e.hasNext();)
+				for (String assoc : aPC.getAssociationList(this))
 				{
-					aList.add(e.next().getDefaultChoice());
+					aList.add(assoc);
 				}
 			}
 			else if ("DEITYWEAPONS".equals(tok))

@@ -89,7 +89,6 @@ public final class SkillLanguage
 			}
 
 			int numLanguages = languageSkill.getTotalRank(aPC).intValue();
-			List<String> selectedLangNames = new ArrayList<String>();
 			List<Language> selected = new ArrayList<Language>();
 			List<Language> available = new ArrayList<Language>();
 			List<Language> excludedLangs = new ArrayList<Language>();
@@ -123,9 +122,7 @@ public final class SkillLanguage
 				}
 			}
 
-			languageSkill.addAssociatedTo(selectedLangNames);
-
-			for (String aString : selectedLangNames)
+			for (String aString : aPC.getAssociationList(languageSkill))
 			{
 				Language aLang = Globals.getContext().ref
 						.silentlyGetConstructedCDOMObject(Language.class,
@@ -217,7 +214,7 @@ public final class SkillLanguage
 
 			// Add in all choice-excluded languages
 			aPC.addLanguages(excludedLangs);
-			languageSkill.clearAssociated();
+			aPC.removeAllAssociations(languageSkill);
 			// TODO Fix this to allow Language objects.
 			for (Iterator<?> i = lc.getSelectedList().iterator(); i.hasNext();)
 			{

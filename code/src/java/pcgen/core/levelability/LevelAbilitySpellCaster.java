@@ -132,7 +132,10 @@ public class LevelAbilitySpellCaster extends LevelAbility
 
 			theClass.setLevel(theClass.getLevel(), aPC);
 
-			addAllToAssociated(selectedList);
+			for (String choice : selectedList)
+			{
+				aPC.addAssociation(this, choice);
+			}
 		}
 		return true;
 	}

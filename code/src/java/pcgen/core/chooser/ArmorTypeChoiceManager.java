@@ -77,7 +77,7 @@ public class ArmorTypeChoiceManager extends AbstractBasicStringChoiceManager
 			availableList.add(profKey);
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 }

@@ -703,8 +703,11 @@ final class PCGVer0Parser implements PCGParser
 
 								if (sSource.startsWith("LIST|"))
 								{
-									aDomain.addAllToAssociated(CoreUtility
-										.split(sSource.substring(5), '|'));
+									for (String choice : CoreUtility.split(sSource
+										.substring(5), '|'))
+									{
+										aPC.addAssociation(aDomain, choice);
+									}
 								}
 								else
 								{
@@ -1233,7 +1236,7 @@ final class PCGVer0Parser implements PCGParser
 						aPC.addWeaponProf(aString);
 					}
 					else if ((anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED) && anAbility.getSafe(ObjectKey.STACKS))
-						|| !anAbility.containsAssociated(aString))
+							|| !aPC.containsAssociated(anAbility, aString))
 					{
 						aPC.addAssociation(anAbility, aString);
 					}

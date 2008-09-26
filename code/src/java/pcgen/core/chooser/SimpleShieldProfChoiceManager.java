@@ -24,7 +24,6 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
-import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -60,9 +59,9 @@ public class SimpleShieldProfChoiceManager extends
 	public void getChoices(PlayerCharacter aPc, List<String> availableList,
 			List<String> selectedList)
 	{
-		for (AssociatedChoice<String> choice : pobject.getAssociatedList())
+		for (String choice : aPc.getAssociationList(pobject))
 		{
-			selectedList.add(choice.getDefaultChoice());
+			selectedList.add(choice);
 		}
 		setPreChooserChoices(selectedList.size());
 		for (String tempString : getChoiceList())
@@ -126,12 +125,12 @@ public class SimpleShieldProfChoiceManager extends
 	@Override
 	public void applyChoices(PlayerCharacter aPC, List<String> selected)
 	{
-		pobject.clearAssociated();
+		aPC.removeAllAssociations(pobject);
 		for (String st : selected)
 		{
 			if (isMultYes() && !isStackYes())
 			{
-				if (!pobject.containsAssociated(st))
+				if (!aPC.containsAssociated(pobject, st))
 				{
 					aPC.addAssociation(pobject, st);
 				}

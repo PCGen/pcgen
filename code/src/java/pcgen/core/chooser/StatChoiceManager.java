@@ -83,7 +83,7 @@ public class StatChoiceManager extends AbstractBasicStringChoiceManager {
 			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 

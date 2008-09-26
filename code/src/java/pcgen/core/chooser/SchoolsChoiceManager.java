@@ -63,7 +63,7 @@ public class SchoolsChoiceManager extends AbstractBasicStringChoiceManager {
 			final List<String> selectedList)
 	{
 		availableList.addAll(SettingsHandler.getGame().getUnmodifiableSchoolsList());
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 

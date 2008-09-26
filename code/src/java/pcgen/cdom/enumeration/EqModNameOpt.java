@@ -26,6 +26,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
 import pcgen.core.AssociatedChoice;
+import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -59,7 +60,7 @@ public enum EqModNameOpt
 	NORMAL
 	{
 		@Override
-		public String returnName(EquipmentModifier mod)
+		public String returnName(Equipment parent, EquipmentModifier mod)
 		{
 			StringBuilder sb = new StringBuilder(100);
 			sb.append(mod.getDisplayName());
@@ -72,7 +73,7 @@ public enum EqModNameOpt
 	NOLIST
 	{
 		@Override
-		public String returnName(EquipmentModifier mod)
+		public String returnName(Equipment parent, EquipmentModifier mod)
 		{
 			return mod.getDisplayName().trim().replace('|', ' ');
 		}
@@ -80,7 +81,7 @@ public enum EqModNameOpt
 	NONAME
 	{
 		@Override
-		public String returnName(EquipmentModifier mod)
+		public String returnName(Equipment parent, EquipmentModifier mod)
 		{
 			StringBuilder sb = new StringBuilder(100);
 			sb.append(mod.getDisplayName());
@@ -91,7 +92,7 @@ public enum EqModNameOpt
 	NOTHING
 	{
 		@Override
-		public String returnName(EquipmentModifier mod)
+		public String returnName(Equipment parent, EquipmentModifier mod)
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -99,7 +100,7 @@ public enum EqModNameOpt
 	SPELL
 	{
 		@Override
-		public String returnName(EquipmentModifier mod)
+		public String returnName(Equipment parent, EquipmentModifier mod)
 		{
 			StringBuilder sb = new StringBuilder(100);
 			boolean first = true;
@@ -158,13 +159,13 @@ public enum EqModNameOpt
 	TEXT
 	{
 		@Override
-		public String returnName(EquipmentModifier mod)
+		public String returnName(Equipment parent, EquipmentModifier mod)
 		{
 			return mod.get(StringKey.NAME_TEXT);
 		}
 	};
 
-	public abstract String returnName(EquipmentModifier mod);
+	public abstract String returnName(Equipment parent, EquipmentModifier mod);
 
 	public static EqModNameOpt valueOfIgnoreCase(String s)
 	{

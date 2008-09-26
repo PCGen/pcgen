@@ -76,7 +76,7 @@ public class MiscChoiceManager extends AbstractBasicStringChoiceManager {
 				availableList.add(aString);
 			}
 		}
-		pobject.addAssociatedTo(selectedList);
+		selectedList.addAll(aPc.getAssociationList(pobject));
 		setPreChooserChoices(selectedList.size());
 	}
 

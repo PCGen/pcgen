@@ -23,7 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Globals;
@@ -73,9 +72,7 @@ public class ClassSkillsChoiceManager extends AbstractBasicPObjectChoiceManager<
 			}
 		}
 
-		List<String> associatedKeys = new ArrayList<String>();
-		pobject.addAssociatedTo(associatedKeys);
-		for ( String key : associatedKeys )
+		for (String key : aPc.getAssociationList(pobject))
 		{
 			Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, key);
 			if ( skill != null )

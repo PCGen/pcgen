@@ -132,9 +132,7 @@ public class RaceChoiceManager extends AbstractBasicPObjectChoiceManager<Race>
 			}
 		}
 		
-		List<String> raceKeys = new ArrayList<String>();
-		pobject.addAssociatedTo(raceKeys);
-		for (String key : raceKeys)
+		for (String key : aPc.getAssociationList(pobject))
 		{
 			Race race = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, key);
 			if (race != null)

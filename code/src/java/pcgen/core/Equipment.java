@@ -559,7 +559,7 @@ public final class Equipment extends PObject implements Serializable,
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC) {
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (BonusObj bonus : getBonusList()) {
+		for (BonusObj bonus : getBonusList(aPC)) {
 			if (bonus.isApplied()) {
 				aList.add(bonus);
 			}
@@ -576,19 +576,21 @@ public final class Equipment extends PObject implements Serializable,
 
 	/**
 	 * get a list of BonusObj's of aType and aName
-	 * 
+	 * @param pc TODO
 	 * @param aType
 	 *            a TYPE of bonus (such as "COMBAT" or "SKILL")
 	 * @param aName
 	 *            the NAME of the bonus (such as "ATTACKS" or "SPOT")
 	 * @param bPrimary
 	 *            used for double weapons (head1 vs head2)
+	 * 
 	 * @return a list of bonusObj's of aType and aName
 	 */
-	public List<BonusObj> getBonusListOfType(final String aType,
-			final String aName, final boolean bPrimary) {
+	public List<BonusObj> getBonusListOfType(PlayerCharacter pc,
+			final String aType, final String aName, final boolean bPrimary) {
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
+		aList.addAll(getBonusListOfType(pc, aType, aName));
 		for (BonusObj bonus : getBonusList()) {
 			if ((bonus.getTypeOfBonus().indexOf(aType) >= 0)
 					&& (bonus.getBonusInfo().indexOf(aName) >= 0)) {
@@ -2257,7 +2259,7 @@ public final class Equipment extends PObject implements Serializable,
 				{
 					// We clear the associated info to avoid a buildup of info
 					// like number of charges.
-					eqMod.clearAssociated();
+					removeAllAssociations(eqMod);
 				}
 				addAssociation(eqMod, x.replace('=', '|'));
 			}
@@ -3890,7 +3892,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The list of modifiers
 	 * @return The nameFromModifiers value
 	 */
-	private static String getNameFromModifiers(
+	private String getNameFromModifiers(
 			final List<EquipmentModifier> eqModList) {
 		//
 		// Get a sorted list so that the description will always come
@@ -3907,7 +3909,7 @@ public final class Equipment extends PObject implements Serializable,
 				sMod.append('/');
 			}
 
-			sMod.append(eqMod.getSafe(ObjectKey.NAME_OPT).returnName(eqMod));
+			sMod.append(eqMod.getSafe(ObjectKey.NAME_OPT).returnName(this, eqMod));
 		}
 
 		return sMod.toString();
@@ -4157,8 +4159,8 @@ public final class Equipment extends PObject implements Serializable,
 								1.0);
 			}
 
-			final List<BonusObj> baseEqBonusList = baseEq.getBonusList();
-			final List<BonusObj> eqBonusList = getBonusList();
+			final List<BonusObj> baseEqBonusList = baseEq.getBonusList(aPC);
+			final List<BonusObj> eqBonusList = getBonusList(aPC);
 
 			//
 			// Go through the bonus list looking for COMBAT|AC|x and resize
@@ -4558,7 +4560,7 @@ public final class Equipment extends PObject implements Serializable,
 				final String aChoice = eqMod.getAssociated(i);
 
 				if (aChoice.startsWith(x)) {
-					eqMod.removeAssociated(i);
+					removeAssociation(eqMod, aChoice);
 				}
 			}
 		}
@@ -6055,7 +6057,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	public boolean containsAssociated(PObject obj, String o)
 	{
-		return obj.containsAssociated(o);
+		return obj.tempContainsAssociated(o);
 	}
 
 	public int getAssociationCount(PObject obj)
@@ -6093,16 +6095,13 @@ public final class Equipment extends PObject implements Serializable,
 	public List<String> removeAllAssociations(PObject obj)
 	{
 		List<String> list = getAssociationList(obj);
-		for (int i = obj.tempGetAssociatedCount() - 1; i > 0; i--)
-		{
-			obj.removeAssociated(i);
-		}
+		obj.tempClearAssociated();
 		return list;
 	}
 
 	public void removeAssociation(PObject obj, String o)
 	{
-		obj.removeAssociated(o);
+		obj.tempRemoveAssociated(o);
 	}
 
 	public int getExpandedAssociationCount(PObject obj)
