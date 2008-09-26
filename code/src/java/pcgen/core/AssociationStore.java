@@ -10,17 +10,14 @@ public interface AssociationStore
 
 	public List<String> removeAllAssociations(PObject obj);
 
-	public int getAssociationCount(PObject obj);
-
 	public boolean hasAssociations(PObject obj);
 
 	public List<String> getAssociationList(PObject obj);
 
 	public boolean containsAssociated(PObject obj, String o);
 
-	/*
-	 * Temporary
-	 */
-	public int getExpandedAssociationCount(PObject obj);
+	public int getSelectCorrectedAssociationCount(PObject obj);
+
+	public int getDetailedAssociationCount(PObject obj);
 
 }

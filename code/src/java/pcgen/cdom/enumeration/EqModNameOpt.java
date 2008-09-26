@@ -104,14 +104,13 @@ public enum EqModNameOpt
 		{
 			StringBuilder sb = new StringBuilder(100);
 			boolean first = true;
-			for (AssociatedChoice<String> a : mod.getAssociatedList())
+			for (String listEntry : parent.getAssociationList(mod))
 			{
 				if (!first)
 				{
 					sb.append(", ");
 				}
 				first = false;
-				String listEntry = a.getDefaultChoice();
 
 				String spellName = EquipmentModifier.getSpellInfoString(
 						listEntry, "SPELLNAME");
@@ -226,6 +225,37 @@ public enum EqModNameOpt
 					throw new InternalError();
 				}
 			}
+		}
+	}
+
+	public String associatedList(List<AssociatedChoice<String>> associatedList)
+	{
+		if (associatedList == null)
+		{
+			return Constants.EMPTY_STRING;
+		}
+		else
+		{
+			StringBuilder sb = new StringBuilder();
+			boolean first = true;
+			for (AssociatedChoice<String> choice : associatedList)
+			{
+				if (!first)
+				{
+					sb.append(", ");
+				}
+				first = false;
+				final String choiceStr = choice.getDefaultChoice();
+				if (choiceStr.equals(Constants.EMPTY_STRING))
+				{
+					sb.append('*');
+				}
+				else
+				{
+					sb.append(choiceStr);
+				}
+			}
+			return sb.toString();
 		}
 	}
 

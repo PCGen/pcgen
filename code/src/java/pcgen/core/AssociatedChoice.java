@@ -195,6 +195,6 @@ public class AssociatedChoice <T extends Comparable<T>> implements Comparable<As
 	@Override
 	public String toString()
 	{
-		return "AssociatedChoice: " + this.getDefaultChoice();
+		return getDefaultChoice().toString();
 	}
 }

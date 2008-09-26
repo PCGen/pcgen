@@ -368,9 +368,8 @@ public final class PCGIOHandler extends IOHandler
 				buildSALIST(aFeat.getChoiceString(), aAvailable, aBonus,
 					currentPC);
 
-				for (int i = 0; i < aPC.getAssociationCount(aFeat); i++)
+				for (String aString : aPC.getAssociationList(aFeat))
 				{
-					String aString = aFeat.getAssociated(i);
 					String orig = aString;
 					final String prefix = aString + "|";
 					boolean bLoop = true;
@@ -459,9 +458,8 @@ public final class PCGIOHandler extends IOHandler
 				//
 				// Byngl July 12, 2002
 				//
-				for (int it3 = 0; it3 < currentPC.getAssociationCount(aFeat); it3++)
+				for (String skillString : currentPC.getAssociationList(aFeat))
 				{
-					final String skillString = aFeat.getAssociated(it3);
 					try
 					{
 						PObjectLoader.parseTag(aFeat, "CSKILL:" + skillString);

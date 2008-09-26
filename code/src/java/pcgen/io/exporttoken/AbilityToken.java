@@ -33,6 +33,7 @@ import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -338,22 +339,11 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
-				StringBuffer buf = new StringBuffer();
-
-				for (int j = 0; j < pc.getAssociationCount(aAbility); j++)
-				{
-					if (j != 0)
-					{
-						buf.append(",");
-					}
-					buf.append(aAbility.getAssociated(j));
-				}
-
-				retString += buf.toString();
+				retString += StringUtil.join(pc.getAssociationList(aAbility), ",");
 			}
 			else if (tokenSource.endsWith(".ASSOCIATEDCOUNT"))
 			{
-				retString += Integer.toString(pc.getAssociationCount(aAbility));
+				retString += Integer.toString(pc.getDetailedAssociationCount(aAbility));
 			}
 			else if (tokenSource.endsWith(".SOURCE"))
 			{

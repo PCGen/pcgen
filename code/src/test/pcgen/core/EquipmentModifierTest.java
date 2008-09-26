@@ -174,16 +174,14 @@ public class EquipmentModifierTest extends PCGenTestCase
 		eqMod.addBonusList(aBonus);
 
 		final List<BonusObj> list = eqMod.getBonusList(e);
-		int i = 1;
 		for (int j = list.size() - 1; j > 0; j--)
 		{
 			final BonusObj bonusObj = list.get(j);
 			assertEquals("-2", bonusObj.getValue());
 
 			final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
-			assertEquals("+" + i, prereq.getKey());
+			assertEquals("+" + (j+1), prereq.getKey());
 			assertEquals("STR", prereq.getOperand());
-			i++;
 		}
 		assertEquals("-2", aBonus.getValue());
 		final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);

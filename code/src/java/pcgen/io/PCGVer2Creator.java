@@ -1158,11 +1158,11 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(TAG_DOMAIN).append(':');
 			buffer.append(EntityEncoder.encode(domain.getKeyName()));
 
-			for (int i = 0; i < thePC.getAssociationCount(domain); ++i)
+			for (String assoc : thePC.getAssociationList(domain))
 			{
 				buffer.append('|');
 				buffer.append(TAG_ASSOCIATEDDATA).append(':');
-				buffer.append(EntityEncoder.encode(domain.getAssociated(i)));
+				buffer.append(EntityEncoder.encode(assoc));
 			}
 
 			for (final Description desc : domain.getDescriptionList())
@@ -1396,7 +1396,6 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_MAPKEY).append(TAG_END);
 				buffer.append(EntityEncoder.encode(ability.getKeyName()))
 					.append(TAG_SEPARATOR);
-				int it2 = 0;
 				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					buffer.append(TAG_APPLIEDTO).append(TAG_END);
@@ -1404,14 +1403,14 @@ final class PCGVer2Creator implements IOConstants
 					{
 						buffer.append(TAG_MULTISELECT).append(':');
 					}
-					for (; it2 < thePC.getAssociationCount(ability); ++it2)
+					boolean first = true;
+					for (String assoc : thePC.getAssociationList(ability))
 					{
-						if (it2 > 0 && it2 < thePC.getAssociationCount(ability))
+						if (!first)
 						{
 							buffer.append(Constants.COMMA);
 						}
-						buffer.append(EntityEncoder.encode(ability
-							.getAssociated(it2)));
+						buffer.append(EntityEncoder.encode(assoc));
 					}
 					buffer.append(TAG_SEPARATOR);
 				}
@@ -1978,11 +1977,11 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(']');
 				}
 
-				for (int i = 0; i < thePC.getAssociationCount(skill); ++i)
+				for (String assoc : thePC.getAssociationList(skill))
 				{
 					buffer.append('|');
 					buffer.append(TAG_ASSOCIATEDDATA).append(':');
-					buffer.append(EntityEncoder.encode(skill.getAssociated(i)));
+					buffer.append(EntityEncoder.encode(assoc));
 				}
 
 				appendLevelAbilityInfo(buffer, skill);
@@ -2633,7 +2632,7 @@ final class PCGVer2Creator implements IOConstants
 						.append('[').append(TAG_PROMPT).append(':').append(
 							EntityEncoder.encode(la.getTagData()));
 
-					for (int j = 0; j < thePC.getExpandedAssociationCount(la); ++j)
+					for (int j = 0; j < thePC.getDetailedAssociationCount(la); ++j)
 					{
 						buffer
 							.append('|')

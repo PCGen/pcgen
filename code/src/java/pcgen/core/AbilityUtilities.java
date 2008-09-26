@@ -370,7 +370,7 @@ public class AbilityUtilities
 			final AbilityCategory category)
 	{
 		// how many sub-choices to make
-		double abilityCount = (aPC.getAssociationCount(ability) * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+		double abilityCount = (aPC.getSelectCorrectedAssociationCount(ability) * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 
 		boolean adjustedAbilityPool = false;
 
@@ -440,13 +440,13 @@ public class AbilityUtilities
 			}
 			else if (category == AbilityCategory.FEAT)
 			{
-				int listSize = aPC.getAssociationCount(ability);
+				int listSize = aPC.getSelectCorrectedAssociationCount(ability);
 
 				for (Ability myAbility : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 				{
 					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
 					{
-						listSize = aPC.getAssociationCount(myAbility);
+						listSize = aPC.getSelectCorrectedAssociationCount(myAbility);
 					}
 				}
 

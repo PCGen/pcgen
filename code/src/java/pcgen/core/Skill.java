@@ -415,7 +415,7 @@ public final class Skill extends PObject
 			return this.getOutputName();
 		}
 
-		final StringBuffer buffer = new StringBuffer(pc.getAssociationCount(this) * 20);
+		final StringBuilder buffer = new StringBuilder();
 		buffer.append(this.getOutputName()).append("(");
 		buffer.append(StringUtil.joinToStringBuffer(pc.getAssociationList(this), ", "));
 		buffer.append(")");
@@ -470,7 +470,7 @@ public final class Skill extends PObject
 					}
 					else
 					{
-						final int selectedLanguages = aPC.getAssociationCount(this);
+						final int selectedLanguages = aPC.getSelectCorrectedAssociationCount(this);
 						final int maxLanguages = getTotalRank(aPC).intValue();
 
 						if (selectedLanguages > maxLanguages)
@@ -566,7 +566,7 @@ public final class Skill extends PObject
 			int iCount = 0;
 			for ( LevelAbility la : laList )
 			{
-				iCount += aPC.getAssociationCount(la);
+				iCount += aPC.getDetailedAssociationCount(la);
 			}
 
 			if (CoreUtility.doublesEqual(getRank().doubleValue() + bonus, 0.0))

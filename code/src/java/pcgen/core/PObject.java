@@ -1312,15 +1312,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 							if (pc.hasAssociations(this))
 							{
-								for (int i = 0; i < pc.getAssociationCount(this); ++i)
-								{
-									if (i != 0)
-									{
-										sb.append(" ,");
-									}
-
-									sb.append(getAssociated(i));
-								}
+								sb.append(StringUtil.joinToStringBuffer(pc.getAssociationList(this), ", "));
 							}
 							else
 							{
@@ -2338,15 +2330,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 					if (aPC.hasAssociations(this))
 					{
-						for (int i = 0; i < aPC.getAssociationCount(this); ++i)
-						{
-							if (i != 0)
-							{
-								sb.append(" ,");
-							}
-
-							sb.append(getAssociated(i));
-						}
+						sb.append(StringUtil.joinToStringBuffer(aPC.getAssociationList(this), ", "));
 					}
 					else
 					{
@@ -2780,12 +2764,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if (ccSkillList.contains("LIST"))
 		{
-			String aString;
-
-			for (int e = 0; e < pc.getAssociationCount(this); ++e)
+			for (String aString : pc.getAssociationList(this))
 			{
-				aString = getAssociated(e);
-
 				if (aName.startsWith(aString) || aString.startsWith(aName))
 				{
 					return true;
@@ -2824,12 +2804,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if (cSkillList.contains("LIST"))
 		{
-			String aString;
-
-			for (int e = 0; e < pc.getAssociationCount(this); ++e)
+			for (String aString : pc.getAssociationList(this))
 			{
-				aString = getAssociated(e);
-
 				if (aName.startsWith(aString) || aString.startsWith(aName))
 				{
 					return true;
@@ -3508,7 +3484,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if ("VAR".equals(aType))
 		{
-			iTimes = Math.max(1, aPC.getAssociationCount(this));
+			iTimes = Math.max(1, aPC.getDetailedAssociationCount(this));
 
 			//
 			// SALIST will stick BONUS:VAR|...
@@ -3541,9 +3517,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 					final String firstPart = bString.substring(0, idx);
 					final String secondPart = bString.substring(idx + span);
 
-					for (int i = 0; i < aPC.getAssociationCount(this); ++i)
+					for (String assoc : aPC.getAssociationList(this))
 					{
-						final String xString = new StringBuffer().append(firstPart).append(getAssociated(i)).append(secondPart)
+						final String xString = new StringBuffer().append(firstPart).append(assoc).append(secondPart)
 							.toString().toUpperCase();
 						retVal += calcBonus(xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
 					}

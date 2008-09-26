@@ -112,10 +112,10 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			if (idx >= 0)
 			{
 				// Add an entry for each of the associated list entries
-				for (int j = as.getAssociationCount(this) - 1; j >= 0; j--)
+				for (String assoc : as.getAssociationList(this))
 				{
 					final BonusObj newBonus = Bonus.newBonus(
-							aString.substring(0, idx) + getAssociated(j) +
+							aString.substring(0, idx) + assoc +
 							aString.substring(idx + 7));
 					newBonus.setCreatorObject(this);
 
@@ -136,7 +136,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					}
 
 					// call expandToken to handle prereqs
-					newBonus.expandToken("%CHOICE", getAssociated(j));
+					newBonus.expandToken("%CHOICE", assoc);
 					myBonusList.add(newBonus);
 				}
 
@@ -212,9 +212,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			// TODO WTF is this loop doing? how many times does it expect "%CHOICE" to
 			// appear in the special property?
 
-			for (int j = 0; j < caller.getAssociationCount(this); j++)
+			for (String assoc : caller.getAssociationList(this))
 			{
-				propName = propName.replaceFirst("%CHOICE", getAssociated(j));
+				propName = propName.replaceFirst("%CHOICE", assoc);
 			}
 
 			if ((propName != null) && !propName.equals(""))
@@ -388,20 +388,20 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * @param bAdd being added
 	 * @return an integer where apparently (from how it's used) only 0 is significant
 	 */
-	int getChoice(final int pool, final Equipment parent, final boolean bAdd, PlayerCharacter pc)
+	boolean getChoice(final int pool, final Equipment parent, final boolean bAdd, PlayerCharacter pc)
 	{
 		String choiceString = getChoiceString();
 
 		if (choiceString.length() == 0)
 		{
-			return 1;
+			return true;
 		}
 
 		final boolean forEqBuilder = choiceString.startsWith("EQBUILDER.");
 
 		if (bAdd && forEqBuilder)
 		{
-			return 1;
+			return true;
 		}
 
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
@@ -437,7 +437,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		selectedList = chooser.getSelectedList();
 		setChoice(parent, selectedList, equipChoice);
 
-		return parent.getAssociationCount(this);
+		return parent.hasAssociations(this);
 	}
 
 	void setChoice(Equipment parent, final String choice, final EquipmentChoice equipChoice)
@@ -716,9 +716,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return costFormula;
 	}
 
-	protected String getCost(final int eqIdx)
+	protected String getCost(final String listEntry)
 	{
-		final String listEntry   = getAssociated(eqIdx);
 		String       costFormula = getSafe(FormulaKey.COST).toString();
 		String modChoice = "";
 		
@@ -793,7 +792,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 	void setRemainingCharges(Equipment parent, final int remainingCharges)
 	{
-		if (parent.getAssociationCount(this) > 0)
+		if (parent.hasAssociations(this))
 		{
 			List<String> assoc = parent.removeAllAssociations(this);
 			String listEntry  = assoc.get(0);
@@ -818,7 +817,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 	int getRemainingCharges(Equipment parent)
 	{
-		if (parent.getAssociationCount(this) > 0)
+		if (parent.hasAssociations(this))
 		{
 			return getSpellInfo(getAssociated(0), s_CHARGES);
 		}

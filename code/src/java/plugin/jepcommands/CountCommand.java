@@ -127,8 +127,8 @@ public class CountCommand extends PCGenCommand
 
 						for (final PObject ab : filtered)
 						{
-							final double ac = pc.getAssociationCount(ab);
-							accum += 1.01 >= ac ? 1 : pc.getAssociationCount(ab);
+							final double ac = pc.getSelectCorrectedAssociationCount(ab);
+							accum += 1.01 >= ac ? 1 : ac;
 						}
 						return accum;
 					}

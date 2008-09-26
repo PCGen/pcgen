@@ -689,7 +689,7 @@ public final class Equipment extends PObject implements Serializable,
 		// the cost of the metal before the armor gets resized.
 		//
 		for (EquipmentModifier eqMod : eqModifierList) {
-			int iCount = getAssociationCount(eqMod);
+			int iCount = getSelectCorrectedAssociationCount(eqMod);
 
 			if (iCount < 1) {
 				iCount = 1;
@@ -705,7 +705,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		for (EquipmentModifier eqMod : altEqModifierList) {
-			int iCount = getAssociationCount(eqMod);
+			int iCount = getSelectCorrectedAssociationCount(eqMod);
 
 			if (iCount < 1) {
 				iCount = 1;
@@ -754,7 +754,7 @@ public final class Equipment extends PObject implements Serializable,
 		weightAlreadyUsed = false;
 
 		for (EquipmentModifier eqMod : eqModifierList) {
-			int iCount = getAssociationCount(eqMod);
+			int iCount = getSelectCorrectedAssociationCount(eqMod);
 
 			if (iCount < 1) {
 				iCount = 1;
@@ -767,11 +767,12 @@ public final class Equipment extends PObject implements Serializable,
 			Matcher mat;
 
 			if (hasAssociations(eqMod)
-					&& !costFormula.equals(eqMod.getCost(0))) {
+					&& !costFormula.equals(eqMod.getCost(eqMod.getAssociated(0)))) {
 				eqModCost = BigDecimal.ZERO;
 
-				for (int idx = 0; idx < getAssociationCount(eqMod); ++idx) {
-					mat = pat.matcher(eqMod.getCost(idx));
+				for (String assoc : getAssociationList(eqMod))
+				{
+					mat = pat.matcher(eqMod.getCost(assoc));
 					costFormula = mat.replaceAll("(BASECOST/" + getSafe(IntegerKey.BASE_QUANTITY)
 							+ ")");
 
@@ -819,7 +820,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		for (EquipmentModifier eqMod : altEqModifierList) {
-			int iCount = getAssociationCount(eqMod);
+			int iCount = getSelectCorrectedAssociationCount(eqMod);
 
 			if (iCount < 1) {
 				iCount = 1;
@@ -2412,7 +2413,7 @@ public final class Equipment extends PObject implements Serializable,
 					aMod.setChoice(this, selectedChoice, equipChoice);
 					allRemoved = !hasAssociations(aMod);
 				}
-			} else if (aMod.getChoice(1, this, true, aPC) == 0) {
+			} else if (!aMod.getChoice(1, this, true, aPC)) {
 				allRemoved = true;
 			}
 
@@ -2580,7 +2581,7 @@ public final class Equipment extends PObject implements Serializable,
 		int iCount;
 
 		for (EquipmentModifier eqMod : eqModifierList) {
-			iCount = getAssociationCount(eqMod);
+			iCount = getSelectCorrectedAssociationCount(eqMod);
 
 			if (iCount < 1) {
 				iCount = 1;
@@ -2590,7 +2591,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		for (EquipmentModifier eqMod : altEqModifierList) {
-			iCount = getAssociationCount(eqMod);
+			iCount = getSelectCorrectedAssociationCount(eqMod);
 
 			if (iCount < 1) {
 				iCount = 1;
@@ -3228,7 +3229,7 @@ public final class Equipment extends PObject implements Serializable,
 		// Get a response from user (if one required)
 		// Remove the modifier if all associated choices are deleted
 		if (!hasAssociations(aMod)
-				|| (aMod.getChoice(0, this, false, aPC) == 0)) {
+				|| !aMod.getChoice(0, this, false, aPC)) {
 			eqModList.remove(aMod);
 			if (bPrimary) {
 				typeListCachePrimary = null;
@@ -3820,8 +3821,8 @@ public final class Equipment extends PObject implements Serializable,
 			aString.append(eqMod.getKeyName());
 
 			// Add the modifiers
-			for (int e2 = 0; e2 < getAssociationCount(eqMod); ++e2) {
-				final String strMod = eqMod.getAssociated(e2);
+			for (String strMod : getAssociationList(eqMod))
+			{
 				aString.append('|').append(strMod.replace('|', '='));
 			}
 		}
@@ -4556,9 +4557,8 @@ public final class Equipment extends PObject implements Serializable,
 		while (aTok.hasMoreTokens()) {
 			final String x = aTok.nextToken().replace('=', '|');
 
-			for (int i = getAssociationCount(eqMod) - 1; i >= 0; --i) {
-				final String aChoice = eqMod.getAssociated(i);
-
+			for (String aChoice : getAssociationList(eqMod))
+			{
 				if (aChoice.startsWith(x)) {
 					removeAssociation(eqMod, aChoice);
 				}
@@ -4662,8 +4662,8 @@ public final class Equipment extends PObject implements Serializable,
 		EquipmentModifier aEqMod = getEqModifierKeyed("ADDTYPE", bPrimary);
 
 		if (aEqMod != null) {
-			for (int e = 0; e < getAssociationCount(aEqMod); ++e) {
-				String aType = aEqMod.getAssociated(e);
+			for (String aType : getAssociationList(aEqMod))
+			{
 				aType = aType.toUpperCase();
 
 				if (!calculatedTypeList.contains(aType)) {
@@ -5980,10 +5980,8 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (eqMod != null)
 		{
-			for (int i = 0; i < getAssociationCount(eqMod); ++i)
+			for (String aString : getAssociationList(eqMod))
 			{
-				final String aString = eqMod.getAssociated(i);
-
 				if (aString.startsWith(it))
 				{
 					return aString.substring(it.length());
@@ -6060,9 +6058,11 @@ public final class Equipment extends PObject implements Serializable,
 		return obj.tempContainsAssociated(o);
 	}
 
-	public int getAssociationCount(PObject obj)
+	public int getSelectCorrectedAssociationCount(PObject obj)
 	{
-		return obj.tempGetAssociatedCount();
+		//TODO Null here is probably a problem for the PC :/
+		return obj.tempGetAssociatedCount()
+				/ getVariableValue(obj.getSelectCount(), "", null).intValue();
 	}
 
 	public List<String> getAssociationList(PObject obj)
@@ -6071,9 +6071,9 @@ public final class Equipment extends PObject implements Serializable,
 		ArrayList<AssociatedChoice<String>> assocList = obj.getAssociatedList();
 		if (assocList != null)
 		{
-			for (AssociatedChoice<String> ac : assocList)
+			for (AssociatedChoice<?> ac : assocList)
 			{
-				final String choiceStr = ac.getDefaultChoice();
+				final String choiceStr = ac.toString();
 				if (choiceStr.equals(Constants.EMPTY_STRING))
 				{
 					list.add(null);
@@ -6104,7 +6104,7 @@ public final class Equipment extends PObject implements Serializable,
 		obj.tempRemoveAssociated(o);
 	}
 
-	public int getExpandedAssociationCount(PObject obj)
+	public int getDetailedAssociationCount(PObject obj)
 	{
 		return obj.tempGetAssociatedCount(true);
 	}

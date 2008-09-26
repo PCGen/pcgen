@@ -249,7 +249,7 @@ public final class PrerequisiteUtilities
 						runningTotal++;
 						if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 						{
-							runningTotal += (character.getAssociationCount(ability) - 1);
+							runningTotal += (character.getSelectCorrectedAssociationCount(ability) - 1);
 						}
 					}
 				}
@@ -338,7 +338,7 @@ public final class PrerequisiteUtilities
 				if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && countMults)
 				{
 					runningTotal +=
-						(character.getAssociationCount(aFeat) - 1);
+						(character.getSelectCorrectedAssociationCount(aFeat) - 1);
 				}
 			}
 			else
@@ -347,12 +347,9 @@ public final class PrerequisiteUtilities
 
 				if (wildCardPos > -1)
 				{
-					for (int k = 0; k < character.getAssociationCount(aFeat); ++k)
+					for (String assoc : character.getAssociationList(aFeat))
 					{
-
-						final String fString =
-								aFeat.getAssociated(k)
-									.toUpperCase();
+						final String fString = assoc.toUpperCase();
 						if (wildCardPos == 0
 							|| fString.startsWith(subKey
 								.substring(0, wildCardPos - 1)

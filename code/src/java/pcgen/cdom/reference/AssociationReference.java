@@ -132,11 +132,10 @@ public class AssociationReference<T extends CDOMObject> extends
 			return false;
 		}
 		AssociationStore as = Globals.getCurrentPC();
-		int assocCount = as.getAssociationCount(referenceObj);
 		String key = obj.getKeyName();
-		for (int e = 0; e < assocCount; ++e)
+		for (String assoc : as.getAssociationList(referenceObj))
 		{
-			if (key.equalsIgnoreCase(referenceObj.getAssociated(e)))
+			if (key.equalsIgnoreCase(assoc))
 			{
 				return true;
 			}
@@ -162,13 +161,13 @@ public class AssociationReference<T extends CDOMObject> extends
 	{
 		List<T> list = new ArrayList<T>();
 		AssociationStore as = Globals.getCurrentPC();
-		int assocCount = as.getAssociationCount(referenceObj);
+		List<String> associationList = as.getAssociationList(referenceObj);
 		for (T obj : all.getContainedObjects())
 		{
 			String key = obj.getKeyName();
-			for (int e = 0; e < assocCount; ++e)
+			for (String assoc : associationList)
 			{
-				if (key.equalsIgnoreCase(referenceObj.getAssociated(e)))
+				if (key.equalsIgnoreCase(assoc))
 				{
 					list.add(obj);
 					break;
@@ -204,7 +203,7 @@ public class AssociationReference<T extends CDOMObject> extends
 	public int getObjectCount()
 	{
 		AssociationStore as = Globals.getCurrentPC();
-		return as.getAssociationCount(referenceObj);
+		return as.getDetailedAssociationCount(referenceObj);
 	}
 
 	/**

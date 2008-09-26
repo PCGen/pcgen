@@ -188,7 +188,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 
 		final StringBuffer sb = new StringBuffer(100);
 
-		for (int j = 0; j < pc.getAssociationCount(anAbility); ++j)
+		for (int j = 0; j < pc.getSelectCorrectedAssociationCount(anAbility); ++j)
 		{
 			fmc = (FeatMultipleChoice) anAbility.getAssociatedList().get(j);
 			sb.append(anAbility.getKeyName()).append(" (");

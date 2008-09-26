@@ -91,9 +91,8 @@ class LevelAbilityFeat extends LevelAbility
 		}
 		else
 		{
-			for (int j = 0; j < aPC.getAssociationCount(this); ++j)
+			for (String featKey : aPC.getAssociationList(this))
 			{
-				String        featKey  = getAssociatedList().get(j).toString();
 				final Ability anAbility = Globals.getAbilityKeyed("FEAT", featKey);
 
 				if (anAbility == null)

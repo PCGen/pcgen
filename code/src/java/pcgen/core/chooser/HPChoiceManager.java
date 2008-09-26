@@ -69,9 +69,9 @@ public class HPChoiceManager extends AbstractBasicStringChoiceManager {
 
 		availableList.add(choiceSec);
 
-		for (int e1 = 0; e1 < aPc.getAssociationCount(pobject); ++e1)
+		for (String assoc : aPc.getAssociationList(pobject))
 		{
-			selectedList.add(choiceSec);
+			selectedList.add(assoc);
 		}
 		setPreChooserChoices(selectedList.size());
 	}

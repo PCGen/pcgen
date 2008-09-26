@@ -13097,24 +13097,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				iBonus = aBonus.resolve(this, anObj.getQualifiedKey()).doubleValue();
 			}
 
-			int k =
-					Math.max(1,
-						(int) (getAssociationCount(anObj) *
-								anObj.getSafe(ObjectKey.SELECTION_COST).doubleValue()));
-
+			int k;
 			if (hasAssociations(anObj))
 			{
 				k = 0;
 
-				for (int f = 0; f < getAssociationCount(anObj); ++f)
+				for (String aString : getAssociationList(anObj))
 				{
-					final String aString = anObj.getAssociated(f);
-
 					if (aString.equalsIgnoreCase(aBonus.getBonusInfo()))
 					{
 						++k;
 					}
 				}
+			}
+			else
+			{
+				k = 1;
 			}
 
 			if ((k == 0) && !CoreUtility.doublesEqual(iBonus, 0))
@@ -16373,18 +16371,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				continue;
 			}
-			final int subfeatCount = getAssociationCount(aFeat);
+			final int subfeatCount = getSelectCorrectedAssociationCount(aFeat);
 			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			int select =
-					getVariableValue(aFeat.getSelectCount(), "").intValue();
-			double relativeCost = cost / select;
 			if (aFeat.getChoiceString() != null
 				&& aFeat.getChoiceString().length() > 0)
 			{
-				iCount += Math.ceil(subfeatCount * relativeCost);
+				iCount += Math.ceil(subfeatCount * cost);
 			}
 			else
 			{
+				int select = getVariableValue(aFeat.getSelectCount(), "")
+						.intValue();
+				double relativeCost = cost / select;
 				if (!AbilityCategory.FEAT.allowFractionalPool())
 				{
 					iCount += (int) Math.ceil(relativeCost);
@@ -16413,19 +16411,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (final Ability ability : abilities)
 			{
-				final int subfeatCount = getAssociationCount(ability);
+				final int subfeatCount = getSelectCorrectedAssociationCount(ability);
 				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-				int select =
-						getVariableValue(ability.getSelectCount(), "")
-							.intValue();
-				double relativeCost = cost / select;
 				if (ability.getChoiceString() != null
 					&& ability.getChoiceString().length() > 0)
 				{
-					spent += Math.ceil(subfeatCount * relativeCost);
+					spent += Math.ceil(subfeatCount * cost);
 				}
 				else
 				{
+					int select = getVariableValue(ability.getSelectCount(), "")
+							.intValue();
+					double relativeCost = cost / select;
 					if (!aCategory.allowFractionalPool())
 					{
 						spent += (int) Math.ceil(relativeCost);
@@ -16759,10 +16756,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Ability aggregateFeat = aHashMap.get(vFeat.getKeyName());
 				aggregateFeat = aggregateFeat.clone();
 
-				for (int e1 = 0; e1 < getAssociationCount(vFeat); ++e1)
+				for (String aString : getAssociationList(vFeat))
 				{
-					final String aString = vFeat.getAssociated(e1);
-
 					if (aggregateFeat.getSafe(ObjectKey.STACKS)
 						|| !containsAssociated(aggregateFeat, aString))
 					{
@@ -16789,9 +16784,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Ability aggregateFeat = aHashMap.get(autoFeat.getKeyName());
 				aggregateFeat = aggregateFeat.clone();
 
-				for (int e1 = 0; e1 < getAssociationCount(autoFeat); ++e1)
+				for (String aString : getAssociationList(autoFeat))
 				{
-					final String aString = autoFeat.getAssociated(e1);
 					if (aggregateFeat.getSafe(ObjectKey.STACKS)
 						|| !containsAssociated(aggregateFeat, aString))
 					{
@@ -17258,10 +17252,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (aDomain != null)
 				{
-					for (int e2 = 0; e2 < getAssociationCount(aDomain); ++e2)
+					for (String aString : getAssociationList(aDomain))
 					{
-						final String aString = aDomain.getAssociated(e2);
-
 						if (aString.startsWith("FEAT"))
 						{
 							final int idx = aString.indexOf('?');
@@ -17875,9 +17867,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return obj.tempContainsAssociated(o);
 	}
 
-	public int getAssociationCount(PObject obj)
+	public int getSelectCorrectedAssociationCount(PObject obj)
 	{
-		return obj.tempGetAssociatedCount();
+		return obj.tempGetAssociatedCount()
+				/ getVariableValue(obj.getSelectCount(), "", this).intValue();
 	}
 
 	public List<String> getAssociationList(PObject obj)
@@ -17919,7 +17912,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		obj.tempRemoveAssociated(o);
 	}
 
-	public int getExpandedAssociationCount(PObject obj)
+	public int getDetailedAssociationCount(PObject obj)
 	{
 		return obj.tempGetAssociatedCount(true);
 	}

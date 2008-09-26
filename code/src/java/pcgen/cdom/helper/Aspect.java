@@ -276,15 +276,15 @@ public class Aspect
 				{
 					if ( theOwner != null )
 					{
-						for ( int i = 0; i < aPC.getExpandedAssociationCount(theOwner); i++ )
+						for ( int i = 0; i < aPC.getDetailedAssociationCount(theOwner); i++ )
 						{
 							if ( i > 0 )
 							{
-								if (aPC.getExpandedAssociationCount(theOwner) != 2)
+								if (aPC.getDetailedAssociationCount(theOwner) != 2)
 								{
 									buf.append(Constants.COMMA + ' ');
 								}
-								if (i == aPC.getExpandedAssociationCount(theOwner) - 1)
+								if (i == aPC.getDetailedAssociationCount(theOwner) - 1)
 								{
 									buf.append(" and ");
 								}

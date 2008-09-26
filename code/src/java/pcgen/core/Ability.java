@@ -333,11 +333,11 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		{
 			if ((getChoiceString().length() == 0) || (getSafe(ObjectKey.MULTIPLE_ALLOWED) && getSafe(ObjectKey.STACKS)))
 			{
-				if (pc.getAssociationCount(this) > 1)
+				if (pc.getDetailedAssociationCount(this) > 1)
 				{
 					// number of items only (ie stacking), e.g. " (1x)"
 					aStrBuf.append(" (");
-					aStrBuf.append((int) (pc.getAssociationCount(this) * getSafe(ObjectKey.SELECTION_COST).doubleValue()));
+					aStrBuf.append((int) (pc.getDetailedAssociationCount(this) * getSafe(ObjectKey.SELECTION_COST).doubleValue()));
 					aStrBuf.append("x)");
 				}
 			}
@@ -349,7 +349,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
                 int i = 0;
 
 				// list of items in associatedList, e.g. " (Sub1, Sub2, ...)"
-				for (int e = 0; e < pc.getExpandedAssociationCount(this); ++e)
+				for (int e = 0; e < pc.getDetailedAssociationCount(this); ++e)
 				{
 					if (i > 0)
 					{
