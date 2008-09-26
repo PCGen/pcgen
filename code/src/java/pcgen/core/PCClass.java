@@ -234,24 +234,6 @@ public class PCClass extends PObject
 	// really working properly
 
 	/*
-	 * STRINGREFACTOR This is currently taking in a complex formula-ish string
-	 * and needs to be put back into the Tag!
-	 */
-	/*
-	 * UNKNOWNDESTINATION Not sure where to put this today. In fact, this is
-	 * NEVER called from an instance of PCClass that is part of a
-	 * PlayerCharacter, it is actually a REFERENCE item based on calculating the
-	 * cost (GP cost?) of a piece of equipment. Therefore, there seems to be no
-	 * reason at ALL to put this into PCClassLevel, but rather keep it as
-	 * something entirely in PCClass. (Perhaps this really becomes a "static"
-	 * method in PCClass: The Factory? This can't literally be static, since it
-	 * is directly part of the PCClass instance, but it's also one of the few
-	 * things that should be exposed for use in PCClass other than the
-	 * PCClassLevel factory method.
-	 */
-	private String itemCreationMultiplier = Constants.EMPTY_STRING;
-
-	/*
 	 * UNKNOWNDESTINATION This is (yet again) a bit complicated due to the fact
 	 * that this is a prerequisite test. First, this is LEVELONEONLY in the
 	 * sense that this prerequisite might only be justifiably tested for the
@@ -790,25 +772,6 @@ public class PCClass extends PObject
 	public final List<CDOMListObject<Spell>> getClassSpellList()
 	{
 		return classSpellList;
-	}
-
-	/*
-	 * PCCLASSONLY Since this is a reference variable, it will likely
-	 * only appear in PCCLASS
-	 */
-	public final void setItemCreationMultiplier(
-		final String argItemCreationMultiplier)
-	{
-		itemCreationMultiplier = argItemCreationMultiplier;
-	}
-
-	/*
-	 * PCCLASSONLY Since this is a reference variable, it will likely
-	 * only appear in PCCLASS
-	 */
-	public final String getItemCreationMultiplier()
-	{
-		return itemCreationMultiplier;
 	}
 
 	/*
@@ -2212,11 +2175,6 @@ public class PCClass extends PObject
 		{
 			pccTxt.append('\t').append("PROHIBITED:");
 			pccTxt.append(StringUtil.join(prohibitedSchools, ","));
-		}
-
-		if (itemCreationMultiplier.length() != 0)
-		{
-			pccTxt.append("\tITEMCREATE:").append(itemCreationMultiplier);
 		}
 
 		// now all the level-based stuff

@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrereqHandler;
@@ -562,8 +563,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					if (castClass != null)
 					{
 						final StringBuffer multiple = new StringBuffer(200);
-						String             aString  = castClass
-							.getItemCreationMultiplier();
+						String             aString  = castClass.get(StringKey.ITEMCREATE);
 
 						if (aString.length() != 0)
 						{

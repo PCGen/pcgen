@@ -121,7 +121,10 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 
 		a = itemCreate.getText().trim();
-		obj.setItemCreationMultiplier(a);
+		if (a.length() > 0)
+		{
+			obj.put(StringKey.ITEMCREATE, a);
+		}
 
 		a = extraFeats.getText().trim();
 
@@ -213,7 +216,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 				.getSafeListFor(ListKey.ATTACK_CYCLE), Constants.PIPE));
 		hitDice.setText(String.valueOf(obj.getSafe(ObjectKey.LEVEL_HITDIE).getDie()));
 		deity.setText(StringUtil.join(obj.getSafeListFor(ListKey.DEITY), Constants.PIPE));
-		itemCreate.setText(obj.getItemCreationMultiplier());
+		itemCreate.setText(obj.get(StringKey.ITEMCREATE));
 		Integer sf = obj.get(IntegerKey.START_FEATS);
 		extraFeats.setText(sf == null ? "" : sf.toString());
 		Integer lpf = obj.get(IntegerKey.LEVELS_PER_FEAT);
