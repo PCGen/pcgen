@@ -151,6 +151,7 @@ public class SpellLevelToken implements ChooseLstToken
 						+ " use of .A in third argument is deprecated, "
 						+ "please contact the PCGen team for alternatives:"
 						+ value);
+				return false;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
