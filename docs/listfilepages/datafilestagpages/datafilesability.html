@@ -275,19 +275,16 @@
 		<p class="indent3">This Ability may be stack on it's self.</p>
 		<p></p>
 
-<!--
 <hr>
 
 	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> TEMPLATE:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a | (pipe) delimited list of templates that are granted to the race.</p>
+	<p class="indent2">This is a pipe-delimited (|) list of templates that are granted by the ability.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>
-	<p class="indent3">The race uses the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;
+	<p class="indent3">The ability applies the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;
 		templates.</p>
-	<p class="indent2"><code>Bugbear (Shadowkind).MOD &lt;tab&gt; OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt; RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
-	<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
 	<p></p>
 
 <hr>
@@ -297,14 +294,14 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This is a pipe-delimited list of template choices that are added to the list
-			presented by the original TEMPLATE:CHOOSE tag.</li>
+			presented by the original <code>TEMPLATE:CHOOSE</code> tag.</li>
 		<li>When using the <code>TEMPLATE:ADDCOICE</code> tag as part of a <code>.MOD</code> of a 
 			Race object that containes multiple <code>TEMPLATE:CHOOSE</code> tags, all instances 
 			of the <code>TEMPLATE:CHOOSE</code> tag will be modified.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>
-	<p class="indent3">The race can choose previously defined templates plus the
+	<p class="indent3">The ability can choose previously defined templates plus the
 		&quot;Demihuman&quot; or &quot;Beast&quot; templates.</p>
 	<p></p>
 
@@ -314,17 +311,16 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>CHOOSE will supply a popup window of the choices presented in the tag
-			that are pipe-delimited (|), allowing the user to pick ONE from the list.</li>
+		<li>Will present a popup window of the choices provided in the pipe-delimited (|) list, allowing 
+			the user to pick ONE from the list.</li>
 		<li>Multiple <code>TEMPLATE:CHOOSE</code> tags can be used in the same LST object 
-			but doing so can cause unintended results.</li>
+			but PCGen's current Data Standard os to include no more that one in each LST object.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
-	<p class="indent3">The race can choose either the &quot;Celestial&quot; or &quot;Outsider&quot;
+	<p class="indent3">The ability allows the selection of either the &quot;Celestial&quot; or &quot;Outsider&quot;
 		template.</p>
 	<p></p>
--->
 
 <hr>
 

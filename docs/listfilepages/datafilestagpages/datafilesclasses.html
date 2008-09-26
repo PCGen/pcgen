@@ -1222,37 +1222,55 @@
 
 <hr>
 
-	<p class="new">*** Deprecated - Use <a href="../globalfilestagpages/globalfilesother.html#SA">SA</a></p>
-	<p class="indent0"><strong><a name="SPECIALS">Tag Name:</a></strong> SPECIALS</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> TEMPLATE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> CHOOSE:Text (Template name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ADDCHOICE:Text (Template name)</p>
+	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> TEMPLATE:x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This is a pipe-delimited (|) list of templates that are granted to the class.</li>
-		<li>Including <code>CHOOSE:</code> will present a popup window of the pipe-delimited
-			template choices and allow the user to pick one (1) from the list.</li>
-		<li>Including <code>ADDCHOICE:</code> presents a pipe-delimited (|) list of template
-			choices that are added to the list presented by the original <code>TEMPLATE:CHOOSE</code>
-			tag found here or in other lst files.</li>
-	</ul>
+	<p class="indent2">This is a pipe-delimited (|) list of templates that are granted to the class.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>
 	<p class="indent3">The class uses the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;
 		templates.</p>
-	<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
-	<p class="indent3">The class can choose either the &quot;Celestial&quot; or &quot;Outsider&quot; templates.</p>
-	<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>
-	<p class="indent3">The class can choose from the &quot;Demihuman&quot; or &quot;Beast&quot; templates
-		in addition to others already entitled.</p>
-	<p class="indent1"></p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class Level Line or Class Line.</p>
+	<p class="indent2">Class Level Line</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="TEMPLATEADDCHOICE">Tag Name:</a></strong> TEMPLATE:ADDCHOICE:x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This is a pipe-delimited list of template choices that are added to the list
+			presented by the original TEMPLATE:CHOOSE tag.</li>
+		<li>When using the <code>TEMPLATE:ADDCOICE</code> tag as part of a <code>.MOD</code> of a 
+			class that containes multiple <code>TEMPLATE:CHOOSE</code> tags, all instances 
+			of the <code>TEMPLATE:CHOOSE</code> tag will be modified.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code></p>
+	<p class="indent3">The class can choose previously defined templates plus the
+		&quot;Demihuman&quot; or &quot;Beast&quot; templates.</p>
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Class Level Line</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="TEMPLATECHOOSE">Tag Name:</a></strong> TEMPLATE:CHOOSE:x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Will present a popup window of the choices provided in the pipe-delimited (|) list, allowing 
+			the user to pick ONE from the list.</li>
+		<li>Multiple <code>TEMPLATE:CHOOSE</code> tags can be used in the same LST object 
+			but PCGen's current Data Standard os to include no more that one in each LST object.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
+	<p class="indent3">The class can choose either the &quot;Celestial&quot; or &quot;Outsider&quot;
+		template.</p>
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Class Level Line</p>
 	<p></p>
 
 <hr>
