@@ -21,6 +21,7 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -158,26 +159,49 @@ public final class SkillModifier
 		double bonusObjTotal = 0.0;
 		StringBuffer bonusDetails = new StringBuffer();
 		String keyName = sk.getKeyName();
+		String bonusKey = ("SKILL." + keyName).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())
 		{
 			// calculate bonus and add to activeBonusMap
-			if (bonus.isApplied() && "SKILL".equals(bonus.getBonusName())
-				&& bonus.getBonusInfoList().contains(keyName.toUpperCase()))
+			if (bonus.isApplied() && "SKILL".equals(bonus.getBonusName()))
 			{
-				double iBonus = 0;
-				for (BonusPair bp : bonus.getStringListFromBonus())
+				boolean include =
+						bonus.getBonusInfoList()
+							.contains(keyName.toUpperCase());
+				if (!include)
 				{
-					iBonus += bp.resolve(aPC).doubleValue();
-				}
-				if (!CoreUtility.doublesEqual(iBonus, 0.0))
-				{
-					if (bonusDetails.length() > 0)
+					for (BonusPair bp : bonus.getStringListFromBonus())
 					{
-						bonusDetails.append(' ');
+						String bpKey = bp.bonusKey.toUpperCase();
+						if (bpKey.startsWith(bonusKey))
+						{
+							include = true;
+							break;
+						}
 					}
-					bonusDetails.append(Delta.toString((int) iBonus));
-					bonusDetails.append(bonus.getBonusContext(shortForm));
-					bonusObjTotal += iBonus;
+				}
+
+				if (include)
+				{
+					double iBonus = 0;
+					for (BonusPair bp : bonus.getStringListFromBonus())
+					{
+						String bpKey = bp.bonusKey.toUpperCase();
+						if (bpKey.startsWith(bonusKey))
+						{
+							iBonus += bp.resolve(aPC).doubleValue();
+						}
+					}
+					if (!CoreUtility.doublesEqual(iBonus, 0.0))
+					{
+						if (bonusDetails.length() > 0)
+						{
+							bonusDetails.append(' ');
+						}
+						bonusDetails.append(Delta.toString((int) iBonus));
+						bonusDetails.append(bonus.getBonusContext(shortForm));
+						bonusObjTotal += iBonus;
+					}
 				}
 			}
 		}
