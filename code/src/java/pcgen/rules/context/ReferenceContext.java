@@ -20,7 +20,6 @@ package pcgen.rules.context;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.DoubleKeyMap;
@@ -33,7 +32,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.util.Logging;
 
 public class ReferenceContext extends AbstractReferenceContext
 {
