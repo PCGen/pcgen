@@ -12290,7 +12290,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						&& !containsAssociated(anAbility, aString))
 					{
 						addAssociation(anAbility, aString);
-						anAbility.sortAssociated();
 					}
 				}
 				else
@@ -17952,6 +17951,43 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return obj.tempGetAssociatedCount(true);
 	}
 
+	public List<String[]> getDetailedAssociations(PObject obj)
+	{
+		ArrayList<AssociatedChoice<String>> assocs = obj.getAssociatedList();
+		List<String[]> list = new ArrayList<String[]>();
+		for (AssociatedChoice<String> choice : assocs)
+		{
+			String[] array = new String[choice.size()];
+			array[0] = choice.getDefaultChoice();
+			for (int i = 1; i < array.length; i++)
+			{
+				array[i] = choice.getChoice(Integer.toString(i));
+			}
+			list.add(array);
+		}
+		return list;
+	}
+
+	public List<String> getExpandedAssociations(PObject obj)
+	{
+		ArrayList<AssociatedChoice<String>> assocs = obj.getAssociatedList();
+		List<String> list = new ArrayList<String>();
+		for (AssociatedChoice<String> choice : assocs)
+		{
+			list.add(choice.getDefaultChoice());
+			for (int i = 1; i < choice.size(); i++)
+			{
+				list.add(choice.getChoice(Integer.toString(i)));
+			}
+		}
+		return list;
+	}
+
+	public String getFirstAssociation(PObject obj)
+	{
+		return obj.getAssociatedList().get(0).toString();
+	}
+
 	public void addAssoc(Object obj, Object o)
 	{
 		assocSupt.addAssoc(obj, o);
@@ -18036,5 +18072,4 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		selectedFavoredClass = sfc;
 	}
-
 }

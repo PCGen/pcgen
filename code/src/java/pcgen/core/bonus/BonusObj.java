@@ -966,8 +966,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 				{
 					thisName =
-							name.replaceAll(VALUE_TOKEN_PATTERN, anObj
-								.getCompressedChoice(assoc));
+							name.replaceAll(VALUE_TOKEN_PATTERN, assoc.toString());
 				}
 				else
 				{
@@ -986,12 +985,11 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 					}
 					else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
 					{
-						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN, anObj
-							.getCompressedChoice(assoc)));
+						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN, assoc.toString()));
 					}
 					else if (info.equals(LIST_TOKEN_REPLACEMENT))
 					{
-						infoList.add(anObj.getCompressedChoice(assoc));
+						infoList.add(assoc.toString());
 					}
 					else
 					{
@@ -1013,8 +1011,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 					if (listIndex >= 0)
 					{
 						thisValue =
-								value.replaceAll(VALUE_TOKEN_PATTERN, anObj
-									.getCompressedChoice(assoc));
+								value.replaceAll(VALUE_TOKEN_PATTERN, assoc.toString());
 					}
 					newFormula = FormulaFactory.getFormulaFor(thisValue);
 				}

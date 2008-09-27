@@ -53,7 +53,6 @@ import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
-import pcgen.core.FeatMultipleChoice;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
@@ -1399,18 +1398,22 @@ final class PCGVer2Creator implements IOConstants
 				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					buffer.append(TAG_APPLIEDTO).append(TAG_END);
-					if (ability.getAssociatedObject(0) instanceof FeatMultipleChoice)
-					{
-						buffer.append(TAG_MULTISELECT).append(':');
-					}
+					List<String[]> assocList = thePC.getDetailedAssociations(ability);
 					boolean first = true;
-					for (String assoc : thePC.getAssociationList(ability))
+					for (String[] assocArray : assocList)
 					{
-						if (!first)
+						if (assocArray.length > 1)
 						{
-							buffer.append(Constants.COMMA);
+							buffer.append(TAG_MULTISELECT).append(':');
 						}
-						buffer.append(EntityEncoder.encode(assoc));
+						for (String assoc : assocArray)
+						{
+							if (!first)
+							{
+								buffer.append(Constants.COMMA);
+							}
+							buffer.append(EntityEncoder.encode(assoc));
+						}
 					}
 					buffer.append(TAG_SEPARATOR);
 				}
@@ -2632,14 +2635,10 @@ final class PCGVer2Creator implements IOConstants
 						.append('[').append(TAG_PROMPT).append(':').append(
 							EntityEncoder.encode(la.getTagData()));
 
-					for (int j = 0; j < thePC.getDetailedAssociationCount(la); ++j)
+					for (String s : thePC.getExpandedAssociations(la))
 					{
-						buffer
-							.append('|')
-							.append(TAG_CHOICE)
-							.append(':')
-							.append(
-								EntityEncoder.encode(la.getAssociated(j, true)));
+						buffer.append('|').append(TAG_CHOICE).append(':');
+						buffer.append(EntityEncoder.encode(s));
 					}
 
 					buffer.append(']');

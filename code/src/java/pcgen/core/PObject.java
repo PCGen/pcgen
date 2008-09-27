@@ -142,54 +142,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * ************/
 
 	/**
-	 * Get the associated item, without expanding the list
-	 * @param idx
-	 * @return the associated item
-	 */
-	public final String getAssociated(final int idx)
-	{
-		return getAssociated(idx, false);
-	}
-
-	/**
-	 * Get the associated item
-	 * @param idx
-	 * @param expand - whether to expand the choice
-	 * @return associated item
-	 */
-	public final String getAssociated(int idx, final boolean expand)
-	{
-		if (associatedList == null) 
-		{
-			return Constants.EMPTY_STRING;
-		}
-
-		if (expand)
-		{
-			int currentCount = 0;
-			for ( final AssociatedChoice<String> choice : associatedList )
-			{
-				final int choiceInd = choice.size() - 1;
-				if ( idx <= (currentCount + choiceInd) )
-				{
-					if ( choiceInd == 0 )
-					{
-						return choice.getDefaultChoice();
-					}
-					return choice.getChoice(String.valueOf(idx - currentCount));
-				}
-				currentCount += choice.size();
-			}
-		}
-		else if (associatedList.get(idx) instanceof FeatMultipleChoice)
-		{
-			return associatedList.get(idx).toString();
-		}
-
-		return associatedList.get(idx).getDefaultChoice();
-	}
-
-	/**
 	 * Get associated count, without expanding
 	 * @return associated count
 	 */
@@ -622,38 +574,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		associatedList.add(aFeatChoices);
 	}
-
-	public String associatedList()
-	{
-		if (associatedList == null)
-		{
-			return Constants.EMPTY_STRING;
-		}
-		else
-		{
-			StringBuilder sb = new StringBuilder();
-			boolean first = true;
-			for (AssociatedChoice<String> choice : associatedList)
-			{
-				if (!first)
-				{
-					sb.append(", ");
-				}
-				first = false;
-				final String choiceStr = choice.getDefaultChoice();
-				if (choiceStr.equals(Constants.EMPTY_STRING))
-				{
-					sb.append('*');
-				}
-				else
-				{
-					sb.append(choiceStr);
-				}
-			}
-			return sb.toString();
-		}
-	}
-
 
 	/**
 	 * Add to the 'save' for the character list
@@ -2915,14 +2835,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return associatedList.remove(i);
 	}
 
-	final void sortAssociated()
-	{
-		if (associatedList != null)
-		{
-			Collections.sort(associatedList);
-		}
-	}
-
 	/**
 	 * rephrase parenthetical name components, if appropriate
 	 * @return pre formatted output name
@@ -4050,15 +3962,5 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		List<String> result = servesAsList.get(category); 
 		return result == null ? new ArrayList<String>() : Collections
 			.unmodifiableList(result);
-	}
-
-	public String getCompressedChoice(AssociatedChoice<String> c)
-	{
-		if (c instanceof FeatMultipleChoice)
-		{
-			return c.toString();
-		}
-
-		return c.getDefaultChoice();
 	}
 }

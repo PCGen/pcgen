@@ -20,9 +20,11 @@
  */
 package pcgen.persistence.lst.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
+import pcgen.core.AssociatedChoice;
 import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -131,9 +133,10 @@ public class FeatParserTest extends AbstractCharacterTestCase
 		is((feats.get(1)).getDisplayName(), strEq("Weapon Finesse"),
 			"Second feat is correct");
 
-		is((feats.get(1)).getAssociated(0), strEq("Bite"),
-			"First choice is correct");
-		is((feats.get(1)).getAssociated(1), strEq("Claws"),
-			"Second choice is correct");
+		ArrayList<AssociatedChoice<String>> list = feats.get(1)
+				.getAssociatedList();
+		
+		is(list.get(0).toString(), strEq("Bite"), "First choice is correct");
+		is(list.get(1).toString(), strEq("Claws"), "Second choice is correct");
 	}
 }

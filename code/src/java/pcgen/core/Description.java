@@ -25,6 +25,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
@@ -192,28 +193,26 @@ public class Description extends ConcretePrereqObject
 					{
 						if ( theOwner != null && aPC.hasAssociations(theOwner) )
 						{
-							buf.append(theOwner.getAssociated(0));
+							buf.append(aPC.getFirstAssociation(theOwner));
 						}
 					}
 					else if ( var.equals(VAR_LIST) )
 					{
 						if ( theOwner != null )
 						{
-							for ( int i = 0; i < aPC.getDetailedAssociationCount(theOwner); i++ )
+							List<String> assocList = aPC.getExpandedAssociations(theOwner);
+							String joinString;
+							if (assocList.size() == 2)
 							{
-								if ( i > 0 )
-								{
-									if (aPC.getDetailedAssociationCount(theOwner) != 2)
-									{
-										buf.append(Constants.COMMA + ' ');
-									}
-									if (i == aPC.getDetailedAssociationCount(theOwner) - 1)
-									{
-										buf.append(" and ");
-									}
-								}
-								buf.append(theOwner.getAssociated(i, true));
+								joinString = " and ";
 							}
+							else
+							{
+								joinString = ", ";
+							}
+			                buf.append(StringUtil.joinToStringBuffer(aPC
+									.getExpandedAssociations(theOwner),
+									joinString));
 						}
 					}
 					else if ( var.startsWith(VAR_FEATS) )

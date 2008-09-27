@@ -25,7 +25,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
@@ -65,7 +64,7 @@ public enum EqModNameOpt
 			StringBuilder sb = new StringBuilder(100);
 			sb.append(mod.getDisplayName());
 			sb.append(" (");
-			sb.append(mod.associatedList());
+			sb.append(associatedList(parent.getAssociationList(mod)));
 			sb.append(')');
 			return sb.toString().trim().replace('|', ' ');
 		}
@@ -85,7 +84,7 @@ public enum EqModNameOpt
 		{
 			StringBuilder sb = new StringBuilder(100);
 			sb.append(mod.getDisplayName());
-			sb.append(mod.associatedList());
+			sb.append(associatedList(parent.getAssociationList(mod)));
 			return sb.toString().trim().replace('|', ' ');
 		}
 	},
@@ -228,7 +227,7 @@ public enum EqModNameOpt
 		}
 	}
 
-	public String associatedList(List<AssociatedChoice<String>> associatedList)
+	public String associatedList(List<String> associatedList)
 	{
 		if (associatedList == null)
 		{
@@ -238,25 +237,23 @@ public enum EqModNameOpt
 		{
 			StringBuilder sb = new StringBuilder();
 			boolean first = true;
-			for (AssociatedChoice<String> choice : associatedList)
+			for (String choice : associatedList)
 			{
 				if (!first)
 				{
 					sb.append(", ");
 				}
 				first = false;
-				final String choiceStr = choice.getDefaultChoice();
-				if (choiceStr.equals(Constants.EMPTY_STRING))
+				if (choice == null)
 				{
 					sb.append('*');
 				}
 				else
 				{
-					sb.append(choiceStr);
+					sb.append(choice);
 				}
 			}
 			return sb.toString();
 		}
 	}
-
 }

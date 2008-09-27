@@ -369,7 +369,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		if ("%CHOICE".equals(getSRFormula()) && parent.hasAssociations(this))
 		{
-			return Delta.parseInt(getAssociatedObject(0).toString());
+			return Delta.parseInt(parent.getFirstAssociation(this));
 		}
 
 		final String srFormula = getSRFormula();
@@ -819,7 +819,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		if (parent.hasAssociations(this))
 		{
-			return getSpellInfo(getAssociated(0), s_CHARGES);
+			return getSpellInfo(parent.getFirstAssociation(this), s_CHARGES);
 		}
 
 		return 0;

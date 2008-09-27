@@ -20,4 +20,9 @@ public interface AssociationStore
 
 	public int getDetailedAssociationCount(PObject obj);
 
+	public List<String[]> getDetailedAssociations(PObject obj);
+
+	public List<String> getExpandedAssociations(PObject obj);
+	
+	public String getFirstAssociation(PObject obj);
 }

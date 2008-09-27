@@ -767,7 +767,7 @@ public final class Equipment extends PObject implements Serializable,
 			Matcher mat;
 
 			if (hasAssociations(eqMod)
-					&& !costFormula.equals(eqMod.getCost(eqMod.getAssociated(0)))) {
+					&& !costFormula.equals(eqMod.getCost(getFirstAssociation(eqMod)))) {
 				eqModCost = BigDecimal.ZERO;
 
 				for (String assoc : getAssociationList(eqMod))
@@ -6107,5 +6107,42 @@ public final class Equipment extends PObject implements Serializable,
 	public int getDetailedAssociationCount(PObject obj)
 	{
 		return obj.tempGetAssociatedCount(true);
+	}
+
+	public List<String[]> getDetailedAssociations(PObject obj)
+	{
+		ArrayList<AssociatedChoice<String>> assocs = obj.getAssociatedList();
+		List<String[]> list = new ArrayList<String[]>();
+		for (AssociatedChoice<String> choice : assocs)
+		{
+			String[] array = new String[choice.size()];
+			array[0] = choice.getDefaultChoice();
+			for (int i = 1; i < array.length; i++)
+			{
+				array[i] = choice.getChoice(Integer.toString(i));
+			}
+			list.add(array);
+		}
+		return list;
+	}
+
+	public List<String> getExpandedAssociations(PObject obj)
+	{
+		ArrayList<AssociatedChoice<String>> assocs = obj.getAssociatedList();
+		List<String> list = new ArrayList<String>();
+		for (AssociatedChoice<String> choice : assocs)
+		{
+			list.add(choice.getDefaultChoice());
+			for (int i = 1; i < choice.size(); i++)
+			{
+				list.add(choice.getChoice(Integer.toString(i)));
+			}
+		}
+		return list;
+	}
+
+	public String getFirstAssociation(PObject obj)
+	{
+		return obj.getAssociatedList().get(0).toString();
 	}
 }

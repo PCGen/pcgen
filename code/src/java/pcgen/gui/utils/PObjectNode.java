@@ -18,9 +18,22 @@
  */
 package pcgen.gui.utils;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.*;
+import pcgen.core.Ability;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -28,10 +41,6 @@ import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.util.Logging;
 import pcgen.util.ResetableListIterator;
-
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.ListIterator;
 
 /**
  * <code>PObjectNode</code> -- No, binkley isn't really the author, I
@@ -270,7 +279,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				//
 				final int subCount = aPC.getDetailedAssociationCount(aFeat);
 				if ((subCount > 1)
-					&& (aFeat.getAssociated(0, true).length() == 0))
+					&& (aFeat.getChoiceString().endsWith("NOCHOICE")))
 				{
 					aString.append('(');
 					aString.append(subCount);
@@ -278,19 +287,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				}
 				else
 				{
-					for (int i = 0; i < aPC.getDetailedAssociationCount(aFeat); i++)
-					{
-						if (addComma)
-						{
-							aString.append(',');
-						}
-						else
-						{
-							addComma = true;
-						}
-
-						aString.append(aFeat.getAssociated(i, true));
-					}
+					aString.append(StringUtil.joinToStringBuffer(aPC
+							.getExpandedAssociations(aFeat), ","));
 				}
 			}
 		}

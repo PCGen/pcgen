@@ -22,6 +22,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
@@ -345,21 +346,8 @@ public final class Ability extends PObject implements Categorisable, Categorized
 			{
 				// has a sub-detail
 				aStrBuf.append(" (");
-
-                int i = 0;
-
-				// list of items in associatedList, e.g. " (Sub1, Sub2, ...)"
-				for (int e = 0; e < pc.getDetailedAssociationCount(this); ++e)
-				{
-					if (i > 0)
-					{
-						aStrBuf.append(", ");
-					}
-
-					aStrBuf.append(getAssociated(e, true));
-					++i;
-				}
-
+                aStrBuf.append(StringUtil.joinToStringBuffer(pc
+						.getExpandedAssociations(this), ", "));
 				aStrBuf.append(')');
 			}
 		}

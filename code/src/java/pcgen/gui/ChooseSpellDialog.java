@@ -345,7 +345,7 @@ final class ChooseSpellDialog extends JDialog
 		}
 		else
 		{
-			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, castingClass.getAssociated(0));
+			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, pc.getFirstAssociation(castingClass));
 
 			if (aClass != null)
 			{
