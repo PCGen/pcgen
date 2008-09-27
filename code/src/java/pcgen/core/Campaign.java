@@ -68,6 +68,7 @@ public class Campaign extends PObject
 	private boolean isOGL;
 	private boolean isMature;
 	private boolean showInMenu;
+	private boolean isInitted;
 
 	/**
 	 * Constructor
@@ -1189,6 +1190,23 @@ public class Campaign extends PObject
 	public void setIsD20(final boolean isD20)
 	{
 		this.isD20 = isD20;
+	}
+
+	/**
+	 * @return Has the campaign been initialised?
+	 */
+	public boolean isInitted()
+	{
+		return isInitted;
+	}
+
+	/**
+	 * Set the campaign initialised flag.
+	 * @param isInitted The new flag value
+	 */
+	public void setInitted(boolean isInitted)
+	{
+		this.isInitted = isInitted;
 	}
 
 	/**

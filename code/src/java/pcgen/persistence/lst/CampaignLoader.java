@@ -217,11 +217,13 @@ public class CampaignLoader extends LstLineFileLoader
 	private void initRecursivePccFiles(Campaign baseCampaign)
 		throws PersistenceLayerException
 	{
-		if (baseCampaign == null)
+		if (baseCampaign == null || baseCampaign.isInitted())
 		{
 			return;
 		}
 
+		baseCampaign.setInitted(true);
+		
 		// Add all sub-files to the main campaign, regardless of exclusions
 		for (URI fName : baseCampaign.getPccFiles())
 		{
