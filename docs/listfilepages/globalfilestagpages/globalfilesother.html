@@ -226,6 +226,8 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR.Text</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Grants the listed skills as class skills. When used in a classes.lst,
   			it grants the class skills only to the class it is actually in. When used in
@@ -239,11 +241,13 @@
 	<p class="indent2"><code>CSKILL:ALL</code></p>
 	<p class="indent3">All skills are made class skills.</p>
 	<p class="indent2"><code>CSKILL:LIST</code></p>
-	<p class="indent3">Skills selected in the associated choice are made class skills.</p>
+	<p class="indent3">Skills selected in the associated choice are made class skills. (In Abilities and Feats)</p>
 	<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; CSKILL:.CLEAR.Scry &lt;tab&gt; CSKILL:Drive|TYPE.Knowledge|Perform</code></p>
 	<p class="indent3">Modifies the Class Sorcerer, droping the class skill &quot;Scry&quot; and adding &quot;Drive, Perform and all TYPE.Knowledge&quot; skills.</p>
-	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot</code></p>
-	<p class="indent3">Modified Class that changes all of these Tags from their starting values.</p>
+	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; CSKILL:.CLEAR &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot</code></p>
+	<p class="indent3">Modified Class that removes all class skills in the object previously, then adds in the specific list.</p>
+	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; CSKILL:.CLEAR.Handle Animal|.CLEAR.Ride|Heal &lt;tab&gt; CSKILL:Pilot</code></p>
+	<p class="indent3">Modified Class that removes only Handle Animal and Ride from the origianl class skill list, and then adds Heal and Pilot.</p>
 	<p></p>
 
 <hr>
