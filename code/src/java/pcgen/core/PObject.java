@@ -125,11 +125,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private String chooseLanguageAutos = Constants.EMPTY_STRING;
 
-	/** Number of followers of each type allowed */
-	private Map<String, List<String>> followerNumbers = null;
-	/** List of followers of a type allowed to be selected. */
-	private Map<String, List<FollowerOption>> theAvailableFollowers = null;
-
 	private List<Description> theDescriptions = null;
 	
 	private HashMap<String,List<String>> servesAsList =null;
@@ -914,15 +909,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				retVal.levelAbilityList.add(ab);
 			}
 		}
-		if ( followerNumbers != null )
-		{
-			retVal.followerNumbers = new HashMap<String,List<String>>(followerNumbers);
-		}
-		if ( theAvailableFollowers != null )
-		{
-			retVal.theAvailableFollowers = new HashMap<String, List<FollowerOption>>( theAvailableFollowers );
-		}
-
 		if ( this.theDescriptions != null )
 		{
 			retVal.theDescriptions = new ArrayList<Description>(theDescriptions);
@@ -3177,94 +3163,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
-
-	/**
-	 * Adds a formula to use to calculate the maximum number of followers of a
-	 * given type for the character.
-	 * @param aType Name of the follower type e.g. Familiar
-	 * @param aFormula Formula, variable or number represent the max number
-	 */
-	public void setNumFollowers( final String aType, final String aFormula)
-	{
-		if ( followerNumbers == null )
-		{
-			followerNumbers = new HashMap<String, List<String>>();
-		}
-		List<String> numFollowers = followerNumbers.get( aType );
-		if ( numFollowers == null )
-		{
-			numFollowers = new ArrayList<String>();
-			followerNumbers.put( aType.toUpperCase(), numFollowers );
-		}
-
-		numFollowers.add( aFormula );
-	}
-
-	public List<String> getNumFollowers( final String aType )
-	{
-		if ( followerNumbers == null )
-		{
-			return null;
-		}
-		final List<String> formulas = followerNumbers.get( aType.toUpperCase() );
-		if ( formulas == null )
-		{
-			return null;
-		}
-		return Collections.unmodifiableList( formulas );
-	}
-
-	public void addToFollowerList( final String aType, final FollowerOption anOption )
-	{
-		final String ucType = aType.toUpperCase();
-		if ( theAvailableFollowers == null )
-		{
-			theAvailableFollowers = new HashMap<String, List<FollowerOption>>();
-		}
-		List<FollowerOption> followers = theAvailableFollowers.get( ucType );
-		if ( followers == null )
-		{
-			followers = new ArrayList<FollowerOption>();
-			theAvailableFollowers.put( ucType, followers );
-		}
-		followers.add( anOption );
-	}
-	
-	/**
-	 * Gets the list of potential followers of a given type.
-	 * @param aType Type of follower to retrieve list for e.g. Familiar
-	 * @return A List of FollowerOption objects representing the possible list
-	 * of follower choices.
-	 */
-	public List<FollowerOption> getPotentialFollowers( final String aType )
-	{
-		if ( theAvailableFollowers == null )
-		{
-			return null;
-		}
-		final String ucType = aType.toUpperCase();
-		List<FollowerOption> options = theAvailableFollowers.get( ucType );
-		if ( options != null )
-		{
-			for ( int i = options.size() - 1; i >= 0; i-- )
-			{
-				FollowerOption opt = options.get(i);
-				if ( opt.getRace() == null )
-				{
-					// This FollowerOption references more than one race.
-					// We need to get the expanded versions and throw this one 
-					// away
-					final Collection<FollowerOption> newOpts = opt.getExpandedOptions();
-					if ( newOpts != null )
-					{
-						options.addAll( newOpts );
-					}
-					options.remove(i);
-				}
-			}
-		}
-		return options;
-	}
 
 	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>> theAbilities = new DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>>();
 

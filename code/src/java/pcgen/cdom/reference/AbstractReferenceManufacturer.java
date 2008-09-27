@@ -921,4 +921,15 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			arm.constructIfNecessary(s);
 		}
 	}
+
+
+	public T constructNowIfNecessary(String name)
+	{
+		T obj = active.get(name);
+		if (obj == null)
+		{
+			obj = constructObject(name);
+		}
+		return obj;
+	}
 }

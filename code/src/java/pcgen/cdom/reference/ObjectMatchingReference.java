@@ -1,0 +1,256 @@
+/*
+ * Copyright 2007, 2008 (C) Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.reference;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ObjectKey;
+
+/**
+ * A ObjectMatchingReference is a CDOMReference that matches objects based on a
+ * an ObjectKey and an expected value.
+ * 
+ * An underlying start list is provided during construction of the
+ * ObjectMatchingReference. Generally, this will be the CDOMAllRef for the class
+ * of object underlying this ObjectMatchingReference.
+ * 
+ * @param <T>
+ *            The class of object underlying this ObjectMatchingReference.
+ * @param <V>
+ *            The class of object stored by the Object Key used by this
+ *            ObjectMatchingReference.
+ */
+public class ObjectMatchingReference<T extends CDOMObject, V> extends
+		CDOMReference<T>
+{
+
+	/**
+	 * The CDOMGroupRef containing the underlying list of objects from which
+	 * this ObjectMatchingReference will draw.
+	 */
+	private final CDOMGroupRef<T> all;
+
+	private final ObjectKey<V> key;
+
+	private final V value;
+
+	/*
+	 * CONSIDER is it necessary/useful to cache the results of the pattern
+	 * match? If that is done, under what conditions does the cache need to be
+	 * invalidated (how can the underlying CDOMGroupRef be known to not have
+	 * been modified)?
+	 */
+
+	/**
+	 * Constructs a new ObjectMatchingReference
+	 * 
+	 * @param cl
+	 *            The Class of the underlying objects contained by this
+	 *            reference.
+	 * @param start
+	 *            The underlying list of objects from which this
+	 *            ObjectMatchingReference will draw.
+	 * @throws IllegalArgumentException
+	 *             if the starting group is null or the provided pattern does
+	 *             not end with the PCGen pattern characters
+	 */
+	public ObjectMatchingReference(Class<T> cl, CDOMGroupRef<T> start,
+			ObjectKey<V> targetKey, V expectedValue)
+	{
+		super(cl, "*Object");
+		if (start == null)
+		{
+			throw new IllegalArgumentException(
+					"Starting Group cannot be null in ObjectMatchingReference");
+		}
+		if (targetKey == null)
+		{
+			throw new IllegalArgumentException(
+					"Target Key cannot be null in ObjectMatchingReference");
+		}
+		all = start;
+		key = targetKey;
+		value = expectedValue;
+	}
+
+	/**
+	 * Throws an exception. This method may not be called because a
+	 * ObjectMatchingReference is resolved based on the pattern provided at
+	 * construction.
+	 * 
+	 * @param obj
+	 *            ignored
+	 * @throws IllegalStateException
+	 *             because a ObjectMatchingReference is resolved based on the
+	 *             key/value pair provided at construction.
+	 */
+	@Override
+	public void addResolution(T obj)
+	{
+		throw new IllegalStateException(
+				"Cannot add resolution to ObjectMatchingReference");
+	}
+
+	/**
+	 * Returns true if the given Object is included in the Collection of Objects
+	 * to which this ObjectMatchingReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this ObjectMatchingReference has not yet been resolved.
+	 * 
+	 * @param obj
+	 *            The object to be tested to see if it is referred to by this
+	 *            ObjectMatchingReference.
+	 * @return true if the given Object is included in the Collection of Objects
+	 *         to which this ObjectMatchingReference refers; false otherwise.
+	 */
+	@Override
+	public boolean contains(T obj)
+	{
+		if (!all.contains(obj))
+		{
+			return false;
+		}
+		V actual = obj.get(key);
+		if (value == null)
+		{
+			return actual == null;
+		}
+		return value.equals(actual);
+	}
+
+	/**
+	 * Returns a Collection containing the Objects to which this
+	 * ObjectMatchingReference refers.
+	 * 
+	 * This method is reference-semantic, meaning that ownership of the
+	 * Collection returned by this method is transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the ObjectMatchingReference, and modifying the ObjectMatchingReference
+	 * after the Collection is returned should not modify the Collection.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this ObjectMatchingReference has not yet been resolved.
+	 * 
+	 * @return A Collection containing the Objects to which this
+	 *         ObjectMatchingReference refers.
+	 */
+	@Override
+	public Collection<T> getContainedObjects()
+	{
+		List<T> list = new ArrayList<T>();
+		for (T obj : all.getContainedObjects())
+		{
+			V actual = obj.get(key);
+			if (value == null && actual == null || value != null
+					&& value.equals(actual))
+			{
+				list.add(obj);
+			}
+		}
+		return list;
+	}
+
+	/**
+	 * Returns a representation of this ObjectMatchingReference, suitable for
+	 * storing in an LST file.
+	 * 
+	 * Note that this will return the pattern String provided during
+	 * construction of the ObjectMatchingReference.
+	 * 
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 */
+	@Override
+	public String getLSTformat()
+	{
+		return getName();
+	}
+
+	/**
+	 * Returns the count of the number of objects included in the Collection of
+	 * Objects to which this ObjectMatchingReference refers.
+	 * 
+	 * Note that the behavior of this class is undefined if the CDOMGroupRef
+	 * underlying this ObjectMatchingReference has not yet been resolved.
+	 * 
+	 * @return The count of the number of objects included in the Collection of
+	 *         Objects to which this ObjectMatchingReference refers.
+	 */
+	@Override
+	public int getObjectCount()
+	{
+		int count = 0;
+		for (T obj : all.getContainedObjects())
+		{
+			V actual = obj.get(key);
+			if (value == null && actual == null || value != null
+					&& value.equals(actual))
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+
+	/**
+	 * Returns true if this ObjectMatchingReference is equal to the given
+	 * Object. Equality is defined as being another ObjectMatchingReference
+	 * object with equal Class represented by the reference, an equal staring
+	 * CDOMGroupRef and an equal pattern. This may or may not be a deep .equals,
+	 * depending on the behavior of the underlying CDOMGroupRef. You should
+	 * check the documentation for the .equals(Object) method of that class to
+	 * establish the actual behavior of this method.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof ObjectMatchingReference)
+		{
+			ObjectMatchingReference<?, ?> other = (ObjectMatchingReference<?, ?>) o;
+			if (getReferenceClass().equals(other.getReferenceClass())
+					&& all.equals(other.all) && key.equals(other.key))
+			{
+				if (value == null)
+				{
+					return other.value == null;
+				}
+				return value.equals(other.value);
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Returns the consistent-with-equals hashCode for this
+	 * ObjectMatchingReference
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		return getReferenceClass().hashCode() ^ key.hashCode()
+				+ (value == null ? -1 : value.hashCode());
+	}
+}

@@ -52,11 +52,13 @@ import javax.swing.JFrame;
 
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.spell.Spell;
@@ -125,7 +127,7 @@ public final class Globals
 	 * Does  need to be sorted? If not, change to HashMap.*/
 	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
 	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
-	private static Map<String, List<CompanionMod>>  companionModMap = new TreeMap<String, List<CompanionMod>>();
+	private static Map<CompanionList, List<CompanionMod>>  companionModMap = new TreeMap<CompanionList, List<CompanionMod>>(CDOMObjectUtilities.CDOM_SORTER);
 
 	/** We use lists for efficient iteration */
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
@@ -417,25 +419,28 @@ public final class Globals
 	 * 
 	 * @since 5.11
 	 */
-	public static void addCompanionMod( final CompanionMod aMod )
+	public static void addCompanionMod(final CompanionMod aMod)
 	{
-		final String type = aMod.getType().toUpperCase();
-		List<CompanionMod> mods = companionModMap.get( type );
-		if ( mods == null )
+		CompanionList cList = Globals.getContext().ref.constructNowIfNecessary(
+				CompanionList.class, aMod.getType());
+		List<CompanionMod> mods = companionModMap.get(cList);
+		if (mods == null)
 		{
 			mods = new ArrayList<CompanionMod>();
-			companionModMap.put( type, mods );
+			companionModMap.put(cList, mods);
 		}
-		mods.add( aMod );
+		mods.add(aMod);
 	}
 
 	/**
 	 * Removes a <tt>CompanionMod</tt> from the system registry.
 	 * 
-	 * <p>This method is used by the .FORGET logic to remove a CompanionMod
+	 * <p>
+	 * This method is used by the .FORGET logic to remove a CompanionMod
 	 * previously loaded by another set.
 	 * 
-	 * @param aMod A <tt>CompanionMod</tt> to remove
+	 * @param aMod
+	 *            A <tt>CompanionMod</tt> to remove
 	 * 
 	 * @author boomer70 <boomer70@yahoo.com>
 	 * 
@@ -460,21 +465,6 @@ public final class Globals
 	}
 
 	/**
-	 * Returns all types of followers for which a <code>CompanionMod</code>
-	 * has been defined.
-	 * 
-	 * @return Collection of Follower types.
-	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
-	 * 
-	 * @since 5.11
-	 */
-	public static Collection<String> getFollowerTypes()
-	{
-		return Collections.unmodifiableSet( companionModMap.keySet() );
-	}
-
-	/**
 	 * Gets all the <code>CompanionMod</code>s for the specified type of 
 	 * follower.
 	 * 
@@ -485,15 +475,15 @@ public final class Globals
 	 * 
 	 * @since 5.11
 	 */
-	public static Collection<CompanionMod> getCompanionMods( final String aType )
+	public static Collection<CompanionMod> getCompanionMods(
+			final CompanionList cList)
 	{
-		final String type = aType.toUpperCase();
-		final List<CompanionMod> cMods = companionModMap.get( type );
-		if ( cMods == null )
+		final List<CompanionMod> cMods = companionModMap.get(cList);
+		if (cMods == null)
 		{
 			return Collections.emptyList();
 		}
-		return Collections.unmodifiableList( companionModMap.get( type ) );
+		return Collections.unmodifiableList(companionModMap.get(cList));
 	}
 	
 	/**
@@ -1961,7 +1951,7 @@ public final class Globals
 		//unitSet.clear();
 		//////////////////////////////////////
 		abilityStore = new CategorisableStore();
-		companionModMap = new TreeMap<String, List<CompanionMod>>();
+		companionModMap = new TreeMap<CompanionList, List<CompanionMod>>(CDOMObjectUtilities.CDOM_SORTER);
 		saSet = new TreeSet<SpecialAbility>();
 
 		// Clear Maps (not strictly necessary, but done for consistency)

@@ -154,7 +154,7 @@ public class FollowerTypeToken extends Token
 		{
 			final Follower fol = followers.get(i);
 
-			if (fol.getType().equalsIgnoreCase(typeString))
+			if (fol.getType().getKeyName().equalsIgnoreCase(typeString))
 			{
 				aList.add(fol);
 			}

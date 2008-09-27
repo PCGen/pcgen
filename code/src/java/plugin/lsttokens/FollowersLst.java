@@ -22,27 +22,42 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.PObject;
+import java.util.TreeSet;
+
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.FollowerLimit;
+import pcgen.cdom.list.CompanionList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import java.util.StringTokenizer;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
- * This class implements support for the FOLLOWERS LST token.<p />
+ * This class implements support for the FOLLOWERS LST token.
+ * <p />
  * <b>Tag Name</b>: <code>FOLLOWERS</code>:x|y<br />
- * <b>Variables Used (x)</b>: Text (The type of companion the limit will apply to).<br />
- * <b>Variables Used (y)</b>: Number, variable or formula (Number of this type of companion the master can have)
+ * <b>Variables Used (x)</b>: Text (The type of companion the limit will apply
+ * to).<br />
+ * <b>Variables Used (y)</b>: Number, variable or formula (Number of this type
+ * of companion the master can have)
  * <p />
  * <b>What it does:</b><br/>
  * <ul>
- * <li>Limits the number of the specified type of companion the master can have.</li>
- * <li>Optional, if this tag is not present no limits are placed on the number of 
- * companions the character can have.</li>
+ * <li>Limits the number of the specified type of companion the master can
+ * have.</li>
+ * <li>Optional, if this tag is not present no limits are placed on the number
+ * of companions the character can have.</li>
  * <li>If more than one tag is encountered the highest value is used.</li>
  * <li>The value can be adjusted with the <code>BONUS:FOLLOWERS</code> tag</li>
  * </ul>
  * <b>Where it is used:</b><br />
- * Global tag, would most often be used in class and feat (ability) files, 
+ * Global tag, would most often be used in class and feat (ability) files,
  * should also be enabled for templates and Domains.
  * <p />
  * <b>Examples:</b><br />
@@ -50,15 +65,12 @@ import java.util.StringTokenizer;
  * A character is allowed only 1 companion of type Familiar
  * 
  * @author divaa01
- *
+ * 
  */
-public class FollowersLst implements GlobalLstToken
+public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 {
-	/*
-	 * TODO Need to wait until lists are flattened into the PC to have this at all effective/usable
-	 */
 	/**
-	 *
+	 * 
 	 * @return token name
 	 */
 	public String getTokenName()
@@ -66,40 +78,68 @@ public class FollowersLst implements GlobalLstToken
 		return "FOLLOWERS"; //$NON-NLS-1$
 	}
 
-	/**
-	 *
-	 * @param obj PObject
-	 * @param value String
-	 * @param anInt int
-	 * @return true if OK
-	 * @throws PersistenceLayerException
-	 */
-	public boolean parse(PObject obj, String value, int anInt)
-		throws PersistenceLayerException
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
-		final StringTokenizer tok = new StringTokenizer(value, "|");
-		final String followerType;
-		if (tok.hasMoreTokens())
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		if (pipeLoc == -1)
 		{
-			followerType = tok.nextToken().toUpperCase();
+			Logging
+					.errorPrint(getTokenName()
+							+ " has no PIPE character: Must be of the form <follower type>|<formula>");
+			return false;
 		}
-		else
+		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			throw new PersistenceLayerException(
-				"Invalid FOLLOWERS token format");
-		}
-		final String followerNumber;
-		if (tok.hasMoreTokens())
-		{
-			followerNumber = tok.nextToken();
-		}
-		else
-		{
-			throw new PersistenceLayerException(
-				"Invalid FOLLOWERS token format");
+			Logging.errorPrint(getTokenName()
+					+ " has too many PIPE characters: "
+					+ "Must be of the form <follower type>|<formula");
+			return false;
 		}
 
-		obj.setNumFollowers(followerType, followerNumber);
+		String followerType = value.substring(0, pipeLoc);
+		if (followerType.length() == 0)
+		{
+			Logging.errorPrint("Follower Type in " + getTokenName()
+					+ " cannot be empty");
+			return false;
+		}
+		String followerNumber = value.substring(pipeLoc + 1);
+		if (followerNumber.length() == 0)
+		{
+			Logging.errorPrint("Follower Count in " + getTokenName()
+					+ " cannot be empty");
+			return false;
+		}
+		CDOMSingleRef<CompanionList> cl = context.ref.getCDOMReference(
+				CompanionList.class, followerType);
+		Formula num = FormulaFactory.getFormulaFor(followerNumber);
+		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS,
+				new FollowerLimit(cl, num));
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Changes<FollowerLimit> changes = context.getObjectContext()
+				.getListChanges(obj, ListKey.FOLLOWERS);
+		if (changes == null || changes.isEmpty())
+		{
+			return null;
+		}
+		TreeSet<String> returnSet = new TreeSet<String>();
+		for (FollowerLimit fl : changes.getAdded())
+		{
+			String followerType = fl.getCompanionList().getLSTformat();
+			Formula followerNumber = fl.getValue();
+			returnSet.add(followerType + Constants.PIPE
+					+ followerNumber.toString());
+		}
+		return returnSet.toArray(new String[returnSet.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

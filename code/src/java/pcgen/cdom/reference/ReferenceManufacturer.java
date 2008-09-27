@@ -270,4 +270,6 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 * @return true if the ReferenceManufacturer is "valid"; false otherwise.
 	 */
 	public boolean validate();
+
+	public T constructNowIfNecessary(String name);
 }

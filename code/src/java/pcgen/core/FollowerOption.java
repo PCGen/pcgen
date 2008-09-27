@@ -22,153 +22,71 @@
  */
 package pcgen.core;
 
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.list.CompanionList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 
 /**
- * This class represents a possible choice for a follower.  This is basically
- * a Race with a "FOLLOWERADJUSTMENT" that modifies the owner's effective
- * level when selecting a follower of this type.  Prereqs can also be specified
+ * This class represents a possible choice for a follower. This is basically a
+ * Race with a "FOLLOWERADJUSTMENT" that modifies the owner's effective level
+ * when selecting a follower of this type. Prereqs can also be specified
  * 
  * @author boomer70
  */
-public class FollowerOption extends ConcretePrereqObject implements Comparable<FollowerOption>
+public class FollowerOption extends ConcretePrereqObject implements
+		Comparable<FollowerOption>
 {
-	private String theRaceKey;
-	private Race theRace = null;
 	private int theAdjustment = 0;
-	private String theType = null;
-	
-	private static final String ANY_RACE = "ANY"; //$NON-NLS-1$
-	private static final String RACETYPE = "RACETYPE"; //$NON-NLS-1$
+	private final CDOMReference<Race> ref;
+	private final CDOMSingleRef<CompanionList> list;
+
+	public FollowerOption(CDOMReference<Race> race,
+			CDOMSingleRef<CompanionList> listref)
+	{
+		ref = race;
+		list = listref;
+	}
 
 	/**
-	 * Creates a FollowerOption of the specified race with no adjustment and
-	 * an unknown type.
-	 * @param aRace The race key of this companion
-	 */
-	public FollowerOption( final String aRace )
-	{
-		theRaceKey = aRace.toUpperCase();
-		theRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, theRaceKey);
-	}
-	
-	/**
-	 * Creates a FollowerOption of the specified race with no adjustment and
-	 * an unknown type.
-	 * @param aRace The race of this companion
-	 */
-	public FollowerOption( final Race aRace )
-	{
-		theRace = aRace;
-		theRaceKey = aRace.getKeyName();
-	}
-	
-	/**
-	 * Returns the race associated with this option.  If this option represents 
-	 * a group of races this method will return null.
+	 * Returns the race associated with this option. If this option represents a
+	 * group of races this method will return null.
+	 * 
 	 * @return The Race associated or null
 	 */
 	public Race getRace()
 	{
-		if ( theRace == null )
-		{
-			if ( theRaceKey.startsWith( RACETYPE ) 
-			  || theRaceKey.equals(ANY_RACE) )
-			{
-				return null;
-			}
-			theRace = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Race.class, theRaceKey);
-		}
-		return theRace;
+		Collection<Race> races = ref.getContainedObjects();
+		return races.size() == 1 ? races.iterator().next() : null;
 	}
-	
-	/**
-	 * Separates into indivual FollowerOptions this option.  If this option
-	 * does not represent multiple races it will simply return itself.  
-	 * Otherwise the method returns a list of FollowerOptions with the same
-	 * options one for each Race that qualifies.
-	 * @return The expanded list of FollowerOptions
-	 */
-	public Collection<FollowerOption> getExpandedOptions()
+
+	public CDOMReference<Race> getRaceRef()
 	{
-		final List<FollowerOption> options = new ArrayList<FollowerOption>();
-		if ( theRace != null )
-		{
-			options.add( this );
-			return options;
-		}
-		Collection<Race> raceSet = null;
-		if ( theRaceKey.startsWith( RACETYPE ) )
-		{
-			raceSet = new HashSet<Race>();
-			RaceType raceType = RaceType.getConstant(theRaceKey.substring(9));
-			final Collection<Race> allRaces = Globals.getContext().ref.getConstructedCDOMObjects(Race.class);
-			for ( final Race r : allRaces )
-			{
-				if (raceType.equals(r.get(ObjectKey.RACETYPE)))
-				{
-					raceSet.add( r );
-				}
-			}
-		}
-		else if ( theRaceKey.equals( ANY_RACE ) )
-		{
-			raceSet = new HashSet<Race>();
-			raceSet.addAll( Globals.getContext().ref.getConstructedCDOMObjects(Race.class) );
-		}
-		if ( raceSet != null )
-		{
-			for ( final Race r : raceSet )
-			{
-				final FollowerOption opt = new FollowerOption( r );
-				opt.setAdjustment( getAdjustment() );
-				opt.addAllPrerequisites(getPrerequisiteList());
-				options.add( opt );
-			}
-		}
-		return options;
+		return ref;
 	}
-	
+
 	/**
-	 * Sets the Follower type for this option.
-	 * @param aType The follower type to set e.g. Familiar 
-	 */
-	public void setType( final String aType )
-	{
-		theType = aType;
-	}
-	
-	/**
-	 * Gets the Follower type for this option.
-	 * @return The Follower type e.g. Familiar 
-	 */
-	public String getType()
-	{
-		return theType;
-	}
-	
-	/**
-	 * Sets the variable adjustment for a master selecting this option.  For
+	 * Sets the variable adjustment for a master selecting this option. For
 	 * example an adjustment of -3 would mean the master's level would be 3
 	 * lower for purposes of applying companion mods.
-	 * @param anAdjustment Amount to modify the master's level by
+	 * 
+	 * @param anAdjustment
+	 *            Amount to modify the master's level by
 	 */
-	public void setAdjustment( final int anAdjustment )
+	public void setAdjustment(final int anAdjustment)
 	{
 		theAdjustment = anAdjustment;
 	}
-	
+
 	/**
 	 * Returns the adjustment to the master's level for this option.
+	 * 
 	 * @return The adjustment to the master's level
 	 */
 	public int getAdjustment()
@@ -177,48 +95,64 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 	}
 
 	/**
-	 * This method is overridden to also check that a master has enough 
+	 * This method is overridden to also check that a master has enough
 	 * effective levels to have a positive level after applying any adjustment
-	 * for this follower.  For example, if a follower has an adjustment of -3
+	 * for this follower. For example, if a follower has an adjustment of -3
 	 * then the master must have at least 4 levels to qualify for this follower
 	 * (4 - 3 &gt; 0)
+	 * 
 	 * @see pcgen.cdom.base.PrereqObject#qualifies(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public boolean qualifies( final PlayerCharacter aPC )
+	public boolean qualifies(final PlayerCharacter aPC)
 	{
-		if ( theAdjustment != 0 )
+		if (theAdjustment != 0)
 		{
-			final int lvl = aPC.getEffectiveCompanionLevel( theType );
-			if ( lvl + theAdjustment <= 0 )
+			final int lvl = aPC.getEffectiveCompanionLevel(list.resolvesTo());
+			if (lvl + theAdjustment <= 0)
 			{
 				return false;
 			}
 		}
-		
-		return super.qualifies( aPC );
+
+		return super.qualifies(aPC);
 	}
-	
+
 	/**
-	 * Compares this FollowerOption to another.  This uses the race name of the
+	 * Compares this FollowerOption to another. This uses the race name of the
 	 * option to do the comparison.
-	 * @param anO The FollowerOption to compare to.
+	 * 
+	 * @param anO
+	 *            The FollowerOption to compare to.
 	 * @return The comparison between the objects
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	public int compareTo(FollowerOption anO)
 	{
-		final Collator col = Collator.getInstance();
-		String s1 = theRaceKey;
-		String s2 = anO.theRaceKey;
-		if ( this.theRace != null )
+		return ReferenceUtilities.compareRefs(ref, anO.ref);
+	}
+
+	public CDOMSingleRef<CompanionList> getListRef()
+	{
+		return list;
+	}
+
+	public Collection<FollowerOption> getExpandedOptions()
+	{
+		final List<FollowerOption> options = new ArrayList<FollowerOption>();
+		if (ref.getObjectCount() == 1)
 		{
-			s1 = theRace.getDisplayName();
+			options.add( this );
+			return options;
 		}
-		if ( anO.theRace != null )
+		for (Race r : ref.getContainedObjects())
 		{
-			s2 = anO.theRace.getDisplayName();
+			final FollowerOption opt = new FollowerOption(CDOMDirectSingleRef
+					.getRef(r), list);
+			opt.setAdjustment(getAdjustment());
+			opt.addAllPrerequisites(getPrerequisiteList());
+			options.add(opt);
 		}
-		return col.compare( s1, s2);
+		return options;
 	}
 }

@@ -1,5 +1,6 @@
 package pcgen.gui.tabs.resources;
 
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -197,7 +198,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 
 				if (fObj != null)
 				{
-					sRet = fObj.getType();
+					sRet = fObj.getType().getKeyName();
 				}
 
 				break;
@@ -278,7 +279,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 
 			for (Follower aF : pc.getFollowerList())
 			{
-				if (!followerType.getType().equalsIgnoreCase(aF.getType()))
+				if (!followerType.getType().equals(aF.getType()))
 				{
 					continue;
 				}
@@ -301,19 +302,14 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 	 */
 	public class FollowerType
 	{
-		private String theTypeName;
+		private CompanionList theType;
 		private int theMaxNumber = -1;
 		private int theSelectedNumber = 0;
 		private boolean theDisplayNumberFlag = true;
 
-		public FollowerType(final String aName)
+		public FollowerType(final CompanionList compType, final int aMax)
 		{
-			theTypeName = aName;
-		}
-
-		public FollowerType(final String aName, final int aMax)
-		{
-			theTypeName = aName;
+			theType = compType;
 			theMaxNumber = aMax;
 		}
 
@@ -322,9 +318,9 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 			theDisplayNumberFlag = yesNo;
 		}
 
-		public String getType()
+		public CompanionList getType()
 		{
-			return theTypeName;
+			return theType;
 		}
 
 		public void incrementFollowerCount(final int aCount)
@@ -350,7 +346,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 		public String toString()
 		{
 			final StringBuffer buf = new StringBuffer();
-			buf.append(CoreUtility.capitalizeFirstLetter(theTypeName));
+			buf.append(CoreUtility.capitalizeFirstLetter(theType.getDisplayName()));
 			if (theDisplayNumberFlag)
 			{
 				buf.append(" ("); //$NON-NLS-1$
@@ -377,16 +373,11 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 	{
 		ArrayList<FollowerType> selectedList = new ArrayList<FollowerType>();
 
-		String followerType = "Followers";
-		int maxVal = pc.getMaxFollowers(followerType);
-		if (maxVal != 0)
-		{
-			selectedList.add(new FollowerType(followerType, maxVal));
-		}
-		for (String compType : Globals.getFollowerTypes())
+		for (CompanionList compType : Globals.getContext().ref
+				.getConstructedCDOMObjects(CompanionList.class))
 		{
 			// Check if we have a number set for this type
-			maxVal = pc.getMaxFollowers(compType);
+			int maxVal = pc.getMaxFollowers(compType);
 			if (maxVal != 0)
 			{
 				selectedList.add(new FollowerType(compType, maxVal));

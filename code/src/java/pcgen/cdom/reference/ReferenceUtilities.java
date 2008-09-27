@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.reference;
 
+import java.text.Collator;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Set;
@@ -32,6 +33,8 @@ import pcgen.cdom.base.CDOMReference;
  */
 public final class ReferenceUtilities
 {
+
+	private final static Collator COLLATOR = Collator.getInstance();
 
 	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = new Comparator<CDOMReference<?>>()
 	{
@@ -140,12 +143,12 @@ public final class ReferenceUtilities
 			{
 				return -1;
 			}
-			return arg0.getName().compareTo(arg1.getName());
+			return COLLATOR.compare(arg0.getName(), arg1.getName());
 		}
 		if (arg1 instanceof CDOMSingleRef)
 		{
 			return 1;
 		}
-		return arg0.getName().compareTo(arg1.getName());
+		return COLLATOR.compare(arg0.getName(), arg1.getName());
 	}
 }

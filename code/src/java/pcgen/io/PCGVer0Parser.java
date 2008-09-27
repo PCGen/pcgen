@@ -35,6 +35,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Campaign;
@@ -1273,17 +1274,27 @@ final class PCGVer0Parser implements PCGParser
 			String fName = aTok.nextToken();
 			String aName = aTok.nextToken();
 			String aType = aTok.nextToken();
-			int usedHD = Integer.parseInt(aTok.nextToken());
-			Follower aF = new Follower(fName, aName, aType);
-			aF.setUsedHD(usedHD);
-
-			if ("FOLLOWER".equals(who))
+			CompanionList cList = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(CompanionList.class,
+							aType);
+			if (cList == null)
 			{
-				aPC.addFollower(aF);
+				Logging.errorPrint("Cannot find CompanionList: " + aType);
 			}
-			else if ("MASTER".equals(who))
+			else
 			{
-				aPC.setMaster(aF);
+				int usedHD = Integer.parseInt(aTok.nextToken());
+				Follower aF = new Follower(fName, aName, cList);
+				aF.setUsedHD(usedHD);
+
+				if ("FOLLOWER".equals(who))
+				{
+					aPC.addFollower(aF);
+				}
+				else if ("MASTER".equals(who))
+				{
+					aPC.setMaster(aF);
+				}
 			}
 
 			i++;

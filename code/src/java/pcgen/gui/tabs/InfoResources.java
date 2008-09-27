@@ -26,6 +26,21 @@
  *************************************************************************/
 package pcgen.gui.tabs;
 
+import static pcgen.gui.HTMLUtils.BOLD;
+import static pcgen.gui.HTMLUtils.BR;
+import static pcgen.gui.HTMLUtils.END_BOLD;
+import static pcgen.gui.HTMLUtils.END_FONT;
+import static pcgen.gui.HTMLUtils.END_HTML;
+import static pcgen.gui.HTMLUtils.END_ITALIC;
+import static pcgen.gui.HTMLUtils.END_LI;
+import static pcgen.gui.HTMLUtils.END_UL;
+import static pcgen.gui.HTMLUtils.FONT_PLUS_1;
+import static pcgen.gui.HTMLUtils.HTML;
+import static pcgen.gui.HTMLUtils.ITALIC;
+import static pcgen.gui.HTMLUtils.LI;
+import static pcgen.gui.HTMLUtils.PARA;
+import static pcgen.gui.HTMLUtils.UL;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -79,6 +94,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
 import pcgen.core.GameMode;
@@ -120,8 +136,6 @@ import pcgen.io.PCGIOHandler;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
-
-import static pcgen.gui.HTMLUtils.*;
 
 /**
  *  <code>InfoResources</code> creates a new tabbed panel that is used to
@@ -279,7 +293,8 @@ public class InfoResources extends FilterAdapterPanel implements
 	public List<String> getToDos()
 	{
 		List<String> toDoList = new ArrayList<String>();
-		for (String compType : Globals.getFollowerTypes())
+		for (CompanionList compType : Globals.getContext().ref
+				.getConstructedCDOMObjects(CompanionList.class))
 		{
 			// Check if we have a number set for this type
 			int maxVal = pc.getMaxFollowers(compType);
@@ -287,7 +302,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			{
 				for (Follower aF : pc.getFollowerList())
 				{
-					if (compType.equalsIgnoreCase(aF.getType()))
+					if (compType.equals(aF.getType()))
 					{
 						maxVal--;
 					}
@@ -585,7 +600,6 @@ public class InfoResources extends FilterAdapterPanel implements
 		}
 
 		String nName;
-		String aType;
 
 		Logging
 			.debugPrint("addButton:race: " + race.getDisplayName() + " -> " + target); //$NON-NLS-1$ //$NON-NLS-2$
@@ -657,15 +671,15 @@ public class InfoResources extends FilterAdapterPanel implements
 		newPC.setRace(race);
 		newPC.setDirty(true);
 
-		aType = target.getType();
+		CompanionList cList = target.getType();
 
 		final Follower newMaster =
-				new Follower(pc.getFileName(), pc.getName(), aType);
+				new Follower(pc.getFileName(), pc.getName(), cList);
 		newMaster.setAdjustment(opt.getAdjustment());
 		newPC.setMaster(newMaster);
 
 		final Follower newFollower =
-				new Follower(file.getAbsolutePath(), nName, aType);
+				new Follower(file.getAbsolutePath(), nName, cList);
 		newFollower.setRace(newPC.getRace().getKeyName());
 		pc.addFollower(newFollower);
 		pc.setDirty(true);
@@ -741,8 +755,6 @@ public class InfoResources extends FilterAdapterPanel implements
 			return;
 		}
 
-		String aType;
-
 		File file = null;
 		file = findPCGFile();
 
@@ -782,14 +794,14 @@ public class InfoResources extends FilterAdapterPanel implements
 				return;
 			}
 		}
-		aType = target.getType();
+		CompanionList cList = target.getType();
 
 		Follower newMaster =
-				new Follower(oldPC.getFileName(), oldPC.getName(), aType);
+				new Follower(oldPC.getFileName(), oldPC.getName(), cList);
 		newPC.setMaster(newMaster);
 
 		Follower newFollower =
-				new Follower(file.getAbsolutePath(), newPC.getName(), aType);
+				new Follower(file.getAbsolutePath(), newPC.getName(), cList);
 		newFollower.setRace(newPC.getRace().getKeyName());
 		oldPC.addFollower(newFollower);
 		oldPC.setDirty(true);

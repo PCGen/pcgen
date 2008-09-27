@@ -79,12 +79,14 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.RaceStat;
@@ -964,15 +966,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (Follower aF : getFollowerList())
 		{
-			final String rType = aF.getType().toUpperCase();
+			final CompanionList cList = aF.getType();
+			final String rType = cList.getKeyName();
 			final String rName = aF.getRace().toUpperCase();
 
-			for (CompanionMod cm : Globals.getCompanionMods(rType))
+			for (CompanionMod cm : Globals.getCompanionMods(cList))
 			{
-				final String aType = cm.getType().toUpperCase();
+				final String aType = cm.getType();
 				final int iRace = cm.getLevel(rName);
 
-				if (aType.equals(rType) && (iRace == 1))
+				if (aType.equalsIgnoreCase(rType) && (iRace == 1))
 				{
 					// Found race and type of follower
 					// so add bonus to the master
@@ -2156,7 +2159,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            A type of companion to get level for
 	 * @return The effective level for this companion type
 	 */
-	public int getEffectiveCompanionLevel(final String compType)
+	public int getEffectiveCompanionLevel(final CompanionList compType)
 	{
 		final Collection<CompanionMod> mods =
 				Globals.getCompanionMods(compType);
@@ -2431,32 +2434,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            The follower type to check e.g. Familiar
 	 * @return The max number of followers -1 for any number
 	 */
-	public int getMaxFollowers(final String aType)
+	public int getMaxFollowers(CompanionList cList)
 	{
 		int ret = -1;
 
-		List<? extends PObject> pobjList = getPObjectList();
-		for (PObject pobj : pobjList)
+		List<? extends CDOMObject> cdomObjs = getCDOMObjectList();
+		for (CDOMObject cdo : cdomObjs)
 		{
-			if (pobj == null)
+			List<FollowerLimit> limits = cdo.getListFor(ListKey.FOLLOWERS);
+			if (limits != null)
 			{
-				continue;
-			}
-
-			final List<String> formulas = pobj.getNumFollowers(aType);
-			if (formulas == null)
-			{
-				continue;
-			}
-			for (String formula : formulas)
-			{
-				final int val =
-						this.getVariableValue(formula, Constants.EMPTY_STRING,
-							this).intValue();
-				ret = Math.max(ret, val);
+				for (FollowerLimit fl : limits)
+				{
+					if (fl.getCompanionList().resolvesTo().equals(cList))
+					{
+						int val = fl.getValue().resolve(this,
+								Constants.EMPTY_STRING).intValue();
+						ret = Math.max(ret, val);
+					}
+				}
 			}
 		}
 
+		String aType = cList.getKeyName();
 		if (ret != -1)
 		{
 			// ret += (int)getBonusValue("FOLLOWERS", aType.toUpperCase());
@@ -2467,7 +2467,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Old way of handling this
 			// If the character qualifies for any companion mod of this type
 			// they can take unlimited number of them.
-			for (CompanionMod cMod : Globals.getCompanionMods(aType))
+			for (CompanionMod cMod : Globals.getCompanionMods(cList))
 			{
 				for (String varName : cMod.getVarMap().keySet())
 				{
@@ -2506,19 +2506,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<FollowerOption> ret = new ArrayList<FollowerOption>();
 
-		final List<? extends PObject> pobjList = getPObjectList();
-		for (PObject pobj : pobjList)
+		for (CDOMObject cdo : getCDOMObjectList())
 		{
-			if (pobj == null)
-			{
-				continue;
-			}
-
-			final List<FollowerOption> followers =
-					pobj.getPotentialFollowers(aType);
+			List<FollowerOption> followers = cdo
+					.getListFor(ListKey.COMPANIONLIST);
 			if (followers != null)
 			{
-				ret.addAll(followers);
+				for (FollowerOption fo : followers)
+				{
+					ret.addAll(fo.getExpandedOptions());
+				}
 			}
 		}
 
@@ -5400,7 +5397,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (CompanionMod cMod : companionModList)
 		{
-			if (cMod.getType().equalsIgnoreCase(getMaster().getType()))
+			/*
+			 * TODO This is the "slow" method - proper solution here is to
+			 * get TYPE in CompanionMod to be "special" and actually store 
+			 * a CompanionList object, not a String
+			 */
+			if (cMod.getType().equalsIgnoreCase(getMaster().getType().getKeyName()))
 			{
 				if (cMod.getCopyMasterBAB() != null)
 				{
@@ -5416,7 +5418,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (CompanionMod cMod : companionModList)
 		{
-			if (cMod.getType().equalsIgnoreCase(getMaster().getType()))
+			if (cMod.getType().equalsIgnoreCase(getMaster().getType().getKeyName()))
 			{
 				if (cMod.getCopyMasterCheck() != null)
 				{
@@ -5432,7 +5434,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (CompanionMod cMod : companionModList)
 		{
-			if (cMod.getType().equalsIgnoreCase(getMaster().getType()))
+			if (cMod.getType().equalsIgnoreCase(getMaster().getType().getKeyName()))
 			{
 				if (cMod.getCopyMasterHP() != null)
 				{
@@ -7133,7 +7135,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (CompanionMod cMod : companionModList)
 		{
-			if (cMod.getType().equalsIgnoreCase(getMaster().getType()))
+			if (cMod.getType().equalsIgnoreCase(getMaster().getType().getKeyName()))
 			{
 				if (cMod.getUseMasterSkill())
 				{

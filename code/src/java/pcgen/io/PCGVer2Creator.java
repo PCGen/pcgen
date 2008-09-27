@@ -1458,7 +1458,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(EntityEncoder.encode(aMaster.getName()));
 			buffer.append('|');
 			buffer.append(TAG_TYPE).append(':');
-			buffer.append(EntityEncoder.encode(aMaster.getType()));
+			buffer.append(EntityEncoder.encode(aMaster.getType().getKeyName()));
 			buffer.append('|');
 			buffer.append(TAG_HITDICE).append(':');
 			buffer.append(aMaster.getUsedHD());
@@ -1481,7 +1481,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(follower.getName()));
 				buffer.append('|');
 				buffer.append(TAG_TYPE).append(':');
-				buffer.append(EntityEncoder.encode(follower.getType()));
+				buffer.append(EntityEncoder.encode(follower.getType().getKeyName()));
 				buffer.append('|');
 				buffer.append(TAG_RACE).append(':');
 				buffer.append(EntityEncoder.encode(follower.getRace()

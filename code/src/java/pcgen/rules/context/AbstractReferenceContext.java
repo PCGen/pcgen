@@ -415,6 +415,11 @@ public abstract class AbstractReferenceContext
 		}
 	}
 
+	public <T extends CDOMObject> T constructNowIfNecessary(Class<T> cl, String name)
+	{
+		return getManufacturer(cl).constructNowIfNecessary(name);
+	}
+
 	// public <T extends CDOMObject> CDOMAddressedSingleRef<T>
 	// getAddressedReference(
 	// CDOMObject obj, Class<T> name, String addressName)

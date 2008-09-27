@@ -43,6 +43,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -2705,7 +2706,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		final Follower aFollower =
 				new Follower(Constants.EMPTY_STRING, Constants.EMPTY_STRING,
-					Constants.EMPTY_STRING);
+					null);
 
 		for (final PCGElement element : tokens.getElements())
 		{
@@ -2717,7 +2718,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_TYPE.equals(tag))
 			{
-				aFollower.setType(EntityEncoder.decode(element.getText()));
+				String cType = EntityEncoder.decode(element.getText());
+				CompanionList cList = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(CompanionList.class,
+								cType);
+				if (cList == null)
+				{
+					Logging.errorPrint("Cannot find CompanionList: " + cType);
+				}
+				else
+				{
+					aFollower.setType(cList);
+				}
 			}
 			else if (TAG_RACE.equals(tag))
 			{
@@ -2939,7 +2951,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		final Follower aMaster =
 				new Follower(Constants.EMPTY_STRING, Constants.EMPTY_STRING,
-					Constants.EMPTY_STRING);
+					null);
 
 		for (PCGElement element : tokens.getElements())
 		{
@@ -2951,7 +2963,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_TYPE.equals(tag))
 			{
-				aMaster.setType(EntityEncoder.decode(element.getText()));
+				String cType = EntityEncoder.decode(element.getText());
+				CompanionList cList = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(CompanionList.class,
+								cType);
+				if (cList == null)
+				{
+					Logging.errorPrint("Cannot find CompanionList: " + cType);
+				}
+				else
+				{
+					aMaster.setType(cList);
+				}
 			}
 			else if (TAG_HITDICE.equals(tag))
 			{

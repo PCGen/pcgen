@@ -15,6 +15,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
@@ -352,13 +353,15 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 		setRoot(avaRoot);
 		final String qFilter = this.getQFilter();
 
-		for (String compType : Globals.getFollowerTypes())
+		for (CompanionList compList : Globals.getContext().ref
+				.getConstructedCDOMObjects(CompanionList.class))
 		{
 			// Check if we have a number set for this type
-			final int maxVal = pc.getMaxFollowers(compType);
+			final int maxVal = pc.getMaxFollowers(compList);
 			if (maxVal != 0)
 			{
 				final PObjectNode node = new PObjectNode();
+				String compType = compList.getKeyName();
 				node
 					.setDisplayName(CoreUtility.capitalizeFirstLetter(compType));
 				avaRoot.addChild(node);

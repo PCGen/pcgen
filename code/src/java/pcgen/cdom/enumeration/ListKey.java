@@ -32,6 +32,7 @@ import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.AttackCycle;
+import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.Quality;
@@ -46,11 +47,12 @@ import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.FollowerOption;
 import pcgen.core.Kit;
 import pcgen.core.Language;
+import pcgen.core.Movement;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.Movement;
 import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
@@ -217,6 +219,8 @@ public final class ListKey<T> {
 	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<StatLock>();
 	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<TransitionChoice<Kit>>();
 	public static final ListKey<Movement> MOVEMENT = new ListKey<Movement>();
+	public static final ListKey<FollowerOption> COMPANIONLIST = new ListKey<FollowerOption>();
+	public static final ListKey<FollowerLimit> FOLLOWERS = new ListKey<FollowerLimit>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

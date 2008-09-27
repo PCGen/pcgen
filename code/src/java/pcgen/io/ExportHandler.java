@@ -1748,7 +1748,7 @@ public final class ExportHandler
 					{
 						final Follower fol = aList.get(i);
 
-						if (!fol.getType().equalsIgnoreCase(typeString))
+						if (!fol.getType().getKeyName().equalsIgnoreCase(typeString))
 						{
 							aList.remove(i);
 						}

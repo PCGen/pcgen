@@ -28,6 +28,7 @@ package pcgen.core.character;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.SettingsHandler;
 
 /**
@@ -53,7 +54,7 @@ public final class Follower implements Comparable<Object>, Cloneable
 	private String fileName = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;
 	private String race = Constants.EMPTY_STRING;
-	private String type = Constants.EMPTY_STRING;
+	private CompanionList type = null;
 	private int usedHD;
 	private int theAdjustment = 0;
 
@@ -63,7 +64,7 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 * @param aName
 	 * @param aType
 	 */
-	public Follower(final String fName, final String aName, final String aType)
+	public Follower(final String fName, final String aName, final CompanionList aType)
 	{
 		fileName = fName;
 		name = aName;
@@ -159,7 +160,7 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 * Set type
 	 * @param x
 	 */
-	public void setType(final String x)
+	public void setType(final CompanionList x)
 	{
 		type = x;
 	}
@@ -168,7 +169,7 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 * Get type
 	 * @return type
 	 */
-	public String getType()
+	public CompanionList getType()
 	{
 		return type;
 	}

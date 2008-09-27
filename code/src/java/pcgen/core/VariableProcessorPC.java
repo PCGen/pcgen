@@ -1286,7 +1286,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 				for ( Follower follower : getPc().getFollowerList() )
 				{
-					if (follower.getType().equalsIgnoreCase(bString))
+					if (follower.getType().getKeyName().equalsIgnoreCase(bString))
 					{
 						++countFollower;
 					}
@@ -1336,7 +1336,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 					for ( Follower follower : followers )
 					{
-						if (follower.getType().equalsIgnoreCase(typeString))
+						if (follower.getType().getKeyName().equalsIgnoreCase(typeString))
 						{
 							aList.add(follower);
 						}
