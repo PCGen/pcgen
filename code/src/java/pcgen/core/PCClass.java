@@ -1648,25 +1648,21 @@ public class PCClass extends PObject
 		{
 			if (level > curLevel || aPC.isImporting())
 			{
-					Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
-					int startLevel;
-					int rangeLevel;
-					int divisor;
-					if (mLevPerFeat == null)
-					{
-						String aString = Globals.getBonusFeatString();
-						StringTokenizer aTok = 
-							new StringTokenizer(aString, "|", false);
-						startLevel = Integer.parseInt(aTok.nextToken());
-						rangeLevel = Integer.parseInt(aTok.nextToken());
-						divisor = rangeLevel;
-					}
-					else
-					{
-						startLevel = 0;
-						rangeLevel = 0;
-						divisor = mLevPerFeat;
-					}
+				// NB: LEVELSPERFEAT is now handled via PLayerCHaracter.getNumFeatsFromLevels() 
+				// rather than bonuses. Only the standard feat progression for the gamemode is 
+				// handled here.
+				Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
+				int startLevel;
+				int rangeLevel;
+				int divisor;
+				if (mLevPerFeat == null)
+				{
+					String aString = Globals.getBonusFeatString();
+					StringTokenizer aTok = 
+						new StringTokenizer(aString, "|", false);
+					startLevel = Integer.parseInt(aTok.nextToken());
+					rangeLevel = Integer.parseInt(aTok.nextToken());
+					divisor = rangeLevel;
 					if (divisor > 0)
 					{
 						StringBuffer aBuf =
@@ -1685,6 +1681,7 @@ public class PCClass extends PObject
 						bon.setCreatorObject(this);
 						addBonusList(bon);
 					}
+				}
 			}
 
 			chooseClassSkillList();

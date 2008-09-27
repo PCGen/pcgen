@@ -1694,15 +1694,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final int startLevel = Integer.parseInt(aTok.nextToken());
 		final int rangeLevel = Integer.parseInt(aTok.nextToken());
 
-		// TODO - Should this stuff follow stacking rules?
-		// TODO - Does it even matter anymore.
-		// double pool = getBonusValue("FEAT", "POOL");
-		// double pcpool = getBonusValue("FEAT", "PCPOOL");
-		// double mpool = getBonusValue("FEAT", "MONSTERPOOL");
 		double pool = getTotalBonusTo("FEAT", "POOL");
 		double pcpool = getTotalBonusTo("FEAT", "PCPOOL");
 		double mpool = getTotalBonusTo("FEAT", "MONSTERPOOL");
 		double bonus = getTotalBonusTo("ABILITYPOOL", "FEAT");
+		double classLvlBonus = getNumFeatsFromLevels();
 
 		Logging.debugPrint(""); //$NON-NLS-1$
 		Logging.debugPrint("=============="); //$NON-NLS-1$
@@ -1712,6 +1708,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Logging.debugPrint("PCPOOL: " + pcpool); //$NON-NLS-1$
 		Logging.debugPrint("MPOOL:  " + mpool); //$NON-NLS-1$
 		Logging.debugPrint("APOOL:  " + bonus); //$NON-NLS-1$
+		Logging.debugPrint("LVLBONUS:  " + classLvlBonus); //$NON-NLS-1$
 
 		double startAdjust = rangeLevel == 0 ? 0 : startLevel / rangeLevel;
 
@@ -1720,6 +1717,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					+ pcpool - startAdjust + 0.0001 : pcpool + 0.0001);
 		pool += Math.floor(mpool + 0.0001);
 		pool += Math.floor(bonus + 0.0001);
+		pool += Math.floor(classLvlBonus + 0.0001);
 
 		Logging.debugPrint(""); //$NON-NLS-1$
 		Logging.debugPrint("Total Bonus: " + pool); //$NON-NLS-1$
@@ -1727,6 +1725,41 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Logging.debugPrint(""); //$NON-NLS-1$
 
 		return pool;
+	}
+
+	/**
+	 * Calculates the number of feats that should be granted as a result of LEVELPERFEAT 
+	 * entries in classes that the character has levels in. Stacking rules based on 
+	 * LEVELTYPE are applied as part of this calculation. 
+	 * 
+	 * @return the number of feats granted
+	 */
+	double getNumFeatsFromLevels()
+	{
+		Map<String, Double> featByLevelType = new HashMap<String, Double>();
+		for (PCClass pcClass : getClassList())
+		{
+			int lvlPerFeat = pcClass.getSafe(IntegerKey.LEVELS_PER_FEAT); 
+			if (lvlPerFeat != 0)
+			{
+				double bonus = (double) pcClass.getLevel() / lvlPerFeat;
+				Double existing = featByLevelType.get(pcClass.get(StringKey.LEVEL_TYPE));
+				if (existing == null)
+				{
+					existing = 0d;
+				}
+				existing += bonus;
+				featByLevelType.put(pcClass.get(StringKey.LEVEL_TYPE), existing);
+			}
+		}
+
+		double bonus = 0d;
+		for (String lvlType : featByLevelType.keySet())
+		{
+			Double existing = featByLevelType.get(lvlType);
+			bonus += Math.floor(existing + 0.0001);
+		}
+		return bonus;
 	}
 
 	/**

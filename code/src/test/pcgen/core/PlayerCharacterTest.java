@@ -43,6 +43,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -66,8 +67,14 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * @author wardc
- *
+ * The Class <code>PlayerCharacterTest</code> is responsible for testing 
+ * that PlayerCharacter is working correctly.
+ * 
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ * 
+ * @author Chris Ward <frugal@purplewombat.co.uk>
+ * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class PlayerCharacterTest extends AbstractCharacterTestCase
@@ -76,6 +83,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	PCClass giantClass = null;
 	PCClass pcClass = null;
 	PCClass classWarmind = null;
+	PCClass class2LpfM = null;
+	PCClass class3LpfM = null;
+	PCClass class3LpfBlank = null;
 	Race human = null;
 	Ability toughness = null;
 	AbilityCategory specialFeatCat;
@@ -146,6 +156,26 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		classWarmind.setName("Warmind");
 		Globals.getContext().ref.importObject(classWarmind);
 	
+		class2LpfM = new PCClass();
+		class2LpfM.setName("2LpfM");
+		class2LpfM.addMyType("MONSTER");
+		class2LpfM.put(IntegerKey.LEVELS_PER_FEAT, 2);
+		class2LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
+		Globals.getContext().ref.importObject(class2LpfM);
+		
+		class3LpfM = new PCClass();
+		class3LpfM.setName("3LpfM");
+		class3LpfM.addMyType("MONSTER");
+		class3LpfM.put(IntegerKey.LEVELS_PER_FEAT, 3);
+		class3LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
+		Globals.getContext().ref.importObject(class3LpfM);
+		
+		class3LpfBlank = new PCClass();
+		class3LpfBlank.setName("3LpfBlank");
+		class3LpfBlank.addMyType("Foo");
+		class3LpfBlank.put(IntegerKey.LEVELS_PER_FEAT, 3);
+		Globals.getContext().ref.importObject(class3LpfBlank);
+
 		toughness = new Ability();
 		toughness.setName("Toughness");
 		toughness.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
@@ -240,12 +270,65 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(giantRace);
 		character.incrementClassLevel(1, pcClass, true);
 		is((int) character.getRawFeats(true), eq(2),
-			"One level of PCClass, PC has one feat for level and one for a missing feat.");
+			"One level of PCClass, PC has one feat for levels of monster class and one for a missing feat.");
 		character.incrementClassLevel(1, pcClass, true);
 		is((int) character.getRawFeats(true), eq(3),
-			"Two levels of PCClass, feats increment");
+			"Three levels of PCClass (6 total), feats increment");
 	}
 
+	/**
+	 * Test level per feat bonus to feats. 
+	 */
+	public void testGetNumFeatsFromLevels()
+	{
+		final PlayerCharacter pc = new PlayerCharacter();
+		pc.setRace(human);
+		assertEquals("Should start at 0", 0, pc.getNumFeatsFromLevels(), 0.001);
+
+		pc.incrementClassLevel(1, class3LpfM, true);
+		assertEquals("1/3 truncs to 0", 0, pc.getNumFeatsFromLevels(), 0.001);
+		pc.incrementClassLevel(1, class3LpfM, true);
+		assertEquals("2/3 truncs to 0", 0, pc.getNumFeatsFromLevels(), 0.001);
+		pc.incrementClassLevel(1, class3LpfM, true);
+		assertEquals("3/3 truncs to 1", 1, pc.getNumFeatsFromLevels(), 0.001);
+		pc.incrementClassLevel(1, class3LpfM, true);
+		assertEquals("4/3 truncs to 1", 1, pc.getNumFeatsFromLevels(), 0.001);
+		pc.incrementClassLevel(1, class2LpfM, true);
+		assertEquals("4/3 + 1/2 truncs to 1", 1, pc.getNumFeatsFromLevels(),
+			0.001);
+		pc.incrementClassLevel(1, class3LpfBlank, true);
+		assertEquals("4/3 + 1/2 truncs to 1 + 1/3 truncs to 0", 1, pc
+			.getNumFeatsFromLevels(), 0.001);
+		pc.incrementClassLevel(1, class2LpfM, true);
+		assertEquals("5/3 + 2/2 truncs to 2 + 1/3 truncs to 0", 2, pc
+			.getNumFeatsFromLevels(), 0.001);
+	}
+
+	/**
+	 * Test stacking rules for a mixture of normal progression and 
+	 * levelsperfeat progression. Stacking should only occur within like 
+	 * leveltypes or within standard progression
+	 * @throws Exception
+	 */
+	public void testGetMonsterBonusFeatsForNewLevel2() throws Exception
+	{
+		final PlayerCharacter pc = new PlayerCharacter();
+
+		pc.setRace(giantRace);
+		is((int) pc.getRawFeats(true), eq(2),
+			"Four levels from race (4/3), PC has one racial feat.");
+		
+		pc.incrementClassLevel(1, class3LpfM, true);
+		is((int) pc.getRawFeats(true), eq(2),
+			"One level of 3LpfM (1/3), four levels from race(4/3), PC has one racial feat.");
+		pc.incrementClassLevel(1, class3LpfM, true);
+		is((int) pc.getRawFeats(true), eq(2),
+			"Two level of 3LpfM (2/3), four levels from race(4/3), PC has one racial feat.");
+		pc.incrementClassLevel(1, class3LpfM, true);
+		is((int) pc.getRawFeats(true), eq(3),
+			"Three level of 3LpfM (3/3), four levels from race(4/3), PC has one racial feat.");
+	}
+	
 	/**
 	 * Tests getVariableValue
 	 * @throws Exception
@@ -846,6 +929,37 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
 		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
 		assertNotNull("Character should have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
+		
+	}
+	
+	public void testGetPartialStatBonusFor()
+	{
+		PlayerCharacter pc = getCharacter();
+		setPCStat(pc, "STR", 14);
+
+		Ability strBonusAbility =
+				TestHelper.makeAbility("Strength power up", "FEAT",
+					"General.Fighter");
+		final BonusObj strBonus = Bonus.newBonus("STAT|STR|2");
+		strBonusAbility.addBonusList(strBonus);
+
+		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor("STR", false, false));
+		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor("STR", true, false));
+
+		AbilityUtilities.modAbility(pc, null, strBonusAbility, "Strength power up", true, AbilityCategory.FEAT);
+		pc.calcActiveBonuses();
+
+		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor("STR", false, false));
+		assertEquals("After bonus, temp no equip", 2, pc.getPartialStatBonusFor("STR", true, false));
+		
+//		final BonusObj strBonusViaList = Bonus.newBonus("STAT|%LIST|3");
+//		strBonusAbility.addBonusList(strBonusViaList);
+//		strBonusAbility.addAssociated("STR");
+//		strBonusAbility.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+//		pc.calcActiveBonuses();
+//
+//		assertEquals("After list bonus, no temp no equip", 3, pc.getPartialStatBonusFor("STR", false, false));
+//		assertEquals("After list bonus, temp no equip", 3, pc.getPartialStatBonusFor("STR", true, false));
 		
 	}
 }

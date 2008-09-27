@@ -17,22 +17,32 @@
  */
 package plugin.lsttokens.pcclass;
 
+import java.net.URISyntaxException;
+
+import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class LevelsPerFeatTokenTest extends
-		AbstractIntegerTokenTestCase<PCClass>
+public class LevelsPerFeatTokenTest extends AbstractTokenTestCase<PCClass>
 {
-
 	static LevelsperfeatToken token = new LevelsperfeatToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
 			PCClass.class);
+
+	@Override
+	@Before
+	public final void setUp() throws PersistenceLayerException,
+			URISyntaxException
+	{
+		super.setUp();
+	}
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -52,33 +62,90 @@ public class LevelsPerFeatTokenTest extends
 		return token;
 	}
 
-	@Override
-	public IntegerKey getIntegerKey()
+	public ObjectKey<?> getObjectKey()
 	{
-		return IntegerKey.LEVELS_PER_FEAT;
-	}
-
-	@Override
-	public boolean isNegativeAllowed()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean isZeroAllowed()
-	{
-		return true;
-	}
-
-	@Override
-	public boolean isPositiveAllowed()
-	{
-		return true;
+		return ObjectKey.ALIGNMENT;
 	}
 
 	@Test
-	public void dummyTest()
+	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+		assertFalse(parse(""));
+		assertNoSideEffects();
 	}
+
+	@Test
+	public void testInvalidFormula() throws PersistenceLayerException
+	{
+		assertFalse(parse("1+3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNonLevelType() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|Foo=bar"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMissingLevelType() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|Foo"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMissingLevelType2() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|LEVELTYPE"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMissingLevelType3() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|LEVELTYPE="));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMissingLevelType4() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|=Foo"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidString() throws PersistenceLayerException
+	{
+		assertFalse(parse("String"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("-1"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinInteger() throws PersistenceLayerException
+	{
+		runRoundRobin("4");
+	}
+
+	@Test
+	public void testRoundRobinZero() throws PersistenceLayerException
+	{
+		runRoundRobin("0");
+	}
+
+	@Test
+	public void testRoundRobinWithLevelType() throws PersistenceLayerException
+	{
+		runRoundRobin("3|LEVELTYPE=Foo");
+	}
+
 }
