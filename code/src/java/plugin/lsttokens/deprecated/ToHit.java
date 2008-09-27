@@ -23,16 +23,18 @@
  * Last Edited: $Date$
  *
  */
-package plugin.bonustokens;
+package plugin.lsttokens.deprecated;
 
+import pcgen.core.PObject;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.lst.DeprecatedToken;
 
 /**
  * <code>ToHit</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public final class ToHit extends BonusObj
+public final class ToHit extends BonusObj implements DeprecatedToken
 {
 	private static final String[] bonusHandled = {"TOHIT"};
 
@@ -75,5 +77,13 @@ public final class ToHit extends BonusObj
 	protected String[] getBonusesHandled()
 	{
 		return bonusHandled;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
+	 */
+	public String getMessage(PObject obj, String value)
+	{
+		return "The bonus will not be applied. You should use BONUS:COMBAT|TOHIT|y instead.";
 	}
 }

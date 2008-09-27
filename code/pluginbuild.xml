@@ -1001,13 +1001,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${bonusplugins.dir}/BonusToken-DAMAGE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/bonustokens/Damage.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${bonusplugins.dir}/BonusToken-DC.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -1279,13 +1272,6 @@ jar-all-plugins - Generate the plugin jar files
 				<patternset>
 					<include name="plugin/bonustokens/Stat.class" />
 					<include name="plugin/bonustokens/Stat$CastStat.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${bonusplugins.dir}/BonusToken-TOHIT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/bonustokens/ToHit.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6308,10 +6294,24 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-DEPRECATED-DAMAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/Damage.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${bonusplugins.dir}/BonusToken-DEPRECATED-MOVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/MoveBonus.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-DEPRECATED-TOHIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/ToHit.class" />
 				</patternset>
 			</fileset>
 		</jar>
