@@ -53,7 +53,6 @@ import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
-import pcgen.core.FeatMultipleChoice;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
@@ -2359,15 +2358,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								Integer.parseInt(sTok.nextToken());
 						sTok.nextToken(); // toss this--number of choices made
 
-						final FeatMultipleChoice fmc = new FeatMultipleChoice();
-						fmc.setMaxChoices(maxChoices);
+						final String[] array = new String[maxChoices];
 
+						int index = 0;
 						while (sTok.hasMoreTokens())
 						{
-							fmc.addChoice(sTok.nextToken());
+							array[index++] = sTok.nextToken();
 						}
 
-						ability.addAssociated(fmc);
+						thePC.addAssociation(ability, array);
 					}
 					else
 					{
@@ -2627,19 +2626,19 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					{
 						sTok.nextToken(); // should be TAG_MULTISELECT
 
-						final int maxChoices =
-								Integer.parseInt(sTok.nextToken());
+						final int maxChoices = Integer.parseInt(sTok
+								.nextToken());
 						sTok.nextToken(); // toss this--number of choices made
 
-						final FeatMultipleChoice fmc = new FeatMultipleChoice();
-						fmc.setMaxChoices(maxChoices);
+						final String[] array = new String[maxChoices];
 
+						int index = 0;
 						while (sTok.hasMoreTokens())
 						{
-							fmc.addChoice(sTok.nextToken());
+							array[index++] = sTok.nextToken();
 						}
 
-						aFeat.addAssociated(fmc);
+						thePC.addAssociation(aFeat, array);
 					}
 					else
 					{

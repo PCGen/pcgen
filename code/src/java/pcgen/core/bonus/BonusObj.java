@@ -38,7 +38,6 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -895,9 +894,9 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private static final String VAR_TOKEN_REPLACEMENT = "%VAR"; //$NON-NLS-1$
 	private static final String VAR_TOKEN_PATTERN = Pattern.quote(VAR_TOKEN_REPLACEMENT);
 	
-	private static final AssociatedChoice<String> NO_ASSOC = new AssociatedChoice<String>("");
-	
-	private static final List<AssociatedChoice<String>> NO_ASSOC_LIST = Collections
+	private static final String[] NO_ASSOC = new String[] { "" };
+
+	private static final List<String[]> NO_ASSOC_LIST = Collections
 			.singletonList(NO_ASSOC);
 	
 	/**
@@ -914,7 +913,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		List<BonusPair> bonusList = new ArrayList<BonusPair>();
 
-		List<AssociatedChoice<String>> associatedList;
+		List<String[]> associatedList;
 		PObject anObj = null;
 		if (creatorObj instanceof PObject)
  		{
@@ -960,13 +959,35 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		else
 		{
-			for (AssociatedChoice<String> assoc : associatedList)
+			for (String[] assoc : associatedList)
 			{
+				StringBuilder asb = new StringBuilder();
+				if (assoc.length == 1)
+				{
+					asb.append(assoc[0]);
+				}
+				else
+				{
+					asb.append(assoc.length).append(':');
+					int loc = asb.length();
+					int count = 0;
+					for (String s : assoc)
+					{
+						if (s != null)
+						{
+							count++;
+							asb.append(':').append(s);
+						}
+					}
+					asb.insert(loc, count);
+				}
+				String assocString = asb.toString();
+				
 				String thisName;
 				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 				{
 					thisName =
-							name.replaceAll(VALUE_TOKEN_PATTERN, assoc.toString());
+							name.replaceAll(VALUE_TOKEN_PATTERN, assocString);
 				}
 				else
 				{
@@ -977,7 +998,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				{
 					if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 					{
-						for (String expInfo : assoc.getChoices())
+						for (String expInfo : assoc)
 						{
 							infoList.add(info.replaceAll(VALUE_TOKEN_PATTERN,
 								expInfo));
@@ -985,11 +1006,11 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 					}
 					else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
 					{
-						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN, assoc.toString()));
+						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN, assocString));
 					}
 					else if (info.equals(LIST_TOKEN_REPLACEMENT))
 					{
-						infoList.add(assoc.toString());
+						infoList.add(assocString);
 					}
 					else
 					{
@@ -1011,7 +1032,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 					if (listIndex >= 0)
 					{
 						thisValue =
-								value.replaceAll(VALUE_TOKEN_PATTERN, assoc.toString());
+								value.replaceAll(VALUE_TOKEN_PATTERN, assocString);
 					}
 					newFormula = FormulaFactory.getFormulaFor(thisValue);
 				}

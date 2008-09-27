@@ -340,7 +340,7 @@ public class ChooserUtilities
 		final List newSelections = aMan.doChooser(aPC,
 												  availableList,
 												  selectedList,
-												  new ArrayList());
+												  new ArrayList<String>());
 
 		aMan.applyChoices(aPC, newSelections);
 	}

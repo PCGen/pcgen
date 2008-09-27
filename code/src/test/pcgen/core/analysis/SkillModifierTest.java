@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -121,7 +120,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 		assertEquals("Initial state", "", SkillModifier.getModifierExplanation(
 			bluff, pc, false));
 
-		skillFocus.addAssociated(new AssociatedChoice<String>("KEY_Bluff"));
+		pc.addAssociation(skillFocus, "KEY_Bluff");
 		pc.addAbility(AbilityCategory.FEAT, skillFocus, null);
 		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
 			SkillModifier.getModifierExplanation(bluff, pc, false));

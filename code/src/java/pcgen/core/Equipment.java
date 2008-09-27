@@ -6048,7 +6048,7 @@ public final class Equipment extends PObject implements Serializable,
 		return null;
 	}
 
-	public void addAssociation(PObject obj, String o)
+	public void addAssociation(PObject obj, String... o)
 	{
 		obj.tempAddAssociated(o);
 	}
@@ -6068,13 +6068,13 @@ public final class Equipment extends PObject implements Serializable,
 	public List<String> getAssociationList(PObject obj)
 	{
 		List<String> list = new ArrayList<String>();
-		ArrayList<AssociatedChoice<String>> assocList = obj.getAssociatedList();
+		ArrayList<String[]> assocList = obj.getAssociatedList();
 		if (assocList != null)
 		{
-			for (AssociatedChoice<?> ac : assocList)
+			for (String[] ac : assocList)
 			{
-				final String choiceStr = ac.toString();
-				if (choiceStr.equals(Constants.EMPTY_STRING))
+				final String choiceStr = ac[0];
+				if (Constants.EMPTY_STRING.equals(choiceStr))
 				{
 					list.add(null);
 				}
@@ -6099,7 +6099,7 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	public void removeAssociation(PObject obj, String o)
+	public void removeAssociation(PObject obj, String... o)
 	{
 		obj.tempRemoveAssociated(o);
 	}
@@ -6111,31 +6111,18 @@ public final class Equipment extends PObject implements Serializable,
 
 	public List<String[]> getDetailedAssociations(PObject obj)
 	{
-		ArrayList<AssociatedChoice<String>> assocs = obj.getAssociatedList();
-		List<String[]> list = new ArrayList<String[]>();
-		for (AssociatedChoice<String> choice : assocs)
-		{
-			String[] array = new String[choice.size()];
-			array[0] = choice.getDefaultChoice();
-			for (int i = 1; i < array.length; i++)
-			{
-				array[i] = choice.getChoice(Integer.toString(i));
-			}
-			list.add(array);
-		}
-		return list;
+		return new ArrayList<String[]>(obj.getAssociatedList());
 	}
 
 	public List<String> getExpandedAssociations(PObject obj)
 	{
-		ArrayList<AssociatedChoice<String>> assocs = obj.getAssociatedList();
+		ArrayList<String[]> assocs = obj.getAssociatedList();
 		List<String> list = new ArrayList<String>();
-		for (AssociatedChoice<String> choice : assocs)
+		for (String[] choice : assocs)
 		{
-			list.add(choice.getDefaultChoice());
-			for (int i = 1; i < choice.size(); i++)
+			for (String s : choice)
 			{
-				list.add(choice.getChoice(Integer.toString(i)));
+				list.add(s);
 			}
 		}
 		return list;
@@ -6143,6 +6130,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	public String getFirstAssociation(PObject obj)
 	{
-		return obj.getAssociatedList().get(0).toString();
+		return obj.getAssociatedList().get(0)[0];
 	}
 }

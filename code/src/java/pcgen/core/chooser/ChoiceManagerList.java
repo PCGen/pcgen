@@ -25,7 +25,6 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
-import pcgen.core.AssociatedChoice;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -62,7 +61,7 @@ public interface ChoiceManagerList<T> {
 			PlayerCharacter aPc,
 			final List<T> availableList,
 			final List<T> selectedList,
-			final List<AssociatedChoice> reservedList);
+			final List<String> reservedList);
 
 	/**
 	 * Do chooser for removing a choice
@@ -74,7 +73,7 @@ public interface ChoiceManagerList<T> {
 			PlayerCharacter aPc,
 			final List<T> availableList,
 			final List<T> selectedList,
-			final List<AssociatedChoice> reservedList);
+			final List<String> reservedList);
 
 
 	/**

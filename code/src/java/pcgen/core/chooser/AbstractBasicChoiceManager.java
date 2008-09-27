@@ -30,7 +30,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -136,7 +135,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	 * @return list
 	 */
 	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
-			final List<T> selectedList, final List<AssociatedChoice> reservedList)
+			final List<T> selectedList, final List<String> reservedList)
 	{
 		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
 				/ choicesPerUnitCost;
@@ -154,9 +153,9 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		chooser.setAllowsDups(dupsAllowed);
 		if (!dupsAllowed)
 		{
-			for (AssociatedChoice o : reservedList)
+			for (String o : reservedList)
 			{
-				availableList.remove(o.getDefaultChoice());
+				availableList.remove(o);
 			}
 		}
 
@@ -203,7 +202,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	 * @param selectedList
 	 */
 	public void doChooserRemove(PlayerCharacter aPC, List<T> availableList,
-			List<T> selectedList, List<AssociatedChoice> reservedList)
+			List<T> selectedList, List<String> reservedList)
 	{
 		final List<T> newSelections = doChooser(aPC, availableList,
 				selectedList, reservedList);

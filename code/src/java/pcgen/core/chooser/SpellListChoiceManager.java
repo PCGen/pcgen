@@ -30,8 +30,6 @@ import java.util.List;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AssociatedChoice;
-import pcgen.core.FeatMultipleChoice;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -48,8 +46,8 @@ import pcgen.util.InputInterface;
  */
 public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 {
-	int                idxSelected = -1;
-	FeatMultipleChoice fmc         = null;
+	String[] selected = null;
+	String[] fmc         = null;
 	int maxSpellListSelections = 0;
 
 
@@ -88,10 +86,10 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 
 			// Set up remaining choices for pre-existing selection
 
-			if (idxSelected >= 0)
+			if (selected != null)
 			{
-				fmc = (FeatMultipleChoice) pobject.getAssociatedObject(idxSelected);
-				setMaxChoices(fmc.getMaxChoices());
+				fmc = selected;
+				setMaxChoices(fmc.length);
 			}
 		}
 		else
@@ -111,9 +109,9 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 			PlayerCharacter aPc,
 			int             size)
 	{
-		if (idxSelected >= 0)
+		if (selected != null)
 		{
-			pobject.removeAssociated(idxSelected);
+			aPc.removeAssociation(pobject, selected);
 
 			if (size == 0)
 			{
@@ -145,12 +143,18 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 	{
 		if (fmc == null)
 		{
-			fmc = new FeatMultipleChoice();
-			fmc.setMaxChoices(maxSpellListSelections);
-			pobject.addAssociated(fmc);
+			fmc = new String[maxSpellListSelections];
+			aPc.addAssociation(pobject, fmc);
 		}
 
-		fmc.addChoice(item);
+		for (int i = 0; i < fmc.length; i++)
+		{
+			if (fmc[i] == null)
+			{
+				fmc[i] = item;
+				break;
+			}
+		}
 	}
 
 	/**
@@ -182,27 +186,38 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 	private boolean chooseAbility(PlayerCharacter pc)
 	{
 		Ability    anAbility = (Ability) pobject;
-		int        i;
 		final List<String> aList     = new ArrayList<String>();
 		aList.add("New");
 
 		final StringBuffer sb = new StringBuffer(100);
 
-		for (int j = 0; j < pc.getSelectCorrectedAssociationCount(anAbility); ++j)
+		List<String[]> origList = pc.getDetailedAssociations(anAbility);
+		for (String[] assoc : origList)
 		{
-			fmc = (FeatMultipleChoice) anAbility.getAssociatedList().get(j);
 			sb.append(anAbility.getKeyName()).append(" (");
-			sb.append(fmc.getChoiceCount());
-			sb.append(" of ").append(fmc.getMaxChoices()).append(") ");
-
-			for (i = 0; i < fmc.getChoiceCount(); ++i)
+			int chosen = 0;
+			for (String s : assoc)
 			{
-				if (i != 0)
+				if (s != null)
 				{
-					sb.append(',');
+					chosen++;
 				}
+			}
+			sb.append(chosen);
+			sb.append(" of ").append(assoc.length).append(") ");
 
-				sb.append(fmc.getChoice(i));
+			boolean needComma = false;
+			for (String a : assoc)
+			{
+				if (a != null)
+				{
+					if (needComma)
+					{
+						sb.append(',');
+					}
+					needComma = true;
+					sb.append(a);
+				}
 			}
 
 			aList.add(sb.toString());
@@ -234,7 +249,11 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 			return false;
 		}
 
-		idxSelected = aList.indexOf(selectedValue) - 1;
+		int idxSelected = aList.indexOf(selectedValue) - 1;
+		if (idxSelected > 0)
+		{
+			selected = origList.get(idxSelected);
+		}
 
 		return true;
 	}
@@ -339,27 +358,25 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 
 			// Remove all previously selected items from the available list
 
-			final List<AssociatedChoice<String>> assocList = pobject.getAssociatedList();
-
-			if (assocList != null)
+			for (String[] assoc : aPC.getDetailedAssociations(pobject))
 			{
-				for (int j = 0; j < assocList.size(); ++j)
+				if (assoc == selected)
 				{
-					final FeatMultipleChoice featMultChoice = (FeatMultipleChoice) assocList.get(j);
-					final List<String>               fmcChoices = featMultChoice.getChoices();
-
-					if (fmcChoices != null)
+					for (String s : assoc)
 					{
-						for (int k = 0; k < fmcChoices.size(); ++k)
+						if (s != null)
 						{
-							if (j == idxSelected)
-							{
-								selectedList.add(fmcChoices.get(k));
-							}
-							else
-							{
-								availableList.remove(fmcChoices.get(k));
-							}
+							selectedList.add(s);
+						}
+					}
+				}
+				else
+				{
+					for (String s : assoc)
+					{
+						if (s != null)
+						{
+							availableList.remove(s);
 						}
 					}
 				}

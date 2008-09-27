@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.AssociatedChoice;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -29,7 +28,7 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 	@Override
 	public List<String> doChooser(PlayerCharacter pc,
 			List<String> availableList, List<String> selectedList,
-			List<AssociatedChoice> reservedList)
+			List<String> reservedList)
 	{
 		int choiceLimit = getNumberOfChoices();
 		if (choiceLimit == -1 || choiceLimit > reservedList.size())
@@ -42,7 +41,7 @@ public class NoChoiceChoiceManager extends AbstractBasicChoiceManager<String>
 	@Override
 	public void doChooserRemove(PlayerCharacter apc,
 			List<String> availableList, List<String> selectedList,
-			List<AssociatedChoice> reservedList)
+			List<String> reservedList)
 	{
 		selectedList.remove(0);
 		applyChoices(apc, selectedList);

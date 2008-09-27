@@ -99,8 +99,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	protected final MapKeyMapToList mapListChar = new MapKeyMapToList();
 
 	/** List of associated items for the object */
-	// TODO Contains strings or FeatMultipleObjects
-	private ArrayList<AssociatedChoice<String>> associatedList = null;
+	private ArrayList<String[]> assocList = null;
 
 	/** List of Level Abilities for the object  */
 	private List<LevelAbility> levelAbilityList = null;
@@ -157,7 +156,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final int tempGetAssociatedCount(final boolean expand)
 	{
-		if (associatedList == null)
+		if (assocList == null)
 		{
 			return 0;
 		}
@@ -165,28 +164,14 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (expand)
 		{
 			int count = 0;
-			for ( AssociatedChoice<String> choice : associatedList )
+			for ( String[] choice : assocList )
 			{
-				count += choice.size();
+				count += choice.length;
 			}
 			return count;
 		}
 
-		return associatedList.size();
-	}
-
-	/**
-	 * Get the associated object
-	 * @param idx
-	 * @return the associated object
-	 */
-	public final Object getAssociatedObject(final int idx)
-	{
-		if (associatedList == null) 
-		{
-			return Constants.EMPTY_STRING;
-		}
-		return associatedList.get(idx);
+		return assocList.size();
 	}
 
 	/**
@@ -551,28 +536,14 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Add the item to the associated list for this object
 	 * @param aString the string to add to the associated list
 	 */
-	public final void tempAddAssociated(final String aString)
+	public final void tempAddAssociated(final String... aString)
 	{
-		if (associatedList == null)
+		if (assocList == null)
 		{
-			associatedList = new ArrayList<AssociatedChoice<String>>();
+			assocList = new ArrayList<String[]>();
 		}
 
-		associatedList.add(new AssociatedChoice<String>(aString));
-	}
-
-	/**
-	 * Add a feat choice to the associated list for this object
-	 * @param aFeatChoices
-	 */
-	public final void addAssociated(final AssociatedChoice<String> aFeatChoices)
-	{
-		if (associatedList == null)
-		{
-			associatedList = new ArrayList<AssociatedChoice<String>>();
-		}
-
-		associatedList.add(aFeatChoices);
+		assocList.add(aString);
 	}
 
 	/**
@@ -721,14 +692,14 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final boolean tempContainsAssociated(final String associated)
 	{
-		if (associatedList == null)
+		if (assocList == null)
 		{
 			return false;
 		}
 
-		for ( AssociatedChoice<String> choice : associatedList )
+		for ( String[] choice : assocList )
 		{
-			for ( String val : choice.getChoices() )
+			for ( String val : choice )
 			{
 				if ( val.equalsIgnoreCase(associated) )
 				{
@@ -755,7 +726,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public final void tempClearAssociated()
 	{
-		associatedList = null;
+		assocList = null;
 	}
 
 	/**
@@ -797,9 +768,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		retVal.changeProfMap = new HashMap<String, String>(changeProfMap);
 
-		if (associatedList != null)
+		if (assocList != null)
 		{
-			retVal.associatedList = new ArrayList<AssociatedChoice<String>>(associatedList);
+			retVal.assocList = new ArrayList<String[]>(assocList);
 		}
 
 		if (bonusList != null)
@@ -1398,30 +1369,25 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param associated
 	 * @return true if successful
 	 */
-	public final boolean tempRemoveAssociated(final String associated)
+	public final boolean tempRemoveAssociated(final String... associated)
 	{
 		boolean ret = false;
-		if (associatedList == null)
+		if (assocList == null)
 		{
 			return ret;
 		}
 
-		for ( Iterator<AssociatedChoice<String>> i = associatedList.iterator(); i.hasNext(); )
+		for ( Iterator<String[]> i = assocList.iterator(); i.hasNext(); )
 		{
-			AssociatedChoice<String> choice = i.next();
-			ret = choice.removeDefaultChoice( associated );
-			if (ret )
+			if (i.next() == associated)
 			{
-				if ( choice.size() == 0 )
-				{
-					i.remove();
-				}
+				i.remove();
 			}
 		}
 
-		if (associatedList.size() == 0)
+		if (assocList.size() == 0)
 		{
-			associatedList = null;
+			assocList = null;
 		}
 
 		return ret;
@@ -2326,13 +2292,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Get the associated list
 	 * @return the associated list
 	 */
-	public final ArrayList<AssociatedChoice<String>> getAssociatedList()
+	public final ArrayList<String[]> getAssociatedList()
 	{
-		if (associatedList == null)
+		if (assocList == null)
 		{
-			return new ArrayList<AssociatedChoice<String>>();
+			return new ArrayList<String[]>();
 		}
-		return associatedList;
+		return assocList;
 	}
 
 	/**
@@ -2823,16 +2789,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	int numberInList(PlayerCharacter pc, final String aType)
 	{
 		return 0;
-	}
-
-	public final Object removeAssociated(final int i)
-	{
-		if (associatedList == null)
-		{
-			throw new IndexOutOfBoundsException("size is 0, i=" + i);
-		}
-
-		return associatedList.remove(i);
 	}
 
 	/**
