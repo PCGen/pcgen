@@ -36,12 +36,14 @@ import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
@@ -1398,11 +1400,11 @@ final class PCGVer2Creator implements IOConstants
 				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					buffer.append(TAG_APPLIEDTO).append(TAG_END);
-					List<String[]> assocList = thePC.getDetailedAssociations(ability);
+					List<FixedStringList> assocList = thePC.getDetailedAssociations(ability);
 					boolean first = true;
-					for (String[] assocArray : assocList)
+					for (FixedStringList assocArray : assocList)
 					{
-						if (assocArray.length > 1)
+						if (assocArray.size() > 1)
 						{
 							buffer.append(TAG_MULTISELECT).append(':');
 						}
@@ -1412,6 +1414,7 @@ final class PCGVer2Creator implements IOConstants
 							{
 								buffer.append(Constants.COMMA);
 							}
+							first = false;
 							buffer.append(EntityEncoder.encode(assoc));
 						}
 					}
@@ -2586,7 +2589,7 @@ final class PCGVer2Creator implements IOConstants
 		}
 		for (TransitionChoice<?> tc : addList)
 		{
-			List<Object> assocList = thePC.getAssocList(tc);
+			List<Object> assocList = thePC.getAssocList(tc, AssociationKey.ADD);
 			if (assocList == null)
 			{
 				continue;

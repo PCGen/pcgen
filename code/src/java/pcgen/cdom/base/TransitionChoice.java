@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
@@ -136,7 +137,7 @@ public class TransitionChoice<T>
 		for (T choice : driveChoice)
 		{
 			choiceActor.applyChoice(choice, apc);
-			apc.addAssoc(this, choice);
+			apc.addAssoc(this, AssociationKey.ADD, choice);
 		}
 	}
 	

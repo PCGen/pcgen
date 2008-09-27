@@ -223,7 +223,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		character.addAssociation(testBonus, "INT");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
-		List<BonusPair> bonusPairs = bonus.getStringListFromBonus();
+		List<BonusPair> bonusPairs = bonus.getStringListFromBonus(character);
 		assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
 		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
@@ -248,7 +248,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
-		List<BonusPair> bonusPairs = bonus.getStringListFromBonus();
+		List<BonusPair> bonusPairs = bonus.getStringListFromBonus(character);
 		assertEquals(2, bonusPairs.size());
 		int totalBonus = 0;
 		BonusPair bp = bonusPairs.get(0);
@@ -277,7 +277,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
-		List<BonusPair> bonusPairs = bonus.getStringListFromBonus();
+		List<BonusPair> bonusPairs = bonus.getStringListFromBonus(character);
 		assertEquals(2, bonusPairs.size());
 		for (BonusPair bp : bonusPairs)
 		{

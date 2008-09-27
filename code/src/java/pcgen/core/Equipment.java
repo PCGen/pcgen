@@ -43,7 +43,9 @@ import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -173,6 +175,8 @@ public final class Equipment extends PObject implements Serializable,
 		locationStringList[CONTAINED] = CONTAINED_STR;
 		locationStringList[NOT_CARRIED] = NOT_CARRIED_STR;
 	}
+
+	private AssociationSupport assocSupt = new AssociationSupport();
 
 	private BigDecimal costMod = BigDecimal.ZERO;
 
@@ -6048,14 +6052,24 @@ public final class Equipment extends PObject implements Serializable,
 		return null;
 	}
 
-	public void addAssociation(PObject obj, String... o)
+	public void addAssociation(PObject obj, String o)
 	{
-		obj.tempAddAssociated(o);
+		assocSupt.addAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+	}
+
+	public void addAssociation(PObject obj, FixedStringList o)
+	{
+		assocSupt.addAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
 	public boolean containsAssociated(PObject obj, String o)
 	{
-		return obj.tempContainsAssociated(o);
+		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+	}
+
+	public boolean containsAssociated(PObject obj, FixedStringList o)
+	{
+		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
 	public int getSelectCorrectedAssociationCount(PObject obj)
@@ -6063,18 +6077,19 @@ public final class Equipment extends PObject implements Serializable,
 		//TODO Null here is probably a problem for the PC :/
 		int select = obj.getSafe(FormulaKey.SELECT).resolve(this, true, null,
 				"").intValue();
-		return obj.tempGetAssociatedCount() / select;
+		return assocSupt.getAssocCount(obj, AssociationKey.CHOICES) / select;
 	}
 
 	public List<String> getAssociationList(PObject obj)
 	{
 		List<String> list = new ArrayList<String>();
-		ArrayList<String[]> assocList = obj.getAssociatedList();
+		List<FixedStringList> assocList = assocSupt.getAssocList(obj,
+				AssociationKey.CHOICES);
 		if (assocList != null)
 		{
-			for (String[] ac : assocList)
+			for (FixedStringList ac : assocList)
 			{
-				final String choiceStr = ac[0];
+				final String choiceStr = ac.get(0);
 				if (Constants.EMPTY_STRING.equals(choiceStr))
 				{
 					list.add(null);
@@ -6090,40 +6105,59 @@ public final class Equipment extends PObject implements Serializable,
 
 	public boolean hasAssociations(PObject obj)
 	{
-		return obj.tempGetAssociatedCount() > 0;
+		return assocSupt.hasAssocs(obj, AssociationKey.CHOICES);
 	}
 
 	public List<String> removeAllAssociations(PObject obj)
 	{
 		List<String> list = getAssociationList(obj);
-		obj.tempClearAssociated();
+		assocSupt.removeAllAssocs(obj, AssociationKey.CHOICES);
 		return list;
 	}
 
-	public void removeAssociation(PObject obj, String... o)
+	public void removeAssociation(PObject obj, String o)
 	{
-		obj.tempRemoveAssociated(o);
+		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+	}
+
+	public void removeAssociation(PObject obj, FixedStringList o)
+	{
+		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
 	public int getDetailedAssociationCount(PObject obj)
 	{
-		return obj.tempGetAssociatedCount(true);
+		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
+				AssociationKey.CHOICES);
+		int count = 0;
+		if (assocs != null)
+		{
+			for (FixedStringList choice : assocs)
+			{
+				count += choice.size();
+			}
+		}
+		return count;
 	}
 
-	public List<String[]> getDetailedAssociations(PObject obj)
+	public List<FixedStringList> getDetailedAssociations(PObject obj)
 	{
-		return new ArrayList<String[]>(obj.getAssociatedList());
+		return assocSupt.getAssocList(obj, AssociationKey.CHOICES);
 	}
 
 	public List<String> getExpandedAssociations(PObject obj)
 	{
-		ArrayList<String[]> assocs = obj.getAssociatedList();
+		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
+				AssociationKey.CHOICES);
 		List<String> list = new ArrayList<String>();
-		for (String[] choice : assocs)
+		if (assocs != null)
 		{
-			for (String s : choice)
+			for (FixedStringList choice : assocs)
 			{
-				list.add(s);
+				for (String s : choice)
+				{
+					list.add(s);
+				}
 			}
 		}
 		return list;
@@ -6131,6 +6165,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	public String getFirstAssociation(PObject obj)
 	{
-		return obj.getAssociatedList().get(0)[0];
+		return assocSupt.getAssocList(obj, AssociationKey.CHOICES).get(0).get(0);
 	}
 }

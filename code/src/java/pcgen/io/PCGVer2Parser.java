@@ -34,11 +34,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -1815,7 +1817,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else
 					{
-						thePC.addAssoc(tc, obj);
+						thePC.addAssoc(tc, AssociationKey.ADD, obj);
 					}
 				}
 			}
@@ -2358,12 +2360,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								Integer.parseInt(sTok.nextToken());
 						sTok.nextToken(); // toss this--number of choices made
 
-						final String[] array = new String[maxChoices];
-
-						int index = 0;
+						final FixedStringList array = new FixedStringList(maxChoices);
 						while (sTok.hasMoreTokens())
 						{
-							array[index++] = sTok.nextToken();
+							array.add(sTok.nextToken());
 						}
 
 						thePC.addAssociation(ability, array);
@@ -2630,12 +2630,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								.nextToken());
 						sTok.nextToken(); // toss this--number of choices made
 
-						final String[] array = new String[maxChoices];
-
-						int index = 0;
+						final FixedStringList array = new FixedStringList(maxChoices);
 						while (sTok.hasMoreTokens())
 						{
-							array[index++] = sTok.nextToken();
+							array.add(sTok.nextToken());
 						}
 
 						thePC.addAssociation(aFeat, array);

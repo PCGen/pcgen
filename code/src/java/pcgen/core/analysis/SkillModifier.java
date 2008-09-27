@@ -172,7 +172,7 @@ public final class SkillModifier
 							.contains(keyName.toUpperCase());
 				if (!include)
 				{
-					for (BonusPair bp : bonus.getStringListFromBonus())
+					for (BonusPair bp : bonus.getStringListFromBonus(aPC))
 					{
 						String bpKey = bp.bonusKey.toUpperCase();
 						if (bpKey.startsWith(bonusKey))
@@ -186,7 +186,7 @@ public final class SkillModifier
 				if (include)
 				{
 					double iBonus = 0;
-					for (BonusPair bp : bonus.getStringListFromBonus())
+					for (BonusPair bp : bonus.getStringListFromBonus(aPC))
 					{
 						String bpKey = bp.bonusKey.toUpperCase();
 						if (bpKey.startsWith(bonusKey))

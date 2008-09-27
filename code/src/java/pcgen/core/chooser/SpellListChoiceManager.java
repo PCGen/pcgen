@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -46,8 +47,8 @@ import pcgen.util.InputInterface;
  */
 public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 {
-	String[] selected = null;
-	String[] fmc         = null;
+	FixedStringList selected = null;
+	FixedStringList fmc         = null;
 	int maxSpellListSelections = 0;
 
 
@@ -89,7 +90,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 			if (selected != null)
 			{
 				fmc = selected;
-				setMaxChoices(fmc.length);
+				setMaxChoices(fmc.size());
 			}
 		}
 		else
@@ -143,18 +144,11 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 	{
 		if (fmc == null)
 		{
-			fmc = new String[maxSpellListSelections];
+			fmc = new FixedStringList(maxSpellListSelections);
 			aPc.addAssociation(pobject, fmc);
 		}
 
-		for (int i = 0; i < fmc.length; i++)
-		{
-			if (fmc[i] == null)
-			{
-				fmc[i] = item;
-				break;
-			}
-		}
+		fmc.add(item);
 	}
 
 	/**
@@ -191,8 +185,8 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 
 		final StringBuffer sb = new StringBuffer(100);
 
-		List<String[]> origList = pc.getDetailedAssociations(anAbility);
-		for (String[] assoc : origList)
+		List<FixedStringList> origList = pc.getDetailedAssociations(anAbility);
+		for (FixedStringList assoc : origList)
 		{
 			sb.append(anAbility.getKeyName()).append(" (");
 			int chosen = 0;
@@ -204,7 +198,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 				}
 			}
 			sb.append(chosen);
-			sb.append(" of ").append(assoc.length).append(") ");
+			sb.append(" of ").append(assoc.size()).append(") ");
 
 			boolean needComma = false;
 			for (String a : assoc)
@@ -358,7 +352,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 
 			// Remove all previously selected items from the available list
 
-			for (String[] assoc : aPC.getDetailedAssociations(pobject))
+			for (FixedStringList assoc : aPC.getDetailedAssociations(pobject))
 			{
 				if (assoc == selected)
 				{

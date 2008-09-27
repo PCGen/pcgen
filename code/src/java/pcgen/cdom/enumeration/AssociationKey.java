@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -66,6 +67,10 @@ public final class AssociationKey<T>
 	public static final AssociationKey<Ability.Nature> NATURE = new AssociationKey<Ability.Nature>();
 
 	public static final AssociationKey<AbilityCategory> CATEGORY = new AssociationKey<AbilityCategory>();
+
+	public static final AssociationKey<FixedStringList> CHOICES = new AssociationKey<FixedStringList>();
+
+	public static final AssociationKey<Object> ADD = new AssociationKey<Object>();
 
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 

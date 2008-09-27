@@ -55,6 +55,7 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
@@ -13032,8 +13033,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			// Keep track of which bonuses have been calculated
 			processedBonusList.add(bonus);
-
-			for (BonusPair bp : bonus.getStringListFromBonus())
+			for (BonusPair bp : bonus.getStringListFromBonus(this))
 			{
 				final double iBonus = bp.resolve(this).doubleValue();
 				setActiveBonusStack(iBonus, bp.bonusKey, getActiveBonusMap());
@@ -13951,7 +13951,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// calculate bonus and add to activeBonusMap
-		for (BonusPair bp : aBonus.getStringListFromBonus())
+		for (BonusPair bp : aBonus.getStringListFromBonus(this))
 		{
 			final double iBonus = bp.resolve(this).doubleValue();
 			setActiveBonusStack(iBonus, bp.bonusKey, getActiveBonusMap());
@@ -14558,9 +14558,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							&& bonus.getCreatorObject() instanceof PObject)
 						{
 							PObject creator = (PObject) bonus.getCreatorObject();
-							for (String[] assoc : creator.getAssociatedList())
+							for (FixedStringList assoc : getDetailedAssociations(creator))
 							{
-								if (Arrays.binarySearch(assoc, statAbbr) >= 0)
+								if (assoc.contains(statAbbr))
 								{
 									found = true;
 									break;
@@ -14595,7 +14595,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					// Grab the list of relevant types so that we can build up
 					// the
 					// bonuses with the stacking rules applied.
-					for (BonusPair bp : bonus.getStringListFromBonus())
+					for (BonusPair bp : bonus.getStringListFromBonus(this))
 					{
 						if (bp.bonusKey.startsWith(prefix))
 						{
@@ -17867,31 +17867,42 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return cache.getSkillCost(this, sk, cl);
 	}
 
-	public void addAssociation(PObject obj, String... o)
+	public void addAssociation(PObject obj, String o)
 	{
-		obj.tempAddAssociated(o);
+		assocSupt.addAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+	}
+
+	public void addAssociation(PObject obj, FixedStringList o)
+	{
+		assocSupt.addAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
 	public boolean containsAssociated(PObject obj, String o)
 	{
-		return obj.tempContainsAssociated(o);
+		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+	}
+
+	public boolean containsAssociated(PObject obj, FixedStringList o)
+	{
+		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
 	public int getSelectCorrectedAssociationCount(PObject obj)
 	{
-		return obj.tempGetAssociatedCount()
+		return assocSupt.getAssocCount(obj, AssociationKey.CHOICES)
 				/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 	}
 
 	public List<String> getAssociationList(PObject obj)
 	{
 		List<String> list = new ArrayList<String>();
-		ArrayList<String[]> assocList = obj.getAssociatedList();
+		List<FixedStringList> assocList = assocSupt.getAssocList(obj,
+				AssociationKey.CHOICES);
 		if (assocList != null)
 		{
-			for (String[] ac : assocList)
+			for (FixedStringList ac : assocList)
 			{
-				final String choiceStr = ac[0];
+				final String choiceStr = ac.get(0);
 				if (Constants.EMPTY_STRING.equals(choiceStr))
 				{
 					list.add(null);
@@ -17907,40 +17918,59 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasAssociations(PObject obj)
 	{
-		return obj.tempGetAssociatedCount() > 0;
+		return assocSupt.hasAssocs(obj, AssociationKey.CHOICES);
 	}
 
 	public List<String> removeAllAssociations(PObject obj)
 	{
 		List<String> list = getAssociationList(obj);
-		obj.tempClearAssociated();
+		assocSupt.removeAllAssocs(obj, AssociationKey.CHOICES);
 		return list;
 	}
 
-	public void removeAssociation(PObject obj, String... o)
+	public void removeAssociation(PObject obj, String o)
 	{
-		obj.tempRemoveAssociated(o);
+		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+	}
+
+	public void removeAssociation(PObject obj, FixedStringList o)
+	{
+		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
 	public int getDetailedAssociationCount(PObject obj)
 	{
-		return obj.tempGetAssociatedCount(true);
+		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
+				AssociationKey.CHOICES);
+		int count = 0;
+		if (assocs != null)
+		{
+			for (FixedStringList choice : assocs)
+			{
+				count += choice.size();
+			}
+		}
+		return count;
 	}
 
-	public List<String[]> getDetailedAssociations(PObject obj)
+	public List<FixedStringList> getDetailedAssociations(PObject obj)
 	{
-		return new ArrayList<String[]>(obj.getAssociatedList());
+		return assocSupt.getAssocList(obj, AssociationKey.CHOICES);
 	}
 
 	public List<String> getExpandedAssociations(PObject obj)
 	{
-		ArrayList<String[]> assocs = obj.getAssociatedList();
+		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
+				AssociationKey.CHOICES);
 		List<String> list = new ArrayList<String>();
-		for (String[] choice : assocs)
+		if (assocs != null)
 		{
-			for (String s : choice)
+			for (FixedStringList choice : assocs)
 			{
-				list.add(s);
+				for (String s : choice)
+				{
+					list.add(s);
+				}
 			}
 		}
 		return list;
@@ -17948,42 +17978,42 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public String getFirstAssociation(PObject obj)
 	{
-		return obj.getAssociatedList().get(0)[0];
+		return assocSupt.getAssocList(obj, AssociationKey.CHOICES).get(0).get(0);
 	}
 
-	public void addAssoc(Object obj, Object o)
+	public <T> void addAssoc(Object obj, AssociationKey<T> ak, T o)
 	{
-		assocSupt.addAssoc(obj, o);
+		assocSupt.addAssoc(obj, ak, o);
 	}
 
-	public boolean containsAssoc(Object obj, Object o)
+	public <T> boolean containsAssoc(Object obj, AssociationKey<T> ak, T o)
 	{
-		return assocSupt.containsAssoc(obj, o);
+		return assocSupt.containsAssoc(obj, ak, o);
 	}
 
-	public int getAssocCount(Object obj)
+	public int getAssocCount(Object obj, AssociationKey<?> ak)
 	{
-		return assocSupt.getAssocCount(obj);
+		return assocSupt.getAssocCount(obj, ak);
 	}
 
-	public List<Object> getAssocList(Object obj)
+	public <T> List<T> getAssocList(Object obj, AssociationKey<T> ak)
 	{
-		return assocSupt.getAssocList(obj);
+		return assocSupt.getAssocList(obj, ak);
 	}
 
-	public boolean hasAssocs(Object obj)
+	public boolean hasAssocs(Object obj, AssociationKey<?> ak)
 	{
-		return assocSupt.hasAssocs(obj);
+		return assocSupt.hasAssocs(obj, ak);
 	}
 
-	public List<Object> removeAllAssocs(Object obj)
+	public <T> List<T> removeAllAssocs(Object obj, AssociationKey<T> ak)
 	{
-		return assocSupt.removeAllAssocs(obj);
+		return assocSupt.removeAllAssocs(obj, ak);
 	}
 
-	public void removeAssoc(Object obj, Object o)
+	public <T> void removeAssoc(Object obj, AssociationKey<T> ak, T o)
 	{
-		assocSupt.removeAssoc(obj, o);
+		assocSupt.removeAssoc(obj, ak, o);
 	}
 
 	public boolean hasUnlockedStat(PCStat stat)

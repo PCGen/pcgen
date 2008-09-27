@@ -35,6 +35,7 @@ import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -894,9 +895,9 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private static final String VAR_TOKEN_REPLACEMENT = "%VAR"; //$NON-NLS-1$
 	private static final String VAR_TOKEN_PATTERN = Pattern.quote(VAR_TOKEN_REPLACEMENT);
 	
-	private static final String[] NO_ASSOC = new String[] { "" };
+	private static final FixedStringList NO_ASSOC = new FixedStringList("");
 
-	private static final List<String[]> NO_ASSOC_LIST = Collections
+	private static final List<FixedStringList> NO_ASSOC_LIST = Collections
 			.singletonList(NO_ASSOC);
 	
 	/**
@@ -909,17 +910,17 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * 
 	 * @return List of bonus strings
 	 */
-	public List<BonusPair> getStringListFromBonus()
+	public List<BonusPair> getStringListFromBonus(PlayerCharacter pc)
 	{
 		List<BonusPair> bonusList = new ArrayList<BonusPair>();
 
-		List<String[]> associatedList;
+		List<FixedStringList> associatedList;
 		PObject anObj = null;
 		if (creatorObj instanceof PObject)
  		{
 			anObj = (PObject) creatorObj;
-			associatedList = (anObj).getAssociatedList();
-			if (associatedList.isEmpty())
+			associatedList = pc.getDetailedAssociations(anObj);
+			if (associatedList == null || associatedList.isEmpty())
  			{
 				associatedList = NO_ASSOC_LIST;
 			}
@@ -959,16 +960,17 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		else
 		{
-			for (String[] assoc : associatedList)
+			for (FixedStringList assoc : associatedList)
 			{
 				StringBuilder asb = new StringBuilder();
-				if (assoc.length == 1)
+				int size = assoc.size();
+				if (size == 1)
 				{
-					asb.append(assoc[0]);
+					asb.append(assoc.get(0));
 				}
 				else
 				{
-					asb.append(assoc.length).append(':');
+					asb.append(size).append(':');
 					int loc = asb.length();
 					int count = 0;
 					for (String s : assoc)

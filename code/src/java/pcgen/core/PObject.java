@@ -97,9 +97,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/** A map of Lists for the object */
 	protected final MapKeyMapToList mapListChar = new MapKeyMapToList();
 
-	/** List of associated items for the object */
-	private ArrayList<String[]> assocList = null;
-
 	/** List of Level Abilities for the object  */
 	private List<LevelAbility> levelAbilityList = null;
 
@@ -132,41 +129,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/* ************
 	 * Methods
 	 * ************/
-
-	/**
-	 * Get associated count, without expanding
-	 * @return associated count
-	 */
-	public final int tempGetAssociatedCount()
-	{
-		return tempGetAssociatedCount(false);
-	}
-
-	/**
-	 * Get the associated count for the object
-	 * @param expand
-	 * @return associated count
-	 */
-	public final int tempGetAssociatedCount(final boolean expand)
-	{
-		if (assocList == null)
-		{
-			return 0;
-		}
-
-		if (expand)
-		{
-			int count = 0;
-			for ( String[] choice : assocList )
-			{
-				count += choice.length;
-			}
-			return count;
-		}
-
-		return assocList.size();
-	}
-
 	/**
 	 * Adds entry to the CSkill list
 	 * @param entry skill to add
@@ -433,20 +395,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add the item to the associated list for this object
-	 * @param aString the string to add to the associated list
-	 */
-	public final void tempAddAssociated(final String... aString)
-	{
-		if (assocList == null)
-		{
-			assocList = new ArrayList<String[]>();
-		}
-
-		assocList.add(aString);
-	}
-
-	/**
 	 * Add to the 'save' for the character list
 	 * @param aString
 	 */
@@ -524,31 +472,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 	
 	/**
-	 * Returns true if the assocaited item is in the associated list for this object
-	 * @param associated
-	 * @return true if the assocaited item is in the associated list for this object
-	 */
-	public final boolean tempContainsAssociated(final String associated)
-	{
-		if (assocList == null)
-		{
-			return false;
-		}
-
-		for ( String[] choice : assocList )
-		{
-			for ( String val : choice )
-			{
-				if ( val.equalsIgnoreCase(associated) )
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	/**
 	 * Add a natural weapon to the character list.
 	 *
 	 * @param weapon
@@ -557,14 +480,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public void addNaturalWeapon(final Equipment weapon, final int level)
 	{
 		addToListFor(ListKey.NATURAL_WEAPONS, weapon);
-	}
-
-	/**
-	 * Clear the associated list for this object
-	 */
-	public final void tempClearAssociated()
-	{
-		assocList = null;
 	}
 
 	/**
@@ -603,11 +518,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //			retVal.sourceMap.putAll(this.sourceMap);
 //		}
 		retVal.theSource = theSource.clone();
-
-		if (assocList != null)
-		{
-			retVal.assocList = new ArrayList<String[]>(assocList);
-		}
 
 		if (bonusList != null)
 		{
@@ -1194,35 +1104,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		return (result.toString());
-	}
-
-	/**
-	 * remove the associated item from the list
-	 * @param associated
-	 * @return true if successful
-	 */
-	public final boolean tempRemoveAssociated(final String... associated)
-	{
-		boolean ret = false;
-		if (assocList == null)
-		{
-			return ret;
-		}
-
-		for ( Iterator<String[]> i = assocList.iterator(); i.hasNext(); )
-		{
-			if (i.next() == associated)
-			{
-				i.remove();
-			}
-		}
-
-		if (assocList.size() == 0)
-		{
-			assocList = null;
-		}
-
-		return ret;
 	}
 
 	/**
@@ -2094,19 +1975,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				ability.subForLevel(aPC);
 			}
 		}
-	}
-
-	/**
-	 * Get the associated list
-	 * @return the associated list
-	 */
-	public final ArrayList<String[]> getAssociatedList()
-	{
-		if (assocList == null)
-		{
-			return new ArrayList<String[]>();
-		}
-		return assocList;
 	}
 
 	/**
