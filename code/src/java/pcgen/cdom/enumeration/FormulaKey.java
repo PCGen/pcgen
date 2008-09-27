@@ -70,7 +70,7 @@ public final class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey MONSTER_NON_SKILL_HD = getConstant("MONSTER_NON_SKILL_HD");
 
-	public static final FormulaKey SELECT = getConstant("SELECT");
+	public static final FormulaKey SELECT = getConstant("SELECT", Formula.ONE);
 
 	public static final FormulaKey STAT_MOD = getConstant("STAT_MOD");
 

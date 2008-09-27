@@ -6061,8 +6061,9 @@ public final class Equipment extends PObject implements Serializable,
 	public int getSelectCorrectedAssociationCount(PObject obj)
 	{
 		//TODO Null here is probably a problem for the PC :/
-		return obj.tempGetAssociatedCount()
-				/ getVariableValue(obj.getSelectCount(), "", null).intValue();
+		int select = obj.getSafe(FormulaKey.SELECT).resolve(this, true, null,
+				"").intValue();
+		return obj.tempGetAssociatedCount() / select;
 	}
 
 	public List<String> getAssociationList(PObject obj)

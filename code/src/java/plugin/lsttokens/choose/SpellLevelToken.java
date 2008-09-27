@@ -20,6 +20,8 @@ package plugin.lsttokens.choose;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.ChooseLstToken;
 import pcgen.util.Logging;
@@ -93,10 +95,11 @@ public class SpellLevelToken implements ChooseLstToken
 				+ " must have two or more | delimited arguments : " + value);
 			return false;
 		}
-		String start = value.substring(0, pipeLoc);
+		String startString = value.substring(0, pipeLoc);
+		int start;
 		try
 		{
-			Integer.parseInt(start);
+			start = Integer.parseInt(startString);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -161,7 +164,7 @@ public class SpellLevelToken implements ChooseLstToken
 		}
 		sb.append(getTokenName()).append('|').append(value).append(suffix);
 		po.setChoiceString(sb.toString());
-		po.setSelect(start);
+		po.put(FormulaKey.SELECT, FormulaFactory.getFormulaFor(start));
 		return true;
 	}
 

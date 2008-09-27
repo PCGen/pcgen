@@ -128,8 +128,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	
 	private Set<String> types = new LinkedHashSet<String>();
 	
-	private String chooseSelectCount = "1";
-
 	private final Class<?> myClass = getClass();
 	
 	/* ************
@@ -3716,16 +3714,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public void clearAdds() {
 		levelAbilityList.clear();
-	}
-
-	public void setSelect(String value)
-	{
-		chooseSelectCount = value;
-	}
-
-	public String getSelectCount()
-	{
-		return chooseSelectCount;
 	}
 
 	public void putServesAs( final String key, final String category) 

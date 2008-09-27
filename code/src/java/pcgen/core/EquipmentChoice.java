@@ -23,6 +23,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -526,8 +527,9 @@ final class EquipmentChoice
 			}
 		}
 
-		setMaxSelect(parent.getVariableValue(parent.getSelectCount(), "", pc)
-				.intValue());
+		int select = parent.getSafe(FormulaKey.SELECT).resolve(parent, true,
+				pc, "").intValue();
+		setMaxSelect(select);
 
 		String originalkind = null;
 		final StringTokenizer aTok       = new StringTokenizer(choiceString, "|", false);

@@ -26,7 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -68,7 +70,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		pobject = aPObject;
 		StringTokenizer st = new StringTokenizer(theChoices, Constants.PIPE);
 		String chooserName = st.nextToken();
-		String selectionsPerUnitCost = pobject.getSelectCount();
+		Formula selectionsPerUnitCost = pobject.getSafe(FormulaKey.SELECT);
 		int totalChoices = -1;
 
 		/*
@@ -114,8 +116,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		choices.trimToSize();
 		chooserHandled = chooserName;
 		numberOfChoices = totalChoices;
-		choicesPerUnitCost = aPC.getVariableValue(selectionsPerUnitCost, "")
-				.intValue();
+		choicesPerUnitCost = selectionsPerUnitCost.resolve(aPC, "").intValue();
 	}
 
 	/**

@@ -16414,7 +16414,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			else
 			{
-				int select = getVariableValue(aFeat.getSelectCount(), "")
+				int select = aFeat.getSafe(FormulaKey.SELECT).resolve(this, "")
 						.intValue();
 				double relativeCost = cost / select;
 				if (!AbilityCategory.FEAT.allowFractionalPool())
@@ -16454,8 +16454,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 				else
 				{
-					int select = getVariableValue(ability.getSelectCount(), "")
-							.intValue();
+					int select = ability.getSafe(FormulaKey.SELECT).resolve(
+							this, "").intValue();
 					double relativeCost = cost / select;
 					if (!aCategory.allowFractionalPool())
 					{
@@ -17904,7 +17904,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getSelectCorrectedAssociationCount(PObject obj)
 	{
 		return obj.tempGetAssociatedCount()
-				/ getVariableValue(obj.getSelectCount(), "", this).intValue();
+				/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 	}
 
 	public List<String> getAssociationList(PObject obj)
