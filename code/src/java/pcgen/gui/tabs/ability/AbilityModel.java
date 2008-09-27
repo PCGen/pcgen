@@ -41,6 +41,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry.SourceFormat;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -423,7 +424,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case DESCRIPTION:
 				if (ability != null)
 				{
-					retVal = ability.piDescSubString(thePC);
+					retVal = DescriptionFormatting.piDescSubString(thePC, ability);
 				}
 				break;
 			case CHOICES:

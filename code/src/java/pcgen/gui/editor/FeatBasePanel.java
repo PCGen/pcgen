@@ -40,6 +40,7 @@ import javax.swing.JPanel;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
@@ -289,7 +290,7 @@ public class FeatBasePanel extends BasePanel
 		Ability thisFeat = (Ability) thisPObject;
 
 		final StringBuffer buf = new StringBuffer();
-		for ( final Description desc : thisPObject.getDescriptionList() )
+		for ( final Description desc : thisPObject.getSafeListFor(ListKey.DESCRIPTION) )
 		{
 			if ( buf.length() != 0 )
 			{

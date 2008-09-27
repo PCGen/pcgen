@@ -49,6 +49,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
@@ -699,7 +700,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// The dummy campaign for custom data.
 		Campaign customCampaign = new Campaign();
 		customCampaign.setName("Custom");
-		customCampaign.addDescription(new Description("Custom data"));
+		customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
 
 		//
 		// Add the custom bioset file to the start of the list if it exists

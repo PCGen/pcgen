@@ -105,6 +105,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -391,7 +392,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			infoText.append(BR);
 			infoText.append(PropertyFactory.getFormattedString(
 				"in_InfoDescription", //$NON-NLS-1$
-				aDeity.piDescString(pc)));
+				DescriptionFormatting.piDescString(pc, aDeity)));
 
 			List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(
 					ListKey.DEITYWEAPON);
@@ -461,7 +462,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			infoText.append(FONT_PLUS_1).append(BOLD).append(
 				aDomain.piSubString()).append(END_BOLD).append(END_FONT);
 
-			String aString = aDomain.getDescription(getPc());
+			String aString = pc.getDescription(aDomain);
 			if (aString.length() != 0)
 			{
 				infoText.append(BR);

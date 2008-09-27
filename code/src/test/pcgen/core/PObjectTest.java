@@ -38,8 +38,6 @@ import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
-import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -308,36 +306,29 @@ public class PObjectTest extends AbstractCharacterTestCase
 	{
 		final Description desc1 = new Description("Description 1");
 		final PObject pobj = new PObject();
-		pobj.addDescription(desc1);
+		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
-		assertEquals("Description should match", pobj
-			.getDescription(getCharacter()), "Description 1");
+		PlayerCharacter pc = getCharacter();
+		assertEquals("Description should match", pc
+			.getDescription(pobj), "Description 1");
 
 		final Description desc2 = new Description("Description 2");
-		pobj.addDescription(desc2);
+		pobj.addToListFor(ListKey.DESCRIPTION, desc2);
 
 		assertEquals("Description should match", "Description 1, Description 2",
-			pobj.getDescription(getCharacter()));
+			pc.getDescription(pobj));
 
 		final Description desc3 = new Description("Description %1");
 		desc3.addVariable("\"3\"");
-		pobj.addDescription(desc3);
+		pobj.addToListFor(ListKey.DESCRIPTION, desc3);
 
 		assertEquals("Description should match",
-			"Description 1, Description 2, Description 3", pobj
-				.getDescription(getCharacter()));
+			"Description 1, Description 2, Description 3", pc
+				.getDescription(pobj));
 
-		pobj.removeDescription("Description 2");
+		pobj.removeFromListFor(ListKey.DESCRIPTION, desc2);
 		assertEquals("Description should match", "Description 1, Description 3",
-			pobj.getDescription(getCharacter()));
-
-		pobj.removeDescription("Description %");
-		assertEquals("Description should match", "Description 1", pobj
-			.getDescription(getCharacter()));
-
-		pobj.removeDescription("Description %\\w+");
-		assertEquals("Description should match", "Description 1", pobj
-			.getDescription(getCharacter()));
+			pc.getDescription(pobj));
 	}
 
 	/**

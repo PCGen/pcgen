@@ -52,6 +52,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.StatList;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
@@ -879,7 +880,7 @@ public class PcgCombatant extends Combatant
 					Domain dom = cd.getDomain();
 					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
-					statBuf.append(pcOut.getDomainPower(pc, dom)); //|DOMAIN.POWER|
+					statBuf.append(DescriptionFormatting.piDescString(pc, dom)); //|DOMAIN.POWER|
 					statBuf.append(")");
 				}
 
@@ -1087,7 +1088,7 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("<a href=" + '"' + "spell:");
 								spellBuff.append(spell.getDisplayName());
 								spellBuff.append("\\");
-								spellBuff.append(aPC.parseSpellString(spell, spell.getDescription(aPC), cs.getOwner()));
+								spellBuff.append(aPC.parseSpellString(spell, aPC.getDescription(spell), cs.getOwner()));
 								spellBuff.append("\\");
 								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");

@@ -40,8 +40,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
@@ -124,8 +122,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private String chooseLanguageAutos = Constants.EMPTY_STRING;
 
-	private List<Description> theDescriptions = null;
-	
 	private HashMap<String,List<String>> servesAsList =null;
 	
 	private URI sourceURI = null;
@@ -280,103 +276,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		put(StringKey.DESCRIPTION, a);
 	}
 
-	/**
-	 * Adds a description for this object.  Multiple descriptions are allowed 
-	 * and will be concatonated on output.
-	 * 
-	 * <p>The format of the description tag 
-	 * @param aDesc
-	 */
-	public void addDescription( final Description aDesc )
-	{
-		if ( theDescriptions == null )
-		{
-			theDescriptions = new ArrayList<Description>();
-		}
-		theDescriptions.add( aDesc );
-	}
-	
-	/**
-	 * Clears all current descriptions for the object.
-	 */
-	public void removeAllDescriptions()
-	{
-		theDescriptions = null;
-	}
-	
-	/**
-	 * Removes <tt>Description</tt>s who's PCC Text matches the pattern
-	 * specified.
-	 *  
-	 * @param aDescPattern The regular expression to search for.
-	 */
-	public void removeDescription( final String aDescPattern )
-	{
-		if ( theDescriptions == null )
-		{
-			return;
-		}
-		final Pattern pattern = Pattern.compile(aDescPattern);
-
-		for ( final Iterator<Description> i = theDescriptions.iterator(); i.hasNext(); )
-		{
-			final String descText = i.next().getPCCText();
-			final Matcher matcher = pattern.matcher(descText);
-			if ( matcher.find() )
-//			if ( descText.matches(aDescPattern) )
-			{
-				i.remove();
-			}
-		}
-	}
-	
 	public final String getDescription()
 	{
 		String characteristic = get(StringKey.DESCRIPTION);
 		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
-	}
-	
-	/**
-	 * Get the description of this object
-	 * 
-	 * @param aPC The PlayerCharacter this object is associated to.
-	 * @return the description of this object
-	 */
-	public String getDescription(final PlayerCharacter aPC)
-	{
-		if ( theDescriptions == null )
-		{
-			return Constants.EMPTY_STRING;
-		}
-		final StringBuffer buf = new StringBuffer();
-		boolean wrote = false;
-		for ( final Description desc : theDescriptions )
-		{
-			final String str = desc.getDescription(aPC, this);
-			if ( str.length() > 0 )
-			{
-				if ( wrote )
-				{
-					buf.append(Constants.COMMA + ' ');
-				}
-				buf.append(str);
-				wrote = true;
-			}
-			else
-			{
-				wrote = false;
-			}
-		}
-		return buf.toString();
-	}
-
-	public List<Description> getDescriptionList()
-	{
-		if ( theDescriptions == null )
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(theDescriptions);
 	}
 	
 	/**
@@ -799,10 +702,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				ab.setOwner(retVal);
 				retVal.levelAbilityList.add(ab);
 			}
-		}
-		if ( this.theDescriptions != null )
-		{
-			retVal.theDescriptions = new ArrayList<Description>(theDescriptions);
 		}
 		return retVal;
 	}
@@ -1854,25 +1753,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Get the Product Identity description String
-	 * @return the Product Identity description String
-	 */
-	public String piDescString(final PlayerCharacter aPC)
-	{
-		return piDescString(aPC, true);
-	}
-
-	/**
-	 * In some cases, we need a PI-formatted string to place within a
-	 * pre-existing <html> tag
-	 * @return PI description
-	 */
-	public String piDescSubString(final PlayerCharacter aPC)
-	{
-		return piDescString(aPC, false);
-	}
-
-	/**
 	 * Get the Product Identity string
 	 * @return the Product Identity string
 	 */
@@ -1980,11 +1860,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (saveName)
 		{
 			txt.append(getDisplayName());
-		}
-
-		for ( final Description desc : getDescriptionList() )
-		{
-			txt.append("\tDESC:").append(pcgen.io.EntityEncoder.encode(desc.getPCCText()));
 		}
 
 //		if (!getDisplayName().equals(getKeyName()))
@@ -2834,32 +2709,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public void clearSelectedWeaponProfBonus()
 	{
 		removeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
-	}
-
-	private String piDescString(final PlayerCharacter aPC, final boolean useHeader)
-	{
-		final String desc = getDescription(aPC);
-
-		if (getSafe(ObjectKey.DESC_PI))
-		{
-			final StringBuffer sb = new StringBuffer(desc.length() + 30);
-
-			if (useHeader)
-			{
-				sb.append("<html>");
-			}
-
-			sb.append("<b><i>").append(desc).append("</i></b>");
-
-			if (useHeader)
-			{
-				sb.append("</html>");
-			}
-
-			return sb.toString();
-		}
-
-		return desc;
 	}
 
 	/**

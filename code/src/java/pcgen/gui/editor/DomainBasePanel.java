@@ -27,6 +27,7 @@ import java.awt.GridBagLayout;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Description;
 import pcgen.core.PObject;
@@ -117,7 +118,7 @@ public class DomainBasePanel extends BasePanel
 	public void updateView(PObject thisPObject)
 	{
 		final StringBuffer buf = new StringBuffer();
-		for ( final Description desc : thisPObject.getDescriptionList() )
+		for ( final Description desc : thisPObject.getSafeListFor(ListKey.DESCRIPTION) )
 		{
 			if ( buf.length() != 0 )
 			{

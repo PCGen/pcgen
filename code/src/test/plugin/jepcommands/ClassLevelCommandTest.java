@@ -78,7 +78,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		Campaign customCampaign = new Campaign();
 		customCampaign.setName("Unit Test");
 		customCampaign.setName("KEY_Unit Test");
-		customCampaign.addDescription(new Description("Unit Test data"));
+		customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Unit Test data"));
 
 		// Create the monseter class type
 		GameMode gamemode = SettingsHandler.getGame();

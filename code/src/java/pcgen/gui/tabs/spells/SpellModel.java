@@ -41,6 +41,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
@@ -464,11 +465,11 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 				if ((aSpell != null) && (spellA != null))
 				{
-					return pc.parseSpellString(aSpell, aSpell
-						.getDescription(pc), spellA.getOwner());
+					return pc.parseSpellString(aSpell, pc
+						.getDescription(aSpell), spellA.getOwner());
 				}
 
-				return (aSpell != null) ? aSpell.piDescString(pc) : null;
+				return (aSpell != null) ? DescriptionFormatting.piDescString(pc, aSpell) : null;
 
 			case COL_TARGET:
 

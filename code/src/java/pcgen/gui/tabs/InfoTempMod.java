@@ -79,6 +79,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -717,7 +718,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			b.appendSpacer();
 			b.appendI18nElement("in_itmInfoLabelTextTarget",aSpell.getTarget()); //$NON-NLS-1$
 			b.appendLineBreak();
-			b.appendI18nElement("in_itmInfoLabelTextSpellDescription",aSpell.piDescSubString(pc)); //$NON-NLS-1$
+			b.appendI18nElement("in_itmInfoLabelTextSpellDescription",DescriptionFormatting.piDescSubString(pc, aSpell)); //$NON-NLS-1$
 
 			String bString = aSpell.getTempDescription();
 			if (bString.length() > 0)

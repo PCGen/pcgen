@@ -25,12 +25,13 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.io.ExportHandler;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with tokens:
@@ -129,7 +130,7 @@ public class DomainToken extends Token
 			Domain domain =
 					(pc.getCharacterDomainList().get(domainIndex)).getDomain();
 
-			return domain.piDescString(pc);
+			return DescriptionFormatting.piDescString(pc, domain);
 		}
 		catch (Exception e)
 		{

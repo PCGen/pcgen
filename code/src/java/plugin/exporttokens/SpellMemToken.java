@@ -275,8 +275,8 @@ public class SpellMemToken extends Token
 							|| "EFFECT".equals(aLabel))
 						{
 							String mString =
-									aPC.parseSpellString(aSpell, aSpell
-										.getDescription(aPC), selectedCSpell
+									aPC.parseSpellString(aSpell, aPC
+										.getDescription(aSpell), selectedCSpell
 										.getOwner());
 							retValue.append(mString);
 						}
@@ -376,8 +376,8 @@ public class SpellMemToken extends Token
 						{
 							final String sString =
 									getItemDescription("SPELL",
-										aSpell.getKeyName(), aSpell
-											.getDescription(aPC), aPC);
+										aSpell.getKeyName(), aPC
+											.getDescription(aSpell), aPC);
 
 							if (altLabel.length() > 0)
 							{

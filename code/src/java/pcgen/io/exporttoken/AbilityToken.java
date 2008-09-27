@@ -26,7 +26,6 @@ package pcgen.io.exporttoken;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
@@ -35,7 +34,6 @@ import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.AspectName;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Aspect;
@@ -327,7 +325,7 @@ public class AbilityToken extends Token
 
 			if (tokenSource.endsWith(".DESC"))
 			{
-				retString += aAbility.getDescription(pc);
+				retString += pc.getDescription(aAbility);
 			}
 			else if (tokenSource.endsWith(".BENEFIT"))
 			{

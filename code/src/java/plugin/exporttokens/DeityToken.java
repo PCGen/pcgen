@@ -126,7 +126,7 @@ public class DeityToken extends Token
 			}
 			else if ("DESCRIPTION".equals(subTag))
 			{
-				retString = deity.getDescription(pc);
+				retString = pc.getDescription(deity);
 			}
 			else if ("HOLYITEM".equals(subTag))
 			{

@@ -230,7 +230,7 @@ public class Description extends ConcretePrereqObject
 									{
 										buf.append(Constants.COMMA + ' ');
 									}
-									buf.append(feat.getDescription(aPC));
+									buf.append(aPC.getDescription(feat));
 									first = false;
 								}
 							}
@@ -238,7 +238,7 @@ public class Description extends ConcretePrereqObject
 						else
 						{
 							final Ability feat = aPC.getAbilityKeyed(AbilityCategory.FEAT, featName);
-							buf.append(feat.getDescription(aPC));
+							buf.append(aPC.getDescription(feat));
 						}
 					}
 					else if ( var.startsWith("\"") ) //$NON-NLS-1$

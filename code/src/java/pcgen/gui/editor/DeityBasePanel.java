@@ -261,7 +261,7 @@ final class DeityBasePanel extends BasePanel
 	{
 		setHolyItemText(thisPObject.get(StringKey.HOLY_ITEM));
 		final StringBuffer buf = new StringBuffer();
-		for ( final Description desc : thisPObject.getDescriptionList() )
+		for ( final Description desc : thisPObject.getSafeListFor(ListKey.DESCRIPTION) )
 		{
 			if ( buf.length() != 0 )
 			{

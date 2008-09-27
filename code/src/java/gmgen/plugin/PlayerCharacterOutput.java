@@ -19,6 +19,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.AttackType;
 
@@ -139,11 +140,6 @@ public class PlayerCharacterOutput
 	public String getDomainName(Domain domain)
 	{
 		return domain.getDisplayName();
-	}
-
-	public String getDomainPower(final PlayerCharacter aPC, Domain domain)
-	{
-		return domain.piDescString(aPC);
 	}
 
 	public String getEquipmentList()

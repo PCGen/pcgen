@@ -1073,7 +1073,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append('|');
 			buffer.append(TAG_ALIGNALLOW).append(':');
 			//TODO Need to clean this up?
-			for (final Description desc : aDeity.getDescriptionList())
+			for (final Description desc : aDeity.getSafeListFor(ListKey.DESCRIPTION))
 			{
 				buffer.append('|');
 				buffer.append(TAG_DESC).append(':');
@@ -1164,7 +1164,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(assoc));
 			}
 
-			for (final Description desc : domain.getDescriptionList())
+			for (final Description desc : domain.getSafeListFor(ListKey.DESCRIPTION))
 			{
 				buffer.append('|');
 				buffer.append(TAG_DOMAINGRANTS).append(':');
@@ -1428,7 +1428,7 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(EntityEncoder.encode(save));
 				}
 
-				for (final Description desc : ability.getDescriptionList())
+				for (final Description desc : ability.getSafeListFor(ListKey.DESCRIPTION))
 				{
 					buffer.append(Constants.PIPE);
 					buffer.append(TAG_DESC).append(':');

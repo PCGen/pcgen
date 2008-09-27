@@ -34,7 +34,6 @@ import static pcgen.gui.HTMLUtils.THREE_SPACES;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 
 import javax.swing.BorderFactory;
@@ -44,13 +43,13 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.AspectName;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
@@ -180,7 +179,7 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(BR);
 		sb.append(PropertyFactory.getFormattedString(
 			"in_InfoDescription", //$NON-NLS-1$
-			theAbility.piDescSubString(thePC)));
+			DescriptionFormatting.piDescSubString(thePC, theAbility)));
 
 		if (theAbility.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{

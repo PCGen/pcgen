@@ -138,23 +138,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	}
 
 	/**
-	 * Get a description of what this ability does
-	 *
-	 * @return  the benefit if it is set and they are turned on, otherwise
-	 *          return the description
-	 */
-	@Override
-	public String getDescription(final PlayerCharacter aPC)
-	{
-		if (SettingsHandler.useFeatBenefits() && getBenefits(aPC).length() > 1)
-		{
-			return getBenefits(aPC);
-		}
-
-		return super.getDescription(aPC);
-	}
-
-	/**
 	 * Set the category of this Ability
 	 *
 	 * @param  category  the category of the ability
@@ -737,4 +720,15 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	{
 		put(ObjectKey.ABILITY_CAT, cat);
 	}
+	
+	@Override
+	public ListKey<Description> getDescriptionKey()
+	{
+		if (SettingsHandler.useFeatBenefits() && containsListFor(ListKey.BENEFIT))
+		{
+			return ListKey.BENEFIT;
+		}
+		return ListKey.DESCRIPTION;
+	}
+
 }

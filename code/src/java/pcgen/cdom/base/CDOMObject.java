@@ -27,7 +27,6 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -38,6 +37,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
+import pcgen.core.Description;
 import pcgen.core.PlayerCharacter;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
@@ -619,4 +619,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		tc.act(tc.driveChoice(aPC), aPC);
 	}
 
+	public ListKey<Description> getDescriptionKey()
+	{
+		return ListKey.DESCRIPTION;
+	}
 }

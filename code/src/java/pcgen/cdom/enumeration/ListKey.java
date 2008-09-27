@@ -221,6 +221,7 @@ public final class ListKey<T> {
 	public static final ListKey<Movement> MOVEMENT = new ListKey<Movement>();
 	public static final ListKey<FollowerOption> COMPANIONLIST = new ListKey<FollowerOption>();
 	public static final ListKey<FollowerLimit> FOLLOWERS = new ListKey<FollowerLimit>();
+	public static final ListKey<Description> DESCRIPTION = new ListKey<Description>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

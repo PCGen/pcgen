@@ -28,6 +28,7 @@ import java.util.List;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
@@ -159,7 +160,7 @@ public final class SubClass extends PCClass implements CategorizedCDOMObject<Sub
 		{
 			final Campaign customCampaign = new Campaign();
 			customCampaign.setName("Custom");
-			customCampaign.addDescription(new Description("Custom data"));
+			customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
 
 			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceURI());
 

@@ -586,7 +586,7 @@ public class EqToken extends Token
 	public static String getDescriptionToken(final PlayerCharacter aPC,
 		Equipment eq)
 	{
-		return eq.getDescription(aPC);
+		return aPC.getDescription(eq);
 	}
 
 	/**

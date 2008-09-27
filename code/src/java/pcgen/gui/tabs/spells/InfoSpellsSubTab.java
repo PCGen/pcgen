@@ -874,7 +874,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			}
 			b.appendLineBreak();
 			b.appendI18nElement("in_descrip", pc.parseSpellString(aSpell, 
-				aSpell.getDescription(getPc()), cs.getOwner()));
+				pc.getDescription(aSpell), cs.getOwner()));
 
 			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 			aSpell.getPrerequisiteList(), false);

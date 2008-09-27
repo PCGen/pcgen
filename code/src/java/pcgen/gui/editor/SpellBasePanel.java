@@ -228,7 +228,7 @@ public class SpellBasePanel extends BasePanel
 	{
 		Spell thisSpell = (Spell) thisPObject;
 		final StringBuffer buf = new StringBuffer();
-		for ( final Description desc : thisPObject.getDescriptionList() )
+		for ( final Description desc : thisPObject.getSafeListFor(ListKey.DESCRIPTION) )
 		{
 			if ( buf.length() != 0 )
 			{

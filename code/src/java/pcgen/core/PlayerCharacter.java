@@ -18059,4 +18059,30 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		selectedFavoredClass = sfc;
 	}
+	public String getDescription(PObject cdo)
+	{
+		List<Description> theDescriptions = cdo.getListFor(cdo.getDescriptionKey());
+		
+		if ( theDescriptions == null )
+		{
+			return Constants.EMPTY_STRING;
+		}
+		final StringBuilder sb = new StringBuilder();
+		boolean needcomma = false;
+		for ( final Description desc : theDescriptions )
+		{
+			final String str = desc.getDescription(this, cdo);
+			if ( str.length() > 0 )
+			{
+				if ( needcomma )
+				{
+					sb.append(Constants.COMMA).append(' ');
+				}
+				sb.append(str);
+				needcomma = true;
+			}
+		}
+		return sb.toString();
+	}
+
 }

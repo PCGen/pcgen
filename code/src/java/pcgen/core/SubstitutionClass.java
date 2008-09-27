@@ -80,7 +80,7 @@ public final class SubstitutionClass extends PCClass
 		{
 			final Campaign customCampaign = new Campaign();
 			customCampaign.setName("Custom");
-			customCampaign.addDescription(new Description("Custom data"));
+			customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
 
 			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceURI());
 			
@@ -141,7 +141,7 @@ public final class SubstitutionClass extends PCClass
 			final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t"))); 
 			final Campaign customCampaign = new Campaign();
 			customCampaign.setName("Custom");
-			customCampaign.addDescription(new Description("Custom data"));
+			customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
 
 			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, this.getSourceURI());
 

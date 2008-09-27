@@ -128,7 +128,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			// Get/Create the dummy campaign for custom data.
 			Campaign customCampaign = new Campaign();
 			customCampaign.setName("Custom");
-			customCampaign.addDescription(new Description("Custom data"));
+			customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
 
 			// Make sure the object source file is set
 			URI sourceFile = object.getSourceURI();
