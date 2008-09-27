@@ -32,6 +32,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.WeaponProfType;
 import pcgen.util.Logging;
 
 /**
@@ -128,7 +129,7 @@ public class ProficiencyChoiceManager extends AbstractBasicPObjectChoiceManager<
 				if (prof.startsWith("TYPE.") || prof.startsWith("TYPE="))
 				{
 					String typeString = prof.substring(5);
-					for (Iterator<WeaponProf> i = Globals.getWeaponProfs(typeString, aPc).iterator();i.hasNext();)
+					for (Iterator<WeaponProf> i = WeaponProfType.getWeaponProfs(typeString, aPc).iterator();i.hasNext();)
 					{
 						profs.add(i.next());
 					}

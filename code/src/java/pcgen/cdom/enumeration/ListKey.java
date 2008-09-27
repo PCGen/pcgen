@@ -28,6 +28,7 @@ import java.net.URI;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.helper.Aspect;
@@ -222,6 +223,7 @@ public final class ListKey<T> {
 	public static final ListKey<FollowerOption> COMPANIONLIST = new ListKey<FollowerOption>();
 	public static final ListKey<FollowerLimit> FOLLOWERS = new ListKey<FollowerLimit>();
 	public static final ListKey<Description> DESCRIPTION = new ListKey<Description>();
+	public static final ListKey<ChangeProf> CHANGEPROF = new ListKey<ChangeProf>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

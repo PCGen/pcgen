@@ -52,6 +52,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.WeaponProfType;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -113,8 +114,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private HashMap<String, String> bonusMap = null;
 	/** List of Bonuses for the object */
 	private List<BonusObj> bonusList = new ArrayList<BonusObj>();
-
-	private HashMap<String, String> changeProfMap = new HashMap<String, String>();
 
 	private SpellSupport spellSupport = new SpellSupport();
 	
@@ -525,68 +524,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 	
 	/**
-	 * Get a list of WeaponProf|ProfType strings from changeProfMap
-	 * @param character
-	 * @return List
-	 */
-	public Map<WeaponProf, String> getChangeProfList(final PlayerCharacter character)
-	{
-		final Map<WeaponProf, String> results = new HashMap<WeaponProf, String>();
-
-		for (Iterator<String> e = changeProfMap.keySet().iterator(); e.hasNext();)
-		{
-			// aKey will either be:
-			//  TYPE.blah
-			// or
-			//  Weapon Name
-			final String aKey = e.next();
-
-			// New proficiency type, such as Martial or Simple
-			final String newProfType = changeProfMap.get(aKey);
-
-			if (aKey.startsWith("TYPE."))
-			{
-				// need to get all items of this TYPE
-				for (Iterator<Equipment> eq = EquipmentList.getEquipmentOfType(aKey.substring(5), "").iterator(); eq.hasNext();)
-				{
-					CDOMSingleRef<WeaponProf> ref = eq.next().get(ObjectKey.WEAPON_PROF);
-					if (ref != null)
-					{
-						results.put(ref.resolvesTo(), newProfType);
-					}
-				}
-			}
-			else
-			{
-				final Equipment aEq = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Equipment.class, aKey);
-
-				if (aEq == null)
-				{
-					continue;
-				}
-				CDOMSingleRef<WeaponProf> ref = aEq.get(ObjectKey.WEAPON_PROF);
-				if (ref != null)
-				{
-					results.put(ref.resolvesTo(), newProfType);
-				}
-			}
-		}
-
-		return results;
-	}
-
-	/**
-	 * Adds Weapons/Armor/Shield names/types to new Proficiency mapping
-	 *
-	 * @param aString is a list of equipment and new Profs
-	 */
-	public void addChangeProf(String eqString, String newProf)
-	{
-		changeProfMap.put(eqString, newProf);
-	}
-
-	/**
 	 * Returns true if the assocaited item is in the associated list for this object
 	 * @param associated
 	 * @return true if the assocaited item is in the associated list for this object
@@ -666,8 +603,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //			retVal.sourceMap.putAll(this.sourceMap);
 //		}
 		retVal.theSource = theSource.clone();
-
-		retVal.changeProfMap = new HashMap<String, String>(changeProfMap);
 
 		if (assocList != null)
 		{
@@ -2389,7 +2324,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		while (bTok.hasMoreTokens())
 		{
 			final String bString = bTok.nextToken();
-			final List<WeaponProf> pcWeapProfList = Globals.getWeaponProfs(bString, aPC);
+			final List<WeaponProf> pcWeapProfList = WeaponProfType.getWeaponProfs(bString, aPC);
 			final List<Equipment> pcWeaponList = new ArrayList<Equipment>();
 			if (pcWeapProfList.size() == 0)
 			{

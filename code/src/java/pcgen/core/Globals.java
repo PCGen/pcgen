@@ -2545,42 +2545,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get the Weapon Profs
-	 * @param type
-	 * @param aPC
-	 * @return List of Weapon Profs
-	 */
-	public static List<WeaponProf> getWeaponProfs(final String type, final PlayerCharacter aPC)
-	{
-		MapToList<String, WeaponProf> mtl = aPC.getChangeProfList();
-		List<WeaponProf> aList = mtl.getListFor(type);
-		if (aList == null)
-		{
-			aList = new ArrayList<WeaponProf>();
-		}
-
-		Collection<WeaponProf> weaponProfsOfType = getPObjectsOfType(
-				getContext().ref.getConstructedCDOMObjects(WeaponProf.class),
-				type);
-
-		if (weaponProfsOfType == null)
-		{
-			return aList;
-		}
-
-		ArrayList<WeaponProf> appendList = new ArrayList<WeaponProf>(weaponProfsOfType);
-		for (String cpType : mtl.getKeySet())
-		{
-			if (!type.equals(cpType))
-			{
-				appendList.removeAll(mtl.getListFor(cpType));
-			}
-		}
-		aList.addAll(appendList);
-		return aList;
-	}
-
-	/**
 	 * Reduce/increase damage for modified size as per DMG p.162
 	 * @param aDamage
 	 * @param sBaseSize

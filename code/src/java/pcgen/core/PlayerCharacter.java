@@ -56,8 +56,6 @@ import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
-import pcgen.base.util.MapToList;
-import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -5314,28 +5312,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final String typeString = mainType + "." + subType + ":" + bonusType;
 
 		return sumActiveBonusMap(typeString);
-	}
-
-	/**
-	 * Get the list of WeaponName and Proficiency types from the changeProfMap
-	 * of each granting object
-	 * 
-	 * @return List
-	 */
-	public MapToList<String, WeaponProf> getChangeProfList()
-	{
-		MapToList<String, WeaponProf> mtl = new TreeMapToList<String, WeaponProf>(
-				String.CASE_INSENSITIVE_ORDER);
-		
-		for (PObject pObj : getPObjectList())
-		{
-			Map<WeaponProf, String> cp = pObj.getChangeProfList(this);
-			for (Map.Entry<WeaponProf, String> me : cp.entrySet())
-			{
-				mtl.addToListFor(me.getValue(), me.getKey());
-			}
-		}
-		return mtl;
 	}
 
 	public CharacterDomain getCharacterDomainForDomain(final String domainKey)
