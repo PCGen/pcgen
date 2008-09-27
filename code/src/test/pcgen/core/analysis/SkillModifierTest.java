@@ -128,7 +128,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 
 		pc.addAbility(AbilityCategory.FEAT, persuasive, null);
 		assertEquals("Bonus after persuasive",
-			"+3[Skill Focus] +2[Persuasive]", SkillModifier
+			"+2[Persuasive] +3[Skill Focus]", SkillModifier
 				.getModifierExplanation(bluff, pc, false));
 	}
 

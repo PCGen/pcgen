@@ -21,9 +21,11 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
@@ -157,7 +159,7 @@ public final class SkillModifier
 			boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
-		StringBuffer bonusDetails = new StringBuffer();
+		Set<String> explanation = new TreeSet<String>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SKILL." + keyName).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())
@@ -194,18 +196,16 @@ public final class SkillModifier
 					}
 					if (!CoreUtility.doublesEqual(iBonus, 0.0))
 					{
-						if (bonusDetails.length() > 0)
-						{
-							bonusDetails.append(' ');
-						}
-						bonusDetails.append(Delta.toString((int) iBonus));
-						bonusDetails.append(bonus.getBonusContext(shortForm));
+						explanation.add(Delta.toString((int) iBonus) + bonus.getBonusContext(shortForm));
 						bonusObjTotal += iBonus;
 					}
 				}
 			}
 		}
 
+		StringBuilder bonusDetails = new StringBuilder();
+		bonusDetails.append(StringUtil.joinToStringBuffer(explanation, " "));
+		
 		// TODO: Need to add other bonuses which are not encoded as bonus
 		// objects
 		// - familiars, racial, feats - and add them to bonusObjTotal
@@ -295,13 +295,13 @@ public final class SkillModifier
 	 * value is not 0.
 	 * 
 	 * @param bonusDetails
-	 *            The StringBuffer being built up. NB: May be modified.
+	 *            The StringBuilder being built up. NB: May be modified.
 	 * @param bonus
 	 *            The value of the bonus.
 	 * @param description
 	 *            The description of the bonus.
 	 */
-	public static void appendBonusDesc(Skill sk, StringBuffer bonusDetails,
+	public static void appendBonusDesc(Skill sk, StringBuilder bonusDetails,
 			double bonus, String description)
 	{
 		if (CoreUtility.doublesEqual(bonus, 0.0))
