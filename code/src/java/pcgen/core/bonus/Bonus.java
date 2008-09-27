@@ -28,6 +28,7 @@ package pcgen.core.bonus;
 import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj.StackType;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstUtils;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
@@ -318,6 +319,7 @@ public class Bonus
 
 			aTok = new StringTokenizer(bonusInfo, ",");
 
+			LstUtils.deprecationCheck(aBonus, bonusName, bonusString);
 			while (aTok.hasMoreTokens())
 			{
 				final String token = aTok.nextToken();

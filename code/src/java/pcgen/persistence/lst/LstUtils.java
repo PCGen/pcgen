@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import java.net.URI;
 
 import pcgen.core.PObject;
+import pcgen.core.bonus.BonusObj;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -74,6 +75,26 @@ public class LstUtils
 		{
 			deprecationWarning(token.getTokenName(), name, source, value,
 				((DeprecatedToken) token).getMessage(null, value));
+		}
+	}
+
+	/**
+	 * Checks to see if a bonus Token is deprecated
+	 * @param token The token to be checked.
+	 * @param name The tag name that was used
+	 * @param value The value of the tag
+	 */
+	public static void deprecationCheck(BonusObj token, String name,
+		String value)
+	{
+		if (token instanceof DeprecatedToken)
+		{
+			final String msg =
+					PropertyFactory.getFormattedString(
+						"Warnings.Bonus.Deprecated", //$NON-NLS-1$
+						name, value, ((DeprecatedToken) token).getMessage(null,
+							value));
+			deprecationWarning(msg);
 		}
 	}
 

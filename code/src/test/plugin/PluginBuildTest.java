@@ -88,7 +88,7 @@ public class PluginBuildTest extends PCGenTestCase
 		String jarPrefix = "^[a-zA-Z]*-DEPRECATED-";
 		String sourceSuffix = "Lst";
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
-		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins")};
+		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"), new File("plugins/bonusplugins")};
 		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<String>();
@@ -97,6 +97,7 @@ public class PluginBuildTest extends PCGenTestCase
 		srcList.remove("PreDefaultMonsterWriter.java");
 		sources = (String[]) srcList.toArray(sources);
 		String [][] exceptions = new String[][] {
+			{ "MoveBonus", "Move" }
 		};
 		checkPluginJarsByRegex(jarPrefix, jarFolder, sourceSuffix, sources, exceptions);
 	}
