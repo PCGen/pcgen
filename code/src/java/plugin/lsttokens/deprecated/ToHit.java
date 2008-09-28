@@ -84,6 +84,6 @@ public final class ToHit extends BonusObj implements DeprecatedToken
 	 */
 	public String getMessage(PObject obj, String value)
 	{
-		return "The bonus will not be applied. You should use BONUS:COMBAT|TOHIT|y instead.";
+		return "You should use BONUS:COMBAT|TOHIT|y instead.";
 	}
 }

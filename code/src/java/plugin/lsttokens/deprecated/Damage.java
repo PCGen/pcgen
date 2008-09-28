@@ -67,6 +67,6 @@ public final class Damage extends BonusObj implements DeprecatedToken
 	 */
 	public String getMessage(PObject obj, String value)
 	{
-		return "The bonus will not be applied. You should use BONUS:COMBAT|DAMAGE.x|y instead.";
+		return "You should use BONUS:COMBAT|DAMAGE.x|y instead.";
 	}
 }
