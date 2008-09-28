@@ -1984,12 +1984,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aPC
 	 * @return A string representing the unarmed damage dice of the object.
 	 */
-	final String getUdamFor(final PlayerCharacter aPC)
+	String getUdamForSize(int iSize)
 	{
 		final StringBuffer aString = new StringBuffer(getElementInList(ListKey.UDAM, 0));
 
-		//Added to handle sizes for damage, Ross M. Lodge
-		int iSize = Globals.sizeInt(aPC.getSize());
 		final StringTokenizer aTok = new StringTokenizer(aString.toString(), ",", false);
 
 		while ((iSize > -1) && aTok.hasMoreTokens())
@@ -2003,8 +2001,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 			iSize -= 1;
 		}
-
-		//End added
 		return aString.toString();
 	}
 

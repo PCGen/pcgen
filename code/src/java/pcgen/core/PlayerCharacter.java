@@ -7092,6 +7092,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 								this, adjustForPCSize));
 		}
 
+		int sizeInt = Globals.sizeInt(getSize());
 		String pObjDamage = null;
 		for (PObject pObj : getPObjectList())
 		{
@@ -7103,8 +7104,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (pObj.containsListFor(ListKey.UDAM))
 			{
 				pObjDamage =
-					PlayerCharacterUtilities.getBestUDamString(retString, pObj
-						.getUdamFor(this));
+					PlayerCharacterUtilities.getBestUDamString(retString, pObj.getUdamForSize(sizeInt));
 			}
 		}
 		if (pObjDamage == null)
