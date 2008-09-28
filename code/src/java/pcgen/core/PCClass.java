@@ -3429,21 +3429,7 @@ public class PCClass extends PObject
 			}
 		}
 
-		final StringBuffer aString = new StringBuffer(aDamage);
-		int b = (int) aPC.getStatBonusTo("DAMAGE", "TYPE.MELEE");
-		b += (int) aPC.getStatBonusTo("DAMAGE", "TYPE=MELEE");
-
-		if (includeStrBonus && (b > 0))
-		{
-			aString.append('+');
-		}
-
-		if (includeStrBonus && (b != 0))
-		{
-			aString.append(String.valueOf(b));
-		}
-
-		return aString.toString();
+		return aDamage;
 	}
 
 	/**
