@@ -7073,14 +7073,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Get the unarmed damage string for this PC as adjusted by the booleans
 	 * passed in.
-	 * 
-	 * @param includeCrit
 	 * @param includeStrBonus
 	 * @param adjustForPCSize
+	 * 
 	 * @return the unarmed damage string
 	 */
-	public String getUnarmedDamageString(final boolean includeCrit,
-		final boolean includeStrBonus, final boolean adjustForPCSize)
+	public String getUnarmedDamageString(final boolean includeStrBonus,
+		final boolean adjustForPCSize)
 	{
 		String retString = "2|1d2";
 
@@ -7089,8 +7088,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			retString =
 					PlayerCharacterUtilities.getBestUDamString(retString,
 						pcClass
-							.getUdamForLevel(pcClass.getLevel(), includeCrit,
-								includeStrBonus, this, adjustForPCSize));
+							.getUdamForLevel(pcClass.getLevel(), includeStrBonus,
+								this, adjustForPCSize));
 		}
 
 		for (PObject pObj : getPObjectList())
@@ -7101,7 +7100,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			retString =
 					PlayerCharacterUtilities.getBestUDamString(retString, pObj
-						.getUdamFor(includeCrit, includeStrBonus, this));
+						.getUdamFor(includeStrBonus, this));
 		}
 
 		// string is in form sides|damage, just return damage portion

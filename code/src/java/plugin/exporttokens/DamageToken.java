@@ -69,6 +69,6 @@ public class DamageToken extends Token
 	 */
 	public static String getUnarmedToken(PlayerCharacter pc)
 	{
-		return pc.getUnarmedDamageString(false, true, true);
+		return pc.getUnarmedDamageString(true, true);
 	}
 }

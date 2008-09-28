@@ -2739,7 +2739,7 @@ public class WeaponToken extends Token
 			 * their race */
 			boolean applySize = (eqSize == iMod);
 			String uDamString =
-					pc.getUnarmedDamageString(false, false, applySize);
+					pc.getUnarmedDamageString(false, applySize);
 
 			StringTokenizer bTok =
 					new StringTokenizer(damString, " d+-", false);

@@ -3333,7 +3333,6 @@ public class PCClass extends PObject
 	 * Get the unarmed Damage for this class at the given level.
 	 * 
 	 * @param aLevel
-	 * @param includeCrit
 	 * @param includeStrBonus
 	 * @param aPC
 	 * @param adjustForPCSize
@@ -3347,9 +3346,8 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY Since this is a level dependent calculation, this should
 	 * be performed by the PCClassLevel.
 	 */
-	String getUdamForLevel(int aLevel, final boolean includeCrit,
-		final boolean includeStrBonus, final PlayerCharacter aPC,
-		boolean adjustForPCSize)
+	String getUdamForLevel(int aLevel, final boolean includeStrBonus,
+		final PlayerCharacter aPC, boolean adjustForPCSize)
 	{
 		//
 		// Check "Unarmed Strike", then default to "1d3"
@@ -3404,8 +3402,8 @@ public class PCClass extends PObject
 
 					if (aClass != null)
 					{
-						return aClass.getUdamForLevel(aLevel, includeCrit,
-							includeStrBonus, aPC, adjustForPCSize);
+						return aClass.getUdamForLevel(aLevel, includeStrBonus,
+							aPC, adjustForPCSize);
 					}
 
 					Logging.errorPrint(keyName + " refers to "
@@ -3443,32 +3441,6 @@ public class PCClass extends PObject
 		if (includeStrBonus && (b != 0))
 		{
 			aString.append(String.valueOf(b));
-		}
-
-		if (includeCrit)
-		{
-			Integer active = null;
-			for (int i = aLevel; i >= 0; i--)
-			{
-				PCClassLevel pcl = levelMap.get(i);
-				if (pcl != null)
-				{
-					active = pcl.get(IntegerKey.UMULT);
-					if (active != null)
-					{
-						break;
-					}
-				}
-			}
-			if (active == null)
-			{
-				//Could be in the class
-				active = get(IntegerKey.UMULT);
-			}
-			if (active != null)
-			{
-				aString.append("(x").append(active).append(')');
-			}
 		}
 
 		return aString.toString();
