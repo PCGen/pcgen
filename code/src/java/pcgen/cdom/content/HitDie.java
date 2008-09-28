@@ -25,7 +25,7 @@ import pcgen.util.Logging;
  * A HitDie is intended to be a type-safe wrapper for an integer hit die.
  * 
  * HitDie also provides other methods to support additional features for
- * establish the sequence of HieDie objects.
+ * establish the sequence of HitDie objects.
  */
 public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 {
