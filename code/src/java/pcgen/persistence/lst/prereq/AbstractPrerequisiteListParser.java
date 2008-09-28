@@ -198,6 +198,8 @@ public abstract class AbstractPrerequisiteListParser extends
 				prereq.setOperand(Integer.toString(numRequired));
 				prereq.setKind(null);
 
+				boolean hasKeyValue = false;
+				boolean hasKeyOnly = false;
 				int min = -99;
 				for (int i = 1; i < elements.length; i++)
 				{
@@ -238,14 +240,17 @@ public abstract class AbstractPrerequisiteListParser extends
 									}
 								}
 							}
+							hasKeyValue = true;
 						}
 						catch (NumberFormatException nfe)
 						{
 							subreq.setKey(elements[i]);
+							hasKeyOnly = true;
 						}
 					}
 					else
 					{
+						hasKeyOnly = true;
 						subreq.setKey(elements[i]);
 						subreq.setOperator(PrerequisiteOperator.GTEQ);
 						subreq.setOperand(Integer.toString(min));
@@ -259,6 +264,13 @@ public abstract class AbstractPrerequisiteListParser extends
 					{
 						element.setOperand("1");
 					}
+				}
+				if (hasKeyOnly && hasKeyValue)
+				{
+					Logging.deprecationPrint("You are using a deprecated syntax of PRE"
+						+ kind + ": " + formula
+						+ " ... Each item in the list should have a target value, e.g.: PRE"
+						+ kind + ":1,First=99,Second=5");
 				}
 
 			}
