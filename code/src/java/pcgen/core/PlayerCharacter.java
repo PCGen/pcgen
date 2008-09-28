@@ -7104,17 +7104,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				pObjDamage =
 					PlayerCharacterUtilities.getBestUDamString(retString, pObj
-						.getUdamFor(includeStrBonus, this));
+						.getUdamFor(this));
 			}
 		}
 		if (pObjDamage == null)
 		{
 			// If no UDAM exists, just grab default damage for the race, Michael Osterlie
+			/*
+			 * CONSIDER is this a BUG that this ignores the BONUS below?
+			 */
 			retString = PlayerCharacterUtilities.getBestUDamString(retString,
 					getRace().getUdam());
 		}
 		else
 		{
+			int b = (int) getStatBonusTo("DAMAGE", "TYPE=MELEE");
+			if (b != 0)
+			{
+				retString = retString + Delta.toString(b);
+			}
 			retString = PlayerCharacterUtilities.getBestUDamString(retString,
 					pObjDamage);
 		}

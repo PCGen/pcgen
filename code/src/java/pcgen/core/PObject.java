@@ -1981,12 +1981,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * comes from the <code>UDAM</code> tag, and can be a simple die string
 	 * as in <code>1d20</code>, or a list of size-modified data like is
 	 * utilised for monk unarmed damage.</p>
-	 * @param includeStrBonus Whether or not to include strength damage bonus
 	 * @param aPC
-	 *
 	 * @return A string representing the unarmed damage dice of the object.
 	 */
-	final String getUdamFor(final boolean includeStrBonus, final PlayerCharacter aPC)
+	final String getUdamFor(final PlayerCharacter aPC)
 	{
 		final StringBuffer aString = new StringBuffer(getElementInList(ListKey.UDAM, 0));
 
@@ -2007,20 +2005,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		//End added
-		if (includeStrBonus)
-		{
-			final int b = (int) aPC.getStatBonusTo("DAMAGE", "TYPE=MELEE");
-			if (b > 0)
-			{
-				aString.append('+');
-			}
-
-			if (b != 0)
-			{
-				aString.append(String.valueOf(b));
-			}
-		}
-
 		return aString.toString();
 	}
 
