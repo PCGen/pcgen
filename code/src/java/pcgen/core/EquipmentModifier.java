@@ -32,7 +32,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -46,7 +49,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;
-import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -59,6 +61,7 @@ import pcgen.util.chooser.ChooserInterface;
 public final class EquipmentModifier extends PObject implements Comparable<Object>
 {
 	private static final String s_CHARGES           = "CHARGES";
+	private static final Formula CHOICE_FORMULA = FormulaFactory.getFormulaFor("%CHOICE");
 
 	/**
 	 * returns all BonusObj's that are "active", for example, ones that pass all
@@ -353,34 +356,20 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getKeyName();
 	}
 
-	@Override
-	public int getSR(final PlayerCharacter aPC)
-	{
-		Logging.errorPrint("Should not call getSR(PlayerCharacter) on EqMod");
-		return 0;
-	}
-
 	public int getSR(Equipment parent, PlayerCharacter aPC)
 	{
-		if (getSRFormula() == null)
+		SpellResistance sr = get(ObjectKey.SR);
+		if (sr == null)
 		{
 			return 0;
 		}
 
-		if ("%CHOICE".equals(getSRFormula()) && parent.hasAssociations(this))
+		if (sr.getReduction().equals(CHOICE_FORMULA)&& parent.hasAssociations(this))
 		{
 			return Delta.parseInt(parent.getFirstAssociation(this));
 		}
 
-		final String srFormula = getSRFormula();
-
-		//if there's a current PC, go ahead and evaluate the formula
-		if (srFormula != null)
-		{
-			return parent.getVariableValue(srFormula, getQualifiedKey(), aPC).intValue();
-		}
-
-		return 0;
+		return sr.getReduction().resolve(parent, true, aPC, getQualifiedKey()).intValue();
 	}
 
 	/**

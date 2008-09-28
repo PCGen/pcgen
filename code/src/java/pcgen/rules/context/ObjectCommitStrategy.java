@@ -39,6 +39,8 @@ public interface ObjectCommitStrategy
 
 	public <T> void put(CDOMObject cdo, ObjectKey<T> sk, T s);
 
+	public void remove(CDOMObject cdo, ObjectKey<?> sk);
+
 	public void put(CDOMObject cdo, IntegerKey ik, Integer i);
 
 	public void put(CDOMObject cdo, FormulaKey fk, Formula f);

@@ -126,12 +126,6 @@ public class PCClass extends PObject
 	private String specialty = null;
 
 	/*
-	 * FINALALLCLASSLEVELS The SR List is level dependent - heck, it's in a
-	 * LevelProperty, so that should be pretty obvious :)
-	 */
-	private List<LevelProperty<String>> SR = null;
-
-	/*
 	 * FINALALLCLASSLEVELS This is pretty obvious, as these are already in a
 	 * LevelProperty... these go into the PCClassLevel
 	 */
@@ -2042,116 +2036,6 @@ public class PCClass extends PObject
 		return true;
 	}
 
-	/**
-	 * should be "5|4/-" where 5 = level, 4/- is the SR value.
-	 * 
-	 * @param srString
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	@Override
-	public void setSR(int aLevel, String srString)
-	{
-		if (SR == null)
-		{
-			SR = new ArrayList<LevelProperty<String>>();
-		}
-		SR.add(LevelProperty.getLevelProperty(aLevel, srString));
-	}
-
-	/*
-	 * FINALPCCLASSONLY Since this is part of LST file import
-	 */
-	public void clearSR()
-	{
-		SR = null;
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY This is required to fetch the SR
-	 * 
-	 * UNWIND the level checking will have to be unwound into the users of this
-	 * class, as these SRs will not pass from one PCClassLevel to another unless
-	 * they are specified...
-	 */
-	@Override
-	public int getSR(PlayerCharacter aPC)
-	{
-		if (aPC == null)
-		{
-			return 0;
-		}
-
-		LevelProperty<String> activeLP = null;
-
-		if (SR != null)
-		{
-			final int lvl = level;
-			for (LevelProperty<String> lp : SR)
-			{
-				if (lp.getLevel() > lvl)
-				{
-					continue;
-				}
-				if (activeLP == null || activeLP.getLevel() < lp.getLevel())
-				{
-					activeLP = lp;
-					continue;
-				}
-			}
-		}
-
-		//if there's a current PC, go ahead and evaluate the formula
-		if (activeLP != null)
-		{
-			return aPC
-				.getVariableValue(activeLP.getObject(), getQualifiedKey())
-				.intValue();
-		}
-
-		return 0;
-
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is for building a PCClass
-	 */
-	public List<LevelProperty<String>> getSRlist()
-	{
-		if (SR == null)
-		{
-			/*
-			 * CONSIDER This is a heavy-weight get... and inconsistent with
-			 * getFeatList, et al. What should be the proper method (should the
-			 * caller be required to gate on null, should these be safe gets,
-			 * should the variables be initialized empty lists??) - thpr
-			 * 11/10/06
-			 */
-			SR = new ArrayList<LevelProperty<String>>();
-		}
-		return SR;
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is for editing classes
-	 */
-	public LevelProperty<String> getSRforLevel(int aLevel)
-	{
-		if (SR != null)
-		{
-			for (LevelProperty<String> lp : SR)
-			{
-				if (lp.getLevel() == aLevel)
-				{
-					return lp;
-				}
-			}
-		}
-		return null;
-	}
-
 	@Override
 	public String getPCCText()
 	{
@@ -2193,15 +2077,6 @@ public class PCClass extends PObject
 			pccTxt.append(lineSep).append(me.getKey()).append('\t');
 			pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext()
 					.unparse(me.getValue()), "\t"));
-		}
-
-		if (SR != null)
-		{
-			for (LevelProperty<String> lp : SR)
-			{
-				pccTxt.append(lineSep).append(lp.getLevel()).append("\tSR:")
-					.append(lp.getObject());
-			}
 		}
 
 		// Output the list of spells associated with the class.
@@ -4946,11 +4821,6 @@ public class PCClass extends PObject
 
 		addAllToListFor(ListKey.DAMAGE_REDUCTION, otherClass
 				.getListFor(ListKey.DAMAGE_REDUCTION));
-
-		if (otherClass.SR != null)
-		{
-			SR = new ArrayList<LevelProperty<String>>(otherClass.SR);
-		}
 
 		for (CDOMReference<Vision> ref : otherClass
 				.getSafeListMods(Vision.VISIONLIST))

@@ -2,6 +2,7 @@ package pcgen.core.analysis;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 
@@ -29,7 +30,9 @@ public class TemplateSR
 	public static int getSR(PCTemplate pct, int level, int hitdice,
 			PlayerCharacter aPC)
 	{
-		int aSR = pct.getSR(aPC);
+		String qualifiedKey = pct.getQualifiedKey();
+		int aSR = pct.getSafe(ObjectKey.SR).getReduction().resolve(aPC,
+				qualifiedKey).intValue();
 
 		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
@@ -37,7 +40,8 @@ public class TemplateSR
 			{
 				if (lt.get(IntegerKey.LEVEL) <= level)
 				{
-					aSR = Math.max(aSR, lt.getSR(aPC));
+					aSR = Math.max(aSR, lt.getSafe(ObjectKey.SR).getReduction()
+							.resolve(aPC, qualifiedKey).intValue());
 				}
 			}
 		}
@@ -46,7 +50,8 @@ public class TemplateSR
 		{
 			if (lt.get(IntegerKey.LEVEL) <= level)
 			{
-				aSR = Math.max(aSR, lt.getSR(aPC));
+				aSR = Math.max(aSR, lt.getSafe(ObjectKey.SR).getReduction()
+						.resolve(aPC, qualifiedKey).intValue());
 			}
 		}
 
@@ -55,7 +60,8 @@ public class TemplateSR
 			if (lt.get(IntegerKey.HD_MAX) <= hitdice
 					&& lt.get(IntegerKey.HD_MIN) >= hitdice)
 			{
-				aSR = Math.max(aSR, lt.getSR(aPC));
+				aSR = Math.max(aSR, lt.getSafe(ObjectKey.SR).getReduction()
+						.resolve(aPC, qualifiedKey).intValue());
 			}
 		}
 

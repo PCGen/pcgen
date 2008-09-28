@@ -55,6 +55,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -620,7 +621,7 @@ public final class EditorMainForm extends JDialog
 		thisPObject.removeListFor(ListKey.DAMAGE_REDUCTION);
 		thisPObject.clearPrerequisiteList();
 		thisPObject.clearAllSABLists();
-		thisPObject.clearSRList();
+		thisPObject.remove(ObjectKey.SR);
 		thisPObject.getSpellSupport().clearSpellList();
 		thisPObject.clearAutoMap();
 
@@ -3134,11 +3135,11 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
-		String srString = thisPObject.getSRFormula();
+		SpellResistance sr = thisPObject.get(ObjectKey.SR);
 
-		if (srString != null)
+		if (sr != null)
 		{
-			selectedList.add("SR:" + srString);
+			selectedList.add("SR:" + sr.getLSTformat());
 		}
 		
 		if (anEditType != EditorConstants.EDIT_DOMAIN)

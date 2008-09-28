@@ -53,8 +53,10 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
@@ -64,7 +66,6 @@ import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.LevelProperty;
 import pcgen.core.PCClass;
 import pcgen.core.PCSpell;
 import pcgen.core.PObject;
@@ -309,12 +310,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-
-		for (LevelProperty<String> lp : obj.getSRlist())
-		{
-			levelTagList.add(new LevelTag(lp.getLevel(), LevelTag.TAG_SR, lp.getObject()));
-		}
-
 		/*
 		   aCol = obj.vFeatList();
 		   if (aCol != null)
@@ -340,17 +335,24 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		for (PCClassLevel pcl : obj.getClassLevelCollection())
 		{
+			Integer cl = pcl.get(IntegerKey.LEVEL);
 			for (Iterator<TransitionChoice<Kit>> it = obj.getSafeListFor(
 					ListKey.KIT_CHOICE).iterator(); it.hasNext();)
 			{
 				TransitionChoice<Kit> s = it.next();
-				LevelTag lt = new LevelTag(pcl.get(IntegerKey.LEVEL),
+				LevelTag lt = new LevelTag(cl,
 						LevelTag.TAG_KIT, s.getCount() + "|"
 								+ s.getChoices().getLSTformat());
 				levelTagList.add(lt);
 			}
+			
+			SpellResistance sr = obj.get(ObjectKey.SR);
+			if (sr != null)
+			{
+				levelTagList.add(new LevelTag(cl, LevelTag.TAG_SR, sr
+						.getLSTformat()));
+			}
 		}
-
 
 		String s = obj.getRegionString();
 

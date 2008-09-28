@@ -735,32 +735,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the SR
-	 * @param newSR
-	 */
-	public void setSR(int aLevel, String newSR)
-	{
-		put(StringKey.SR_FORMULA, newSR);
-	}
-	
-	/**
-	 * Clear the SR
-	 */
-	public void clearSRList()
-	{
-		remove(StringKey.SR_FORMULA);
-	}
-
-	/**
-	 * Get the SR Formula
-	 * @return the SR Formula
-	 */
-	public String getSRFormula()
-	{
-		return get(StringKey.SR_FORMULA);
-	}
-
-	/**
 	 * Set the source file for this object
 	 * @param sourceFile
 	 */
@@ -1631,19 +1605,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return displayName;
 	}
 
-	public int getSR(final PlayerCharacter aPC)
-	{
-		final String srFormula = getSRFormula();
-
-		//if there's a current PC, go ahead and evaluate the formula
-		if ((srFormula != null) && (aPC != null))
-		{
-			return aPC.getVariableValue(srFormula, getQualifiedKey()).intValue();
-		}
-
-		return 0;
-	}
-
 	/**
 	 * Get the PCC text with the saved name
 	 * @return the PCC text with the saved name
@@ -1759,12 +1720,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			{
 				txt.append("\tSPELLS:").append(s.getPCCText());
 			}
-		}
-
-		String SR = get(StringKey.SR_FORMULA);
-		if (!(this instanceof PCClass) && (SR != null) && (SR.length() != 0))
-		{
-			txt.append("\tSR:").append(SR);
 		}
 
 		if (getMyTypeCount() != 0)

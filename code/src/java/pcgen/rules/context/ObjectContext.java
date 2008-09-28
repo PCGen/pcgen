@@ -110,6 +110,11 @@ public class ObjectContext
 		edits.put(cdo, sk, s);
 	}
 
+	public void remove(CDOMObject cdo, ObjectKey<?> sk)
+	{
+		edits.remove(cdo, sk);
+	}
+
 	public void put(CDOMObject cdo, StringKey sk, String s)
 	{
 		edits.put(cdo, sk, s);
@@ -430,6 +435,11 @@ public class ObjectContext
 			getPositive(sourceURI, cdo).put(sk, s);
 		}
 
+		public void remove(CDOMObject cdo, ObjectKey<?> sk)
+		{
+			getPositive(sourceURI, cdo).remove(sk);
+		}
+
 		public void put(CDOMObject cdo, IntegerKey ik, Integer i)
 		{
 			getPositive(sourceURI, cdo).put(ik, i);
@@ -498,6 +508,9 @@ public class ObjectContext
 				}
 				else
 				{
+					/*
+					 * TODO is this correct (order of ops?)?
+					 */
 					return null;
 				}
 			}

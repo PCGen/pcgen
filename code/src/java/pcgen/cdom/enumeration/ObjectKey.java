@@ -39,6 +39,7 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -216,6 +217,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<LevelExchange> EXCHANGE_LEVEL = new ObjectKey<LevelExchange>(null);
 
 	public static final ObjectKey<CDOMSingleRef<PCClass>> EX_CLASS = new ObjectKey<CDOMSingleRef<PCClass>>(null);
+
+	public static final ObjectKey<SpellResistance> SR = new ObjectKey<SpellResistance>(SpellResistance.NONE);
 
 	public static final ObjectKey<SizeAdjustment> BASESIZE;
 

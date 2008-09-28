@@ -97,8 +97,8 @@ public class JEPFormula implements Formula
 	}
 
 	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String string)
+			PlayerCharacter apc, String source)
 	{
-		return equipment.getVariableValue(formula, "", primary, apc);
+		return equipment.getVariableValue(formula, source, primary, apc);
 	}
 }

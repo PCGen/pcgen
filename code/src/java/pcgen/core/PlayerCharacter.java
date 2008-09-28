@@ -8890,39 +8890,40 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int calcSR(final boolean includeEquipment)
 	{
-		int SR = race.getSR(this);
+		int SR = race.getSafe(ObjectKey.SR).getReduction().resolve(this, race.getQualifiedKey()).intValue();
 
 		if (deity != null)
 		{
-			SR = Math.max(SR, deity.getSR(this));
+			SR = Math.max(SR, deity.getSafe(ObjectKey.SR).getReduction().resolve(this, deity.getQualifiedKey()).intValue());
 		}
 
 		for (CompanionMod cMod : companionModList)
 		{
-			SR = Math.max(SR, cMod.getSR(this));
+			SR = Math.max(SR, cMod.getSafe(ObjectKey.SR).getReduction().resolve(this, cMod.getQualifiedKey()).intValue());
 		}
 
 		for (PCClass pcClass : classList)
 		{
-			SR = Math.max(SR, pcClass.getSR(this));
+			SR = Math.max(SR, pcClass.getSafe(ObjectKey.SR).getReduction().resolve(this, pcClass.getQualifiedKey()).intValue());
 		}
 
 		for (Ability aFeat : getFullAbilitySet())
 		{
-			SR = Math.max(SR, aFeat.getSR(this));
+			SR = Math.max(SR, aFeat.getSafe(ObjectKey.SR).getReduction().resolve(this, aFeat.getQualifiedKey()).intValue());
 		}
 
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 		for (Skill skill : skillList)
 		{
-			SR = Math.max(SR, skill.getSR(this));
+			SR = Math.max(SR, skill.getSafe(ObjectKey.SR).getReduction().resolve(this, skill.getQualifiedKey()).intValue());
 		}
 
 		for (CharacterDomain cd : characterDomainList)
 		{
 			if (cd.getDomain() != null)
 			{
-				SR = Math.max(cd.getDomain().getSR(this), SR);
+				Domain r = cd.getDomain();
+				SR = Math.max(r.getSafe(ObjectKey.SR).getReduction().resolve(this, r.getQualifiedKey()).intValue(), SR);
 			}
 		}
 
@@ -8932,7 +8933,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				if (eq.isEquipped())
 				{
-					SR = Math.max(SR, eq.getSR(this));
+					SR = Math.max(SR, eq.getSafe(ObjectKey.SR).getReduction().resolve(this, eq.getQualifiedKey()).intValue());
 
 					for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 					{

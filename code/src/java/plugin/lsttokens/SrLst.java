@@ -4,42 +4,61 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class SrLst implements GlobalLstToken
+public class SrLst implements CDOMPrimaryToken<CDOMObject>
 {
-
-	/*
-	 * FIXME This can only be converted after associations are no longer stored
-	 * in the object, but instead are stored in the PC. This is due to the
-	 * %CHOICE usage in EquipmentModifier not being handled by JEP due to use of %
-	 * [which is the modulo function to JEP]
-	 */
-	/*
-	 * Note: Don't need to wait for Template's LevelToken before this can be converted
-	 * as there is no level support in templates for this token
-	 */
 
 	public String getTokenName()
 	{
 		return "SR";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
 		if (".CLEAR".equals(value))
 		{
-			obj.clearSRList();
+			context.getObjectContext().remove(obj, ObjectKey.SR);
 		}
 		else
 		{
-			obj.setSR(anInt, value);
+			context.getObjectContext().put(obj, ObjectKey.SR,
+					getSpellResistance(value));
 		}
 		return true;
+	}
+
+	private SpellResistance getSpellResistance(String value)
+	{
+		return new SpellResistance(FormulaFactory.getFormulaFor(value));
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		SpellResistance sr = context.getObjectContext().getObject(obj,
+				ObjectKey.SR);
+		/*
+		 * TODO This can't unparse .CLEAR
+		 */
+		if (sr == null)
+		{
+			// Zero indicates no Token (so nothing to do)
+			return null;
+		}
+		return new String[] { sr.getLSTformat() };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

@@ -117,6 +117,11 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 		cdo.put(sk, s);
 	}
 
+	public void remove(CDOMObject cdo, ObjectKey<?> sk)
+	{
+		cdo.remove(sk);
+	}
+
 	public void put(CDOMObject cdo, IntegerKey ik, Integer i)
 	{
 		cdo.put(ik, i);
