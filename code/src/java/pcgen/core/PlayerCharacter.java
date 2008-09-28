@@ -7092,15 +7092,31 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 								this, adjustForPCSize));
 		}
 
+		String pObjDamage = null;
 		for (PObject pObj : getPObjectList())
 		{
 			if (pObj == null || pObj instanceof PCClass)
 			{
 				continue;
 			}
-			retString =
+			// the assumption is that there is only one UDAM: tag for things other than class
+			if (pObj.containsListFor(ListKey.UDAM))
+			{
+				pObjDamage =
 					PlayerCharacterUtilities.getBestUDamString(retString, pObj
 						.getUdamFor(includeStrBonus, this));
+			}
+		}
+		if (pObjDamage == null)
+		{
+			// If no UDAM exists, just grab default damage for the race, Michael Osterlie
+			retString = PlayerCharacterUtilities.getBestUDamString(retString,
+					getRace().getUdam());
+		}
+		else
+		{
+			retString = PlayerCharacterUtilities.getBestUDamString(retString,
+					pObjDamage);
 		}
 
 		// string is in form sides|damage, just return damage portion

@@ -47,7 +47,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -1989,13 +1988,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	final String getUdamFor(final boolean includeStrBonus, final PlayerCharacter aPC)
 	{
-		// the assumption is that there is only one UDAM: tag for things other than class
-		if (!containsListFor(ListKey.UDAM))
-		{
-			// If no UDAM exists, just grab default damage for the race, Michael Osterlie
-			return aPC.getRace().getUdam();
-		}
-
 		final StringBuffer aString = new StringBuffer(getElementInList(ListKey.UDAM, 0));
 
 		//Added to handle sizes for damage, Ross M. Lodge
@@ -2015,16 +2007,18 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		//End added
-		final int b = (int) aPC.getStatBonusTo("DAMAGE", "TYPE=MELEE");
-
-		if (includeStrBonus && (b > 0))
+		if (includeStrBonus)
 		{
-			aString.append('+');
-		}
+			final int b = (int) aPC.getStatBonusTo("DAMAGE", "TYPE=MELEE");
+			if (b > 0)
+			{
+				aString.append('+');
+			}
 
-		if (includeStrBonus && (b != 0))
-		{
-			aString.append(String.valueOf(b));
+			if (b != 0)
+			{
+				aString.append(String.valueOf(b));
+			}
 		}
 
 		return aString.toString();
