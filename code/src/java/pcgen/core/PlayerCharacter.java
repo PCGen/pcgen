@@ -7115,11 +7115,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		retString = PlayerCharacterUtilities.getBestUDamString(retString,
 				pObjDamage);
 
-		int b = (int) getStatBonusTo("DAMAGE", "TYPE.MELEE");
-		b += (int) getStatBonusTo("DAMAGE", "TYPE=MELEE");
-		if (b != 0)
+		if (includeStrBonus)
 		{
-			retString = retString + Delta.toString(b);
+			int b = (int) getStatBonusTo("DAMAGE", "TYPE.MELEE");
+			b += (int) getStatBonusTo("DAMAGE", "TYPE=MELEE");
+			if (b != 0)
+			{
+				retString = retString + Delta.toString(b);
+			}
 		}
 
 		// string is in form sides|damage, just return damage portion
