@@ -3329,15 +3329,6 @@ public class PCClass extends PObject
 		return false;
 	}
 
-	/**
-	 * Get the unarmed Damage for this class at the given level.
-	 * 
-	 * @param aLevel
-	 * @param includeStrBonus
-	 * @param aPC
-	 * @param adjustForPCSize
-	 * @return the unarmed damage string
-	 */
 	/*
 	 * REFACTOR There is redundant information being sent in here (level 
 	 * and PlayerCharacter).
@@ -3346,15 +3337,30 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY Since this is a level dependent calculation, this should
 	 * be performed by the PCClassLevel.
 	 */
-	String getUdamForLevel(int aLevel, final boolean includeStrBonus,
-		final PlayerCharacter aPC, boolean adjustForPCSize)
+	String getUdamForLevel(int aLevel, final PlayerCharacter aPC,
+		boolean adjustForPCSize)
 	{
+		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + keyName);
+		return getUDamForEffLevel(aLevel, aPC, adjustForPCSize);
+	}
+
+	/**
+	 * Get the unarmed Damage for this class at the given level.
+	 * 
+	 * @param aLevel
+	 * @param aPC
+	 * @param adjustForPCSize
+	 * @return the unarmed damage string
+	 */
+	String getUDamForEffLevel(int aLevel, final PlayerCharacter aPC,
+			boolean adjustForPCSize)
+	{
+		int iSize = Globals.sizeInt(aPC.getSize());
+
 		//
 		// Check "Unarmed Strike", then default to "1d3"
 		//
 		String aDamage;
-
-		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + keyName);
 
 		AbstractReferenceContext ref = Globals.getContext().ref;
 		final Equipment eq =
@@ -3371,8 +3377,6 @@ public class PCClass extends PObject
 		}
 
 		// resize the damage as if it were a weapon
-		int iSize = Globals.sizeInt(aPC.getSize());
-
 		if (adjustForPCSize)
 		{
 			aDamage =
@@ -3402,8 +3406,8 @@ public class PCClass extends PObject
 
 					if (aClass != null)
 					{
-						return aClass.getUdamForLevel(aLevel, includeStrBonus,
-							aPC, adjustForPCSize);
+						return aClass.getUdamForLevel(aLevel, aPC,
+							adjustForPCSize);
 					}
 
 					Logging.errorPrint(keyName + " refers to "

@@ -7088,8 +7088,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			retString =
 					PlayerCharacterUtilities.getBestUDamString(retString,
 						pcClass
-							.getUdamForLevel(pcClass.getLevel(), includeStrBonus,
-								this, adjustForPCSize));
+							.getUdamForLevel(pcClass.getLevel(), this,
+								adjustForPCSize));
 		}
 
 		int sizeInt = Globals.sizeInt(getSize());
