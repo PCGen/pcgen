@@ -44,4 +44,11 @@ public final class NamedValue
 		weight += d;
 		// CONSIDER what if less than zero?
 	}
+	
+	@Override
+	public String toString()
+	{
+		return name + ":" + weight;
+	}
+	
 }
