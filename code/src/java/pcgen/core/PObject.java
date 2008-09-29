@@ -37,9 +37,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
@@ -51,6 +49,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.LanguageSupport;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.WeaponProfType;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -68,7 +68,6 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
@@ -106,8 +105,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/** The name to display to the user.  This should be internationalized. */
 	protected String displayName = Constants.EMPTY_STRING;
 
-	/** Map of the bonuses for the object  */
-	private HashMap<String, String> bonusMap = null;
 	/** List of Bonuses for the object */
 	private List<BonusObj> bonusList = new ArrayList<BonusObj>();
 
@@ -385,15 +382,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Get the list of virtual feats for this object
-	 * @return the list of virtual feats for this object
-	 */
-	public List<String> getVirtualFeatList()
-	{
-		return getAbilityKeys(null, AbilityCategory.FEAT, Ability.Nature.VIRTUAL);
-	}
-
-	/**
 	 * Add to the 'save' for the character list
 	 * @param aString
 	 */
@@ -529,11 +517,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			retVal.ownBonuses();
 		}
 
-		if (bonusMap != null)
-		{
-			retVal.bonusMap = new HashMap<String, String>(bonusMap);
-		}
-
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
 			retVal.levelAbilityList = new ArrayList<LevelAbility>();
@@ -619,11 +602,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		final List availableList = new ArrayList();
 		final List selectedList  = new ArrayList();
 		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
-	}
-
-	public List<DamageReduction> getDRList()
-	{
-		return getListFor(ListKey.DAMAGE_REDUCTION);
 	}
 
 	/**
@@ -1011,72 +989,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				addMyType(aType);
 			}
 		}
-	}
-
-	/**
-	 * Parse the output name to get a useable Name token
-	 * @param aString
-	 * @param aPC
-	 * @return the output name to get a useable Name token
-	 */
-	public String parseOutputName(final String aString, final PlayerCharacter aPC)
-	{
-		final int varIndex = aString.indexOf('|');
-
-		if (varIndex <= 0)
-		{
-			return (aString);
-		}
-
-		final StringTokenizer varTokenizer = new StringTokenizer(aString, "|");
-
-		final String preVarStr = varTokenizer.nextToken();
-
-		final ArrayList<Float> varArray = new ArrayList<Float>();
-		final ArrayList<String> tokenList = new ArrayList<String>();
-
-		while (varTokenizer.hasMoreElements())
-		{
-			final String token = varTokenizer.nextToken();
-			tokenList.add(token.toUpperCase());
-			varArray.add(aPC.getVariableValue(token, ""));
-		}
-
-		final StringBuffer result = new StringBuffer();
-		int varCount = 0;
-		int subIndex = preVarStr.indexOf('%');
-		int lastIndex = 0;
-
-		while (subIndex >= 0)
-		{
-			if (subIndex > 0)
-			{
-				result.append(preVarStr.substring(lastIndex, subIndex));
-			}
-
-			final String token = tokenList.get(varCount);
-			final Float val = varArray.get(varCount);
-
-			if (token.endsWith(".INTVAL"))
-			{
-				result.append(String.valueOf(val.intValue()));
-			}
-			else
-			{
-				result.append(val.toString());
-			}
-
-			lastIndex = subIndex + 1;
-			varCount++;
-			subIndex = preVarStr.indexOf('%', lastIndex);
-		}
-
-		if (preVarStr.length() > lastIndex)
-		{
-			result.append(preVarStr.substring(lastIndex));
-		}
-
-		return (result.toString());
 	}
 
 	/**
@@ -1545,7 +1457,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public String piString()
 	{
-		return piString(true);
+		return OutputNameFormatting.piString(this, true);
 	}
 
 	/**
@@ -1555,7 +1467,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public String piSubString()
 	{
-		return piString(false);
+		return OutputNameFormatting.piString(this, false);
 	}
 
 	/**
@@ -2430,42 +2342,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		removeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
 	}
 
-	/**
-	 * Returns the Product Identity string (with or without the header)
-	 * @param useHeader
-	 * @return the Product Identity string (with or without the header)
-	 */
-	private String piString(final boolean useHeader)
-	{
-		String aString = toString();
-
-		if (SettingsHandler.guiUsesOutputNameEquipment())
-		{
-			aString = getOutputName();
-		}
-
-		if (getSafe(ObjectKey.NAME_PI))
-		{
-			final StringBuffer sb = new StringBuffer(aString.length() + 30);
-
-			if (useHeader)
-			{
-				sb.append("<html>");
-			}
-
-			sb.append("<b><i>").append(aString).append("</i></b>");
-
-			if (useHeader)
-			{
-				sb.append("</html>");
-			}
-
-			return sb.toString();
-		}
-
-		return aString;
-	}
-
 	protected void removeMyType(final String myType)
 	{
 		types.remove(myType);
@@ -2478,26 +2354,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public SpellSupport getSpellSupport()
 	{
 		return spellSupport;
-	}
-
-	/**
-	 * Set a string referenced by a key
-	 * @param key
-	 * @param s
-	 */
-	public void setStringFor(StringKey key, String s)
-	{
-		put(key, s);
-	}
-
-	/**
-	 * Get the string given a key
-	 * @param key
-	 * @return string
-	 */
-	public String getStringFor(StringKey key)
-	{
-		return get(key);
 	}
 
 	/**
@@ -2539,7 +2395,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			c.setPoolFlag(false);
 			c.setTitle("Pick a Language: ");
 
-			Set<Language> list = getLanguagesFromString(chooseLanguageAutos);
+			Set<Language> list = LanguageSupport.getLanguagesFromString(chooseLanguageAutos);
 			c.setAvailableList(new ArrayList<Language>(list));
 			c.setVisible(true);
 			selectedList = c.getSelectedList();
@@ -2551,57 +2407,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 	}
 
-	/**
-	 * Returns a list of Language objects from a string of choices.  The method
-	 * will expand "ALL" or "ANY" into all languages and TYPE= into all
-	 * languages of that type
-	 * @param stringList Pipe separated list of language choices
-	 * @return Sorted list of Language objects
-	 */
-	public static SortedSet<Language> getLanguagesFromString(final String stringList)
-	{
-		SortedSet<Language> list = new TreeSet<Language>();
-
-		final StringTokenizer tokens = new StringTokenizer(stringList,	"|", false);
-
-		AbstractReferenceContext ref = Globals.getContext().ref;
-		while (tokens.hasMoreTokens())
-		{
-			final String aLang = tokens.nextToken();
-			if ("ALL".equals(aLang))
-			{
-				list.addAll(ref.getConstructedCDOMObjects(Language.class));
-				return list;
-			}
-			else if (aLang.startsWith("TYPE=") || aLang.startsWith("TYPE."))
-			{
-				list.addAll(Globals.getPObjectsOfType(ref
-						.getConstructedCDOMObjects(Language.class), aLang
-						.substring(5)));
-			}
-			else
-			{
-				Language languageKeyed = ref
-						.silentlyGetConstructedCDOMObject(Language.class, aLang);
-				if (languageKeyed == null)
-				{
-					Logging.debugPrint("Someone expected Language: " + aLang + " to exist: it doesn't");
-				}
-				else
-				{
-					list.add(languageKeyed);
-				}
-			}
-		}
-		return list;
-	}
-
-	/* ************************************************
-	 * End methods for the KeyedListContainer Interface
-	 * ************************************************/
-
 	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>> theAbilities = new DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>>();
-
 	
 	public void addAbility(final AbilityCategory aCategory, final Ability.Nature aNature, final QualifiedObject<String> anAbility)
 	{
@@ -2699,8 +2505,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		return Collections.unmodifiableList(abNature);
 	}
-	
-	
 
 	/**
 	 * Get the list of bonuses for this object
@@ -2737,20 +2541,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public List<BonusObj> getBonusListOfType(AssociationStore as, final String aType, final String aName)
 	{
 		return BonusUtilities.getBonusFromList(getBonusList(as), aType, aName);
-	}
-
-	/**
-	 * Get the map of bonuses for this object
-	 * @return bonusMap
-	 */
-	public HashMap<String, String> getBonusMap()
-	{
-		if (bonusMap == null)
-		{
-			bonusMap = new HashMap<String, String>();
-		}
-
-		return bonusMap;
 	}
 
 	/**
@@ -2998,16 +2788,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Put the key/value pair into the bonus map
-	 * @param aKey
-	 * @param aVal
-	 */
-	public void putBonusMap(final String aKey, final String aVal)
-	{
-		getBonusMap().put(aKey, aVal);
-	}
-
-	/**
 	 * Remove the bonus object from the bonus list
 	 * @param aBonus
 	 */
@@ -3030,136 +2810,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				{
 					bonusList.remove(x);
 				}
-			}
-		}
-	}
-
-	/**
-	 * @param bonus     a Number (such as 2)
-	 * @param bonusType "COMBAT.AC.Dodge" or "COMBAT.AC.Dodge.STACK"
-	 */
-	final void setBonusStackFor(final double bonus, String bonusType)
-	{
-		if (bonusType != null)
-		{
-			bonusType = bonusType.toUpperCase();
-		}
-
-		// Default to non-stacking bonuses
-		int index = -1;
-
-		final StringTokenizer aTok = new StringTokenizer(bonusType, ".");
-
-		// e.g. "COMBAT.AC.DODGE"
-		if ((bonusType != null) && (aTok.countTokens() >= 2))
-		{
-			String aString;
-
-			// we need to get the 3rd token to see
-			// if it should .STACK or .REPLACE
-			aTok.nextToken(); //Discard token
-			aString = aTok.nextToken();
-
-			// if the 3rd token is "BASE" we have something like
-			// CHECKS.BASE.Fortitude
-			if (aString.equals("BASE"))
-			{
-				if (aTok.hasMoreTokens())
-				{
-					// discard next token (Fortitude)
-					aTok.nextToken();
-				}
-
-				if (aTok.hasMoreTokens())
-				{
-					// check for a TYPE
-					aString = aTok.nextToken();
-				}
-				else
-				{
-					// all BASE type bonuses should stack
-					aString = null;
-				}
-			}
-			else
-			{
-				if (aTok.hasMoreTokens())
-				{
-					// Type: .DODGE
-					aString = aTok.nextToken();
-				}
-				else
-				{
-					aString = null;
-				}
-			}
-
-			if (aString != null)
-			{
-				index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(aString); // e.g. Dodge
-			}
-
-			//
-			// un-named (or un-TYPE'd) bonus should stack
-			if (aString == null)
-			{
-				index = 1;
-			}
-			else if (aString.equals("NULL"))
-			{
-				index = 1;
-			}
-		}
-
-		// .STACK means stack
-		// .REPLACE stacks with other .REPLACE bonuses
-		if ((bonusType != null) && (bonusType.endsWith(".STACK") || bonusType.endsWith(".REPLACE")))
-		{
-			index = 1;
-		}
-
-		// If it's a negative bonus, it always needs to be added
-		if (bonus < 0)
-		{
-			index = 1;
-		}
-
-		if (index == -1) // a non-stacking bonus
-		{
-			final String aVal = getBonusMap().get(bonusType);
-
-			if (aVal == null)
-			{
-				putBonusMap(bonusType, String.valueOf(bonus));
-			}
-			else
-			{
-				putBonusMap(bonusType, String.valueOf(Math.max(bonus, Float.parseFloat(aVal))));
-			}
-		}
-		else // a stacking bonus
-		{
-			if (bonusType == null)
-			{
-				bonusType = "";
-			}
-			else if (bonusType.endsWith(".REPLACE.STACK"))
-			{
-				// Check for the special case of:
-				// COMBAT.AC.Armor.REPLACE.STACK
-				// and remove the .STACK
-				bonusType = bonusType.substring(0, bonusType.length() - 6);
-			}
-
-			final String aVal = getBonusMap().get(bonusType);
-
-			if (aVal == null)
-			{
-				putBonusMap(bonusType, String.valueOf(bonus));
-			}
-			else
-			{
-				putBonusMap(bonusType, String.valueOf(bonus + Float.parseFloat(aVal)));
 			}
 		}
 	}
@@ -3417,10 +3067,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (obj instanceof Equipment)
 		{
 			((Equipment) obj).setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
-		}
-		else
-		{
-			setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
 		}
 
 		// The "ALL" subtag is used to build the stacking bonusMap

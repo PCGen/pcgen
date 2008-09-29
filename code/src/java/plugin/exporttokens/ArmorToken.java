@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
@@ -448,7 +449,7 @@ public class ArmorToken extends Token
 				ret.append("*");
 			}
 
-			ret.append(eq.parseOutputName(eq.getOutputName(), aPC));
+			ret.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), aPC));
 			ret.append(eq.getAppliedName());
 		}
 		else if (property.startsWith("OUTPUTNAME"))
@@ -459,7 +460,7 @@ public class ArmorToken extends Token
 				ret.append("*");
 			}
 
-			ret.append(eq.parseOutputName(eq.getOutputName(), aPC));
+			ret.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), aPC));
 			ret.append(eq.getAppliedName());
 		}
 		else if (property.startsWith("TOTALAC"))

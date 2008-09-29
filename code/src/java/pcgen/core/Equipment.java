@@ -2705,6 +2705,10 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			//
+			if (bonusMap != null)
+			{
+				eq.bonusMap = new HashMap<String, String>(bonusMap);
+			}
 			eq.setMoveString(moveString());
 
 			// eq.setTypeString(super.getType());
@@ -2874,7 +2878,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return true if it has virtual feats
 	 */
 	public boolean hasVFeats() {
-		final List<String> vFeats = getVirtualFeatList();
+		final List<String> vFeats = getAbilityKeys(null, AbilityCategory.FEAT, Ability.Nature.VIRTUAL);
 
 		return (vFeats != null) && (vFeats.size() > 0);
 	}
@@ -6166,5 +6170,163 @@ public final class Equipment extends PObject implements Serializable,
 	public String getFirstAssociation(PObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationKey.CHOICES).get(0).get(0);
+	}
+	
+	/** Map of the bonuses for the object  */
+	private HashMap<String, String> bonusMap = null;
+
+
+	/**
+	 * Get the map of bonuses for this object
+	 * @return bonusMap
+	 */
+	public HashMap<String, String> getBonusMap()
+	{
+		if (bonusMap == null)
+		{
+			bonusMap = new HashMap<String, String>();
+		}
+
+		return bonusMap;
+	}
+
+	/**
+	 * Put the key/value pair into the bonus map
+	 * @param aKey
+	 * @param aVal
+	 */
+	public void putBonusMap(final String aKey, final String aVal)
+	{
+		getBonusMap().put(aKey, aVal);
+	}
+
+	/**
+	 * @param bonus     a Number (such as 2)
+	 * @param bonusType "COMBAT.AC.Dodge" or "COMBAT.AC.Dodge.STACK"
+	 */
+	final void setBonusStackFor(final double bonus, String bonusType)
+	{
+		if (bonusType != null)
+		{
+			bonusType = bonusType.toUpperCase();
+		}
+
+		// Default to non-stacking bonuses
+		int index = -1;
+
+		final StringTokenizer aTok = new StringTokenizer(bonusType, ".");
+
+		// e.g. "COMBAT.AC.DODGE"
+		if ((bonusType != null) && (aTok.countTokens() >= 2))
+		{
+			String aString;
+
+			// we need to get the 3rd token to see
+			// if it should .STACK or .REPLACE
+			aTok.nextToken(); //Discard token
+			aString = aTok.nextToken();
+
+			// if the 3rd token is "BASE" we have something like
+			// CHECKS.BASE.Fortitude
+			if (aString.equals("BASE"))
+			{
+				if (aTok.hasMoreTokens())
+				{
+					// discard next token (Fortitude)
+					aTok.nextToken();
+				}
+
+				if (aTok.hasMoreTokens())
+				{
+					// check for a TYPE
+					aString = aTok.nextToken();
+				}
+				else
+				{
+					// all BASE type bonuses should stack
+					aString = null;
+				}
+			}
+			else
+			{
+				if (aTok.hasMoreTokens())
+				{
+					// Type: .DODGE
+					aString = aTok.nextToken();
+				}
+				else
+				{
+					aString = null;
+				}
+			}
+
+			if (aString != null)
+			{
+				index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(aString); // e.g. Dodge
+			}
+
+			//
+			// un-named (or un-TYPE'd) bonus should stack
+			if (aString == null)
+			{
+				index = 1;
+			}
+			else if (aString.equals("NULL"))
+			{
+				index = 1;
+			}
+		}
+
+		// .STACK means stack
+		// .REPLACE stacks with other .REPLACE bonuses
+		if ((bonusType != null) && (bonusType.endsWith(".STACK") || bonusType.endsWith(".REPLACE")))
+		{
+			index = 1;
+		}
+
+		// If it's a negative bonus, it always needs to be added
+		if (bonus < 0)
+		{
+			index = 1;
+		}
+
+		if (index == -1) // a non-stacking bonus
+		{
+			final String aVal = getBonusMap().get(bonusType);
+
+			if (aVal == null)
+			{
+				putBonusMap(bonusType, String.valueOf(bonus));
+			}
+			else
+			{
+				putBonusMap(bonusType, String.valueOf(Math.max(bonus, Float.parseFloat(aVal))));
+			}
+		}
+		else // a stacking bonus
+		{
+			if (bonusType == null)
+			{
+				bonusType = "";
+			}
+			else if (bonusType.endsWith(".REPLACE.STACK"))
+			{
+				// Check for the special case of:
+				// COMBAT.AC.Armor.REPLACE.STACK
+				// and remove the .STACK
+				bonusType = bonusType.substring(0, bonusType.length() - 6);
+			}
+
+			final String aVal = getBonusMap().get(bonusType);
+
+			if (aVal == null)
+			{
+				putBonusMap(bonusType, String.valueOf(bonus));
+			}
+			else
+			{
+				putBonusMap(bonusType, String.valueOf(bonus + Float.parseFloat(aVal)));
+			}
+		}
 	}
 }

@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
@@ -494,7 +495,7 @@ public class EqContainerwToken extends Token
 	 */
 	public static String getNameToken(Equipment eq, PlayerCharacter pc)
 	{
-		return eq.parseOutputName(eq.getOutputName(), pc);
+		return OutputNameFormatting.parseOutputName(eq.getOutputName(), pc);
 	}
 
 	/**

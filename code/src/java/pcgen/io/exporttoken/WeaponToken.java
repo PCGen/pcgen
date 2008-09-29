@@ -42,6 +42,7 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.io.ExportHandler;
@@ -542,7 +543,7 @@ public class WeaponToken extends Token
 		{
 			sb.append("*");
 		}
-		sb.append(eq.parseOutputName(eq.getOutputName(), pc));
+		sb.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), pc));
 		sb.append(eq.getAppliedName());
 
 		return sb.toString();
@@ -561,7 +562,7 @@ public class WeaponToken extends Token
 		{
 			sb.append("*");
 		}
-		sb.append(eq.parseOutputName(eq.getOutputName(), pc));
+		sb.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), pc));
 		sb.append(eq.getAppliedName());
 
 		return sb.toString();

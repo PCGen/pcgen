@@ -67,6 +67,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Categorisable;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -1522,7 +1523,7 @@ public final class EditorMainForm extends JDialog
 					availableRaceVirtualFeatList.add(anAbility.getKeyName());
 				}
 
-				for (Iterator<String> e = ((Race) thisPObject).getVirtualFeatList().iterator(); e.hasNext();)
+				for (Iterator<String> e = ((Race) thisPObject).getAbilityKeys(null, AbilityCategory.FEAT, Ability.Nature.VIRTUAL).iterator(); e.hasNext();)
 				{
 					String featName = e.next();
 

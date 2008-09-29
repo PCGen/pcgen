@@ -440,11 +440,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		final int     aLevel,
 		final String  aString)
 	{
-		if (aString.startsWith("SPECIAL"))
-		{
-			return new LevelAbilitySpecial(aowner, aLevel, aString);
-		}
-		else if (aString.startsWith("FEAT"))
+		if (aString.startsWith("FEAT"))
 		{
 			return new LevelAbilityFeat(aowner, aLevel, aString, false);
 		}
@@ -471,10 +467,6 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		else if (aString.startsWith("EQUIP"))
 		{
 			return new LevelAbilityEquipment(aowner, aLevel, aString);
-		}
-		else if (aString.startsWith("LIST"))
-		{
-			return new LevelAbilityList(aowner, aLevel, aString);
 		}
 		else if (aString.startsWith("LANGUAGE") || aString.startsWith("Language"))
 		{

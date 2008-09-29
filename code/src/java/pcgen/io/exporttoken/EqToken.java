@@ -40,6 +40,7 @@ import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 
@@ -754,7 +755,7 @@ public class EqToken extends Token
 	 */
 	public static String getNameToken(Equipment eq, PlayerCharacter pc)
 	{
-		return eq.parseOutputName(eq.getOutputName(), pc);
+		return OutputNameFormatting.parseOutputName(eq.getOutputName(), pc);
 	}
 
 	/**
