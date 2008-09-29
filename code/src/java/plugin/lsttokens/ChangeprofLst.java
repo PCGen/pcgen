@@ -39,6 +39,7 @@ public class ChangeprofLst extends AbstractToken implements
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "CHANGEPROF";
@@ -147,9 +148,8 @@ public class ChangeprofLst extends AbstractToken implements
 		}
 		HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>> m =
 				new HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>>();
-		for (ChangeProf lw : added)
+		for (ChangeProf cp : added)
 		{
-			ChangeProf cp = (ChangeProf) lw;
 			CDOMReference<WeaponProf> source = cp.getSource();
 			CDOMGroupRef<WeaponProf> result = cp.getResult();
 			m.addToListFor(result, source);
