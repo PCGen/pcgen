@@ -1660,16 +1660,6 @@ final class PCGVer0Parser implements PCGParser
 				aObject = aClass;
 			}
 
-			if (aObject == null)
-			{
-				final String message =
-						"Bad spell info - no class or domain named "
-							+ domainKey;
-				warnings.add(message);
-
-				continue;
-			}
-
 			int sLevel = aSpell.getFirstLevelForKey(aObject.getSpellKey(), aPC);
 
 			if (sLevel == -1)

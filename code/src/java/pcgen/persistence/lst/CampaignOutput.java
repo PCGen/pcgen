@@ -116,7 +116,7 @@ public final class CampaignOutput
 			for (Iterator<String> i = campaign.getOptionsList().iterator(); i.hasNext();)
 			{
 				FileAccess.write(out, "OPTION:"
-					+ campaign.getOptions().getProperty((String) i.next()));
+					+ campaign.getOptions().getProperty(i.next()));
 				FileAccess.newLine(out);
 			}
 
