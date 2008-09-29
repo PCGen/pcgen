@@ -25,31 +25,21 @@
  */
 package pcgen.io;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
-import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.core.SpecialAbility;
+import pcgen.core.*;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.PObjectLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * <code>PCGIOHandler</code><br>
@@ -470,8 +460,14 @@ public final class PCGIOHandler extends IOHandler
 				//
 				for (String skillString : currentPC.getAssociationList(aFeat))
 				{
-					Globals.getContext().unconditionallyProcess(aFeat,
-							"CSKILL", skillString);
+					try
+					{
+						PObjectLoader.parseTag(aFeat, "CSKILL:" + skillString);
+					}
+					catch (PersistenceLayerException e)
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 
