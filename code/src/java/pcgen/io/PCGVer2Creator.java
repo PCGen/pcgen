@@ -37,6 +37,7 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
+import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -1958,21 +1959,17 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(skill.getOutputIndex());
 				buffer.append('|');
 
-				for (String classRanks : skill.getRankList())
+				for (NamedValue sd: skill.getRankList())
 				{
-					int index = classRanks.indexOf(':');
-					final String className = classRanks.substring(0, index);
-					final String ranks = classRanks.substring(index + 1);
-
-					final PCClass pcClass = thePC.getClassKeyed(className);
+					final PCClass pcClass = thePC.getClassKeyed(sd.name);
 
 					buffer.append(TAG_CLASSBOUGHT).append(':');
 					buffer.append('[');
 					buffer.append(TAG_CLASS).append(':');
-					buffer.append(EntityEncoder.encode(className));
+					buffer.append(EntityEncoder.encode(sd.name));
 					buffer.append('|');
 					buffer.append(TAG_RANKS).append(':');
-					buffer.append(ranks);
+					buffer.append(sd.getWeight());
 					buffer.append('|');
 					buffer.append(TAG_COST).append(':');
 					buffer.append(Integer.toString(thePC.getSkillCostForClass(skill, pcClass).getCost()));

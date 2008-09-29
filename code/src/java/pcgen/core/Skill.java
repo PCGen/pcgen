@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
@@ -42,8 +43,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 /**
  * <code>Skill</code>.
@@ -53,7 +52,7 @@ import pcgen.util.chooser.ChooserInterface;
  */
 public final class Skill extends PObject
 {
-	private List<String> rankList = new ArrayList<String>();
+	private List<NamedValue> ranks = new ArrayList<NamedValue>();
 
 	private int outputIndex = 0;
 
@@ -98,15 +97,9 @@ public final class Skill extends PObject
 	{
 		double rank = 0.0;
 
-		for (int i = 0; i < rankList.size(); i++)
+		for (NamedValue sd : ranks)
 		{
-			final String bSkill = rankList.get(i);
-			final int iOffs = bSkill.indexOf(':');
-
-			//
-			// Ignore -1 return code (as -1 + 1 = 0 and that's the start of the string)
-			//
-			rank += Double.parseDouble(bSkill.substring(iOffs + 1));
+			rank += sd.getWeight();
 		}
 
 		return new Float(rank);
@@ -116,9 +109,9 @@ public final class Skill extends PObject
      * Get list of ranks
      * @return rankList
      */
-	public List<String> getRankList()
+	public List<NamedValue> getRankList()
 	{
-		return rankList;
+		return ranks;
 	}
 
     /**
@@ -199,36 +192,22 @@ public final class Skill extends PObject
 		}
 
 		final String aCName = aClass.getKeyName();
-		String bSkill = "";
-		int idx;
-
-		//
-		// Find the skill and class in question
-		//
-		final String aCNameString = aCName + ":";
-
-		for (idx = 0; idx < rankList.size(); idx++)
+		for (Iterator<NamedValue> i = ranks.iterator(); i.hasNext();)
 		{
-			bSkill = rankList.get(idx);
-
-			if (bSkill.startsWith(aCNameString))
+			NamedValue sd = i.next();
+			if (sd.name.equals(aCName))
 			{
+				i.remove();
+				double curRankCost = sd.getWeight();
+				final String aResp = modRanks(-curRankCost, aClass, false, aPC);
+
+				if (aResp.length() != 0)
+				{
+					// error or debug? XXX
+					Logging.debugPrint(aResp);
+				}
 				break;
 			}
-		}
-
-		if (idx >= rankList.size())
-		{
-			return;
-		}
-
-		final double curRankCost = Double.parseDouble(bSkill.substring(aCName.length() + 1));
-		final String aResp = modRanks(-curRankCost, aClass, false, aPC);
-
-		if (aResp.length() != 0)
-		{
-			// error or debug? XXX
-			Logging.debugPrint(aResp);
 		}
 	}
 
@@ -240,7 +219,9 @@ public final class Skill extends PObject
 		try
 		{
 			newSkill = (Skill) super.clone();
-			newSkill.rankList = new ArrayList<String>(rankList);
+			/*
+			 * TODO Deep clone ranks
+			 */
 			newSkill.outputIndex = outputIndex;
 		}
 		catch (CloneNotSupportedException exc)
@@ -331,64 +312,35 @@ public final class Skill extends PObject
 			classKey = aClass.getKeyName();
 		}
 
-		String bSkill = "";
-		int idx;
-
-		//
-		// Find the skill and class in question
-		//
-		final String classKeyString = classKey + ":";
-
-		for (idx = 0; idx < rankList.size(); idx++)
+		double currentRank = 0.0;
+		double noneRank = 0.0;
+		NamedValue active = null;
+		for (Iterator<NamedValue> it = ranks.iterator(); it.hasNext();)
 		{
-			bSkill = rankList.get(idx);
-
-			if (bSkill.startsWith(classKeyString))
+			NamedValue sd = it.next();
+			if (sd.name.equals(classKey))
 			{
+				currentRank = sd.getWeight();
+				active = sd;
 				break;
 			}
+			else if (sd.name.equals("None"))
+			{
+				noneRank = sd.getWeight();
+			}
 		}
-
-		if (idx >= rankList.size())
+		
+		if (currentRank <= 0)
 		{
-			//
-			// If we are trying to lower a rank, and we happen to be using an older
-			// character we've loaded, check to see if there is a value for class "None"
-			// and allow the user to modify this.
-			//
-			if (rankMod < 0.0)
-			{
-				for (idx = 0; idx < rankList.size(); idx++)
-				{
-					bSkill = rankList.get(idx);
-
-					if (bSkill.startsWith("None:"))
-					{
-						break;
-					}
-				}
-			}
-
-			if (idx >= rankList.size())
-			{
-				bSkill = classKey + ":0";
-			}
+			currentRank = noneRank;
 		}
 
-		final int iOffs = bSkill.indexOf(':');
-		final double curRank = Double.parseDouble(bSkill.substring(iOffs + 1));
-
-		if (CoreUtility.doublesEqual(curRank, 0.0) && (rankMod < 0.0))
+		if (CoreUtility.doublesEqual(currentRank, 0.0) && (rankMod < 0.0))
 		{
 			return "No more ranks found for class: " + classKey + ". Try a different one.";
 		}
 
-		if (idx >= rankList.size())
-		{
-			rankList.add(idx, bSkill);
-		}
-
-		rankMod = modRanks2(rankMod, idx, bSkill, aPC);
+		rankMod = modRanks2(rankMod, currentRank, active, classKey, aPC);
 
 		if (!ignorePrereqs)
 		{
@@ -425,23 +377,20 @@ public final class Skill extends PObject
 
 	void replaceClassRank(final String oldClass, final String newClass)
 	{
-		final String oldClassString = oldClass + ":";
-
-		for (int i = 0; i < rankList.size(); i++)
+		for (Iterator<NamedValue> i = ranks.iterator(); i.hasNext();)
 		{
-			final String bSkill = rankList.get(i);
-
-			if (bSkill.startsWith(oldClassString))
+			NamedValue sd = i.next();
+			if (sd.name.equals(oldClass))
 			{
-				rankList.set(i, newClass + bSkill.substring(oldClass.length()));
+				i.remove();
+				ranks.add(new NamedValue(newClass, sd.getWeight()));
+				break;
 			}
 		}
 	}
 
-	private double modRanks2(double g, final int idx, String bSkill, final PlayerCharacter aPC)
+	private double modRanks2(double g, final double curRank, NamedValue active, String classKey, final PlayerCharacter aPC)
 	{
-		final int iOffs = bSkill.indexOf(':');
-		final double curRank = Double.parseDouble(bSkill.substring(iOffs + 1)); // current rank for currently selected class
 		double newRank = curRank + g;
 
 		if (!aPC.isImporting())
@@ -461,8 +410,7 @@ public final class Skill extends PObject
 
 				if (choiceString.startsWith("Language"))
 				{
-					bSkill = bSkill.substring(0, iOffs + 1) + newRank;
-					rankList.set(idx, bSkill);
+					active.addWeight(g);
 
 					if (!SkillLanguage.chooseLanguageForSkill(aPC, this))
 					{
@@ -481,27 +429,6 @@ public final class Skill extends PObject
 
 					g = newRank - curRank;
 				}
-				else
-				{
-					// TODO This code doesn't seem to do anything real.
-					// It passes empty lists as both available and selected.
-					final ChooserInterface c = ChooserFactory.getChooserInstance();
-
-					if (title.length() != 0)
-					{
-						c.setTitle(title);
-					}
-
-					c.setTotalChoicesAvail((int) (g + curRank + rankAdjustment));
-					c.setPoolFlag(false);
-					c.setAvailableList(new ArrayList<String>());
-					c.setSelectedList(aPC.getAssociationList(this));
-					c.setVisible(true);
-
-					final int selectedListSize = c.getSelectedList().size();
-					newRank = selectedListSize - rankAdjustment;
-					g = newRank - getRank().doubleValue(); // change in ranks
-				}
 			}
 		}
 
@@ -510,12 +437,15 @@ public final class Skill extends PObject
 		//
 		if (CoreUtility.doublesEqual(newRank, 0.0))
 		{
-			rankList.remove(idx);
+			ranks.remove(active);
+		}
+		else if (active != null)
+		{
+			active.addWeight(g);
 		}
 		else
 		{
-			bSkill = bSkill.substring(0, iOffs + 1) + newRank;
-			rankList.set(idx, bSkill);
+			ranks.add(new NamedValue(classKey, g));
 		}
 
 		aPC.calcActiveBonuses();

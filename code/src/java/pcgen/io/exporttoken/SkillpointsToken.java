@@ -25,17 +25,18 @@
  */
 package pcgen.io.exporttoken;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.util.NamedValue;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Deal with the Tokens:
@@ -181,16 +182,10 @@ public class SkillpointsToken extends Token
 			if ((aSkill.getRank().doubleValue() > 0)
 				|| (aSkill.getOutputIndex() != 0))
 			{
-				for (String classRanks : aSkill.getRankList())
+				for (NamedValue sd : aSkill.getRankList())
 				{
-					int index = classRanks.indexOf(':');
-					String className = classRanks.substring(0, index);
-					float ranks =
-							Float.valueOf(classRanks.substring(index + 1))
-								.floatValue();
-					PCClass pcClass = pc.getClassKeyed(className);
-
-					usedPoints += (ranks * pc.getSkillCostForClass(aSkill, pcClass).getCost());
+					PCClass pcClass = pc.getClassKeyed(sd.name);
+					usedPoints += (sd.getWeight() * pc.getSkillCostForClass(aSkill, pcClass).getCost());
 				}
 			}
 		}
@@ -217,17 +212,12 @@ public class SkillpointsToken extends Token
 			if ((aSkill.getRank().doubleValue() > 0)
 				|| (aSkill.getOutputIndex() != 0))
 			{
-				for (String classRanks : aSkill.getRankList())
+				for (NamedValue sd : aSkill.getRankList())
 				{
-					int index = classRanks.indexOf(':');
-					String className = classRanks.substring(0, index);
-					float ranks =
-							Float.valueOf(classRanks.substring(index + 1))
-								.floatValue();
-					PCClass pcClass = pc.getClassKeyed(className);
+					PCClass pcClass = pc.getClassKeyed(sd.name);
 					if (targetClass == pcClass)
 					{
-						usedPoints += (ranks * pc.getSkillCostForClass(aSkill, pcClass).getCost());
+						usedPoints += (sd.getWeight() * pc.getSkillCostForClass(aSkill, pcClass).getCost());
 					}
 				}
 			}

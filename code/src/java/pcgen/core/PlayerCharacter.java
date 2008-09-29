@@ -57,6 +57,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -3070,15 +3071,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			for (String bSkill : aSkill.getRankList())
+			for (NamedValue sd : aSkill.getRankList())
 			{
-				final int iOffs = bSkill.indexOf(':');
-				final double curRank =
-						Double.parseDouble(bSkill.substring(iOffs + 1));
-				final PCClass pcClass =
-						getClassKeyed(bSkill.substring(0, iOffs));
+				final PCClass pcClass = getClassKeyed(sd.name);
 				if (pcClass != null)
 				{
+					final double curRank = sd.getWeight();
 					// Only add the cost for skills associated with a class.
 					// Skill ranks from feats etc are free.
 					final int cost = this.getSkillCostForClass(aSkill, pcClass).getCost();
