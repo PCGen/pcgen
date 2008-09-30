@@ -39,6 +39,8 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Ability nature)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Text (Ability name or key)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> TYPE=</p>
+
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Adds an ability, of the given category and nature, to a character.</li>
@@ -60,6 +62,10 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|Empower Spell</code></p>
 		<p class="indent3">Adds the empower spell feat as an Auto feat.</p>
+		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|TYPE=SpecialFu</code></p>
+		<p class="indent3">Adds all feats with SpecialFu Type.</p>
+		<p class="indent2"><code>ABILITY:Special Ability|AUTOMATIC|Monkey Fu Mastery</code></p>
+		<p class="indent3">Adds the Monkey Fu Mastery 'Special Ability' and lists it as Automatic nature (if visible).</p>
 		<p class="indent2"><code>ABILITY:CLASSFEATURE|VIRTUAL|Stunning Fist</code></p>
 		<p class="indent3">Adds the Stunning Fist ability as a virtual class feature.</p>
 		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|.CLEAR</code></p>
