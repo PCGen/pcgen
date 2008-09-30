@@ -67,6 +67,12 @@ public class PlayerCharacterUtilities
 		{
 			return oldString;
 		}
+		if (oldString == null)
+		{
+			StringTokenizer aTok = new StringTokenizer(newString, " dD+-(x)");
+			aTok.nextToken();
+			return Integer.parseInt(aTok.nextToken()) + "|" + newString;
+		}
 
 		StringTokenizer aTok      = new StringTokenizer(oldString, "|");
 		int             sides     = Integer.parseInt(aTok.nextToken());
