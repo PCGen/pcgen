@@ -1221,7 +1221,7 @@ BIO
 			<name>Uncanny Dodge (Dex bonus to AC)</name>
 			<description></description>
 		</ability>
-		<race>+2 racial bonus on saving throws against illusions, +1 racial bonus to attack rolls against kobolds and goblinoids, +4 dodge bonus against giants, Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal</race>
+		<race></race>
 		<class>
 			<class>Barbarian</class>
 			<ability></ability>
@@ -1339,6 +1339,50 @@ BIO
 			<name>Barbarian Fast Movement</name>
 			<description></description>
 			<type>EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+4 dodge bonus against giants</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+1 racial bonus to attack rolls against kobolds and goblinoids</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+2 racial bonus on saving throws against illusions</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -1012,10 +1012,10 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
-			<name>Immunity to sleep spells and similar magical effects</name>
+			<name>Immunity to magic sleep spells and effects</name>
 			<description></description>
 		</ability>
-		<race>Elven Blood, Immunity to sleep spells and similar magical effects, +2 racial saving throw bonus against Enchantment spells or effects</race>
+		<race></race>
 		<class>
 			<class>Bard</class>
 			<ability></ability>
@@ -1133,6 +1133,39 @@ BIO
 			<name>Bardic Music</name>
 			<description></description>
 			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity to magic sleep spells and effects</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+2 racial saving throw bonus against Enchantment spells or effects</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Elven Blood</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

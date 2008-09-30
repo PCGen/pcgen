@@ -1077,7 +1077,7 @@ BIO
 			<name>Orc Blood</name>
 			<description></description>
 		</ability>
-		<race>Orc Blood</race>
+		<race></race>
 		<class>
 			<class>Fighter</class>
 			<ability></ability>
@@ -1234,6 +1234,17 @@ BIO
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Orc Blood</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -1408,7 +1408,7 @@ BIO
 			<name>Turn Undead (Su) 6/day (turn level 2) (turn damage 2d6+1)</name>
 			<description></description>
 		</ability>
-		<race>Immunity to magic sleep spells and effects, +2 racial saving throw bonus against Enchantment spells or effects, An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door</race>
+		<race></race>
 		<class>
 			<class>Cleric</class>
 			<ability></ability>
@@ -1537,6 +1537,39 @@ BIO
 			<name>Basic Turning</name>
 			<description></description>
 			<type>TURNING</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity to magic sleep spells and effects</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+2 racial saving throw bonus against Enchantment spells or effects</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

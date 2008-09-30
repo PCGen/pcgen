@@ -977,14 +977,6 @@ BIO
 	  ====================================-->
 	<special_abilities>
 		<ability>
-			<name>+1 racial attack bonus with a thrown weapon</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>+1 racial bonus on all saving throws</name>
-			<description></description>
-		</ability>
-		<ability>
 			<name>+2 morale bonus on saving throws against fear</name>
 			<description></description>
 		</ability>
@@ -992,7 +984,7 @@ BIO
 			<name>Summon Familiar</name>
 			<description></description>
 		</ability>
-		<race>+1 racial bonus on all saving throws, +2 morale bonus on saving throws against fear, +1 racial attack bonus with a thrown weapon</race>
+		<race></race>
 		<class>
 			<class>Transmuter</class>
 			<ability></ability>
@@ -1048,6 +1040,17 @@ BIO
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+2 morale bonus on saving throws against fear</name>
+			<description></description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
