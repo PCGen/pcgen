@@ -4,21 +4,21 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 ###Block: 1/2 dragon template flight capability
 # Feat Name		Type			Visible	Minimum Size		Special ABility	Clone Movement
-Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SAB:Dragon Wings	MOVECLONE:Walk,Fly,0
+#Dragon Flight	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SAB:Dragon Wings	MOVECLONE:Walk,Fly,0
 
 ###Block: Monster DR
 # Feat Name			Type			Visible	Damage Reduction
-Monster DR ~ 5 plus 1	TYPE:Special	VISIBLE:NO	DR:5/+1
-Monster DR ~ 5 plus 2	TYPE:Special	VISIBLE:NO	DR:5/+2
-Monster DR ~ 10 plus 1	TYPE:Special	VISIBLE:NO	DR:10/+1
-Monster DR ~ 10 plus 3	TYPE:Special	VISIBLE:NO	DR:10/+3
-Monster DR ~ 15 plus 2	TYPE:Special	VISIBLE:NO	DR:15/+2
-Monster DR ~ 20 plus 2	TYPE:Special	VISIBLE:NO	DR:20/+2
-Monster DR ~ 20 plus 3	TYPE:Special	VISIBLE:NO	DR:20/+3
+#Monster DR ~ 5 plus 1	TYPE:Special	VISIBLE:NO	DR:5/+1
+#Monster DR ~ 5 plus 2	TYPE:Special	VISIBLE:NO	DR:5/+2
+#Monster DR ~ 10 plus 1	TYPE:Special	VISIBLE:NO	DR:10/+1
+#Monster DR ~ 10 plus 3	TYPE:Special	VISIBLE:NO	DR:10/+3
+#Monster DR ~ 15 plus 2	TYPE:Special	VISIBLE:NO	DR:15/+2
+#Monster DR ~ 20 plus 2	TYPE:Special	VISIBLE:NO	DR:20/+2
+#Monster DR ~ 20 plus 3	TYPE:Special	VISIBLE:NO	DR:20/+3
 
 ###Block: Wildshape Tempmod Support
 # Feat Name			Type			Visible	Vision
-Wildshape Blindsight	TYPE:Special	VISIBLE:NO	VISION:Blindsight (120')
+#Wildshape Blindsight	TYPE:Special	VISIBLE:NO	VISION:Blindsight (120')
 
 #
 # End
