@@ -7102,7 +7102,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (pObj.containsListFor(ListKey.UDAM))
 			{
 				pObjDamage =
-					PlayerCharacterUtilities.getBestUDamString(retString, pObj.getUdamForSize(sizeInt));
+					PlayerCharacterUtilities.getBestUDamString(pObjDamage, pObj.getUdamForSize(sizeInt));
 			}
 		}
 		if (pObjDamage == null)
