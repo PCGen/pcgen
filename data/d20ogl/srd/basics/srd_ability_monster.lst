@@ -1,5 +1,104 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Mon Sep 29 23:06:47 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+
+
+# Ability Name	Category of Ability		Type						Visible	Special ABility												Define
+Air Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Air Mastery (Ex)
+Attach		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Attach (Ex)
+Blood Drain		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Blood Drain (Ex)
+Burn			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Burn (Ex)|PREVAREQ:BurnDC,0	SAB:Burn (Ex) ~ DC %|BurnDC|PREVARGT:BurnDC,0	DEFINE:BurnDC|0
+Constrict		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Constrict (Ex)
+Disease		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Disease (Ex)
+Drench		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Drench (Ex)
+Earth Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Earth Mastery (Ex)
+Ferocity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ferocity (Ex)
+Improved Grab	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Grab (Ex)
+Ink Cloud		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ink Cloud (Ex)
+Jet			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Jet (Ex)|PREVAREQ:JetRange,0	SAB:Jet %'(Ex)|JetRange|PREVARGT:JetRange,0	DEFINE:JetRange|0
+Keen Scent		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Keen Scent (Ex)
+Poison		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poison (Ex)
+Pounce		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pounce (Ex)
+Push			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Push (Ex)
+Rake			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rake (Ex)
+Rend			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rend (Ex)
+Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Scent (Ex)
+Sprint		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sprint (Ex)
+Stampede		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stampede (Ex)
+Swallow Whole	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Swallow Whole(Ex)
+Trample		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Trample (Ex)
+Trip			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Trip (Ex)
+Vortex		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Vortex (Su)
+Water Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Water Mastery (Ex)
+Whirlwind		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Whirlwind (Su)
+
+
+###Block: Unnamed Racial Traits
+# Ability Name		Output Name									Category of Ability		Type					Visible	Special ABility										Define				Description
+Hide when Submerged	OUTPUTNAME:Bonus to Hide when Submerged				CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+% to Hide when Submerged|HideWhenSubmerged					DEFINE:HideWhenSubmerged|12	DESC:+%1|HideWhenSubmerged
+Slipping Balance		OUTPUTNAME:Bonus to Balance against slipping and falling	CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+% to Balance against slipping and falling|SlippingBalance		DEFINE:SlippingBalance|2	DESC:+%1|SlippingBalance
+Hide in Forest		OUTPUTNAME:Bonus hide in forested or overgrown areas		CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+% hide in forested or overgrown areas|HideInForest			DEFINE:HideInForest|4		DESC:+%1|HideInForest
+Hide in Undergrowth	OUTPUTNAME:Bonus to hide in tall grass or heavy undergrowth	CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+% to hide in tall grass or heavy undergrowth|HideInUndergrowth	DEFINE:HideInUndergrowth|4	DESC:+%1|HideInUndergrowth
+Wilderness Scent		OUTPUTNAME:Bonus Wilderness Lore when using Scent		CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+% Wilderness Lore when using Scent|WildernessLoreBonus			DEFINE:WildernessLoreBonus|4	DESC:+%1|WildernessLoreBonus
+Spot in Darkness		OUTPUTNAME:Bonus Spot in dusk/darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+% Spot in dusk/darkness|SpotInDarkness					DEFINE:SpotInDarkness|8		DESC:+%1|SpotInDarkness
+Spot During Daylight	OUTPUTNAME:Bonus to Spot during daylight				CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+% to Spot during daylight|SpotInDaylight					DEFINE:SpotInDaylight|8		DESC:+%1|SpotInDaylight
+Ride Check			OUTPUTNAME:Ride check to control in battle			CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:Ride check to control in battle
+Cannot End Rage		OUTPUTNAME:Cannot end its rage voluntarily			CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:Cannot end its rage voluntarily
+Hide in Snow		OUTPUTNAME:+12 to hide in snowy areas				CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+12 to hide in snowy areas
+Blindsight Negated	OUTPUTNAME:-4 to Listen and Spot if Blindsight negated	CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:-4 to Listen and Spot if Blindsight negated
+
+###Block: Other Immunities
+# Ability Name					Category of Ability		Type								Visible	Special ABility						Description
+Immunity To All Mind Affecting Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to All Mind Affecting Effects (Ex)
+Immunity To Banishment				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Banishment (Ex)			DESC:You can never be banished
+Immunity To Blindness				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Blindness (Ex)
+Immunity To Charm Effects			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Charm Effects (Ex)			DESC:You are never subject to charm effects
+Immunity To Critical Hits			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Critical Hits (Ex)			DESC:You are never subject to critical hits
+Immunity To Death Effects			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Death Effects (Ex)			DESC:You are never subject to death effects
+Immunity To Disease				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Disease (Ex)				DESC:You never take disease damage
+Immunity To Disintegration			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Disintegration (Ex)			DESC:You can never be disintegrated
+Immunity To Energy Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Energy Drain (Ex)			DESC:You can never be energy drained
+Immunity To Flanking				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Flanking (Ex)				DESC:You can never be flanked
+Immunity To Force					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Force (Ex)
+Immunity To Heat					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Heat (Ex)				DESC:You never take damage from heat
+Immunity To Learned Spell			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Learned Spell (Ex)
+Immunity To Light					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Light (Ex)
+Immunity To Magic					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Magic (Ex)				DESC:You are never subject to magical effects
+Immunity To Mind-Affecting			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Mind-Affecting (Ex)			DESC:You are never subject to mind-affecting effects
+Immunity To Paralysis				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Paralysis (Ex)			DESC:You can never be paralysed
+Immunity To Petrification			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Petrification				DESC:You can never be petrified
+Immunity To Phantasms				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Phantasms (Ex)			DESC:You are never fooled by phantasms
+Immunity To Poison				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Poison (Ex)				DESC:You never take poison damage
+Immunity To Polymorph				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Polymorph (Ex)			DESC:You can never be polymorphed
+Immunity To Psionics				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Psionics (Ex)				DESC:You are never subject to psionics effects
+Immunity To Sleep					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Sleep (Ex)				DESC:You are never subject to sleep effects
+Immunity To Stunning				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Stunning (Ex)				DESC:You can never be stunned
+Immunity To Transformation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Transformation (Ex)			DESC:You can never be transformed
+Immunity To Transmutation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Transmutation (Ex)			DESC:You can never be transmutated
+Not Subject to Critical Hits			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Not subject to critical hits
+
+###Block: Resistances
+# Ability Name			Category of Ability		Visible	Define					Ability
+Resistance To Acid		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Acid,Vulnerability To Acid
+Resistance To Cold		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Cold,Vulnerability To Cold
+Resistance To Fire		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Fire,Vulnerability To Fire
+Resistance To Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Electricity,Vulnerability To Electricity
+Resistance To Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic,Vulnerability To Sonic
+
+###Block: Resistances Output
+# Ability Name				Output Name						Category of Ability		Type								Visible	Special ABility								Description
+Resistance To Acid Output		OUTPUTNAME:Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Acid %|AcidResistanceBonus			DESC:You may ignore %1 points of Acid damage each time you take Acid damage|AcidResistanceBonus
+Resistance To Cold Output		OUTPUTNAME:Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Cold %|ColdResistanceBonus			DESC:You may ignore %1 points of Cold damage each time you take Cold damage|ColdResistanceBonus
+Resistance To Fire Output		OUTPUTNAME:Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Fire %|FireResistanceBonus			DESC:You may ignore %1 points of Fire damage each time you take Fire damage|FireResistanceBonus
+Resistance To Electricity Output	OUTPUTNAME:Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Electricity %|ElectricityResistanceBonus	DESC:You may ignore %1 points of Electricity damage each time you take Electricity damage|ElectricityResistanceBonus
+Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Sonic %|SonicResistanceBonus			DESC:You may ignore %1 points of Sonic damage each time you take Sonic damage|SonicResistanceBonus
+
+###Block: Vulnerabilities
+# Ability Name			Category of Ability		Type								Visible	Special ABility				Description
+Vulnerability To Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Acid		DESC:You take half again as much (+50%) damage as normal from Acid, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Cold		DESC:You take half again as much (+50%) damage as normal from Cold, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Fire		DESC:You take half again as much (+50%) damage as normal from Fire, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Electricity	DESC:You take half again as much (+50%) damage as normal from Electricity, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Sonic		DESC:You take half again as much (+50%) damage as normal from Sonic, regardless of whether a saving throw is allowed, or if the save is a success or failure
 
 ###Block: Ghost Abilities
 # Feat Name			Type			Visible	Special ABility
@@ -13,27 +112,46 @@ Malevolence			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatu
 Telekinesis			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	DESC:DC %1|GhostAbilityDC
 
 
-###Comment: Low priority but start of bring srd closer to rsrd. -AM
+###Block: Racial Abilities - Core races and varients
+# Dwarf
+# Ability Name			Output Name																											Category of Ability		Type						Visible	Special ABility
+Stonecunning																															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Stonecunning
+Dwarf Poison Resistance		OUTPUTNAME:+2 racial bonus on saving throws against poison																			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 racial bonus on saving throws against poison
+Dwarf Spell Resistance		OUTPUTNAME:+2 racial bonus on saving throws against spells and spell-like effects															CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 racial bonus on saving throws against spells and spell-like effects
+Dodge Giant				OUTPUTNAME:+4 dodge bonus against giants																						CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+4 dodge bonus against giants
+Dwarf Attacks			OUTPUTNAME:+1 racial bonus to attack rolls against orcs and goblinoids																	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+1 racial bonus to attack rolls against orcs and goblinoids
+Dwarf Skill				OUTPUTNAME:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items												CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 racial bonus on Appraise checks that are related to stone or metal items
 
-###Block: 1/2 dragon template flight capability
-# Feat Name		Type			Visible	Minimum Size		Special ABility	Clone Movement
-#Dragon Flight	CATEGORY:Special Ability	TYPE:DragonFlight	VISIBLE:NO	PREBASESIZEGTEQ:Large	SAB:Dragon Wings	MOVECLONE:Walk,Fly,0
+# Elf
+Elf Immunity			OUTPUTNAME:Immunity to magic sleep spells and effects																				CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Immunity to magic sleep spells and effects
+Elf Resistance			OUTPUTNAME:+2 racial saving throw bonus against Enchantment spells or effects																CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 racial saving throw bonus against Enchantment spells or effects
+Notice Secret Doors		OUTPUTNAME:An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door
 
-###Block: Monster DR
-# Feat Name			Type			Visible	Damage Reduction
-#Monster DR ~ 5 plus 1	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:5/+1
-#Monster DR ~ 5 plus 2	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:5/+2
-#Monster DR ~ 10 plus 1	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:10/+1
-#Monster DR ~ 10 plus 3	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:10/+3
-#Monster DR ~ 15 plus 2	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:15/+2
-#Monster DR ~ 20 plus 2	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:20/+2
-#Monster DR ~ 20 plus 3	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	DR:20/+3
+# Gnome
+Gnome Perception			OUTPUTNAME:+2 racial bonus on saving throws against illusions																		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 racial bonus on saving throws against illusions
+Gnome Attacks			OUTPUTNAME:+1 racial bonus to attack rolls against kobolds and goblinoids																CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+1 racial bonus to attack rolls against kobolds and goblinoids
+Gnome Speak with Animals	OUTPUTNAME:Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal
+
+# Half-Elf
+Elven Blood																																CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Elven Blood
+
+# Half-Orc
+Orc Blood																																CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Orc Blood
+
+# Halfling
+Halfling Morale			OUTPUTNAME:+2 morale bonus on saving throws against fear																			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:NO	SAB:+2 morale bonus on saving throws against fear
 
 ###Block: Wildshape Tempmod Support
 # Feat Name			Type			Visible	Vision
-#Wildshape Blindsight	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VISION:Blindsight (120')
+# Ability Name		Category of Ability		Type			Visible	Vision
+Wildshape Blindsight	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	VISION:Blindsight (120')
+
+###Block: Creature Type Traits
+# Ability Name		Category of Ability		Type				Visible	Special ABility
+Construct Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage.
+Incorporeal Traits	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:attacks pass through armor	SAB:Always moves silently
+Undead Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ disease	SAB:Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage
 
 #
 # End
 #
-

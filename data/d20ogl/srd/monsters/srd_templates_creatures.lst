@@ -1,19 +1,19 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Sep 27 16:10:42 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Specific Templates used in monster races
 #
 ###Block: Dragons
-# Template Name	Visible	Source Page					Virtual Feat																															Removable?
-Dragon(Black)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=16,MAX=21	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=23,MAX=27	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=28,MAX=33	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=34	REMOVABLE:YES
-Dragon(Blue)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=18,MAX=23	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=24,MAX=29	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=30,MAX=35	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=36	REMOVABLE:YES
-Dragon(Green)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=17,MAX=22	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=23,MAX=28	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=29,MAX=34	VFEAT:Monster DR ~ 20 plus 2|PREHD:MIN=35	REMOVABLE:YES
-Dragon(Red)		VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=19,MAX=24	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=25,MAX=30	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=31,MAX=36	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=37	REMOVABLE:YES
-Dragon(White)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=15,MAX=20	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=21,MAX=26	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=27,MAX=32	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=33	REMOVABLE:YES
-Dragon(Brass)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=16,MAX=21	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=22,MAX=27	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=28,MAX=33	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=34	REMOVABLE:YES
-Dragon(Bronze)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=18,MAX=23	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=24,MAX=29	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=30,MAX=35	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=36	REMOVABLE:YES
-Dragon(Copper)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=17,MAX=22	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=23,MAX=28	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=29,MAX=34	VFEAT:Monster DR ~ 20 plus 2|PREHD:MIN=35	REMOVABLE:YES
-Dragon(Gold)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=20,MAX=25	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=26,MAX=31	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=32,MAX=37	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=38	REMOVABLE:YES
-Dragon(Silver)	VISIBLE:NO	SOURCEPAGE:srdmonstersdragons.rtf	VFEAT:Monster DR ~ 5 plus 1|PREHD:MIN=19,MAX=24	VFEAT:Monster DR ~ 10 plus 1|PREHD:MIN=25,MAX=30	VFEAT:Monster DR ~ 15 plus 2|PREHD:MIN=31,MAX=36	VFEAT:Monster DR ~ 20 plus 3|PREHD:MIN=37	REMOVABLE:YES
+# Template Name	Visible	Damage Reduction																	Source Page					Removable?
+Dragon(Black)	VISIBLE:NO	DR:5/+1|PREHD:MIN=16,MAX=21	DR:10/+1|PREHD:MIN=23,MAX=27	DR:15/+2|PREHD:MIN=28,MAX=33	DR:20/+3|PREHD:MIN=34	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Blue)	VISIBLE:NO	DR:5/+1|PREHD:MIN=18,MAX=23	DR:10/+1|PREHD:MIN=24,MAX=29	DR:15/+2|PREHD:MIN=30,MAX=35	DR:20/+3|PREHD:MIN=36	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Green)	VISIBLE:NO	DR:5/+1|PREHD:MIN=17,MAX=22	DR:10/+1|PREHD:MIN=23,MAX=28	DR:15/+2|PREHD:MIN=29,MAX=34	DR:20/+2|PREHD:MIN=35	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Red)		VISIBLE:NO	DR:5/+1|PREHD:MIN=19,MAX=24	DR:10/+1|PREHD:MIN=25,MAX=30	DR:15/+2|PREHD:MIN=31,MAX=36	DR:20/+3|PREHD:MIN=37	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(White)	VISIBLE:NO	DR:5/+1|PREHD:MIN=15,MAX=20	DR:10/+1|PREHD:MIN=21,MAX=26	DR:15/+2|PREHD:MIN=27,MAX=32	DR:20/+3|PREHD:MIN=33	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Brass)	VISIBLE:NO	DR:5/+1|PREHD:MIN=16,MAX=21	DR:10/+1|PREHD:MIN=22,MAX=27	DR:15/+2|PREHD:MIN=28,MAX=33	DR:20/+3|PREHD:MIN=34	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Bronze)	VISIBLE:NO	DR:5/+1|PREHD:MIN=18,MAX=23	DR:10/+1|PREHD:MIN=24,MAX=29	DR:15/+2|PREHD:MIN=30,MAX=35	DR:20/+3|PREHD:MIN=36	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Copper)	VISIBLE:NO	DR:5/+1|PREHD:MIN=17,MAX=22	DR:10/+1|PREHD:MIN=23,MAX=28	DR:15/+2|PREHD:MIN=29,MAX=34	DR:20/+2|PREHD:MIN=35	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Gold)	VISIBLE:NO	DR:5/+1|PREHD:MIN=20,MAX=25	DR:10/+1|PREHD:MIN=26,MAX=31	DR:15/+2|PREHD:MIN=32,MAX=37	DR:20/+3|PREHD:MIN=38	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
+Dragon(Silver)	VISIBLE:NO	DR:5/+1|PREHD:MIN=19,MAX=24	DR:10/+1|PREHD:MIN=25,MAX=30	DR:15/+2|PREHD:MIN=31,MAX=36	DR:20/+3|PREHD:MIN=37	SOURCEPAGE:srdmonstersdragons.rtf	REMOVABLE:YES
 #
 ###Block: Animated Objects
 # Template Name	Visible		Source Page				Special ABility					Required Race			Prohibited Template							Add to base move			Clone Movement		Removable?
