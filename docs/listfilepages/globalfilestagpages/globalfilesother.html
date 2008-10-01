@@ -912,9 +912,11 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (domain or class spell name)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> PRExxx tag</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent3">This is the character's spell list for this Class.</p>
-	<p class="indent3">The SPELLLEVEL tag takes PRExxx tags. They must be the last thing in the tag and
-		they are PIPE separated.</p>
+	<ul class="indent2">
+		<li>This is the character's spell list.</li>
+		<li>The <code>SPELLLEVEL</code> tag takes PRExxx tags.</li>
+		<li>PRExxx tags must be the last thing in the tag and they are pipe-delimited (|).</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLLEVEL:DOMAIN|Cold=1|Endure Elements|Cold=2|Chill Metal|Cold=3|Sleet Storm|Cold=4|Wall of Ice|Cold=5|Cone of Cold|Cold=6|Freezing Sphere|Cold=7|Control Weather|Cold=8|Finger of Death|Cold=9|Elemental Swarm</code></p>
 	<p class="indent3">This is the character's spell's for this Cold domain.</p>
@@ -928,11 +930,6 @@
 	<p class="indent3">This is the character's spell's for this Domain.</p>
 	<p class="indent2"><code>Trundlefolk Shaman.MOD &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk Shaman.CLEAR &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk Shaman=0|Comprehend Languages,Expeditious Retreat,Grease,Identify,Sleep,Summon Monster I,Unseen Servant</code></p>
 	<p class="indent3">This changes the character's spell's for this first level Trundlefolk Shaman class.</p>
-	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
-	<p class="indent2"><code>SPELLLEVEL:CLASS|x|y,y|x|y,y</code></p>
-	<p class="indent2"><code>SPELLLEVEL:DOMAIN|x|y,y|x|y,y</code></p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class Level Line or SubClassLevel Line.</p>
 	<p></p>
 
 <hr>
