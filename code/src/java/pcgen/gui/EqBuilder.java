@@ -1380,21 +1380,17 @@ final class EqBuilder extends JPanel
 				}
 			}
 
-			final EquipmentModifier existingEqMod = aNewEq.getEqModifierKeyed(eqMod.getKeyName(), true);
+			EquipmentModifier existingEqMod = aNewEq.getEqModifierKeyed(eqMod.getKeyName(), true);
 
-			if (existingEqMod != null)
+			if (existingEqMod == null)
 			{
-				existingEqMod.setSpellInfo(aNewEq, (PObject) castingClass, theSpell, variant, spellType,
-					baseSpellLevel, casterLevel, metamagicFeats, charges);
-			}
-			else
-			{
-				eqMod = eqMod.clone();
-				eqMod.setSpellInfo(aNewEq, (PObject) castingClass, theSpell, variant, spellType, baseSpellLevel,
-					casterLevel, metamagicFeats, charges);
-
+				//Add will implicitly clone if necessary
 				aNewEq.addEqModifier(eqMod, true, aPC);
 			}
+			existingEqMod = aNewEq.getEqModifierKeyed(eqMod.getKeyName(), true);
+			
+			existingEqMod.setSpellInfo(aNewEq, (PObject) castingClass, theSpell, variant, spellType,
+					baseSpellLevel, casterLevel, metamagicFeats, charges);
 
 			updateDisplay(true);
 		}
