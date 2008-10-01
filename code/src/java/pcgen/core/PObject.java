@@ -2678,7 +2678,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param addOnceOnly Should the bonus only be added once irrespective of number of choices 
 	 * @return true if new bonus is not null
 	 */
-	private final boolean addBonusList(final String aString, final boolean addOnceOnly)
+	public final boolean addBonusList(final String aString, final boolean addOnceOnly)
 	{
 		if (bonusList == null)
 		{
@@ -3117,5 +3117,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		List<String> result = servesAsList.get(category); 
 		return result == null ? new ArrayList<String>() : Collections
 			.unmodifiableList(result);
+	}
+
+	public String bonusStringPrefix()
+	{
+		return "";
 	}
 }

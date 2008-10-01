@@ -43,6 +43,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.BonusAddition;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.Logging;
@@ -746,7 +747,7 @@ public class LevelAbilityAbility extends LevelAbility
 				{
 					for ( String bonus : aBonusList )
 					{
-							ab.applyBonus(bonus, choice, aPC, false);
+						BonusAddition.applyBonus(bonus, choice, aPC, ab, false);
 					}
 				}
 			}

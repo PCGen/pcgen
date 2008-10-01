@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.core.Ability.Nature;
+import pcgen.core.analysis.BonusAddition;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
@@ -195,20 +196,20 @@ public class PObjectTest extends AbstractCharacterTestCase
 		aPC.addFeat(pObj, null);
 
 		aPC.addAssociation(pObj, "TestPsion 1");
-		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, false);
+		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
+			aPC, pObj, false);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 		aPC.addAssociation(pObj, "TestPsion 1");
-		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, true);
+		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
+			aPC, pObj, true);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 3 bonus known spells", (2 * 1) + 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 		aPC.addAssociation(pObj, "TestPsion 1");
-		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
-			aPC, false);
+		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
+			aPC, pObj, false);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 7 bonus known spells", (3 * 2) + 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));

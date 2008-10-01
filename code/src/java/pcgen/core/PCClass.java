@@ -3819,13 +3819,6 @@ public class PCClass extends PObject
 		}
 	}
 
-	@Override
-	String makeBonusString(final String bonusString, final String chooseString,
-		final PlayerCharacter aPC)
-	{
-		return "0|" + super.makeBonusString(bonusString, chooseString, aPC);
-	}
-
 	/**
 	 * Added to help deal with lower-level spells prepared in higher-level
 	 * slots. BUG [569517] Works in conjunction with PlayerCharacter method
@@ -5228,4 +5221,10 @@ public class PCClass extends PObject
 		return getKeyName();
 	}
 
+	//Temporary hack
+	@Override
+	public String bonusStringPrefix()
+	{
+		return "0|";
+	}
 }

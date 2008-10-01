@@ -28,6 +28,7 @@ import java.util.List;
 import pcgen.base.lang.StringUtil;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusAddition;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.io.PCGIOHandler;
@@ -92,7 +93,7 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 			{
 				if (bString.startsWith(prefix))
 				{
-					pobject.removeBonus(bString.substring(bString.indexOf('|') + 1), "", aPC);
+					BonusAddition.removeBonus(bString.substring(bString.indexOf('|') + 1), "", aPC, pobject);
 
 					break;
 				}

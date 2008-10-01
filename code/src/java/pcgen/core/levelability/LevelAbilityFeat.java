@@ -25,9 +25,23 @@
  */
 package pcgen.core.levelability;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.*;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Categorisable;
+import pcgen.core.Globals;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusAddition;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
@@ -37,8 +51,6 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Visibility;
-
-import java.util.*;
 
 /**
  * Represents a feat that a character gets when gaining a level (an ADD:FEAT
@@ -327,7 +339,7 @@ class LevelAbilityFeat extends LevelAbility
 					{
 						for ( String bonus : aBonusList )
 						{
-							anAbility.applyBonus(bonus, chosenItem, aPC, false);
+							BonusAddition.applyBonus(bonus, chosenItem, aPC, anAbility, false);
 						}
 					}
 				}

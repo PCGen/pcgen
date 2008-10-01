@@ -30,6 +30,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusAddition;
 import pcgen.util.chooser.ChooserInterface;
 
 /**
@@ -128,7 +129,7 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 		{
 			for ( String bonus : aBonusList )
 			{
-				pobject.removeBonus(bonus, assoc, aPc);
+				BonusAddition.removeBonus(bonus, assoc, aPc, pobject);
 			}
 		}
 		aPc.removeAllAssociations(pobject);
@@ -149,7 +150,7 @@ public class SpellLevelChoiceManager extends AbstractBasicStringChoiceManager
 		for ( String bString : aBonusList )
 		{
 			aPc.addAssociation(pobject, name);
-			pobject.applyBonus(bString, name, aPc, true);
+			BonusAddition.applyBonus(bString, name, aPc, pobject, true);
 		}
 
 	}
