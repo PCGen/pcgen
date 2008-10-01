@@ -554,7 +554,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 						final StringBuffer multiple = new StringBuffer(200);
 						String             aString  = castClass.get(StringKey.ITEMCREATE);
 
-						if (aString.length() != 0)
+						if (aString != null && aString.length() != 0)
 						{
 							final StringTokenizer aTok = new StringTokenizer(
 									aString,
