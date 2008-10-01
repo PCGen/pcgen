@@ -1,35 +1,68 @@
-# CVS $Revision$ $Author$ -- Mon Sep 29 23:06:47 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Sep 30 22:52:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 
-# Ability Name	Category of Ability		Type						Visible	Special ABility												Define
-Air Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Air Mastery (Ex)
-Attach		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Attach (Ex)
-Blood Drain		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Blood Drain (Ex)
-Burn			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Burn (Ex)|PREVAREQ:BurnDC,0	SAB:Burn (Ex) ~ DC %|BurnDC|PREVARGT:BurnDC,0	DEFINE:BurnDC|0
-Constrict		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Constrict (Ex)
-Disease		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Disease (Ex)
-Drench		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Drench (Ex)
-Earth Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Earth Mastery (Ex)
-Ferocity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ferocity (Ex)
-Improved Grab	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Grab (Ex)
-Ink Cloud		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ink Cloud (Ex)
-Jet			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Jet (Ex)|PREVAREQ:JetRange,0	SAB:Jet %'(Ex)|JetRange|PREVARGT:JetRange,0	DEFINE:JetRange|0
-Keen Scent		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Keen Scent (Ex)
-Poison		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poison (Ex)
-Pounce		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pounce (Ex)
-Push			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Push (Ex)
-Rake			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rake (Ex)
-Rend			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rend (Ex)
-Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Scent (Ex)
-Sprint		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sprint (Ex)
-Stampede		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stampede (Ex)
-Swallow Whole	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Swallow Whole(Ex)
-Trample		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Trample (Ex)
-Trip			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Trip (Ex)
-Vortex		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Vortex (Su)
-Water Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Water Mastery (Ex)
-Whirlwind		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Whirlwind (Su)
+# Ability Name		Category of Ability		Type						Visible	Special ABility																Define
+Air Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Air Mastery (Ex)
+Attach			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Attach (Ex)
+Blood Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Blood Drain (Ex)
+Burn				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Burn (Ex)|PREVAREQ:BurnDC,0	SAB:Burn (Ex) ~ DC %|BurnDC|PREVARGT:BurnDC,0					DEFINE:BurnDC|0
+Charm Reptiles		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Charm Reptiles (Sp) 3/day|CharmReptilesTimes										DEFINE:CharmReptilesTimes|3
+Cloudwalking		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cloudwalking (Su)
+Constrict			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Constrict (Ex)
+Corrupt Water		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Corrupt Water (Sp) DC %|CorruptWaterDC											DEFINE:CorruptWaterDC|10+(HD/2)+CHA
+Create/Destroy Water	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Create/Destroy Water (Sp) %/day|CreateDestroyWaterTimes									DEFINE:CreateDestroyWaterTimes|3
+Darkness			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Darkness (Sp) %' %/day|DarknessRange|DarknessTimes									DEFINE:DarknessRange|DragonAge*10	DEFINE:DarknessTimes|3
+Detect Gems			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Detect Gems (Sp) %/day|DetectGemsTimes											DEFINE:DetectGemsTimes|3
+Disease			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Disease (Ex)
+Drench			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Drench (Ex)
+Earth Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Earth Mastery (Ex)
+Endure Elements		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Endure Elements (Sp) %' radius %/day|EndureElementsRange|EndureElementsTimes					DEFINE:EndureElementsRange|DragonAge*10	DEFINE:EndureElementsTimes|3
+Ferocity			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ferocity (Ex)
+Fog Cloud			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Fog Cloud (Sp) %/day|FogCloudTimes												DEFINE:FogCloudTimes|3
+Freezing Fog		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Freezing Fog (Sp) %/day|FreezingFogTimes											DEFINE:FreezingFogTimes|3
+Frightful Presence	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Frightful Presence (Ex) % ft DC %|FrightfulPresRange|FrightfulPresDC						DEFINE:FrightfulPresRange|DragonAge*30	DEFINE:FrightfulPresDC|10+(HD/2)+CHA
+Improved Grab		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Grab (Ex)
+Ink Cloud			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ink Cloud (Ex)
+Jet				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Jet (Ex)|PREVAREQ:JetRange,0	SAB:Jet %'(Ex)|JetRange|PREVARGT:JetRange,0					DEFINE:JetRange|0
+Keen Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Keen Scent (Ex)
+Luck Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Luck Bonus 1d3 + % hours given|3*DragonAge	SAB:Luck Bonus(Sp) 1/day %' radius around self|DragonAge*10
+Poison			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poison (Ex)
+Polymorph Self		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Polymorph Self (Sp) %/day|PolymorphSelfTimes										DEFINE:PolymorphSelfTimes|3
+Pounce			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pounce (Ex)
+Push				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Push (Ex)
+Rake				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rake (Ex)
+Rend				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rend (Ex)
+Scent				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Scent (Ex)
+Sound Imitation		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sound Imitation (Ex)
+Sprint			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sprint (Ex)
+Stampede			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stampede (Ex)
+Swallow Whole		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Swallow Whole(Ex)
+Trample			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Trample (Ex)
+Trip				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Trip (Ex)
+Vortex			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Vortex (Su)
+Water Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Water Mastery (Ex)
+Whirlwind			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Whirlwind (Su)
+
+Water Breathing		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Water Breathing(Ex)
+Spider Climb		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Spider Climb(Ex)
+Ice Walking			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ice Walking(Ex)
+
+
+
+###Block: Breath Weapons
+# Ability Name					Category of Ability		Type						Visible	Special ABility																							Define
+Breath Weapon ~ Cone of Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Cold %d% Cold DC %|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|DragonAge	DEFINE:BreathWeaponDamageDie|6
+Breath Weapon ~ Cone of Corrosive Gas	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Corrosive Gas %d% Acid DC %|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|(SIZE-1)*10	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6
+Breath Weapon ~ Cone of Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Fire %d% Fire DC %|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|(SIZE-1)*10	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|10
+Breath Weapon ~ Cone of Paralyzing Gas	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Paralyzing Gas (Fort save or Paralyzed 1d6 + % rounds) DC %|BreathWeaponRange|BreathWeaponDuration|BreathWeaponDC	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|(SIZE-1)*10	DEFINE:BreathWeaponDuration|DragonAge
+Breath Weapon ~ Cone of Repulsion Gas	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Repulsion Gas DC %|BreathWeaponRange|BreathWeaponDC											DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|(SIZE-1)*10
+Breath Weapon ~ Cone of Sleep			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Sleep DC %|BreathWeaponRange|BreathWeaponDC												DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|max((SIZE-1)*10,15)
+Breath Weapon ~ Cone of Slow			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Slow DC %|BreathWeaponRange|BreathWeaponDC													DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|max((SIZE-1)*10,15)
+Breath Weapon ~ Cone of Weakening Gas	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Cone of Weakening Gas (Fort save or -% temporary STR) DC %|BreathWeaponRange|BreathWeaponDamage|BreathWeaponDC			DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|(SIZE-1)*10	DEFINE:BreathWeaponDamage|DragonAge
+Breath Weapon ~ Line of Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Line of Acid %d% Acid DC %|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|2*DragonAge	DEFINE:BreathWeaponDamageDie|4
+Breath Weapon ~ Line of Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Line of Fire %d% Fire DC %|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|DragonAge	DEFINE:BreathWeaponDamageDie|6
+Breath Weapon ~ Line of Lightning		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon(Su) % ft Line of Lightning %d% Electricity DC %|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|(SIZE-1)*20	DEFINE:BreathWeaponDice|2*DragonAge	DEFINE:BreathWeaponDamageDie|6
 
 
 ###Block: Unnamed Racial Traits
@@ -45,6 +78,18 @@ Ride Check			OUTPUTNAME:Ride check to control in battle			CATEGORY:Special Abili
 Cannot End Rage		OUTPUTNAME:Cannot end its rage voluntarily			CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:Cannot end its rage voluntarily
 Hide in Snow		OUTPUTNAME:+12 to hide in snowy areas				CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:+12 to hide in snowy areas
 Blindsight Negated	OUTPUTNAME:-4 to Listen and Spot if Blindsight negated	CATEGORY:Special Ability	TYPE:SpecialQuality.Trait	VISIBLE:NO	SAB:-4 to Listen and Spot if Blindsight negated
+
+###Block: Standard Immunities
+# Ability Name		Category of Ability		Type								Visible	Special ABility				Description
+Immunity To Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Acid (Ex)		DESC:You never take Acid damage
+Immunity To Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Cold (Ex)		DESC:You never take Cold damage
+Immunity To Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Fire (Ex)		DESC:You never take Fire damage
+Immunity To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Electricity (Ex)	DESC:You never take Electricity damage
+Immunity To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Sonic (Ex)		DESC:You never take Sonic damage
+
+# Unspecified Immunities
+Immunities			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunities (Ex)
+Immunities ~ Su		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Immunity		VISIBLE:NO	SAB:Immunities (Su)
 
 ###Block: Other Immunities
 # Ability Name					Category of Ability		Type								Visible	Special ABility						Description

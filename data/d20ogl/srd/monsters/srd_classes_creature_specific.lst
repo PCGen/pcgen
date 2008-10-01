@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jun 19 21:54:04 2008 -- reformated by prettylst.pl v1.38 (build 6748)
+# CVS $Revision$ $Author$ -- Tue Sep 30 21:07:00 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 #
@@ -26,13 +26,16 @@ CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNON
 1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 1										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+###Block: Spontaneous casting
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 ###Block: Progression
-1	SAB:Spontaneous casting					ADD:SPELLCASTER|1|Cleric
-2					BONUS:PCLEVEL|Cleric|1
-3					BONUS:PCLEVEL|Cleric|1
-4					BONUS:PCLEVEL|Cleric|1
-5					BONUS:PCLEVEL|Cleric|1
-6					BONUS:PCLEVEL|Cleric|1
+1					ADD:SPELLCASTER|1|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Drider Sorcerer	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:srdmonstersd.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -126,12 +129,12 @@ CLASS:Lillend	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:srdmonstersl.rtf	LEVELSP
 CLASS:Lillend	PRERACE:1,Lillend	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Lillend	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	SAB:Bardic music %/day|BardicMusic					BONUS:VAR|BardicMusic|0	BONUS:VAR|BardicMusic|CL	DEFINE:BardicMusic|0	ADD:SPELLCASTER|1|Bard
-2							BONUS:PCLEVEL|Bard|1
-3							BONUS:PCLEVEL|Bard|1
-4							BONUS:PCLEVEL|Bard|1
-5							BONUS:PCLEVEL|Bard|1
-6							BONUS:PCLEVEL|Bard|1
+1					BONUS:VAR|BardicMusicTimes|CL	ADD:SPELLCASTER|1|Bard	ABILITY:Special Ability|AUTOMATIC|Bardic Music
+2	BONUS:PCLEVEL|Bard|1
+3	BONUS:PCLEVEL|Bard|1
+4	BONUS:PCLEVEL|Bard|1
+5	BONUS:PCLEVEL|Bard|1
+6	BONUS:PCLEVEL|Bard|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Naga		HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:srdmonstersnop.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
