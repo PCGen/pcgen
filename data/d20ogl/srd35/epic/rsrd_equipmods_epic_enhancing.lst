@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 18:07:43 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Tue Sep 30 18:22:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ##Block: epic costing adjustments
@@ -108,8 +108,21 @@ Unholy Power			KEY:UNHOLY_POWER_RANGED							TYPE:Weapon.Ranged		PLUS:8	VISIBLE:
 
 ###Block: Scrolls
 # Modifier Name					Unique Key			Naming Option	Type				Cost														Visible		Type granted			Source Page					Required Type		Choose
-|Spell Effect (Single Use/Completion)	KEY:SCROLL_ARCANE_EPIC	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Epic	COST:(250*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Epic	SOURCEPAGE:epicMagicItemsOther.rtf	PRETYPE:2,Scroll,Arcane	CHOOSE:EQBUILDER.SPELL|Arcane|10|30
-|Spell Effect (Single Use/Completion)	KEY:SCROLL_DIVINE_EPIC	NAMEOPT:SPELL	TYPE:Scroll.Divine.Epic	COST:(250*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Epic	SOURCEPAGE:epicMagicItemsOther.rtf	PRETYPE:2,Scroll,Divine	CHOOSE:EQBUILDER.SPELL|Divine|10|30
+#|Spell Effect (Single Use/Completion)	KEY:SCROLL_ARCANE_EPIC	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Epic	COST:(250*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Epic	SOURCEPAGE:epicMagicItemsOther.rtf	PRETYPE:2,Scroll,Arcane	CHOOSE:EQBUILDER.SPELL|Arcane|10|30
+#|Spell Effect (Single Use/Completion)	KEY:SCROLL_DIVINE_EPIC	NAMEOPT:SPELL	TYPE:Scroll.Divine.Epic	COST:(250*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Epic	SOURCEPAGE:epicMagicItemsOther.rtf	PRETYPE:2,Scroll,Divine	CHOOSE:EQBUILDER.SPELL|Divine|10|30
+
+###BLOCK: NEW EPIC STUFF - Tom's Fix.
+# Modifier Name					Unique Key			Naming Option	Type				Cost														Visible		Type granted			Source Page					Clear Prereq.	Required Type			Prohibited Type				Choose
+|Spell Effect (Single Use/Completion)	KEY:SCROLL_ARCANE_EPIC	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Epic	COST:(250*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Epic	SOURCEPAGE:epicMagicItemsOther.rtf				PRETYPE:3,Scroll,Arcane,Epic							CHOOSE:EQBUILDER.SPELL|Arcane|10|30
+|Spell Effect (Single Use/Completion)	KEY:SCROLL_DIVINE_EPIC	NAMEOPT:SPELL	TYPE:Scroll.Divine.Epic	COST:(250*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Epic	SOURCEPAGE:epicMagicItemsOther.rtf				PRETYPE:3,Scroll,Divine,Epic							CHOOSE:EQBUILDER.SPELL|Divine|10|30
+
+Epic							KEY:SCROLL_EPIC					TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Epic													PRETYPE:1,Arcane,Divine		!PRETYPE:1,Minor,Medium,Major,Epic
+SCROLL_MINOR.MOD																																												PRE:.CLEAR		PRETYPE:1,Arcane,Divine		!PRETYPE:1,Minor,Medium,Major,Epic
+SCROLL_MEDIUM.MOD																																												PRE:.CLEAR		PRETYPE:1,Arcane,Divine		!PRETYPE:1,Minor,Medium,Major,Epic
+SCROLL_MAJOR.MOD																																												PRE:.CLEAR		PRETYPE:1,Arcane,Divine		!PRETYPE:1,Minor,Medium,Major,Epic
+
+
+
 
 
 ###Block: Modifiers for Basic enhancements
