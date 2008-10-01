@@ -40,6 +40,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 public class PreSkillTest extends AbstractCharacterTestCase
@@ -84,41 +85,25 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		knowledge.setTypeInfo("KNOWLEDGE.INT");
-		knowledge.modRanks(8.0, myClass, true, character);
-		character.addSkill(knowledge);
 		Globals.getContext().ref.importObject(knowledge);
+		Skill ks = character.addSkill(knowledge);
+		SkillRankControl.modRanks(8.0, myClass, true, character, ks);
 
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
 		tumble.setTypeInfo("DEX");
-		tumble.modRanks(8.0, myClass, true, character);
-		character.addSkill(tumble);
 		Globals.getContext().ref.importObject(tumble);
+		Skill ts = character.addSkill(tumble);
+		SkillRankControl.modRanks(8.0, myClass, true, character, ts);
 
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
 		balance.setTypeInfo("DEX");
-		balance.modRanks(4.0, myClass, true, character);
-		character.addSkill(balance);
 		Globals.getContext().ref.importObject(balance);
-		
-		fake = new Skill();
-		fake.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
-		fake.setName("Fake");
-		fake.setTypeInfo("WIS");
-		fake.modRanks(6.0, myClass, true, character);
-		character.addSkill(fake);
-		Globals.getContext().ref.importObject(fake);
-		
-		fake2 = new Skill();
-		fake2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
-		fake2.setName("Fake 2");
-		fake2.setTypeInfo("INT");
-		fake2.modRanks(8.0, myClass, true, character);
-		character.addSkill(fake2);
-		Globals.getContext().ref.importObject(fake2);
+		Skill bs = character.addSkill(balance);
+		SkillRankControl.modRanks(4.0, myClass, true, character, bs);
 		
 		target = new Skill();
 		target.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -131,10 +116,25 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		target2.setName("Target2");
 		target2.setTypeInfo("STR");
 		Globals.getContext().ref.importObject(target2);
-		
+
+		fake = new Skill();
+		fake.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		fake.setName("Fake");
+		fake.setTypeInfo("WIS");
 		fake.putServesAs(target.getDisplayName(), "");		
 		fake.putServesAs(target2.getDisplayName(), "");		
-
+		Globals.getContext().ref.importObject(fake);
+		Skill fs1 = character.addSkill(fake);
+		SkillRankControl.modRanks(6.0, myClass, true, character, fs1);
+		
+		fake2 = new Skill();
+		fake2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
+		fake2.setName("Fake 2");
+		fake2.setTypeInfo("INT");
+		Globals.getContext().ref.importObject(fake2);
+		Skill fs2 = character.addSkill(fake2);
+		SkillRankControl.modRanks(8.0, myClass, true, character, fs2);
+		
 	}
 
 	/* (non-Javadoc)
@@ -361,13 +361,13 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory.parse("PRESKILL:2,Target,Target2=4");
+		Prerequisite prereq = factory.parse("PRESKILL:2,Target=4,Target2=4");
 		assertEquals(true, PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESKILL:1,Target,Target2=5");
+		prereq = factory.parse("PRESKILL:1,Target=5,Target2=5");
 		assertEquals(true, PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESKILL:2,Target,Target2=7");
+		prereq = factory.parse("PRESKILL:2,Target=7,Target2=7");
 		assertEquals(false, PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PRESKILL:2,Target=4,Target2=7");

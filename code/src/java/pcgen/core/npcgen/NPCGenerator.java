@@ -48,6 +48,7 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -228,7 +229,7 @@ public class NPCGenerator
 				// we can add this rank to this skill.
 				double maxRanks = aPC.getMaxRank(skill.getKeyName(), aClass).
 					doubleValue();
-				double pcRanks = pcSkill == null ? 0.0 : pcSkill.getRank().doubleValue();
+				double pcRanks = pcSkill == null ? 0.0 : SkillRankControl.getRank(aPC, pcSkill).doubleValue();
 				if (pcRanks + ranks > maxRanks)
 				{
 					Logging.debugPrint("NPCGenerator: Skill already at max."); //$NON-NLS-1$
@@ -245,7 +246,7 @@ public class NPCGenerator
 								ranksLeft = true;
 								break;
 							}
-							if (chkPcSkill.getRank().doubleValue() < aPC.getMaxRank(chkPcSkill.getKeyName(), aClass).
+							if (SkillRankControl.getRank(aPC, chkPcSkill).doubleValue() < aPC.getMaxRank(chkPcSkill.getKeyName(), aClass).
 									doubleValue())
 							{
 								ranksLeft = true;
@@ -266,7 +267,7 @@ public class NPCGenerator
 			{
 				pcSkill = aPC.addSkill(skill);
 			}
-			pcSkill.modRanks(ranks, aClass, aPC);
+			SkillRankControl.modRanks(ranks, aClass, false, aPC, pcSkill);
 			// Add weight to skills we select to try and encourage us to select
 			// them again.
 			skillList.add(choice, 4/cost);

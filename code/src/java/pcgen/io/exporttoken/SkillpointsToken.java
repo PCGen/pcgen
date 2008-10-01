@@ -31,9 +31,11 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
@@ -179,13 +181,15 @@ public class SkillpointsToken extends Token
 		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if ((aSkill.getRank().doubleValue() > 0)
-				|| (aSkill.getOutputIndex() != 0))
+			List<NamedValue> rankList = pc.getAssocList(aSkill,
+					AssociationKey.SKILL_RANK);
+			if (rankList != null)
 			{
-				for (NamedValue sd : aSkill.getRankList())
+				for (NamedValue sd : rankList)
 				{
 					PCClass pcClass = pc.getClassKeyed(sd.name);
-					usedPoints += (sd.getWeight() * pc.getSkillCostForClass(aSkill, pcClass).getCost());
+					usedPoints += (sd.getWeight() * pc.getSkillCostForClass(
+							aSkill, pcClass).getCost());
 				}
 			}
 		}
@@ -209,10 +213,10 @@ public class SkillpointsToken extends Token
 		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if ((aSkill.getRank().doubleValue() > 0)
+			if ((SkillRankControl.getRank(pc, aSkill).doubleValue() > 0)
 				|| (aSkill.getOutputIndex() != 0))
 			{
-				for (NamedValue sd : aSkill.getRankList())
+				for (NamedValue sd : pc.getAssocList(aSkill, AssociationKey.SKILL_RANK))
 				{
 					PCClass pcClass = pc.getClassKeyed(sd.name);
 					if (targetClass == pcClass)

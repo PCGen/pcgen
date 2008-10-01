@@ -24,6 +24,8 @@ package pcgen.core;
 
 import java.util.Comparator;
 
+import pcgen.core.analysis.SkillRankControl;
+
 /**
  * <code>SkillComparator</code> is a comparator interface for sorting skills.
  *
@@ -38,11 +40,13 @@ public final class SkillComparator implements Comparator<Skill>
 	public static final boolean RESORT_DESCENDING = false;
 	private boolean sortOrder = RESORT_ASCENDING;
 	private int sort = RESORT_NAME;
-
-	public SkillComparator(final int sort, final boolean sortOrder)
+	private final PlayerCharacter pc;
+	
+	public SkillComparator(PlayerCharacter aPC, final int sort, final boolean sortOrder)
 	{
 		this.sort = sort;
 		this.sortOrder = sortOrder;
+		pc = aPC;
 	}
 
 	// Comparator will be specific to Skill objects
@@ -66,11 +70,11 @@ public final class SkillComparator implements Comparator<Skill>
 		{
 			case RESORT_TRAINED:
 
-				if ((s1.getRank().floatValue() > 0.0f) && (s2.getRank().floatValue() <= 0.0f))
+				if ((SkillRankControl.getRank(pc, s1).floatValue() > 0.0f) && (SkillRankControl.getRank(pc, s2).floatValue() <= 0.0f))
 				{
 					return ((sortOrder == RESORT_ASCENDING) ? (-1) : 1);
 				}
-				else if ((s1.getRank().floatValue() <= 0.0f) && (s2.getRank().floatValue() > 0.0f))
+				else if ((SkillRankControl.getRank(pc, s1).floatValue() <= 0.0f) && (SkillRankControl.getRank(pc, s2).floatValue() > 0.0f))
 				{
 					return ((sortOrder == RESORT_ASCENDING) ? 1 : (-1));
 				}

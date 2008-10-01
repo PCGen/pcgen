@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -91,7 +92,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements
 				{
 					final int result =
 							prereq.getOperator().compare(
-								aSkill.getTotalRank(character).intValue(),
+								SkillRankControl.getTotalRank(character, aSkill).intValue(),
 								requiredRanks);
 					if (result == 0)
 					{
@@ -109,7 +110,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements
 			{
 				final int result =
 						prereq.getOperator().compare(
-							aSkill.getTotalRank(character).intValue(),
+							SkillRankControl.getTotalRank(character, aSkill).intValue(),
 							requiredRanks);
 				if (result > 0)
 				{

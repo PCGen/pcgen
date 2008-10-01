@@ -52,6 +52,7 @@ import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -594,21 +595,21 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		guiSkill.setName("GUI");
 		guiSkill.setTypeInfo("INT");
 		guiSkill.put(ObjectKey.VISIBILITY, Visibility.DISPLAY_ONLY);
-		guiSkill.modRanks(1.0, pcClass, true, pc);
+		SkillRankControl.modRanks(1.0, pcClass, true, pc, guiSkill);
 		pc.addSkill(guiSkill);
 
 		outputSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		outputSkill.setName("Output");
 		outputSkill.setTypeInfo("INT");
 		outputSkill.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
-		outputSkill.modRanks(1.0, pcClass, true, pc);
+		SkillRankControl.modRanks(1.0, pcClass, true, pc, outputSkill);
 		pc.addSkill(outputSkill);
 
 		defaultSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		defaultSkill.setName("Default");
 		defaultSkill.setTypeInfo("INT");
 		defaultSkill.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		defaultSkill.modRanks(1.0, pcClass, true, pc);
+		SkillRankControl.modRanks(1.0, pcClass, true, pc, defaultSkill);
 		pc.addSkill(defaultSkill);
 
 		// Test retrieved list

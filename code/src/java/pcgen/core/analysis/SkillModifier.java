@@ -105,8 +105,7 @@ public final class SkillModifier
 		String aString = Globals.getGameModeRankModFormula();
 		if (aString.length() != 0)
 		{
-			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), sk
-					.getTotalRank(aPC).toString());
+			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());
 			bonus += aPC.getVariableValue(aString, "").intValue();
 		}
 
@@ -281,8 +280,7 @@ public final class SkillModifier
 		String aString = Globals.getGameModeRankModFormula();
 		if (aString.length() != 0)
 		{
-			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), sk
-					.getTotalRank(aPC).toString());
+			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());
 			bonus = aPC.getVariableValue(aString, "").intValue();
 			appendBonusDesc(sk, bonusDetails, bonus, "RANKS");
 		}

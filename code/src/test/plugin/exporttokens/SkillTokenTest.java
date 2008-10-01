@@ -44,6 +44,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.exporttoken.SkillToken;
 
 /**
@@ -131,38 +132,37 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		knowledge[0].setTypeInfo("KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intStat);
-		knowledge[0].modRanks(8.0, myClass, true, character);
 		Globals.getContext().ref.importObject(knowledge[0]);
-		character.addSkill(knowledge[0]);
+		Skill ks0 = character.addSkill(knowledge[0]);
+		SkillRankControl.modRanks(8.0, myClass, true, character, ks0);
 
 		knowledge[1] = new Skill();
 		knowledge[1].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		knowledge[1].setTypeInfo("KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intStat);
-		knowledge[1].modRanks(5.0, myClass, true, character);
 		Globals.getContext().ref.importObject(knowledge[1]);
-		character.addSkill(knowledge[1]);
+		Skill ks1 = character.addSkill(knowledge[1]);
+		SkillRankControl.modRanks(5.0, myClass, true, character, ks1);
 
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
 		tumble.setTypeInfo("DEX");
 		tumble.put(ObjectKey.KEY_STAT, dexStat);
-		tumble.modRanks(7.0, myClass, true, character);
 		Globals.getContext().ref.importObject(tumble);
-		character.addSkill(tumble);
+		Skill ts = character.addSkill(tumble);
+		SkillRankControl.modRanks(7.0, myClass, true, character, ts);
 
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
 		balance.setTypeInfo("DEX");
 		balance.put(ObjectKey.KEY_STAT, dexStat);
-		balance.modRanks(4.0, myClass, true, character);
-		balance
-			.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		balance.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		Globals.getContext().ref.importObject(balance);
-		character.addSkill(balance);
+		Skill bs = character.addSkill(balance);
+		SkillRankControl.modRanks(4.0, myClass, true, character, bs);
 
 		character.calcActiveBonuses();
 	}

@@ -90,6 +90,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.RaceStat;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
@@ -2338,16 +2339,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					if (mSkill.getKeyName().equals(fSkill.getKeyName()))
 					{
 						// need higher rank of the two
-						if (mSkill.getRank().intValue() > fSkill.getRank()
+						if (SkillRankControl.getRank(mPC, mSkill).intValue() > SkillRankControl.getRank(this, fSkill)
 							.intValue())
 						{
 							// first zero current
-							fSkill.setZeroRanks(lcf == null ? null : lcf.getPCClass(), this);
+							SkillRankControl.setZeroRanks(lcf == null ? null : lcf.getPCClass(), this, fSkill);
 							// We don't pass in a class here so that the real
 							// skills can be distinguished from the ones from
 							// the master.
-							fSkill.modRanks(mSkill.getRank().doubleValue(),
-								null, true, this);
+							SkillRankControl.modRanks(SkillRankControl.getRank(mPC, mSkill).doubleValue(), null, true, this, fSkill);
 						}
 					}
 
@@ -2368,7 +2368,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// but master does, so add it
 				final Skill newSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey).clone();
 				final double sr =
-						mPC.getSkillKeyed(skillKey).getRank().doubleValue();
+						SkillRankControl.getRank(mPC, mPC.getSkillKeyed(skillKey)).doubleValue();
 
 				if ((newSkill.getChoiceString() != null)
 					&& (newSkill.getChoiceString().length() > 0))
@@ -2378,7 +2378,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				// We don't pass in a class here so that the real skills can be
 				// distinguished from the ones form the master.
-				newSkill.modRanks(sr, null, true, this);
+				SkillRankControl.modRanks(sr, null, true, this, newSkill);
 				getSkillList().add(newSkill);
 			}
 		}
@@ -3071,16 +3071,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			for (NamedValue sd : aSkill.getRankList())
+			List<NamedValue> rankList = getAssocList(aSkill, AssociationKey.SKILL_RANK);
+			if (rankList != null)
 			{
-				final PCClass pcClass = getClassKeyed(sd.name);
-				if (pcClass != null)
+				for (NamedValue sd : rankList)
 				{
-					final double curRank = sd.getWeight();
-					// Only add the cost for skills associated with a class.
-					// Skill ranks from feats etc are free.
-					final int cost = this.getSkillCostForClass(aSkill, pcClass).getCost();
-					returnValue -= (int) (cost * curRank);
+					final PCClass pcClass = getClassKeyed(sd.name);
+					if (pcClass != null)
+					{
+						final double curRank = sd.getWeight();
+						// Only add the cost for skills associated with a class.
+						// Skill ranks from feats etc are free.
+						final int cost = this.getSkillCostForClass(aSkill, pcClass).getCost();
+						returnValue -= (int) (cost * curRank);
+					}
 				}
 			}
 		}
@@ -9749,7 +9753,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				if (skill.getChoiceString().indexOf("Language") >= 0)
 				{
-					i += skill.getTotalRank(this).intValue();
+					i += SkillRankControl.getTotalRank(this, skill).intValue();
 				}
 			}
 		}
@@ -10014,7 +10018,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			//
 			for (Skill skill : getSkillList())
 			{
-				skill.replaceClassRank(aClass.getKeyName(), cl.getKeyName());
+				SkillRankControl.replaceClassRank(this, skill, aClass.getKeyName(), cl.getKeyName());
 			}
 
 			bClass.setSkillPool(aClass.getSkillPool(this));
@@ -10590,7 +10594,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		final List<Skill> localSkillList = getSkillList();
-		final SkillComparator comparator = new SkillComparator(sort, sortOrder);
+		final SkillComparator comparator = new SkillComparator(this, sort, sortOrder);
 		int nextOutputIndex = 1;
 		Collections.sort(localSkillList, comparator);
 
@@ -13614,7 +13618,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private boolean includeSkill(final Skill skill, final int level)
 	{
-		if (level == 2 || skill.getTotalRank(this).floatValue() > 0)
+		if (level == 2 || SkillRankControl.getTotalRank(this, skill).floatValue() > 0)
 		{
 			return true;
 		}

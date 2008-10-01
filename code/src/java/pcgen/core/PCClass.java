@@ -67,6 +67,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -3936,7 +3937,7 @@ public class PCClass extends PObject
 				//
 				for (Skill skill : aPC.getSkillList())
 				{
-					skill.setZeroRanks(this, aPC);
+					SkillRankControl.setZeroRanks(this, aPC, skill);
 				}
 
 				spMod = skillPool();

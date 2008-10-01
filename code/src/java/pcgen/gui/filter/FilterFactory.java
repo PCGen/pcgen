@@ -55,6 +55,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -1797,7 +1798,7 @@ final class RankFilter extends AbstractPObjectFilter
 				aSkill = aPC.getSkillKeyed(aSkill.getKeyName());
 			}
 
-			return aSkill.getTotalRank(aPC).doubleValue() > min;
+			return SkillRankControl.getTotalRank(aPC, aSkill).doubleValue() > min;
 		}
 
 		return true;
@@ -1843,7 +1844,7 @@ final class RankModifierFilter extends AbstractPObjectFilter
 				aSkill = aPC.getSkillKeyed(aSkill.getKeyName());
 			}
 
-			return (aSkill.getTotalRank(aPC).doubleValue() + SkillModifier.modifier(aSkill, aPC).doubleValue()) > min;
+			return (SkillRankControl.getTotalRank(aPC, aSkill).doubleValue() + SkillModifier.modifier(aSkill, aPC).doubleValue()) > min;
 		}
 
 		return true;

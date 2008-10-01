@@ -56,6 +56,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
@@ -1916,8 +1917,7 @@ final class PCGVer0Parser implements PCGParser
 								Constants.s_NONE))
 						{
 							bRank =
-									aSkill.modRanks(fRank.doubleValue(),
-										aClass, true, aPC);
+									SkillRankControl.modRanks(fRank.doubleValue(), aClass, true, aPC, aSkill);
 
 							if (bRank.length() != 0)
 							{
@@ -1934,8 +1934,7 @@ final class PCGVer0Parser implements PCGParser
 					if (pcgVersion < 2)
 					{
 						final String bRank =
-								aSkill.modRanks(aFloat.doubleValue(), null,
-									true, aPC);
+								SkillRankControl.modRanks(aFloat.doubleValue(), null, true, aPC, aSkill);
 
 						if (bRank.length() != 0)
 						{

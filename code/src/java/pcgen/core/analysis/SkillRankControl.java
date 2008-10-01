@@ -1,0 +1,322 @@
+package pcgen.core.analysis;
+
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.NamedValue;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.Skill;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.utils.CoreUtility;
+import pcgen.util.Logging;
+
+public class SkillRankControl
+{
+
+	/**
+	 * returns ranks taken specifically in skill
+	 * 
+	 * @return ranks taken in skill
+	 */
+	public static Float getRank(PlayerCharacter pc, Skill sk)
+	{
+		double rank = 0.0;
+
+		List<NamedValue> rankList = pc.getAssocList(sk, AssociationKey.SKILL_RANK);
+		if (rankList != null)
+		{
+			for (NamedValue sd : rankList)
+			{
+				rank += sd.getWeight();
+			}
+		}
+
+		return new Float(rank);
+	}
+
+	/**
+	 * Returns the total ranks of a skill rank + bonus ranks (racial, class, etc
+	 * bonuses). Note that the total ranks could be higher than the max ranks if
+	 * the ranks come from a familiar's master.
+	 * 
+	 * @param aPC
+	 * @return rank + bonus ranks (racial, class, etc. bonuses)
+	 */
+	public static Float getTotalRank(PlayerCharacter pc, Skill sk)
+	{
+		double baseRanks = getRank(pc, sk).doubleValue();
+		double ranks = baseRanks
+				+ (pc == null ? 0.0 : sk.getSkillRankBonusTo(pc));
+		if (!Globals.checkRule(RuleConstants.SKILLMAX)
+				&& pc.getClassList().size() > 0)
+		{
+			double maxRanks = pc.getMaxRank(sk.getKeyName(),
+					pc.getClassList().get(0)).doubleValue();
+			maxRanks = Math.max(maxRanks, baseRanks);
+			ranks = Math.min(maxRanks, ranks);
+		}
+		return new Float(ranks);
+	}
+
+	/**
+	 * Set the ranks for the specified class to zero
+	 * 
+	 * @param aClass
+	 * @param aPC
+	 */
+	public static void setZeroRanks(PCClass aClass, PlayerCharacter aPC,
+			Skill sk)
+	{
+		if (aClass == null)
+		{
+			return;
+		}
+
+		String aCName = aClass.getKeyName();
+		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationKey.SKILL_RANK);
+		if (rankList == null)
+		{
+			return;
+		}
+		for (NamedValue nv : rankList)
+		{
+			if (nv.name.equals(aCName))
+			{
+				aPC.removeAssoc(sk, AssociationKey.SKILL_RANK, nv);
+				double curRankCost = nv.getWeight();
+				String aResp = modRanks(-curRankCost, aClass, false, aPC, sk);
+
+				if (aResp.length() != 0)
+				{
+					// error or debug? XXX
+					Logging.debugPrint(aResp);
+				}
+				break;
+			}
+		}
+	}
+
+	/**
+	 * Modify the rank
+	 * 
+	 * @param rankMod
+	 * @param aClass
+	 * @param aPC
+	 * @return message
+	 */
+	public static String modRanks(double rankMod, PCClass aClass,
+			PlayerCharacter aPC, Skill sk)
+	{
+		return modRanks(rankMod, aClass, false, aPC, sk);
+	}
+
+	/**
+	 * Modify the rank
+	 * 
+	 * @param rankMod
+	 * @param aClass
+	 * @param ignorePrereqs
+	 * @param aPC
+	 * @return message
+	 */
+	public static String modRanks(double rankMod, PCClass aClass,
+			boolean ignorePrereqs, PlayerCharacter aPC, Skill sk)
+	{
+		int i = 0;
+
+		if (!ignorePrereqs)
+		{
+			if (aClass == null)
+			{
+				return "You must be at least level one before you can purchase skills.";
+			}
+
+			if ((rankMod > 0.0)
+					&& !PrereqHandler.passesAll(sk.getPrerequisiteList(), aPC,
+							sk))
+			{
+				return "You do not meet the prerequisites required to take this skill.";
+			}
+
+			SkillCost sc = aPC.getSkillCostForClass(sk, aClass);
+
+			if (sc.equals(SkillCost.EXCLUSIVE))
+			{
+				return "You cannot purchase this exclusive skill.";
+			}
+
+			if ((rankMod > 0.0) && (aClass.getSkillPool(aPC) < (rankMod * i)))
+			{
+				return "You do not have enough skill points.";
+			}
+
+			double maxRank = aPC.getMaxRank(sk.getKeyName(), aClass)
+					.doubleValue();
+
+			if (!Globals.checkRule(RuleConstants.SKILLMAX) && (rankMod > 0.0))
+			{
+				double ttlRank = getTotalRank(aPC, sk).doubleValue();
+
+				if (ttlRank >= maxRank)
+				{
+					return "Skill rank at maximum (" + maxRank
+							+ ") for your level.";
+				}
+
+				if ((ttlRank + rankMod) > maxRank)
+				{
+					return "Raising skill would make it above maximum ("
+							+ maxRank + ") for your level.";
+				}
+			}
+		}
+
+		if ((getRank(aPC, sk).doubleValue() + rankMod) < 0.0)
+		{
+			return "Cannot lower rank below 0";
+		}
+
+		String classKey = "None";
+
+		if (aClass != null)
+		{
+			classKey = aClass.getKeyName();
+		}
+
+		double currentRank = 0.0;
+		double noneRank = 0.0;
+		NamedValue active = null;
+		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationKey.SKILL_RANK);
+		if (rankList != null)
+		{
+			for (NamedValue nv : rankList)
+			{
+				if (nv.name.equals(classKey))
+				{
+					currentRank = nv.getWeight();
+					active = nv;
+					break;
+				}
+				else if (nv.name.equals("None"))
+				{
+					noneRank = nv.getWeight();
+				}
+			}
+		}
+
+		if (currentRank <= 0)
+		{
+			currentRank = noneRank;
+		}
+
+		if (CoreUtility.doublesEqual(currentRank, 0.0) && (rankMod < 0.0))
+		{
+			return "No more ranks found for class: " + classKey
+					+ ". Try a different one.";
+		}
+
+		rankMod = modRanks2(rankMod, currentRank, active, classKey, aPC, sk);
+
+		if (!ignorePrereqs)
+		{
+			if (aClass != null)
+			{
+				aClass.setSkillPool(aClass.getSkillPool(aPC)
+						- (int) (i * rankMod));
+			}
+
+			aPC.setSkillPoints(aPC.getSkillPoints() - (int) (i * rankMod));
+		}
+
+		return "";
+	}
+
+	public static void replaceClassRank(PlayerCharacter pc, Skill sk,
+			String oldClass, String newClass)
+	{
+		List<NamedValue> rankList = pc.getAssocList(sk, AssociationKey.SKILL_RANK);
+		if (rankList != null)
+		{
+			for (NamedValue nv : rankList)
+			{
+				if (nv.name.equals(oldClass))
+				{
+					pc.removeAssoc(sk, AssociationKey.SKILL_RANK, nv);
+					pc.addAssoc(sk, AssociationKey.SKILL_RANK, new NamedValue(
+							newClass, nv.getWeight()));
+					break;
+				}
+			}
+		}
+	}
+
+	private static double modRanks2(double g, double curRank,
+			NamedValue active, String classKey, PlayerCharacter aPC, Skill sk)
+	{
+		double newRank = curRank + g;
+
+		if (!aPC.isImporting())
+		{
+			String choiceString = sk.getChoiceString();
+			if ((choiceString.length() > 0) && !CoreUtility.doublesEqual(g, 0)
+					&& !CoreUtility.doublesEqual(curRank, (int) newRank))
+			{
+				if (choiceString.startsWith("Language"))
+				{
+					active.addWeight(g);
+
+					if (!SkillLanguage.chooseLanguageForSkill(aPC, sk))
+					{
+						newRank = curRank;
+					}
+					else
+					{
+						int selectedLanguages = aPC
+								.getSelectCorrectedAssociationCount(sk);
+						int maxLanguages = getTotalRank(aPC, sk).intValue();
+
+						if (selectedLanguages > maxLanguages)
+						{
+							newRank = curRank;
+						}
+					}
+
+					g = newRank - curRank;
+				}
+			}
+		}
+
+		//
+		// Modify for the chosen class
+		//
+		if (CoreUtility.doublesEqual(newRank, 0.0))
+		{
+			aPC.removeAssoc(sk, AssociationKey.SKILL_RANK, active);
+		}
+		else if (active != null)
+		{
+			active.addWeight(g);
+		}
+		else
+		{
+			aPC.addAssoc(sk, AssociationKey.SKILL_RANK, new NamedValue(
+					classKey, g));
+		}
+
+		aPC.calcActiveBonuses();
+
+		return g;
+	}
+
+	public static String getRanksExplanation(PlayerCharacter pc, Skill sk)
+	{
+		return StringUtil.join(pc.getAssocList(sk, AssociationKey.SKILL_RANK),
+				", ");
+	}
+
+}

@@ -36,6 +36,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreFeatParser;
@@ -89,8 +90,8 @@ public class PreMultTest extends AbstractCharacterTestCase
 		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		knowledge.setTypeInfo("KNOWLEDGE.INT");
-		knowledge.modRanks(8.0, myClass, true, character);
-		character.addSkill(knowledge);
+		Skill ks = character.addSkill(knowledge);
+		SkillRankControl.modRanks(8.0, myClass, true, character, ks);
 
 	}
 
@@ -252,8 +253,8 @@ public class PreMultTest extends AbstractCharacterTestCase
 		extraKnow.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		extraKnow.setName("KNOWLEDGE (RELIGION)");
 		extraKnow.setTypeInfo("KNOWLEDGE.INT");
-		extraKnow.modRanks(5.0, myClass, true, character);
-		character.addSkill(extraKnow);
+		Skill as = character.addSkill(extraKnow);
+		SkillRankControl.modRanks(5.0, myClass, true, character, as);
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass 2 knowledge skill test with 2 skills", passes);

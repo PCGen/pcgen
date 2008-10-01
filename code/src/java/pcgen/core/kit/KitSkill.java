@@ -26,6 +26,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import pcgen.core.*;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
@@ -268,7 +269,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 	{
 		final Skill skill = pc.addSkill(aSkill);
 
-		final String aString = skill.modRanks(aRank, pcClass, true, pc);
+		final String aString = SkillRankControl.modRanks(aRank, pcClass, true, pc, skill);
 
 		if (aString.length() > 0)
 		{
@@ -372,7 +373,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		double curRank = 0.0;
 		if (pcSkill != null)
 		{
-			curRank = pcSkill.getRank().doubleValue();
+			curRank = SkillRankControl.getRank(pc, pcSkill).doubleValue();
 		}
 		double ranksToAdd = ranksLeftToAdd;
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && (ranksToAdd > 0.0))
@@ -434,12 +435,12 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		}
 		final Skill skill = pc.addSkill(aSkill);
 
-		String ret = skill.modRanks(ranksToAdd, pcClass, pc);
+		String ret = SkillRankControl.modRanks(ranksToAdd, pcClass, false, pc, skill);
 		if (ret.length() > 0)
 		{
 			if (isFree && ret.indexOf("You do not have enough skill points.") != -1)
 			{
-				skill.modRanks(ranksToAdd, pcClass, true, pc);
+				SkillRankControl.modRanks(ranksToAdd, pcClass, true, pc, skill);
 			}
 			else
 			{

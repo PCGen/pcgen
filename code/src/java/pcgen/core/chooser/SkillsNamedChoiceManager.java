@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -110,7 +111,7 @@ public class SkillsNamedChoiceManager extends
 				final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
 
 				if (pcSkill == null
-						|| Double.compare(pcSkill.getRank().doubleValue(), 0.0) == 0)
+						|| Double.compare(SkillRankControl.getRank(aPc, pcSkill).doubleValue(), 0.0) == 0)
 				{
 					availableList.add(skill.getKeyName());
 				}
@@ -124,7 +125,7 @@ public class SkillsNamedChoiceManager extends
 				final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
 
 				if (pcSkill != null
-						&& Double.compare(pcSkill.getRank().doubleValue(),
+						&& Double.compare(SkillRankControl.getRank(aPc, pcSkill).doubleValue(),
 								ranks) >= 0)
 				{
 					availableList.add(skill.getKeyName());

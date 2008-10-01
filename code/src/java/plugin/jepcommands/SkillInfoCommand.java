@@ -5,6 +5,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 
@@ -83,15 +84,15 @@ public class SkillInfoCommand extends PCGenCommand
 				}
 				else if ("rank".equalsIgnoreCase((String) param1))
 				{
-					result = aSkill.getRank().doubleValue(); // aSkill.getRank() returns Float
+					result = SkillRankControl.getRank(pc, aSkill).doubleValue(); // aSkill.getRank() returns Float
 				}
 				else if ("total".equalsIgnoreCase((String) param1))
 				{
-					result = (double) aSkill.getTotalRank(pc).intValue() + SkillModifier.modifier(aSkill, pc);
+					result = (double) SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc);
                 }
 				else if ("totalrank".equalsIgnoreCase((String) param1))
 				{
-					result = aSkill.getTotalRank(pc).doubleValue(); // aSkill.getTotalRank() returns Float
+					result = SkillRankControl.getTotalRank(pc, aSkill).doubleValue(); // aSkill.getTotalRank() returns Float
 				}
 				else
 				{

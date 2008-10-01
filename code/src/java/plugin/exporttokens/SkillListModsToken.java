@@ -4,6 +4,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -46,12 +47,12 @@ public class SkillListModsToken extends Token
 								aSkill.getKeyStatAbb());
 			}
 
-			if ((aSkill.getTotalRank(pc).intValue() > 0) || (modSkill > 0))
+			if ((SkillRankControl.getTotalRank(pc, aSkill).intValue() > 0) || (modSkill > 0))
 			{
 				//final
 				int temp =
 						SkillModifier.modifier(aSkill, pc).intValue()
-							+ aSkill.getTotalRank(pc).intValue();
+							+ SkillRankControl.getTotalRank(pc, aSkill).intValue();
 
 				if (needcomma)
 				{

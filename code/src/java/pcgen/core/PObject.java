@@ -3098,11 +3098,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		list.add(key);
 	}
 
-	public final void clearServesAs()
-	{
-		servesAsList =null;
-	}
-	
 	//TODO This exposes internal structure - be careful.
 	public final Map<String,List<String>> getServesAs()
 	{

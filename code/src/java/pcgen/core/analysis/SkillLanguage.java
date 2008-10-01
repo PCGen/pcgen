@@ -88,7 +88,7 @@ public final class SkillLanguage
 				return false;
 			}
 
-			int numLanguages = languageSkill.getTotalRank(aPC).intValue();
+			int numLanguages = SkillRankControl.getTotalRank(aPC, languageSkill).intValue();
 			List<Language> selected = new ArrayList<Language>();
 			List<Language> available = new ArrayList<Language>();
 			List<Language> excludedLangs = new ArrayList<Language>();

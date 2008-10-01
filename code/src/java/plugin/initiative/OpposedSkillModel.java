@@ -32,6 +32,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
 
 import com.electronicmuse.djep.JEP;
 
@@ -106,7 +107,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				{
 					returnValue =
 							Integer.valueOf(SkillModifier.modifier(skill, pc).intValue()
-								+ skill.getTotalRank(pc).intValue());
+								+ SkillRankControl.getTotalRank(pc, skill).intValue());
 				}
 				else
 				{

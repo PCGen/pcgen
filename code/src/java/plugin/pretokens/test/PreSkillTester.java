@@ -25,7 +25,6 @@
  *
  */package plugin.pretokens.test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -34,6 +33,7 @@ import java.util.Set;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -54,7 +54,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
-		SkillMatcher matcher = this.getSkillMatcher();
 
 		// Compute the skill name from the Prerequisite
 		String requiredSkillKey = prereq.getKey().toUpperCase();
@@ -74,18 +73,16 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		// Now locate all instances of this skillname and test them
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 		
-		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<Skill, HashSet<Skill>>();
+		HashMap<Skill,Set<Skill>> serveAsSkills = new HashMap<Skill, Set<Skill>>();
 		Set<Skill> imitators = new HashSet<Skill>();
 		this.getImitators(serveAsSkills, imitators, character);
-		
 		
 		int runningTotal = 0;
 
 		boolean foundMatch = false;
 		boolean foundSkill = false;
-		final List<Skill> skillList = new ArrayList<Skill>(character.getSkillList());
 		
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : character.getSkillList())
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
@@ -129,7 +126,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		{
 			for(Skill mock: serveAsSkills.keySet()) 
 			{
-				HashSet<Skill> targets = serveAsSkills.get(mock);
+				Set<Skill> targets = serveAsSkills.get(mock);
 				for(Skill target: targets)
 				{
 					if (foundSkill)
@@ -163,7 +160,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		{
 			for(Skill mock: serveAsSkills.keySet()) 
 			{
-				HashSet<Skill> targets = serveAsSkills.get(mock);
+				Set<Skill> targets = serveAsSkills.get(mock);
 				for(Skill target: targets)
 				{
 					if (foundSkill)
@@ -212,10 +209,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	}
 
 	private void getImitators(
-		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators,
+		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
 		PlayerCharacter character)
 	{
-		for(Skill aSkill: Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
+		for(Skill aSkill: character.getSkillList())
 		{
 			Skill finalSkill = null ;
 			Set<Skill> servesAs = new HashSet<Skill>();
@@ -228,7 +225,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 			if(servesAs.size() > 0)
 			{
 				imitators.add(aSkill);
-				serveAsSkills.put(aSkill, (HashSet<Skill>) servesAs);
+				serveAsSkills.put(aSkill, servesAs);
 			}
 		}		
 	}
@@ -290,12 +287,12 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 			if (prereq.isTotalValues())
 			{
 				runningTotal +=
-						aSkill.getTotalRank(character).intValue();
+						SkillRankControl.getTotalRank(character, aSkill).intValue();
 			}
 			else
 			{
 				if (prereq.getOperator().compare(
-					aSkill.getTotalRank(character).intValue(),
+					SkillRankControl.getTotalRank(character, aSkill).intValue(),
 					requiredRanks) > 0)
 				{
 					runningTotal++;

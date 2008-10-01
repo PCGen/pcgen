@@ -112,6 +112,7 @@ import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -392,7 +393,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		return available ? 
 			new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0),
 					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill)) : 
-			new SkillWrapper(skill, SkillModifier.modifier(skill, pc), skill.getTotalRank(pc), 
+			new SkillWrapper(skill, SkillModifier.modifier(skill, pc), SkillRankControl.getTotalRank(pc, skill), 
 					Integer.valueOf(skill.getOutputIndex()),
 					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill));
 	}
@@ -1936,7 +1937,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (bSkill != null)
 		{
-			aString = bSkill.modRanks(rank, aClass, pc);
+			aString = SkillRankControl.modRanks(rank, aClass, false, pc, bSkill);
 
 			if ("".equals(aString)) //$NON-NLS-1$
 			{
@@ -1958,7 +1959,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			// Remove the skill from the skill list if we've
 			// just set the rank to zero and it is not untrained
 			//
-			if (CoreUtility.doublesEqual(bSkill.getRank().doubleValue(), 0.0)
+			if (CoreUtility.doublesEqual(SkillRankControl.getRank(pc, bSkill).doubleValue(), 0.0)
 				&& !bSkill.getSafe(ObjectKey.USE_UNTRAINED))
 			{
 				pc.getSkillList().remove(bSkill);
@@ -2048,7 +2049,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			return;
 		}
-		SkillComparator comparator = new SkillComparator(sort, sortOrder);
+		SkillComparator comparator = new SkillComparator(pc, sort, sortOrder);
 		int nextOutputIndex = 1;
 		List<Skill> skillList = pc.getSkillList();
 		Collections.sort(skillList, comparator);
@@ -2363,7 +2364,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
 				if (pcSkill != null)
 				{
-					bString = pcSkill.getRanksExplanation();
+					bString = SkillRankControl.getRanksExplanation(pc, pcSkill);
 					if (bString.length() != 0)
 					{
 						b.append(PropertyFactory.getFormattedString(
@@ -3016,7 +3017,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						aSkill.setOutputIndex(outputIndex);
 						skillA =
 								new SkillWrapper(aSkill, SkillModifier.modifier(aSkill, pc),
-									aSkill.getTotalRank(pc), 
+									SkillRankControl.getTotalRank(pc, aSkill), 
 									Integer.valueOf(aSkill.getOutputIndex()),
 									PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc, aSkill));
 						fn.setItem(skillA);
@@ -4169,13 +4170,13 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					}
 				}
 
-				if ((maxRank > aSkill.getRank().doubleValue())
+				if ((maxRank > SkillRankControl.getRank(pc, aSkill).doubleValue())
 					|| Globals.checkRule(RuleConstants.SKILLMAX)) //$NON-NLS-1$
 				{
 					final int cost =
 							pc.getSkillCostForClass(aSkill, aClass).getCost();
 					final double pointsNeeded =
-							Math.floor((maxRank - aSkill.getTotalRank(pc)
+							Math.floor((maxRank - SkillRankControl.getTotalRank(pc, aSkill)
 								.doubleValue())
 								* cost);
 					double points = Math.min(pointsNeeded, skillPool);
@@ -4270,7 +4271,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						final int cost =
 								pc.getSkillCostForClass(aSkill, getSelectedPCClass()).getCost();
 						double points =
-								-aSkill.getTotalRank(pc).doubleValue() * cost;
+								-SkillRankControl.getTotalRank(pc, aSkill).doubleValue() * cost;
 						if (SkillCost.CLASS.getCost() > 1)
 						{
 							points /= SkillCost.CLASS.getCost();
@@ -4285,7 +4286,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					// Remove the skill from the skill list if we've just set the rank to zero
 					// and it is not an untrained skill
 					//
-					if ((CoreUtility.doublesEqual(aSkill.getRank()
+					if ((CoreUtility.doublesEqual(SkillRankControl.getRank(pc, aSkill)
 						.doubleValue(), 0.0))
 						&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 					{

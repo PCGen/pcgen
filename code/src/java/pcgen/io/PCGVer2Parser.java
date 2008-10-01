@@ -72,6 +72,7 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -3476,7 +3477,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				try
 				{
 					double ranks = Double.parseDouble(childRanks.getText());
-					aSkill.modRanks(ranks, aPCClass, true, thePC);
+					SkillRankControl.modRanks(ranks, aPCClass, true, thePC, aSkill);
 				}
 				catch (NumberFormatException nfe)
 				{

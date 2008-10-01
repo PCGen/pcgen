@@ -30,6 +30,7 @@ import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
+import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -71,6 +72,8 @@ public final class AssociationKey<T>
 	public static final AssociationKey<FixedStringList> CHOICES = new AssociationKey<FixedStringList>();
 
 	public static final AssociationKey<Object> ADD = new AssociationKey<Object>();
+
+	public static final AssociationKey<NamedValue> SKILL_RANK = new AssociationKey<NamedValue>();
 
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 

@@ -54,6 +54,7 @@ import pcgen.core.Skill;
 import pcgen.core.StatList;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -829,7 +830,7 @@ public class PcgCombatant extends Combatant
 
 				int temp =
 						SkillModifier.modifier(skill, pc).intValue()
-							+ skill.getTotalRank(pc).intValue();
+							+ SkillRankControl.getTotalRank(pc, skill).intValue();
 
 				statBuf.append("<a href='skill:");
 				statBuf.append(skill.getOutputName()); //|SKILL.%skill|

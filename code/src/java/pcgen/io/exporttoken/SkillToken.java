@@ -32,6 +32,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -313,13 +314,12 @@ public class SkillToken extends Token
 					{
 						retValue.append(SettingsHandler.getGame()
 							.getSkillRankDisplayText(
-								aSkill.getTotalRank(pc).intValue()
+								SkillRankControl.getTotalRank(pc, aSkill).intValue()
 									+ SkillModifier.modifier(aSkill, pc).intValue()));
 					}
 					else
 					{
-						retValue.append(Integer.toString(aSkill
-							.getTotalRank(pc).intValue()
+						retValue.append(Integer.toString(SkillRankControl.getTotalRank(pc, aSkill).intValue()
 							+ SkillModifier.modifier(aSkill, pc).intValue()));
 					}
 					break;
@@ -329,11 +329,11 @@ public class SkillToken extends Token
 					{
 						retValue.append(SettingsHandler.getGame()
 							.getSkillRankDisplayText(
-								aSkill.getTotalRank(pc).intValue()));
+								SkillRankControl.getTotalRank(pc, aSkill).intValue()));
 					}
 					else
 					{
-						retValue.append(aSkill.getTotalRank(pc).toString());
+						retValue.append(SkillRankControl.getTotalRank(pc, aSkill).toString());
 					}
 					break;
 
@@ -374,16 +374,14 @@ public class SkillToken extends Token
 				case SKILL_EXCLUSIVE_TOTAL:
 					retValue
 						.append(Integer
-							.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED)) && (aSkill.getTotalRank(pc)
+							.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED)) && (SkillRankControl.getTotalRank(pc, aSkill)
 								.intValue() == 0)) ? 0
-								: (aSkill.getTotalRank(pc).intValue() + SkillModifier.modifier(aSkill, pc).intValue())));
+								: (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc).intValue())));
 					break;
 
 				case SKILL_TRAINED_TOTAL:
 					retValue.append(Integer
-						.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED) && (aSkill
-							.getTotalRank(pc).intValue() == 0)) ? 0 : (aSkill
-							.getTotalRank(pc).intValue() + SkillModifier.modifier(aSkill, pc)
+						.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED) && (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0 : (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)
 							.intValue())));
 					break;
 

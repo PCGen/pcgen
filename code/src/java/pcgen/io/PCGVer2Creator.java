@@ -71,6 +71,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
@@ -1948,7 +1949,7 @@ final class PCGVer2Creator implements IOConstants
 				new ArrayList<Skill>(thePC.getSkillList());
 		for (Skill skill : skillList)
 		{
-			if ((skill.getRank().doubleValue() > 0)
+			if ((SkillRankControl.getRank(thePC, skill).doubleValue() > 0)
 				|| (skill.getOutputIndex() != 0))
 			{
 				buffer.append(TAG_SKILL).append(':');
@@ -1959,25 +1960,29 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(skill.getOutputIndex());
 				buffer.append('|');
 
-				for (NamedValue sd: skill.getRankList())
+				List<NamedValue> rankList = thePC.getAssocList(skill, AssociationKey.SKILL_RANK);
+				if (rankList != null)
 				{
-					final PCClass pcClass = thePC.getClassKeyed(sd.name);
+					for (NamedValue sd: rankList)
+					{
+						final PCClass pcClass = thePC.getClassKeyed(sd.name);
 
-					buffer.append(TAG_CLASSBOUGHT).append(':');
-					buffer.append('[');
-					buffer.append(TAG_CLASS).append(':');
-					buffer.append(EntityEncoder.encode(sd.name));
-					buffer.append('|');
-					buffer.append(TAG_RANKS).append(':');
-					buffer.append(sd.getWeight());
-					buffer.append('|');
-					buffer.append(TAG_COST).append(':');
-					buffer.append(Integer.toString(thePC.getSkillCostForClass(skill, pcClass).getCost()));
-					buffer.append('|');
-					buffer.append(TAG_CLASSSKILL).append(':');
-					buffer.append((thePC.isClassSkill(skill, pcClass)) ? 'Y'
-						: 'N');
-					buffer.append(']');
+						buffer.append(TAG_CLASSBOUGHT).append(':');
+						buffer.append('[');
+						buffer.append(TAG_CLASS).append(':');
+						buffer.append(EntityEncoder.encode(sd.name));
+						buffer.append('|');
+						buffer.append(TAG_RANKS).append(':');
+						buffer.append(sd.getWeight());
+						buffer.append('|');
+						buffer.append(TAG_COST).append(':');
+						buffer.append(Integer.toString(thePC.getSkillCostForClass(skill, pcClass).getCost()));
+						buffer.append('|');
+						buffer.append(TAG_CLASSSKILL).append(':');
+						buffer.append((thePC.isClassSkill(skill, pcClass)) ? 'Y'
+							: 'N');
+						buffer.append(']');
+					}
 				}
 
 				for (String assoc : thePC.getAssociationList(skill))

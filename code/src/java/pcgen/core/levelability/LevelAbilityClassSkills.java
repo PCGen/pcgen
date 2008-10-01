@@ -24,6 +24,7 @@ package pcgen.core.levelability;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserInterface;
@@ -311,7 +312,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 						if (aPC != null)
 						{
 							aSkill = aPC.addSkill(aSkill);
-							aSkill.modRanks(1.0, (PCClass) owner, true, aPC);
+							SkillRankControl.modRanks(1.0, ((PCClass) owner), true, aPC, aSkill);
 						}
 					}
 				}

@@ -27,6 +27,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
@@ -142,7 +143,7 @@ class LevelAbilitySkill extends LevelAbility
 			if (skillToAdd != null)
 			{
 				skillToAdd = aPC.addSkill(skillToAdd);
-				skillToAdd.modRanks(1.0, null, true, aPC);
+				SkillRankControl.modRanks(1.0, null, true, aPC, skillToAdd);
 				changed = true;
 			}
 		}
