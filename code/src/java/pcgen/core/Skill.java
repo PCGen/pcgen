@@ -27,7 +27,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
@@ -142,29 +141,6 @@ public final class Skill extends PObject
 		}
 
 		return newSkill;
-	}
-
-	/**
-	 * Get the qualified name
-	 * 
-	 * @param pc
-	 *            TODO
-	 * @return qualified name
-	 */
-	public String qualifiedName(PlayerCharacter pc)
-	{
-		if (!pc.hasAssociations(this))
-		{
-			return this.getOutputName();
-		}
-
-		final StringBuilder buffer = new StringBuilder();
-		buffer.append(this.getOutputName()).append("(");
-		buffer.append(StringUtil.joinToStringBuffer(
-				pc.getAssociationList(this), ", "));
-		buffer.append(")");
-
-		return buffer.toString();
 	}
 
 	/**

@@ -174,8 +174,14 @@ public class FeatAddChoiceManager extends AbstractBasicStringChoiceManager {
 				// Retrieve the choices offered by the ability
 				final List tempAvailList = new ArrayList();
 				final List tempSelList = new ArrayList();
-				anAbility.modChoices(tempAvailList, tempSelList, false, aPc,
-					true, null);
+				ChooserUtilities.modChoices(
+				anAbility,
+				tempAvailList,
+				tempSelList,
+				false,
+				aPc,
+				true,
+				null);
 				final List<String> aavailableList = new ArrayList<String>(); // available list of choices
 				final List<String> sselectedList = new ArrayList<String>(); // selected list of choices
 				ChooserUtilities.convertChoiceListToStringList(tempAvailList, aavailableList);

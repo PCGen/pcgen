@@ -1391,7 +1391,7 @@ final class PCGVer2Creator implements IOConstants
 					.append(TAG_SEPARATOR);
 				buffer.append(TAG_TYPE).append(TAG_END);
 				buffer.append(
-					EntityEncoder.encode(ability.getFeatType().toString()))
+					EntityEncoder.encode(ability.getAbilityNature().toString()))
 					.append(TAG_SEPARATOR);
 				buffer.append(TAG_CATEGORY).append(TAG_END);
 				buffer.append(EntityEncoder.encode(ability.getCategory()))

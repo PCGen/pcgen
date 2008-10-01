@@ -43,6 +43,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -343,7 +344,7 @@ public class LevelAbilityAbility extends LevelAbility
 		{
 			Ability previous = i.next();
 
-			if (anAbility.isSameBaseAbility(previous))
+			if (AbilityUtilities.areSameAbility(anAbility, previous))
 			{
 				x++;
 			}
@@ -402,13 +403,14 @@ public class LevelAbilityAbility extends LevelAbility
 		{
 			final List tempAvailList = new ArrayList();
 			final List tempSelList = new ArrayList();
-			anAbility.modChoices(
-				tempAvailList,
-				tempSelList,
-				false,
-				aPC,
-				true,
-				null);
+			ChooserUtilities.modChoices(
+			anAbility,
+			tempAvailList,
+			tempSelList,
+			false,
+			aPC,
+			true,
+			null);
 			// Mod choices may have sent us back weaponprofs, abilities or strings, 
 			// so we have to do a conversion here
 			for (Iterator iter = tempAvailList.iterator(); iter.hasNext();)
@@ -688,7 +690,14 @@ public class LevelAbilityAbility extends LevelAbility
 					{
 						final double x = aPC.getRawFeats(false);
 						aPC.setFeats(1); // temporarily assume 1 choice
-						pcAbility.modChoices(aPC, true, abilityCat);
+						ChooserUtilities.modChoices(
+						pcAbility,
+						new ArrayList(),
+						new ArrayList(),
+						true,
+						aPC,
+						true,
+						abilityCat);
 						aPC.setFeats(x); // reset to original count
 					}
 

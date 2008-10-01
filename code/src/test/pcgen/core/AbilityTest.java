@@ -114,13 +114,13 @@ public class AbilityTest extends PCGenTestCase
 		is(ab7.getKeyName(), strEq("KEY_Weapon Throwing (Tantrum)"),
 			"Ability7 name is correct");
 
-		is(ab1.isSameBaseAbility(ab2), eq(false),
+		is(AbilityUtilities.areSameAbility(ab1, ab2), eq(false),
 			"Abilities 1 & 2 are not the same");
-		is(ab1.isSameBaseAbility(ab3), eq(false),
+		is(AbilityUtilities.areSameAbility(ab1, ab3), eq(false),
 			"Abilities 1 & 3 are not the same");
-		is(ab1.isSameBaseAbility(ab4), eq(false),
+		is(AbilityUtilities.areSameAbility(ab1, ab4), eq(false),
 			"Abilities 1 & 4 are not the same");
-		is(ab5.isSameBaseAbility(ab6), eq(true), "Abilities 5 & 6 are the same");
-		is(ab5.isSameBaseAbility(ab7), eq(true), "Abilities 5 & 7 are the same");
+		is(AbilityUtilities.areSameAbility(ab5, ab6), eq(true), "Abilities 5 & 6 are the same");
+		is(AbilityUtilities.areSameAbility(ab5, ab7), eq(true), "Abilities 5 & 7 are the same");
 	}
 }

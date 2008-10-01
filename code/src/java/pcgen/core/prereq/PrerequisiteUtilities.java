@@ -43,6 +43,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -297,8 +298,14 @@ public final class PrerequisiteUtilities
 		final String aChoiceString = aFeat.getChoiceString();
 		int runningTotal = 0;
 
-		aFeat.modChoices(availableList, selectedList, false,
-			character, true, null);
+		ChooserUtilities.modChoices(
+		aFeat,
+		availableList,
+		selectedList,
+		false,
+		character,
+		true,
+		null);
 		availableList.clear();
 
 		if (subKeyIsType) // TYPE syntax

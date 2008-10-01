@@ -11090,7 +11090,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final Ability anAbility = (Ability) it.next();
 
-			if (anAbility.matchesType(abilityType)
+			if (anAbility.isType(abilityType)
 				&& canSelectAbility(anAbility, autoQualify))
 			{
 				anAbilityList.add(anAbility);
@@ -11136,7 +11136,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final Ability anAbility = (Ability) it.next();
 
-			if (anAbility.matchesType(featType)
+			if (anAbility.isType(featType)
 				&& canSelectAbility(anAbility, autoQualify))
 			{
 				anAbilityList.add(anAbility.getKeyName());
@@ -12330,7 +12330,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 						if (isAuto)
 						{
-							anAbility.setFeatType(Ability.Nature.AUTOMATIC);
+							anAbility.setAbilityNature(Ability.Nature.AUTOMATIC);
 						}
 
 						aFeatList.add(anAbility);
@@ -13992,7 +13992,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private boolean qualifiesForFeat(final Ability aFeat)
 	{
-		return aFeat.canBeSelectedBy(this);
+		return PrereqHandler.passesAll(aFeat.getPrerequisiteList(), this, aFeat);
 	}
 
 	private boolean hasSkill(final String aSkillKey)
@@ -15805,7 +15805,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return false;
 		}
-		anAbility.setFeatType(Ability.Nature.NORMAL);
+		anAbility.setAbilityNature(Ability.Nature.NORMAL);
 		List<Ability> abilities = realAbilities.get(aCategory);
 		if (abilities == null)
 		{
@@ -17100,7 +17100,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 									.addAbilityToListwithChoices(this, ab, choices,
 											abilities);
 							if (added != null) {
-								added.setFeatType(nature);
+								added.setAbilityNature(nature);
 							}
 						}
 					}
@@ -17132,7 +17132,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 										.addAbilityToListwithChoices(this, ab, choices,
 												abilities);
 								if (added != null) {
-									added.setFeatType(nature);
+									added.setAbilityNature(nature);
 								}
 							}
 						}
@@ -17160,7 +17160,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 											abilities, cat, key);
 							if (added != null)
 							{
-								added.setFeatType(nature);
+								added.setAbilityNature(nature);
 								for (CDOMReference<PCTemplate> ref : added
 										.getSafeListFor(ListKey.TEMPLATE))
 								{
@@ -17271,7 +17271,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 											Constants.FEAT_CATEGORY, aTok.nextToken());
 							if (added != null)
 							{
-								added.setFeatType(Ability.Nature.AUTOMATIC);
+								added.setAbilityNature(Ability.Nature.AUTOMATIC);
 							}
 						}
 					}
@@ -17307,7 +17307,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 												Constants.FEAT_CATEGORY, aString.substring(idx + 1));
 								if (added != null)
 								{
-									added.setFeatType(Ability.Nature.AUTOMATIC);
+									added.setAbilityNature(Ability.Nature.AUTOMATIC);
 								}
 							}
 							else
@@ -17338,7 +17338,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 												ab, choices, abilities);
 								if (added != null)
 								{
-									added.setFeatType(Ability.Nature.AUTOMATIC);
+									added.setAbilityNature(Ability.Nature.AUTOMATIC);
 								}
 							}
 						}

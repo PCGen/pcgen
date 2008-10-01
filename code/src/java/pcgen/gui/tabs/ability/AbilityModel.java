@@ -475,7 +475,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				PObjectNode aFN = new PObjectNode();
 				aFN.setParent(root);
 
-				switch (ability.getFeatType())
+				switch (ability.getAbilityNature())
 				{
 					case AUTOMATIC:
 						aFN.setColor(SettingsHandler.getFeatAutoColor());
@@ -697,7 +697,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		newNode.setItem(ability);
 		newNode.setParent(parent);
 
-		switch (ability.getFeatType())
+		switch (ability.getAbilityNature())
 		{
 			case AUTOMATIC:
 				newNode.setColor(SettingsHandler.getFeatAutoColor());
@@ -750,7 +750,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 					{
 						final PObjectNode aFN = new PObjectNode();
 
-						switch (ability.getFeatType())
+						switch (ability.getAbilityNature())
 						{
 							case AUTOMATIC:
 								aFN

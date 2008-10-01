@@ -39,9 +39,11 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.BenefitFormatting;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.Visibility;
 
@@ -329,7 +331,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".BENEFIT"))
 			{
-				retString += aAbility.getBenefits(pc);
+				retString += BenefitFormatting.getBenefits(pc, aAbility);
 			}
 			else if (tokenSource.endsWith(".TYPE"))
 			{
@@ -376,7 +378,7 @@ public class AbilityToken extends Token
 //			}
 			else
 			{
-				retString += aAbility.qualifiedName(pc);
+				retString += QualifiedName.qualifiedName(pc, aAbility);
 			}
 		}
 		else if (eh != null && eh.getExistsOnly())

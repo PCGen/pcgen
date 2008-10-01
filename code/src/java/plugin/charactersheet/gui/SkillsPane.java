@@ -20,6 +20,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SkillUtilities;
+import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.util.enumeration.Visibility;
@@ -382,7 +383,7 @@ public class SkillsPane extends javax.swing.JPanel
 			{
 				check = X;
 			}
-			String name = skill.qualifiedName(pc);
+			String name = QualifiedName.qualifiedName(pc, skill);
 			String ability = skill.getKeyStatAbb();
 			String total =
 					Integer.toString(SkillRankControl.getTotalRank(pc, skill).intValue()

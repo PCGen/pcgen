@@ -31,6 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.ExportHandler;
@@ -306,7 +307,7 @@ public class SkillToken extends Token
 			switch (property)
 			{
 				case SKILL_NAME:
-					retValue.append(aSkill.qualifiedName(pc));
+					retValue.append(QualifiedName.qualifiedName(pc, aSkill));
 					break;
 
 				case SKILL_TOTAL:

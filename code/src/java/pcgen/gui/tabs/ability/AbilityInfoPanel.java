@@ -48,6 +48,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.BenefitFormatting;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -201,13 +202,13 @@ public class AbilityInfoPanel extends JPanel
 				buff.toString()));
 		}
 		
-		final String bene = theAbility.getBenefits(thePC);
+		final String bene = BenefitFormatting.getBenefits(thePC, theAbility);
 		if (bene != null && bene.length() > 0)
 		{
 			sb.append(BR);
 			sb.append(PropertyFactory.getFormattedString(
 				"Ability.Info.Benefit", //$NON-NLS-1$
-				theAbility.getBenefits(thePC)));
+				BenefitFormatting.getBenefits(thePC, theAbility)));
 		}
 		
 		sb.append(PropertyFactory.getFormattedString(

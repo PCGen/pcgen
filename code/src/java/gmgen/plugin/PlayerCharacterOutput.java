@@ -20,6 +20,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
 import pcgen.core.analysis.DescriptionFormatting;
+import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.AttackType;
 
@@ -207,7 +208,7 @@ public class PlayerCharacterOutput
 			}
 
 			firstLine = false;
-			sb.append(feat.qualifiedName(pc));
+			sb.append(QualifiedName.qualifiedName(pc, feat));
 		}
 
 		return sb.toString();

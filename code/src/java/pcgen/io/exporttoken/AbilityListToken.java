@@ -32,6 +32,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
 
 /**
@@ -154,7 +155,7 @@ public class AbilityListToken extends Token
 			}
 			needComma = true;
 
-			retString.append(ability.qualifiedName(pc));
+			retString.append(QualifiedName.qualifiedName(pc, ability));
 		}
 
 		return retString.toString();

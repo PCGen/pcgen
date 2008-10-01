@@ -216,17 +216,21 @@ public class ChooserUtilities
 	}
 
 	/**
-	 * Deal with CHOOSE tag processing
+	 * Deal with CHOOSE tags. The actual items the choice will be made from are
+	 * based on the choiceString, as applied to current character. Choices already
+	 * made (getAssociatedList) are indicated in the selectedList.  This method
+	 * may also be used to build a list of choices available and choices
+	 * already made by passing false in the process parameter
 	 *
-	 * @param aPObject
-	 * @param availableList
-	 * @param selectedList
-	 * @param process
-	 * @param aPC
-	 * @param addIt
+	 * @param availableList the list of things not already chosen
+	 * @param selectedList the list of things already chosen
+	 * @param process if false do not process the choice, just poplate the lists
+	 * @param aPC the PC that owns the Ability
+	 * @param addIt Whether to add or remove a choice from this Ability
      * @param category The AbilityCategory whose pool will be charged for the ability (if any). May be null.
 	 *
-	 * @return true if aPObject was modified
+	 * @return true if we processed the list of choices, false if we used the routine to
+	 * build the list of choices without processing them.
 	 */
 	public static final boolean modChoices(
 			final PObject         aPObject,

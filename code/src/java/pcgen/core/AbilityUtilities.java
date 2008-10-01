@@ -23,16 +23,21 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.analysis.ChoiceModification;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
-
-import java.math.BigDecimal;
-import java.util.*;
 
 /**
  * General utilities related to the Ability class.
@@ -59,7 +64,7 @@ public class AbilityUtilities
 	{
 		for ( final String choice : choices )
 		{
-			if (ability.canAddAssociation(pc, choice))
+			if (canAddAssociation(pc, ability, choice))
 			{
 				pc.addAssociation(ability, choice);
 			}
@@ -200,7 +205,7 @@ public class AbilityUtilities
 
 		if (newAbility != null)
 		{
-			newAbility.setFeatType(Ability.Nature.VIRTUAL);
+			newAbility.setAbilityNature(Ability.Nature.VIRTUAL);
 			newAbility.clearPrerequisiteList();
 			if (levelInfo != null)
 			{
@@ -380,11 +385,18 @@ public class AbilityUtilities
 			if ("".equals(choice) || choice == null)
 			{
 				// Get modChoices to adjust the associated list and Feat Pool
-				adjustedAbilityPool = ability.modChoices(aPC, addIt, category);
+				adjustedAbilityPool = ChooserUtilities.modChoices(
+				ability,
+				new ArrayList(),
+				new ArrayList(),
+				true,
+				aPC,
+				addIt,
+				category);
 			}
 			else if (addIt)
 			{
-				if (ability.canAddAssociation(aPC, choice))
+				if (canAddAssociation(aPC, ability, choice))
 				{
 					aPC.addAssociation(ability, choice);
 				}
@@ -401,7 +413,7 @@ public class AbilityUtilities
 		 * which doesn't appear to be used anywhere, so this code is totally
 		 * redundant.
 		 */
-		ability.modifyChoice(aPC);
+		ChoiceModification.modifyChoice(aPC, ability);
 
 		if (addIt)
 		{
@@ -510,7 +522,7 @@ public class AbilityUtilities
 		for ( Ability ability : anAbilityList )
 		{
 			if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
-					((abilityType == Ability.Nature.ANY) || (ability.getFeatType() == abilityType)))
+					((abilityType == Ability.Nature.ANY) || (ability.getAbilityNature() == abilityType)))
 			{
 				return ability;
 			}
@@ -1206,6 +1218,19 @@ public class AbilityUtilities
 		}
 
 		return abil;
+	}
+
+	/**
+	 * Whether we can add newAssociation to the associated list of this
+	 * Ability
+	 * @param pc TODO
+	 * @param newAssociation The thing to be associated with this Ability
+	 *
+	 * @return true if we can add the association
+	 */
+	public static boolean canAddAssociation(PlayerCharacter pc, Ability a, final String newAssociation)
+	{
+		return 	a.getSafe(ObjectKey.STACKS) || (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc.containsAssociated(a, newAssociation));
 	}
 
 }

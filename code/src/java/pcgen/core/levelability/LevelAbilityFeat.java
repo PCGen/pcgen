@@ -42,6 +42,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusAddition;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
@@ -612,13 +613,14 @@ class LevelAbilityFeat extends LevelAbility
 		{
 			final List tempAvailList = new ArrayList();
 			final List tempSelList = new ArrayList();
-			anAbility.modChoices(
-				tempAvailList,
-				tempSelList,
-				false,
-				aPC,
-				true,
-				AbilityCategory.FEAT);
+			ChooserUtilities.modChoices(
+			anAbility,
+			tempAvailList,
+			tempSelList,
+			false,
+			aPC,
+			true,
+			AbilityCategory.FEAT);
 			// Mod choices may have sent us back weaponprofs, abilities or strings, 
 			// so we have to do a conversion here
 			for (Iterator iter = tempAvailList.iterator(); iter.hasNext();)

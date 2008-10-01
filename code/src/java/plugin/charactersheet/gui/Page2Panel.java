@@ -23,6 +23,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.QualifiedName;
 import pcgen.io.exporttoken.DomainToken;
 import pcgen.io.exporttoken.EqToken;
 import plugin.charactersheet.CharacterSheetUtils;
@@ -291,7 +292,7 @@ public class Page2Panel extends javax.swing.JPanel
 		for (int i = 0; i < feats.size(); i++)
 		{
 			Ability feat = (Ability) feats.get(i);
-			featMap.put(feat.qualifiedName(aPC), aPC.getDescription(feat));
+			featMap.put(QualifiedName.qualifiedName(aPC, feat), aPC.getDescription(feat));
 		}
 		return featMap;
 	}

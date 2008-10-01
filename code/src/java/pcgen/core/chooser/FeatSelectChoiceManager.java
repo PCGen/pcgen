@@ -138,7 +138,14 @@ public class FeatSelectChoiceManager extends AbstractBasicStringChoiceManager
 
 						final List<String> xavailableList = new ArrayList<String>(); // available list of choices
 						final List<String> xselectedList = new ArrayList<String>(); // selected list of choices
-						theAbility.modChoices(xavailableList, xselectedList, false, aPc, true, null);
+						ChooserUtilities.modChoices(
+						theAbility,
+						xavailableList,
+						xselectedList,
+						false,
+						aPc,
+						true,
+						null);
 
 						//
 						// Remove any that don't match

@@ -592,7 +592,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			{
 				final Ability aFeat = (Ability) item;
 
-				switch (aFeat.getFeatType())
+				switch (aFeat.getAbilityNature())
 				{
 					case NORMAL:
 						return handleCheckFeatState(aFeat, itemName);
