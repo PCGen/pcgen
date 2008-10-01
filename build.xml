@@ -344,8 +344,11 @@ pcgen.filepaths=user
 	<!-- Perform the full build and package including the svnupdate -->
 	<target name="complete" depends="clean, svnupdate, build, test, emma.report, docs, deploy" description="Everything including update from SVN." />
 
-	<!-- The deulat target, do an incremental build and test -->
-	<target name="main" depends="build, quicktest" description="[default] Do an (incremental) build." />
+	<!-- The default target, do a clean build and basic test -->
+	<target name="main" depends="clean, build, quicktest" description="[default] Do a clean build." />
+
+	<!-- Do an incremental build and basic test -->
+	<target name="inc" depends="build, quicktest" description="Do an incremental build." />
 
 	<!-- Compile the Javadocs -->
 	<target name="docs" depends="compile-compile" description="Build Java API documentation">
