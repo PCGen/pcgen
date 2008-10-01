@@ -106,6 +106,7 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.DescriptionFormatting;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -1408,7 +1409,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// space remains for another domain, so add it
 		if (existingDomain == null)
 		{
-			addedDomain.applyDomain(pc);
+			DomainApplication.applyDomain(pc, addedDomain);
 			aCD.setDomain(addedDomain, pc);
 			pc.addCharacterDomain(aCD);
 

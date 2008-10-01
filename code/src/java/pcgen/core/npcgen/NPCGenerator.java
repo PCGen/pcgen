@@ -48,6 +48,7 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -443,7 +444,7 @@ public class NPCGenerator
 			// space remains for another domain, so add it
 			if (existingDomain == null)
 			{
-				domain.applyDomain(aPC);
+				DomainApplication.applyDomain(aPC, domain);
 				aCD.setDomain(domain, aPC);
 				aPC.addCharacterDomain(aCD);
 

@@ -24,6 +24,7 @@ package pcgen.core.levelability;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.*;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.Logging;
@@ -389,7 +390,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 						classKey);
 				aCD.setDomain(aDom, aPC);
 				aPC.addCharacterDomain(aCD);
-				aDom.applyDomain(aPC);
+				DomainApplication.applyDomain(aPC, aDom);
 				--dnum;
 			}
 		}

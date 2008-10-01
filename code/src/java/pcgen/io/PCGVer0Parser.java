@@ -56,6 +56,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
@@ -719,7 +720,7 @@ final class PCGVer0Parser implements PCGParser
 								}
 							}
 
-							aDomain.applyDomain(aPC);
+							DomainApplication.applyDomain(aPC, aDomain);
 						}
 						else
 						{

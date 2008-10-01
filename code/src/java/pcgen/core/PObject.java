@@ -1791,7 +1791,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		// Override in any class that wants to store type information
 	}
 
-	protected void globalChecks(final PlayerCharacter aPC)
+	public void globalChecks(final PlayerCharacter aPC)
 	{
 		globalChecks(false, aPC);
 	}

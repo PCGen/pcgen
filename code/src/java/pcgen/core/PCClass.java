@@ -67,6 +67,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -1849,8 +1850,8 @@ public class PCClass extends PObject
 			{
 				if ((cd.getDomain() != null) && cd.isFromPCClass(getKeyName()))
 				{
-					cd.getDomain()
-						.addSpellsToClassForLevels(this, 0, _maxLevel);
+					DomainApplication.addSpellsToClassForLevels(cd.getDomain(),
+							this, 0, _maxLevel);
 				}
 			}
 		}
@@ -4904,7 +4905,7 @@ public class PCClass extends PObject
 					aCD.setDomain(aDomain, aPC);
 					aPC.addCharacterDomain(aCD);
 					aDomain = aCD.getDomain();
-					aDomain.applyDomain(aPC);
+					DomainApplication.applyDomain(aPC, aDomain);
 				}
 			}
 			else

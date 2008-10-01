@@ -89,6 +89,7 @@ import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.TemplateSR;
@@ -7654,8 +7655,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (domainClass != null)
 			{
 				final int _maxLevel = domainClass.getMaxCastLevel();
-				aCD.getDomain().addSpellsToClassForLevels(domainClass, 0,
-					_maxLevel);
+				DomainApplication.addSpellsToClassForLevels(aCD.getDomain(),
+						domainClass, 0, _maxLevel);
 			}
 			setDirty(true);
 		}

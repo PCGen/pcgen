@@ -72,6 +72,7 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -2106,7 +2107,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 
 				thePC.addCharacterDomain(aCharacterDomain);
-				aDomain.applyDomain(thePC);
+				DomainApplication.applyDomain(thePC, aDomain);
 
 				// TODO
 				// set associated list

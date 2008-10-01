@@ -23,6 +23,7 @@
 package pcgen.core.kit;
 
 import pcgen.core.*;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
@@ -265,7 +266,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 				}
 				domainsToAdd.add(domain);
 
-				domain.applyDomain(aPC);
+				DomainApplication.applyDomain(aPC, domain);
 				aCD.setDomain(domain, aPC);
 				aPC.addCharacterDomain(aCD);
 			}
@@ -305,7 +306,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 				// Shouldn't happen
 				continue;
 			}
-			domain.applyDomain(aPC);
+			DomainApplication.applyDomain(aPC, domain);
 			aCD.setDomain(domain, aPC);
 			aPC.addCharacterDomain(aCD);
 		}
