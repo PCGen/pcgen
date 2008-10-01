@@ -80,6 +80,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
+import pcgen.core.analysis.EqModSpellInfo;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
@@ -1384,12 +1385,12 @@ final class EqBuilder extends JPanel
 
 			if (existingEqMod == null)
 			{
-				//Add will implicitly clone if necessary
 				aNewEq.addEqModifier(eqMod, true, aPC);
 			}
 			existingEqMod = aNewEq.getEqModifierKeyed(eqMod.getKeyName(), true);
 			
-			existingEqMod.setSpellInfo(aNewEq, (PObject) castingClass, theSpell, variant, spellType,
+			EqModSpellInfo.setSpellInfo(aNewEq, existingEqMod,
+					(PObject) castingClass, theSpell, variant, spellType,
 					baseSpellLevel, casterLevel, metamagicFeats, charges);
 
 			updateDisplay(true);

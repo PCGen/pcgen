@@ -29,6 +29,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.EqModSpellInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 
@@ -111,7 +112,7 @@ public enum EqModNameOpt
 				}
 				first = false;
 
-				String spellName = EquipmentModifier.getSpellInfoString(
+				String spellName = EqModSpellInfo.getSpellInfoString(
 						listEntry, "SPELLNAME");
 
 				if (SettingsHandler.guiUsesOutputNameSpells())
@@ -126,7 +127,7 @@ public enum EqModNameOpt
 
 				sb.append(spellName);
 
-				final String info = EquipmentModifier.getSpellInfoString(
+				final String info = EqModSpellInfo.getSpellInfoString(
 						listEntry, "VARIANT");
 
 				if (info.length() != 0)
@@ -134,7 +135,7 @@ public enum EqModNameOpt
 					sb.append(" (").append(info).append(')');
 				}
 
-				String metaFeat = EquipmentModifier.getSpellInfoString(
+				String metaFeat = EqModSpellInfo.getSpellInfoString(
 						listEntry, "METAFEATS");
 				List<String> metaFeats = CoreUtility.split(metaFeat, ',');
 
@@ -144,10 +145,10 @@ public enum EqModNameOpt
 				}
 
 				sb.append('/').append(
-						EquipmentModifier.getSpellInfoString(listEntry,
+						EqModSpellInfo.getSpellInfoString(listEntry,
 								"CASTER"));
 				sb.append('/').append(
-						CoreUtility.ordinal(EquipmentModifier.getSpellInfo(
+						CoreUtility.ordinal(EqModSpellInfo.getSpellInfo(
 								listEntry, "CASTERLEVEL")));
 			}
 

@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.analysis.EquipmentChoiceDriver;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
@@ -467,7 +468,7 @@ public class EquipmentList {
 					}
 
 					// Get list of choices
-					final EquipmentChoice equipChoice = eqMod.buildEquipmentChoice(0, eq, false, false, 0, null);
+					final EquipmentChoice equipChoice = EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMod, false, false, 0, null);
 
 					// Iterate over list, creating an item for each choice.
 					final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);
@@ -513,7 +514,7 @@ public class EquipmentList {
 				final EquipmentModifier eqMasterwork = getQualifiedModifierNamed("Masterwork", eq);
 
 				// Get list of choices (extract code from EquipmentModifier.getChoice)
-				final EquipmentChoice equipChoice = eqMasterwork.buildEquipmentChoice(0, eq, false, false, 0, null);
+				final EquipmentChoice equipChoice = EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMasterwork, false, false, 0, null);
 
 				// Iterate over list, creating an item for each choice.
 				final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);

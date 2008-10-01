@@ -56,6 +56,9 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.EqModCost;
+import pcgen.core.analysis.EqModSpellInfo;
+import pcgen.core.analysis.EquipmentChoiceDriver;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
@@ -704,8 +707,7 @@ public final class Equipment extends PObject implements Serializable,
 			final BigDecimal eqModCost = new BigDecimal(bc.toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
 					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-			c = c.add(eqMod.addItemCosts(aPC, "ITEMCOST",
-					getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
+			c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST", getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
 		}
 
 		for (EquipmentModifier eqMod : altEqModifierList) {
@@ -720,7 +722,7 @@ public final class Equipment extends PObject implements Serializable,
 			final BigDecimal eqModCost = new BigDecimal(bc.toString());
 			c = c.add(eqModCost.multiply(new BigDecimal(Integer
 					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-			c = c.add(eqMod.addItemCosts(aPC, "ITEMCOST", iCount, this));
+			c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST", iCount, this));
 		}
 
 		//
@@ -771,12 +773,12 @@ public final class Equipment extends PObject implements Serializable,
 			Matcher mat;
 
 			if (hasAssociations(eqMod)
-					&& !costFormula.equals(eqMod.getCost(getFirstAssociation(eqMod)))) {
+					&& !costFormula.equals(EqModCost.getCost(eqMod, getFirstAssociation(eqMod)))) {
 				eqModCost = BigDecimal.ZERO;
 
 				for (String assoc : getAssociationList(eqMod))
 				{
-					mat = pat.matcher(eqMod.getCost(assoc));
+					mat = pat.matcher(EqModCost.getCost(eqMod, assoc));
 					costFormula = mat.replaceAll("(BASECOST/" + getSafe(IntegerKey.BASE_QUANTITY)
 							+ ")");
 
@@ -786,7 +788,7 @@ public final class Equipment extends PObject implements Serializable,
 
 					eqModCost = eqModCost.add(thisModCost);
 
-					if (!eqMod.getCostDouble()) {
+					if (!EqModCost.getCostDouble(eqMod)) {
 						nonDoubleCost = nonDoubleCost.add(thisModCost);
 					} else {
 						modifierCosts.add(thisModCost);
@@ -801,7 +803,7 @@ public final class Equipment extends PObject implements Serializable,
 				eqModCost = new BigDecimal(getVariableValue(costFormula, "",
 						true, aPC).toString());
 
-				if (!eqMod.getCostDouble()) {
+				if (!EqModCost.getCostDouble(eqMod)) {
 					nonDoubleCost = nonDoubleCost.add(eqModCost);
 				} else {
 					modifierCosts.add(eqModCost);
@@ -1829,7 +1831,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
 			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
 			if (min != null && min > 0) {
-				eqMod.setRemainingCharges(this, remainingCharges);
+				EqModSpellInfo.setRemainingCharges(this, eqMod, remainingCharges);
 			}
 		}
 	}
@@ -1843,7 +1845,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
 			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
 			if (min != null && min > 0) {
-				return eqMod.getRemainingCharges(this);
+				return EqModSpellInfo.getRemainingCharges(this, eqMod);
 			}
 		}
 
@@ -2010,7 +2012,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (EquipmentModifier eqMod : getEqModifierList(true)) {
 			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
 			if (min != null && min > 0) {
-				return eqMod.getUsedCharges(this);
+				return EqModSpellInfo.getUsedCharges(this, eqMod);
 			}
 		}
 
@@ -2414,10 +2416,10 @@ public final class Equipment extends PObject implements Serializable,
 			boolean allRemoved = false;
 			if (selectedChoice != null && selectedChoice.length() > 0) {
 				if (!eqMod.getChoiceString().startsWith("EQBUILDER.")) {
-					aMod.setChoice(this, selectedChoice, equipChoice);
+					EquipmentChoiceDriver.setChoice(this, aMod, selectedChoice, equipChoice);
 					allRemoved = !hasAssociations(aMod);
 				}
-			} else if (!aMod.getChoice(1, this, true, aPC)) {
+			} else if (!EquipmentChoiceDriver.getChoice(1, this, aMod, true, aPC)) {
 				allRemoved = true;
 			}
 
@@ -3237,7 +3239,7 @@ public final class Equipment extends PObject implements Serializable,
 		// Get a response from user (if one required)
 		// Remove the modifier if all associated choices are deleted
 		if (!hasAssociations(aMod)
-				|| !aMod.getChoice(0, this, false, aPC)) {
+				|| !EquipmentChoiceDriver.getChoice(0, this, aMod, false, aPC)) {
 			eqModList.remove(aMod);
 			if (bPrimary) {
 				typeListCachePrimary = null;

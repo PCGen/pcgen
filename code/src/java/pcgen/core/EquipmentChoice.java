@@ -46,7 +46,7 @@ import java.util.*;
  * @version $Revision$
  */
 
-final class EquipmentChoice
+public final class EquipmentChoice
 {
 	private boolean allowDuplicates = false;
 	private boolean noSign = false;
@@ -141,7 +141,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the bAdd.
 	 */
-	final boolean isBAdd()
+	public final boolean isBAdd()
 	{
 		return bAdd;
 	}
@@ -155,7 +155,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the availableList.
 	 */
-	final List<String> getAvailableList()
+	public final List<String> getAvailableList()
 	{
 		return availableList;
 	}
@@ -163,7 +163,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the allowDuplicates.
 	 */
-	final boolean isAllowDuplicates()
+	public final boolean isAllowDuplicates()
 	{
 		return allowDuplicates;
 	}
@@ -177,7 +177,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the incValue.
 	 */
-	final int getIncValue()
+	public final int getIncValue()
 	{
 		return incValue;
 	}
@@ -191,7 +191,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the maxSelect.
 	 */
-	final int getMaxSelect()
+	public final int getMaxSelect()
 	{
 		return maxSelect;
 	}
@@ -205,7 +205,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the maxValue.
 	 */
-	final int getMaxValue()
+	public final int getMaxValue()
 	{
 		return maxValue;
 	}
@@ -219,7 +219,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the minValue.
 	 */
-	final int getMinValue()
+	public final int getMinValue()
 	{
 		return minValue;
 	}
@@ -247,7 +247,7 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the title.
 	 */
-	final String getTitle()
+	public final String getTitle()
 	{
 		return title;
 	}
