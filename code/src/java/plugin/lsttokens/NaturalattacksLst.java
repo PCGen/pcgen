@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.DeferredResolution;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -74,7 +73,6 @@ public class NaturalattacksLst extends AbstractToken implements
 		 * AFTER this token in the LST file. Thus a deferred resolution (using a
 		 * Resolver) is required.
 		 */
-		DeferredResolution dr = new DeferredResolution(obj, ObjectKey.SIZE);
 
 		int count = 1;
 		StringTokenizer attackTok = new StringTokenizer(value, Constants.PIPE);
@@ -89,7 +87,7 @@ public class NaturalattacksLst extends AbstractToken implements
 			{
 				return false;
 			}
-			Equipment anEquip = createNaturalWeapon(context, obj, tokString, dr);
+			Equipment anEquip = createNaturalWeapon(context, obj, tokString);
 
 			if (anEquip == null)
 			{
@@ -129,7 +127,7 @@ public class NaturalattacksLst extends AbstractToken implements
 	 * @return natural weapon
 	 */
 	private Equipment createNaturalWeapon(LoadContext context, CDOMObject obj,
-			String wpn, DeferredResolution size)
+			String wpn)
 	{
 		StringTokenizer commaTok = new StringTokenizer(wpn, Constants.COMMA);
 
