@@ -1,4 +1,5 @@
 /*
+ * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
  * Derived from Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
