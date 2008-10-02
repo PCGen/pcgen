@@ -537,6 +537,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// Add default EQ mods
 			eqModLoader.addDefaultEquipmentMods(context);
 			
+			context.resolveDeferredTokens();
 			context.ref.buildDeferredObjects();
 			context.ref.buildDerivedObjects();
 			context.ref.validate();

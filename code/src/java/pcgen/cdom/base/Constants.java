@@ -314,5 +314,6 @@ public interface Constants
 	String EQUALS = "=";
 	String LST_CHOOSE = "CHOOSE:";
 	String LST_ADDCHOICE = "ADDCHOICE:";
+	char CHAR_ASTERISK = '*';
 	public static final int NO_LEVEL_LIMIT = -1;
 }

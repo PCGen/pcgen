@@ -141,8 +141,6 @@ public final class ListKey<T> {
 	public static final ListKey<String> LINE = new ListKey<String>();
 	/** LOGO - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_LOGO = new ListKey<CampaignSourceEntry>();
-	/** NATURAL_WEAPONS - a ListKey */
-	public static final ListKey<Equipment> NATURAL_WEAPONS = new ListKey<Equipment>();
 	/** PANTHEON - a ListKey */
 	public static final ListKey<Pantheon> PANTHEON = new ListKey<Pantheon>();
 	/** RACE_PANTHEON - a ListKey */
@@ -224,6 +222,7 @@ public final class ListKey<T> {
 	public static final ListKey<FollowerLimit> FOLLOWERS = new ListKey<FollowerLimit>();
 	public static final ListKey<Description> DESCRIPTION = new ListKey<Description>();
 	public static final ListKey<ChangeProf> CHANGEPROF = new ListKey<ChangeProf>();
+	public static final ListKey<Equipment> NATURAL_WEAPON = new ListKey<Equipment>();
 	public static final ListKey<SpecialAbility> SAB = new ListKey<SpecialAbility>();
 
 	/** Private constructor to prevent instantiation of this class */

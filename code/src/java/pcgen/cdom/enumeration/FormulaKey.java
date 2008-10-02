@@ -23,6 +23,8 @@ import java.util.Collections;
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.core.SettingsHandler;
 
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
@@ -33,7 +35,7 @@ import pcgen.base.util.CaseInsensitiveMap;
  * *Important*: This should NOT be used to store items from the DEFINE: token,
  * as those are Variables that should be stored using VariableKey
  */
-public final class FormulaKey implements TypeSafeConstant
+public class FormulaKey implements TypeSafeConstant
 {
 
 	/**
@@ -82,7 +84,25 @@ public final class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey MASTER_CHECK = getConstant("MASTER_CHECK");
 
-	public static final FormulaKey SIZE = getConstant("SIZE");
+	public static final FormulaKey SIZE;
+
+	/*
+	 * TODO Okay, this is a hack.
+	 */
+
+	static
+	{
+		SIZE = new FormulaKey("SIZE", Formula.ZERO)
+		{
+			@Override
+			public Formula getDefault()
+			{
+				return new FixedSizeFormula(SettingsHandler.getGame().getDefaultSizeAdjustment());
+			}
+
+		};
+		typeMap.put(SIZE.toString(), SIZE);
+	}
 
 	/**
 	 * The name of this Constant

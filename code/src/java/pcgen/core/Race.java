@@ -111,56 +111,6 @@ public final class Race extends PObject
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
 		}
 
-		if ((getNaturalWeapons() != null) && (getNaturalWeapons().size() > 0))
-		{
-			final StringBuffer buffer = new StringBuffer();
-
-			for (Equipment natEquip : getNaturalWeapons())
-			{
-				if (buffer.length() != 0)
-				{
-					buffer.append('|');
-				}
-
-				String eqName = natEquip.getName();
-				int index = eqName.indexOf(" (Natural/Primary)");
-
-				if (index >= 0)
-				{
-					eqName =
-							eqName.substring(0, index)
-								+ eqName.substring(index
-									+ " (Natural/Primary)".length());
-				}
-
-				index = eqName.indexOf(" (Natural/Secondary)");
-
-				if (index >= 0)
-				{
-					eqName =
-							eqName.substring(0, index)
-								+ eqName.substring(index
-									+ " (Natural/Secondary)".length());
-				}
-
-				buffer.append(eqName).append(',');
-				buffer.append(natEquip.getType(false)).append(',');
-
-				if (!natEquip.getSafe(ObjectKey.ATTACKS_PROGRESS))
-				{
-					buffer.append('*');
-				}
-
-				buffer
-					.append(
-						(int) natEquip.bonusTo(null, "WEAPON", "ATTACKS", true) + 1)
-					.append(',');
-				buffer.append(natEquip.getDamage(null));
-			}
-
-			txt.append("\tNATURALATTACKS:").append(buffer.toString());
-		}
-
 		return txt.toString();
 	}
 

@@ -723,7 +723,8 @@ public final class EditorMainForm extends JDialog
 						new SimpleAssociatedObject());
 				}
 				
-				thisRace.setNaturalWeapons(pnlNaturalAttacks.getNaturalWeapons());
+				thisRace.removeListFor(ListKey.NATURAL_WEAPON);
+				thisRace.addAllToListFor(ListKey.NATURAL_WEAPON, pnlNaturalAttacks.getNaturalWeapons());
 				pnlAppearance.updateData(thisPObject);
 				pnlAge.updateData(thisPObject);
 
@@ -1594,7 +1595,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Populate the natural attacks panel
 				//
-				naturalAttacks = thisPObject.getNaturalWeapons();
+				naturalAttacks = thisPObject.getSafeListFor(ListKey.NATURAL_WEAPON);
 				pnlNaturalAttacks.setSelectedList(naturalAttacks);
 
 				//

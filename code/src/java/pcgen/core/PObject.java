@@ -345,25 +345,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Sets the natural weapon equipment items list for this object
-	 * @param aList
-	 */
-	public void setNaturalWeapons(final List<Equipment> aList)
-	{
-		removeListFor(ListKey.NATURAL_WEAPONS);
-		addAllToListFor(ListKey.NATURAL_WEAPONS, aList);
-	}
-
-	/**
-	 * Get the natural weapons list for this object
-	 * @return the natural weapons list for this object
-	 */
-	public List<Equipment> getNaturalWeapons()
-	{
-		return getSafeListFor(ListKey.NATURAL_WEAPONS);
-	}
-
-	/**
 	 * Get the list of temporary bonuses for this list
 	 * @return the list of temporary bonuses for this list
 	 */
@@ -459,17 +440,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 	}
 	
-	/**
-	 * Add a natural weapon to the character list.
-	 *
-	 * @param weapon
-	 * @param level
-	 */
-	public void addNaturalWeapon(final Equipment weapon, final int level)
-	{
-		addToListFor(ListKey.NATURAL_WEAPONS, weapon);
-	}
-
 	/**
 	 * if a class implements the Cloneable interface then it should have a
 	 * public" 'clone ()' method It should be declared to throw

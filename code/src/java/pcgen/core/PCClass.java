@@ -127,12 +127,6 @@ public class PCClass extends PObject
 	private String specialty = null;
 
 	/*
-	 * FINALALLCLASSLEVELS This is pretty obvious, as these are already in a
-	 * LevelProperty... these go into the PCClassLevel
-	 */
-	private List<LevelProperty<Equipment>> naturalWeapons = null;
-
-	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected subClass, if any, is structured into the PCClassLevel during the
 	 * construction of the PCClassLevel (inheritAttributesFrom - although that 
@@ -1925,55 +1919,6 @@ public class PCClass extends PObject
 		return false;
 	}
 
-	/**
-	 * get the Natural Attacks for this level
-	 * 
-	 * @return natural weapons list
-	 */
-	/*
-	 * FINALPCCLASSLEVELONLY This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	/*
-	 * CONSIDER The fact that this does NOT override PObject would break
-	 * EditorMainForm, if EditorMainForm was smart enough to realize that a
-	 * PCClass can have natural weapons. Currently it does not. It would also
-	 * need to be smart enough to deal with level dependencies of Natural
-	 * Weapons in PCClasses, so that is non-trivial. This issue is trackered as
-	 * 1590553
-	 */
-	public List<Equipment> getNaturalWeapons(int aLevel)
-	{
-		if (naturalWeapons == null)
-		{
-			return new ArrayList<Equipment>();
-		}
-
-		final List<Equipment> tempArray = new ArrayList<Equipment>();
-
-		for (LevelProperty<Equipment> lp : naturalWeapons)
-		{
-			if (lp.getLevel() == level)
-			{
-				tempArray.add(lp.getObject());
-			}
-		}
-
-		return tempArray;
-	}
-
-	/*
-	 * FINALPCCLASSONLY For editing PCClasses
-	 */
-	public List<LevelProperty<Equipment>> getAllNaturalWeapons()
-	{
-		if (naturalWeapons == null)
-		{
-			return new ArrayList<LevelProperty<Equipment>>();
-		}
-		return naturalWeapons;
-	}
-
 	//	/*
 	//	 * (non-Javadoc)
 	//	 * 
@@ -2621,12 +2566,6 @@ public class PCClass extends PObject
 			}
 			aClass.substitutionClassList = substitutionClassList;
 
-			if (naturalWeapons != null)
-			{
-				aClass.naturalWeapons =
-						new ArrayList<LevelProperty<Equipment>>(naturalWeapons);
-			}
-			
 			levelMap = new TreeMap<Integer, PCClassLevel>();
 			for (Map.Entry<Integer, PCClassLevel> me : aClass.levelMap.entrySet())
 			{
@@ -3398,7 +3337,8 @@ public class PCClass extends PObject
 		// so now assign the attributes of this class level to the
 		// character...
 		aPC.selectTemplates(this, aPC.isImporting());
-		aPC.selectTemplates(getClassLevel(newLevel), aPC.isImporting());
+		PCClassLevel classLevel = getClassLevel(newLevel);
+		aPC.selectTemplates(classLevel, aPC.isImporting());
 
 		// Make sure that if this Class adds a new domain that
 		// we record where that domain came from
@@ -3537,9 +3477,10 @@ public class PCClass extends PObject
 				}
 				makeRegionSelection(0, aPC);
 				addAdds(aPC);
+				aPC.addNaturalWeapons(getListFor(ListKey.NATURAL_WEAPON));
 			}
 
-			for (TransitionChoice<Kit> kit : getClassLevel(newLevel)
+			for (TransitionChoice<Kit> kit : classLevel
 					.getSafeListFor(ListKey.KIT_CHOICE))
 			{
 				kit.act(kit.driveChoice(aPC), aPC);
@@ -3547,18 +3488,7 @@ public class PCClass extends PObject
 			makeRegionSelection(newLevel, aPC);
 
 			// Make sure any natural weapons are added
-			if (naturalWeapons != null)
-			{
-				List<Equipment> natWeap = new ArrayList<Equipment>();
-				for (LevelProperty<Equipment> lp : naturalWeapons)
-				{
-					if (lp.getLevel() <= newLevel)
-					{
-						natWeap.add(lp.getObject());
-					}
-				}
-				aPC.addNaturalWeapons(natWeap);
-			}
+			aPC.addNaturalWeapons(classLevel.getListFor(ListKey.NATURAL_WEAPON));
 		}
 
 		// this is a monster class, so don't worry about experience
@@ -3994,8 +3924,9 @@ public class PCClass extends PObject
 
 			aPC.validateCharacterDomains();
 
+			PCClassLevel classLevel = getClassLevel(newLevel + 1);
 			// be sure to remove any natural weapons
-			for (Equipment eq : this.getNaturalWeapons(newLevel + 1))
+			for (Equipment eq : classLevel.getSafeListFor(ListKey.NATURAL_WEAPON))
 			{
 				/*
 				 * This is a COMPLETE hack to emulate PC.removeNaturalWeapons 
@@ -4827,12 +4758,8 @@ public class PCClass extends PObject
 			((SubClass) otherClass).applyLevelArrayModsTo(this);
 		}
 
-		if (otherClass.naturalWeapons != null)
-		{
-			naturalWeapons =
-					new ArrayList<LevelProperty<Equipment>>(
-						otherClass.naturalWeapons);
-		}
+		addAllToListFor(ListKey.NATURAL_WEAPON, otherClass
+				.getListFor(ListKey.NATURAL_WEAPON));
 
 		put(ObjectKey.LEVEL_HITDIE, otherClass.get(ObjectKey.LEVEL_HITDIE));
 	}
@@ -4994,25 +4921,6 @@ public class PCClass extends PObject
 		}
 
 		return spMod;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.core.PObject#addNaturalWeapon(pcgen.core.Equipment, int)
-	 */
-	/*
-	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method (of course, a level independent version for PCClassLevel)
-	 */
-	@Override
-	public void addNaturalWeapon(final Equipment weapon, final int aLevel)
-	{
-		if (naturalWeapons == null)
-		{
-			naturalWeapons = new ArrayList<LevelProperty<Equipment>>();
-		}
-		naturalWeapons.add(LevelProperty.getLevelProperty(aLevel, weapon));
 	}
 
 	/**

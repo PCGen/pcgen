@@ -6448,7 +6448,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			addNaturalWeapons(race.getNaturalWeapons());
+			addNaturalWeapons(race.getListFor(ListKey.NATURAL_WEAPON));
 			getAutoLanguages();
 			if (!isImporting())
 			{
@@ -7752,6 +7752,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addNaturalWeapons(final List<Equipment> weapons)
 	{
+		if (weapons == null)
+		{
+			return;
+		}
 		equipmentListAddAll(weapons);
 		EquipSet eSet = getEquipSetByIdPath("0.1");
 		if (eSet != null)
@@ -8287,7 +8291,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		addStartingLanguages(inTmpl, templateLanguages);
 		getAutoLanguages();
-		addNaturalWeapons(inTmpl.getNaturalWeapons());
+		addNaturalWeapons(inTmpl.getListFor(ListKey.NATURAL_WEAPON));
 
 		inTmpl.chooseLanguageAutos(isImporting(), this);
 
@@ -10641,7 +10645,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void removeNaturalWeapons(final PObject obj)
 	{
-		for (Equipment weapon : obj.getNaturalWeapons())
+		for (Equipment weapon : obj.getSafeListFor(ListKey.NATURAL_WEAPON))
 		{
 			// Need to make sure weapons are removed from
 			// equip sets as well, or they will get added back
@@ -16539,7 +16543,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Add this feat to the level Info
 			playerCharacterLevelInfo.addObject(aFeat);
 		}
-		addNaturalWeapons(aFeat.getNaturalWeapons());
+		addNaturalWeapons(aFeat.getListFor(ListKey.NATURAL_WEAPON));
 		setAggregateFeatsStable(false);
 		calcActiveBonuses();
 	}
@@ -16563,7 +16567,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Add this feat to the level Info
 			aLevelInfo.addObject(anAbility);
 		}
-		addNaturalWeapons(anAbility.getNaturalWeapons());
+		addNaturalWeapons(anAbility.getListFor(ListKey.NATURAL_WEAPON));
 		setAggregateAbilitiesStable(aCategory, false);
 		calcActiveBonuses();
 	}
@@ -17177,7 +17181,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 											.getContainedObjects());
 								}
 								naturalWeaponsList.addAll(added
-										.getNaturalWeapons());
+										.getSafeListFor(ListKey.NATURAL_WEAPON));
 							}
 						}
 						// May have added templates, so scan for them

@@ -17,7 +17,9 @@
  */
 package pcgen.rules.persistence;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
@@ -31,6 +33,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ClassWrappedToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.PreCompatibilityToken;
 import pcgen.rules.persistence.util.TokenFamily;
 
@@ -40,8 +43,8 @@ public class TokenLibrary
 
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 
-//	private static final List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
-//
+	private static final List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
+
 //	private static final DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>>();
 //
 //	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap = new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
@@ -102,13 +105,13 @@ public class TokenLibrary
 //					+ " should not fail due to access", e);
 //		}
 //	}
-//
-//	public static List<DeferredToken<? extends CDOMObject>> getDeferredTokens()
-//	{
-//		return new ArrayList<DeferredToken<? extends CDOMObject>>(
-//				deferredTokens);
-//	}
-//
+
+	public static List<DeferredToken<? extends CDOMObject>> getDeferredTokens()
+	{
+		return new ArrayList<DeferredToken<? extends CDOMObject>>(
+				deferredTokens);
+	}
+
 //	public static void addToPrimitiveMap(PrimitiveToken<?> p)
 //	{
 //		Class<? extends PrimitiveToken> newTokClass = p.getClass();
@@ -145,10 +148,10 @@ public class TokenLibrary
 
 	public static void addToTokenMap(Object newToken)
 	{
-//		if (newToken instanceof DeferredToken)
-//		{
-//			deferredTokens.add((DeferredToken<?>) newToken);
-//		}
+		if (newToken instanceof DeferredToken)
+		{
+			deferredTokens.add((DeferredToken<?>) newToken);
+		}
 		if (newToken instanceof CDOMPrimaryToken)
 		{
 			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;

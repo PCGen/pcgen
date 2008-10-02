@@ -25,11 +25,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.TokenSupport;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 public abstract class LoadContext
@@ -154,40 +157,31 @@ public abstract class LoadContext
 		ref.resolveReferences();
 	}
 
-//	public void resolveDeferredTokens()
-//	{
-//		for (DeferredToken<? extends CDOMObject> token : TokenLibrary
-//				.getDeferredTokens())
-//		{
-//			processRes(token);
-//		}
-//		for (CDOMObject cdo : ref.getAllConstructedObjects())
-//		{
-//			String cs = cdo.get(StringKey.CHOOSE_BACKUP);
-//			if (cs == null)
-//			{
-//				// Nothing to do (didn't have a CHOOSE that broke)
-//				continue;
-//			}
-//			ChooseActionContainer container = cdo.getChooseContainer();
-//			if (container.getChoiceSet() != null)
-//			{
-//				// Indicates a CHOOSE token worked (except mod cases in runtime)
-//				continue;
-//			}
-//			// System.err.println(container.getActors());
-//			// System.err.println("@" + cs);
-//		}
-//	}
+	public void resolveDeferredTokens()
+	{
+		for (DeferredToken<? extends CDOMObject> token : TokenLibrary
+				.getDeferredTokens())
+		{
+			processRes(token);
+		}
+	}
 
-//	private <T extends CDOMObject> void processRes(DeferredToken<T> token)
-//	{
-//		Class<T> cl = token.getObjectClass();
-//		for (T po : ref.getConstructedCDOMObjects(cl))
-//		{
-//			token.process(this, po);
-//		}
-//	}
+	private <T extends CDOMObject> void processRes(DeferredToken<T> token)
+	{
+		Class<T> cl = token.getTokenClass();
+		Collection<? extends ReferenceManufacturer> mfgs = ref
+				.getAllManufacturers();
+		for (ReferenceManufacturer<? extends T, ?> rm : mfgs)
+		{
+			if (cl.isAssignableFrom(rm.getReferenceClass()))
+			{
+				for (T po : rm.getAllObjects())
+				{
+					token.process(this, po);
+				}
+			}
+		}
+	}
 
 	private final TokenSupport support = new TokenSupport();
 
