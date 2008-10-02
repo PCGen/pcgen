@@ -20,34 +20,89 @@ package pcgen.cdom.helper;
 import pcgen.base.formula.Formula;
 import pcgen.core.PCStat;
 
+/**
+ * A StatLock object represents a PCStat locked to a specific value (that value
+ * may be variable, as it is represented by a Formula)
+ */
 public class StatLock
 {
 
+	/**
+	 * The PCStat to be locked
+	 */
 	private final PCStat lockedStat;
+
+	/**
+	 * The Formula indicating the value to which the PCStat should be locked
+	 */
 	private final Formula lockValue;
 
+	/**
+	 * Constructs a new StatLock, identifying the PCStat to be locked to the
+	 * given Formula
+	 * 
+	 * @param stat
+	 *            The PCStat to be locked
+	 * 
+	 * @param f
+	 *            The Formula indicating the value to which the PCStat should be
+	 *            locked
+	 */
 	public StatLock(PCStat stat, Formula f)
 	{
+		if (stat == null)
+		{
+			throw new IllegalArgumentException(
+					"PCStat for LockStat may not be null");
+		}
+		if (f == null)
+		{
+			throw new IllegalArgumentException(
+					"Formula for LockStat may not be null");
+		}
 		lockedStat = stat;
 		lockValue = f;
 	}
 
+	/**
+	 * Returns the PCStat that should be locked
+	 * 
+	 * @return the PCStat that should be locked
+	 */
 	public PCStat getLockedStat()
 	{
 		return lockedStat;
 	}
 
+	/**
+	 * Returns the Formula indicating the value to which the PCStat identified
+	 * in this StatLock should be locked
+	 * 
+	 * @return The Formula indicating the value to which the PCStat identified
+	 *         in this StatLock should be locked
+	 */
 	public Formula getLockValue()
 	{
 		return lockValue;
 	}
 
+	/**
+	 * Consistent-with-equals implementation of hashCode
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return lockValue.hashCode();
 	}
 
+	/**
+	 * Returns true if the given Object is a StatLock object with equal PCStat
+	 * and lock value (Formula)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{

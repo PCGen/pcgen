@@ -91,11 +91,25 @@ public class JEPFormula implements Formula
 		return character.getVariableValue(formula, source);
 	}
 
+	/**
+	 * Returns true if this Formula is static (will always return the same
+	 * value). As a JEPFormula will likely return different values except in
+	 * rare cases, this will return false.
+	 * 
+	 * @return false
+	 */
 	public boolean isStatic()
 	{
 		return false;
 	}
 
+	/**
+	 * Resolves this JEPFormula, returning the value of this JEPFormula in
+	 * context to the given Equipment, PlayerCharacter, and Source identifier.
+	 * 
+	 * @return The value of this JEPFormula in the context of the given
+	 *         Equipment, PlayerCharacter, and Source identifier.
+	 */
 	public Number resolve(Equipment equipment, boolean primary,
 			PlayerCharacter apc, String source)
 	{
