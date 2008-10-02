@@ -20,9 +20,18 @@ package pcgen.cdom.list;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.core.Race;
 
+/**
+ * CompanionList is a CDOMListObject designed to reference a List of Race
+ * objects available as companions to a PlayerCharacter objects.
+ */
 public class CompanionList extends CDOMListObject<Race>
 {
 
+	/**
+	 * Returns the Race Class object (Race.class)
+	 * 
+	 * @return the Race Class object (Race.class)
+	 */
 	public Class<Race> getListClass()
 	{
 		return Race.class;

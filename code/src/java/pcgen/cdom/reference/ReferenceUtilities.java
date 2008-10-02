@@ -34,11 +34,18 @@ import pcgen.cdom.base.CDOMReference;
 public final class ReferenceUtilities
 {
 
+	/**
+	 * A COLLATOR used to sort Strings in a locale-aware method.
+	 */
 	private final static Collator COLLATOR = Collator.getInstance();
 
+	/**
+	 * A Comparator to consistently sort CDOMReference objects. This is done
+	 * using the ReferenceUtilities.compareRefs method.
+	 */
 	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = new Comparator<CDOMReference<?>>()
 	{
-	
+
 		public int compare(CDOMReference<?> arg0, CDOMReference<?> arg1)
 		{
 			return compareRefs(arg0, arg1);
@@ -135,6 +142,29 @@ public final class ReferenceUtilities
 		return StringUtil.join(resultSet, separator);
 	}
 
+	/**
+	 * Compares two CDOMReference objects to establish order. The primary
+	 * purpose of this is to establish a consistent order across differnet
+	 * hashing/ordering algorithms of various lists/sets that may contain
+	 * CDOMReference objects.
+	 * 
+	 * This method is compatible with (although not strictly adherent to the
+	 * consistent-with-equals conditions of) the Comparable interface, in that
+	 * it returns 0 if the CDOMReference objects are equal (at least in name,
+	 * may not be consistent-with-equals), less than zero if the first given
+	 * CDOMReference should be sorted before the second, and greater than zero
+	 * if the first given CDOMReference should be sorted after the second.
+	 * 
+	 * @param arg0
+	 *            The first CDOMReference to be compared
+	 * @param arg1
+	 *            The second CDOMReference to be compared
+	 * @return 0 if the CDOMReference objects are equal (at least in name, may
+	 *         not be consistent-with-equals), less than zero if the first given
+	 *         CDOMReference should be sorted before the second, and greater
+	 *         than zero if the first given CDOMReference should be sorted after
+	 *         the second.
+	 */
 	public static int compareRefs(CDOMReference<?> arg0, CDOMReference<?> arg1)
 	{
 		if (arg0 instanceof CDOMSingleRef)

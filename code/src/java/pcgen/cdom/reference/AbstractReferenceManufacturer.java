@@ -299,14 +299,13 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			T activeObj = active.get(me1.getKey());
 			if (activeObj == null)
 			{
-				String reduced =
-						AbilityUtilities.getUndecoratedName(me1.getKey(),
-							throwaway);
+				String reduced = AbilityUtilities.getUndecoratedName(me1
+						.getKey(), throwaway);
 				activeObj = active.get(reduced);
 				if (activeObj == null)
 				{
 					Logging.errorPrint("Unable to Resolve: " + refClass + " "
-						+ me1.getKey());
+							+ me1.getKey());
 				}
 				else
 				{
@@ -903,6 +902,20 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return referenced.values();
 	}
 
+	/**
+	 * Injects all objects from the given ReferenceManufacturer into this
+	 * AbstractReferenceManufacturer. Effectively this is a bulk addObject for
+	 * all of the objects contained in the given ReferenceManufacturer.
+	 * 
+	 * Note that this imports only the objects, and NOT references. This
+	 * AbstractReferenceManufacturer does inherit any deferred objects
+	 * (triggered through constructIfNecessary) from the given
+	 * ReferenceManufacturer.
+	 * 
+	 * @param arm
+	 *            The ReferenceManufacturer from which the objects should be
+	 *            imported into this AbstractReferenceManufacturer
+	 */
 	protected void injectConstructed(ReferenceManufacturer<T, ?> arm)
 	{
 		for (Map.Entry<String, T> me : active.entrySet())
@@ -922,7 +935,35 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 	}
 
-
+	/**
+	 * Triggers immediate construction of the object with the given identifier
+	 * if it does not exist. This is an alternative to constructIfNecessary that
+	 * should be used sparingly (generally direct access like this is higher
+	 * risk, but necessary in some cases)
+	 * 
+	 * Note that use of this method is inherently risky when taken in context to
+	 * .MOD and .COPY. Changes to keys may change the object to which an
+	 * identifier refers. Therefore, any resolution that should take place at
+	 * runtime should use getReference and resovle the reference.
+	 * 
+	 * The object will be constructed only if no object with the matching
+	 * identifier has been constructed or imported into this
+	 * ReferenceManufacturer. If the object has already been constructed, then
+	 * the previously constructed object is returned.
+	 * 
+	 * This method is effectively a convenience method that wraps
+	 * containsObject, getObject, and constructObject into a single method call
+	 * (and avoids the contains-triggered branch)
+	 * 
+	 * @param name
+	 *            The identifier of the CDOMObject to be built (if otherwise not
+	 *            constructed or imported into this
+	 *            AbstractReferenceManufacturer), or if an object with that
+	 *            identifier already exists, the identifier of the object to be
+	 *            returned.
+	 * @return The previously existing or new CDOMObject with the given
+	 *         identifier.
+	 */
 	public T constructNowIfNecessary(String name)
 	{
 		T obj = active.get(name);

@@ -188,9 +188,15 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		return obj;
 	}
 	
+	/**
+	 * Returns a String representation of this CategorizedReferenceManufacturer
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{
-		return this.getClass().getName() + " [" + getReferenceClass() + " " + category + "]";
+		return this.getClass().getName() + " [" + getReferenceClass() + " "
+				+ category + "]";
 	}
 }

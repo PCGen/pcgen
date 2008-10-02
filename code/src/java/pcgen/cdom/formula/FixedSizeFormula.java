@@ -96,9 +96,10 @@ public class FixedSizeFormula implements Formula
 
 	/**
 	 * Resolves to the identifying value of the SizeAdjustment provided during
-	 * construction of the FixedSizeFormula.
+	 * construction of the FixedSizeFormula. This is resolved in context to the
+	 * given PlayerCharacter and Source identifier.
 	 * 
-	 * @return the identifying value of the SizeAdjustment this FixedSizeFormula
+	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
 	 *         represents.
 	 */
 	public Integer resolve(PlayerCharacter pc, String source)
@@ -106,12 +107,29 @@ public class FixedSizeFormula implements Formula
 		return Globals.sizeInt(size.getAbbreviation());
 	}
 
+	/**
+	 * Resolves to the identifying value of the SizeAdjustment provided during
+	 * construction of the FixedSizeFormula. This is resolved in context to both
+	 * a piece of Equipment, the given PlayerCharacter, and the given Source
+	 * identifier.
+	 * 
+	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
+	 *         represents.
+	 */
 	public Number resolve(Equipment equipment, boolean primary,
 			PlayerCharacter apc, String string)
 	{
 		return Globals.sizeInt(size.getAbbreviation());
 	}
 
+	/**
+	 * Returns true if this Formula is static (will always return the same
+	 * value). As a FixedSizeFormula will always return the same value except in
+	 * circumvention of a key assumption (a consistent, ordered set of
+	 * SizeAdjustment objects in a given GameMode), this will return true.
+	 * 
+	 * @return true
+	 */
 	public boolean isStatic()
 	{
 		return true;
