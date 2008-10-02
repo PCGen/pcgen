@@ -35,6 +35,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -165,7 +166,7 @@ public class ClassToken extends Token {
 		
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		pcclass.addSpecialAbilitiesToList(saList, aPC);
-		pcclass.addSABToList(saList, aPC);
+		SpecialAbilityResolution.addSABToList(saList, aPC, pcclass);
 
 		if (saList.isEmpty())
 		{

@@ -35,6 +35,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.PropertyFactory;
@@ -99,7 +100,7 @@ public class RaceToken extends Token
 		
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		pc.getRace().addSpecialAbilitiesToList(saList, pc);
-		pc.getRace().addSABToList(saList, pc);
+		SpecialAbilityResolution.addSABToList(saList, pc, pc.getRace());
 
 		if (saList.isEmpty())
 		{

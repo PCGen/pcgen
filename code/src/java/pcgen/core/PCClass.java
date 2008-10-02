@@ -79,7 +79,6 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.MapKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
@@ -2135,16 +2134,6 @@ public class PCClass extends PObject
 			}
 		}
 
-		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		addSABToList(saList, null);
-		for (SpecialAbility sa : saList)
-		{
-			final String src = sa.getSASource();
-			final String lev = src.substring(src.lastIndexOf('|') + 1);
-			pccTxt.append(lineSep).append(lev).append("\tSAB:").append(
-				sa.toString());
-		}
-
 		// TODO - Add ABILITY tokens.
 
 		List<String> udamList = getListFor(ListKey.UDAM);
@@ -3758,18 +3747,25 @@ public class PCClass extends PObject
 		// Go through the specialty list (SA) and adjust the class to the new
 		// name
 		//
-		for (int lev : mapListChar.getSecondaryKeySet(MapKey.SAB))
+		for (SpecialAbility sa : getSafeListFor(ListKey.SAB))
 		{
-			for (SpecialAbility sa : mapListChar.getListFor(MapKey.SAB, lev))
+			removeFromListFor(ListKey.SAB, sa);
+			sa = new SpecialAbility(sa.getKeyName(), sa.getSASource(), sa
+					.getSADesc());
+			sa.setQualificationClass(oldClass, newClass);
+			addToListFor(ListKey.SAB, sa);
+		}
+		for (PCClassLevel pcl : getClassLevelCollection())
+		{
+			for (SpecialAbility sa : pcl.getSafeListFor(ListKey.SAB))
 			{
 				if (sa.getSASource().length() != 0)
 				{
-					mapListChar.removeFromListFor(MapKey.SAB, lev, sa);
-					sa =
-							new SpecialAbility(sa.getKeyName(), sa
-								.getSASource(), sa.getSADesc());
+					pcl.removeFromListFor(ListKey.SAB, sa);
+					sa = new SpecialAbility(sa.getKeyName(), sa.getSASource(),
+							sa.getSADesc());
 					sa.setQualificationClass(oldClass, newClass);
-					addSAB(sa, lev);
+					pcl.addToListFor(ListKey.SAB, sa);
 				}
 			}
 		}
@@ -4805,14 +4801,13 @@ public class PCClass extends PObject
 			setRegionString(otherClass.getRegionString());
 		}
 
-		for (int lev : otherClass.mapListChar.getSecondaryKeySet(MapKey.SAB))
-		{
-			for (SpecialAbility sa : otherClass.mapListChar.getListFor(MapKey.SAB,
-				lev))
-			{
-				addSAB(sa, lev);
-			}
-		}
+		removeListFor(ListKey.SAB);
+		addAllToListFor(ListKey.SAB, otherClass.getSafeListFor(ListKey.SAB));
+		
+		/*
+		 * TODO Does this need to have things from the Class Level objects?
+		 * I don't think so based on deferred processing of levels...
+		 */
 
 		addAllToListFor(ListKey.DAMAGE_REDUCTION, otherClass
 				.getListFor(ListKey.DAMAGE_REDUCTION));

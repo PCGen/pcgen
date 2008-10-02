@@ -34,6 +34,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -226,12 +227,12 @@ public class TemplateToken extends Token
 	{
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		template.addSpecialAbilitiesToList(saList, pc);
-		template.addSABToList(saList, pc);
+		SpecialAbilityResolution.addSABToList(saList, pc, template);
 		List<PCTemplate> subList = new ArrayList<PCTemplate>();
 		template.getConditionalTemplates(pc.getTotalLevels(), pc.totalHitDice(), subList);
 		for (PCTemplate subt : subList)
 		{
-			subt.addSABToList(saList, pc);
+			SpecialAbilityResolution.addSABToList(saList, pc, subt);
 		}
 		List<String> saDescList = new ArrayList<String>();
 		for (SpecialAbility sa : saList)

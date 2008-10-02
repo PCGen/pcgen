@@ -20,34 +20,35 @@ package pcgen.core;
 import java.util.List;
 
 import pcgen.base.util.FixedStringList;
+import pcgen.cdom.base.CDOMObject;
 
 public interface AssociationStore
 {
-	public void addAssociation(PObject obj, String o);
+	public void addAssociation(CDOMObject obj, String o);
 
-	public void removeAssociation(PObject obj, String o);
+	public void removeAssociation(CDOMObject obj, String o);
 
-	public void addAssociation(PObject obj, FixedStringList o);
+	public void addAssociation(CDOMObject obj, FixedStringList o);
 
-	public void removeAssociation(PObject obj, FixedStringList o);
+	public void removeAssociation(CDOMObject obj, FixedStringList o);
 
-	public List<String> removeAllAssociations(PObject obj);
+	public List<String> removeAllAssociations(CDOMObject obj);
 
-	public boolean hasAssociations(PObject obj);
+	public boolean hasAssociations(CDOMObject obj);
 
-	public List<String> getAssociationList(PObject obj);
+	public List<String> getAssociationList(CDOMObject obj);
 
-	public boolean containsAssociated(PObject obj, String o);
+	public boolean containsAssociated(CDOMObject obj, String o);
 
-	public boolean containsAssociated(PObject obj, FixedStringList o);
+	public boolean containsAssociated(CDOMObject obj, FixedStringList o);
 
-	public int getSelectCorrectedAssociationCount(PObject obj);
+	public int getSelectCorrectedAssociationCount(CDOMObject obj);
 
-	public int getDetailedAssociationCount(PObject obj);
+	public int getDetailedAssociationCount(CDOMObject obj);
 
-	public List<FixedStringList> getDetailedAssociations(PObject obj);
+	public List<FixedStringList> getDetailedAssociations(CDOMObject obj);
 
-	public List<String> getExpandedAssociations(PObject obj);
+	public List<String> getExpandedAssociations(CDOMObject obj);
 	
-	public String getFirstAssociation(PObject obj);
+	public String getFirstAssociation(CDOMObject obj);
 }

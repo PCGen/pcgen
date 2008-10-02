@@ -51,6 +51,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.LanguageSupport;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.WeaponProfType;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -830,80 +831,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return spellSupport.getSpellList(-1);
 	}
 
-	public void addSAB(SpecialAbility sa, int level)
-	{
-		mapListChar.addToListFor(MapKey.SAB, level, sa);
-	}
-
-	public void clearSABList(int level)
-	{
-		mapListChar.removeListFor(MapKey.SAB, level);
-	}
-	
-	public void clearAllSABLists()
-	{
-		mapListChar.removeListsFor(MapKey.SAB);
-	}
-	
-	public void removeSAB(String s, int level)
-	{
-		List<SpecialAbility> sabs = mapListChar.getListFor(MapKey.SAB, level);
-		if (sabs != null)
-		{
-			for (SpecialAbility sa : sabs)
-			{
-				if (sa.getDisplayName().equals(s)
-					|| sa.getDisplayName().startsWith(s + "|"))
-				{
-					mapListChar.removeFromListFor(MapKey.SAB, level, sa);
-				}
-			}
-		}
-	}
-
-	public void addSABToList(List<SpecialAbility> saList, PlayerCharacter pc)
-	{
-		for (Integer lvl : mapListChar.getSecondaryKeySet(MapKey.SAB))
-		{
-			List<SpecialAbility> sabs = mapListChar.getListFor(MapKey.SAB, lvl);
-			if (sabs != null)
-			{
-				for (SpecialAbility sa : sabs)
-				{
-					if (pc == null || sa.qualifies(pc))
-					{
-						final String key = sa.getKeyName();
-						final int idx = key.indexOf("%CHOICE");
-						
-						if (idx >= 0)
-						{
-							StringBuilder sb = new StringBuilder();
-							sb.append(key.substring(0, idx));
-
-							if (pc.hasAssociations(this))
-							{
-								sb.append(StringUtil.joinToStringBuffer(pc.getAssociationList(this), ", "));
-							}
-							else
-							{
-								sb.append("<undefined>");
-							}
-
-							sb.append(key.substring(idx + 7));
-							sa = new SpecialAbility(sb.toString(), sa
-									.getSASource(), sa.getSADesc());
-							saList.add(sa);
-						}
-						else
-						{
-							saList.add(sa);
-						}
-					}
-				}
-			}
-		}
-	}
-
 	/**
 	 * Get the type of PObject
 	 * 
@@ -1614,16 +1541,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				}
 			}
 			txt.append(writer);
-		}
-
-		if (!(this instanceof PCClass))
-		{
-			ArrayList<SpecialAbility> specialAbilityList = new ArrayList<SpecialAbility>();
-			addSABToList(specialAbilityList, null);
-			for (SpecialAbility sa : specialAbilityList)
-			{
-				txt.append("\tSAB:").append(sa.toString());
-			}
 		}
 
 		if (!(this instanceof PCClass))

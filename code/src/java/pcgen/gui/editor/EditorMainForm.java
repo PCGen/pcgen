@@ -621,7 +621,7 @@ public final class EditorMainForm extends JDialog
 		thisPObject.removeAllVariables();
 		thisPObject.removeListFor(ListKey.DAMAGE_REDUCTION);
 		thisPObject.clearPrerequisiteList();
-		thisPObject.clearAllSABLists();
+		thisPObject.removeListFor(ListKey.SAB);
 		thisPObject.remove(ObjectKey.SR);
 		thisPObject.getSpellSupport().clearSpellList();
 		thisPObject.clearAutoMap();
@@ -3094,10 +3094,9 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
-		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		thisPObject.addSABToList(saList, null);
+		List<SpecialAbility> saList = thisPObject.getListFor(ListKey.SAB);
 
-		if ((saList.size() != 0) && (anEditType != EditorConstants.EDIT_CLASS))
+		if (saList != null && (saList.size() != 0) && (anEditType != EditorConstants.EDIT_CLASS))
 		{
 			for (Iterator<SpecialAbility> e = saList.iterator(); e.hasNext();)
 			{

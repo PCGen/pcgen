@@ -23,7 +23,6 @@
  */
 package pcgen.core.utils;
 
-import pcgen.core.SpecialAbility;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -34,7 +33,6 @@ public final class MapKey<K, V>
 {
 
 	public static final MapKey<String, String> AUTO_ARRAY = new MapKey<String, String>();
-	public static final MapKey<Integer, SpecialAbility> SAB = new MapKey<Integer, SpecialAbility>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private MapKey()

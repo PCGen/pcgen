@@ -294,22 +294,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		}
 
-		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		obj.addSABToList(saList, null);
-
-		if (!saList.isEmpty())
-		{
-			for (Iterator<SpecialAbility> e = saList.iterator(); e.hasNext();)
-			{
-				SpecialAbility sa = e.next();
-				String src = sa.getSASource();
-				String lev = src.substring(src.lastIndexOf('|') + 1);
-
-				LevelTag lt = new LevelTag(lev, LevelTag.TAG_SAB, sa.toString());
-				levelTagList.add(lt);
-			}
-		}
-
 		/*
 		   aCol = obj.vFeatList();
 		   if (aCol != null)
@@ -352,6 +336,17 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				levelTagList.add(new LevelTag(cl, LevelTag.TAG_SR, sr
 						.getLSTformat()));
 			}
+			
+			List<SpecialAbility> saList = obj.getListFor(ListKey.SAB);
+
+			if (saList != null && !saList.isEmpty())
+			{
+				for (SpecialAbility sa : saList)
+				{
+					levelTagList.add(new LevelTag(cl, LevelTag.TAG_SAB, sa.toString()));
+				}
+			}
+
 		}
 
 		String s = obj.getRegionString();

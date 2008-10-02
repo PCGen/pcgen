@@ -1,48 +1,40 @@
 package plugin.lsttokens;
 
-import pcgen.core.Globals;
-import pcgen.core.PCClass;
-import pcgen.core.PObject;
-import pcgen.core.Skill;
-import pcgen.core.SpecialAbility;
-import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.Logging;
-
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
-public class SabLst implements GlobalLstToken
-{
-	/*
-	 * Template's LevelToken adjustment done by modifying
-	 * getSpecialAbilityList() in PlayerCharacter and getSAToken in
-	 * TemplateToken (export)
-	 */
-	/*
-	 * TODO When this is converted to the new sytnax, getSpecialAbilityList in
-	 * PlayerCharacter needs to be converted to look at class levels (use
-	 * getCDOMObjects())
-	 */
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.PCClass;
+import pcgen.core.SpecialAbility;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
+public class SabLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
+{
+
+	@Override
 	public String getTokenName()
 	{
 		return "SAB";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		if (obj instanceof Skill)
-		{
-			Logging.errorPrint("SA not supported in Skills");
-			return false;
-		}
-		return parseSpecialAbility(obj, value, anInt);
+		return parseSpecialAbility(context, obj, value);
 	}
 
 	/**
-	 * This method sets the special abilities granted by this [object].
+	 * This method sets the special abilities granted by this [object]. For
+	 * efficiency, avoid calling this method except from I/O routines.
 	 * 
 	 * @param obj
 	 *            the PObject that is to receive the new SpecialAbility
@@ -51,113 +43,150 @@ public class SabLst implements GlobalLstToken
 	 * @param level
 	 *            int level at which the ability is gained
 	 */
-	public boolean parseSpecialAbility(PObject obj, String value, int level)
+	public boolean parseSpecialAbility(LoadContext context, CDOMObject obj,
+			String aString)
 	{
-		if (value.startsWith(".CLEAR."))
+		if (isEmpty(aString) || hasIllegalSeparator('|', aString))
 		{
-			String saName = value.substring(7);
-			if (saName.indexOf("|") != -1)
-			{
-				Logging
-					.errorPrint("Cannot .CLEAR. an SAB with a | in the token: "
-						+ value);
-				return false;
-			}
-			obj.removeSAB(saName, level);
-			return true;
+			return false;
 		}
-		StringTokenizer tok = new StringTokenizer(value, "|");
 
-		String token = tok.nextToken();
+		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
 
-		if (".CLEAR".equals(token))
+		String firstToken = tok.nextToken();
+		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
 		{
-			obj.clearSABList(level);
+			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+					+ getTokenName());
+			return false;
+		}
+
+		if (Constants.LST_DOT_CLEAR.equals(firstToken))
+		{
+			context.getObjectContext().removeList(obj, ListKey.SAB);
 			if (!tok.hasMoreTokens())
 			{
 				return true;
 			}
-			token = tok.nextToken();
+			firstToken = tok.nextToken();
 		}
 
-		StringBuffer saName = new StringBuffer();
-		saName.append(token);
-		SpecialAbility sa = new SpecialAbility();
-
-		boolean isPre = false;
-		boolean first = false;
-
-		while (tok.hasMoreTokens())
+		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
-			String argument = tok.nextToken();
+			Logging.errorPrint("SA tag confused by redundant '.CLEAR'"
+					+ aString);
+			return false;
+		}
 
-			// Check to see if it's a PRExxx: tag
-			if (PreParserFactory.isPreReqString(argument))
+		SpecialAbility sa = new SpecialAbility(firstToken);
+
+		if (!tok.hasMoreTokens())
+		{
+			sa.setName(firstToken);
+			context.getObjectContext().addToList(obj, ListKey.SAB, sa);
+			return true;
+		}
+
+		StringBuilder saName = new StringBuilder();
+		saName.append(firstToken);
+
+		String token = tok.nextToken();
+		while (true)
+		{
+			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
-				isPre = true;
-				try
-				{
-					PreParserFactory factory = PreParserFactory.getInstance();
-					Prerequisite prereq = factory.parse(argument);
-					if (obj instanceof PCClass
-						&& "var".equals(prereq.getKind()))
-					{
-						prereq.setSubKey("CLASS:" + obj.getKeyName());
-					}
-					sa.addPrerequisite(prereq);
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint(ple.getMessage(), ple);
-					return false;
-				}
-			}
-			else if (token.startsWith(".CLEAR"))
-			{
-				Logging.errorPrint("Embedded .CLEAR in " + getTokenName()
-					+ " is not supported: " + value);
+				Logging.errorPrint("SA tag confused by '.CLEAR' as a "
+						+ "middle token: " + aString);
 				return false;
+			}
+			else if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			{
+				break;
 			}
 			else
 			{
-				if (isPre)
-				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": "
-						+ value);
-					Logging
-						.errorPrint("  PRExxx must be at the END of the Token");
-					return false;
-				}
-				if (!first)
-				{
-					saName.append("|");
-				}
-				saName.append(argument);
+				saName.append(Constants.PIPE).append(token);
+				// sa.addVariable(FormulaFactory.getFormulaFor(token));
 			}
-			first = false;
-		}
 
+			if (!tok.hasMoreTokens())
+			{
+				// No prereqs, so we're done
+				// CONSIDER This is a HACK and not the long term strategy of SA:
+				sa.setName(saName.toString());
+				context.getObjectContext().addToList(obj, ListKey.SAB, sa);
+				return true;
+			}
+			token = tok.nextToken();
+		}
+		// CONSIDER This is a HACK and not the long term strategy of SA:
 		sa.setName(saName.toString());
 
-		if (level >= 0)
+		while (true)
 		{
-			try
+			Prerequisite prereq = getPrerequisite(token);
+			if (prereq == null)
 			{
-				sa.addPrerequisite(PreParserFactory.createLevelPrereq(obj, level));
+				Logging.errorPrint("   (Did you put Abilities after the "
+						+ "PRExxx tags in " + getTokenName() + ":?)");
+				return false;
 			}
-			catch (PersistenceLayerException notUsed)
+			/*
+			 * The following subkey is required in order to give context to the
+			 * variables as they are calculated (make the context the current
+			 * class, so that items like Class Level can be correctly
+			 * calculated).
+			 */
+			if (obj instanceof PCClass && "var".equals(prereq.getKind()))
 			{
-				Logging.errorPrint("Failed to assign level prerequisite.",
-					notUsed);
+				prereq.setSubKey("CLASS:" + obj.getKeyName());
 			}
+			sa.addPrerequisite(prereq);
+			if (!tok.hasMoreTokens())
+			{
+				break;
+			}
+			token = tok.nextToken();
 		}
-		if (obj instanceof PCClass)
-		{
-			sa.setSASource("PCCLASS=" + obj.getKeyName() + "|" + level);
-		}
-
-		Globals.addToSASet(sa);
-		obj.addSAB(sa, level);
+		context.getObjectContext().addToList(obj, ListKey.SAB, sa);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Changes<SpecialAbility> changes = context.getObjectContext()
+				.getListChanges(obj, ListKey.SAB);
+		Collection<SpecialAbility> added = changes.getAdded();
+		List<String> list = new ArrayList<String>();
+		if (changes.includesGlobalClear())
+		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		else if (added == null || added.isEmpty())
+		{
+			// Zero indicates no Token (and no global clear, so nothing to do)
+			return null;
+		}
+		if (added != null)
+		{
+			for (SpecialAbility ab : added)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(ab.getLSTformat());
+				if (ab.hasPrerequisites())
+				{
+					sb.append(Constants.PIPE);
+					sb.append(getPrerequisiteString(context, ab
+							.getPrerequisiteList()));
+				}
+				list.add(sb.toString());
+			}
+		}
+		return list.toArray(new String[list.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

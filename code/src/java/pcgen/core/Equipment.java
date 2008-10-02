@@ -44,6 +44,7 @@ import java.util.regex.Pattern;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.EqModFormatCat;
@@ -6058,27 +6059,27 @@ public final class Equipment extends PObject implements Serializable,
 		return null;
 	}
 
-	public void addAssociation(PObject obj, String o)
+	public void addAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.addAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
 	}
 
-	public void addAssociation(PObject obj, FixedStringList o)
+	public void addAssociation(CDOMObject obj, FixedStringList o)
 	{
 		assocSupt.addAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
-	public boolean containsAssociated(PObject obj, String o)
+	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
 	}
 
-	public boolean containsAssociated(PObject obj, FixedStringList o)
+	public boolean containsAssociated(CDOMObject obj, FixedStringList o)
 	{
 		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
-	public int getSelectCorrectedAssociationCount(PObject obj)
+	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
 		//TODO Null here is probably a problem for the PC :/
 		int select = obj.getSafe(FormulaKey.SELECT).resolve(this, true, null,
@@ -6086,7 +6087,7 @@ public final class Equipment extends PObject implements Serializable,
 		return assocSupt.getAssocCount(obj, AssociationKey.CHOICES) / select;
 	}
 
-	public List<String> getAssociationList(PObject obj)
+	public List<String> getAssociationList(CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
 		List<FixedStringList> assocList = assocSupt.getAssocList(obj,
@@ -6109,29 +6110,29 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	public boolean hasAssociations(PObject obj)
+	public boolean hasAssociations(CDOMObject obj)
 	{
 		return assocSupt.hasAssocs(obj, AssociationKey.CHOICES);
 	}
 
-	public List<String> removeAllAssociations(PObject obj)
+	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
 		assocSupt.removeAllAssocs(obj, AssociationKey.CHOICES);
 		return list;
 	}
 
-	public void removeAssociation(PObject obj, String o)
+	public void removeAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
 	}
 
-	public void removeAssociation(PObject obj, FixedStringList o)
+	public void removeAssociation(CDOMObject obj, FixedStringList o)
 	{
 		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, o);
 	}
 
-	public int getDetailedAssociationCount(PObject obj)
+	public int getDetailedAssociationCount(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
 				AssociationKey.CHOICES);
@@ -6146,12 +6147,12 @@ public final class Equipment extends PObject implements Serializable,
 		return count;
 	}
 
-	public List<FixedStringList> getDetailedAssociations(PObject obj)
+	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationKey.CHOICES);
 	}
 
-	public List<String> getExpandedAssociations(PObject obj)
+	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
 				AssociationKey.CHOICES);
@@ -6169,7 +6170,7 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	public String getFirstAssociation(PObject obj)
+	public String getFirstAssociation(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationKey.CHOICES).get(0).get(0);
 	}
