@@ -41,7 +41,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
-import pcgen.rules.context.LoadContext;
 
 /**
  * Equipment Test

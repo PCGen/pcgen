@@ -95,7 +95,7 @@ public class PluginBuildTest extends PCGenTestCase
 		srcList.addAll(Arrays.asList(sources));
 		srcList.remove("PreDefaultMonsterTester.java");
 		srcList.remove("PreDefaultMonsterWriter.java");
-		sources = (String[]) srcList.toArray(sources);
+		sources = srcList.toArray(sources);
 		String [][] exceptions = new String[][] {
 			{ "MoveBonus", "Move" }
 		};
@@ -474,7 +474,7 @@ public class PluginBuildTest extends PCGenTestCase
 		List<String> srcList = new ArrayList<String>();
 		srcList.addAll(Arrays.asList(sources));
 		srcList.remove("PreSkillTotalParser.java");
-		sources = (String[]) srcList.toArray(sources);
+		sources = srcList.toArray(sources);
 		checkPluginJars(jarPrefix, jarFolder, "Parser", sources);
 	}
 	

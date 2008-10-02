@@ -19,7 +19,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
-import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.AttackType;

@@ -23,28 +23,91 @@ import java.util.Collection;
 import java.util.List;
 import java.util.RandomAccess;
 
+/**
+ * A FixedStringList is a fixed-length java.util.List<String>. The size of the
+ * FixedStringList is set at construction and cannot be modified. Entries which
+ * are not set are null.
+ * 
+ * A FixedStringList will always report the size defined at construction and
+ * will always iterate over the null values.
+ */
 public class FixedStringList extends AbstractList<String> implements
 		List<String>, RandomAccess
 {
 
+	/**
+	 * The String array underlying the FixedStringList
+	 */
 	String[] array;
 
+	/**
+	 * Creates a new FixedStringList of the given size. All values in the
+	 * FixedStringList remain the default (null).
+	 * 
+	 * @param size
+	 *            The size of the FixedStringList to be constructed.
+	 */
 	public FixedStringList(int size)
 	{
 		array = new String[size];
 	}
 
+	/**
+	 * Creates a new FixedStringList from the given String Collection. The
+	 * FixedStringList will have a size equal to the size of the given
+	 * Collection and the contents of this FixedStringList will match the order
+	 * of the given Collection. null values are allowed and will be included in
+	 * the FixedStringList.
+	 * 
+	 * This constructor is value-semantic, in that the given Collection will not
+	 * be modified by this constructor, and no reference to the given Collection
+	 * will be maintained. (References to the Strings within the Collection will
+	 * be maintained, but as Strings are immutable objects, that is a 'safe'
+	 * operation)
+	 * 
+	 * @param c
+	 *            The String Collection to be used to initialize the size and
+	 *            contents of this FixedStringList
+	 */
 	public FixedStringList(Collection<String> c)
 	{
 		array = c.toArray(new String[c.size()]);
 	}
 
+	/**
+	 * Creates a new FixedStringList from the given String Array. The
+	 * FixedStringList will have a size equal to the size of the given Array and
+	 * the contents of this FixedStringList will match the order of the given
+	 * Array. null values are allowed and will be included in the
+	 * FixedStringList.
+	 * 
+	 * This constructor is value-semantic, in that the given Array will not be
+	 * modified by this constructor, and no reference to the given Array will be
+	 * maintained. (References to the Strings within the Array will be
+	 * maintained, but as Strings are immutable objects, that is a 'safe'
+	 * operation)
+	 * 
+	 * @param c
+	 *            The String Array to be used to initialize the size and
+	 *            contents of this FixedStringList
+	 */
 	public FixedStringList(String... a)
 	{
 		array = new String[a.length];
 		System.arraycopy(a, 0, array, 0, a.length);
 	}
 
+	/**
+	 * Adds a new String to this FixedStringList. This new value will replace
+	 * the first null value within the FixedStringList.
+	 * 
+	 * Per the java.util.List specification, you should test the return value of
+	 * this method! This method will return false if there is no null value in
+	 * the FixedStringList (indicating that the add failed). No Error or
+	 * Exception will be generated.
+	 * 
+	 * @see java.util.AbstractList#add(java.lang.Object)
+	 */
 	@Override
 	public boolean add(String o)
 	{
@@ -59,6 +122,25 @@ public class FixedStringList extends AbstractList<String> implements
 		return false;
 	}
 
+	/**
+	 * Adds a Collection of Strings to this FixedStringList. These values will
+	 * replace the first null values within the FixedStringList (in order
+	 * returned by the Iterator provided by the Collection).
+	 * 
+	 * This constructor is value-semantic, in that the given Collection will not
+	 * be modified by this constructor, and no reference to the given Collection
+	 * will be maintained. (References to the Strings within the Collection will
+	 * be maintained, but as Strings are immutable objects, that is a 'safe'
+	 * operation)
+	 * 
+	 * Per the java.util.List specification, you should test the return value of
+	 * this method! This method will return false if there is are insufficient
+	 * null values in the FixedStringList to fit all of the contents of the
+	 * given Collection (indicating that the addAll failed). No Error or
+	 * Exception will be generated.
+	 * 
+	 * @see java.util.AbstractList#addAll(int, java.util.Collection)
+	 */
 	@Override
 	public boolean addAll(int index, Collection<? extends String> c)
 	{
@@ -72,6 +154,14 @@ public class FixedStringList extends AbstractList<String> implements
 		return true;
 	}
 
+	/**
+	 * Removes the String at the given index from this FixedStringList. The
+	 * value is replaced by null. The contents of the FixedStringList are not
+	 * consolidated, meaning the null value will continue to exist in the
+	 * FixedStringList at exactly the index where the value was removed.
+	 * 
+	 * @see java.util.AbstractList#remove(int)
+	 */
 	@Override
 	public String remove(int index)
 	{
@@ -80,6 +170,11 @@ public class FixedStringList extends AbstractList<String> implements
 		return old;
 	}
 
+	/**
+	 * Sets the String at the given index to the given value.
+	 * 
+	 * @see java.util.AbstractList#set(int, java.lang.Object)
+	 */
 	@Override
 	public String set(int index, String element)
 	{
@@ -88,18 +183,42 @@ public class FixedStringList extends AbstractList<String> implements
 		return old;
 	}
 
+	/**
+	 * Returns the String at the given index of this FixedStringList (may be
+	 * null if there is no String present at the given index and the index is
+	 * greater than or equal to 0 and less than or equal to the size of this
+	 * FixedStringList minus 1.
+	 * 
+	 * @see java.util.AbstractList#get(int)
+	 */
 	@Override
 	public String get(int arg0)
 	{
 		return array[arg0];
 	}
 
+	/**
+	 * Returns the size of this FixedStringList. Will always be the size defined
+	 * during the construction of this FixedStringList, regardless of how many
+	 * entries in the FixedStringList are set to zero.
+	 * 
+	 * @see java.util.AbstractCollection#size()
+	 */
 	@Override
 	public int size()
 	{
 		return array.length;
 	}
 
+	/**
+	 * Returns true is this FixedStringList is equal to the given Object. This
+	 * method is consistent with the equals behavior defined in java.util.List
+	 * (meaning this will return true if this FixedStringList is the same size
+	 * as another java.util.List and has identical contents [in identical
+	 * order])
+	 * 
+	 * @see java.util.AbstractList#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{

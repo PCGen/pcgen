@@ -51,7 +51,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.LanguageSupport;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.WeaponProfType;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;

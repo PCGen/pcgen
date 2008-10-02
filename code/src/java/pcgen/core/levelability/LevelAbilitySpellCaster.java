@@ -24,7 +24,6 @@
 
 package pcgen.core.levelability;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.*;
 import pcgen.core.pclevelinfo.PCLevelInfo;

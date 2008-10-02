@@ -48,10 +48,6 @@ import pcgen.util.enumeration.Visibility;
  */
 public final class PCTemplate extends PObject
 {
-	// /////////////////////////////////////////////////////////////////////
-	// Static properties
-	// /////////////////////////////////////////////////////////////////////
-
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
 	 * level (Class and Hit Dice). This will include the absolute adjustment

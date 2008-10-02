@@ -145,7 +145,7 @@ public class OrCommandTest extends PCGenTestCase
 
         runOr(s, c);
 
-        final Object result = (Boolean) s.pop();
+        final Object result = s.pop();
 
         is(result, eq(true), "if (0.0,false,true) returns true");
     }
@@ -165,7 +165,7 @@ public class OrCommandTest extends PCGenTestCase
 
         runOr(s, c);
 
-        final Object result = (Double) s.pop();
+        final Object result = s.pop();
 
         is(result, eq(0.0), "if (false,false,false,false) returns 0.0");
     }

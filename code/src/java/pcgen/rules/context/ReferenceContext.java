@@ -89,10 +89,10 @@ public class ReferenceContext extends AbstractReferenceContext
 								cl, parent);
 					if (parentMfg == null)
 					{
-						Category parentCat = (Category) parent;
+						Category parentCat = parent;
 						parentMfg =
 								new CategorizedReferenceManufacturer<T>(cl,
-									(Category<T>) parentCat);
+									parentCat);
 						catmap.put(cl, cat, parentMfg);
 					}
 					mfg.setParentCRM(parentMfg);

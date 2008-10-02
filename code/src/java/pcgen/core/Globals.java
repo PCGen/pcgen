@@ -50,7 +50,6 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
-import pcgen.base.util.MapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;

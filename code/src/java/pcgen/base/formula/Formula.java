@@ -28,8 +28,16 @@ import pcgen.core.PlayerCharacter;
 public interface Formula
 {
 
+	/**
+	 * An Integer for the constant ONE. This is done in order to minimize
+	 * processing time in fetching this constant during formula resolution
+	 */
 	public static final Integer INT_ONE = Integer.valueOf(1);
 
+	/**
+	 * An Integer for the constant ZERO. This is done in order to minimize
+	 * processing time in fetching this constant during formula resolution
+	 */
 	public static final Integer INT_ZERO = Integer.valueOf(0);
 
 	/**
