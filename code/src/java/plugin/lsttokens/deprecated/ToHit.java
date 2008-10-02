@@ -40,6 +40,7 @@ public final class ToHit extends BonusObj implements DeprecatedToken
 
 	private static final String[] bonusTags = {"TOHIT"};
 
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
@@ -64,6 +65,7 @@ public final class ToHit extends BonusObj implements DeprecatedToken
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)
@@ -74,6 +76,7 @@ public final class ToHit extends BonusObj implements DeprecatedToken
 		return (String) obj;
 	}
 
+	@Override
 	protected String[] getBonusesHandled()
 	{
 		return bonusHandled;

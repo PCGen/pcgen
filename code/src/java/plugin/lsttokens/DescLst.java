@@ -34,6 +34,7 @@ public class DescLst extends AbstractToken implements
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "DESC"; //$NON-NLS-1$

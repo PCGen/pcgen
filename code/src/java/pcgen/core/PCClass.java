@@ -38,7 +38,6 @@ import java.util.TreeMap;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -154,27 +153,6 @@ public class PCClass extends PObject
 	private HashMap<Integer, Integer> hitPointMap = null; // TODO - This
 	// should be in
 	// PCLevelInfo
-
-	/*
-	 * ALLCLASSLEVELS The virtual feats [based on their level or LevelProperty]
-	 * (not the raw Strings) need to be stored in EACH individual PCClassLevel.
-	 * (This object is level dependent based on the input Tag and the use of a
-	 * Map)
-	 */
-	/*
-	 * REFACTOR Should decide whether this should be LevelProperty<Ability> and
-	 * allow multiple instances of the same level within the List... that is how
-	 * other variables are working - not this one because of the conversion from
-	 * vFeatMap (which didn't use LevelProperty)
-	 */
-	private List<LevelProperty<List<Ability>>> vFeatList = null;
-
-	/*
-	 * ALLCLASSLEVELS Hard to tell here yet, since this is part of the Ability
-	 * project, but this will need similar support to vFeatList??
-	 */
-	private DoubleKeyMap<AbilityCategory, Integer, List<Ability>> vAbilityMap =
-			null;
 
 	/*
 	 * ALLCLASSLEVELS skillPool is part each PCClassLevel and what that level
@@ -2098,28 +2076,6 @@ public class PCClass extends PObject
 		return pccTxt.toString();
 	}
 
-	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public List<Ability> getVirtualFeatList(final int aLevel)
-	{
-		final List<Ability> aList = new ArrayList<Ability>();
-
-		if (vFeatList != null)
-		{
-			for (LevelProperty<List<Ability>> lp : vFeatList)
-			{
-				if (lp.getLevel() <= aLevel)
-				{
-					aList.addAll(lp.getObject());
-				}
-			}
-		}
-
-		return aList;
-	}
-
 	/**
 	 * Sets qualified BonusObj's to "active"
 	 * 
@@ -2297,42 +2253,6 @@ public class PCClass extends PObject
 		{
 			skillList.add(aString);
 		}
-	}
-
-	/**
-	 * Adds virtual feats to the vFeatList
-	 * 
-	 * @param aLevel
-	 *            level
-	 * @param vList
-	 *            list of feats
-	 */
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public void addVirtualFeats(final int aLevel, final List<Ability> vList)
-	{
-		if (vFeatList == null)
-		{
-			vFeatList = new ArrayList<LevelProperty<List<Ability>>>();
-		}
-		boolean found = false;
-		for (LevelProperty<List<Ability>> lp : vFeatList)
-		{
-			if (lp.getLevel() == aLevel)
-			{
-				found = true;
-				lp.getObject().addAll(vList);
-			}
-		}
-		if (!found)
-		{
-			List<Ability> arrayList = new ArrayList<Ability>(vList);
-			vFeatList.add(LevelProperty.getLevelProperty(aLevel, arrayList));
-		}
-
-		super.addVirtualFeats(vList);
 	}
 
 	/**
@@ -2518,18 +2438,6 @@ public class PCClass extends PObject
 			}
 			spellCache = null;
 			spellCacheValid = false;
-			if (vFeatList != null)
-			{
-				//I guess a shallow clone is OK???? already was that way ... - thpr 11/2/06
-				aClass.vFeatList =
-						new ArrayList<LevelProperty<List<Ability>>>(vFeatList);
-			}
-			if (vAbilityMap != null)
-			{
-				aClass.vAbilityMap =
-						new DoubleKeyMap<AbilityCategory, Integer, List<Ability>>(
-							vAbilityMap);
-			}
 			//			if ( theAutoAbilities != null )
 			//			{
 			//				aClass.theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>(theAutoAbilities);
@@ -3950,61 +3858,6 @@ public class PCClass extends PObject
 		}
 	}
 
-	/**
-	 * This method can be called to determine if the number of extra HD for
-	 * purposes of skill points, feats, etc. See MM p. 11 extracted 03 Dec 2002
-	 * by sage_sam for bug #646816
-	 * 
-	 * @param aPC
-	 *            currently selected PlayerCharacter
-	 * @param hdTotal
-	 *            int number of monster HD the character has
-	 * @return int number of HD considered "Extra"
-	 */
-	/*
-	 * DELETEMETHOD This seems like something that violates the hardcoding rules -
-	 * need to check what this should really be and how it should be structured
-	 * in the code, new tags, etc. Message sent to PCGen-Experimental on Yahoo
-	 */
-	private static int getExtraHD(final PlayerCharacter aPC, final int hdTotal)
-	{
-		// Determine the EHD modifier based on the size category
-		final int sizeInt = aPC.getRace().getSafe(
-				FormulaKey.SIZE).resolve(aPC, "").intValue();
-		final int ehdMod;
-
-		switch (sizeInt)
-		{
-			case 8: // Collossal
-				ehdMod = 32;
-
-				break;
-
-			case 7: // Gargantuan
-				ehdMod = 16;
-
-				break;
-
-			case 6: // Huge
-				ehdMod = 4;
-
-				break;
-
-			case 5: // Large
-				ehdMod = 2;
-
-				break;
-
-			default: // Medium and smaller
-				ehdMod = 1;
-
-				break;
-		}
-
-		// EHD = total HD - base HD for size (min of zero)
-		return Math.max(0, hdTotal - ehdMod);
-	}
-
 	/*
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
@@ -4048,59 +3901,6 @@ public class PCClass extends PObject
 			}
 		}
 		return false;
-	}
-
-	/*
-	 * This method calculates skill modifier for a monster character.
-	 * 
-	 * Created(Extracted from addLevel) 20 Nov 2002 by sage_sam for bug #629643
-	 * and updated to fix the bug.
-	 */
-	private int getMonsterSkillPointMod(final PlayerCharacter aPC,
-		final int total)
-	{
-		int spMod = 0;
-		final int lockedMonsterSkillPoints =
-				(int) aPC.getTotalBonusTo("MONSKILLPTS", "LOCKNUMBER");
-
-		// Set the monster's base skills at the first level
-		if (total == 1)
-		{
-			if (lockedMonsterSkillPoints == 0)
-			{
-				spMod = (int) aPC.getTotalBonusTo("MONSKILLPTS", "NUMBER");
-			}
-			else
-			{
-				spMod = lockedMonsterSkillPoints;
-			}
-		}
-
-		// This is not the first level added...
-		else
-		{
-			if (getExtraHD(aPC, total) > 0)
-			{
-				spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
-						classKey).intValue();
-				if (lockedMonsterSkillPoints == 0)
-				{
-					spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
-				}
-				else
-				{
-					spMod += lockedMonsterSkillPoints;
-				}
-				spMod = updateBaseSkillMod(aPC, spMod);
-			}
-		}
-
-		if (spMod < 0)
-		{
-			spMod = 0;
-		}
-
-		return spMod;
 	}
 
 	/**

@@ -1080,56 +1080,6 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		//				mSelectedData, mSelectedList, mSelectedTerminator);
 	}
 
-	private static interface ColumnSetter
-	{
-		/**
-		 * Set the column names
-		 * @param columnNames
-		 */
-		void setColumnNames(List columnNames);
-	}
-
-	private static List createInputList(final List modelColumnNames,
-		final List defaultColumnNames, final List selectedList,
-		final List columnNames, final ColumnSetter setter)
-	{
-		// Store the selected items
-		final List inputList = selectedList;
-
-		// Determine if we can avoid setting columns
-		if (columnNames != null)
-		{
-			if ((modelColumnNames != null)
-				&& (columnNames.size() == modelColumnNames.size()))
-			{
-				for (int i = 0, length = columnNames.size(); i < length; i++)
-				{
-					// If a column doesn't match, set the columns and stop checking
-					if (!columnNames.get(i).equals(modelColumnNames.get(i)))
-					{
-						setter.setColumnNames(columnNames);
-
-						break;
-					}
-				}
-			}
-
-			// Set the columns if something doesn't match
-			else
-			{
-				setter.setColumnNames(columnNames);
-			}
-		}
-
-		// Only set the column names if they haven't already defaulted
-		else if (modelColumnNames != defaultColumnNames)
-		{
-			setter.setColumnNames(columnNames);
-		}
-
-		return inputList;
-	}
-
 	private static void updateTable(final JTableEx aTable,
 		final ChooserTableModel aTableModel, final List anInputList,
 		final String aLineTerminator)

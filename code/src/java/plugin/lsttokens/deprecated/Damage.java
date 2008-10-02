@@ -38,6 +38,7 @@ public final class Damage extends BonusObj implements DeprecatedToken
 {
 	private static final String[] bonusHandled = {"DAMAGE"};
 
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		if (token.startsWith("TYPE="))
@@ -52,11 +53,13 @@ public final class Damage extends BonusObj implements DeprecatedToken
 		return true;
 	}
 
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
+	@Override
 	protected String[] getBonusesHandled()
 	{
 		return bonusHandled;

@@ -46,6 +46,7 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 	/* (non-Javadoc)
 	 * @see pcgen.core.bonus.BonusObj#parseToken(java.lang.String)
 	 */
+	@Override
 	protected boolean parseToken(final String token)
 	{
 		for (int i = 0; i < bonusTags.length; ++i)
@@ -73,6 +74,7 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 	/* (non-Javadoc)
 	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
 	 */
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)
@@ -86,6 +88,7 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 	/* (non-Javadoc)
 	 * @see pcgen.core.bonus.BonusObj#getBonusesHandled()
 	 */
+	@Override
 	protected String[] getBonusesHandled()
 	{
 		return bonusHandled;

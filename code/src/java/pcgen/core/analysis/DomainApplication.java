@@ -137,8 +137,8 @@ public class DomainApplication
 		if ((choiceString.length() > 0) && !pc.isImporting()
 				&& !choiceString.startsWith("FEAT|"))
 		{
-			ChooserUtilities.modChoices(d, new ArrayList(), new ArrayList(),
-					true, pc, true, null);
+			ChooserUtilities.modChoices(d, new ArrayList<Object>(),
+					new ArrayList<Object>(), true, pc, true, null);
 		}
 
 		if (!pc.isImporting())

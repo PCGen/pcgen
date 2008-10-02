@@ -3928,20 +3928,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Sets the size attribute of the Equipment object
-	 * 
-	 * @param sizeString
-	 *            The new size value
-	 */
-	private void setSize(String sizeString) {
-		if (sizeString.length() > 1) {
-			sizeString = sizeString.toUpperCase().substring(0, 1);
-		}
-		
-		put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed(sizeString));
-	}
-
-	/**
 	 * Gets the specialAbilityList attribute of the Equipment object
 	 * 
 	 * @param eqModList

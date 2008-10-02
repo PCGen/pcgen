@@ -131,7 +131,7 @@ public class EquipmentChoiceDriver
 					chooser.setVisible(false);
 					chooser.setTitle("Select modifier (" + aString + ")");
 					chooser.setAvailableList(secondaryChoice);
-					chooser.setSelectedList(new ArrayList());
+					chooser.setSelectedList(new ArrayList<Object>());
 					chooser.setTotalChoicesAvail(1);
 					chooser.setVisible(true);
 

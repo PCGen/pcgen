@@ -44,10 +44,6 @@ public final class RandomChooser implements ChooserInterface
 	/** Whether or not to allow duplicate choices */
 	private boolean theAllowDuplicatesFlag = false;
 
-	/** Whether or not to force mPool=0 when closing */
-	// TODO - Should this be used?
-	private boolean theZeroPoolFlag = true;
-
 	private int selectionsPerUnitCost = 1;
 	
 	private int totalSelectionsAvailable = 1;
@@ -135,7 +131,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setPoolFlag(boolean poolFlag)
 	{
-		theZeroPoolFlag = poolFlag;
+		// Do Nothing
 	}
 
 	/**

@@ -12105,18 +12105,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return s;
 	}
 
-	private int getTotalClassLevels()
-	{
-		int total = 0;
-
-		for (PCClass pcClass : classList)
-		{
-			total += pcClass.getLevel();
-		}
-
-		return total;
-	}
-
 	/**
 	 * get the total number of character levels a character has. A character
 	 * level is any class level that is not a monster level
