@@ -17021,7 +17021,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		catch (Exception e)
 		{
 			Logging.errorPrint(
-				"Encountered error while rebuilding abiltiies list - ignoring",
+				"Encountered error while rebuilding abilities list - ignoring",
 				e);
 		}
 		finally
