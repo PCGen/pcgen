@@ -157,8 +157,10 @@ public class VariableProcessorEq extends VariableProcessor
 	 * @param src The source within which the variable is evaluated
 	 * @return The value of the variable
 	 */
-	public String getInternalVariable(final Spell aSpell, String valString,
-									  final String src)
+	public String getInternalVariable(
+			final Spell aSpell,
+			String valString,
+			final String src)
 	{
 		String retVal = null;
 		if ("SIZE".equals(valString))
@@ -167,11 +169,11 @@ public class VariableProcessorEq extends VariableProcessor
 		}
 		else if (valString.startsWith("EQUIP.SIZE"))
 		{
-			if (valString.equals("EQUIP.SIZE"))
+			if ("EQUIP.SIZE".equals(valString))
 			{
 				retVal = eq.getSize();
 			}
-			else if (valString.substring(11).equals("INT"))
+			else if ("INT".equals(valString.substring(11)))
 			{
 				retVal = String.valueOf(eq.sizeInt());
 			}
@@ -187,9 +189,8 @@ public class VariableProcessorEq extends VariableProcessor
 				BigDecimal weightInPounds = eq.getWeightInPounds();
 				if (eq.isCalculatingCost() && eq.isAmmunition())
 				{
-					final Float unitWeight = new Float(weightInPounds
-							.floatValue()
-							/ eq.getSafe(IntegerKey.BASE_QUANTITY));
+					Float unitWeight = weightInPounds.floatValue();
+					unitWeight /= eq.getSafe(IntegerKey.BASE_QUANTITY);
 					retVal = unitWeight.toString();
 				}
 				else
