@@ -484,15 +484,17 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.14.1RC2</p>
+	<p class="new">*** Updated 5.14.1</p>
 	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> DOMAIN:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This grants additional domains, as listed, directly to the character.</li>
-		<li>It is a | (pipe) delimited list of names and can contain PRExxx tags, in brackets ([PRExxx]), 			within it immediately after the domain name.</li>
-		<li>This forces choices - ie. it forces one or more of the users choices to the listed domain(s).</li>
-		<li>If a domain is added on top of the characters other normal domains, it will need to be paired with a BONUS:DOMAIN|NUMBER|x.</li>
+		<li>It is a pipe-delimited (|) list of domain names and can contain PRExxx tags, within square brackets (e.g. [PRExxx]), 
+			immediately after the domain name.</li>
+		<li>This forces choices, ie. it forces one or more of the users choices to the listed domain(s).</li>
+		<li>If a domain is added on top of the characters other normal domains, it will need to be paired with a 
+			<code>BONUS:DOMAIN|NUMBER|x</code>.</li>
 	</ul>
 	<p class="indent1"><strong>Example:s</strong></p>
 	<p class="indent2"><code>7 &lt;tab&gt DOMAIN:Sun</code></p>
@@ -503,7 +505,7 @@
 	<p class="indent3">At eleventh level class gets the Sun or Law domain added if thier deity
 		is &quot;Ra&quot; or only Law if the deity is not &quot;Ra&quot;.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class Level Line.</p>
+	<p class="indent2">Class and Class Level Line.</p>
 	<p></p>
 
 <hr>
