@@ -303,18 +303,25 @@
 		<p class="indent3">The listed Types will stack.</p>
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="BONUSSTATLEVELSTARTINTERVAL">Tag Name:</a></strong> BONUSSTATLEVELSTARTINTERVAL:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level where stat bonuses would
-			begin - first stat bonus awarded at this level)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Level increment to get more
-			feats - e.g. 3 for every third level)</p>
+		<p class="new">*** Updated 5.15.0</p>
+		<p class="indent0"><strong><a name="BONUSSTATLEVELSTARTINTERVAL">Tag Name:</a></strong> BONUSSTATLEVELSTARTINTERVAL:x|y|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Begining Level)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number or Formula (Level Interval)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of Stats, Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This tag, basically, sets the stat progression rules.</li>
-			<li>Where level = first level where you gain an additional stat (use
-				more than one of these tags for additional stat progressions).</li>
-			<li>Where interval = multiples of levels after the start level that you
-				gain an additional stat (0 = only at start).</li>
+			<li>This tag sets the stat progression rules.
+				<ul>
+					<li>Beginning level (x) is the first level where you gain an additional stat (use more than 
+						one of these tags for additional stat progressions).</li>
+					<li>Level Interval (y) defines the interval levels after the start level that you gain an 
+						additional stat bonus. Setting this parameter to zero (0) will limit bonus stat increases to the 
+						beginning level.</li>
+					<li>Number of Stats (z) defines the number of stats that can be increases at each level where 
+						bonusas are allowed. This parameter is optional and will default to &quot;1&quot; if not otherwise 
+						defned.</li>
+				</ul>
+			</li>
 			<li>The standard setting would give characters a bonus stat point every four levels
 				starting at level four, so the tag info would be 4|4 (1st four indicates that
 				the first bonus stat point is given at level 4, and the 2nd four indicates that
@@ -322,11 +329,17 @@
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:1|0</code></p>
-		<p class="indent3">Character would get one bonus stat point at creation and never again after that.</p>
+		<p class="indent3">Character would get a bonus stat point at 1st with no bonuses after that.</p>
 		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:4|4</code></p>
-		<p class="indent3">Character would get a bonus stat point every four levels, starting at level 4.</p>
+		<p class="indent3">Character would get a bonus stat point at 4th level with an additional stat boint every four 
+			levels after that. (e.g. 4,8,12,16, 20)</p>
 		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:2|3</code></p>
 		<p class="indent3">Character would get a bonus stat point every three levels, starting at level 2.</p>
+		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:4|0|3</code></p>
+		<p class="indent3">Character would get 3 bonus stat points at fourth level with no binuses after that.</p>
+		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:4|if(mod(TL,10)>0&&mod(mod(TL,10),4)==0,1,0)|2</code></p>
+		<p class="indent3">Character would get bonus 2 stat points at 4th level and at every interval determined by the 
+			formula provided. (e.g. 4, 8, 14, 18, 24, 28)</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.11.1</p>
