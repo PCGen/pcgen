@@ -40,28 +40,28 @@ public final class CachedVariable<T> {
 	/**
 	 * @return Returns the serial.
 	 */
-	public final int getSerial() {
+	public int getSerial() {
 		return serial;
 	}
 
 	/**
 	 * @param serial The serial to set.
 	 */
-	public final void setSerial(final int serial) {
+	public void setSerial(final int serial) {
 		this.serial = serial;
 	}
 
 	/**
 	 * @return Returns the value.
 	 */
-	public final T getValue() {
+	public T getValue() {
 		return value;
 	}
 
 	/**
 	 * @param value The value to set.
 	 */
-	public final void setValue(final T value) {
+	public void setValue(final T value) {
 		this.value = value;
 	}
 
