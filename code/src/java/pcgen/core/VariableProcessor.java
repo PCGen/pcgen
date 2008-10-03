@@ -86,28 +86,32 @@ public abstract class VariableProcessor
 	 * Evaluates a variable for this character.
 	 * e.g: getVariableValue("3+CHA","CLASS:Cleric") for Turn Undead
 	 *
-	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
-	 * @param aString The variable to be evaluated
-	 * @param src     The source within which the variable is evaluated
+	 * @param aSpell     This is specifically to compute bonuses to CASTERLEVEL
+	 *                   for a specific spell.
+	 * @param varString  The variable to be evaluated
+	 * @param src        The source within which the variable is evaluated
 	 * @param spellLevelTemp The temporary spell level
 	 * @return The value of the variable
 	 */
-	public Float getVariableValue(final Spell aSpell, String aString, String src, int spellLevelTemp)
+	public Float getVariableValue(
+			final Spell aSpell,
+			String varString,
+			String src,
+			int spellLevelTemp)
 	{
 		// First try to just parse it as a number.
 		try
 		{
-			final Float total = new Float(aString);
-			return total;
+			return new Float(varString);
 		}
 		catch (NumberFormatException e)
 		{
-			// Nothing to handle here, we're attempting to see if aString was a
+			// Nothing to handle here, we're attempting to see if varString was a
 			// number, If we got here it wasn't
 		}
 
 
-		String cacheString = aString+"#"+src;
+		String cacheString = varString +"#"+src;
 		if (aSpell != null)
 		{
 			cacheString += aSpell.getKeyName();
@@ -125,7 +129,7 @@ public abstract class VariableProcessor
 		}
 
 
-		CachableResult cRes = processJepFormula(aSpell, aString, src);
+		CachableResult cRes = processJepFormula(aSpell, varString, src);
 		if (cRes != null)
 		{
 			if (cRes.cachable)
@@ -136,9 +140,9 @@ public abstract class VariableProcessor
 		}
 
 
-		total = processBrokenParser(aSpell, aString, src, spellLevelTemp);
-		addCachedVariable(cacheString, total);
-		return total;
+		Float result = processBrokenParser(aSpell, varString, src, spellLevelTemp);
+		addCachedVariable(cacheString, result);
+		return result;
 	}
 
 	/**
@@ -151,13 +155,16 @@ public abstract class VariableProcessor
 	 * @param spellLevelTemp The temporary spell level
 	 * @return The value of the variable, or null if the formula is not JEP
 	 */
-	public Float getJepOnlyVariableValue(final Spell aSpell, String aString, String src, int spellLevelTemp)
+	public Float getJepOnlyVariableValue(
+			final Spell aSpell,
+			String aString,
+			String src,
+			int spellLevelTemp)
 	{
 		// First try to just parse it as a number.
 		try
 		{
-			final Float total = new Float(aString);
-			return total;
+			return new Float(aString);
 		}
 		catch (NumberFormatException e)
 		{
@@ -208,7 +215,11 @@ public abstract class VariableProcessor
 	 * @param spellLevelTemp The temporary spell level
 	 * @return The value of the variable
 	 */
-	private Float processBrokenParser(final Spell aSpell, String aString, String src, int spellLevelTemp)
+	private Float processBrokenParser(
+			final Spell aSpell,
+			String aString,
+			String src,
+			int spellLevelTemp)
 	{
 		Float total = new Float(0.0);
 		Float total1 = null;
@@ -451,22 +462,22 @@ public abstract class VariableProcessor
 					switch (mode)
 					{
 						case 0:
-							total = new Float(total.floatValue() + valFloat);
+							total += valFloat;
 
 							break;
 
 						case 1:
-							total = new Float(total.floatValue() - valFloat);
+							total -= valFloat;
 
 							break;
 
 						case 2:
-							total = new Float(total.floatValue() * valFloat);
+							total *= valFloat;
 
 							break;
 
 						case 3:
-							total = new Float(total.floatValue() / valFloat);
+							total /= valFloat;
 
 							break;
 
@@ -517,7 +528,7 @@ public abstract class VariableProcessor
 
 		if ((endMode / 10) > 0)
 		{
-			total = new Float(total.intValue());
+			total = (float) total.intValue();
 		}
 
 		return total;
@@ -554,7 +565,11 @@ public abstract class VariableProcessor
 			for (Iterator<String> iter = parser.getSymbolTable().keySet().iterator(); iter.hasNext();)
 			{
 				final String element = iter.next();
-				if (element.equals("TRUE") || element.equals("FALSE") || element.equals("e") || element.equals("pi"))
+				if (
+					"e".equals(element) ||
+					"FALSE".equals(element) ||
+					"pi".equals(element) ||
+					"TRUE".equals(element))
 				{
 					continue;
 				}
@@ -625,14 +640,16 @@ public abstract class VariableProcessor
 		{
 			return null;
 		}
-		final CachedVariable<? extends Float> cached = variableCache.get(lookup);
+		
+		final CachedVariable<Float> cached = fVariableCache.get(lookup);
+
 		if (cached != null)
 		{
 			if (cached.getSerial()>=getSerial())
 			{
 				return cached.getValue();
 			}
-			variableCache.remove(lookup);
+			fVariableCache.remove(lookup);
 		}
 		return null;
 	}
@@ -653,7 +670,7 @@ public abstract class VariableProcessor
 		cached.setSerial( getSerial() );
 		cached.setValue(value);
 
-		variableCache.put(lookup, cached);
+		fVariableCache.put(lookup, cached);
 	}
 
 
@@ -687,8 +704,10 @@ public abstract class VariableProcessor
 	}
 
 	private int cachePaused;
-	private int serial = 0;
-	private Map<String, CachedVariable> variableCache = new HashMap<String, CachedVariable>();
+	private int serial;
+
+	private Map<String, CachedVariable<String>> sVariableCache = new HashMap<String, CachedVariable<String>>();
+	private Map<String, CachedVariable<Float>>  fVariableCache = new HashMap<String, CachedVariable<Float>>();
 
 	/**
 	 * Retrieve the current cache serial. This value identifies the currency
@@ -726,14 +745,16 @@ public abstract class VariableProcessor
 		{
 			return null;
 		}
-		final CachedVariable cached = variableCache.get(lookup);
+
+		final CachedVariable<String> cached = sVariableCache.get(lookup);
+
 		if (cached != null)
 		{
 			if (cached.getSerial()>=getSerial())
 			{
-				return cached.getValue().toString();
+				return cached.getValue();
 			}
-			variableCache.remove(lookup);
+			sVariableCache.remove(lookup);
 		}
 		return null;
 	}
@@ -755,7 +776,7 @@ public abstract class VariableProcessor
 		cached.setSerial( getSerial() );
 		cached.setValue(value);
 
-		variableCache.put(lookup, cached);
+		sVariableCache.put(lookup, cached);
 	}
 
 
@@ -786,17 +807,18 @@ public abstract class VariableProcessor
 
 		final String bString = sWriter.toString();
 
+		String result;
 		try
 		{
 			// Float values
-			valString = String.valueOf(Float.parseFloat(bString));
+			result = String.valueOf(Float.parseFloat(bString));
 		}
 		catch (NumberFormatException e)
 		{
 			// String values
-			valString = bString;
+			result = bString;
 		}
-		return valString;
+		return result;
 	}
 
 	/**
