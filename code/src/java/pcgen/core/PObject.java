@@ -757,9 +757,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	
 	/**
 	 * Returns a hardcoded "POBJECT|" + name of this object
+	 * @param pc TODO
 	 * @return "POBJECT|" + name of this object
 	 */
-	public String getSpellKey()
+	public String getSpellKey(PlayerCharacter pc)
 	{
 		return "POBJECT|" + getKeyName(); //$NON-NLS-1$
 	}

@@ -602,7 +602,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			{
 				Spell aSpell = (Spell) o;
 
-				if (!aSpell.levelForKeyContains(obj.getSpellKey(), iLev, pc))
+				if (!aSpell.levelForKeyContains(obj.getSpellKey(pc), iLev, pc))
 				{
 					continue;
 				}
@@ -789,7 +789,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							aClass = classList.get(pindex);
 							primaryMatch =
 									spell.levelForKeyContains(aClass
-										.getSpellKey(), iLev, pc);
+										.getSpellKey(pc), iLev, pc);
 							if (cs != null)
 							{
 								if (aClass instanceof Race)
@@ -888,7 +888,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								spellMatch =
 										primaryMatch
 											&& (spell.getFirstLevelForKey(
-												aClass.getSpellKey(), pc) >= 0);
+												aClass.getSpellKey(pc), pc) >= 0);
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_LEVEL: // By Level
 								iLev = sindex;
@@ -909,7 +909,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 										{
 											spellMatch =
 													spell.levelForKeyContains(
-														aClass.getSpellKey(),
+														aClass.getSpellKey(pc),
 														iLev, pc);
 										}
 										else
@@ -1001,7 +1001,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								theObject = cs.getOwner();
 							spellMatch =
 									spell.levelForKeyContains(theObject
-										.getSpellKey(), theLevel, pc);
+										.getSpellKey(pc), theLevel, pc);
 						}
 						if (spellMatch && si == null && !knownSpellsOnly)
 						{
@@ -1130,7 +1130,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				if (spellListType != GuiConstants.INFOSPELLS_AVAIL_KNOWN)
 				{
 					for (Spell s : Globals.getSpellsIn(-1,
-						aClass.getSpellKey(), "")) //$NON-NLS-1$
+						aClass.getSpellKey(pc), "")) //$NON-NLS-1$
 					{
 						if (!spellList.contains(s)
 							&& spellTab.shouldDisplayThis(s))

@@ -179,7 +179,7 @@ public final class SkillCostCalc
 		{
 			for (CDOMReference<ClassSkillList> ref : classes)
 			{
-				for (ClassSkillList csl : aClass.getClassSkillList())
+				for (ClassSkillList csl : aClass.getClassSkillList(aPC))
 				{
 					if (ref.contains(csl))
 					{

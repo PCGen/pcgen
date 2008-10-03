@@ -820,7 +820,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 
 				Integer[] levels =
-						aSpell.levelForKey(cs.getOwner().getSpellKey(), pc);
+						aSpell.levelForKey(cs.getOwner().getSpellKey(pc), pc);
 
 				for (Integer level : levels)
 				{

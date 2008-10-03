@@ -30,6 +30,9 @@ import java.util.Map;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.list.ClassSkillList;
+import pcgen.core.spell.Spell;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
@@ -56,6 +59,10 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Object> ADD = new AssociationListKey<Object>();
 
 	public static final AssociationListKey<NamedValue> SKILL_RANK = new AssociationListKey<NamedValue>();
+
+	public static final AssociationListKey<ClassSkillList> CLASSSKILLLIST = new AssociationListKey<ClassSkillList>();
+
+	public static final AssociationListKey<CDOMListObject<Spell>> CLASSSPELLLIST = new AssociationListKey<CDOMListObject<Spell>>();
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

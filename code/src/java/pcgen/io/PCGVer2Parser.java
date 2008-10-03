@@ -1915,7 +1915,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 					}
 				}
-				aPCClass.setSubClassKey(subClassKey);
+				aPCClass.setSubClassKey(thePC, subClassKey);
 			}
 
 			if (TAG_LEVEL.equals(tag))
@@ -3772,7 +3772,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					// first see if it's the class
 					if (((aPCClass != null) && objectKey.equals(aPCClass
 						.getKeyName()))
-						|| (aPCClass.getSpellKey().indexOf(
+						|| (aPCClass.getSpellKey(thePC).indexOf(
 							typeName + '|' + objectKey) >= 0))
 					{
 						source = aPCClass;
@@ -3825,7 +3825,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// valid spell has a non-negative spell level
 				if ((spell != null)
-					&& (spell.getFirstLevelForKey(source.getSpellKey(), thePC) >= 0))
+					&& (spell.getFirstLevelForKey(source.getSpellKey(thePC), thePC) >= 0))
 				{
 					aSpell = spell;
 					break;
@@ -3851,7 +3851,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final SpellBook book = thePC.getSpellBookByName(spellBook);
 
 		final Integer[] spellLevels =
-				aSpell.levelForKey(source.getSpellKey(), thePC);
+				aSpell.levelForKey(source.getSpellKey(thePC), thePC);
 		boolean found = false;
 
 		for (int sindex = 0; sindex < spellLevels.length; ++sindex)
@@ -3983,14 +3983,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				ClassSpellList csl = refContext
 						.silentlyGetConstructedCDOMObject(ClassSpellList.class,
 								tok.substring(6));
-				aClass.addClassSpellList(csl);
+				aClass.addClassSpellList(csl, thePC);
 			}
 			else if (tok.startsWith("DOMAIN."))
 			{
 				DomainSpellList dsl = refContext
 						.silentlyGetConstructedCDOMObject(
 								DomainSpellList.class, tok.substring(7));
-				aClass.addClassSpellList(dsl);
+				aClass.addClassSpellList(dsl, thePC);
 			}
 			else
 			{
@@ -4007,12 +4007,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									DomainSpellList.class, tok);
 					if (dsl != null)
 					{
-						aClass.addClassSpellList(dsl);
+						aClass.addClassSpellList(dsl, thePC);
 					}
 				}
 				else
 				{
-					aClass.addClassSpellList(csl);
+					aClass.addClassSpellList(csl, thePC);
 					/*
 					 * TODO This makes no sense to me - WHY do we have to add
 					 * the spells by hand? - look at Rev 6416 and older for this

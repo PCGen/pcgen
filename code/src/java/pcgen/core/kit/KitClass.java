@@ -129,7 +129,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		if (getSubClass() != null)
 		{
 			// try and set a subclass too.
-			theClass.setSubClassKey(getSubClass());
+			theClass.setSubClassKey(aPC, getSubClass());
 		}
 
 		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
@@ -152,7 +152,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	public void apply(PlayerCharacter aPC)
 	{
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
-		theClass.setSubClassKey(theOrigSubClass);
+		theClass.setSubClassKey(aPC, theOrigSubClass);
 		theClass = null;
 	}
 

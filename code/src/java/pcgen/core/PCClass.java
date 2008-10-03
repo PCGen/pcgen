@@ -50,6 +50,8 @@ import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -146,30 +148,6 @@ public class PCClass extends PObject
 	private int skillPool = 0;
 
 	/*
-	 * FUTURETYPESAFETY Dependent upon classSkillChoices being type safe, which
-	 * in turn is dependent on the Chooser system being type safe :/
-	 */
-	/*
-	 * FINALPCCLASSLEVELONLY
-	 * FINALALLCLASSLEVELS classSkillList is part of PCClassLevel (they are the
-	 * selections the character takes at a given level) - triggered by
-	 * addLevel
-	 */
-	private List<ClassSkillList> classSkillList = null;
-
-	/*
-	 * FUTURETYPESAFETY Dependent upon classSpellChoices being type safe, which
-	 * in turn is dependent on the Chooser system being type safe :/
-	 */
-	/*
-	 * FINALPCCLASSLEVELONLY
-	 * FINALALLCLASSLEVELS classSpellList is part of PCClassLevel (they are the
-	 * selections the character takes at a given level) - triggered by
-	 * addLevel
-	 */
-	private List<CDOMListObject<Spell>> classSpellList = null;
-
-	/*
 	 * TYPESAFETY This should be working with Skill objects, not Strings
 	 */
 	/*
@@ -204,15 +182,6 @@ public class PCClass extends PObject
 	 * be type safe
 	 */
 	private List<String> prohibitedSchools = null;
-
-	/*
-	 * PCCLASSLEVELONLY Since this is not part of a tag and is related to how
-	 * spells are related to a PCClassLevel
-	 * 
-	 * Actually, I may want to DELETEVARIABLE - this is really a cache, and 
-	 * need to consider how valuable it is to have a cache vs. not have it.
-	 */
-	private String stableSpellKey = null;
 
 	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
@@ -695,9 +664,9 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public final List<CDOMListObject<Spell>> getClassSpellList()
+	public final List<CDOMListObject<Spell>> getClassSpellList(PlayerCharacter pc)
 	{
-		return classSpellList;
+		return pc.getAssocList(this, AssociationListKey.CLASSSPELLLIST);
 	}
 
 	/*
@@ -989,16 +958,22 @@ public class PCClass extends PObject
 	 * calculated based on other factors, it is not a Tag
 	 */
 	@Override
-	public String getSpellKey()
+	public String getSpellKey(PlayerCharacter pc)
 	{
+		String stableSpellKey = pc.getAssoc(this, AssociationKey.SPELL_KEY_CACHE);
 		if (stableSpellKey != null)
 		{
 			return stableSpellKey;
 		}
 
+		List<CDOMListObject<Spell>> classSpellList = pc.getAssocList(this,
+				AssociationListKey.CLASSSPELLLIST);
 		if (classSpellList == null)
 		{
-			chooseClassSpellList();
+			chooseClassSpellList(pc);
+
+			classSpellList = pc.getAssocList(this,
+					AssociationListKey.CLASSSPELLLIST);
 
 			if (classSpellList == null)
 			{
@@ -1374,7 +1349,7 @@ public class PCClass extends PObject
 	 * the PCClassLevel (called during construction) this is only required
 	 * in the level objects, not PCClass
 	 */
-	public void setSubClassKey(final String aKey)
+	public void setSubClassKey(PlayerCharacter pc, final String aKey)
 	{
 		subClassKey = aKey;
 
@@ -1388,8 +1363,8 @@ public class PCClass extends PObject
 			}
 		}
 
-		stableSpellKey = null;
-		getSpellKey();
+		pc.removeAssoc(this, AssociationKey.SPELL_KEY_CACHE);
+		getSpellKey(pc);
 	}
 
 	/*
@@ -1587,7 +1562,7 @@ public class PCClass extends PObject
 				}
 			}
 
-			chooseClassSkillList();
+			chooseClassSkillList(aPC);
 		}
 
 		if (!aPC.isImporting())
@@ -1599,7 +1574,7 @@ public class PCClass extends PObject
 		if ((level == 1) && !aPC.isImporting() && (curLevel == 0))
 		{
 			checkForSubClass(aPC);
-			getSpellKey();
+			getSpellKey(aPC);
 		}
 
 		if (!aPC.isImporting() && (curLevel < level))
@@ -1630,7 +1605,7 @@ public class PCClass extends PObject
 	 */
 	protected void removeKnownSpellsForClassLevel(final PlayerCharacter aPC)
 	{
-		final String spellKey = getSpellKey();
+		final String spellKey = getSpellKey(aPC);
 
 		if (!containsListFor(ListKey.KNOWN_SPELLS) || aPC.isImporting()
 				|| !aPC.getAutoSpells())
@@ -1689,7 +1664,7 @@ public class PCClass extends PObject
 		{
 			// Get every spell that can be cast by this class.
 			final List<Spell> cspelllist =
-					Globals.getSpellsIn(-1, getSpellKey(),
+					Globals.getSpellsIn(-1, getSpellKey(aPC),
 						Constants.EMPTY_STRING);
 			if (cspelllist.isEmpty())
 			{
@@ -1704,7 +1679,7 @@ public class PCClass extends PObject
 			final int _maxLevel = getMaxCastLevel();
 
 			// Get the key for this class (i.e. "CLASS|Cleric")
-			final String spellKey = getSpellKey();
+			final String spellKey = getSpellKey(aPC);
 
 			// For every spell that this class can ever cast.
 			for (Spell spell : cspelllist)
@@ -2052,61 +2027,22 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public void addClassSkill(ClassSkillList csl)
+	public void addClassSpellList(CDOMListObject<Spell> list, PlayerCharacter pc)
 	{
-		if (classSkillList == null)
-		{
-			classSkillList = new ArrayList<ClassSkillList>();
-		}
-		classSkillList.add(csl);
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public void clearClassSkillList()
-	{
-		classSkillList = null;
+		pc.addAssoc(this, AssociationListKey.CLASSSPELLLIST, list);
+		pc.removeAssoc(this, AssociationKey.SPELL_KEY_CACHE);
 	}
 
 	/*
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public void addClassSpellList(CDOMListObject<Spell> list)
+	public void clearClassSpellList(PlayerCharacter pc)
 	{
-		if (classSpellList == null)
-		{
-			classSpellList = new ArrayList<CDOMListObject<Spell>>();
-		}
-		classSpellList.add(list);
-		/*
-		 * CONSIDER I have taken out classSpellString = null; which is now the
-		 * equivalent of classSpellChoices = null; ... I don't understand why in
-		 * this unique situation of Player Character Import that resetting this
-		 * produces better behavior than adding a class (which doesn't delete
-		 * the list). Seems to me a case of unnecessary (and confusing)
-		 * deletion... - thpr 10/29/06
-		 */
-		/*
-		 * CONSIDER This is a confusing side-effect - this really needs to be
-		 * identified better as a cached variable (transient) so that it is
-		 * recognized that this is simply making a 'cache' dirty - thpr 11/4/06
-		 */
-		stableSpellKey = null;
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public void clearClassSpellList()
-	{
-		classSpellList = null;
+		pc.removeAllAssocs(this, AssociationListKey.CLASSSPELLLIST);
 	}
 
 	/*
@@ -2346,7 +2282,6 @@ public class PCClass extends PObject
 		try
 		{
 			aClass = (PCClass) super.clone();
-			aClass.setSubClassKey(getSubClassKey());
 
 			if (prohibitedSchools != null)
 			{
@@ -2361,10 +2296,6 @@ public class PCClass extends PObject
 			//			}
 			// TODO - Why is this not copying the skillList from the master?
 			aClass.skillList = null;
-
-			aClass.classSkillList = null;
-			aClass.classSpellList = null;
-			aClass.stableSpellKey = null;
 
 			List<KnownSpellIdentifier> ksl = getListFor(ListKey.KNOWN_SPELLS);
 			if (ksl != null)
@@ -2415,26 +2346,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass, since it is a Tag
-	 * 
-	 * Need to look into the details of stableSpellKey to figure out the appropriate
-	 * place for that
-	 */
-	@Override
-	public void setName(final String newName)
-	{
-		super.setName(newName);
-		/*
-		 * CONSIDER This (below) is a bit of a confusing side effect - needs to be
-		 * far more explicit that stableSpellKey is a cache, and that there are 
-		 * also side effects to getSpellKey (side effects are bad :( ) - 
-		 * thpr 11/4/06
-		 */
-		stableSpellKey = null;
-		getSpellKey();
-	}
-
-	/*
 	 * PCCLASSLEVELONLY since the specialty list is created during PCClassLevel
 	 * creation (in the factory)
 	 */
@@ -2455,6 +2366,7 @@ public class PCClass extends PObject
 	 */
 	public boolean hasClassSkill(PlayerCharacter pc, final String aString)
 	{
+		List<ClassSkillList> classSkillList = pc.getAssocList(this, AssociationListKey.CLASSSKILLLIST);
 		if ((classSkillList == null) || classSkillList.isEmpty())
 		{
 			return false;
@@ -2705,8 +2617,9 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public final List<ClassSkillList> getClassSkillList()
+	public final List<ClassSkillList> getClassSkillList(PlayerCharacter pc)
 	{
+		List<ClassSkillList> classSkillList = pc.getAssocList(this, AssociationListKey.CLASSSKILLLIST);
 		if (classSkillList == null)
 		{
 			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
@@ -3633,7 +3546,7 @@ public class PCClass extends PObject
 
 			if (newLevel == 0)
 			{
-				setSubClassKey(Constants.s_NONE);
+				setSubClassKey(aPC, Constants.s_NONE);
 
 				//
 				// Remove all skills associated with this class
@@ -4176,7 +4089,7 @@ public class PCClass extends PObject
 				choiceList.add(columnList);
 			}
 
-			setSubClassKey(sc.getKeyName());
+			setSubClassKey(aPC, sc.getKeyName());
 
 			if (sc.getChoice().length() > 0)
 			{
@@ -4283,7 +4196,7 @@ public class PCClass extends PObject
 	 * PCCLASSONLY Since this is a choice of ClassSkillList, this is part of the
 	 * PCClass factory of PCClassLevels??
 	 */
-	private void chooseClassSkillList()
+	private void chooseClassSkillList(PlayerCharacter pc)
 	{
 		TransitionChoice<ClassSkillList> csc = get(ObjectKey.SKILLLIST_CHOICE);
 		// if no entry or no choices, just return
@@ -4292,10 +4205,10 @@ public class PCClass extends PObject
 			return;
 		}
 
-		clearClassSkillList();
+		pc.removeAllAssocs(this, AssociationListKey.CLASSSKILLLIST);
 		for (ClassSkillList st : csc.driveChoice(null))
 		{
-			addClassSkill(st);
+			pc.addAssoc(pc, AssociationListKey.CLASSSKILLLIST, st);
 		}
 	}
 
@@ -4303,7 +4216,7 @@ public class PCClass extends PObject
 	 * PCCLASSONLY Since this is part of the construction of a PCClassLevel,
 	 * this is only part of PCClass...
 	 */
-	private void chooseClassSpellList()
+	private void chooseClassSpellList(PlayerCharacter pc)
 	{
 		TransitionChoice<CDOMListObject<Spell>> csc = get(ObjectKey.SPELLLIST_CHOICE);
 		// if no entry or no choices, just return
@@ -4312,10 +4225,10 @@ public class PCClass extends PObject
 			return;
 		}
 
-		clearClassSpellList();
+		clearClassSpellList(pc);
 		for (CDOMListObject<Spell> st : csc.driveChoice(null))
 		{
-			addClassSpellList(st);
+			addClassSpellList(st, pc);
 		}
 	}
 

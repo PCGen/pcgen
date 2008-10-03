@@ -542,7 +542,7 @@ public class NPCGenerator
 		WeightedCollection<String> subClasses = theConfiguration.getSubClassWeights( aClass.getKeyName() );
 		if (subClasses != null && subClasses.size() > 0)
 		{
-			aClass.setSubClassKey( subClasses.getRandomValue() );
+			aClass.setSubClassKey( aPC, subClasses.getRandomValue() );
 		}
 	}
 	

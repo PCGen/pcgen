@@ -322,7 +322,7 @@ public class SpellSupport implements Cloneable
 									if (pcClass.getSpellType().equals(spellType) || ALL.equals(spellType))
 									{
 										StringBuffer tempSb = new StringBuffer();
-										tempSb.append(pcClass.getSpellKey())
+										tempSb.append(pcClass.getSpellKey(pc))
 											.append(PIPE)
 											.append(key.substring(key.lastIndexOf(PIPE) + 1));
 										tempMap.put(tempSb.toString(), levelInt);
@@ -372,7 +372,7 @@ public class SpellSupport implements Cloneable
 							{
 								if (pcClass.getSpellType().equals(spellType) || ALL.equals(spellType))
 								{
-									tempMap.put(pcClass.getSpellKey(), si.level);
+									tempMap.put(pcClass.getSpellKey(pc), si.level);
 								}
 							}
 						}

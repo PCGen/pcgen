@@ -38,7 +38,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 public final class Domain extends PObject
 {
 	@Override
-	public String getSpellKey()
+	public String getSpellKey(PlayerCharacter pc)
 	{
 		return "DOMAIN|" + keyName;
 	}

@@ -2066,7 +2066,7 @@ final class PCGVer2Creator implements IOConstants
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
-					final String spellKey = cSpell.getOwner().getSpellKey();
+					final String spellKey = cSpell.getOwner().getSpellKey(thePC);
 
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
@@ -2148,13 +2148,13 @@ final class PCGVer2Creator implements IOConstants
 	{
 		for (PCClass pcClass : thePC.getClassList())
 		{
-			if ((pcClass.getClassSpellList() != null)
-				&& (pcClass.getClassSpellList().size() > 0))
+			if ((pcClass.getClassSpellList(thePC) != null)
+				&& (pcClass.getClassSpellList(thePC).size() > 0))
 			{
 				buffer.append(TAG_SPELLLIST).append(':');
 				buffer.append(pcClass.getKeyName());
 
-				for (CDOMListObject<Spell> spell : pcClass.getClassSpellList())
+				for (CDOMListObject<Spell> spell : pcClass.getClassSpellList(thePC))
 				{
 					buffer.append('|');
 					if (ClassSpellList.class.equals(spell.getClass()))

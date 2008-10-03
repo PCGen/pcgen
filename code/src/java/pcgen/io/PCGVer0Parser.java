@@ -590,7 +590,7 @@ final class PCGVer0Parser implements PCGParser
 					aPC.getClassList().add(aClass);
 				}
 
-				aClass.setSubClassKey(subClassKey);
+				aClass.setSubClassKey(aPC, subClassKey);
 				PCClassLstToken token =
 						(PCClassLstToken) TokenStore.inst().getTokenMap(
 							PCClassLstToken.class).get("PROHIBITED");
@@ -1663,7 +1663,7 @@ final class PCGVer0Parser implements PCGParser
 				aObject = aClass;
 			}
 
-			int sLevel = aSpell.getFirstLevelForKey(aObject.getSpellKey(), aPC);
+			int sLevel = aSpell.getFirstLevelForKey(aObject.getSpellKey(aPC), aPC);
 
 			if (sLevel == -1)
 			{
@@ -2048,7 +2048,7 @@ final class PCGVer0Parser implements PCGParser
 			}
 
 			final int level =
-					aSpell.getFirstLevelForKey(aObject.getSpellKey(), aPC);
+					aSpell.getFirstLevelForKey(aObject.getSpellKey(aPC), aPC);
 
 			if (level == -1)
 			{

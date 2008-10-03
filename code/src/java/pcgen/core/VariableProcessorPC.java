@@ -554,7 +554,7 @@ public class VariableProcessorPC extends VariableProcessor
 			for (PCClass spClass : getPc().getClassList())
 			{
 				StringTokenizer st =
-						new StringTokenizer(spClass.getSpellKey(),
+						new StringTokenizer(spClass.getSpellKey(getPc()),
 							Constants.PIPE);
 				while (st.hasMoreTokens())
 				{

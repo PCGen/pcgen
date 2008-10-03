@@ -5939,7 +5939,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCClass pcClass : getClassList())
 		{
-			final String aKey = pcClass.getSpellKey();
+			final String aKey = pcClass.getSpellKey(this);
 			final int temp = aSpell.getFirstLevelForKey(aKey, this);
 			anInt = Math.min(anInt, temp);
 		}
@@ -13568,7 +13568,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		boolean flag = false;
 
-		String src = obj.getSpellKey();
+		String src = obj.getSpellKey(this);
 		
 		for (VariableKey vk : obj.getVariableKeys())
 		{

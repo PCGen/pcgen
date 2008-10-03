@@ -380,7 +380,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			for (CharacterDomain cd : pc.getCharacterDomainList())
 			{
 				Domain domain = cd.getDomain();
-				final String key = domain.getSpellKey();
+				final String key = domain.getSpellKey(pc);
 				int newLevel = spell.getFirstLevelForKey(key, pc);
 				if (newLevel > 0 && newLevel < spLevel)
 				{
@@ -392,7 +392,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 		if (spLevel == 99)
 		{
-			spLevel = spell.getFirstLevelForKey(pcClass.getSpellKey(), pc);
+			spLevel = spell.getFirstLevelForKey(pcClass.getSpellKey(pc), pc);
 			owner = pcClass;
 		}
 

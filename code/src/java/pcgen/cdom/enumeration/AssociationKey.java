@@ -69,6 +69,8 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Integer> OUTPUT_INDEX = new AssociationKey<Integer>();
 
+	public static final AssociationKey<String> SPELL_KEY_CACHE = new AssociationKey<String>();
+
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
 	private AssociationKey()
