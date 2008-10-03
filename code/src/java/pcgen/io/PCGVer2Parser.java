@@ -41,6 +41,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -1819,7 +1820,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else
 					{
-						thePC.addAssoc(tc, AssociationKey.ADD, obj);
+						thePC.addAssoc(tc, AssociationListKey.ADD, obj);
 					}
 				}
 			}
@@ -3420,7 +3421,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					// Maybe warn the user?
 				}
 
-				aSkill.setOutputIndex(outputindex);
+				thePC.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, outputindex);
 			}
 			else if (TAG_CLASSBOUGHT.equals(tag))
 			{

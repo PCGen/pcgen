@@ -387,8 +387,7 @@ public class ClassData
 			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, theClassKey);
 			if (pcClass != null)
 			{
-				final List<SubClass> subClasses = pcClass.getSubClassList();
-				for ( final SubClass subClass : subClasses )
+				for ( final SubClass subClass : pcClass.getSubClassList() )
 				{
 					addSubClass( subClass.getKeyName(), 1 );
 				}

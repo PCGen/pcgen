@@ -35,6 +35,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -144,7 +145,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		knowledge[0].setTypeInfo("KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intStat);
-		knowledge[0].setOutputIndex(2);
+		character.setAssoc(knowledge[0], AssociationKey.OUTPUT_INDEX, 2);
 		Globals.getContext().ref.importObject(knowledge[0]);
 		Skill ks0 = character.addSkill(knowledge[0]);
 		SkillRankControl.modRanks(8.0, myClass, true, character, ks0);
@@ -154,7 +155,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		knowledge[1].setTypeInfo("KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intStat);
-		knowledge[1].setOutputIndex(3);
+		character.setAssoc(knowledge[1], AssociationKey.OUTPUT_INDEX, 3);
 		Globals.getContext().ref.importObject(knowledge[1]);
 		Skill ks1 = character.addSkill(knowledge[1]);
 		SkillRankControl.modRanks(5.0, myClass, true, character, ks1);
@@ -164,7 +165,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tumble.setName("Tumble");
 		tumble.setTypeInfo("DEX");
 		tumble.put(ObjectKey.KEY_STAT, dexStat);
-		tumble.setOutputIndex(4);
+		character.setAssoc(tumble, AssociationKey.OUTPUT_INDEX, 4);
 		Globals.getContext().ref.importObject(tumble);
 		Skill ts = character.addSkill(tumble);
 		SkillRankControl.modRanks(7.0, myClass, true, character, ts);
@@ -174,7 +175,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance.setName("Balance");
 		balance.setTypeInfo("DEX");
 		balance.put(ObjectKey.KEY_STAT, dexStat);
-		balance.setOutputIndex(1);
+		character.setAssoc(balance, AssociationKey.OUTPUT_INDEX, 1);
 		balance
 			.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		Globals.getContext().ref.importObject(balance);

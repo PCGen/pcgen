@@ -69,6 +69,7 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -91,8 +92,8 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceStat;
-import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
@@ -2988,6 +2989,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public ArrayList<Skill> getSkillListInOutputOrder(
 		final ArrayList<Skill> sortedList)
 	{
+		final PlayerCharacter pc = this;
 		Collections.sort(sortedList, new Comparator<Skill>()
 		{
 			/**
@@ -2995,16 +2997,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			 */
 			public int compare(final Skill skill1, final Skill skill2)
 			{
-				int obj1Index = skill1.getOutputIndex();
-				int obj2Index = skill2.getOutputIndex();
+				Integer obj1Index = pc.getAssoc(skill1, AssociationKey.OUTPUT_INDEX);
+				Integer obj2Index = pc.getAssoc(skill2, AssociationKey.OUTPUT_INDEX);
 
 				// Force unset items (index of 0) to appear at the end
-				if (obj1Index == 0)
+				if (obj1Index == null || obj1Index == 0)
 				{
 					obj1Index = 999;
 				}
 
-				if (obj2Index == 0)
+				if (obj2Index == null || obj2Index == 0)
 				{
 					obj2Index = 999;
 				}
@@ -3031,7 +3033,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final Skill bSkill = i.next();
 
 			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
-			if (bSkill.getOutputIndex() == -1
+			Integer outputIndex = this.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+			if (outputIndex != null && outputIndex == -1
 				|| skVis.equals(Visibility.HIDDEN)
 				|| skVis.equals(Visibility.DISPLAY_ONLY))
 			{
@@ -3073,7 +3076,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			List<NamedValue> rankList = getAssocList(aSkill, AssociationKey.SKILL_RANK);
+			List<NamedValue> rankList = getAssocList(aSkill, AssociationListKey.SKILL_RANK);
 			if (rankList != null)
 			{
 				for (NamedValue sd : rankList)
@@ -10614,9 +10617,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (Skill skill : localSkillList)
 		{
-			if (skill.getOutputIndex() >= 0)
+			Integer outputIndex = this.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
+			if (outputIndex == null || outputIndex >= 0)
 			{
-				skill.setOutputIndex(nextOutputIndex++);
+				this.setAssoc(skill, AssociationKey.OUTPUT_INDEX, nextOutputIndex++);
 			}
 		}
 	}
@@ -17899,27 +17903,27 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addAssociation(CDOMObject obj, String o)
 	{
-		assocSupt.addAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
 	public void addAssociation(CDOMObject obj, FixedStringList o)
 	{
-		assocSupt.addAssoc(obj, AssociationKey.CHOICES, o);
+		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
-		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
 	public boolean containsAssociated(CDOMObject obj, FixedStringList o)
 	{
-		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, o);
+		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
-		return assocSupt.getAssocCount(obj, AssociationKey.CHOICES)
+		return assocSupt.getAssocCount(obj, AssociationListKey.CHOICES)
 				/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 	}
 
@@ -17927,7 +17931,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<String> list = new ArrayList<String>();
 		List<FixedStringList> assocList = assocSupt.getAssocList(obj,
-				AssociationKey.CHOICES);
+				AssociationListKey.CHOICES);
 		if (assocList != null)
 		{
 			for (FixedStringList ac : assocList)
@@ -17948,30 +17952,30 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasAssociations(CDOMObject obj)
 	{
-		return assocSupt.hasAssocs(obj, AssociationKey.CHOICES);
+		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}
 
 	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
-		assocSupt.removeAllAssocs(obj, AssociationKey.CHOICES);
+		assocSupt.removeAllAssocs(obj, AssociationListKey.CHOICES);
 		return list;
 	}
 
 	public void removeAssociation(CDOMObject obj, String o)
 	{
-		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
 	public void removeAssociation(CDOMObject obj, FixedStringList o)
 	{
-		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, o);
+		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
 	public int getDetailedAssociationCount(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
-				AssociationKey.CHOICES);
+				AssociationListKey.CHOICES);
 		int count = 0;
 		if (assocs != null)
 		{
@@ -17985,13 +17989,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
-		return assocSupt.getAssocList(obj, AssociationKey.CHOICES);
+		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
 	}
 
 	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
-				AssociationKey.CHOICES);
+				AssociationListKey.CHOICES);
 		List<String> list = new ArrayList<String>();
 		if (assocs != null)
 		{
@@ -18008,27 +18012,47 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public String getFirstAssociation(CDOMObject obj)
 	{
-		return assocSupt.getAssocList(obj, AssociationKey.CHOICES).get(0).get(0);
+		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0).get(0);
 	}
 
-	public <T> void addAssoc(Object obj, AssociationKey<T> ak, T o)
+	public <T> void addAssoc(Object obj, AssociationListKey<T> ak, T o)
 	{
 		assocSupt.addAssoc(obj, ak, o);
 	}
 
-	public <T> boolean containsAssoc(Object obj, AssociationKey<T> ak, T o)
+	public <T> boolean containsAssoc(Object obj, AssociationListKey<T> ak, T o)
 	{
 		return assocSupt.containsAssoc(obj, ak, o);
 	}
 
-	public int getAssocCount(Object obj, AssociationKey<?> ak)
+	public int getAssocCount(Object obj, AssociationListKey<?> ak)
 	{
 		return assocSupt.getAssocCount(obj, ak);
 	}
 
-	public <T> List<T> getAssocList(Object obj, AssociationKey<T> ak)
+	public <T> List<T> getAssocList(Object obj, AssociationListKey<T> ak)
 	{
 		return assocSupt.getAssocList(obj, ak);
+	}
+
+	public boolean hasAssocs(Object obj, AssociationListKey<?> ak)
+	{
+		return assocSupt.hasAssocs(obj, ak);
+	}
+
+	public <T> List<T> removeAllAssocs(Object obj, AssociationListKey<T> ak)
+	{
+		return assocSupt.removeAllAssocs(obj, ak);
+	}
+
+	public <T> void removeAssoc(Object obj, AssociationListKey<T> ak, T o)
+	{
+		assocSupt.removeAssoc(obj, ak, o);
+	}
+
+	public <T> T getAssoc(Object obj, AssociationKey<T> ak)
+	{
+		return assocSupt.getAssoc(obj, ak);
 	}
 
 	public boolean hasAssocs(Object obj, AssociationKey<?> ak)
@@ -18036,14 +18060,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return assocSupt.hasAssocs(obj, ak);
 	}
 
-	public <T> List<T> removeAllAssocs(Object obj, AssociationKey<T> ak)
+	public <T> void removeAssoc(Object obj, AssociationKey<T> ak)
 	{
-		return assocSupt.removeAllAssocs(obj, ak);
+		assocSupt.removeAssoc(obj, ak);
 	}
 
-	public <T> void removeAssoc(Object obj, AssociationKey<T> ak, T o)
+	public <T> void setAssoc(Object obj, AssociationKey<T> ak, T o)
 	{
-		assocSupt.removeAssoc(obj, ak, o);
+		assocSupt.setAssoc(obj, ak, o);
 	}
 
 	public boolean hasUnlockedStat(PCStat stat)

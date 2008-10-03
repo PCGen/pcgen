@@ -23,7 +23,7 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.NamedValue;
-import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -46,7 +46,7 @@ public class SkillRankControl
 	{
 		double rank = 0.0;
 
-		List<NamedValue> rankList = pc.getAssocList(sk, AssociationKey.SKILL_RANK);
+		List<NamedValue> rankList = pc.getAssocList(sk, AssociationListKey.SKILL_RANK);
 		if (rankList != null)
 		{
 			for (NamedValue sd : rankList)
@@ -97,7 +97,7 @@ public class SkillRankControl
 		}
 
 		String aCName = aClass.getKeyName();
-		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationKey.SKILL_RANK);
+		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationListKey.SKILL_RANK);
 		if (rankList == null)
 		{
 			return;
@@ -106,7 +106,7 @@ public class SkillRankControl
 		{
 			if (nv.name.equals(aCName))
 			{
-				aPC.removeAssoc(sk, AssociationKey.SKILL_RANK, nv);
+				aPC.removeAssoc(sk, AssociationListKey.SKILL_RANK, nv);
 				double curRankCost = nv.getWeight();
 				String aResp = modRanks(-curRankCost, aClass, false, aPC, sk);
 
@@ -210,7 +210,7 @@ public class SkillRankControl
 		double currentRank = 0.0;
 		double noneRank = 0.0;
 		NamedValue active = null;
-		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationKey.SKILL_RANK);
+		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationListKey.SKILL_RANK);
 		if (rankList != null)
 		{
 			for (NamedValue nv : rankList)
@@ -258,15 +258,15 @@ public class SkillRankControl
 	public static void replaceClassRank(PlayerCharacter pc, Skill sk,
 			String oldClass, String newClass)
 	{
-		List<NamedValue> rankList = pc.getAssocList(sk, AssociationKey.SKILL_RANK);
+		List<NamedValue> rankList = pc.getAssocList(sk, AssociationListKey.SKILL_RANK);
 		if (rankList != null)
 		{
 			for (NamedValue nv : rankList)
 			{
 				if (nv.name.equals(oldClass))
 				{
-					pc.removeAssoc(sk, AssociationKey.SKILL_RANK, nv);
-					pc.addAssoc(sk, AssociationKey.SKILL_RANK, new NamedValue(
+					pc.removeAssoc(sk, AssociationListKey.SKILL_RANK, nv);
+					pc.addAssoc(sk, AssociationListKey.SKILL_RANK, new NamedValue(
 							newClass, nv.getWeight()));
 					break;
 				}
@@ -315,7 +315,7 @@ public class SkillRankControl
 		//
 		if (CoreUtility.doublesEqual(newRank, 0.0))
 		{
-			aPC.removeAssoc(sk, AssociationKey.SKILL_RANK, active);
+			aPC.removeAssoc(sk, AssociationListKey.SKILL_RANK, active);
 		}
 		else if (active != null)
 		{
@@ -323,7 +323,7 @@ public class SkillRankControl
 		}
 		else
 		{
-			aPC.addAssoc(sk, AssociationKey.SKILL_RANK, new NamedValue(
+			aPC.addAssoc(sk, AssociationListKey.SKILL_RANK, new NamedValue(
 					classKey, g));
 		}
 
@@ -334,7 +334,7 @@ public class SkillRankControl
 
 	public static String getRanksExplanation(PlayerCharacter pc, Skill sk)
 	{
-		return StringUtil.join(pc.getAssocList(sk, AssociationKey.SKILL_RANK),
+		return StringUtil.join(pc.getAssocList(sk, AssociationListKey.SKILL_RANK),
 				", ");
 	}
 

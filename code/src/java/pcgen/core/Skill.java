@@ -47,7 +47,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Skill extends PObject
 {
-	private int outputIndex = 0;
 
     /** Constructor */
 	public Skill()
@@ -56,34 +55,6 @@ public final class Skill extends PObject
 	}
 
     /**
-	 * Set this skill's output index, which controls the order
-	 * in which the skills appear on a character sheet.
-	 * Note: -1 means hidden and 0 means nto set
-	 *
-	 * <br>author: James Dempsey 14-Jun-02
-	 *
-	 * @param newIndex the new output index for this skill (-1=hidden, 0=not set)
-	 */
-	public void setOutputIndex(final int newIndex)
-	{
-		outputIndex = newIndex;
-	}
-
-	/**
-	 * Return the output index, which controls the order in which the skills
-	 * appear on a character sheet Note: -1 means hidden and 0 means nto set
-	 * 
-	 * <br>
-	 * author: James Dempsey 14-Jun-02
-	 * 
-	 * @return the output index for this skill (-1=hidden, 0=not set)
-	 */
-	public int getOutputIndex()
-	{
-		return outputIndex;
-	}
-
-	/**
 	 * Get a count of the sub types
 	 * 
 	 * @return count of sub types
@@ -132,7 +103,6 @@ public final class Skill extends PObject
 		try
 		{
 			newSkill = (Skill) super.clone();
-			newSkill.outputIndex = outputIndex;
 		}
 		catch (CloneNotSupportedException exc)
 		{

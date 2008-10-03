@@ -20,46 +20,69 @@ package pcgen.core;
 import java.util.IdentityHashMap;
 import java.util.List;
 
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 
-public class AssociationSupport implements AssocStore
+public class AssociationSupport
 {
 
-	private final DoubleKeyMapToList assocMap = new DoubleKeyMapToList(IdentityHashMap.class, IdentityHashMap.class);
+	private final DoubleKeyMapToList assocMTL = new DoubleKeyMapToList(IdentityHashMap.class, IdentityHashMap.class);
+	private final DoubleKeyMap assocMap = new DoubleKeyMap(IdentityHashMap.class, IdentityHashMap.class);
 
-	public <T> void addAssoc(Object obj, AssociationKey<T> ak, T o)
+	public <T> void addAssoc(Object obj, AssociationListKey<T> ak, T o)
 	{
-		assocMap.addToListFor(obj, ak, o);
+		assocMTL.addToListFor(obj, ak, o);
 	}
 
-	public <T> void removeAssoc(Object obj, AssociationKey<T> ak, T o)
+	public <T> void removeAssoc(Object obj, AssociationListKey<T> ak, T o)
 	{
-		assocMap.removeFromListFor(obj, ak, o);
+		assocMTL.removeFromListFor(obj, ak, o);
 	}
 
-	public <T> List<T> removeAllAssocs(Object obj, AssociationKey<T> ak)
+	public <T> List<T> removeAllAssocs(Object obj, AssociationListKey<T> ak)
 	{
-		return assocMap.removeListFor(obj, ak);
+		return assocMTL.removeListFor(obj, ak);
 	}
 
-	public int getAssocCount(Object obj, AssociationKey<?> ak)
+	public int getAssocCount(Object obj, AssociationListKey<?> ak)
 	{
-		return assocMap.sizeOfListFor(obj, ak);
+		return assocMTL.sizeOfListFor(obj, ak);
+	}
+
+	public boolean hasAssocs(Object obj, AssociationListKey<?> ak)
+	{
+		return assocMTL.containsListFor(obj, ak);
+	}
+
+	public <T> List<T> getAssocList(Object obj, AssociationListKey<T> ak)
+	{
+		return assocMTL.getListFor(obj, ak);
+	}
+
+	public <T> boolean containsAssoc(Object obj, AssociationListKey<T> ak, T o)
+	{
+		return assocMTL.containsInList(obj, ak, o);
+	}
+
+	public <T> void setAssoc(Object obj, AssociationKey<T> ak, T o)
+	{
+		assocMap.put(obj, ak, o);
+	}
+
+	public <T> void removeAssoc(Object obj, AssociationKey<T> ak)
+	{
+		assocMap.remove(obj, ak);
 	}
 
 	public boolean hasAssocs(Object obj, AssociationKey<?> ak)
 	{
-		return assocMap.containsListFor(obj, ak);
+		return assocMap.containsKey(obj, ak);
 	}
 
-	public <T> List<T> getAssocList(Object obj, AssociationKey<T> ak)
+	public <T> T getAssoc(Object obj, AssociationKey<T> ak)
 	{
-		return assocMap.getListFor(obj, ak);
-	}
-
-	public <T> boolean containsAssoc(Object obj, AssociationKey<T> ak, T o)
-	{
-		return assocMap.containsInList(obj, ak, o);
+		return (T) assocMap.get(obj, ak);
 	}
 }

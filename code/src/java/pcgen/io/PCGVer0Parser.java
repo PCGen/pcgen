@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.CompanionList;
@@ -1943,7 +1944,7 @@ final class PCGVer0Parser implements PCGParser
 						}
 					}
 
-					aSkill.setOutputIndex(outputIndex.intValue());
+					aPC.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, outputIndex.intValue());
 				}
 				else
 				{

@@ -25,13 +25,11 @@ package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
+import pcgen.base.util.FixedStringList;
+import pcgen.base.util.NamedValue;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
@@ -50,28 +48,18 @@ import pcgen.core.AbilityCategory;
  * @param <T>
  *            The class of object stored by this AssociationKey.
  */
-public final class AssociationKey<T>
+public final class AssociationListKey<T>
 {
 
-	public static final AssociationKey<CDOMObject> OWNER = new AssociationKey<CDOMObject>();
+	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<FixedStringList>();
 
-	public static final AssociationKey<String> TOKEN = new AssociationKey<String>();
+	public static final AssociationListKey<Object> ADD = new AssociationListKey<Object>();
 
-	public static final AssociationKey<SkillCost> SKILL_COST = new AssociationKey<SkillCost>();
+	public static final AssociationListKey<NamedValue> SKILL_RANK = new AssociationListKey<NamedValue>();
 
-	public static final AssociationKey<Integer> SPELL_LEVEL = new AssociationKey<Integer>();
+	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
-	public static final AssociationKey<List<String>> ASSOC_CHOICES = new AssociationKey<List<String>>();
-
-	public static final AssociationKey<Ability.Nature> NATURE = new AssociationKey<Ability.Nature>();
-
-	public static final AssociationKey<AbilityCategory> CATEGORY = new AssociationKey<AbilityCategory>();
-
-	public static final AssociationKey<Integer> OUTPUT_INDEX = new AssociationKey<Integer>();
-
-	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
-
-	private AssociationKey()
+	private AssociationListKey()
 	{
 		// Only allow instantation here
 	}
@@ -81,7 +69,7 @@ public final class AssociationKey<T>
 		return (T) o;
 	}
 
-	public static <OT> AssociationKey<OT> getKeyFor(Class<OT> c, String s)
+	public static <OT> AssociationListKey<OT> getKeyFor(Class<OT> c, String s)
 	{
 		if (map == null)
 		{
@@ -96,10 +84,10 @@ public final class AssociationKey<T>
 		 * Class and validate that with a an error message if a different class
 		 * is requested.
 		 */
-		AssociationKey<OT> o = (AssociationKey<OT>) map.get(s);
+		AssociationListKey<OT> o = (AssociationListKey<OT>) map.get(s);
 		if (o == null)
 		{
-			o = new AssociationKey<OT>();
+			o = new AssociationListKey<OT>();
 			map.put(s, o);
 		}
 		return o;
@@ -107,8 +95,8 @@ public final class AssociationKey<T>
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<AssociationKey<?>>();
-		Field[] fields = AssociationKey.class.getDeclaredFields();
+		map = new CaseInsensitiveMap<AssociationListKey<?>>();
+		Field[] fields = AssociationListKey.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{
 			int mod = fields[i].getModifiers();
@@ -119,9 +107,9 @@ public final class AssociationKey<T>
 				try
 				{
 					Object o = fields[i].get(null);
-					if (o instanceof AssociationKey)
+					if (o instanceof AssociationListKey)
 					{
-						map.put(fields[i].getName(), (AssociationKey<?>) o);
+						map.put(fields[i].getName(), (AssociationListKey<?>) o);
 					}
 				}
 				catch (IllegalArgumentException e)
@@ -147,7 +135,7 @@ public final class AssociationKey<T>
 		 * CONSIDER Should this find a way to do a Two-Way Map or something to
 		 * that effect?
 		 */
-		for (Map.Entry<?, AssociationKey<?>> me : map.entrySet())
+		for (Map.Entry<?, AssociationListKey<?>> me : map.entrySet())
 		{
 			if (me.getValue() == this)
 			{

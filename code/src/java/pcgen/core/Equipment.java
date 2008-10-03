@@ -46,7 +46,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -6047,22 +6047,22 @@ public final class Equipment extends PObject implements Serializable,
 
 	public void addAssociation(CDOMObject obj, String o)
 	{
-		assocSupt.addAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
 	public void addAssociation(CDOMObject obj, FixedStringList o)
 	{
-		assocSupt.addAssoc(obj, AssociationKey.CHOICES, o);
+		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
-		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
 	public boolean containsAssociated(CDOMObject obj, FixedStringList o)
 	{
-		return assocSupt.containsAssoc(obj, AssociationKey.CHOICES, o);
+		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
@@ -6070,14 +6070,14 @@ public final class Equipment extends PObject implements Serializable,
 		//TODO Null here is probably a problem for the PC :/
 		int select = obj.getSafe(FormulaKey.SELECT).resolve(this, true, null,
 				"").intValue();
-		return assocSupt.getAssocCount(obj, AssociationKey.CHOICES) / select;
+		return assocSupt.getAssocCount(obj, AssociationListKey.CHOICES) / select;
 	}
 
 	public List<String> getAssociationList(CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
 		List<FixedStringList> assocList = assocSupt.getAssocList(obj,
-				AssociationKey.CHOICES);
+				AssociationListKey.CHOICES);
 		if (assocList != null)
 		{
 			for (FixedStringList ac : assocList)
@@ -6098,30 +6098,30 @@ public final class Equipment extends PObject implements Serializable,
 
 	public boolean hasAssociations(CDOMObject obj)
 	{
-		return assocSupt.hasAssocs(obj, AssociationKey.CHOICES);
+		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}
 
 	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
-		assocSupt.removeAllAssocs(obj, AssociationKey.CHOICES);
+		assocSupt.removeAllAssocs(obj, AssociationListKey.CHOICES);
 		return list;
 	}
 
 	public void removeAssociation(CDOMObject obj, String o)
 	{
-		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, new FixedStringList(o));
+		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
 	public void removeAssociation(CDOMObject obj, FixedStringList o)
 	{
-		assocSupt.removeAssoc(obj, AssociationKey.CHOICES, o);
+		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
 	public int getDetailedAssociationCount(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
-				AssociationKey.CHOICES);
+				AssociationListKey.CHOICES);
 		int count = 0;
 		if (assocs != null)
 		{
@@ -6135,13 +6135,13 @@ public final class Equipment extends PObject implements Serializable,
 
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
-		return assocSupt.getAssocList(obj, AssociationKey.CHOICES);
+		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
 	}
 
 	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
-				AssociationKey.CHOICES);
+				AssociationListKey.CHOICES);
 		List<String> list = new ArrayList<String>();
 		if (assocs != null)
 		{
@@ -6158,7 +6158,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	public String getFirstAssociation(CDOMObject obj)
 	{
-		return assocSupt.getAssocList(obj, AssociationKey.CHOICES).get(0).get(0);
+		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0).get(0);
 	}
 	
 	/** Map of the bonuses for the object  */

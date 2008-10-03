@@ -32,6 +32,7 @@ import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -182,7 +183,7 @@ public class SkillpointsToken extends Token
 		for (Skill aSkill : skillList)
 		{
 			List<NamedValue> rankList = pc.getAssocList(aSkill,
-					AssociationKey.SKILL_RANK);
+					AssociationListKey.SKILL_RANK);
 			if (rankList != null)
 			{
 				for (NamedValue sd : rankList)
@@ -213,10 +214,11 @@ public class SkillpointsToken extends Token
 		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
 		for (Skill aSkill : skillList)
 		{
+			Integer outputIndex = pc.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
 			if ((SkillRankControl.getRank(pc, aSkill).doubleValue() > 0)
-				|| (aSkill.getOutputIndex() != 0))
+				|| (outputIndex != null && outputIndex != 0))
 			{
-				for (NamedValue sd : pc.getAssocList(aSkill, AssociationKey.SKILL_RANK))
+				for (NamedValue sd : pc.getAssocList(aSkill, AssociationListKey.SKILL_RANK))
 				{
 					PCClass pcClass = pc.getClassKeyed(sd.name);
 					if (targetClass == pcClass)

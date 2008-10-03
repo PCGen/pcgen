@@ -45,6 +45,7 @@ import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
@@ -1949,18 +1950,19 @@ final class PCGVer2Creator implements IOConstants
 				new ArrayList<Skill>(thePC.getSkillList());
 		for (Skill skill : skillList)
 		{
+			Integer outputIndex = thePC.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
 			if ((SkillRankControl.getRank(thePC, skill).doubleValue() > 0)
-				|| (skill.getOutputIndex() != 0))
+				|| (outputIndex != null && outputIndex != 0))
 			{
 				buffer.append(TAG_SKILL).append(':');
 				buffer.append(EntityEncoder.encode(skill.getKeyName()));
 
 				buffer.append('|');
 				buffer.append(TAG_OUTPUTORDER).append(':');
-				buffer.append(skill.getOutputIndex());
+				buffer.append(outputIndex == null ? 0 : outputIndex);
 				buffer.append('|');
 
-				List<NamedValue> rankList = thePC.getAssocList(skill, AssociationKey.SKILL_RANK);
+				List<NamedValue> rankList = thePC.getAssocList(skill, AssociationListKey.SKILL_RANK);
 				if (rankList != null)
 				{
 					for (NamedValue sd: rankList)
@@ -2591,7 +2593,7 @@ final class PCGVer2Creator implements IOConstants
 		}
 		for (TransitionChoice<?> tc : addList)
 		{
-			List<Object> assocList = thePC.getAssocList(tc, AssociationKey.ADD);
+			List<Object> assocList = thePC.getAssocList(tc, AssociationListKey.ADD);
 			if (assocList == null)
 			{
 				continue;

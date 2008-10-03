@@ -99,6 +99,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.GameMode;
@@ -390,11 +391,16 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	public static SkillWrapper createSkillWrapper(boolean available,
 		Skill skill, PlayerCharacter pc)
 	{
+		Integer outputIndex = pc.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
+		if (outputIndex == null)
+		{
+			outputIndex = Integer.valueOf(0);
+		}
 		return available ? 
 			new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0),
 					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill)) : 
 			new SkillWrapper(skill, SkillModifier.modifier(skill, pc), SkillRankControl.getTotalRank(pc, skill), 
-					Integer.valueOf(skill.getOutputIndex()),
+					outputIndex,
 					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill));
 	}
 
@@ -538,9 +544,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
 		for (Skill bSkill : skillList)
 		{
-			if (bSkill.getOutputIndex() > maxOutputIndex)
+			Integer outputIndex = pc.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+			if (outputIndex != null && outputIndex > maxOutputIndex)
 			{
-				maxOutputIndex = bSkill.getOutputIndex();
+				maxOutputIndex = outputIndex;
 			}
 		}
 
@@ -1926,9 +1933,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			else
 			{
-				if (bSkill.getOutputIndex() == 0)
+				Integer outputIndex = pc.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+				if (outputIndex == null || outputIndex == 0)
 				{
-					bSkill.setOutputIndex(getHighestOutputIndex() + 1);
+					pc.setAssoc(bSkill, AssociationKey.OUTPUT_INDEX, getHighestOutputIndex() + 1);
 				}
 			}
 		}
@@ -2056,9 +2064,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		for (Skill aSkill : skillList)
 		{
-			if (aSkill.getOutputIndex() >= 0)
+			Integer outputIndex = pc.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
+			if (outputIndex == null || outputIndex >= 0)
 			{
-				aSkill.setOutputIndex(nextOutputIndex++);
+				pc.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, nextOutputIndex++);
 			}
 		}
 
@@ -2964,6 +2973,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (aSkill != null)
 			{
+				Integer outi = pc.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
+				if (outi == null)
+				{
+					outi = Integer.valueOf(0);
+				}
 				switch (column)
 				{
 					case 5:
@@ -2983,10 +2997,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 							for (Skill bSkill : pc.getSkillListInOutputOrder())
 							{
-								if ((bSkill.getOutputIndex() > -1)
-									&& (bSkill != aSkill))
+								Integer oi = pc.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+								if ((oi == null || oi > -1) && (bSkill != aSkill))
 								{
-									bSkill.setOutputIndex(outputIndex++);
+									pc.setAssoc(bSkill, AssociationKey.OUTPUT_INDEX, outputIndex++);
 								}
 							}
 
@@ -3006,19 +3020,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 									workingIndex++;
 								}
 
-								if ((bSkill.getOutputIndex() > -1)
-									&& (bSkill != aSkill))
+								Integer oi = pc.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+								if ((oi == null || oi > -1) && (bSkill != aSkill))
 								{
-									bSkill.setOutputIndex(workingIndex++);
+									pc.setAssoc(bSkill, AssociationKey.OUTPUT_INDEX, workingIndex++);
 								}
 							}
 						}
 
-						aSkill.setOutputIndex(outputIndex);
+						pc.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, outputIndex);
 						skillA =
 								new SkillWrapper(aSkill, SkillModifier.modifier(aSkill, pc),
 									SkillRankControl.getTotalRank(pc, aSkill), 
-									Integer.valueOf(aSkill.getOutputIndex()),
+									outi,
 									PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc, aSkill));
 						fn.setItem(skillA);
 
