@@ -345,20 +345,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 						+ " has token " + token + " which is ignored");
 				continue;
 			}
-			else if (token.equals("HASSUBCLASS"))
-			{
-				Logging.deprecationPrint("Class " + pcClass.getDisplayName()
-						+ " has token HASSUBCLASS which should be "
-						+ "changed to HASSUBCLASS:YES");
-				pcClass.setHasSubClass(true);
-			}
-			else if (token.equals("HASSUBSTITUTIONLEVEL"))
-			{
-				Logging.deprecationPrint("Class " + pcClass.getDisplayName()
-						+ " has token HASSUBSTITUTIONLEVEL which should be "
-						+ "changed to HASSUBSTITUTIONLEVEL:YES");
-				pcClass.setHasSubstitutionClass(true);
-			}
 			int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{

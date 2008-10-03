@@ -65,7 +65,6 @@ import pcgen.util.enumeration.Visibility;
 class ClassBasePanel extends BasePanel
 {
 	private JCheckBox chkVisible;
-	private JCheckBox hasSubClass;
 	private JCheckBox modToSkills;
 	private JTextField abbreviation;
 	private JTextField exClass;
@@ -144,7 +143,6 @@ class ClassBasePanel extends BasePanel
 			}
 		}
 		context.unconditionallyProcess(obj, "EXCLASS", exClass.getText().trim());
-		obj.setHasSubClass(hasSubClass.getSelectedObjects() != null);
 		obj.put(ObjectKey.MOD_TO_SKILLS, modToSkills.getSelectedObjects() != null);
 		obj.put(ObjectKey.VISIBILITY, chkVisible.getSelectedObjects() == null ? Visibility.HIDDEN : Visibility.DEFAULT);
 
@@ -224,7 +222,6 @@ class ClassBasePanel extends BasePanel
 		}
 		String[] exc = context.unparse(obj, "EXCLASS");
 		exClass.setText(exc == null ? "" : exc[0]);
-		hasSubClass.setSelected(obj.hasSubClass());
 		Boolean mts = obj.get(ObjectKey.MOD_TO_SKILLS);
 		modToSkills.setSelected(mts == null ? true : mts);
 		chkVisible.setSelected(obj.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT));
@@ -259,7 +256,6 @@ class ClassBasePanel extends BasePanel
 		exchangeLevel = new JTextField();
 		startSkillPoints = new JTextField();
 		exClass = new JTextField();
-		hasSubClass = new JCheckBox();
 		modToSkills = new JCheckBox();
 		chkVisible = new JCheckBox();
 
@@ -308,9 +304,6 @@ class ClassBasePanel extends BasePanel
 		tempLabel = new JLabel("Has SubClass:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 2, true);
 		add(tempLabel, gridBagConstraints);
-
-		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 2, true);
-		add(hasSubClass, gridBagConstraints);
 
 		tempLabel = new JLabel("Mod To Skills:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 2, 2, true);

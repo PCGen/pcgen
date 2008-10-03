@@ -16,7 +16,7 @@ public class HassubstitutionlevelToken implements PCClassLstToken
 
 	public boolean parse(PCClass pcclass, String value, int level)
 	{
-		pcclass.setHasSubstitutionClass(value.startsWith("Y"));
+		//TODO Need to deprecate this token
 		return true;
 	}
 }

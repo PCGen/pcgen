@@ -318,7 +318,7 @@ public abstract class AbstractReferenceContext
 			// .getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
 			// .getConstant(key));
 			// for (CDOMSubClass subcl : subclasses)
-			if (pcc.hasSubClass())
+			if (pcc.containsListFor(ListKey.SUB_CLASS))
 			{
 				SubClassCategory cat = SubClassCategory.getConstant(key);
 				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))

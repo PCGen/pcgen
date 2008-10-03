@@ -81,7 +81,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                 {
                 	for (PCClass aClass : refContext.getConstructedCDOMObjects(PCClass.class))
                     {
-                        if(aClass.hasSubClass())
+                        if(aClass.containsListFor(ListKey.SUB_CLASS))
                         {
                         	for (PCClass aSubClass : aClass.getListFor(ListKey.SUB_CLASS))
                             {
@@ -112,7 +112,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
 
                         if(bMatch)
                         {
-                            if(aClass.hasSubClass())
+                            if(aClass.containsListFor(ListKey.SUB_CLASS))
                             {
                             	for (PCClass aSubClass : aClass.getListFor(ListKey.SUB_CLASS))
                                 {
@@ -133,7 +133,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                         if(aClass != null)
                         {
                             availableList.add(aClass);
-                            if(aClass.hasSubClass())
+                            if(aClass.containsListFor(ListKey.SUB_CLASS))
                             {
                             	for (PCClass aSubClass : aClass.getListFor(ListKey.SUB_CLASS))
                                 {

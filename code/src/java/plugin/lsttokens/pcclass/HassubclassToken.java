@@ -16,7 +16,7 @@ public class HassubclassToken implements PCClassLstToken
 
 	public boolean parse(PCClass pcclass, String value, int level)
 	{
-		pcclass.setHasSubClass(value.startsWith("Y"));
+		//TODO Need to deprecate this token
 		return true;
 	}
 }

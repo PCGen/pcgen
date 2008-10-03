@@ -28,6 +28,7 @@ import java.util.List;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
@@ -657,7 +658,7 @@ public class NPCGenerator
 				}
 				
 				final PCClass classCopy = aClass.clone();
-				if ( classCopy.hasSubClass() )
+				if ( classCopy.containsListFor(ListKey.SUB_CLASS) )
 				{
 					selectSubClass(aPC, classCopy);
 				}

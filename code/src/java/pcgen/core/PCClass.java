@@ -231,31 +231,6 @@ public class PCClass extends PObject
 	// private TreeSet<Language> languageBonus = new TreeSet<Language>();
 
 	/*
-	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
-	 * indicate if the given PCClassLevel is actualy a SubClass
-	 * 
-	 * CONSIDER Technically, that's not true ... this is really an indication of 
-	 * whether the class HAS subclasses or not (an abstract test, not a practical
-	 * "a subclass has been selected" test.  Is this therefore duplicate information??
-	 * 
-	 * Can I DELETEVARIABLE?
-	 */
-	private boolean hasSubClass = false;
-
-	/*
-	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
-	 * indicate if the given PCClassLevel is actualy a SubstitutionClass
-	 * 
-	 * CONSIDER Technically, that's not true ... this is really an indication of
-	 * whether the class HAS substitution classes or not (an abstract test, not
-	 * a practical "a substitution class has been selected" test. Is this
-	 * therefore duplicate information??
-	 * 
-	 * Can I DELETEVARIABLE?
-	 */
-	private boolean hasSubstitutionClass = false;
-
-	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
 	 * but it gets VERY complicated to do that, since the keys are widely used
 	 * in the variable processor.
@@ -906,31 +881,6 @@ public class PCClass extends PObject
 		buf.append(getDisplayClassName());
 
 		return buf.append(" ").append(level).toString();
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Since this (or a new boolean identifier, perhaps, to
-	 * avoid confusion) is both a tag and an identifier for each class level as
-	 * to whether the subclass is activated, this is required in both locations.
-	 * 
-	 * Trying to DELETEMETHOD by deleting HASSUBCLASS - thpr 11/6/06
-	 */
-	public final void setHasSubClass(final boolean arg)
-	{
-		hasSubClass = arg;
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Since this (or a new boolean identifier, perhaps, to
-	 * avoid confusion) is both a tag and an identifier for each class level as
-	 * to whether the substitution class is activated, this is required in both
-	 * locations.
-	 * 
-	 * Trying to DELETEMETHOD by deleting HASSUBSTITUTIONCLASS - thpr 11/6/06
-	 */
-	public final void setHasSubstitutionClass(final boolean arg)
-	{
-		hasSubstitutionClass = arg;
 	}
 
 	/*
@@ -1953,15 +1903,6 @@ public class PCClass extends PObject
 		pccTxt.append("CLASS:").append(getDisplayName());
 		pccTxt.append(super.getPCCText(false));
 
-		if (hasSubClass)
-		{
-			pccTxt.append("\tHASSUBCLASS:Y");
-		}
-		if (hasSubstitutionClass)
-		{
-			pccTxt.append("\tHASSUBSTITUTIONLEVEL:Y");
-		}
-
 		if (prohibitedSchools != null)
 		{
 			pccTxt.append('\t').append("PROHIBITED:");
@@ -2462,27 +2403,6 @@ public class PCClass extends PObject
 		}
 
 		return aClass;
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Since this (or a new boolean identifier, perhaps, to
-	 * avoid confusion) is both a tag and an identifier for each class level as
-	 * to whether the subclass is activated, this is required in both locations.
-	 */
-	public final boolean hasSubClass()
-	{
-		return hasSubClass;
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Since this (or a new boolean identifier, perhaps, to
-	 * avoid confusion) is both a tag and an identifier for each class level as
-	 * to whether the substitution class is activated, this is required in both
-	 * locations.
-	 */
-	public final boolean hasSubstitutionClass()
-	{
-		return hasSubstitutionClass;
 	}
 
 	/*
