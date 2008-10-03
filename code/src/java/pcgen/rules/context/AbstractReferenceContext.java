@@ -21,7 +21,6 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,6 +28,7 @@ import pcgen.base.util.OneToOneMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubClassCategory;
@@ -318,11 +318,10 @@ public abstract class AbstractReferenceContext
 			// .getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
 			// .getConstant(key));
 			// for (CDOMSubClass subcl : subclasses)
-			List<SubClass> subc = pcc.getSubClassList();
-			if (subc != null)
+			if (pcc.hasSubClass())
 			{
 				SubClassCategory cat = SubClassCategory.getConstant(key);
-				for (SubClass subcl : subc)
+				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))
 				{
 					String subKey = subcl.getKeyName();
 					constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);

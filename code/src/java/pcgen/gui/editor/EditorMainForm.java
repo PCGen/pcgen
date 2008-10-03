@@ -1455,7 +1455,7 @@ public final class EditorMainForm extends JDialog
 					}
 					if (aClass.hasSubClass())
 					{
-						for (SubClass subClass : aClass.getSubClassList())
+						for (SubClass subClass : aClass.getListFor(ListKey.SUB_CLASS))
 						{
 							availableFavouredClassList.add(aClass.getKeyName()
 								+ "." + subClass.getKeyName());
@@ -1463,7 +1463,7 @@ public final class EditorMainForm extends JDialog
 					}
 					if (aClass.hasSubstitutionClass())
 					{
-						for (SubstitutionClass subClass : aClass.getSubstitutionClassList())
+						for (SubstitutionClass subClass : aClass.getListFor(ListKey.SUBSTITUTION_CLASS))
 						{
 							availableFavouredClassList.add(aClass.getKeyName()
 								+ "." + subClass.getKeyName());
@@ -1854,7 +1854,7 @@ public final class EditorMainForm extends JDialog
 					}
 					if (aClass.hasSubClass())
 					{
-						for (SubClass subClass : aClass.getSubClassList())
+						for (SubClass subClass : aClass.getListFor(ListKey.SUB_CLASS))
 						{
 							availableFavouredClassesList.add(aClass.getKeyName()
 								+ "." + subClass.getKeyName());
@@ -1862,7 +1862,7 @@ public final class EditorMainForm extends JDialog
 					}
 					if (aClass.hasSubstitutionClass())
 					{
-						for (SubstitutionClass subClass : aClass.getSubstitutionClassList())
+						for (SubstitutionClass subClass : aClass.getListFor(ListKey.SUBSTITUTION_CLASS))
 						{
 							availableFavouredClassesList.add(aClass.getKeyName()
 								+ "." + subClass.getKeyName());

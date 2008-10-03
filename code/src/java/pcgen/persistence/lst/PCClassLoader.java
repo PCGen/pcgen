@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -97,12 +98,10 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
 			{
-				if ((pcClass.getSubClassList() != null)
-					&& !pcClass.getSubClassList().isEmpty())
+				List<SubClass> subClassList = pcClass.getListFor(ListKey.SUB_CLASS);
+				if (subClassList != null)
 				{
-					subClass =
-							pcClass.getSubClassList().get(
-								pcClass.getSubClassList().size() - 1);
+					subClass = subClassList.get(subClassList.size() - 1);
 					subClass.addToLevelArray(lstLine.substring(14));
 
 					return pcClass;
@@ -147,12 +146,14 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
 			{
-				if ((pcClass.getSubstitutionClassList() != null)
-					&& !pcClass.getSubstitutionClassList().isEmpty()
-					&& lstLine.length() > 18)
+				List<SubstitutionClass> substitutionClassList = pcClass
+						.getListFor(ListKey.SUBSTITUTION_CLASS);
+				if (substitutionClassList != null
+						&& !substitutionClassList.isEmpty()
+						&& lstLine.length() > 18)
 				{
-					substitutionClass = pcClass.getSubstitutionClassList().get(
-							pcClass.getSubstitutionClassList().size() - 1);
+					substitutionClass = substitutionClassList
+							.get(substitutionClassList.size() - 1);
 					substitutionClass.addToLevelArray(lstLine.substring(18));
 
 					return pcClass;

@@ -126,22 +126,6 @@ public class PCClass extends PObject
 	private String specialty = null;
 
 	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
-	 * selected subClass, if any, is structured into the PCClassLevel during the
-	 * construction of the PCClassLevel (inheritAttributesFrom - although that 
-	 * could really be cleaned up and a better method found)
-	 */
-	private List<SubClass> subClassList = null;
-
-	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
-	 * selected substitutionClass, if any, is structured into the PCClassLevel
-	 * during the construction of the PCClassLevel (inheritAttributesFrom -
-	 * although that could really be cleaned up and a better method found)
-	 */
-	private List<SubstitutionClass> substitutionClassList = null;
-
-	/*
 	 * ALLCLASSLEVELS castForLevelMap is part of PCClassLevel - or nothing at
 	 * all since this seems to be a form of cache? - DELETEVARIABLE
 	 */
@@ -1480,6 +1464,7 @@ public class PCClass extends PObject
 	 */
 	public final SubClass getSubClassKeyed(final String aKey)
 	{
+		List<SubClass> subClassList = getListFor(ListKey.SUB_CLASS);
 		if (subClassList == null)
 		{
 			return null;
@@ -1503,6 +1488,7 @@ public class PCClass extends PObject
 	 */
 	public final SubstitutionClass getSubstitutionClassKeyed(final String aKey)
 	{
+		List<SubstitutionClass> substitutionClassList = getListFor(ListKey.SUBSTITUTION_CLASS);
 		if (substitutionClassList == null)
 		{
 			return null;
@@ -2189,14 +2175,9 @@ public class PCClass extends PObject
 	 */
 	public final void addSubClass(final SubClass sClass)
 	{
-		if (subClassList == null)
-		{
-			subClassList = new ArrayList<SubClass>();
-		}
-
 		sClass.setHitPointMap(hitPointMap);
 		sClass.put(ObjectKey.LEVEL_HITDIE, get(ObjectKey.LEVEL_HITDIE));
-		subClassList.add(sClass);
+		addToListFor(ListKey.SUB_CLASS, sClass);
 	}
 
 	/*
@@ -2206,14 +2187,9 @@ public class PCClass extends PObject
 	 */
 	public final void addSubstitutionClass(final SubstitutionClass sClass)
 	{
-		if (substitutionClassList == null)
-		{
-			substitutionClassList = new ArrayList<SubstitutionClass>();
-		}
-
 		sClass.setHitPointMap(hitPointMap);
 		sClass.put(ObjectKey.LEVEL_HITDIE, get(ObjectKey.LEVEL_HITDIE));
-		substitutionClassList.add(sClass);
+		addToListFor(ListKey.SUBSTITUTION_CLASS, sClass);
 	}
 
 	/**
@@ -2472,7 +2448,6 @@ public class PCClass extends PObject
 			{
 				aClass.hitPointMap = new HashMap<Integer, Integer>(hitPointMap);
 			}
-			aClass.substitutionClassList = substitutionClassList;
 
 			levelMap = new TreeMap<Integer, PCClassLevel>();
 			for (Map.Entry<Integer, PCClassLevel> me : aClass.levelMap.entrySet())
@@ -2552,26 +2527,6 @@ public class PCClass extends PObject
 					|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, specialty);
 		}
 		return false;
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is really an item that the PCClass knows, and then the
-	 * selected subClass, if any, is structured into the PCClassLevel during the
-	 * construction of the PCClassLevel
-	 */
-	public List<SubClass> getSubClassList()
-	{
-		return subClassList;
-	}
-
-	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
-	 * selected substitutionClass, if any, is structured into the PCClassLevel
-	 * during the construction of the PCClassLevel
-	 */
-	public List<SubstitutionClass> getSubstitutionClassList()
-	{
-		return substitutionClassList;
 	}
 
 	/*
@@ -4106,7 +4061,7 @@ public class PCClass extends PObject
 		final PlayerCharacter aPC)
 	{
 
-		for (SubstitutionClass sc : substitutionClassList)
+		for (SubstitutionClass sc : getListFor(ListKey.SUBSTITUTION_CLASS))
 		{
 			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, this))
 			{
@@ -4133,7 +4088,8 @@ public class PCClass extends PObject
 	 */
 	private void checkForSubClass(final PlayerCharacter aPC)
 	{
-		if (!hasSubClass || (subClassList == null) || (subClassList.isEmpty()))
+		List<SubClass> subClassList = getListFor(ListKey.SUB_CLASS);
+		if (subClassList == null || subClassList.isEmpty())
 		{
 			return;
 		}
@@ -4344,8 +4300,8 @@ public class PCClass extends PObject
 	private void checkForSubstitutionClass(final int aLevel,
 		final PlayerCharacter aPC)
 	{
-		if (!hasSubstitutionClass || (substitutionClassList == null)
-			|| (substitutionClassList.isEmpty()))
+		List<SubstitutionClass> substitutionClassList = getListFor(ListKey.SUBSTITUTION_CLASS);
+		if (substitutionClassList == null || substitutionClassList.isEmpty())
 		{
 			return;
 		}

@@ -59,6 +59,8 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
 import pcgen.core.SpellProhibitor;
+import pcgen.core.SubClass;
+import pcgen.core.SubstitutionClass;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
@@ -224,6 +226,8 @@ public final class ListKey<T> {
 	public static final ListKey<ChangeProf> CHANGEPROF = new ListKey<ChangeProf>();
 	public static final ListKey<Equipment> NATURAL_WEAPON = new ListKey<Equipment>();
 	public static final ListKey<SpecialAbility> SAB = new ListKey<SpecialAbility>();
+	public static final ListKey<SubClass> SUB_CLASS = new ListKey<SubClass>();
+	public static final ListKey<SubstitutionClass> SUBSTITUTION_CLASS = new ListKey<SubstitutionClass>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

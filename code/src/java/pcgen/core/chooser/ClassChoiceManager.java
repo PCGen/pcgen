@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -82,7 +83,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                     {
                         if(aClass.hasSubClass())
                         {
-                        	for (PCClass aSubClass : aClass.getSubClassList())
+                        	for (PCClass aSubClass : aClass.getListFor(ListKey.SUB_CLASS))
                             {
                                 availableList.add(aSubClass);
                             }
@@ -113,7 +114,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                         {
                             if(aClass.hasSubClass())
                             {
-                            	for (PCClass aSubClass : aClass.getSubClassList())
+                            	for (PCClass aSubClass : aClass.getListFor(ListKey.SUB_CLASS))
                                 {
                                     availableList.add(aSubClass);
                                 }
@@ -134,7 +135,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                             availableList.add(aClass);
                             if(aClass.hasSubClass())
                             {
-                            	for (PCClass aSubClass : aClass.getSubClassList())
+                            	for (PCClass aSubClass : aClass.getListFor(ListKey.SUB_CLASS))
                                 {
                                     availableList.add(aSubClass);
                                 }

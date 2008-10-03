@@ -76,6 +76,7 @@ import javax.swing.tree.TreePath;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.GameMode;
@@ -1912,10 +1913,10 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		private void addSubClassesTo(PObjectNode aFN, PCClass aClass)
 		{
-			if ((aClass.getSubClassList() != null)
-				&& !aClass.getSubClassList().isEmpty())
+			List<SubClass> subClassList = aClass.getListFor(ListKey.SUB_CLASS);
+			if (subClassList != null)
 			{
-				for (SubClass sClass : aClass.getSubClassList())
+				for (SubClass sClass : subClassList)
 				{
 					PObjectNode aSN = new PObjectNode();
 					aSN.setParent(aFN);

@@ -29,6 +29,7 @@ import java.util.Map;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
@@ -387,7 +388,7 @@ public class ClassData
 			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, theClassKey);
 			if (pcClass != null)
 			{
-				for ( final SubClass subClass : pcClass.getSubClassList() )
+				for ( final SubClass subClass : pcClass.getListFor(ListKey.SUB_CLASS) )
 				{
 					addSubClass( subClass.getKeyName(), 1 );
 				}
