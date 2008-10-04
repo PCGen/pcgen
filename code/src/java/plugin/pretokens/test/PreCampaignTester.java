@@ -110,9 +110,9 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 				PersistenceManager.getInstance().getChosenCampaignSourcefiles();
 		for (URI element : selCampaigns)
 		{
-			final Campaign aCampaign = Globals.getCampaignByURI(element);
+			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
 
-			if (bookType.equalsIgnoreCase(aCampaign.getBookType()))
+			if (aCampaign != null && bookType.equalsIgnoreCase(aCampaign.getBookType()))
 			{
 				matchingCampaigns.add(aCampaign);
 			}
