@@ -29,7 +29,7 @@ package pcgen.util;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-import pcgen.base.term.VariableEvaulatorException;
+import pcgen.base.term.TermEvaulatorException;
 
 public class TermUtilities {
 	public static String dString = "(?:NOT|ADD|IS)";
@@ -42,7 +42,7 @@ public class TermUtilities {
 	public static void checkEqtypesTypesArray(
 			String originalText,
 			String[] types, 
-			int first) throws VariableEvaulatorException
+			int first) throws TermEvaulatorException
 	{
 		int cur = first;
 
@@ -64,7 +64,7 @@ public class TermUtilities {
 					sB.append(types[cur-1]);
 					sB.append(" must be followed by a type in ");
 					sB.append(originalText);
-					throw new VariableEvaulatorException(sB.toString());
+					throw new TermEvaulatorException(sB.toString());
 				}
 				cur++;
 			}
@@ -81,7 +81,7 @@ public class TermUtilities {
 				sB.append(types[cur-1]);
 				sB.append("\" in ");
 				sB.append(originalText);
-				throw new VariableEvaulatorException(sB.toString());
+				throw new TermEvaulatorException(sB.toString());
 			}
 		}
 	}
@@ -89,7 +89,7 @@ public class TermUtilities {
 	public static void checkEquipmentTypesArray(
 			String originalText,
 			String[] types, 
-			int first) throws VariableEvaulatorException
+			int first) throws TermEvaulatorException
 	{
 		int cur = first;
 
@@ -108,7 +108,7 @@ public class TermUtilities {
 			sB.append(originalText);
 			sB.append("\nShould be COUNT[EQTYPE, not COUNT[EQUIPMENT");
 
-			throw new VariableEvaulatorException(sB.toString());
+			throw new TermEvaulatorException(sB.toString());
 		}
 
 		while (cur < types.length)
@@ -123,7 +123,7 @@ public class TermUtilities {
 					sB.append(types[cur-1]);
 					sB.append(" must be followed by a type in ");
 					sB.append(originalText);
-					throw new VariableEvaulatorException(sB.toString());
+					throw new TermEvaulatorException(sB.toString());
 				}
 				cur++;
 			}
@@ -138,7 +138,7 @@ public class TermUtilities {
 				sB.append(types[cur]);
 				sB.append("\" in ");
 				sB.append(originalText);
-				throw new VariableEvaulatorException(sB.toString());
+				throw new TermEvaulatorException(sB.toString());
 			}
 		}
 	}
@@ -146,7 +146,7 @@ public class TermUtilities {
 	public static String extractContentsOfBrackets(
 			String expressionString,
 			String src,
-			int fixed) throws VariableEvaulatorException
+			int fixed) throws TermEvaulatorException
 	{
 		int expEnd = expressionString.lastIndexOf("]");
 
@@ -159,7 +159,7 @@ public class TermUtilities {
 			sB.append(src);
 			sB.append("\n following \"");
 			sB.append(expressionString.substring(0, fixed));
-			throw new VariableEvaulatorException(sB.toString());
+			throw new TermEvaulatorException(sB.toString());
 		}
 
 		// The string inside the brackets
@@ -184,7 +184,7 @@ public class TermUtilities {
 			String expressionString,
 			String intString,
 			int fixed,
-			int numToExtract) throws VariableEvaulatorException
+			int numToExtract) throws TermEvaulatorException
 	{
 		int[] nums;
 		try
@@ -199,7 +199,7 @@ public class TermUtilities {
 			sB.append("\n in ");
 			sB.append(expressionString);
 			sB.append("\n");
-			throw new VariableEvaulatorException(sB.toString());
+			throw new TermEvaulatorException(sB.toString());
 		}
 		return nums;
 	}

@@ -1,5 +1,5 @@
 /**
- * pcgen.base.term.VariableEvaulatorException.java
+ * pcgen.base.term.TermEvaulatorException.java
  * Copyright © 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -28,32 +28,32 @@ package pcgen.base.term;
 
 import pcgen.exception.PcgenException;
 
-public class VariableEvaulatorException extends PcgenException{
+public class TermEvaulatorException extends PcgenException{
 	/**
-	 * Creates a new instance of <code>VariableEvaulatorException</code> without detail message.
+	 * Creates a new instance of <code>TermEvaulatorException</code> without detail message.
 	 */
-	public VariableEvaulatorException()
+	public TermEvaulatorException()
 	{
 		super();
 	}
 
 	/**
-	 * Constructs an instance of <code>VariableEvaulatorException</code> with the specified detail message.
+	 * Constructs an instance of <code>TermEvaulatorException</code> with the specified detail message.
 	 * @param msg the detail message.
 	 */
-	public VariableEvaulatorException(String msg)
+	public TermEvaulatorException(String msg)
 	{
 		super(msg);
 	}
 
 	/**
-	 * Constructs an instance of <code>VariableEvaulatorException</code>
+	 * Constructs an instance of <code>TermEvaulatorException</code>
 	 *  with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
 	 * @param rootCause the root cause of the exception.
 	 * @param msg the detail message.
 	 */
-	public VariableEvaulatorException(Throwable rootCause, String msg)
+	public TermEvaulatorException(Throwable rootCause, String msg)
 	{
 		super(rootCause, msg);
 	}
