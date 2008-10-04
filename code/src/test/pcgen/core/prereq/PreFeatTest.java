@@ -17,9 +17,11 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.WeaponProf;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -99,9 +101,19 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	public void testWeaponFocus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		
+		final WeaponProf wp = new WeaponProf();
+		wp.setName("Rapier");
+		Globals.getContext().ref.importObject(wp);
+
+		final Equipment e = new Equipment();
+		e.setName("Rapier");
+		e.setTypeInfo("Weapon.Melee.Martial.Finesseable.Standard.Piercing.Sword");
+		Globals.getContext().ref.importObject(e);
 
 		final Ability focusFeat = new Ability();
 		focusFeat.setName("Weapon Focus");
+		focusFeat.setChoiceString("WEAPONPROFS|LIST");
 		character.addAssociation(focusFeat, "Rapier");
 		character.addFeat(focusFeat, null);
 
@@ -123,7 +135,16 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		preFeat.setOperator(PrerequisiteOperator.EQ);
 		passes = PrereqHandler.passes(preFeat, character, null);
 		assertTrue(passes);
-	}
+
+//		new Prerequisite();
+//		preFeat.setKind("FEAT");
+//		preFeat.setKey("Weapon Focus");
+//		preFeat.setSubKey("TYPE.Finesseable.Piercing");
+//		preFeat.setOperand("1");
+//		preFeat.setOperator(PrerequisiteOperator.EQ);
+//		passes = PrereqHandler.passes(preFeat, character, null);
+//		assertTrue(passes);
+}
 
 	/**
 	 * @throws Exception
