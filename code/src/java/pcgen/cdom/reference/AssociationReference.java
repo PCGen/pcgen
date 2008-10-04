@@ -23,9 +23,9 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.core.AssociationStore;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 
 /**
  * An AssociationReference is a CDOMReference that points to associations on a
@@ -89,12 +89,6 @@ public class AssociationReference<T extends CDOMObject> extends
 			throw new IllegalArgumentException(
 					"PObject in AssociationReference cannot be null");
 		}
-		/*
-		 * TODO BUG this is a problem because it's not true that this is
-		 * necessarily the object that will contain the associations :( Since
-		 * PCGen currently clones a ton of stuff, this assumption fails, and
-		 * thus AssociationReference is useless.
-		 */
 		referenceObj = ref;
 	}
 
@@ -131,9 +125,11 @@ public class AssociationReference<T extends CDOMObject> extends
 		{
 			return false;
 		}
-		AssociationStore as = Globals.getCurrentPC();
+		//CONSIDER once getActiveEquivalent goes away, this should be AssocationStore
+		PlayerCharacter as = Globals.getCurrentPC();
 		String key = obj.getKeyName();
-		for (String assoc : as.getAssociationList(referenceObj))
+		PObject active = referenceObj.getActiveEquivalent(as);
+		for (String assoc : as.getAssociationList(active))
 		{
 			if (key.equalsIgnoreCase(assoc))
 			{
@@ -160,8 +156,9 @@ public class AssociationReference<T extends CDOMObject> extends
 	public Collection<T> getContainedObjects()
 	{
 		List<T> list = new ArrayList<T>();
-		AssociationStore as = Globals.getCurrentPC();
-		List<String> associationList = as.getAssociationList(referenceObj);
+		PlayerCharacter as = Globals.getCurrentPC();
+		PObject active = referenceObj.getActiveEquivalent(as);
+		List<String> associationList = as.getAssociationList(active);
 		for (T obj : all.getContainedObjects())
 		{
 			String key = obj.getKeyName();
@@ -202,8 +199,9 @@ public class AssociationReference<T extends CDOMObject> extends
 	@Override
 	public int getObjectCount()
 	{
-		AssociationStore as = Globals.getCurrentPC();
-		return as.getDetailedAssociationCount(referenceObj);
+		PlayerCharacter as = Globals.getCurrentPC();
+		PObject active = referenceObj.getActiveEquivalent(as);
+		return as.getDetailedAssociationCount(active);
 	}
 
 	/**

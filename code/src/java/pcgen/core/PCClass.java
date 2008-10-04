@@ -4777,4 +4777,10 @@ public class PCClass extends PObject
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public PObject getActiveEquivalent(PlayerCharacter pc)
+	{
+		return pc.getClassKeyed(getKeyName());
+	}
 }

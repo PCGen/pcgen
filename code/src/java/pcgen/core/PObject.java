@@ -2891,4 +2891,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		return "";
 	}
+
+	/*
+	 * Any PObject which is cloned before it is added to a PC must override this
+	 */
+	public PObject getActiveEquivalent(PlayerCharacter as)
+	{
+		return this;
+	}
 }

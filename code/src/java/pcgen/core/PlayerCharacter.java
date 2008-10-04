@@ -16703,20 +16703,35 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getAbilityKeyed(AbilityCategory.FEAT, featName);
 	}
 
+
 	public Ability getAbilityKeyed(final AbilityCategory aCategory,
-		final String aKey)
+			Ability.Nature nature, final String aKey)
 	{
-		final List<Ability> abilities = getAggregateAbilityList(aCategory);
-		for (final Ability ability : abilities)
+		List<Ability> abilityList = theAbilities.get(aCategory, nature);
+		for (Ability ab : abilityList)
 		{
-			if (ability.getKeyName().equals(aKey))
+			if (ab.getKeyName().equals(aKey))
 			{
-				return ability;
+				return ab;
 			}
 		}
-
 		return null;
 	}
+
+	public Ability getAbilityKeyed(final AbilityCategory aCategory,
+			final String aKey)
+		{
+			final List<Ability> abilities = getAggregateAbilityList(aCategory);
+			for (final Ability ability : abilities)
+			{
+				if (ability.getKeyName().equals(aKey))
+				{
+					return ability;
+				}
+			}
+
+			return null;
+		}
 
 	/**
 	 * Get an ability of any ctageory tat matches the key.

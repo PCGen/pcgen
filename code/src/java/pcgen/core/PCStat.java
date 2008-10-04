@@ -158,4 +158,11 @@ public final class PCStat extends PObject
 	{
 		return statMod;
 	}
+
+	@Override
+	public PObject getActiveEquivalent(PlayerCharacter pc)
+	{
+		int index = SettingsHandler.getGame().getStatFromAbbrev(getKeyName());
+		return pc.getStatList().getStatAt(index);
+	}
 }

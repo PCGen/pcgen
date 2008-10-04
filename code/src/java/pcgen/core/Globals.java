@@ -2956,7 +2956,7 @@ public final class Globals
 		return aList;
 	}
 
-	public static AssociationStore getCurrentPC()
+	public static PlayerCharacter getCurrentPC()
 	{
 		return currentPC;
 	}

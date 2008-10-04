@@ -336,5 +336,10 @@ public final class PCTemplate extends PObject
 		return list;
 	}
 	
+	@Override
+	public PObject getActiveEquivalent(PlayerCharacter pc)
+	{
+		return pc.getTemplateKeyed(getKeyName());
+	}
 	
 }
