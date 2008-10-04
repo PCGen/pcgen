@@ -77,8 +77,8 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 		// throw new IllegalArgumentException(
 		// "Resulting Type for ChangeArmorType cannot be null");
 		// }
-		result = resultType;
-		source = sourceType;
+		result = resultType.toUpperCase();
+		source = sourceType.toUpperCase();
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 	 */
 	public String applyModifier(String obj, Object context)
 	{
-		return source.equals(obj) ? result : obj;
+		return source.equalsIgnoreCase(obj) ? result : obj;
 	}
 
 	/**

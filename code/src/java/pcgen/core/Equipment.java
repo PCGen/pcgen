@@ -4635,7 +4635,7 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		// Use the primary type(s) if none defined for secondary
 		//
-		final List<String> calculatedTypeList;
+		List<String> calculatedTypeList;
 
 		if (bPrimary || (getAltTypeCount() == 0)) {
 			calculatedTypeList = new ArrayList<String>(getTypeList(false));
@@ -4669,6 +4669,12 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
+		/*
+		 * CONSIDER I think there is a weird order of operations issue nere, need to check
+		 * if it existed way back, e.g. SVN 6206.  The issue is if a Type is introduced by a 
+		 * MOD, then the ChangeArmorType system doesn't seem to be able to grab/modify it
+		 * Is that correct? - thpr 10/3/08
+		 */
 		//
 		// Add in all of the types from each EquipmentModifier
 		// currently applied to this piece of equipment
@@ -4695,6 +4701,7 @@ public final class Equipment extends PObject implements Serializable,
 			List<String> removedTypeList = new ArrayList<String>(calculatedTypeList);
 			removedTypeList.removeAll(newTypeList);
 			modTypeList.removeAll(removedTypeList);
+			calculatedTypeList = newTypeList;
 
 			for (String aType : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
 			{
