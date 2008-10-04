@@ -1504,7 +1504,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The name value
 	 */
-	@Override
 	public String getName() {
 		return toString();
 	}
@@ -1637,7 +1636,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param parent
 	 *            The new parent value
 	 */
-	@Override
 	public void setParent(final EquipmentCollection parent) {
 		d_parent = parent;
 	}
@@ -1647,7 +1645,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The parent
 	 */
-	@Override
 	public EquipmentCollection getParent() {
 		return d_parent;
 	}
@@ -2046,7 +2043,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return the value of the variable
 	 */
-	@Override
 	public Float getVariableValue(
 			final String varName,
 			final String src,
@@ -2193,7 +2189,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return true if the Equipment can take children.
 	 */
-	@Override
 	public boolean acceptsChildren() {
 		return d_acceptsChildren;
 	}
@@ -2662,7 +2657,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return 0 on object error, 1 on can fit, 2 on too heavy, 3 on properties
 	 *         problem (unimplemented), 4 on capacity error
 	 */
-	@Override
 	public int canContain(final PlayerCharacter aPC, final Object obj) {
 
 		if (obj instanceof Equipment) {
@@ -2925,7 +2919,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param child
 	 *            The child to add
 	 */
-	@Override
 	public void insertChild(final PlayerCharacter aPC, final Object child) {
 
 		if (child == null) {
@@ -3243,7 +3236,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param childIndex
 	 *            The number of the child to remove
 	 */
-	@Override
 	public void removeChild(final PlayerCharacter aPC, final int childIndex) {
 		removeChild(aPC, getChild(childIndex));
 	}
@@ -5428,7 +5420,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The childCount value
 	 */
-	@Override
 	public int getChildCount() {
 		return getContainedEquipmentCount();
 	}
@@ -6078,31 +6069,26 @@ public final class Equipment extends PObject implements Serializable,
 		return null;
 	}
 
-	@Override
 	public void addAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
-	@Override
 	public void addAssociation(CDOMObject obj, FixedStringList o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
-	@Override
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
-	@Override
 	public boolean containsAssociated(CDOMObject obj, FixedStringList o)
 	{
 		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
-	@Override
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
 		Formula f = obj.getSafe(FormulaKey.SELECT);
@@ -6112,7 +6098,6 @@ public final class Equipment extends PObject implements Serializable,
 		return assocSupt.getAssocCount(obj, AssociationListKey.CHOICES) / select;
 	}
 
-	@Override
 	public List<String> getAssociationList(CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
@@ -6136,13 +6121,11 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	@Override
 	public boolean hasAssociations(CDOMObject obj)
 	{
 		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}
 
-	@Override
 	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
@@ -6150,19 +6133,16 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	@Override
 	public void removeAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
-	@Override
 	public void removeAssociation(CDOMObject obj, FixedStringList o)
 	{
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
-	@Override
 	public int getDetailedAssociationCount(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
@@ -6178,13 +6158,11 @@ public final class Equipment extends PObject implements Serializable,
 		return count;
 	}
 
-	@Override
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
 	}
 
-	@Override
 	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj,
@@ -6203,7 +6181,6 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	@Override
 	public String getFirstAssociation(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0).get(0);
