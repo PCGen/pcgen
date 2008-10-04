@@ -168,6 +168,7 @@ public class SkillRankControl
 			{
 				return "You cannot purchase this exclusive skill.";
 			}
+			i = sc.getCost();
 
 			if ((rankMod > 0.0) && (aClass.getSkillPool(aPC) < (rankMod * i)))
 			{
@@ -288,7 +289,6 @@ public class SkillRankControl
 				if (choiceString.startsWith("Language"))
 				{
 					active.addWeight(g);
-
 					if (!SkillLanguage.chooseLanguageForSkill(aPC, sk))
 					{
 						newRank = curRank;
@@ -304,7 +304,7 @@ public class SkillRankControl
 							newRank = curRank;
 						}
 					}
-
+					active.removeWeight(g);
 					g = newRank - curRank;
 				}
 			}
