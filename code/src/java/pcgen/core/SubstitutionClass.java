@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.util.Logging;
 
 /**
@@ -39,7 +40,6 @@ import pcgen.util.Logging;
  */
 public final class SubstitutionClass extends PCClass
 {
-	private List<String> levelArray = null;
 	private List<Integer> modLevels = null;
 
 	/** Constructor */
@@ -48,83 +48,54 @@ public final class SubstitutionClass extends PCClass
 	}
 
 	/**
-	 * Add substitution class to the level array
-	 * @param arg
-	 */
-	public void addToLevelArray(final String arg)
-	{
-		if (levelArray == null)
-		{
-			levelArray = new ArrayList<String>();
-			modLevels = new ArrayList<Integer>();
-		}
-
-		levelArray.add(arg);
-
-		final Integer level = Integer.valueOf(arg.substring(0, arg.indexOf("\t")));
-		modLevels.add(level);
-	}
-
-	/**
 	 * Apply the level mods to a class
 	 * @param aClass
 	 */
 	public void applyLevelArrayModsToLevel(final PCClass aClass, final int aLevel, final PlayerCharacter aPC)
 	{
+		List<DeferredLine> levelArray = getListFor(ListKey.SUB_CLASS_LEVEL);
 		if (levelArray == null)
 		{
 			return;
 		}
 
-		try
+		List<DeferredLine> newLevels = new ArrayList<DeferredLine>();
+		for (DeferredLine line : levelArray)
 		{
-			final Campaign customCampaign = new Campaign();
-			customCampaign.setName("Custom");
-			customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
+			String aLine = line.lstLine;
+			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
+					.indexOf("\t")));
 
-			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceURI());
-			
-			ArrayList<String> newLevels = new ArrayList<String>();
-			final PCClassLoader classLoader = new PCClassLoader();
-			
-			// find all qualifying level lines for this level
-			// and put into newLevels list.
-			for (String aLine : levelArray)
+			if (aLevel == modLevel)
 			{
-				final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t")));
-				
-				if (aLevel == modLevel)
-				{					
-					if (levelArrayQualifies(aPC, aLine, tempSource))
-					{
-						newLevels.add(aLine);
-					}
-				}
-			}
-			if (!newLevels.isEmpty())
-			{
-				// remove all stuff from the original level
-				aClass.resetClassLevel(aLevel);
-				aClass.removeAllBonuses(aLevel);
-				aClass.removeAllAutoAbilites(aLevel);
-				aClass.removeAllVirtualAbilites(aLevel);
-				aClass.removeAllLevelAbilities(aLevel);
-
-				// Now add in each new level line in turn.
-				for (String theLine: newLevels)
+				if (levelArrayQualifies(aPC, aLine, line.source))
 				{
-					classLoader.parseLine(Globals.getContext(), aClass, theLine, tempSource);
+					newLevels.add(line);
 				}
 			}
 		}
-		catch (PersistenceLayerException exc)
+
+		// find all qualifying level lines for this level
+		// and put into newLevels list.
+		if (!newLevels.isEmpty())
 		{
-			Logging.errorPrint(exc.getMessage());
+			// remove all stuff from the original level
+			aClass.stealClassLevel(this, aLevel);
+			aClass.removeAllBonuses(aLevel);
+			aClass.removeAllAutoAbilites(aLevel);
+			aClass.removeAllVirtualAbilites(aLevel);
+			aClass.removeAllLevelAbilities(aLevel);
+			// Now add in each new level line in turn.
+			for (DeferredLine line : levelArray)
+			{
+				aClass.performReallyBadHackForOldTokens(line);
+			}
 		}
 	}
 
 	/**
 	 * Get the level mods for a specific level
+	 * 
 	 * @param aClass
 	 */
 	public boolean hasLevelArrayModsForLevel(final int aLevel)
@@ -134,26 +105,28 @@ public final class SubstitutionClass extends PCClass
 	
 	public boolean qualifiesForSubstitutionLevel(PlayerCharacter pc, int level) 
 	{ 
-		boolean passes =false;
-		for (String aLine : levelArray) 
-		{ 
-			final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t"))); 
-			final Campaign customCampaign = new Campaign();
-			customCampaign.setName("Custom");
-			customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
+		List<DeferredLine> levelArray = getListFor(ListKey.SUB_CLASS_LEVEL);
+		if (levelArray == null)
+		{
+			return false;
+		}
 
-			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, this.getSourceURI());
+		for (DeferredLine line : levelArray)
+		{
+			String aLine = line.lstLine;
+			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
+					.indexOf("\t")));
 
-			if (level == modLevel) 
-			{ 
-				passes = levelArrayQualifies(pc, aLine, tempSource);
-				if (passes)
+			if (level == modLevel)
+			{
+				if (!levelArrayQualifies(pc, aLine, line.source))
 				{
-					return passes;
-				} 
-			} 
-		} 
-		return passes; 
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 
 	/**

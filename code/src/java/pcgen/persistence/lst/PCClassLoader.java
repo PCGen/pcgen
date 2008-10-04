@@ -156,7 +156,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				{
 					substitutionClass = substitutionClassList
 							.get(substitutionClassList.size() - 1);
-					substitutionClass.addToLevelArray(lstLine.substring(18));
+					substitutionClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(18)));
 
 					return pcClass;
 				}
@@ -559,35 +559,49 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				for (SubClass sc : subClasses)
 				{
 					sc.copyLevelsFrom(cl);
-					for (DeferredLine dl : sc.getSafeListFor(ListKey.SUB_CLASS_LEVEL))
-					{
-						String lstLine = dl.lstLine;
-						try
-						{
-							int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
-							String lineIdentifier;
-							String restOfLine;
-							if (tabLoc == -1)
-							{
-								lineIdentifier = lstLine;
-								restOfLine = null;
-							}
-							else
-							{
-								lineIdentifier = lstLine.substring(0, tabLoc);
-								restOfLine = lstLine.substring(tabLoc + 1);
-							}
-							parseFullClassLevelLine(context, dl.source, sc, lineIdentifier, restOfLine);
-						}
-						catch (PersistenceLayerException ple)
-						{
-							Logging.log(Logging.LST_ERROR,
-									"Error parsing SubClass line: "
-											+ cl.getKeyName() + " "
-											+ sc.getKeyName() + " " + lstLine, ple);
-						}
-					}
+					processSubLevelLines(context, cl, sc);
 				}
+			}
+			List<SubstitutionClass> substClasses = cl.getListFor(ListKey.SUBSTITUTION_CLASS);
+			if (substClasses != null)
+			{
+				for (SubstitutionClass sc : substClasses)
+				{
+					processSubLevelLines(context, cl, sc);
+				}
+			}
+		}
+	}
+
+	private void processSubLevelLines(LoadContext context, PCClass cl,
+			PCClass sc)
+	{
+		for (DeferredLine dl : sc.getSafeListFor(ListKey.SUB_CLASS_LEVEL))
+		{
+			String lstLine = dl.lstLine;
+			try
+			{
+				int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
+				String lineIdentifier;
+				String restOfLine;
+				if (tabLoc == -1)
+				{
+					lineIdentifier = lstLine;
+					restOfLine = null;
+				}
+				else
+				{
+					lineIdentifier = lstLine.substring(0, tabLoc);
+					restOfLine = lstLine.substring(tabLoc + 1);
+				}
+				parseFullClassLevelLine(context, dl.source, sc, lineIdentifier, restOfLine);
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.log(Logging.LST_ERROR,
+						"Error parsing " + sc.getClass().getSimpleName() + " line: "
+								+ cl.getKeyName() + " "
+								+ sc.getKeyName() + " " + lstLine, ple);
 			}
 		}
 	}

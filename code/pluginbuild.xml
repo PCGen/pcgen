@@ -4290,19 +4290,12 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-substitutionlevel-plugins" depends="makeplugindirs" description="Build (Link) SubstitutionLevel Lst Token plugin jar files">
 		<!-- SubstitutionClass tokens:
-			   SUBSTITUTIONCLASS, SUBSTITUTIONLEVEL
+			   SUBSTITUTIONCLASS
 		-->
 		<jar jarfile="${lstplugins.dir}/SubstitutionLevelLstToken-SUBSTITUTIONCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/substitutionlevel/SubstitutionclassToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/SubstitutionLevelLstToken-SUBSTITUTIONLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/substitutionlevel/SubstitutionlevelToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

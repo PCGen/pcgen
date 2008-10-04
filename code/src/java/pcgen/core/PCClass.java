@@ -4640,11 +4640,6 @@ public class PCClass extends PObject
 		return levelMap.size();
 	}
 
-	public void resetClassLevel(int lvl)
-	{
-		levelMap.remove(lvl);
-	}
-	
 	public Collection<PCClassLevel> getClassLevelCollection()
 	{
 		return Collections.unmodifiableCollection(levelMap.values());
@@ -4768,5 +4763,18 @@ public class PCClass extends PObject
 			e.printStackTrace();
 		}
 		levelMap = saveLevelMap;
+	}
+
+	public void stealClassLevel(PCClass pcc, int cl)
+	{
+		try
+		{
+			levelMap.put(cl, pcc.getClassLevel(cl).clone());
+		}
+		catch (CloneNotSupportedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
