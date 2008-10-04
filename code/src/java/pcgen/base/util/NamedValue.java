@@ -95,4 +95,10 @@ public final class NamedValue
 		return name + ":" + weight;
 	}
 
+	public void removeWeight(double d)
+	{
+		weight -= d;
+		// CONSIDER what if less than zero?
+	}
+
 }
