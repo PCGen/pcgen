@@ -20,7 +20,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 
 	public boolean parse(LoadContext context, Spell spell, String value)
 	{
-		if (value.length() == 0)
+		if (value == null || value.length() == 0)
 		{
 			Logging.errorPrint(getTokenName() + " arguments may not be empty");
 			return false;
