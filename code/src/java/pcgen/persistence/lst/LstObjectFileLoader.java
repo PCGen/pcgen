@@ -374,7 +374,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		T target = null;
 		ArrayList<ModEntry> classModLines = null;
 
-		String[] fileLines = aString.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
+		String[] fileLines = aString.replaceAll("\r\n", "\r").split(
+				LstFileLoader.LINE_SEPARATOR_REGEXP);
 
 		for (int i = 0; i < fileLines.length; i++)
 		{
