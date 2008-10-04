@@ -373,7 +373,7 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PRECLASSLEVELMAX">Tag Name:</a></strong>PRECLASSLEVELMAX:x,y,y=z</p>
+	<p class="indent0"><strong><a name="PRECLASSLEVELMAX">Tag Name:</a></strong>PRECLASSLEVELMAX:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of listed classes required)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Class type)</p>
@@ -389,8 +389,11 @@
 		<li><code>SPELLCASTER.Text</code> will check against spellcaster types, e.g. Arcane or Divine.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRECLASSLEVELMAX:2,Fighter,SPELLCASTER=2</code></p>
+	<p class="indent2"><code>PRECLASSLEVELMAX:2,Fighter=2,SPELLCASTER=2</code></p>
 	<p class="indent3">Character cannot have more than 2 levels of fighter and cannot have more than 2 levels in any spellcasting class.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PRECLASSLEVELMAX:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
 <hr>
@@ -840,12 +843,15 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREMULT">Tag Name:</a></strong> PREMULT:x,[PRExxx 1],[PRExxx 2]</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of listed PRExxx tags that must be met).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text - [ ] (imbedded PRExxx tags that must be met).</p>
+	<p class="indent0"><strong><a name="PREMULT">Tag Name:</a></strong> PREMULT:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Prereqs)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> [Text] (Embedded PRExxx tags)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">PREMULT is a special PRExxx tag in that one imbeds other PRExxx tags in it.
-		This allows for a lot of OR functionality across PRExxx tags. You can imbed PREMULT into itself.</p>
+	<ul class="indent2">
+		<li>PREMULT is a special PRExxx tag in that one embeds other PRExxx tags in it, allowing 
+		for the application of a logical OR across PRExxx tags.</li>
+		<li>PREMULT can be embedded into itself.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]</code></p>
 	<p class="indent3">Character must be either a &quot;Gnome&quot; or a &quot;Cleric&quot;.</p>
@@ -1076,14 +1082,11 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PRESKILL">Tag Name:</a></strong> PRESKILL:x,y=z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number
-		(The number of skills that must be equal to or greater than the numbers specified for the check
-		to succeed).</p>
+	<p class="indent0"><strong><a name="PRESKILL">Tag Name:</a></strong> PRESKILL:x,y=z,y=z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of skills)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Skill name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Skill type)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number
-		(The number of ranks the associated skill must meet or exceed).</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Skill ranks)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets skill requirements.</li>
@@ -1093,39 +1096,49 @@
 			there must be a space between the name and the parentheses because the text must match the entry exactly.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>PRESKILL:1,Spot,Listen=10</code></p>
+	<p class="indent2"><code>PRESKILL:1,Spot=10,Listen=10</code></p>
 	<p class="indent3">Character must have at least 10 ranks in either &quot;Spot&quot; or
 		&quot;Listen&quot;.</p>
-	<p class="indent2"><code>PRESKILL:2,TYPE.Spy,TYPE.Spy=2</code></p>
+	<p class="indent2"><code>PRESKILL:2,TYPE.Spy=2,TYPE.Spy=2</code></p>
 	<p class="indent3">Character must have two &quot;Spy&quot; skills with at least two ranks
 		in each of them.</p>
-	<p class="indent2"><code>PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3</code></p>
+	<p class="indent2"><code>PRESKILL:3,Appraise=3,Decipher Script=3,Knowledge (TYPE=Other)=3</code></p>
 	<p class="indent3">Character must have three skills with at least three ranks in each of them.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PRESKILL:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
 <hr>
 
-	<p class="new">** NOTE: The following tag has some problems. It will work in some files but not all. **</p>
-	<p class="indent0"><strong><a name="PRESKILLMULT">Tag Name:</a></strong> PRESKILLMULT:x,y=z</p>
+	<p class="indent0"><strong><a name="PRESKILLMULT">Tag Name:</a></strong> PRESKILLMULT:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of skills that must be equal
 		to or greater than the numbers specified for the check to succeed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (A defined skill type).</p>
-	<p class="indent2"><strong>Note(s):</strong> If you require multiples of that type,
-		you need to add TYPE.x for each instance in the comma delimited list.</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number
 		(The number of ranks the associated skill must meet or exceed).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Similar to PRESKILL. This tag will set a flag on the character.
-  		It only works as a prereq if the rank in the skill divided by the rank needed
-  		is equal to the flag. The flag starts at 1, but goes up by one every-time the
-  		prereq is met. So the first feat would require 'rank' in the skill, the second
-  		feat 'rank*2', and so on... That would support the way regional feats are described in FR.</p>
-	<p class="indent2"><strong>NOTE: </strong>However for now this is merely a dummy tag that works like PRESKILL
-		so we don't have to redesign the lst files when this tag gets working. </p>
+	<ul class="indent2">
+		<li>Similar to PRESKILL.</li>
+		<li>This tag will set a flag on the character.</li>
+  		<li>It only works as a prereq if the rank in the skill divided by the rank needed
+  		is equal to the flag.</li>
+  		<li>The flag starts at 1, but goes up by one every-time the prereq is met. So the first feat 
+  			would require 'rank' in the skill, the second feat 'rank*2', and so on. That would support 
+  			the way regional feats are described in FR.</li>
+		<li>If you require multiples of that type, you need to add TYPE.x for each instance in the 
+			comma delimited list.</li>
+		<li>This tag is merely a dummy tag that works like PRESKILL so we don't have to redesign 
+			the lst files when this tag gets working.</li>
+	</ul>
+	<p class="sidebar1">NOTE: This tag has some problems. It will work in some files but not all.</p>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRESKILLMULT:1,Spot,Listen=10</code></p>
+	<p class="indent2"><code>PRESKILLMULT:1,Spot=10,Listen=10</code></p>
 	<p class="indent3">Character must have a Spot or Listen at 10 or above.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PRESKILLMULT:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
 <hr>
@@ -1445,7 +1458,7 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREVISION">Tag Name:</a></strong> PREVISION:x,y,y=z</p>
+	<p class="indent0"><strong><a name="PREVISION">Tag Name:</a></strong> PREVISION:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number
 		(The number of vision types that must match the specified requirements).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The vision types required).</p>
@@ -1456,8 +1469,11 @@
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREVISION:2,Normal,Darkvision</code></p>
 	<p class="indent3">Character must have both Normal and Darkvision.</p>
-	<p class="indent2"><code>PREVISION:1,Blindsight,Darkvision=30</code></p>
+	<p class="indent2"><code>PREVISION:1,Blindsight=30,Darkvision=30</code></p>
 	<p class="indent3">Character must have either Blindsight or Darkvision at at least 30.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>PREVISION:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
 <hr>
