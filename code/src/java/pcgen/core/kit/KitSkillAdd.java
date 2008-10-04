@@ -20,6 +20,9 @@
  */
 package pcgen.core.kit;
 
+import java.util.List;
+
+import pcgen.core.Language;
 import pcgen.core.Skill;
 
 /**
@@ -33,18 +36,21 @@ public final class KitSkillAdd //implements java.io.Serializable
 	private Skill skill = null;
 	private double ranks = 0.0;
 	private int cost = 0;
+	private List<Language> languages;
 
 	/**
 	 * Constructor
 	 * @param argSkill
 	 * @param aRanks
 	 * @param aCost
+	 * @param aLanguages The languages which should be selected.
 	 */
-	public KitSkillAdd(final Skill argSkill, double aRanks, int aCost)
+	public KitSkillAdd(final Skill argSkill, double aRanks, int aCost, List<Language> aLanguages)
 	{
 		skill = argSkill;
 		ranks = aRanks;
 		cost = aCost;
+		languages = aLanguages;
 	}
 
 	/**
@@ -72,6 +78,15 @@ public final class KitSkillAdd //implements java.io.Serializable
 	public int getCost()
 	{
 		return cost;
+	}
+
+	/**
+	 * Gets the list of languages.
+	 * @return the languages
+	 */
+	public List<Language> getLanguages()
+	{
+		return languages;
 	}
 
 }

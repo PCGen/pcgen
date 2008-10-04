@@ -25,7 +25,9 @@ package pcgen.core.kit;
 import java.io.Serializable;
 import java.util.*;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.core.*;
+import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.gui.CharacterInfo;
@@ -47,6 +49,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 	private String className = null;
 	private boolean free = false;
 	private double rank = 1.0;
+	private List<String> selection = new ArrayList<String>();
 
 	private transient List<KitWrapper> skillsToAdd = new ArrayList<KitWrapper>();
 
@@ -104,6 +107,24 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 	}
 
 	/**
+	 * Get the language selection value.
+	 * @return selection
+	 */
+	public List<String> getSelection()
+	{
+		return selection;
+	}
+
+	/**
+	 * Set the language selection.
+	 * @param selection The new selection value.
+	 */
+	public void setSelection(List<String> selection)
+	{
+		this.selection = selection;
+	}
+
+	/**
 	 * Get the name of the skill
 	 * @return name
 	 */
@@ -155,6 +176,12 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		if (free)
 		{
 			info.append("/free");
+		}
+
+		if (selection != null && !selection.isEmpty())
+		{
+			info.append("/");
+			info.append(StringUtil.join(selection, ", "));
 		}
 
 		info.append(')');
@@ -215,6 +242,8 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			}
 
 			// Try and find a class we can add them from.
+			boolean oldImporting = aPC.isImporting();
+			aPC.setImporting(true);
 			for ( PCClass pcClass : classList )
 			{
 				final KitSkillAdd sta = addRanks(aPC, pcClass, skill,
@@ -232,6 +261,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 					}
 				}
 			}
+			aPC.setImporting(oldImporting);
 			if (ranksLeftToAdd > 0.0)
 			{
 				warnings.add("SKILL: Could not add " + ranksLeftToAdd
@@ -248,7 +278,8 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		for ( KitWrapper wrapper : skillsToAdd )
 		{
 			KitSkillAdd ksa = (KitSkillAdd)wrapper.getObject();
-			updatePCSkills(aPC, ksa.getSkill(), (int)ksa.getRanks(), ksa.getCost(), (PCClass)wrapper.getPObject());
+			updatePCSkills(aPC, ksa.getSkill(), (int) ksa.getRanks(), ksa
+				.getCost(), ksa.getLanguages(), (PCClass) wrapper.getPObject());
 		}
 	}
 
@@ -259,17 +290,21 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 	 * @param aSkill Skill to update
 	 * @param aRank Number of ranks to add
 	 * @param aCost Cost of added ranks
+	 * @param langList Languages to be selected for a language skill
 	 * @param pcClass skills apply to this class
 	 *
 	 * @return <code>true</code> for success
 	 * TODO What about throwing on failure?
 	 */
 	private boolean updatePCSkills(final PlayerCharacter pc, final Skill aSkill,
-			final int aRank, final double aCost, final PCClass pcClass)
+			final int aRank, final double aCost, List<Language> langList, final PCClass pcClass)
 	{
 		final Skill skill = pc.addSkill(aSkill);
 
+		boolean oldImporting = pc.isImporting();
+		pc.setImporting(true);
 		final String aString = SkillRankControl.modRanks(aRank, pcClass, true, pc, skill);
+		pc.setImporting(oldImporting);
 
 		if (aString.length() > 0)
 		{
@@ -277,6 +312,17 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
+		// Add any supplied languages
+		if (!langList.isEmpty())
+		{
+			pc.addLanguages(langList);
+
+			for (Iterator<Language> i = langList.iterator(); i.hasNext();)
+			{
+				pc.addAssociation(skill, i.next().getKeyName());
+			}
+
+		}
 		//
 		// Fix up the skill pools to reflect what we just spent.
 		//
@@ -460,6 +506,14 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			}
 
 		}
-		return new KitSkillAdd(aSkill, ranksToAdd, ptsToSpend);
+		List<Language> langList = new ArrayList<Language>();
+		if (SkillLanguage.isLanguage(aSkill) && selection != null
+			&& !selection.isEmpty())
+		{
+			langList =
+					SkillLanguage.getLanguageList(selection, aSkill, pc,
+						(int) ranksToAdd);
+		}
+		return new KitSkillAdd(aSkill, ranksToAdd, ptsToSpend, langList);
 	}
 }

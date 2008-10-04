@@ -56,13 +56,23 @@ public final class SkillLanguage
 		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if (aSkill.getChoiceString().toLowerCase().indexOf("language") >= 0)
+			if (isLanguage(aSkill))
 			{
 				languageSkill = aSkill;
 			}
 		}
 
 		return chooseLanguageForSkill(aPC, languageSkill);
+	}
+
+	/**
+	 * Identify if the supplied skill is a language skill 
+	 * @param aSkill The skill to be checked.
+	 * @return true if the skill is a language, false otherwise
+	 */
+	public static boolean isLanguage(Skill aSkill)
+	{
+		return aSkill.getChoiceString().toLowerCase().indexOf("language") >= 0;
 	}
 
 	/**
@@ -94,111 +104,8 @@ public final class SkillLanguage
 			List<Language> available = new ArrayList<Language>();
 			List<Language> excludedLangs = new ArrayList<Language>();
 
-			String reqType = null;
-			if (languageSkill.getChoiceString().toLowerCase().indexOf(
-					"language(") >= 0)
-			{
-				// We expect to have a choice string like Language(foo)
-				// where foo is the type we have to limit choices by.
-				String choiceParts[] = languageSkill.getChoiceString().split(
-						"[\\(\\)]");
-				if (choiceParts.length >= 2)
-				{
-					reqType = choiceParts[1];
-				}
-			}
-
-			String[][] reqTypeArray;
-			if (reqType == null)
-			{
-				reqTypeArray = null;
-			}
-			else
-			{
-				String[] rta = reqType.split(",");
-				reqTypeArray = new String[rta.length][];
-				for (int i = 0; i < rta.length; i++)
-				{
-					reqTypeArray[i] = rta[i].split("\\.");
-				}
-			}
-
-			for (String aString : aPC.getAssociationList(languageSkill))
-			{
-				Language aLang = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Language.class,
-								aString);
-
-				if (aLang == null)
-				{
-					continue;
-				}
-				if (reqTypeArray == null)
-				{
-					selected.add(aLang);
-					continue;
-				}
-				SELARRAY: for (String[] types : reqTypeArray)
-				{
-					for (String type : types)
-					{
-						if (!aLang.isType(type))
-						{
-							continue SELARRAY;
-						}
-					}
-					selected.add(aLang);
-				}
-			}
-
-			for (Language lang : Globals.getContext().ref
-					.getConstructedCDOMObjects(Language.class))
-			{
-				if (!PrereqHandler.passesAll(lang.getPrerequisiteList(), aPC, lang))
-				{
-					continue;
-				}
-				if (reqTypeArray == null)
-				{
-					available.add(lang);
-					continue;
-				}
-				AVARRAY: for (String[] types : reqTypeArray)
-				{
-					for (String type : types)
-					{
-						if (!lang.isType(type))
-						{
-							continue AVARRAY;
-						}
-					}
-					available.add(lang);
-				}
-			}
-
-			//
-			// Do not give choice of automatic languages
-			//
-			for (Language lang : aPC.getAutoLanguages())
-			{
-				available.remove(lang);
-				excludedLangs.add(lang);
-			}
-
-			//
-			// Do not give choice of selected bonus languages
-			//
-			for (Language lang : aPC.getLanguagesList())
-			{
-				if (!selected.contains(lang))
-				{
-					if ((reqType == null || lang.isType(reqType)))
-					{
-						available.remove(lang);
-					}
-					excludedLangs.add(lang);
-				}
-			}
+			buildLanguageListsForSkill(aPC, languageSkill, selected, available,
+				excludedLangs);
 
 			Globals.sortChooserLists(available, selected);
 
@@ -227,6 +134,186 @@ public final class SkillLanguage
 		}
 
 		return false;
+	}
+
+	/**
+	 * Build up the lists of available, already selected and excluded 
+	 * languages for the skill and character.
+	 *  
+	 * @param aPC The character to build the lists for.
+	 * @param languageSkill The skill to build the lists for.
+	 * @param selected The list of already selected languages
+	 * @param available The list of languages that can be selected from
+	 * @param excludedLangs The list of languages that cannot be selected.
+	 */
+	private static void buildLanguageListsForSkill(PlayerCharacter aPC,
+		Skill languageSkill, List<Language> selected, List<Language> available,
+		List<Language> excludedLangs)
+	{
+		String reqType = null;
+		if (languageSkill.getChoiceString().toLowerCase().indexOf(
+				"language(") >= 0)
+		{
+			// We expect to have a choice string like Language(foo)
+			// where foo is the type we have to limit choices by.
+			String choiceParts[] = languageSkill.getChoiceString().split(
+					"[\\(\\)]");
+			if (choiceParts.length >= 2)
+			{
+				reqType = choiceParts[1];
+			}
+		}
+
+		String[][] reqTypeArray;
+		if (reqType == null)
+		{
+			reqTypeArray = null;
+		}
+		else
+		{
+			String[] rta = reqType.split(",");
+			reqTypeArray = new String[rta.length][];
+			for (int i = 0; i < rta.length; i++)
+			{
+				reqTypeArray[i] = rta[i].split("\\.");
+			}
+		}
+
+		for (String aString : aPC.getAssociationList(languageSkill))
+		{
+			Language aLang = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Language.class,
+							aString);
+
+			if (aLang == null)
+			{
+				continue;
+			}
+			if (reqTypeArray == null)
+			{
+				selected.add(aLang);
+				continue;
+			}
+			SELARRAY: for (String[] types : reqTypeArray)
+			{
+				for (String type : types)
+				{
+					if (!aLang.isType(type))
+					{
+						continue SELARRAY;
+					}
+				}
+				selected.add(aLang);
+			}
+		}
+
+		for (Language lang : Globals.getContext().ref
+				.getConstructedCDOMObjects(Language.class))
+		{
+			if (!PrereqHandler.passesAll(lang.getPrerequisiteList(), aPC, lang))
+			{
+				continue;
+			}
+			if (reqTypeArray == null)
+			{
+				available.add(lang);
+				continue;
+			}
+			AVARRAY: for (String[] types : reqTypeArray)
+			{
+				for (String type : types)
+				{
+					if (!lang.isType(type))
+					{
+						continue AVARRAY;
+					}
+				}
+				available.add(lang);
+			}
+		}
+
+		//
+		// Do not give choice of automatic languages
+		//
+		for (Language lang : aPC.getAutoLanguages())
+		{
+			available.remove(lang);
+			excludedLangs.add(lang);
+		}
+
+		//
+		// Do not give choice of selected bonus languages
+		//
+		for (Language lang : aPC.getLanguagesList())
+		{
+			if (!selected.contains(lang))
+			{
+				if ((reqType == null || lang.isType(reqType)))
+				{
+					available.remove(lang);
+				}
+				excludedLangs.add(lang);
+			}
+		}
+	}
+
+	/**
+	 * Gets the list of languages from the langKeyList that are
+	 * valid to add to the character for the given skill. No more
+	 * than the specified number of languages will be returned. 
+	 * 
+	 * @param langKeyList The list of language keys
+	 * @param skill The language skill 
+	 * @param aPC The character being processed
+	 * @param maxNumLangs The maximum number of languages to add
+	 * 
+	 * @return the language list
+	 */
+	public static List<Language> getLanguageList(List<String> langKeyList,
+		Skill skill, PlayerCharacter aPC, int maxNumLangs)
+	{
+		List<Language> selected = new ArrayList<Language>();
+		List<Language> available = new ArrayList<Language>();
+		List<Language> excludedLangs = new ArrayList<Language>();
+
+		buildLanguageListsForSkill(aPC, skill, selected, available,
+			excludedLangs);
+
+		List<Language> theLanguages = new ArrayList<Language>(maxNumLangs);
+		for (String langKey : langKeyList)
+		{
+			Language lang = findLanguageInListByKey(available, langKey);
+			if (lang != null)
+			{
+				theLanguages.add(lang);
+				if (theLanguages.size() >= maxNumLangs)
+				{
+					break;
+				}
+			}
+		}
+		
+		return theLanguages;
+	}
+
+	/**
+	 * Retrieve a language from a list based on its key.
+	 * 
+	 * @param langList The list of languages
+	 * @param langKey The key of the language to be retrieved.
+	 * @return The language, or null if there is no match.
+	 */
+	private static Language findLanguageInListByKey(
+		final List<Language> langList, String langKey)
+	{
+		for (Language language : langList)
+		{
+			if (langKey.equalsIgnoreCase(language.getKeyName()))
+			{
+				return language;
+			}
+		}
+		return null;
 	}
 
 }

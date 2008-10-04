@@ -288,7 +288,10 @@ public class SkillRankControl
 			{
 				if (choiceString.startsWith("Language"))
 				{
-					active.addWeight(g);
+					if (active != null)
+					{
+						active.addWeight(g);
+					}
 					if (!SkillLanguage.chooseLanguageForSkill(aPC, sk))
 					{
 						newRank = curRank;
@@ -304,7 +307,10 @@ public class SkillRankControl
 							newRank = curRank;
 						}
 					}
-					active.removeWeight(g);
+					if (active != null)
+					{
+						active.removeWeight(g);
+					}
 					g = newRank - curRank;
 				}
 			}
