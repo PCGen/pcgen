@@ -34,8 +34,18 @@ import java.util.StringTokenizer;
  * @author ???
  * @version $Revision$
  */
-final class RollInfo
+public final class RollInfo
 {
+	public int getSides()
+	{
+		return sides;
+	}
+
+	public int getTimes()
+	{
+		return times;
+	}
+
 	/** What shape dice to roll. */
 	protected int sides = 0;
 
@@ -102,7 +112,7 @@ final class RollInfo
 	 * @param rollString String compact representation of dice rolls
 	 *
 	 */
-	RollInfo(final String rollString)
+	public RollInfo(final String rollString)
 	{
 		// To really do this right, we change the token string
 		// as we go along so that we maintain parser state by
