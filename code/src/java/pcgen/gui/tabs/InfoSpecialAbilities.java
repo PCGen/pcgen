@@ -66,11 +66,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.SkillLanguage;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.AddSpecialAbility;
@@ -174,7 +172,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			List<Language> availableLangs = new ArrayList<Language>();
 			List<Language> selectedLangs = new ArrayList<Language>();
 			List<Language> excludedLangs = new ArrayList<Language>();
-			buildLangLists(availableLangs, selectedLangs, excludedLangs);
+			pc.buildLangLists(availableLangs, selectedLangs, excludedLangs);
 
 			if (selectedLangs.size() < (numLanguages))
 			{
@@ -462,7 +460,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			int numLanguages = pc.languageNum(false);
 
-			buildLangLists(availableLangs, selectedLangs, excludedLangs);
+			pc.buildLangLists(availableLangs, selectedLangs, excludedLangs);
 
 			Globals.sortPObjectListByName(availableLangs);
 
@@ -505,70 +503,6 @@ public final class InfoSpecialAbilities extends JPanel implements
 			pc.addLanguages(excludedLangs);
 			refresh();
 			ensureFocus();
-		}
-	}
-
-	/**
-	 * Populate the langange lists for this PC.
-	 * @param availableLangs
-	 * @param selectedLangNames
-	 * @param excludedLangs
-	 */
-	private void buildLangLists(final List<Language> availableLangs,
-		final List<Language> selectedLangs, final List<Language> excludedLangs)
-	{
-		SortedSet<Language> autoLangs = pc.getAutoLanguages();
-		Skill speakLanguage = null;
-		
-		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
-		for (Skill aSkill : skillList)
-		{
-			if (aSkill.getChoiceString().indexOf(
-				PropertyFactory.getString("in_language")) >= 0)
-			{
-				speakLanguage = aSkill;
-			}
-		}
-
-		for (final Language aLang : pc.getLanguageBonusSelectionList())
-		{
-			if (aLang != null)
-			{
-				if (PrereqHandler.passesAll(aLang.getPrerequisiteList(), pc, aLang))
-				{
-					availableLangs.add(aLang);
-				}
-			}
-		}
-		//
-		// Only show selections that are not automatically
-		// granted or granted via the "Speak Language" skill
-		// Remove any language selected via "Speak Language"
-		// from the list of available selections
-		//
-		for (Language aLang : pc.getLanguagesList())
-		{
-			boolean addLang = false;
-
-			if ((speakLanguage != null)
-					&& pc.containsAssociated(speakLanguage, aLang.getKeyName()))
-			{
-				addLang = false;
-			}
-			else if (!autoLangs.contains(aLang))
-			{
-				addLang = true;
-			}
-
-			if (addLang)
-			{
-				selectedLangs.add(aLang);
-			}
-			else
-			{
-				availableLangs.remove(aLang);
-				excludedLangs.add(aLang);
-			}
 		}
 	}
 

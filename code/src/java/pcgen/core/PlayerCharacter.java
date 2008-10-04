@@ -18145,4 +18145,68 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return sb.toString();
 	}
 
+	/**
+	 * Populate the langange lists for this PC.
+	 * 
+	 * @param availableLangs The list of languages available for selection as bonus languages
+	 * @param selectedLangs The list of already selected bonus languages
+	 * @param excludedLangs The list of lnguages that cannot be selected
+	 */
+	public void buildLangLists(final List<Language> availableLangs, final List<Language> selectedLangs, final List<Language> excludedLangs)
+	{
+		SortedSet<Language> autoLangs = getAutoLanguages();
+		Skill speakLanguage = null;
+		
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		for (Skill aSkill : skillList)
+		{
+			if (aSkill.getChoiceString().indexOf(
+				PropertyFactory.getString("in_language")) >= 0)
+			{
+				speakLanguage = aSkill;
+			}
+		}
+	
+		for (final Language aLang : getLanguageBonusSelectionList())
+		{
+			if (aLang != null)
+			{
+				if (PrereqHandler.passesAll(aLang.getPrerequisiteList(), this, aLang))
+				{
+					availableLangs.add(aLang);
+				}
+			}
+		}
+		//
+		// Only show selections that are not automatically
+		// granted or granted via the "Speak Language" skill
+		// Remove any language selected via "Speak Language"
+		// from the list of available selections
+		//
+		for (Language aLang : getLanguagesList())
+		{
+			boolean addLang = false;
+	
+			if ((speakLanguage != null)
+					&& containsAssociated(speakLanguage, aLang.getKeyName()))
+			{
+				addLang = false;
+			}
+			else if (!autoLangs.contains(aLang))
+			{
+				addLang = true;
+			}
+	
+			if (addLang)
+			{
+				selectedLangs.add(aLang);
+			}
+			else
+			{
+				availableLangs.remove(aLang);
+				excludedLangs.add(aLang);
+			}
+		}
+	}
+
 }
