@@ -77,8 +77,8 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 		// throw new IllegalArgumentException(
 		// "Resulting Type for ChangeArmorType cannot be null");
 		// }
-		result = resultType.toUpperCase();
-		source = sourceType.toUpperCase();
+		result = resultType;
+		source = sourceType;
 	}
 
 	/**
@@ -175,6 +175,10 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 	 * and that type is removed, this method will return an empty list. This
 	 * method will not return null.
 	 * 
+	 * WARNING: This method is "strange" in that it causes the returned types
+	 * to always be in upper case.  This may be an unexpected side-effect
+	 * to this method.
+	 * 
 	 * @param calculatedTypeList
 	 *            The list of input armor types this Modifier will act upon
 	 * @return The modified List of armor types.
@@ -189,7 +193,7 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 			String mod = applyModifier(type, null);
 			if (mod != null)
 			{
-				returnList.add(mod);
+				returnList.add(mod.toUpperCase());
 			}
 		}
 		return returnList;
