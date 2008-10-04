@@ -22,17 +22,13 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.PCClassLoader;
-import pcgen.util.Logging;
+import pcgen.persistence.lst.utils.DeferredLine;
 
 /**
  * <code>SubClass</code>.
@@ -42,7 +38,6 @@ import pcgen.util.Logging;
  */
 public final class SubClass extends PCClass implements CategorizedCDOMObject<SubClass>
 {
-	private List<String> levelArray = null;
 	private String choice = null;
 
 	/**
@@ -132,47 +127,20 @@ public final class SubClass extends PCClass implements CategorizedCDOMObject<Sub
 	}
 
 	/**
-	 * Add sub class to the level array
-	 * @param arg
-	 */
-	public void addToLevelArray(final String arg)
-	{
-		if (levelArray == null)
-		{
-			levelArray = new ArrayList<String>();
-		}
-
-		levelArray.add(arg);
-	}
-
-	/**
 	 * Apply the level mods to a class
 	 * @param aClass
 	 */
 	public void applyLevelArrayModsTo(final PCClass aClass)
 	{
+		List<DeferredLine> levelArray = getListFor(ListKey.SUB_CLASS_LEVEL);
 		if (levelArray == null)
 		{
 			return;
 		}
 
-		try
+		for ( DeferredLine line : levelArray )
 		{
-			final Campaign customCampaign = new Campaign();
-			customCampaign.setName("Custom");
-			customCampaign.addToListFor(ListKey.DESCRIPTION, new Description("Custom data"));
-
-			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceURI());
-
-			for ( String line : levelArray )
-			{
-				final PCClassLoader classLoader = new PCClassLoader();
-				classLoader.parseLine(Globals.getContext(), aClass, line, tempSource);
-			}
-		}
-		catch (PersistenceLayerException exc)
-		{
-			Logging.errorPrint(exc.getMessage());
+			aClass.performReallyBadHackForOldTokens(line);
 		}
 	}
 

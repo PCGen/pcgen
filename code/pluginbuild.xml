@@ -4256,7 +4256,7 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-subclass-plugins" depends="makeplugindirs" description="Build (Link) SubClass Lst Token plugin jar files">
 		<!-- SubClass tokens:
-			   CHOICE, COST, PROHIBITCOST, SUBCLASSLEVEL, SUBCLASS
+			   CHOICE, COST, PROHIBITCOST, SUBCLASS
 		-->
 		<jar jarfile="${lstplugins.dir}/SubClassLstToken-CHOICE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
@@ -4276,13 +4276,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/subclass/ProhibitcostToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/SubClassLstToken-SUBCLASSLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/subclass/SubclasslevelToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

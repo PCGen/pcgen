@@ -22,6 +22,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -37,6 +38,7 @@ import pcgen.core.SubstitutionClass;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -102,7 +104,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				if (subClassList != null)
 				{
 					subClass = subClassList.get(subClassList.size() - 1);
-					subClass.addToLevelArray(lstLine.substring(14));
+					subClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(14)));
 
 					return pcClass;
 				}
@@ -214,55 +216,62 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 		else 
 		{
-			try
-			{
-				String repeatTag = null;
-				String thisLevel;
-				int rlLoc = lineIdentifier.indexOf(":REPEATLEVEL:");
-				if (rlLoc == -1)
-				{
-					thisLevel = lineIdentifier;
-				}
-				else
-				{
-					thisLevel = lineIdentifier.substring(0, rlLoc);
-					repeatTag = lineIdentifier.substring(rlLoc + 13);
-				}
-				int iLevel = Integer.parseInt(thisLevel);
-				if (iLevel == 0)
-				{
-					/*
-					 * This is for backwards compatibility with PCGen 5.14
-					 * getPCCText which writes out things to level 0 :P
-					 */
-					parseLineIntoClass(context, pcClass, source, restOfLine);
-				}
-				else if (iLevel > 0)
-				{
-					parseClassLevelLine(context, pcClass, iLevel, source, restOfLine);
-					if (repeatTag != null)
-					{
-						parseRepeatClassLevel(context, restOfLine, source, pcClass, iLevel, repeatTag);
-					}
-				}
-				else
-				{
-					Logging.errorPrint("Invalid Level Identifier: " + thisLevel
-							+ " for " + pcClass.getDisplayName()
-							+ ". Value must be greater than zero");
-				}
-			}
-			catch (NumberFormatException nfe)
-			{
-				// I think we can ignore this, as
-				// it's supposed to be the level #
-				// but could be almost anything else
-				Logging.errorPrint("Expected a level value, but got '"
-					+ lineIdentifier + "' instead in " + source.getURI(), nfe);
-			}
-
+			parseFullClassLevelLine(context, source, pcClass, lineIdentifier,
+					restOfLine);
 		}
 		return pcClass;
+	}
+
+	private void parseFullClassLevelLine(LoadContext context,
+			CampaignSourceEntry source, PCClass pcClass, String lineIdentifier,
+			String restOfLine) throws PersistenceLayerException
+	{
+		try
+		{
+			String repeatTag = null;
+			String thisLevel;
+			int rlLoc = lineIdentifier.indexOf(":REPEATLEVEL:");
+			if (rlLoc == -1)
+			{
+				thisLevel = lineIdentifier;
+			}
+			else
+			{
+				thisLevel = lineIdentifier.substring(0, rlLoc);
+				repeatTag = lineIdentifier.substring(rlLoc + 13);
+			}
+			int iLevel = Integer.parseInt(thisLevel);
+			if (iLevel == 0)
+			{
+				/*
+				 * This is for backwards compatibility with PCGen 5.14
+				 * getPCCText which writes out things to level 0 :P
+				 */
+				parseLineIntoClass(context, pcClass, source, restOfLine);
+			}
+			else if (iLevel > 0)
+			{
+				parseClassLevelLine(context, pcClass, iLevel, source, restOfLine);
+				if (repeatTag != null)
+				{
+					parseRepeatClassLevel(context, restOfLine, source, pcClass, iLevel, repeatTag);
+				}
+			}
+			else
+			{
+				Logging.errorPrint("Invalid Level Identifier: " + thisLevel
+						+ " for " + pcClass.getDisplayName()
+						+ ". Value must be greater than zero");
+			}
+		}
+		catch (NumberFormatException nfe)
+		{
+			// I think we can ignore this, as
+			// it's supposed to be the level #
+			// but could be almost anything else
+			Logging.errorPrint("Expected a level value, but got '"
+				+ lineIdentifier + "' instead in " + source.getURI(), nfe);
+		}
 	}
 
 	public void parseClassLevelLine(LoadContext context, PCClass pcClass,
@@ -536,5 +545,50 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	{
 		return new StringBuffer().append(aInt).append("|").append(colString)
 			.toString();
+	}
+
+	public void loadSubLines(LoadContext context)
+	{
+		Collection<PCClass> allClasses = context.ref
+				.getConstructedCDOMObjects(PCClass.class);
+		for (PCClass cl : allClasses)
+		{
+			List<SubClass> subClasses = cl.getListFor(ListKey.SUB_CLASS);
+			if (subClasses != null)
+			{
+				for (SubClass sc : subClasses)
+				{
+					sc.copyLevelsFrom(cl);
+					for (DeferredLine dl : sc.getSafeListFor(ListKey.SUB_CLASS_LEVEL))
+					{
+						String lstLine = dl.lstLine;
+						try
+						{
+							int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
+							String lineIdentifier;
+							String restOfLine;
+							if (tabLoc == -1)
+							{
+								lineIdentifier = lstLine;
+								restOfLine = null;
+							}
+							else
+							{
+								lineIdentifier = lstLine.substring(0, tabLoc);
+								restOfLine = lstLine.substring(tabLoc + 1);
+							}
+							parseFullClassLevelLine(context, dl.source, sc, lineIdentifier, restOfLine);
+						}
+						catch (PersistenceLayerException ple)
+						{
+							Logging.log(Logging.LST_ERROR,
+									"Error parsing SubClass line: "
+											+ cl.getKeyName() + " "
+											+ sc.getKeyName() + " " + lstLine, ple);
+						}
+					}
+				}
+			}
+		}
 	}
 }

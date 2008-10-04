@@ -65,6 +65,7 @@ import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.utils.DeferredLine;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
@@ -228,6 +229,7 @@ public final class ListKey<T> {
 	public static final ListKey<SpecialAbility> SAB = new ListKey<SpecialAbility>();
 	public static final ListKey<SubClass> SUB_CLASS = new ListKey<SubClass>();
 	public static final ListKey<SubstitutionClass> SUBSTITUTION_CLASS = new ListKey<SubstitutionClass>();
+	public static final ListKey<DeferredLine> SUB_CLASS_LEVEL = new ListKey<DeferredLine>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

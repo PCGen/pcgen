@@ -83,7 +83,9 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
@@ -4342,8 +4344,13 @@ public class PCClass extends PObject
 			}
 		}
 
+		/*
+		 * TODO This is a clone problem, but works for now - thpr 10/3/08
+		 */
 		if (otherClass instanceof SubClass)
 		{
+			levelMap.clear();
+			copyLevelsFrom(otherClass);
 			((SubClass) otherClass).applyLevelArrayModsTo(this);
 		}
 
@@ -4643,6 +4650,22 @@ public class PCClass extends PObject
 		return Collections.unmodifiableCollection(levelMap.values());
 	}
 
+	public void copyLevelsFrom(PCClass cl)
+	{
+		for (Map.Entry<Integer, PCClassLevel> me : cl.levelMap.entrySet())
+		{
+			try
+			{
+				levelMap.put(me.getKey(), me.getValue().clone());
+			}
+			catch (CloneNotSupportedException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
 	public int getPCClassLevel(PCClassLevel pcl)
 	{
 		if (this.equals(pcl.get(ObjectKey.PARENT)))
@@ -4719,5 +4742,31 @@ public class PCClass extends PObject
 	public String bonusStringPrefix()
 	{
 		return "0|";
+	}
+
+	/*
+	 * This exists solely due to the token transition.  The new load method
+	 * is during LST load (not deferred), so it can resolve references.  The 
+	 * problem is that this means old tokens load into the SubClass, not 
+	 * the PCClass and are lost.  So this is a hack to restore them 
+	 * into the PCClass when the SubClass is applied, without disrupting 
+	 * the class levels that are in the PCClass. (which would cause duplication 
+	 * or other errors)
+	 */
+	public void performReallyBadHackForOldTokens(DeferredLine line)
+	{
+		SortedMap<Integer, PCClassLevel> saveLevelMap = levelMap;
+		levelMap = new TreeMap<Integer, PCClassLevel>();
+		final PCClassLoader classLoader = new PCClassLoader();
+		try
+		{
+			classLoader.parseLine(Globals.getContext(), this, line.lstLine, line.source);
+		}
+		catch (PersistenceLayerException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		levelMap = saveLevelMap;
 	}
 }
