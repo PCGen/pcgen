@@ -116,7 +116,7 @@ CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
 # Class Name	Hit Dice	Type			Max Level		Source Page						Ability																											Save checks bonus												Combat bonus
 CLASS:Humanoid	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Prohibited Class							Reg. Race Type
-CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude)=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude),Humanoid (Will)=1	PRERACETYPE:Humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
 
