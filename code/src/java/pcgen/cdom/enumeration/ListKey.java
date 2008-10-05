@@ -23,9 +23,14 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.lang.reflect.Field;
 import java.net.URI;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChangeProf;
@@ -231,6 +236,13 @@ public final class ListKey<T> {
 	public static final ListKey<SubstitutionClass> SUBSTITUTION_CLASS = new ListKey<SubstitutionClass>();
 	public static final ListKey<DeferredLine> SUB_CLASS_LEVEL = new ListKey<DeferredLine>();
 
+	private static CaseInsensitiveMap<ListKey<?>> map = null;
+	
+	static
+	{
+		buildMap();
+	}
+
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {
 		//Only allow instantation here
@@ -239,5 +251,80 @@ public final class ListKey<T> {
 	public T cast(Object o)
 	{
 		return (T) o;
+	}
+
+	public static <OT> ListKey<OT> getKeyFor(Class<OT> c, String s)
+	{
+		/*
+		 * CONSIDER This is actually not type safe, there is a case of asking
+		 * for a String a second time with a different Class that ObjectKey
+		 * currently does not handle. Two solutions: One, store this in a
+		 * Two-Key map and allow a String to map to more than one ObjectKey
+		 * given different output types (considered confusing) or Two, store the
+		 * Class and validate that with a an error message if a different class
+		 * is requested.
+		 */
+		ListKey<OT> o = (ListKey<OT>) map.get(s);
+		if (o == null)
+		{
+			o = new ListKey<OT>();
+			map.put(s, o);
+		}
+		return o;
+	}
+
+	private static void buildMap()
+	{
+		map = new CaseInsensitiveMap<ListKey<?>>();
+		Field[] fields = ListKey.class.getDeclaredFields();
+		for (int i = 0; i < fields.length; i++)
+		{
+			int mod = fields[i].getModifiers();
+
+			if (java.lang.reflect.Modifier.isStatic(mod)
+					&& java.lang.reflect.Modifier.isFinal(mod)
+					&& java.lang.reflect.Modifier.isPublic(mod))
+			{
+				try
+				{
+					Object o = fields[i].get(null);
+					if (o instanceof ListKey)
+					{
+						map.put(fields[i].getName(), (ListKey<?>) o);
+					}
+				}
+				catch (IllegalArgumentException e)
+				{
+					throw new InternalError();
+				}
+				catch (IllegalAccessException e)
+				{
+					throw new InternalError();
+				}
+			}
+		}
+	}
+
+	@Override
+	public String toString()
+	{
+		/*
+		 * CONSIDER Should this find a way to do a Two-Way Map or something to
+		 * that effect?
+		 */
+		for (Map.Entry<?, ListKey<?>> me : map.entrySet())
+		{
+			if (me.getValue() == this)
+			{
+				return me.getKey().toString();
+			}
+		}
+		// Error
+		return "";
+	}
+
+	public static Collection<ListKey<?>> getAllConstants()
+	{
+		return new HashSet<ListKey<?>>(map.values());
 	}
 }
