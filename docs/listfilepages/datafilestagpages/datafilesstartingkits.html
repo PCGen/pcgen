@@ -13,6 +13,7 @@
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
 		Eric C Smith - mareduddATblackrootDOTorg
+		Andrew A. Maitland - drew0500ATyahhoDOTcom
 
 		Description:
 		Provides information on the content of PCGen Starting Kit Files.
@@ -313,6 +314,22 @@
 		<p class="indent3">The character/creature's gender is &quot;Male&quot;.</p>
 		<p></p>
 
+
+<hr>
+<!---
+Eric Double check When this Feature began
+--->
+		<p class="new">*** New 5.15.x</p>
+		<p class="indent0"><strong><a name="LANGBONUS">Tag Name:</a></strong> LANGBONUS:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language)</p>
+		<p class="indent1"><strong>What it does:</strong> </p>
+		<p class="indent2">LANGBONUS chooses the Bonus Language Selections if there is enough language bonuses to be spent.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">LANGBONUS is used in kit lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>LANGBONUS:Dwarven|Elvish</code></p>
+		<p class="indent3">Selects Dwarven and Elvish langauges.</p>
+		<p></p>
 <hr>
 
 		<p class="new">*** New 5.9.7</p>
@@ -372,6 +389,7 @@
 		<p class="indent3">Sets the characters race to Sets the characters race.</p>
 		<p></p>
 
+
 <hr>
 
 		<p class="new">*** New 5.9.5</p>
@@ -393,6 +411,26 @@
 		<p class="indent2"><code>SELECT:roll("1d100")</code></p>
 		<p class="indent3">Selects a number from 1 to 100 which can be checked by the OPTION tag.</p>
 		<p></p>
+
+<hr>
+<!---
+Eric verify When tag was implemented
+--->
+		<p class="new">*** New 5.15.3</p>
+		<p class="indent0"><strong><a name="SELECTION">Tag Name:</a></strong> SELECTION:x,x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Makes selection of languages for ranks of the Speak Language Skill
+			<li>This tag is used, in conjunction with the <code>SKILL,</code> and <code>RANK</code> tag, to 
+				select languages</li>
+			
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SKILL:Speak Language <tab> RANK:2 <tab> SELECTION:Dwarven,Elven</code></p>
+		<p class="indent3">Selects Dwarven and Elven languages with the ranks bought.</p>
+		<p></p>
+
 
 <hr>
 
