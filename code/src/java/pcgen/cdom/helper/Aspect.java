@@ -243,10 +243,13 @@ public class Aspect
 	{
 		final StringBuffer buf = new StringBuffer();
 		
-		Ability pcAbility = aPC.getAbilityMatching(theOwner);
-		if (pcAbility != null)
+		if (theOwner != null)
 		{
-			theOwner = pcAbility;
+			Ability pcAbility = aPC.getAbilityMatching(theOwner);
+			if (pcAbility != null)
+			{
+				theOwner = pcAbility;
+			}
 		}
 		for ( final String comp : theComponents )
 		{

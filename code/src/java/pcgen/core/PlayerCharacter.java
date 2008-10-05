@@ -5930,7 +5930,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Ability getAbilityMatching(final Ability anAbility)
 	{
 		return AbilityUtilities.getAbilityFromList(new ArrayList<Ability>(
-			getFullAbilitySet()), anAbility);
+				getFullAbilityList()), anAbility, anAbility.getAbilityNature());
 	}
 
 	public int getFirstSpellLevel(final Spell aSpell)

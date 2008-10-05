@@ -52,6 +52,7 @@ import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -896,12 +897,15 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Ability resToAcid =
 				TestHelper.makeAbility("Resistance To Acid", specialAbilityCat
 					.getKeyName(), "Foo");
+		resToAcid.setAbilityNature(Nature.AUTOMATIC);
 		Ability resToAcidOutputVirt =
 			TestHelper.makeAbility("Resistance To Acid Output Virt",
 				specialAbilityCat.getKeyName(), "Foo");
+		resToAcidOutputVirt.setAbilityNature(Nature.VIRTUAL);
 		Ability resToAcidOutputAuto =
 			TestHelper.makeAbility("Resistance To Acid Output Auto",
 				specialAbilityCat.getKeyName(), "Foo");
+		resToAcidOutputAuto.setAbilityNature(Nature.AUTOMATIC);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(human);
 		assertEquals("PC should now have a race of human", human, pc.getRace());
