@@ -31,7 +31,10 @@ public class ClassSkillsToken implements AddLstToken
 		if (!target.getClass().equals(PCClass.class))
 		{
 			Logging
-				.errorPrint("ADD:CLASSSKILLS is only valid in Class LST files");
+					.errorPrint("ADD:CLASSSKILLS is only valid in Class LST files");
+			Logging.errorPrint("   bad use found in "
+					+ target.getClass().getSimpleName() + " "
+					+ target.getKeyName());
 			return false;
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
