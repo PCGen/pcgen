@@ -34,16 +34,16 @@ CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentratio
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
-1	SAB:Scorn Earth (Su)	SAB:Sidestep Charge (Ex)																								ADD:SPELLCASTER|Psionic													AUTO:FEAT|Sidestep Charge
-2	SAB:Opportunistic Strike (+%)(Ex)|OpportunisticStrike													BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
-3	SAB:Dimension Step (Su)																													ADD:SPELLCASTER|Psionic	SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
-4	SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)																				ADD:SPELLCASTER|Psionic
-5																						BONUS:VAR|OpportunisticStrike|2
-6																BONUS:ABILITYPOOL|Elocator Choice|1												ADD:SPELLCASTER|Psionic
-7	SAB:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)																		ADD:SPELLCASTER|Psionic
-8																						BONUS:VAR|OpportunisticStrike|2
-9	SAB:Dimension Spring Attack (Su)(1x/day)																										ADD:SPELLCASTER|Psionic
-10	SAB:Accelerated Action (Su)																												ADD:SPELLCASTER|Psionic
+1	SAB:Scorn Earth (Su)	SAB:Sidestep Charge (Ex)																									ADD:SPELLCASTER|Psionic													AUTO:FEAT|Sidestep Charge
+2	SAB:Opportunistic Strike (+%)(Ex)|OpportunisticStrike														BONUS:VAR|OpportunisticStrike|2	DEFINE:OpportunisticStrike|0
+3	SAB:Dimension Step (Su)																														ADD:SPELLCASTER|Psionic	SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
+4	SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)																					ADD:SPELLCASTER|Psionic
+5																							BONUS:VAR|OpportunisticStrike|2
+6																BONUS:ABILITYPOOL|Elocator Transporter|1												ADD:SPELLCASTER|Psionic
+7	SAB:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)																			ADD:SPELLCASTER|Psionic
+8																							BONUS:VAR|OpportunisticStrike|2
+9	SAB:Dimension Spring Attack (Su)(1x/day)																											ADD:SPELLCASTER|Psionic
+10	SAB:Accelerated Action (Su)																													ADD:SPELLCASTER|Psionic
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
