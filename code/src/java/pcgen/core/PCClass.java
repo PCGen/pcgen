@@ -4634,6 +4634,11 @@ public class PCClass extends PObject
 		}
 		return levelMap.get(lvl);
 	}
+	
+	public boolean hasClassLevel(int lvl)
+	{
+		return levelMap.containsKey(lvl);
+	}
 
 	public int getClassLevelCount()
 	{

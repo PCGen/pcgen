@@ -40,8 +40,6 @@ import pcgen.util.Logging;
  */
 public final class SubstitutionClass extends PCClass
 {
-	private List<Integer> modLevels = null;
-
 	/** Constructor */
 	public SubstitutionClass()
 	{
@@ -100,7 +98,7 @@ public final class SubstitutionClass extends PCClass
 	 */
 	public boolean hasLevelArrayModsForLevel(final int aLevel)
 	{
-		return modLevels.contains(Integer.valueOf(aLevel));
+		return hasClassLevel(aLevel);
 	}
 	
 	public boolean qualifiesForSubstitutionLevel(PlayerCharacter pc, int level) 
