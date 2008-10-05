@@ -29,6 +29,9 @@ public class ServesAsToken implements GlobalLstToken
 	{
 		if (!getLegalTypes().contains(obj.getClass())) {
 			Logging.errorPrint("Cannot use SERVESAS on a " + obj.getClass());
+			Logging.errorPrint("   bad use found in "
+					+ obj.getClass().getSimpleName() + " "
+					+ obj.getKeyName());
 			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
