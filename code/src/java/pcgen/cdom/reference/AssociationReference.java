@@ -31,12 +31,23 @@ import pcgen.core.PlayerCharacter;
  * An AssociationReference is a CDOMReference that points to associations on a
  * PObject.
  * 
- * An Association (in PCGen terms) is something used to store choices made on an
- * object. Thus, a Feat like Martial Weapon Proficiency which allows the
- * selection of Weapon Proficiencies stores the identifier of each selected
- * Weapon Proficiency as an association on the Feat. Other items may refer to
- * this association (such as a selection of choices providing input into CSKILL:
- * through the LIST entry)
+ * Generally, a CDOMReference is used to contain objects that are referred
+ * (granted, allowed, referenced, etc.) by other objects. Many of these
+ * relationships are defined at LST load, but there are some cases, like
+ * AssociationReference, that are not.
+ * 
+ * Some objects can use a CHOOSE: token to allow selections when a
+ * PlayerCharacter is created. One example would be CHOOSE:SKILLSNAMED|ALL,
+ * which presents a list of all Skills. Other tokens can reference these
+ * selected choices in order to "apply" the selection, such as the use of
+ * CSKILL:LIST
+ * 
+ * This application of a CHOOSE selection involves the selection in a reference.
+ * (since tokens like CSKILL build lists of references during LST load). The
+ * resolution of the contents of the reference must be deferred to runtime
+ * (after the selections are made). An AssociationReference represents this
+ * case, and extracts the actual choice out of an AssociationStore in order to
+ * appropriately resolve the contents of the Reference.
  * 
  * @param <T>
  *            The Class of the underlying objects contained by this
@@ -125,7 +136,8 @@ public class AssociationReference<T extends CDOMObject> extends
 		{
 			return false;
 		}
-		//CONSIDER once getActiveEquivalent goes away, this should be AssocationStore
+		// CONSIDER once getActiveEquivalent goes away, this should be
+		// AssocationStore
 		PlayerCharacter as = Globals.getCurrentPC();
 		String key = obj.getKeyName();
 		PObject active = referenceObj.getActiveEquivalent(as);
