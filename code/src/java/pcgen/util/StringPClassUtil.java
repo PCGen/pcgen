@@ -19,6 +19,8 @@ import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.SubClass;
+import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
 
@@ -58,6 +60,10 @@ public class StringPClassUtil
 		stringMap.put(Skill.class, "SKILL");
 		stringMap.put(PCTemplate.class, "TEMPLATE");
 		stringMap.put(WeaponProf.class, "WEAPONPROF");
+		
+		//Hacks for ServesAs
+		stringMap.put(SubClass.class, "CLASS");
+		stringMap.put(SubstitutionClass.class, "CLASS");
 	}
 
 	public static Class<? extends PObject> getClassFor(String key)

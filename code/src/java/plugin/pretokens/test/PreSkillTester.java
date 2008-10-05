@@ -30,7 +30,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.core.Globals;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -214,12 +215,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	{
 		for(Skill aSkill: character.getSkillList())
 		{
-			Skill finalSkill = null ;
 			Set<Skill> servesAs = new HashSet<Skill>();
-			for(String fakeSkill: aSkill.getServesAs(""))
+			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{
-				finalSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, fakeSkill);
-				servesAs.add(finalSkill);
+				servesAs.addAll(ref.getContainedObjects());
 			}
 			
 			if(servesAs.size() > 0)

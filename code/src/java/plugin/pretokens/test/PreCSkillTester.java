@@ -25,6 +25,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -144,12 +146,10 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	{
 		for(Skill aSkill: Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
-			Skill finalSkill = null ;
 			Set<Skill> servesAs = new HashSet<Skill>();
-			for(String fakeSkill: aSkill.getServesAs(""))
+			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{
-				finalSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, fakeSkill);
-				servesAs.add(finalSkill);
+				servesAs.addAll(ref.getContainedObjects());
 			}
 			
 			if(servesAs.size() > 0)

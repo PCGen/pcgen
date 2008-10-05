@@ -32,7 +32,9 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -95,8 +97,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.putServesAs("Warrior", ""); // the second parameter is for ability categories only
-		pcClass.putServesAs("Ranger", ""); // the second parameter is for ability categories only
+		final PCClass warrior = new PCClass();
+		warrior.setName("Warrior");
+		final PCClass ranger = new PCClass();
+		ranger.setName("Ranger");
+		pcClass.addToListFor(ListKey.SERVES_AS_CLASS, CDOMDirectSingleRef.getRef(warrior));
+		pcClass.addToListFor(ListKey.SERVES_AS_CLASS, CDOMDirectSingleRef.getRef(ranger));
 		
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);

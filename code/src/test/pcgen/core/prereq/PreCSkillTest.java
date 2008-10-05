@@ -27,6 +27,8 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -130,16 +132,16 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		
-		Skill foo = new Skill();
-		foo.setName("Foo");
-		foo.putServesAs("Bar","");
-		foo.setTypeInfo("Foo");
-		Globals.getContext().ref.importObject(foo);
-		
 		Skill bar = new Skill();
 		bar.setName("Bar");
 		bar.setTypeInfo("Bar");
 		Globals.getContext().ref.importObject(bar); 
+		
+		Skill foo = new Skill();
+		foo.setName("Foo");
+		foo.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(bar));
+		foo.setTypeInfo("Foo");
+		Globals.getContext().ref.importObject(foo);
 		
 		Skill baz = new Skill();
 		baz.setName("Baz");

@@ -29,9 +29,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -411,22 +412,13 @@ public final class PrerequisiteUtilities
 			{
 				for (Ability ability : character.getAggregateAbilityList(aCat))
 				{
-					final Map<String, List<String>> servesAsMap = ability.getServesAs();
-					for (String cat : servesAsMap.keySet())
+					for(CDOMReference<Ability> ref: ability.getSafeListFor(ListKey.SERVES_AS_ABILITY))
 					{
-						if (categoryName == null || categoryName.equals(cat))
+						for (Ability ab : ref.getContainedObjects())
 						{
-							for (String abilityKey : servesAsMap.get(cat))
+							if (categoryName == null || categoryName.equals(ab.getCategory()))
 							{
-								AbilityCategory saCat =
-										SettingsHandler.getGame()
-											.getAbilityCategory(cat);
-								Ability saAbility =
-										Globals.getAbilityKeyed(saCat, abilityKey);
-								if (saAbility != null)
-								{
-									abilityList.add(saAbility);
-								}
+								abilityList.add(ab);
 							}
 						}
 					}

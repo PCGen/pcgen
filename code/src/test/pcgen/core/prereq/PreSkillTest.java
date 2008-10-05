@@ -121,8 +121,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		fake.setName("Fake");
 		fake.setTypeInfo("WIS");
-		fake.putServesAs(target.getDisplayName(), "");		
-		fake.putServesAs(target2.getDisplayName(), "");		
+		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
+		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
 		Globals.getContext().ref.importObject(fake);
 		Skill fs1 = character.addSkill(fake);
 		SkillRankControl.modRanks(6.0, myClass, true, character, fs1);

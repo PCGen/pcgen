@@ -26,10 +26,11 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreAbilityParser;
@@ -218,12 +219,15 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		TestHelper.makeAbility("Dancer", "FEAT", "General");
+		Ability fd = TestHelper.makeAbility("Dancer", "FEAT", "General");
 		Ability ab2 =
-				TestHelper.makeAbility("Dancer", "BARDIC",
-					"General.Bardic");
-		ab2.putServesAs("KEY_Alertness", "FEAT");
-		ab2.putServesAs("KEY_Dancer", "FEAT");
+			TestHelper.makeAbility("Dancer", "BARDIC",
+				"General.Bardic");
+		Ability strangeness =
+			TestHelper.makeAbility("Strangeness", "BARDIC",
+				"General");
+		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fd));
+		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(strangeness));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
@@ -259,11 +263,11 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test fighter type match with no abilities.", PrereqHandler
 			.passes(prereq3, character, null));
 
-		TestHelper.makeAbility("Power Attack", "FEAT", "Fighter");
+		Ability pa = TestHelper.makeAbility("Power Attack", "FEAT", "Fighter");
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		ab2.putServesAs("KEY_Power Attack", "FEAT");
+		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(pa));
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
@@ -298,11 +302,11 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		TestHelper.makeAbility("Fascinate", "BARDIC", "Normal");
+		Ability fas = TestHelper.makeAbility("Fascinate", "BARDIC", "Normal");
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "FEAT",
 					"General.Bardic");
-		ab2.putServesAs("KEY_Fascinate", "BARDIC");
+		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fas));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
 

@@ -6,10 +6,9 @@
  */
 package plugin.pretokens.test;
 
-import java.util.List;
-
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -123,28 +122,25 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 				}
 				else
 				{
-					List<String> keys =cl.getServesAs("");
-SERVESAS:			for(String aKey  : keys)
+					for(CDOMReference<PCClass> ref: cl.getSafeListFor(ListKey.SERVES_AS_CLASS))
 					{
-						PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aKey);
-						if (aClass == null)
+						for (PCClass fakeClass : ref.getContainedObjects())
 						{
-							continue SERVESAS;
-						}
-						if (aClass.isType(typeString))
-						{
-							if (prereq.isCountMultiples())
+							if (fakeClass.isType(typeString))
 							{
-								if (cl.getLevel() >= preClass)
+								if (prereq.isCountMultiples())
 								{
-									countedTotal++;
+									if (cl.getLevel() >= preClass)
+									{
+										countedTotal++;
+									}
 								}
+								else
+								{
+									runningTotal += cl.getLevel();
+								}
+								break;
 							}
-							else
-							{
-								runningTotal += cl.getLevel();
-							}
-							break;
 						}
 					}
 				}
@@ -171,23 +167,26 @@ SERVESAS:			for(String aKey  : keys)
 			{
 CLASSLIST:		for(PCClass theClass: character.getClassList())
 				{
-					List<String> keys = theClass.getServesAs("");
-					for(String aKey  : keys)
+					for (CDOMReference<PCClass> ref : theClass
+							.getSafeListFor(ListKey.SERVES_AS_CLASS))
 					{
-						if (aKey.equalsIgnoreCase(aString))
+						for (PCClass fakeClass : ref.getContainedObjects())
 						{
-							if (prereq.isCountMultiples())
+							if (fakeClass.getKeyName().equalsIgnoreCase(aString))
 							{
-								if (theClass.getLevel() >= preClass)
+								if (prereq.isCountMultiples())
 								{
-									countedTotal++;
+									if (theClass.getLevel() >= preClass)
+									{
+										countedTotal++;
+									}
 								}
+								else
+								{
+									runningTotal += theClass.getLevel();
+								}
+								break CLASSLIST;
 							}
-							else
-							{
-								runningTotal += theClass.getLevel();
-							}
-							break CLASSLIST;
 						}
 					}
 				}

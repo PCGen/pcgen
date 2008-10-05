@@ -86,7 +86,8 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements
 		String key = prereq.getKey();
 		String subKey = prereq.getSubKey();
 		String categoryName = prereq.getCategoryName();
-		AbilityCategory category = gameMode.getAbilityCategory(categoryName);
+		AbilityCategory category = categoryName == null ? null : gameMode
+				.getAbilityCategory(categoryName);
 		int runningTotal =
 				PrerequisiteUtilities.passesAbilityTest(prereq, character,
 					countMults, number, key, subKey, categoryName, category);

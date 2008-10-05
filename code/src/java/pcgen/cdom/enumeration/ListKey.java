@@ -61,6 +61,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
+import pcgen.core.Race;
+import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
 import pcgen.core.SpellProhibitor;
@@ -235,6 +237,10 @@ public final class ListKey<T> {
 	public static final ListKey<SubClass> SUB_CLASS = new ListKey<SubClass>();
 	public static final ListKey<SubstitutionClass> SUBSTITUTION_CLASS = new ListKey<SubstitutionClass>();
 	public static final ListKey<DeferredLine> SUB_CLASS_LEVEL = new ListKey<DeferredLine>();
+	public static final ListKey<CDOMReference<Skill>> SERVES_AS_SKILL = new ListKey<CDOMReference<Skill>>();
+	public static final ListKey<CDOMReference<Race>> SERVES_AS_RACE = new ListKey<CDOMReference<Race>>();
+	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
+	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

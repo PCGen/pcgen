@@ -31,7 +31,6 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -114,8 +113,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private String chooseLanguageAutos = Constants.EMPTY_STRING;
 
-	private HashMap<String,List<String>> servesAsList =null;
-	
 	private URI sourceURI = null;
 	
 	private Set<String> types = new LinkedHashSet<String>();
@@ -2849,42 +2846,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public void clearAdds() {
 		levelAbilityList.clear();
-	}
-
-	public void putServesAs( final String key, final String category) 
-	{
-		if (servesAsList == null)
-		{
-			servesAsList = new HashMap<String,List<String>>();
-		}
-		List<String> list = servesAsList.get(category);
-		if (list == null)
-		{
-			list = new ArrayList<String>();
-			servesAsList.put(category, list);
-		}
-		list.add(key);
-	}
-
-	//TODO This exposes internal structure - be careful.
-	public final Map<String,List<String>> getServesAs()
-	{
-		if (servesAsList == null)
-		{
-			servesAsList = new  HashMap<String,List<String>>();
-		}
-		return servesAsList;
-	}
-	
-	public final List<String> getServesAs(String category)
-	{
-		if (servesAsList == null)
-		{
-			servesAsList = new  HashMap<String,List<String>>();
-		}
-		List<String> result = servesAsList.get(category); 
-		return result == null ? new ArrayList<String>() : Collections
-			.unmodifiableList(result);
 	}
 
 	public String bonusStringPrefix()

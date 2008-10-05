@@ -32,6 +32,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -227,21 +228,11 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 	{
 		for (Race theRace : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 		{
-			Race finalRace = null;
 			Set<Race> servesAs = new HashSet<Race>();
-			if (theRace == null)
+			for(CDOMReference<Race> ref: theRace.getSafeListFor(ListKey.SERVES_AS_RACE))
 			{
-				return;
+				servesAs.addAll(ref.getContainedObjects());
 			}
-			for(String fakeRace: theRace.getServesAs(""))
-			{
-				finalRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, fakeRace);
-				if (finalRace == null)
-				{
-					continue;
-				}
-				servesAs.add(finalRace);
-			}			
 			if(servesAs.size() > 0)
 			{
 				serveAsRaces.put(theRace, (HashSet<Race>) servesAs);

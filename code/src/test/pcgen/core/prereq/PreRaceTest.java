@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -178,7 +179,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		fake.setName("NotHuman");
 		Globals.getContext().ref.importObject(fake);
 
-		race.putServesAs(fake.getDisplayName(), "");
+		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));
 		character.setRace(fake);
 
 		
@@ -213,7 +214,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("none"));
 		Globals.getContext().ref.importObject(fake);
 
-		fake.putServesAs(race.getDisplayName(), "");
+		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
 		character.setRace(fake);
 		
 		final Prerequisite prereq = new Prerequisite();
@@ -255,7 +256,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		fake.setTypeInfo("Humanoid");
 		Globals.getContext().ref.importObject(fake);
 
-		race.putServesAs(fake.getDisplayName(), "");
+		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));
 		character.setRace(fake);
 
 		
@@ -286,8 +287,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		fake.setName("NotHuman");
 		fake.setTypeInfo("Humanoid");
 		Globals.getContext().ref.importObject(fake);
-
-		race.putServesAs(fake.getDisplayName(), "");
+		
+		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));
 		character.setRace(fake);
 
 		
