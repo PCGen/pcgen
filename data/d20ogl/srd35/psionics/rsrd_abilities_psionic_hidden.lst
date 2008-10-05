@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Sep 11 22:26:21 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Aug 26 15:52:28 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -27,145 +27,11 @@ MindBlade Bladewind		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Bladew
 MindBlade Knife to the Soul	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Knife to the Soul
 MindBlade Multiple Throw	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Multiple Throw
 
-###Block: Wilder Abilities
-# Ability Name		Category of Ability		Type				Visible	Special ABility													Define
-Psychic Enervation	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Psychic Enervation (+% percent/lvl added)|PsychicEnervation					DEFINE:PsychicEnervation|0
-Wild Surge			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Wild Surge (+%)|WildSurge											DEFINE:WildSurge|0
-Elude Touch			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Elude Touch (+% AC vs. Touch Attacks)|EludeTouch							DEFINE:EludeTouch|0
-Surging Euphoria		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Surging Euphoria (+%)|SurgingEuphoria									DEFINE:SurgingEuphoria|0
-Volatile Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Volatile Mind (+% PP cost for telepathy powers used against character)|VolatileMind	DEFINE:VolatileMind|0
+###Block: elocator abilities
+# Ability Name		Category of Ability		Type					Visible	Special ABility		Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+Elocator Transporter	CATEGORY:Special Ability	TYPE:Special.ElocatorChoice	VISIBLE:YES	SAB:Transporter (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
 
-###Block: Elocator abilities
-# Ability Name		Category of Ability		Type									Visible		Special ABility													Define				Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
-Elocator Transporter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:DISPLAY	SAB:Transporter (Ex)																	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
-Scorn Earth			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Scorn Earth (Su)
-Opportunistic Strike	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO		SAB:Opportunistic Strike (+%)(Ex)|OpportunisticStrike							DEFINE:OpportunisticStrike|0
-Dimension Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Dimension Step (Su)
-Flanker			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO		SAB:Flanker (designate adjacent square to be determination for flanking)(Ex)
-Capricious Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO		SAB:Capricious Step (extra 5' step in round with no other movement than the steps)(Ex)
-Dimension Spring Attack	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Dimension Spring Attack (Su)(1x/day)
-Accelerated Action	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO		SAB:Accelerated Action (Su)
-
-###Block: Slayer abilities
-# Ability Name		Category of Ability		Type						Visible	Special ABility														Define
-Slayer Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Favored Enemy (Specific Psionic Creature)(+%) (Ex)|SlayerFavoredEnemy				DEFINE:SlayerFavoredEnemy|0
-Sense Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Sense Favored Enemy (60')(Su)
-Brain Nausea		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Brain Nausea (Will Save DC:%)(Su)|BrainNausea								DEFINE:BrainNausea|0
-Lucid Buffer		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Lucid Buffer (+4 Save vs. Compulsions, Mind-affecting effects)(Ex)
-Cerebral Blind		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cerebral Blind (Su) (Protection from location detection as long as psionically focused)
-Breech Power Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breech Power Resistance (Su)
-Cerebral Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cerebral Immunity (Su) (Immune to mind influencing effects as long as psionically focused)
-Blast Feedback		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Blast Feedback (Su)
-
-###Block: Metamind abilities
-# Ability Name		Category of Ability		Type				Visible	Special ABility							Define
-Free Manifesting 1	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 1st Level Powers (3x/day)
-Free Manifesting 2	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 2nd Level Powers (3x/day)
-Free Manifesting 3	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 3rd Level Powers (1x/day)
-Free Manifesting 4	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 4th Level Powers (1x/day)
-Free Manifesting 5	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Free Manifesting - 5th Level Powers (1x/day)
-Font of Power		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Font of Power
-Cognizance Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Cognizance Psicrystal (% points)|CogPsiCrystal	DEFINE:CogPsiCrystal|0
-
-###Block: Psion Uncarnate abilities
-# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility																														Define
-Uncarnate Armor								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Uncarnate Armor (Su)
-Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Incorporeal Touch %d6 (3x/day) (Su)|UncarnateIncorporealTouch																						DEFINE:UncarnateIncorporealTouch|0
-Shed Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shed Body (Su) (%x/day)|ShedBody																										DEFINE:ShedBody|0
-Assume Equipment								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Assume Equipment (Su)
-Assume Likeness								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Assume Likeness (Su)
-Telekinetic Force								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Telekinetic Force (Su)|PREVAREQ:TelekineticForceDC,0	SAB:Telekinetic Force (Su) (DC:%) (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC|PREVARGT:TelekineticForceDC,0	DEFINE:TelekineticForceDC|0
-Uncarnate Bridge								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Uncarnate Bridge (Su)
-Uncarnate									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Uncarnate (Ex)
-
-###Block: Pyrokineticist abilities
-# Ability Name		Category of Ability		Type						Visible	Special ABility																					Define
-Fire Lash			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Fire Lash (Ps)
-Hand Afire			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Hand Afire (Ps) (+2d6 Fire damage on unarmed attacks)
-Fire Adaptation		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fire Adaptation (Ex) (+4 vs fire,heat effects)|PREVARLT:CL,7
-Bolt of Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Bolt of Fire (Ps) (60' Ranged Touch; %d6 damage)|BoltFire													DEFINE:BoltFire|0
-Weapon Afire		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Weapon Afire (Ps) (+2d6 Fire damage with weapon)
-Nimbus			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Nimbus (Ps) (1x/day for up to % minutes)|NimbusDuration														DEFINE:NimbusDuration|0
-Firewalk			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Firewalk (Su)
-Fear No Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fear No Fire (Ex) (+8 vs fire,heat effects)	SAB:Resistance to Energy (fire) 20
-Greater Weapon Afire	CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Greater Weapon Afire (Ps) (+2d6 additional with Afire abilities)
-Heat Death			CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Heat Death (Ps) (1 creature within 30'; Fortitude save (DC:%), die if fail, 4d8 fire if save)|HeatDeathDC					DEFINE:HeatDeathDC|0
-Conflagration		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:NO	SAB:Conflagration (Ps) (1x/day; 30'burst dealing 15d6 Fire, Reflex save (DC:%) for half + if fail, Fortitude save or die)|ConflagrationDC	DEFINE:ConflagrationDC|0
-
-###Block: Thrallherd abilities
-# Ability Name			Category of Ability		Type						Visible	Special ABility								Define				Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
-Thrallherd Charm			CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:NO	SAB:Psionic Charm (Ex)												STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
-Thrallherd Dominate		CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:NO	SAB:Psionic Dominate (Ex)											STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
-Thrallherd				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Thrallherd (Ex) (Leadership score: %)|ThrallherdScore	DEFINE:ThrallherdScore|0
-Thrallherd Greater Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Greater Dominate (Ex)
-Thrallherd Superior Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Superior Dominate (Ex)
-Twofold Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Twofold Master (Ex)
-
-###Block: War Mind abilities
-# Ability Name			Category of Ability		Type						Visible	Special ABility									Define
-Chain of Personal Superiority	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Chain of Personal Superiority (Ex) (+%)|SuperiorityChain	DEFINE:SuperiorityChain|0
-Chain of Defensive Posture	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Chain of Defensive Posture (Ex) (+%)|DefensivePosture		DEFINE:DefensivePosture|0
-Enduring Body			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Enduring Body (Ex)
-Sweeping Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sweeping Strike (Ex)
-Chain of Overwhelming Force	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Chain of Overwhelming Force (Su) (1x/day)
-
-###Block: Astral Construct Menu A Abilities
-# Ability Name			Unique Key						Category of Ability		Type							Visible		Special ABility																							Move			Automatically Gained Feat		Ability									Bonus to Ability Pool						Combat bonus				Damage reduction	Bonus to HP			Add to base move			Stat bonus		Modify VAR						Vision			Damage Reduction
-Buff					KEY:Astral_Buff					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SAB:Buff (Ex)																																																												BONUS:HP|CURRENTMAX|5
-Celerity				KEY:Astral_Celerity				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SAB:Celerity (Ex)																																																																BONUS:MOVEADD|TYPE.Walk|10
-Cleave				KEY:Astral_Cleave					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																													AUTO:FEAT|Cleave
-Deflection				KEY:Astral_Deflection				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SAB:Deflection (Ex)																																																		BONUS:COMBAT|AC|1|TYPE=Deflection
-Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SAB:Fly (Ex)																							MOVE:Fly,20
-Improved Bull Rush		KEY:Astral_Improved Bull Rush			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																													AUTO:FEAT|Improved Bull Rush
-Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																													AUTO:FEAT|Improved Natural Attack
-Mobility				KEY:Astral_Mobility				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																													AUTO:FEAT|Mobility
-Power Attack			KEY:Astral_Power Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																													AUTO:FEAT|Power Attack
-Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Resistance
-Swim					KEY:Astral_Swim					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SAB:Swim (Ex)																							MOVE:Swim,20
-Trip					KEY:Astral_Trip					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Trip
-Resistance To Cold		KEY:Astral_Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Resistance To Cold																																BONUS:VAR|ColdResistanceBonus|5
-Resistance To Fire		KEY:Astral_Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Resistance To Fire																																BONUS:VAR|FireResistanceBonus|5
-Resistance To Electricity	KEY:Astral_Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity																															BONUS:VAR|ElectricityResistanceBonus|5
-Resistance To Sonic		KEY:Astral_Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic																																BONUS:VAR|SonicResistanceBonus|5
-Resistance To Acid		KEY:Astral_Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Resistance To Acid																																BONUS:VAR|AcidResistanceBonus|5
-
-#Astral Construct Menu B Abilities
-Two Menu A Abilities		KEY:Astral_Two Menu A Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																													BONUS:ABILITYPOOL|Astral Construct Menu A Ability|2
-Extra Attack			KEY:Astral_Extra Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Extra Slam Attack (1) (Ex)|PRESIZELTEQ:M	SAB:Extra Slam Attack (2) (Ex)|PRESIZEGT:M
-Fast Healing			KEY:Astral_Fast Healing				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Fast Healing																																	BONUS:VAR|FastHealing|2
-Heavy Deflection			KEY:Astral_Heavy Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Heavy Deflection (Ex)																																																	BONUS:COMBAT|AC|4|TYPE=Deflection
-Improved Buff			KEY:Astral_Improved Buff			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Improved Buff (Ex)																																																											BONUS:HP|CURRENTMAX|15
-Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																													AUTO:FEAT|Improved Critical
-Improved Damage Reduction	KEY:Astral_Improved Damage Reduction	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																																												BONUS:DR|Magic|3																								DR:0/Magic
-Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																										MOVE:Fly,40
-Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Improved Grab
-Improved Swim			KEY:Astral_Improved Swim			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Improved Swim (Ex)																						MOVE:Swim,60
-Muscle				KEY:Astral_Muscle					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Muscle (Ex)																																																																					BONUS:STAT|STR|4
-Poison Touch			KEY:Astral_Poison Touch				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Poison Touch (Fort Save DC:%) (Ex)|(10+CHA+0)
-Pounce				KEY:Astral_Pounce					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Pounce
-Smite					KEY:Astral_Smite					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Smite (+HD to dmg) (Su) 1/day
-Trample				KEY:Astral_Trample				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Trample
-Energy Touch ~ Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Energy Touch (Ex) (+1d4 Acid damage)|!PRESUBCLASS:1,Kineticist	SAB:Energy Touch (+1d6 Acid damage)|PRESUBCLASS:1,Kineticist
-Energy Touch ~ Cold									CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Energy Touch (Ex) (+1d4 Cold damage)|!PRESUBCLASS:1,Kineticist	SAB:Energy Touch (+1d6 Cold damage)|PRESUBCLASS:1,Kineticist
-Energy Touch ~ Electricity								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Energy Touch (Ex) (+1d4 Electricity damage)|!PRESUBCLASS:1,Kineticist	SAB:Energy Touch (+1d6 Electricity damage)|PRESUBCLASS:1,Kineticist
-Energy Touch ~ Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SAB:Energy Touch (Ex) (+1d4 Fire damage)|!PRESUBCLASS:1,Kineticist	SAB:Energy Touch (+1d6 Fire damage)|PRESUBCLASS:1,Kineticist
-
-#Astral Construct Menu C Abilities
-Two Menu B Abilities		KEY:Astral_Two Menu B Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																													BONUS:ABILITYPOOL|Astral Construct Menu B Ability|2
-Blindsight				KEY:Astral_Blindsight				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																																																																		VISION:Blindsight (60')
-Concussion				KEY:Astral_Concussion				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY	SAB:Concussion (Concussion Blast (7th lvl) 1x/round) (Sp)
-Constrict				KEY:Astral_Constrict				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Constrict
-Dimension Slide			KEY:Astral_Dimension Slide			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY	SAB:Dimension Slide (Dimension Slide (HD lvl) 1x/round) (Sp)
-Energy Bolt				KEY:Astral_Energy Bolt				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY	SAB:Energy Bolt (Energy Bolt (8th lvl) 1x/round) (Sp)
-Extra Buff				KEY:Astral_Extra Buff				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY	SAB:Extra Buff (Ex)																																																											BONUS:HP|CURRENTMAX|30
-Extreme Damage Reduction	KEY:Astral_Extreme Damage Reduction		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY	SAB:Extreme Damage Reduction (Ex)																																																						BONUS:DR|Magic|6
-Extreme Deflection		KEY:Astral_Extreme Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY	SAB:Extreme Deflection (Ex)																																																	BONUS:COMBAT|AC|8|TYPE=Deflection
-Natural Invisibility		KEY:Astral_Natural Invisibility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
-Power Resistance			KEY:Astral_Power Resistance			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY	SAB:Power Resistance (10+HD) (Ex)
-Rend					KEY:Astral_Rend					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																			ABILITY:Special Ability|AUTOMATIC|Rend
-Spring Attack			KEY:Astral_Spring Attack			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																													AUTO:FEAT|Spring Attack
-Whirlwind Attack			KEY:Astral_Whirlwind Attack			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																													AUTO:FEAT|Whirlwind Attack
-
-#
-# End
-#
+###Block: thrallherd abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility			Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
+Thrallherd Charm		CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:NO	SAB:Psionic Charm (Ex)		STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
+Thrallherd Dominate	CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:NO	SAB:Psionic Dominate (Ex)	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)

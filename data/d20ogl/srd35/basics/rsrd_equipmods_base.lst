@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep  5 12:15:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Oct  5 00:11:29 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Masterwork
@@ -69,6 +69,7 @@ Spell Material Component Value	KEY:SPELLMATERIAL	NAMEOPT:NOTHING	TYPE:MaterialCo
 Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:1,SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value
 
 ###Block Mechanical Traps
+# Modifier Name					Unique Key					Type		Cost		Visible		Type granted				Keys to replace																																																																									Source Page				Multiple Requirements							Required Type		Modify VAR			Special Property						Define
 Trap Alchemical Effect Lvl 1			KEY:TRAP_ALCH_1				TYPE:Trap	COST:0	VISIBLE:QUALIFY	ITYPE:TrapAddOn.Alchemical		REPLACES:TRAP_ALCH_2,TRAP_ALCH_3,TRAP_ALCH_4,TRAP_ALCH_5,TRAP_ALCH_6,TRAP_ALCH_7,TRAP_ALCH_8,TRAP_ALCH_9																																																										SOURCEPAGE:RSRD Traps.rtf											PRETYPE:1,Mechanical	BONUS:VAR|TrapCR|1	SPROP:Trap Alchemical Effect Lvl 1			DEFINE:TrapCR|0
 Trap Alchemical Effect Lvl 2			KEY:TRAP_ALCH_2				TYPE:Trap	COST:0	VISIBLE:QUALIFY	ITYPE:TrapAddOn.Alchemical		REPLACES:TRAP_ALCH_1,TRAP_ALCH_3,TRAP_ALCH_4,TRAP_ALCH_5,TRAP_ALCH_6,TRAP_ALCH_7,TRAP_ALCH_8,TRAP_ALCH_9																																																										SOURCEPAGE:RSRD Traps.rtf											PRETYPE:1,Mechanical	BONUS:VAR|TrapCR|2	SPROP:Trap Alchemical Effect Lvl 2			DEFINE:TrapCR|0
 Trap Alchemical Effect Lvl 3			KEY:TRAP_ALCH_3				TYPE:Trap	COST:0	VISIBLE:QUALIFY	ITYPE:TrapAddOn.Alchemical		REPLACES:TRAP_ALCH_2,TRAP_ALCH_1,TRAP_ALCH_4,TRAP_ALCH_5,TRAP_ALCH_6,TRAP_ALCH_7,TRAP_ALCH_8,TRAP_ALCH_9																																																										SOURCEPAGE:RSRD Traps.rtf											PRETYPE:1,Mechanical	BONUS:VAR|TrapCR|3	SPROP:Trap Alchemical Effect Lvl 3			DEFINE:TrapCR|0
