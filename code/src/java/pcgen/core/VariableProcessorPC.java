@@ -785,8 +785,7 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			// We use the list in output order to ensure the size
 			// does not include hidden skills
-			final ArrayList<Skill> skillList = getPc().getSkillListInOutputOrder();
-			skillList.trimToSize();
+			final List<Skill> skillList = getPc().getSkillListInOutputOrder();
 			valString = Integer.toString(skillList.size());
 		}
 		else if (valString.startsWith("COUNT[SKILLTYPE=") || valString.startsWith("COUNT[SKILLTYPE."))

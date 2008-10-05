@@ -803,7 +803,7 @@ public class PcgCombatant extends Combatant
 				includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
 			}
 
-			ArrayList<Skill> skillList =
+			List<Skill> skillList =
 					pc.getSkillListInOutputOrder(pc
 						.getPartialSkillList(Visibility.OUTPUT_ONLY));
 			boolean firstLine = true;

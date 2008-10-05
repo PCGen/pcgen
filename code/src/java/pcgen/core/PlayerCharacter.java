@@ -502,23 +502,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return A list of the character's skills matching the visibility
 	 *         criteria.
 	 */
-	public ArrayList<Skill> getPartialSkillList(Visibility vis)
+	public List<Skill> getPartialSkillList(Visibility vis)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<Skill>();
-
-		for (Skill aSkill : skillList)
-		{
-			final Visibility skillVis = aSkill.getSafe(ObjectKey.VISIBILITY);
-
-			if ((vis == Visibility.DEFAULT) || (skillVis == Visibility.DEFAULT)
-				|| (skillVis == vis))
-			{
-				aList.add(aSkill);
-			}
-
-		}
-		return aList;
+		return Globals.getObjectsOfVisibility(skillList, vis);
 	}
 
 	/**
@@ -2969,7 +2956,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return An ArrayList of the skill objects in output order.
 	 */
-	public ArrayList<Skill> getSkillListInOutputOrder()
+	public List<Skill> getSkillListInOutputOrder()
 	{
 		return getSkillListInOutputOrder(new ArrayList<Skill>(getSkillList()));
 	}
@@ -2986,8 +2973,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return An ArrayList of the skill objects in output order.
 	 */
-	public ArrayList<Skill> getSkillListInOutputOrder(
-		final ArrayList<Skill> sortedList)
+	public List<Skill> getSkillListInOutputOrder(
+		final List<Skill> sortedList)
 	{
 		final PlayerCharacter pc = this;
 		Collections.sort(sortedList, new Comparator<Skill>()
