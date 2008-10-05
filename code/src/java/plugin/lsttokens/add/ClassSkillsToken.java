@@ -28,7 +28,7 @@ public class ClassSkillsToken implements AddLstToken
 
 	public boolean parse(PObject target, String value, int level)
 	{
-		if (!target.getClass().equals(PCClass.class))
+		if (!PCClass.class.isAssignableFrom(target.getClass()))
 		{
 			Logging
 					.errorPrint("ADD:CLASSSKILLS is only valid in Class LST files");
