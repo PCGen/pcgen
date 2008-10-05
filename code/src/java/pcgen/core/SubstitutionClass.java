@@ -84,7 +84,7 @@ public final class SubstitutionClass extends PCClass
 			aClass.removeAllVirtualAbilites(aLevel);
 			aClass.removeAllLevelAbilities(aLevel);
 			// Now add in each new level line in turn.
-			for (DeferredLine line : levelArray)
+			for (DeferredLine line : newLevels)
 			{
 				aClass.performReallyBadHackForOldTokens(line);
 			}
