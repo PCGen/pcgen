@@ -2956,6 +2956,11 @@ public final class Globals
 		return aList;
 	}
 
+	/*
+	 * This is SOLELY for use in AssociationReference due to cloning issues. If
+	 * you use it somewhere else, James will personally come by and beat you up
+	 */
+	@Deprecated
 	public static PlayerCharacter getCurrentPC()
 	{
 		return currentPC;
