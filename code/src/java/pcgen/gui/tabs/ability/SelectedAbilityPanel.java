@@ -217,19 +217,11 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	}
 
 	/**
-	 * This method gets the feat list from the current PC by calling
-	 * <code>pc.aggregateFeatList()</code>. Because
-	 * <code>aggregateFeatList()</code> (correctly) returns
-	 * chosen/auto/virtual feats aggregated together, this elimiates duplicate
-	 * feats. However, since we want to display feats with multiple choices
-	 * (e.g. Weapon Focus) separately if they are chosen/auto/etc., we add back
-	 * the chosen, virtual, and automatic feats when the
-	 * <code>isMultiples()</code> returns <code>true</code>. Note that this
-	 * <b>may</b> cause problems for the prerequisite tree, although the code
-	 * there <b>appears</b> robust enough to handle it. The list is sorted
-	 * before it is returned.
+	 * This method gets the ability list from the current PC for each ability 
+	 * category and sorts each for display. Note that duplicates may appear 
+	 * where an ability is taken in different natures (e.g. normal and auto)
 	 * 
-	 * @return A list of the current PCs feats.
+	 * @return A list of the current PCs abilities.
 	 */
 	private Map<AbilityCategory,List<Ability>> buildPCAbilityList()
 	{

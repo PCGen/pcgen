@@ -16776,12 +16776,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return rebuildFeatAggreagateList();
 	}
 
+	/**
+	 * Retrieve a list of all abilities held by the character in the specified 
+	 * category. <br>
+	 * NB: Abilities are only returned in the category they are taken 
+	 * in, so if parent catgeory is supplied only those taken directly in the 
+	 * parent category will be returned. e.g. If asking for feats, Power Attack 
+	 * taken as a fighter feat will nto be returned. You would need to query 
+	 * fighter feats to get that. <br>
+	 * NB: Duplicate abilities may be returned also. This may occur where an 
+	 * ability is taken multiple times, but in different natures. 
+	 * e.g. Skill Focus in two different skills, but once as Normal and once 
+	 * as Automatic.  
+	 * 
+	 * @param aCategory The ability category to be queried.  
+	 * @return The list of abilities of the category regardless of nature.
+	 */
 	public List<Ability> getAggregateAbilityList(final AbilityCategory aCategory)
 	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return aggregateFeatList();
-		}
+		// Note we use the direct feat lists here to make feats behave like other abilities.
+//		if (aCategory == AbilityCategory.FEAT)
+//		{
+//			return aggregateFeatList();
+//		}
 
 		final List<Ability> abilities =
 				new ArrayList<Ability>(getRealAbilitiesList(aCategory));
