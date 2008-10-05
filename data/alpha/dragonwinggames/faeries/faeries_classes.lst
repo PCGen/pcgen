@@ -104,7 +104,7 @@ CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowl
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey Prankster	HD:8		TYPE:PC.Prestige	ABB:FPk		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*2/3|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat					Required Skill											Req. Spell Type
-CLASS:Fey Prankster	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Combat Casting,Dodge	PRESKILL:1,Concentration=5	PRESKILL:2,Knowledge (Arcana),Knowledge (Fey)=4	PRESPELLTYPE:1,Arcane=1
+CLASS:Fey Prankster	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Combat Casting,Dodge	PRESKILL:3,Concentration=5,Knowledge (Arcana)=4,Knowledge (Fey)=4	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fey Prankster	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|Pick Pocket|TYPE.Profession|Search|Spot|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
