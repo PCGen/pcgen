@@ -34,6 +34,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.util.Logging;
 
 /**
  * <code>Kit</code>.
@@ -589,6 +590,16 @@ public final class Kit extends PObject implements Comparable<Object>
 		final List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
 		final List<String> warnings = new ArrayList<String>();
 		aKit.testApplyKit(aPC, thingsToAdd, warnings);
+		if (warnings.size() != 0)
+		{
+			Logging.log(Logging.WARNING,
+				"The following warnings were encountered when applying the kit "
+					+ aKit.getKeyName());
+			for (String string : warnings)
+			{
+				Logging.log(Logging.WARNING, "  " + string);
+			}
+		}
 		aKit.processKit(aPC, thingsToAdd, 0);
 	}
 }
