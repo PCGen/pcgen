@@ -1,0 +1,181 @@
+Greetings,
+
+This lesson is designed to cover what one would think is a very simple tag, but actually is a very complex tool.
+
+What is a Variable and why should I care?
+
+A variable is a wonderful tool to allow you to add complex interactions with anything in pcgen. Simply put without variables we wouldn't have an easy time with most of what we accomplish today. What is a variable though? 
+It is a Word that is transformed into a Numerical value. And through this numerical value we can accomplish a lot of things.
+
+To Use Variables we have Three Tags
+
+DEFINE
+
+BONUS:VAR
+
+and
+
+PREVAR
+[Insert Links to tags]
+
+Standards -
+Variables are one whole word with Capitalization of the new words within. It's the agreed upon standard. Avoid spaces in any Variable.
+Any VARIABLE using all CAPS is a HArdcoded Variable name
+
+Examples of Hardcoded:
+CL
+HD
+
+
+Example of User Defined Variables:
+MyExampleVariable
+MonkeyFu
+
+
+
+In order to use a Variable you must first Define it. Define is the starting point without a define tag you can't use a variable, it also sets the starting numerical value of the variable. For example:
+
+DEFINE:MonkeyFU|0
+Sets our variable 'MonkeyFu' to 0
+
+DEFINE:MonkeyScream|10
+Sets our variable 'MonkeyScream' to 10
+
+QUICK TIP:
+It is highly recommended that ALL defined variables be 0 and any subtraction or addition be by the Bonus tag. DEFINE takes the highest number, so
+
+DEFINE:MonkeyFu|10
+and 
+DEFINE:MonkeyFu|0
+Will result in 10, whereas 
+
+DEFINE:MonkeyFu|0
+and
+DEFINE:MonkeyFu|0
+Will remain 0. 
+
+It's much easier to work from the same slate. The exception is fixed items -
+
+DEFINE:MySpecialAbilityBasedUponStat|10+(HD/2)+CON
+Since all certain creatures always have the same number we do it that way. However, even if mimicing this method I'd suggest you set the define as 0 and then use BONUS:VAR
+
+
+Once you've defined a variable you can add or subtract from it using a Bonus tag - BONUS:VAR
+So, let's say MonkeyFu increases by 1, well simply use
+BONUS:VAR|MonkeyFu|1
+
+
+BONUS:VAR|MonkeyFu|var("CL=Monkey Warrior")
+This would grant 1 for every level of 'Monkey Warrior' to the variable 'MonkeyFu'
+
+
+Now, Variables are found everywhere, so let's use a Class file Example:
+
+CLASS:Monkey Warrior
+1 <TAB> DEFINE:MonkeyFu|0
+2 <TAB> BONUS:VAR|MonkeyFu|1
+
+So, I'd have 1 in MonkeyFu
+
+Now, let's say you want a Feat to only be available if you have at least 1 in MonkeyFu that's where PREVAR comes into play
+
+PREVAR is an extension style tag... Unlike PREFEAT:  PREVAR must have an addon to work, So we have LT = Less Than, GT = Greater Than, EQ = Equals and then combos... GTEQ = Greater Than or Equals, LTEQ = Less Than or Equals.
+
+
+So, I can use 
+PREVAREQ:MonkeyFu,1
+The EQ means the number must match exactly, in this case it must match 1 and only 1. 
+
+PREVARGTEQ:MonkeyFu,1
+Means I meet the requirement at 1 or higher of 'MonkeyFu'
+
+Notice the syntax is different, the variable name comes first and then the number they must meet (In context of the GT, LT, EQ, LTEQ or GTEQ.)
+
+Now, if I have 1 in the variable MonkeyFu I'll qualify. 
+
+
+Okay, let's review what we've learned so far -
+
+DEFINE - Without this we can't have a variable. All user variables MUST have this.
+BONUS:VAR - allows us to change the variable numerical value
+PREVAR - restrict items (Wherever PRExxx tags are used)
+
+Now, more advanced uses:
+
+Displaying A variable value
+
+For special Abilities section of the Outputsheet you can use:
+
+SAB:Test my Monkey Fu +%|MonkeyFu
+
+FOr Feats Section you should use:
+
+DESC:Test my Monkey Fu +%1|MOnkeyFu
+
+NOTE:The '%' or '%1' will substitute the % or %1 symbol out for the correct numerical value leaving you with 1. The Syntax of the DESC tag is slightly more advanced so %1, %2 will assign the values based upon their order in the tag. 
+
+DESC:Test my MonkeyFu +%2 with a scream lasting +%1 rounds|MonkeyScream|MonkeyFu
+
+Will result in
+Test my MonkeyFu +1 with a scream lasting 10 rounds
+
+QUICK TIP:
+Any variable resulting in -1 will hide the SA [PRE 5.14] or SAB tag.
+
+
+Now, how do we code Variables in our main releases -
+For a Class File we find it's cleaner to place the DEFINE tag inside the originating object and the Bonus in the class file.
+
+CLASS:Monkey Warrior
+1 <tab> ABILITY:Special Ability|AUTOMATIC|Monkey Warrior Weapon Prowess <TAB> BONUS:VAR|MonkeyWarriorProwess|1
+
+In the Ability File
+Monkey Warrior Prowess
+
+DEFINE:MonkeyWarriorProwess|0
+
+
+Now, if the progression of the Monkey Warrior Prowess is an easy formula you can use the Jep formula ability.
+
+
+
+BONUS:VAR|MonkeyWarriorProwess|CL/3
+
+Every class level divisible by 3 will yield 1
+
+3 =1
+6 =2
+9 =3
+etc.
+
+CL is the Class Level the bonus appears in, so if you're in Class Monkey Warrior and you get 6 levels of Monkey Warrior the Result will be 2, even if you take 10 levels of Fighter.
+
+
+
+You can even use Variables as formula triggers or use other formulas to set the number.
+Example:
+ 
+BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1
+
+FavoredEnemies will be the number of RangerFavoredEnemyLVL divided by 5 and then add 1
+So with level 10, the result is 2+1 or 3
+
+BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5 in the ability file
+
+
+
+and
+POOL:FavoredEnemies
+Is found in the ABILITYCATEGORY file. For those not familiar with pool, what this does is make the default pool go from 0 to whatever value is set by the variable.
+
+You could accomplish the same thing using
+
+BONUS:ABILITYPOOL|Favored Enemy|RangerFavoredEnemyLVL/5+1
+
+and even more complex
+VFEAT:Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
+
+
+So as can you see variables are used quite frequently.
+
+The uses are limited only by your imagination.
