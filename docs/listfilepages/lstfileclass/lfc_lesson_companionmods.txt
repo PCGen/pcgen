@@ -1,0 +1,124 @@
+Greetings,
+
+Welcome to the section on Companion Mod creation and editing.
+
+Tags used in the Companion Mod File -
+COPYMASTERBAB, COPYMASTERCHECK, COPYMASTERHP, FOLLOWER, FOLLOWERADJUSTMENT, HD, MASTERBONUSRACE,
+
+RACETYPE, SWITCHRACE, TYPE, USEMASTERSKILL,  Plus any Global Tags
+
+
+---
+
+The first tag is FOLLOWER, each line generally starts with the Follower tag.
+
+Think of the Follower as sort of a class Tag telling the program what "level" things happen at. So like we have Class Level Lines to tell PCGen what is applied at that level and lower so to do we have a tag called FOLLOWER which acts in much the same way.
+
+
+FOLLOWER:MonkeyFu=1
+The Follower tag can take variables or Class names. So if MonkeyFu is a Class then you need to have the first level to qualify, however, MonkeyFu is a variable, so you need to have this variable of at least 1 to obtain the rest of the benefits derived from the rest of the line.
+
+FOLLOWER:Paladin=1
+You need to have 1 level in paladin class.
+
+
+The second and VERY important tag is TYPE
+Type tells pcgen what applies to this line. The ones used commonly in PCGen's main sets are:
+
+Familiar, Animal Companion, Special Mount
+
+Any Creature meeting that "TYPE" will have the benefits applied to them. Simply put without a TYPE PCGen won't be able to able the changes you code up. TYPE has to match exactly the name from COMPANIONLIST.
+
+Example of a Familiar:
+COMPANIONLIST:Familiar|Bat,Cat
+Bat and Cat are both of the Familiar TYPE.
+
+After that you can use any Tags are appropriate for your Companion. 
+So let's review the tags we can commonly use on the Follower Line -
+
+---
+COPYMASTERBAB
+If you want your companion to either follow the Master PC Base Attack Bonus progression or have a unique one of it's own, you would use this tag.
+
+COPYMASTERBAB:MASTER
+Follows the Master's BAB progression (Common for familiars)
+
+COPYMASTERBAB:5
+Sets the BAB of the creature to 5
+
+
+---
+COPYMASTERCHECK:MASTER
+That's it, this only copies the Master's Base Checks (Commonly Fortitude, Reflex and Will) The creature will use it's Stats to modify the base though
+(Common for Familiar)
+
+---
+
+FOLLOWERADJUSTMENT
+This is used appended to the COMPANIONLIST tag. COMPANIONLIST is the another Tag that can be first in a companion mod file.
+
+Example from the docs
+COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3
+
+An Ape companion to a 4th level Druid gains the benefits normally granted to a companion of a 1st level Druid.
+
+---
+HD
+This will grant bonus Hit Die of the creature type. 
+
+EXAMPLE:
+HD:5
+Will grant 5 bonus Hit Die (Or class levels) of the creatures type.
+If the Creature is Fey it will gain the HD and class benefits of being 5 HD stronger
+NOTE: The base creature can exceed the maximum HD cap for it's race in this manner.
+
+
+---
+MASTERBONUSRACE
+Sets any special bonuses a particular race may grant to the master (Common for familiar)
+Common tags to follow this are BONUS and VFEAT.
+
+EXAMPLE:
+MASTERBONUSRACE:Bat <TAB> BONUS:SKILL|Spot|3
+Would give the master +3 bonus to Spot checks if he has a Bat.
+
+---
+RACETYPE
+This tag will change the base creature's type to the one listed.
+
+RACETYPE:Fey
+The creature now has the Fey Type
+
+---
+USEMASTERSKILL
+Determines whether the creature will have the exact same skill ranks as the master.
+
+Your choices are YES and NO (Default)
+
+USEMASTERSKILL:YES
+Creature will have the exact same ranks in the skills chosen by the master.
+
+
+Okay, lets put together a sample critter
+
+FOLLOWER:Monkey Warrior=1 <TAB> HD:5 <TAB> TYPE:Monkey Mount <TAB> ABILITY:Special Ability|AUTOMATIC|Dodging Foo|Nasty Breath <TAB> RACETYPE:Dragon <TAB> USEMASTERSKILL:YES
+
+FOLLOWER:Monkey Warrior=5 <TAB> HD:5 <TAB> SR:12+HD
+
+
+Okay Class, I threw a few curve balls in there. At 1st level as a Monkey Warrior my critter of the Monkey Mount TYPE will become a Dragon RACETYPE, it will use my Skill Rank Selection, and gets the Special Abilities of Dodging Foo and Nasty Breath (As automatic nature).
+When Monkey Warrior becomes 5th level, my critter will gain another 5 bonus hit die and gain Spell Resistance of 12 + it's HD.
+
+This is showing you what is possible in your own Companion Mod file.
+
+Now, we shouldn't leave you at this... You need to place some where what creatures I can select.
+COMPANIONLIST:Monkey Mount|Wolf,Fuzzy Bear
+That would make a Wolf and Fuzzy Bear
+
+COMPANIONLIST:Monkey Mount|Bat|FOLLOWERADJUSTMENT:-5
+If my Monkey Warrior takes a bat companion he needs to be 6th level before the 1st level effect takes place and then 10th level for the level 5 effect.
+
+
+Okay, that should get you on the path of Companion Mod file creation.
+
+-Andrew Maitland
