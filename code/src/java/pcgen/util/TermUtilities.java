@@ -78,7 +78,7 @@ public class TermUtilities {
 			{
 				StringBuilder sB = new StringBuilder();
 				sB.append("Spurious type \"");
-				sB.append(types[cur-1]);
+				sB.append(types[cur]);
 				sB.append("\" in ");
 				sB.append(originalText);
 				throw new TermEvaulatorException(sB.toString());
@@ -155,9 +155,11 @@ public class TermUtilities {
 			StringBuilder sB = new StringBuilder();
 			sB.append("Badly formed formula ");
 			sB.append(expressionString);
-			sB.append("\n in ");
-			sB.append(src);
-			sB.append("\n following \"");
+			if (!"".equals(src)) {
+				sB.append(" in ");
+				sB.append(src);
+			}
+			sB.append(" following \"");
 			sB.append(expressionString.substring(0, fixed));
 			throw new TermEvaulatorException(sB.toString());
 		}
@@ -167,12 +169,28 @@ public class TermUtilities {
 	}
 
 	public static int[] splitAndConvertIntegers(
-			final String source, int numOfFields)
+			String expressionString,
+			final String clause,
+			int numOfFields) throws TermEvaulatorException
 	{
+		final String[] sA = clause.split("\\.", numOfFields);
+		if (sA.length < numOfFields)
+		{
+			StringBuilder sB = new StringBuilder();
+			sB.append("Invalid string ");
+			sB.append(clause);
+			sB.append(" following ");
+			sB.append(expressionString);
+			sB.append(" should be ");
+			sB.append(numOfFields);
+			sB.append(" integers separated by dots");
+			throw new TermEvaulatorException(sB.toString());
+		}
+
 		int[] fields = new int[numOfFields];
 
 		int index = 0;
-		for (String field : source.split("\\.", numOfFields))
+		for (String field : clause.split("\\.", numOfFields))
 		{
 			fields[index++] = Integer.parseInt(field);
 		}
@@ -188,17 +206,19 @@ public class TermUtilities {
 	{
 		int[] nums;
 		try
-			{
-				nums = splitAndConvertIntegers(intString, numToExtract);
+		{
+			nums = splitAndConvertIntegers(
+					expressionString,
+					intString,
+					numToExtract);
 		}
 		catch (NumberFormatException n)
 		{
 			StringBuilder sB = new StringBuilder();
 			sB.append("Invalid string following ");
 			sB.append(expressionString.substring(0, fixed));
-			sB.append("\n in ");
+			sB.append(" in ");
 			sB.append(expressionString);
-			sB.append("\n");
 			throw new TermEvaulatorException(sB.toString());
 		}
 		return nums;

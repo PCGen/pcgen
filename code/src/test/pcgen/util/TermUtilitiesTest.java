@@ -340,9 +340,13 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			nums = TermUtilities.splitAndConvertIntegers("3", 1);
+			nums = TermUtilities.splitAndConvertIntegers("Test:3", "3", 1);
 		}
 		catch (NumberFormatException e)
+		{
+			ok = false;
+		}
+		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
@@ -359,12 +363,17 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			nums = TermUtilities.splitAndConvertIntegers("3.57", 2);
+			nums = TermUtilities.splitAndConvertIntegers("Test:3.57", "3.57", 2);
 		}
 		catch (NumberFormatException e)
 		{
 			ok = false;
 		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		
 		is(ok, eq(true), "two ints is ok");
 		is(nums[0], eq(3), "two ints is ok:first");
 		is(nums[1], eq(57), "two ints is ok:second");
@@ -379,12 +388,17 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			nums = TermUtilities.splitAndConvertIntegers("3.57.67", 3);
+			nums = TermUtilities.splitAndConvertIntegers("Test.3.57.67", "3.57.67", 3);
 		}
 		catch (NumberFormatException e)
 		{
 			ok = false;
 		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+
 		is(ok, eq(true), "three ints is ok");
 		is(nums[0], eq(3), "three ints is ok:first");
 		is(nums[1], eq(57), "three ints is ok:second");
@@ -399,12 +413,18 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			TermUtilities.splitAndConvertIntegers("3.57.67.foo", 3);
+			TermUtilities.splitAndConvertIntegers(
+					"Test.3.57.67.foo", "3.57.67.foo", 3);
 		}
 		catch (NumberFormatException e)
 		{
 			ok = false;
 		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+
 		is(ok, eq(false), "three ints plus spurious non-int fails");
 	}
 
