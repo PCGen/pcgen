@@ -5,10 +5,10 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.15.4" date="In SVN" description="Alpha Release"> 
-      <action dev="jdempsey" type="update" issue="1959647">Deprecate ambiguous PRExxx:x=y behavior</action>
-      <action dev="jdempsey" type="add" issue="2016425">Assigning Languages via kits</action>
-      <action dev="jdempsey" type="add" issue="2048071">[Pathfinder] LEVELSPERFEAT expansion </action>
+    <release version="5.15.4" date="2008-10-06" description="Alpha Release"> 
+      <action dev="jdempsey" type="update" issue="1959647">Deprecate ambiguous PRExxx:x=y behavior</action>  
+      <action dev="jdempsey" type="add" issue="2016425">Assigning Languages via kits</action>  
+      <action dev="jdempsey" type="add" issue="2048071">[Pathfinder] LEVELSPERFEAT expansion</action> 
     </release>  
     <release version="5.15.2" date="2008-09-07" description="Alpha Release"> 
       <action dev="jdempsey" type="add" issue="2038169">[4E] ASPECT tag for Abilities and Feats</action> 
