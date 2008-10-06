@@ -2210,18 +2210,21 @@
 		<fo:table table-layout="fixed" >
 			<fo:table-column column-width="18mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="17mm"/>
+			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="17mm"/>
+			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="17mm"/>
+			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="2mm"/>
-			<fo:table-column column-width="17mm"/>
+			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="2mm"/>
-<!--			<fo:table-column column-width="14mm"/>
-			<fo:table-column column-width="2mm"/> -->
+<!--			<fo:table-column column-width="13mm"/> -->
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 98" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 84) * 0.5" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="2mm"/>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 84 ) * 0.5" />mm</xsl:attribute>
 			</fo:table-column>
 
 			<fo:table-body>
@@ -2241,6 +2244,7 @@
 					<xsl:call-template name="iterative.attack.entry"><xsl:with-param name="value" select="disarm_attack"/><xsl:with-param name="bab" select="bab"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
 					<xsl:call-template name="iterative.attack.entry"><xsl:with-param name="value" select="sunder_attack"/><xsl:with-param name="bab" select="bab"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
 					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="bullrush_attack"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="overrun_attack"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
 <!--					<xsl:call-template name="iterative.attack.entry"><xsl:with-param name="value" select="total"/><xsl:with-param name="separator" select="''"/></xsl:call-template> -->
 				</fo:table-row>
 			
@@ -2264,9 +2268,10 @@
 					<fo:table-cell/>
 					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="grapple_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
 					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="trip_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
-					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="bullrush_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
 					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="disarm_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
 					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="sunder_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="bullrush_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
+					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="overrun_defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template>
 <!--					<xsl:call-template name="attack.entry"><xsl:with-param name="value" select="defense"/><xsl:with-param name="separator" select="''"/></xsl:call-template> -->
 				</fo:table-row>
 			</fo:table-body>
@@ -2286,6 +2291,7 @@
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'DISARM'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'SUNDER'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'BULL RUSH'"/></xsl:call-template>
+			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'OVERRUN'"/></xsl:call-template>
 <!--			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'BASE'"/><xsl:with-param name="font.size" select="'6pt'"/></xsl:call-template> -->
 		</fo:table-row>
 	</xsl:template>
