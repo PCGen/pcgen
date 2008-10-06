@@ -7,7 +7,19 @@ COPYMASTERBAB, COPYMASTERCHECK, COPYMASTERHP, FOLLOWER, FOLLOWERADJUSTMENT, HD, 
 
 RACETYPE, SWITCHRACE, TYPE, USEMASTERSKILL,  Plus any Global Tags
 
+Mention of 'BONUS:FOLLOWERS' and 'COMPANIONLIST' though not used in this actual file.
 
+Standards
+<TAB> indicates a Tab character.
+ALL CAPS indicates an actual tag.
+Actual Tag usage will be on it's own line to avoid confusion. Followed by a brief explanation of either it's function or what it's doing in the context of the example.
+
+
+SECTION 1: HOW TO CREATE YOUR OWN COMPANIONS
+
+There may come a time when you want to make your own special companion which doesn't match the rules. That's okay. Setting up a new companion with different powers or grants different bonuses to the master is acceptable. That is what this section is here for, to guide you through the process of making your companion - be it a Special Familiar, a War mount or anything else you might want.
+
+So without further ado...
 ---
 
 The first tag is FOLLOWER, each line generally starts with the Follower tag.
@@ -20,6 +32,9 @@ The Follower tag can take variables or Class names. So if MonkeyFu is a Class th
 
 FOLLOWER:Paladin=1
 You need to have 1 level in paladin class.
+
+FOLLOWER:MagicItem=1
+You need to have 1 in a variable name called MagicItem
 
 
 The second and VERY important tag is TYPE
@@ -75,12 +90,19 @@ NOTE: The base creature can exceed the maximum HD cap for it's race in this mann
 
 ---
 MASTERBONUSRACE
-Sets any special bonuses a particular race may grant to the master (Common for familiar)
+Sets any special bonuses a particular race may grant to the master (Common for familiar).
 Common tags to follow this are BONUS and VFEAT.
+The uses of this tag are not to be underestimated, with this tag you can grant a level dependent bonus to the master at a certain level.
 
 EXAMPLE:
 MASTERBONUSRACE:Bat <TAB> BONUS:SKILL|Spot|3
 Would give the master +3 bonus to Spot checks if he has a Bat.
+
+MASTERBONUSRACE:Bat <TAB> BONUS:VAR|MyCoolVar|3|PREPCLEVEL:MIN=10
+At 10th level the Master of this Bat gets 3 to his 'MyCoolVar' which can be attached to a feat, ability, or even an item with a Variable in the SPROP.
+
+MASTERBONUSRACE:Magic Item - Sword <TAB> BONUS:VAR|MagicWeaponPlusIncrease|2|PREVARGTEQ:MagicItem,1
+This will grant two (2) to the varaible MagicWeaponPlusIncrease when the PREVAR requirements are met.
 
 ---
 RACETYPE
@@ -97,6 +119,20 @@ Your choices are YES and NO (Default)
 
 USEMASTERSKILL:YES
 Creature will have the exact same ranks in the skills chosen by the master.
+
+---
+Although not used in this particular file it deserves mention.
+
+BONUS:FOLLOWERS
+This tag is what allows us to actually gain the creature. Without it you won't be able to get the creature. This needs to match the COMPANIONLIST definition, which is seen as TYPE inside our actual file.
+
+BONUS:FOLLOWERS|Familiar|1
+You can gain one (1) Familiar
+
+FOLLOWER:Whatever=1 <TAB> TYPE:Familiar
+COMPANIONLIST:Familiar|Foo
+
+Notice the pattern, if you don't match those exactly you won't get your creature.
 
 
 Okay, lets put together a sample critter
@@ -118,7 +154,26 @@ That would make a Wolf and Fuzzy Bear
 COMPANIONLIST:Monkey Mount|Bat|FOLLOWERADJUSTMENT:-5
 If my Monkey Warrior takes a bat companion he needs to be 6th level before the 1st level effect takes place and then 10th level for the level 5 effect.
 
+Now an advanced technique for those that feel they understand this. -
 
-Okay, that should get you on the path of Companion Mod file creation.
+COMPANIONLIST:Intelligent Item|Intelligent Weapon - Longsword
+BONUS:FOLLOWERS|Intelligent Item|1
+
+MASTERBONUSRACE:Intelligent Weapon - Longsword <TAB> BONUS:SKILL|Move Silently|5|TYPE=Competence <TAB> AUTO:FEAT|Weapon Focus(Longsword) <TAB> BONUS:VAR|WeaponPlusIncrease|1|PREPCLEVEL:MIN=8
+
+
+Okay, that should get you on the path of Companion Mod file creation. In the next section we discuss applications of Adding and modifying the Companion.
 
 -Andrew Maitland
+
+
+SECTION 2: Modifying Creatures
+
+It always happens, either through a feat, new power or just a whim. Regardless of the source, there may come a time when you wish to add to the list of available critters to a certain class or group.
+
+COMPANIONLIST is additive. A good example of this case is Improved Familiar.
+
+COMPANIONLIST:Familiar|Shocker Lizard,Stirge|PRECLASS:1,SPELLCASTER.Arcane=5
+This will grant the Shocker Lizard and Stirge to the available list in the Familiar (TYPE) if the master is an Arcane Spell Caster of 5th level or higher.
+
+
