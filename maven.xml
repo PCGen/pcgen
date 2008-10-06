@@ -61,7 +61,7 @@
 	
 		<ant:mkdir dir="${basedir}/target/docs/download" />
 
-		<ant:zip destfile="target/docs/download/pcgen-all-no-libs-${pom.currentVersion}-SNAPSHOT.zip">
+		<ant:zip destfile="target/docs/download/pcgen-program-${pom.currentVersion}-SNAPSHOT.zip">
 			<fileset dir="${basedir}/target">
 				<include name="pcgen.jar"/>
 			</fileset>
@@ -74,11 +74,21 @@
 			</fileset>
 			<fileset dir="${basedir}" >
 				<include name="plugins/**"/>
+			</fileset>
+		</ant:zip> 
+
+		<ant:zip destfile="target/docs/download/pcgen-data-${pom.currentVersion}-SNAPSHOT.zip">
+			<fileset dir="${basedir}" >
 				<include name="data/**"/>
 				<include name="outputsheets/**"/>
-				<include name="docs/**"/>
 				<include name="system/**"/>
 				<include name="preview/**"/>
+			</fileset>
+		</ant:zip> 
+
+		<ant:zip destfile="target/docs/download/pcgen-docs-${pom.currentVersion}-SNAPSHOT.zip">
+			<fileset dir="${basedir}" >
+				<include name="docs/**"/>
 			</fileset>
 		</ant:zip> 
 
@@ -133,7 +143,6 @@
 	    <echo>Releasing package ${maven.sourceforge.project.packageName} version ${maven.sourceforge.project.version}</echo>
 	    <attainGoal name="sourceforge:changes"/>
 	    <attainGoal name="sourceforge:preparefiles"/>
-	    <attainGoal name="sourceforge:upload"/>
 
 	</goal>
 	
