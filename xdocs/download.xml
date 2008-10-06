@@ -16,7 +16,9 @@
  can use your previous copy of the libraries for each autobuild and only update if a 
  missing library is reported.
  <ul>
-   <li><a href="download/pcgen-all-no-libs-&version;-SNAPSHOT.zip">PCGen Autobuild</a></li>
+   <li><a href="download/pcgen-program-&version;-SNAPSHOT.zip">PCGen Autobuild - Program</a></li>
+   <li><a href="download/pcgen-data-&version;-SNAPSHOT.zip">PCGen Autobuild - Data</a></li>
+   <li><a href="download/pcgen-docs-&version;-SNAPSHOT.zip">PCGen Autobuild - Docs</a></li>
    <li><a href="download/pcgen-libraries-&version;-SNAPSHOT.zip">PCGen Libraries</a></li>
  </ul>
  </p>
