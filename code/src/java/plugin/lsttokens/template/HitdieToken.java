@@ -37,6 +37,10 @@ public class HitdieToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			String lock = value;

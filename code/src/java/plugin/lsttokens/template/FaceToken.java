@@ -6,6 +6,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
@@ -13,9 +14,11 @@ import pcgen.util.Logging;
 /**
  * Class deals with FACE Token
  */
-public class FaceToken implements CDOMPrimaryToken<PCTemplate>
+public class FaceToken extends AbstractToken implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "FACE";
@@ -23,33 +26,39 @@ public class FaceToken implements CDOMPrimaryToken<PCTemplate>
 
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		return parseFace(context, template, value);
 	}
 
 	protected boolean parseFace(LoadContext context, PCTemplate fObj,
-		String value)
+			String value)
 	{
 		int commaLoc = value.indexOf(Constants.COMMA);
 		if (commaLoc != value.lastIndexOf(Constants.COMMA))
 		{
 			Logging.errorPrint(getTokenName() + " must be of the form: "
-				+ getTokenName() + ":<num>[,<num>]");
+					+ getTokenName() + ":<num>[,<num>]");
 			return false;
 		}
 		if (commaLoc > -1)
 		{
 			if (commaLoc == 0)
 			{
-				Logging.errorPrint(getTokenName()
-					+ " should not start with a comma.  Must be of the form: "
-					+ getTokenName() + ":<num>[,<num>]");
+				Logging
+						.errorPrint(getTokenName()
+								+ " should not start with a comma.  Must be of the form: "
+								+ getTokenName() + ":<num>[,<num>]");
 				return false;
 			}
 			if (commaLoc == value.length() - 1)
 			{
-				Logging.errorPrint(getTokenName()
-					+ " should not end with a comma.  Must be of the form: "
-					+ getTokenName() + ":<num>[,<num>]");
+				Logging
+						.errorPrint(getTokenName()
+								+ " should not end with a comma.  Must be of the form: "
+								+ getTokenName() + ":<num>[,<num>]");
 				return false;
 			}
 			try
@@ -59,16 +68,16 @@ public class FaceToken implements CDOMPrimaryToken<PCTemplate>
 				if (width.compareTo(BigDecimal.ZERO) < 0)
 				{
 					Logging.errorPrint("Cannot have negative width in "
-						+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value);
 					return false;
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_WIDTH,
-					width);
+						width);
 			}
 			catch (NumberFormatException nfe)
 			{
 				Logging.errorPrint("Misunderstood Double Width in Tag: "
-					+ value);
+						+ value);
 				return false;
 			}
 
@@ -79,16 +88,16 @@ public class FaceToken implements CDOMPrimaryToken<PCTemplate>
 				if (height.compareTo(BigDecimal.ZERO) < 0)
 				{
 					Logging.errorPrint("Cannot have negative height in "
-						+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value);
 					return false;
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_HEIGHT,
-					height);
+						height);
 			}
 			catch (NumberFormatException ne)
 			{
 				Logging.errorPrint("Misunderstood Double Height in Tag: "
-					+ value);
+						+ value);
 				return false;
 			}
 		}
@@ -101,13 +110,13 @@ public class FaceToken implements CDOMPrimaryToken<PCTemplate>
 				if (width.compareTo(BigDecimal.ZERO) < 0)
 				{
 					Logging.errorPrint("Cannot have negative width in "
-						+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value);
 					return false;
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_WIDTH,
-					width);
+						width);
 				context.getObjectContext().put(fObj, ObjectKey.FACE_HEIGHT,
-					BigDecimal.ZERO);
+						BigDecimal.ZERO);
 			}
 			catch (NumberFormatException nfe)
 			{
@@ -120,11 +129,10 @@ public class FaceToken implements CDOMPrimaryToken<PCTemplate>
 
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		BigDecimal width =
-				context.getObjectContext().getObject(pct, ObjectKey.FACE_WIDTH);
-		BigDecimal height =
-				context.getObjectContext()
-					.getObject(pct, ObjectKey.FACE_HEIGHT);
+		BigDecimal width = context.getObjectContext().getObject(pct,
+				ObjectKey.FACE_WIDTH);
+		BigDecimal height = context.getObjectContext().getObject(pct,
+				ObjectKey.FACE_HEIGHT);
 		if (width == null && height == null)
 		{
 			return null;
@@ -132,19 +140,19 @@ public class FaceToken implements CDOMPrimaryToken<PCTemplate>
 		if (width == null || height == null)
 		{
 			context.addWriteMessage("Must have both width and height in "
-				+ getTokenName() + ": " + width + " " + height);
+					+ getTokenName() + ": " + width + " " + height);
 			return null;
 		}
 		if (width.compareTo(BigDecimal.ZERO) < 0)
 		{
 			context.addWriteMessage("Cannot have negative width in "
-				+ getTokenName() + ": " + width);
+					+ getTokenName() + ": " + width);
 			return null;
 		}
 		if (height.compareTo(BigDecimal.ZERO) < 0)
 		{
 			context.addWriteMessage("Cannot have negative height in "
-				+ getTokenName() + ": " + height);
+					+ getTokenName() + ": " + height);
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -155,7 +163,7 @@ public class FaceToken implements CDOMPrimaryToken<PCTemplate>
 			BigDecimal h = BigDecimalHelper.trimBigDecimal(height);
 			sb.append(',').append(h);
 		}
-		return new String[]{sb.toString()};
+		return new String[] { sb.toString() };
 	}
 
 	public Class<PCTemplate> getTokenClass()

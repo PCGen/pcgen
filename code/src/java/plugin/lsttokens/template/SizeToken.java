@@ -7,14 +7,17 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken implements CDOMPrimaryToken<PCTemplate>
+public class SizeToken extends AbstractToken implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SIZE";
@@ -22,6 +25,10 @@ public class SizeToken implements CDOMPrimaryToken<PCTemplate>
 
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		SizeAdjustment size = context.ref.getAbbreviatedObject(
 				SizeAdjustment.class, value);
 		Formula sizeFormula;

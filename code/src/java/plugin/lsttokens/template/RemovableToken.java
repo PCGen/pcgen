@@ -3,15 +3,18 @@ package plugin.lsttokens.template;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with REMOVABLE Token
  */
-public class RemovableToken implements CDOMPrimaryToken<PCTemplate>
+public class RemovableToken extends AbstractToken implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "REMOVABLE";
@@ -19,6 +22,10 @@ public class RemovableToken implements CDOMPrimaryToken<PCTemplate>
 
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
@@ -26,7 +33,7 @@ public class RemovableToken implements CDOMPrimaryToken<PCTemplate>
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				Logging.errorPrint("You should use 'YES' as the "
-					+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value);
 				return false;
 			}
 			set = Boolean.TRUE;
@@ -53,13 +60,13 @@ public class RemovableToken implements CDOMPrimaryToken<PCTemplate>
 
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Boolean b =
-				context.getObjectContext().getObject(pct, ObjectKey.REMOVABLE);
+		Boolean b = context.getObjectContext().getObject(pct,
+				ObjectKey.REMOVABLE);
 		if (b == null)
 		{
 			return null;
 		}
-		return new String[]{b.booleanValue() ? "YES" : "NO"};
+		return new String[] { b.booleanValue() ? "YES" : "NO" };
 	}
 
 	public Class<PCTemplate> getTokenClass()

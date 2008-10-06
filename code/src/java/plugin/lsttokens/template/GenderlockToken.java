@@ -4,15 +4,18 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with GENDERLOCK Token
  */
-public class GenderlockToken implements CDOMPrimaryToken<PCTemplate>
+public class GenderlockToken extends AbstractToken implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "GENDERLOCK";
@@ -20,6 +23,10 @@ public class GenderlockToken implements CDOMPrimaryToken<PCTemplate>
 
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			context.getObjectContext().put(template, ObjectKey.GENDER_LOCK,

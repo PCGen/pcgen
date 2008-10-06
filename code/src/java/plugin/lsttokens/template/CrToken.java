@@ -5,15 +5,18 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken implements CDOMPrimaryToken<PCTemplate>
+public class CrToken extends AbstractToken implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CR";
@@ -21,6 +24,10 @@ public class CrToken implements CDOMPrimaryToken<PCTemplate>
 
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			context.getObjectContext().put(template, ObjectKey.CR_MODIFIER,

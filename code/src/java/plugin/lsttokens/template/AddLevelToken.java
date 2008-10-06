@@ -14,15 +14,17 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * New Token to support Adding Levels to say a Lycanthorpe template
  */
-public class AddLevelToken implements CDOMPrimaryToken<PCTemplate>
+public class AddLevelToken  extends AbstractToken implements CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ADDLEVEL";
@@ -31,6 +33,10 @@ public class AddLevelToken implements CDOMPrimaryToken<PCTemplate>
 	public boolean parse(LoadContext context, PCTemplate template,
 			String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{

@@ -3,6 +3,7 @@ package plugin.lsttokens.template;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -10,7 +11,8 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken implements CDOMPrimaryToken<PCTemplate>
+public class VisibleToken extends AbstractToken implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
 	/*
@@ -18,6 +20,7 @@ public class VisibleToken implements CDOMPrimaryToken<PCTemplate>
 	 * 
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "VISIBLE";
@@ -25,6 +28,10 @@ public class VisibleToken implements CDOMPrimaryToken<PCTemplate>
 
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Visibility vis;
 		if (value.equals("DISPLAY"))
 		{
@@ -53,9 +60,8 @@ public class VisibleToken implements CDOMPrimaryToken<PCTemplate>
 
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
-		Visibility vis =
-				context.getObjectContext().getObject(template,
-					ObjectKey.VISIBILITY);
+		Visibility vis = context.getObjectContext().getObject(template,
+				ObjectKey.VISIBILITY);
 		if (vis == null)
 		{
 			return null;
@@ -80,10 +86,10 @@ public class VisibleToken implements CDOMPrimaryToken<PCTemplate>
 		else
 		{
 			context.addWriteMessage("Visibility " + vis
-				+ " is not a valid Visibility for a PCTemplate");
+					+ " is not a valid Visibility for a PCTemplate");
 			return null;
 		}
-		return new String[]{visString};
+		return new String[] { visString };
 	}
 
 	public Class<PCTemplate> getTokenClass()
