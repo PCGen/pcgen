@@ -3,15 +3,18 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deal with STACK token
  */
-public class StackToken implements CDOMPrimaryToken<Ability>
+public class StackToken extends AbstractToken implements
+		CDOMPrimaryToken<Ability>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "STACK";
@@ -19,6 +22,10 @@ public class StackToken implements CDOMPrimaryToken<Ability>
 
 	public boolean parse(LoadContext context, Ability ability, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')

@@ -32,9 +32,8 @@ public class BenefitToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, Ability ability, String value)
 	{
-		if (value.length() == 0)
+		if (isEmpty(value))
 		{
-			Logging.errorPrint(getTokenName() + " arguments may not be empty");
 			return false;
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))

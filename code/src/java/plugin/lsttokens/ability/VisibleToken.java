@@ -3,6 +3,7 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -17,12 +18,14 @@ import pcgen.util.enumeration.Visibility;
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisibleToken implements CDOMPrimaryToken<Ability>
+public class VisibleToken extends AbstractToken implements
+		CDOMPrimaryToken<Ability>
 {
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "VISIBLE";
@@ -30,6 +33,10 @@ public class VisibleToken implements CDOMPrimaryToken<Ability>
 
 	public boolean parse(LoadContext context, Ability ability, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Visibility vis;
 		if (value.equals("YES"))
 		{

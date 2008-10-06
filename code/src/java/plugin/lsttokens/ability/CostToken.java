@@ -5,15 +5,18 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deal with COST Token
  */
-public class CostToken implements CDOMPrimaryToken<Ability>
+public class CostToken extends AbstractToken implements
+		CDOMPrimaryToken<Ability>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COST";
@@ -21,6 +24,10 @@ public class CostToken implements CDOMPrimaryToken<Ability>
 
 	public boolean parse(LoadContext context, Ability ability, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			context.getObjectContext().put(ability, ObjectKey.SELECTION_COST,

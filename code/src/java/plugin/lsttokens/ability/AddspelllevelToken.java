@@ -3,6 +3,7 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -10,9 +11,11 @@ import pcgen.util.Logging;
 /**
  * Class deals with ADDSPELLLEVEL Token
  */
-public class AddspelllevelToken implements CDOMPrimaryToken<Ability>
+public class AddspelllevelToken extends AbstractToken implements
+		CDOMPrimaryToken<Ability>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ADDSPELLLEVEL";
@@ -20,6 +23,10 @@ public class AddspelllevelToken implements CDOMPrimaryToken<Ability>
 
 	public boolean parse(LoadContext context, Ability ability, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			Integer i = Delta.parseInt(value);
@@ -29,23 +36,22 @@ public class AddspelllevelToken implements CDOMPrimaryToken<Ability>
 				return false;
 			}
 			context.getObjectContext().put(ability, IntegerKey.ADD_SPELL_LEVEL,
-				i);
+					i);
 			return true;
 		}
 		catch (NumberFormatException nfe)
 		{
 			Logging.errorPrint(getTokenName()
-				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>");
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
 			return false;
 		}
 	}
 
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		Integer lvl =
-				context.getObjectContext().getInteger(ability,
-					IntegerKey.ADD_SPELL_LEVEL);
+		Integer lvl = context.getObjectContext().getInteger(ability,
+				IntegerKey.ADD_SPELL_LEVEL);
 		if (lvl == null)
 		{
 			return null;
@@ -53,10 +59,11 @@ public class AddspelllevelToken implements CDOMPrimaryToken<Ability>
 		if (lvl.intValue() < 0)
 		{
 			context
-				.addWriteMessage(getTokenName() + " must be an integer >= 0");
+					.addWriteMessage(getTokenName()
+							+ " must be an integer >= 0");
 			return null;
 		}
-		return new String[]{lvl.toString()};
+		return new String[] { lvl.toString() };
 	}
 
 	public Class<Ability> getTokenClass()
