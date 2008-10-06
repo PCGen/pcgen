@@ -4,15 +4,17 @@ import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken implements CDOMPrimaryToken<Race>
+public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CR";
@@ -20,10 +22,15 @@ public class CrToken implements CDOMPrimaryToken<Race>
 
 	public boolean parse(LoadContext context, Race race, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			ChallengeRating cr = new ChallengeRating(value);
-			context.getObjectContext().put(race, ObjectKey.CHALLENGE_RATING, cr);
+			context.getObjectContext()
+					.put(race, ObjectKey.CHALLENGE_RATING, cr);
 			return true;
 		}
 		catch (IllegalArgumentException e)

@@ -8,17 +8,20 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with MONSTERCLASS Token
  */
-public class MonsterclassToken implements CDOMPrimaryToken<Race>
+public class MonsterclassToken extends AbstractToken implements
+		CDOMPrimaryToken<Race>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "MONSTERCLASS";
@@ -26,6 +29,10 @@ public class MonsterclassToken implements CDOMPrimaryToken<Race>
 
 	public boolean parse(LoadContext context, Race race, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		int colonLoc = value.indexOf(Constants.COLON);
 		if (colonLoc == -1)
 		{

@@ -6,6 +6,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
@@ -13,9 +14,10 @@ import pcgen.util.Logging;
 /**
  * Class deals with FACE Token
  */
-public class FaceToken implements CDOMPrimaryToken<Race>
+public class FaceToken extends AbstractToken implements CDOMPrimaryToken<Race>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "FACE";
@@ -23,6 +25,10 @@ public class FaceToken implements CDOMPrimaryToken<Race>
 
 	public boolean parse(LoadContext context, Race race, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		return parseFace(context, race, value);
 	}
 
