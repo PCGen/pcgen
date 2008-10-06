@@ -19,7 +19,7 @@ SECTION 1: HOW TO CREATE YOUR OWN COMPANIONS
 
 There may come a time when you want to make your own special companion which doesn't match the rules. That's okay. Setting up a new companion with different powers or grants different bonuses to the master is acceptable. That is what this section is here for, to guide you through the process of making your companion - be it a Special Familiar, a War mount or anything else you might want.
 
-So without further ado...
+So without further adieu...
 ---
 
 The first tag is FOLLOWER, each line generally starts with the Follower tag.
