@@ -9,15 +9,18 @@ import pcgen.cdom.helper.Quality;
 import pcgen.core.Equipment;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with ACCHECK token
  */
-public class QualityToken implements CDOMPrimaryToken<Equipment>
+public class QualityToken extends AbstractToken implements
+		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "QUALITY";
@@ -25,6 +28,10 @@ public class QualityToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{

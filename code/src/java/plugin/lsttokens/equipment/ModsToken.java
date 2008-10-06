@@ -4,15 +4,18 @@ import pcgen.cdom.enumeration.EqModControl;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with MODS token
  */
-public class ModsToken implements CDOMPrimaryToken<Equipment>
+public class ModsToken extends AbstractToken implements
+		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "MODS";
@@ -20,6 +23,10 @@ public class ModsToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		EqModControl ctrl;
 		try
 		{

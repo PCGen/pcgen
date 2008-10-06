@@ -28,6 +28,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
@@ -39,12 +40,14 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PageUsageToken implements CDOMPrimaryToken<Equipment>
+public class PageUsageToken extends AbstractToken implements
+		CDOMPrimaryToken<Equipment>
 {
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "PAGEUSAGE";
@@ -52,6 +55,10 @@ public class PageUsageToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE,
 				FormulaFactory.getFormulaFor(value));
 		return true;

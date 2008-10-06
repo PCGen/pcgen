@@ -4,15 +4,18 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with ALTCRITMULT token
  */
-public class AltcritmultToken implements CDOMPrimaryToken<Equipment>
+public class AltcritmultToken extends AbstractToken implements
+		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ALTCRITMULT";
@@ -20,6 +23,10 @@ public class AltcritmultToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Integer cm = null;
 		if ((value.length() > 0) && (value.charAt(0) == 'x'))
 		{

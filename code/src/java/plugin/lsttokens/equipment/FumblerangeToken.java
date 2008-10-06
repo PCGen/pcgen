@@ -4,14 +4,17 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Deals with FUMBLERANGE token
  */
-public class FumblerangeToken implements CDOMPrimaryToken<Equipment>
+public class FumblerangeToken extends AbstractToken implements
+		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "FUMBLERANGE";
@@ -19,7 +22,7 @@ public class FumblerangeToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
-		if (value.length() == 0)
+		if (isEmpty(value))
 		{
 			return false;
 		}

@@ -5,13 +5,15 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with WT token
  */
-public class WtToken implements CDOMPrimaryToken<Equipment>
+public class WtToken extends AbstractToken implements
+		CDOMPrimaryToken<Equipment>
 {
 
 	/**
@@ -19,6 +21,7 @@ public class WtToken implements CDOMPrimaryToken<Equipment>
 	 * 
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "WT";
@@ -26,6 +29,10 @@ public class WtToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			BigDecimal weight = new BigDecimal(value);
