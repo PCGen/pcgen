@@ -38,7 +38,6 @@ EQUIPMENT:srd_equip_weap_melee_psionic.lst
 
 EQUIPMOD:srd_equipmods_psionic.lst
 
-FEAT:srd_feats_hidden_psionic.lst
 FEAT:srd_feats_psionic.lst
 
 KIT:srd_kits_races__psionic.lst

@@ -45,7 +45,6 @@ EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
 
-FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Flyby Attack,Hover,Improved Control Shape,Multidexterity,Multiweapon Fighting,Multiattack,Quicken Spell-Like Ability,Snatch,Spell-Like Ability Focus,Unearthly Beauty,Wingover)
 
 KIT:@/d20ogl/srd/basics/srd_kits_races__animals.lst|(INCLUDE:Default Bat|Default Cat|Default Hawk|Default Lizard|Default Owl|Default Rat|Default Raven|Default Snake (Tiny Viper)|Default Toad|Default Weasel|Default Dog (Riding)|Default Donkey|Default Horse (Heavy)|Default Horse (Light)|Default Horse (Heavy War)|Default Horse (Light War)|Default Mule|Default Pony|Default Pony (War))
@@ -73,8 +72,6 @@ HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools|
 
 
 # Advanced
-ABILITY:@/d20ogl/srd/advanced/srd_abilities_prc.lst
-
 ABILITYCATEGORY:@/d20ogl/srd/advanced/srd_ability_categories_advanced.lst
 
 CLASS:@/d20ogl/srd/advanced/srd_classes_prestige.lst

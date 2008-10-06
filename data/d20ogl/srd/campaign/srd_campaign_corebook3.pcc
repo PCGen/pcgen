@@ -45,7 +45,6 @@ EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
 
-FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst
 
 KIT:@/d20ogl/srd/basics/srd_kits_races__animals.lst
@@ -74,8 +73,6 @@ HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools|
 
 
 # Advanced
-ABILITY:@/d20ogl/srd/advanced/srd_abilities_prc.lst
-
 ABILITYCATEGORY:@/d20ogl/srd/advanced/srd_ability_categories_advanced.lst
 
 CLASS:@/d20ogl/srd/advanced/srd_classes_prestige.lst

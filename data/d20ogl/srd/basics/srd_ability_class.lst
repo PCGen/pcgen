@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct  5 16:46:06 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Mon Oct  6 13:34:49 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by Tir Gwaith
 
@@ -234,7 +234,7 @@ Shadow Jump			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Shad
 ###							###
 #############################################
 
-###Block: Companion Modifier Abilities -------------------------------------------------------
+###Block: Companion Modifier Abilities -----------------------------------------
 # Ability Name				Category of Ability		Type				Visible	Special ABility
 Blood Bond					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Blood Bond
 Cannot be Turned				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Cannot be Turned or Rebuked
@@ -248,6 +248,17 @@ Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Shar
 Speak with Animals of Own Type	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Speak with animals of its type
 Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Speak with master
 Touch						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Touch
+
+###Block: Psionic Companion Modifier Abilities ---------------------------------
+# Ability Name		Category of Ability		Type				Visible	Special ABility			Vision
+Channel Power		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Channel Power
+Deliver Touch Powers	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Deliver touch powers
+Self Propulsion		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Self Propulsion
+Share Powers		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Share Powers
+Sight Link			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Sight Link
+Sighted			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO						VISION:Sighted (40')
+Telepathic Link		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Telepathic Link
+Telepathic Speech		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Telepathic Speech
 
 #
 # End
