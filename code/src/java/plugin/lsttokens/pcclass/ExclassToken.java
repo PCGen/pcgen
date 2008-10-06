@@ -4,15 +4,17 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
 
 /**
  * Class deals with EXCLASS Token
  */
-public class ExclassToken implements CDOMPrimaryToken<PCClass>
+public class ExclassToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "EXCLASS";
@@ -20,9 +22,8 @@ public class ExclassToken implements CDOMPrimaryToken<PCClass>
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
-		if (value.length() == 0)
+		if (isEmpty(value))
 		{
-			Logging.errorPrint(getTokenName() + " may not have empty argument");
 			return false;
 		}
 		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,

@@ -2,13 +2,14 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
 
 /**
  * Class deals with ABB Token for PCC files
  */
-public class AbbToken implements CDOMPrimaryToken<PCClass>
+public class AbbToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
 	/**
@@ -16,6 +17,7 @@ public class AbbToken implements CDOMPrimaryToken<PCClass>
 	 * 
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "ABB";
@@ -23,9 +25,8 @@ public class AbbToken implements CDOMPrimaryToken<PCClass>
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
-		if (value.length() == 0)
+		if (isEmpty(value))
 		{
-			Logging.errorPrint(getTokenName() + " arguments may not be empty");
 			return false;
 		}
 		context.ref.registerAbbreviation(pcc, value);

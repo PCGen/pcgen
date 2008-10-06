@@ -3,6 +3,7 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -10,9 +11,11 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken implements CDOMPrimaryToken<PCClass>
+public class VisibleToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "VISIBLE";
@@ -20,6 +23,10 @@ public class VisibleToken implements CDOMPrimaryToken<PCClass>
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Visibility vis;
 		if (value.equals("NO"))
 		{

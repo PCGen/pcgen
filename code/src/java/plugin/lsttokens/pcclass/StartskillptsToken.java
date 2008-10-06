@@ -5,14 +5,17 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with STARTSKILLPTS Token
  */
-public class StartskillptsToken implements CDOMPrimaryToken<PCClass>
+public class StartskillptsToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "STARTSKILLPTS";
@@ -20,6 +23,10 @@ public class StartskillptsToken implements CDOMPrimaryToken<PCClass>
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		context.getObjectContext().put(pcc, FormulaKey.START_SKILL_POINTS,
 				FormulaFactory.getFormulaFor(value));
 		return true;

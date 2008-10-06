@@ -5,14 +5,17 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with CRFORMULA Token
  */
-public class CrformulaToken implements CDOMPrimaryToken<PCClass>
+public class CrformulaToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CRFORMULA";
@@ -20,6 +23,10 @@ public class CrformulaToken implements CDOMPrimaryToken<PCClass>
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		context.getObjectContext().put(pcc, FormulaKey.CR,
 				FormulaFactory.getFormulaFor(value));
 		return true;

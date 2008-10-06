@@ -3,15 +3,18 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with SPELLBOOK Token
  */
-public class SpellbookToken implements CDOMPrimaryToken<PCClass>
+public class SpellbookToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLBOOK";
@@ -19,6 +22,10 @@ public class SpellbookToken implements CDOMPrimaryToken<PCClass>
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
