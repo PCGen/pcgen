@@ -3,26 +3,29 @@ package plugin.lsttokens.equipmentmodifier;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>VisibleToken</code> handles the processing of the VISIBLE tag
- * in the definition of an Equipment Modifier.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
+ * <code>VisibleToken</code> handles the processing of the VISIBLE tag in the
+ * definition of an Equipment Modifier.
+ * 
+ * Last Editor: $Author$ Last Edited: $Date: 2008-05-24 22:22:21 -0400
+ * (Sat, 24 May 2008) $
+ * 
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisibleToken implements CDOMPrimaryToken<EquipmentModifier>
+public class VisibleToken extends AbstractToken implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "VISIBLE";
@@ -31,6 +34,10 @@ public class VisibleToken implements CDOMPrimaryToken<EquipmentModifier>
 	public boolean parse(LoadContext context, EquipmentModifier eqm,
 			String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Visibility vis;
 		if (value.equals("QUALIFY"))
 		{

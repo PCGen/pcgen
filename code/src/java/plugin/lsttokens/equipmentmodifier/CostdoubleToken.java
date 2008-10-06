@@ -3,15 +3,18 @@ package plugin.lsttokens.equipmentmodifier;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with COSTDOUBLE token
  */
-public class CostdoubleToken implements CDOMPrimaryToken<EquipmentModifier>
+public class CostdoubleToken extends AbstractToken implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COSTDOUBLE";
@@ -20,6 +23,10 @@ public class CostdoubleToken implements CDOMPrimaryToken<EquipmentModifier>
 	public boolean parse(LoadContext context, EquipmentModifier mod,
 			String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')

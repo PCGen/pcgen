@@ -3,15 +3,17 @@ package plugin.lsttokens.equipmentmodifier;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
 
 /**
  * Deals with FUMBLERANGE token
  */
-public class FumblerangeToken implements CDOMPrimaryToken<EquipmentModifier>
+public class FumblerangeToken extends AbstractToken implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "FUMBLERANGE";
@@ -20,9 +22,8 @@ public class FumblerangeToken implements CDOMPrimaryToken<EquipmentModifier>
 	public boolean parse(LoadContext context, EquipmentModifier mod,
 			String value)
 	{
-		if (value.length() == 0)
+		if (isEmpty(value))
 		{
-			Logging.errorPrint(getTokenName() + " arguments may not be empty");
 			return false;
 		}
 		context.getObjectContext().put(mod, StringKey.FUMBLE_RANGE, value);

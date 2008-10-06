@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
@@ -35,13 +36,15 @@ import pcgen.util.Logging;
  * modifier should be added in the name of any equipment item the eqmod is added
  * to.
  */
-public class FormatcatToken implements CDOMPrimaryToken<EquipmentModifier>
+public class FormatcatToken extends AbstractToken implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 * @Override
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "FORMATCAT";
@@ -50,6 +53,10 @@ public class FormatcatToken implements CDOMPrimaryToken<EquipmentModifier>
 	public boolean parse(LoadContext context, EquipmentModifier mod,
 			String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			context.getObjectContext().put(mod, ObjectKey.FORMAT,

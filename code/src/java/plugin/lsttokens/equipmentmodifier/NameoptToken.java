@@ -5,15 +5,18 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with NAMEOPT token
  */
-public class NameoptToken implements CDOMPrimaryToken<EquipmentModifier>
+public class NameoptToken extends AbstractToken implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "NAMEOPT";
@@ -22,9 +25,8 @@ public class NameoptToken implements CDOMPrimaryToken<EquipmentModifier>
 	public boolean parse(LoadContext context, EquipmentModifier mod,
 			String value)
 	{
-		if (value.length() == 0)
+		if (isEmpty(value))
 		{
-			Logging.errorPrint(getTokenName() + " cannot be empty");
 			return false;
 		}
 		String optString = value;

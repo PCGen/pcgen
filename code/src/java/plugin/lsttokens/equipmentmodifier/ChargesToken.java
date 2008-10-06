@@ -4,15 +4,18 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with CHARGES token
  */
-public class ChargesToken implements CDOMPrimaryToken<EquipmentModifier>
+public class ChargesToken extends AbstractToken implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CHARGES";
@@ -21,6 +24,10 @@ public class ChargesToken implements CDOMPrimaryToken<EquipmentModifier>
 	public boolean parse(LoadContext context, EquipmentModifier mod,
 			String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{

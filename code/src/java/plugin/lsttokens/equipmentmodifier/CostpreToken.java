@@ -5,14 +5,17 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Deals with COSTPRE token
  */
-public class CostpreToken implements CDOMPrimaryToken<EquipmentModifier>
+public class CostpreToken extends AbstractToken implements
+		CDOMPrimaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COSTPRE";
@@ -21,6 +24,10 @@ public class CostpreToken implements CDOMPrimaryToken<EquipmentModifier>
 	public boolean parse(LoadContext context, EquipmentModifier mod,
 			String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		context.getObjectContext().put(mod, FormulaKey.BASECOST,
 				FormulaFactory.getFormulaFor(value));
 		return true;
