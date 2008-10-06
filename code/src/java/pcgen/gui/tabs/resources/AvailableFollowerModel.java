@@ -131,8 +131,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 	 * @return true if cell editable
 	 **/
 	@Override
-	public boolean isCellEditable(@SuppressWarnings("unused")
-	Object node, int column)
+	public boolean isCellEditable(Object node, int column)
 	{
 		return (column == COL_NAME);
 	}

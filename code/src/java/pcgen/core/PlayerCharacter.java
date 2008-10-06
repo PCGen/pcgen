@@ -2504,7 +2504,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				for (FollowerOption fo : followers)
 				{
-					ret.addAll(fo.getExpandedOptions());
+					if (fo.getListRef().getName().equalsIgnoreCase(aType))
+					{
+						ret.addAll(fo.getExpandedOptions());
+					}
 				}
 			}
 		}

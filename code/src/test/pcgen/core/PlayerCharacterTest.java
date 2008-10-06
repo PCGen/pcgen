@@ -40,6 +40,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -51,7 +52,10 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSimpleSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
@@ -966,5 +970,48 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 //		assertEquals("After list bonus, no temp no equip", 3, pc.getPartialStatBonusFor("STR", false, false));
 //		assertEquals("After list bonus, temp no equip", 3, pc.getPartialStatBonusFor("STR", true, false));
 		
+	}
+	
+	/**
+	 * Validate the getAvailableFollowers function.
+	 */
+	public void testGetAvailableFollowers()
+	{
+		Ability ab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT
+			.getAbilityCategory(), "Container");
+		PlayerCharacter pc = getCharacter();
+		
+		pc.addAbility(AbilityCategory.FEAT, ab, null);
+		
+		List<FollowerOption> fo = pc.getAvailableFollowers("Familiar");
+		assertTrue("Initially familiar list should be empty", fo.isEmpty());
+		fo = pc.getAvailableFollowers("MOUNT");
+		assertTrue("Initially mount list should be empty", fo.isEmpty());
+		
+		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
+				CompanionList.class, "Mount");
+		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(giantRace);
+		FollowerOption option = new FollowerOption(race, ref);
+		ab.addToListFor(ListKey.COMPANIONLIST, option);
+		fo = pc.getAvailableFollowers("Familiar");
+		assertTrue("Familiar list should still be empty", fo.isEmpty());
+		fo = pc.getAvailableFollowers("MOUNT");
+		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
+		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.get(0).getRace().getKeyName());
+		assertEquals("Mount list should only have one entry", 1, fo.size());
+		
+		ref = new CDOMSimpleSingleRef<CompanionList>(
+				CompanionList.class, "Familiar");
+		race  = new  CDOMDirectSingleRef<Race>(human);
+		option = new FollowerOption(race, ref);
+		ab.addToListFor(ListKey.COMPANIONLIST, option);
+		fo = pc.getAvailableFollowers("Familiar");
+		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
+		assertEquals("Familiar should be the human race", human.getKeyName(), fo.get(0).getRace().getKeyName());
+		assertEquals("Familiar list should only have one entry", 1, fo.size());
+		fo = pc.getAvailableFollowers("MOUNT");
+		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
+		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.get(0).getRace().getKeyName());
+		assertEquals("Mount list should only have one entry", 1, fo.size());
 	}
 }
