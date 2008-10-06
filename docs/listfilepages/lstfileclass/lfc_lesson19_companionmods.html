@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+	<!--
+		PCGen Documentation Project
+				
+		$Author: maredudd800 $
+		$Date: 2008-07-15 07:01:18 -0400 (Tue, 15 Jul 2008) $
+		$Revision: 7165 $
+		
+		Contributors:
+		Andrew Maitland - drew0500ATyahooDOTcom
+		Eric C. Smith - mareduddATblackrootDOTorg
+		
+		Description:
+		Provides information on List files.
+	-->
+	<head>
+		<title>LST File Class</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+
+	<body>
+
+		<h1>Lesson #19: .lst - Companion Modifications</h1>
+
+		<p class="indent0">By Andrew A. Maitland (LegacyKing)</p>
+
+		<p class="indent0"><strong>File(s) Covered:</strong><span class="lstfile">companionmods.lst</span></p>
+
+		<p class="indent0"><strong>Tags used:</strong></p>
+
+		<p class="indent1"> <code><a href="">FOLLOWER</a>, 
+			<a href="">COPYMASTERBAB</a>, 
+			<a href="">COPYMASTERCHECK</a>, 
+			<a href="">COPYMASTERHP</a>, 
+			<a href="">FOLLOWERADJUSTMENT</a>, 
+			<a href="">HD</a>, 
+			<a href="">MASTERBONUSRACE</a>,
+			<a href="">RACETYPE</a>, 
+			<a href="">TYPE</a>,  
+			<a href="">USEMASTERSKILL</a>, 
+			<a href="">BONUS:FOLLOWERS</a>, 
+			<a href="">COMPANIONLIST</a></code></p>
+		<p></p>
+
+<hr>
+
+		<p class="indent0"></p>
+
+		<p class="indent0">Welcome to the section on Companion Mod creation and editing.</p>
+
+		<h4>Standards</h4>
+
+		<p class="indent1">&LT;TAB&gt; indicates a Tab character.</p>
+		<p class="indent1"><strong>ALL CAPS</strong> indicates an actual tag.</p>
+		<p class="indent1">Actual Tag usage will be on it's own line to avoid confusion. Followed by a brief 
+			explanation of either it's function or what it's doing in the context of the example.</p>
+
+<hr>
+
+		<h2>SECTION 1: How to Create Your Own Companions</h2>
+
+		<p class="indent0">There may come a time when you want to make your own special companion which doesn't match 
+			the rules. That's okay. Setting up a new companion with different powers or grants different bonuses to 
+			the master is acceptable. That is what this section is here for, to guide you through the process of making 
+			your companion - be it a Special Familiar, a War mount or anything else you might want.</p>
+
+		<p class="indent0">So without further adieu...</p>
+		
+<hr>
+		
+		<h3>The Tags</h3>
+
+		<h4>FOLLOWER</h4>
+		<p class="indent0">The first tag we're going to look at is <code>FOLLOWER</code>, each line generally starts 
+			with the Follower tag.</p>
+
+		<p class="indent0">Think of the Follower as sort of a class Tag telling the program what "level" things happen 
+			at. So like we have Class Level Lines to tell PCGen what is applied at that level and lower so to do we have 
+			a tag called FOLLOWER which acts in much the same way.</p>
+
+
+		<p class="indent1"><code>FOLLOWER:MonkeyFu=1</code></p>
+		<p class="indent0">The Follower tag can take variables or Class names. So if MonkeyFu is a Class then you need 
+			to have the first level to qualify, however, MonkeyFu is a variable, so you need to have this variable of at 
+			least 1 to obtain the rest of the benefits derived from the rest of the line.</p>
+
+		<p class="indent1"><code>FOLLOWER:Paladin=1</code></p>
+		<p class="indent0">You need to have 1 level in paladin class.</p>
+
+		<p class="indent1"><code>FOLLOWER:MagicItem=1</code></p>
+		<p class="indent0">You need to have 1 in a variable name called MagicItem</p>
+
+
+		<p class="indent0">The second and VERY important tag is <code>TYPE</code></p>
+		<p class="indent0">Type tells pcgen what applies to this line. The ones used commonly in PCGen's main sets 
+			are: Familiar, Animal Companion, Special Mount</p>
+
+		<p class="indent0">Any Creature meeting that "TYPE" will have the benefits applied to them. Simply put 
+			without a TYPE PCGen won't be able to able the changes you code up. TYPE has to match exactly the 
+			name from COMPANIONLIST.</p>
+
+		<p class="indent0">Example of a Familiar:</p>
+		<p class="indent1"><code>COMPANIONLIST:Familiar|Bat,Cat</code></p>
+		<p class="indent2">Bat and Cat are both of the Familiar TYPE.</p>
+
+		<p class="indent0">After that you can use any Tags are appropriate for your Companion. </p>
+		<p class="indent0">So let's review the tags we can commonly use on the Follower Line/</p>
+
+<hr>
+
+		<h4>COPYMASTERBAB</h4>
+		<p class="indent0">If you want your companion to either follow the Master PC Base Attack Bonus progression or 
+			have a unique one of it's own, you would use this tag.</p>
+
+		<p class="indent1"><code>COPYMASTERBAB:MASTER</code></p>
+		<p class="indent0">Follows the Master's BAB progression (Common for familiars)</p>
+
+		<p class="indent1"><code>COPYMASTERBAB:5</code></p>
+		<p class="indent0">Sets the BAB of the creature to 5</p>
+
+<hr>
+
+		<h4>COPYMASTERCHECK:MASTER</h4>
+		<p class="indent0">That's it, this only copies the Master's Base Checks (Commonly Fortitude, Reflex and Will) 
+			The creature will use it's Stats to modify the base though (Common for Familiar)</p>
+
+<hr>
+
+		<h4>FOLLOWERADJUSTMENT</h4>
+		<p class="indent0">This is used appended to the COMPANIONLIST tag. COMPANIONLIST is the another Tag that can be 
+		first in a companion mod file.</p>
+
+		<p class="indent0">Example from the docs</p>
+		<p class="indent1"><code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code></p>
+
+		<p class="indent0">An Ape companion to a 4th level Druid gains the benefits normally granted to a companion of 
+			a 1st level Druid.</p>
+
+<hr>
+
+		<h4>HD</h4>
+		<p class="indent0">This will grant bonus Hit Die of the creature type.</p>
+
+		<p class="indent0">EXAMPLE:</p>
+		<p class="indent1"><code>HD:5</code></p>
+		<p class="indent2">Will grant 5 bonus Hit Die (Or class levels) of the creatures type. If the Creature is Fey 
+			it will gain the HD and class benefits of being 5 HD stronger</p>
+		<p class="sidebar1">NOTE: The base creature can exceed the maximum HD cap for it's race in this manner.</p>
+
+<hr>
+
+		<h4>MASTERBONUSRACE</h4>
+		<p class="indent0">Sets any special bonuses a particular race may grant to the master (Common for familiar).</p>
+		<p class="indent0">Common tags to follow this are BONUS and VFEAT.</p>
+		<p class="indent0">The uses of this tag are not to be underestimated, with this tag you can grant a level 
+			dependent bonus to the master at a certain level.</p>
+
+		<p class="indent0"><strong>EXAMPLE:</strong></p>
+		<p class="indent1"><code>MASTERBONUSRACE:Bat &lt;TAB&gt; BONUS:SKILL|Spot|3</code></p>
+		<p class="indent2">Would give the master +3 bonus to Spot checks if he has a Bat.</p>
+
+		<p class="indent1"><code>MASTERBONUSRACE:Bat &lt;TAB&gt; BONUS:VAR|MyCoolVar|3|PREPCLEVEL:MIN=10</code></p>
+		<p class="indent2">At 10th level the Master of this Bat gets 3 to his 'MyCoolVar' which can be attached to a 
+			feat, ability, or even an item with a Variable in the SPROP.</p>
+
+		<p class="indent1"><code>MASTERBONUSRACE:Magic Item - Sword &lt;TAB&gt; BONUS:VAR|MagicWeaponPlusIncrease|2|PREVARGTEQ:MagicItem,1</code></p>
+		<p class="indent2">This will grant two (2) to the varaible MagicWeaponPlusIncrease when the PREVAR 
+			requirements are met.</p>
+		
+<hr>
+
+		<h4>RACETYPE</h4>
+		<p class="indent0">This tag will change the base creature's type to the one listed.</p>
+
+		<p class="indent1"><code>RACETYPE:Fey</code></p>
+		<p class="indent2">The creature now has the Fey Type</p>
+
+<hr>
+
+		<h4>USEMASTERSKILL</h4>
+		<p class="indent0">Determines whether the creature will have the exact same skill ranks as the master.</p>
+
+		<p class="indent0">Your choices are <code>YES</code> and <code>NO</code> (Default).</p>
+
+		<p class="indent1"><code>USEMASTERSKILL:YES</code></p>
+		<p class="indent2">Creature will have the exact same ranks in the skills chosen by the master.</p>
+
+<hr>
+
+		<h4>BONUS:FOLLOWERS</h4>
+		<p class="indent0">Although this tag is not used in a <span class="lstfile">companionmods.lst</span> file, 
+			it does deserve mention in this class.</p>
+
+		<p class="indent0">The <code>BONUS:FOLLOWER</code> tag is what allows us to actually gain the creature. Without 
+			it you won't be able to get the creature. This needs to match the <code>COMPANIONLIST</code> definition, 
+			which is seen as the companion type inside our actual file.</p>
+
+		<p class="indent1"><code>BONUS:FOLLOWERS|Familiar|1</code></p>
+		<p class="indent2">You can gain one (1) Familiar</p>
+
+		<p class="indent1"><code>FOLLOWER:Whatever=1 &lt;TAB&gt; TYPE:Familiar</code></p>
+		<p class="indent1"><code>COMPANIONLIST:Familiar|Foo</code></p>
+
+		<p class="indent0">Notice the pattern, if you don't match those exactly you won't get your creature.</p>
+
+<hr>
+
+		<h3>Putting it All Together</h3>
+		
+		<p class="indent0">Okay, lets put together a sample critter</p>
+
+		<blockquote class="indent1">
+			<p class="tagindent1"><code>FOLLOWER:Monkey Warrior=1 &lt;TAB&gt; HD:5 &lt;TAB&gt; TYPE:Monkey Mount &lt;TAB&gt; 
+				ABILITY:Special Ability|AUTOMATIC|Dodging Foo|Nasty Breath &lt;TAB&gt; RACETYPE:Dragon &lt;TAB&gt; 
+				USEMASTERSKILL:YES</code></p>
+		</blockquote>
+		<p class="indent2">Okay Class, I threw a few curve balls in there. As a 1st level Monkey Warrior, 
+			<code>FOLLOWER:Monkey Warrior=1</code>, my critter of the Monkey Mount type, <code>TYPE:Monkey Mount</code>, 
+			will become a Dragon race type, <code>RACETYPE:Dragon</code>. It will use my skill rank selection, 
+			<code>USEMASTERSKILL:YES</code>, and get the special abilities of Dodging Foo and Nasty Breath, 
+			<code>ABILITY:Special Ability|AUTOMATIC|Dodging Foo|Nasty Breath</code>, as automatic abilities.</p>
+
+		<p class="indent1"><code>FOLLOWER:Monkey Warrior=5 &lt;TAB&gt; HD:5 &lt;TAB&gt; SR:12+HD</code></p>
+		<p class="indent2">When Monkey Warrior becomes 5th level, my critter will gain another 5 bonus hit die and gain 
+			Spell Resistance of 12 + it's HD.</p>
+
+		<p class="indent0">This is showing you what is possible in your own Companion Mod file.
+
+		<p class="indent0">Now, we shouldn't leave you at this... You need to place some where what creatures I can select.</p>
+		<p class="indent1"><code>COMPANIONLIST:Monkey Mount|Wolf,Fuzzy Bear</code></p>
+		<p class="indent2">That would make a Wolf and Fuzzy Bear</p>
+
+		<p class="indent1"><code>COMPANIONLIST:Monkey Mount|Bat|FOLLOWERADJUSTMENT:-5</code></p>
+		<p class="indent2">If my Monkey Warrior takes a bat companion he needs to be 6th level before the 1st level effect 
+			takes place and then 10th level for the level 5 effect.</p>
+
+		<p class="indent0">Now an advanced technique for those that feel they understand this.</p>
+
+		<p class="indent1"><code>COMPANIONLIST:Intelligent Item|Intelligent Weapon - Longsword</code></p>
+		<p class="indent1"><code>BONUS:FOLLOWERS|Intelligent Item|1</code></p>
+
+		<blockquote class="indent1">
+			<p class="tagindent1"><code>MASTERBONUSRACE:Intelligent Weapon - Longsword &lt;TAB&gt; BONUS:SKILL|Move 
+			Silently|5|TYPE=Competence &lt;TAB&gt; AUTO:FEAT|Weapon Focus(Longsword) &lt;TAB&gt; BONUS:VAR|WeaponPlusIncrease|1|PREPCLEVEL:MIN=8</code></p>
+		</blockquote>
+
+		<p class="indent0">Okay, that should get you on the path of Companion Mod file creation. In the next section we 
+			discuss applications of adding and modifying the Companion List.</p>
+
+<hr>
+
+		<h2>SECTION 2: Modifying Companion Lists</h2>
+
+		<p class="indent0">It always happens, either through a feat, new power or just a whim. Regardless of the 
+			source, there may come a time when you wish to add to the list of available critters to a certain 
+			class or group.</p>
+
+		<p class="indent1"><code>COMPANIONLIST</code> is additive. A good example of this case is Improved Familiar.</p>
+
+		<p class="indent1"><code>COMPANIONLIST:Familiar|Shocker Lizard,Stirge|PRECLASS:1,SPELLCASTER.Arcane=5</code></p>
+
+		<p class="indent0">This will grant the Shocker Lizard and Stirge to the available list in the Familiar (TYPE) 
+			if the master is an Arcane Spell Caster of 5th level or higher.</p>
+
+<hr>
+
+		<p class="indent0">-Andrew Maitland</p>
+
+
+<hr>
+
+		<p>
+			<a href="http://validator.w3.org/check?uri=referer"><img
+       		src="../../images/system/valid-html401.png"
+       		alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+		</p>
+	</body>
+</html>
