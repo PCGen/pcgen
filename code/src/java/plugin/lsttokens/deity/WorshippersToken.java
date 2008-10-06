@@ -3,19 +3,22 @@ package plugin.lsttokens.deity;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
 
 /**
  * Class deals with WORSHIPPERS Token
  */
-public class WorshippersToken implements CDOMPrimaryToken<Deity>
+public class WorshippersToken extends AbstractToken implements
+		CDOMPrimaryToken<Deity>
 {
 
 	/**
 	 * Get token name
-	 * @return token name 
+	 * 
+	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "WORSHIPPERS";
@@ -23,9 +26,8 @@ public class WorshippersToken implements CDOMPrimaryToken<Deity>
 
 	public boolean parse(LoadContext context, Deity deity, String value)
 	{
-		if (value.length() == 0)
+		if (isEmpty(value))
 		{
-			Logging.errorPrint(getTokenName() + " arguments may not be empty");
 			return false;
 		}
 		context.getObjectContext().put(deity, StringKey.WORSHIPPERS, value);
@@ -34,14 +36,13 @@ public class WorshippersToken implements CDOMPrimaryToken<Deity>
 
 	public String[] unparse(LoadContext context, Deity deity)
 	{
-		String worshippers =
-				context.getObjectContext().getString(deity,
-					StringKey.WORSHIPPERS);
+		String worshippers = context.getObjectContext().getString(deity,
+				StringKey.WORSHIPPERS);
 		if (worshippers == null)
 		{
 			return null;
 		}
-		return new String[]{worshippers};
+		return new String[] { worshippers };
 	}
 
 	public Class<Deity> getTokenClass()
