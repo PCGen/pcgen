@@ -1,0 +1,149 @@
+Greetings,
+
+In this lesson we cover both Abilities and Abilitycategories, since the two are linked, without one you can't have the other and vice versa.
+
+(This lesson contains sections from the 4e Beginners Guide to Lst coding)
+
+The Basis for groupings are the ABILITYCATEGORY.
+
+These are the foundation upon which the abilities are used. There are TWO types - Superset or Parent and Subset or Child.
+
+Examples:
+ABILITYCATEGORY:Special Ability		
+VISIBLE:NO	
+EDITABLE:NO			
+EDITPOOL:YES	
+FRACTIONALPOOL:NO		
+CATEGORY:Special Ability
+
+That is a Parent or Superset - So defined because the ABILITYCATEGORY and CATEGORY Match. You do not need TYPE, DISPLAYLOCATION or PLURAL for a Superset.
+
+
+ABILITYCATEGORY:Cleric Class Skills		
+VISIBLE:QUALIFY	
+EDITABLE:YES		
+EDITPOOL:NO		
+FRACTIONALPOOL:NO		
+CATEGORY:Skill Training		
+TYPE:Cleric		
+DISPLAYLOCATION:1st Level Skill Training
+
+This is a subset or child. The Abilitycategory name is different from the Category. So this is a Child of the SKill Training Category.
+You'll see that a Child also REQUIRES a valid Type. Without a TYPE you'll have an empty list and PCGEn will report an error. This TYPE is used as an identifier to determine which Abilities from the parent set (defined by the CATEGORY token) are part of the subset defined by this child abilitycategory. Any Ability that is part of the parent category and has all of the types listed in the TYPE token of the AbilityCategory is part of this child abilitycategory.
+
+
+
+###
+
+Now that we understand how to set up a basic Parent / Child Abilitycategory we need to be able to both populate the list and allow people to make choices in them (In some cases we don't need player guidance)
+
+Using our existing Child Abilitycategory lets say I want my Cleric to have one choice. So, I'll use the following tag
+BONUS:ABILITYPOOL|Cleric Class Skills|1
+
+This will grant 1 choice to the Cleric Class Skills pool. However, the list is blissfully empty. In order to populate the list we need actual abilities. Simply having an ability with the Category of Skill Training will accomplish nothing. We need to tell it what abilities go in the Cleric Class Skills pool. 
+
+So we see TYPE:Cleric as the TYPE that will populate our pool. This is oposite from basic feats in that without a TYPE it will not display anything, a feat will automatically display. So TYPE is a filter to allow things in.
+
+
+TYPE in an Ability, like in most other files, is simply a characteristic of the object (an Object can have more than one type). Generally TYPE can be used to refer to objects in groups. However, in Abilities, TYPE is used to create the sets of objects that appear in an ability category or in a subset ability category
+
+Dummy Object
+TYPE:Cleric
+CATEGORY:Skill Training
+
+"Dummy Object" is part of the Skill Training abilitycategory and could be purchased with the point in that pool. We just repeat this until all the abilities we want are part of the abilitycategory. Also, you may have more than one TYPE in an ability. To give an ability more than one type, you separate the types using a period '.' 
+
+So 
+Dummy Object
+TYPE:Cleric.Monkey Fu
+CATEGORY:Skill Training
+
+Has both Cleric and Monkey Fu types, and can be pulled into any 'pool' using either of those types. However, a Ability may not have more than one category. You may have abilities with the same name but different CATEGORY and you won't have a problem.
+
+Category with the name make the unique key, this is demonstrated when we want to .MOD (Modify) an ability. Let's say we have Monkey Fu for Special Ability, Fighter and FEAT. This would be shown as:
+
+CATEGORY=Special Ability|Monkey Fu
+CATEGORY=Fighter|Monkey Fu
+CATEGORY=FEAT|Monkey Fu
+
+add the .MOD or .COPY= to the end, but as you can see we can have the same name but no overlap or ambigiutity.
+
+
+
+We have several groupings of Abilities:
+Datasets from 3e typically use multiple ability categories, including
+
+Special Abilities - These will be where you place MOST of your abilities
+- In order to group anything, you will use the 'CATEGORY:' tag.
+
+CATEGORY:Special Ability
+Denotes the ability belongs to the Special Ability category.
+
+CATEGORY:FEAT
+Is how a Feat would be displayed in an ABILITY file, otherwise in a basic feat file it's assumed and is not required.
+
+we tend to name these the same as what appears in the rule book for clarity
+--
+
+
+NOTE: Depending on the type of file you use will factor into how you use the PRExxx tags.
+A Feat File works with PREFEAT, where a ABILITY File works with PREABILITY. Though they should be interchangeable you should be aware of the subtle differences. Also, any ABILITY with a category other than FEAT will NOT take PREFEAT. 
+So, PREFEAT:1,Dodge and PREABILITY:1,CATEGORY=FEAT,Dodge should work just fine... But try to keep this in mind. If all your feats are created in an ABILITY file, then restrict yourself to using PREABILITY:x,CATEGORY=y,z format. (See Tag Index Docs for specific tag usage).
+
+
+Now, Class Abilities...
+
+Monkey Warrior has a Special Class Feature which Allows him to use  'Monkey Warrior Fu'.
+
+In order for that to work we need to create those abilities here. Recap of how the class is calling them:
+ABILITY:Special Ability|AUTOMATIC|Monkey Warrior Fu
+
+So, to break that tag into basic pieces, first it tells pcgen this is an ability located in an ability file, next it tells pcgen the abilitycategory of the ability. That is KEY to understanding where the program looks for the ability, finally we tell pcgen how this ability will appear on the character. The Nature is very important.
+We have three Natures 
+NORMAL = It charges a pool point and also will NOT add the ability if you do not meet the Prereqs.
+AUTOMATIC = No charge to the pool, this will automatically appear on the character (Yellow unless you changed your preferences)
+VIRTUAL = Bypasses any Requirements and will not charge the pool. (Appears purple by default)
+
+Ability 
+
+And Finally we tell PCGen what the Ability Name is. In this case Monkey Warrior Fu.
+
+NOTE: That each ability is separated by a '|' pipe. Do not use periods '.' or commas ',' or you will have issues.
+
+Okay, so now we know how the ability is called, now we must make the ability.
+
+Making an ability is not hard, inside the ability we can use any global tag. (See docs for global tags). So what we need to know is what the ability should do.
+
+Monkey Warrior Fu grants our monkey warrior weapon proficiencies, armor and shield proficiencies and the ability to Shout each time he gets into a fight but only once.
+
+Each Line indented indicates a tab for ease of flow.
+
+Monkey Warrior Fu
+	TYPE:CLass Ability
+	CATEGORY:Special Ability
+	AUTO:WEAPONPROF|Monkey Claws|Monkey Bite|Monkey Fists
+	AUTO:ARMORPROF|Monkey Jacket
+	AUTO:SHIELDPROF|Bananna Buckler
+	SAB:Monkey Warrior Shout ~ Once per fight you can instill the fear of the monkey. At 12th level this Shout deals 1d10 bad breath damage
+
+
+
+NOTE: DESC tag should be enabled on the NEW Output Sheet and PDF. In that case using special TYPES will make it appear in different places. In this SpecialAttack will appear in the SPecial Attack section. However, DESC uses a slightly different wildcard. Instead of just '%' for each variable in a row, it uses a slightly more intelligent mechanic of '%' followed by the number that the variable appears in.
+
+e.g.
+DESC: I throw %1 rocks per round  plus %2d%3+%1 damage for %4 rounds|Example1|Example2|Example3|Example4
+
+Now lets say 
+example 1 = 5
+example 2 = 1
+example 3 = 4
+example 4 = 8
+
+So that would appear as
+DESC: I throw 5 rocks per round  plus 1d4+5 for 8 rounds|Example1|Example2|Example3|Example4
+
+Okay, that is the basics of creating class abilities, which can also be racial abilities.
+
+We've covered the basics of creating ABILITYCATEGORY tags to create pools, learned how to make the abilities so they are put in those pools.
+
+I think this covers the basics for abilities. If we come across more advanced techniques to be explained they will covered in an advanced series.
