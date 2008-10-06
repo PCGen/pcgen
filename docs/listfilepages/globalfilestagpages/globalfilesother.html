@@ -302,15 +302,15 @@
         <p class="indent1"><strong class="indent0">Variables used (z): </strong> FOLLOWERADJUSTMENT=(number)
         (Adjustment to the follower level variable).</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
-        <p class="indent2">? Adds a specific race or races to the list of available companions for the specified
-        companion type.</p>
-        <p class="indent2">? PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags are checked
-        against the master.</p>
-        <p class="indent2">? If the master does not meet the prereqs the companion will be displayed in the list
-        but will be listed in red and cannot be added as a companion.</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Global.</p>
-        <p class="indent1"><strong>Example:</strong> </p>
+        <ul class="indent2">
+        	<li>Adds a specific race or races to the list of available companions for the specified 
+				companion type.</li>
+    		<li>PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags are checked 
+				against the master.</li>
+			<li>If the master does not meet the prereqs the companion will be displayed in the list
+				but will be listed in red and cannot be added as a companion.</li>
+		</ul>
+         <p class="indent1"><strong>Example:</strong> </p>
         <p class="indent2"><code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,
         Weasel</code> </p>
         <p class="indent3">Would build the list of standard familiars available to a Sorcerer or Wizard.</p>
