@@ -216,4 +216,15 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	public abstract CDOMPrimaryToken<T> getToken();
 
+	public void testNoStackTrace()
+	{
+		try
+		{
+			getToken().parse(primaryContext, primaryProf, null);
+		}
+		catch (Exception e)
+		{
+			fail("Token should not throw an exception with null input");
+		}
+	}
 }
