@@ -96,18 +96,18 @@
 
 		<p class="indent0">The second and VERY important tag is <code>TYPE</code></p>
 		<p class="indent0">Type tells pcgen what applies to this line. The ones used commonly in PCGen's main sets 
-			are: Familiar, Animal Companion, Special Mount</p>
+			are: Familiar, Animal Companion, Special Mount, Mount and Follower.</p>
 
 		<p class="indent0">Any Creature meeting that "TYPE" will have the benefits applied to them. Simply put 
 			without a TYPE PCGen won't be able to able the changes you code up. TYPE has to match exactly the 
-			name from COMPANIONLIST.</p>
+			name from COMPANIONLIST. Think of TYPE as a Group, TYPE groups things together, so with that frame of mind, Familiar is a group, as is Special Mount.</p>
 
 		<p class="indent0">Example of a Familiar:</p>
 		<p class="indent1"><code>COMPANIONLIST:Familiar|Bat,Cat</code></p>
-		<p class="indent2">Bat and Cat are both of the Familiar TYPE.</p>
+		<p class="indent2">Bat and Cat are both of the Familiar TYPE or group.</p>
 
-		<p class="indent0">After that you can use any Tags are appropriate for your Companion. </p>
-		<p class="indent0">So let's review the tags we can commonly use on the Follower Line/</p>
+		<p class="indent0">After that you can use any Tags that are appropriate for your Companion. </p>
+		<p class="indent0">So let's review the tags we can commonly use on the Follower Line.</p>
 
 <hr>
 
@@ -146,14 +146,14 @@
 
 		<p class="indent0">EXAMPLE:</p>
 		<p class="indent1"><code>HD:5</code></p>
-		<p class="indent2">Will grant 5 bonus Hit Die (Or class levels) of the creatures type. If the Creature is Fey 
+		<p class="indent2">Will grant 5 bonus Hit Die (Or class levels) of the creatures type (The Creature TYPE is called RACETYPE and normally follows the standard choices. The RACETYPE can be changed inside the CompanionMod lst file any bonus HD will use that Race Type. If the Creature is Fey 
 			it will gain the HD and class benefits of being 5 HD stronger</p>
-		<p class="sidebar1">NOTE: The base creature can exceed the maximum HD cap for it's race in this manner.</p>
+		<p class="sidebar1">NOTE: The base creature can exceed the maximum HD cap for its race in this manner.</p>
 
 <hr>
 
 		<h4>MASTERBONUSRACE</h4>
-		<p class="indent0">Sets any special bonuses a particular race may grant to the master (Common for familiar).</p>
+		<p class="indent0">Sets any special bonuses a particular race or creature may grant to the master (Common for familiar).</p>
 		<p class="indent0">Common tags to follow this are BONUS and VFEAT.</p>
 		<p class="indent0">The uses of this tag are not to be underestimated, with this tag you can grant a level 
 			dependent bonus to the master at a certain level.</p>
@@ -173,10 +173,10 @@
 <hr>
 
 		<h4>RACETYPE</h4>
-		<p class="indent0">This tag will change the base creature's type to the one listed.</p>
+		<p class="indent0">This tag will change the base creature's type to the one listed. RACETYPE affects the Bonus HD and progression of the creature.</p>
 
 		<p class="indent1"><code>RACETYPE:Fey</code></p>
-		<p class="indent2">The creature now has the Fey Type</p>
+		<p class="indent2">The creature now has the Fey Type which replaces its previous RACETYPE as assigned by the race file.</p>
 
 <hr>
 
@@ -194,17 +194,17 @@
 		<p class="indent0">Although this tag is not used in a <span class="lstfile">companionmods.lst</span> file, 
 			it does deserve mention in this class.</p>
 
-		<p class="indent0">The <code>BONUS:FOLLOWER</code> tag is what allows us to actually gain the creature. Without 
-			it you won't be able to get the creature. This needs to match the <code>COMPANIONLIST</code> definition, 
+		<p class="indent0">The <code>BONUS:FOLLOWER</code> tag is what allows us to actually gain a creature in a particular TYPE or group. Without 
+			it you won't be able to select or add any creatures from that TYPE or group. This needs to match the <code>COMPANIONLIST</code> definition, 
 			which is seen as the companion type inside our actual file.</p>
 
-		<p class="indent1"><code>BONUS:FOLLOWERS|Familiar|1</code></p>
+		<p class="indent1"><code>BONUS:FOLLOWERS|<b>Familiar</b>|1</code></p>
 		<p class="indent2">You can gain one (1) Familiar</p>
 
-		<p class="indent1"><code>FOLLOWER:Whatever=1 &lt;TAB&gt; TYPE:Familiar</code></p>
-		<p class="indent1"><code>COMPANIONLIST:Familiar|Foo</code></p>
+		<p class="indent1"><code>FOLLOWER:Whatever=1 &lt;TAB&gt; TYPE:<b>Familiar</b></code></p>
+		<p class="indent1"><code>COMPANIONLIST:<b>Familiar</b>|Foo</code></p>
 
-		<p class="indent0">Notice the pattern, if you don't match those exactly you won't get your creature.</p>
+		<p class="indent0">Notice the pattern, if you don't match those exactly you won't get access to that TYPE or group. I bolded the entries for you to see what must match.</p>
 
 <hr>
 
@@ -229,13 +229,13 @@
 
 		<p class="indent0">This is showing you what is possible in your own Companion Mod file.
 
-		<p class="indent0">Now, we shouldn't leave you at this... You need to place some where what creatures I can select.</p>
+		<p class="indent0">Now, we shouldn't leave you at this... You need to place the COMPANIONLIST tag somewhere outside this file, either a feat, ability, template or even inside a class, and with the tag you choose what creatures belong in the Monkey Mount (TYPE) or group.</p>
 		<p class="indent1"><code>COMPANIONLIST:Monkey Mount|Wolf,Fuzzy Bear</code></p>
-		<p class="indent2">That would make a Wolf and Fuzzy Bear</p>
+		<p class="indent2">That would make a Wolf and Fuzzy Bear part of the Monkey Mount (TYPE) or group.</p>
 
 		<p class="indent1"><code>COMPANIONLIST:Monkey Mount|Bat|FOLLOWERADJUSTMENT:-5</code></p>
 		<p class="indent2">If my Monkey Warrior takes a bat companion he needs to be 6th level before the 1st level effect 
-			takes place and then 10th level for the level 5 effect.</p>
+			takes place and then 10th level for the level 5 effect. The '-5' means the creature in that grouping will act as if five (5) levels lower, this works regardless of Class or Variable. Druid Class in the SRD and RSRD makes a great example of this case.</p>
 
 		<p class="indent0">Now an advanced technique for those that feel they understand this.</p>
 
@@ -246,6 +246,8 @@
 			<p class="tagindent1"><code>MASTERBONUSRACE:Intelligent Weapon - Longsword &lt;TAB&gt; BONUS:SKILL|Move 
 			Silently|5|TYPE=Competence &lt;TAB&gt; AUTO:FEAT|Weapon Focus(Longsword) &lt;TAB&gt; BONUS:VAR|WeaponPlusIncrease|1|PREPCLEVEL:MIN=8</code></p>
 		</blockquote>
+
+		<p class="indent0">Can you figure it out? If I have the Intelligent Weapon - Longsword I'll get a plus five (+5) competence bonus to Move Silently, Weapon Focus for the Longsword as an Automatic Feat and when I attain a total character level of eight (8th level) I will get plus one (+1) to the variable name 'WeaponPlusIncrease'. Were you able to follow that? If not, it's okay, this can become complex quickly.</p>
 
 		<p class="indent0">Okay, that should get you on the path of Companion Mod file creation. In the next section we 
 			discuss applications of adding and modifying the Companion List.</p>
@@ -264,6 +266,10 @@
 
 		<p class="indent0">This will grant the Shocker Lizard and Stirge to the available list in the Familiar (TYPE) 
 			if the master is an Arcane Spell Caster of 5th level or higher.</p>
+
+	<p class="indent1"><code>COMPANIONLIST:Monkey Mount|Sand Shark</code></p>
+
+		<p class="indent0">This will grant the Sand Shark to the available list in the Monkey Mount (TYPE) group.</p>
 
 <hr>
 
