@@ -4,15 +4,18 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with ACHECK Token
  */
-public class AcheckToken implements CDOMPrimaryToken<Skill>
+public class AcheckToken extends AbstractToken implements
+		CDOMPrimaryToken<Skill>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ACHECK";
@@ -20,6 +23,10 @@ public class AcheckToken implements CDOMPrimaryToken<Skill>
 
 	public boolean parse(LoadContext context, Skill skill, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		SkillArmorCheck aCheck;
 		try
 		{

@@ -4,6 +4,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -11,9 +12,11 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken implements CDOMPrimaryToken<Skill>
+public class VisibleToken extends AbstractToken implements
+		CDOMPrimaryToken<Skill>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "VISIBLE";
@@ -21,6 +24,10 @@ public class VisibleToken implements CDOMPrimaryToken<Skill>
 
 	public boolean parse(LoadContext context, Skill skill, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		String visString = value;
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		boolean readOnly = false;
@@ -34,7 +41,7 @@ public class VisibleToken implements CDOMPrimaryToken<Skill>
 			else
 			{
 				Logging.errorPrint("Misunderstood text after pipe on Tag: "
-					+ value);
+						+ value);
 				return false;
 			}
 		}
@@ -96,7 +103,8 @@ public class VisibleToken implements CDOMPrimaryToken<Skill>
 		{
 			return null;
 		}
-		if (!vis.equals(Visibility.DEFAULT) && !vis.equals(Visibility.DISPLAY_ONLY)
+		if (!vis.equals(Visibility.DEFAULT)
+				&& !vis.equals(Visibility.DISPLAY_ONLY)
 				&& !vis.equals(Visibility.OUTPUT_ONLY))
 		{
 			context.addWriteMessage("Visibility " + vis

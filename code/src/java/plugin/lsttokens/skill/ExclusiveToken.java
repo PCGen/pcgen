@@ -3,15 +3,18 @@ package plugin.lsttokens.skill;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with EXCLUSIVE Token
  */
-public class ExclusiveToken implements CDOMPrimaryToken<Skill>
+public class ExclusiveToken extends AbstractToken implements
+		CDOMPrimaryToken<Skill>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "EXCLUSIVE";
@@ -19,6 +22,10 @@ public class ExclusiveToken implements CDOMPrimaryToken<Skill>
 
 	public boolean parse(LoadContext context, Skill skill, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
@@ -34,7 +41,7 @@ public class ExclusiveToken implements CDOMPrimaryToken<Skill>
 		else
 		{
 			if (firstChar != 'N' && firstChar != 'n'
-				&& !value.equalsIgnoreCase("NO"))
+					&& !value.equalsIgnoreCase("NO"))
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
 						+ getTokenName());
@@ -48,14 +55,13 @@ public class ExclusiveToken implements CDOMPrimaryToken<Skill>
 
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		Boolean exclusive =
-				context.getObjectContext()
-					.getObject(skill, ObjectKey.EXCLUSIVE);
+		Boolean exclusive = context.getObjectContext().getObject(skill,
+				ObjectKey.EXCLUSIVE);
 		if (exclusive == null)
 		{
 			return null;
 		}
-		return new String[]{exclusive.booleanValue() ? "YES" : "NO"};
+		return new String[] { exclusive.booleanValue() ? "YES" : "NO" };
 	}
 
 	public Class<Skill> getTokenClass()

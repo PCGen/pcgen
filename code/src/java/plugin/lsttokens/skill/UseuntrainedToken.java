@@ -3,15 +3,18 @@ package plugin.lsttokens.skill;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with USEUNTRAINED Token
  */
-public class UseuntrainedToken implements CDOMPrimaryToken<Skill>
+public class UseuntrainedToken extends AbstractToken implements
+		CDOMPrimaryToken<Skill>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "USEUNTRAINED";
@@ -19,6 +22,10 @@ public class UseuntrainedToken implements CDOMPrimaryToken<Skill>
 
 	public boolean parse(LoadContext context, Skill skill, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
@@ -26,7 +33,7 @@ public class UseuntrainedToken implements CDOMPrimaryToken<Skill>
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				Logging.errorPrint("You should use 'YES' as the "
-					+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value);
 				return false;
 			}
 			set = Boolean.TRUE;
@@ -53,14 +60,13 @@ public class UseuntrainedToken implements CDOMPrimaryToken<Skill>
 
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		Boolean useUntrained =
-				context.getObjectContext().getObject(skill,
-					ObjectKey.USE_UNTRAINED);
+		Boolean useUntrained = context.getObjectContext().getObject(skill,
+				ObjectKey.USE_UNTRAINED);
 		if (useUntrained == null)
 		{
 			return null;
 		}
-		return new String[]{useUntrained.booleanValue() ? "YES" : "NO"};
+		return new String[] { useUntrained.booleanValue() ? "YES" : "NO" };
 	}
 
 	public Class<Skill> getTokenClass()

@@ -5,15 +5,17 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with COST Token
  */
-public class CostToken implements CDOMPrimaryToken<Spell>
+public class CostToken extends AbstractToken implements CDOMPrimaryToken<Spell>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COST";
@@ -21,6 +23,10 @@ public class CostToken implements CDOMPrimaryToken<Spell>
 
 	public boolean parse(LoadContext context, Spell spell, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			BigDecimal cost = new BigDecimal(value);
