@@ -1,0 +1,90 @@
+/**
+ * pcgen.core.term.EvaluatorFactoryPCStat.java
+ * Copyright © 2008 Andrew Wilson <nuance@users.sourceforge.net>.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 21-Sep-2008 01:29:15
+ *
+ * Current Ver: $Revision:$
+ * Last Editor: $Author:$
+ * Last Edited: $Date:$
+ *
+ */
+
+package pcgen.core.term;
+
+public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
+{
+
+	private String   termConstructorPattern;
+	private String[] termConstructorKeys;
+	private boolean  patternMatchesEntireTerm;
+
+	TermEvaluatorBuilderPCStat(
+			String pattern,
+			String[] keys,
+			boolean matchEntireTerm)
+	{
+		termConstructorPattern   = pattern;
+		termConstructorKeys      = keys;
+		patternMatchesEntireTerm = matchEntireTerm;
+	}
+
+	public String getTermConstructorPattern()
+	{
+		return termConstructorPattern;
+	}
+
+	public String[] getTermConstructorKeys()
+	{
+		return termConstructorKeys;
+	}
+
+	public boolean isEntireTerm()
+	{
+		return patternMatchesEntireTerm;
+	}
+
+	public TermEvaluator getTermEvaluator(
+			String expressionString,
+			String src,
+			String matchedSection) throws TermEvaulatorException
+	{
+		if (expressionString.equals(matchedSection))
+		{
+			return new PCStatModTermEvaluator(expressionString, matchedSection);
+		}
+		else if ((matchedSection + ".BASE").equals(expressionString))
+		{
+			return new PCStatBaseTermEvaluator(expressionString, matchedSection);
+		}
+		else if (expressionString.substring(matchedSection.length()).startsWith("SCORE"))
+		{
+			if (expressionString.endsWith(".BASE"))
+			{
+				return new PCStatBaseTermEvaluator(expressionString, matchedSection);
+			}
+			else
+			{
+				return new PCStatTotalTermEvaluator(expressionString, matchedSection);
+			}
+		}
+
+		// the string hapened to start with a Stat abbreviation, but it's not
+		// a value we handle here.
+		return null;
+	}
+}

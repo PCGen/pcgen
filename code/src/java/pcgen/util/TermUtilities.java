@@ -29,7 +29,7 @@ package pcgen.util;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-import pcgen.base.term.TermEvaulatorException;
+import pcgen.core.term.TermEvaulatorException;
 
 public class TermUtilities {
 	public static String dString = "(?:NOT|ADD|IS)";

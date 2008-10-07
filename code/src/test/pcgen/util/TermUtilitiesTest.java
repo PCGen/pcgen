@@ -1,7 +1,7 @@
 package pcgen.util;
 
 import pcgen.PCGenTestCase;
-import pcgen.base.term.TermEvaulatorException;
+import pcgen.core.term.TermEvaulatorException;
 
 /**
  * TermUtilities Tester.

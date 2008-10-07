@@ -1,0 +1,120 @@
+/**
+ * pcgen.core.term.PCCountEquipmentTermEvaluator.java
+ * Copyright © 2008 Andrew Wilson <nuance@users.sourceforge.net>.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created 07-Oct-2008 22:55:30
+ *
+ * Current Ver: $Revision:$
+ * Last Editor: $Author:$
+ * Last Edited: $Date:$
+ *
+ */
+
+package pcgen.core.term;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentUtilities;
+
+public class PCCountEquipmentTermEvaluator
+		extends BasePCTermEvaluator implements TermEvaluator
+{
+	final String[] types;
+	private final int merge;
+
+	public PCCountEquipmentTermEvaluator(
+			String expressionString, String[] types, int merge)
+	{
+		this.originalText = expressionString;
+		this.types        = types;
+		this.merge        = merge;
+	}
+
+	public Float resolve(PlayerCharacter pc) {
+
+		List<Equipment> aList = new ArrayList<Equipment>();
+		final List<Equipment> equipList = pc.getEquipmentListInOutputOrder(merge);
+
+		for ( Equipment eq : equipList )
+		{
+			aList.add(eq);
+		}
+		
+
+		// This is new, it's to deal with the fact that the code uses an array
+		// now instead of the deprecated StringTokeniser class.  We can have
+		// an empty tokeniser, but not an empty array.  To get around this we
+		// create an array of one item, the empty string. 
+		int cur = 0;
+		if ("".equalsIgnoreCase(types[cur]))
+		{
+			cur++;
+		}
+		
+		while (cur < types.length)
+		{
+			final String curTok = types[cur];
+			cur++;
+			
+			if ("NOT".equalsIgnoreCase(curTok))
+			{
+				aList = EquipmentUtilities.removeEqType(aList, types[cur]);
+				cur++;
+			}
+			else if ("ADD".equalsIgnoreCase(curTok))
+			{
+				aList = pc.addEqType(aList,  types[cur]);
+				cur++;
+			}
+			else if ("IS".equalsIgnoreCase(curTok))
+			{
+				aList = EquipmentUtilities.removeNotEqType(aList, types[cur]);
+				cur++;
+			}
+			else if ("EQUIPPED".equalsIgnoreCase(curTok) || 
+					 "NOTEQUIPPED".equalsIgnoreCase(curTok))
+			{
+				final boolean eFlag = "EQUIPPED".equalsIgnoreCase(curTok);
+
+				for (int ix = aList.size() - 1; ix >= 0; --ix)
+				{
+					final Equipment anEquip = aList.get(ix);
+
+					if (anEquip.isEquipped() != eFlag)
+					{
+						aList.remove(anEquip);
+					}
+				}
+			}
+		}
+
+		return (float) aList.size();
+	}
+
+	public boolean isSourceDependant()
+	{
+		return false;
+	}
+
+	public boolean isStatic()
+	{
+		return false;
+	}
+}

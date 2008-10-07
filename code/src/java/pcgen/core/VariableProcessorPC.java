@@ -36,6 +36,8 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.character.Follower;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
+import pcgen.core.term.TermEvaluator;
+import pcgen.core.term.EvaluatorFactory;
 import pcgen.io.exporttoken.EqTypeToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -260,6 +262,32 @@ public class VariableProcessorPC extends VariableProcessor
 		return count;
 	}
 
+	protected String getInternalVariable(final Spell aSpell, String valString, final String src)
+	{
+		TermEvaluator t1 = EvaluatorFactory.PC.getTermEvaluator(valString, src);
+		
+		String result1 = "";
+		if (t1 != null)
+		{
+			result1 = t1.evaluate(getPc(), aSpell);
+			String result2 = oldGetInternalVariable(aSpell, valString, src);
+
+			if (!result1.equals(result2))
+			{
+				StringBuffer sB = new StringBuffer("mismatch for ");
+				sB.append(valString);
+				sB.append(" new: ");
+				sB.append(result1);
+				sB.append(" old: ");
+				sB.append(result2);
+
+				Logging.log(Logging.ERROR, sB.toString());
+				return result2;
+			}
+		}
+		return (t1 == null) ? null : result1;
+	}	
+	
 	/**
 	 * Retrieve a pre-coded variable for a character. These are known properties of
 	 * all character.
@@ -269,7 +297,7 @@ public class VariableProcessorPC extends VariableProcessor
 	 * @param src The source within which the variable is evaluated
 	 * @return The value of the variable
 	 */
-	protected String getInternalVariable(final Spell aSpell, String valString, final String src)
+	protected String oldGetInternalVariable(final Spell aSpell, String valString, final String src)
 	{
 		if (!Globals.checkRule(RuleConstants.SYS_LDPACSK))
 		{
