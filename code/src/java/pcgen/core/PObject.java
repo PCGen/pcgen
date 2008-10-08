@@ -790,15 +790,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * This method gets access to the spell list.
-	 * @return List
-	 */
-	public List<PCSpell> getSpellList()
-	{
-		return spellSupport.getSpellList(-1);
-	}
-
-	/**
 	 * Get the type of PObject
 	 * 
 	 * @return the type of PObject
@@ -1508,14 +1499,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				}
 			}
 			txt.append(writer);
-		}
-
-		if (!(this instanceof PCClass))
-		{
-			for (PCSpell s : getSpellList())
-			{
-				txt.append("\tSPELLS:").append(s.getPCCText());
-			}
 		}
 
 		if (getMyTypeCount() != 0)

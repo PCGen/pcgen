@@ -44,6 +44,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.list.SpellList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -71,6 +73,15 @@ import pcgen.util.Logging;
  */
 public final class Spell extends PObject
 {
+	public static final CDOMReference<SpellList> SPELLS;
+
+	static
+	{
+		SpellList wpl = new SpellList();
+		wpl.setName("*Spells");
+		SPELLS = CDOMDirectSingleRef.getRef(wpl);
+	}
+
 	private String fixedCasterLevel = null;
 	private String fixedDC = null;
 

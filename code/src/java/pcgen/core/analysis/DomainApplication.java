@@ -20,14 +20,18 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PCSpell;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
@@ -97,34 +101,31 @@ public class DomainApplication
 			}
 		}
 
-		final List<PCSpell> spellList = d.getSpellList();
-
-		if ((aClass != null) && (spellList != null) && !spellList.isEmpty())
+		Collection<CDOMReference<Spell>> mods = d.getSafeListMods(Spell.SPELLS);
+		for (CDOMReference<Spell> ref : mods)
 		{
-			for (PCSpell pcSpell : spellList)
+			Collection<Spell> spells = ref.getContainedObjects();
+			Collection<AssociatedPrereqObject> assoc = d.getListAssociations(Spell.SPELLS, ref);
+			for (AssociatedPrereqObject apo : assoc)
 			{
-				final Spell aSpell = Globals
-						.getSpellKeyed(pcSpell.getKeyName());
-
-				if (aSpell == null)
+				if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), pc, d))
 				{
-					return;
+					continue;
 				}
-
-				final int times = Integer.parseInt(pcSpell.getTimesPerDay());
-
-				final String book = pcSpell.getSpellbook();
-
-				if (PrereqHandler.passesAll(pcSpell.getPrerequisiteList(), pc,
-						d))
+				for (Spell s : spells)
 				{
-					final List<CharacterSpell> aList = aClass.getSpellSupport()
-							.getCharacterSpell(aSpell, book, -1);
+					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
+					List<CharacterSpell> aList = aClass.getSpellSupport()
+							.getCharacterSpell(s, book, -1);
 
 					if (aList.isEmpty())
 					{
-						final CharacterSpell cs = new CharacterSpell(d, aSpell);
-						cs.addInfo(1, times, book);
+						Formula times = apo
+								.getAssociation(AssociationKey.TIMES_PER_UNIT);
+						CharacterSpell cs = new CharacterSpell(d, s);
+						int resolvedTimes = times.resolve(pc,
+								d.getQualifiedKey()).intValue();
+						cs.addInfo(1, resolvedTimes, book);
 						aClass.getSpellSupport().addCharacterSpell(cs);
 					}
 				}

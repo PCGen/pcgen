@@ -27,6 +27,7 @@ package pcgen.io;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -35,7 +36,9 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.FixedStringList;
+import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
@@ -62,7 +65,6 @@ import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
-import pcgen.core.PCSpell;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -3860,30 +3862,34 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (level < 0)
 			{
-				final List<PCSpell> aList = source.getSpellList();
-
-				if (aList == null)
+				Collection<CDOMReference<Spell>> mods = source
+						.getListMods(Spell.SPELLS);
+				if (mods == null)
 				{
 					continue;
 				}
-
-				for (PCSpell pcSpell : aList)
+				for (CDOMReference<Spell> ref : mods)
 				{
-					if (pcSpell == null)
+					Collection<Spell> refSpells = ref.getContainedObjects();
+					Collection<AssociatedPrereqObject> assocs = source
+							.getListAssociations(Spell.SPELLS, ref);
+					for (Spell sp : refSpells)
 					{
-						continue;
-					}
-
-					found =
-							(aSpell.getKeyName().equals(pcSpell.getKeyName()) && pcSpell
-								.getSpellbook().equals(spellBook));
-
-					if (found)
-					{
-						break;
+						if (aSpell.getKeyName().equals(sp.getKeyName()))
+						{
+							for (AssociatedPrereqObject apo : assocs)
+							{
+								String sb = apo
+										.getAssociation(AssociationKey.SPELLBOOK);
+								if (spellBook.equals(sb))
+								{
+									found = true;
+									break;
+								}
+							}
+						}
 					}
 				}
-
 				continue;
 			}
 
@@ -4013,17 +4019,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				else
 				{
 					aClass.addClassSpellList(csl, thePC);
-					/*
-					 * TODO This makes no sense to me - WHY do we have to add
-					 * the spells by hand? - look at Rev 6416 and older for this
-					 * behavior, but I don't understand it - thpr, 1 Jun 08
-					 */
-					PCClass spellClass = refContext.silentlyGetConstructedCDOMObject(PCClass.class, csl.getLSTformat());
-					if (spellClass != null)
-					{
-						aClass.getSpellSupport().addSpells(-1,
-							spellClass.getSpellList());
-					}
 				}
 			}
 		}

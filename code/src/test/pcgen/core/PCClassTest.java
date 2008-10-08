@@ -59,6 +59,7 @@ import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
@@ -460,14 +461,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals(
 			"Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
-		final List<PCSpell> startSpells =
-				humanoidClass.getSpellSupport().getSpellList(-1);
-		final List<PCSpell> reconstSpells =
-				reconstClass.getSpellSupport().getSpellList(-1);
+		Collection<CDOMReference<Spell>> startSpells = humanoidClass.getClassLevel(1).getListMods(Spell.SPELLS);
+		Collection<CDOMReference<Spell>> reconstSpells = reconstClass.getClassLevel(1).getListMods(Spell.SPELLS);
 		assertEquals("All spell should have been reconstituted.", startSpells
 			.size(), reconstSpells.size());
-		assertEquals("Spell names should been preserved.", startSpells.get(0)
-			.getKeyName(), reconstSpells.get(0).getKeyName());
+		assertEquals("Spell names should been preserved.", startSpells, reconstSpells);
 
 	}
 

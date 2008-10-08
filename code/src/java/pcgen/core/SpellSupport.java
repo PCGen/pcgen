@@ -37,7 +37,6 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.base.util.HashMapToList;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -60,7 +59,6 @@ public class SpellSupport implements Cloneable
 
 	private HashMap<String, Integer> spellLevelMap = new HashMap<String, Integer>();
 	private DoubleKeyMap<String, String, Info> spellInfoMap = new DoubleKeyMap<String, String, Info>();
-	private HashMapToList<Integer, PCSpell> spellMap = new HashMapToList<Integer, PCSpell>();
 	private HashMap<String, List<Prerequisite>> preReqSpellLevelMap = new HashMap<String, List<Prerequisite>>();
 
 	/*
@@ -178,98 +176,6 @@ public class SpellSupport implements Cloneable
     public Info getInfo(String tagType, String spellName)
 	{
 		return spellInfoMap.get(tagType, spellName);
-	}
-
-	/**
-     * Add a list of spells to the spell map 
-     * @param level
-     * @param aSpellList
-	 */
-    public void addSpells(final int level, final List<PCSpell> aSpellList)
-	{
-    	Integer aLevel = Integer.valueOf(level);
-		for (PCSpell spell : aSpellList )
-		{
-			if (!spellMap.containsInList(aLevel, spell))
-			{
-				spellMap.addToListFor(aLevel, spell);
-			}
-		}
-	}
-
-	/**
-     * Get a list of spells from the spell map 
-     * @param levelLimit
-     * @return List of PCSpells
-	 */
-    public List<PCSpell> getSpellList(int levelLimit)
-	{
-		boolean allSpells = levelLimit == -1;
-		final ArrayList<PCSpell> aList = new ArrayList<PCSpell>();
-
-		if (spellMap != null)
-		{
-			for ( Integer key : spellMap.getKeySet() )
-			{
-				if (allSpells || key <= levelLimit)
-				{
-					aList.addAll(spellMap.getListFor(key));
-				}
-			}
-		}
-
-		return aList;
-	}
-
-	/**
-	 * Retrieve the list of spells registered for the specific level.
-	 *
-	 * @param level The level to be retrieved.
-	 * @return A List of the level's spells
-	 */
-	public List<PCSpell> getSpellListForLevel(int level)
-	{
-		final ArrayList<PCSpell> aList = new ArrayList<PCSpell>();
-
-		if (spellMap != null)
-		{
-			for ( Integer key : spellMap.getKeySet() )
-			{
-				if (key == level)
-				{
-					aList.addAll(spellMap.getListFor(key));
-				}
-			}
-		}
-
-		return aList;
-	}
-
-	/**
-	 * @return The maximum level for which a spell list is available
-	 */
-	public final int getMaxSpellListLevel()
-	{
-		int max = 0;
-		if (spellMap != null)
-		{
-			for ( Integer key : spellMap.getKeySet() )
-			{
-				if (key > max)
-				{
-					max = key;
-				}
-			}
-		}
-		return max;
-	}
-	
-	/**
-     * Clear the spell list by initialising a new one 
-	 */
-    public final void clearSpellList()
-	{
-		spellMap = new HashMapToList<Integer, PCSpell>();
 	}
 
     /**
@@ -574,8 +480,6 @@ public class SpellSupport implements Cloneable
 	public SpellSupport clone() throws CloneNotSupportedException {
 		SpellSupport ss = (SpellSupport) super.clone();
 		ss.spellInfoMap = spellInfoMap.clone();
-		ss.spellMap = new HashMapToList<Integer, PCSpell>();
-		ss.spellMap.addAllLists(spellMap);
 		if (characterSpellList != null) {
 			ss.characterSpellList = new ArrayList<CharacterSpell>(characterSpellList);
 		}

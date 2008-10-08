@@ -26,9 +26,12 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMReference;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Globals;
-import pcgen.core.PCSpell;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -36,8 +39,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import java.util.List;
 
 /**
  * @author wardc
@@ -82,9 +83,11 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		//Are there Innate Spell-like abilities?
 		if (character.getAutoSpells())
 		{
-			for (PCSpell spell : character.getRace().getSpellList())
+			Collection<CDOMReference<Spell>> mods = character.getRace()
+					.getListMods(Spell.SPELLS);
+			for (CDOMReference<Spell> ref : mods)
 			{
-				aArrayList.add(Globals.getSpellKeyed(spell.toString()));
+				aArrayList.addAll(ref.getContainedObjects());
 			}
 		}
 

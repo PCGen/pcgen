@@ -67,7 +67,6 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
-import pcgen.core.PCSpell;
 import pcgen.core.PObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.BonusObj;
@@ -277,37 +276,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		// Output the list of spells associated with the class.
-		for (int i=0;i<=obj.getSpellSupport().getMaxSpellListLevel();i++)
-		{
-			final List<PCSpell> spellList = obj.getSpellSupport().getSpellListForLevel(i);
-
-			if (spellList != null)
-			{
-				for (Iterator<PCSpell> li = spellList.iterator(); li.hasNext();)
-				{
-					String src = li.next().getPCCText();
-					LevelTag lt = new LevelTag(String.valueOf(i), LevelTag.TAG_SPELLS, src);
-					levelTagList.add(lt);
-				}
-			}
-
-		}
-
-		/*
-		   aCol = obj.vFeatList();
-		   if (aCol != null)
-		   {
-			   for (Iterator se = aCol.iterator(); se.hasNext();)
-			   {
-				   String c = (String) se.next();
-				   int y = c.indexOf(':');
-				   LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_VFEAT, c.substring(y + 1));
-				   levelTagList.add(lt);
-			   }
-		   }
-		 */
-
 		for (Iterator<TransitionChoice<Kit>> it = obj.getSafeListFor(
 				ListKey.KIT_CHOICE).iterator(); it.hasNext();)
 		{
@@ -320,6 +288,17 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		for (PCClassLevel pcl : obj.getClassLevelCollection())
 		{
 			Integer cl = pcl.get(IntegerKey.LEVEL);
+			
+			String[] unparse = Globals.getContext().unparse(pcl, "SPELLS");
+			if (unparse != null)
+			{
+				for (String s : unparse)
+				{
+					LevelTag lt = new LevelTag(cl, LevelTag.TAG_SPELLS, s);
+					levelTagList.add(lt);
+				}
+			}
+
 			for (Iterator<TransitionChoice<Kit>> it = obj.getSafeListFor(
 					ListKey.KIT_CHOICE).iterator(); it.hasNext();)
 			{

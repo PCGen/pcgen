@@ -78,7 +78,6 @@ import pcgen.core.Language;
 import pcgen.core.Movement;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
-import pcgen.core.PCSpell;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.Race;
@@ -623,7 +622,7 @@ public final class EditorMainForm extends JDialog
 		thisPObject.clearPrerequisiteList();
 		thisPObject.removeListFor(ListKey.SAB);
 		thisPObject.remove(ObjectKey.SR);
-		thisPObject.getSpellSupport().clearSpellList();
+		thisPObject.removeAllFromList(Spell.SPELLS);
 		thisPObject.clearAutoMap();
 
 		SpellSupport spellSupport = thisPObject.getSpellSupport();
@@ -3127,11 +3126,13 @@ public final class EditorMainForm extends JDialog
 
 		if (anEditType != EditorConstants.EDIT_CLASS)
 		{
-			List<PCSpell> spellList = thisPObject.getSpellList();
-			if (spellList != null) {
-				for (Iterator<PCSpell> it = spellList.iterator(); it.hasNext();)
+			String[] unparse = Globals.getContext().unparse(thisPObject,
+					"SPELLS");
+			if (unparse != null)
+			{
+				for (String s : unparse)
 				{
-					selectedList.add("SPELLS:" + it.next().getPCCText());
+					selectedList.add("SPELLS:" + s);
 				}
 			}
 		}

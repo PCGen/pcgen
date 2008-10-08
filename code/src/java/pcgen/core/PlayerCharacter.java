@@ -12134,81 +12134,53 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private void addSpells(final PObject obj)
 	{
-		if ((race == null) || (obj == null) || (obj.getSpellList() == null)
-			|| obj.getSpellList().isEmpty())
+		if (race == null || obj == null)
 		{
 			return;
 		}
-
-		PObject owner;
-
-		List<PCSpell> spellList = obj.getSpellList();
-		for (PCSpell pcSpell : spellList)
+		Collection<CDOMReference<Spell>> mods = obj.getListMods(Spell.SPELLS);
+		if (mods == null)
 		{
-			final String spellKey = pcSpell.getKeyName();
-			final Spell aSpell = Globals.getSpellKeyed(spellKey);
-
-			if (aSpell == null)
+			return;
+		}
+		for (CDOMReference<Spell> ref : mods)
+		{
+			Collection<AssociatedPrereqObject> assocs = obj.getListAssociations(Spell.SPELLS, ref);
+			Collection<Spell> spells = ref.getContainedObjects();
+			for (AssociatedPrereqObject apo : assocs)
 			{
-				return;
-			}
-
-			final String castCount = pcSpell.getTimesPerDay();
-			int spellLevel = -1;
-			int times = 1;
-			int slotLevel = 0;
-			owner = race;
-			TimeUnit timeUnit = pcSpell.getTimeUnit();
-
-			if (castCount == null || castCount.equals(""))
-			{
-				times = 1;
-			}
-			else if (castCount.startsWith("LEVEL=")
-				|| castCount.startsWith("LEVEL."))
-			{
-				spellLevel = Integer.parseInt(castCount.substring(6));
-				slotLevel = spellLevel;
-
-				if (obj instanceof PCClass)
-				{
-					owner = obj;
-				}
-			}
-			else
-			{
-				times = getVariableValue(castCount, "").intValue();
-			}
-
-			final String book = pcSpell.getSpellbook();
-
-			final String dcFormula = pcSpell.getDcFormula();
-			if (dcFormula != null && !dcFormula.equals(""))
-			{
-				getVariableValue(dcFormula, "").intValue(); // TODO: value never
-				// used
-			}
-
-			if (PrereqHandler.passesAll(pcSpell.getPrerequisiteList(), this, pcSpell))
-			{
-				final Spell newSpell = aSpell.clone();
-				aSpell.setFixedCasterLevel(pcSpell.getCasterLevelFormula());
-				aSpell.setFixedDC(pcSpell.getDcFormula());
-				final List<CharacterSpell> sList =
-						owner.getSpellSupport().getCharacterSpell(newSpell,
-							book, spellLevel);
-
-				if (!sList.isEmpty())
+				if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), this, null))
 				{
 					continue;
 				}
+				for (Spell sp : spells)
+				{
+					Formula times = apo
+							.getAssociation(AssociationKey.TIMES_PER_UNIT);
+					int resolvedTimes = times.resolve(this,
+							obj.getQualifiedKey()).intValue();
+					TimeUnit timeunit = apo.getAssociation(AssociationKey.TIME_UNIT);
+					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
+					
+					final Spell newSpell = sp.clone();
+					sp.setFixedCasterLevel(apo.getAssociation(AssociationKey.CASTER_LEVEL));
+					sp.setFixedDC(apo.getAssociation(AssociationKey.DC_FORMULA));
+					final List<CharacterSpell> sList =
+							race.getSpellSupport().getCharacterSpell(newSpell,
+								book, -1);
 
-				final CharacterSpell cs = new CharacterSpell(owner, aSpell);
-				SpellInfo si = cs.addInfo(slotLevel, times, book);
-				si.setTimeUnit(timeUnit);
+					if (!sList.isEmpty())
+					{
+						continue;
+					}
 
-				addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
-				owner.getSpellSupport().addCharacterSpell(cs);
+					final CharacterSpell cs = new CharacterSpell(race, sp);
+					SpellInfo si = cs.addInfo(0, resolvedTimes, book);
+					si.setTimeUnit(timeunit);
+
+					addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
+					race.getSpellSupport().addCharacterSpell(cs);
+				}
 			}
 		}
 		setDirty(true);

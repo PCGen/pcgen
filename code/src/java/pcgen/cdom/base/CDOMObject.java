@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -78,7 +79,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	private MapKeyMap mapChar = new MapKeyMap();
 	
 	// TODO make this final once clone() is no longer required...
-	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>();
+	/*
+	 * CONSIDER This is currently order enforcing the reference fetching to
+	 * match the integration tests that we perform, and their current behavior.
+	 * Not sure if this is really tbe best solution?
+	 */
+	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>(HashMap.class, LinkedHashMap.class);
 
 	public final boolean containsKey(IntegerKey arg0)
 	{

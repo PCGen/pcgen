@@ -4,196 +4,385 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.Campaign;
-import pcgen.core.PObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.MapToList;
+import pcgen.base.util.TripleKeyMap;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.SettingsHandler;
 import pcgen.core.TimeUnit;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.core.spell.Spell;
+import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-import pcgen.core.PCSpell;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class SpellsLst implements GlobalLstToken
+public class SpellsLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
 
-	/*
-	 * Note: Don't need to wait for Template's LevelToken before this can be converted
-	 * as there is no level support in templates for this token
-	 */
-
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLS";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)
-	 */
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		if (!(obj instanceof Campaign))
-		{
-			obj.getSpellSupport().addSpells(anInt, createSpellsList(value, obj));
-			return true;
-		}
-		return false;
+		// if (!(obj instanceof Campaign)) {
+		return createSpellsList(context, obj, value);
+		// }
+		// return false;
 	}
 
 	/**
-	 * SPELLS:<spellbook name>|[<optional parameters, pipe deliminated>]
-	 * |<spell name>[,<formula for DC>]
-	 * |<spell name2>[,<formula2 for DC>]
+	 * SPELLS:<spellbook name>|[<optional parameters, pipe deliminated>] |<spell
+	 * name>[,<formula for DC>] |<spell name2>[,<formula2 for DC>] |PRExxx
 	 * |PRExxx
-	 * |PRExxx
-	 *
-	 * CASTERLEVEL=<formula> Casterlevel of spells
-	 * TIMES=<formula> Cast Times per day, -1=At Will
-	 * @param sourceLine Line from the LST file without the SPELLS:
-	 * @param obj The object the line is being added to. Used for error reporting.
+	 * 
+	 * CASTERLEVEL=<formula> Casterlevel of spells TIMES=<formula> Cast Times
+	 * per day, -1=At Will
+	 * 
+	 * @param sourceLine
+	 *            Line from the LST file without the SPELLS:
 	 * @return spells list
 	 */
-	private List<PCSpell> createSpellsList(final String sourceLine, PObject obj)
+	private boolean createSpellsList(LoadContext context, CDOMObject obj,
+			String sourceLine)
 	{
-		List<PCSpell> spellList = new ArrayList<PCSpell>();
-		StringTokenizer tok = new StringTokenizer(sourceLine, "|");
-		boolean isPre = false;
-		
-		if (tok.countTokens() > 1)
+		if (isEmpty(sourceLine) || hasIllegalSeparator('|', sourceLine))
 		{
-			String spellBook = tok.nextToken();
-			String casterLevel = null;
-			String times = "1";
-			TimeUnit timeUnit = SettingsHandler.getGame().getDefaultTimeUnit();
-			List<String> preParseSpellList = new ArrayList<String>();
-			List<Prerequisite> preList = new ArrayList<Prerequisite>();
-			while (tok.hasMoreTokens())
+			return false;
+		}
+
+		StringTokenizer tok = new StringTokenizer(sourceLine, Constants.PIPE);
+		String spellBook = tok.nextToken();
+		// Formula casterLevel = null;
+		String casterLevel = null;
+		String times = null;
+		String timeunit = null;
+
+		if (!tok.hasMoreTokens())
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ ": minimally requires a Spell Name");
+			return false;
+		}
+		String token = tok.nextToken();
+
+		while (true)
+		{
+			if (token.startsWith("TIMES="))
 			{
-				String token = tok.nextToken();
-				if (token.startsWith("CASTERLEVEL="))
+				if (times != null)
 				{
-					if (isPre)
-					{
-						Logging.errorPrint("Invalid " + getTokenName() + ": " + sourceLine);
-						Logging.errorPrint("  PRExxx must be at the END of the Token");
-						Logging.errorPrint("Please change: " + sourceLine
-							+ " in " + obj.getSourceURI());
-						isPre = false;
-					}
-					casterLevel = token.substring(12);
+					Logging.addParseMessage(Logging.LST_ERROR,
+							"Found two TIMES entries in " + getTokenName()
+									+ ": invalid: " + sourceLine);
+					return false;
 				}
-				else if (token.startsWith("TIMES="))
+				times = token.substring(6);
+				if (times.length() == 0)
 				{
-					if (isPre)
-					{
-						Logging.errorPrint("Invalid " + getTokenName() + ": " + sourceLine);
-						Logging.errorPrint("  PRExxx must be at the END of the Token");
-						Logging.errorPrint("Please change: " + sourceLine
-							+ " in " + obj.getSourceURI());
-						isPre = false;
-					}
-					times = token.substring(6);
-					if ("ATWILL".equals(times))
-					{
-						times = "-1";
-					}
-					else if ("-1".equals(times))
-					{
-						Logging.deprecationPrint("TIMES=-1 in "
-							+ getTokenName() + " is deprecated. "
-							+ "Assuming you meant TIMES=ATWILL. ");
-						Logging.deprecationPrint("Please change: " + sourceLine
-							+ " in " + obj.getSourceURI());
-						times = "-1";
-					}
+					Logging.addParseMessage(Logging.LST_ERROR,
+							"Error in Times in " + getTokenName()
+									+ ": argument was empty");
+					return false;
 				}
-				else if (token.startsWith("TIMEUNIT="))
+				if (!tok.hasMoreTokens())
 				{
-					if (isPre)
-					{
-						Logging.errorPrint("Invalid " + getTokenName() + ": " + sourceLine);
-						Logging.errorPrint("  PRExxx must be at the END of the Token");
-						Logging.errorPrint("Please change: " + sourceLine
-							+ " in " + obj.getSourceURI());
-						isPre = false;
-					}
-					String timeUnitKey = token.substring(9);
-					// Retrieve the time unit by key
-					timeUnit = SettingsHandler.getGame().getTimeUnit(timeUnitKey); 
-					if (timeUnit == null)
-					{
-						// For now we create a new one if it isn't already present
-						timeUnit = new TimeUnit(timeUnitKey);
-						SettingsHandler.getGame().addTimeUnit(timeUnit);
-					}
+					Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+							+ ": minimally requires "
+							+ "a Spell Name (after TIMES=)");
+					return false;
 				}
-				else if (PreParserFactory.isPreReqString(token))
-				{
-					isPre = true;
-					try
-					{
-						PreParserFactory factory =
-								PreParserFactory.getInstance();
-						preList.add(factory.parse(token));
-					}
-					catch (PersistenceLayerException ple)
-					{
-						Logging.errorPrint(ple.getMessage(), ple);
-					}
-				}
-				else
-				{
-					if (isPre)
-					{
-						Logging.errorPrint("Invalid " + getTokenName() + ": " + sourceLine);
-						Logging.errorPrint("  PRExxx must be at the END of the Token");
-						Logging.errorPrint("Please change: " + sourceLine
-							+ " in " + obj.getSourceURI());
-						isPre = false;
-					}
-					preParseSpellList.add(token);
-				}
+				token = tok.nextToken();
 			}
-			for (int i = 0; i < preParseSpellList.size(); i++)
+			else if (token.startsWith("TIMEUNIT="))
 			{
-				StringTokenizer spellTok =
-						new StringTokenizer(preParseSpellList.get(i), ",");
-				String name = spellTok.nextToken();
-				String dcFormula = null;
-				if (spellTok.hasMoreTokens())
+				if (timeunit != null)
 				{
-					dcFormula = spellTok.nextToken();
+					Logging.addParseMessage(Logging.LST_ERROR,
+							"Found two TIMEUNIT entries in " + getTokenName()
+									+ ": invalid: " + sourceLine);
+					return false;
 				}
-				PCSpell spell = new PCSpell();
-				spell.setName(name);
-				spell.setKeyName(spell.getKeyName());
-				spell.setSpellbook(spellBook);
-				spell.setCasterLevelFormula(casterLevel);
-				spell.setTimesPerDay(times);
-				spell.setTimeUnit(timeUnit);
-				spell.setDcFormula(dcFormula);
-				for (Prerequisite prereq : preList)
+				timeunit = token.substring(9);
+				if (timeunit.length() == 0)
 				{
-					spell.addPrerequisite(prereq);
+					Logging.addParseMessage(Logging.LST_ERROR,
+							"Error in TimeUnit in " + getTokenName()
+									+ ": argument was empty");
+					return false;
 				}
-				spellList.add(spell);
+				if (!tok.hasMoreTokens())
+				{
+					Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+							+ ": minimally requires "
+							+ "a Spell Name (after TIMEUNIT=)");
+					return false;
+				}
+				token = tok.nextToken();
+			}
+			else if (token.startsWith("CASTERLEVEL="))
+			{
+				if (casterLevel != null)
+				{
+					Logging.addParseMessage(Logging.LST_ERROR,
+							"Found two CASTERLEVEL entries in "
+									+ getTokenName() + ": invalid: "
+									+ sourceLine);
+					return false;
+				}
+				casterLevel = token.substring(12);
+				if (casterLevel.length() == 0)
+				{
+					Logging.addParseMessage(Logging.LST_ERROR,
+							"Error in Caster Level in " + getTokenName()
+									+ ": argument was empty");
+					return false;
+				}
+				if (!tok.hasMoreTokens())
+				{
+					Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+							+ ": minimally requires a "
+							+ "Spell Name (after CASTERLEVEL=)");
+					return false;
+				}
+				token = tok.nextToken();
+			}
+			else
+			{
+				break;
 			}
 		}
-		else
+		if (times == null)
 		{
-			Logging
-				.errorPrint("SPELLS: line minimally requires SPELLS:<spellbook name>|<spell name>");
-			Logging.errorPrint("Please change: " + sourceLine
-				+ " in " + obj.getSourceURI());
+			times = "1";
 		}
-		return spellList;
+
+		if (token.charAt(0) == ',')
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ " Spell arguments may not start with , : " + token);
+			return false;
+		}
+		if (token.charAt(token.length() - 1) == ',')
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ " Spell arguments may not end with , : " + token);
+			return false;
+		}
+		if (token.indexOf(",,") != -1)
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ " Spell arguments uses double separator ,, : " + token);
+			return false;
+		}
+
+		/*
+		 * CONSIDER This is currently order enforcing the reference fetching to
+		 * match the integration tests that we perform, and their current
+		 * behavior. Not sure if this is really tbe best solution?
+		 * 
+		 * See CDOMObject.
+		 */
+		DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm = new DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object>(LinkedHashMap.class, HashMap.class);
+		while (true)
+		{
+			int commaLoc = token.indexOf(',');
+			String name = commaLoc == -1 ? token : token.substring(0, commaLoc);
+			CDOMReference<Spell> spell = context.ref.getCDOMReference(
+					Spell.class, name);
+			dkm.put(spell, AssociationKey.CASTER_LEVEL, casterLevel);
+			dkm.put(spell, AssociationKey.TIMES_PER_UNIT, FormulaFactory
+					.getFormulaFor(times));
+			dkm.put(spell, AssociationKey.TIME_UNIT, SettingsHandler.getGame()
+					.getTimeUnit(timeunit));
+			dkm.put(spell, AssociationKey.SPELLBOOK, spellBook);
+			if (commaLoc != -1)
+			{
+				dkm.put(spell, AssociationKey.DC_FORMULA, token
+						.substring(commaLoc + 1));
+			}
+			if (!tok.hasMoreTokens())
+			{
+				// No prereqs, so we're done
+				finish(context, obj, dkm, null);
+				return true;
+			}
+			token = tok.nextToken();
+			if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			{
+				break;
+			}
+		}
+
+		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+
+		while (true)
+		{
+			Prerequisite prereq = getPrerequisite(token);
+			if (prereq == null)
+			{
+				Logging.addParseMessage(Logging.LST_ERROR,
+						"   (Did you put spells after the "
+								+ "PRExxx tags in SPELLS:?)");
+				return false;
+			}
+			prereqs.add(prereq);
+			if (!tok.hasMoreTokens())
+			{
+				break;
+			}
+			token = tok.nextToken();
+		}
+
+		finish(context, obj, dkm, prereqs);
+		return true;
+	}
+
+	public void finish(LoadContext context, CDOMObject obj,
+			DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm,
+			List<Prerequisite> prereqs)
+	{
+		for (CDOMReference<Spell> spell : dkm.getKeySet())
+		{
+			AssociatedPrereqObject edge = context.getListContext().addToList(
+					getTokenName(), obj, Spell.SPELLS, spell);
+			for (AssociationKey ak : dkm.getSecondaryKeySet(spell))
+			{
+				edge.setAssociation(ak, dkm.get(spell, ak));
+			}
+			if (prereqs != null)
+			{
+				for (Prerequisite prereq : prereqs)
+				{
+					edge.addPrerequisite(prereq);
+				}
+			}
+		}
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		AssociatedChanges<CDOMReference<Spell>> changes = context
+				.getListContext().getChangesInList(getTokenName(), obj,
+						Spell.SPELLS);
+		MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl = changes
+				.getAddedAssociations();
+		if (mtl == null || mtl.isEmpty())
+		{
+			// Zero indicates no Token
+			return null;
+		}
+
+		TripleKeyMap<Set<Prerequisite>, Map<AssociationKey<?>, Object>, CDOMReference<Spell>, String> m = new TripleKeyMap<Set<Prerequisite>, Map<AssociationKey<?>, Object>, CDOMReference<Spell>, String>();
+		for (CDOMReference<Spell> lw : mtl.getKeySet())
+		{
+			for (AssociatedPrereqObject assoc : mtl.getListFor(lw))
+			{
+				Map<AssociationKey<?>, Object> am = new HashMap<AssociationKey<?>, Object>();
+				String dc = null;
+				for (AssociationKey<?> ak : assoc.getAssociationKeys())
+				{
+					// if (AssociationKey.SOURCE_URI.equals(ak)
+					// || AssociationKey.FILE_LOCATION.equals(ak))
+					// {
+					// // Do nothing
+					// }
+					// else
+					if (AssociationKey.DC_FORMULA.equals(ak))
+					{
+						dc = assoc.getAssociation(AssociationKey.DC_FORMULA);
+					}
+					else
+					{
+						am.put(ak, assoc.getAssociation(ak));
+					}
+				}
+				m.put(new HashSet<Prerequisite>(assoc.getPrerequisiteList()),
+						am, lw, dc);
+			}
+		}
+
+		Set<String> set = new TreeSet<String>();
+		for (Set<Prerequisite> prereqs : m.getKeySet())
+		{
+			for (Map<AssociationKey<?>, Object> am : m
+					.getSecondaryKeySet(prereqs))
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(am.get(AssociationKey.SPELLBOOK));
+				Formula times = AssociationKey.TIMES_PER_UNIT.cast(am
+						.get(AssociationKey.TIMES_PER_UNIT));
+				if (!Formula.ONE.equals(times))
+				{
+					sb.append(Constants.PIPE).append("TIMES=").append(times);
+				}
+				TimeUnit timeunit = AssociationKey.TIME_UNIT.cast(am
+						.get(AssociationKey.TIME_UNIT));
+				if (timeunit != null)
+				{
+					sb.append(Constants.PIPE).append("TIMEUNIT=").append(
+							timeunit.getKeyName());
+				}
+				String casterLvl = AssociationKey.CASTER_LEVEL.cast(am
+						.get(AssociationKey.CASTER_LEVEL));
+				if (casterLvl != null)
+				{
+					sb.append(Constants.PIPE).append("CASTERLEVEL=").append(
+							casterLvl);
+				}
+				Set<String> spellSet = new TreeSet<String>();
+				for (CDOMReference<Spell> spell : m.getTertiaryKeySet(prereqs,
+						am))
+				{
+					String spellString = spell.getLSTformat();
+					String dc = m.get(prereqs, am, spell);
+					if (dc != null)
+					{
+						spellString += Constants.COMMA + dc;
+					}
+					spellSet.add(spellString);
+				}
+				sb.append(Constants.PIPE);
+				sb.append(StringUtil.join(spellSet, Constants.PIPE));
+				if (prereqs != null && !prereqs.isEmpty())
+				{
+					sb.append(Constants.PIPE);
+					sb.append(getPrerequisiteString(context, prereqs));
+				}
+				set.add(sb.toString());
+			}
+		}
+		return set.toArray(new String[set.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

@@ -1907,28 +1907,6 @@ public class PCClass extends PObject
 					.unparse(me.getValue()), "\t"));
 		}
 
-		// Output the list of spells associated with the class.
-		int cap = getSpellSupport().getMaxSpellListLevel();
-		if (hasMaxLevel() && cap > getSafe(IntegerKey.LEVEL_LIMIT))
-		{
-			cap = getSafe(IntegerKey.LEVEL_LIMIT);
-		}
-		for (int i = 0; i <= cap; i++)
-		{
-			final List<PCSpell> spellList =
-					getSpellSupport().getSpellListForLevel(i);
-
-			if (spellList != null)
-			{
-				for (PCSpell spell : spellList)
-				{
-					pccTxt.append(lineSep).append(i).append("\tSPELLS:")
-						.append(spell.getPCCText());
-				}
-			}
-
-		}
-
 		for (int x = 0; x < getBonusList().size(); ++x)
 		{
 			final BonusObj aBonus = getBonusList().get(x);
@@ -4517,33 +4495,6 @@ public class PCClass extends PObject
 		}
 
 		return spMod;
-	}
-
-	/**
-	 * Retrieve the list of spells for the class. Warning this overrides the
-	 * PObject method getSpellList and obnly returns the spells up to the level
-	 * held in the class. This may not be what you expect.
-	 * 
-	 * @see pcgen.core.PObject#getSpellList()
-	 */
-	/*
-	 * DELETEMETHOD This implies a whole host of work to be done in order to use
-	 * PObject's version of this method.
-	 * 
-	 * First of all, SpellSupport is level aware, and for many reasons, that is
-	 * bad (and will be unnecessary, yea!). Once SpellSupport's knowledge of
-	 * levels is eliminated, this can be removed, as it will not differ from
-	 * PObject's version of this method.
-	 * 
-	 * However, in order NOT to break PCClass and PCClassLevel, the level
-	 * awareness that is in SpellSupport needs to be transferred out to the
-	 * PCClass, which will likely have to create one SpellSupport object per
-	 * level and have those stored and ready for passing to PCClassLevels.
-	 */
-	@Override
-	public List<PCSpell> getSpellList()
-	{
-		return getSpellSupport().getSpellList(getLevel());
 	}
 
 	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
