@@ -1567,7 +1567,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door</name>
+			<name>Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for the door</name>
 			<description></description>
 			<type>SPECIALQUALITY.RACIALTRAIT</type>
 			<associated></associated>
