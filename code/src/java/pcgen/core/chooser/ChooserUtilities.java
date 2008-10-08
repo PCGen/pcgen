@@ -399,8 +399,6 @@ public class ChooserUtilities
 		//
 		// -- Zaister, 2007/02/23
 		//
-		classLookup.put("SKILLIST",             SkillListChoiceManager.class.getName());
-		classLookup.put("CCSKILLIST",           SkillListCrossClassChoiceManager.class.getName());
 		classLookup.put("NONCLASSSKILLLIST",    SkillListNonClassChoiceManager.class.getName());
 		
 		mapconstructed = true;

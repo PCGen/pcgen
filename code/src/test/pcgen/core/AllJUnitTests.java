@@ -111,8 +111,6 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SkillListChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
-			pcgen.core.chooser.SkillListCrossClassChoiceManagerTest.class));
-		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SkillListNonClassChoiceManagerTest.class));
 		suite.addTest(new TestSuite(
 			pcgen.core.chooser.SkillsChoiceManagerTest.class));
