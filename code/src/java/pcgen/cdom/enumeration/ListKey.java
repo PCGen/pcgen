@@ -32,6 +32,7 @@ import java.util.Map;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.KnownSpellIdentifier;
@@ -241,6 +242,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<Race>> SERVES_AS_RACE = new ListKey<CDOMReference<Race>>();
 	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
+	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

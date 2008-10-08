@@ -62,6 +62,7 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChallengeRating;
@@ -17898,6 +17899,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void addAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
+		List<ChooseResultActor> actors = obj.getListFor(ListKey.CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseResultActor cra : actors)
+			{
+				cra.apply(this, obj, o);
+			}
+		}
 	}
 
 	public void addAssociation(CDOMObject obj, FixedStringList o)
@@ -17953,11 +17962,30 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<String> list = getAssociationList(obj);
 		assocSupt.removeAllAssocs(obj, AssociationListKey.CHOICES);
+		List<ChooseResultActor> actors = obj.getListFor(ListKey.CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseResultActor cra : actors)
+			{
+				for (String o : list)
+				{
+					cra.remove(this, obj, o);
+				}
+			}
+		}
 		return list;
 	}
 
 	public void removeAssociation(CDOMObject obj, String o)
 	{
+		List<ChooseResultActor> actors = obj.getListFor(ListKey.CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseResultActor cra : actors)
+			{
+				cra.remove(this, obj, o);
+			}
+		}
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
