@@ -85,9 +85,12 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		{
 			Collection<CDOMReference<Spell>> mods = character.getRace()
 					.getListMods(Spell.SPELLS);
-			for (CDOMReference<Spell> ref : mods)
+			if (mods != null)
 			{
-				aArrayList.addAll(ref.getContainedObjects());
+				for (CDOMReference<Spell> ref : mods)
+				{
+					aArrayList.addAll(ref.getContainedObjects());
+				}
 			}
 		}
 
