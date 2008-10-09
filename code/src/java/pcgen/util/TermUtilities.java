@@ -36,21 +36,13 @@ public class TermUtilities {
 	public static Pattern dPat = Pattern.compile(dString);
 	public static String sString = "(?:EQUIPPED|NOTEQUIPPED)";
 	public static Pattern sPat = Pattern.compile(sString);
-	public static String resString = "(?:CONTAINER|WEAPON|ACITEM)";
-	public static Pattern restrictEquipmentPat = Pattern.compile(resString);
 
-	public static void checkEqtypesTypesArray(
+	public static void checkEqTypeTypesArray(
 			String originalText,
 			String[] types, 
 			int first) throws TermEvaulatorException
 	{
-		int cur = first;
-
-		// "(?:CONTAINER|WEAPON|ACITEM)"
-		if (restrictEquipmentPat.matcher(types[cur]).matches())
-		{
-			cur++;
-		}
+		int cur = first + 1;
 
 		while (cur < types.length)
 		{
@@ -91,25 +83,7 @@ public class TermUtilities {
 			String[] types, 
 			int first) throws TermEvaulatorException
 	{
-		int cur = first;
-
-		// "(?:CONTAINER|WEAPON|ACITEM)"
-		
-		// Count[EQUIPTYPE takes these but COUNT[EQUIPMENT doesn't for
-		// some reason better known to the original writer of the
-		// VariableProcessorPC class that this code is based on
-		Matcher rMat = restrictEquipmentPat.matcher(types[first]); 
-		if (rMat.matches())
-		{
-			StringBuilder sB = new StringBuilder();
-			sB.append("Found \"");
-			sB.append(rMat.group());
-			sB.append("\" in formula ");
-			sB.append(originalText);
-			sB.append("\nShould be COUNT[EQTYPE, not COUNT[EQUIPMENT");
-
-			throw new TermEvaulatorException(sB.toString());
-		}
+		int cur = first + 1;
 
 		while (cur < types.length)
 		{

@@ -42,7 +42,14 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return (float) eq.getSafe(IntegerKey.AC_CHECK);
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return Integer.toString(equipment.getSafe(IntegerKey.AC_CHECK));
 	}
 
 	public boolean isSourceDependant()

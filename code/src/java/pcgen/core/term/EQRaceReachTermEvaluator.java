@@ -44,7 +44,14 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return pc.getVariableValue("REACH.VAL", source);
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return String.valueOf(pc.getVariableValue("REACH.VAL", source));
 	}
 
 	public boolean isSourceDependant()

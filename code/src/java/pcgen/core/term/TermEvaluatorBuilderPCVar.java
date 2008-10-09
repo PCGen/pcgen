@@ -978,7 +978,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			String[] types;
 			if (fullTypes.length > first) {
-				TermUtilities.checkEqtypesTypesArray(
+				TermUtilities.checkEqTypeTypesArray(
 						expressionString,
 						fullTypes,
 						first);

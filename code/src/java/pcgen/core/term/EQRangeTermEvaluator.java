@@ -42,7 +42,14 @@ public class EQRangeTermEvaluator extends BaseEQTermEvaluator implements TermEva
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return (float) eq.getSafe(IntegerKey.RANGE);
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return String.valueOf(equipment.getSafe(IntegerKey.RANGE));
 	}
 
 	public boolean isSourceDependant()

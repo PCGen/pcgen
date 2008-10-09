@@ -43,6 +43,150 @@ public class TermUtilitiesTest extends PCGenTestCase {
     }
 
 	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray01() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"EQUIPPED"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(true), "EqtypesTypesArray01 Single Type EQUIPPED");
+	}
+
+	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray02() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"NOTEQUIPPED"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(true), "EqtypesTypesArray02 Single Type NOTEQUIPPED");
+	}
+
+	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray03() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"EQUIPPED", "FOO"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED.FOO]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(false), "EqtypesTypesArray03 EQUIPPED with spurious type");
+	}
+
+	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray04() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"BAR", "NOT", "FOO"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.NOT.FOO]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(true), "EqtypesTypesArray04 Exclude FOO");
+	}
+
+	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray05() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"BAR", "ADD", "FOO"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.ADD.FOO]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(true), "EqtypesTypesArray05 Include FOO");
+	}
+
+	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray06() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"BAR", "IS", "FOO"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.IS.FOO]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(true), "EqtypesTypesArray06 Only FOO");
+	}
+
+	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray07() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"QUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.QUX.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(true), "EqtypesTypesArray07 All options");
+	}
+
+	/**
+	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
+	 */
+	public void testcheckEqTypeTypesArray08() {
+		boolean ok;
+		try
+		{
+			ok = true;
+			String[] types = new String[]{"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
+			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.QUUX.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
+		}
+		catch (TermEvaulatorException e)
+		{
+			ok = false;
+		}
+		is(ok, eq(false), "EqtypesTypesArray08 All options with spurious");
+	}
+
+	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	public void testcheckEquipmentTypesArray01() {
@@ -51,13 +195,13 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		{
 			ok = true;
 			String[] types = new String[]{"EQUIPPED"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0);
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.EQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray01 Single Type EQUIPPED");
+		is(ok, eq(true), "EquipmentTypesArray01 Single Type EQUIPPED");
 	}
 
 	/**
@@ -69,13 +213,13 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		{
 			ok = true;
 			String[] types = new String[]{"NOTEQUIPPED"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0);
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOTEQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray02 Single Type NOTEQUIPPED");
+		is(ok, eq(true), "EquipmentTypesArray02 Single Type NOTEQUIPPED");
 	}
 
 	/**
@@ -87,7 +231,7 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		{
 			ok = true;
 			String[] types = new String[]{"EQUIPPED", "FOO"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.EQUIPPED.FOO]", types, 0);
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.EQUIPPED.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -104,8 +248,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.NOT.FOO]", types, 0);
+			String[] types = new String[]{"QUX", "NOT", "FOO"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUX.NOT.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -122,8 +266,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"ADD", "FOO"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.ADD.FOO]", types, 0);
+			String[] types = new String[]{"QUUX", "ADD", "FOO"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.ADD.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -140,8 +284,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"IS", "FOO"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.IS.FOO]", types, 0);
+			String[] types = new String[]{"QUUX", "IS", "FOO"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.IS.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -158,8 +302,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
+			String[] types = new String[]{"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -176,8 +320,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQTYPE.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
+			String[] types = new String[]{"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -186,150 +330,6 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		is(ok, eq(false), "EquipmentTypesArray08 All options with spurious");
 	}
 
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray01() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"EQUIPPED"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(true), "EqtypesTypesArray01 Single Type EQUIPPED");
-	}
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray02() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"NOTEQUIPPED"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(true), "EqtypesTypesArray02 Single Type NOTEQUIPPED");
-	}
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray03() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"EQUIPPED", "FOO"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.EQUIPPED.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(false), "EqtypesTypesArray03 EQUIPPED with spurious type");
-	}
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray04() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"NOT", "FOO"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.NOT.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(true), "EqtypesTypesArray04 Exclude FOO");
-	}
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray05() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"ADD", "FOO"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.ADD.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(true), "EqtypesTypesArray05 Include FOO");
-	}
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray06() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"IS", "FOO"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.IS.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(true), "EqtypesTypesArray06 Only FOO");
-	}
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray07() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(true), "EqtypesTypesArray07 All options");
-	}
-
-	/**
-	 * Method: checkEqtypesTypesArray(String originalText, String[] types, int first)
-	 */
-	public void testcheckEqtypesTypesArray08() {
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
-			TermUtilities.checkEqtypesTypesArray("COUNT[EQTYPE.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		is(ok, eq(false), "EqtypesTypesArray08 All options with spurious");
-	}
 
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)

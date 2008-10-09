@@ -42,7 +42,14 @@ public class EQHandsTermEvaluator extends BaseEQTermEvaluator implements TermEva
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return (float) eq.getSafe(IntegerKey.SLOTS);
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return Integer.toString(equipment.getSafe(IntegerKey.SLOTS));
 	}
 
 	public boolean isSourceDependant()

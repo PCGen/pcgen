@@ -34,6 +34,7 @@ import java.util.HashMap;
 
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
 
 public class EvaluatorFactory {
 
@@ -146,7 +147,7 @@ public class EvaluatorFactory {
 			}
 			catch (TermEvaulatorException e)
 			{
-				e.printStackTrace();
+				Logging.log(Logging.ERROR, e.toString());
 			}
 		}
 		

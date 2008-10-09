@@ -41,14 +41,21 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		if (primary)
-		{
-			return (float) eq.getCritMultiplier();
-		}
-
-		return (float) eq.getAltCritMultiplier();
+		return Float.valueOf(evaluate(eq, primary, pc));
 	}
 
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		if (primary)
+		{
+			return Float.toString(equipment.getCritMultiplier());
+		}
+
+		return Float.toString(equipment.getAltCritMultiplier());
+	}
+	
 	public boolean isSourceDependant()
 	{
 		return false;

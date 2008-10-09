@@ -27,6 +27,7 @@
 package pcgen.core.term;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
@@ -43,9 +44,16 @@ public class EQBaseCostTermEvaluator
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return eq.getSafe(ObjectKey.COST).floatValue();
+		return Float.valueOf(evaluate(eq, primary, pc));
 	}
 
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return Float.toString(equipment.getSafe(ObjectKey.COST).floatValue());
+	}
+	
 	public boolean isSourceDependant()
 	{
 		return false;

@@ -28,6 +28,7 @@ package pcgen.core.term;
 
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.spell.Spell;
 import pcgen.cdom.enumeration.IntegerKey;
 
 public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
@@ -42,7 +43,21 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return (float) eq.sizeInt();
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(PlayerCharacter pc) {
+		return String.valueOf("0");
+	}
+
+	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+		return String.valueOf("0");
+	}
+
+	public String evaluate(
+			Equipment equipment, boolean primary, PlayerCharacter pc)
+	{
+		return String.valueOf(equipment.sizeInt());		
 	}
 
 	public boolean isSourceDependant()

@@ -32,6 +32,8 @@ public interface TermEvaluator
 
 	String evaluate(PlayerCharacter pc, final Spell aSpell);
 
+	String evaluate(Equipment equipment, boolean primary, PlayerCharacter pc);
+
 	Number resolve(PlayerCharacter pc);
 
 	Number resolve(PlayerCharacter pc, final Spell aSpell);

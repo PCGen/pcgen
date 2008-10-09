@@ -44,23 +44,31 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		if (eq.isCalculatingCost() && eq.isWeightAlreadyUsed())
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+
+		if (equipment.isCalculatingCost() && equipment.isWeightAlreadyUsed())
 		{
-			return 0f;
+			return "0";
 		}
 		
-		BigDecimal weightInPounds = eq.getWeightInPounds();
+		BigDecimal weightInPounds = equipment.getWeightInPounds();
 
-		if (eq.isCalculatingCost() && eq.isAmmunition())
+		if (equipment.isCalculatingCost() && equipment.isAmmunition())
 		{
 			Float unitWeight = weightInPounds.floatValue();
-			unitWeight /= eq.getSafe(IntegerKey.BASE_QUANTITY);
-			eq.setWeightAlreadyUsed(true);
-			return unitWeight;
+			unitWeight /= equipment.getSafe(IntegerKey.BASE_QUANTITY);
+			equipment.setWeightAlreadyUsed(true);
+			return String.valueOf(unitWeight);
 		}
 
-		eq.setWeightAlreadyUsed(true);
-		return weightInPounds.floatValue();
+		equipment.setWeightAlreadyUsed(true);
+		return String.valueOf(weightInPounds);
 	}
 
 	public boolean isSourceDependant()

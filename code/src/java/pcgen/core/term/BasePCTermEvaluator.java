@@ -42,6 +42,13 @@ public abstract class BasePCTermEvaluator
 		return Integer.toString(resolve(pc, aSpell).intValue());	
 	}
 
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return evaluate(pc);
+	}
+	
 	public abstract Float resolve(PlayerCharacter pc);
 
 	public Float resolve(PlayerCharacter pc, final Spell aSpell) {

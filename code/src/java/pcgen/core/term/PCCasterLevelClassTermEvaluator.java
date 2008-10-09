@@ -68,14 +68,17 @@ public class PCCasterLevelClassTermEvaluator
 			spellType = spClass.getSpellType();
 		}
 
-		final int pcBonus = (int) pc.getTotalBonusTo("PCLEVEL", varSource);
+		final Double d1 = pc.getTotalBonusTo("PCLEVEL", varSource);
+		final int pcBonus = (d1 == null) ? 0 : d1.intValue(); 
 
 		// does the class have a Casterlevel?
-		final int castBonus = (int) pc.getTotalBonusTo("CASTERLEVEL", varSource);
+		final Double d2 = pc.getTotalBonusTo("CASTERLEVEL", varSource);
+		final int castBonus = (d2 == null) ? 0 : d2.intValue();
 
 		// If no CASTERLEVEL has been defined for this class then
 		// use total class level instead
-		final int iClass = (castBonus == 0) ? spClass.getLevel() : 0;
+		final int iClass =
+				(spClass != null && castBonus == 0) ? spClass.getLevel() : 0;
 
 		return (float) pc.getTotalCasterLevelWithSpellBonus(
 				aSpell, spellType, varSource, iClass + pcBonus);

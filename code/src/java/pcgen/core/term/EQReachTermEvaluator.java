@@ -36,12 +36,20 @@ public class EQReachTermEvaluator extends BaseEQTermEvaluator implements TermEva
 	{
 		this.originalText = expressionString;
 	}
+
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return (float) eq.getSafe(IntegerKey.REACH);
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return String.valueOf(equipment.getSafe(IntegerKey.REACH));
 	}
 
 	public boolean isSourceDependant()

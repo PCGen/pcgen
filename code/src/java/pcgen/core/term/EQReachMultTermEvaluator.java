@@ -36,13 +36,20 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 	{
 		this.originalText = expressionString;
 	}
-	
+
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return (float) eq.getSafe(IntegerKey.REACH_MULT);
+		return Float.valueOf(evaluate(eq, primary, pc));
+	}
+
+	public String evaluate(
+			Equipment equipment,
+			boolean primary,
+			PlayerCharacter pc) {
+		return String.valueOf(equipment.getSafe(IntegerKey.REACH_MULT));
 	}
 
 	public boolean isSourceDependant()
