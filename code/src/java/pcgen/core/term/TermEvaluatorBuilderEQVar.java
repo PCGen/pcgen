@@ -159,20 +159,6 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		}
 	},
 
-	COMPLETE_EQ_RACEREACH
-		("RACEREACH",
-		 new String[] { "RACEREACH" },
-	 	 true ) { 
-
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
-
-			return new EQRaceReachTermEvaluator(expressionString, src);
-		}
-	},
-
 	COMPLETE_EQ_RANGE
 		("RANGE",
 		 new String[] { "RANGE" },
@@ -188,8 +174,8 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 	},
 
 	COMPLETE_EQ_REACHMULT
-		("REACH(?:MULT)?",
-		 new String[] { "REACHMULT", "REACH" },
+		("(?:RACEREACH|REACHMULT|REACH)",
+		 new String[] { "RACEREACH" ,"REACHMULT", "REACH" },
 	 	 true ) { 
 
 		public TermEvaluator getTermEvaluator(
@@ -197,14 +183,19 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 				final String src,
 				final String matchedSection) {
 
-			if (matchedSection.length() == 9)
+			if ("RACEREACH".equals(expressionString))
+			{
+				return new EQRaceReachTermEvaluator(expressionString, src);				
+			}
+			else if ("REACHMULT".equals(expressionString))
 			{
 				return new EQReachMultTermEvaluator(expressionString);
 			}
-			else
+			else if ("REACH".equals(expressionString))
 			{
 				return new EQReachTermEvaluator(expressionString);
 			}
+			return null;
 		}
 	},
 
