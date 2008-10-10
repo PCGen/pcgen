@@ -46,13 +46,13 @@ CLASS:Telepath	PREFEAT:1,Wild Talent	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Infor
 CLASS:Telepath	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Sense Motive|Speak Language
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Telepath	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Telepath|CL
-# AUTO:FEAT|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
+# ABILITY:Special Ability|AUTOMATIC|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
 # variables that need to be set or modified by PrC's to calculate correct points, it's all done here.
 # Use ADD:SPELLCASTER(Telepath) in PrC's that add to manifester level.
 # Code those that have KNOWN tags similar to this but change the VAR names, i.e. TelepathML becomes BattlemindML,
 # TelepathBonusPP becomes BattlemindBonusPP, etc
-1	BONUS:VAR|TelepathML|var("CL=Telepath")	BONUS:VAR|TelepathML|var("BL=Telepath")					DEFINE:TelepathML|0	AUTO:FEAT|PsionicClass
+1	BONUS:VAR|TelepathML|var("CL=Telepath")	BONUS:VAR|TelepathML|var("BL=Telepath")					DEFINE:TelepathML|0	ABILITY:Special Ability|AUTOMATIC|PsionicClass
 1	BONUS:VAR|BasePowerPoints|2
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:TelepathML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:TelepathML,3
 1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:TelepathML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:TelepathML,5
@@ -81,7 +81,7 @@ CLASS:Battle Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentratio
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Mind|CL
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|BattlemindML|var("CL=Battle Mind")	BONUS:VAR|BattlemindML|var("BL=Battle Mind")			DEFINE:BattlemindML|0	AUTO:FEAT|PsionicClass
+1	BONUS:VAR|BattlemindML|var("CL=Battle Mind")	BONUS:VAR|BattlemindML|var("BL=Battle Mind")			DEFINE:BattlemindML|0	ABILITY:Special Ability|AUTOMATIC|PsionicClass
 1	BONUS:VAR|BasePowerPoints|2
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,3
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BattlemindML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:BattlemindML,5
@@ -138,13 +138,13 @@ CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Vis
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Acolyte|CL
 ###Block: Turning
-2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 2	BONUS:VAR|TurnLevel|var("CL=Acolyte")		DEFINE:ExtraTurningQual|1
 2	BONUS:VAR|TurnDamagePlus|var("CL=Acolyte")
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
 1	CAST:3,1
-2	CAST:4,2								ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Undead
+2	CAST:4,2
 3	CAST:4,2,1		BONUS:ABILITYPOOL|Acolyte Feat|1
 4	CAST:5,3,2								ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting
 5	CAST:5,3,2,1							ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage

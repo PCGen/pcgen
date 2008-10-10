@@ -22,27 +22,27 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 
 ###Block:Familiar Temp Bonuses
 # Feat Name			Type			Visible	Bonus to skill							Source Page						Temporary effect description
-Hawk Familiar Bonuses	TYPE:Special	VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=HawkFamiliar|PREAPPLY:PC	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
-Owl Familiar Bonuses	TYPE:Special	VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=OwlFamiliar|PREAPPLY:PC		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
+#Hawk Familiar Bonuses	TYPE:Special	VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=HawkFamiliar|PREAPPLY:PC	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
+#Owl Familiar Bonuses	TYPE:Special	VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=OwlFamiliar|PREAPPLY:PC		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
 
 ###Block:Turning
 # Feat Name			Type						Visible	Special ABility																									Define
-Base Turn			TYPE:Special.Turn/Rebuke		VISIBLE:NO																												DEFINE:TurnTimes|0	DEFINE:TurnLevel|0	DEFINE:TurnDice|2	DEFINE:TurnDieSize|6	DEFINE:TurnDamagePlus|CHA	DEFINE:TurnCheck|0
-Turn/Rebuke Undead	TYPE:Special.Turn/Rebuke.Undead	VISIBLE:NO	SAB:Turn/Rebuke Undead (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimes	DEFINE:TurnLevelUndead|TurnLevel	DEFINE:TurnDiceUndead|TurnDice	DEFINE:TurnDieSizeUndead|TurnDieSize	DEFINE:TurnDamagePlusUndead|TurnDamagePlus	DEFINE:TurnCheckUndead|TurnCheck
+#Base Turn			TYPE:Special.Turn/Rebuke		VISIBLE:NO																												DEFINE:TurnTimes|0	DEFINE:TurnLevel|0	DEFINE:TurnDice|2	DEFINE:TurnDieSize|6	DEFINE:TurnDamagePlus|CHA	DEFINE:TurnCheck|0
+#Turn/Rebuke Undead	TYPE:Special.Turn/Rebuke.Undead	VISIBLE:NO	SAB:Turn/Rebuke Undead (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimes	DEFINE:TurnLevelUndead|TurnLevel	DEFINE:TurnDiceUndead|TurnDice	DEFINE:TurnDieSizeUndead|TurnDieSize	DEFINE:TurnDamagePlusUndead|TurnDamagePlus	DEFINE:TurnCheckUndead|TurnCheck
 
 ###Block: Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
 # Feat Name		Type			Visible	Special ABility																					Define																						Modify VAR
-PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+#PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: All Proficiencies (for referencing)
 # Feat Name						Type			Visible	Automatically Gained Weapon Prof.
-All Automatic Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Flamethrower
-All Exotic Firearms Proficiency		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.ExoticFirearms
-All Exotic Melee Weapons Proficiency	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
+#All Automatic Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Flamethrower
+#All Exotic Firearms Proficiency		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.ExoticFirearms
+#All Exotic Melee Weapons Proficiency	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
 
 ###Block:Web Access Spellbook
 # Feat Name		Type				Visible	Special ABility
-Web Access Spells	TYPE:VirtualPossession	VISIBLE:NO	SAB:Can use Web Access as spellbook
+#Web Access Spells	TYPE:VirtualPossession	VISIBLE:NO	SAB:Can use Web Access as spellbook
 
 #
 # EOF

@@ -61,7 +61,7 @@ CLASS:Mystic	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharma
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|CL
 ###Block: Turning
-2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 2	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
 2	BONUS:VAR|TurnDamagePlus|CL
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat

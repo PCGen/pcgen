@@ -45,7 +45,6 @@ Spell Mastery		CATEGORY:Special Ability	TYPE:SpellMastery					SAB:Spell Mastery 
 
 ###Block:Acolyte --------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type							Visible	Special ABility
-Turn/Rebuke Undead		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Undead (Su)
 Spontaneous Casting		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility			VISIBLE:NO	SAB:Spontaneous Casting
 Turn/Rebuke Magical Beasts	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Magical Beasts (Su)
 Turn/Rebuke Outsiders		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Outsiders (Su)

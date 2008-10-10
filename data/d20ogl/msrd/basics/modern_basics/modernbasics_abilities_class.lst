@@ -1,10 +1,27 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 12:37:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Fri Oct 10 13:13:41 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type					Visible	Special ABility
-Discern Lie				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Discern Lie
-Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Weapon Damage
-Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skill Mastery
+
+# Ability Name			Category of Ability		Type						Visible	Special ABility																									Define																																						Modify VAR
+Discern Lie				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		VISIBLE:NO	SAB:Discern Lie
+Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility		VISIBLE:NO	SAB:Improvised Weapon Damage
+Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		VISIBLE:NO	SAB:Skill Mastery
+
+# Turning
+Base Turn				CATEGORY:Special Ability	TYPE:Special.Turn/Rebuke		VISIBLE:NO																												DEFINE:TurnTimes|0	DEFINE:TurnLevel|0	DEFINE:TurnDice|2	DEFINE:TurnDieSize|6	DEFINE:TurnDamagePlus|CHA	DEFINE:TurnCheck|0
+Turn/Rebuke Undead		CATEGORY:Special Ability	TYPE:Special.Turn/Rebuke.Undead	VISIBLE:NO	SAB:Turn/Rebuke Undead (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimes	DEFINE:TurnLevelUndead|TurnLevel	DEFINE:TurnDiceUndead|TurnDice	DEFINE:TurnDieSizeUndead|TurnDieSize	DEFINE:TurnDamagePlusUndead|TurnDamagePlus	DEFINE:TurnCheckUndead|TurnCheck
+
+# Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
+PsionicClass			CATEGORY:Special Ability	TYPE:PsionicClass				VISIBLE:NO	SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints					DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1																	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+
+# Web Access Spellbook
+Web Access Spells			CATEGORY:Special Ability	TYPE:VirtualPossession			VISIBLE:NO	SAB:Can use Web Access as spellbook
+
+###Block: All Proficiencies (for referencing)
+# Ability Name					Category of Ability		Visible	Automatically Gained Weapon Prof.
+All Automatic Proficiencies			CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Flamethrower
+All Exotic Firearms Proficiency		CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.ExoticFirearms
+All Exotic Melee Weapons Proficiency	CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
 
 
 ###Block:Soldier ---------------------------------------------------------------------------------
