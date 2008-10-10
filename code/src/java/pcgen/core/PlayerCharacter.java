@@ -17701,8 +17701,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aPC
 	 *            The PC that this Template is appled to
 	 */
-	private void getLevelFeat(PCTemplate pct, final int lvl,
-		final String aKey)
+	private void getLevelFeat(
+			PCTemplate pct,
+			final int lvl,
+			final String aKey)
 	{
 		String featKe = null;
 		while (true)
@@ -17940,14 +17942,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (FixedStringList ac : assocList)
 			{
 				final String choiceStr = ac.get(0);
-				if (Constants.EMPTY_STRING.equals(choiceStr))
-				{
-					list.add(null);
-				}
-				else
-				{
-					list.add(choiceStr);
-				}
+				list.add(choiceStr);
 			}
 		}
 		return list;
