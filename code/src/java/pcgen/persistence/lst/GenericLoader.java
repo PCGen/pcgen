@@ -86,17 +86,24 @@ public final class GenericLoader<T extends PObject> extends
 			CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		T po;
-		try
+		if (aWP == null)
 		{
-			po = baseClass.newInstance();
+			try
+			{
+				po = baseClass.newInstance();
+			}
+			catch (InstantiationException e)
+			{
+				throw new UnreachableError(e);
+			}
+			catch (IllegalAccessException e)
+			{
+				throw new UnreachableError(e);
+			}
 		}
-		catch (InstantiationException e)
+		else
 		{
-			throw new UnreachableError(e);
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new UnreachableError(e);
+			po = aWP;
 		}
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine,
