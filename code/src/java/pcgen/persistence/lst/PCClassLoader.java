@@ -77,17 +77,18 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		if (lstLine.startsWith("SUBCLASS:")
 			|| lstLine.startsWith("SUBCLASSLEVEL:"))
 		{
+			int tabLoc = lstLine.indexOf("\t");
 			SubClass subClass = null;
 
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
-				if (lstLine.indexOf("\t") == -1)
+				if (tabLoc == -1)
 				{
 					Logging.errorPrint("Expected SUBCLASS to have "
 						+ "additional Tags in " + source.getURI()
 						+ " (e.g. COST is a required Tag in a SUBCLASS)");
 				}
-				final String n = lstLine.substring(9, lstLine.indexOf("\t"));
+				final String n = lstLine.substring(9, tabLoc);
 				subClass = pcClass.getSubClassKeyed(n);
 
 				if (subClass == null)
@@ -121,30 +122,34 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		if (lstLine.startsWith("SUBSTITUTIONCLASS:")
 			|| lstLine.startsWith("SUBSTITUTIONLEVEL:"))
 		{
+			int tabLoc = lstLine.indexOf("\t");
 			SubstitutionClass substitutionClass = null;
 
 			if (lstLine.startsWith("SUBSTITUTIONCLASS:"))
 			{
-				if (lstLine.indexOf("\t") > 0)
+				String name;
+				String restOfLine;
+				if (tabLoc > 0)
 				{
-					substitutionClass =
-							pcClass.getSubstitutionClassKeyed(lstLine
-								.substring(18, lstLine.indexOf("\t")));
+					name = lstLine.substring(18, tabLoc);
+					restOfLine = lstLine.substring(tabLoc);
 				}
 				else
 				{
-					substitutionClass =
-							pcClass.getSubstitutionClassKeyed(lstLine
-								.substring(18));
+					name = lstLine.substring(18);
+					restOfLine = null;
 				}
+				substitutionClass = pcClass.getSubstitutionClassKeyed(name);
 
 				if (substitutionClass == null)
 				{
 					substitutionClass = new SubstitutionClass();
+					substitutionClass.setName(name);
 					substitutionClass.setSourceCampaign(source.getCampaign());
 					substitutionClass.setSourceURI(source.getURI());
 					pcClass.addSubstitutionClass(substitutionClass);
 				}
+				parseLineIntoClass(context, substitutionClass, source, restOfLine);
 			}
 			else
 			{
@@ -160,12 +165,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 					return pcClass;
 				}
-			}
-
-			if (substitutionClass != null)
-			{
-				SubstitutionClassLoader.parseLine(context, substitutionClass, lstLine,
-					source);
 			}
 
 			return pcClass;

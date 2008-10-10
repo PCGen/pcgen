@@ -50,7 +50,6 @@ public class TokenStore
 		tokenTypeList.add(RaceLstToken.class);
 		tokenTypeList.add(SourceLstToken.class);
 		tokenTypeList.add(SubClassLstToken.class);
-		tokenTypeList.add(SubstitutionClassLstToken.class);
 		//Kits
 		tokenTypeList.add(KitLstToken.class);
 		tokenTypeList.add(BaseKitLstToken.class);
