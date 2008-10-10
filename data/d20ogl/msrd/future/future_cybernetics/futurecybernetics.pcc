@@ -22,7 +22,7 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This set loads the Cybernetics options from the Future section of the MSRD.
 
-
+ABILITY:futurecybernetics_abilities.lst
 EQUIPMENT:futurecybernetics_implants.lst
 EQUIPMOD:futurecybernetics_equipmods.lst
 FEAT:futurecybernetics_feats_hidden.lst

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 30 20:26:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 10 12:37:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type					Visible	Special ABility
@@ -69,10 +69,13 @@ Major Breakthrough		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:N
 
 
 ###Block:Techie ---------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type					Visible	Special ABility			Define
-Jury Rig		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Jury Rig +%|TechieRig	DEFINE:TechieRig|0
-Extreme Machine	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Extreme Machine
-Build Robot		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Build Robot
+# Ability Name		Category of Ability		Type					Visible		Special ABility							Define				Stackable?	Multiple?	Choose		Modify VAR				Source Page
+Jury Rig			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO		SAB:Jury Rig +%|TechieRig					DEFINE:TechieRig|0
+Extreme Machine		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO		SAB:Extreme Machine
+Build Robot			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO		SAB:Build Robot
+
+Electronic Mastercraft	CATEGORY:Special Ability	TYPE:TechieMastercraft		VISIBLE:DISPLAY	SAB:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Mechanical Mastercraft	CATEGORY:Special Ability	TYPE:TechieMastercraft		VISIBLE:DISPLAY	SAB:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
 
 
 ###Block:FieldMedic ---------------------------------------------------------------------------
@@ -103,7 +106,7 @@ Compelling Performance	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBL
 # Ability Name	Category of Ability		Type					Visible	Special ABility																										Define
 Conceal Motive	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Conceal Motive
 React First		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:React First
-Talk Down		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Talk down one opponent|PREVAREQ:TalkDownLvl,1	SAB:Talk down several opponents||PREVAREQ:TalkDownLvl,2	SAB:Talk down all opponents|PREVAREQ:TalkDownLvl,3	DEFINE:TalkDownLvl|0
+Talk Down		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Talk down one opponent|PREVAREQ:TalkDownLvl,1	SAB:Talk down several opponents|PREVAREQ:TalkDownLvl,2	SAB:Talk down all opponents|PREVAREQ:TalkDownLvl,3	DEFINE:TalkDownLvl|0
 No Sweat		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:No sweat
 Sow Distrust	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sow Distrust
 

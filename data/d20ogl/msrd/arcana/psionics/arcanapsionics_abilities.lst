@@ -22,14 +22,14 @@ Immovability		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psi
 Burst				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Burst|2
 Call Weaponry		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Call Weaponry|2
 Feather Fall		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Feather Fall|2
-Spider Climb		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Spider Climb|2
+Spider Climb		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Spider Climb (Power)|2
 Levitate			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Levitate|2
-Knock				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Knock|2
+Knock				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Knock (Power)|2
 Dimension Slide		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Slide|2
 Fly				CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Fly|2
 Instant Reload		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Instant Reload|2
-Dimension Door		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Door|2
-Freedom of Movement	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Freedom of Movement|2
+Dimension Door		CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Door (Power)|2
+Freedom of Movement	CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Freedom of Movement (Power)|2
 Ghost Shot			CATEGORY:Psionic Focus	TYPE:PsionicFocus	PREABILITY:1,CATEGORY=Psionic Focus,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Ghost Shot|2
 
 # Constitution Based Powers

@@ -1,14 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 10 12:37:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 
 
 ###Block:ModernFx Class Feat
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
 ABILITYCATEGORY:Shadow Slayer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShadowSlayer	PLURAL:Shadow Slayer Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Shadow Enemy Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShadowEnemy	PLURAL:ShadowEnemy Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Occultist Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Occultist	PLURAL:Occultist Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Telepath Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Telepath	PLURAL:Telepath Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Battlemind Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Battlemind	PLURAL:Battlemind Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Mage Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Mage		PLURAL:Mage Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Acolyte Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Acolyte	PLURAL:Acolyte Feats		DISPLAYLOCATION:Feats
+
+###Block:ModernFx Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI			Display Location
+ABILITYCATEGORY:Shadow Slayer Favored Enemy	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowEnemy	PLURAL:Shadow Slayer Favored Enemies	DISPLAYLOCATION:Class Abilities
 
 

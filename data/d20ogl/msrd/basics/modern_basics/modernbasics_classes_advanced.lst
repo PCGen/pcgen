@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 31 16:08:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 10 12:37:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Barak 11/09/02
 
@@ -137,20 +137,20 @@ CLASS:Field Scientist	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Chemical)|Craft
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
 CLASS:Techie	HD:6		TYPE:Advanced.PC	ABB:Techi		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
-# Class Name	Multiple Requirements
-CLASS:Techie	PREMULT:3,[PRESKILL:2,Computer Use=6,Disable Device=6],[PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6]
+# Class Name	Required Skill
+CLASS:Techie	PRESKILL:2,Computer Use=6,Disable Device=6	PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
-1									BONUS:VAR|TechieRig|2	ABILITY:Special Ability|AUTOMATIC|Jury Rig
-2													ABILITY:Special Ability|AUTOMATIC|Extreme Machine
+1								BONUS:VAR|TechieRig|2	ABILITY:Special Ability|AUTOMATIC|Jury Rig
+2												ABILITY:Special Ability|AUTOMATIC|Extreme Machine
 3	BONUS:ABILITYPOOL|Techie Feat|1
-4													ABILITY:Special Ability|AUTOMATIC|Build Robot
-5	BONUS:ABILITYPOOL|Techie Mastercraft Feat|1
+4												ABILITY:Special Ability|AUTOMATIC|Build Robot
+5	BONUS:ABILITYPOOL|Techie Mastercraft|1
 6	BONUS:ABILITYPOOL|Techie Feat|1
-7									BONUS:VAR|TechieRig|2
-8	BONUS:ABILITYPOOL|Techie Mastercraft Feat|1
+7								BONUS:VAR|TechieRig|2
+8	BONUS:ABILITYPOOL|Techie Mastercraft|1
 9	BONUS:ABILITYPOOL|Techie Feat|1
-10	BONUS:ABILITYPOOL|Techie Mastercraft Feat|1
+10	BONUS:ABILITYPOOL|Techie Mastercraft|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR

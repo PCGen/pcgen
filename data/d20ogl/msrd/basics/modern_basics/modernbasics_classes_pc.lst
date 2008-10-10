@@ -14,7 +14,7 @@ SUBCLASS:Strong Hero	COST:0
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Strong Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Strong Feat|CL/2
 #
-1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus															Combat bonus			Modify VAR
@@ -29,7 +29,7 @@ SUBCLASS:Fast Hero	COST:0
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Fast Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Fast Feat|CL/2
 #
-1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus															Combat bonus			Modify VAR
@@ -44,7 +44,7 @@ SUBCLASS:Tough Hero	COST:0
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Tough Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Tough Feat|CL/2
 #
-1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus															Combat bonus		Modify VAR
@@ -59,7 +59,7 @@ SUBCLASS:Smart Hero	COST:0
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Smart Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Smart Feat|CL/2
 #
-1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus																Combat bonus			Modify VAR
@@ -74,7 +74,7 @@ SUBCLASS:Dedicated Hero	COST:0
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Dedicated Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Dedicated Feat|CL/2
 #
-1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Save checks bonus																Combat bonus		Modify VAR
@@ -89,7 +89,7 @@ SUBCLASS:Charismatic Hero	COST:0
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Charismatic Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP	AUTO:FEAT|All Automatic Proficiencies
 SUBCLASSLEVEL:2	BONUS:ABILITYPOOL|Charismatic Feat|CL/2
 #
-1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Starting Benefits	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation	AUTO:FEAT|Simple Weapons Proficiency
 
 #
 # End

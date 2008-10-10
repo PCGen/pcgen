@@ -68,9 +68,9 @@ CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic
 ###Block: Spells
 1	SPELLLEVEL:CLASS|Mystic=0|Create Water,Detect Magical Aura,Light,Read Magic,Resistance,Virtue
 1	SPELLLEVEL:CLASS|Mystic=1|Bane,Bless,Cause Fear,Command,Comprehend Languages,Magic Weapon,Remove Fear,Shield of Faith
-1	SPELLLEVEL:CLASS|Mystic=2|Aid,Augury,Delay Poison,Enhance Ability,Hold Person,Lesser Restoration,Remove Paralysis,Resist Energy,Shatter,Silence,Spider Climb,Zone of Truth
+1	SPELLLEVEL:CLASS|Mystic=2|Aid,Augury,Delay Poison,Enhance Ability,Hold Person,Lesser Restoration,Remove Paralysis,Resist Energy,Shatter,Silence,Spider Climb (Spell),Zone of Truth
 1	SPELLLEVEL:CLASS|Mystic=3|Animate Dead,Bestow Curse,Dispel Magic,Glyph of Warding,Locate Object,Prayer,Remove Curse,Remove Disease,Searing Light,Status,Water Breathing
-1	SPELLLEVEL:CLASS|Mystic=4|Discern Lies,Faith's Fury,Freedom of Movement,Greater Magic Weapon,Neutralize Poison,Restoration,Tongues
+1	SPELLLEVEL:CLASS|Mystic=4|Discern Lies,Faith's Fury,Freedom of Movement (Spell),Greater Magic Weapon,Neutralize Poison,Restoration,Tongues
 1	SPELLLEVEL:CLASS|Mystic=5|Break Enchantment,Flaming Wrath,Greater Command,Insect Plague,True Seeing,Wall of Stone
 ###Block: Standard block
 1	CAST:3,2		KNOWN:4,2																	AUTO:FEAT|Arcane Skills
@@ -179,7 +179,7 @@ CLASS:Techno Mage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemi
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Techno Mage|CL
 ###Block: Spells
-1	SPELLLEVEL:CLASS|Techno Mage=0|Daze,Detect Magical Aura,Light,Mage Hand,Message,Prestidigitation,Read Magic,Resistance|Techno Mage=1|Burning Hands,Cause Fear,Change Self,Comprehend Languages,Feather Fall,Hold Portal,Jump,Mage Armor,Magic Missile,Magic Weapon,Power Device,Ray of Fatigue,Shield,Sleep,True Strike|Techno Mage=2|Arcane Lock,Blur,Darkvision,Enhance Ability,Glitterdust,Invisibility,Knock,Levitate,Locate Object,Magic Mouth,Protection from Arrows/Bullets,Resist Energy,See Invisibility,Spider Climb,Web|Techno Mage=3|Dispel Magic,Displacement,Fireball,Flaming Projectiles,Greater Magic Weapon,Halt Undead,Haste,Hold Person,Invisibility Sphere,Keen Edge,Lightning Bolt,Slow,Tongues,Water Breathing|Techno Mage=4|Animate Dead,Arcane Eye,Bestow Curse,Confusion,Dimension Door,Energy Trap,Fear,Ice Storm,Minor Globe of Invulnerability,Remove Curse,Shout,Stoneskin,Wall of Fire,Wall of Ice|Techno Mage=5|Cloudkill,Cone of Cold,Hold Monster,Passwall,Phantom Watchdog,Telekinesis,Wall of Force,Wall of Iron,Wall of Stone
+1	SPELLLEVEL:CLASS|Techno Mage=0|Daze,Detect Magical Aura,Light,Mage Hand,Message,Prestidigitation,Read Magic,Resistance|Techno Mage=1|Burning Hands,Cause Fear,Change Self,Comprehend Languages,Feather Fall,Hold Portal,Jump,Mage Armor,Magic Missile,Magic Weapon,Power Device,Ray of Fatigue,Shield,Sleep,True Strike|Techno Mage=2|Arcane Lock,Blur,Darkvision,Enhance Ability,Glitterdust,Invisibility,Knock (Spell),Levitate,Locate Object,Magic Mouth,Protection from Arrows/Bullets,Resist Energy,See Invisibility,Spider Climb (Spell),Web|Techno Mage=3|Dispel Magic,Displacement,Fireball,Flaming Projectiles,Greater Magic Weapon,Halt Undead,Haste,Hold Person,Invisibility Sphere,Keen Edge,Lightning Bolt,Slow,Tongues,Water Breathing|Techno Mage=4|Animate Dead,Arcane Eye,Bestow Curse,Confusion,Dimension Door (Spell),Energy Trap,Fear,Ice Storm,Minor Globe of Invulnerability,Remove Curse,Shout,Stoneskin,Wall of Fire,Wall of Ice|Techno Mage=5|Cloudkill,Cone of Cold,Hold Monster,Passwall,Phantom Watchdog,Telekinesis,Wall of Force,Wall of Iron,Wall of Stone
 ###Block: Standard
 1	CAST:3,1											ABILITY:Special Ability|AUTOMATIC|Arcane Skills
 2	CAST:4,2											ABILITY:Special Ability|AUTOMATIC|Machine Empathy
