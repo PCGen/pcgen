@@ -95,26 +95,34 @@
 
 		<p class="new">*** updated 5.7.9</p>
 		<p class="indent0"><strong><a name="SPELLLIST">Token Name:</a></strong> SPELLLISTx.y.z</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (The spellbook option you wish to display).</p>
-		<ul class="indent2">
-			<li>BOOK.y.z.w - Gives a comma delimited list of spells known to spellcaster class number y for level z (if any) of book w.</li>
-			<li>CAST.y.z - Indicates how many spells you can cast for spellcaster class number y for level z.</li>
-			<li>CLASS.y - Indicates spellcaster classname.</li>
-			<li>CLASS.y.LEVEL - Indicates spellcasters effective casting level, including bonus levels from other
-				classes.</li>
-			<li>DC.y.z - Indicates your DC casting that level of spell for the indicated class (y = class num, z =
-				level of spell).</li>
-			<li>DCSTAT.y.z - Indicates the STAT used to figure out DC of spell</li>
-			<li>MEMORIZE.y - outputs "true" if the spell class y needs to memorize spells, "false" otherwise.</li>
-			<li>TYPE.y - Indicates the type (i.e. Arcane or Divine) of spell class y.</li>
-			<li>KNOWN.y.z - Indicates how many spells you can know for spellcaster class number y for level z. For
-				Clerics with domains, this does not include domain spells.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (y):</strong> Number (Class number - 0 index array).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Number (Spellcasting level - 0-9).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Number (Book number).</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Spellbook Option. See below)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Number (Class Number - 0 index array).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Number (Spellcasting Level - 0-9).</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Number (Book Number. Optional).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays information about spellcasting ability, and spells themselves.</p>
+		<ul class="indent2">
+			<li>Displays information about spellcasting ability, and spells themselves.</li>
+			<li>Spellbook options include the following sub-tokens:
+				<ul>
+					<li><code>BOOK</code> - Displays a comma delimited list of spells known to spellcaster class number y for level z 
+						of book w.</li>
+					<li><code>CAST</code> - Displays the number of spells you can cast for spellcaster class number y for level z.</li>
+					<li><code>CLASS</code> - Displays the spellcaster class information.
+						<ul>
+							<li><code>CLASS.y</code> - Displays the spellcaster classname for class number y.</li>
+							<li><code>CLASS.y.LEVEL</code> - Displays the spellcasters effective casting level, including bonus levels 
+								from other classes.</li>
+						</ul>
+					<li><code>DC</code> - Displays the casting DC for a z level spell for spellcaster class y.</li>
+					<li><code>DCSTAT</code> - Displays the STAT used to figure out the DC of a z level spell cast by spallcaster class y.</li>
+					<li><code>MEMORIZE</code> - Returns a boolean "true" if the spellcaster class y needs to memorize spells, "false" 
+						if otherwise.</li>
+					<li><code>TYPE</code> - Displays the spell type (e.g. Arcane or Divine) of spellcaster class y.</li>
+					<li><code>KNOWN</code> - Displays how many spells spellcaster class y can know for level z. For Clerics with 
+						domains, this does not include domain spells.</li>
+				</ul>
+			</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLLISTCAST.0.1</code></p>
 		<p class="indent3">Displays how many spells the character can cast for the 1<sup>st</sup> level of the 1<sup>st</sup>
