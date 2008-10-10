@@ -310,8 +310,12 @@ public class AbilityToken extends Token
 	 * @param aList The list of abilities.
 	 * @return The token value.
 	 */
-	private String getRetString(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh, int abilityIndex, List<Ability> aList)
+	private String getRetString(
+			String tokenSource,
+			PlayerCharacter pc,
+			ExportHandler eh,
+			int abilityIndex,
+			List<Ability> aList)
 	{
 		String retString = "";
 		Ability aAbility;

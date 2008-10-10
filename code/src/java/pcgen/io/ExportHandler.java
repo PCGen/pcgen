@@ -2404,13 +2404,15 @@ public final class ExportHandler
 				Token token = tokenMap.get(firstToken);
 				if (token.isEncoded())
 				{
-					FileAccess.encodeWrite(output, token.getToken(tokenString, aPC,
-						this));
+					FileAccess.encodeWrite(
+							output,
+							token.getToken(tokenString, aPC, this));
 				}
 				else
 				{
-					FileAccess
-						.write(output, token.getToken(tokenString, aPC, this));
+					FileAccess.write(
+							output,
+							token.getToken(tokenString, aPC, this));
 				}
 			}
 
