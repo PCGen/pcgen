@@ -128,6 +128,15 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				source);
 		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
+		loader
+			.parseLine(
+				Globals.getContext(),
+				null,
+				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
+				source);
+		eqMod =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					EquipmentModifier.class, "MWORKW");
 	}
 
 	/*****************************************************************************
@@ -392,5 +401,41 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		assertEquals("Equip size", "S", aEquip.getSize());
 		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
 		assertEquals("Output", "Dummy$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
+	}
+	
+	/**
+	 * Validate naming items using the +1 modifier 
+	 */
+	public void testGetItemNameFromModifiersPlus1()
+	{
+		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
+		assertNotNull("Eqmod should be present", eqMod);
+
+		Equipment aEquip = eq.clone();
+		assertEquals("Name before modifier added", "Dummy", aEquip
+			.getItemNameFromModifiers());
+		aEquip.addEqModifier(eqMod, true, getCharacter());
+		assertEquals("Name after modifier added", "Dummy +1", aEquip
+			.getItemNameFromModifiers());
+		
+	}
+	
+	/**
+	 * Validate naming items using the masterwork equip modifier
+	 */
+	public void testGetItemNameFromModifiersMasterwork()
+	{
+		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "MWORKW");
+		assertNotNull("Eqmod should be present", eqMod);
+
+		Equipment aEquip = eq.clone();
+		assertEquals("Name before modifier added", "Dummy", aEquip
+			.getItemNameFromModifiers());
+		aEquip.addEqModifier(eqMod, true, getCharacter());
+		assertEquals("Name after modifier added", "Masterwork Dummy", aEquip
+			.getItemNameFromModifiers());
+		
 	}
 }

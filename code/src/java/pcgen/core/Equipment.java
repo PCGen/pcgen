@@ -690,7 +690,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (baseItem == null) {
 			return getKeyName();
 		}
-		return baseItem.resolvesTo().getKeyName();
+		return baseItem.resolvesTo().displayName;
 	}
 
 	/**

@@ -64,9 +64,12 @@ public enum EqModNameOpt
 		{
 			StringBuilder sb = new StringBuilder(100);
 			sb.append(mod.getDisplayName());
-			sb.append(" (");
-			sb.append(associatedList(parent.getAssociationList(mod)));
-			sb.append(')');
+			if (!parent.getAssociationList(mod).isEmpty())
+			{
+				sb.append(" (");
+				sb.append(associatedList(parent.getAssociationList(mod)));
+				sb.append(')');
+			}
 			return sb.toString().trim().replace('|', ' ');
 		}
 	},
