@@ -45,6 +45,8 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.io.exporttoken.SkillToken;
 
 /**
@@ -103,7 +105,13 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);
 		PCStat stat = character.getStatList().getStatAt(3);
-		stat.addBonusList("MODSKILLPOINTS|NUMBER|INT");
+		BonusObj aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		// Race
 		Race testRace = new Race();
@@ -159,7 +167,13 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		balance.setName("Balance");
 		balance.setTypeInfo("DEX");
 		balance.put(ObjectKey.KEY_STAT, dexStat);
-		balance.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		aBonus = Bonus.newBonus("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(balance);
+			balance.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.getContext().ref.importObject(balance);
 		Skill bs = character.addSkill(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, bs);

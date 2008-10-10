@@ -19,6 +19,9 @@
  */
 package pcgen.core.analysis;
 
+import java.util.List;
+
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
@@ -46,7 +49,16 @@ public final class BonusAddition
 			PlayerCharacter aPC, PObject target, boolean addOnceOnly)
 	{
 		bonusString = target.bonusStringPrefix() + makeBonusString(bonusString, chooseString, aPC);
-		target.addBonusList(bonusString, addOnceOnly);
+
+		final BonusObj aBonus = Bonus.newBonus(bonusString);
+
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(target);
+			aBonus.setAddOnceOnly(addOnceOnly);
+			aPC.addAssoc(target, AssociationListKey.BONUS, aBonus);
+		}
+
 		target.addSave("BONUS|" + bonusString);
 	}
 
@@ -65,33 +77,35 @@ public final class BonusAddition
 	{
 		String bonus = target.bonusStringPrefix() + makeBonusString(bonusString, chooseString, aPC);
 
-		int index = -1;
+		BonusObj toRemove = null;
 
 		BonusObj aBonus = Bonus.newBonus(bonus);
 		String bonusStrRep = String.valueOf(aBonus);
 
-		if (target.getBonusList() != null)
+		List<BonusObj> bonusList = aPC.getAssocList(target, AssociationListKey.BONUS);
+
+		if (bonusList != null)
 		{
 			int count = 0;
-			for (BonusObj listBonus : target.getBonusList())
+			for (BonusObj listBonus : bonusList)
 			{
 				if (listBonus.getCreatorObject().equals(target)
 						&& listBonus.toString().equals(bonusStrRep))
 				{
-					index = count;
+					toRemove = listBonus;
 				}
 				count++;
 			}
 		}
 
-		if (index >= 0)
+		if (toRemove != null)
 		{
-			target.getBonusList().remove(index);
+			aPC.removeAssoc(target, AssociationListKey.BONUS, toRemove);
 		}
 		else
 		{
 			Logging.errorPrint("removeBonus: Could not find bonus: " + bonus
-					+ " in bonusList " + target.getBonusList());
+					+ " in bonusList " + bonusList);
 		}
 
 		target.removeSave("BONUS|" + bonus);

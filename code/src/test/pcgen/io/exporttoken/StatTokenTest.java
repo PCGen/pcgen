@@ -26,10 +26,12 @@ package pcgen.io.exporttoken;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
@@ -74,19 +76,43 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		boots = new Equipment();
 		boots.setName("Boots of Dex");
-		boots.addBonusList("STAT|DEX|2|TYPE=Enhancement");
+		BonusObj aBonus = Bonus.newBonus("STAT|DEX|2|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(boots);
+			boots.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		spell = new Spell();
 		spell.setName("Weasel's Slipperiness");
-		spell.addBonusList("STAT|DEX|4|TYPE=Enhancement");
+		aBonus = Bonus.newBonus("STAT|DEX|4|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(spell);
+			spell.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		template1 = new PCTemplate();
 		template1.setName("Munchkiny Goodness I");
-		template1.addBonusList("STAT|STR,CON,DEX|1|TYPE=Luck");
+		aBonus = Bonus.newBonus("STAT|STR,CON,DEX|1|TYPE=Luck");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(template1);
+			template1.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		template2 = new PCTemplate();
 		template2.setName("Munchkiny Goodness II");
-		template2.addBonusList("STAT|STR,CON,DEX|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus("STAT|STR,CON,DEX|1|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(template2);
+			template2.addToListFor(ListKey.BONUS, aBonus);
+		}
 	}
 
 	/**
@@ -130,7 +156,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 			null));
 
 		pc.setUseTempMods(true);
-		BonusObj bonus = spell.getBonusList(pc).get(0);
+		BonusObj bonus = spell.getRawBonusList(pc).get(0);
 		pc.addTempBonus(bonus);
 		bonus.setTargetObject(pc);
 		pc.calcActiveBonuses();
@@ -211,7 +237,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 			null));
 
 		pc.setUseTempMods(true);
-		BonusObj bonus = spell.getBonusList(pc).get(0);
+		BonusObj bonus = spell.getRawBonusList(pc).get(0);
 		pc.addTempBonus(bonus);
 		bonus.setTargetObject(pc);
 		pc.calcActiveBonuses();
@@ -293,7 +319,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.calcActiveBonuses();
 
 		pc.setUseTempMods(true);
-		BonusObj bonus = spell.getBonusList(pc).get(0);
+		BonusObj bonus = spell.getRawBonusList(pc).get(0);
 		pc.addTempBonus(bonus);
 		bonus.setTargetObject(pc);
 		pc.calcActiveBonuses();

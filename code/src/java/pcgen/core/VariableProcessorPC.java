@@ -1181,7 +1181,7 @@ public class VariableProcessorPC extends VariableProcessor
 					final List<Equipment> equipList = getPc().getEquipmentListInOutputOrder(merge);
 					for ( Equipment eq : equipList )
 					{
-						if (eq.getBonusListString("AC") && !eq.isArmor() && !eq.isShield())
+						if (eq.hasBonusWithInfo(getPc(), "AC") && !eq.isArmor() && !eq.isShield())
 						{
 							aList.add(eq);
 						}

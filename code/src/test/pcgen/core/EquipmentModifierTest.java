@@ -38,6 +38,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -117,7 +118,7 @@ public class EquipmentModifierTest extends PCGenTestCase
 		final EquipmentModifier eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus("WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
-		eqMod.addBonusList(aBonus);
+		eqMod.addToListFor(ListKey.BONUS, aBonus);
 
 		final Equipment e = new Equipment();
 		e.addAssociation(eqMod, "+13");
@@ -141,7 +142,7 @@ public class EquipmentModifierTest extends PCGenTestCase
 		final Equipment e = new Equipment();
 		
 		e.addAssociation(eqMod, "+13");
-		eqMod.addBonusList(aBonus);
+		eqMod.addToListFor(ListKey.BONUS, aBonus);
 
 		for (BonusObj bonusObj : eqMod.getBonusList(e))
 		{
@@ -171,7 +172,7 @@ public class EquipmentModifierTest extends PCGenTestCase
 
 		e.addAssociation(eqMod, "+1");
 		e.addAssociation(eqMod, "+2");
-		eqMod.addBonusList(aBonus);
+		eqMod.addToListFor(ListKey.BONUS, aBonus);
 
 		final List<BonusObj> list = eqMod.getBonusList(e);
 		for (int j = list.size() - 1; j > 0; j--)

@@ -279,7 +279,7 @@ public final class Skill extends PObject
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (BonusObj bonus : aStat.getBonusList())
+		for (BonusObj bonus : aStat.getSafeListFor(ListKey.BONUS))
 		{
 			if (bonus.getTypeOfBonusAsInt() != iType)
 			{

@@ -91,7 +91,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		final BonusObj saddleBonus =
 				Bonus.newBonus("SKILL|Ride|-5|!PREITEM:1,TYPE.Saddle");
 		saddleBonus.setCreatorObject(rideSkill);
-		rideSkill.addBonusList(saddleBonus);
+		rideSkill.addToListFor(ListKey.BONUS, saddleBonus);
 
 		final Equipment saddle = new Equipment();
 		saddle.setName("Saddle, Test");
@@ -129,11 +129,23 @@ public class BonusTest extends AbstractCharacterTestCase
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
-		dummyFeat2.addBonusList("VAR|NegLevels|7");
+		BonusObj aBonus = Bonus.newBonus("VAR|NegLevels|7");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(dummyFeat2);
+			dummyFeat2.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		Equipment equip = new Equipment();
 		equip.setName("DummyEquip");
-		equip.addBonusList("VAR|NegLevels|2");
+		aBonus = Bonus.newBonus("VAR|NegLevels|2");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(equip);
+			equip.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
@@ -197,7 +209,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		final BonusObj spCost =
 				Bonus.newBonus("SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
 		spCost.setCreatorObject(sp);
-		sp.addBonusList(spCost);
+		sp.addToListFor(ListKey.BONUS, spCost);
 		sp.activateBonuses(character);
 		
 		int a = spCost.resolve(character, "").intValue();
@@ -219,7 +231,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
-		testBonus.addBonusList(bonus);
+		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
@@ -242,7 +254,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
-		testBonus.addBonusList(bonus);
+		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
 		character.addAssociation(testBonus, "STR");
 		bonus.setCreatorObject(testBonus);
@@ -271,7 +283,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
-		testBonus.addBonusList(bonus);
+		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
 		character.addAssociation(testBonus, "STR");
 		bonus.setCreatorObject(testBonus);

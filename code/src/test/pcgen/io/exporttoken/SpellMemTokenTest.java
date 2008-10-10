@@ -28,6 +28,7 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
@@ -87,7 +88,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		// Human
 		human = new Race();
 		final BonusObj bon = Bonus.newBonus("FEAT|POOL|2");
-		human.addBonusList(bon);
+		human.addToListFor(ListKey.BONUS, bon);
 
 		testSpell = new Spell();
 		testSpell.setName("Test Spell");

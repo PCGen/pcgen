@@ -35,6 +35,8 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 
 /**
@@ -74,10 +76,22 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		PCStat stat =
 				character.getStatList().getStatAt(
 					SettingsHandler.getGame().getStatFromAbbrev("DEX"));
-		stat.clearBonusList();
-		stat.addBonusList("COMBAT|AC|10|TYPE=Base");
+		stat.removeListFor(ListKey.BONUS);
+		BonusObj aBonus = Bonus.newBonus("COMBAT|AC|10|TYPE=Base");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
 		// Ignoring max dex
-		stat.addBonusList("COMBAT|AC|DEX|TYPE=Ability");
+		aBonus = Bonus.newBonus("COMBAT|AC|DEX|TYPE=Ability");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		EquipSet def = new EquipSet("0.1", "Default");
 		character.addEquipSet(def);
@@ -91,7 +105,13 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		chainShirt.setKeyName("KEY_Chain_Shirt");
 		chainShirt.setTypeInfo("Armor.Light.Suit.Standard");
 		chainShirt.put(IntegerKey.AC_CHECK, -2);
-		chainShirt.addBonusList("COMBAT|AC|4|TYPE=Armor.REPLACE");
+		aBonus = Bonus.newBonus("COMBAT|AC|4|TYPE=Armor.REPLACE");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(chainShirt);
+			chainShirt.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		// Create magic armor enhancement
 		masterwork = new EquipmentModifier();
@@ -99,7 +119,13 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		masterwork.setKeyName("MWORKA");
 		masterwork.setTypeInfo("Armor.Shield");
 		masterwork.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
-		masterwork.addBonusList("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(masterwork);
+			masterwork.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.getContext().ref.importObject(masterwork);
 
 		plus1 = new EquipmentModifier();
@@ -110,7 +136,13 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Plus1");
-		plus1.addBonusList("COMBAT|AC|1|TYPE=Armor.REPLACE");
+		aBonus = Bonus.newBonus("COMBAT|AC|1|TYPE=Armor.REPLACE");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(plus1);
+			plus1.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.getContext().ref.importObject(plus1);
 
 		// Load AC definitions - but only once

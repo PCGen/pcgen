@@ -141,31 +141,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
-	 * Gets a list of bonuses held in this object that match both name and type
-	 * @param   aType  The type to match
-	 * @param   aName  The name to match
-	 *
-	 * @return  a List of bonuses mathing both name and type
-	 */
-	@Override
-	public List<BonusObj> getBonusListOfType(AssociationStore as, final String aType, final String aName)
-	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
-
-		for ( BonusObj bonus : getBonusList(as) )
-		{
-			if (
-				(bonus.getTypeOfBonus().indexOf(aType) >= 0) &&
-				(bonus.getBonusInfo().indexOf(aName) >= 0))
-			{
-				aList.add(bonus);
-			}
-		}
-
-		return aList;
-	}
-
-	/**
 	 * Does this Equipment Modifier add aType to the equipment it is applied
 	 * to? If aType begins with an &#34; (Exclamation Mark) the &#34; will
 	 * be removed before checking the type.

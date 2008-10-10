@@ -35,6 +35,7 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Ability;
@@ -321,7 +322,7 @@ public class TestHelper
 			bon.addPrerequisite(prereq);
 			bon.setCreatorObject(aRace);
 
-			aRace.addBonusList(bon);
+			aRace.addToListFor(ListKey.BONUS, bon);
 		}
 		catch (PersistenceLayerException e)
 		{

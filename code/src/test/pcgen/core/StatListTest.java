@@ -29,6 +29,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.util.TestHelper;
 
 /**
@@ -65,7 +67,13 @@ public class StatListTest extends AbstractCharacterTestCase
 		unlocker.setName("unlocker");
 		unlocker.addToListFor(ListKey.UNLOCKED_STATS, str);
 		bonus = TestHelper.makeAbility("Bonus", "FEAT", "General.Fighter");
-		bonus.addBonusList("STAT|STR|7|TYPE=Enhancement");
+		final BonusObj aBonus = Bonus.newBonus("STAT|STR|7|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(bonus);
+			bonus.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		setPCStat(pc, "STR", 6);
 	}

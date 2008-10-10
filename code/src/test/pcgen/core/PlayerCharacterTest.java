@@ -127,13 +127,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantClass.setName("Giant");
 		giantClass.addMyType("MONSTER");
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
-		giantClass.addBonusList(babClassBonus);
+		giantClass.addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(giantClass);
 	
 		// Human
 		human = new Race();
 		final BonusObj humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
-		human.addBonusList(humanRaceFeatBonus);
+		human.addToListFor(ListKey.BONUS, humanRaceFeatBonus);
 	
 		// Giant Race
 		giantRace = new Race();
@@ -145,7 +145,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		final BonusObj giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
 	
-		giantRace.addBonusList(giantRaceFeatBonus);
+		giantRace.addToListFor(ListKey.BONUS, giantRaceFeatBonus);
 	
 		Globals.getContext().ref.importObject(giantRace);
 	
@@ -188,7 +188,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		toughness.put(ObjectKey.STACKS, Boolean.TRUE);
 		toughness.setChoiceString("NOCHOICE");
 		toughness.setCategory("FEAT");
-		toughness.addBonusList("HP|CURRENTMAX|3");
+		final BonusObj aBonus = Bonus.newBonus("HP|CURRENTMAX|3");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(toughness);
+			toughness.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.addAbility(toughness);
 	
 		Ability exoticWpnProf =
@@ -345,13 +351,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
 		giantRace.put(VariableKey.getConstant("GiantVar1"), Formula.ZERO);
 		final BonusObj raceBonus = Bonus.newBonus("1|VAR|GiantVar1|7+HD");
-		giantClass.addBonusList(raceBonus);
+		giantClass.addToListFor(ListKey.BONUS, raceBonus);
 
 		giantClass.getClassLevel(1).put(VariableKey.getConstant("GiantClass1"),
 				Formula.ZERO);
 		final BonusObj babClassBonus =
 				Bonus.newBonus("1|VAR|GiantClass1|CL=Giant");
-		giantClass.addBonusList(babClassBonus);
+		giantClass.addToListFor(ListKey.BONUS, babClassBonus);
 
 		final PlayerCharacter character = new PlayerCharacter();
 		// NOTE: This will add 4 levels of giantClass to the character 
@@ -549,7 +555,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			"STAT.1.NOEQUIP.NOTEMP", pc, null));
 
 		final BonusObj raceBonus = Bonus.newBonus("1|STAT|DEX|-2");
-		giantClass.addBonusList(raceBonus);
+		giantClass.addToListFor(ListKey.BONUS, raceBonus);
 		pc.setRace(giantRace);
 		pc.incrementClassLevel(4, giantClass, true);
 
@@ -565,8 +571,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
-		spell2.addBonusList("STAT|DEX|-2");
-		BonusObj penalty = spell2.getBonusList(pc).get(0);
+		final BonusObj aBonus = Bonus.newBonus("STAT|DEX|-2");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(spell2);
+			spell2.addToListFor(ListKey.BONUS, aBonus);
+		}
+		BonusObj penalty = spell2.getRawBonusList(pc).get(0);
 		pc.addTempBonus(penalty);
 		penalty.setTargetObject(pc);
 		pc.calcActiveBonuses();
@@ -950,7 +962,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Strength power up", "FEAT",
 					"General.Fighter");
 		final BonusObj strBonus = Bonus.newBonus("STAT|STR|2");
-		strBonusAbility.addBonusList(strBonus);
+		strBonusAbility.addToListFor(ListKey.BONUS, strBonus);
 
 		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor("STR", false, false));
 		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor("STR", true, false));

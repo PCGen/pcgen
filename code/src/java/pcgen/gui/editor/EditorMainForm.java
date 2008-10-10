@@ -90,6 +90,7 @@ import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -616,7 +617,7 @@ public final class EditorMainForm extends JDialog
 
 		pnlMainTab.updateData(thisPObject);
 
-		thisPObject.clearBonusList();
+		thisPObject.removeListFor(ListKey.BONUS);
 		thisPObject.removeAllVariables();
 		thisPObject.removeListFor(ListKey.DAMAGE_REDUCTION);
 		thisPObject.clearPrerequisiteList();
@@ -806,7 +807,13 @@ public final class EditorMainForm extends JDialog
 						sb.append('|').append(aTok.nextToken());
 						sb.append("|PRESKILL:1,").append(skillName).append('=').append(skillRank);
 						sb.append("|TYPE=Synergy.STACK");
-						thisPObject.addBonusList(sb.toString());
+						final BonusObj aBonus = Bonus.newBonus(sb.toString());
+						
+						if (aBonus != null)
+						{
+							aBonus.setCreatorObject(thisPObject);
+							thisPObject.addToListFor(ListKey.BONUS, aBonus);
+						}
 					}
 					else
 					{
@@ -2172,7 +2179,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// BONUS:SKILL|Ride|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
 				//
-				for (Iterator<BonusObj> e = thisPObject.getBonusList().iterator(); e.hasNext();)
+				for (Iterator<BonusObj> e = thisPObject.getSafeListFor(ListKey.BONUS).iterator(); e.hasNext();)
 				{
 					parseSynergyBonus(e.next(), availableSkillList, selectedSkillList);
 				}
@@ -3052,7 +3059,7 @@ public final class EditorMainForm extends JDialog
 
 		if (anEditType != EditorConstants.EDIT_CLASS)
 		{
-			for (Iterator<BonusObj> e = thisPObject.getBonusList().iterator(); e.hasNext();)
+			for (Iterator<BonusObj> e = thisPObject.getSafeListFor(ListKey.BONUS).iterator(); e.hasNext();)
 			{
 				// updated 18 Jul 2003 -- sage_sam and 9 apr 2005 -- hunterc
 				final BonusObj bonus = e.next();

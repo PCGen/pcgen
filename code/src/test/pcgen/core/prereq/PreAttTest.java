@@ -27,6 +27,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -86,7 +87,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 			.passes(prereq, character, null));
 
 		final BonusObj toHitBonus = Bonus.newBonus("1|COMBAT|TOHIT|1");
-		myClass.addBonusList(toHitBonus);
+		myClass.addToListFor(ListKey.BONUS, toHitBonus);
 		character.calcActiveBonuses();
 
 		assertFalse("Character's BAB should be less than 7", PrereqHandler
@@ -100,7 +101,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+5");
-		myClass.addBonusList(babClassBonus);
+		myClass.addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(myClass);
 	}
 }

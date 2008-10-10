@@ -27,6 +27,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -135,7 +136,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 
 		final BonusObj levelBonus = Bonus.newBonus("PCLEVEL|MY_CLASS|2");
 		levelBonus.setCreatorObject(myClass);
-		myClass.addBonusList(levelBonus);
+		myClass.addToListFor(ListKey.BONUS, levelBonus);
 		character.calcActiveBonuses();
 
 		assertTrue("Character has only 4 levels", PrereqHandler.passes(prereq,

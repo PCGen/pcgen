@@ -28,6 +28,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -72,8 +73,14 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		PCStat stat =
 				character.getStatList().getStatAt(
 					SettingsHandler.getGame().getStatFromAbbrev("STR"));
-		stat.clearBonusList();
-		stat.addBonusList("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
+		stat.removeListFor(ListKey.BONUS);
+		final BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
 //		// Ignoring max dex
 //		stat.addBonusList("COMBAT|AC|DEX|TYPE=Ability");
 
@@ -86,7 +93,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+5");
-		myClass.addBonusList(babClassBonus);
+		myClass.addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(myClass);
 
 	}

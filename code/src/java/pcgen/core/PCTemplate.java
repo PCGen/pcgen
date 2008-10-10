@@ -312,25 +312,25 @@ public final class PCTemplate extends PObject
 	}
 
 	@Override
-	public List<BonusObj> getBonusList()
+	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
-		List<BonusObj> list = new ArrayList<BonusObj>(super.getBonusList());
+		List<BonusObj> list = new ArrayList<BonusObj>(super.getRawBonusList(pc));
 		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				list.addAll(lt.getBonusList());
+				list.addAll(lt.getRawBonusList(pc));
 			}
 		}
 
 		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			list.addAll(lt.getBonusList());
+			list.addAll(lt.getRawBonusList(pc));
 		}
 
 		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			list.addAll(lt.getBonusList());
+			list.addAll(lt.getRawBonusList(pc));
 		}
 		
 		return list;

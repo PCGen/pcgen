@@ -2013,7 +2013,7 @@ public final class ExportHandler
 
 					for (Equipment eq : aPC.getEquipmentListInOutputOrder())
 					{
-						if (eq.getBonusListString("AC")
+						if (eq.hasBonusWithInfo(aPC, "AC")
 							&& (!eq.isArmor() && !eq.isShield()))
 						{
 							aArrayList.add(eq);

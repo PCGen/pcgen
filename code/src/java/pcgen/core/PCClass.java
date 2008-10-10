@@ -335,7 +335,8 @@ public class PCClass extends PObject
 	{
 		double i = 0;
 
-		if ((asLevel == 0) || getBonusList().isEmpty())
+		List<BonusObj> rawBonusList = getRawBonusList(aPC);
+		if ((asLevel == 0) || rawBonusList.isEmpty())
 		{
 			return 0;
 		}
@@ -343,7 +344,7 @@ public class PCClass extends PObject
 		final String type = argType.toUpperCase();
 		final String mname = argMname.toUpperCase();
 
-		for (final BonusObj bonus : getBonusList())
+		for (final BonusObj bonus : rawBonusList)
 		{
 			final StringTokenizer breakOnPipes =
 					new StringTokenizer(bonus.toString().toUpperCase(),
@@ -1559,7 +1560,7 @@ public class PCClass extends PObject
 //							+ aBuf.toString());
 						BonusObj bon = Bonus.newBonus(aBuf.toString());
 						bon.setCreatorObject(this);
-						addBonusList(bon);
+						aPC.addAssoc(this, AssociationListKey.BONUS, bon);
 					}
 				}
 			}
@@ -1907,9 +1908,10 @@ public class PCClass extends PObject
 					.unparse(me.getValue()), "\t"));
 		}
 
-		for (int x = 0; x < getBonusList().size(); ++x)
+		List<BonusObj> bonusList = getSafeListFor(ListKey.BONUS);
+		for (int x = 0; x < bonusList.size(); ++x)
 		{
-			final BonusObj aBonus = getBonusList().get(x);
+			final BonusObj aBonus = bonusList.get(x);
 			String bonusString = aBonus.toString();
 			final int levelEnd = bonusString.indexOf('|');
 			final String maybeLevel = bonusString.substring(0, levelEnd);
@@ -1978,7 +1980,7 @@ public class PCClass extends PObject
 	@Override
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		for (BonusObj bonus : getBonusList())
+		for (BonusObj bonus : getRawBonusList(aPC))
 		{
 			if ((bonus.getPCLevel() <= level))
 			{
@@ -3398,9 +3400,10 @@ public class PCClass extends PObject
 		// Go through the bonus list (BONUS) and adjust the class to the new
 		// name
 		//
-		if (getBonusList() != null)
+		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
+		if (bonusList != null)
 		{
-			for (BonusObj bonusObj : getBonusList())
+			for (BonusObj bonusObj : bonusList)
 			{
 				final String bonus = bonusObj.toString();
 				int offs = -1;
@@ -3413,10 +3416,15 @@ public class PCClass extends PObject
 					{
 						break;
 					}
-
-					addBonusList(bonus.substring(0, offs + 1) + newClass
-						+ bonus.substring(offs + oldClass.length() + 1));
-					removeBonusList(bonusObj);
+					final BonusObj aBonus = Bonus.newBonus(bonus.substring(0, offs + 1) + newClass
+											+ bonus.substring(offs + oldClass.length() + 1));
+					
+					if (aBonus != null)
+					{
+						aBonus.setCreatorObject(this);
+						addToListFor(ListKey.BONUS, aBonus);
+					}
+					removeFromListFor(ListKey.BONUS, bonusObj);
 				}
 			}
 		}
@@ -4270,9 +4278,10 @@ public class PCClass extends PObject
 			}
 		}
 
-		if (!otherClass.getBonusList().isEmpty())
+		List<BonusObj> bonusList = otherClass.getListFor(ListKey.BONUS);
+		if (bonusList != null)
 		{
-			getBonusList().addAll(otherClass.getBonusList());
+			addAllToListFor(ListKey.BONUS, bonusList);
 		}
 
 		for (VariableKey vk : otherClass.getVariableKeys())

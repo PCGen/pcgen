@@ -40,6 +40,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.BonusAddition;
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
@@ -123,7 +124,13 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		//		template.setDR("0/-");
 		template.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction("0", "-"));
-		template.addBonusList("DR|-|1");
+		final BonusObj aBonus = Bonus.newBonus("DR|-|1");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(template);
+			template.addToListFor(ListKey.BONUS, aBonus);
+		}
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(race);
 		pc.addTemplate(template);
@@ -213,7 +220,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 7 bonus known spells", (3 * 2) + 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		for (BonusObj bonus : pObj.getBonusList(aPC))
+		for (BonusObj bonus : pObj.getRawBonusList(aPC))
 		{
 			bonus.setAddOnceOnly(true);
 		}

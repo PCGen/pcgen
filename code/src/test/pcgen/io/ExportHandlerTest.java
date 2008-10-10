@@ -55,6 +55,8 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 
 /**
@@ -116,7 +118,13 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);
 		PCStat stat = character.getStatList().getStatAt(3);
-		stat.addBonusList("MODSKILLPOINTS|NUMBER|INT");
+		BonusObj aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		// Race
 		Race testRace = new Race();
@@ -176,8 +184,13 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance.setTypeInfo("DEX");
 		balance.put(ObjectKey.KEY_STAT, dexStat);
 		character.setAssoc(balance, AssociationKey.OUTPUT_INDEX, 1);
-		balance
-			.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		aBonus = Bonus.newBonus("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(balance);
+			balance.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.getContext().ref.importObject(balance);
 		Skill bs = character.addSkill(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, bs);
@@ -398,7 +411,13 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
-		dummyFeat2.addBonusList("VAR|NegLevels|7");
+		final BonusObj aBonus = Bonus.newBonus("VAR|NegLevels|7");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(dummyFeat2);
+			dummyFeat2.addToListFor(ListKey.BONUS, aBonus);
+		}
 		
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("DummyFeat3");

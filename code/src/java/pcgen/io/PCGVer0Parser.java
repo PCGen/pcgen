@@ -34,6 +34,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.CompanionList;
@@ -59,6 +60,8 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
@@ -454,7 +457,13 @@ final class PCGVer0Parser implements PCGParser
 
 						if (token.startsWith("BONUS"))
 						{
-							aClass.addBonusList(token.substring(6));
+							final BonusObj aBonus = Bonus.newBonus(token.substring(6));
+							
+							if (aBonus != null)
+							{
+								aBonus.setCreatorObject(aClass);
+								aPC.addAssoc(aClass, AssociationListKey.BONUS, aBonus);
+							}
 
 							if (token.lastIndexOf("|PCLEVEL|") > -1)
 							{
@@ -1220,7 +1229,13 @@ final class PCGVer0Parser implements PCGParser
 						if (aString.startsWith("BONUS")
 							&& (aString.length() > 6))
 						{
-							anAbility.addBonusList(aString.substring(6));
+							final BonusObj aBonus = Bonus.newBonus(aString.substring(6));
+							
+							if (aBonus != null)
+							{
+								aBonus.setCreatorObject(anAbility);
+								aPC.addAssoc(anAbility, AssociationListKey.BONUS, aBonus);
+							}
 						}
 
 						anAbility.addSave(aString);

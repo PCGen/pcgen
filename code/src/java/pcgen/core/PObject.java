@@ -44,6 +44,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -51,7 +52,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.LanguageSupport;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.WeaponProfType;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
@@ -103,9 +103,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	protected String keyName = Constants.EMPTY_STRING;
 	/** The name to display to the user.  This should be internationalized. */
 	protected String displayName = Constants.EMPTY_STRING;
-
-	/** List of Bonuses for the object */
-	private List<BonusObj> bonusList = new ArrayList<BonusObj>();
 
 	private SpellSupport spellSupport = new SpellSupport();
 	
@@ -473,12 +470,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 //		}
 		retVal.theSource = theSource.clone();
 
+		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
 		if (bonusList != null)
 		{
-			retVal.bonusList = new ArrayList<BonusObj>();
+			retVal.removeListFor(ListKey.BONUS);
 			for (BonusObj orig : bonusList)
 			{
-				retVal.bonusList.add(orig.clone());
+				retVal.addToListFor(ListKey.BONUS, orig.clone());
 
 			}
 			retVal.ownBonuses();
@@ -605,6 +603,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Set the name (sets keyname also)
 	 * @param aString
 	 */
+	@Override
 	public void setName(final String aString)
 	{
 		if (!aString.endsWith(".MOD"))
@@ -1455,9 +1454,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 
-		if (!(this instanceof PCClass) && (getBonusList().size() != 0))
+		if (!(this instanceof PCClass) && (getSafeListFor(ListKey.BONUS).size() != 0))
 		{
-			for (BonusObj bonusobj : getBonusList())
+			for (BonusObj bonusobj : getSafeListFor(ListKey.BONUS))
 			{
 				txt.append("\tBONUS:").append(bonusobj.getPCCText()); //This formats the bonus items in the proper .lst manner
 			}
@@ -2378,26 +2377,20 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param as TODO
 	 * @return the list of bonuses for this object
 	 */
-	public List<BonusObj> getBonusList(AssociationStore as)
+	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
+		List<BonusObj> bonusList = getSafeListFor(ListKey.BONUS);
+		if (pc != null)
+		{
+			List<BonusObj> listToo = pc.getAssocList(this, AssociationListKey.BONUS);
+			if (listToo != null)
+			{
+				bonusList.addAll(listToo);
+			}
+		}
 		return bonusList;
 	}
 
-	/**
-	 * Get the list of bonuses for this object
-	 * @param as TODO
-	 * @return the list of bonuses for this object
-	 */
-	public List<BonusObj> getBonusList()
-	{
-		return bonusList;
-	}
-
-	public void clearBonusList()
-	{
-		bonusList.clear();
-	}
-	
 	/**
 	 * Get the list of bounuses of a particular type for this object
 	 * @param as TODO
@@ -2526,45 +2519,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add a new bonus to the list of bonuses
-	 * @param aString The unparsed bonus to be added
-	 * @return true if new bonus is not null
-	 */
-	public final boolean addBonusList(final String aString)
-	{
-		return addBonusList(aString, false);
-	}
-	
-	/**
-	 * Add a new bonus to the list of bonuses. The bonus can optionally 
-	 * only be added once no matter how many associated choices this 
-	 * object has. This is normally used where a bonus is added for 
-	 * each associated choice.
-	 *  
-	 * @param aString The unparsed bonus to be added
-	 * @param addOnceOnly Should the bonus only be added once irrespective of number of choices 
-	 * @return true if new bonus is not null
-	 */
-	public final boolean addBonusList(final String aString, final boolean addOnceOnly)
-	{
-		if (bonusList == null)
-		{
-			bonusList = new ArrayList<BonusObj>();
-		}
-
-		final BonusObj aBonus = Bonus.newBonus(aString);
-
-		if (aBonus != null)
-		{
-			aBonus.setCreatorObject(this);
-			aBonus.setAddOnceOnly(addOnceOnly);
-			addBonusList(aBonus);
-		}
-
-		return (aBonus != null);
-	}
-
-	/**
 	 * returns all BonusObj's that are "active"
 	 * @param aPC A PlayerCharacter object.
 	 * @return active bonuses
@@ -2573,7 +2527,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for ( BonusObj bonus : getBonusList() )
+		for ( BonusObj bonus : getRawBonusList(aPC) )
 		{
 			if (bonus.isApplied())
 			{
@@ -2586,12 +2540,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	/**
 	 * Get the list of bonuses as a String
+	 * @param pc TODO
 	 * @param aString
 	 * @return the list of bonuses as a String
 	 */
-	public boolean getBonusListString(final String aString)
+	public boolean hasBonusWithInfo(PlayerCharacter pc, final String aString)
 	{
-		for ( BonusObj bonus : getBonusList() )
+		for ( BonusObj bonus : getRawBonusList(pc) )
 		{
 			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
 			{
@@ -2608,7 +2563,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		for (Iterator<BonusObj> ab = getBonusList().iterator(); ab.hasNext();)
+		for (Iterator<BonusObj> ab = getRawBonusList(aPC).iterator(); ab.hasNext();)
 		{
 			final BonusObj aBonus = ab.next();
 			aBonus.setApplied(false);
@@ -2622,22 +2577,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * This function will be required during the continued re-write
-	 * of the BonusObj code -- JSC 8/18/03
-	 *
-	 * @param aBonus
-	 */
-	public final void addBonusList(final BonusObj aBonus)
-	{
-		bonusList.add(aBonus);
-	}
-
-	/**
 	 * Deactivate all of the bonuses
 	 */
-	public void deactivateBonuses()
+	public void deactivateBonuses(PlayerCharacter aPC)
 	{
-		for ( BonusObj bonus : getBonusList() )
+		for (BonusObj bonus : getRawBonusList(aPC))
 		{
 			bonus.setApplied(false);
 		}
@@ -2648,19 +2592,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void ownBonuses()
 	{
-		for ( BonusObj bonus : getBonusList() )
+		for ( BonusObj bonus : getSafeListFor(ListKey.BONUS) )
 		{
 			bonus.setCreatorObject(this);
 		}
-	}
-
-	/**
-	 * Remove the bonus object from the bonus list
-	 * @param aBonus
-	 */
-	public void removeBonusList(final BonusObj aBonus)
-	{
-		getBonusList().remove(aBonus);
 	}
 
 	/**
@@ -2669,13 +2604,14 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void removeAllBonuses(final int aLevel)
 	{
+		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
 		if (bonusList != null)
 		{
-			for (int x = bonusList.size() - 1; x >= 0; --x)
+			for (BonusObj bo : bonusList)
 			{
-				if (bonusList.get(x).getPCLevel() == aLevel)
+				if (bo.getPCLevel() == aLevel)
 				{
-					bonusList.remove(x);
+					removeFromListFor(ListKey.BONUS, bo);
 				}
 			}
 		}
@@ -2842,5 +2778,17 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public PObject getActiveEquivalent(PlayerCharacter as)
 	{
 		return this;
+	}
+
+	public List<BonusObj> getBonusList(AssociationStore as)
+	{
+		if (as instanceof PlayerCharacter)
+		{
+			return getRawBonusList((PlayerCharacter) as);
+		}
+		else
+		{
+			return getRawBonusList(null);
+		}
 	}
 }

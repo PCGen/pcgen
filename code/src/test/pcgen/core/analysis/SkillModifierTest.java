@@ -25,6 +25,7 @@ package pcgen.core.analysis;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Ability;
@@ -34,6 +35,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.Skill;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.util.TestHelper;
 
 /**
@@ -78,7 +81,13 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 			skillFocus =
 					TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT
 						.getAbilityCategory(), "General");
-			skillFocus.addBonusList("SKILL|LIST|3");
+			BonusObj aBonus = Bonus.newBonus("SKILL|LIST|3");
+			
+			if (aBonus != null)
+			{
+				aBonus.setCreatorObject(skillFocus);
+				skillFocus.addToListFor(ListKey.BONUS, aBonus);
+			}
 			skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 			skillFocus
 				.setChoiceString("SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
@@ -86,7 +95,13 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 			persuasive =
 					TestHelper.makeAbility("Persuasive", AbilityCategory.FEAT
 						.getAbilityCategory(), "General");
-			persuasive.addBonusList("SKILL|KEY_Bluff,KEY_Listen|2");
+			aBonus = Bonus.newBonus("SKILL|KEY_Bluff,KEY_Listen|2");
+			
+			if (aBonus != null)
+			{
+				aBonus.setCreatorObject(persuasive);
+				persuasive.addToListFor(ListKey.BONUS, aBonus);
+			}
 			persuasive.put(ObjectKey.MULTIPLE_ALLOWED, false);
 
 		}

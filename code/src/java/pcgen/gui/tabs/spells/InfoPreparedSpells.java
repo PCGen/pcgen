@@ -1107,7 +1107,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				boolean canAdd = false;
 				List<BonusObj> bonusList =
 						BonusUtilities.getBonusFromList(anAbility
-							.getBonusList(pc), Bonus
+							.getRawBonusList(pc), Bonus
 							.getBonusTypeFromName("PPCOST")); //$NON-NLS-1$
 				if (bonusList.size() == 0)
 				{

@@ -1,5 +1,6 @@
 package plugin.lsttokens.race;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -36,7 +37,7 @@ public class StartfeatsToken implements RaceLstToken
 			final Prerequisite prereq = factory.parse(buf.toString());
 			bon.addPrerequisite(prereq);
 
-			race.addBonusList(bon);
+			race.addToListFor(ListKey.BONUS, bon);
 			return true;
 		}
 		catch (NumberFormatException nfe)

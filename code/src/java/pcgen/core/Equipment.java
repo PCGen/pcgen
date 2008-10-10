@@ -61,6 +61,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.EqModCost;
 import pcgen.core.analysis.EqModSpellInfo;
 import pcgen.core.analysis.EquipmentChoiceDriver;
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
@@ -577,7 +578,7 @@ public final class Equipment extends PObject implements Serializable,
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC) {
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (BonusObj bonus : getBonusList(aPC)) {
+		for (BonusObj bonus : getRawBonusList(aPC)) {
 			if (bonus.isApplied()) {
 				aList.add(bonus);
 			}
@@ -614,7 +615,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
 		aList.addAll(getBonusListOfType(pc, aType, aName));
-		for (BonusObj bonus : getBonusList()) {
+		for (BonusObj bonus : getRawBonusList(pc)) {
 			if ((bonus.getTypeOfBonus().indexOf(aType) >= 0)
 					&& (bonus.getBonusInfo().indexOf(aName) >= 0)) {
 				aList.add(bonus);
@@ -1128,7 +1129,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (equipped) {
 			activateBonuses(aPC);
 		} else {
-			deactivateBonuses();
+			deactivateBonuses(aPC);
 		}
 	}
 
@@ -2573,7 +2574,7 @@ public final class Equipment extends PObject implements Serializable,
 		// If using 3.5 weapon penalties, add them in also
 		if (Globals.checkRule(RuleConstants.SYS_35WP)) {
 			final List<BonusObj> aList = GameMode.getEqSizePenaltyObj()
-					.getBonusList();
+					.getSafeListFor(ListKey.BONUS);
 			super.bonusTo(aType, aName, this, aList, aPC);
 		}
 
@@ -4176,7 +4177,7 @@ public final class Equipment extends PObject implements Serializable,
 			final PlayerCharacter aPC,
 			final Equipment baseEq,
 			final SizeAdjustment newSA) {
-		if ((getBonusList() != null) && isArmor()) {
+		if ((getRawBonusList(aPC) != null) && isArmor()) {
 			double mult = 1.0;
 			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE);
 
@@ -4186,8 +4187,8 @@ public final class Equipment extends PObject implements Serializable,
 								1.0);
 			}
 
-			final List<BonusObj> baseEqBonusList = baseEq.getBonusList(aPC);
-			final List<BonusObj> eqBonusList = getBonusList(aPC);
+			final List<BonusObj> baseEqBonusList = baseEq.getRawBonusList(aPC);
+			final List<BonusObj> eqBonusList = getRawBonusList(aPC);
 
 			//
 			// Go through the bonus list looking for COMBAT|AC|x and resize
@@ -4203,7 +4204,15 @@ public final class Equipment extends PObject implements Serializable,
 					final int iOffs = aString.indexOf('|', 10);
 
 					if (iOffs > 10) {
-						removeBonusList(aBonus);
+						/*
+						 * TODO This is bad behavior to alter this list, 
+						 * which - theoretically - shouldn't be altered 
+						 * after data load.  However, given .REPLACE
+						 * potential in BONUS objects, I can't find
+						 * another quick solution to this problem
+						 * - thpr 10/9/08
+						 */
+						removeFromListFor(ListKey.BONUS, aBonus);
 					}
 				}
 			}
@@ -4225,7 +4234,20 @@ public final class Equipment extends PObject implements Serializable,
 						aString =
 								aString.substring(0, 10)
 								+ acCombatBonus.toString() + aString.substring(iOffs);
-						addBonusList(aString);
+						/*
+						 * TODO This is bad behavior to alter this list, 
+						 * which - theoretically - shouldn't be altered 
+						 * after data load.  However, given .REPLACE
+						 * potential in BONUS objects, I can't find
+						 * another quick solution to this problem
+						 * - thpr 10/9/08
+						 */
+						BonusObj b = Bonus.newBonus(aString);
+						if (b != null)
+						{
+							b.setCreatorObject(this);
+							addToListFor(ListKey.BONUS, b);
+						}
 					}
 				}
 			}
@@ -4803,7 +4825,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	@Override
 	public void activateBonuses(final PlayerCharacter aPC) {
-		for (final BonusObj bonus : getBonusList()) {
+		for (final BonusObj bonus : getRawBonusList(aPC)) {
 			bonus.setApplied(false);
 
 			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), this, aPC)) {

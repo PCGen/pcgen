@@ -25,6 +25,7 @@
  */
 package plugin.lsttokens.pointbuy.method;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PObject;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.bonus.BonusObj;
@@ -55,7 +56,7 @@ public class BonusToken implements PointBuyMethodLstToken
 				return false;
 			}
 
-			for (BonusObj bonus : dummy.getBonusList())
+			for (BonusObj bonus : dummy.getSafeListFor(ListKey.BONUS))
 			{
 				pbm.addBonusList(bonus);
 			}

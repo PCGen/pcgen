@@ -294,7 +294,7 @@ public class ArmorToken extends Token
 				&& ((equipped == 3) || ((equipped == 2) && !eq.isEquipped()) || ((equipped == 1) && eq
 					.isEquipped())))
 			{
-				if (eq.getBonusListString("AC") && !eq.isArmor()
+				if (eq.hasBonusWithInfo(aPC, "AC") && !eq.isArmor()
 					&& !eq.isShield())
 				{
 					aArrayList.add(eq);
@@ -422,7 +422,7 @@ public class ArmorToken extends Token
 			{
 				aArrayList.add(eq);
 			}
-			else if (eq.getBonusListString("AC"))
+			else if (eq.hasBonusWithInfo(aPC, "AC"))
 			{
 				aArrayList.add(eq);
 			}

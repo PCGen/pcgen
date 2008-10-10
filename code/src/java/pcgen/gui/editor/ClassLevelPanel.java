@@ -232,7 +232,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		final Iterator<BonusObj> bonusIter = obj.getBonusList().iterator();
+		final Iterator<BonusObj> bonusIter = obj.getSafeListFor(ListKey.BONUS).iterator();
 
 		while (bonusIter.hasNext())
 		{
@@ -324,6 +324,20 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				{
 					levelTagList.add(new LevelTag(cl, LevelTag.TAG_SAB, sa.toString()));
 				}
+			}
+
+			for (BonusObj bonus : pcl.getSafeListFor(ListKey.BONUS))
+			{
+				String bonusValue = bonus.toString();
+				String levelString = cl.toString();
+				
+				if (bonusValue.startsWith(levelString))
+				{
+					bonusValue = bonusValue.substring(levelString.length() + 1);
+				}
+
+				LevelTag lt = new LevelTag(cl, LevelTag.TAG_BONUS, bonusValue);
+				levelTagList.add(lt);
 			}
 
 		}

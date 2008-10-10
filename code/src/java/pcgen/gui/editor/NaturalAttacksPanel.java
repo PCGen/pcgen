@@ -50,10 +50,13 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
@@ -144,7 +147,13 @@ final class NaturalAttacksPanel extends JPanel
 			if (anInt > 1)
 			{
 				String bonusString = "WEAPON|ATTACKS|" + (anInt - 1);
-				anEquip.addBonusList(bonusString);
+				final BonusObj aBonus = Bonus.newBonus(bonusString);
+				
+				if (aBonus != null)
+				{
+					aBonus.setCreatorObject(anEquip);
+					anEquip.addToListFor(ListKey.BONUS, aBonus);
+				}
 			}
 
 			// Set the damage dice

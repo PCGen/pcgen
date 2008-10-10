@@ -41,6 +41,7 @@ import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.formula.FixedSizeFormula;
@@ -345,7 +346,7 @@ public class RaceBasePanel extends BasePanel
 		StringBuffer sb = new StringBuffer();
 		sb.append("FEAT|POOL|").append(getBonusFeats());
 		final BonusObj bon = Bonus.newBonus(sb.toString());
-		thisRace.addBonusList(bon);
+		thisRace.addToListFor(ListKey.BONUS, bon);
 
 		thisRace.put(IntegerKey.SKILL_POINTS_PER_LEVEL, getBonusSkillPoints());
 		thisRace.put(ObjectKey.CHALLENGE_RATING, getCR());

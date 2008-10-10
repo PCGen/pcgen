@@ -26,6 +26,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -172,7 +173,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
 		final BonusObj sizeBonus = Bonus.newBonus("1|SIZEMOD|NUMBER|1");
-		race.addBonusList(sizeBonus);
+		race.addToListFor(ListKey.BONUS, sizeBonus);
 
 		character.calcActiveBonuses();
 

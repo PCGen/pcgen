@@ -111,16 +111,52 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		setPCStat(character, "INT", 17);
 		PCStat stat = character.getStatList().getStatAt(0);
 		stat.setStatMod("floor(SCORE/2)-5");
-		stat.addBonusList("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
-		stat.addBonusList("DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
-		stat.addBonusList("COMBAT|DAMAGEMULT:0|0.5*(STR>=0)");
-		stat.addBonusList("COMBAT|DAMAGEMULT:1|1");
-		stat.addBonusList("COMBAT|DAMAGEMULT:2|1.5*(STR>=0)");
+		BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
+		aBonus = Bonus.newBonus("DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
+		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:0|0.5*(STR>=0)");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
+		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:1|1");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
+		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:2|1.5*(STR>=0)");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
 		stat.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
 				.getFormulaFor(2));
 
 		stat = character.getStatList().getStatAt(3);
-		stat.addBonusList("MODSKILLPOINTS|NUMBER|INT");
+		aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(stat);
+			stat.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		// Race
 		Race testRace = new Race();
@@ -136,7 +172,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.setKeyName("KEY_MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL+15");
-		myClass.addBonusList(babClassBonus);
+		myClass.addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(myClass);
 		character.incrementClassLevel(1, myClass, true);
 
@@ -264,7 +300,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 		bite.put(ObjectKey.SIZE, sam);
 		bite.put(ObjectKey.BASESIZE, sam);
-		bite.addBonusList("WEAPON|ATTACKS|" + 7);
+		aBonus = Bonus.newBonus("WEAPON|ATTACKS|" + 7);
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(bite);
+			bite.addToListFor(ListKey.BONUS, aBonus);
+		}
 		bite.setOnlyNaturalWeapon(false);
 		bite.put(IntegerKey.SLOTS, 0);
 		bite.setQty(Float.valueOf(1));
@@ -297,7 +339,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus1");
-		eqMod.addBonusList("WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus("WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(eqMod);
+			eqMod.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.getContext().ref.importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Plus 2 Enhancement");
@@ -307,14 +355,26 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus2");
-		eqMod.addBonusList("WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement");
+		aBonus = Bonus.newBonus("WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(eqMod);
+			eqMod.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.getContext().ref.importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Masterwork");
 		eqMod.setKeyName("MWORKW");
 		eqMod.setTypeInfo("Ammunition.Weapon");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
-		eqMod.addBonusList("WEAPON|TOHIT|1|TYPE=Enhancement");
+		aBonus = Bonus.newBonus("WEAPON|TOHIT|1|TYPE=Enhancement");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(eqMod);
+			eqMod.addToListFor(ListKey.BONUS, aBonus);
+		}
 		Globals.getContext().ref.importObject(eqMod);
 	}
 
@@ -536,7 +596,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		PCTemplate longswordTemplate = new PCTemplate();
 		longswordTemplate.setName("LS Bonus");
-		longswordTemplate.addBonusList("WEAPONPROF=KEY_LONGSWORD|PCSIZE|1");
+		BonusObj aBonus = Bonus.newBonus("WEAPONPROF=KEY_LONGSWORD|PCSIZE|1");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(longswordTemplate);
+			longswordTemplate.addToListFor(ListKey.BONUS, aBonus);
+		}
 		character.addTemplate(longswordTemplate);
 
 		character.addEquipment(largeSword);
@@ -558,7 +624,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		PCTemplate martialTemplate = new PCTemplate();
 		martialTemplate.setName("Martial Bonus");
-		martialTemplate.addBonusList("WEAPONPROF=TYPE.Martial|PCSIZE|1");
+		aBonus = Bonus.newBonus("WEAPONPROF=TYPE.Martial|PCSIZE|1");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(martialTemplate);
+			martialTemplate.addToListFor(ListKey.BONUS, aBonus);
+		}
 		character.addTemplate(martialTemplate);
 		assertEquals(
 			"Large sword - can be wielded one handed with template weapon type size bonus",
@@ -623,7 +695,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 				Bonus
 					.newBonus("COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wfBonus.setCreatorObject(wpnFinesse);
-		wpnFinesse.addBonusList(wfBonus);
+		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
 		character.addFeat(wpnFinesse, null);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
@@ -632,8 +704,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setUseTempMods(true);
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
-		spell2.addBonusList("STAT|DEX|-4");
-		BonusObj penalty = spell2.getBonusList(character).get(0);
+		final BonusObj aBonus = Bonus.newBonus("STAT|DEX|-4");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(spell2);
+			spell2.addToListFor(ListKey.BONUS, aBonus);
+		}
+		BonusObj penalty = spell2.getRawBonusList(character).get(0);
 		character.addTempBonus(penalty);
 		penalty.setTargetObject(character);
 		character.calcActiveBonuses();

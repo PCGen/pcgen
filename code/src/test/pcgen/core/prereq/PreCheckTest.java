@@ -27,6 +27,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -100,7 +101,7 @@ public class PreCheckTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final BonusObj fortBonus = Bonus.newBonus("1|CHECKS|Fortitude|1");
-		myClass.addBonusList(fortBonus);
+		myClass.addToListFor(ListKey.BONUS, fortBonus);
 
 		character.incrementClassLevel(1, myClass, true);
 
@@ -147,9 +148,9 @@ public class PreCheckTest extends AbstractCharacterTestCase
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj fortRefBonus =
 				Bonus.newBonus("1|CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
-		myClass.addBonusList(fortRefBonus);
+		myClass.addToListFor(ListKey.BONUS, fortRefBonus);
 		final BonusObj willBonus = Bonus.newBonus("1|CHECKS|BASE.Will|CL/2+2");
-		myClass.addBonusList(willBonus);
+		myClass.addToListFor(ListKey.BONUS, willBonus);
 		Globals.getContext().ref.importObject(myClass);
 	}
 }

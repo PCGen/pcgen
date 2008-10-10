@@ -243,6 +243,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
+	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

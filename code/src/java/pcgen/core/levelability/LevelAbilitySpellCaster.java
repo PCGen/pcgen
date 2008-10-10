@@ -24,15 +24,21 @@
 
 package pcgen.core.levelability;
 
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.*;
-import pcgen.core.pclevelinfo.PCLevelInfo;
-import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserInterface;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.util.Logging;
+import pcgen.util.chooser.ChooserInterface;
 
 
 
@@ -122,8 +128,13 @@ public class LevelAbilitySpellCaster extends LevelAbility
 				aPC.incrementClassLevel(0, theClass);
 				theClass = aPC.getClassKeyed(classKey);
 			}
-
-			owner.addBonusList("0|PCLEVEL|" + theClass.getKeyName() + "|1");
+			final BonusObj aBonus = Bonus.newBonus("0|PCLEVEL|" + theClass.getKeyName() + "|1");
+			
+			if (aBonus != null)
+			{
+				aBonus.setCreatorObject(owner);
+				aPC.addAssoc(owner, AssociationListKey.BONUS, aBonus);
+			}
 
 			// owner.addSave("BONUS|0|PCLEVEL|" + bClass.getKeyName() + "|1");
 			// to force spellbook update

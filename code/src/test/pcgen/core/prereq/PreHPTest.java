@@ -27,6 +27,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -90,7 +91,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 
 		final BonusObj hpBonus = Bonus.newBonus("HP|CURRENTMAX|1");
 		hpBonus.setCreatorObject(myClass);
-		myClass.addBonusList(hpBonus);
+		myClass.addToListFor(ListKey.BONUS, hpBonus);
 		character.calcActiveBonuses();
 
 		assertTrue("Character should have 5 hp", PrereqHandler.passes(prereq,

@@ -38,6 +38,8 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
@@ -675,12 +677,24 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		pcClass.addBonusList("0|CASTERLEVEL|MyClass|CL");
+		BonusObj aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass|CL");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(pcClass);
+			pcClass.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
 		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
-		pcClass.addBonusList("0|CASTERLEVEL|MyClass2|CL");
+		aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass2|CL");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(pcClass);
+			pcClass.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		final PlayerCharacter character = getCharacter();
 
@@ -699,12 +713,24 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		pcClass.addBonusList("0|CASTERLEVEL|MyClass|CL");
+		BonusObj aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass|CL");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(pcClass);
+			pcClass.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
-		pcClass.addBonusList("0|CASTERLEVEL|MyClass2|CL");
+		aBonus = Bonus.newBonus("0|CASTERLEVEL|MyClass2|CL");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(pcClass);
+			pcClass.addToListFor(ListKey.BONUS, aBonus);
+		}
 
 		final PlayerCharacter character = getCharacter();
 

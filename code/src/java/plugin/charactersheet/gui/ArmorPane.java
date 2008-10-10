@@ -268,7 +268,7 @@ public class ArmorPane extends javax.swing.JPanel
 		{
 			for (Equipment eq : pc.getEquipmentListInOutputOrder())
 			{
-				if (eq.getBonusListString(AC)
+				if (eq.hasBonusWithInfo(pc, AC)
 					&& (!eq.isArmor() && !eq.isShield()))
 				{
 					armorList.add(eq);

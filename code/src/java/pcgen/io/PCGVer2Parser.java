@@ -1619,7 +1619,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					// TODO This doesn't seem to be written in Creator.
 					if (dString.startsWith(TAG_BONUS + TAG_SEPARATOR))
 					{
-						aPCClass.addBonusList(dString.substring(6));
+						final BonusObj aBonus = Bonus.newBonus(dString.substring(6));
+						
+						if (aBonus != null)
+						{
+							aBonus.setCreatorObject(aPCClass);
+							thePC.addAssoc(aPCClass, AssociationListKey.BONUS, aBonus);
+						}
 					}
 
 					aPCClass.addSave(dString);
@@ -2400,7 +2406,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// TODO - This never gets written to the file
 				if (saveKey.startsWith(TAG_BONUS) && (saveKey.length() > 6))
 				{
-					ability.addBonusList(saveKey.substring(6));
+					final BonusObj aBonus = Bonus.newBonus(saveKey.substring(6));
+					
+					if (aBonus != null)
+					{
+						aBonus.setCreatorObject(ability);
+						thePC.addAssoc(ability, AssociationListKey.BONUS, aBonus);
+					}
 				}
 
 				ability.addSave(saveKey);
@@ -2664,7 +2676,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (saveKey.startsWith(TAG_BONUS) && (saveKey.length() > 6))
 				{
-					aFeat.addBonusList(saveKey.substring(6));
+					final BonusObj aBonus = Bonus.newBonus(saveKey.substring(6));
+					
+					if (aBonus != null)
+					{
+						aBonus.setCreatorObject(aFeat);
+						thePC.addAssoc(aFeat, AssociationListKey.BONUS, aBonus);
+					}
 				}
 
 				aFeat.addSave(saveKey);

@@ -31,6 +31,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
@@ -106,7 +107,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		human = new Race();
 
 		final BonusObj bon = Bonus.newBonus("FEAT|POOL|2");
-		human.addBonusList(bon);
+		human.addToListFor(ListKey.BONUS, bon);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");

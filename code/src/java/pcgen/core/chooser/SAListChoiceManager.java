@@ -26,6 +26,7 @@ package pcgen.core.chooser;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusAddition;
@@ -139,7 +140,7 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 					{
 						aBonus.setCreatorObject(pobject);
 						aBonus.setAddOnceOnly(true);
-						pobject.addBonusList(aBonus);
+						aPc.addAssoc(pobject, AssociationListKey.BONUS, aBonus);
 					}
 					break;
 				}

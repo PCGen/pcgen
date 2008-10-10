@@ -22,6 +22,7 @@ import pcgen.core.Equipment;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -193,7 +194,13 @@ public class NaturalattacksLst extends AbstractToken implements
 		try
 		{
 			int bonusAttacks = Integer.parseInt(numAttacks) - 1;
-			anEquip.addBonusList("WEAPON|ATTACKS|" + bonusAttacks);
+			final BonusObj aBonus = Bonus.newBonus("WEAPON|ATTACKS|" + bonusAttacks);
+			
+			if (aBonus != null)
+			{
+				aBonus.setCreatorObject(anEquip);
+				anEquip.addToListFor(ListKey.BONUS, aBonus);
+			}
 		}
 		catch (NumberFormatException exc)
 		{
@@ -283,7 +290,7 @@ public class NaturalattacksLst extends AbstractToken implements
 			{
 				sb.append(Constants.CHAR_ASTERISK);
 			}
-			List<BonusObj> bonuses = eq.getBonusList();
+			List<BonusObj> bonuses = eq.getListFor(ListKey.BONUS);
 			if (bonuses == null || bonuses.isEmpty())
 			{
 				sb.append("1");

@@ -56,6 +56,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability.Nature;
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.Prerequisite;
@@ -247,7 +248,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.setKeyName("KEY_PreReqClass");
-		aPrClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(aPrClass);
+			aPrClass.addToListFor(ListKey.BONUS, aBonus);
+		}
 		aPrClass.addPrerequisite(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
@@ -320,7 +327,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
 		aPrClass.setKeyName("KEY_PreReqClass");
-		aPrClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(aPrClass);
+			aPrClass.addToListFor(ListKey.BONUS, aBonus);
+		}
 		aPrClass.addPrerequisite(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
@@ -703,11 +716,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
-		List<BonusObj> bonusList = nymphClass.getBonusList(pc);
+		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
 
 		nymphClass.setLevel(1, pc);
-		bonusList = nymphClass.getBonusList(pc);
+		bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(0).toString());
 		assertEquals("Only one bonus", 1, bonusList.size());
 	}
@@ -721,11 +734,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
-		List<BonusObj> bonusList = nymphClass.getBonusList(pc);
+		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
 
 		nymphClass.setLevel(1, pc);
-		bonusList = nymphClass.getBonusList(pc);
+		bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("No bonus due to the LEVELSPERFEAT", 0, bonusList.size());
 	}
 
@@ -737,11 +750,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
-		List<BonusObj> bonusList = humanoidClass.getBonusList(pc);
+		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
 		assertEquals("Bonus list starting size", 3, bonusList.size());
 
 		humanoidClass.setLevel(1, pc);
-		bonusList = humanoidClass.getBonusList(pc);
+		bonusList = humanoidClass.getRawBonusList(pc);
 		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(3).toString());
 		assertEquals("Only one new bonus", 4, bonusList.size());
 	}
@@ -755,11 +768,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		humanoidClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
-		List<BonusObj> bonusList = humanoidClass.getBonusList(pc);
+		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
 		assertEquals("Bonus list starting size", 3, bonusList.size());
 
 		humanoidClass.setLevel(1, pc);
-		bonusList = humanoidClass.getBonusList(pc);
+		bonusList = humanoidClass.getRawBonusList(pc);
 		assertEquals("No new bonus due to the LEVELSPERFEAT", 3, bonusList.size());
 	}
 
@@ -885,7 +898,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");
 		prClass.setKeyName("KEY_PreReqClass");
-		prClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(prClass);
+			prClass.addToListFor(ListKey.BONUS, aBonus);
+		}
 		prClass.addPrerequisite(prereq);
 		qClass = new PCClass();
 		qClass.setName("QualClass");

@@ -31,6 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 
@@ -87,7 +88,7 @@ public final class StatList implements Iterable<PCStat>
 
 		for ( PCStat stat : stats )
 		{
-			aList.addAll(BonusUtilities.getBonusFromList(stat.getBonusList(),
+			aList.addAll(BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS),
 					aType, aName));
 		}
 
