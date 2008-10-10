@@ -128,7 +128,7 @@ public class FollowerTypeToken extends Token
 
 		String result = "";
 		List<Follower> aList = getFollowersOfType(pc, typeString);
-		if (followerIndex < aList.size())
+		if (followerIndex > -1 && followerIndex < aList.size())
 		{
 			result =
 					FollowerToken.getFollowerOutput(pc, eh, restString
