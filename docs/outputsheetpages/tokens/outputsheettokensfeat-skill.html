@@ -433,29 +433,49 @@
 		<p></p><hr>
 		<p class="new">*** Updated 5.7.3</p>
 		<p class="indent0"><strong><a name="SKILL">Token Name:</a></strong> SKILL.x.y</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skills position in the character's complete skill list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Property (Skill Property).</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the skill in position x in the character's skill list.</li>
-			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
-			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
-			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
-			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
-			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
-			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
-			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
-				skill list.</li>
-			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
-			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
-			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
-			<li>TYPE - Displays the type of the skill  in position x in the character's skill  list.</li>
-			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
-		</ul>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Skill Name).</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Skill Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Skill Property. See below).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays information about xth skill in the character's skill list.</p>
+		<ul class="indent2">
+			<li>Displays the name of the skill designated or the xth skill in the character's skill list.</li>
+			<li>Skill position is a zero based index.</li>
+			<li>If a &quot;Property&quot; is included, this tag will display select information, determied by the property 
+				included, about the designated skill or for the xth skill in the character's skill list.</li>
+			<li>The properties allowed are:
+				<ul>
+					<li>None - Displays the name of the skill designated or of the skill in position x in the character's skill list.</li>
+					<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
+					<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+					<li>ACPs,t,u,v - Displays the Armor Check Penalty for the skill in position x.
+						<ul>
+							<li>s is printed if the skill is not affected by ACP.</li>
+							<li>t is printed if the skill is affected by ACP.</li>
+							<li>u is printed if the skill is only affected by ACP if the user is untrained</li>
+							<li>v is printed if the skill has the special weight penalty like Swim</li>
+						</ul>
+					</li>
+					<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+					<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+					<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
+					<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
+					<li>MISC - equals TOTAL - RANK - ABMOD.</li>
+					<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
+						skill list.</li>
+					<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+					<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
+					<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+					<li>TYPE - Displays the type of the skill  in position x in the character's skill  list.</li>
+					<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+				</ul>
+			</li>
+		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILL.Alchemy.TOTAL</code></p>
+		<p class="indent3">Would display the total bonus on your Alchemy skill check.</p>
+		<p class="indent2"><code>SKILL.Jump.EXPLAIN_LONG</code></p>
+		<p class="indent3">Displays the  make-up of the misc modifier in the Jump skill.
+			<br>Example: +2[skill TUMBLE gteq 5|TYPE=SYNERGY.STACK] -6.0[|TYPE=SPEED.STACK] +4.0[OTHER]</p>
 		<p class="indent2"><code>SKILL.2.RANK</code></p>
 		<p class="indent3">Displays the number of ranks in the 3<sup>rd</sup> skill.</p>
 		<p class="indent2"><code>SKILL.1.MISC</code></p>
@@ -466,39 +486,10 @@
 		<p class="indent2"><code>SKILL.2.EXPLAIN</code></p>
 		<p class="indent3">Displays the  make-up of the misc modifier in the 3<sup>rd</sup> skill.
 			<br>Example: +2[TUMBLE] -6.0[SPEED.STACK] +4.0[OTHER]</p>
-
 		<p></p>
-		<p class="new">*** Updated 5.7.3</p>
-		<p class="indent0"><strong>Token Name:</strong> SKILL.x.y</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (Skill Name).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Property (Skill Property).</p>
-		<ul class="indent2">
-			<li>None - Displays the name of skill x.</li>
-			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
-			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
-			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
-			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
-			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
-			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
-			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
-			skill list.</li>
-			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
-			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
-			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
-			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
-		</ul>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays select information about a choosen skill.</p>
-		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>SKILL.Alchemy.TOTAL</code></p>
-		<p class="indent3">Would display the total bonus on your Alchemy skill check.</p>
-		<p class="indent2"><code>SKILL.Jump.EXPLAIN_LONG</code></p>
-		<p class="indent3">Displays the  make-up of the misc modifier in the Jump skill.
-			<br>Example: +2[skill TUMBLE gteq 5|TYPE=SYNERGY.STACK] -6.0[|TYPE=SPEED.STACK] +4.0[OTHER]</p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="SKILLLEVEL">Token Name:</a></strong> SKILLLEVEL.x.TOTAL</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays skill points gained at level x.</p>
