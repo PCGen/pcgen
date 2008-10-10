@@ -1,12 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Aug 24 16:07:28 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Oct  7 13:17:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Tir Gwaith and Doug McMillan, Temporary Bonus Templates by Eddy Anthony
 
 #added Bonus from Weapon Finesse (Unarmed Strike) to Unarmed Lethal Strike template - Frank Kliewe
-
-###Block: Starting Benefits
-# Template Name	Visible	Special ABility
-Starting Benefits	VISIBLE:NO	SAB:Reputation %|Reputation
 
 ###Block: Occupation
 # Template Name	Visible	Template																Bonus to Ability Pool
@@ -71,8 +67,8 @@ Unarmed Damage Advancement	VISIBLE:NO						BONUS:WEAPONPROF=Unarmed Strike|DAMAG
 #damage die 1 category larger than their size would usually grant them. It will adjust UDAM and ULS accordingly.  	        -- Frank Kliewe
 
 ###Block: Subtypes
-# Template Name	Visible	Source Page					Special ABility																																									Define			Combat bonus
-Incorporeal		VISIBLE:NO	SOURCEPAGE:MenaceCreaturesA-I.rtf	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:Attacks pass through armor	SAB:Always moves silently	DEFINE:LOCK.STR|10	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX
+# Template Name	Visible	Source Page					Define			Combat bonus										Ability
+Incorporeal		VISIBLE:NO	SOURCEPAGE:MenaceCreaturesA-I.rtf	DEFINE:LOCK.STR|10	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX	ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits
 
 #
 # End

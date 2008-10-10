@@ -18,7 +18,7 @@ Water Breathing				KEY:Dragon Water Breathing			CATEGORY:Special Ability	TYPE:Dr
 Arcane Eye					KEY:Dragon Arcane Eye				CATEGORY:Special Ability	TYPE:DragonSpellLikeVeryOld		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Arcane Eye,12+CHA
 Minor Globe of Invulnerability	KEY:Dragon Minor Globe of Invulnerability	CATEGORY:Special Ability	TYPE:DragonSpellLikeVeryOld		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Minor Globe of Invulnerability,12+CHA
 Confusion					KEY:Dragon Confusion				CATEGORY:Special Ability	TYPE:DragonSpellLikeAncient		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Confusion,14+CHA
-Freedom of Movement			KEY:Dragon Freedom of Movement		CATEGORY:Special Ability	TYPE:DragonSpellLikeAncient		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Freedom of Movement,14+CHA
+Freedom of Movement			KEY:Dragon Freedom of Movement		CATEGORY:Special Ability	TYPE:DragonSpellLikeAncient		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Freedom of Movement (Spell),14+CHA
 Break Enchantment				KEY:Dragon Break Enchantment			CATEGORY:Special Ability	TYPE:DragonSpellLikeKing		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Break Enchantment,14+CHA
 True Seeing					KEY:Dragon True Seeing				CATEGORY:Special Ability	TYPE:DragonSpellLikeKing		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|True Seeing,14+CHA
 Cloudkill					KEY:Dragon Cloudkill				CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Cloudkill,15+CHA

@@ -797,7 +797,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Renown
 FEAT:Sunder
-SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste|Slow|Dimension Door|Ice Storm|Stoneskin|Wall of Fire|Cone of Cold|Hold Monster|Wall of Force
+SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste|Slow|Dimension Door (Spell)|Ice Storm|Stoneskin|Wall of Fire|Cone of Cold|Hold Monster|Wall of Force
 
 STARTPACK:Dragon (Black Emperor/Empress Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Emperor/Empress Dragon)]
 RACE:Dragon (Black Emperor/Empress Dragon)	!PRERACE:1,%
