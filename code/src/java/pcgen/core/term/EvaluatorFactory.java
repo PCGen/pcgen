@@ -147,7 +147,7 @@ public class EvaluatorFactory {
 			}
 			catch (TermEvaulatorException e)
 			{
-				Logging.log(Logging.ERROR, e.toString());
+				Logging.log(Logging.DEBUG, e.toString());
 			}
 		}
 		
