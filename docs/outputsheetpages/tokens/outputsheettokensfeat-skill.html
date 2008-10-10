@@ -28,31 +28,51 @@
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="ABILITY">Token Name:</a></strong> ABILITY.v.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all abilities.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The ability's position in the character's complete ability list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
-			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
-			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
-		</ul>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Ability Category)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Ability's Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Ability Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Ability Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth ability in the character's chosen ability list (no automatic or virtual abilities included).</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the xth ability in the character's list of abilities. Automatic 
+				and virtual abilities are not included in the list considered.</li>
+			<li>Abilitiy position is a zero-based index.</li>
+			<li>You can filter the list of abilities based upon the visibility of each ability. The allowed visibility 
+				sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default option).</li>
+					<li><code>HIDDEN</code> - Filter the abilities that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all abilities.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of abilities based upon the type of the ability using the <code>TYPE=&lt;text&gt;</code> 
+				sub-token.
+				<ul>
+					<li>You may include more than one <code>TYPE=&lt;type&gt;</code> in the token.</li>
+					<li>You may use &quot;!&quot; in front of a <code>TYPE=&lt;type&gt;</code> to exclude the particular 
+						type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>You may append property sub-tokens after the <code>TYPE=&lt;text&gt;</code> sub-token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the xth ability in the 
+				character's ability list.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determied by the property 
+				included, about the xth ability in the character's ability list.</li>
+			<li>The following are the properties that can be displayed for the identified ability:
+				<ul>
+					<li><code>ASPECT</code> - Displays the list of aspects associated with the ability.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on a zero-based 
+						index of aspects, associated with the ability.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with the ability.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of Aspects associated with the ability.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the namned aspect in association with the ability.</li>
+					<li><code>DESC</code> - Displays the description of the ability.</li>
+					<li><code>TYPE</code> - Displays the type of the ability.</li>
+					<li><code>SOURCE</code> - Displays the source of the ability.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ABILITY.FEAT.0</code></p>
@@ -65,8 +85,18 @@
 		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen echidna category ability with a type of general.</p>
 		<p class="indent2"><code>ABILITY.FEAT.HIDDEN.0</code></p>
 		<p class="indent3">Displays the name of the 1<sup>st</sup> chosen hidden feat.</p>
+		<p class="indent2"><code>ABILITY.Power.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1st chosen &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITY.Power.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1st aspect for the 1st chosen &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITY.Power.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1st &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITY.Power.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1st &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITY.Power.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1st &quot;Power&quot; category ability has an 
+			aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
 		
-
 		<p></p><hr>
 		<p class="indent0"><strong><a name="ABILITYALL">Token Name:</a></strong> ABILITYALL.v.w.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
@@ -439,12 +469,11 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Displays the name of the skill designated or the xth skill in the character's skill list.</li>
-			<li>Skill position is a zero based index.</li>
+			<li>Skill position is a zero-based index.</li>
 			<li>If a &quot;Property&quot; is included, this tag will display select information, determied by the property 
 				included, about the designated skill or for the xth skill in the character's skill list.</li>
 			<li>The properties allowed are:
 				<ul>
-					<li>None - Displays the name of the skill designated or of the skill in position x in the character's skill list.</li>
 					<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
 					<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
 					<li>ACPs,t,u,v - Displays the Armor Check Penalty for the skill in position x.
