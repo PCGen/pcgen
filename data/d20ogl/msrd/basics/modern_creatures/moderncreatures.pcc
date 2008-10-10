@@ -24,7 +24,6 @@ INFOTEXT:This will load the basic races of the MSRD
 
 ABILITY:moderncreatures_abilities_monster.lst
 ABILITYCATEGORY:moderncreatures_ability_categories.lst
-FEAT:moderncreatures_feats.lst
 KIT:moderncreatures_kits_defaultmonsters.lst
 RACE:moderncreatures_races.lst
 TEMPLATE:moderncreatures_templates.lst

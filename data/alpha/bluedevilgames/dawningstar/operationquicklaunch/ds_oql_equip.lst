@@ -15,12 +15,12 @@ Stun Fence					TYPE:Goods.General.PL6	COST:18	WT:12		SIZE:M	SOURCEPAGE:p.76
 
 ###BLOCK: cyber equipment
 # Equipment Name			Required Proficiency					Type							Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page		Virtual Feat					Modify VAR				Special Property
-Astrogation Cortex										TYPE:Cybernetics					COST:23													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Lic(+1)
-Heuristic Combat Cortex										TYPE:Cybernetics					COST:28													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Mil(+3)
-Smart Link Cybernetic Implant									TYPE:Cybernetics.PL6				COST:26													SOURCEPAGE:p.76	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Res(+2)
-Weapon Digit (Explosive)									TYPE:Cybernetics					COST:21													SOURCEPAGE:p.98	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Burst Radius 10', Ill(+4), 3d8 Concussion Damage
-Weapon Digit (Micro Laser)	PROFICIENCY:WEAPON|Weapon Digit Micro Laser	TYPE:Cybernetics.Weapon.Ranged.Laser.Fire	COST:18	CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6	RANGE:10	SOURCEPAGE:p.99	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill(+4)
-Weapon Digit (Poison Darts)	PROFICIENCY:WEAPON|Weapon Digit Poison Dart	TYPE:Cybernetics.Weapon.Ranged.Piercing	COST:23	CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SOURCEPAGE:p.99	VFEAT:CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill (+4)
+Astrogation Cortex										TYPE:Cybernetics					COST:23													SOURCEPAGE:p.98	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Lic(+1)
+Heuristic Combat Cortex										TYPE:Cybernetics					COST:28													SOURCEPAGE:p.98	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Mil(+3)
+Smart Link Cybernetic Implant									TYPE:Cybernetics.PL6				COST:26													SOURCEPAGE:p.76	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Res(+2)
+Weapon Digit (Explosive)									TYPE:Cybernetics					COST:21													SOURCEPAGE:p.98	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Burst Radius 10', Ill(+4), 3d8 Concussion Damage
+Weapon Digit (Micro Laser)	PROFICIENCY:WEAPON|Weapon Digit Micro Laser	TYPE:Cybernetics.Weapon.Ranged.Laser.Fire	COST:18	CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6	RANGE:10	SOURCEPAGE:p.99	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill(+4)
+Weapon Digit (Poison Darts)	PROFICIENCY:WEAPON|Weapon Digit Poison Dart	TYPE:Cybernetics.Weapon.Ranged.Piercing	COST:23	CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SOURCEPAGE:p.99	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1	SPROP:Ill (+4)
 
 ###BLOCK: Computer equipment
 # Equipment Name		Type					Cost		Weight	Size		Source Page

@@ -32,7 +32,6 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 #EXTRAFILE:OGL.txt
 
 #msrd files
-FEAT:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_feats.lst
 TEMPLATE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_templates.lst
 
 #DW2 Specific/Modified files

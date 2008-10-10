@@ -44,7 +44,6 @@ EQUIPMENT:modernbasics_equip_weap_vehicles.lst
 EQUIPMOD:modernbasics_equipmods.lst
 
 FEAT:modernbasics_feats.lst
-FEAT:modernbasics_feats_hidden.lst
 
 KIT:modernbasics_kits_defaultmonsters_animals.lst
 LANGUAGE:modernbasics_languages.lst
