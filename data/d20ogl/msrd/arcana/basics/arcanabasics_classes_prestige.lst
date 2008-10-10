@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 10 16:22:35 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Paul King
 
@@ -20,16 +20,13 @@ CLASS:Artificer	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClass
 CLASS:Artificer	PREMULT:2,[PRESKILL:2,Knowledge (Arcane Lore)=9,Spellcraft=9],[PRESKILL:1,TYPE.Craft=9]	PRESPELLTYPE:1,Arcane=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Structural)|Decipher Script|Disable Device|Drive|Forgery|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
-1	BONUS:ABILITYPOOL|CraftArtifice Feat|1
-2	BONUS:ABILITYPOOL|Artificer Feat|1	BONUS:ABILITYPOOL|CraftArtifice Feat|1
-3	BONUS:ABILITYPOOL|CraftArtifice Feat|1
-4	BONUS:ABILITYPOOL|Artificer Feat|1	BONUS:ABILITYPOOL|CraftArtifice Feat|1
-5	BONUS:ABILITYPOOL|CraftArtifice Feat|1
+1	BONUS:ABILITYPOOL|Craft Artifice|CL
+2	BONUS:ABILITYPOOL|Artificer Feat|CL/2
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
 CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
-# Class Name	Required Feat		Required Skill												Required Casting Type
-CLASS:Ecclesiarch	PREFEAT:1,Base Turn	PRESKILL:3,Concentration=10,Knowledge (Theology and Philosophy)=10,Spellcraft=10	PRESPELLCAST:TYPE=Divine
+# Class Name	Required Ability						Required Skill												Required Casting Type
+CLASS:Ecclesiarch	PREABILITY:1,CATEGORY=Special Ability,Base Turn	PRESKILL:3,Concentration=10,Knowledge (Theology and Philosophy)=10,Spellcraft=10	PRESPELLCAST:TYPE=Divine
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ecclesiarch	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spellcraft|Survival|Treat Injury
 1	BONUS:CASTERLEVEL|Acolyte|CL=Mystic+CL=Holy Unholy Knight|PRECLASS:1,Acolyte=1	BONUS:CASTERLEVEL|Mystic|CL=Acolyte+CL=Holy Unholy Knight|PRECLASS:1,Mystic=1	BONUS:CASTERLEVEL|Holy Unholy Knight|CL=Acolyte+CL=Mystic|PRECLASS:1,Holy Unholy Knight=1										ABILITY:Special Ability|AUTOMATIC|Total Spellcasting ~ Ecclesiarch

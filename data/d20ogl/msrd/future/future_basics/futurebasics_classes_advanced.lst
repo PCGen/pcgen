@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 31 14:10:57 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 10 17:00:06 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
@@ -40,7 +40,7 @@ CLASS:Dreadnought	PREMULT:2,[PREFEAT:1,Improved Damage Threshold],[PREABILITY:2,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dreadnought	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Jump|Profession|Survival|Swim|Tumble
 1								BONUS:MISC|ACHECK|2																							ABILITY:Special Ability|AUTOMATIC|Fearless|Stability|Unhindered
-2												BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL										ABILITY:Special Ability|AUTOMATIC|Steamroller				AUTO:FEAT|Ability Surge
+2												BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL										ABILITY:Special Ability|AUTOMATIC|Steamroller|Dreadnought Ability Surge
 3	BONUS:ABILITYPOOL|Dreadnought Feat|1
 4												BONUS:VAR|MasterDefender|((CL-1)/3)*2												DEFINE:MasterDefender|0	ABILITY:Special Ability|AUTOMATIC|Master Defender
 5																																		ABILITY:Special Ability|AUTOMATIC|Knockdown
@@ -74,7 +74,7 @@ CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disabl
 1							BONUS:VAR|ExplorerLore|CL+INT	ABILITY:Special Ability|AUTOMATIC|Explorer Lore|Survivalist		AUTO:FEAT|Guide|Track
 2												ABILITY:Special Ability|AUTOMATIC|Resolve|Skilled Researcher
 3	BONUS:ABILITYPOOL|Explorer Feat|1
-4							BONUS:VAR|TrapSense|(CL-1)/3												AUTO:FEAT|Trap Sense
+4							BONUS:VAR|TrapSense|(CL-1)/3	ABILITY:Special Ability|AUTOMATIC|Trap Sense
 5												ABILITY:Special Ability|AUTOMATIC|Extra Step
 6	BONUS:ABILITYPOOL|Explorer Feat|1
 8												ABILITY:Special Ability|AUTOMATIC|Explorer's Evasion
@@ -169,9 +169,9 @@ CLASS:Tracer	PREATT:2	PREFEAT:1,Track	PREMULT:2,[PRESKILL:2,Investigate=6,Surviv
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tracer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Research|Search|Sense Motive|Spot|Survival|Swim
 1																				ABILITY:Special Ability|AUTOMATIC|Target Species	AUTO:FEAT|Urban Tracking
-2							BONUS:VAR|SwiftStrike|(CL+1)/3																	AUTO:FEAT|Swift Strike
+2							BONUS:VAR|SwiftStrike|(CL+1)/3								ABILITY:Special Ability|AUTOMATIC|Swift Strike
 3	BONUS:ABILITYPOOL|Tracer Feat|1
-4														DEFINE:UncannyStealthChargeQual|0										AUTO:FEAT|Uncanny Stealth
+4														DEFINE:UncannyStealthChargeQual|0	ABILITY:Special Ability|AUTOMATIC|Uncanny Stealth
 6	BONUS:ABILITYPOOL|Tracer Feat|1
 7							BONUS:VAR|UncannyStealthChargeQual|1
 9	BONUS:ABILITYPOOL|Tracer Feat|1
@@ -183,15 +183,15 @@ CLASS:Xenophile	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClas
 CLASS:Xenophile	PREABILITY:1,CATEGORY=Talent,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
-1	BONUS:ABILITYPOOL|Xenotype Feat|1													ABILITY:Special Ability|AUTOMATIC|Xenolore		AUTO:FEAT|Base Xenotype
-2														BONUS:VAR|Xenoresist|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Xenoresistance
+1	BONUS:ABILITYPOOL|Xenotype|1												ABILITY:Special Ability|AUTOMATIC|Xenolore		AUTO:FEAT|Base Xenotype
+2												BONUS:VAR|Xenoresist|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Xenoresistance
 3	BONUS:ABILITYPOOL|Xenophile Feat|1
-4	BONUS:ABILITYPOOL|Xenotype Feat|1	BONUS:ABILITYPOOL|XenotypeBonus Feat|1
-5														BONUS:VAR|Xenodef|CL/5		ABILITY:Special Ability|AUTOMATIC|Xenodefense
+4	BONUS:ABILITYPOOL|Xenotype|1	BONUS:ABILITYPOOL|Xenotype Bonus|1
+5												BONUS:VAR|Xenodef|CL/5		ABILITY:Special Ability|AUTOMATIC|Xenodefense
 6	BONUS:ABILITYPOOL|Xenophile Feat|1
-7	BONUS:ABILITYPOOL|Xenotype Feat|1	BONUS:ABILITYPOOL|XenotypeBonus Feat|1
+7	BONUS:ABILITYPOOL|Xenotype|1	BONUS:ABILITYPOOL|Xenotype Bonus|1
 9	BONUS:ABILITYPOOL|Xenophile Feat|1
-10	BONUS:ABILITYPOOL|Xenotype Feat|1	BONUS:ABILITYPOOL|XenotypeBonus Feat|1
+10	BONUS:ABILITYPOOL|Xenotype|1	BONUS:ABILITYPOOL|Xenotype Bonus|1
 
 #
 # End

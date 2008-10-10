@@ -3,7 +3,7 @@ SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEW
 
 ###Block: Multiattack for monsters
 # Feat Name	Type			Min. nb of Hands	Description		Combat bonus
-Multiattack	TYPE:General	PREHANDSGT:2	DESC:See Text	BONUS:COMBAT|TOHIT-SECONDARY|3
+#Multiattack	TYPE:General	PREHANDSGT:2	DESC:See Text	BONUS:COMBAT|TOHIT-SECONDARY|3
 
 #
 # End

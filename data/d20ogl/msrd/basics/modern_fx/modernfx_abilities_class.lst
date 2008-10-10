@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 12:37:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Fri Oct 10 16:27:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 
 ###Block:Shadow Slayer -------------------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type					Visible	Special ABility							Define
@@ -32,9 +32,11 @@ Maximize Power		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	S
 
 
 ###Block:Battle Mind --------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type					Visible	Special ABility
-Imprint Tattoo	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
+# Ability Name		Category of Ability		Type					Visible	Special ABility		Define								Automatically Added to Inventory				Automatically Gained Weapon Prof.
+Imprint Tattoo		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
 #Concentration ~ Psionic	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
+Battle Mind PsiBlade	CATEGORY:Special Ability						VISIBLE:NO					DEFINE:PsiBladeEnhancement|0	DEFINE:PsiBladeDamage|0	AUTO:EQUIP|Psi-Blade[PREVARGTEQ:BattlemindML,2]		AUTO:WEAPONPROF|Psi-Blade
+Battle Mind PsiShield	CATEGORY:Special Ability						VISIBLE:NO					DEFINE:PsiShieldDefense|0					AUTO:EQUIP|Psi-Shield[PREVARGTEQ:BattlemindML,4]
 
 
 ###Block:Mage -----------------------------------------------------------------------------------------------------------------------------------
@@ -44,25 +46,6 @@ Spell Mastery		CATEGORY:Special Ability	TYPE:SpellMastery					SAB:Spell Mastery 
 
 
 ###Block:Acolyte --------------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type							Visible	Special ABility
-Spontaneous Casting		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility			VISIBLE:NO	SAB:Spontaneous Casting
-Turn/Rebuke Magical Beasts	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Magical Beasts (Su)
-Turn/Rebuke Outsiders		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility.Supernatural	VISIBLE:NO	SAB:Turn or Rebuke Outsiders (Su)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Spontaneous Casting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Spontaneous Casting
 

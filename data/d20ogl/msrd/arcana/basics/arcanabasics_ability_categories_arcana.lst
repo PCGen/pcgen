@@ -33,9 +33,9 @@ ABILITYCATEGORY:Thrasher Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Wildlord Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Wildlord			PLURAL:Wildlord Feats			DISPLAYLOCATION:Feats
 
 ###Block: Arcana Prestige Feats
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:CraftArtifice Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:CraftArtifice	PLURAL:Craft Artifice Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Artificer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Artificer		PLURAL:Artificer Feats		DISPLAYLOCATION:Feats
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Craft Artifice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CraftArtifice	PLURAL:Craft Artifice		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Artificer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Artificer		PLURAL:Artificer Feats		DISPLAYLOCATION:Feats
 
 ###Block: Arcana Prestige Class Abilities
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location

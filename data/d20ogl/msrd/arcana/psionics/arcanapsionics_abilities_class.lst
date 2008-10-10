@@ -1,4 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 10 17:00:06 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+
+# Feat Name		Type			Visible	Special ABility	Bonus to Ability Pool
+# Ability Name	Category of Ability		Type			Visible	Special ABility	Bonus to Ability Pool
+Psionic Focus	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Psionic Focus	BONUS:ABILITYPOOL|Psionic Focus|1
 
 ###Block:Psionic Agent -----------------------------------------------------------------------------------------------------------------
 # Ability Name		Category of Ability		Type					Visible	Special ABility

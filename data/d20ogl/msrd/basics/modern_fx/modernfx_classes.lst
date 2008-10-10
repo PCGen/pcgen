@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 12:37:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Fri Oct 10 15:55:27 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -89,7 +89,7 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,8	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:BattlemindML,9
 1	BONUS:VAR|BasePowerPoints|7|PREVARGTEQ:BattlemindML,10
 ###Block: PsiBlade Progression
-1	BONUS:VAR|PsiBladeEnhancement|1|PREVARGTEQ:BattlemindML,3				AUTO:FEAT|Battle Mind PsiBlade|Battle Mind PsiShield
+1	BONUS:VAR|PsiBladeEnhancement|1|PREVARGTEQ:BattlemindML,3				ABILITY:Special Ability|AUTOMATIC|Battle Mind PsiBlade|Battle Mind PsiShield
 1	BONUS:VAR|PsiShieldDefense|3|PREVARGTEQ:BattlemindML,4
 1	BONUS:VAR|PsiBladeEnhancement|1|PREVARGTEQ:BattlemindML,5
 1	BONUS:VAR|PsiBladeEnhancement,PsiBladeDamage|1|PREVARGTEQ:BattlemindML,7
@@ -117,16 +117,16 @@ CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lo
 CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
-1	CAST:3,1																		AUTO:FEAT|Summon Familiar
-2	CAST:4,2																		AUTO:FEAT|Scribe Scroll
-3	CAST:4,2,1		BONUS:ABILITYPOOL|Mage Feat|1												AUTO:FEAT|Brew Potion
-4	CAST:4,3,2																		AUTO:FEAT|Scribe Tattoo
+1	CAST:3,1								ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2	CAST:4,2								ABILITY:Special Ability|AUTOMATIC|Scribe Scroll
+3	CAST:4,2,1		BONUS:ABILITYPOOL|Mage Feat|1		ABILITY:Special Ability|AUTOMATIC|Brew Potion
+4	CAST:4,3,2								ABILITY:Special Ability|AUTOMATIC|Scribe Tattoo
 5	CAST:4,3,2,1	BONUS:ABILITYPOOL|Spell Mastery|1
 6	CAST:4,3,3,2	BONUS:ABILITYPOOL|Mage Feat|1
 7	CAST:4,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|Concentration ~ Mage
 8	CAST:4,4,3,3,2	BONUS:ABILITYPOOL|Spell Mastery|1
 9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Mage Feat|1
-10	CAST:4,4,4,3,3,2																	AUTO:FEAT|Maximize Spell
+10	CAST:4,4,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Maximize Spell
 
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus						Modify VAR
@@ -152,5 +152,5 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 7	CAST:6,4,3,2,1							ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Magical Beasts
 8	CAST:6,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Outsiders
 9	CAST:6,4,4,3,2,1	BONUS:ABILITYPOOL|Acolyte Feat|1
-10	CAST:6,4,4,3,3,2																		AUTO:FEAT|Maximize Spell
+10	CAST:6,4,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Maximize Spell
 

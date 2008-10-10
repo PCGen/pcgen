@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Oct  6 21:36:27 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Fri Oct 10 15:55:27 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Paul King, Barak, & Hugo
 # Two-Weapon Fighting done as described in the MSRD Combat section (reported to be correct) - Tir Gwaith
@@ -131,6 +131,7 @@ Vehicle Expert				TYPE:General.Tough.Smart.Daredevil.Bodyguard.FieldMedic							
 Weapon Finesse				TYPE:Battlemind.General.Fast																					PREATT:1																														DESC:See text			MULT:YES	CHOOSE:WEAPONPROFS|TYPE.Natural|TYPE.Finesseable|WSize.Light.Melee																																																																																																																		BONUS:WEAPONPROF=%LIST|TOHIT|(max(STR,DEX)+SHIELDACCHECK)-STR|TYPE=NotRanged									SOURCEPAGE:msrdfeats.rtf
 Weapon Focus				TYPE:Battlemind.General.Dedicated.Smart.Strong.WeaponFocus																PREATT:1																														DESC:See text			MULT:YES	CHOOSE:WEAPONPROFS|SpellCaster.Ray|ADD.Grapple|LIST																																																																																																																					BONUS:WEAPONPROF=%LIST|TOHIT|1																SOURCEPAGE:msrdfeats.rtf
 Whirlwind Attack				TYPE:General																							PREATT:4	PREFEAT:4,Dodge,Mobility,Spring Attack,Combat Expertise											PRESTAT:2,DEX=13,INT=13						DESC:See text																																																																																																																																																							SOURCEPAGE:msrdfeats.rtf
+Wild Talent					TYPE:General																																																						DESC:See text																																																																																																																																																							SOURCEPAGE:msrdfeats.rtf
 Windfall					TYPE:General.Charismatic																																																				DESC:See text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																											BONUS:SKILL|Profession|1					BONUS:VAR|WealthBonus|3																									SOURCEPAGE:msrdfeats.rtf
 
 ###Block: Feat Descriptions
@@ -238,6 +239,7 @@ Vehicle Expert.MOD			DESC:.CLEAR		DESC:The character gets a +2 bonus on all Driv
 Weapon Finesse.MOD			DESC:.CLEAR		DESC:Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain
 Weapon Focus.MOD				DESC:.CLEAR		DESC:Choose a specific weapon. A character can choose unarmed strike or grapple for your weapon for purposes of this feat
 Whirlwind Attack.MOD			DESC:.CLEAR		DESC:When the character performs a full-round action, the character can give up his or her regular attacks and instead make one melee attack at the character's highest base attack bonus against each adjacent opponent
+Wild Talent.MOD				DESC:.CLEAR		DESC::one 0-Level psionic power useable 3x per 24 hour period
 Windfall.MOD				DESC:.CLEAR		DESC:The character's Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks
 
 ###Block: Feat MOD for Creature Type Proficiency Bonus Feat Pools
@@ -249,6 +251,11 @@ Armor Proficiency (Light).MOD		TYPE:HumanoidProficiency
 ###Block: Imported from Future to use in Arcana and elsewhere
 # Feat Name			Type						Required Lvl	Description											Source Page
 Jack of All Trades	TYPE:General.Explorer.SpaceMonkey	PRELEVEL:MIN=8	DESC:You've picked up a smattering of even the most obscure skills	SOURCEPAGE:FutureOccupationsSkillsFeats.rtf
+
+###Block: Multiattack for monsters
+# Feat Name	Type			Min. nb of Hands	Description		Combat bonus
+Multiattack	TYPE:General	PREHANDSGT:2	DESC:See Text	BONUS:COMBAT|TOHIT-SECONDARY|3
+
 
 #
 # End
