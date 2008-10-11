@@ -28,6 +28,7 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.spell.Spell;
 import pcgen.core.analysis.SkillRankControl;
 
 public class PCSkillRankTermEvaluator
@@ -43,11 +44,22 @@ public class PCSkillRankTermEvaluator
 
 	public Float resolve(PlayerCharacter pc)
 	{
+		return Float.valueOf(evaluate(pc));
+	}
+	
+	public String evaluate(PlayerCharacter pc)
+	{
 		final Skill aSkill = pc.getSkillKeyed(rank);
 
-		return (aSkill == null) ? 0f : SkillRankControl.getRank(pc, aSkill);
+		return null == aSkill ?
+			   "0.0" :
+			   SkillRankControl.getRank(pc, aSkill).toString();		
 	}
 
+	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+		return evaluate(pc);
+	}
+	
 	public boolean isSourceDependant()
 	{
 		return false;
