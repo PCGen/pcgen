@@ -36,7 +36,7 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 
 #Load required msrd information
 #msrd files
-#ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
+ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
 
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_class.lst|(EXCLUDE:CATEGORY=Special Ability,Electronic Mastercraft,Mechanical Mastercraft)
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
