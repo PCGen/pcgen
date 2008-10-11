@@ -44,7 +44,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return Float.valueOf(evaluate(eq, primary, pc));
+		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	public String evaluate(

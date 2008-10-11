@@ -87,7 +87,7 @@ public class PCEqTypeTermEvaluator
 
 		if (Pattern.matches(fpRegex, sTok))
 		{
-			return Float.valueOf(sTok);
+			return convertToFloat(originalText, sTok);
 		}
 
 		return 0f;

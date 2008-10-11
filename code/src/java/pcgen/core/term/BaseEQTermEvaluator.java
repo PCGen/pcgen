@@ -29,26 +29,53 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
 
 public abstract class BaseEQTermEvaluator
 {
 	protected String originalText;
 
 	public String evaluate(PlayerCharacter pc) {
-		return Integer.toString(resolve(pc).intValue());
+		return "0.0";
 	}
 
 	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
-		return Integer.toString(resolve(pc, aSpell).intValue());
+		return "0.0";
 	}
 
 	public Float resolve(PlayerCharacter pc)
 	{
-		return 0f;
+		return convertToFloat(originalText, evaluate(pc));
 	}
 
 	public Float resolve(PlayerCharacter pc, final Spell aSpell) {
-		return resolve(pc);
+		return convertToFloat(originalText, evaluate(pc, aSpell));
+	}
+
+	protected Float convertToFloat(String element, String foo)
+	{
+		Float d = null;
+		try
+		{
+			d = new Float(foo);
+		}
+		catch (NumberFormatException nfe)
+		{
+			// What we got back was not a number
+		}
+
+		Float retVal = null;
+		if (d != null && !d.isNaN())
+		{
+			retVal = d;
+			Logging.debugPrint(
+					new StringBuilder("Export variable for: '")
+							.append(element)
+							.append("' = ")
+							.append(d).toString());
+		}
+
+		return retVal;
 	}
 
 	public Float getDefault ()

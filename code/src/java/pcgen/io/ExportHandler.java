@@ -97,12 +97,12 @@ public final class ExportHandler
 {
 	private static final Float JEP_TRUE        = new Float(1.0);
 	private static Map<String, Token> tokenMap = new HashMap<String, Token>();
-	private static boolean tokenMapPopulated   = false;
+	private static boolean tokenMapPopulated;
 
 	// Processing state variables
-	private boolean existsOnly       = false;
-	private boolean noMoreItems      = false;
-	private boolean manualWhitespace = false;
+	private boolean existsOnly;
+	private boolean noMoreItems;
+	private boolean manualWhitespace;
 
 	private File templateFile;
 
@@ -110,11 +110,11 @@ public final class ExportHandler
 	private final Map<Object, Object> loopVariables = 
 			new HashMap<Object, Object>();
 
-	private String  csheetTag2  = "\\";
-	private boolean skipMath    = false;
-	private boolean canWrite    = true;
-	private boolean checkBefore = false;
-	private boolean inLabel     = false;
+	private String  csheetTag2 = "\\";
+	private boolean skipMath;
+	private boolean canWrite = true;
+	private boolean checkBefore;
+	private boolean inLabel;
 
 	/**
 	 * Constructor.

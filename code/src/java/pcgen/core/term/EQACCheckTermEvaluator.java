@@ -42,7 +42,7 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return Float.valueOf(evaluate(eq, primary, pc));
+		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	public String evaluate(

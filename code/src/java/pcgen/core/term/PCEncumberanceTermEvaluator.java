@@ -41,7 +41,7 @@ public class PCEncumberanceTermEvaluator
 
 	public Float resolve(PlayerCharacter pc)
 	{
-		return Float.valueOf(evaluate(pc));
+		return convertToFloat(originalText, evaluate(pc));
 	}
 
 	@Override

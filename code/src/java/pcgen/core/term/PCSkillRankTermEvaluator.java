@@ -44,7 +44,7 @@ public class PCSkillRankTermEvaluator
 
 	public Float resolve(PlayerCharacter pc)
 	{
-		return Float.valueOf(evaluate(pc));
+		return convertToFloat(originalText, evaluate(pc));
 	}
 	
 	public String evaluate(PlayerCharacter pc)

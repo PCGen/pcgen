@@ -29,6 +29,7 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
 
 public abstract class BasePCTermEvaluator
 {
@@ -39,7 +40,7 @@ public abstract class BasePCTermEvaluator
 	}
 
 	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
-		return Integer.toString(resolve(pc, aSpell).intValue());	
+		return evaluate(pc);	
 	}
 
 	public String evaluate(
@@ -52,16 +53,42 @@ public abstract class BasePCTermEvaluator
 	public abstract Float resolve(PlayerCharacter pc);
 
 	public Float resolve(PlayerCharacter pc, final Spell aSpell) {
-		return resolve(pc);
+		return convertToFloat(originalText, evaluate(pc, aSpell));
 	}
 
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return resolve(pc);
+		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	protected Float convertToFloat(String element, String foo)
+	{
+		Float d = null;
+		try
+		{
+			d = new Float(foo);
+		}
+		catch (NumberFormatException nfe)
+		{
+			// What we got back was not a number
+		}
+
+		Float retVal = null;
+		if (d != null && !d.isNaN())
+		{
+			retVal = d;
+			Logging.debugPrint(
+					new StringBuilder("Export variable for: '")
+							.append(element)
+							.append("' = ")
+							.append(d).toString());
+		}
+
+		return retVal;
+	}
+	
 	public Float getDefault ()
 	{
 		return 1.0f;

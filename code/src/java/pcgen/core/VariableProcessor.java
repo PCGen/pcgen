@@ -53,7 +53,42 @@ public abstract class VariableProcessor
 {
 	/** The current indenting to be used for debug output of jep evaluations. */
 	protected String jepIndent = "";
-	private PlayerCharacter pc;
+	protected PlayerCharacter pc;
+
+	private int cachePaused;
+	private int serial;
+
+	private Map<String, CachedVariable<String>> sVariableCache = 
+			new HashMap<String, CachedVariable<String>>();
+	private Map<String, CachedVariable<Float>>  fVariableCache = 
+			new HashMap<String, CachedVariable<Float>>();
+
+	protected Float convertToFloat(String element, String foo)
+	{
+		Float d = null;
+		try
+		{
+			d = new Float(foo);
+		}
+		catch (NumberFormatException nfe)
+		{
+			// What we got back was not a number
+		}
+
+		Float retVal = null;
+		if (d != null && !d.isNaN())
+		{
+			retVal = d;
+			Logging.debugPrint(
+					new StringBuilder().append(jepIndent)
+							.append("export variable for: '")
+							.append(element)
+							.append("' = ")
+							.append(d).toString());
+		}
+
+		return retVal;
+	}
 
 	/**
 	 * <code>CachableResult</code> encapsulates a result returned from JEP processing
@@ -99,6 +134,45 @@ public abstract class VariableProcessor
 			String src,
 			int spellLevelTemp)
 	{
+		Float result = getJepOnlyVariableValue(
+				aSpell,
+				varString,
+				src,
+				spellLevelTemp);
+				
+		if (null == result)
+		{
+			result = processBrokenParser(
+					aSpell,
+					varString,
+					src,
+					spellLevelTemp);
+			
+			String cacheString =
+					makeCacheString(aSpell, varString, src, spellLevelTemp);
+
+			addCachedVariable(cacheString, result);
+		}
+
+		return result;
+	}
+
+	/**
+	 * Evaluates a JEP variable for this character.
+	 * e.g: getJepOnlyVariableValue("3+CHA","CLASS:Cleric") for Turn Undead
+	 *
+	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
+	 * @param varString The variable to be evaluated
+	 * @param src     The source within which the variable is evaluated
+	 * @param spellLevelTemp The temporary spell level
+	 * @return The value of the variable, or null if the formula is not JEP
+	 */
+	public Float getJepOnlyVariableValue(
+			final Spell aSpell,
+			String varString,
+			String src,
+			int spellLevelTemp)
+	{
 		// First try to just parse it as a number.
 		try
 		{
@@ -110,88 +184,16 @@ public abstract class VariableProcessor
 			// number, If we got here it wasn't
 		}
 
-
-		String cacheString = varString +"#"+src;
-		if (aSpell != null)
-		{
-			cacheString += aSpell.getKeyName();
-		}
-
-		if (spellLevelTemp > 0)
-		{
-			cacheString += spellLevelTemp;
-		}
+		String cacheString =
+				makeCacheString(aSpell, varString, src, spellLevelTemp);
 
 		Float total = getCachedVariable(cacheString);
 		if (total != null)
 		{
 			return total;
 		}
-
 
 		CachableResult cRes = processJepFormula(aSpell, varString, src);
-		if (cRes != null)
-		{
-			if (cRes.cachable)
-			{
-				addCachedVariable(cacheString, cRes.result);
-			}
-			return cRes.result;
-		}
-
-
-		Float result = processBrokenParser(aSpell, varString, src, spellLevelTemp);
-		addCachedVariable(cacheString, result);
-		return result;
-	}
-
-	/**
-	 * Evaluates a JEP variable for this character.
-	 * e.g: getJepOnlyVariableValue("3+CHA","CLASS:Cleric") for Turn Undead
-	 *
-	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
-	 * @param aString The variable to be evaluated
-	 * @param src     The source within which the variable is evaluated
-	 * @param spellLevelTemp The temporary spell level
-	 * @return The value of the variable, or null if the formula is not JEP
-	 */
-	public Float getJepOnlyVariableValue(
-			final Spell aSpell,
-			String aString,
-			String src,
-			int spellLevelTemp)
-	{
-		// First try to just parse it as a number.
-		try
-		{
-			return new Float(aString);
-		}
-		catch (NumberFormatException e)
-		{
-			// Nothing to handle here, we're attempting to see if aString was a
-			// number, If we got here it wasn't
-		}
-
-
-		String cacheString = aString+"#"+src;
-		if (aSpell != null)
-		{
-			cacheString += aSpell.getKeyName();
-		}
-
-		if (spellLevelTemp > 0)
-		{
-			cacheString += spellLevelTemp;
-		}
-
-		Float total = getCachedVariable(cacheString);
-		if (total != null)
-		{
-			return total;
-		}
-
-
-		CachableResult cRes = processJepFormula(aSpell, aString, src);
 		if (cRes != null)
 		{
 			if (cRes.cachable)
@@ -203,6 +205,23 @@ public abstract class VariableProcessor
 		return null;
 	}
 
+	private String makeCacheString(
+			Spell aSpell, String varString, String src, int spellLevelTemp)
+	{
+		StringBuilder cS = new StringBuilder(varString).append("#").append(src);
+		
+		if (aSpell != null)
+		{
+			cS.append(aSpell.getKeyName());
+		}
+
+		if (spellLevelTemp > 0)
+		{
+			cS.append(spellLevelTemp);
+		}
+
+		return cS.toString();
+	}
 
 
 	/**
@@ -375,10 +394,19 @@ public abstract class VariableProcessor
 		{
 			valString += aString.substring(i, i + 1);
 
-			if ((i == (aString.length() - 1)) || (delimiter.lastIndexOf(aString.charAt(i)) > -1)
-				|| ((valString.length() > 3)
-				&& (valString.endsWith("MIN") || (!valString.startsWith("MODEQUIP") && valString.endsWith("MAX"))
-				|| valString.endsWith("REQ"))))
+			if (
+					// end of string
+					(i == (aString.length() - 1)) ||
+					
+					// have found one of +, -, *, /
+					(delimiter.lastIndexOf(aString.charAt(i)) > -1) || 
+
+					// there are more than three characters
+					((valString.length() > 3) && 
+					 	(valString.endsWith("MIN") || 
+						(!valString.startsWith("MODEQUIP") && valString.endsWith("MAX")) || 
+						valString.endsWith("REQ")))
+					)
 			{
 				if ((valString.length() == 1) && (delimiter.lastIndexOf(aString.charAt(i)) > -1))
 				{
@@ -429,19 +457,19 @@ public abstract class VariableProcessor
 						nextMode = 0;
 						endMode += 3;
 					}
-					else if ((aString.length() > 0) && (aString.charAt(i) == '+'))
+					else if (aString.length() > 0 && aString.charAt(i) == '+')
 					{
 						nextMode = 0;
 					}
-					else if ((aString.length() > 0) && (aString.charAt(i) == '-'))
+					else if (aString.length() > 0 && aString.charAt(i) == '-')
 					{
 						nextMode = 1;
 					}
-					else if ((aString.length() > 0) && (aString.charAt(i) == '*'))
+					else if (aString.length() > 0 && aString.charAt(i) == '*')
 					{
 						nextMode = 2;
 					}
-					else if ((aString.length() > 0) && (aString.charAt(i) == '/'))
+					else if (aString.length() > 0 && aString.charAt(i) == '/')
 					{
 						nextMode = 3;
 					}
@@ -493,7 +521,7 @@ public abstract class VariableProcessor
 				nextMode = 0;
 				valString = "";
 
-				if ((total1 == null) && ((endMode % 10) != 0))
+				if (total1 == null && endMode % 10 != 0)
 				{
 					total1 = total;
 					total = new Float(0.0);
@@ -503,17 +531,17 @@ public abstract class VariableProcessor
 
 		if (total1 != null)
 		{
-			if ((endMode % 10) == 1)
+			if (endMode % 10 == 1)
 			{
 				total = new Float(Math.min(total.doubleValue(), total1.doubleValue()));
 			}
 
-			if ((endMode % 10) == 2)
+			if (endMode % 10 == 2)
 			{
 				total = new Float(Math.max(total.doubleValue(), total1.doubleValue()));
 			}
 
-			if ((endMode % 10) == 3)
+			if (endMode % 10 == 3)
 			{
 				if (total1.doubleValue() < total.doubleValue())
 				{
@@ -526,7 +554,7 @@ public abstract class VariableProcessor
 			}
 		}
 
-		if ((endMode / 10) > 0)
+		if (endMode / 10 > 0)
 		{
 			total = (float) total.intValue();
 		}
@@ -615,18 +643,57 @@ public abstract class VariableProcessor
 		}
 	}
 
+	abstract Float getInternalVariable(
+			final Spell aSpell,
+			String valString,
+			final String src);
 
 	/**
-	 * Lookup the value of a variable
-	 *
-	 * @param element The variable to be evaluated.
-	 * @param src     The source within which the variable is evaluated
-	 * @param spell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
-	 * @return The value of the variable
+	 * Get a value for the term as evaluated in the context of the PC that
+	 * owns this VariableEvaluator (getPc()) the term itself and the source
+	 * of the term e.g. RACE:Halfling.  If the term is CASTERLEVEL the
+	 * Spell parameter is also used, if not it is ignored and may be null.  
+	 * 
+	 * @param term
+	 *          The string to be evaluated
+	 * @param src
+	 *          The source of the term
+	 * @param spell
+	 *          A spell which is only used if the term is related to CASTERLEVEL
+	 * 
+	 * @return a Float value for this term
 	 */
-	abstract Float lookupVariable(String element, String src, Spell spell);
+	public Float lookupVariable(String term, String src, Spell spell)
+	{
+		Float retVal = null;
+		if (pc.hasVariable(term))
+		{
+			final Float value = pc.getVariable(term, true, src, "");
+			Logging.debugPrint(
+					new StringBuilder().append(jepIndent)
+							.append("variable for: '")
+							.append(term)
+							.append("' = ")
+							.append(value).toString());
+			retVal = new Float(value.doubleValue());
+		}
 
+		if (retVal == null)
+		{
+			retVal = getInternalVariable(spell, term, src);
+		}
 
+		if (retVal == null)
+		{
+			final String evReturn = getExportVariable(term);
+			if (evReturn != null)
+			{
+				retVal = convertToFloat(term, evReturn);
+			}
+		}
+
+		return retVal;
+	}
 
 	/**
 	 * Attempt to retrieve a cached value of a variable.
@@ -673,8 +740,6 @@ public abstract class VariableProcessor
 		fVariableCache.put(lookup, cached);
 	}
 
-
-
 	/**
 	 * Restart caching of variable values. Used after caching has
 	 * been paused by a call to pauseCache.
@@ -702,12 +767,6 @@ public abstract class VariableProcessor
 	{
 		return cachePaused>0;
 	}
-
-	private int cachePaused;
-	private int serial;
-
-	private Map<String, CachedVariable<String>> sVariableCache = new HashMap<String, CachedVariable<String>>();
-	private Map<String, CachedVariable<Float>>  fVariableCache = new HashMap<String, CachedVariable<Float>>();
 
 	/**
 	 * Retrieve the current cache serial. This value identifies the currency

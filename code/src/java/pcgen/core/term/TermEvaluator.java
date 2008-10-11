@@ -34,13 +34,13 @@ public interface TermEvaluator
 
 	String evaluate(Equipment eq, boolean primary, PlayerCharacter pc);
 
-	Number resolve(PlayerCharacter pc);
+	Float resolve(PlayerCharacter pc);
 
-	Number resolve(PlayerCharacter pc, final Spell aSpell);
+	Float resolve(PlayerCharacter pc, final Spell aSpell);
 
-	Number resolve(Equipment eq, boolean primary, PlayerCharacter pc);
+	Float resolve(Equipment eq, boolean primary, PlayerCharacter pc);
 
-	Number getDefault ();
+	Float getDefault ();
 
 	String getOriginal ();
 

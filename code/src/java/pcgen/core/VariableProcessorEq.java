@@ -20,12 +20,9 @@
  */
 package pcgen.core;
 
-import java.math.BigDecimal;
-
-import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
+import pcgen.core.term.TermEvaluator;
+import pcgen.core.term.EvaluatorFactory;
 
 /**
  * <code>VariableProcessorEq</code> is a processor for variables
@@ -46,15 +43,21 @@ public class VariableProcessorEq extends VariableProcessor
 	private boolean primaryHead;
 
 	/**
-	 * Create a new VariableProcessorEq instance for an equipment item, and pc. It
-	 * also allows splitting of the processing of the heads of double weapons.
+	 * Create a new VariableProcessorEq instance for an equipment item, and
+	 * pc. It also allows splitting of the processing of the heads of double
+	 * weapons.
 	 *
-	 * @param eq The item of equipment  being processed.
-	 * @param pc The player character being processed.
-	 * @param primaryHead Is this the primary head of a double weapon?
+	 * @param eq
+	 *           The item of equipment  being processed.
+	 * @param pc 
+	 *           The player character being processed.
+	 * @param primaryHead
+	 *           Is this the primary head of a double weapon?
 	 */
-	public VariableProcessorEq(Equipment eq, PlayerCharacter pc,
-							   boolean primaryHead)
+	public VariableProcessorEq(
+			Equipment eq,
+			PlayerCharacter pc,
+			boolean primaryHead)
 	{
 		super(pc);
 		this.eq = eq;
@@ -62,219 +65,51 @@ public class VariableProcessorEq extends VariableProcessor
 	}
 
 	/**
-	 * @see pcgen.core.VariableProcessor#lookupVariable(java.lang.String, java.lang.String, pcgen.core.spell.Spell)
-	 */
-	Float lookupVariable(String element, String src, Spell spell)
-	{
-		Float retVal = null;
-		if (getPc().hasVariable(element))
-		{
-			final Float value = getPc().getVariable(element, true, src, "");
-			Logging.debugPrint(jepIndent + "variable for: '" + element + "' = "
-							   + value);
-			retVal = new Float(value.doubleValue());
-		}
-
-		if (retVal == null)
-		{
-			final String foo = getInternalVariable(spell, element, src);
-			if (foo != null)
-			{
-				Float d = null;
-				try
-				{
-					d = new Float(foo);
-				}
-				catch (NumberFormatException nfe)
-				{
-					// What we got back was not a number
-				}
-				if (d != null)
-				{
-					if (!d.isNaN())
-					{
-						retVal = d;
-						Logging.debugPrint(jepIndent
-										   + "internal variable for: '"
-										   + element + "' = " + d);
-					}
-				}
-				else
-				{
-					try
-					{
-						d = new Float(foo.substring(1));
-						if (!d.isNaN())
-						{
-							retVal = d;
-							Logging.debugPrint(jepIndent + "internal variable for: '" + element + "' = " + d);
-						}
-					}
-					catch (NumberFormatException nfe)
-					{
-						// What we got back was not a number
-					}
-				}
-			}
-		}
-
-		if (retVal == null)
-		{
-			final String foo = getExportVariable(element);
-			if (foo != null)
-			{
-				Float d = null;
-				try
-				{
-					d = new Float(foo);
-				}
-				catch (NumberFormatException nfe)
-				{
-					// What we got back was not a number
-				}
-				if (d != null)
-				{
-					if (!d.isNaN())
-					{
-						retVal = d;
-						Logging.debugPrint(jepIndent + "export variable for: '"
-										   + element + "' = " + d);
-					}
-				}
-			}
-		}
-
-		return retVal;
-	}
-
-	/**
-	 * Retrieve a pre-coded variable for a piece of equipment. These are known properties of
-	 * all equipment items. If a value is not found for the equipment item, a search will be
-	 * made of the character.
+	 * Retrieve a pre-coded variable for a piece of equipment. These are known
+	 * properties of all equipment items. If a value is not found for the
+	 * equipment item, a search will be made of the character.
 	 *
-	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
-	 * @param valString The variable to be evaluated
-	 * @param src The source within which the variable is evaluated
+	 * @param aSpell  
+	 *              This is specifically to compute bonuses to CASTERLEVEL
+	 *              for a specific spell.
+	 * @param valString
+	 *              The variable to be evaluated
+	 * @param src
+	 *              The source within which the variable is evaluated
 	 * @return The value of the variable
 	 */
-	public String getInternalVariable(
+
+	Float getInternalVariable(
 			final Spell aSpell,
 			String valString,
 			final String src)
 	{
-		String retVal = null;
-		if ("SIZE".equals(valString))
-		{
-			retVal = String.valueOf(eq.sizeInt());
-		}
-		else if (valString.startsWith("EQUIP.SIZE"))
-		{
-			if ("EQUIP.SIZE".equals(valString))
-			{
-				retVal = eq.getSize();
-			}
-			else if ("INT".equals(valString.substring(11)))
-			{
-				retVal = String.valueOf(eq.sizeInt());
-			}
-		}
-		else if ("WT".equals(valString))
-		{
-			if (eq.isCalculatingCost() && eq.isWeightAlreadyUsed())
-			{
-				retVal = "0";
-			}
-			else
-			{
-				BigDecimal weightInPounds = eq.getWeightInPounds();
-				if (eq.isCalculatingCost() && eq.isAmmunition())
-				{
-					Float unitWeight = weightInPounds.floatValue();
-					unitWeight /= eq.getSafe(IntegerKey.BASE_QUANTITY);
-					retVal = unitWeight.toString();
-				}
-				else
-				{
-					retVal = weightInPounds.toString();
-				}
+		TermEvaluator t1 = getTermEvaluator(valString, src);
 
-				eq.setWeightAlreadyUsed(true);
-			}
-		}
-		else if ("BASECOST".equals(valString))
+		Float fResult;
+		if (t1 != null)
 		{
-			retVal = eq.getSafe(ObjectKey.COST).toString();
-		}
-		else if ("DMGDIE".equals(valString))
-		{
-			final RollInfo aRollInfo = new RollInfo(eq.getDamage(getPc()));
-			retVal = Integer.toString(aRollInfo.sides);
-		}
-		else if ("DMGDICE".equals(valString))
-		{
-			final RollInfo aRollInfo = new RollInfo(eq.getDamage(getPc()));
-			retVal = Integer.toString(aRollInfo.times);
-		}
-		else if ("EQACCHECK".equals(valString))
-		{
-			retVal = Integer.toString(eq.getSafe(IntegerKey.AC_CHECK));
-		}
-		else if ("EQHANDS".equals(valString))
-		{
-			retVal = Integer.toString(eq.getSafe(IntegerKey.SLOTS));
-		}
-		else if ("EQSPELLFAIL".equals(valString))
-		{
-			retVal = Integer.toString(eq.getSafe(IntegerKey.SPELL_FAILURE));
-		}
-		else if ("RANGE".equals(valString))
-		{
-			retVal = Integer.toString(eq.getSafe(IntegerKey.RANGE));
-		}
-		else if ("CRITMULT".equals(valString))
-		{
-			if (primaryHead)
-			{
-				retVal = eq.getCritMult();
-			}
-			else
-			{
-				retVal = eq.getAltCritMult();
-			}
-		}
-		else if ("RACEREACH".equals(valString))
-		{
-			retVal = getPc().getVariableValue("REACH.VAL", src).toString();
-		}
-		else if ("REACH".equals(valString))
-		{
-			retVal = Integer.toString(eq.getSafe(IntegerKey.REACH));
-		}
-		else if ("REACHMULT".equals(valString))
-		{
-			retVal = Integer.toString(eq.getSafe(IntegerKey.REACH_MULT));
+			fResult = t1.resolve(eq, primaryHead, pc);
 		}
 		else
 		{
-			for (int j = 0; j < SettingsHandler.getGame().s_ATTRIBSHORT.length;
-				 ++j)
-			{
-				if (valString.equals(SettingsHandler.getGame().s_ATTRIBSHORT[j]))
-				{
-					retVal = String.valueOf(getPc().getStatList().getStatModFor(
-						SettingsHandler.getGame().s_ATTRIBSHORT[j]));
+			fResult = 0f;
+		}
 
-					break;
-				}
-			}
-		}
-		if (retVal == null)
+		return t1 == null ? null : fResult;
+	}
+	
+	TermEvaluator getTermEvaluator(String valString, String src)
+	{
+		TermEvaluator t1 = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
+
+		if (t1 == null)
 		{
-			// we have not managed to find an internal variable for the equipment, so try to find
-			// one for the character.
-			VariableProcessorPC vpc = new VariableProcessorPC(getPc());
-			retVal = vpc.getInternalVariable(aSpell, valString, src);
+			return EvaluatorFactory.PC.getTermEvaluator(valString, src);
 		}
-		return retVal;
+		else
+		{
+			return t1;
+		}
 	}
 }
