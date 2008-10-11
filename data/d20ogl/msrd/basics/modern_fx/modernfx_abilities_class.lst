@@ -5,7 +5,6 @@
 Detect Shadow	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Detect Shadow (%/day)|ShadowSlayerLevel		DEFINE:ShadowSlayerLevel|0
 Shadow Immunity	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	DEFINE:ShadowSlayerHalfLevel|0
 Slayer Weapon	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Slayer Weapon (+%)|ShadowSlayerHalfLevel
-Fast Healing	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Fast Healing
 Word of Slaying	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Word of Slaying
 
 ###Block:Shadow Slayer Favored Enemies

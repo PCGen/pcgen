@@ -1,32 +1,117 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 13:13:41 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sat Oct 11 00:04:40 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Feat Name							Visible	Special ABility																							Define			Save checks bonus						Combat bonus				Bonus to skill																		Source Page
-# Ability Name	Category of Ability		Type				Visible	Special ABility																							Define			Save checks bonus						Combat bonus				Bonus to skill																		Source Page
-Negative Levels	CATEGORY:Special Ability					VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	SOURCEPAGE:msrdspecialabilities.rtf
+# Ability Name		Output Name				Category of Ability		Type						Visible	Special ABility																							Define											Save checks bonus						Combat bonus				Bonus to skill																		Source Page
+Negative Levels							CATEGORY:Special Ability							VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0									BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	SOURCEPAGE:msrdspecialabilities.rtf
 
-# Ability Name	Category of Ability		Type				Visible	Special ABility																							Define			Save checks bonus						Combat bonus				Bonus to skill																		Source Page
-Aquatic		CATEGORY:Special Ability					VISIBLE:NO	SAB:Aquatic
-Attach		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Attach (Ex)
-Constrict		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Constrict (Ex)
-Improved Grab	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Improved Grab (Ex)
-Keen Scent		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Keen Scent (Ex)
-Poison		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Poison (Ex)
-Pounce		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Pounce (Ex)
-Rake			CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Rake (Ex)
-Scent			CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Scent (Ex)
-Stampede		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Stampede (Ex)
-Trip			CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Trip (Ex)
-
+# Ability Name		Output Name				Category of Ability		Type						Visible	Special ABility																							Define											Save checks bonus						Combat bonus				Bonus to skill																		Source Page
+Acidic Enzymes							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acidic Enzymes (Ex)
+Animate Dead							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Animate Dead (Sp)
+Anyspeak								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Anyspeak (Sp)
+Aquatic								CATEGORY:Special Ability							VISIBLE:NO	SAB:Aquatic
+Attach								CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Attach (Ex)
+Audio/Visual Sensor						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Audio/Visual Sensor
+Berserk								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Berserk (Ex)
+Blood Drain								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Blood Drain (Ex)
+Can't Run								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Can't Run (Ex)
+Charge								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Charge (Ex)
+Constrict								CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Constrict (Ex)
+Death Explosion							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Death Explosion (Su)
+Despair								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Despair (Su)
+Disease								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Disease (Ex)
+Fast Healing							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fast Healing (Ex)|PREVAREQ:FastHealingRate,0	SAB:Fast Healing % (Ex)|FastHealingRate|PREVARGT:FastHealingRate,0					DEFINE:FastHealingRate|0
+Fey Rod								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Fey Rod (Sp)
+Fling									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fling (Ex)
+Freeze								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Freeze (Ex)
+Glide									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Glide (Sp)
+Host Protection							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Host Protection (Ex)
+Improved Grab							CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Improved Grab (Ex)
+Improved Tracking							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Tracking (Ex)
+Invisibility							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Invisibility (Sp)
+Keen Scent								CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Keen Scent (Ex)
+Light Sensitivity							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Light Sensitivity (Ex)
+Manipulator Arms							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Manipulator Arms
+Mummy Rot								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Mummy Rot (Su)
+Natural Cunning							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Natural Cunning (Ex)
+Natural Invisibility						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Natural Invisibility (Su)
+Petrifying Gaze							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Petrifying gaze (Su)
+Poison								CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Poison (Ex)
+Pounce								CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Pounce (Ex)
+Rake									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Rake (Ex)
+Regeneration							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Regeneration (Ex)|PREVAREQ:RegenerationRate,0	SAB:Regeneration % (Ex)|RegenerationRate|PREVARGT:RegenerationRate,0					DEFINE:RegenerationRate|0
+Rend									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rend(Ex)
+Scent									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Scent (Ex)
+Shared Host								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Shared Host(Ex)
+Stampede								CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Stampede (Ex)
+Stench								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stench(Ex)
+Swallow Whole							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Swallow Whole(Ex)
+Telepathy								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Telepathy(Su)
+Thrall								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Thrall(Sp)
+Trip									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Trip (Ex)
+Web									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web(Ex)|PREVAREQ:WebEscapeDC,0	SAB:Web(Ex) - Escape DC % Break DC % Hit Points %|WebEscapeDC|WebBreakDC|WebHitPoints|PREVARGT:WebEscapeDC,0	DEFINE:WebEscapeDC|0	DEFINE:WebBreakDC|0	DEFINE:WebHitPoints|0
+Wyrm Breath Weapon	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) -Line of Fire every 1d4 rounds %d10 fire (Reflex DC %)|WyrmBreathDice|WyrmBreathDC								DEFINE:WyrmBreathDice|3	DEFINE:WyrmBreathDC|0
 
 ###Block: Unnamed special abilities
-# Ability Name		Output Name									Category of Ability		Type			Visible	Special ABility
-Hide when Submerged	OUTPUTNAME:+12 to Hide when Submerged				CATEGORY:Special Ability	TYPE:RacialTrait	VISIBLE:NO	SAB:+12 to Hide when Submerged
-Tracking by Scent		OUTPUTNAME:+4 Survival checks when Tracking by Scent		CATEGORY:Special Ability	TYPE:RacialTrait	VISIBLE:NO	SAB:+4 Survival checks when Tracking by Scent
-Hide in Undergrowth	OUTPUTNAME:+4 to hide in tall grass or heavy undergrowth	CATEGORY:Special Ability	TYPE:RacialTrait	VISIBLE:NO	SAB:+4 to hide in tall grass or heavy undergrowth
-Spot in Darkness		OUTPUTNAME:+8 Spot in dusk/darkness					CATEGORY:Special Ability	TYPE:RacialTrait	VISIBLE:NO	SAB:+8 Spot in dusk/darkness
-Spot in Daylight		OUTPUTNAME:+8 to Spot durring daylight				CATEGORY:Special Ability	TYPE:RacialTrait	VISIBLE:NO	SAB:+8 to Spot durring daylight
+# Ability Name			Output Name										Category of Ability		Type						Visible	Special ABility
+Hide when Submerged		OUTPUTNAME:+12 to Hide when Submerged					CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+12 to Hide when Submerged
+Tracking by Scent			OUTPUTNAME:+4 Survival checks when Tracking by Scent			CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+4 Survival checks when Tracking by Scent
+Hide in Undergrowth		OUTPUTNAME:+4 to hide in tall grass or heavy undergrowth		CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+4 to hide in tall grass or heavy undergrowth
+Spot in Darkness			OUTPUTNAME:+8 Spot in dusk/darkness						CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+8 Spot in dusk/darkness
+Spot in Daylight			OUTPUTNAME:+8 to Spot durring daylight					CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+8 to Spot durring daylight
 
+Hide in Subterranean		OUTPUTNAME:+4 Hide in Rocky/subterranean areas				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:+4 Hide in Rocky/subterranean areas
+Hide in Stone			OUTPUTNAME:+8 to Hide in Stone background					CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:+8 to Hide in Stone background
+Vulnerability To Sunlight	OUTPUTNAME:Direct sunlight causes 50 points damage per round	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Direct sunlight causes 50 points damage per round(Ex)
+Vulnerability To Concussion	OUTPUTNAME:Double damage from Sonic/Concussion damage			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Double damage from Sonic/Concussion damage(Ex)
+
+
+###Block: Standard Immunities
+# Ability Name		Category of Ability		Type								Visible	Special ABility				Description
+Immunity To Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Acid (Ex)		DESC:You never take Acid damage
+Immunity To Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Cold (Ex)		DESC:You never take Cold damage
+Immunity To Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Fire (Ex)		DESC:You never take Fire damage
+Immunity To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Electricity (Ex)	DESC:You never take Electricity damage
+Immunity To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Sonic (Ex)		DESC:You never take Sonic damage
+
+###Block: Other Immunities
+# Ability Name			Category of Ability		Type								Visible	Special ABility				Description
+Immunity To Ballistic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Ballistic (Ex)	DESC:You never take ballistic damage
+Immunity To Bludgeoning		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Bludgeoning (Ex)	DESC:You never take bludgeoning damage
+Immunity To Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Magic (Ex)		DESC:You are never effected by magic
+Immunity To Mind-Affecting	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Mind-Affecting (Ex)	DESC:You are never subject to mind-affecting effects
+Immunity To Piercing		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Piercing (Ex)		DESC:You never take piercing damage
+Immunity To Poison		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Poison (Ex)		DESC:You never take poison damage
+
+
+###Block: Resistances
+# Ability Name			Category of Ability		Visible	Define					Ability
+Resistance To Acid		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Acid,Vulnerability To Acid
+Resistance To Cold		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Cold,Vulnerability To Cold
+Resistance To Fire		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Fire,Vulnerability To Fire
+Resistance To Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Electricity,Vulnerability To Electricity
+Resistance To Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic,Vulnerability To Sonic
+
+###Block: Resistances Output
+# Ability Name				Output Name						Category of Ability		Type								Visible	Special ABility								Description
+Resistance To Acid Output		OUTPUTNAME:Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Acid %|AcidResistanceBonus			DESC:You may ignore %1 points of Acid damage each time you take Acid damage|AcidResistanceBonus
+Resistance To Cold Output		OUTPUTNAME:Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Cold %|ColdResistanceBonus			DESC:You may ignore %1 points of Cold damage each time you take Cold damage|ColdResistanceBonus
+Resistance To Fire Output		OUTPUTNAME:Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Fire %|FireResistanceBonus			DESC:You may ignore %1 points of Fire damage each time you take Fire damage|FireResistanceBonus
+Resistance To Electricity Output	OUTPUTNAME:Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Electricity %|ElectricityResistanceBonus	DESC:You may ignore %1 points of Electricity damage each time you take Electricity damage|ElectricityResistanceBonus
+Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Sonic %|SonicResistanceBonus			DESC:You may ignore %1 points of Sonic damage each time you take Sonic damage|SonicResistanceBonus
+
+###Block: Other Resistances
+# Ability Name			Category of Ability		Type								Visible	Special ABility
+Resistance To Massive Damage	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Massive Damage
+Resistance To Blows		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Blows
+
+
+###Block: Vulnerabilities
+# Ability Name			Category of Ability		Type								Visible	Special ABility				Description
+Vulnerability To Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Acid		DESC:You take half again as much (+50%) damage as normal from Acid, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Cold		DESC:You take half again as much (+50%) damage as normal from Cold, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Fire		DESC:You take half again as much (+50%) damage as normal from Fire, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:NO	SAB:Vulnerability To Electricity	DESC:You take half again as much (+50%) damage as normal from Electricity, regardless of whether a saving throw is allowed, or if the save is a success or failure
 
 ###Block: Incorporeal Traits
 # Ability Name		Category of Ability		Visible	Special ABility
