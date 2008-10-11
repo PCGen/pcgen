@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 13:13:41 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sat Oct 11 15:06:44 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Entries by: Tir Gwaith, Doug Mcmillan, and Ian Dale
 
@@ -58,14 +58,14 @@ Potion of Wisdom			TYPE:FX.Potion.Magic.Consumable	COST:23	WT:0		SOURCEPAGE:msrd
 
 ###Block: Rings
 
-# Equipment Name					Type						Cost		Weight	Source Page				Bonus to skill		Special Property																		Special ABility
-Ring of Energy Resistance(acid)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by acid if total damage less than 15 wearer takes no damage			SAB:Acid Resistance 15
-Ring of Energy Resistance(cold)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by cold if total damage less than 15 wearer takes no damage			SAB:Cold Resistance 15
-Ring of Energy Resistance(electricity)	TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by electricity if total damage less than 15 wearer takes no damage	SAB:Electricity Resistance 15
-Ring of Energy Resistance(fire)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by fire if total damage less than 15 wearer takes no damage			SAB:Fire Resistance 15
-Ring of Energy Resistance(sonic)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:Subtract 15 points from any damage caused by sonic if total damage less than 15 wearer takes no damage		SAB:Sonic Resistance 15
-Ring (Jumping)					TYPE:FX.Ring.Magic			COST:26	WT:0		SOURCEPAGE:msrdfxitems.rtf	BONUS:SKILL|Jump|30	SPROP:Continually allows the wearer to make incredible leaps,
-Ring (Ram)						TYPE:FX.Ring.Magic.Weapon.Ranged	COST:34	WT:0		SOURCEPAGE:msrdfxitems.rtf					SPROP:see text
+# Equipment Name					Type						Cost		Weight	Source Page				Ability									Bonus to skill		Modify VAR						Special Property
+Ring of Energy Resistance(acid)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Acid						BONUS:VAR|AcidResistanceBonus|15		SPROP:Subtract 15 points from any damage caused by acid if total damage less than 15 wearer takes no damage
+Ring of Energy Resistance(cold)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Cold						BONUS:VAR|ColdResistanceBonus|15		SPROP:Subtract 15 points from any damage caused by cold if total damage less than 15 wearer takes no damage
+Ring of Energy Resistance(electricity)	TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity					BONUS:VAR|ElectricityResistanceBonus|15	SPROP:Subtract 15 points from any damage caused by electricity if total damage less than 15 wearer takes no damage
+Ring of Energy Resistance(fire)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Fire						BONUS:VAR|FireResistanceBonus|15		SPROP:Subtract 15 points from any damage caused by fire if total damage less than 15 wearer takes no damage
+Ring of Energy Resistance(sonic)		TYPE:FX.Ring.Magic			COST:30	WT:0		SOURCEPAGE:msrdfxitems.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Sonic						BONUS:VAR|SonicResistanceBonus|15		SPROP:Subtract 15 points from any damage caused by sonic if total damage less than 15 wearer takes no damage
+Ring (Jumping)					TYPE:FX.Ring.Magic			COST:26	WT:0		SOURCEPAGE:msrdfxitems.rtf											BONUS:SKILL|Jump|30								SPROP:Continually allows the wearer to make incredible leaps,
+Ring (Ram)						TYPE:FX.Ring.Magic.Weapon.Ranged	COST:34	WT:0		SOURCEPAGE:msrdfxitems.rtf																						SPROP:see text
 
 ###Block: Scrolls
 
