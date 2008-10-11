@@ -48,10 +48,10 @@ public class EQBaseCostTermEvaluator
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return Float.toString(equipment.getSafe(ObjectKey.COST).floatValue());
+		return eq.getSafe(ObjectKey.COST).toString();
 	}
 	
 	public boolean isSourceDependant()

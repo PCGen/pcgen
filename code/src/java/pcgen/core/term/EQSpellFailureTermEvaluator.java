@@ -46,10 +46,10 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return String.valueOf(equipment.getSafe(IntegerKey.SPELL_FAILURE));
+		return String.valueOf(eq.getSafe(IntegerKey.SPELL_FAILURE));
 	}
 
 	public boolean isSourceDependant()

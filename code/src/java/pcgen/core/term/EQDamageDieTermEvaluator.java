@@ -46,10 +46,10 @@ public class EQDamageDieTermEvaluator extends BaseEQTermEvaluator implements Ter
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return Float.toString(new RollInfo(equipment.getDamage(pc)).getSides());
+		return Float.toString(new RollInfo(eq.getDamage(pc)).getSides());
 	}
 
 	public boolean isSourceDependant()

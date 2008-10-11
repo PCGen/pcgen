@@ -48,7 +48,7 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
 		return String.valueOf(pc.getVariableValue("REACH.VAL", source));

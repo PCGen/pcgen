@@ -43,7 +43,7 @@ public abstract class BasePCTermEvaluator
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
 		return evaluate(pc);
@@ -56,7 +56,7 @@ public abstract class BasePCTermEvaluator
 	}
 
 	public Float resolve(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
 		return resolve(pc);

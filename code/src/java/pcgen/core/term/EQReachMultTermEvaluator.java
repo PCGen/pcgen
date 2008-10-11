@@ -46,10 +46,10 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return String.valueOf(equipment.getSafe(IntegerKey.REACH_MULT));
+		return String.valueOf(eq.getSafe(IntegerKey.REACH_MULT));
 	}
 
 	public boolean isSourceDependant()

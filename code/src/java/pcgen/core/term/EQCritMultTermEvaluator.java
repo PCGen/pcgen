@@ -50,15 +50,15 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
 		if (primary)
 		{
-			return equipment.getCritMult();
+			return eq.getCritMult();
 		}
 
-		return equipment.getAltCritMult();
+		return eq.getAltCritMult();
 	}
 	
 	public boolean isSourceDependant()

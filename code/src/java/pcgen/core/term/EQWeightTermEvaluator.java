@@ -48,26 +48,26 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
 
-		if (equipment.isCalculatingCost() && equipment.isWeightAlreadyUsed())
+		if (eq.isCalculatingCost() && eq.isWeightAlreadyUsed())
 		{
 			return "0";
 		}
 		
-		BigDecimal weightInPounds = equipment.getWeightInPounds();
+		BigDecimal weightInPounds = eq.getWeightInPounds();
 
-		if (equipment.isCalculatingCost() && equipment.isAmmunition())
+		if (eq.isCalculatingCost() && eq.isAmmunition())
 		{
 			Float unitWeight = weightInPounds.floatValue();
-			unitWeight /= equipment.getSafe(IntegerKey.BASE_QUANTITY);
-			equipment.setWeightAlreadyUsed(true);
+			unitWeight /= eq.getSafe(IntegerKey.BASE_QUANTITY);
+			eq.setWeightAlreadyUsed(true);
 			return String.valueOf(unitWeight);
 		}
 
-		equipment.setWeightAlreadyUsed(true);
+		eq.setWeightAlreadyUsed(true);
 		return String.valueOf(weightInPounds);
 	}
 

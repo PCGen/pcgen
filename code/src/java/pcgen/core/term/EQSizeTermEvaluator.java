@@ -55,9 +55,9 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 	}
 
 	public String evaluate(
-			Equipment equipment, boolean primary, PlayerCharacter pc)
+			Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return String.valueOf(equipment.sizeInt());		
+		return String.valueOf(eq.sizeInt());		
 	}
 
 	public boolean isSourceDependant()

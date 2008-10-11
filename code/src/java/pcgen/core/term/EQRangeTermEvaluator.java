@@ -46,10 +46,10 @@ public class EQRangeTermEvaluator extends BaseEQTermEvaluator implements TermEva
 	}
 
 	public String evaluate(
-			Equipment equipment,
+			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return String.valueOf(equipment.getSafe(IntegerKey.RANGE));
+		return String.valueOf(eq.getSafe(IntegerKey.RANGE));
 	}
 
 	public boolean isSourceDependant()

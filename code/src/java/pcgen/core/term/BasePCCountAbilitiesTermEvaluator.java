@@ -94,22 +94,22 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	{
 		Visibility v = ability.getSafe(ObjectKey.VISIBILITY); 
 
-		boolean abilityInvisibile = (v == Visibility.DISPLAY_ONLY) || 
-									(v == Visibility.HIDDEN);
+		boolean abilityInvisibile = Visibility.DISPLAY_ONLY == v ||
+									Visibility.HIDDEN == v;
 		int count = 0;
 
 		if (abilityInvisibile)
 		{
 			if (hidden)
 			{
-				count += (onceOnly) ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(ability));
+				count += onceOnly ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(ability));
 			}
 		}
 		else
 		{
 			if (visible)
 			{
-				count += (onceOnly) ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(ability));
+				count += onceOnly ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(ability));
 			}
 		}
 
