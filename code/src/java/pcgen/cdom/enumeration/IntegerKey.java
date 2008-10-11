@@ -60,6 +60,8 @@ public class IntegerKey
 
 	public static final IntegerKey CASTING_THRESHOLD = getConstant("CASTING_THRESHOLD");
 
+	public static final IntegerKey COST = getConstant("COST");
+
 	public static final IntegerKey CRIT_MULT = getConstant("CRIT_MULT");
 
 	public static final IntegerKey CRIT_RANGE = getConstant("CRIT_RANGE");
@@ -98,6 +100,8 @@ public class IntegerKey
 	public static final IntegerKey PLUS = getConstant("PLUS");
 
 	public static final IntegerKey PP_COST = getConstant("PP_COST");
+
+	public static final IntegerKey PROHIBIT_COST = getConstant("PROHIBIT_COST");
 
 	public static final IntegerKey RANGE = getConstant("RANGE");
 

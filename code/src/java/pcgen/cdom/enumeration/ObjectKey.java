@@ -53,6 +53,7 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
@@ -219,6 +220,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<CDOMSingleRef<PCClass>> EX_CLASS = new ObjectKey<CDOMSingleRef<PCClass>>(null);
 
 	public static final ObjectKey<SpellResistance> SR = new ObjectKey<SpellResistance>(SpellResistance.NONE);
+
+	public static final ObjectKey<SpellProhibitor> CHOICE = new ObjectKey<SpellProhibitor>(null);
 
 	public static final ObjectKey<SizeAdjustment> BASESIZE;
 

@@ -77,11 +77,11 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		if (lstLine.startsWith("SUBCLASS:")
 			|| lstLine.startsWith("SUBCLASSLEVEL:"))
 		{
-			int tabLoc = lstLine.indexOf("\t");
 			SubClass subClass = null;
 
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
+				int tabLoc = lstLine.indexOf("\t");
 				if (tabLoc == -1)
 				{
 					Logging.errorPrint("Expected SUBCLASS to have "
@@ -89,15 +89,18 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 						+ " (e.g. COST is a required Tag in a SUBCLASS)");
 				}
 				final String n = lstLine.substring(9, tabLoc);
+				String restOfLine = lstLine.substring(tabLoc);
 				subClass = pcClass.getSubClassKeyed(n);
 
 				if (subClass == null)
 				{
 					subClass = new SubClass();
+					subClass.setName(n);
 					subClass.setSourceCampaign(source.getCampaign());
 					subClass.setSourceURI(source.getURI());
 					pcClass.addSubClass(subClass);
 				}
+				parseLineIntoClass(context, subClass, source, restOfLine);
 			}
 			else
 			{
@@ -111,22 +114,17 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				}
 			}
 
-			if (subClass != null)
-			{
-				SubClassLoader.parseLine(context, subClass, lstLine, source);
-			}
-
 			return pcClass;
 		}
 
 		if (lstLine.startsWith("SUBSTITUTIONCLASS:")
 			|| lstLine.startsWith("SUBSTITUTIONLEVEL:"))
 		{
-			int tabLoc = lstLine.indexOf("\t");
 			SubstitutionClass substitutionClass = null;
 
 			if (lstLine.startsWith("SUBSTITUTIONCLASS:"))
 			{
+				int tabLoc = lstLine.indexOf("\t");
 				String name;
 				String restOfLine;
 				if (tabLoc > 0)

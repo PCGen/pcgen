@@ -3939,7 +3939,7 @@ public class PCClass extends PObject
 			final List<Object> columnList = new ArrayList<Object>(3);
 
 			columnList.add(sc);
-			columnList.add(Integer.toString(sc.getCost()));
+			columnList.add(Integer.toString(sc.getSafe(IntegerKey.COST)));
 			columnList.add(sc.getSupplementalDisplayInfo());
 
 			// If a subclass has already been selected, only add that one 
@@ -4079,14 +4079,14 @@ public class PCClass extends PObject
 
 			setSubClassKey(aPC, sc.getKeyName());
 
-			if (sc.getChoice().length() > 0)
+			if (sc.get(ObjectKey.CHOICE) != null)
 			{
 				addSpecialty(sc.getChoice());
 			}
 
 			columnNames.add("Specialty");
 
-			if (sc.getCost() != 0)
+			if (sc.getSafe(IntegerKey.COST) != 0)
 			{
 				final ChooserInterface c1 = ChooserFactory.getChooserInstance();
 				c1.setTitle("School Choice (Prohibited)");
@@ -4095,7 +4095,7 @@ public class PCClass extends PObject
 				c1
 					.setMessageText("Make a selection.  You must make as many selections "
 						+ "necessary to cover the cost of your previous selections.");
-				c1.setTotalChoicesAvail(sc.getCost());
+				c1.setTotalChoicesAvail(sc.getSafe(IntegerKey.COST));
 				c1.setPoolFlag(true);
 				c1.setCostColumnNumber(1);
 				c1.setNegativeAllowed(true);

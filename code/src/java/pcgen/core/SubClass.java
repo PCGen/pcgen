@@ -28,6 +28,7 @@ import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.lst.utils.DeferredLine;
 
 /**
@@ -38,76 +39,19 @@ import pcgen.persistence.lst.utils.DeferredLine;
  */
 public final class SubClass extends PCClass implements CategorizedCDOMObject<SubClass>
 {
-	private String choice = null;
-
-	/**
-	 * Has the prohibitCost value been set yet
-	 * If not, it will default to the cost.
-	 */
-	private boolean prohibitCostSet = false;
-
-	/** The cost to specialise in this sub-class. */
-	private int cost = 0;
-
-	/** The cost to have this sub-class as prohibited. */
-	private int prohibitCost = 0;
-
-	/** Constructor */
-	public SubClass()
-	{
-	}
-
-	/**
-	 * Set the choice
-	 * @param arg
-	 */
-	public void setChoice(final String arg)
-	{
-		choice = arg;
-	}
-
 	/**
 	 * Get the choice
 	 * @return choice
 	 */
 	public String getChoice()
 	{
-		if (choice == null)
+		SpellProhibitor sp = get(ObjectKey.CHOICE);
+		if (sp == null)
 		{
 			return "";
 		}
 
-		return choice;
-	}
-
-	/**
-	 * Set the cost to specialise in this sub-class to the supplied value.
-	 *
-	 * @param arg The new cost of the sub-class.
-	 */
-	public void setCost(final int arg)
-	{
-		cost = arg;
-	}
-
-	/**
-	 * Get the cost to specialise in this sub-class.
-	 *
-	 * @return int The cost of the sub-class.
-	 */
-	public int getCost()
-	{
-		return cost;
-	}
-
-	/**
-	 * Sets the prohibitCost.
-	 * @param prohibitCost The prohibitCost to set
-	 */
-	public void setProhibitCost(final int prohibitCost)
-	{
-		this.prohibitCost = prohibitCost;
-		this.prohibitCostSet = true;
+		return sp.getValueList().get(0);
 	}
 
 	/**
@@ -119,11 +63,12 @@ public final class SubClass extends PCClass implements CategorizedCDOMObject<Sub
 	 */
 	public int getProhibitCost()
 	{
-		if (prohibitCostSet)
+		Integer prohib = get(IntegerKey.PROHIBIT_COST);
+		if (prohib != null)
 		{
-			return prohibitCost;
+			return prohib;
 		}
-		return cost;
+		return getSafe(IntegerKey.COST);
 	}
 
 	/**
