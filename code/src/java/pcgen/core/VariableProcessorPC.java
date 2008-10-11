@@ -281,11 +281,11 @@ public class VariableProcessorPC extends VariableProcessor
 				sB.append(" old: ");
 				sB.append(result2);
 
-				Logging.log(Logging.ERROR, sB.toString());
+				Logging.log(Logging.INFO, sB.toString());
 				return result2;
 			}
 		}
-		return (t1 == null) ? null : result1;
+		return t1 == null ? null : result1;
 	}	
 	
 	/**
