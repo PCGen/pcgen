@@ -117,7 +117,7 @@ CLASS:Helix Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Computer Use|Demolition
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Space Monkey	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Multiple Requirements
-CLASS:Space Monkey	PREMULT:2,[PREABILITY:1,CATEGORY=Occupation,Astronaut Trainee],[PREABILITY:1,CATEGORY=Talent,TYPE=Unbreakable]	PREMULT:2,[PRESKILL:1,Craft (Mechanical)=6,Craft (Structural)=6],[PRESKILL:1,Survival=6]
+CLASS:Space Monkey	PREMULT:2,[PREABILITY:1,CATEGORY=Starting Occupation,Astronaut Trainee],[PREABILITY:1,CATEGORY=Talent,TYPE=Unbreakable]	PREMULT:2,[PRESKILL:1,Craft (Mechanical)=6,Craft (Structural)=6],[PRESKILL:1,Survival=6]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Space Monkey	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Computer Use|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Escape Artist|Jump|Knowledge (Earth and Life Sciences)|Knowledge (Technology)|Navigate|Pilot|Repair|Search|Survival|Treat Injury|Tumble
 1																						ABILITY:Special Ability|AUTOMATIC|Hibernation Trance

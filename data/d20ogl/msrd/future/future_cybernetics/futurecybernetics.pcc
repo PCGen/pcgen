@@ -25,5 +25,4 @@ INFOTEXT:This set loads the Cybernetics options from the Future section of the M
 ABILITY:futurecybernetics_abilities.lst
 EQUIPMENT:futurecybernetics_implants.lst
 EQUIPMOD:futurecybernetics_equipmods.lst
-FEAT:futurecybernetics_feats_hidden.lst
 WEAPONPROF:futurecybernetics_weaponprof.lst

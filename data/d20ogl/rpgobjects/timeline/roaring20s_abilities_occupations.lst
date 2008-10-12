@@ -1,112 +1,112 @@
-# CVS $Revision$ $Author$ -- Sat Feb  2 23:44:54 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sun Oct 12 14:48:33 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
 
 ###Block: Occupations
-# Ability Name		Output Name			Category of Ability	Type			Visible		Define											Bonus to Ability Pool											Modify VAR							Source Page
-Explorer							CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Explorer Occupation Skills|2							BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.2
-Primitive							CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Primitive Occupation Skills|3	BONUS:ABILITYPOOL|Primitive Feat|1									SOURCEPAGE:p.2
-Psychic/Roaring 20s	OUTPUTNAME:Psychic	CATEGORY:Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DEFINE:PsychicRoaring20sSkills|2	DEFINE:PsychicRoaring20sFeats|1															BONUS:VAR|Reputation|1					SOURCEPAGE:p.2
+# Ability Name		Output Name			Category of Ability		Type			Visible		Define											Bonus to Ability Pool											Modify VAR							Source Page
+Explorer							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Explorer Occupation Skills|2							BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.2
+Primitive							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Primitive Occupation Skills|3	BONUS:ABILITYPOOL|Primitive Feat|1									SOURCEPAGE:p.2
+Psychic/Roaring 20s	OUTPUTNAME:Psychic	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DEFINE:PsychicRoaring20sSkills|2	DEFINE:PsychicRoaring20sFeats|1															BONUS:VAR|Reputation|1					SOURCEPAGE:p.2
 
 
 ###Block: Skill feat mods
-# Ability Name											Type
-CATEGORY=Occupation|Balance(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
-CATEGORY=Occupation|Balance(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+# Ability Name												Type
+CATEGORY=Starting Occupation|Balance(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Balance(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
 
-CATEGORY=Occupation|Bluff(class skill).MOD						TYPE:Psychic_Roaring_Skills
-CATEGORY=Occupation|Bluff(+1 to skill).MOD						TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Bluff(class skill).MOD						TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Bluff(+1 to skill).MOD						TYPE:Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Climb(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
-CATEGORY=Occupation|Climb(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Climb(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Climb(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
 
-CATEGORY=Occupation|Craft (Structural - class skill).MOD				TYPE:Primitive_Skills
-CATEGORY=Occupation|Craft (Structural - +1 to skill).MOD				TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Craft (Structural - class skill).MOD				TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Craft (Structural - +1 to skill).MOD				TYPE:Primitive_Skills
 
-CATEGORY=Occupation|Diplomacy(class skill).MOD						TYPE:Psychic_Roaring_Skills
-CATEGORY=Occupation|Diplomacy(+1 to skill).MOD						TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Diplomacy(class skill).MOD					TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Diplomacy(+1 to skill).MOD					TYPE:Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Drive(class skill).MOD						TYPE:Explorer_Skills
-CATEGORY=Occupation|Drive(+1 to skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Drive(class skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Drive(+1 to skill).MOD						TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Escape Artist(class skill).MOD					TYPE:Primitive_Skills
-CATEGORY=Occupation|Escape Artist(+1 to skill).MOD					TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Escape Artist(class skill).MOD					TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Escape Artist(+1 to skill).MOD					TYPE:Primitive_Skills
 
-CATEGORY=Occupation|Handle Animal(class skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
-CATEGORY=Occupation|Handle Animal(+1 to skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Handle Animal(class skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Handle Animal(+1 to skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
 
-CATEGORY=Occupation|Hide(class skill).MOD							TYPE:Primitive_Skills
-CATEGORY=Occupation|Hide(+1 to skill).MOD							TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Hide(class skill).MOD						TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Hide(+1 to skill).MOD						TYPE:Primitive_Skills
 
-CATEGORY=Occupation|Intimidate(class skill).MOD						TYPE:Primitive_Skills.Psychic_Roaring_Skills
-CATEGORY=Occupation|Intimidate(+1 to skill).MOD						TYPE:Primitive_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Intimidate(class skill).MOD					TYPE:Primitive_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Intimidate(+1 to skill).MOD					TYPE:Primitive_Skills.Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Jump(class skill).MOD							TYPE:Primitive_Skills
-CATEGORY=Occupation|Jump(+1 to skill).MOD							TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Jump(class skill).MOD						TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Jump(+1 to skill).MOD						TYPE:Primitive_Skills
 
-CATEGORY=Occupation|Knowledge (Arcane Lore - class skill).MOD			TYPE:Explorer_Skills.Psychic_Roaring_Skills
-CATEGORY=Occupation|Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Explorer_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - class skill).MOD			TYPE:Explorer_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Explorer_Skills.Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Knowledge (Behavioral Sciences - class skill).MOD		TYPE:Psychic_Roaring_Skills
-CATEGORY=Occupation|Knowledge (Behavioral Sciences - +1 to skill).MOD		TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Explorer_Skills
-CATEGORY=Occupation|Knowledge (Earth and Life Sciences - +1 to skill).MOD	TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (Earth and Life Sciences - +1 to skill).MOD	TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Knowledge (History - class skill).MOD				TYPE:Explorer_Skills
-CATEGORY=Occupation|Knowledge (History - +1 to skill).MOD				TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (History - class skill).MOD			TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (History - +1 to skill).MOD			TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Knowledge (Physical Sciences - class skill).MOD		TYPE:Explorer_Skills
-CATEGORY=Occupation|Knowledge (Physical Sciences - +1 to skill).MOD		TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (Physical Sciences - class skill).MOD		TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (Physical Sciences - +1 to skill).MOD		TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Knowledge (Technology - class skill).MOD			TYPE:Explorer_Skills
-CATEGORY=Occupation|Knowledge (Technology - +1 to skill).MOD			TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (Technology - class skill).MOD			TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Knowledge (Technology - +1 to skill).MOD			TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Psychic_Roaring_Skills
-CATEGORY=Occupation|Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Listen(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
-CATEGORY=Occupation|Listen(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Listen(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Listen(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Move Silently(class skill).MOD					TYPE:Primitive_Skills
-CATEGORY=Occupation|Move Silently(+1 to skill).MOD					TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Move Silently(class skill).MOD					TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Move Silently(+1 to skill).MOD					TYPE:Primitive_Skills
 
-CATEGORY=Occupation|Navigate(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
-CATEGORY=Occupation|Navigate(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Navigate(class skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Navigate(+1 to skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
 
-CATEGORY=Occupation|Pilot(class skill).MOD						TYPE:Explorer_Skills
-CATEGORY=Occupation|Pilot(+1 to skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Pilot(class skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Pilot(+1 to skill).MOD						TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Repair(class skill).MOD						TYPE:Explorer_Skills
-CATEGORY=Occupation|Repair(+1 to skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Repair(class skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Repair(+1 to skill).MOD						TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Research(class skill).MOD						TYPE:Explorer_Skills.Psychic_Roaring_Skills
-CATEGORY=Occupation|Research(+1 to skill).MOD						TYPE:Explorer_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Research(class skill).MOD					TYPE:Explorer_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Research(+1 to skill).MOD					TYPE:Explorer_Skills.Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Ride(class skill).MOD							TYPE:Explorer_Skills.Primitive_Skills
-CATEGORY=Occupation|Ride(+1 to skill).MOD							TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Ride(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Ride(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
 
-CATEGORY=Occupation|Search(class skill).MOD						TYPE:Explorer_Skills
-CATEGORY=Occupation|Search(+1 to skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Search(class skill).MOD						TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Search(+1 to skill).MOD						TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Sense Motive(class skill).MOD					TYPE:Psychic_Roaring_Skills
-CATEGORY=Occupation|Sense Motive(+1 to skill).MOD					TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Sense Motive(class skill).MOD					TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Sense Motive(+1 to skill).MOD					TYPE:Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Sleight of Hand(class skill).MOD					TYPE:Psychic_Roaring_Skills
-CATEGORY=Occupation|Sleight of Hand(+1 to skill).MOD					TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Sleight of Hand(class skill).MOD				TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Sleight of Hand(+1 to skill).MOD				TYPE:Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Speak Language(1 additional language).MOD			TYPE:Explorer_Skills
+CATEGORY=Starting Occupation|Speak Language(1 additional language).MOD			TYPE:Explorer_Skills
 
-CATEGORY=Occupation|Spot(class skill).MOD							TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
-CATEGORY=Occupation|Spot(+1 to skill).MOD							TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Spot(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Spot(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills.Psychic_Roaring_Skills
 
-CATEGORY=Occupation|Survival(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
-CATEGORY=Occupation|Survival(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Survival(class skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Survival(+1 to skill).MOD					TYPE:Explorer_Skills.Primitive_Skills
 
-CATEGORY=Occupation|Swim(class skill).MOD							TYPE:Explorer_Skills.Primitive_Skills
-CATEGORY=Occupation|Swim(+1 to skill).MOD							TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Swim(class skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
+CATEGORY=Starting Occupation|Swim(+1 to skill).MOD						TYPE:Explorer_Skills.Primitive_Skills
 
-CATEGORY=Occupation|Tumble(class skill).MOD						TYPE:Primitive_Skills
-CATEGORY=Occupation|Tumble(+1 to skill).MOD						TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Tumble(class skill).MOD						TYPE:Primitive_Skills
+CATEGORY=Starting Occupation|Tumble(+1 to skill).MOD						TYPE:Primitive_Skills
 
-CATEGORY=Occupation|Concentration(class skill).MOD					TYPE:Psychic_Roaring_Skills
-CATEGORY=Occupation|Concentration(+1 to skill).MOD					TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Concentration(class skill).MOD					TYPE:Psychic_Roaring_Skills
+CATEGORY=Starting Occupation|Concentration(+1 to skill).MOD					TYPE:Psychic_Roaring_Skills

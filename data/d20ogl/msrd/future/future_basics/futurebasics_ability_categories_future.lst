@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 17:00:06 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Oct 12 12:26:30 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 #SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location
@@ -10,14 +10,14 @@ ABILITYCATEGORY:Dedicated Plus Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 ABILITYCATEGORY:Charismatic Plus Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:CharismaticPlus			PLURAL:Charismatic Plus Talents			DISPLAYLOCATION:Class Abilities
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location
-ABILITYCATEGORY:Astronaut Trainee Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Astronaut_Trainee_Skills		PLURAL:Astronaut Trainee Occupation Skills	DISPLAYLOCATION:Background
-ABILITYCATEGORY:Colonist Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Colonist_Skills			PLURAL:Colonist Occupation Skills			DISPLAYLOCATION:Background
-ABILITYCATEGORY:Drifter Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Drifter_Skills			PLURAL:Drifter Occupation Skills			DISPLAYLOCATION:Background
-ABILITYCATEGORY:Gladiator Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Gladiator_Skills			PLURAL:Gladiator Occupation Skills			DISPLAYLOCATION:Background
-ABILITYCATEGORY:Heir Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Heir_Skills				PLURAL:Heir Occupation Skills				DISPLAYLOCATION:Background
-ABILITYCATEGORY:Outcast Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Outcast_Skills			PLURAL:Outcast Occupation Skills			DISPLAYLOCATION:Background
-ABILITYCATEGORY:Scavenger Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Scavenger_Skills			PLURAL:Scavenger Occupation Skills			DISPLAYLOCATION:Background
-ABILITYCATEGORY:Transporter Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Occupation		TYPE:Transporter_Skills			PLURAL:Transporter Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Astronaut Trainee Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Astronaut_Trainee_Skills		PLURAL:Astronaut Trainee Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Colonist Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Colonist_Skills			PLURAL:Colonist Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Drifter Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Drifter_Skills			PLURAL:Drifter Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Gladiator Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Gladiator_Skills			PLURAL:Gladiator Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Heir Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Heir_Skills				PLURAL:Heir Occupation Skills				DISPLAYLOCATION:Background
+ABILITYCATEGORY:Outcast Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Outcast_Skills			PLURAL:Outcast Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Scavenger Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Scavenger_Skills			PLURAL:Scavenger Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Transporter Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Transporter_Skills			PLURAL:Transporter Occupation Skills		DISPLAYLOCATION:Background
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location
 ABILITYCATEGORY:Astronaut Trainee Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Astronaut_Trainee			PLURAL:Astronaut Trainee Feats			DISPLAYLOCATION:Feats

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 12 12:22:46 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sun Oct 12 14:41:54 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by Frank Kliewe
 
@@ -43,7 +43,7 @@ CLASS:Super Soldier	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|J
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus						Modify VAR
 CLASS:Eldritch Monk	HD:8		TYPE:Advanced.PC	ABB:EldMk		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
-# Class Name		Req. Att.	Required Feat					Required Skill									Required Text
+# Class Name		Req. Att.	Required Feat					Required Skill						Required Text
 CLASS:Eldritch Monk	PREATT:2	PREFEAT:2,Combat Martial Arts,Focused	PRESKILL:2,Knowledge (Arcane Lore)=3,Tumble=6	PRETEXT:Must be inducted into an order or monastery that ritually marks the character with the proper tattoos or scars to cast spells without foci.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Monk	STARTSKILLPTS:3	CSKILL:Balance|Climb|Concentration|Craft (Visual Art)|Escape Artist|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Theology and Philosophy)|Move Silently|Profession|Read/Write Language|Spot|Swim|Tumble|Spellcraft
@@ -120,7 +120,7 @@ CLASS:Mystic (Dk_Inh)	SPELLSTAT:WIS	SPELLTYPE:Any	PROHIBITED:Conjuration,Evocati
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
 CLASS:Crusading Advocate	HD:8		TYPE:Advanced.PC	ABB:CrAdv		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
-# Class Name			Required Feat		Required Skill
+# Class Name			Required Feat		Multiple Requirements
 CLASS:Crusading Advocate	PREFEAT:1,Iron Will	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Knowledge=6,TYPE.Craft=6]
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE.Craft|Diplomacy|Gather Information|Investigate|TYPE.Knowledge|Profession|Read/Write Language|Research|Sense Motive|Speak Language
@@ -139,8 +139,8 @@ CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE.Craft|Di
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus					Modify VAR
 CLASS:Spec Ops	HD:10		TYPE:Advanced.PC	ABB:SpOps		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL)/3
-# Class Name	Required Ability					Req. Att.	Required Class									Required Feat																											Required Skill
-CLASS:Spec Ops	PREABILITY:1,CATEGORY=Occupation,Military	PREATT:7	PRECLASS:1,Infiltrator=1,Soldier=1,Stim Freak=1,Super Soldier=1	PREFEAT:7,Advanced Firearms Proficiency,Armor Proficiency (Light),Armor Proficiency (Medium),Burst Fire,Improved Damage Threshold,Personal Firearms Proficiency,Stealthy	PRESKILL:4,Spot=10,Demolitions=6,Hide=6,Move Silently=6
+# Class Name	Required Ability							Req. Att.	Required Class									Required Feat																											Required Skill
+CLASS:Spec Ops	PREABILITY:1,CATEGORY=Starting Occupation,Military	PREATT:7	PRECLASS:1,Infiltrator=1,Soldier=1,Stim Freak=1,Super Soldier=1	PREFEAT:7,Advanced Firearms Proficiency,Armor Proficiency (Light),Armor Proficiency (Medium),Burst Fire,Improved Damage Threshold,Personal Firearms Proficiency,Stealthy	PRESKILL:4,Spot=10,Demolitions=6,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spec Ops	STARTSKILLPTS:5	CSKILL:Balance|Climb|Demolitions|Disable Device|Drive|Escape Artist|Hide|Intimidate|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival|Swim|Treat Injury|Tumble
 1	SAB:Team Leader %/day|max(1,var("CL=Spec Ops")/2)

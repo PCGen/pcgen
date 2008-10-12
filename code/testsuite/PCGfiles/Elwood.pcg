@@ -2,8 +2,8 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:MSRD - Arcana|CAMPAIGN:MSRD - Basics|CAMPAIGN:MSRD - Future|CAMPAIGN:MSRD - Menaces
-VERSION:5.13.8
-ROLLMETHOD:3|EXPRESSION:roll(4,6,[2,3,4])
+VERSION:5.15.5-dev
+ROLLMETHOD:1|EXPRESSION:13
 PURCHASEPOINTS:N
 POOLPOINTS:0
 POOLPOINTSAVAIL:-1
@@ -16,6 +16,9 @@ LOADCOMPANIONS:N
 USETEMPMODS:Y
 AUTOSORTGEAR:Y
 SKILLSOUTPUTORDER:0
+IGNORECOST:Y
+ALLOWDEBT:N
+AUTORESIZEGEAR:N
 
 # Character Bio
 CHARACTERNAME:Elwood Oates
@@ -50,7 +53,6 @@ STAT:INT|SCORE:13
 STAT:WIS|SCORE:16
 STAT:CHA|SCORE:13
 RACE:Human
-FAVOREDCLASS:Any
 
 # Character Class(es)
 CLASS:Fast|SUBCLASS:Fast Hero|LEVEL:3|SKILLPOOL:0
@@ -66,7 +68,6 @@ CLASSABILITIESLEVEL:Infiltrator=3|HITPOINTS:7|SKILLSGAINED:8|SKILLSREMAINING:8
 EXPERIENCE:15000
 
 # Character Templates
-TEMPLATESAPPLIED:[NAME:Starting Benefits]
 TEMPLATESAPPLIED:[NAME:Unarmed Lethal Strike]
 TEMPLATESAPPLIED:[NAME:Occupation|CHOSENTEMPLATE:[NAME:FastSkills]]
 TEMPLATESAPPLIED:[NAME:FastSkills]
@@ -101,10 +102,21 @@ ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Advanced Firearms Proficiency|TYPE:GE
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Combat Martial Arts|TYPE:BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR|DESC:With an unarmed strike, the character deals lethal or nonlethal damage (the character's choice) equal to 1d4 + the character's Strength modifier. The character's unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Brawl|TYPE:GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR.SHADOWHUNTER.SPEEDDEMON.THRASHER|DESC:When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier
 USERPOOL:FEAT|POOLPOINTS:0.0
+USERPOOL:Internal|POOLPOINTS:0.0
+USERPOOL:Talent|POOLPOINTS:0.0
+USERPOOL:Special Ability|POOLPOINTS:0.0
+USERPOOL:Starting Occupation|POOLPOINTS:0.0
 ABILITY:Wealth|TYPE:NORMAL|CATEGORY:Wealth|KEY:Wealth Roll of 6|TYPE:WEALTH.WEALTHROLL
 USERPOOL:Wealth|POOLPOINTS:0.0
-ABILITY:Occupation|TYPE:NORMAL|CATEGORY:Occupation|KEY:Outcast|TYPE:OCCUPATION|DESC:"Outcast" is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.
+ABILITY:Occupation|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Outcast|TYPE:OCCUPATION|DESC:"Outcast" is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.
 USERPOOL:Occupation|POOLPOINTS:0.0
+USERPOOL:Strong Feat|POOLPOINTS:0.0
+ABILITY:Fast Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Finesse|APPLIEDTO:Pistol Whip|TYPE:BATTLEMIND.GENERAL.FAST|DESC:Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain
+USERPOOL:Fast Feat|POOLPOINTS:0.0
+USERPOOL:Tough Feat|POOLPOINTS:0.0
+USERPOOL:Smart Feat|POOLPOINTS:0.0
+USERPOOL:Dedicated Feat|POOLPOINTS:0.0
+USERPOOL:Charismatic Feat|POOLPOINTS:0.0
 USERPOOL:Academic Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Adventurer Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Athlete Occupation Skills|POOLPOINTS:0.0
@@ -131,7 +143,26 @@ USERPOOL:Investigative Feat|POOLPOINTS:0.0
 USERPOOL:Law Enforcement Feat|POOLPOINTS:0.0
 USERPOOL:Military Feat|POOLPOINTS:0.0
 USERPOOL:Rural Feat|POOLPOINTS:0.0
-USERPOOL:Talent|POOLPOINTS:0.0
+USERPOOL:Soldier Feat|POOLPOINTS:0.0
+USERPOOL:Martial Artist Feat|POOLPOINTS:0.0
+USERPOOL:Gunslinger Feat|POOLPOINTS:0.0
+USERPOOL:Infiltrator Feat|POOLPOINTS:0.0
+USERPOOL:Daredevil Feat|POOLPOINTS:0.0
+USERPOOL:Bodyguard Feat|POOLPOINTS:0.0
+USERPOOL:Field Scientist Feat|POOLPOINTS:0.0
+USERPOOL:Techie Feat|POOLPOINTS:0.0
+USERPOOL:Field Medic Feat|POOLPOINTS:0.0
+USERPOOL:Investigator Feat|POOLPOINTS:0.0
+USERPOOL:Personality Feat|POOLPOINTS:0.0
+USERPOOL:Negotiator Feat|POOLPOINTS:0.0
+USERPOOL:Techie Mastercraft|POOLPOINTS:0.0
+USERPOOL:Weapon Focus|POOLPOINTS:0.0
+USERPOOL:Greater Weapon Focus|POOLPOINTS:0.0
+USERPOOL:Weapon Specialization|POOLPOINTS:0.0
+USERPOOL:Greater Weapon Specialization|POOLPOINTS:0.0
+USERPOOL:Improved Critical|POOLPOINTS:0.0
+USERPOOL:Spell Mastery|POOLPOINTS:0.0
+USERPOOL:Builder|POOLPOINTS:0.0
 USERPOOL:Strong Talent|POOLPOINTS:0.0
 ABILITY:Fast Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Evasion|TYPE:TALENT.FASTTALENT.DEFENSIVE
 ABILITY:Fast Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Uncanny Dodge I|TYPE:TALENT.FASTTALENT.DEFENSIVE.FASTPLUS
@@ -140,19 +171,42 @@ USERPOOL:Tough Talent|POOLPOINTS:0.0
 USERPOOL:Smart Talent|POOLPOINTS:0.0
 USERPOOL:Dedicated Talent|POOLPOINTS:0.0
 USERPOOL:Charismatic Talent|POOLPOINTS:0.0
-USERPOOL:Strong Feat|POOLPOINTS:0.0
-ABILITY:Fast Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Finesse|APPLIEDTO:Pistol Whip|TYPE:BATTLEMIND.GENERAL.FAST|DESC:Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain
-USERPOOL:Fast Feat|POOLPOINTS:0.0
-USERPOOL:Tough Feat|POOLPOINTS:0.0
-USERPOOL:Smart Feat|POOLPOINTS:0.0
-USERPOOL:Dedicated Feat|POOLPOINTS:0.0
-USERPOOL:Charismatic Feat|POOLPOINTS:0.0
+USERPOOL:Aberration Proficiency|POOLPOINTS:0.0
+USERPOOL:Fey Proficiency|POOLPOINTS:0.0
+USERPOOL:Giant Proficiency|POOLPOINTS:0.0
+USERPOOL:Humanoid Proficiency|POOLPOINTS:0.0
+USERPOOL:Monstrous Humanoid Proficiency|POOLPOINTS:0.0
+USERPOOL:Outsider Proficiency|POOLPOINTS:0.0
+USERPOOL:Undead Proficiency|POOLPOINTS:0.0
+USERPOOL:High Fiend Knowledge|POOLPOINTS:0.0
+USERPOOL:Low Fiend Knowledge|POOLPOINTS:0.0
+USERPOOL:Fiend Immunity|POOLPOINTS:0.0
+USERPOOL:Fiend Resistance|POOLPOINTS:0.0
+USERPOOL:Fiend Damage Reduction|POOLPOINTS:0.0
+USERPOOL:Fiend Land Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Swim Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Climbing Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Burrow Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Fly Movement|POOLPOINTS:0.0
+USERPOOL:Shadow Slayer Feat|POOLPOINTS:0.0
+USERPOOL:Occultist Feat|POOLPOINTS:0.0
+USERPOOL:Telepath Feat|POOLPOINTS:0.0
+USERPOOL:Battlemind Feat|POOLPOINTS:0.0
+USERPOOL:Mage Feat|POOLPOINTS:0.0
+USERPOOL:Acolyte Feat|POOLPOINTS:0.0
+USERPOOL:Shadow Slayer Favored Enemy|POOLPOINTS:0.0
+USERPOOL:Strong Plus Talent|POOLPOINTS:0.0
+USERPOOL:Fast Plus Talent|POOLPOINTS:0.0
+USERPOOL:Tough Plus Talent|POOLPOINTS:0.0
+USERPOOL:Smart Plus Talent|POOLPOINTS:0.0
+USERPOOL:Dedicated Plus Talent|POOLPOINTS:0.0
+USERPOOL:Charismatic Plus Talent|POOLPOINTS:0.0
 USERPOOL:Astronaut Trainee Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Colonist Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Drifter Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Gladiator Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Heir Occupation Skills|POOLPOINTS:0.0
-ABILITY:Outcast Occupation Skills|TYPE:NORMAL|CATEGORY:Occupation|KEY:Hide(+1 to skill)|TYPE:OCCUPATION_SKILL.CRIMINAL_SKILLS.MILITARY_SKILLS.DRIFTER_SKILLS.OUTCAST_SKILLS
+ABILITY:Outcast Occupation Skills|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Hide(+1 to skill)|TYPE:OCCUPATION_SKILL.CRIMINAL_SKILLS.MILITARY_SKILLS.DRIFTER_SKILLS.OUTCAST_SKILLS
 USERPOOL:Outcast Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Scavenger Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Transporter Occupation Skills|POOLPOINTS:0.0
@@ -162,7 +216,23 @@ USERPOOL:Gladiator Feat|POOLPOINTS:0.0
 ABILITY:Outcast Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Toughness|APPLIEDTO:|TYPE:GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY.OUTCAST|DESC:The character gains +3 hit points
 USERPOOL:Outcast Feat|POOLPOINTS:0.0
 USERPOOL:Transporter Feat|POOLPOINTS:0.0
+USERPOOL:Ambassador Feat|POOLPOINTS:0.0
+USERPOOL:Dogfighter Feat|POOLPOINTS:0.0
+USERPOOL:Dreadnought Feat|POOLPOINTS:0.0
+USERPOOL:Engineer Feat|POOLPOINTS:0.0
+USERPOOL:Explorer Feat|POOLPOINTS:0.0
+USERPOOL:FieldOfficer Feat|POOLPOINTS:0.0
+USERPOOL:HelixWarrior Feat|POOLPOINTS:0.0
+USERPOOL:SpaceMonkey Feat|POOLPOINTS:0.0
+USERPOOL:Swindler Feat|POOLPOINTS:0.0
+USERPOOL:Technosavant Feat|POOLPOINTS:0.0
+USERPOOL:Tracer Feat|POOLPOINTS:0.0
+USERPOOL:Xenophile Feat|POOLPOINTS:0.0
+USERPOOL:Xenotype|POOLPOINTS:0.0
+USERPOOL:Xenotype Bonus|POOLPOINTS:0.0
+USERPOOL:Mecha Jockey Feat|POOLPOINTS:0.0
 USERPOOL:Mutation|POOLPOINTS:0.0
+USERPOOL:Revenant Special Vulnerability|POOLPOINTS:0.0
 USERPOOL:Apothecary Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Hedge Wizard Occupation Skills|POOLPOINTS:0.0
 USERPOOL:Novitiate Occupation Skills|POOLPOINTS:0.0
@@ -175,6 +245,38 @@ USERPOOL:Novitiate Feat|POOLPOINTS:0.0
 USERPOOL:Psychic Feat|POOLPOINTS:0.0
 USERPOOL:Shadow Scholar Feat|POOLPOINTS:0.0
 USERPOOL:Squire Feat|POOLPOINTS:0.0
+USERPOOL:Arcane Arranger Feat|POOLPOINTS:0.0
+USERPOOL:Archaic Weaponmaster Feat|POOLPOINTS:0.0
+USERPOOL:Glamourist Feat|POOLPOINTS:0.0
+USERPOOL:Mystic Feat|POOLPOINTS:0.0
+USERPOOL:Shadow Hunter Feat|POOLPOINTS:0.0
+USERPOOL:Shadowjack Feat|POOLPOINTS:0.0
+USERPOOL:Speed Demon Feat|POOLPOINTS:0.0
+USERPOOL:Street Warrior Feat|POOLPOINTS:0.0
+USERPOOL:Swashbuckler Feat|POOLPOINTS:0.0
+USERPOOL:Techno Mage Feat|POOLPOINTS:0.0
+USERPOOL:Thrasher Feat|POOLPOINTS:0.0
+USERPOOL:Wildlord Feat|POOLPOINTS:0.0
+USERPOOL:Craft Artifice|POOLPOINTS:0.0
+USERPOOL:Artificer Feat|POOLPOINTS:0.0
+USERPOOL:Techno Mage Spontaneous Casting|POOLPOINTS:0.0
+USERPOOL:Wildlord Skill Mastery|POOLPOINTS:0.0
+USERPOOL:Shadowkind Human Feat|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Young|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Juvenile|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Young Adult|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Adult|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Mature|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Old|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Very Old|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Ancient|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ King|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Emperor|POOLPOINTS:0.0
+USERPOOL:Vivilor A Ability|POOLPOINTS:0.0
+USERPOOL:Vivilor B Ability|POOLPOINTS:0.0
+USERPOOL:Vivilor Ability Swap|POOLPOINTS:0.0
+USERPOOL:Psionic Agent Feat|POOLPOINTS:0.0
+USERPOOL:Psionic Focus|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
 WEAPONPROF:[WEAPON:Air Pistol|WEAPON:Air Rifle|WEAPON:AKM/AK-47|WEAPON:Barrett Light Fifty|WEAPON:Beam Sword|WEAPON:Benelli 121 M1|WEAPON:Beretta 92F|WEAPON:Beretta 93R|WEAPON:Beretta M3P|WEAPON:Blowgun]
