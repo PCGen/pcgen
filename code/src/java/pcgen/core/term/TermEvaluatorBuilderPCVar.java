@@ -803,6 +803,20 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
+	COMPLETE_PC_FAVCLASSLEVEL
+	("FAVCLASSLEVEL",
+	 new String[] { "FAVCLASSLEVEL" },
+	 true) {
+
+		public TermEvaluator getTermEvaluator(
+				final String expressionString, 
+				final String src, 
+				final String matchedSection) {
+
+	return new PCFavClassLevelTermEvaluator(expressionString);
+}
+},
+
 	START_PC_BL
 			("BL[.=]?",
 			 new String[] { "BL.", "BL=", "BL" },
