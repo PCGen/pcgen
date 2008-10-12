@@ -17,19 +17,22 @@
 		Provides information on the use of Output Sheet Tokens: Feats &amp; Skills Related.
 	-->
 	<head>
-		<title>Feats &amp; Skills Related Output Sheet Tokens</title>
+		<title>Ability, Feat &amp; Skill Related Output Sheet Tokens</title>
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 
 	<body>
-		<h1>Feats &amp; Skills Related Output Sheet Tokens</h1>
+		<h1>Ability, Feat &amp; Skill Related Output Sheet Tokens</h1>
 
+		<p class="indent0">This section describes the tokens used to display information about Abilities, 
+			Feats and Skills on PCGen's output sheets.</p>
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="ABILITY">Token Name:</a></strong> ABILITY.v.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (v):</strong> Text (Ability Category)</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional)</p>
+		<p class="indent0"><strong><a name="ABILITY">Token Name:</a></strong> ABILITY.u.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (u):</strong> Text (Ability Category)</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Ability Type, Optional)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (Ability's Position)</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Ability Type. Optional)</p>
 		<p class="indent1"><strong> Variables Used (z):</strong> Text (Ability Property. Optional)</p>
@@ -37,9 +40,9 @@
 		<ul class="indent2">
 			<li>Displays information about the xth ability in the character's list of abilities. Automatic 
 				and virtual abilities are not included in the list considered.</li>
-			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) for ability category (v), 
-				visibility (w) and type (y).</li>
-			<li>You can filter the list of abilities based upon the visibility (w) of each ability. The allowed visibility 
+			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) for ability category (u), 
+				visibility (v) and type (w and y).</li>
+			<li>You can filter the list of abilities based upon the visibility (v) of each ability. The allowed visibility 
 				sub-tokens are:
 				<ul>
 					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default option).</li>
@@ -47,14 +50,16 @@
 					<li><code>ALL</code> - Shows all abilities.</li>
 				</ul>
 			</li>
-			<li>You can filter the list of abilities based upon the type (y) of the ability using the <code>TYPE=&lt;text&gt;</code> 
-				sub-token.
+			<li>You can filter the list of abilities based upon the type of the ability using either of two syntax's (w and y):
 				<ul>
-					<li>You may include more than one <code>TYPE=&lt;type&gt;</code> in the token.</li>
-					<li>You may use &quot;!&quot; in front of a <code>TYPE=&lt;type&gt;</code> to exclude the particular 
-						type from the list.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						ability position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the ability position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
 					<li>You may not have an inclusion and exclusion in the same token.</li>
-					<li>You may append property sub-tokens after the <code>TYPE=&lt;text&gt;</code> sub-token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
 				</ul>
 			</li>
 			<li>If a &quot;Property&quot; is not included, this token will display the name of the xth ability in the 
