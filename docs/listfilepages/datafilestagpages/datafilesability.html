@@ -93,7 +93,7 @@
 		<p class="indent1"><strong>Variables Used (z):</strong> Number or Formula (Optional. Used for substitutions in y)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Identifies an &quot;aspect&quot; (see examples below) that an ability has and sets it's value.</li> 
+			<li>Identifies an &quot;aspect&quot; (see examples below) that an ability has and sets its value.</li> 
 			<li>This tag can be used multiple times within an ability but each time it must identify a new aspect.</li>
 			<li>The text in the y variable can use %z for replacing numerical values set by the z variable, %1 
 				is replaced by the first z, %2 is replaced by the second z, etc..</li>
@@ -272,7 +272,7 @@
 		<p class="indent2">This tells PCGen if the ability benefits may be stacked on one another.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>STACK:YES</code></p>
-		<p class="indent3">This Ability may be stack on it's self.</p>
+		<p class="indent3">The benefits for this ability stack with it self if taken multiple times.</p>
 		<p></p>
 
 <hr>
@@ -355,16 +355,17 @@
 
 		<h3><a name="OtherAbilityTags">Other Ability Tags</a></h3>
 
-		<p>These are not true global tags as the tags in the first section are.  All tags are being listed
-			 here to make them easier to locate and understand.</p>
+		<p>These are not true global tags as the tags in the previous section are. Though they occur in other files, they 
+			have an impact on abilities and are being included here to make them easier to locate and understand.</p>
 		<p></p>
 
 <hr>
 
-		<h4><a name="GameModeMiscInfoAbilityTags">Game Mode - Misc Info File</a></h4>
+		<h4><a name="GameModeMiscInfoAbilityTags">Game Mode Misc Info and AbilityCategory Files</a></h4>
 
 		<ul>
-			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a> <span class="note">(Misc Info)</span></li>
+			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#ABILITYCATEGORY">ABILITYCATEGORY</a> <span class="note">(Misc Info)</span> 
+			or <a href="../datafilestagpages/datafilesabilitycategory.html#ABILITYCATEGORY">ABILITYCATEGORY</a> <span class="note">(Ability Category)</span></li>
 			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#CATEGORY">CATEGORY</a> <span class="note">(Misc Info)</span></li>
 			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#DISPLAYNAME">DISPLAYNAME</a> <span class="note">(Misc Info)</span></li>
 			<li><a href="../systemfilestagpages/gamemodemiscinfolist.html#EDITABLE">EDITABLE</a> <span class="note">(Misc Info)</span></li>
