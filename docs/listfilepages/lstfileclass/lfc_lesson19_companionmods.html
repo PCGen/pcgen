@@ -51,7 +51,20 @@
 
 		<p class="indent0">Welcome to the section on Companion Mod creation and editing. In this class we cover the basics of the tags required to make a complete companion mod file, how the file works. As in all things, this is a small part of the whole, PCGen works in many parts - Which is why I cover two tags not part of this file, but must be included to get the "bigger picture". </p>
 
-		<h4>Standards</h4>
+		<h4>Style Guide</h4>
+		
+		<p>The following are a few standard conventions used to make reading this cLST class easier.</p>
+
+		<p>1) I have used the angle brackets, 'Less Than' (&lt;) and 'Greater Than' (&gt;) symbols, to indicate 
+			where your text will be entered when building a domain file. Unless explicitly stated in the text 
+			of my explanation, you will not include the angle brackets in your tags.</p>
+
+		<p>2) Coding examples and PCGen tags are identified by <code>&lt;code&gt;</code> style.</p>
+
+		<p>3) When referencing a specific PCGen object, i.e. domain, feat, weapon, etc., I have included the 
+			name as <strong><em>EMPHASISED</em></strong> text, except for when the object is part of a 
+			<code>&lt;code&gt;</code> example or in the case of the class 'Cleric', which is used throughout 
+			this article.</p>
 
 		<p class="indent1">&LT;TAB&gt; indicates a Tab character.</p>
 		<p class="indent1"><strong>ALL CAPS</strong> indicates an actual tag.</p>
@@ -71,7 +84,7 @@
 		
 <hr>
 		
-		<h3>The Tags</h3>
+		<h3>Required Tags</h3>
 
 		<h4>FOLLOWER</h4>
 		<p class="indent0">The first tag we're going to look at is <code>FOLLOWER</code>, each line generally starts 
@@ -79,7 +92,7 @@
 
 		<p class="indent0">Think of the Follower as sort of a class Tag telling the program what "level" things happen 
 			at. So like we have Class Level Lines to tell PCGen what is applied at that level and lower so to do we have 
-			a tag called FOLLOWER which acts in much the same way.</p>
+			a tag called <code>FOLLOWER</code> which acts in much the same way.</p>
 
 
 		<p class="indent1"><code>FOLLOWER:MonkeyFu=1</code></p>
@@ -102,14 +115,19 @@
 
 		<p class="indent0">Any Creature meeting that "TYPE" will have the benefits applied to them. Simply put 
 			without a TYPE PCGen won't be able to able the changes you code up. TYPE has to match exactly the 
-			name from COMPANIONLIST. Think of TYPE as a Group, TYPE groups things together, so with that frame of mind, Familiar is a group, as is Special Mount.</p>
+			name from <code>COMPANIONLIST</code>. Think of TYPE as a Group as it groups things together, so with that 
+			frame of mind, Familiar is a group, as is Special Mount.</p>
 
 		<p class="indent0">Example of a Familiar:</p>
 		<p class="indent1"><code>COMPANIONLIST:Familiar|Bat,Cat</code></p>
 		<p class="indent2">Bat and Cat are both of the Familiar TYPE or group.</p>
 
-		<p class="indent0">After that you can use any Tags that are appropriate for your Companion. </p>
-		<p class="indent0">So let's review the tags we can commonly use on the Follower Line.</p>
+<hr>
+
+		<h3>Miscelaneous Tags</h3>
+
+		<p class="indent0">You can use any Tags that are appropriate for your Companion. </p>
+		<p class="indent0">The following tags are commonly use on the Follower Line.</p>
 
 <hr>
 
