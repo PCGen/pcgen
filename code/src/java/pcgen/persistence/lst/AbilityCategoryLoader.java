@@ -157,6 +157,8 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 					+ " on ABILITYCATEGORY line");
 			}
 		}
+		
+		validateCategory(cat, source);
 	}
 
 	/* (non-Javadoc)
@@ -167,5 +169,23 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 		throws PersistenceLayerException
 	{
 		parseLine(SettingsHandler.getGame(), aLine, source, true);
+	}
+
+	/**
+	 * Check the completed ability category for any interrelationship errors.
+	 * 
+	 * @param cat The AbilityCategory to be checked.
+	 * @param source The source in which the category is defined.
+	 */
+	private void validateCategory(AbilityCategory cat, URI source)
+	{
+		if (!cat.getAbilityTypes().isEmpty() && 
+			cat.getAbilityCategory().equalsIgnoreCase(
+				cat.getKeyName()))
+		{
+			Logging.log(Logging.LST_ERROR, "TYPE is not valid in 'parent' category " + 
+				cat.getKeyName() + " of " + source + ".");
+		}
+			
 	}
 }
