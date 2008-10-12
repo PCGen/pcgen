@@ -1819,19 +1819,11 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
-			<name>Reputation 2</name>
-			<description></description>
-		</ability>
-		<ability>
 			<name>Sweep</name>
 			<description></description>
 		</ability>
 		<ability>
 			<name>Uncanny Dodge I</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Wealth Bonus 7 (Current) 7 (Starting)</name>
 			<description></description>
 		</ability>
 		<race></race>
@@ -1930,16 +1922,6 @@ BIO
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
-		<feat>
-			<name>All Automatic Proficiencies</name>
-			<description></description>
-			<type>SPECIAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
 	</feats>
 	<!--
 	  ====================================
@@ -1950,6 +1932,17 @@ BIO
  
 	<ability_objects>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>All Automatic Proficiencies</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 		<ability_object>
 			<name>Improvised Implements</name>
 			<description></description>
@@ -2025,21 +2018,6 @@ BIO
 			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
-		<template>
-			<name></name>
-			<strmod></strmod>
-			<dexmod></dexmod>
-			<conmod></conmod>
-			<intmod></intmod>
-			<wismod></wismod>
-			<chamod></chamod>
-			<cr></cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr></sr>
 			<bonuslist></bonuslist>
 		</template>
 		<template>
