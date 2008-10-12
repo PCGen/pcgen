@@ -37,8 +37,9 @@
 		<ul class="indent2">
 			<li>Displays information about the xth ability in the character's list of abilities. Automatic 
 				and virtual abilities are not included in the list considered.</li>
-			<li>Abilitiy position is a zero-based index.</li>
-			<li>You can filter the list of abilities based upon the visibility of each ability. The allowed visibility 
+			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) for ability category (v), 
+				visibility (w) and type (y).</li>
+			<li>You can filter the list of abilities based upon the visibility (w) of each ability. The allowed visibility 
 				sub-tokens are:
 				<ul>
 					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default option).</li>
@@ -46,7 +47,7 @@
 					<li><code>ALL</code> - Shows all abilities.</li>
 				</ul>
 			</li>
-			<li>You can filter the list of abilities based upon the type of the ability using the <code>TYPE=&lt;text&gt;</code> 
+			<li>You can filter the list of abilities based upon the type (y) of the ability using the <code>TYPE=&lt;text&gt;</code> 
 				sub-token.
 				<ul>
 					<li>You may include more than one <code>TYPE=&lt;type&gt;</code> in the token.</li>
@@ -57,17 +58,17 @@
 				</ul>
 			</li>
 			<li>If a &quot;Property&quot; is not included, this token will display the name of the xth ability in the 
-				character's ability list.</li>
-			<li>If a &quot;Property&quot; is included, this token will display select information, determied by the property 
-				included, about the xth ability in the character's ability list.</li>
+				character's ability list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined by the property 
+				included, about the xth ability in the character's ability list after all filtering.</li>
 			<li>The following are the properties that can be displayed for the identified ability:
 				<ul>
-					<li><code>ASPECT</code> - Displays the list of aspects associated with the ability.</li>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the ability.</li>
 					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on a zero-based 
 						index of aspects, associated with the ability.</li>
 					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with the ability.</li>
-					<li><code>ASPECTCOUNT</code> - Returns the total number of Aspects associated with the ability.</li>
-					<li><code>HASASPECT</code> - Returns a boolean result on the namned aspect in association with the ability.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the ability.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with the ability.</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>TYPE</code> - Displays the type of the ability.</li>
 					<li><code>SOURCE</code> - Displays the source of the ability.</li>
