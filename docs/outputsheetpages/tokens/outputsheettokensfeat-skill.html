@@ -29,6 +29,7 @@
 			Feats and Skills on PCGen's output sheets.</p>
 
 		<p></p><hr>
+		<p class="new">*** Updated 5.15.2</p>
 		<p class="indent0"><strong><a name="ABILITY">Token Name:</a></strong> ABILITY.u.v.w.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (u):</strong> Text (Ability Category)</p>
 		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
@@ -38,20 +39,24 @@
 		<p class="indent1"><strong> Variables Used (z):</strong> Text (Ability Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth ability in the character's list of abilities. Automatic 
-				and virtual abilities are not included in the list considered.</li>
-			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) for ability category (u), 
-				visibility (v) and type (w and y).</li>
-			<li>You can filter the list of abilities based upon the visibility (v) of each ability. The allowed visibility 
-				sub-tokens are:
+			<li>Displays information about the x<sup>th</sup> ability in the character's list of abilities. 
+				Automatic and virtual abilities are not included in the list.</li>
+			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) 
+				for ability category (u), visibility (v) and type (w and y).</li>
+			<li>You can filter the list of abilities based upon the visibility (v) of each ability. The 
+				allowed visibility sub-tokens are:
 				<ul>
-					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default option).</li>
+					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default 
+						option).</li>
 					<li><code>HIDDEN</code> - Filter the abilities that are not visible in the outputsheets.</li>
 					<li><code>ALL</code> - Shows all abilities.</li>
 				</ul>
 			</li>
-			<li>You can filter the list of abilities based upon the type of the ability using either of two syntax's (w and y):
+			<li>You can filter the list of abilities based upon the type of the ability using either of two syntaxes 
+				(w and y):
 				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						abilities of all types.</li>
 					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
 						ability position (x).</li>
 					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
@@ -62,18 +67,22 @@
 					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
 				</ul>
 			</li>
-			<li>If a &quot;Property&quot; is not included, this token will display the name of the xth ability in the 
-				character's ability list after all filtering.</li>
-			<li>If a &quot;Property&quot; is included, this token will display select information, determined by the property 
-				included, about the xth ability in the character's ability list after all filtering.</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				ability in the character's ability list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> ability in the character's ability list 
+				after all filtering.</li>
 			<li>The following are the properties that can be displayed for the identified ability:
 				<ul>
-					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the ability.</li>
-					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on a zero-based 
-						index of aspects, associated with the ability.</li>
-					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with the ability.</li>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						ability.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the ability.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the ability.</li>
 					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the ability.</li>
-					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with the ability.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the ability.</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>TYPE</code> - Displays the type of the ability.</li>
 					<li><code>SOURCE</code> - Displays the source of the ability.</li>
@@ -83,70 +92,123 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ABILITY.FEAT.0</code></p>
 		<p class="indent3">Displays the name of the 1<sup>st</sup> chosen feat.</p>
-		<p class="indent2"><code>ABILITY.FIGHTER.0.DESC</code></p>
+		<p class="indent2"><code>ABILITY.Fighter.0.DESC</code></p>
 		<p class="indent3">Displays the description of the 1<sup>st</sup> chosen fighter ability.</p>
 		<p class="indent2"><code>ABILITY.FEAT.3.TYPE=General</code></p>
 		<p class="indent3">Displays the name of the 4<sup>th</sup> chosen feat with a type of general.</p>
-		<p class="indent2"><code>ABILITY.ECHIDNA.3.TYPE=General.TYPE</code></p>
-		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen echidna category ability with a type of general.</p>
+		<p class="indent2"><code>ABILITY.Echidna.3.TYPE=General.TYPE</code></p>
+		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen &quot;Echidna&quot; category ability 
+			with a type of general.</p>
 		<p class="indent2"><code>ABILITY.FEAT.HIDDEN.0</code></p>
 		<p class="indent3">Displays the name of the 1<sup>st</sup> chosen hidden feat.</p>
 		<p class="indent2"><code>ABILITY.Power.0.ASPECT</code></p>
-		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1st chosen &quot;Power&quot; category ability.</p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> chosen 
+			&quot;Power&quot; category ability.</p>
 		<p class="indent2"><code>ABILITY.Power.0.ASPECT.0</code></p>
-		<p class="indent3">Displays the name and value of the 1st aspect for the 1st chosen &quot;Power&quot; category ability.</p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> 
+			chosen &quot;Power&quot; category ability.</p>
 		<p class="indent2"><code>ABILITY.Power.0.ASPECT.Attack Type</code></p>
-		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1st &quot;Power&quot; category ability.</p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1<sup>st</sup> 
+			&quot;Power&quot; category ability.</p>
 		<p class="indent2"><code>ABILITY.Power.0.ASPECTCOUNT</code></p>
-		<p class="indent3">Returns the number of aspects associated with the 1st &quot;Power&quot; category ability.</p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> &quot;Power&quot; 
+			category ability.</p>
 		<p class="indent2"><code>ABILITY.Power.0.HASASPECT.Miss</code></p>
-		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1st &quot;Power&quot; category ability has an 
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> &quot;Power&quot; 
+			category ability has an 
 			aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
-		
-		<p></p><hr>
+		<p></p>
+
+<hr>
+
+		<p class="new">*** Updated 5.15.2</p>
 		<p class="indent0"><strong><a name="ABILITYALL">Token Name:</a></strong> ABILITYALL.v.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all abilities.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Ability Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Number (The abilities position in the character's complete ability list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
-			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
-			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
-		</ul>
+		<p class="indent1"><strong> Variables Used (u):</strong> Text (Ability Category)</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Ability Type, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Ability's Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Ability Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Ability Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the yth ability in the character's complete ability list (including automatic, virtual and normal abilities).</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the x<sup>th</sup> ability in the character's list of abilities, 
+				including automatic and virtual abilities.</li>
+			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) 
+				for ability category (u), visibility (v) and type (w and y).</li>
+			<li>You can filter the list of abilities based upon the visibility (v) of each ability. The 
+				allowed visibility sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default 
+						option).</li>
+					<li><code>HIDDEN</code> - Filter the abilities that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all abilities.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of abilities based upon the type of the ability using either of two syntaxes 
+				(w and y):
+				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						abilities of all types.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						ability position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the ability position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				ability in the character's ability list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> ability in the character's ability list after 
+				all filtering.</li>
+			<li>The following are the properties that can be displayed for the identified ability:
+				<ul>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						ability.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the ability.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the ability.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the ability.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the ability.</li>
+					<li><code>DESC</code> - Displays the description of the ability.</li>
+					<li><code>TYPE</code> - Displays the type of the ability.</li>
+					<li><code>SOURCE</code> - Displays the source of the ability.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ABILITYALL.FEAT.0</code></p>
 		<p class="indent3">Displays the first feat name.</p>
-		<p class="indent2"><code>ABILITYALL.FIGHTER.0.DESC</code></p>
-		<p class="indent3">Displays the description of the first category "FIGHTER" ability.</p>
-		<p class="indent2"><code>ABILITYALL.WIZARD.1.TYPE=Metamagic</code></p>
-		<p class="indent3">Displays the 2<sup>nd</sup> category "WIZARD" ability description of type "Metamagic".</p>
-		<p class="indent2"><code>ABILITYALL.FIGHTER.2.!TYPE=General.DESC</code></p>
-		<p class="indent3">Displays the 3<sup>rd</sup> category "FIGHTER" ability description of type "General".</p>
-		<p class="indent2"><code>ABILITYALL.STARTING.3.TYPE=Occupation.TYPE</code></p>
-		<p class="indent3">Displays the type of the 4<sup>th</sup> category "STARTING" ability of type "Occupation".</p>
+		<p class="indent2"><code>ABILITYALL.Fighter.0.DESC</code></p>
+		<p class="indent3">Displays the description of the first category "Fighter" ability.</p>
+		<p class="indent2"><code>ABILITYALL.Wizard.1.TYPE=Metamagic</code></p>
+		<p class="indent3">Displays the 2<sup>nd</sup> category "Wizard" ability description of type "Metamagic".</p>
+		<p class="indent2"><code>ABILITYALL.Fighter.2.!TYPE=General.DESC</code></p>
+		<p class="indent3">Displays the 3<sup>rd</sup> category "Fighter" ability description of type "General".</p>
+		<p class="indent2"><code>ABILITYALL.Starting.3.TYPE=Occupation.TYPE</code></p>
+		<p class="indent3">Displays the type of the 4<sup>th</sup> category "Starting" ability of type "Occupation".</p>
 		<p class="indent2"><code>ABILITYALL.Special Ability.HIDDEN.1.TYPE=Special</code></p>
 		<p class="indent3">Displays the 2<sup>nd</sup> category "Special Ability" hidden ability name of type "Special".</p>
+		<p class="indent2"><code>ABILITYALL.Power.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> chosen &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYALL.Power.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> chosen &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYALL.Power.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1<sup>st</sup> &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYALL.Power.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYALL.Power.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> &quot;Power&quot; category ability has an 
+			aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="ABILITYALLLIST">Token Name:</a></strong> ABILITYALLLIST.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Category of ability to be listed).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
@@ -172,45 +234,96 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="ABILITYAUTO">Token Name:</a></strong> ABILITYAUTO.v.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all abilities.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The abilities position in the character's complete ability list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
-			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
-			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
-		</ul>
+		<p class="new">*** Updated 5.15.2</p>
+		<p class="indent0"><strong><a name="ABILITYAUTO">Token Name:</a></strong> ABILITYAUTO.u.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (u):</strong> Text (Ability Category)</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Ability Type, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Ability's Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Ability Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Ability Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth ability in the character's automatic ability list.</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the x<sup>th</sup> ability in the character's list of automatic abilities.</li>
+			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) 
+				for ability category (u), visibility (v) and type (w and y).</li>
+			<li>You can filter the list of abilities based upon the visibility (v) of each ability. The 
+				allowed visibility sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default 
+						option).</li>
+					<li><code>HIDDEN</code> - Filter the abilities that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all abilities.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of abilities based upon the type of the ability using either of two syntaxes 
+				(w and y):
+				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						abilities of all types.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						ability position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the ability position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				ability in the character's ability list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> ability in the character's ability list 
+				after all filtering.</li>
+			<li>The following are the properties that can be displayed for the identified ability:
+				<ul>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						ability.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the ability.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the ability.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the ability.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the ability.</li>
+					<li><code>DESC</code> - Displays the description of the ability.</li>
+					<li><code>TYPE</code> - Displays the type of the ability.</li>
+					<li><code>SOURCE</code> - Displays the source of the ability.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ABILITYAUTO.FEAT.0</code></p>
 		<p class="indent3">Displays the name of the 1<sup>st</sup> automatic feat.</p>
-		<p class="indent2"><code>ABILITYAUTO.ROGUE.0.DESC</code></p>
+		<p class="indent2"><code>ABILITYAUTO.Rogue.0.DESC</code></p>
 		<p class="indent3">Displays the description of the 1<sup>st</sup> automatic rogue ability.</p>
-		<p class="indent2"><code>ABILITYAUTO.ROGUE.1.TYPE=General</code></p>
-		<p class="indent3">Displays the name of the 2<sup>nd</sup> automatic rogue ability if it is a general type ability.</p>
-		<p class="indent2"><code>ABILITYAUTO.RACIAL.1.TYPE=General.TYPE</code></p>
-		<p class="indent3">Displays the type of the 2<sup>nd</sup> automatic racial ability if it is a general type ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.Rogue.1.TYPE=General</code></p>
+		<p class="indent3">Displays the name of the 2<sup>nd</sup> automatic rogue ability if it is 
+			a general type ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.Racial.1.TYPE=General.TYPE</code></p>
+		<p class="indent3">Displays the type of the 2<sup>nd</sup> automatic racial ability if it 
+			is a general type ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.Power.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> chosen 
+			&quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.Power.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> 
+			chosen &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.Power.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 
+			1<sup>st</sup> &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.Power.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> 
+			&quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.Power.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> 
+			&quot;Power&quot; category ability has an aspect named &quot;Miss&quot;. Otherwise it 
+			returns an &quot;N&quot;.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="ABILITYAUTOLIST">Token Name:</a></strong> ABILITYAUTOLIST.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Category of ability to be listed).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
@@ -254,33 +367,68 @@
 		<p class="indent3">Displays all of the character's chosen rogue abilities (comma delimited).</p>
 		<p class="indent2"><code>ABILITYLIST.WIZARD.TYPE=ItemCreation</code></p>
 		<p class="indent3">Displays all of the character's chosen item creation type wizard abilities (comma delimited).</p>
+		<p></p>
 
-		<p></p><hr>
-		<p class="indent0"><strong><a name="FEAT">Token Name:</a></strong> FEAT.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all abilities.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
-			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
-			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
-		</ul>
+<hr>
+
+		<p class="new">*** Updated 5.15.2</p>
+		<p class="indent0"><strong><a name="FEAT">Token Name:</a></strong> FEAT.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Feat Type, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Feat Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Feat Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Feat Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth feat in the character's chosen feat list (no automatic or virtual feats included).</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the x<sup>th</sup> feat in the character's list of feats. 
+				Automatic and virtual feats are not included in the list.</li>
+			<li>Feat position (x) is a zero-based index for the feats after filtering (see below) 
+				for visibility (v) and type (w and y).</li>
+			<li>You can filter the list of feats based upon the visibility (v) of each feat. The 
+				allowed visibility sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the feats that are visible in the outputsheets (default 
+						option).</li>
+					<li><code>HIDDEN</code> - Filter the feats that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all feats.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of feats based upon the type of the feat using either of two syntaxes 
+				(w and y):
+				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						feats of all types.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						feat position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the feat position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				feat in the character's feat list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> feat in the character's feat list 
+				after all filtering.</li>
+			<li>The following are the properties that can be displayed for the identified feat:
+				<ul>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						feat.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the feat.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the feat.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the feat.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the feat.</li>
+					<li><code>DESC</code> - Displays the description of the feat.</li>
+					<li><code>TYPE</code> - Displays the type of the feat.</li>
+					<li><code>SOURCE</code> - Displays the source of the feat.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>FEAT.0</code></p>
@@ -291,34 +439,81 @@
 		<p class="indent3">Displays the name of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>
 		<p class="indent2"><code>FEAT.3.TYPE=General.TYPE</code></p>
 		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>
+		<p class="indent2"><code>FEAT.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> chosen feat.</p>
+		<p class="indent2"><code>FEAT.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> 
+			chosen feat.</p>
+		<p class="indent2"><code>FEAT.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1<sup>st</sup> 
+			chosen feat.</p>
+		<p class="indent2"><code>FEAT.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> chosen feat.</p>
+		<p class="indent2"><code>FEAT.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> chosen feat has an 
+			aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
-		<p class="indent0"><strong><a name="FEATALL">Token Name:</a></strong> FEATALL.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the feats that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the feats that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all feats.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Number (The feats position in the character's complete feat list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
-			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
-			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
-		</ul>
+		<p class="new">*** Updated 5.15.2</p>
+		<p class="indent0"><strong><a name="FEATALL">Token Name:</a></strong> FEATALL.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Feat Type, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Feat Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Feat Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Feat Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth feat in the character's complete feat list.</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the x<sup>th</sup> feat in the character's list of feats, 
+				including automatic and virtual feats.</li>
+			<li>Feat position (x) is a zero-based index for the feats after filtering (see below) 
+				for visibility (v) and type (w and y).</li>
+			<li>You can filter the list of feats based upon the visibility (v) of each feat. The 
+				allowed visibility sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the feats that are visible in the outputsheets (default 
+						option).</li>
+					<li><code>HIDDEN</code> - Filter the feats that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all feats.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of feats based upon the type of the feat using either of two syntaxes 
+				(w and y):
+				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						feats of all types.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						feat position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the feat position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				feat in the character's feat list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> feat in the character's feat list 
+				after all filtering.</li>
+			<li>The following are the properties that can be displayed for the identified feat:
+				<ul>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						feat.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the feat.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the feat.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the feat.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the feat.</li>
+					<li><code>DESC</code> - Displays the description of the feat.</li>
+					<li><code>TYPE</code> - Displays the type of the feat.</li>
+					<li><code>SOURCE</code> - Displays the source of the feat.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>FEATALL.0</code></p>
@@ -328,12 +523,26 @@
 		<p class="indent2"><code>FEATALL.1.TYPE=Metamagic</code></p>
 		<p class="indent3">Displays the 2<sup>nd</sup> feat name if it is a metamagic feat.</p>
 		<p class="indent2"><code>FEATALL.2.!TYPE=General.DESC</code></p>
-		<p class="indent3">Displays the 3<sup>rd</sup> feat description if it is a General feat.</p>
+		<p class="indent3">Displays the feat description of the 3<sup>rd</sup> non-general feat.</p>
 		<p class="indent2"><code>FEATALL.3.TYPE=Occupation.TYPE</code></p>
 		<p class="indent3">Displays the type of the 4<sup>th</sup> feat if it is an Occupation feat.</p>
+		<p class="indent2"><code>FEATALL.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> chosen feat.</p>
+		<p class="indent2"><code>FEATALL.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> 
+			chosen feat.</p>
+		<p class="indent2"><code>FEATALL.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1<sup>st</sup> 
+			chosen feat.</p>
+		<p class="indent2"><code>FEATALL.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> chosen feat.</p>
+		<p class="indent2"><code>FEATALL.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> chosen feat has an 
+			aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="FEATALLLIST">Token Name:</a></strong> FEATALLLIST.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
 		<ul class="indent2">
@@ -358,31 +567,64 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="FEATAUTO">Token Name:</a></strong> FEATAUTO.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all abilities.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
-			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
-			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
-		</ul>
+		<p class="new">*** Updated 5.15.2</p>
+		<p class="indent0"><strong><a name="FEATAUTO">Token Name:</a></strong> FEATAUTO.v.w.x.y.z</p>
+
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Feat Type, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Feat Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Feat Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Feat Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth feat in the character's automatic feat list.</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the x<sup>th</sup> feat in the character's list of automatic feats.</li>
+			<li>Feat position (x) is a zero-based index for the feats after filtering (see below) 
+				for visibility (v) and type (w and y).</li>
+			<li>You can filter the list of feats based upon the visibility (v) of each feat. The 
+				allowed visibility sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the feats that are visible in the outputsheets (default 
+						option).</li>
+					<li><code>HIDDEN</code> - Filter the feats that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all feats.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of feats based upon the type of the feat using either of two syntaxes 
+				(w and y):
+				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						feats of all types.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						feat position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the feat position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				feat in the character's feat list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> feat in the character's feat list 
+				after all filtering.</li>
+			<li>The following are the properties that can be displayed for the identified feat:
+				<ul>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						feat.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the feat.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the feat.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the feat.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the feat.</li>
+					<li><code>DESC</code> - Displays the description of the feat.</li>
+					<li><code>TYPE</code> - Displays the type of the feat.</li>
+					<li><code>SOURCE</code> - Displays the source of the feat.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>FEATAUTO.0</code></p>
@@ -390,12 +632,26 @@
 		<p class="indent2"><code>FEATAUTO.0.DESC</code></p>
 		<p class="indent3">Displays the description of the 1<sup>st</sup> automatic feat.</p>
 		<p class="indent2"><code>FEATAUTO.1.TYPE=General</code></p>
-		<p class="indent3">Displays the name of the 2<sup>nd</sup> automatic feat if it is a general type feat.</p>
-		<p class="indent2"><code>FEATAUTO.1.TYPE=General.TYPE</code></p>
-		<p class="indent3">Displays the type of the 2<sup>nd</sup> automatic feat if it is a general type feat.</p>
+		<p class="indent3">Displays the name of the 2<sup>nd</sup> general type automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.1.!TYPE=General.TYPE</code></p>
+		<p class="indent3">Displays the type of the 2<sup>nd</sup> non-general type automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> 
+			automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1<sup>st</sup> 
+			automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> automatic feat.</p>
+		<p class="indent2"><code>FEATAUTO.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> automatic feat has an 
+			aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="FEATAUTOLIST">Token Name:</a></strong> FEATAUTOLIST.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
 		<ul class="indent2">
@@ -585,12 +841,13 @@
 			character's skill list.? The subset is generated by comparing subname to the beginning
 			of the skill name, if they match (case insensitive) the skill is in the subset.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>SKILLSUBSET2.KNOWLEDGE.RANK</code></p>
+		<p class="indent2"><code>SKILLSUBSET.2.KNOWLEDGE.RANK</code></p>
 		<p class="indent3">Displays the number of skill ranks of the 3<sup>rd</sup> knowledge skill in the
 			character's skill list.</p>
-		<p class="indent2"><code>SKILLSUBSET2.KNOWLEDGE.MISC</code></p>
-		<p class="indent3">Displays the bonus for the 3<sup>rd</sup> skill not from the key ability score or ranks
-			(e.g.? A synergy bonus).</p>
+		<p class="indent2"><code>SKILLSUBSET.2.KNOWLEDGE.MISC</code></p>
+		<p class="indent3">Displays the miscelaneous bonus for the 3<sup>rd</sup> skill in the
+			character's skill list. The micselaneous bonus does not include the bonus from the key ability 
+			score or skill ranks.</p>
 
 
 		<p></p><hr>
@@ -662,45 +919,97 @@
 
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="VABILITY">Token Name:</a></strong> VABILITY.v.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all abilities.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The abilities position in the character's complete ability list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
-			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
-			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
-		</ul>
+		<p class="new">*** Updated 5.15.2</p>
+		<p class="indent0"><strong><a name="VABILITY">Token Name:</a></strong> VABILITY.u.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (u):</strong> Text (Ability Category)</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Ability Type, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Ability's Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Ability Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Ability Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth ability in the character's virtual ability list.</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the x<sup>th</sup> ability in the character's list of virtual abilities.</li>
+			<li>Ability position (x) is a zero-based index for the abilities after filtering (see below) 
+				for ability category (u), visibility (v) and type (w and y).</li>
+			<li>You can filter the list of abilities based upon the visibility (v) of each ability. The 
+				allowed visibility sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the abilities that are visible in the outputsheets (default 
+						option).</li>
+					<li><code>HIDDEN</code> - Filter the abilities that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all abilities.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of abilities based upon the type of the ability using either of two syntaxes 
+				(w and y):
+				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						abilities of all types.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						ability position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the ability position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				ability in the character's ability list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> ability in the character's ability list 
+				after all filtering.</li>
+			<li>The following are the properties that can be displayed for the identified ability:
+				<ul>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						ability.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the ability.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the ability.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the ability.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the ability.</li>
+					<li><code>DESC</code> - Displays the description of the ability.</li>
+					<li><code>TYPE</code> - Displays the type of the ability.</li>
+					<li><code>SOURCE</code> - Displays the source of the ability.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>VABILITY.FIGHTER.0</code></p>
-		<p class="indent3">Displays the name of the 1<sup>st</sup> ability in the character's virtual fighter ability list.</p>
-		<p class="indent2"><code>VABILITY.FIGHTER.0.DESC</code></p>
-		<p class="indent3">Displays the description of the 1<sup>st</sup> ability in the character's virtual fighter ability list.</p>
+		<p class="indent2"><code>VABILITY.Fighter.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> virtual ability in the character's fighter 
+			ability list.</p>
+		<p class="indent2"><code>VABILITY.Fighter.0.DESC</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> virtual ability in the character's 
+			fighter ability list.</p>
 		<p class="indent2"><code>VABILITY.FEAT.2.TYPE=Fighter</code></p>
-		<p class="indent3">Displays the name of the 3<sup>rd</sup> ability in the character's virtual feat list if it is a fighter type ability.</p>
-		<p class="indent2"><code>VABILITY.FEAT.2.TYPE=Fighter.TYPE</code></p>
-		<p class="indent3">Displays the type of the 3<sup>rd</sup> ability in the character's virtual feat list if it is a fighter type ability.</p>
+		<p class="indent3">Displays the name of the 3<sup>rd</sup> virtual ability in the character's fighter 
+			feat list.</p>
+		<p class="indent2"><code>VABILITY.FEAT.2.!TYPE=Fighter.TYPE</code></p>
+		<p class="indent3">Displays the type of the 3<sup>rd</sup> ability in the character's virtual feat list 
+			of non-fighter feats.</p>
+		<p class="indent2"><code>VABILITY.Power.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> virtual 
+			&quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>VABILITY.Power.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> 
+			virtual &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>VABILITY.Power.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1<sup>st</sup> 
+			virtual &quot;Power&quot; category ability.</p>
+		<p class="indent2"><code>ABILITY.Power.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> virtual &quot;Power&quot; 
+			category ability.</p>
+		<p class="indent2"><code>ABILITY.Power.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> virtual &quot;Power&quot; 
+			category ability has an aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="VABILITYLIST">Token Name:</a></strong> VABILITYLIST.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Category of ability to be listed).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
@@ -721,34 +1030,67 @@
 		<p class="indent3">Displays all of the character's virtual racial abilities (comma delimited).</p>
 		<p class="indent2"><code>VABILITYLIST.FEAT.TYPE=Fighter</code></p>
 		<p class="indent3">Displays all of the character's virtual feats that are fighter type abilities (comma delimited).</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
-		<p class="indent0"><strong><a name="VFEAT">Token Name:</a></strong> VFEAT.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility, Optional).</p>
-		<ul class="indent2">
-			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
-			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
-			<li>ALL - Shows all abilities.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
-		                                                                 - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Feat Type - default is ALL).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the feat in position x in the character's feat list.</li>
-			<li>DESC - Displays the description of the feat in position x in the character's feat list.</li>
-			<li>TYPE - Displays the type of the feat in position x in the character's feat list.</li>
-			<li>TYPE=&lt;type&gt; - Filters for feats with the indicated TYPE tag.</li>
-			<li>SOURCE - Displays the source of the feat in position x in the character's feat list.</li>
-		</ul>
+		<p class="new">*** Updated 5.15.2</p>
+		<p class="indent0"><strong><a name="VFEAT">Token Name:</a></strong> VFEAT.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Feat Type, Optional)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Feat Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> TYPE=Text (Feat Type. Optional)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Feat Property. Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Displays information about the xth feat in the character's virtual feat list.</li>
-			<li>You may include more than one TYPE=type in the token.</li>
-			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
-			<li>You may not have an inclusion and exclusion in the same token.</li>
-			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+			<li>Displays information about the x<sup>th</sup> feat in the character's list of virtual feats.</li>
+			<li>Feat position (x) is a zero-based index for the feats after filtering (see below) 
+				for visibility (v) and type (w and y).</li>
+			<li>You can filter the list of feats based upon the visibility (v) of each feat. The 
+				allowed visibility sub-tokens are:
+				<ul>
+					<li><code>VISIBLE</code> - Filter the feats that are visible in the outputsheets (default 
+						option).</li>
+					<li><code>HIDDEN</code> - Filter the feats that are not visible in the outputsheets.</li>
+					<li><code>ALL</code> - Shows all feats.</li>
+				</ul>
+			</li>
+			<li>You can filter the list of feats based upon the type of the feat using either of two syntaxes 
+				(w and y):
+				<ul>
+					<li>The type sub-tokens are optional. If neither is included, the default will be to include 
+						feats of all types.</li>
+					<li>If you use the type syntax <code>&lt;Text&gt;</code> (w), you MUST place the type before the 
+						feat position (x).</li>
+					<li>If you use the type syntax <code>TYPE=&lt;Text&gt;</code> (y), you MUST place the type after 
+						the feat position (x) and before the property (z).</li>
+					<li>You may include more than one <code>TYPE=&lt;Text&gt;</code> sub-tokens in this token.</li>
+					<li>You may use <code>!TYPE=&lt;Text&gt;</code> to exclude the particular type from the list.</li>
+					<li>You may not have an inclusion and exclusion in the same token.</li>
+					<li>If used, the property sub-token MUST be the last sub-token included in this token.</li>
+				</ul>
+			</li>
+			<li>If a &quot;Property&quot; is not included, this token will display the name of the x<sup>th</sup> 
+				feat in the character's feat list after all filtering.</li>
+			<li>If a &quot;Property&quot; is included, this token will display select information, determined 
+				by the property included, about the x<sup>th</sup> feat in the character's feat list 
+				after all filtering.</li>
+			<li>The following are the properties that can be displayed for the identified feat:
+				<ul>
+					<li><code>ASPECT</code> - Displays the comma-delimited list of aspects associated with the 
+						feat.</li>
+					<li><code>ASPECT.&lt;number&gt;</code> - Displays the name/value of the numbered aspect, on 
+						a zero-based index of aspects, associated with the feat.</li>
+					<li><code>ASPECT.&lt;text&gt;</code> - Displays the value of the named aspect associated with 
+						the feat.</li>
+					<li><code>ASPECTCOUNT</code> - Returns the total number of aspects associated with the feat.</li>
+					<li><code>HASASPECT</code> - Returns a boolean result on the named aspect in association with 
+						the feat.</li>
+					<li><code>DESC</code> - Displays the description of the feat.</li>
+					<li><code>TYPE</code> - Displays the type of the feat.</li>
+					<li><code>SOURCE</code> - Displays the source of the feat.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>VFEAT.0</code></p>
@@ -756,12 +1098,27 @@
 		<p class="indent2"><code>VFEAT.0.DESC</code></p>
 		<p class="indent3">Displays the description of the 1<sup>st</sup> feat in the character's virtual feat list.</p>
 		<p class="indent2"><code>VFEAT.2.TYPE=Fighter</code></p>
-		<p class="indent3">Displays the name of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>
-		<p class="indent2"><code>VFEAT.2.TYPE=Fighter.TYPE</code></p>
-		<p class="indent3">Displays the type of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>
+		<p class="indent3">Displays the name of the 3<sup>rd</sup> fighter feat in the character's virtual feat list.</p>
+		<p class="indent2"><code>VFEAT.2.!TYPE=Fighter.TYPE</code></p>
+		<p class="indent3">Displays the type of the 3<sup>rd</sup> non-fighter feat in the character's virtual 
+			feat list.</p>
+		<p class="indent2"><code>VFEAT.0.ASPECT</code></p>
+		<p class="indent3">Displays the list of &quot;aspects&quot; for the 1<sup>st</sup> virtual feat.</p>
+		<p class="indent2"><code>VFEAT.0.ASPECT.0</code></p>
+		<p class="indent3">Displays the name and value of the 1<sup>st</sup> aspect for the 1<sup>st</sup> 
+			virtual feat.</p>
+		<p class="indent2"><code>VFEAT.0.ASPECT.Attack Type</code></p>
+		<p class="indent3">Displays the value of the &quot;Attack Type&quot; aspect for the 1<sup>st</sup> 
+			virtual feat.</p>
+		<p class="indent2"><code>VFEAT.0.ASPECTCOUNT</code></p>
+		<p class="indent3">Returns the number of aspects associated with the 1<sup>st</sup> virtual feat.</p>
+		<p class="indent2"><code>VFEAT.0.HASASPECT.Miss</code></p>
+		<p class="indent3">Returns a boolean result of &quot;Y&quot; if the 1<sup>st</sup> virtual feat has an 
+			aspect named &quot;Miss&quot;. Otherwise it returns an &quot;N&quot;.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="VFEATLIST">Token Name:</a></strong> VFEATLIST.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
 		<ul class="indent2">
@@ -781,6 +1138,8 @@
 		<p class="indent3">Displays all of the character's virtual feats (comma delimited).</p>
 		<p class="indent2"><code>VFEATLIST.TYPE=Fighter</code></p>
 		<p class="indent3">Displays all of the character's virtual feats that are fighter type feats (comma delimited).</p>
+
+<hr>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
