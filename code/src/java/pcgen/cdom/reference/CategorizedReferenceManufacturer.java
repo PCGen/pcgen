@@ -17,11 +17,13 @@
  */
 package pcgen.cdom.reference;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.core.AbilityUtilities;
 import pcgen.util.Logging;
 
 /**
@@ -102,7 +104,17 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 				if (parentCrm.containsObject(name) && !containsObject(name))
 				{
 					Logging.debugPrint("Found match in parent for " + category + " - " + name);
-					constructObject(name);
+					addObject(parentCrm.getObject(name), name);
+				}
+				else
+				{
+					Collection<String> specifics = new ArrayList<String>();
+					String undecName = AbilityUtilities.getUndecoratedName(name, specifics);
+					if (parentCrm.containsObject(undecName) && !containsObject(undecName))
+					{
+						Logging.debugPrint("Found match in parent for " + category + " - " + undecName + " - " + specifics);
+						addObject(parentCrm.getObject(undecName), undecName);
+					}
 				}
 			}
 		}
