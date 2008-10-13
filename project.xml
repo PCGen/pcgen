@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>5.15.4</currentVersion>
+  <currentVersion>5.15.5</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -335,9 +335,9 @@
     <!-- Runs slower'n molassas --> 
     <!-- <report>maven-checkstyle-plugin</report> --> 
     <report>maven-developer-activity-plugin</report>
-    <!-- <report>maven-emma-plugin</report> -->
+    <!-- <report>maven-emma-plugin</report> --> 
     <report>maven-file-activity-plugin</report>
-    <!--  <report>maven-javadoc-plugin</report> -->
+    <!--  <report>maven-javadoc-plugin</report> --> 
     <report>maven-jdepend-plugin</report>
     <report>maven-junit-report-plugin</report>
     <report>maven-license-plugin</report>
@@ -562,6 +562,11 @@
       <id>5.15.4</id>
       <name>5.15.4</name>
       <tag>release-5.15.4</tag>
+    </version>
+    <version>
+      <id>5.15.5</id>
+      <name>5.15.5</name>
+      <tag>release-5.15.5</tag>
     </version>
   </versions>
 </project>

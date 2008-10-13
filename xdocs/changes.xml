@@ -5,9 +5,9 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.15.5" date="In SVN" description="Alpha Release">
+    <release version="5.15.5" date="2008-10-13" description="Alpha Release"> 
       <action dev="jdempsey" type="fix" issue="2148763">[5.15.4] Resources Tab - Duplicated Races</action> 
-    </release> 
+    </release>  
     <release version="5.15.4" date="2008-10-06" description="Alpha Release"> 
       <action dev="jdempsey" type="update" issue="1959647">Deprecate ambiguous PRExxx:x=y behavior</action>  
       <action dev="jdempsey" type="add" issue="2016425">Assigning Languages via kits</action>  
