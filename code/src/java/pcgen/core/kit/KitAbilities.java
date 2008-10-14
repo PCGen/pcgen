@@ -215,6 +215,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 
 		if (numberOfChoices == 0)
 		{
+			warnings.add("ABILITY: Not enough " + abilityCat.getPluralName() + " available to take \"" + this + "\"");
 			return false;
 		}
 

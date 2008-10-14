@@ -14704,7 +14704,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.characterDomainList.addAll(characterDomainList);
 		for (PCClass pcClass : classList)
 		{
-			aClone.classList.add((pcClass.clone()));
+			PCClass cloneClass = pcClass.clone();
+			cloneClass.addFeatPoolBonus(aClone);
+			aClone.classList.add(cloneClass);
 		}
 		aClone.companionModList.addAll(companionModList);
 		aClone.qualifyArrayMap.addAllLists(qualifyArrayMap);

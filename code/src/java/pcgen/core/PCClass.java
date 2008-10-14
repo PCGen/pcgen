@@ -1529,40 +1529,7 @@ public class PCClass extends PObject
 		{
 			if (level > curLevel || aPC.isImporting())
 			{
-				// NB: LEVELSPERFEAT is now handled via PLayerCHaracter.getNumFeatsFromLevels() 
-				// rather than bonuses. Only the standard feat progression for the gamemode is 
-				// handled here.
-				Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
-				int startLevel;
-				int rangeLevel;
-				int divisor;
-				if (mLevPerFeat == null)
-				{
-					String aString = Globals.getBonusFeatString();
-					StringTokenizer aTok = 
-						new StringTokenizer(aString, "|", false);
-					startLevel = Integer.parseInt(aTok.nextToken());
-					rangeLevel = Integer.parseInt(aTok.nextToken());
-					divisor = rangeLevel;
-					if (divisor > 0)
-					{
-						StringBuffer aBuf =
-							new StringBuffer("0|FEAT|PCPOOL|")
-								.append("max(CL");
-						// Make sure we only take off the startlevel value once
-						if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
-						{
-							aBuf.append("-").append(startLevel);
-							aBuf.append("+").append(rangeLevel);
-						}
-						aBuf.append(",0)/").append(divisor);
-//						Logging.debugPrint("Feat bonus for " + this + " is "
-//							+ aBuf.toString());
-						BonusObj bon = Bonus.newBonus(aBuf.toString());
-						bon.setCreatorObject(this);
-						aPC.addAssoc(this, AssociationListKey.BONUS, bon);
-					}
-				}
+				addFeatPoolBonus(aPC);
 			}
 
 			chooseClassSkillList(aPC);
@@ -1594,6 +1561,48 @@ public class PCClass extends PObject
 		if (curLevel > newLevel)
 		{
 			aPC.resetEpicCache();
+		}
+	}
+
+	/**
+	 * Add the bonus to the character's feat pool that is granted by the class.
+	 * NB: LEVELSPERFEAT is now handled via PLayerCHaracter.getNumFeatsFromLevels() 
+	 * rather than bonuses. Only the standard feat progression for the gamemode is 
+	 * handled here.
+	 * @param aPC The character to bonus.
+	 */
+	void addFeatPoolBonus(final PlayerCharacter aPC)
+	{
+		Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
+		int startLevel;
+		int rangeLevel;
+		int divisor;
+		if (mLevPerFeat == null)
+		{
+			String aString = Globals.getBonusFeatString();
+			StringTokenizer aTok = 
+				new StringTokenizer(aString, "|", false);
+			startLevel = Integer.parseInt(aTok.nextToken());
+			rangeLevel = Integer.parseInt(aTok.nextToken());
+			divisor = rangeLevel;
+			if (divisor > 0)
+			{
+				StringBuffer aBuf =
+					new StringBuffer("0|FEAT|PCPOOL|")
+						.append("max(CL");
+				// Make sure we only take off the startlevel value once
+				if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
+				{
+					aBuf.append("-").append(startLevel);
+					aBuf.append("+").append(rangeLevel);
+				}
+				aBuf.append(",0)/").append(divisor);
+//						Logging.debugPrint("Feat bonus for " + this + " is "
+//							+ aBuf.toString());
+				BonusObj bon = Bonus.newBonus(aBuf.toString());
+				bon.setCreatorObject(this);
+				aPC.addAssoc(this, AssociationListKey.BONUS, bon);
+			}
 		}
 	}
 
