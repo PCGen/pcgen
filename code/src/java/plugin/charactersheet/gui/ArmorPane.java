@@ -45,7 +45,7 @@ public class ArmorPane extends javax.swing.JPanel
 	private static final String CHECK_TEXT = " Check ";
 	private static final String FAIL_TEXT = " Spell Failure ";
 	private static final String BLANK = "";
-	private static final String SPACE = " ";
+	private static final String SPACE = "&nbsp;";
 	private static final String ARMOR = "ARMOR";
 	private static final String SHIELD = "SHIELD";
 	private static final String ITEM = "ITEM";
@@ -292,7 +292,7 @@ public class ArmorPane extends javax.swing.JPanel
 		{
 			dataText = SPACE;
 		}
-		data.setText(dataText);
+		data.setText("<html>"+dataText+"</html>");
 		field.add(data);
 
 		java.awt.GridBagConstraints gridBagConstraints =
