@@ -1,0 +1,62 @@
+
+#CLASS:Air Lord		CLASS:Air Lord					
+Improved Aerial Rider	CATEGORY:Special Ability	SAB:Improved Aerial Rider					
+Aerial mount		CATEGORY:Special Ability	SAB:Aerial mount					
+Swoop attack		CATEGORY:Special Ability	SAB:Swoop attack					
+Feather fall		CATEGORY:Special Ability	SAB:Feather fall					
+Improved aerial rider	CATEGORY:Special Ability	SAB:Improved aerial rider	
+Improved mount		CATEGORY:Special Ability	SAB:Improved mount				
+Aerial Awarness		CATEGORY:Special Ability	SAB:Aerial Awarness					
+Summon Air Elemental	CATEGORY:Special Ability	SAB:Summon Air Elemental					
+Improved Aerial Rider	CATEGORY:Special Ability	SAB:Improved Aerial Rider					
+Improved Mount		CATEGORY:Special Ability	SAB:Improved Mount					
+						
+#CLASS:Dragon Slayer						
+Improved Power Attack		CATEGORY:Special Ability	SAB:Improved Power Attack					
+Latch Attack			CATEGORY:Special Ability	SAB:Latch Attack					
+Fearless (+4 saves)		CATEGORY:Special Ability	SAB:Fearless (+4 saves)|PREVAREQ:DragonSlayerFearlessLVL,1	SAB:Fearless (Immune)|PREVAREQ:DragonSlayerFearlessLVL,2								DEFINE:DragonSlayerFearlessLVL|0			
+Penetrating Blow			CATEGORY:Special Ability	SAB:Penetrating Blow					
+Improved Critical vs. dragons	CATEGORY:Special Ability	SAB:Improved Critical vs. dragons					
+Aura of Invincibility		CATEGORY:Special Ability	SAB:Aura of Invincibility					
+Relentless Attack			CATEGORY:Special Ability	SAB:Relentless Attack					
+Spot Vulnerability		CATEGORY:Special Ability	SAB:Spot Vulnerability					
+Improved Penetrating Blow	CATEGORY:Special Ability	SAB:Improved Penetrating Blow					
+						
+						
+#CLASS:Student of the Dragon	CLASS:Student of the Dragon					
+Wings of the Dragon					CATEGORY:Special Ability	SAB:Wings of the Dragon	
+Strength of the Dragon					CATEGORY:Special Ability	SAB:Strength of the Dragon	
+Eyes of the Dragon					CATEGORY:Special Ability	SAB:Eyes of the Dragon	
+Fist of the Dragon					CATEGORY:Special Ability	SAB:Fist of the Dragon	
+Ki Strike (+2)						CATEGORY:Special Ability	SAB:Ki Strike (+2)|PREVARLT:CL,8	
+Tactics of the Dragon					CATEGORY:Special Ability	SAB:Tactics of the Dragon	
+Roar of the Dragon					CATEGORY:Special Ability	SAB:Roar of the Dragon	
+Fury of the Dragon					CATEGORY:Special Ability	SAB:Fury of the Dragon	
+Ki Strike (+3)						CATEGORY:Special Ability	SAB:Ki Strike (+3)	
+Thunder of the Dragon					CATEGORY:Special Ability	SAB:Thunder of the Dragon	
+Master of the Dragon					CATEGORY:Special Ability	SAB:Master of the Dragon	
+						
+#CLASS:Wyrmfoe						
+Dragon Magic		CATEGORY:Special Ability	SAB:Dragon Magic					
+Dragon Claws		CATEGORY:Special Ability	SAB:Dragon Claws					
+Damage Resistance		CATEGORY:Special Ability	SAB:Damage Resistance					
+Dragon Magic		CATEGORY:Special Ability	SAB:Dragon Magic					
+Dragon Creature Type	CATEGORY:Special Ability	SAB:Dragon Creature Type					
+Damage Resistance		CATEGORY:Special Ability	SAB:Damage Resistance					
+Dragon Magic		CATEGORY:Special Ability	SAB:Dragon Magic					
+Damage Resistance		CATEGORY:Special Ability	SAB:Damage Resistance					
+Dragon Breath		CATEGORY:Special Ability	SAB:Dragon Breath					
+Dragon Magic		CATEGORY:Special Ability	SAB:Dragon Magic					
+						
+						
+#CLASS:Wyrm Spawn	
+Draconic Blood		CATEGORY:Special Ability	SAB:Draconic Blood					
+Resist Elements		CATEGORY:Special Ability	SAB:Resist Elements					
+Scent				CATEGORY:Special Ability	SAB:Scent					
+Flight			CATEGORY:Special Ability	SAB:Flight					
+Immune to dragon fear	CATEGORY:Special Ability	SAB:Immune to dragon fear					
+Innate Magic		CATEGORY:Special Ability	SAB:Innate Magic					
+Draconic Hide +4		CATEGORY:Special Ability	SAB:Draconic Hide +4					
+Longevity			CATEGORY:Special Ability	SAB:Longevity					
+polymorph			CATEGORY:Special Ability	SAB:polymorph					
+Breath Weapon		CATEGORY:Special Ability	SAB:Breath Weapon					

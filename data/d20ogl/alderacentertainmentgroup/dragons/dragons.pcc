@@ -27,7 +27,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/188795337X?ie=UTF8&tag=httppcgen
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-
+ABILITY:dragons_ability_class.lst
 CLASS:dragonsclasses.lst
 DEITY:dragonsdeities.lst
 EQUIPMENT:dragonsequip.lst
