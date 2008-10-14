@@ -30,4 +30,6 @@ package pcgen.cdom.base;
 public interface Category<T extends CategorizedCDOMObject<T>>
 {
 
+	Category<T> getParentCategory();
+
 }

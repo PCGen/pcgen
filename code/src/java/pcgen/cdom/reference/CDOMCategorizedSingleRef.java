@@ -22,8 +22,6 @@ import java.util.Collections;
 
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 
 /**
  * A CDOMCategorizedSingleRef is a CDOMReference which is intended to contain a
@@ -151,7 +149,7 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	{
 		if (o instanceof CDOMCategorizedSingleRef)
 		{
-			CDOMCategorizedSingleRef<?> ref = (CDOMCategorizedSingleRef) o;
+			CDOMCategorizedSingleRef<?> ref = (CDOMCategorizedSingleRef<?>) o;
 			return getReferenceClass().equals(ref.getReferenceClass())
 					&& getName().equals(ref.getName())
 					&& category.equals(ref.category);
@@ -217,26 +215,16 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 		}
 		if (!category.equals(obj.getCDOMCategory()))
 		{
-			boolean parentMatch = false; 
-			if (category.getClass().isAssignableFrom(AbilityCategory.class))
+			Category<T> parent = category.getParentCategory();
+			if (parent != null)
 			{
-				Category tempCat = category;
-				AbilityCategory child = (AbilityCategory) tempCat;
-				if (!child.getAbilityCategory().equals(child.getKeyName()))
+				if (!parent.equals(obj.getCDOMCategory()))
 				{
-					AbilityCategory parent =
-							AbilityUtilities.getAbilityCategory(child
-								.getAbilityCategory());
-					parentMatch = parent.equals(obj.getCDOMCategory());
+					throw new IllegalArgumentException("Cannot resolve a "
+							+ getReferenceClass().getSimpleName() + " "
+							+ obj.getCDOMCategory() + " Reference to category "
+							+ category);
 				}
-			}
-			
-			if (!parentMatch)
-			{
-				throw new IllegalArgumentException("Cannot resolve a "
-						+ getReferenceClass().getSimpleName() + " "
-						+ obj.getCDOMCategory() + " Reference to category "
-						+ category);
 			}
 		}
 		referencedObject = obj;

@@ -463,4 +463,9 @@ public class AbilityCategory implements KeyedObject, Category<Ability>
 			return false;
 		return true;
 	}
+
+	public Category<Ability> getParentCategory()
+	{
+		return AbilityUtilities.getAbilityCategory(getAbilityCategory());
+	}
 }

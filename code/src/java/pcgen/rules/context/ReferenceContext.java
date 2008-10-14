@@ -30,8 +30,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
-import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 
 public class ReferenceContext extends AbstractReferenceContext
 {
@@ -75,30 +73,23 @@ public class ReferenceContext extends AbstractReferenceContext
 		{
 			mfg = new CategorizedReferenceManufacturer<T>(cl, cat);
 			catmap.put(cl, cat, mfg);
-			if (cat != null && cat.getClass().isAssignableFrom(AbilityCategory.class))
+			if (cat != null)
 			{
-				Category foo = cat;
-				AbilityCategory child = (AbilityCategory) foo;
-				if (!child.getAbilityCategory().equals(child.getKeyName()))
+				Category<T> parent = cat.getParentCategory();
+				if (parent != null)
 				{
-					AbilityCategory parent =
-							AbilityUtilities.getAbilityCategory(child
-								.getAbilityCategory());
-					CategorizedReferenceManufacturer<T> parentMfg =
-							(CategorizedReferenceManufacturer<T>) catmap.get(
-								cl, parent);
+					CategorizedReferenceManufacturer<T> parentMfg = (CategorizedReferenceManufacturer<T>) catmap
+							.get(cl, parent);
 					if (parentMfg == null)
 					{
 						Category parentCat = parent;
-						parentMfg =
-								new CategorizedReferenceManufacturer<T>(cl,
-									parentCat);
+						parentMfg = new CategorizedReferenceManufacturer<T>(cl,
+								parentCat);
 						catmap.put(cl, cat, parentMfg);
 					}
 					mfg.setParentCRM(parentMfg);
 				}
 			}
-
 		}
 		return mfg;
 	}

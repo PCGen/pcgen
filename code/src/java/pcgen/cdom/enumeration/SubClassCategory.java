@@ -182,4 +182,9 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 		}
 	}
 
+	public Category<SubClass> getParentCategory()
+	{
+		return null;
+	}
+
 }
