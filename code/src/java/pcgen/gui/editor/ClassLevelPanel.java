@@ -384,19 +384,14 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		List<String> sList = obj.getListFor(ListKey.UDAM);
-
-		if (sList != null)
+		for (PCClassLevel pcl : obj.getClassLevelCollection())
 		{
-			for (int x = 0; x < sList.size(); ++x)
+			List<String> udam = pcl.getListFor(ListKey.UNARMED_DAMAGE);
+			if (udam != null)
 			{
-				String c = sList.get(x);
-
-				if (!c.equals(""))
-				{
-					LevelTag lt = new LevelTag(x + 1, LevelTag.TAG_UDAM, c);
-					levelTagList.add(lt);
-				}
+				LevelTag lt = new LevelTag(obj.getPCClassLevel(pcl),
+						LevelTag.TAG_UDAM, StringUtil.join(udam, ","));
+				levelTagList.add(lt);
 			}
 		}
 

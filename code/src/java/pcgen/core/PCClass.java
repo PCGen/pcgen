@@ -1952,20 +1952,6 @@ public class PCClass extends PObject
 
 		// TODO - Add ABILITY tokens.
 
-		List<String> udamList = getListFor(ListKey.UDAM);
-		if ((udamList != null) && (udamList.size() != 0))
-		{
-			for (int x = 0; x < udamList.size(); ++x)
-			{
-				String udamItem = udamList.get(x);
-				if (udamItem != null)
-				{
-					pccTxt.append(lineSep).append(String.valueOf(x)).append(
-					"\tUDAM:").append(udamList.get(x));
-				}
-			}
-		}
-
 		return pccTxt.toString();
 	}
 
@@ -2821,13 +2807,14 @@ public class PCClass extends PObject
 		return false;
 	}
 
-	/*
-	 * REFACTOR There is redundant information being sent in here (level 
-	 * and PlayerCharacter).
-	 */
-	/*
-	 * PCCLASSLEVELONLY Since this is a level dependent calculation, this should
-	 * be performed by the PCClassLevel.
+	/**
+	 * Get the unarmed Damage for this class at the given level.
+	 * 
+	 * @param aLevel
+	 * @param aPC
+	 * @param adjustForPCSize
+	 * @param includeCrit
+	 * @return the unarmed damage string
 	 */
 	String getUdamForLevel(int aLevel, final PlayerCharacter aPC,
 		boolean adjustForPCSize)
@@ -2881,50 +2868,22 @@ public class PCClass extends PObject
 		//
 		// Check the UDAM list for monk-like damage
 		//
-		List<String> udamList =
-				ref.silentlyGetConstructedCDOMObject(PCClass.class, keyName).getListFor(ListKey.UDAM);
-
-		if ((udamList != null) && !udamList.isEmpty())
+		List<CDOMObject> classObjects = new ArrayList<CDOMObject>();
+		//Negative increment to start at highest level until an UDAM is found
+		for (int i = aLevel; i >= 1; i--)
 		{
-			if (udamList.size() == 1)
+			classObjects.add(getClassLevel(i));
+		}
+		classObjects.add(this);
+		for (CDOMObject cdo : classObjects)
+		{
+			List<String> udam = cdo.getListFor(ListKey.UNARMED_DAMAGE);
+			if (udam != null)
 			{
-				final String aString = udamList.get(0);
-
-				if (aString.startsWith("CLASS=")
-					|| aString.startsWith("CLASS."))
-				{
-					final PCClass aClass =
-							ref.silentlyGetConstructedCDOMObject(PCClass.class, aString.substring(6));
-
-					if (aClass != null)
-					{
-						return aClass.getUdamForLevel(aLevel, aPC,
-							adjustForPCSize);
-					}
-
-					Logging.errorPrint(keyName + " refers to "
-						+ aString.substring(6) + " which isn't loaded.");
-
-					return aDamage;
-				}
-			}
-
-			final StringTokenizer aTok = new StringTokenizer(udamList.get(Math
-					.min(Math.max(aLevel, 0), udamList.size() - 1)), ",", false);
-
-			while ((iSize > -1) && aTok.hasMoreTokens())
-			{
-				aDamage = aTok.nextToken();
-
-				if (iSize == 0)
-				{
-					break;
-				}
-
-				iSize -= 1;
+				aDamage = udam.get(iSize);
+				break;
 			}
 		}
-
 		return aDamage;
 	}
 
@@ -2948,7 +2907,7 @@ public class PCClass extends PObject
 	 * @param aPC
 	 *            The character we are adding the level to.
 	 * @param ignorePrereqs
-	 *            True if prereqs for the level should be ignored. Used in 
+	 *            True if prereqs for the level should be ignored. Used in
 	 *            situations such as when the character is being loaded.
 	 * @return true or false
 	 */

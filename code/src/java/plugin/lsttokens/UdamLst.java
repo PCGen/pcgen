@@ -4,44 +4,99 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
  * 
  */
-public class UdamLst implements GlobalLstToken
+public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 {
-
-	/*
-	 * FIXME Classes must be resolved/in context before this is converted due to 
-	 * undocumented "features"
-	 */
-	/*
-	 * Note: Don't need to wait for Template's LevelToken before this can be converted
-	 * as there is no level support in templates for this token
-	 */
 
 	public String getTokenName()
 	{
 		return "UDAM";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		if (".CLEAR".equals(value))
+		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			obj.clearUdamList();
-		}
-		else if (anInt <= 0)
-		{
-			obj.setUdamItem(value, 0);
+			/*
+			 * TODO Need a hack for PCClass to clear all levels :(
+			 */
+			context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
 		}
 		else
 		{
-			obj.setUdamItem(value, anInt);
+			final StringTokenizer tok = new StringTokenizer(value,
+					Constants.COMMA);
+			if (tok.countTokens() != 9)
+			{
+				Logging.errorPrint(getTokenName()
+						+ " requires 9 comma separated values");
+				return false;
+			}
+			if (context.getObjectContext().containsListFor(obj,
+					ListKey.UNARMED_DAMAGE))
+			{
+				Logging.errorPrint(obj.getDisplayName() + " already has "
+						+ getTokenName() + " set.");
+				Logging.errorPrint(" It will be redefined, "
+						+ "but you should be using " + getTokenName()
+						+ ":.CLEAR");
+				context.getObjectContext().removeList(obj,
+						ListKey.UNARMED_DAMAGE);
+			}
+			while (tok.hasMoreTokens())
+			{
+				context.getObjectContext().addToList(obj,
+						ListKey.UNARMED_DAMAGE, tok.nextToken());
+			}
 		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Changes<String> changes = context.getObjectContext().getListChanges(
+				obj, ListKey.UNARMED_DAMAGE);
+		if (changes == null || changes.isEmpty())
+		{
+			return null;
+		}
+		List<String> returnList = new ArrayList<String>(2);
+		if (changes.includesGlobalClear())
+		{
+			returnList.add(Constants.LST_DOT_CLEAR);
+		}
+		Collection<String> list = changes.getAdded();
+		if (list.size() == 9)
+		{
+			returnList.add(StringUtil.join(list, Constants.COMMA));
+		}
+		if (returnList.isEmpty())
+		{
+			// TODO Error
+			return null;
+		}
+		return returnList.toArray(new String[returnList.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

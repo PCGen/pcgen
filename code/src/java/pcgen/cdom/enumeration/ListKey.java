@@ -171,8 +171,6 @@ public final class ListKey<T> {
 	public static final ListKey<SpecialAbility> SPECIAL_ABILITY = new ListKey<SpecialAbility>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
-	/** UDAM - a ListKey */
-	public static final ListKey<String> UDAM = new ListKey<String>();
 	/** Key for a list of virtual feats (feats granted regardless of the prereqs) */
 	public static final ListKey<Ability> VIRTUAL_FEATS = new ListKey<Ability>();
 //	/** Key for a list of weapon proficiencies */
@@ -245,6 +243,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
 	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();
+	public static final ListKey<String> UNARMED_DAMAGE = new ListKey<String>();
 	public static final ListKey<Capacity> CAPACITY = new ListKey<Capacity>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;

@@ -393,24 +393,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add to the unarmed damage list (or clear the whole list)
-	 * @param addString
-	 */
-	public final void clearUdamList()
-	{
-		removeListFor(ListKey.UDAM);
-	}
-
-	/**
-	 * Add to the unarmed damage list (or clear the whole list)
-	 * @param addString
-	 */
-	public final void setUdamItem(String addString, int loc)
-	{
-		listChar.addToListAt(ListKey.UDAM, addString, loc);
-	}
-
-	/**
 	 * Add a virtual feat to the character list
 	 * @param aFeat
 	 */
@@ -1707,34 +1689,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				ability.subForLevel(aPC);
 			}
 		}
-	}
-
-	/**
-	 * <p>Retrieves the unarmed damage information for this PObject.  This
-	 * comes from the <code>UDAM</code> tag, and can be a simple die string
-	 * as in <code>1d20</code>, or a list of size-modified data like is
-	 * utilised for monk unarmed damage.</p>
-	 * @param aPC
-	 * @return A string representing the unarmed damage dice of the object.
-	 */
-	String getUdamForSize(int iSize)
-	{
-		final StringBuffer aString = new StringBuffer(getElementInList(ListKey.UDAM, 0));
-
-		final StringTokenizer aTok = new StringTokenizer(aString.toString(), ",", false);
-
-		while ((iSize > -1) && aTok.hasMoreTokens())
-		{
-			aString.replace(0, aString.length(), aTok.nextToken());
-
-			if (iSize == 0)
-			{
-				break;
-			}
-
-			iSize -= 1;
-		}
-		return aString.toString();
 	}
 
 	 /**

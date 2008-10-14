@@ -7106,17 +7106,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				continue;
 			}
-			// the assumption is that there is only one UDAM: tag for things other than class
-			if (pObj.containsListFor(ListKey.UDAM))
+			List<String> unarmedDamage = pObj.getListFor(ListKey.UNARMED_DAMAGE);
+			if (unarmedDamage == null)
 			{
-				pObjDamage =
-					PlayerCharacterUtilities.getBestUDamString(pObjDamage, pObj.getUdamForSize(sizeInt));
+				continue;
 			}
+			retString = PlayerCharacterUtilities.getBestUDamString(retString,
+					unarmedDamage.get(sizeInt));
 		}
 		if (pObjDamage == null)
 		{
 			// If no UDAM exists, just grab default damage for the race, Michael Osterlie
-			pObjDamage = getRace().getUdam();
+			pObjDamage = getRace().getUdam(this);
 		}
 		else
 		{
@@ -7125,18 +7126,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		retString = PlayerCharacterUtilities.getBestUDamString(retString,
 				pObjDamage);
 
+		// string is in form sides|damage, just return damage portion
+		StringBuilder ret = new StringBuilder(retString.substring(retString
+				.indexOf('|') + 1));
 		if (includeStrBonus)
 		{
-			int b = (int) getStatBonusTo("DAMAGE", "TYPE.MELEE");
-			b += (int) getStatBonusTo("DAMAGE", "TYPE=MELEE");
-			if (b != 0)
+			int sb = (int) getStatBonusTo("DAMAGE", "TYPE.MELEE");
+			sb += (int) getStatBonusTo("DAMAGE", "TYPE=MELEE");
+			if (sb != 0)
 			{
-				retString = retString + Delta.toString(b);
+				ret.append(Delta.toString(sb));
 			}
 		}
-
-		// string is in form sides|damage, just return damage portion
-		return retString.substring(retString.indexOf('|') + 1);
+		return ret.toString();
 	}
 
 	public boolean getUseMasterSkill()

@@ -70,14 +70,12 @@ public final class Race extends PObject
 
 	/**
 	 * Retrieve Unarmed Damage according to the Race
+	 * @param pc TODO
 	 * @return UDAM damage die (ie 1d3)
 	 */
-	public String getUdam()
+	public String getUdam(PlayerCharacter pc)
 	{
-		/*
-		 * TODO This has pc == null, which could be a problem
-		 */
-		final int iSize = getSafe(FormulaKey.SIZE).resolve(null, "").intValue();
+		final int iSize = getSafe(FormulaKey.SIZE).resolve(pc, "").intValue();
 		final SizeAdjustment defAdj =
 				SettingsHandler.getGame().getDefaultSizeAdjustment();
 		final SizeAdjustment sizAdj =
