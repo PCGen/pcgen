@@ -615,12 +615,6 @@ public final class Equipment extends PObject implements Serializable,
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
 		aList.addAll(getBonusListOfType(pc, aType, aName));
-		for (BonusObj bonus : getRawBonusList(pc)) {
-			if ((bonus.getTypeOfBonus().indexOf(aType) >= 0)
-					&& (bonus.getBonusInfo().indexOf(aName) >= 0)) {
-				aList.add(bonus);
-			}
-		}
 
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
