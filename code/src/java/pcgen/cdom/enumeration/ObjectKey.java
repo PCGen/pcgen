@@ -40,6 +40,7 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -222,6 +223,12 @@ public class ObjectKey<T>
 	public static final ObjectKey<SpellResistance> SR = new ObjectKey<SpellResistance>(SpellResistance.NONE);
 
 	public static final ObjectKey<SpellProhibitor> CHOICE = new ObjectKey<SpellProhibitor>(null);
+
+	public static final ObjectKey<Boolean> CONTAINER_CONSTANT_WEIGHT = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<BigDecimal> CONTAINER_WEIGHT_CAPACITY = new ObjectKey<BigDecimal>(null);
+
+	public static final ObjectKey<Capacity> TOTAL_CAPACITY = new ObjectKey<Capacity>(null);
 
 	public static final ObjectKey<SizeAdjustment> BASESIZE;
 

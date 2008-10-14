@@ -315,5 +315,6 @@ public interface Constants
 	String LST_CHOOSE = "CHOOSE:";
 	String LST_ADDCHOICE = "ADDCHOICE:";
 	char CHAR_ASTERISK = '*';
+	char PERCENT = '%';
 	public static final int NO_LEVEL_LIMIT = -1;
 }

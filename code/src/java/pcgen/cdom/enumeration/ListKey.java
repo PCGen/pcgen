@@ -39,6 +39,7 @@ import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.AttackCycle;
+import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.Qualifier;
@@ -244,6 +245,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
 	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();
+	public static final ListKey<Capacity> CAPACITY = new ListKey<Capacity>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

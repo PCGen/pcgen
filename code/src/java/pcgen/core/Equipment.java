@@ -54,6 +54,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -93,8 +94,6 @@ public final class Equipment extends PObject implements Serializable,
 {
 	private static final long serialVersionUID = 1;
 
-	private static final int UNLIMITED_CAPACITY = -1;
-	
 	private static final String EQMOD_WEIGHT = "_WEIGHTADD";
 
 	private static final String EQMOD_DAMAGE = "_DAMAGE";
@@ -200,21 +199,11 @@ public final class Equipment extends PObject implements Serializable,
 
 	private int numberEquipped;
 
-	private Float containerWeightCapacity = (float) 0;
-
-	private Integer containerReduceWeight = 0;
-
-	private boolean containerConstantWeight;
-
-	private boolean d_acceptsChildren;
-
 	private boolean isOnlyNaturalWeapon;
-
-	private Map<String, Float> d_acceptsTypes = new HashMap<String, Float>();
 
 	private Map<String, Float> d_childTypes = new HashMap<String, Float>();
 
-	private String containerCapacityString = "";
+	private String containerCapacityString = null;
 
 	private String containerContentsString = "";
 
@@ -2185,7 +2174,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return true if the Equipment can take children.
 	 */
 	public boolean acceptsChildren() {
-		return d_acceptsChildren;
+		return get(ObjectKey.CONTAINER_WEIGHT_CAPACITY) != null;
 	}
 
 	/**
@@ -2725,18 +2714,8 @@ public final class Equipment extends PObject implements Serializable,
 			eq.numberEquipped = numberEquipped;
 			eq.qty = qty;
 			eq.outputIndex = outputIndex;
-			eq.containerWeightCapacity = containerWeightCapacity;
-			eq.containerReduceWeight = containerReduceWeight;
-			eq.d_acceptsChildren = d_acceptsChildren;
-
-			eq.d_acceptsTypes = new HashMap<String, Float>(d_acceptsTypes);
-
-			eq.containerConstantWeight = containerConstantWeight;
 
 			eq.d_childTypes = new HashMap<String, Float>(d_childTypes);
-
-			eq.containerContentsString = containerContentsString;
-			eq.containerCapacityString = containerCapacityString;
 
 			eq.d_containedEquipment = 
 					new ArrayList<Equipment>(d_containedEquipment);
@@ -3346,7 +3325,8 @@ public final class Equipment extends PObject implements Serializable,
 			//
 			// Adjust the capacity of the container (if it is one)
 			//
-			if (containerCapacityString.length() > 0)
+			BigDecimal weightCap = get(ObjectKey.CONTAINER_WEIGHT_CAPACITY);
+			if (weightCap != null)
 			{
 				double mult = 1.0;
 
@@ -3357,23 +3337,26 @@ public final class Equipment extends PObject implements Serializable,
 								eq.typeList(), 1.0);
 				}
 
-				if (containerWeightCapacity.intValue() != -1)
+				BigDecimal multbd = new BigDecimal(mult);
+				if (!Capacity.UNLIMITED.equals(weightCap))
 				{
-					containerWeightCapacity =
-							new Float(eq.containerWeightCapacity.doubleValue()
-								* mult);
+					// CONSIDER ICK, ICK, direct access bad
+					put(ObjectKey.CONTAINER_WEIGHT_CAPACITY, weightCap
+							.multiply(multbd));
 				}
-				if (getAcceptsTypeCount() > 0)
+				List<Capacity> capacity = removeListFor(ListKey.CAPACITY);
+				if (capacity != null)
 				{
-					for (String aString : eq.d_acceptsTypes.keySet())
+					for (Capacity cap : capacity)
 					{
-						Float aWeight = eq.getAcceptsType(aString);
-
-						if (aWeight.intValue() != -1)
+						BigDecimal content = cap.getCapacity();
+						if (!Capacity.UNLIMITED.equals(content))
 						{
-							aWeight = new Float(aWeight.doubleValue() * mult);
-							setAcceptsType(aString, aWeight);
+							content = content.multiply(multbd);
 						}
+						// CONSIDER ICK, ICK, direct access bad
+						addToListFor(ListKey.CAPACITY, new Capacity(cap
+								.getType(), content));
 					}
 				}
 
@@ -3513,51 +3496,11 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Update the container contents String
-	 */
-	public void updateContainerContentsString() {
-		containerContentsString = "";
-
-		final StringBuffer tempStringBuffer = new StringBuffer(
-				getChildCount() * 20);
-
-		// Make sure there's no bug here.
-		if (acceptsChildren()
-				&& (getBaseContainedWeight(true) >= 0.0f)) {
-			tempStringBuffer.append(
-					Globals.getGameModeUnitSet().displayWeightInUnitSet(
-							getBaseContainedWeight(true).doubleValue()))
-					.append(Globals.getGameModeUnitSet().getWeightUnit());
-		} else {
-			// have to put something
-			tempStringBuffer.append("0.0 ");
-			tempStringBuffer.append(Globals.getGameModeUnitSet()
-					.getWeightUnit());
-		}
-
-		for (int e = 0; e < getChildCount(); ++e) {
-			final Equipment anEquip = (Equipment) getChild(e);
-
-			if (anEquip.getQty() > 0.0f) {
-				tempStringBuffer.append(", ");
-				tempStringBuffer.append(BigDecimalHelper.trimZeros(anEquip
-						.getQty().toString()));
-				tempStringBuffer.append(" ");
-				tempStringBuffer.append(anEquip);
-			}
-		}
-
-		containerContentsString = tempStringBuffer.toString();
-	}
-
-	/**
 	 * Updates the containerContentsString from children of this item
 	 * 
 	 * @param pc The PC carrying the item
 	 */
 	public void updateContainerContentsString(final PlayerCharacter pc) {
-		containerContentsString = "";
-
 		final StringBuffer tempStringBuffer = new StringBuffer(
 				getChildCount() * 20);
 
@@ -3663,45 +3606,6 @@ public final class Equipment extends PObject implements Serializable,
 		FileAccess.newLine(output);
 
 		return true;
-	}
-
-	/**
-	 * For a container, sets the types that will be accepted, and how many 
-	 * of them the item can hold
-	 * 
-	 * @param parameter
-	 *            the Type to accept
-	 * @param acceptsType
-	 *            How many it will accept
-	 */
-	private void setAcceptsType(
-			final String parameter,
-			final Float acceptsType) {
-
-		d_acceptsTypes.put(parameter.toUpperCase(), acceptsType);
-	}
-
-	/**
-	 * If this item is a container that accepts the Type of equipment
-	 * then the capacity for that type of equipment will be returned.
-	 * If the object is not a container capable of holding Equipment of
-	 * type aType, then null is returned. 
-	 * 
-	 * @param aType the Type of equipment
-	 *            
-	 * @return The acceptsTypes value
-	 */
-	private Float getAcceptsType(final String aType) {
-		return d_acceptsTypes.get(aType.toUpperCase());
-	}
-
-	/**
-	 * Gets the number of accepted types
-	 * 
-	 * @return The number of distinct types
-	 */
-	private int getAcceptsTypeCount() {
-		return d_acceptsTypes.size();
 	}
 
 	private int getAltTypeCount() {
@@ -4138,7 +4042,14 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The acceptsTypes value
 	 */
 	private boolean acceptsType(final String aString) {
-		return d_acceptsTypes.containsKey(aString.toUpperCase());
+		for (Capacity cap : getSafeListFor(ListKey.CAPACITY))
+		{
+			if (cap.getType().equalsIgnoreCase(aString))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private void addAltType(final String type) {
@@ -4263,8 +4174,10 @@ public final class Equipment extends PObject implements Serializable,
 			final PlayerCharacter aPC,
 			final Float aFloat) {
 
-		return containerWeightCapacity.intValue() == -1 ||
-			   (aFloat + getContainedWeight(aPC)) <= containerWeightCapacity;
+		BigDecimal weightCap = get(ObjectKey.CONTAINER_WEIGHT_CAPACITY);
+		return weightCap != null
+				&& (Capacity.UNLIMITED.equals(weightCap) ||
+					(aFloat + getContainedWeight(aPC)) <= weightCap.doubleValue());
 	}
 
 	/**
@@ -4280,13 +4193,8 @@ public final class Equipment extends PObject implements Serializable,
 			final SortedSet<String> aTypeList,
 			final Float aQuant) {
 
-		if (acceptsType("Any")) {
-			if (getAcceptsType("Any").intValue() == -1) {
-				return true;
-			}
-		}
-
-		return !("".equals(pickChildType(aTypeList, aQuant)));
+		return Capacity.ANY.equals(get(ObjectKey.TOTAL_CAPACITY))
+				|| !("".equals(pickChildType(aTypeList, aQuant)));
 	}
 
 	private List<EquipmentModifier> cloneEqModList(final boolean primary) {
@@ -4460,41 +4368,47 @@ public final class Equipment extends PObject implements Serializable,
 			final SortedSet<String> aTypeList,
 			final Float quantToAdd) {
 
-		Float acceptsType = getAcceptsType("TOTAL");
-
-		// Sanity check
-		if (acceptsType == null) {
-			acceptsType = 0f;
-		}
-
+		Capacity totalCap = get(ObjectKey.TOTAL_CAPACITY);
+		BigDecimal capValue = totalCap.getCapacity();
+		
 		if (getChildType("Total") == null) {
 			setChildType("Total", 0f);
 		}
 
 		String canContain = "";
-		if ((getChildType("Total") + quantToAdd) <= acceptsType) {
-			for (String aType : aTypeList) {
-				if (!"".equals(canContain)) {
-					break;
-				}
-				if (acceptsType(aType)) {
-					if (containsChildType(aType) &&
-						((getChildType(aType) + quantToAdd) <= getAcceptsType(aType))) {
-						canContain = aType;
-					} else if (quantToAdd <= getAcceptsType(aType)) {
-						canContain = aType;
+		if ((getChildType("Total") + quantToAdd) <= capValue.doubleValue()) {
+			boolean anyContain = false;
+			float childType = containsChildType("Any") ? getChildType("Any") : 0.0f;
+			CAPFOR: for (Capacity c : getSafeListFor(ListKey.CAPACITY))
+			{
+				String capType = c.getType();
+				double val = c.getCapacity().doubleValue();
+				for (String aType : aTypeList) {
+					if (capType.equalsIgnoreCase(aType))
+					{
+						if (containsChildType(aType)
+								&& ((getChildType(aType) + quantToAdd) <= val)
+								|| quantToAdd <= val)
+						{
+							canContain = aType;
+							break CAPFOR;
+						}
+					}
+					else if ("Any".equalsIgnoreCase(capType))
+					{
+						if ((childType + quantToAdd) <= val) {
+							anyContain = true;
+						}
 					}
 				}
 			}
+			
 
-			if (("".equals(canContain)) && acceptsType("Any")) {
+			if (("".equals(canContain)) && anyContain) {
 				if (!containsChildType("Any")) {
 					setChildType("Any", (float) 0);
 				}
-
-				if ((getChildType("Any") + quantToAdd) <= getAcceptsType("Any")) {
-					canContain = "Any";
-				}
+				canContain = "Any";
 			}
 		}
 
@@ -4781,27 +4695,31 @@ public final class Equipment extends PObject implements Serializable,
 		final StringBuffer tempStringBuffer = new StringBuffer();
 		boolean comma = false;
 
-		if (containerWeightCapacity.intValue() != -1) {
-			tempStringBuffer.append(containerWeightCapacity).append(' ')
+		BigDecimal weightCap = get(ObjectKey.CONTAINER_WEIGHT_CAPACITY);
+		if (weightCap != null && !Capacity.UNLIMITED.equals(weightCap))
+		{
+			tempStringBuffer.append(weightCap).append(' ')
 					.append(Globals.getGameModeUnitSet().getWeightUnit());
 			comma = true;
 		}
 
-		if (getAcceptsTypeCount() > 0) {
-			for (String aString : d_acceptsTypes.keySet()) {
+		List<Capacity> capacity = getListFor(ListKey.CAPACITY);
+		if (capacity != null) {
+			for (Capacity c : capacity) {
 				if (comma) {
 					tempStringBuffer.append(", ");
 					comma = false;
 				}
-
-				if (getAcceptsType(aString).intValue() != -1) {
-					tempStringBuffer.append(
-							getAcceptsType(aString).floatValue()).append(' ');
-					tempStringBuffer.append(aString);
+				
+				BigDecimal capValue = c.getCapacity();
+				if (!Capacity.UNLIMITED.equals(capValue))
+				{
+					tempStringBuffer.append(capValue).append(' ');
+					tempStringBuffer.append(c.getType());
 					comma = true;
-				} else if (!"TOTAL".equals(aString)) {
+				} else if (c.getType() != null) {
 					comma = true;
-					tempStringBuffer.append(aString);
+					tempStringBuffer.append(c.getType());
 				}
 			}
 		}
@@ -5552,7 +5470,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		Float total = (float) 0;
 
-		if ((containerConstantWeight && !effective) || (getChildCount() == 0)) {
+		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT) && !effective) || (getChildCount() == 0)) {
 			return total;
 		}
 
@@ -5569,8 +5487,9 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
-		if (containerReduceWeight > 0) {
-			total *= (containerReduceWeight.floatValue() / 100);
+		Integer crw = get(IntegerKey.CONTAINER_REDUCE_WEIGHT);
+		if (crw != null && crw != 0) {
+			total *= (crw.floatValue() / 100);
 		}
 
 		return total;
@@ -5590,7 +5509,7 @@ public final class Equipment extends PObject implements Serializable,
 			final boolean effective) {
 		Float total = 0f;
 
-		if ((containerConstantWeight && !effective) || (getChildCount() == 0)) {
+		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT) && !effective) || (getChildCount() == 0)) {
 			return total;
 		}
 
@@ -5610,8 +5529,9 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
-		if (containerReduceWeight > 0) {
-			total *= (containerReduceWeight.floatValue() / 100);
+		Integer crw = get(IntegerKey.CONTAINER_REDUCE_WEIGHT);
+		if (crw != null && crw != 0) {
+			total *= (crw.floatValue() / 100);
 		}
 
 		return total;
@@ -5677,6 +5597,10 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The containerContentsString value
 	 */
 	public String getContainerContentsString() {
+		if (containerContentsString == null)
+		{
+			updateContainerContentsString(null);
+		}
 		return containerContentsString;
 	}
 
@@ -5707,134 +5631,15 @@ public final class Equipment extends PObject implements Serializable,
 	// ---------------------------
 
 	/**
-	 * Set the container properties of this item
-	 * 
-	 * @param tokenString The list of types and quantities that this item
-	 * may contain 
-	 */
-	public void setContainer(final String tokenString) {
-		setContainer(null, tokenString);
-	}
-
-	/**
-	 * Sets the container attribute of the Equipment object
-	 * 
-	 * @param pc The PC that has the Equipment
-	 * 
-	 * @param tokenString
-	 *            The new container value
-	 */
-	public void setContainer(final PlayerCharacter pc, final String tokenString) {
-
-		d_acceptsChildren = true;
-
-		final StringTokenizer aTok = new StringTokenizer(tokenString, "|");
-
-		if (aTok.hasMoreTokens()) {
-			String bString = aTok.nextToken();
-
-			if ((bString != null) && (bString.charAt(0) == '*')) {
-				containerConstantWeight = true;
-				bString = bString.substring(1);
-			}
-
-			if ((bString != null) && (bString.indexOf('%') > 0)) {
-				final int pos = bString.indexOf('%');
-				final String redString = bString.substring(0, pos);
-				bString = bString.substring(pos + 1);
-
-				try {
-					containerReduceWeight = Integer.valueOf(redString);
-				} catch (NumberFormatException ex) {
-					Logging.errorPrint("Error in CONTAINS line: " + tokenString);
-					containerReduceWeight = 0;
-				}
-			}
-
-			try {
-				containerWeightCapacity = new Float(bString);
-				if (containerWeightCapacity < 0)
-				{
-					Logging.deprecationPrint(getKeyName()
-						+ " Weight Capacity must be >= 0: " + bString
-						+ "\n  use 'UNLIM' (not -1) for unlimited Capacity");
-				}
-			} catch (NumberFormatException ex) {
-				if (!"UNLIM".equals(bString))
-				{
-					Logging.log(Logging.LST_ERROR, "Error in CONTAINS line: " + tokenString
-						+ "\n" + "  " + bString
-						+ " was not a number or 'UNLIM'");
-				}
-				containerWeightCapacity = (float) UNLIMITED_CAPACITY;
-			}
-		} else {
-			containerWeightCapacity = (float) UNLIMITED_CAPACITY;
-		}
-
-		boolean limited = true;
-		if (!aTok.hasMoreTokens()) {
-			limited = false;
-			setAcceptsType("Any", (float) UNLIMITED_CAPACITY);
-		}
-
-		Float aFloat = 0f;
-		while (aTok.hasMoreTokens()) {
-			final StringTokenizer typeTok =
-					new StringTokenizer(aTok.nextToken(), "=");
-			String itemType = typeTok.nextToken();
-
-			Float itemNumber;
-			if (typeTok.hasMoreTokens()) {
-				String itemCount = typeTok.nextToken();
-				if ("UNLIM".equals(itemCount))
-				{
-					limited = false;
-					itemNumber = (float) UNLIMITED_CAPACITY;
-				}
-				else
-				{
-					itemNumber = new Float(itemCount);
-
-					if (itemNumber < 0)
-					{
-						Logging.errorPrint(getKeyName() + " Item Count for "
-							+ itemType + " must be > 0: " + itemCount
-							+ "\n  use 'UNLIM' (not -1) for unlimited Count");
-					}
-					
-					if (limited) {
-						aFloat += itemNumber;
-					}
-				}
-			} else {
-				limited = false;
-				itemNumber = (float) UNLIMITED_CAPACITY;
-			}
-
-			if (!"Any".equals(itemType) && !"Total".equals(itemType)) {
-				setAcceptsType(itemType, itemNumber);
-			} else {
-				setAcceptsType(itemType, itemNumber);
-			}
-		}
-
-		if (!acceptsType("Total")) {
-			Float f = limited ? aFloat : (float) UNLIMITED_CAPACITY;
-
-			setAcceptsType("Total", f);
-		}
-
-		updateContainerCapacityString();
-		updateContainerContentsString(pc);
-	}
-
-	/**
 	 * Gets the containerCapacityString attribute of the Equipment object
 	 * 
 	 * @return The containerCapacityString value
 	 */
 	public String getContainerCapacityString() {
+		if (containerCapacityString == null)
+		{
+			updateContainerCapacityString();
+		}
 		return containerCapacityString;
 	}
 

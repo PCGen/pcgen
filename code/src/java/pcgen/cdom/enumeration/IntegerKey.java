@@ -136,6 +136,8 @@ public class IntegerKey
 
 	public static final IntegerKey UMULT = getConstant("UMULT");
 
+	public static final IntegerKey CONTAINER_REDUCE_WEIGHT = getConstant("CONTAINER_REDUCE_WEIGHT");
+
 	/*
 	 * TODO Okay, this is a hack. This should probably be a FormulaKey rather
 	 * than an IntegerKey in order to properly handle this strange delegation.
