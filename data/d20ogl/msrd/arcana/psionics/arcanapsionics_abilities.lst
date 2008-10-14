@@ -26,7 +26,7 @@ Knock								CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILI
 Dimension Slide						CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Slide|2
 Fly								CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Fly|2
 Instant Reload						CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Instant Reload|2
-Dimension Door						CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Door (Power)|2
+Dimension Door		KEY:Dimension Door ~Ps	CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Dimension Door (Power)|2
 Freedom of Movement					CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Freedom of Movement (Power)|2
 Ghost Shot							CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Dexterity Based Powers		BONUS:DC|SPELL.Ghost Shot|2
 

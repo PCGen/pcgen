@@ -48,7 +48,6 @@ Shake Rattle and Roll		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBL
 Skilled Researcher		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skilled Researcher
 Skilled Salvager			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skilled Salvager
 Space Suitable			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Space Suitable
-Stability				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Stability
 Steamroller				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Steamroller
 Stipend				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Stipend
 Strong as an Ox			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Strong as an Ox
@@ -76,7 +75,6 @@ Xenolore				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Xe
 Xenoresistance			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Xenoresistance
 
 ###Block: Special Abilities
-# Feat Name		Type			Visible	Special ABility																									Define																				Combat bonus										Stat bonus										Modify VAR
 # Ability Name			Output Name				Category of Ability		Visible	Special ABility																									Define																				Combat bonus										Stat bonus										Modify VAR
 Dreadnought Ability Surge	OUTPUTNAME:Ability Surge	CATEGORY:Special Ability	VISIBLE:NO	SAB:Ability Surge ~ %/day for % rounds (STR +%, Defense -% when Surged)|AbilitySurgeTimes|AbilitySurgeRounds|AbilitySurgeStrBonus|AbilitySurgeDefensePenalty	DEFINE:AbilitySurgeTimes|0	DEFINE:AbilitySurgeRounds|0	DEFINE:AbilitySurgeStrBonus|0	DEFINE:AbilitySurgeDefensePenalty|0	BONUS:COMBAT|AC|-AbilitySurgeDefensePenalty|TYPE=Temporary|PREAPPLY:PC	BONUS:STAT|STR|AbilitySurgeStrBonus|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|AbilitySurgeRounds|0	BONUS:VAR|AbilitySurgeDefensePenalty|2	BONUS:VAR|AbilitySurgeStrBonus|4*AbilitySurgeDefensePenalty
 Swift Strike								CATEGORY:Special Ability	VISIBLE:NO	SAB:Swift Strike +%d%|SwiftStrike|SwiftStrikeDie																			DEFINE:SwiftStrikeDie|6	DEFINE:SwiftStrike|0
@@ -84,7 +82,6 @@ Trap Sense									CATEGORY:Special Ability	VISIBLE:NO	SAB:Trap Sense (Ex) +%|Tr
 Uncanny Stealth								CATEGORY:Special Ability	VISIBLE:NO	SAB:Uncanny Stealth (full speed)|PREVARLT:UncannyStealthChargeQual,1	SAB:Uncanny Stealth (charge/run)|PREVARGTEQ:UncannyStealthChargeQual,1
 
 ###Block: Xenophile Xenotype block
-# Feat Name					Type				Visible	Required Feat					Required Skill							Special ABility									Define							Stackable?	Multiple?	Choose		Modify VAR
 # Ability Name				Category of Ability		Type				Visible		Required Ability										Required Skill							Special ABility									Define							Stackable?	Multiple?	Choose		Modify VAR
 Base Xenotype				CATEGORY:Special Ability	TYPE:Special		VISIBLE:DISPLAY																																	DEFINE:XenotypeBase|2
 

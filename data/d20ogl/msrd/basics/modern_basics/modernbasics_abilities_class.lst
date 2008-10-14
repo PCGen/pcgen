@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 11 15:14:01 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Oct 12 22:55:09 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------
 
@@ -156,13 +156,15 @@ Sow Distrust	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:S
 
 
 ###Block: Companion Modifier Abilities -----------------------------------------
-# Ability Name				Category of Ability		Visible	Special ABility
+# Ability Name				Category of Ability		Visible	Special ABility				Bonus to skill							Source Page						Temporary effect description
 Empathic Link				CATEGORY:Special Ability	VISIBLE:NO	SAB:Empathic Link
 Share Spells				CATEGORY:Special Ability	VISIBLE:NO	SAB:Share Spells
 Deliver Touch Spells			CATEGORY:Special Ability	VISIBLE:NO	SAB:Deliver touch spells
 Speak with Master				CATEGORY:Special Ability	VISIBLE:NO	SAB:Speak with master
 Speak with Animals of its Kind	CATEGORY:Special Ability	VISIBLE:NO	SAB:Speak with animals of its kind
 Scry on Familiar				CATEGORY:Special Ability	VISIBLE:NO	SAB:Scry on familiar
+Hawk Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							BONUS:SKILL|Spot|3|TYPE=HawkFamiliar|PREAPPLY:PC	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
+Owl Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							BONUS:SKILL|Spot|3|TYPE=OwlFamiliar|PREAPPLY:PC		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
 
 #
 # End

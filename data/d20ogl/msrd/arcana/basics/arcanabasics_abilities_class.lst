@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 31 16:08:46 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Mon Oct 13 21:54:05 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------------------------------------------------------
@@ -102,9 +102,9 @@ Arcane Spontaneous Casting	CATEGORY:Special Ability	TYPE:SpecialAbility.ArcaneSp
 
 
 ###Block:Thrasher ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type					Visible	Special ABility					Define			Combat bonus
-Tough Defense	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Tough Defense									BONUS:COMBAT|AC|CON-DEX
-Ability Surge	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Ability Surge %/day|AbilitySurge	DEFINE:AbilitySurge|0
+# Ability Name	Category of Ability		Type						Visible	Special ABility																	Define			Combat bonus
+Tough Defense	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility		VISIBLE:NO	SAB:Tough Defense																					BONUS:COMBAT|AC|CON-DEX
+Ability Surge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ability Surge (Ex)|PREVAREQ:AbilitySurge,0	SAB:Ability Surge %/day|AbilitySurge|PREVARGT:AbilitySurge,0	DEFINE:AbilitySurge|0
 
 
 ###Block:Wildlord ---------------------------------------------------------------------------------------------------------------------------------
