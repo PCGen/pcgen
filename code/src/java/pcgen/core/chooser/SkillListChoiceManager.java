@@ -26,7 +26,7 @@ package pcgen.core.chooser;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Ability;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -109,16 +109,21 @@ public class SkillListChoiceManager extends AbstractBasicStringChoiceManager
 			PlayerCharacter pc, final String          item)
 	{
 		super.associateChoice(pc, item);
-
-		if (pobject != null && pobject instanceof Ability)
-		{
-			Ability ability = (Ability) pobject;
-			addSkillToAbility( ability, item );
-		}
+		Skill sk = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Skill.class, item);
+		pc.addAssoc(pobject, AssociationListKey.CSKILL, sk);
 	}
 
-	protected void addSkillToAbility( final Ability anAbility, final String aSkillKey )
+	/**
+	 * If pobject is an Ability object, clean up the list of Class skill associated
+	 * with it.
+	 *
+	 * @param aPc
+	 */
+	@Override
+	protected void cleanUpAssociated(PlayerCharacter aPC)
 	{
-		anAbility.addCSkill( aSkillKey );
+		aPC.removeAllAssocs(pobject, AssociationListKey.CSKILL);
+		super.cleanUpAssociated(aPC);
 	}
 }

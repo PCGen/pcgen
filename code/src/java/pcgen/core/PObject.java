@@ -241,103 +241,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Adds entry to the CSkill list
-	 * @param entry skill to add
-	 */
-	public final void addCSkill(String entry)
-	{
-		if (entry.startsWith(".CLEAR"))
-		{
-			if (".CLEAR".equals(entry))
-			{
-				clearCSkills();
-			}
-			else
-			{
-				if (entry.startsWith(".CLEAR"))
-				{
-					entry = entry.substring(7);
-				}
-
-				if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
-				{
-					final String typeString = entry.substring(5);
-
-					for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-					{
-						boolean toClear = true;
-						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
-
-						while (cTok.hasMoreTokens() && toClear)
-						{
-							if (!skill.isType(cTok.nextToken()))
-							{
-								toClear = false;
-							}
-						}
-
-						if (toClear)
-						{
-							removeFromListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
-						}
-					}
-				}
-				else
-				{
-					removeFromListFor(ListKey.CLASS_SKILLS, entry);
-				}
-			}
-		}
-		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
-		{
-			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-			{
-				if (skill.isType(entry.substring(5)))
-				{
-					addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
-				}
-			}
-		}
-		else if ("ALL".equals(entry))
-		{
-			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-			{
-				addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
-			}
-		}
-		else
-		{
-			addToListFor(ListKey.CLASS_SKILLS, entry);
-		}
-	}
-
-	/**
-	 * Adds all of the entries to the CSkills list
-	 * @param entries list of entries
-	 */
-	public final void addAllCSkills(final List<String> entries)
-	{
-		addAllToListFor(ListKey.CLASS_SKILLS, entries);
-	}
-
-	/**
-	 * Clears the class skill list
-	 */
-	public void clearCSkills()
-	{
-		removeListFor(ListKey.CLASS_SKILLS);
-	}
-
-	/**
-	 * Get the list of class skills for this object
-	 * @return the list of class skills for this object
-	 */
-	public final List<String> getCSkillList()
-	{
-		return getListFor(ListKey.CLASS_SKILLS);
-	}
-
-	/**
 	 * Get the list of temporary bonuses for this list
 	 * @return the list of temporary bonuses for this list
 	 */
@@ -1450,12 +1353,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append("\tCCSKILL:").append(StringUtil.join(ccSkillList, "|"));
 		}
 
-		List<String> cSkillList = getCSkillList();
-		if ((cSkillList != null) && (cSkillList.size() != 0))
-		{
-			txt.append("\tCSKILL:").append(StringUtil.join(cSkillList, "|"));
-		}
-
 		aString = getChoiceString();
 
 		if ((aString != null) && (aString.length() != 0))
@@ -1989,43 +1886,32 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public final boolean hasCSkill(PlayerCharacter pc, final String aName)
 	{
-		List<String> cSkillList = getCSkillList();
-		if ((cSkillList == null) || cSkillList.isEmpty())
+		List<CDOMReference<Skill>> cSkillList = getListFor(ListKey.CSKILL);
+		List<Skill> assocCSkill = pc.getAssocList(this, AssociationListKey.CSKILL);
+		if (cSkillList != null && !cSkillList.isEmpty())
 		{
-			return false;
-		}
-
-		if (cSkillList.contains(aName))
-		{
-			return true;
-		}
-
-		if (cSkillList.contains("LIST"))
-		{
-			for (String aString : pc.getAssociationList(this))
+			for (CDOMReference<Skill> ref : cSkillList)
 			{
-				if (aName.startsWith(aString) || aString.startsWith(aName))
+				//Have to do slow due to cloning :P
+				for (Skill sk : ref.getContainedObjects())
 				{
-					return true;
+					if (sk.getKeyName().equals(aName))
+					{
+						return true;
+					}
 				}
 			}
 		}
 
-		for (String aString : cSkillList)
+		if (assocCSkill != null && !assocCSkill.isEmpty())
 		{
-			if (aString.lastIndexOf('%') >= 0)
+			for (Skill sk : assocCSkill)
 			{
-				aString = aString.substring(0, aString.length() - 1);
-
-				if (aName.startsWith(aString))
+				//Have to do slow due to cloning :P
+				if (sk.getKeyName().equals(aName))
 				{
 					return true;
 				}
-			}
-
-			if (aName.equalsIgnoreCase(aString))
-			{
-				return true;
 			}
 		}
 

@@ -30,11 +30,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.Skill;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -77,11 +81,12 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 				"Intelligence.Knowledge", "INT", false, SkillArmorCheck.NONE);
 
 			pcClass = new PCClass();
-			pcClass.addCSkill("KEY_Bluff");
-			pcClass.addCSkill("KEY_Listen");
-			pcClass.addCSkill("TYPE.Knowledge");
+			LoadContext context = Globals.getContext();
+			pcClass.addToListFor(ListKey.CSKILL, context.ref.getCDOMReference(Skill.class, "KEY_Bluff"));
+			pcClass.addToListFor(ListKey.CSKILL, context.ref.getCDOMReference(Skill.class, "KEY_Listen"));
+			pcClass.addToListFor(ListKey.CSKILL, context.ref.getCDOMTypeReference(Skill.class, "Knowledge"));
 			pcClass.addCcSkill("KEY_Move Silently");
-
+			context.resolveReferences();
 		}
 
 		myChar = getCharacter();

@@ -41,16 +41,16 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PObjectLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -475,18 +475,15 @@ public final class PCGIOHandler extends IOHandler
 			}
 			else if (aFeat.getChoiceString().startsWith("NONCLASSSKILLLIST|"))
 			{
-				//
-				// Byngl July 12, 2002
-				//
 				for (String skillString : currentPC.getAssociationList(aFeat))
 				{
-					try
+					Skill skill = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Skill.class,
+									skillString);
+					if (skill != null)
 					{
-						PObjectLoader.parseTag(aFeat, "CSKILL:" + skillString);
-					}
-					catch (PersistenceLayerException e)
-					{
-						e.printStackTrace();
+						currentPC.addAssoc(aFeat, AssociationListKey.CSKILL,
+								skill);
 					}
 				}
 			}

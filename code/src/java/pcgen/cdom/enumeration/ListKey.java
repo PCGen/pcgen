@@ -93,8 +93,6 @@ import pcgen.persistence.lst.utils.DeferredLine;
 public final class ListKey<T> {
 
 	public static final ListKey<Aspect> ASPECT = new ListKey<Aspect>();
-	/** CLASS_SKILLS - a ListKey */
-	public static final ListKey<String> CLASS_SKILLS = new ListKey<String>();
 	/** CROSS_CLASS_SKILLS - a ListKey */
 	public static final ListKey<String> CROSS_CLASS_SKILLS = new ListKey<String>();
 	/** FILE_ABILITY_CATEGORY - a ListKey */
@@ -242,6 +240,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
+	public static final ListKey<CDOMReference<Skill>> CSKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();
 	public static final ListKey<String> UNARMED_DAMAGE = new ListKey<String>();
 	public static final ListKey<Capacity> CAPACITY = new ListKey<Capacity>();

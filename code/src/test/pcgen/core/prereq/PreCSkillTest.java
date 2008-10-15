@@ -48,6 +48,9 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 public class PreCSkillTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
+	private Skill spy1;
+	private Skill spy2;
+	private Skill spy3;
 
 	public static void main(final String[] args)
 	{
@@ -87,7 +90,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		assertTrue("Character has spot class skills", PrereqHandler.passes(
 			prereq, character, null));
 
-		myClass.addCSkill("Spy 1");
+		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(spy1));
 		character.setDirty(true); //Need to throw out the cache
 
 		assertTrue("Character has spot class skills", PrereqHandler.passes(
@@ -98,7 +101,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		assertFalse("Character has only one Spy Skill", PrereqHandler.passes(
 			prereq, character, null));
 
-		myClass.addCSkill("Spy 2");
+		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(spy2));
 		character.setDirty(true); //Need to throw out the cache
 
 		assertTrue("Character has 2 Spy class skills", PrereqHandler.passes(
@@ -114,7 +117,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		assertFalse("Character has only 2 Spy Skills", PrereqHandler.passes(
 			prereq, character, null));
 
-		myClass.addCSkill("Spy 3");
+		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(spy3));
 		character.setDirty(true); //Need to throw out the cache
 
 		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
@@ -154,8 +157,8 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		Globals.getContext().ref.importObject(fee); 
 		
 		
-		myClass.addCSkill("Foo");
-		myClass.addCSkill("Fee");
+		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(foo));
+		myClass.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(fee));
 		prereq = factory.parse("PRECSKILL:1,Bar");		
 		assertTrue("Character has 1 Listen Skill", PrereqHandler.passes(prereq,
 			character, null));
@@ -198,17 +201,17 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		listen.setName("Listen");
 		Globals.getContext().ref.importObject(listen);
 
-		Skill spy1 = new Skill();
+		spy1 = new Skill();
 		spy1.setName("Spy 1");
 		spy1.setTypeInfo("Spy");
 		Globals.getContext().ref.importObject(spy1);
 
-		Skill spy2 = new Skill();
+		spy2 = new Skill();
 		spy2.setName("Spy 2");
 		spy2.setTypeInfo("Spy");
 		Globals.getContext().ref.importObject(spy2);
 
-		Skill spy3 = new Skill();
+		spy3 = new Skill();
 		spy3.setName("Spy 3");
 		spy3.setTypeInfo("Spy");
 		Globals.getContext().ref.importObject(spy3);

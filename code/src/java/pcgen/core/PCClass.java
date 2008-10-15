@@ -4257,10 +4257,11 @@ public class PCClass extends PObject
 			put(vk, otherClass.get(vk));
 		}
 
-		if (otherClass.getCSkillList() != null)
+		if (otherClass.containsListFor(ListKey.CSKILL))
 		{
-			clearCSkills();
-			addAllCSkills(otherClass.getCSkillList());
+			removeListFor(ListKey.CSKILL);
+			addAllToListFor(ListKey.CSKILL, otherClass
+					.getListFor(ListKey.CSKILL));
 		}
 
 		if (otherClass.getCcSkillList() != null)
