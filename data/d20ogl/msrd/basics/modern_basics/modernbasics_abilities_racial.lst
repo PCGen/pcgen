@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 14 21:44:55 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Oct 14 23:30:02 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -48,6 +48,7 @@ Convert								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBL
 Create Spawn							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Create Spawn (Su)
 Creature Meld							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Creature Meld (Su)
 Corrupt the Mind							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Corrupt the Mind (Su)
+Corrupting Touch							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Corrupting Touch (Su)
 Curse of Lycanthropy						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Curse of Lycanthropy (Su)
 Dance of Ruin							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Dance of Ruin (Su)
 Daylight Powerlessness						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Daylight Powerlessness (Ex)
@@ -68,6 +69,7 @@ Disassemble Device						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 Disease								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Disease (Ex)
 Disease Sense							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Disease Sense (Ex)
 Disguise Self							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Disguise Self (Su)
+Distraction								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Distraction (Ex)
 Domination								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Domination (Su)
 Double Damage against Objects					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Double Damage against Objects (Ex)
 Draining Touch							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Draining Touch (Su)
@@ -84,6 +86,7 @@ Energy Form								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VI
 Engulf								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Engulf (Ex)
 Enslave								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Enslave (Su)
 Expansion								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Expansion (Ex)
+Extradimensional Storage					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Extradimensional Storage (Su)
 Eye Rays								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Eye Rays (Su)
 Fascinate								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Fascinate (Sp)
 Fast Healing							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fast Healing (Ex)|PREVAREQ:FastHealingRate,0	SAB:Fast Healing % (Ex)|FastHealingRate|PREVARGT:FastHealingRate,0								DEFINE:FastHealingRate|0
@@ -126,6 +129,7 @@ Human Host								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:
 Ignite								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ignite (Ex)
 Immolation								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Immolation (Su)
 Impale								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Impale (Ex)
+Imprinsonment							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Imprinsonment (Ex)
 Improved Grab							CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Improved Grab (Ex)
 Improved Speed							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Speed (Ex)
 Improved Tracking							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Tracking (Ex)
@@ -142,6 +146,7 @@ Keen Vision								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB
 Light Blindness							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Light Blindness (Ex)
 Light Sensitivity							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Light Sensitivity (Ex)
 Liquefaction							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Liquefaction (Ex)
+Liquefied Spew							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Liquefied Spew (Ex)
 Locate Killer							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Locate Killer (Su)
 Machine Possession						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Machine Possession
 Malleable Form							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Malleable Form (Ex)
@@ -161,6 +166,7 @@ Natural Cunning							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Natural Invisibility						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Natural Invisibility (Su)
 Necrotizing Touch							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Necrotizing Touch (Su)
 Network Mind							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Network Mind (Ex)
+No limbs								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:No limbs
 Orc blood								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Orc blood
 Paralysis								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Paralysis (Ex)
 Peripheral Invisibility						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Peripheral Invisibility (Su)
@@ -173,7 +179,9 @@ Possession								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISI
 Prodigious Leap							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Prodigious Leap (Ex)
 Radiation								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Radiation (Ex)
 Rake									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Rake (Ex)
+Rat Empathy								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rat Empathy (Ex)
 Regeneration							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Regeneration (Ex)|PREVAREQ:RegenerationRate,0	SAB:Regeneration % (Ex)|RegenerationRate|PREVARGT:RegenerationRate,0								DEFINE:RegenerationRate|0
+Rejuvenation							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Rejuvenation (Su)
 Rend									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rend (Ex)
 Rending Claws							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rending Claws (Ex)
 Repairable								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Repairable
@@ -182,6 +190,7 @@ Rupture								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBL
 Scent									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Scent (Ex)
 Selective Invisibility						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Selective Invisibility (Su)
 Self-Destruct							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Self-Destruct (Ex)
+Sentience								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sentience (Ex)
 Shared Host								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Shared Host(Ex)
 Sharp Implements							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Sharp Implements
 Shift Dimension							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shift Dimension (Su)
@@ -270,7 +279,8 @@ Sunlight Damage				OUTPUTNAME:Direct sunlight causes 50 points damage per round	
 Tracking by Scent				OUTPUTNAME:+4 Survival checks when Tracking by Scent																																											CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+4 Survival checks when Tracking by Scent
 
 ###Block: Creature Type and Subtype Traits
-# Ability Name			Category of Ability		Visible	Special ABility
+# Ability Name			Category of Ability		Visible	Special ABility																																									Description
+Aquatic Traits			CATEGORY:Special Ability	VISIBLE:NO	SAB:Can move in water without making Swim checks, and cannot drown in water
 Incorporeal Traits		CATEGORY:Special Ability	VISIBLE:NO	SAB:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic	SAB:50% chance to ignore any damage from a corporeal source	SAB:Can pass through solid objects at will	SAB:Attacks pass through armor	SAB:Always moves silently
 Aberration Traits			CATEGORY:Special Ability	VISIBLE:NO	SAB:Aberrations eat, sleeps, and breathes
 Animal Traits			CATEGORY:Special Ability	VISIBLE:NO	SAB:Animals eat, sleeps, and breathes
@@ -279,6 +289,8 @@ Giant Traits			CATEGORY:Special Ability	VISIBLE:NO	SAB:Giants eat, sleeps, and b
 Humanoid Traits			CATEGORY:Special Ability	VISIBLE:NO	SAB:Humanoids eat, sleeps, and breathes
 Magical Beast Traits		CATEGORY:Special Ability	VISIBLE:NO	SAB:Magical Beasts eat, sleeps, and breathes
 Monstrous Humanoid Traits	CATEGORY:Special Ability	VISIBLE:NO	SAB:Monstrous Humanoids eat, sleeps, and breathes
+Swarm Traits			CATEGORY:Special Ability	VISIBLE:NO	SAB:Immune to any spell or effect that targets a specific number of creatures, unless the swarm is susceptible to mind-affecting effects	SAB:-10 penalty on saving throws against spells or effects that affect an area, or double damage if no save
+Shadowkind				CATEGORY:Special Ability	VISIBLE:NO	SAB:Shadowkind	SAB:Can only be resurrected within 1d4 hours after death|PRETYPE:1,Humanoid,Dragon																											DESC:Can only be resurrected within 1d4 hours after death|PRETYPE:1,Humanoid,Dragon
 
 ###Block: Negative Levels
 # Ability Name	Category of Ability		Visible	Special ABility																							Define			Save checks bonus						Combat bonus				Bonus to skill																		Source Page
@@ -314,7 +326,9 @@ Immunity To Necromantic Effects				CATEGORY:Special Ability	TYPE:SpecialQuality.
 Immunity To Nonlethal Damage					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Nonlethal Damage (Ex)
 Immunity To Paralysis						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Paralysis (Ex)
 Immunity To Piercing						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Piercing (Ex)														DESC:You never take piercing damage
+Immunity To Petrification					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Petrification (Ex)
 Immunity To Poison						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Poison (Ex)														DESC:You never take poison damage
+Immunity To Radiation						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Radiation (Ex)
 Immunity To Slashing						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Slashing (Ex)														DESC:You never take slashing damage
 Immunity To Sleep							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Sleep (Ex)
 Immunity To Stunning						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Stunning (Ex)
@@ -344,7 +358,6 @@ Resistance To Blows			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Resistance To Ballistic Damage	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Ballistic Damage
 Resistance To Piercing Damage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Piercing Damage
 Resistance To Slashing Damage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Slashing Damage
-
 
 ###Block: Standard Vulnerabilities
 # Ability Name			Category of Ability		Type								Visible	Special ABility				Description
