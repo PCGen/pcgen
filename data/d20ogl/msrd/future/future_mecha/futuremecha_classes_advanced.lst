@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 31 14:10:57 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Oct 15 11:29:41 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Class Name		Hit Dice	Type			Source Page				Save checks bonus																Combat bonus		Modify VAR
@@ -8,11 +8,14 @@ CLASS:Mecha Jockey	PREFEAT:1,Mecha Operation	PRESKILL:1,Drive=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mecha Jockey	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Sleight of Hand|Speak Language|Spot
 1																							AUTO:FEAT|Mecha Weapon Proficiency
-2	SAB:Luv My Mecha +%|LuvMyMecha								BONUS:VAR|LuvMyMecha|(CL+1)/3	DEFINE:LuvMyMecha|0
-3							BONUS:ABILITYPOOL|Mecha Jockey Feat|1
-4	SAB:Mecha Feint
-6							BONUS:ABILITYPOOL|Mecha Jockey Feat|1
-7	SAB:Evasive Action
-9							BONUS:ABILITYPOOL|Mecha Jockey Feat|1
-10	SAB:Improved Evasive Action
+2								BONUS:VAR|LuvMyMecha|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Luv My Mecha
+3	BONUS:ABILITYPOOL|Mecha Jockey Feat|1
+4													ABILITY:Special Ability|AUTOMATIC|Mecha Feint
+6	BONUS:ABILITYPOOL|Mecha Jockey Feat|1
+7													ABILITY:Special Ability|AUTOMATIC|Evasive Action
+9	BONUS:ABILITYPOOL|Mecha Jockey Feat|1
+10													ABILITY:Special Ability|AUTOMATIC|Improved Evasive Action
 
+#
+# End
+#

@@ -27,6 +27,7 @@ INFOTEXT:This set loads the Mecha options from the Future section of the MSRD.
 #EXTRAFILE:readme.txt
 
 ABILITYCATEGORY:futurebasics_ability_categories_mecha.lst
+ABILITY:futuremecha_abilities_class.lst
 CLASS:futuremecha_classes_advanced.lst
 EQUIPMENT:futuremecha_equip_mecha.lst
 EQUIPMENT:futuremecha_equip_weap.lst
