@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 14 23:30:02 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Oct 15 12:37:09 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -9,11 +9,13 @@ Acid Spit								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISI
 Acid Spittle							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acid Spittle (Ex)
 Acid Spray								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acid Spray (Ex)
 Acid Touch								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acid Touch (Ex)
+Acidic Blood							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acidic Blood (Ex)
 Acidic Enzymes							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acidic Enzymes (Ex)
 Actinic Light							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Actinic Light (Sp)
 Alien Physiolgoy							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Alien Physiolgoy (Ex)
 All-Around Vision							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:All-Around Vision (Ex)
 Alternate Form							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Alternate Form (Su)
+Amphibious								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Amphibious (Ex)
 Anesthetic Bite							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Anesthetic Bite (Ex)
 Animate Dead							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Animate Dead (Sp)
 Anyspeak								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Anyspeak (Sp)
@@ -43,6 +45,7 @@ Chemical Healing							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinar
 Children of the Night						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Children of the Night (Su)
 Chosen Victim							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Chosen Victim (Ex)
 Clawing Smoke							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Clawing Smoke (Su)
+Cold Susceptibility						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Cold Susceptibility
 Constrict								CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Constrict (Ex)
 Convert								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Convert (Ex)
 Create Spawn							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Create Spawn (Su)
@@ -52,6 +55,7 @@ Corrupting Touch							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Curse of Lycanthropy						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Curse of Lycanthropy (Su)
 Dance of Ruin							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Dance of Ruin (Su)
 Daylight Powerlessness						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Daylight Powerlessness (Ex)
+Death Cloud								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Death Cloud (Ex)
 Death Explosion							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Death Explosion (Su)
 Death Gaze								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Death Gaze (Su)
 Death Hunger							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Death Hunger (Ex)
@@ -120,6 +124,8 @@ Grind									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE
 Hardness								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Hardness (Ex)
 Hazy Outline							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Hazy Outline (Su)
 Heat									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Heat (Su)
+Heat Susceptibility						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Heat Susceptibility
+Hibernate								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Hibernate (Ex)
 Hive Mind								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Hive Mind (Su)
 Hold Breath								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Hold Breath (Ex)
 Horrific Appearance						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Horrific Appearance (Su)
@@ -184,7 +190,7 @@ Regeneration							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VI
 Rejuvenation							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Rejuvenation (Su)
 Rend									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rend (Ex)
 Rending Claws							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rending Claws (Ex)
-Repairable								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Repairable
+Repairable								CATEGORY:Special Ability	TYPE:SpecialQuality.RobotTraits	VISIBLE:NO	SAB:Repairable
 Revenant Regeneration						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Revenant Regeneration (Ex)
 Rupture								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rupture (Ex)
 Scent									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Scent (Ex)
@@ -198,6 +204,7 @@ Shock Touch								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VI
 Short Circuit							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Short Circuit (Su)
 Siphon Fluids							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Siphon Fluids (Ex)
 Skin Regrowth							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Skin Regrowth (Su)
+Sleepless								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sleepless (Ex)
 Slow Fall								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Slow Fall (Ex)
 Smash									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Smash (Ex)
 Smite Fallen							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Smite Fallen (Ex)
@@ -229,6 +236,7 @@ Tree Dependent							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	V
 Trip									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Trip (Ex)
 Turn Resistance							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Turn Resistance (Ex)|PREVAREQ:TurnResistanceBonus,0	SAB:Turn Resistance % (Ex)|TurnResistanceBonus|PREVARGT:TurnResistanceBonus,0						DEFINE:TurnResistanceBonus|0
 Unnatural Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Unnatural Aura (Su)
+Vacuum Survival							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Vacuum Survival (Ex)
 Vessel of Flesh							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Vessel of Flesh (Su)
 Vulnerability							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Vulnerability (Ex)
 Wall Smash								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Wall Smash (Ex)
@@ -358,6 +366,7 @@ Resistance To Blows			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Resistance To Ballistic Damage	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Ballistic Damage
 Resistance To Piercing Damage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Piercing Damage
 Resistance To Slashing Damage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Slashing Damage
+Resistance To Radiation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance to Radiation
 
 ###Block: Standard Vulnerabilities
 # Ability Name			Category of Ability		Type								Visible	Special ABility				Description
@@ -385,7 +394,7 @@ Breath Weapon ~ Cone of Weakening Gas	CATEGORY:Special Ability	TYPE:SpecialQuali
 Breath Weapon ~ Line of Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) - Line of Acid (% ft long, %d% pts of damage, Ref save (DC %) for half)|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC										DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|0
 Breath Weapon ~ Line of Electricity		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) - Line of Electricity (% ft long, %d% pts of damage, Ref save (DC %) for half)|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC									DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|0
 
-Tail Sweep						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tail Sweep (Ex) (% ft radius, %d%+%, Ref Save (DC %) for half)|TailSweepRadius|TailSweepDice|TailSweepDamageDie|TailSweepBonusDamage|TailSweepDC
+Tail Sweep						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tail Sweep (Ex) (% ft radius, %d%+%, Ref Save (DC %) for half)|TailSweepRadius|TailSweepDice|TailSweepDamageDie|TailSweepBonusDamage|TailSweepDC													DEFINE:TailSweepRadius|0	DEFINE:TailSweepDice|0	DEFINE:TailSweepDamageDie|0	DEFINE:TailSweepBonusDamage|0	DEFINE:TailSweepDC|0
 Fear Aura						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fear Aura % ft (Ex) (Will save DC %)|FearAuraRange|FearAuraDC																											DEFINE:FearAuraRange|0	DEFINE:FearAuraDC|0
 Crush							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Crush %d%+% (Ex) (Ref save DC %)|CrushDice|CrushDamageDie|CrushBonusDamage|CrushDC																							DEFINE:CrushDice|0	DEFINE:CrushDamageDie|0	DEFINE:CrushBonusDamage|0	DEFINE:CrushDC|0
 
@@ -414,6 +423,15 @@ Roach Thrall Disguise Checks		OUTPUTNAME:+10 species bonus on Disguise checks in
 Chemical Toxyderm Breath Weapon	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Breath Weapon (Ex) ~ 50 ft cone, 15d6 points of damage, Ref save (DC %) for half|10+TL/2+CON
 Garbage Toxyderm Breath Weapon	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Breath Weapon (Ex) ~ 50 ft cone, 10d6 points of bludgeoning damage, Ref save  (DC %) for half|10+TL/2+CON
 Nuclear Toxyderm Breath Weapon	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Breath Weapon (Ex)  100 ft cone of white-hot nuclear slag and full spectrum radiation ,20d6 points of damage to all in its path, Ref save (DC %) for half|10+TL/2+CON
+
+###Block: Extraterrestial Poisonous Bite
+# Ability Name						Output Name				Category of Ability		Type						Visible	Special ABility																	Description
+Extraterrestial Poisonous Bite ~ Cha		OUTPUTNAME:Poisonous Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poisonous Bite, Cha damage (Ex) - 2d4 initial, 2d4 secondary, Fort save (DC %) to negate|10+TL/2+CON		DESC:Cha damage - 2d4 initial, 2d4 secondary, Fort save (DC %1) to negate|10+(TL/2)+CON
+Extraterrestial Poisonous Bite ~ Con		OUTPUTNAME:Poisonous Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poisonous Bite, Con damage (Ex) - 1d4 initial, 1d4 secondary, Fort save (DC %) to negate|10+TL/2+CON		DESC:Con damage - 1d4 initial, 1d4 secondary, Fort save (DC %1) to negate|10+(TL/2)+CON
+Extraterrestial Poisonous Bite ~ Dex		OUTPUTNAME:Poisonous Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poisonous Bite, Dex damage (Ex) - 1d6 initial, 1d6 secondary, Fort save (DC %) to negate|10+TL/2+CON		DESC:Dex damage - 1d6 initial, 1d6 secondary, Fort save (DC %) to negate|10+(TL/2)+CON
+Extraterrestial Poisonous Bite ~ Paralysis	OUTPUTNAME:Poisonous Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poisonous Bite, Paralysis (Ex) - no initial, 1d6 hours secondary, Fort save (DC %) to negate|10+TL/2+CON	DESC:Paralysis - no initial, 1d6 hours secondary, Fort save (DC %) to negate|10+(TL/2)+CON
+Extraterrestial Poisonous Bite ~ Str		OUTPUTNAME:Poisonous Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poisonous Bite, Str damage (Ex) - 1d6 initial, 1d6 secondary, Fort save (DC %) to negate|10+TL/2+CON		DESC:Str damage - 1d6 initial, 1d6 secondary, Fort save (DC %) to negate|10+(TL/2)+CON
+Extraterrestial Poisonous Bite ~ Wis		OUTPUTNAME:Poisonous Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poisonous Bite, Wis damage (Ex) - 2d4 initial, 2d4 secondary, Fort save (DC %) to negate|10+TL/2+CON		DESC:Wis damage - 2d4 initial, 2d4 secondary, Fort save (DC %) to negate|10+(TL/2)+CON
 
 #
 # End

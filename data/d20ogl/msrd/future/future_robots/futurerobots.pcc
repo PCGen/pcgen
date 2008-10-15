@@ -25,17 +25,15 @@ INFOTEXT:This set loads the Robot options from the Future section of the MSRD.
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:Building_Robots.txt
 
-#ABILITY:futurerobots_abilities_occupations_mod.lst
-
-RACE:futurerobots_races.lst
+ABILITY:futurerobots_abilities.lst
 CLASS:futurerobots_classes.lst
-KIT:futurerobots_kits.lst
-TEMPLATE:futurerobots_templates.lst
-FEAT:futurerobots_abilities.lst
 EQUIPMENT:futurerobots_equip_robotics.lst
 EQUIPMOD:futurerobots_equipmods.lst
-WEAPONPROF:futurerobots_weaponprofs.lst
+KIT:futurerobots_kits.lst
 ARMORPROF:futurerobots_profs_armor.lst
+RACE:futurerobots_races.lst
+TEMPLATE:futurerobots_templates.lst
+WEAPONPROF:futurerobots_weaponprofs.lst
 
 HIDETYPE:EQUIP|SkillChipSoftware1|SkillChipSoftware2|SkillChipSoftware3|SkillChipSoftware4|SkillChipSoftware5|SkillChipSoftware6|SkillChipSoftware7|SkillChipSoftware8
 HIDETYPE:EQUIP|SkillProgitSoftware4|SkillProgitSoftware8|SkillProgitSoftware12

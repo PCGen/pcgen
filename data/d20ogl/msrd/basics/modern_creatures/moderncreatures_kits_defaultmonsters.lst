@@ -134,7 +134,7 @@ RACE:Golem (Flesh)	!PRERACE:1,%
 NAME:Flesh Golem
 
 STARTPACK:Golem (Advanced Flesh) Default	TYPE:DefaultMonster.	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
-KIT:Default Golem (Flesh)
+KIT:Golem (Flesh) Default
 STAT:STR=19|DEX=9|CON=10|INT=10|WIS=11|CHA=11
 CLASS:Construct	LEVEL:11
 NAME:Advanced Flesh Golem
@@ -152,7 +152,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Focus (Slam)
 
 STARTPACK:Invisible Stalker (Advanced) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Invisible Stalker]
-KIT:Default Invisible Stalker
+KIT:Invisible Stalker Default
 NAME:Advanced Invisible Stalker
 CLASS:Elemental (Air/Fire)	LEVEL:4
 SKILL:Listen		RANK:2
@@ -210,7 +210,7 @@ RACE:Monstrous Plant (Flytrap)	!PRERACE:1,%
 NAME:Monstrous Flytrap
 
 STARTPACK:Monstrous Plant (Advanced Flytrap) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Plant (Flytrap)]
-KIT:Default Monstrous Plant (Flytrap)
+KIT:Monstrous Plant (Flytrap) Default
 STAT:STR=18|DEX=11|CON=15|INT=10|WIS=10|CHA=10
 CLASS:Plant	LEVEL:11
 NAME:Advanced Monstrous Flytrap

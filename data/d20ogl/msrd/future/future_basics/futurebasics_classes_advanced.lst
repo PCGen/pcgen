@@ -183,7 +183,7 @@ CLASS:Xenophile	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClas
 CLASS:Xenophile	PREABILITY:1,CATEGORY=Talent,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
-1	BONUS:ABILITYPOOL|Xenotype|1												ABILITY:Special Ability|AUTOMATIC|Xenolore		AUTO:FEAT|Base Xenotype
+1	BONUS:ABILITYPOOL|Xenotype|1												ABILITY:Special Ability|AUTOMATIC|Xenolore|Base Xenotype
 2												BONUS:VAR|Xenoresist|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Xenoresistance
 3	BONUS:ABILITYPOOL|Xenophile Feat|1
 4	BONUS:ABILITYPOOL|Xenotype|1	BONUS:ABILITYPOOL|Xenotype Bonus|1

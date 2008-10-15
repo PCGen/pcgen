@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 19 22:47:56 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Oct 15 12:52:15 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original entry by Eddy Anthony (MoSaT)
 
@@ -280,10 +280,10 @@ Robot Ability Upgrade (Wisdom)		TYPE:Robotic.PL7	SOURCEPAGE:FutureRobots.rtf	BON
 
 ###Block: Robot Accessories
 
-# Equipment Name							Output Name					Type					Contains		Cost		Source Page				Damage Reduction	Add to base move						Add to vision						Special Property						Special ABility
+# Equipment Name							Output Name					Type					Contains		Cost		Source Page				Ability																						Damage Reduction	Add to base move						Modify VAR																				Add to vision						Special Property
 Robot Accessory (AV Recorder)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:13	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (AV Transmitter)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:16	SOURCEPAGE:FutureRobots.rtf
-Robot Accessory (Fire Extinguisher)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5								SOURCEPAGE:FutureRobots.rtf																				SPROP:Purchase DC: %|5+(RobotPurchaseDC/4)
+Robot Accessory (Fire Extinguisher)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL5								SOURCEPAGE:FutureRobots.rtf																																																																SPROP:Purchase DC: %|5+(RobotPurchaseDC/4)
 Robot Accessory (Integrated Cell Phone)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL5						COST:11	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Internal Storage Unit/Small)		OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:10		COST:6	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Internal Storage Unit/Medium)		OUTPUTNAME:[NAME]				TYPE:Robotic.Container.PL5	CONTAINS:20		COST:8	SOURCEPAGE:FutureRobots.rtf
@@ -304,17 +304,17 @@ Robot Accessory (Weapon Mount/Gargantuan)			OUTPUTNAME:Weapon Mount			TYPE:Robot
 Robot Accessory (Weapon Mount/Colossal)			OUTPUTNAME:Weapon Mount			TYPE:Robotic.PL5						COST:14	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Integrated Videophone)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL6						COST:14	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Magnetic Feet)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL6						COST:12	SOURCEPAGE:FutureRobots.rtf
-Robot Accessory (Self-Destruct System/Colossal)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:27	SOURCEPAGE:FutureRobots.rtf																				SPROP:12d6 Collateral Damage
-Robot Accessory (Self-Destruct System/Gargantuan)	OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:24	SOURCEPAGE:FutureRobots.rtf																				SPROP:9d6 Collateral Damage
-Robot Accessory (Self-Destruct System/Huge)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:21	SOURCEPAGE:FutureRobots.rtf																				SPROP:6d6 Collateral Damage
-Robot Accessory (Self-Destruct System/Large)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:19	SOURCEPAGE:FutureRobots.rtf																				SPROP:4d6 Collateral Damage
-Robot Accessory (Self-Destruct System/Medium)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:17	SOURCEPAGE:FutureRobots.rtf																				SPROP:2d6 Collateral Damage
-Robot Accessory (Self-Destruct System/Small)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:16	SOURCEPAGE:FutureRobots.rtf																				SPROP:1d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Colossal)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:27	SOURCEPAGE:FutureRobots.rtf																																																																SPROP:12d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Gargantuan)	OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:24	SOURCEPAGE:FutureRobots.rtf																																																																SPROP:9d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Huge)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:21	SOURCEPAGE:FutureRobots.rtf																																																																SPROP:6d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Large)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:19	SOURCEPAGE:FutureRobots.rtf																																																																SPROP:4d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Medium)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:17	SOURCEPAGE:FutureRobots.rtf																																																																SPROP:2d6 Collateral Damage
+Robot Accessory (Self-Destruct System/Small)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:16	SOURCEPAGE:FutureRobots.rtf																																																																SPROP:1d6 Collateral Damage
 Robot Accessory (Self-Destruct System/Tiny)		OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:15	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Self-Destruct System/Diminutive)	OUTPUTNAME:Self-Destruct System	TYPE:Robotic.PL6						COST:15	SOURCEPAGE:FutureRobots.rtf
-Robot Accessory (Survivor Array)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL6								SOURCEPAGE:FutureRobots.rtf				BONUS:MOVEADD|TYPE.Walk|10|PRERACE:1,TYPE=Robot	BONUS:VISION|DarkVision|60|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|15+(RobotPurchaseDC/5)	SAB:Resistance to Acid 10|PRERACE:1,TYPE=Robot	SAB:Resistance to Cold 10|PRERACE:1,TYPE=Robot	SAB:Resistance to Electricity 10|PRERACE:1,TYPE=Robot	SAB:Resistance to Fire 10|PRERACE:1,TYPE=Robot
+Robot Accessory (Survivor Array)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL6								SOURCEPAGE:FutureRobots.rtf	ABILITY:Special Ability|AUTOMATIC|Resistance To Acid|Resistance To Cold|Resistance To Electricity|Resistance To Fire|PRERACE:1,TYPE=Robot				BONUS:MOVEADD|TYPE.Walk|10|PRERACE:1,TYPE=Robot	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|10|PRERACE:1,TYPE=Robot	BONUS:VISION|DarkVision|60|PRERACE:1,TYPE=Robot	SPROP:Purchase DC: %|15+(RobotPurchaseDC/5)
 Robot Accessory (Holo Screen)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:28	SOURCEPAGE:FutureRobots.rtf
-Robot Accessory (Inertial Inhibitor)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:29	SOURCEPAGE:FutureRobots.rtf	DR:5/Energy
+Robot Accessory (Inertial Inhibitor)			OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:29	SOURCEPAGE:FutureRobots.rtf																								DR:5/Energy
 Robot Accessory (Polyvox)					OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:17	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Self-Repair Unit)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL7						COST:25	SOURCEPAGE:FutureRobots.rtf
 Robot Accessory (Photon Screen)				OUTPUTNAME:[NAME]				TYPE:Robotic.PL8						COST:33	SOURCEPAGE:FutureRobots.rtf

@@ -1,40 +1,40 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 17:00:06 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Oct 15 13:28:23 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
-# Ability Name			Category of Ability		Type					Visible	Special ABility
+# Ability Name			Category of Ability		Type					Visible	Special ABility						Define
 Action Trust			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Action Trust
 August Leadership			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:August Leadership
 Build Prototype			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Build Prototype
 Cheat Fate				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Cheat Fate
 Commanding Presence		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Commanding Presence
-Craft XP Reserve			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Craft XP Reserve
+Craft XP Reserve			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Craft XP Reserve (%)|CraftReserve		DEFINE:CraftReserve|0
 Cybermancer				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Cybermancer
 Decisive Attack			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Decisive Attack
 Defender of the Universe	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Defender of the Universe
 Diplomatic Immunity		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Diplomatic Immunity
-Down with Robots			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Down with Robots
+Down with Robots			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Down with Robots +%|DownWithRobots		DEFINE:DownWithRobots|0
 Exotic Weapons Adept		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Exotic Weapons Adept
 Expeditious Salvager		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Expeditious Salvager
-Explorer Lore			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Explorer Lore
-Explorer's Evasion		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:s Evasion
+Explorer Lore			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Explorer Lore +%|ExplorerLore			DEFINE:ExplorerLore|0
+Explorer's Evasion		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Explorer's Evasion
 Extra Step				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Extra Step
-Fortune's Favor			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:s Favor
+Fortune's Favor			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Fortune's Favor +%|FortunesFavor		DEFINE:FortunesFavor|0
 Haul					CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Haul
 Heavy Artillery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Heavy Artillery
 Hibernation Trance		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Hibernation Trance
-Improve Kit				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improve Kit
+Improve Kit				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improve Kit +%|ImproveKit				DEFINE:ImproveKit|0
 Information Access		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Information Access
 Keep it Together			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Keep it Together
 Knockdown				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Knockdown
-Know Location			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Know Location
+Know Location			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Know Location (%)|KnowLocation			DEFINE:KnowLocation|0
 Leadership				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Leadership
 Light Sleeper			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Light Sleeper
 Master Defender			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Master Defender
 Monkey Shines			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Monkey Shines
 Monkey Shot				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Monkey Shot
 Monkeys Unite			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Monkeys Unite
-Monkey's Wrench			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:s Wrench
+Monkey's Wrench			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Monkey's Wrench +%|MonkeysWrench		DEFINE:MonkeysWrench|0
 Open Arms				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Open Arms
 Quick Craft				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Quick Craft
 Quick Fix				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Quick Fix
@@ -44,7 +44,7 @@ Restricted Access			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:N
 Robomancer				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Robomancer
 Sabotage				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sabotage
 Select Consuls			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Select Consuls
-Shake Rattle and Roll		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Shake Rattle and Roll
+Shake Rattle and Roll		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Shake Rattle and Roll +%|ShakeRattleRoll	DEFINE:ShakeRattleRoll|0
 Skilled Researcher		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skilled Researcher
 Skilled Salvager			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Skilled Salvager
 Space Suitable			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Space Suitable
@@ -68,11 +68,11 @@ Uncanny Survival			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO
 Unflustered				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Unflustered
 Unhindered				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Unhindered
 Virtual Houdini			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Virtual Houdini
-Warp Probability			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Warp Probability
+Warp Probability			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Warp Probability +%|WarpProbability		DEFINE:WarpProbability|0
 Weapon Upgrade			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Weapon Upgrade
-Xenodefense				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Xenodefense
+Xenodefense				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Xenodefense +%|Xenodef				DEFINE:Xenodef|0
 Xenolore				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Xenolore
-Xenoresistance			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Xenoresistance
+Xenoresistance			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Xenoresistance +%|Xenoresist			DEFINE:Xenoresist|0
 
 ###Block: Special Abilities
 # Ability Name			Output Name				Category of Ability		Visible	Special ABility																									Define																				Combat bonus										Stat bonus										Modify VAR
