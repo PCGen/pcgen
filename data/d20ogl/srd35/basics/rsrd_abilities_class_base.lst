@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Sep 11 13:33:52 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Oct 15 17:51:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -218,13 +218,13 @@ Ki Strike		CATEGORY:Special Ability	TYPE:Special.Supernatural	VISIBLE:NO	SAB:Ki 
 Monk Ki Strike Advancement	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Paladin Abilities --------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type				Visible	Special ABility													Define								Innate Spells										Save checks bonus						Modify VAR							Source Page
-Aura of Courage	CATEGORY:Special Ability	TYPE:Supernatural.Aura	VISIBLE:NO	SAB:Aura of Courage (Su)																																																SOURCEPAGE:ClassesII.rtf
-Divine Health	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Divine Health (Ex)																																																	SOURCEPAGE:ClassesII.rtf
-Remove Disease	CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease								DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																					BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
-Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Lay on Hands (Su)|PREVAREQ:LayOnHands,0	DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																						BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
-Divine Grace	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Divine Grace (Su)																																	BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
-Detect Evil		CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Detect Evil (Sp)												DEFINE:DetectEvilLVL|0						SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type				Visible	Special ABility													Define								Innate Spells										Description																Save checks bonus						Modify VAR							Source Page
+Aura of Courage	CATEGORY:Special Ability	TYPE:Supernatural.Aura	VISIBLE:NO	SAB:Aura of Courage (Su)																																DESC:Each ally within 10 feet of you gains a +4 morale bonus on saving throws against fear effects.																	SOURCEPAGE:ClassesII.rtf
+Divine Health	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Divine Health (Ex)																																																																		SOURCEPAGE:ClassesII.rtf
+Remove Disease	CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease								DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																																						BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
+Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Lay on Hands (Su)|PREVAREQ:LayOnHands,0	DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																																							BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
+Divine Grace	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Divine Grace (Su)																																																		BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
+Detect Evil		CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Detect Evil (Sp)												DEFINE:DetectEvilLVL|0						SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																																		SOURCEPAGE:ClassesII.rtf
 
 ###Block: Paladin Internals
 # Ability Name		Category of Ability		Type			Visible	Define													Modify VAR																											Source Page

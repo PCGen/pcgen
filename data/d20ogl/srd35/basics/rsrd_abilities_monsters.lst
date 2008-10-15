@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 15 14:39:33 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Oct 15 17:51:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Eddy Anthony, Tir Gwaith
 
@@ -25,7 +25,7 @@ Antimagic Field		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VIS
 Astral Projection		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Astral Projection (Su)
 Attach			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:NO	SAB:Attach (Ex)
 Augmented Critical	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:NO	SAB:Augmented Critical (Ex)
-Aura of Doom		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Aura of Doom (Su)
+Aura of Doom		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Aura of Doom (Su)
 Aura of Menace		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Aura of Menace (Su)
 Aversion To Daylight	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:NO	SAB:Aversion To Daylight (Ex)
 Babble			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Babble (Su)
@@ -51,13 +51,13 @@ Body Thief			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:
 Burn				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:NO	SAB:Burn (Ex)
 
 ###Block: RSRD Abilities C-D
-# Ability Name			Category of Ability		Type								Visible	Special ABility																								Define																	Description																					Save checks bonus										Combat bonus														Bonus to HP											Bonus to skill				Source Page						Temporary effect description
+# Ability Name			Category of Ability		Type								Visible	Special ABility																								Define																	Description																																											Save checks bonus										Combat bonus														Bonus to HP											Bonus to skill				Source Page						Temporary effect description
 Capsize				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Capsize (Ex)
 Captivating Song			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Captivating Song (Su)
 Carapace				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Carapace (Ex)
 Cascade Flu				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Cascade Flu (Ex)
 Chameleon Ability			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Chameleon Ability (Ex)
-Change Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Change Shape (Su)																																									DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																															SOURCEPAGE:TypesSubtypesAbilities.rtf
+Change Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Change Shape (Su)																																									DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																																																					SOURCEPAGE:TypesSubtypesAbilities.rtf
 Change Size				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Change Size (Sp)
 Charisma Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Charisma Drain (Su)
 Charm Person			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:NO	SAB:Charm Person (Sp)
@@ -68,14 +68,14 @@ Chronal Blast			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISI
 Cloudwalking			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Cloudwalking (Su)
 Cocoon				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Cocoon (Ex)
 Cold					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Cold (Ex)
-Cold Aura				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Cold Aura (Su)
+Cold Aura				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO	SAB:Cold Aura (Su)																																									DESC:A 10-foot-radius spread cold aura surrounds a you. Creatures of the cold sub-type are treated as if having turn resistance +6 (if undead) and fast healing 10. Creatures subject to cold Damage take 2d10 cold Damage each round they remain within the cold aura.
 Combustion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Combustion (Ex)
-Compound Eyes			CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:NO	SAB:Compound Eyes																																																																																																								BONUS:SKILL|Spot|2|TYPE=Racial
-Concealing Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Concealing Aura (Ex)
-Confusion Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Confusion Aura (Su)
+Compound Eyes			CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:NO	SAB:Compound Eyes																																																																																																																														BONUS:SKILL|Spot|2|TYPE=Racial
+Concealing Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura		VISIBLE:NO	SAB:Concealing Aura (Ex)
+Confusion Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO	SAB:Confusion Aura (Su)																																									DESC:This ability operates continuously, as the confusion spell but with a 30-foot radius. Potential victims can make a Will save (DC 47) to resist confusion.
 Constant Insight			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Constant Insight (Su)
 Constitution Drain		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Constitution Drain (Su)
-Constrict				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Constrict (Ex)																																									DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Constrict				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Constrict (Ex)																																									DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																										SOURCEPAGE:TypesSubtypesAbilities.rtf
 Corporeal Instability		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Corporeal Instability (Su)
 Corrosive Slime			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Corrosive Slime (Ex)
 Corrupt Water			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:NO	SAB:Corrupt Water (Sp) %/day (DC %)|CorruptWaterTimes|CorruptWaterPresDC														DEFINE:CorruptWaterPresDC|10+(HD/2)+CHA	DEFINE:CorruptWaterTimes|1
@@ -94,7 +94,7 @@ Daylight Powerlessness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 Death Gaze				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Death Gaze (Su)
 Death Throes			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Death Throes (Ex)
 Deflecting Force			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Deflecting Force (Su)
-Desecrating Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Desecrating Aura (Su)																																																														BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC							SOURCEPAGE:MonstersM-N.rtf			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
+Desecrating Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO	SAB:Desecrating Aura (Su)																																								DESC:You give off a 20-foot radius emanation of utter desecration, imbuing your surroundings with negative energy.																									BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC							SOURCEPAGE:MonstersM-N.rtf			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
 Despair				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Despair (Su)
 Destabilize Form			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Destabilize Form (Su)
 Destructive Harmonics		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Destructive Harmonics (Su)
@@ -139,9 +139,9 @@ Evil Gaze										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				
 Explosion										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Explosion (Su)
 Extract Brains									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:NO	SAB:Extract Brains (Sp)
 Eye Rays										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Eye Rays (Su)
-Fast Healing									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura			VISIBLE:NO	SAB:Fast Healing (Ex)|PREVAREQ:FastHealing,0	SAB:Fast Healing (Ex) %|FastHealing|PREVARGT:FastHealing,0															DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing								SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fast Healing									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Fast Healing (Ex)|PREVAREQ:FastHealing,0	SAB:Fast Healing (Ex) %|FastHealing|PREVARGT:FastHealing,0															DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing								SOURCEPAGE:TypesSubtypesAbilities.rtf
 Fear											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Fear (Su)
-Fear Aura										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Fear Aura (DC %)|PREVAREQ:FearAuraDC,0	SAB:Fear Aura (DC %) (Su)|FearAuraDC|PREVARGT:FearAuraDC,0															DEFINE:FearAuraDC|0
+Fear Aura										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:NO	SAB:Fear Aura (DC %)|PREVAREQ:FearAuraDC,0	SAB:Fear Aura (% ft. radius DC %) (Su)|FearAuraRadius|FearAuraDC|PREVARGT:FearAuraDC,0										DEFINE:FearAuraDC|0	DEFINE:FearAuraRadius|0					DESC:%1 ft. radius, DC %2|FearAuraRadius|FearAuraDC|PREVARGT:FearAuraDC,0
 Fear Gaze										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Fear Gaze (Su)
 Feed											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Feed (Su)
 Ferocity										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Ferocity (Ex)
@@ -185,7 +185,7 @@ Haste					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:N
 Head Tentacles			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Head Tentacles (Ex)
 Headloss Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Headloss Resistance (Ex)
 Heat					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Heat (Ex)
-Heat Aura				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Heat Aura (Su)
+Heat Aura				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO	SAB:Heat Aura (Su)
 Hide Mind				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Hide Mind (Su)
 Hive Mind				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Hive Mind (Ex)
 Hold Breath				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Hold Breath (Ex)
@@ -237,7 +237,7 @@ Natural Magic Weapons													CATEGORY:Special Ability	TYPE:SpecialQuality.E
 Natural Weapons Treated as Epic											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Natural Weapons Treated as Epic (Ex)
 Naturally Psionic														CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:NO	SAB:Naturally Psionic|PREVAREQ:RaceBonusPP,0	SAB:Naturally Psionic (+% BonusPP)|RaceBonusPP|PREVARGT:RaceBonusPP,0					DEFINE:RaceBonusPP|0
 Negative Energy Affinity												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Negative Energy Affinity (Su)
-Negative Energy Aura													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Negative Energy Aura (Su)
+Negative Energy Aura													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO	SAB:Negative Energy Aura (Su)
 Null Psionic Exhalation													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Null Psionic Exhalation (Su)
 Null Time Field														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Null Time Field (Ex)
 Oversized Weapon														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Oversized Weapon (Ex)																																																								MULT:YES	CHOOSE:WEAPONPROFS|LIST								BONUS:WEAPONPROF=%LIST|PCSIZE|1
@@ -383,7 +383,7 @@ True Seeing				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIB
 Trumpet				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Trumpet (Su)
 Turn Resistance			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Turn Resistance (Ex)|PREVAREQ:TurnResistBonus,0	SAB:Turn Resistance (Ex) +%|TurnResistBonus|PREVARGT:TurnResistBonus,0									DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus									DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Unearthly Grace			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Unearthly Grace (Su)
-Unnatural Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Unnatural Aura (Su)
+Unnatural Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO	SAB:Unnatural Aura (Su)
 Unnerving Gaze			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Unnerving Gaze (Su)
 Vampiric Touch			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Vampiric Touch (Su)
 Vorpal Sword			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Vorpal Sword (Su)
@@ -611,7 +611,6 @@ Breath Fire ~ Hydra	OUTPUTNAME:Breath Fire		CATEGORY:Special Ability	TYPE:Specia
 Breath Frost ~ Hydra	OUTPUTNAME:Breath Frost		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Breath Frost ~ % heads every 1d4 rounds/3d6 Cold Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON
 Burst ~ Xeph		OUTPUTNAME:Burst			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Burst (Su) (3x/day; competence bonus to speed of +% for 3 rounds)|BurstBonus											DEFINE:BurstBonus|0
 Dominate ~ Vampire	OUTPUTNAME:Dominate		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Dominate (Su) DC%|VampireAbilityDC
-Fear Aura ~ Lich		OUTPUTNAME:Fear Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Fear Aura (Su) ~ DC%|LichAbilityDC
 Paralyzing Touch ~ Lich	OUTPUTNAME:Paralyzing Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Paralyzing Touch (Su) ~ DC%|LichAbilityDC
 Stench ~ Troglodyte	OUTPUTNAME:Stench			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stench (Ex) DC %|TrogStenchDC																			DEFINE:TrogStenchDC|0
 Touch Attack ~ Lich	OUTPUTNAME:Touch Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Touch Attack (Ex) ~ Negative Energy 1d8+5 DC%|LichAbilityDC

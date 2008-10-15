@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 18 22:29:50 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Wed Oct 15 17:51:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -40,12 +40,12 @@ Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAt
 
 ###Block: Blackguard special abilities -----------------------------------------------------------------------------------------------
 # Feat Name		Type			Visible	Special ABility			Innate Spells											Save checks bonus						Source Page
-# Ability Name		Output Name			Category of Ability		Type			Visible	Special ABility							Define				Innate Spells											Save checks bonus						Source Page
-Detect Good							CATEGORY:Special Ability	TYPE:SpellLike	VISIBLE:NO	SAB:Detect Good (Sp)											SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS									SOURCEPAGE:PrestigeClasses.rtf
-Dark Blessing						CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Dark Blessing (Su)																								BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
-Aura of Despair						CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Aura of Despair (Su)																															SOURCEPAGE:PrestigeClasses.rtf
-Blackguard Lay on Hands	OUTPUTNAME:Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural	VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands	DEFINE:BlackguardLayOnHands|0																						SOURCEPAGE:PrestigeClasses.rtf
-Fiendish Summoning					CATEGORY:Special Ability	TYPE:SpellLike	VISIBLE:NO	SAB:Fiendish Summoning (Sp)																															SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name		Output Name			Category of Ability		Type				Visible	Special ABility							Define				Innate Spells											Description												Save checks bonus						Source Page
+Detect Good							CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Detect Good (Sp)											SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS																						SOURCEPAGE:PrestigeClasses.rtf
+Dark Blessing						CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Dark Blessing (Su)																																					BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
+Aura of Despair						CATEGORY:Special Ability	TYPE:Supernatural.Aura	VISIBLE:NO	SAB:Aura of Despair (Su)																							DESC:Enemies within 10 feet of you to take a -2 penalty on all saving throws.									SOURCEPAGE:PrestigeClasses.rtf
+Blackguard Lay on Hands	OUTPUTNAME:Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands	DEFINE:BlackguardLayOnHands|0																																			SOURCEPAGE:PrestigeClasses.rtf
+Fiendish Summoning					CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Fiendish Summoning (Sp)																																												SOURCEPAGE:PrestigeClasses.rtf
 
 
 #COMMENT: Not sure about Dragon Disciple stuff, so I'm commenting these out for now. - Tir Gwaith
