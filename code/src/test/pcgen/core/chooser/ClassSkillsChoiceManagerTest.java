@@ -85,7 +85,8 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 			pcClass.addToListFor(ListKey.CSKILL, context.ref.getCDOMReference(Skill.class, "KEY_Bluff"));
 			pcClass.addToListFor(ListKey.CSKILL, context.ref.getCDOMReference(Skill.class, "KEY_Listen"));
 			pcClass.addToListFor(ListKey.CSKILL, context.ref.getCDOMTypeReference(Skill.class, "Knowledge"));
-			pcClass.addCcSkill("KEY_Move Silently");
+			pcClass.addToListFor(ListKey.CCSKILL, context.ref
+					.getCDOMTypeReference(Skill.class, "KEY_Move Silently"));
 			context.resolveReferences();
 		}
 

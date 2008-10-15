@@ -23,12 +23,12 @@
  */
 package pcgen.core.chooser;
 
-import java.util.List;
-
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
 
 /**
  * This is the chooser that deals with choosing a skill.
@@ -63,7 +63,9 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 		super.associateChoice(pc, st);
 		if (pobject != null && pobject instanceof Ability)
 		{
-			pobject.addCcSkill(st);
+			Skill sk = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Skill.class, st);
+			pc.addAssoc(pobject, AssociationListKey.CCSKILL, sk);
 		}
 	}
 
@@ -76,24 +78,7 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 	{
 		if (pobject != null && pobject instanceof Ability)
 		{
-			Ability anAbility = (Ability) pobject;
-
-			List<String> skillList = anAbility.getCcSkillList();
-			if (skillList != null)
-			{
-				Ability globalAbility = Globals.getAbilityKeyed(anAbility
-						.getCategory(), pobject.getKeyName());
-				List<String> globalList = globalAbility.getCcSkillList();
-				anAbility.clearCcSkills();
-				if (globalList != null)
-				{
-					skillList.retainAll(globalList);
-					for (String keepMe : skillList)
-					{
-						anAbility.addCcSkill(keepMe);
-					}
-				}
-			}
+			aPC.removeAllAssocs(pobject, AssociationListKey.CCSKILL);
 		}
 		super.cleanUpAssociated(aPC);
 	}

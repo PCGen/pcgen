@@ -1058,10 +1058,17 @@ public final class EditorMainForm extends JDialog
 			//
 			// Save granted cross class skills
 			//
-			thisPObject.clearCcSkills();
+			thisPObject.removeListFor(ListKey.CCSKILL);
 			sel = pnlSkills.getSelectedList2();
-			for(int i = 0; i < sel.length; i++) {
-				thisPObject.addCcSkill(aString);
+			for (int i = 0; i < sel.length; i++)
+			{
+				Skill sk = context.ref.silentlyGetConstructedCDOMObject(
+						Skill.class, sel[i].toString());
+				if (sk != null)
+				{
+					thisPObject.addToListFor(ListKey.CCSKILL,
+							CDOMDirectSingleRef.getRef(sk));
+				}
 			}
 		}
 
@@ -2293,18 +2300,21 @@ public final class EditorMainForm extends JDialog
 			pnlSkills.setSelectedList(selectedClassCrossClassList, true);
 
 			List<String> selectedCCSkillList = new ArrayList<String>();
-			List<String> skills = thisPObject.getCcSkillList();
+			List<CDOMReference<Skill>> ccsk = thisPObject.getListFor(ListKey.CCSKILL);
 
-			if (skills != null)
+			if (ccsk != null)
 			{
-				for (Iterator<String> e = skills.iterator(); e.hasNext();)
+				for (CDOMReference<Skill> ref : ccsk)
 				{
-					aString = e.next();
-					selectedCCSkillList.add(aString);
-
-					if (availableClassCrossClassList.contains(aString))
+					for (Skill sk : ref.getContainedObjects())
 					{
-						availableClassCrossClassList.remove(aString);
+						String key = sk.getKeyName();
+						selectedClassCrossClassList.add(key);
+
+						if (availableClassCrossClassList.contains(key))
+						{
+							availableClassCrossClassList.remove(key);
+						}
 					}
 				}
 			}

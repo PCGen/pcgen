@@ -120,103 +120,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Methods
 	 * ************/
 	/**
-	 * Adds entry to the CSkill list
-	 * @param entry skill to add
-	 */
-	public final void addCcSkill(String entry)
-	{
-		if (entry.startsWith(".CLEAR"))
-		{
-			if (".CLEAR".equals(entry))
-			{
-				clearCcSkills();
-			}
-			else
-			{
-				if (entry.startsWith(".CLEAR"))
-				{
-					entry = entry.substring(7);
-				}
-
-				if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
-				{
-					final String typeString = entry.substring(5);
-
-					for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
-					{
-						boolean toClear = true;
-						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
-
-						while (cTok.hasMoreTokens() && toClear)
-						{
-							if (!skill.isType(cTok.nextToken()))
-							{
-								toClear = false;
-							}
-						}
-
-						if (toClear)
-						{
-							removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
-						}
-					}
-				}
-				else
-				{
-					removeFromListFor(ListKey.CROSS_CLASS_SKILLS, entry);
-				}
-			}
-		}
-		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
-		{
-			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-			{
-				if (skill.isType(entry.substring(5)))
-				{
-					addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
-				}
-			}
-		}
-		else if ("ALL".equals(entry))
-		{
-			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-			{
-				addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
-			}
-		}
-		else
-		{
-			addToListFor(ListKey.CROSS_CLASS_SKILLS, entry);
-		}
-	}
-
-	/**
-	 * Adds all of the entries to the CSkills list
-	 * @param entries list of entries
-	 */
-	public final void addAllCcSkills(final List<String> entries)
-	{
-		addAllToListFor(ListKey.CROSS_CLASS_SKILLS, entries);
-	}
-
-	/**
-	 * Clears the class skill list
-	 */
-	public void clearCcSkills()
-	{
-		removeListFor(ListKey.CROSS_CLASS_SKILLS);
-	}
-
-	/**
-	 * Get the list of class skills for this object
-	 * @return the list of class skills for this object
-	 */
-	public final List<String> getCcSkillList()
-	{
-		return getListFor(ListKey.CROSS_CLASS_SKILLS);
-	}
-
-	/**
 	 * Set the description of this object
 	 * @param a
 	 */
@@ -1347,12 +1250,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 
-		List<String> ccSkillList = getCcSkillList();
-		if ((ccSkillList != null) && (ccSkillList.size() != 0))
-		{
-			txt.append("\tCCSKILL:").append(StringUtil.join(ccSkillList, "|"));
-		}
-
 		aString = getChoiceString();
 
 		if ((aString != null) && (aString.length() != 0))
@@ -1845,42 +1742,34 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public final boolean hasCcSkill(PlayerCharacter pc, final String aName)
 	{
-		List<String> ccSkillList = getCcSkillList();
-		if ((ccSkillList == null) || ccSkillList.isEmpty())
+		List<CDOMReference<Skill>> ccSkillList = getListFor(ListKey.CCSKILL);
+		List<Skill> assocCCSkill = pc.getAssocList(this,
+				AssociationListKey.CCSKILL);
+		if (ccSkillList != null && !ccSkillList.isEmpty())
 		{
-			return false;
-		}
-
-		if (ccSkillList.contains(aName))
-		{
-			return true;
-		}
-
-
-		if (ccSkillList.contains("LIST"))
-		{
-			for (String aString : pc.getAssociationList(this))
+			for (CDOMReference<Skill> ref : ccSkillList)
 			{
-				if (aName.startsWith(aString) || aString.startsWith(aName))
+				// Have to do slow due to cloning :P
+				for (Skill sk : ref.getContainedObjects())
+				{
+					if (sk.getKeyName().equals(aName))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		if (assocCCSkill != null && !assocCCSkill.isEmpty())
+		{
+			for (Skill sk : assocCCSkill)
+			{
+				// Have to do slow due to cloning :P
+				if (sk.getKeyName().equals(aName))
 				{
 					return true;
 				}
 			}
 		}
-		
-		for (String aString : getCcSkillList())
-		{
-			if (aString.lastIndexOf('%') >= 0)
-			{
-				aString = aString.substring(0, aString.length() - 1);
-
-				if (aName.startsWith(aString))
-				{
-					return true;
-				}
-			}
-		}
-
 		return false;
 	}
 
