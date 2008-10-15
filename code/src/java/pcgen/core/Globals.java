@@ -420,15 +420,24 @@ public final class Globals
 	 */
 	public static void addCompanionMod(final CompanionMod aMod)
 	{
-		CompanionList cList = Globals.getContext().ref.constructNowIfNecessary(
-				CompanionList.class, aMod.getType());
-		List<CompanionMod> mods = companionModMap.get(cList);
-		if (mods == null)
+		String type = aMod.getType();
+		if (type == null || type.length() == 0)
 		{
-			mods = new ArrayList<CompanionMod>();
-			companionModMap.put(cList, mods);
+			Logging.log(Logging.LST_ERROR, "CompanionMod must have a TYPE:, "
+					+ aMod.getKeyName() + " was not assigned a TYPE");
 		}
-		mods.add(aMod);
+		else
+		{
+			CompanionList cList = Globals.getContext().ref.constructNowIfNecessary(
+					CompanionList.class, type);
+			List<CompanionMod> mods = companionModMap.get(cList);
+			if (mods == null)
+			{
+				mods = new ArrayList<CompanionMod>();
+				companionModMap.put(cList, mods);
+			}
+			mods.add(aMod);
+		}
 	}
 
 	/**
