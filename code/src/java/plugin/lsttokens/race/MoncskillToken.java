@@ -8,17 +8,23 @@ import java.util.StringTokenizer;
 
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.reference.AssociationReference;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -29,7 +35,7 @@ import pcgen.util.Logging;
  * Class deals with MONCSKILL Token
  */
 public class MoncskillToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+		CDOMPrimaryToken<Race>, ChooseResultActor
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
@@ -70,7 +76,7 @@ public class MoncskillToken extends AbstractToken implements
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
-				CDOMReference<Skill> skill;
+				CDOMReference<Skill> skill = null;
 				String clearText = tokText.substring(7);
 				if (Constants.LST_ALL.equals(clearText))
 				{
@@ -78,16 +84,28 @@ public class MoncskillToken extends AbstractToken implements
 				}
 				else
 				{
-					skill = getSkillReference(context, race, clearText);
+					if (Constants.LST_LIST.equals(clearText))
+					{
+						context.getObjectContext().removeFromList(race,
+								ListKey.CHOOSE_ACTOR, this);
+					}
+					else
+					{
+						skill = getSkillReference(context, clearText);
+						if (skill == null)
+						{
+							Logging
+									.errorPrint("  Error was encountered while parsing "
+											+ getTokenName());
+							return false;
+						}
+					}
 				}
-				if (skill == null)
+				if (skill != null)
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
-							+ getTokenName());
-					return false;
+					context.getListContext().removeFromList(getTokenName(),
+							race, PCClass.MONSTER_SKILL_LIST, skill);
 				}
-				context.getListContext().removeFromList(getTokenName(), race,
-						PCClass.MONSTER_SKILL_LIST, skill);
 			}
 			else
 			{
@@ -99,7 +117,7 @@ public class MoncskillToken extends AbstractToken implements
 				 * the graph would also make it harder to trace the source of
 				 * class skills, etc.)
 				 */
-				CDOMReference<Skill> skill;
+				CDOMReference<Skill> skill = null;
 				if (Constants.LST_ALL.equals(tokText))
 				{
 					foundAny = true;
@@ -108,18 +126,31 @@ public class MoncskillToken extends AbstractToken implements
 				else
 				{
 					foundOther = true;
-					skill = getSkillReference(context, race, tokText);
+					if (Constants.LST_LIST.equals(tokText))
+					{
+						context.getObjectContext().addToList(race,
+								ListKey.CHOOSE_ACTOR, this);
+					}
+					else
+					{
+						skill = getSkillReference(context, tokText);
+						if (skill == null)
+						{
+							Logging
+									.errorPrint("  Error was encountered while parsing "
+											+ getTokenName());
+							return false;
+						}
+					}
 				}
-				if (skill == null)
+				if (skill != null)
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
-							+ getTokenName());
-					return false;
+					AssociatedPrereqObject apo = context.getListContext()
+							.addToList(getTokenName(), race,
+									PCClass.MONSTER_SKILL_LIST, skill);
+					apo.setAssociation(AssociationKey.SKILL_COST,
+							SkillCost.CLASS);
 				}
-				AssociatedPrereqObject apo = context.getListContext()
-						.addToList(getTokenName(), race,
-								PCClass.MONSTER_SKILL_LIST, skill);
-				apo.setAssociation(AssociationKey.SKILL_COST, SkillCost.CLASS);
 			}
 			firstToken = false;
 		}
@@ -132,15 +163,10 @@ public class MoncskillToken extends AbstractToken implements
 		return true;
 	}
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context, Race r,
+	private CDOMReference<Skill> getSkillReference(LoadContext context,
 			String tokText)
 	{
-		if (Constants.LST_LIST.equals(tokText))
-		{
-			return new AssociationReference<Skill>(context.ref
-					.getCDOMAllReference(SKILL_CLASS), r);
-		}
-		else if (tokText.endsWith(Constants.LST_PATTERN))
+		if (tokText.endsWith(Constants.LST_PATTERN))
 		{
 			return new PatternMatchingReference<Skill>(Skill.class, context.ref
 					.getCDOMAllReference(SKILL_CLASS), tokText);
@@ -157,6 +183,8 @@ public class MoncskillToken extends AbstractToken implements
 		AssociatedChanges<CDOMReference<Skill>> changes = context
 				.getListContext().getChangesInList(getTokenName(), race,
 						PCClass.MONSTER_SKILL_LIST);
+		Changes<ChooseResultActor> listChanges = context.getObjectContext()
+				.getListChanges(race, ListKey.CHOOSE_ACTOR);
 		List<String> list = new ArrayList<String>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
@@ -171,6 +199,15 @@ public class MoncskillToken extends AbstractToken implements
 			list.add(Constants.LST_DOT_CLEAR_DOT
 					+ ReferenceUtilities
 							.joinLstFormat(removedItems, "|.CLEAR."));
+		}
+		Collection<ChooseResultActor> listRemoved = listChanges.getRemoved();
+		System.err.println(listRemoved);
+		if (listRemoved != null && !listRemoved.isEmpty())
+		{
+			if (listRemoved.contains(this))
+			{
+				list.add(".CLEAR.LIST");
+			}
 		}
 		if (changes.includesGlobalClear())
 		{
@@ -196,6 +233,14 @@ public class MoncskillToken extends AbstractToken implements
 			}
 			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		if (listAdded != null && !listAdded.isEmpty())
+		{
+			if (listAdded.contains(this))
+			{
+				list.add("LIST");
+			}
+		}
 		if (list.isEmpty())
 		{
 			// Zero indicates no add or clear
@@ -207,5 +252,25 @@ public class MoncskillToken extends AbstractToken implements
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
+	}
+
+	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		Skill skill = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
+		if (skill != null)
+		{
+			pc.addAssoc(obj, AssociationListKey.MONCSKILL, skill);
+		}
+	}
+
+	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		Skill skill = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
+		if (skill != null)
+		{
+			pc.removeAssoc(obj, AssociationListKey.MONCSKILL, skill);
+		}
 	}
 }

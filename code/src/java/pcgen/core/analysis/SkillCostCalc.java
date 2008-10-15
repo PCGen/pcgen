@@ -28,6 +28,7 @@ import java.util.List;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -80,7 +81,7 @@ public final class SkillCostCalc
 
 		if (aClass.isMonster())
 		{
-			if (hasMonsterClassSkill(aPC.getRace(), sk))
+			if (hasMonsterClassSkill(aPC, aPC.getRace(), sk))
 			{
 				return true;
 			}
@@ -336,8 +337,20 @@ public final class SkillCostCalc
 		return false;
 	}
 
-	public static boolean hasMonsterClassSkill(Race r, Skill s)
+	public static boolean hasMonsterClassSkill(PlayerCharacter pc, Race r, Skill s)
 	{
+		List<Skill> list = pc.getAssocList(r, AssociationListKey.MONCSKILL);
+		if (list != null)
+		{
+			for (Skill sk : list)
+			{
+				//Slow method
+				if (sk.getKeyName().equals(s.getKeyName()))
+				{
+					return true;
+				}
+			}
+		}
 		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
 		Collection<CDOMReference<Skill>> mods = r.getListMods(mList);
 		if (mods == null)

@@ -32,6 +32,7 @@ import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.list.ClassSkillList;
+import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
 
@@ -64,6 +65,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<ClassSkillList> CLASSSKILLLIST = new AssociationListKey<ClassSkillList>();
 
 	public static final AssociationListKey<CDOMListObject<Spell>> CLASSSPELLLIST = new AssociationListKey<CDOMListObject<Spell>>();
+
+	public static final AssociationListKey<Skill> MONCSKILL = new AssociationListKey<Skill>();
 
 	public static final AssociationListKey<BonusObj> BONUS = new AssociationListKey<BonusObj>();
 
