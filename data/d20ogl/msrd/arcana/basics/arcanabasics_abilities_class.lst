@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Oct 13 21:54:05 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Oct 14 21:58:13 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@ Up My Sleeve		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB
 
 
 ###Block:Archaic Weaponsmaster ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type					Visible	Special ABility				Define
-Imbue Weapon	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imbue Weapon +%|ImbueWeapon	DEFINE:ImbueWeapon|0
-Weapon Stun		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Weapon Stun
+# Ability Name	Category of Ability		Type						Visible	Special ABility																Define
+Imbue Weapon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Imbue Weapon (Su)|PREVAREQ:ImbueWeapon,0	SAB:Imbue Weapon +%|ImbueWeapon|PREVARGT:ImbueWeapon,0	DEFINE:ImbueWeapon|0
+Weapon Stun		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility		VISIBLE:NO	SAB:Weapon Stun
 
 
 ###Block:Glamourist ---------------------------------------------------------------------------------------------------------------------------------
