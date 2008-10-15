@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.LanguageSupport;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.WeaponProfType;
@@ -199,29 +200,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add a virtual feat to the character list
-	 * @param aFeat
-	 */
-	public final void addVirtualFeat(final Ability aFeat)
-	{
-		addAbility(AbilityCategory.FEAT, Ability.Nature.VIRTUAL,
-			new QualifiedObject<String>(aFeat.getKeyName()));
-	}
-	
-	/**
-	 * Add a list of virtual feats to the character list
-	 * @param aFeatList
-	 */
-	public final void addVirtualFeats(final List<Ability> aFeatList)
-	{
-		for (Ability aFeat : aFeatList)
-		{
-			addAbility(AbilityCategory.FEAT, Ability.Nature.VIRTUAL,
-				new QualifiedObject<String>(aFeat.getKeyName()));
-		}
-	}
-	
-	/**
 	 * if a class implements the Cloneable interface then it should have a
 	 * public" 'clone ()' method It should be declared to throw
 	 * CloneNotSupportedException', but subclasses do not need the "throws"
@@ -251,11 +229,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		// added 04 Aug 2003 by sage_sam -- bug#765749
 		// need to copy map correctly during a clone
-//		if (sourceMap != null)
-//		{
-//			retVal.sourceMap = new HashMap<String, String>();
-//			retVal.sourceMap.putAll(this.sourceMap);
-//		}
 		retVal.theSource = theSource.clone();
 
 		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
@@ -370,6 +343,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Get the Key Name
 	 * @return Key Name
 	 */
+	@Override
 	public final String getKeyName()
 	{
 		return keyName;
@@ -609,6 +583,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aType
 	 * @return Whether the item is of this type
 	 */
+	@Override
 	public boolean isType(final String aType)
 	{
 		final String myType;
@@ -962,25 +937,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		return theSource.getSourceBook().getCampaign();
 	}
-
-	/**
-	 * gets the bonuses to a stat based on the stat Index
-	 * @param statIdx
-	 * @param aPC
-	 * @return stat mod
-	 */
+	
+	//TODO inline
 	public int getStatMod(final int statIdx, final PlayerCharacter aPC)
 	{
-		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
-
-		if ((statIdx < 0) || (statIdx >= statList.size()))
-		{
-			return 0;
-		}
-
-		final String aStat = statList.get(statIdx).getAbb();
-
-		return (int) bonusTo("STAT", aStat, aPC, aPC);
+		return BonusCalc.getStatMod(this, statIdx, aPC);
 	}
 
 	/**
@@ -1065,6 +1026,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Make choices for the PC (just calls getChoices)
 	 * @param aPC
 	 */
+	//TODO inline
 	public void makeChoices(final PlayerCharacter aPC)
 	{
 		getChoices(getChoiceString(), aPC);
@@ -1127,6 +1089,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Get the Product Identity string
 	 * @return the Product Identity string
 	 */
+	//TODO inline
 	public String piString()
 	{
 		return OutputNameFormatting.piString(this, true);
@@ -1137,6 +1100,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * a pre-existing <html> tag
 	 * @return PI String with no header
 	 */
+	//TODO inline
 	public String piSubString()
 	{
 		return OutputNameFormatting.piString(this, false);
@@ -1220,10 +1184,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append(getDisplayName());
 		}
 
-//		if (!getDisplayName().equals(getKeyName()))
-//		{
-			txt.append("\tKEY:").append(getKeyName());
-//		}
+		txt.append("\tKEY:").append(getKeyName());
 
 		Set<String> aaKeys = mapListChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
 		if (aaKeys != null)
@@ -1740,6 +1701,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		// This method currently does nothing so it may be overriden in PCClass.
 	}
 
+	//TODO move into SkillCostCalc
 	public final boolean hasCcSkill(PlayerCharacter pc, final String aName)
 	{
 		List<CDOMReference<Skill>> ccSkillList = getListFor(ListKey.CCSKILL);
@@ -1773,6 +1735,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return false;
 	}
 
+	//TODO move into SkillCostCalc
 	public final boolean hasCSkill(PlayerCharacter pc, final String aName)
 	{
 		List<CDOMReference<Skill>> cSkillList = getListFor(ListKey.CSKILL);
