@@ -63,33 +63,9 @@ public final class PCTemplate extends PObject
 	public float getCR(final int level, final int hitdice)
 	{
 		float localCR = getSafe(ObjectKey.CR_MODIFIER).floatValue();
-
-		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		for (PCTemplate pct : getConditionalTemplates(level, hitdice))
 		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				if (lt.get(IntegerKey.LEVEL) <= level)
-				{
-					localCR += lt.getSafe(ObjectKey.CR_MODIFIER).floatValue();
-				}
-			}
-		}
-
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.LEVEL) <= level)
-			{
-				localCR += lt.getSafe(ObjectKey.CR_MODIFIER).floatValue();
-			}
-		}
-
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.HD_MAX) <= hitdice
-					&& lt.get(IntegerKey.HD_MIN) >= hitdice)
-			{
-				localCR += lt.getSafe(ObjectKey.CR_MODIFIER).floatValue();
-			}
+			localCR += pct.getSafe(ObjectKey.CR_MODIFIER).floatValue();
 		}
 		return localCR;
 	}
@@ -110,7 +86,7 @@ public final class PCTemplate extends PObject
 		txt.append("\t");
 
 		if ((getChooseLanguageAutos() != null)
-			&& (getChooseLanguageAutos().length() > 0))
+				&& (getChooseLanguageAutos().length() > 0))
 		{
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
 		}
@@ -188,14 +164,13 @@ public final class PCTemplate extends PObject
 		boolean result = false;
 
 		if ((getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-			|| (getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY))
+				|| (getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY))
 		{
 			result = getSafe(ObjectKey.REMOVABLE);
 		}
 
 		return result;
 	}
-
 
 	/**
 	 * Make a copy of this Template
@@ -226,40 +201,14 @@ public final class PCTemplate extends PObject
 	 */
 	@Override
 	public List<SpecialAbility> addSpecialAbilitiesToList(
-		final List<SpecialAbility> aList, PlayerCharacter pc)
+			final List<SpecialAbility> aList, PlayerCharacter pc)
 	{
 		super.addSpecialAbilitiesToList(aList, pc);
-
-		int level = pc.getTotalLevels();
-		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		for (PCTemplate pct : getConditionalTemplates(pc.getTotalLevels(), pc
+				.totalHitDice()))
 		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				if (lt.get(IntegerKey.LEVEL) <= level)
-				{
-					lt.addSpecialAbilitiesToList(aList, pc);
-				}
-			}
+			pct.addSpecialAbilitiesToList(aList, pc);
 		}
-
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.LEVEL) <= level)
-			{
-				lt.addSpecialAbilitiesToList(aList, pc);
-			}
-		}
-
-		int hitdice = pc.totalHitDice();
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.HD_MAX) <= hitdice
-					&& lt.get(IntegerKey.HD_MIN) >= hitdice)
-			{
-				lt.addSpecialAbilitiesToList(aList, pc);
-			}
-		}
-
 		return aList;
 	}
 
@@ -279,16 +228,18 @@ public final class PCTemplate extends PObject
 		return new Point2D.Double(width.doubleValue(), height.doubleValue());
 	}
 
-	public void getConditionalTemplates(int totalLevels, int totalHitDice,
-		List<? super PCTemplate> list)
+	public List<PCTemplate> getConditionalTemplates(int totalLevels,
+			int totalHitDice)
 	{
+		List<PCTemplate> returnList = new ArrayList<PCTemplate>();
+
 		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
 				if (lt.get(IntegerKey.LEVEL) <= totalLevels)
 				{
-					list.add(lt);
+					returnList.add(lt);
 				}
 			}
 		}
@@ -297,24 +248,32 @@ public final class PCTemplate extends PObject
 		{
 			if (lt.get(IntegerKey.LEVEL) <= totalLevels)
 			{
-				list.add(lt);
+				returnList.add(lt);
 			}
 		}
 
 		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
 		{
 			if (lt.get(IntegerKey.HD_MAX) <= totalHitDice
-				&& lt.get(IntegerKey.HD_MIN) >= totalHitDice)
+					&& lt.get(IntegerKey.HD_MIN) >= totalHitDice)
 			{
-				list.add(lt);
+				returnList.add(lt);
 			}
 		}
+		return returnList;
 	}
 
 	@Override
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
 		List<BonusObj> list = new ArrayList<BonusObj>(super.getRawBonusList(pc));
+		/*
+		 * TODO Does this require a test of getTotalLevels() totalHitDice() on
+		 * the PC?
+		 * 
+		 * for (PCTemplate pct : getConditionalTemplates(pc.getTotalLevels(),
+		 * pc.totalHitDice())) { list.addAll(pct.getRawBonusList(pc); }
+		 */
 		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
@@ -332,14 +291,14 @@ public final class PCTemplate extends PObject
 		{
 			list.addAll(lt.getRawBonusList(pc));
 		}
-		
+		// end potential TO-DO change
 		return list;
 	}
-	
+
 	@Override
 	public PObject getActiveEquivalent(PlayerCharacter pc)
 	{
 		return pc.getTemplateKeyed(getKeyName());
 	}
-	
+
 }

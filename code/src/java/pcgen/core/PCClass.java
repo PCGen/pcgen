@@ -70,6 +70,7 @@ import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -3856,11 +3857,11 @@ public class PCClass extends PObject
 			{
 				continue;
 			}
-			if (!sc.hasLevelArrayModsForLevel(level))
+			if (!sc.hasClassLevel(level))
 			{
 				continue;
 			}
-			if (!sc.qualifiesForSubstitutionLevel(aPC, level))
+			if (!SubstitutionLevelSupport.qualifiesForSubstitutionLevel(sc, aPC, level))
 			{
 				continue;
 			}
@@ -4130,7 +4131,7 @@ public class PCClass extends PObject
 		{
 			SubstitutionClass sc = (SubstitutionClass) selected;
 			setSubstitutionClassKey(sc.getKeyName(), aLevel);
-			sc.applyLevelArrayModsToLevel(this, aLevel, aPC);
+			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, this, aLevel, aPC);
 			return;
 		}
 		else

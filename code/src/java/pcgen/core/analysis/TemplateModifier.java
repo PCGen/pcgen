@@ -69,7 +69,7 @@ public class TemplateModifier
 		int totalHitDice = aPC.totalHitDice();
 		List<PCTemplate> templList = new ArrayList<PCTemplate>();
 		templList.add(pct);
-		pct.getConditionalTemplates(totalLevels, totalHitDice, templList);
+		templList.addAll(pct.getConditionalTemplates(totalLevels, totalHitDice));
 		for (PCTemplate subt : templList)
 		{
 			List<DamageReduction> tList = subt

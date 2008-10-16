@@ -63,8 +63,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 
 	private boolean needsSaving = false;
 
-	private Nature theNature = Nature.NORMAL;
-	
 	// /////////////////////////////////////
 	// Fields - Associations
 
@@ -94,15 +92,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	}
 
 	/**
-	 * Identify if this ability is actually a feat.
-	 * @return true if this is a feat, false otherwise.
-	 */
-	public boolean isFeat()
-	{
-		return Constants.FEAT_CATEGORY.equals(getCategory());
-	}
-
-	/**
 	 * Set the AbilityType property of this Ability
 	 *
 	 * @param  type  The type of this ability (normal, automatic, virtual (see
@@ -115,7 +104,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 			return;
 		}
 
-		theNature = type;
+		put(ObjectKey.ABILITY_NATURE, type);
 	}
 
 	/**
@@ -125,7 +114,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 */
 	public Nature getAbilityNature()
 	{
-		return theNature;
+		return getSafe(ObjectKey.ABILITY_NATURE);
 	}
 
 	/**

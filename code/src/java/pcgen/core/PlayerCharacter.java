@@ -92,6 +92,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
@@ -4648,7 +4649,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// 0 = LG, 3 = NG, 6 = CG
 		// 1 = LN, 4 = TN, 7 = CN
 		// 2 = LE, 5 = NE, 8 = CE
-		if (bForce || this.race.canBeAlignment(Integer.toString(index)))
+		if (bForce || RaceAlignment.canBeAlignment(this.race, Integer.toString(index)))
 		{
 			alignment = index;
 		}
@@ -12473,7 +12474,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int totalHitDice = totalHitDice();
 		for (PCTemplate templ : getTemplateList())
 		{
-			templ.getConditionalTemplates(totalLevels, totalHitDice, list);
+			list.addAll(templ.getConditionalTemplates(totalLevels, totalHitDice));
 		}
 		return list;
 	}

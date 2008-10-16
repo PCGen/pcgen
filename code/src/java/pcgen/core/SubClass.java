@@ -112,22 +112,20 @@ public final class SubClass extends PCClass implements CategorizedCDOMObject<Sub
 		return displayInfo.toString();
 	}
 
-	private Category<SubClass> category;
-	
 	public Category<SubClass> getCDOMCategory()
 	{
-		return category;
+		return get(ObjectKey.SUBCLASS_CATEGORY);
 	}
 
 	public void setCDOMCategory(Category<SubClass> cat)
 	{
-		category = cat;
+		put(ObjectKey.SUBCLASS_CATEGORY, cat);
 	}
 
 	@Override
 	public String getFullKey()
 	{
-		return category.toString() + "." + super.getFullKey();
+		return getCDOMCategory() + "." + super.getFullKey();
 	}
 	
 	

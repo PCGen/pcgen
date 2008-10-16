@@ -77,6 +77,7 @@ import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -1591,7 +1592,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				aPCClass.setSubstitutionClassKey(substitutionClassKeyName,
 					level);
-				aSubstitutionClass.applyLevelArrayModsToLevel(aPCClass, level, thePC);
+				SubstitutionLevelSupport.applyLevelArrayModsToLevel(aSubstitutionClass, aPCClass, level, thePC);
 			}
 			else if (TAG_HITPOINTS.equals(tag))
 			{
