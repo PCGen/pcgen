@@ -1,28 +1,28 @@
-# CVS $Revision$ $Author$ -- Wed Oct 15 17:51:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Oct 15 22:26:41 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
 ###Block: Arcane Archer Abilities
-# Ability Name		Category of Ability		Type			Visible	Special ABility												Define									Modify VAR								Source Page
-Enhance Arrow		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Enhance Arrow (Su) +%|ArrowEnhancement							DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
-Imbue Arrow			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Imbue Arrow (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
-Seeker Arrow		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Seeker Arrow (Sp) %/day|SeekerArrowTimes							DEFINE:SeekerArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
-Phase Arrow			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Phase Arrow (Sp) %/day|PhaseArrowTimes							DEFINE:PhaseArrowTimes|0															SOURCEPAGE:PrestigeClasses.rtf
-Hail of Arrows		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0										SOURCEPAGE:PrestigeClasses.rtf
-Arrow of Death		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Arrow of Death (Sp)																														SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name		Category of Ability		Type						Visible	Special ABility												Define									Description										Modify VAR								Source Page
+Enhance Arrow		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Enhance Arrow (Su) +%|ArrowEnhancement							DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	DESC:+%1|ArrowEnhancement							BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
+Imbue Arrow			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Imbue Arrow (Sp)																																									SOURCEPAGE:PrestigeClasses.rtf
+Seeker Arrow		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:NO	SAB:Seeker Arrow (Sp) %/day|SeekerArrowTimes							DEFINE:SeekerArrowTimes|0						DESC:%1/day|SeekerArrowTimes																SOURCEPAGE:PrestigeClasses.rtf
+Phase Arrow			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:NO	SAB:Phase Arrow (Sp) %/day|PhaseArrowTimes							DEFINE:PhaseArrowTimes|0						DESC:%1/day|PhaseArrowTimes																SOURCEPAGE:PrestigeClasses.rtf
+Hail of Arrows		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:NO	SAB:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0	DESC:%1 maxium targets %2/day|HailArrowsTargets|HailArrowsTimes										SOURCEPAGE:PrestigeClasses.rtf
+Arrow of Death		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:NO	SAB:Arrow of Death (Sp)																																									SOURCEPAGE:PrestigeClasses.rtf
 
 
 #CLASS:Arcane Trickster -----------------------------------------------------------------------------------------------------------
-Ranged Ledgerdemain	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain						DEFINE:RangedLedgermain|0
-Impromptu Sneak Attack	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak						DEFINE:ImpromptuSneak|0
+Ranged Legerdemain	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Ranged Legerdemain %/day (Su)|RangedLegermain						DEFINE:RangedLegermain|0						DESC:%1/day (Su)|RangedLegermain
+Impromptu Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak						DEFINE:ImpromptuSneak|0							DESC:%1/day (Su)|ImpromptuSneak
 
 
 ###Block: Assassin special abilities -------------------------------------------------------------------------------------------------
-# Ability Name				Category of Ability		Type					Visible	Special ABility						Define				Ability									Modify VAR				Source Page
-Save against Poisons			CATEGORY:Special Ability	TYPE:Extraordinary		VISIBLE:NO	SAB:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0																SOURCEPAGE:PrestigeClasses.rtf
-Hide in Plain Sight (Assassin)	CATEGORY:Special Ability	TYPE:Supernatural			VISIBLE:NO														ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Su)
-Death Attack				CATEGORY:Special Ability	TYPE:Special			VISIBLE:NO	SAB:Death Attack (DC %)|DeathAttack			DEFINE:DeathAttack|0												BONUS:VAR|DeathAttack|10+INT	SOURCEPAGE:PrestigeClasses.rtf
-Poison Use					CATEGORY:Special Ability	TYPE:Special.Extraordinary	VISIBLE:NO	SAB:Poison Use (Ex)																									SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name				Category of Ability		Type						Visible	Special ABility						Define				Description								Ability									Modify VAR				Source Page
+Save against Poisons			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0	DESC:+%1 save against poisons|AssassinPoisonSave																SOURCEPAGE:PrestigeClasses.rtf
+Hide in Plain Sight (Assassin)	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO																							ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Su)
+Death Attack				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:NO	SAB:Death Attack (DC %)|DeathAttack			DEFINE:DeathAttack|0		DESC:DC %1|DeathAttack																BONUS:VAR|DeathAttack|10+INT	SOURCEPAGE:PrestigeClasses.rtf
+Poison Use					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poison Use (Ex)																																		SOURCEPAGE:PrestigeClasses.rtf
 
 
 ###Block:Archmage High Arcana Class Abilities ---------------------------------------------------------------------------------------
@@ -40,52 +40,45 @@ Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAt
 
 ###Block: Blackguard special abilities -----------------------------------------------------------------------------------------------
 # Feat Name		Type			Visible	Special ABility			Innate Spells											Save checks bonus						Source Page
-# Ability Name		Output Name			Category of Ability		Type				Visible	Special ABility							Define				Innate Spells											Description												Save checks bonus						Source Page
-Detect Good							CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Detect Good (Sp)											SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS																						SOURCEPAGE:PrestigeClasses.rtf
-Dark Blessing						CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Dark Blessing (Su)																																					BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
-Aura of Despair						CATEGORY:Special Ability	TYPE:Supernatural.Aura	VISIBLE:NO	SAB:Aura of Despair (Su)																							DESC:Enemies within 10 feet of you to take a -2 penalty on all saving throws.									SOURCEPAGE:PrestigeClasses.rtf
-Blackguard Lay on Hands	OUTPUTNAME:Lay on Hands	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands	DEFINE:BlackguardLayOnHands|0																																			SOURCEPAGE:PrestigeClasses.rtf
-Fiendish Summoning					CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Fiendish Summoning (Sp)																																												SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name		Output Name			Category of Ability		Type							Visible	Special ABility							Define				Innate Spells											Description												Save checks bonus						Source Page
+Detect Good							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			VISIBLE:NO	SAB:Detect Good (Sp)											SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS																						SOURCEPAGE:PrestigeClasses.rtf
+Dark Blessing						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Dark Blessing (Su)																																					BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
+Aura of Despair						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Aura of Despair (Su)																							DESC:Enemies within 10 feet of you to take a -2 penalty on all saving throws.									SOURCEPAGE:PrestigeClasses.rtf
+Blackguard Lay on Hands	OUTPUTNAME:Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands	DEFINE:BlackguardLayOnHands|0																																			SOURCEPAGE:PrestigeClasses.rtf
+Fiendish Summoning					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			VISIBLE:NO	SAB:Fiendish Summoning (Sp)																																												SOURCEPAGE:PrestigeClasses.rtf
 
 
 #COMMENT: Not sure about Dragon Disciple stuff, so I'm commenting these out for now. - Tir Gwaith
 ###Block: Dragon Disciple Class Features ----------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type						Visible		Required Ability								Required Class			Special ABility										Choose												Clone Movement
-Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY																												CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 1																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 2																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 3																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 4																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 5																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 6																		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
-Dragon Wings		CATEGORY:Special Ability	TYPE:DragonDisciple.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)																							MOVECLONE:Walk,Fly,*1
+# Ability Name		Category of Ability		Type									Visible		Required Ability								Required Class			Special ABility	Choose												Clone Movement
+Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY																			CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 1									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 2									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 3									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 4									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 5									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 6									CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Dragon Wings		CATEGORY:Special Ability	TYPE:DragonDisciple.SpecialQuality.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9	SAB:Wings (Ex)														MOVECLONE:Walk,Fly,*1
 
-#DD Stuff, but reusable for MANY Classes!!!
-Immune to Sleep		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Sleep
-Immune to Paralysis	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Paralysis
-Immune to Acid		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Acid
-Immune to Electricity	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Electricity
-Immune to Fire		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Fire
-Immune to Cold		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Immune to Cold
-
-#Block: Dragon Disciple - Subclass -----------------------------
-DD~Line of Acid		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Line of Lightning	CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Line of Fire		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Cone of Gas		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Cone of Fire		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
-DD~Cone of Cold		CATEGORY:Special Ability	TYPE:Special				VISIBLE:NO																	SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC
+###Block: Dragon Disciple - Subclass -----------------------------
+# Ability Name		Output Name							Category of Ability		Type						Visible	Special ABility										Description
+DD~Line of Acid		OUTPUTNAME:Breath Weapon ~ Line of Acid		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Line of Acid (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC		DESC:%1d8 ~ DC %2|BreathWeaponDice|BreathWeaponDC
+DD~Line of Lightning	OUTPUTNAME:Breath Weapon ~ Line of Lightning	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Line of Lightning (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC	DESC:%1d8 ~ DC %2|BreathWeaponDice|BreathWeaponDC
+DD~Line of Fire		OUTPUTNAME:Breath Weapon ~ Line of Fire		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Line of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC		DESC:%1d8 ~ DC %2|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Gas		OUTPUTNAME:Breath Weapon ~ Cone of Gas		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Cone of Gas (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC		DESC:%1d8 ~ DC %2|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Fire		OUTPUTNAME:Breath Weapon ~ Cone of Fire		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Cone of Fire (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC		DESC:%1d8 ~ DC %2|BreathWeaponDice|BreathWeaponDC
+DD~Cone of Cold		OUTPUTNAME:Breath Weapon ~ Cone of Cold		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Cone of Cold (%d8 ~ DC %)|BreathWeaponDice|BreathWeaponDC		DESC:%1d8 ~ DC %2|BreathWeaponDice|BreathWeaponDC
 
 
 ###Block: Duelist special abilities ----------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type						Visible	Special ABility								Define								Combat bonus																					Modify VAR												Source Page
-Canny Defense	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Canny Defense (Ex)							DEFINE:CannyDefenseLVL|0					BONUS:COMBAT|AC|max(0,min(INT,CannyDefenseLVL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
-Improved Reaction	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Improved Reaction +% (Ex)|ImprovedReaction			DEFINE:ImprovedReaction|0					BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf
-Enhanced Mobility	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Enhanced Mobility (Ex)																																																			SOURCEPAGE:PrestigeClasses.rtf
-Grace			CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Grace (Ex)																																																					SOURCEPAGE:PrestigeClasses.rtf
-Precise Strike	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6																																					SOURCEPAGE:PrestigeClasses.rtf
-Acrobatic Charge	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Acrobatic Charge (Ex)																																																			SOURCEPAGE:PrestigeClasses.rtf
-Elaborate Parry	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Elaborate Parry (Ex)						DEFINE:ElaborateParryLVL|0																												BONUS:VAR|FightingDefensivelyACBonus,TotalDefenseACBonus|ElaborateParryLVL	SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name	Category of Ability		Type						Visible	Special ABility								Define								Description							Combat bonus																					Modify VAR												Source Page
+Canny Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Canny Defense (Ex)							DEFINE:CannyDefenseLVL|0													BONUS:COMBAT|AC|max(0,min(INT,CannyDefenseLVL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
+Improved Reaction	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Reaction +% (Ex)|ImprovedReaction			DEFINE:ImprovedReaction|0					DESC:+%1 (Ex)|ImprovedReaction			BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf
+Enhanced Mobility	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Enhanced Mobility (Ex)																																																											SOURCEPAGE:PrestigeClasses.rtf
+Grace			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Grace (Ex)																																																													SOURCEPAGE:PrestigeClasses.rtf
+Precise Strike	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6	DESC:+%1d%2|PreciseStrike|PreciseStrikeDie																																					SOURCEPAGE:PrestigeClasses.rtf
+Acrobatic Charge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acrobatic Charge (Ex)																																																											SOURCEPAGE:PrestigeClasses.rtf
+Elaborate Parry	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Elaborate Parry (Ex)						DEFINE:ElaborateParryLVL|0																																				BONUS:VAR|FightingDefensivelyACBonus,TotalDefenseACBonus|ElaborateParryLVL	SOURCEPAGE:PrestigeClasses.rtf
 
 
 ###Block: Dwarven Defender special abilities -----------------------------------------------------------------------------------------
@@ -94,11 +87,11 @@ Elaborate Parry	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE
 #                                  Changed from DefensiveStance
 #     DefensiveStanceDuration   == How long each use of Defensive Stance lasts.
 # Feat Name					Output Name				Type						Visible	Special ABility																			Define										Save checks bonus						Combat bonus							Stat bonus									Modify VAR															Damage Reduction		Source Page
-# Ability Name				Output Name				Category of Ability		Type						Visible	Special ABility																			Define										Save checks bonus						Combat bonus							Stat bonus									Modify VAR															Damage Reduction		Source Page
-Dwarven Defender AC Bonus							CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:AC Bonus (Ex)																			DEFINE:DwarvenDefenderACBonus|0														BONUS:COMBAT|AC|DwarvenDefenderACBonus|TYPE=Dodge																															SOURCEPAGE:PrestigeClasses.rtf
-Defensive Stance									CATEGORY:Special Ability	TYPE:ClassAbility				VISIBLE:NO	SAB:Defensive Stance % times/day (% rounds)|DefensiveStanceTimes|DefensiveStanceDuration|PREVARGTEQ:DefensiveStanceTimes,1	DEFINE:DefensiveStanceTimes|0	DEFINE:DefensiveStanceDuration|0	BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC			BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	BONUS:VAR|DefensiveStanceDuration|CON	BONUS:VAR|DefensiveStanceDuration|-2|PREAPPLY:PC					SOURCEPAGE:PrestigeClasses.rtf
-Dwarven Defender DR								CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO																						DEFINE:DwarvenDefenderDRLVL|0	DEFINE:DwarvenDefenderDR|0																													BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))						DR:DwarvenDefenderDR/-	SOURCEPAGE:PrestigeClasses.rtf
-Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Mobile Defense (Ex)																																																																												SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name				Output Name				Category of Ability		Type						Visible	Special ABility																			Define										Description																		Save checks bonus						Combat bonus							Stat bonus									Modify VAR															Damage Reduction		Source Page
+Dwarven Defender AC Bonus							CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	SAB:AC Bonus (Ex)																			DEFINE:DwarvenDefenderACBonus|0																																	BONUS:COMBAT|AC|DwarvenDefenderACBonus|TYPE=Dodge																															SOURCEPAGE:PrestigeClasses.rtf
+Defensive Stance									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Defensive Stance % times/day (% rounds)|DefensiveStanceTimes|DefensiveStanceDuration|PREVARGTEQ:DefensiveStanceTimes,1	DEFINE:DefensiveStanceTimes|0	DEFINE:DefensiveStanceDuration|0	DESC:%1 times/day (%2 rounds)|DefensiveStanceTimes|DefensiveStanceDuration|PREVARGTEQ:DefensiveStanceTimes,1	BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC			BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	BONUS:VAR|DefensiveStanceDuration|CON	BONUS:VAR|DefensiveStanceDuration|-2|PREAPPLY:PC					SOURCEPAGE:PrestigeClasses.rtf
+Dwarven Defender DR								CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																						DEFINE:DwarvenDefenderDRLVL|0	DEFINE:DwarvenDefenderDR|0																																																BONUS:VAR|DwarvenDefenderDR|3*floor(((DwarvenDefenderDRLVL-2)/4))						DR:DwarvenDefenderDR/-	SOURCEPAGE:PrestigeClasses.rtf
+Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Mobile Defense (Ex)																																																																																															SOURCEPAGE:PrestigeClasses.rtf
 
 
 ###Block: Hierophant Abilities ------------------------------------------------------------------------------------------------------
@@ -123,29 +116,29 @@ Metamagic Feat			CATEGORY:Special Ability	TYPE:Hierophant						VISIBLE:DISPLAY		
 
 
 ###Block: Horizon Walker Terrain Abilities --------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type					Visible		Special ABility																																		Define							Add to magical move						Bonus to skill								Modify VAR							Vision				Source Page
-Aquatic Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Aquatic Terrain Mastery (+% insight bonus on attack and damage rolls against aquatic creatures)|AquaticTerrainMasteryBonus															DEFINE:AquaticTerrainMasteryBonus|0			BONUS:POSTMOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1		BONUS:SKILL|Swim|4|TYPE=Competence|!PREMOVE:1,Swim=1		BONUS:VAR|AquaticTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Desert Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Desert Terrain Mastery (+% insight bonus on attack and damage rolls against desert creatures)|DesertTerrainMasteryBonus																DEFINE:DesertTerrainMasteryBonus|0																						BONUS:VAR|DesertTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Forest Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Forest Terrain Mastery (+% insight bonus on attack and damage rolls against forest creatures)|ForrestTerrainMasteryBonus																DEFINE:ForestTerrainMasteryBonus|0												BONUS:SKILL|Hide|4|TYPE=Competence					BONUS:VAR|ForestTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Hills Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Hills Terrain Mastery (+% insight bonus on attack and damage rolls against hills creatures)|HillsTerrainMasteryBonus																DEFINE:HillsTerrainMasteryBonus|0												BONUS:SKILL|Listen|4|TYPE=Competence				BONUS:VAR|HillsTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Marsh Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Marsh Terrain Mastery (+% insight bonus on attack and damage rolls against marsh creatures)|MarshTerrainMasteryBonus																DEFINE:MarshTerrainMasteryBonus|0												BONUS:SKILL|Move Silently|4|TYPE=Competence			BONUS:VAR|MarshTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Mountain Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Mountain Terrain Mastery (+% insight bonus on attack and damage rolls against mountain creatures)|MountainTerrainMasteryBonus															DEFINE:MountainTerrainMasteryBonus|0		BONUS:POSTMOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:SKILL|Climb|4|TYPE=Competence|!PREMOVE:1,Climb=1	BONUS:VAR|MountainTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Plains Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Plains Terrain Mastery (+% insight bonus on attack and damage rolls against plains creatures)|PlainsTerrainMasteryBonus																DEFINE:PlainsTerrainMasteryBonus|0												BONUS:SKILL|Spot|4|TYPE=Competence					BONUS:VAR|PlainsTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Underground Terrain	CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Underground Terrain Mastery (+% insight bonus on attack and damage rolls against underground creatures)|UndergroundTerrainMasteryBonus													DEFINE:UndergroundTerrainMasteryBonus|0																					BONUS:VAR|UndergroundTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Fiery Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Fiery Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the fire subtype)|FieryPlanarTerrainMasteryBonus	SAB:Fire Resistance 20					DEFINE:FieryPlanarTerrainMasteryBonus|0																					BONUS:VAR|FieryPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Weightless Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Weightless Planar Terrain Mastery (+% insight on attack and damage rolls against creatures native to the Astral Plane, the Elemental Plane of Air, and the Ethereal Plane)|WeightlessPlanarTerrainMasteryBonus	DEFINE:WeightlessPlanarTerrainMasteryBonus|0																				BONUS:VAR|WeightlessPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Cold Planar			CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Cold Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the cold subtype)|ColdPlanarTerrainMasteryBonus	SAB:Cold Resistance 20					DEFINE:ColdPlanarTerrainMasteryBonus|0																					BONUS:VAR|ColdPlanarTerrainMasteryBonus|1							SOURCEPAGE:PrestigeClasses.rtf
-Shifting Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Shifting Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals native to a shifting plane)|ShiftingPlanarTerrainMasteryBonus							DEFINE:ShiftingPlanarTerrainMasteryBonus|0																				BONUS:VAR|ShiftingPlanarTerrainMasteryBonus|1						SOURCEPAGE:PrestigeClasses.rtf
-Aligned Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Aligned Planar Terrain Mastery																																																																							SOURCEPAGE:PrestigeClasses.rtf
-Cavernous Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Cavernous Planar Terrain Mastery																																																																	VISION:Tremorsense (30')	SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name		Category of Ability		Type					Visible		Special ABility																																		Define							Description																													Ability								Add to magical move						Bonus to skill								Modify VAR													Vision				Source Page
+Aquatic Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Aquatic Terrain Mastery (+% insight bonus on attack and damage rolls against aquatic creatures)|AquaticTerrainMasteryBonus															DEFINE:AquaticTerrainMasteryBonus|0			DESC:+%1 insight bonus on attack and damage rolls against aquatic creatures|AquaticTerrainMasteryBonus																						BONUS:POSTMOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1		BONUS:SKILL|Swim|4|TYPE=Competence|!PREMOVE:1,Swim=1		BONUS:VAR|AquaticTerrainMasteryBonus|1													SOURCEPAGE:PrestigeClasses.rtf
+Desert Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Desert Terrain Mastery (+% insight bonus on attack and damage rolls against desert creatures)|DesertTerrainMasteryBonus																DEFINE:DesertTerrainMasteryBonus|0			DESC:+%1 insight bonus on attack and damage rolls against desert creatures|DesertTerrainMasteryBonus																																										BONUS:VAR|DesertTerrainMasteryBonus|1													SOURCEPAGE:PrestigeClasses.rtf
+Forest Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Forest Terrain Mastery (+% insight bonus on attack and damage rolls against forest creatures)|ForrestTerrainMasteryBonus																DEFINE:ForestTerrainMasteryBonus|0			DESC:+%1 insight bonus on attack and damage rolls against forest creatures|ForrestTerrainMasteryBonus																																BONUS:SKILL|Hide|4|TYPE=Competence					BONUS:VAR|ForestTerrainMasteryBonus|1													SOURCEPAGE:PrestigeClasses.rtf
+Hills Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Hills Terrain Mastery (+% insight bonus on attack and damage rolls against hills creatures)|HillsTerrainMasteryBonus																DEFINE:HillsTerrainMasteryBonus|0			DESC:+%1 insight bonus on attack and damage rolls against hills creatures|HillsTerrainMasteryBonus																																BONUS:SKILL|Listen|4|TYPE=Competence				BONUS:VAR|HillsTerrainMasteryBonus|1													SOURCEPAGE:PrestigeClasses.rtf
+Marsh Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Marsh Terrain Mastery (+% insight bonus on attack and damage rolls against marsh creatures)|MarshTerrainMasteryBonus																DEFINE:MarshTerrainMasteryBonus|0			DESC:+%1 insight bonus on attack and damage rolls against marsh creatures|MarshTerrainMasteryBonus																																BONUS:SKILL|Move Silently|4|TYPE=Competence			BONUS:VAR|MarshTerrainMasteryBonus|1													SOURCEPAGE:PrestigeClasses.rtf
+Mountain Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Mountain Terrain Mastery (+% insight bonus on attack and damage rolls against mountain creatures)|MountainTerrainMasteryBonus															DEFINE:MountainTerrainMasteryBonus|0		DESC:+%1 insight bonus on attack and damage rolls against mountain creatures|MountainTerrainMasteryBonus																						BONUS:POSTMOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:SKILL|Climb|4|TYPE=Competence|!PREMOVE:1,Climb=1	BONUS:VAR|MountainTerrainMasteryBonus|1													SOURCEPAGE:PrestigeClasses.rtf
+Plains Terrain		CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Plains Terrain Mastery (+% insight bonus on attack and damage rolls against plains creatures)|PlainsTerrainMasteryBonus																DEFINE:PlainsTerrainMasteryBonus|0			DESC:+%1 insight bonus on attack and damage rolls against plains creatures|PlainsTerrainMasteryBonus																																BONUS:SKILL|Spot|4|TYPE=Competence					BONUS:VAR|PlainsTerrainMasteryBonus|1													SOURCEPAGE:PrestigeClasses.rtf
+Underground Terrain	CATEGORY:Special Ability	TYPE:Terrain.SpecialQuality	VISIBLE:DISPLAY	SAB:Underground Terrain Mastery (+% insight bonus on attack and damage rolls against underground creatures)|UndergroundTerrainMasteryBonus													DEFINE:UndergroundTerrainMasteryBonus|0		DESC:+%1 insight bonus on attack and damage rolls against underground creatures|UndergroundTerrainMasteryBonus																																								BONUS:VAR|UndergroundTerrainMasteryBonus|1												SOURCEPAGE:PrestigeClasses.rtf
+Fiery Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Fiery Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the fire subtype)|FieryPlanarTerrainMasteryBonus									DEFINE:FieryPlanarTerrainMasteryBonus|0		DESC:+%1 insight bonus on attack and damage rolls against outsiders and elementals with the fire subtype|FieryPlanarTerrainMasteryBonus								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire																				BONUS:VAR|FieryPlanarTerrainMasteryBonus|1	BONUS:VAR|FireResistanceBonus|20						SOURCEPAGE:PrestigeClasses.rtf
+Weightless Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Weightless Planar Terrain Mastery (+% insight on attack and damage rolls against creatures native to the Astral Plane, the Elemental Plane of Air, and the Ethereal Plane)|WeightlessPlanarTerrainMasteryBonus	DEFINE:WeightlessPlanarTerrainMasteryBonus|0	DESC:+%1 insight on attack and damage rolls against creatures native to the Astral Plane, the Elemental Plane of Air, and the Ethereal Plane|WeightlessPlanarTerrainMasteryBonus																													BONUS:VAR|WeightlessPlanarTerrainMasteryBonus|1												SOURCEPAGE:PrestigeClasses.rtf
+Cold Planar			CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Cold Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals with the cold subtype)|ColdPlanarTerrainMasteryBonus									DEFINE:ColdPlanarTerrainMasteryBonus|0		DESC:+%1 insight bonus on attack and damage rolls against outsiders and elementals with the cold subtype|ColdPlanarTerrainMasteryBonus								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold																				BONUS:VAR|ColdPlanarTerrainMasteryBonus|1	BONUS:VAR|ColdResistanceBonus|20							SOURCEPAGE:PrestigeClasses.rtf
+Shifting Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Shifting Planar Terrain Mastery (+% insight bonus on attack and damage rolls against outsiders and elementals native to a shifting plane)|ShiftingPlanarTerrainMasteryBonus							DEFINE:ShiftingPlanarTerrainMasteryBonus|0	DESC:+%1 insight bonus on attack and damage rolls against outsiders and elementals native to a shifting plane|ShiftingPlanarTerrainMasteryBonus																																			BONUS:VAR|ShiftingPlanarTerrainMasteryBonus|1												SOURCEPAGE:PrestigeClasses.rtf
+Aligned Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Aligned Planar Terrain Mastery																																																																																																																				SOURCEPAGE:PrestigeClasses.rtf
+Cavernous Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Cavernous Planar Terrain Mastery																																																																																																														VISION:Tremorsense (30')	SOURCEPAGE:PrestigeClasses.rtf
 Other Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLAY	SAB:Other Planar Terrain Mastery
 
 
 ###Block: Loremaster Lore Abilities ------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type						Visible	Special ABility			Define			Source Page
-Secret Lore		CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Lore (+%)|SecretLore	DEFINE:SecretLore|0	SOURCEPAGE:PrestigeClasses.rtf
-Greater Lore	CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)						SOURCEPAGE:PrestigeClasses.rtf
-True Lore		CATEGORY:Special Ability	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)						SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name	Category of Ability		Type						Visible	Special ABility			Define			Description			Source Page
+Secret Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Lore (+%)|SecretLore	DEFINE:SecretLore|0	DESC:+%1|SecretLore	SOURCEPAGE:PrestigeClasses.rtf
+Greater Lore	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)										SOURCEPAGE:PrestigeClasses.rtf
+True Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)										SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Loremaster Secrets
 # Ability Name			Category of Ability		Type							Visible		Var. Min. Value			Special ABility						Stackable?	Multiple?	Choose														Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page
@@ -163,18 +156,18 @@ More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSec
 
 ###Block: Shadowdancer special abilities ------------------------------------------------------------------------------------
 # Feat Name		Type						Visible	Special ABility										Define									Innate Spells										Source Page
-# Ability Name	Category of Ability		Type						Visible	Special ABility										Define									Innate Spells										Source Page
-Shadow Illusion	CATEGORY:Special Ability	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Shadow Illusion (Sp)								DEFINE:ShadowIllusionLVL|0						SPELLS:Class|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA	SOURCEPAGE:PrestigeClasses.rtf
-Shadow Jump		CATEGORY:Special Ability	TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0													SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name	Category of Ability		Type						Visible	Special ABility										Define									Innate Spells										Description									Source Page
+Shadow Illusion	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Shadow Illusion (Sp)								DEFINE:ShadowIllusionLVL|0						SPELLS:Class|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA											SOURCEPAGE:PrestigeClasses.rtf
+Shadow Jump		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0													DESC:%1 ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	SOURCEPAGE:PrestigeClasses.rtf
 
 
 ###Block: Thaumaturgist special abilities ------------------------------------------------------------------------------------------------------------
 # Feat Name			Type			Visible	Special ABility			Source Page
-# Ability Name		Category of Ability		Type			Visible	Special ABility			Source Page
-Improved Ally		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Ally			SOURCEPAGE:PrestigeClasses.rtf
-Extended Summoning	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Extended Summoning		SOURCEPAGE:PrestigeClasses.rtf
-Contingent Conjuration	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Contingent Conjuration	SOURCEPAGE:PrestigeClasses.rtf
-Planar Cohort		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Planar Cohort			SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name		Category of Ability		Type				Visible	Special ABility			Source Page
+Improved Ally		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Improved Ally			SOURCEPAGE:PrestigeClasses.rtf
+Extended Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Extended Summoning		SOURCEPAGE:PrestigeClasses.rtf
+Contingent Conjuration	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Contingent Conjuration	SOURCEPAGE:PrestigeClasses.rtf
+Planar Cohort		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Planar Cohort			SOURCEPAGE:PrestigeClasses.rtf
 
 #
 #EOF
