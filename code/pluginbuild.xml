@@ -2452,20 +2452,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/CampaignLstToken-CLASSSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/campaign/ClassskillToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/CampaignLstToken-CLASSSPELL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/campaign/ClassspellToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/CampaignLstToken-CLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2680,13 +2666,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/campaign/RankToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/CampaignLstToken-REQSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/campaign/ReqskillToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

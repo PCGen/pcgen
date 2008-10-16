@@ -187,10 +187,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			new HashMap<String, List<URI>>();
 	private final List<CampaignSourceEntry> classFileList =
 			new ArrayList<CampaignSourceEntry>();
-	private final List<CampaignSourceEntry> classSkillFileList =
-			new ArrayList<CampaignSourceEntry>();
-	private final List<CampaignSourceEntry> classSpellFileList =
-			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> companionmodFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> deityFileList =
@@ -217,7 +213,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	private final List<CampaignSourceEntry> raceFileList =
 			new ArrayList<CampaignSourceEntry>();
-	private final List<String> reqSkillFileList = new ArrayList<String>();
 	private final List<CampaignSourceEntry> skillFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> spellFileList =
@@ -603,8 +598,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		int count = bioSetFileList.size();
 		count += abilityCategoryFileList.size();
 		count += classFileList.size();
-		count += classSkillFileList.size();
-		count += classSpellFileList.size();
 		count += companionmodFileList.size();
 		count += deityFileList.size();
 		count += domainFileList.size();
@@ -929,11 +922,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		armorProfFileList.addAll(aCamp.getArmorProfFiles());
 		shieldProfFileList.addAll(aCamp.getShieldProfFiles());
 		equipmentFileList.addAll(aCamp.getEquipFiles());
-		classSkillFileList.addAll(aCamp.getClassSkillFiles());
-		classSpellFileList.addAll(aCamp.getClassSpellFiles());
 		spellFileList.addAll(aCamp.getSpellFiles());
 		languageFileList.addAll(aCamp.getLanguageFiles());
-		reqSkillFileList.addAll(aCamp.getReqSkillFiles());
 		templateFileList.addAll(aCamp.getTemplateFiles());
 		equipmodFileList.addAll(aCamp.getEquipModFiles());
 		kitFileList.addAll(aCamp.getKitFiles());
@@ -1384,11 +1374,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		armorProfFileList.removeAll(lstExcludeFiles);
 		shieldProfFileList.removeAll(lstExcludeFiles);
 		equipmentFileList.removeAll(lstExcludeFiles);
-		classSkillFileList.removeAll(lstExcludeFiles);
-		classSpellFileList.removeAll(lstExcludeFiles);
 		spellFileList.removeAll(lstExcludeFiles);
 		languageFileList.removeAll(lstExcludeFiles);
-		reqSkillFileList.removeAll(lstExcludeFiles);
 		templateFileList.removeAll(lstExcludeFiles);
 		equipmodFileList.removeAll(lstExcludeFiles);
 		kitFileList.removeAll(lstExcludeFiles);
@@ -1416,10 +1403,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		armorProfFileList.clear();
 		shieldProfFileList.clear();
 		equipmentFileList.clear();
-		classSkillFileList.clear();
-		classSpellFileList.clear();
 		spellFileList.clear();
-		reqSkillFileList.clear();
 		languageFileList.clear();
 		equipmodFileList.clear();
 		kitFileList.clear();

@@ -99,10 +99,6 @@ public final class ListKey<T> {
 	public static final ListKey<CampaignSourceEntry> FILE_BIO_SET = new ListKey<CampaignSourceEntry>();
 	/** FILE_CLASS - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_CLASS = new ListKey<CampaignSourceEntry>();
-	/** FILE_CLASS_SKILL - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_CLASS_SKILL = new ListKey<CampaignSourceEntry>();
-	/** FILE_CLASS_SPELL - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_CLASS_SPELL = new ListKey<CampaignSourceEntry>();
 	/** FILE_COMPANION_MOD - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_COMPANION_MOD = new ListKey<CampaignSourceEntry>();
 	/** FILE_COVER - a ListKey */
@@ -129,8 +125,6 @@ public final class ListKey<T> {
 	public static final ListKey<URI> FILE_PCC = new ListKey<URI>();
 	/** FILE_RACE - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_RACE = new ListKey<CampaignSourceEntry>();
-	/** FILE_REQ_SKILL - a ListKey */
-	public static final ListKey<String> FILE_REQ_SKILL = new ListKey<String>();
 	/** FILE_SKILL - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_SKILL = new ListKey<CampaignSourceEntry>();
 	/** FILE_SPELL - a ListKey */

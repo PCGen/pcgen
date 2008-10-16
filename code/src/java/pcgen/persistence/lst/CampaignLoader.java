@@ -190,11 +190,8 @@ public class CampaignLoader extends LstLineFileLoader
 		baseCampaign.addAllShieldProfFiles(subCampaign.getShieldProfFiles());
 		baseCampaign.addAllWeaponProfFiles(subCampaign.getWeaponProfFiles());
 		baseCampaign.addAllEquipFiles(subCampaign.getEquipFiles());
-		baseCampaign.addAllClassSkillFiles(subCampaign.getClassSkillFiles());
-		baseCampaign.addAllClassSpellFiles(subCampaign.getClassSpellFiles());
 		baseCampaign.addAllSpellFiles(subCampaign.getSpellFiles());
 		baseCampaign.addAllLanguageFiles(subCampaign.getLanguageFiles());
-		baseCampaign.addAllReqSkillFiles(subCampaign.getReqSkillFiles());
 		baseCampaign.addAllTemplateFiles(subCampaign.getTemplateFiles());
 		baseCampaign.addAllEquipModFiles(subCampaign.getEquipModFiles());
 		baseCampaign.addAllKitFiles(subCampaign.getKitFiles());

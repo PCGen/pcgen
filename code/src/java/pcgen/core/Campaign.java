@@ -117,24 +117,6 @@ public class Campaign extends PObject
 	 *
 	 * @param files
 	 */
-	public void addAllClassSkillFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_CLASS_SKILL, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllClassSpellFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_CLASS_SPELL, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
 	public void addAllCompanionModFiles(final List<CampaignSourceEntry> files)
 	{
 		addAllToListFor(ListKey.FILE_COMPANION_MOD, files);
@@ -252,15 +234,6 @@ public class Campaign extends PObject
 	 *
 	 * @param files
 	 */
-	public void addAllReqSkillFiles(final List<String> files)
-	{
-		addAllToListFor(ListKey.FILE_REQ_SKILL, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
 	public void addAllSkillFiles(final List<CampaignSourceEntry> files)
 	{
 		addAllToListFor(ListKey.FILE_SKILL, files);
@@ -347,24 +320,6 @@ public class Campaign extends PObject
 	public void addClassFile(final CampaignSourceEntry file)
 	{
 		addToListFor(ListKey.FILE_CLASS, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addClassSkillFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_CLASS_SKILL, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addClassSpellFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_CLASS_SPELL, file);
 	}
 
 	/**
@@ -533,15 +488,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 *
-	 * @param file
-	 */
-	public void addReqSkillFile(final String file)
-	{
-		addToListFor(ListKey.FILE_REQ_SKILL, file);
-	}
-
-	/**
 	 * Add section 15 info
 	 * @param section15
 	 */
@@ -657,23 +603,6 @@ public class Campaign extends PObject
 		return getSafeListFor(ListKey.FILE_CLASS);
 	}
 
-	/**
-	 * Returns the classSkillFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getClassSkillFiles()
-	{
-		return getSafeListFor(ListKey.FILE_CLASS_SKILL);
-	}
-
-	/**
-	 * Returns the classSpellFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getClassSpellFiles()
-	{
-		return getSafeListFor(ListKey.FILE_CLASS_SPELL);
-	}
 	/**
 	 * Returns the companionmodFileList.
 	 * @return List
@@ -935,15 +864,6 @@ public class Campaign extends PObject
 	public List<CampaignSourceEntry> getRaceFiles()
 	{
 		return getSafeListFor(ListKey.FILE_RACE);
-	}
-
-	/**
-	 * Returns the reqSkillList.
-	 * @return List
-	 */
-	public List<String> getReqSkillFiles()
-	{
-		return getSafeListFor(ListKey.FILE_REQ_SKILL);
 	}
 
 	/**
