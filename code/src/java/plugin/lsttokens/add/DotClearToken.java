@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.add;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.AddLstToken;
 import pcgen.util.Logging;
@@ -43,6 +44,7 @@ public class DotClearToken implements AddLstToken
 				.errorPrint("  ... or put the ADD:.CLEAR on a non-level Class line");
 		}
 		target.clearAdds();
+		target.removeListFor(ListKey.ADD);
 		return true;
 	}
 

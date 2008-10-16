@@ -22,11 +22,10 @@ package pcgen.core.levelability;
 
 import java.awt.HeadlessException;
 import java.util.List;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.Globals;
-import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -77,49 +76,6 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 	{
 		pcClass = null;
 		super.tearDown();
-	}
-
-	/**
-	 * Test the Language Level Ability
-	 */
-	public void testLanguage()
-	{
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-
-		final LevelAbility ability =
-				LevelAbility.createAbility(pcClass, 1,
-					"Language(Elven,Dwarvish)");
-		assertTrue(ability.level() == 1);
-		assertTrue(ability.canProcess());
-
-		Language lang = new Language();
-		lang.setName("Dwarvish");
-		Globals.getContext().ref.importObject(lang);
-
-		lang = new Language();
-		lang.setName("Elven");
-		Globals.getContext().ref.importObject(lang);
-
-		try
-		{
-			final ChooserInterface c = ChooserFactory.getChooserInstance();
-			ability.setType(getCharacter());
-			final String bString = ability.prepareChooser(c, getCharacter());
-			assertTrue(c.getPool() == 1);
-
-			final List<String> choicesList =
-					ability.getChoicesList(bString, getCharacter());
-			assertEquals(choicesList.size(), 2);
-
-			String s = choicesList.get(0);
-			is(s, strEq("Dwarvish"));
-			s = choicesList.get(1);
-			is(s, strEq("Elven"));
-		}
-		catch (HeadlessException e)
-		{
-			Logging.debugPrint("Ignoring Headless exception.");
-		}
 	}
 
 	/**
