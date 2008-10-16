@@ -17,173 +17,212 @@
 		Description:
 		Provides information on the content of PCGen Companion Modifications File.
 	-->
-<head>
-	<title>Companion Modifications File</title>
-	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
+	<head>
+		<title>Companion Modifications File</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
 
-<body>
+	<body>
 
-	<h1>Companion Modifications File</h1>
+		<h1>Companion Modifications File</h1>
 
-	<p>These files specify the bonuses that &quot;enhanced companions&quot;, such as familiars and a
-		Paladin's special mount, receive from associating with the character.</p>
-	<p class="indent1">The following tags are described in this section:</p>
-	<p></p>
-	<p class="indent2"><a href="#COPYMASTERBAB">COPYMASTERBAB</a></p>
-	<p class="indent2"><a href="#COPYMASTERCHECK">COPYMASTERCHECK</a></p>
-	<p class="indent2"><a href="#COPYMASTERHP">COPYMASTERHP</a></p>
-	<p class="indent2"><a href="#FOLLOWER">FOLLOWER</a></p>
-	<p class="indent2"><a href="#FOLLOWERADJUSTMENT">FOLLOWERADJUSTMENT</a></p>
-	<p class="indent2"><a href="#HD">HD</a></p>
-	<p class="indent2"><a href="#MASTERBONUSRACE">MASTERBONUSRACE</a></p>
-	<p class="indent2"><a href="#RACETYPE">RACETYPE</a></p>
-	<p class="indent2"><a href="#SWITCHRACE">SWITCHRACE</a></p>
-	<p class="indent2"><a href="#CompanionMod">TYPE</a></p>
-	<p class="indent2"><a href="#USEMASTERSKILL">USEMASTERSKILL</a></p>
-	<p></p>
+		<p class="indent0">These files specify the bonuses that &quot;enhanced companions&quot;, such 
+			as familiars and a Paladin's special mount, receive from associating with the character.</p>
+		<p class="indent0">This page is separated into two sections: the <a href="#HowTo">Building a Basic Companion Mod</a> 
+			and the <a href="#TagDictionary">Companion Mod File Tag Dictionary</a>.</p>
+		<p></p>
 
 <hr>
 
-	<h2>Companion Mod File Tag Dictionary</h2>
+		<h2><a name="HowTo">Building a Basic Companion Mod</a></h2>
+	
+		<p class="indent0">The Companion Mod file contains two type os lines. The FOLLOWER line and the 
+			MASTERBONUSRACE line. The tags used on each line are listed below.</p>
+		<p class="indent1">FOLLOWER line uses the following tags:</p>
+		<p class="indent2"><a href="#FOLLOWER">FOLLOWER</a> - Begins the line.</p>
+		<p class="indent2"><a href="#COPYMASTERBAB">COPYMASTERBAB</a> - Replaces the followers Base Attack Bonus (BAB)</p>
+		<p class="indent2"><a href="#COPYMASTERCHECK">COPYMASTERCHECK</a> - Replaces the followers check bonuses.</p>
+		<p class="indent2"><a href="#COPYMASTERHP">COPYMASTERHP</a> - Replaces the followers HP total.</p>
+		<p class="indent2"><a href="#FOLLOWERADJUSTMENT">FOLLOWERADJUSTMENT</a></p>
+		<p class="indent2"><a href="#HD">HD</a> - Grants bonus hit dice to the follower of its normal creature type.</p>
+		<p class="indent2"><a href="#RACETYPE">RACETYPE</a> - Changes the followers creature type.</p>
+		<p class="indent2"><a href="#USEMASTERSKILL">USEMASTERSKILL</a> - Determines whether the follower uses its Masters skill ranks.</p>
+		<p class="indent2">Any global tag.</p>
+		<p class="indent1">MASTERBONUSRACE line uses the following tags:</p>
+		<p class="indent2"><a href="#MASTERBONUSRACE">MASTERBONUSRACE</a> - Begins the line.</p>
+		<p class="indent2">The <a href="../globalfilestagpages/globalfilestype.html#CompanionMod">TYPE</a> tag, 
+			any <a href="../globalfilestagpages/globalfilesbonus.html">BONUS</a> tag 
+			and the global <a href="../globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a> and 
+			<a href="../globalfilestagpages/globalfilesother.html#ABILITY">ABILITY</a> tags.</p>
+		<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="COPYMASTERBAB">Tag Name:</a></strong> COPYMASTERBAB:x</p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (BAB to be granted to the Follower) </p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER (The Masters BAB value) </p>
+		<h2><a name="TagDictionary">Companion Mod File Tag Dictionary</a></h2>
+
+<hr>
+
+		<p class="indent0"><strong><a name="COPYMASTERBAB">Tag Name:</a></strong> COPYMASTERBAB:x</p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (Base Attack Bonus granted) </p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER</p>
         <p class="indent1"><strong>What it does:</strong> </p>
-        <p class="indent2">Substitutes the Followers normal Base Attack Bonus with the value specified. <br>
-		MASTER is a special variable which when used in the COPYMASTERBAB tag passes the value of the Masters Base Attack Bonus.</p>
+        <ul class="indent2">
+        	<li>Substitutes the followers normal Base Attack Bonus (BAB) with the value specified.</li>
+        	<li><code>MASTER</code> is a special sub-tag which passes the value of the Masters BAB.</li>
+        </ul>
         <p class="indent1"><strong>Example:</strong> </p>
         <p class="indent2"><code>COPYMASTERBAB:MASTER</code> </p>
         <p class="indent3">Uses the master's BAB </p>
-	<p><a name="COPYMASTERCHECK"></a></p>
+        <p class="indent1"><strong>Where it is Used:</strong> </p>
+        <p class="indent2">FOLLOWER Line</p>
+        <p></p>
 
 <hr>
 
-	<p class="indent0"><strong>Tag Name: </strong>COPYMASTERCHECK:x </p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER (The Masters Checks) </p>
+		<p class="indent0"><strong><a name="COPYMASTERCHECK">Tag Name:</a></strong> COPYMASTERCHECK:x</p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER</p>
         <p class="indent1"><strong>What it does: </strong></p>
 	    <p class="indent2">Gives the creature the same checks as the master. </p>
     	<p class="indent1"><strong>Example</strong></p>
     	<p class="indent2"><code>COPYMASTERCHECK:MASTER</code> </p>
     	<p class="indent3">Uses the base master checks</p>
+        <p class="indent1"><strong>Where it is Used:</strong> </p>
+        <p class="indent2">FOLLOWER Line</p>
 	<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="COPYMASTERHP" id="COPYMASTERHP">Tag Name:</a></strong> COPYMASTERHP:x</p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (Hit Points to be granted to the Follower) </p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER (The Masters Hit Points) </p>
+		<p class="indent0"><strong><a name="COPYMASTERHP" id="COPYMASTERHP">Tag Name:</a></strong> COPYMASTERHP:x</p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (Hit Points granted) </p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER</p>
         <p class="indent1"><strong>What it does</strong>: </p>
-	<p class="indent2">Substitutes the Followers normal Hit Points with the value specified. <br>
-		MASTER is a special variable which when used in the COPYMASTERHP tag passes the value of the Masters Hit Points.</p>
-        <p class="indent1"><strong>Example: </strong></p>
-	<p class="indent2"><code>COPYMASTERHP:MASTER/2</code> </p>
-	<p class="indent3">Gives the creature half the master's hit points </p>
-	<p class="indent2"><code>COPYMASTERHP:max(1,MASTER/2)</code> </p>
-	<p class="indent3">Gives the creature half the master's hit points or 1, whichever is higher. </p>
-	<p></p>
+        <ul class="indent2">
+        	<li>Substitutes the followers normal Hit Points (HP) with the value specified.</li>
+        	<li><code>MASTER</code> is a special sub-tag which passes the value of the Masters HP.</li>
+        </ul>
+		<p class="indent1"><strong>Example: </strong></p>
+		<p class="indent2"><code>COPYMASTERHP:MASTER/2</code> </p>
+		<p class="indent3">Gives the creature half the master's hit points </p>
+		<p class="indent2"><code>COPYMASTERHP:max(1,MASTER/2)</code> </p>
+		<p class="indent3">Gives the creature half the master's hit points or 1, whichever is higher. </p>
+        <p class="indent1"><strong>Where it is Used:</strong> </p>
+        <p class="indent2">FOLLOWER Line</p>
+		<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="FOLLOWER">Tag Name:</a></strong> FOLLOWER:x,x=y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or variable)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Class level or variable value)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This is a comma delimited list of classes or variables.</li>
-		<li>If the &quot;master&quot; meets the required level or value in the tag, then the
-			companion gains all the benefits as described by the other tags in the line.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>FOLLOWER:Paladin=5</code></p>
-	<p class="indent3">True if PC is a Level 5 or greater &quot;Paladin&quot;.</p>
-	<p class="indent2"><code>FOLLOWER:Sorcerer,Wizard=1</code></p>
-	<p class="indent3">True if PC is a Level 1 or greater &quot;Sorcerer&quot; or &quot;Wizard&quot;.</p>
-	<p class="indent2"><code>FOLLOWER:CompanionLevel=5</code></p>
-	<p class="indent3">True if the CompanionLevel variable is 5 or greater.</p>
-	<p></p>
+		<p class="indent0"><strong><a name="FOLLOWER">Tag Name:</a></strong> FOLLOWER:x,x=y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or Variable)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Class level or Variable value)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This is a comma delimited list of classes or variables.</li>
+			<li>If the &quot;master&quot; meets the required level or value in the tag, then the
+				companion gains all the benefits as described by the other tags in the line.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FOLLOWER:Paladin=5</code></p>
+		<p class="indent3">True if PC is a Level 5 or greater &quot;Paladin&quot;.</p>
+		<p class="indent2"><code>FOLLOWER:Sorcerer,Wizard=1</code></p>
+		<p class="indent3">True if PC is a Level 1 or greater &quot;Sorcerer&quot; or &quot;Wizard&quot;.</p>
+		<p class="indent2"><code>FOLLOWER:CompanionLevel=5</code></p>
+		<p class="indent3">True if the CompanionLevel variable is 5 or greater.</p>
+		<p></p>
 
 <hr>
 
-	<p class="new">*** New 5.11.0</p>
-	<p class="indent0"><strong><a name="FOLLOWERADJUSTMENT">Tag Name:</a></strong> FOLLOWERADJUSTMENT:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number the effective master level is
-		adjusted for this (or these) creatures)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adjusts the FOLLOWER variable which changes the effective level of the master for the
-		specific creature.</p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">In COMPANIONLIST line.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape  FOLLOWERADJUSTMENT:-3</code></p>
-	<p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a
-		companion of a 1st level Druid.</p>
-	<p></p>
+		<p class="new">*** New 5.11.0</p>
+		<p class="indent0"><strong><a name="FOLLOWERADJUSTMENT">Tag Name:</a></strong> FOLLOWERADJUSTMENT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number the effective master level is
+			adjusted for this (or these) creatures)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Adjusts the FOLLOWER variable which changes the effective level of the master for the
+			specific creature.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape  FOLLOWERADJUSTMENT:-3</code></p>
+		<p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a
+			companion of a 1st level Druid.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">COMPANIONLIST line.</p>
+		<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="HD">Tag Name:</a></strong> HD:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Gives the companion bonus hit dice of its creature type.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>HD:2</code></p>
-	<p class="indent3">Defines the creature having two Hit Dice.</p>
-	<p></p>
+		<p class="indent0"><strong><a name="HD">Tag Name:</a></strong> HD:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Gives the companion bonus hit dice of its creature type.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HD:2</code></p>
+		<p class="indent3">Defines the creature having two Hit Dice.</p>
+        <p class="indent1"><strong>Where it is Used:</strong> </p>
+        <p class="indent2">FOLLOWER Line</p>
+		<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="MASTERBONUSRACE">Tag Name:</a> </strong>MASTERBONUSRACE:x </p>
-        <p class="indent1"><strong>Variables used:</strong> (x) text </p>
+		<p class="indent0"><strong><a name="MASTERBONUSRACE">Tag Name:</a> </strong>MASTERBONUSRACE:x </p>
+        <p class="indent1"><strong>Variables used (x):</strong> Text (Race Name)</p>
     	<p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">This tag is used if you need to define the advantages that the master
-		gains when having particular race(s) as the given type.	MASTERBONUSRACE is used to start a
-		new line, tags which follow this one on the same line are granted to the master.
-		Tags which can be used are BONUS and VFEAT.</p>
-	<p class="indent1"><strong>Example:<br></strong></p>
-	<p class="indent2">MASTERBONUSRACE:Bat </p>
-	<p class="indent3">Specifies what race the master has chosen (Bat) and the tag(s) following it will give the master the familiar bonuses. </p>
-	<p></p>
+        <ul class="indent2">
+        	<li>The <code>MASTERBONUSRACE</code> tag is the first tag on a MASTERBONUSRACE line.</li>
+			<li>The MASTERBONUSRACE line is used to define the advantages that the master gains when 
+				having a particular race(s) as the given type of companion.</li>
+        	<li>The tags following the <code>MASTERBONUSRACE</code> tag on the MASTERBONUSRACE line 
+        		are granted to the master.</li>
+			<li>Valid tags on this line are <code>TYPE</code>, <code>BONUS</code>, <code>VFEAT</code> 
+				and the <code>ABILITY</code> tags.</li>
+		</ul>
+		<p class="indent1"><strong>Example:<br></strong></p>
+		<p class="indent2"><code>MASTERBONUSRACE:Bat</code></p>
+		<p class="indent3">Specifies what race the master has chosen (Bat) and the tag(s) following it 
+			will give the master the familiar bonuses. </p>
+		<p></p>
 
 <hr>
 
-	<p class="new">*** New 5.9.4</p>
-	<p class="indent0"><strong><a name="RACETYPE">Tag Name:</a></strong> RACETYPE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Changes the Type of creature the race is from the initial Type defined by
-	    		<a href="datafilesraces.html#RACETYPE">RACETYPE</a> in the race line.</li>
-		<li>A Creature may only have one RACETYPE at any given time.</li>
-		<li>Currently existing selections from the Monster List include:<br />
-			Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid,
-			Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and
-			Vermin</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>RACETYPE:Undead</code></p>
-	<p class="indent3">The Creature is now of the &quot;Undead&quot; type.</p>
-	<p></p>
+		<p class="new">*** New 5.9.4</p>
+		<p class="indent0"><strong><a name="RACETYPE">Tag Name:</a></strong> RACETYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Type)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Changes the type of the creature from the initial type defined by the 
+	    		<a href="datafilesraces.html#RACETYPE">RACETYPE</a> tag in the race line
+	    		to the racetype designated.</li>
+			<li>A Creature may only have one racetype at any given time.</li>
+			<li>Existing selections from the RSRD Monster List include:<br />
+				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid,
+				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and
+				Vermin</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RACETYPE:Undead</code></p>
+		<p class="indent3">The Creature is now of the &quot;Undead&quot; type.</p>
+        <p class="indent1"><strong>Where it is Used:</strong> </p>
+        <p class="indent2">FOLLOWER Line</p>
+		<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="USEMASTERSKILL">Tag Name:</a></strong> USEMASTERSKILL:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (YES or NO)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Used to define whether the creature uses the skill ranks of its master.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>USEMASTERSKILL:YES</code></p>
-	<p class="indent3">Defines the creature as using the skill ranks of its master.</p>
+		<p class="indent0"><strong><a name="USEMASTERSKILL">Tag Name:</a></strong> USEMASTERSKILL:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Used to define whether the creature uses the skill ranks of its master or not.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>USEMASTERSKILL:YES</code></p>
+		<p class="indent3">Defines the creature as using the skill ranks of its master.</p>
+        <p class="indent1"><strong>Where it is Used:</strong> </p>
+        <p class="indent2">FOLLOWER Line</p>
+		<p></p>
 
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>			
+<hr>
+
+		<p>
+		<a href="http://validator.w3.org/check?uri=referer"><img
+    	   	src="../../images/system/valid-html401.png"
+    	   	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+		</p>			
 
     </body>
 
