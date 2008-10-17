@@ -40,19 +40,19 @@ public class PCSizeTermEvaluator
 	// This makes no sense as part of a numeric evaluator
 	public Float resolve(PlayerCharacter pc)
 	{
-		return 0f;
+		return convertToFloat(originalText, evaluate(pc));
 	}
 
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		return pc.getSize();
+		return String.valueOf(pc.sizeInt());
 	}
 
 	@Override
 	public String evaluate (PlayerCharacter pc, Spell aSpell)
 	{
-		return pc.getSize();
+		return String.valueOf(pc.sizeInt());
 	}
 
 	public boolean isSourceDependant()
