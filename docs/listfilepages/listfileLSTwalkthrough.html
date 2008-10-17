@@ -11,6 +11,7 @@
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Sigurdur H. Olafsson - shoATitnDOTis
+		Eric C. Smith - mareduddATblackrootDOTorg
 		
 		Description:
 		Provides information on PCC and LST Files.
@@ -24,158 +25,100 @@
 	<body>
 		<h1>PCC and LST Files Explained</h1>
 		<p class="indent0">by James McP</p>
+		<p class="indent0"><em>Updated by E. C. Smith</em></p>
 		
-		<p class="indent0">This document assumes you are familiar with the RPG Third Edition and the SRD rule set.
-		In particular, it follows the System Reference Document (SRD) for 3E, which varies in some ways from the 3E books.
-		It was also written based on PCGen version 5 data files, located in the \data\d20ogl\srd\ directory of PCGen.</p>
+		<p class="indent0">This document follows the System Reference Document (SRD) for 3E, which 
+			varies in some ways from the 3E books. It was also written based on the early PCGen v5.x 
+			data files and has been updated to the 5.16 data standard. The 5.16 data files are located 
+			in the \data\d20ogl\srd\ directory of PCGen.</p>
 		
-		<p class="indent0">We will be discussing the format of LSTs and PCC files and how they expect to encounter tags.
-		Refer to the documentation for details on implementing specific tags as
-		they can, and do, change.</p>
+		<p class="indent0">We will be discussing the format of LST and PCC files and how they expect 
+			to encounter tags. Refer to PCGen's documentation for details on implementing specific 
+			tags as they can, and do, change.</p>
 		
-		<p class="indent0">PCGen interprets data files using tabs and line returns. Note that a return
-		(hitting the &quot;enter&quot; or &quot;return&quot; key) is different from word-wrap.
-		You are advised to use a true text editor like the basic windows Notepad
-		or one of the free editing programs like UltraEdit. Regardless, turn word-wrap
-		off.</p>
+		<p class="indent0">PCGen interprets data files using tabs and line returns. Note that a return 
+			(i.e. hitting the &quot;enter&quot; or &quot;return&quot; key) is different from word-wrap. 
+			You are advised to use a true text editor like the basic windows Notepad or one of the free 
+			editing programs like UltraEdit. Regardless, turn word-wrap off.</p>
 		
-		<p class="indent0">In these examples I will be using extra lines that are indented rather than tabs and blank lines to indicate separate
-		lines.</p>
+		<p class="indent0">In these examples I will be using extra lines that are indented rather than 
+			tabs and blank lines to indicate separate lines.</p>
 		
 		<p class="indent0">So this:</p>
 		
-		<table class=w20>
-			<tr>
-				<td class=w33>Bob</td>
-				<td class=w33>1</td>
-				<td class=w33>2</td>
-			</tr>
-			<tr>
-				<td class=w33>Alice</td>
-				<td class=w33>3</td>
-				<td class=w33>4</td>
-			</tr>
-		</table>
-		
+		<p class="indent1">Bob &lt;tab&gt; 1 &lt;tab&gt; 2</p>
+		<p class="indent1">Alice &lt;tab&gt; 3 &lt;tab&gt; 4</p>
+
 		<p class="indent0">Will be portrayed as:</p>
+		<p class="indent1">Bob</p>
+		<p class="indent2">1</p>
+		<p class="indent2">2</p>
+		<p class="indent1">Aliceb</p>
+		<p class="indent2">3</p>
+		<p class="indent2">4</p>
 		
-		<table class=w20>
-			<tr>
-				<td class=w50>Bob</td>
-				<td class=w50></td>
-			</tr>
-			<tr>
-				<td class=w50></td>
-				<td class=w50>1</td>
-			</tr>
-			<tr>
-				<td class=w50></td>
-				<td class=w50>2</td>
-			</tr>
-		</table>
+		<h2>What is a PCC file and why are we discussing it first?</h2>
 		
-		<table class=w20>
-			<tr>
-				<td class=w50>Alice</td>
-				<td class=w50></td>
-			</tr>
-			<tr>
-				<td class=w50></td>
-				<td class=w50>3</td>
-			</tr>
-			<tr>
-				<td class=w50></td>
-				<td class=w50>4</td>
-			</tr>
-		</table>
+		<p class="indent0">A PCC file is the only way PCGen can see a LST file. Perhaps the 
+			most common problem people have creating their first home brew LST file is failing 
+			to create a PCC that references it.</p>
 		
-		<h2>What is a PCC? Why are we discussing it first?</h2>
+		<p class="indent0">While most users will only use PCCs as little more than a list of LSTs 
+			for their home brew campaigns, when converting a published source for PCGen, the PCC 
+			file is an expression of the legal system in the form of the Open Gaming License (OGL). 
+			Only through the OGL, other similar licenses, or through direct licensing from the publishes
+			can PCGen distribute data from published sources without violating copyrights. This makes 
+			the PCC the most important part element in distributing copyrighted data.</p>
 		
-		<p class="indent0">A PCC file is the only way PCGen can see a LST file. Perhaps the most common
-		problem people have creating their first home brew LST file is failing to create
-		a PCC that references it.</p>
-		
-		<p class="indent0">While most users will only use PCCs as little more than a list of LSTs for their home brew campaigns, when converting a
-		published source to PCGen the PCC file is an expression of the legal system in the form of the Open Gaming License (OGL). 
-		Only through these, or other licenses, can PCGen distribute data from published
-		sources without violating copyrights. This can make the PCC the most important part in distributing copyrighted data.</p>
-		
-		<p class="indent0">For a completely original campaign, you are the owner of your material and the copyrights. You should still declare all 
-		the copyright information just in case your data files are somehow distributed. Keep in mind that a PCC is the sole way for 
-		PCGen to identify a LST and that the structure of PCC files is primarily to fulfill that purpose. The copyright information 
-		is for legal compliance, not program functionality.</p>
+		<p class="indent0">For a completely original campaign, you are the owner of your material and 
+			the copyrights. You should still declare all the copyright information, just in case your 
+			data files somehow find their way into distribution. Keep in mind that a PCC is the sole 
+			way for PCGen to identify a LST file and that the structure established for the PCC files 
+			is primarily to fulfill that purpose. The copyright information is for legal compliance, 
+			not program functionality.</p>
 		
 		<h2>Building your own PCC</h2>
 		
-		<p class="indent0">Really not hard. The PCC consists of the header block; used to fulfill the legal
-		obligations and provide information used in prioritizing the data and knowing
-		which types of games it is compatible with (e.g. Fantasy RPGs, Sci-Fi RPGs, etc), and
-		a list of LSTs to include. Each entry has a separate line in the PCC.</p>
+		<p class="indent0">The PCC file consists of the header block, used to fulfill the legal
+			obligations of data distribution, provide information used in prioritizing the data, 
+			and identifying which types of games it the data is compatible with, e.g. Fantasy RPGs, 
+			Sci-Fi RPGs, etc., and a main LST file block that contain a list of LST files that make 
+			up the data set. The PCC file consists of a single entry for each line.</p>
+
+		<h3>Where to Find the Files</h3>
+
+		<p class="indent0">Typically PCC files are kept within the &quot;data&quot; directory of your 
+			PCGen installation. They can be located in a sub-directory as PCGen will find all PCC files 
+			located within the data directory structure.</p>
+		<p class="indent0">Another source for PCC files is the "Vendor Data" directory, specified in 
+			the <a href="../menupages/settings/pcgen/pcgenlocation.html">Preferences:PCGen:Location</a> 
+			dialogue under the Setting menu.</p>
+		<p class="indent0">PCC files can also be loaded off of the internet by checking the "Allow 
+			sources to be loaded from web links" checkbox in the <a href="../menupages/settings/pcgen/pcgensources.html">Preferences:PCGen:Sources</a> 
+			dialogue under the Settins menu. Then you can load sources from a webpage from the 
+			<a href="../tabpages/source/sourcesectionheading.html">"Source Material"</a> Main Tab.</p>
 		
-		<p class="indent0">Typically PCC files are kept within the \data directory of your PCGen installation. They
-			can be in a subdirectory as PCGen will find all PCCs within \data.</p>
-		<p class="indent0">Another source for PCC files is the "Vendor Data" directory, specified in the <a href="../menupages/settings/pcgen/pcgenlocation.html">Settings, Preferences, PCGen, Location</a> dialogue.</p>
-		<p class="indent0">PCC files can also be loaded off the internet by checking the "Allow sources to be loaded from web links" checkbox in the
-		<a href="../menupages/settings/pcgen/pcgensources.html">Settings, Preferences, PCGen, Sources</a> dialogue.
-		Then you can load sources from a Webpage from the <a href="../tabpages/source/sourcesectionheading.html">"Source Material"</a> Main Tab.</p>
-		
-		<p class="indent0">See the \data\d20ogl\srd\srd.pcc for an example of the layout of a PCC. Here are the
-		tags in the order they are typically found. The order is not important, but following conventions will help others
-		help you if you make a mistake. For legal reasons, few of the header tags should ever be omitted.
-		See the <a href="datafilestagpages/datafilespcc.html">.pcc Files tags</a> documentation for a complete listing on <a href="datafilestagpages/datafilespcc.html#DATASETTAGS">Data Set and Campaign Information Tags</a>
-		
-		<table>
-			<tr>
-				<td class=w50 valign="top"><code>CAMPAIGN:</code></td>
-				<td class=w50>Name of Campaign Displayed in data load window.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>RANK: 1</code></td>
-				<td class=w50>Rank indicates priority in sorting.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>GAMEMODE:3e</code></td>
-				<td class=w50>Designates the Game Mode.<br />
-												Default RPG is 3e.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>GENRE:</code></td>
-				<td class=w50>This tells PCGen what genre this is,<br />
-												used to filter sources.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>TYPE:Dominant Game Publisher.SRD</code></td>
-				<td class=w50>Type will be used for sorting.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>SOURCELONG:The Full Name of the Source</code></td>
-				<td class=w50>Long title (used in some displays).</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>SOURCESHORT:Source</code></td>
-				<td class=w50>Short title (used in some displays).</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>SOURCEWEB:http://www.mywebsite.com</code></td>
-				<td class=w50>Website for the source (typically the publisher's general site).</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>ISOGL:YES</code></td>
-				<td class=w50>If the source uses the open gaming license (OGL) See OGL FAQ.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>COPYRIGHT:Open Game License v 1.0a  Copyright 2000, Your Name</code></td>
-				<td class=w50>Copyright Terms.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>COPYRIGHT:The Full Name of the Source Copyright 2003, Company Name ; Authors Bob Writer</code></td>
-				<td class=w50>Copyright Owner.</td>
-			</tr>
-			<tr>
-				<td class=w50 valign="top"><code>[LST Type]:[LST Name]</code></td>
-				<td class=w50>Call a LST file.</td>
-			</tr>
-		</table>
+		<p class="indent0">FYou will see included below a sample PCC file. You can see the tags used and 
+			the order in which they are typically found. The order is not important, except for the first 
+			three tags, but following these conventions will help others help you if you make a mistake. 
+			For legal reasons, few of the header tags should ever be omitted. See the 
+			<a href="datafilestagpages/datafilespcc.html">.pcc Files tags</a> documentation for a complete 
+			listing on <a href="datafilestagpages/datafilespcc.html#DATASETTAGS">Data Set and Campaign 
+			Information Tags</a></p>
+
+		<p class="indent1">Sample PCC FIles:</p>
+		<p class="indent2"><code>CAMPAIGN:</code> - Name of Campaign Displayed in data load window.</p>
+		<p class="indent2"><code>GAMEMODE:3e</code> - Designates the Game Mode.</p>
+		<p class="indent2"><code>TYPE:Dominant Game Publisher.SRD</code> - Type will be used for sorting.</p>
+		<p class="indent2"><code>RANK: 1</code> - Rank indicates priority in sorting.</p>
+		<p class="indent2"><code>GENRE:</code> - This tells PCGen what genre this is, used to filter sources.</p>
+		<p class="indent2"><code>SOURCELONG:The Full Name of the Source</code>< - Long title (used in some displays).</p>
+		<p class="indent2"><code>SOURCESHORT:Source</code> - Short title (used in some displays).</p>
+		<p class="indent2"><code>SOURCEWEB:http://www.mywebsite.com</code> - Website for the source (typically the publisher's general site).</p>
+		<p class="indent2"><code>ISOGL:YES</code> - If the source uses the open gaming license (OGL) See OGL FAQ.</p>
+		<p class="indent2"><code>COPYRIGHT:Open Game License v 1.0a  Copyright 2000, WotC etc.</code> - Copyright Terms.</p>
+		<p class="indent2"><code>COPYRIGHT:Full Name of the Source Copyright 2003, Company Name, Authors Names</code> - Copyright Owner.</p>
+		<p class="indent2"><code>[LST Type]:[LST Name]</code> - Call a LST file.</p>
 					
 		<h2>LST Types</h2>
 		
