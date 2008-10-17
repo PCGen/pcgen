@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 15 23:19:48 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Fri Oct 17 11:29:53 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Eddy Anthony, Tir Gwaith
 
@@ -98,9 +98,9 @@ Desecrating Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aur
 Despair				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:NO	SAB:Despair (Su)
 Destabilize Form			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Destabilize Form (Su)
 Destructive Harmonics		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:NO	SAB:Destructive Harmonics (Su)
-Detect Gems				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:NO	SAB:Detect Gems (Sp) %/day|DetectGemsTimes																			DEFINE:DetectGemsTimes|3
-Detect Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Detect Magic (Su)
-Detect Thoughts			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Detect Thoughts (Su)
+Detect Gems				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense			VISIBLE:NO	SAB:Detect Gems (Sp) %/day|DetectGemsTimes																			DEFINE:DetectGemsTimes|3
+Detect Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:NO	SAB:Detect Magic (Su)
+Detect Thoughts			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:NO	SAB:Detect Thoughts (Su)
 Dimension Door			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:NO	SAB:Dimension Door (Su)
 Dimensional Travel		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:NO	SAB:Dimensional Travel (Sp)
 Dire Winter				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:NO	SAB:Dire Winter (Su)
@@ -567,20 +567,20 @@ Telepathic Speech		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:T
 
 
 ###Block: Dragon Breath Weapons
-# Ability Name					Output Name				Category of Ability		Type						Visible	Special ABility																			Define
-Breath Weapon ~ Cone of Cold			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Cold %d% cold DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Corrosive Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Corrosive Gas %d% acid DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC			DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Fire %d% Fire DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDC					DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Paralyzing Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Paralyzing Gas DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Repulsion Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Repulsion Gas DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Sleep			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Sleep DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration		DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Slow			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Slow DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration			DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Weakening Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Weakening Gas DC % or -% STR|BreathWeaponCone|BreathWeaponDC|BreathWeaponStatDamage		DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponStatDamage|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Line of Acid			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Line of Acid %d% acid DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC					DEFINE:BreathWeaponLine|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Line of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Line of Fire %d% fire DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC					DEFINE:BreathWeaponLine|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Line of Lightning		OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Line of Lightning %d% electricity DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDC			DEFINE:BreathWeaponLine|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Cone of Force			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (% ft. Cone of Force %d%/ DC %) (Su)|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
-Breath Weapon ~ Prismatic Spray		OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (% ft. Prismatic Spray Effect/ DC %) (Su)|BreathWeaponSpray|BreathWeaponDC						DEFINE:BreathWeaponSpray|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+# Ability Name					Output Name				Category of Ability		Type						Visible	Special ABility																					Define
+Breath Weapon ~ Cone of Cold			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Cold %d% cold DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Corrosive Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Corrosive Gas %d% acid DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Fire %d% Fire DC %|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Paralyzing Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Paralyzing Gas DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration			DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Repulsion Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Repulsion Gas DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration			DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Sleep			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Sleep DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration				DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Slow			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Slow DC % for 1d6+% rounds|BreathWeaponCone|BreathWeaponDC|BreathWeaponDuration					DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDuration|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Weakening Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Cone of Weakening Gas DC % or -% STR|BreathWeaponCone|BreathWeaponDC|BreathWeaponStatDamage				DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponStatDamage|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Line of Acid			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Line of Acid %d% acid DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			DEFINE:BreathWeaponLine|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Line of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Line of Fire %d% fire DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			DEFINE:BreathWeaponLine|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Line of Lightning		OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) %' Line of Lightning %d% electricity DC %|BreathWeaponLine|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC	DEFINE:BreathWeaponLine|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Cone of Force			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (% ft. Cone of Force %d%/ DC %) (Su)|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
+Breath Weapon ~ Prismatic Spray		OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (% ft. Prismatic Spray Effect/ DC %) (Su)|BreathWeaponSpray|BreathWeaponDC								DEFINE:BreathWeaponSpray|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON
 
 # For unspecified Breath Weapon
 Breath Weapon										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su)
@@ -607,16 +607,16 @@ Malevolence			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.GhostAbil
 Telekinesis			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.GhostAbility	VISIBLE:DISPLAY	SAB:Telekinesis (Su) DC%|10+(TL/2)+CHA
 
 ###Block: Specific Monster Abilities
-# Ability Name		Output Name				Category of Ability		Type						Visible	Special ABility																						Define
+# Ability Name		Output Name				Category of Ability		Type						Visible	Special ABility																							Define
 Blood Drain ~ Stirge	OUTPUTNAME:Blood Drain		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Blood Drain (Ex) ~ 1d4 Constitution damage (up to 4 points per Stirge) each round the Stirge begins attached to the victim
 Breath Fire ~ Hydra	OUTPUTNAME:Breath Fire		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Breath Fire ~ % heads every 1d4 rounds/3d6 Fire Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON
 Breath Frost ~ Hydra	OUTPUTNAME:Breath Frost		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Breath Frost ~ % heads every 1d4 rounds/3d6 Cold Damage/DC % for half|HydraHeadCount|10+floor(HydraHeadCount/2)+CON
-Burst ~ Xeph		OUTPUTNAME:Burst			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Burst (Su) (3x/day; competence bonus to speed of +% for 3 rounds)|BurstBonus											DEFINE:BurstBonus|0
+Burst ~ Xeph		OUTPUTNAME:Burst			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Burst (Su) (3x/day; competence bonus to speed of +% for 3 rounds)|BurstBonus												DEFINE:BurstBonus|0
 Dominate ~ Vampire	OUTPUTNAME:Dominate		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Dominate (Su) DC%|VampireAbilityDC
 Paralyzing Touch ~ Lich	OUTPUTNAME:Paralyzing Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Paralyzing Touch (Su) ~ DC%|LichAbilityDC
-Stench ~ Troglodyte	OUTPUTNAME:Stench			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stench (Ex) DC %|TrogStenchDC																			DEFINE:TrogStenchDC|0
+Stench ~ Troglodyte	OUTPUTNAME:Stench			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Stench (Ex) DC %|TrogStenchDC																				DEFINE:TrogStenchDC|0
 Touch Attack ~ Lich	OUTPUTNAME:Touch Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Touch Attack (Ex) ~ Negative Energy 1d8+5 DC%|LichAbilityDC
-Web ~ Monstrous Spider	OUTPUTNAME:Web			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0
+Web ~ Monstrous Spider	OUTPUTNAME:Web			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web (Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0
 
 #
 # End
