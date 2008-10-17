@@ -223,7 +223,7 @@ Divine Health	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBL
 Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			VISIBLE:NO	SAB:Remove Disease (Sp) %/week|RemoveDisease								DEFINE:RemoveDisease|0	DEFINE:RemoveDiseaseLVL|0																																						BONUS:VAR|RemoveDisease|RemoveDiseaseLVL/3-1	SOURCEPAGE:ClassesII.rtf
 Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Lay on Hands (Su)|PREVAREQ:LayOnHands,0	DEFINE:LayOnHands|0	DEFINE:LayOnHandsLVL|0																																							BONUS:VAR|LayOnHands|LayOnHandsLVL*max(CHA,0)	SOURCEPAGE:ClassesII.rtf
 Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Divine Grace (Su)																																																		BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)									SOURCEPAGE:ClassesII.rtf
-Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			VISIBLE:NO	SAB:Detect Evil (Sp)												DEFINE:DetectEvilLVL|0						SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																																		SOURCEPAGE:ClassesII.rtf
+Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense		VISIBLE:NO	SAB:Detect Evil (Sp)												DEFINE:DetectEvilLVL|0						SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																																		SOURCEPAGE:ClassesII.rtf
 
 ###Block: Paladin Internals
 # Ability Name		Category of Ability		Type			Visible	Define													Modify VAR																											Source Page

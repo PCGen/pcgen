@@ -23,7 +23,7 @@ Armor Proficiency (Barding)	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Ba
 
 ###Block: Ability Focus Chooser
 # Feat Name		Stackable?	Multiple?	Choose
-Ability Focus.MOD	STACK:NO	MULT:YES	CHOOSE:STRING|Breath Weapon|Charming Gaze|Constrict|Corrupting Gaze|Corrupting Touch|Crush|Draining Touch|Fists|Frightful Moan|Gaze|Horrific Appearance|Improved Grab|Keening|Malevolence|Paralysis|Poison|Pounce|Rake|Ray|Roar|Seduction|Soul Portal|Sound Imitation|Stench|Swallow Whole|Tail Sweep|Trample
+Ability Focus.MOD	STACK:NO	MULT:YES	CHOOSE:STRING|Breath Weapon|Charming Gaze|Constrict|Corrupting Gaze|Corrupting Touch|Crush|Draining Touch|Fists|Frightful Moan|Frightful Presence|Gaze|Horrific Appearance|Improved Grab|Keening|Malevolence|Paralysis|Paralyzing Touch|Poison|Pounce|Rake|Ray|Roar|Seduction|Soul Portal|Sound Imitation|Stench|Swallow Whole|Tail Sweep|Telekinesis|Trample
 
 ###Block: Descriptions
 #
