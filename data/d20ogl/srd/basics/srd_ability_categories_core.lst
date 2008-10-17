@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug  9 15:13:06 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Oct 16 12:09:16 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 #SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by: Tir Gwaith, Eddy Anthony
 #
@@ -25,7 +25,8 @@ ABILITYCATEGORY:Expert Class Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ABILITYCATEGORY:Ghost Special Attack	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostAbility		PLURAL:Ghost Special Attacks		DISPLAYLOCATION:Racial Abilities
 
 ###Block: Misc
-ABILITYCATEGORY:Perform Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PerformSkillChoice	PLURAL:Perform Skill Choices		DISPLAYLOCATION:Class Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Perform Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PerformSkillChoice	PLURAL:Perform Skill Choices	DISPLAYLOCATION:Class Abilities
 #
 # End
 #

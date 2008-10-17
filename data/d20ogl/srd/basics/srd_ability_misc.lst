@@ -1,27 +1,29 @@
+# CVS $Revision$ $Author$ -- Thu Oct 16 23:44:46 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry: Andrew Maitland
 
 ###Block: Perform Skill Choice Selections --------------------------------------
 ###Temp Location
-Perform (Ballad)		OUTPUTNAME:Ballad			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Ballad			
-Perform (Buffoonery)	OUTPUTNAME:Buffoonery		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Buffoonery			
-Perform (Chant)		OUTPUTNAME:Chant			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Chant		
-Perform (Comedy)		OUTPUTNAME:Comedy			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Comedy			
-Perform (Dance)		OUTPUTNAME:Dance			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Dance		
-Perform (Drama)		OUTPUTNAME:Drama			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Drama		
-Perform (Drums)		OUTPUTNAME:Drums			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Drums			
-Perform (Epic)		OUTPUTNAME:Epic			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Epic			
-Perform (Flute)		OUTPUTNAME:Flute			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Flute			
-Perform (Harp)		OUTPUTNAME:Harp			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Harp			
-Perform (Juggling)	OUTPUTNAME:Juggling		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Juggling				
-Perform (Limerics)	OUTPUTNAME:Limerics		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Limerics				
-Perform (Lute)		OUTPUTNAME:Lute			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Lute			
-Perform (Mandolin)	OUTPUTNAME:Mandolin		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Mandolin				
-Perform (Melody)		OUTPUTNAME:Melody			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Melody				
-Perform (Mime)		OUTPUTNAME:Mime			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Mime			
-Perform (Ode)		OUTPUTNAME:Ode			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Ode			
-Perform (Pan Pipes)	OUTPUTNAME:Pan Pipes		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Pan Pipes				
-Perform (Recorder)	OUTPUTNAME:Recorder		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Recorder				
-Perform (Shalm)		OUTPUTNAME:Shalm			CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Shalm			
-Perform (Storytelling)	OUTPUTNAME:Storytelling		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Storytelling					
-Perform (Trumpet)		OUTPUTNAME:Trumpet		CATEGORY:Special Ability	TYPE:PerformSkillChoice		SAB:Perform Type - Trumpet				
+# Ability Name		Output Name					Category of Ability		Type							Visible		Special ABility
+Perform (Ballad)		OUTPUTNAME:Perform Ballad		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Ballad
+Perform (Buffoonery)	OUTPUTNAME:Perform Buffoonery		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Buffoonery
+Perform (Chant)		OUTPUTNAME:Perform Chant		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Chant
+Perform (Comedy)		OUTPUTNAME:Perform Comedy		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Comedy
+Perform (Dance)		OUTPUTNAME:Perform Dance		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Dance
+Perform (Drama)		OUTPUTNAME:Perform Drama		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Drama
+Perform (Drums)		OUTPUTNAME:Perform Drums		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Drums
+Perform (Epic)		OUTPUTNAME:Perform Epic			CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Epic
+Perform (Flute)		OUTPUTNAME:Perform Flute		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Flute
+Perform (Harp)		OUTPUTNAME:Perform Harp			CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Harp
+Perform (Juggling)	OUTPUTNAME:Perform Juggling		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Juggling
+Perform (Limerics)	OUTPUTNAME:Perform Limerics		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Limerics
+Perform (Lute)		OUTPUTNAME:Perform Lute			CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Lute
+Perform (Mandolin)	OUTPUTNAME:Perform Mandolin		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Mandolin
+Perform (Melody)		OUTPUTNAME:Perform Melody		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Melody
+Perform (Mime)		OUTPUTNAME:Perform Mime			CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Mime
+Perform (Ode)		OUTPUTNAME:Perform Ode			CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Ode
+Perform (Pan Pipes)	OUTPUTNAME:Perform Pan Pipes		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Pan Pipes
+Perform (Recorder)	OUTPUTNAME:Perform Recorder		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Recorder
+Perform (Shalm)		OUTPUTNAME:Perform Shalm		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Shalm
+Perform (Storytelling)	OUTPUTNAME:Perform Storytelling	CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Storytelling
+Perform (Trumpet)		OUTPUTNAME:Perform Trumpet		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:DISPLAY	SAB:Perform Type - Trumpet
