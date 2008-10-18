@@ -104,6 +104,10 @@ public class AbilityListToken extends Token
 		final StringTokenizer aTok, final String tokenString,
 		final AbilityCategory aCategory)
 	{
+		if (aCategory == null)
+		{
+			return "";
+		}
 		StringBuffer retString = new StringBuffer();
 		if (lastPC != pc || !aCategory.equals(lastCategory)
 			|| lastPCSerial != pc.getSerial() || !tokenString.equals(lastType))
