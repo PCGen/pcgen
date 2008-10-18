@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.util.HashMap;
 import java.util.Set;
 
 import junit.framework.TestCase;

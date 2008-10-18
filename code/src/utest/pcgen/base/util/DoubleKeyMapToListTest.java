@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -57,6 +58,28 @@ public class DoubleKeyMapToListTest extends TestCase
 		dkm.addToListFor(Integer.valueOf(5), Double.valueOf(6), null);
 	}
 
+	public void testNullInConstructor()
+	{
+		try
+		{
+			new DoubleKeyMapToList(null, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMapToList(HashMap.class, null);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
+	
 	@Test
 	public void testPutGet()
 	{
@@ -66,6 +89,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		assertEquals(2, l.size());
 		assertTrue(l.contains(CONST_A));
 		assertTrue(l.contains(CONST_B));
+		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
 		l = dkm.getListFor(Integer.valueOf(1), Double.valueOf(2));
 		assertEquals(1, l.size());
 		assertTrue(l.contains(CONST_C));
@@ -127,13 +151,16 @@ public class DoubleKeyMapToListTest extends TestCase
 	{
 		assertNull(dkm.removeListFor(Integer.valueOf(1), Double.valueOf(1)));
 		populate();
+		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
 		List<Character> l = dkm.removeListFor(Integer.valueOf(1), Double.valueOf(1));
+		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
 		assertEquals(2, l.size());
 		assertTrue(l.contains(CONST_A));
 		assertTrue(l.contains(CONST_B));
 		assertFalse(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(1)));
 		assertNull(dkm.getListFor(Integer.valueOf(1), Double.valueOf(1)));
 		l = dkm.removeListFor(Integer.valueOf(1), Double.valueOf(2));
+		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
 		assertEquals(1, l.size());
 		assertTrue(l.contains(CONST_C));
 		dkm.addToListFor(Integer.valueOf(1), Double.valueOf(2), CONST_C);
@@ -153,6 +180,29 @@ public class DoubleKeyMapToListTest extends TestCase
 	}
 
 	@Test
+	public void testRemoveListsFor()
+	{
+		assertNull(dkm.removeListsFor(Integer.valueOf(1)));
+		populate();
+		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
+		MapToList<Double, Character> mtl = dkm.removeListsFor(Integer.valueOf(1));
+		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
+		assertFalse(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(1)));
+		assertFalse(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(2)));
+		Set<Double> keys = mtl.getKeySet();
+		assertEquals(2, keys.size());
+		assertTrue(keys.contains(Double.valueOf(1)));
+		assertTrue(keys.contains(Double.valueOf(2)));
+		List<Character> list = mtl.getListFor(Double.valueOf(1));
+		assertEquals(2, list.size());
+		assertTrue(list.contains(CONST_A));
+		assertTrue(list.contains(CONST_B));
+		list = mtl.getListFor(Double.valueOf(2));
+		assertEquals(1, list.size());
+		assertTrue(list.contains(CONST_C));
+	}
+
+	@Test
 	public void testRemoveFromListFor()
 	{
 		assertFalse(dkm.removeFromListFor(Integer.valueOf(1),
@@ -160,6 +210,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		populate();
 		assertTrue(dkm.removeFromListFor(Integer.valueOf(1), Double.valueOf(1),
 			CONST_A));
+		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
 		assertTrue(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(1)));
 		assertEquals(1, dkm
 			.sizeOfListFor(Integer.valueOf(1), Double.valueOf(1)));
@@ -170,6 +221,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		assertEquals(0, dkm
 			.sizeOfListFor(Integer.valueOf(1), Double.valueOf(1)));
 		assertFalse(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(1)));
+		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
 
 		// add a second :)
 		dkm.addToListFor(Integer.valueOf(1), Double.valueOf(2), CONST_C);
@@ -185,11 +237,13 @@ public class DoubleKeyMapToListTest extends TestCase
 		assertEquals(1, dkm
 			.sizeOfListFor(Integer.valueOf(1), Double.valueOf(2)));
 		assertTrue(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(2)));
+		assertTrue(dkm.containsListFor(Integer.valueOf(1)));
 		assertTrue(dkm.removeFromListFor(Integer.valueOf(1), Double.valueOf(2),
 			CONST_C));
 		assertEquals(0, dkm
 			.sizeOfListFor(Integer.valueOf(1), Double.valueOf(2)));
 		assertFalse(dkm.containsListFor(Integer.valueOf(1), Double.valueOf(2)));
+		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
 
 		// Test null stuff :)
 		assertFalse(dkm.removeFromListFor(null, Double.valueOf(3), CONST_A));

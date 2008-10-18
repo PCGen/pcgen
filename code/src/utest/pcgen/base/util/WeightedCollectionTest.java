@@ -120,12 +120,7 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testBadAddZero() {
-		try {
-			wc.add(Integer.valueOf(4), 0);
-			fail();
-		} catch (IllegalArgumentException iae) {
-			// OK
-		}
+		assertFalse(wc.add(Integer.valueOf(4), 0));
 	}
 
 	@Test
@@ -140,12 +135,7 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testBadAddAllZero() {
-		try {
-			wc.addAll(Arrays.asList(3, 4, 5), 0);
-			fail();
-		} catch (IllegalArgumentException iae) {
-			// OK
-		}
+		assertFalse(wc.addAll(Arrays.asList(3, 4, 5), 0));
 	}
 
 	@Test

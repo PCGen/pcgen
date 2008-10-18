@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.util.HashMap;
 import java.util.Set;
 
 import junit.framework.TestCase;
@@ -51,6 +52,28 @@ public class DoubleKeyMapTest extends TestCase
 		dkm.put(null, Double.valueOf(3), CONST_F);
 		dkm.put(Integer.valueOf(3), null, CONST_G);
 		dkm.put(Integer.valueOf(5), Double.valueOf(6), null);
+	}
+
+	public void testNullInConstructor()
+	{
+		try
+		{
+			new DoubleKeyMap(null, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMap(HashMap.class, null);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
 	}
 
 	@Test
