@@ -356,6 +356,7 @@ public class ChooserUtilities
 	private static void constructMap()
 	{
 		classLookup = new HashMap<String, String>();
+		classLookup.put("ABILITY",              AbilityChoiceManager.class.getName());
 		classLookup.put("ARMORTYPE",            ArmorTypeChoiceManager.class.getName());
 		classLookup.put("CSKILLS",              ClassSkillsChoiceManager.class.getName());
 		classLookup.put("CLASS",                ClassChoiceManager.class.getName());

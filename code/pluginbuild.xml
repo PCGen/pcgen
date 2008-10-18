@@ -2758,6 +2758,13 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-choose-plugins" depends="makeplugindirs" description="Build (Link) Choose Lst Token plugin jar files">
 		<!-- Choose tokens-->
+		<jar jarfile="${lstplugins.dir}/ChooseToken-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/choose/AbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/ChooseToken-ARMORPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
