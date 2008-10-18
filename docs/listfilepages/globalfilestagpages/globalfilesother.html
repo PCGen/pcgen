@@ -40,6 +40,8 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Ability nature)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Text (Ability name or key)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> TYPE=Text (Ability type)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> .CLEAR</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> .CLEAR.Text (Ability name or key)</p>
 
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -56,8 +58,7 @@
 			<li>The standard list for the ability category will be used to find a matching ability.</li>
 			<li>ABILITY tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 			ABILITY tags qualified with PRExxx tags will not be added unless the character meets the prerequisites.</li>
-			<li>Use of <code>.CLEAR</code> and <code>.CLEAR.</code> with the this tag is valid but the ability 
-				category and nature MUST be specified. See <a href="#CLEAR">.CLEAR</a> for more information.</li>
+			<li>For specific infomation on the <code>.CLEAR</code> tag, read the <a href="#CLEAR">.CLEAR</a> docs.</li>
 			<li>This tag is a replacement for the following tags: FEAT, VFEAT, and FEATAUTO.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -740,29 +741,28 @@
 	<p class="new">*** Updated 5.13.6</p>
 	<p class="indent0"><strong><a name="SAB">Tag Name:</a></strong> SAB:x</p>
 	<p><strong> Variables Used (x):</strong>Text (Special Ability Name)</p>
-	<p><strong> Variables Used (x):</strong>.CLEAR.Text (Clear Special Ability Totals)</p>
+	<p><strong> Variables Used (x):</strong>.CLEAR</p>
+	<p><strong> Variables Used (x):</strong>.CLEAR.Text (Special Ability Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This grants the character a Special Ability that will get listed together with all other special
 			abilities the character has.</li>
-		<li>The &quot;%&quot; tag will fill in a number from a variable listed after a pipe (&quot;|&quot;).</li>
-		<li>This can be done numerous times, with each successive pipe (&quot;%&quot;) relating to the
-			next variable listed after another pipe (&quot;|&quot;).</li>
-		<li>This can be specified via number of %#, with each successive numbered &quot;%&quot; relating to
-			the next variable listed after another pipe (&quot;|&quot;). The count starts at 0 and counts up.</li>
-		<li>Each variable needs to be defined (via the global DEFINE tag.)</li>
-		<li>The SAB will NOT be displayed if the last variable or formula equals 0.</li>
+		<li>The &quot;%&quot; tag will fill in a number from a variable listed after a pipe (|).</li>
+		<li>This can be done numerous times, with each successive percent sign (%) relating to the
+			next variable listed after another pipe (|).</li>
+		<li>This can be specified via number of &quot;%#&quot;, with each successive numbered &quot;%&quot; relating to
+			the next variable listed after another pipe (|). The count starts at zero and counts up.</li>
+		<li>Each variable needs to be defined (via the global <code>DEFINE</code> tag.)</li>
+		<li>The Special Ability will not be displayed if the last variable or formula equals zero.</li>
 		<li><code>SAB:.CLEAR</code> can be used in conjunction with the <code>.MOD</code> but does not support
 		cross-level interactions.</li>
 		<li><code>SAB:.CLEAR</code> will only clear a previous SAB in the same object (class, template,
 			etc.). It will not clear them across objects.</li>
-		<li><code>SAB:.CLEAR.Text to be removed</code> must include the exact text of the SAB to be removed but
-			only the exact text up to the first open-parentheses &quot;(&quot;. The CLEAR and Replace tags should be at the end
-			of the line, so the new and old tags are not</li>
-		<li>SAB tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
-			SAB tags qualified with PRExxx tags will not display unless the character meets the
-			prerequisites.</li>
-		<li>SAB tags can be used with %CHOICE tags to display the result of a CHOOSE tag result.</li>
+		<li><code>SAB:.CLEAR.Text</code> must include the exact text of the Special Ability to be removed but 
+			only the exact text up to the first open-parentheses. The <code>CLEAR</code> and Replace tags should 
+			be at the end of the line, so the new and old tags are not.</li>
+		<li>SAB tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.</li>
+		<li>SAB tags can be used with <code>%CHOICE</code> tags to display the result of a CHOOSE result.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SAB:Fire in the Hole</code></p>
@@ -1301,7 +1301,7 @@
   		<li>Tags that can have multiple items, such as <code>TYPE</code>, or tags that can be used multiple
   			times can be eliminated.</li>
   		<li>The <code>.CLEAR</code> syntax has not yet been standardized as many of the other tags have been
-  			and there are at least 3 variations on how it can be used.</li>
+  			and there are at least 2 variations on how it can be used.</li>
  	</ul>
  	<p class="sidebar1">Note: Although listed as global, <code>.CLEAR</code> will not work with all tags. 
  		Some experimentation may be required to see which usage is required with which tags.</p>
@@ -1309,11 +1309,10 @@
 	<p class="indent2"><code>TAG:.CLEAR</code></p>
 	<p class="indent3">This syntax clears all the values of the original object. This tag is followed by 
 		a second tag which sets the new values. It is important to note that PCGen works in a sequential 
-		manor and if the two tags order is swapped the new value will be cleared as well as the original 
+		manner and if the two tags order is swapped the new value will be cleared as well as the original 
 		values.</p>
 	<p class="indent2"><code>TAG:.CLEAR.&lt;Values to be cleared&gt;</code></p>
-	<p class="indent3">This syntax works with the <code>SAB</code> tag and the <code>CSKILL</code> tag, 
-		the items which follow the <code>.CLEAR.</code> are cleared.</p>
+	<p class="indent3">The items which follow the <code>.CLEAR.</code> are cleared.</p>
 	<p class="indent1"><strong>Work Arounds:</strong></p>
 	<p class="indent2"><code>.CLEAR</code> is not supported on the <code>CHOICE</code> tag, allowing the 
 		removal of the tag from the item. Two ways to do that are:
@@ -1344,12 +1343,6 @@
 	<p class="indent3">Modifies the Acid Arrow spell by eliminating the original 
 		value of the <code>SCHOOL</code> tag and then sets the new value with a 
 		second <code>SCHOOL</code> tag.</p>
-	<p class="indent1"><strong>Deprecated syntax:</strong></p>
-	<p class="indent2"><code>TAG:.CLEAR.&lt;New values to be added&gt;</code></p>
-	<p class="indent3">This syntax clears ALL the values of the original object 
-		and then adds back any items which follow the <code>.CLEAR.</code> This 
-		should not be used. Instead use <code>TAG:.CLEAR</code> followed by a 
-		new tag to set the new values as shown above.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">In conjunction with <code>.MOD</code> and <code>.COPY</code></p>
 	<p></p>
