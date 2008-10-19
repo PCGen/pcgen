@@ -1542,7 +1542,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1553,7 +1553,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1575,7 +1575,7 @@ BIO
 		<ability_object>
 			<name>Detect Thoughts</name>
 			<description></description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SPECIALQUALITY.SUPERNATURAL.SENSE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1663,7 +1663,7 @@ BIO
 		<ability_object>
 			<name>Monstrous Humanoid Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1674,7 +1674,7 @@ BIO
 		<ability_object>
 			<name>Monstrous Humanoid Traits</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

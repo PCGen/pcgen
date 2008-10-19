@@ -1522,7 +1522,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1533,7 +1533,7 @@ BIO
 		<ability_object>
 			<name>Giant Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1544,7 +1544,7 @@ BIO
 		<ability_object>
 			<name>Giant Traits</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1588,7 +1588,7 @@ BIO
 		<ability_object>
 			<name>Oversized Weapon (Morningstar)</name>
 			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>SPECIALATTACK.EXTRAORDINARY</type>
 			<associated>Morningstar</associated>
 			<count>1</count>
 			<auto>T</auto>
@@ -1610,7 +1610,7 @@ BIO
 		<ability_object>
 			<name>Rock Throwing</name>
 			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
