@@ -201,7 +201,7 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray01 Single Type EQUIPPED");
+		is(ok, eq(false), "EquipmentTypesArray01 Single Type EQUIPPED");
 	}
 
 	/**
@@ -219,7 +219,7 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray02 Single Type NOTEQUIPPED");
+		is(ok, eq(false), "EquipmentTypesArray02 Single Type NOTEQUIPPED");
 	}
 
 	/**
@@ -248,8 +248,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUX", "NOT", "FOO"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUX.NOT.FOO]", types, 0);
+			String[] types = new String[]{"NOT", "FOO"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -266,8 +266,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUUX", "ADD", "FOO"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.ADD.FOO]", types, 0);
+			String[] types = new String[]{"ADD", "FOO"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.ADD.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -284,8 +284,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUUX", "IS", "FOO"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.IS.FOO]", types, 0);
+			String[] types = new String[]{"IS", "FOO"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.IS.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -302,8 +302,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
+			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
@@ -320,8 +320,8 @@ public class TermUtilitiesTest extends PCGenTestCase {
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
-			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.QUUX.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
+			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
+			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{

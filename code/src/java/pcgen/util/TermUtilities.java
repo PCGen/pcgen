@@ -83,7 +83,7 @@ public class TermUtilities {
 			String[] types, 
 			int first) throws TermEvaulatorException
 	{
-		int cur = first + 1;
+		int cur = first;
 
 		while (cur < types.length)
 		{

@@ -8625,40 +8625,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-		   "GetTermEvaluator110 evaluator correct for " + term);
-
-		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-
-		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-
-		String field0 = "";
-		String[] field1 = new String[] {};
-		Integer field2 = 0;
-		boolean ok;
-		try
-		{
-			ok = true;
-			field0 = (String) pF0.get(t);
-			field1 = (String[]) pF1.get(t);
-			field2 = (Integer) pF2.get(t);
-		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
-		{
-			ok = false;
-		}
-
-		is(ok, eq(true), "No illegal access in getTermEvaluator110");
-
-		is(field0, strEq(term), "GetTermEvaluator110 stored term is correct " + term);	       
-		is(field1[0], strEq("EQUIPPED"), "GetTermEvaluator110 field types[0] is correct ");	       
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator110 field merge is correct ");	       
+		is(t, eqnull(), "GetTermEvaluator110 evaluator is null");
 	}
 
 
@@ -8672,40 +8639,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-		   "GetTermEvaluator111 evaluator correct for " + term);
-
-		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-
-		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-
-		String field0 = "";
-		String[] field1 = new String[] {};
-		Integer field2 = 0;
-		boolean ok;
-		try
-		{
-			ok = true;
-			field0 = (String) pF0.get(t);
-			field1 = (String[]) pF1.get(t);
-			field2 = (Integer) pF2.get(t);
-		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
-		{
-			ok = false;
-		}
-
-		is(ok, eq(true), "No illegal access in getTermEvaluator111");
-
-		is(field0, strEq(term), "GetTermEvaluator111 stored term is correct " + term);	       
-		is(field1[0], strEq("NOTEQUIPPED"), "GetTermEvaluator111 field types[0] is correct ");	       
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator111 field merge is correct ");	       
+		is(t, eqnull(), "GetTermEvaluator111 evaluator is null");
 	}
 
 
@@ -8719,40 +8653,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-		   "GetTermEvaluator112 evaluator correct for " + term);
-
-		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-
-		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-
-		String field0 = "";
-		String[] field1 = new String[] {};
-		Integer field2 = 0;
-		boolean ok;
-		try
-		{
-			ok = true;
-			field0 = (String) pF0.get(t);
-			field1 = (String[]) pF1.get(t);
-			field2 = (Integer) pF2.get(t);
-		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
-		{
-			ok = false;
-		}
-
-		is(ok, eq(true), "No illegal access in getTermEvaluator112");
-
-		is(field0, strEq(term), "GetTermEvaluator112 stored term is correct " + term);	       
-		is(field1[0], strEq("CONTAINER"), "GetTermEvaluator112 field types[0] is correct ");	       
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator112 field merge is correct ");	       
+		is(t, eqnull(), "GetTermEvaluator112 evaluator is null");
 	}
 
 
@@ -8766,40 +8667,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-		   "GetTermEvaluator113 evaluator correct for " + term);
-
-		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-
-		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-
-		String field0 = "";
-		String[] field1 = new String[] {};
-		Integer field2 = 0;
-		boolean ok;
-		try
-		{
-			ok = true;
-			field0 = (String) pF0.get(t);
-			field1 = (String[]) pF1.get(t);
-			field2 = (Integer) pF2.get(t);
-		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
-		{
-			ok = false;
-		}
-
-		is(ok, eq(true), "No illegal access in getTermEvaluator113");
-
-		is(field0, strEq(term), "GetTermEvaluator113 stored term is correct " + term);	       
-		is(field1[0], strEq("WEAPON"), "GetTermEvaluator113 field types[0] is correct ");	       
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator113 field merge is correct ");	       
+		is(t, eqnull(), "GetTermEvaluator113 evaluator is null");
 	}
 
 
@@ -8813,40 +8681,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-		   "GetTermEvaluator114 evaluator correct for " + term);
-
-		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-
-		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-
-		String field0 = "";
-		String[] field1 = new String[] {};
-		Integer field2 = 0;
-		boolean ok;
-		try
-		{
-			ok = true;
-			field0 = (String) pF0.get(t);
-			field1 = (String[]) pF1.get(t);
-			field2 = (Integer) pF2.get(t);
-		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
-		{
-			ok = false;
-		}
-
-		is(ok, eq(true), "No illegal access in getTermEvaluator114");
-
-		is(field0, strEq(term), "GetTermEvaluator114 stored term is correct " + term);	       
-		is(field1[0], strEq("ACITEM"), "GetTermEvaluator114 field types[0] is correct ");	       
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator114 field merge is correct ");	       
+		is(t, eqnull(), "GetTermEvaluator114 evaluator is null");
 	}
 
 
@@ -8856,7 +8691,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	public void testGetTermEvaluator115() {
 		TestHelper.loadAll();
 
-		String term = "COUNT[EQUIPMENT.MERGENONE.BAR.IS.FOO]";
+		String term = "COUNT[EQUIPMENT.MERGENONE.IS.FOO]";
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
@@ -8892,9 +8727,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		is(ok, eq(true), "No illegal access in getTermEvaluator115");
 
 		is(field0, strEq(term), "GetTermEvaluator115 stored term is correct " + term);	       
-		is(field1[0], strEq("BAR"), "GetTermEvaluator115 field types[0] is correct ");	       
-		is(field1[1], strEq("IS"), "GetTermEvaluator115 field types[1] is correct ");	       
-		is(field1[2], strEq("FOO"), "GetTermEvaluator115 field types[2] is correct ");	       
+		is(field1[0], strEq("IS"), "GetTermEvaluator115 field types[0] is correct ");	       
+		is(field1[1], strEq("FOO"), "GetTermEvaluator115 field types[1] is correct ");	       
 		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator115 field merge is correct ");	       
 	}
 
@@ -8905,7 +8739,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	public void testGetTermEvaluator116() {
 		TestHelper.loadAll();
 
-		String term = "COUNT[EQUIPMENT.MERGELOC.FOO.NOT.BAR]";
+		String term = "COUNT[EQUIPMENT.MERGELOC.NOT.BAR]";
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
@@ -8941,9 +8775,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		is(ok, eq(true), "No illegal access in getTermEvaluator116");
 
 		is(field0, strEq(term), "GetTermEvaluator116 stored term is correct " + term);	       
-		is(field1[0], strEq("FOO"), "GetTermEvaluator116 field types[0] is correct ");	       
-		is(field1[1], strEq("NOT"), "GetTermEvaluator116 field types[1] is correct ");	       
-		is(field1[2], strEq("BAR"), "GetTermEvaluator116 field types[2] is correct ");	       
+		is(field1[0], strEq("NOT"), "GetTermEvaluator116 field types[0] is correct ");	       
+		is(field1[1], strEq("BAR"), "GetTermEvaluator116 field types[1] is correct ");	       
 		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator116 field merge is correct ");	       
 	}
 
@@ -8954,7 +8787,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	public void testGetTermEvaluator117() {
 		TestHelper.loadAll();
 
-		String term = "COUNT[EQUIPMENT.FOO.ADD.BAZ]";
+		String term = "COUNT[EQUIPMENT.ADD.BAZ]";
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
@@ -8990,9 +8823,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		is(ok, eq(true), "No illegal access in getTermEvaluator117");
 
 		is(field0, strEq(term), "GetTermEvaluator117 stored term is correct " + term);	       
-		is(field1[0], strEq("FOO"), "GetTermEvaluator117 field types[0] is correct ");	       
-		is(field1[1], strEq("ADD"), "GetTermEvaluator117 field types[1] is correct ");	       
-		is(field1[2], strEq("BAZ"), "GetTermEvaluator117 field types[2] is correct ");	       
+		is(field1[0], strEq("ADD"), "GetTermEvaluator117 field types[0] is correct ");	       
+		is(field1[1], strEq("BAZ"), "GetTermEvaluator117 field types[1] is correct ");	       
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator117 field merge is correct ");	       
 	}
 
@@ -9012,50 +8844,51 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 
 	/**
+	 * Test 119 is a duplicate of test 109
 	 * Method: getTermEvaluator(String term, String source)
 	 */
-	public void testGetTermEvaluator119() {
-		TestHelper.loadAll();
-
-		String term = "COUNT[EQUIPMENT.FOO]";
-
-		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
-
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-		   "GetTermEvaluator119 evaluator correct for " + term);
-
-		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-
-		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-
-		String field0 = "";
-		String[] field1 = new String[] {};
-		Integer field2 = 0;
-		boolean ok;
-		try
-		{
-			ok = true;
-			field0 = (String) pF0.get(t);
-			field1 = (String[]) pF1.get(t);
-			field2 = (Integer) pF2.get(t);
-		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
-		{
-			ok = false;
-		}
-
-		is(ok, eq(true), "No illegal access in getTermEvaluator119");
-
-		is(field0, strEq(term), "GetTermEvaluator119 stored term is correct " + term);	       
-		is(field1[0], strEq("FOO"), "GetTermEvaluator119 field types[0] is correct ");	       
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator119 field merge is correct ");	       
-	}
+//	public void testGetTermEvaluator119() {
+//		TestHelper.loadAll();
+//
+//		String term = "COUNT[EQUIPMENT]";
+//
+//		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
+//
+//		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
+//		   "GetTermEvaluator119 evaluator correct for " + term);
+//
+//		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
+//
+//		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
+//		Field pF1 = (Field) TestHelper.findField(uClass, "types");
+//		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
+//
+//		String field0 = "";
+//		String[] field1 = new String[] {};
+//		Integer field2 = 0;
+//		boolean ok;
+//		try
+//		{
+//			ok = true;
+//			field0 = (String) pF0.get(t);
+//			field1 = (String[]) pF1.get(t);
+//			field2 = (Integer) pF2.get(t);
+//		}
+//		catch (ClassCastException e)
+//		{
+//			ok = false;
+//		}
+//		catch (IllegalAccessException e)
+//		{
+//			ok = false;
+//		}
+//
+//		is(ok, eq(true), "No illegal access in getTermEvaluator119");
+//
+//		is(field0, strEq(term), "GetTermEvaluator119 stored term is correct " + term);	       
+//		is(field1[0], strEq(""), "GetTermEvaluator119 field types[0] is correct ");	       
+//		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator119 field merge is correct ");	       
+//	}
 
 
 	/**
