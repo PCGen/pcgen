@@ -18,6 +18,7 @@
 package pcgen.base.util;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -118,6 +119,27 @@ public class MapCollectionTest extends TestCase {
 		} catch (UnsupportedOperationException uoe) {
 			// OK
 		}
+	}
+	
+	@Test
+	public void testContainsAll()
+	{
+		try {
+			mc.containsAll(null);
+			fail();
+		} catch (NullPointerException uoe) {
+			// OK
+		}
+		assertTrue(mc.containsAll(Collections.emptyList()));
+		assertFalse(mc.containsAll(Arrays
+				.asList(new Double[] { 8.4, 2.0, null })));
+		assertTrue(mc.containsAll(Arrays
+				.asList(new Double[] { 1.0, 2.0, null })));
+		assertTrue(mc.containsAll(Arrays.asList(new Object[] {
+				Double.valueOf(1), Integer.valueOf(5), null })));
+		// Dupe doesn't matter how many times it's present
+		assertTrue(mc.containsAll(Arrays.asList(new Object[] {
+				Double.valueOf(1), Integer.valueOf(5), Integer.valueOf(5) })));
 	}
 
 	@Test

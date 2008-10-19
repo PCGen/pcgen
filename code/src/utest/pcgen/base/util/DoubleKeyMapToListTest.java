@@ -26,6 +26,8 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.testsupport.StrangeMap;
+
 public class DoubleKeyMapToListTest extends TestCase
 {
 
@@ -80,6 +82,28 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 	}
 	
+	public void testBadClassInConstructor()
+	{
+		try
+		{
+			new DoubleKeyMapToList(StrangeMap.class, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMapToList(HashMap.class, StrangeMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
+
 	@Test
 	public void testPutGet()
 	{

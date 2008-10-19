@@ -18,12 +18,15 @@
 package pcgen.base.util;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import pcgen.testsupport.StrangeMap;
 
 public class DoubleKeyMapTest extends TestCase
 {
@@ -68,6 +71,28 @@ public class DoubleKeyMapTest extends TestCase
 		try
 		{
 			new DoubleKeyMap(HashMap.class, null);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+	}
+
+	public void testBadClassInConstructor()
+	{
+		try
+		{
+			new DoubleKeyMap(StrangeMap.class, HashMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//OK, expected
+		}
+		try
+		{
+			new DoubleKeyMap(HashMap.class, StrangeMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -520,4 +545,45 @@ public class DoubleKeyMapTest extends TestCase
 			// OK
 		}
 	}
+	
+	@Test
+	public void testGetMap()
+	{
+		assertNull(dkm.get(Integer.valueOf(1), Double.valueOf(1)));
+		populate();
+		Map<Double, Character> map = dkm.getMapFor(Integer.valueOf(1));
+		assertNotNull(map);
+		assertFalse(map.isEmpty());
+		Set<Double> keys = map.keySet();
+		assertEquals(3, keys.size());
+		assertTrue(keys.contains(Double.valueOf(1)));
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertTrue(keys.contains(Double.valueOf(3)));
+		assertEquals(Character.valueOf(CONST_A), map.get(Double.valueOf(1)));
+		assertEquals(Character.valueOf(CONST_B), map.get(Double.valueOf(2)));
+		assertEquals(Character.valueOf('C'), map.get(Double.valueOf(3)));
+		dkm.remove(Integer.valueOf(1), Double.valueOf(1));
+		//Shouldn't alter keys
+		assertEquals(3, keys.size());
+		assertTrue(keys.contains(Double.valueOf(1)));
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertTrue(keys.contains(Double.valueOf(3)));
+		assertEquals(Character.valueOf(CONST_A), map.get(Double.valueOf(1)));
+		assertEquals(Character.valueOf(CONST_B), map.get(Double.valueOf(2)));
+		assertEquals(Character.valueOf('C'), map.get(Double.valueOf(3)));
+		keys.remove(Double.valueOf(2));
+		//Shouldn't alter dkm
+		map = dkm.getMapFor(Integer.valueOf(1));
+		assertNotNull(map);
+		assertFalse(map.isEmpty());
+		keys = map.keySet();
+		//At 2 here due to dkm.remove above
+		assertEquals(2, keys.size());
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertTrue(keys.contains(Double.valueOf(3)));
+		assertEquals(Character.valueOf(CONST_B), map.get(Double.valueOf(2)));
+		assertEquals(Character.valueOf('C'), map.get(Double.valueOf(3)));
+
+	}
+
 }

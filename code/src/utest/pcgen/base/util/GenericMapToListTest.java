@@ -18,12 +18,15 @@
 package pcgen.base.util;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 import junit.framework.TestCase;
 
 import org.junit.Test;
+
+import pcgen.testsupport.StrangeMap;
 
 public class GenericMapToListTest extends TestCase
 {
@@ -56,6 +59,27 @@ public class GenericMapToListTest extends TestCase
 		catch (InstantiationException e)
 		{
 			// OK
+		}
+		catch (IllegalAccessException e)
+		{
+			fail(e.getMessage());
+		}
+	}
+
+	public void testBadClassInConstructor()
+	{
+		try
+		{
+			new GenericMapToList(StrangeMap.class);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			fail(e.getMessage());
+		}
+		catch (InstantiationException e)
+		{
+			//OK, expected
 		}
 		catch (IllegalAccessException e)
 		{

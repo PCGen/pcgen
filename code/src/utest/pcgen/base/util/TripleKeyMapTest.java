@@ -17,7 +17,6 @@
  */
 package pcgen.base.util;
 
-import java.util.HashMap;
 import java.util.Set;
 
 import junit.framework.TestCase;
@@ -212,6 +211,32 @@ public class TripleKeyMapTest extends TestCase {
 		Set<Double> s5 = tkm.getSecondaryKeySet(null);
 		assertEquals(1, s5.size());
 		assertTrue(s5.contains(Double.valueOf(3)));
+	}
+
+	@Test
+	public void testGetTertiaryKeySet() {
+		Set<Character> s = tkm.getTertiaryKeySet(I1, D1);
+		assertEquals(0, s.size());
+		int sSize = 1;
+		try {
+			s.add(CC);
+		} catch (UnsupportedOperationException uoe) {
+			// This is OK, just account for it
+			sSize = 0;
+		}
+		// Ensure not saved in DoubleKeyMap
+		Set<Character> s2 = tkm.getTertiaryKeySet(I1, D1);
+		assertEquals(0, s2.size());
+		assertEquals(sSize, s.size());
+		// And ensure references are not kept the other direction to be altered
+		// by changes in the underlying DoubleKeyMap
+		populate();
+		assertEquals(sSize, s.size());
+		assertEquals(0, s2.size());
+		Set<Character> s3 = tkm.getTertiaryKeySet(I1, D1);
+		assertEquals(2, s3.size());
+		assertTrue(s3.contains(CA));
+		assertTrue(s3.contains(CB));
 	}
 
 	@Test

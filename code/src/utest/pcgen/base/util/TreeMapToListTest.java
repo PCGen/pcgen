@@ -62,6 +62,13 @@ public class TreeMapToListTest extends TestCase
 	}
 
 	@Test
+	public void testConstructor()
+	{
+		dkm = new TreeMapToList<Integer, Character>(null);
+		testPutGet();
+	}
+
+	@Test
 	public void testPutNull()
 	{
 		try
