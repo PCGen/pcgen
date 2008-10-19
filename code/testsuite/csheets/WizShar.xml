@@ -1062,7 +1062,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1073,7 +1073,7 @@ BIO
 		<ability_object>
 			<name>Summon Familiar</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1084,7 +1084,7 @@ BIO
 		<ability_object>
 			<name>Wizard Weapon Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

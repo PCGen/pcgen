@@ -1151,7 +1151,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1161,8 +1161,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Evasion</name>
-			<description></description>
-			<type>EXTRAORDINARY</type>
+			<description>If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1173,7 +1173,7 @@ BIO
 		<ability_object>
 			<name>Flurry of Blows</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALATTACK</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1184,7 +1184,7 @@ BIO
 		<ability_object>
 			<name>Leadership Score</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1195,7 +1195,7 @@ BIO
 		<ability_object>
 			<name>Leap of the Clouds</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1206,7 +1206,7 @@ BIO
 		<ability_object>
 			<name>Monk AC</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1215,9 +1215,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Monk Fast Movement</name>
+			<name>Fast Movement</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1228,7 +1228,7 @@ BIO
 		<ability_object>
 			<name>Monk Weapon Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1239,7 +1239,7 @@ BIO
 		<ability_object>
 			<name>Purity of Body</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1249,8 +1249,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Slow Fall</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<description>50 feet</description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1261,7 +1261,7 @@ BIO
 		<ability_object>
 			<name>Still Mind</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1271,8 +1271,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Stunning Attack</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<description>8 times per day (DC 16)</description>
+			<type>SPECIALATTACK</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1282,8 +1282,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Wholeness of Body</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<description>0 hp/day</description>
+			<type>SPECIALQUALITY.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
