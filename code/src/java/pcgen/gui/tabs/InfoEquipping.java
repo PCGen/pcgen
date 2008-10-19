@@ -96,6 +96,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
@@ -4250,7 +4251,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				b.append(((PlayerCharacter) _creator).getName());
 			}
-			else if (_creator instanceof PObject)
+			else if (_creator instanceof CDOMObject)
 			{
 				b.append(_creator.toString());
 			}

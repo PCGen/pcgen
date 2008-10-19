@@ -97,6 +97,12 @@ public class AdddomainsToken extends AbstractToken implements
 					return false;
 				}
 				prereq = getPrerequisite(prereqString);
+				if (prereq == null)
+				{
+					Logging.errorPrint(getTokenName()
+							+ " had invalid prerequisite : " + prereqString);
+					return false;
+				}
 			}
 			AssociatedPrereqObject apo = context.getListContext().addToList(
 					getTokenName(), po, PCClass.ALLOWED_DOMAINS,

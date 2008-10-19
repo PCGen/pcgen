@@ -69,7 +69,6 @@ public class SubstitutionLevelSupport
 		{
 			// remove all stuff from the original level
 			aClass.stealClassLevel(sc, aLevel);
-			aClass.removeAllBonuses(aLevel);
 			aClass.removeAllAutoAbilites(aLevel);
 			aClass.removeAllVirtualAbilites(aLevel);
 			aClass.removeAllLevelAbilities(aLevel);

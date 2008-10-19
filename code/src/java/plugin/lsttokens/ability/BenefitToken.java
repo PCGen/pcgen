@@ -26,6 +26,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.Description;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.Changes;
@@ -151,7 +152,14 @@ public class BenefitToken extends AbstractToken implements
 			final String token = tok.nextToken();
 			if (PreParserFactory.isPreReqString(token))
 			{
-				desc.addPrerequisite(getPrerequisite(token));
+				Prerequisite prereq = getPrerequisite(token);
+				if (prereq == null)
+				{
+					Logging.errorPrint(getTokenName()
+							+ " had invalid prerequisite : " + token);
+					return null;
+				}
+				desc.addPrerequisite(prereq);
 				isPre = true;
 			}
 			else

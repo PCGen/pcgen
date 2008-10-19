@@ -58,6 +58,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.NamedValue;
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -216,8 +217,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Map<String, Integer> autoEquipOutputOrderCache =
 			new HashMap<String, Integer>();
 	private List<PCLevelInfo> pcLevelInfo = new ArrayList<PCLevelInfo>();
-	// TODO This probably should not be a member but should be passed around
-	private List<BonusObj> processedBonusList = new ArrayList<BonusObj>();
 	private final List<String> spellBooks = new ArrayList<String>();
 	private Map<String, SpellBook> spellBookMap =
 			new HashMap<String, SpellBook>();
@@ -2603,7 +2602,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			final PObject aCreator = (PObject) aBonus.getCreatorObject();
+			final CDOMObject aCreator = (CDOMObject) aBonus.getCreatorObject();
 
 			if (aCreator == null)
 			{
@@ -2643,14 +2642,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			final PObject aCreator = (PObject) aBonus.getCreatorObject();
+			final CDOMObject aCreator = (CDOMObject) aBonus.getCreatorObject();
 
 			if (aCreator == null)
 			{
 				continue;
 			}
 
-			final String aDesc = aCreator.getDescription();
+			String aDesc = aCreator.get(StringKey.DESCRIPTION);
+			if (aDesc == null)
+			{
+				aDesc = Constants.EMPTY_STRING;
+			}
 
 			if (!aList.contains(aDesc))
 			{
@@ -3519,9 +3522,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			String targetName = Constants.EMPTY_STRING;
 			String creatorName = Constants.EMPTY_STRING;
 
-			if (aCO instanceof PObject)
+			if (aCO instanceof CDOMObject)
 			{
-				creatorName = ((PObject) aCO).getKeyName();
+				creatorName = ((CDOMObject) aCO).getKeyName();
 			}
 
 			if (aTO instanceof PlayerCharacter)
@@ -6936,7 +6939,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			if (!(creObj instanceof PObject)
+			if (!(creObj instanceof CDOMObject)
 				|| !(tarObj instanceof PlayerCharacter))
 			{
 				continue;
@@ -13010,7 +13013,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private void buildActiveBonusMap()
 	{
 		clearActiveBonusMap();
-		processedBonusList.clear();
+		Set<BonusObj> processedBonuses = new WrappedMapSet<BonusObj>(
+				IdentityHashMap.class);
 
 		//
 		// We do a first pass of just the "static" bonuses
@@ -13024,7 +13028,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			final PObject anObj = (PObject) bonus.getCreatorObject();
+			final CDOMObject anObj = (CDOMObject) bonus.getCreatorObject();
 
 			if (anObj == null)
 			{
@@ -13032,13 +13036,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			// Keep track of which bonuses have been calculated
-			processedBonusList.add(bonus);
+			processedBonuses.add(bonus);
 			for (BonusPair bp : bonus.getStringListFromBonus(this))
 			{
 				final double iBonus = bp.resolve(this).doubleValue();
 				setActiveBonusStack(iBonus, bp.bonusKey, getActiveBonusMap());
 				Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : "
-					+ iBonus + " : " + bp.bonusKey);
+						+ iBonus + " : " + bp.bonusKey);
 			}
 		}
 
@@ -13048,19 +13052,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		bonusListCopy.addAll(getActiveBonusList());
 		for (BonusObj bonus : getActiveBonusList())
 		{
-			if (processedBonusList.contains(bonus))
+			if (processedBonuses.contains(bonus))
 			{
 				continue;
 			}
 
-			final PObject anObj = (PObject) bonus.getCreatorObject();
+			final CDOMObject anObj = (CDOMObject) bonus.getCreatorObject();
 
 			if (anObj == null)
 			{
 				continue;
 			}
 
-			processBonus(bonus, new ArrayList<BonusObj>());
+			processBonus(bonus, new WrappedMapSet<BonusObj>(
+					IdentityHashMap.class), processedBonuses);
 		}
 	}
 
@@ -13093,7 +13098,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (BonusObj aBonus : aList)
 		{
-			final PObject anObj = (PObject) aBonus.getCreatorObject();
+			final CDOMObject anObj = (CDOMObject) aBonus.getCreatorObject();
 
 			if (anObj == null)
 			{
@@ -13894,9 +13899,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param prevProcessed
 	 *            The list of bonuses which have already been processed in this
 	 *            run.
+	 * @param processedBonuses TODO
 	 */
 	private void processBonus(final BonusObj aBonus,
-		final ArrayList<BonusObj> prevProcessed)
+		final Set<BonusObj> prevProcessed, Set<BonusObj> processedBonuses)
 	{
 		// Make sure we don't get into an infinite loop - can occur due to LST
 		// coding or best guess dependancy mapping
@@ -13914,7 +13920,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// aBonus's dependencies and have not already been processed
 		for (BonusObj newBonus : getActiveBonusList())
 		{
-			if (processedBonusList.contains(newBonus))
+			if (processedBonuses.contains(newBonus))
 			{
 				continue;
 			}
@@ -13930,19 +13936,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (BonusObj newBonus : aList)
 		{
 			// Recursively call itself
-			processBonus(newBonus, prevProcessed);
+			processBonus(newBonus, prevProcessed, processedBonuses);
 		}
 
 		// Double check that it hasn't been processed yet
-		if (processedBonusList.contains(aBonus))
+		if (processedBonuses.contains(aBonus))
 		{
 			return;
 		}
 
 		// Add to processed list
-		processedBonusList.add(aBonus);
+		processedBonuses.add(aBonus);
 
-		final PObject anObj = (PObject) aBonus.getCreatorObject();
+		final CDOMObject anObj = (CDOMObject) aBonus.getCreatorObject();
 
 		if (anObj == null)
 		{
@@ -14555,9 +14561,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						String name = ((MissingObject) element).getObjectName();
 						if (("%LIST".equals(name) || "LIST".equals(name))
-							&& bonus.getCreatorObject() instanceof PObject)
+							&& bonus.getCreatorObject() instanceof CDOMObject)
 						{
-							PObject creator = (PObject) bonus.getCreatorObject();
+							CDOMObject creator = (CDOMObject) bonus.getCreatorObject();
 							for (FixedStringList assoc : getDetailedAssociations(creator))
 							{
 								if (assoc.contains(statAbbr))

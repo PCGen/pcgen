@@ -100,6 +100,12 @@ public class ClassesToken extends AbstractToken implements
 				return false;
 			}
 			prereq = getPrerequisite(prereqString);
+			if (prereq == null)
+			{
+				Logging.errorPrint(getTokenName()
+						+ " had invalid prerequisite : " + prereqString);
+				return false;
+			}
 		}
 
 		boolean foundAny = false;

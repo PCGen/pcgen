@@ -207,13 +207,18 @@ public class NaturalattacksLst extends AbstractToken implements
 		try
 		{
 			int bonusAttacks = Integer.parseInt(numAttacks) - 1;
-			final BonusObj aBonus = Bonus.newBonus("WEAPON|ATTACKS|" + bonusAttacks);
-			
-			if (aBonus != null)
+			final BonusObj aBonus = Bonus.newBonus("WEAPON|ATTACKS|"
+					+ bonusAttacks);
+
+			if (aBonus == null)
 			{
-				aBonus.setCreatorObject(anEquip);
-				anEquip.addToListFor(ListKey.BONUS, aBonus);
+				Logging.errorPrint(getTokenName()
+						+ " was given invalid number of attacks: "
+						+ bonusAttacks);
+				return null;
 			}
+			aBonus.setCreatorObject(anEquip);
+			anEquip.addToListFor(ListKey.BONUS, aBonus);
 		}
 		catch (NumberFormatException exc)
 		{
@@ -373,9 +378,8 @@ public class NaturalattacksLst extends AbstractToken implements
 			}
 			catch (NullPointerException npe)
 			{
-				Logging.errorPrint("SIZE in "
-						+ obj.getClass().getSimpleName() + " "
-						+ obj.getKeyName() + " must not be a variable "
+				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName()
+						+ " " + obj.getKeyName() + " must not be a variable "
 						+ "if it contains a NATURALATTACKS token");
 			}
 		}

@@ -245,6 +245,12 @@ public class Bonus
 		{
 			bValue = aTok.nextToken().toUpperCase();
 		}
+		
+		if (bValue.startsWith("PRE") || bValue.startsWith("!PRE"))
+		{
+			Logging.errorPrint("Invalid BONUS has no value: " + bonusString);
+			return null;
+		}
 
 		BonusObj aBonus = null;
 		try

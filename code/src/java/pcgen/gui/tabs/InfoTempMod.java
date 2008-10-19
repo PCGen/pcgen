@@ -67,6 +67,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
@@ -1037,7 +1038,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				for (BonusObj eqBonus : aEq.getTempBonusList())
 				{
-					PObject creatorObj = (PObject) eqBonus.getCreatorObject();
+					CDOMObject creatorObj = (CDOMObject) eqBonus.getCreatorObject();
 					if (creatorObj != null
 						&& (aMod.equals(creatorObj) || (aMod.getClass() == creatorObj
 							.getClass() && aMod.getKeyName().equals(
@@ -1827,7 +1828,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				b.append(((PlayerCharacter) _creator).getName());
 			}
-			else if (_creator instanceof PObject)
+			else if (_creator instanceof CDOMObject)
 			{
 				b.append(_creator.toString());
 			}

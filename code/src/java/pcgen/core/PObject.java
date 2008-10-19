@@ -231,18 +231,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		// need to copy map correctly during a clone
 		retVal.theSource = theSource.clone();
 
-		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
-		if (bonusList != null)
-		{
-			retVal.removeListFor(ListKey.BONUS);
-			for (BonusObj orig : bonusList)
-			{
-				retVal.addToListFor(ListKey.BONUS, orig.clone());
-
-			}
-			retVal.ownBonuses();
-		}
-
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
 			retVal.levelAbilityList = new ArrayList<LevelAbility>();
@@ -349,18 +337,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return keyName;
 	}
 
-	/**
-	 * Return the qualified key, ususally used as the source in a 
-	 * getVariableValue call. Always returns an empty string, but 
-	 * may be overridden by subclasses to return a required value.
-	 * 
-	 * @return The qualified name of the object
-	 */
-	public String getQualifiedKey()
-	{
-		return Constants.EMPTY_STRING;
-	}
-	
 	/**
 	 * Set the name (sets keyname also)
 	 * @param aString
@@ -1200,14 +1176,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 							.append(value);
 					}
 				}
-			}
-		}
-
-		if (!(this instanceof PCClass) && (getSafeListFor(ListKey.BONUS).size() != 0))
-		{
-			for (BonusObj bonusobj : getSafeListFor(ListKey.BONUS))
-			{
-				txt.append("\tBONUS:").append(bonusobj.getPCCText()); //This formats the bonus items in the proper .lst manner
 			}
 		}
 
@@ -2280,36 +2248,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set's all the BonusObj's to this creator
-	 */
-	public void ownBonuses()
-	{
-		for ( BonusObj bonus : getSafeListFor(ListKey.BONUS) )
-		{
-			bonus.setCreatorObject(this);
-		}
-	}
-
-	/**
-	 * Remove all bonuses gained via a level
-	 * @param aLevel
-	 */
-	public void removeAllBonuses(final int aLevel)
-	{
-		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
-		if (bonusList != null)
-		{
-			for (BonusObj bo : bonusList)
-			{
-				if (bo.getPCLevel() == aLevel)
-				{
-					removeFromListFor(ListKey.BONUS, bo);
-				}
-			}
-		}
-	}
-
-	/**
 	 * calcBonus adds together all the bonuses for aType of aName
 	 *
 	 * @param bString       Either the entire BONUS:COMBAT|AC|2 string or part of a %LIST or %VAR bonus section
@@ -2457,11 +2395,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public void clearAdds() {
 		levelAbilityList.clear();
-	}
-
-	public String bonusStringPrefix()
-	{
-		return "";
 	}
 
 	/*

@@ -104,6 +104,12 @@ public class DomainToken extends AbstractToken implements
 					return false;
 				}
 				prereq = getPrerequisite(prereqString);
+				if (prereq == null)
+				{
+					Logging.errorPrint(getTokenName()
+							+ " had invalid prerequisite : " + prereqString);
+					return false;
+				}
 			}
 			CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(
 					DOMAIN_CLASS, domainKey);

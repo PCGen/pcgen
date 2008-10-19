@@ -40,6 +40,7 @@ import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
 import pcgen.core.Description;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
 		Cloneable
@@ -425,6 +426,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return true;
 		}
+		if (!equalsPrereqObject(cdo))
+		{
+			return false;
+		}
 		/*
 		 * FIXME Test source here
 		 * 
@@ -576,6 +581,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		clone.listChar = new ListKeyMapToList();
 		clone.listChar.addAllLists(listChar);
 		clone.cdomListMods = cdomListMods.clone();
+		clone.ownBonuses();
 		return clone;
 	}
 
@@ -629,4 +635,48 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		return ListKey.DESCRIPTION;
 	}
+
+	/**
+	 * Set's all the BonusObj's to this creator
+	 * 
+	 * Hopefully this is a temporary import - thpr Oct 9, 2008
+	 * @throws CloneNotSupportedException 
+	 */
+	public void ownBonuses() throws CloneNotSupportedException
+	{
+		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
+		if (bonusList != null)
+		{
+			removeListFor(ListKey.BONUS);
+			for (BonusObj orig : bonusList)
+			{
+				BonusObj bonus = orig.clone();
+				addToListFor(ListKey.BONUS, bonus);
+				bonus.setCreatorObject(this);
+			}
+		}
+	}
+
+	/**
+	 * Hopefully this is a temporary import - thpr Oct 11, 2008
+	 */
+	public String bonusStringPrefix()
+	{
+		return "";
+	}
+
+	/**
+	 * Hopefully this is a temporary import - thpr Oct 11, 2008
+	 * 
+	 * Return the qualified key, ususally used as the source in a 
+	 * getVariableValue call. Always returns an empty string, but 
+	 * may be overridden by subclasses to return a required value.
+	 * 
+	 * @return The qualified name of the object
+	 */
+	public String getQualifiedKey()
+	{
+		return Constants.EMPTY_STRING;
+	}
+	
 }

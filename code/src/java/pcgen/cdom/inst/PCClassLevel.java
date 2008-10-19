@@ -17,7 +17,13 @@
  */
 package pcgen.cdom.inst;
 
+import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.bonus.BonusObj;
 
 /**
  * A PCClassLevel is a CDOMObject that represents items gained in a specific
@@ -48,12 +54,8 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof PCClassLevel)
-		{
-			PCClassLevel other = (PCClassLevel) o;
-			return other.isCDOMEqual(this) && other.equalsPrereqObject(this);
-		}
-		return false;
+		return o instanceof PCClassLevel
+				&& ((PCClassLevel) o).isCDOMEqual(this);
 	}
 
 	/**
@@ -72,4 +74,37 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	{
 		return (PCClassLevel) super.clone();
 	}
+
+	/*
+	 * This is hopefully a temporary fix, this is required because PCClass 
+	 * expects BONUSES that it owns to have a level prefix (and currently
+	 * BONUS processing is delegated to PCClass)
+	 */
+	@Override
+	public String bonusStringPrefix()
+	{
+		return get(IntegerKey.LEVEL) + "|";
+	}
+
+	/*
+	 * Assigning ownership to the parent is required so that formula 
+	 * items like CL are properly calculated.
+	 */
+	@Override
+	public void ownBonuses() throws CloneNotSupportedException
+	{
+		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
+		Object parent = get(ObjectKey.PARENT);
+		if (bonusList != null)
+		{
+			removeListFor(ListKey.BONUS);
+			for (BonusObj orig : bonusList)
+			{
+				BonusObj bonus = orig.clone();
+				addToListFor(ListKey.BONUS, bonus);
+				bonus.setCreatorObject(parent);
+			}
+		}
+	}
+
 }

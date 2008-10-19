@@ -4,31 +4,26 @@
  */
 package plugin.lsttokens;
 
+import java.util.Collection;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Pattern;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PObject;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.lst.GlobalLstToken;
-
-import java.util.regex.Pattern;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
  */
-public class BonusLst implements GlobalLstToken
+public class BonusLst implements CDOMPrimaryToken<CDOMObject>
 {
-
-	/*
-	 * FIXME When this token is converted to the new syntax, a change needs to
-	 * take place in BonusToken, which is currently calling PObjectLoader
-	 */
-	/*
-	 * Template's LevelToken adjustment performed by adding getBonusList() to
-	 * PCTemplate
-	 * 
-	 * TODO need to do an update (to getBonusList()?) in PCClass once this is a
-	 * new token
-	 */
 	/**
 	 * Returns token name
 	 * 
@@ -39,38 +34,55 @@ public class BonusLst implements GlobalLstToken
 		return "BONUS";
 	}
 
-	/**
-	 * Parse BONUS token and use it to add a bonus to a PObject
-	 * 
-	 * @param obj
-	 *            the object to make the bonus a part of
-	 * @param value
-	 *            the text of the bonus
-	 * @param anInt
-	 *            the level to add the bonus at
-	 * @return true if the bonus added to the PObject is non null or false
-	 *         otherwise
-	 */
-	public boolean parse(final PObject obj, final String value, final int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
 		final String v = value.replaceAll(Pattern.quote("<this>"), obj
 				.getKeyName());
-		final BonusObj aBonus;
-		if (anInt > -9)
+		BonusObj bon = Bonus.newBonus(obj.bonusStringPrefix() + v);
+		if (bon == null)
 		{
-			aBonus = Bonus.newBonus(anInt + "|" + v);
+			Logging.errorPrint(getTokenName() + " was given invalid bonus: "
+					+ value);
+			return false;
 		}
-		else
-		{
-			aBonus = Bonus.newBonus(v);
-		}
-
-		if (aBonus != null)
-		{
-			aBonus.setCreatorObject(obj);
-			obj.addToListFor(ListKey.BONUS, aBonus);
-		}
-
-		return (aBonus != null);
+		bon.setCreatorObject(obj);
+		bon.setTokenSource(getTokenName());
+		context.obj.addToList(obj, ListKey.BONUS, bon);
+		return true;
 	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Changes<BonusObj> changes = context.obj.getListChanges(obj,
+				ListKey.BONUS);
+		if (changes == null || changes.isEmpty())
+		{
+			// Empty indicates no token present
+			return null;
+		}
+		// CONSIDER need to deal with removed...
+		Collection<BonusObj> added = changes.getAdded();
+		String tokenName = getTokenName();
+		Set<String> bonusSet = new TreeSet<String>();
+		for (BonusObj bonus : added)
+		{
+			if (tokenName.equals(bonus.getTokenSource()))
+			{
+				bonusSet.add(bonus.toString());
+			}
+		}
+		if (bonusSet.isEmpty())
+		{
+			// This is okay - just no BONUSes from this token
+			return null;
+		}
+		return bonusSet.toArray(new String[bonusSet.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
 }

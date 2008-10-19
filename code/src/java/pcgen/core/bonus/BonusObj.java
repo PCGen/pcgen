@@ -71,6 +71,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation = null;
 	private boolean addOnceOnly          = false;
+	private String tokenSource = null;
 
 	/** An enum for the possible stacking modifiers a bonus can have */
 	public enum StackType {
@@ -1078,4 +1079,44 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			return formula.resolve(aPC, source);
 		}
 	}
+
+	public void setTokenSource(String tokenName)
+	{
+		tokenSource = tokenName;
+	}
+	
+	public String getTokenSource()
+	{
+		return tokenSource;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj == this)
+		{
+			return true;
+		}
+		if (!(obj instanceof BonusObj))
+		{
+			return false;
+		}
+		BonusObj other = (BonusObj) obj;
+		return equalsPrereqObject(other)
+				&& bonusFormula.equals(other.bonusFormula)
+				&& bonusName.equals(other.bonusName)
+				&& bonusType.equals(other.bonusType)
+				&& pcLevel == other.pcLevel && addOnceOnly == other.addOnceOnly
+				&& theStackingFlag.equals(other.theStackingFlag)
+				&& bonusInfo.equals(other.bonusInfo);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+	
+	
 }

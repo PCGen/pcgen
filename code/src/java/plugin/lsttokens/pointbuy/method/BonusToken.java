@@ -26,17 +26,19 @@
 package plugin.lsttokens.pointbuy.method;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.PointBuyMethodLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * <code>CostToken</code>
- *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * 
+ * @author Devon Jones <soulcatcher@evilsoft.org>
  */
 public class BonusToken implements PointBuyMethodLstToken
 {
@@ -49,21 +51,28 @@ public class BonusToken implements PointBuyMethodLstToken
 	public boolean parse(PointBuyMethod pbm, String value)
 	{
 		final PObject dummy = new PObject();
+		LoadContext context = Globals.getContext();
 		try
 		{
-			if (!PObjectLoader.parseTag(dummy, "BONUS:" + value))
+			if (context.processToken(dummy, "BONUS", value))
+			{
+				context.commit();
+			}
+			else
 			{
 				return false;
 			}
-
-			for (BonusObj bonus : dummy.getSafeListFor(ListKey.BONUS))
-			{
-				pbm.addBonusList(bonus);
-			}
 		}
-		catch (PersistenceLayerException ple)
+		catch (PersistenceLayerException e)
 		{
+			Logging.errorPrint("Error in token parse: "
+					+ e.getLocalizedMessage());
 			return false;
+		}
+
+		for (BonusObj bonus : dummy.getSafeListFor(ListKey.BONUS))
+		{
+			pbm.addBonusList(bonus);
 		}
 
 		return true;

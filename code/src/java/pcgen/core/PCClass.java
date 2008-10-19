@@ -80,7 +80,6 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
@@ -1918,29 +1917,6 @@ public class PCClass extends PObject
 					.unparse(me.getValue()), "\t"));
 		}
 
-		List<BonusObj> bonusList = getSafeListFor(ListKey.BONUS);
-		for (int x = 0; x < bonusList.size(); ++x)
-		{
-			final BonusObj aBonus = bonusList.get(x);
-			String bonusString = aBonus.toString();
-			final int levelEnd = bonusString.indexOf('|');
-			final String maybeLevel = bonusString.substring(0, levelEnd);
-
-			pccTxt.append(lineSep);
-
-			if (CoreUtility.isIntegerString(maybeLevel))
-			{
-				pccTxt.append(maybeLevel);
-				bonusString = bonusString.substring(levelEnd + 1);
-			}
-			else
-			{
-				pccTxt.append("0");
-			}
-
-			pccTxt.append("\tBONUS:").append(bonusString);
-		}
-
 		List<LevelAbility> levelAbilityList = getLevelAbilityList();
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
@@ -3356,6 +3332,13 @@ public class PCClass extends PObject
 			put(vk, FormulaFactory.getFormulaFor(get(vk).toString().replaceAll(
 					"=" + oldClass, "=" + newClass)));
 		}
+		//
+		// Go through the bonus list (BONUS) and adjust the class to the new
+		// name
+		//
+		renameBonusTarget(this, oldClass, newClass);
+
+		//Now repeat for Class Levels
 		for (PCClassLevel pcl : getClassLevelCollection())
 		{
 			for (VariableKey vk : pcl.getVariableKeys())
@@ -3363,13 +3346,14 @@ public class PCClass extends PObject
 				pcl.put(vk, FormulaFactory.getFormulaFor(pcl.get(vk).toString()
 						.replaceAll("=" + oldClass, "=" + newClass)));
 			}
+			renameBonusTarget(pcl, oldClass, newClass);
 		}
+	}
 
-		//
-		// Go through the bonus list (BONUS) and adjust the class to the new
-		// name
-		//
-		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
+	private static void renameBonusTarget(CDOMObject cdo, String oldClass,
+			String newClass)
+	{
+		List<BonusObj> bonusList = cdo.getListFor(ListKey.BONUS);
 		if (bonusList != null)
 		{
 			for (BonusObj bonusObj : bonusList)
@@ -3385,15 +3369,17 @@ public class PCClass extends PObject
 					{
 						break;
 					}
-					final BonusObj aBonus = Bonus.newBonus(bonus.substring(0, offs + 1) + newClass
-											+ bonus.substring(offs + oldClass.length() + 1));
-					
+					final BonusObj aBonus = Bonus.newBonus(bonus.substring(0,
+							offs + 1)
+							+ newClass
+							+ bonus.substring(offs + oldClass.length() + 1));
+
 					if (aBonus != null)
 					{
-						aBonus.setCreatorObject(this);
-						addToListFor(ListKey.BONUS, aBonus);
+						aBonus.setCreatorObject(cdo);
+						cdo.addToListFor(ListKey.BONUS, aBonus);
 					}
-					removeFromListFor(ListKey.BONUS, bonusObj);
+					cdo.removeFromListFor(ListKey.BONUS, bonusObj);
 				}
 			}
 		}
@@ -4252,6 +4238,15 @@ public class PCClass extends PObject
 		{
 			addAllToListFor(ListKey.BONUS, bonusList);
 		}
+		try
+		{
+			ownBonuses();
+		}
+		catch (CloneNotSupportedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		for (VariableKey vk : otherClass.getVariableKeys())
 		{
@@ -4718,5 +4713,43 @@ public class PCClass extends PObject
 	public PObject getActiveEquivalent(PlayerCharacter pc)
 	{
 		return pc.getClassKeyed(getKeyName());
+	}
+
+	@Override
+	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
+	{
+		List<BonusObj> list = super.getRawBonusList(pc);
+		for (int i = 1; i <= level; i++)
+		{
+			PCClassLevel pcl = getClassLevel(i);
+			if (pcl != null)
+			{
+				List<BonusObj> bonusList = pcl.getListFor(ListKey.BONUS);
+				if (bonusList != null)
+				{
+					list.addAll(bonusList);
+				}
+				if (pc != null)
+				{
+					List<BonusObj> listToo = pc.getAssocList(pcl,
+							AssociationListKey.BONUS);
+					if (listToo != null)
+					{
+						list.addAll(listToo);
+					}
+				}
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public void ownBonuses() throws CloneNotSupportedException
+	{
+		super.ownBonuses();
+		for (PCClassLevel pcl : this.getClassLevelCollection())
+		{
+			pcl.ownBonuses();
+		}
 	}
 }
