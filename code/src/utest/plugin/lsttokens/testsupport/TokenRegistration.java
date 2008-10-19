@@ -21,8 +21,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -53,6 +56,7 @@ public class TokenRegistration
 		if (!tokenSet.contains(token))
 		{
 			TokenLibrary.addToTokenMap(token);
+			TokenStore.inst().addToTokenMap(token);
 			tokenSet.add(token);
 //			if (token instanceof QualifierToken)
 //			{
@@ -75,6 +79,22 @@ public class TokenRegistration
 		{
 			PrerequisiteWriterFactory.register(writer);
 			pwSet.add(s);
+		}
+	}
+
+	public static void register(Class<? extends BonusObj> cl)
+	{
+		try
+		{
+			Bonus.addBonusClass(cl, "Custom");
+		}
+		catch (InstantiationException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
 		}
 	}
 }

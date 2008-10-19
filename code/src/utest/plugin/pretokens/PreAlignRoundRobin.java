@@ -31,6 +31,7 @@ import junit.textui.TestRunner;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.testsupport.TestSupport;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAlignParser;
 import plugin.pretokens.writer.PreAlignWriter;
 

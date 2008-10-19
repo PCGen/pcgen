@@ -24,6 +24,7 @@ package plugin.pretokens;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreCampaignParser;
 import plugin.pretokens.writer.PreCampaignWriter;
 

@@ -3,6 +3,7 @@ package plugin.pretokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.writer.PreClassWriter;
 
