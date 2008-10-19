@@ -425,18 +425,6 @@ public class PluginBuildTest extends PCGenTestCase
 	}
 	
 	/**
-	 * Check for the presence of all substitution level
-	 * token parsing plugins.
-	 */
-	public void testLstSubstitutionlevelPlugins()
-	{
-		String jarPrefix = "SubstitutionLevelLstToken-";
-		File sourceFolder = new File("code/src/java/plugin/lsttokens/substitutionlevel");
-		File jarFolder = new File("plugins/lstplugins");
-		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
-	}
-	
-	/**
 	 * Check for the presence of all template
 	 * token parsing plugins.
 	 */
