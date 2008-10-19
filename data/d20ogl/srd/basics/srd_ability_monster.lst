@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Oct 16 22:10:12 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sat Oct 18 21:21:40 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-# Ability Name			Output Name					Category of Ability		Type									Visible	Special ABility																							Define													Multiple?	Choose
+# Ability Name			Output Name					Category of Ability		Type									Visible	Special ABility																							Define													Multiple?	Choose											ASPECT
 3 Wishes										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:3 Wishes (Su)
 Acid											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Acid (Ex)
 Acid Spray										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:NO	SAB:Acid Spray (Ex)
@@ -104,7 +104,7 @@ Evil Eye										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VI
 Evil Gaze										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Evil Gaze (Su)
 Explosion										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Explosion (Su)
 Eye Rays										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Eye Rays (Su)
-Fast Healing									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive		VISIBLE:NO	SAB:Fast Healing % (Ex)|PREVAREQ:FastHealingBonus,0	SAB:Fast Healing % (Ex)|FastHealingBonus|PREVARGT:FastHealingBonus,0					DEFINE:FastHealingBonus|0
+Fast Healing									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive		VISIBLE:NO	SAB:Fast Healing % (Ex)|PREVAREQ:FastHealingBonus,0	SAB:Fast Healing % (Ex)|FastHealingBonus|PREVARGT:FastHealingBonus,0					DEFINE:FastHealingBonus|0																								ASPECT:Ability Benefit|%1|FastHealingBonus
 Fear											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:NO	SAB:Fear (Su)
 Fear Aura										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:NO	SAB:Fear Aura (Su)
 Ferocity										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Ferocity (Ex)
@@ -319,7 +319,7 @@ Breath Weapon ~ Line of Lightning		CATEGORY:Special Ability	TYPE:SpecialAttack.S
 Breath Weapon					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su)
 
 ###Block: Unnamed Racial Traits
-# Ability Name				Output Name											Category of Ability		Type				Visible	Special ABility										Define					Description
+# Ability Name				Output Name											Category of Ability		Type				Visible	Special ABility										Define					Description				ASPECT
 Appraise Gem				OUTPUTNAME:+8 racial bonus on Appraise checks when examining gems		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 racial bonus on Appraise checks when examining gems
 Blindsight Listen				OUTPUTNAME:-4 to Listen if Blindsight negated					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:-4 to Listen if Blindsight negated
 Blindsight Listen Spot			OUTPUTNAME:-4 to Listen and Spot if Blindsight negated			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:-4 to Listen and Spot if Blindsight negated
@@ -327,78 +327,78 @@ Blindsight Negated			OUTPUTNAME:-4 to Listen and Spot if Blindsight negated			CA
 Cannot End Rage				OUTPUTNAME:Cannot end its rage voluntarily					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Cannot end its rage voluntarily
 Hide in Dark Areas			OUTPUTNAME:+8 to Hide in dark areas							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 to Hide in dark areas
 Hide in Darkened Areas			OUTPUTNAME:+2 to hide in darkened areas underground				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+2 to hide in darkened areas underground
-Hide in Forest				OUTPUTNAME:Bonus to hide in forested or overgrown areas			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% hide in forested or overgrown areas|HideInForest			DEFINE:HideInForest|4			DESC:+%1|HideInForest
+Hide in Forest				OUTPUTNAME:Bonus to Hide in forested or overgrown areas			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% hide in forested or overgrown areas|HideInForest			DEFINE:HideInForest|4			DESC:+%1|HideInForest		ASPECT:Ability Bonus|+%1|HideInForest
 Hide in Lair				OUTPUTNAME:+8 to Hide in its lair							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 to Hide in its lair
 Hide in Mountains or Underground	OUTPUTNAME:+10 Hide in mountains or underground					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+10 Hide in mountains or underground
-Hide in Natural Surroundings		OUTPUTNAME:Bonus to hide in natural surroundings				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to hide in natural surroundings						DEFINE:HideInNaturalSurroundings|4
+Hide in Natural Surroundings		OUTPUTNAME:Bonus to hide in natural surroundings				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to hide in natural surroundings|HideInNaturalSurroundings		DEFINE:HideInNaturalSurroundings|4						ASPECT:Ability Bonus|+%1|HideInNaturalSurroundings
 Hide in Rocky Terrain			OUTPUTNAME:+8 to Hide in Rocky Terrain						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 to Hide in Rocky Terrain
 Hide in Snow				OUTPUTNAME:+12 to hide in snowy areas						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+12 to hide in snowy areas
 Hide in Snow and Ice			OUTPUTNAME:+7 Hide in snow and ice							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+7 Hide in snow and ice
 Hide in Stone Background		OUTPUTNAME:+8 to Hide in Stone background						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 to Hide in Stone background
 Hide in Stone or Icy			OUTPUTNAME:+8 to Hide in Stony or Icy areas					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 to Hide in Stony or Icy areas
 Hide in Tall Grass			OUTPUTNAME:+4 to Hide in tall grass							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+4 to Hide in tall grass
-Hide in Undergrowth			OUTPUTNAME:Bonus to hide in tall grass or heavy undergrowth			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to hide in tall grass or heavy undergrowth|HideInUndergrowth	DEFINE:HideInUndergrowth|4		DESC:+%1|HideInUndergrowth
+Hide in Undergrowth			OUTPUTNAME:Bonus to hide in tall grass or heavy undergrowth			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to hide in tall grass or heavy undergrowth|HideInUndergrowth	DEFINE:HideInUndergrowth|4		DESC:+%1|HideInUndergrowth	ASPECT:Ability Bonus|+%1|HideInUndergrowth
 Hide Move Silently in Web		OUTPUTNAME:+8 Competence bonus to Hide and Move Silently when using web	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 Competence bonus to Hide and Move Silently when using web
-Hide when Submerged			OUTPUTNAME:Bonus to Hide when Submerged						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to Hide when Submerged|HideWhenSubmerged					DEFINE:HideWhenSubmerged|12		DESC:+%1|HideWhenSubmerged
+Hide when Submerged			OUTPUTNAME:Bonus to Hide when Submerged						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to Hide when Submerged|HideWhenSubmerged					DEFINE:HideWhenSubmerged|12		DESC:+%1|HideWhenSubmerged	ASPECT:Ability Bonus|+%1|HideWhenSubmerged
 Move Silently in Flight			OUTPUTNAME:+8 Move Silently when in flight					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 Move Silently when in flight
 Move Silently in Forest			OUTPUTNAME:+5 Move Silently in Forest						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+5 Move Silently in Forest
 Ride Check					OUTPUTNAME:Ride check to control in battle					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Ride check to control in battle
-Saves vs Charm				OUTPUTNAME:Bonus to saves vs. charm effects					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to saves vs. charm effects|SavesVsCharmBonus				DEFINE:SavesVsCharmBonus|2
+Saves vs Charm				OUTPUTNAME:Bonus to saves vs. charm effects					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to saves vs. charm effects|SavesVsCharmBonus				DEFINE:SavesVsCharmBonus|2							ASPECT:Ability Bonus|+%1|SavesVsCharmBonus
 Saves vs Illusions			OUTPUTNAME:+2 saves versus Illusions						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+2 saves versus Illusions
-Saves vs Poison				OUTPUTNAME:Bonus to Saves vs. Poison						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% Saves vs. Poison|SaveVsPoison						DEFINE:SaveVsPoison|0
+Saves vs Poison				OUTPUTNAME:Bonus to Saves vs. Poison						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% Saves vs. Poison|SaveVsPoison						DEFINE:SaveVsPoison|0								ASPECT:Ability Bonus|+%1|SaveVsPoison
 Saves vs Sonics				OUTPUTNAME:+4 saves versus Sonics							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+4 saves versus Sonics
 Saves vs spells				OUTPUTNAME:+2 Saves versus spells							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+2 Saves versus spells
 Saves vs spells and SLA			OUTPUTNAME:+3 Saves versus spells and spell-like abilities			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+3 Saves versus spells and spell-like abilities
-Slipping Balance				OUTPUTNAME:Bonus to Balance against slipping and falling			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to Balance against slipping and falling|SlippingBalance		DEFINE:SlippingBalance|2		DESC:+%1|SlippingBalance
-Spot During Daylight			OUTPUTNAME:Bonus to Spot during daylight						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to Spot during daylight|SpotInDaylight					DEFINE:SpotInDaylight|4			DESC:+%1|SpotInDaylight
-Spot in Darkness				OUTPUTNAME:Bonus Spot in dusk/darkness						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% Spot in dusk/darkness|SpotInDarkness					DEFINE:SpotInDarkness|8			DESC:+%1|SpotInDarkness
+Slipping Balance				OUTPUTNAME:Bonus to Balance against slipping and falling			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to Balance against slipping and falling|SlippingBalance		DEFINE:SlippingBalance|2		DESC:+%1|SlippingBalance	ASPECT:Ability Bonus|+%1|SlippingBalance
+Spot During Daylight			OUTPUTNAME:Bonus to Spot during daylight						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% to Spot during daylight|SpotInDaylight					DEFINE:SpotInDaylight|4			DESC:+%1|SpotInDaylight		ASPECT:Ability Bonus|+%1|SpotInDaylight
+Spot in Darkness				OUTPUTNAME:Bonus Spot in dusk/darkness						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% Spot in dusk/darkness|SpotInDarkness					DEFINE:SpotInDarkness|8			DESC:+%1|SpotInDarkness		ASPECT:Ability Bonus|+%1|SpotInDarkness
 Underwater Skills				OUTPUTNAME:+4 to Hide/Listen/Spot underwater					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+4 to Hide/Listen/Spot underwater
-Wilderness Scent				OUTPUTNAME:Bonus Wilderness Lore when using Scent				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% Wilderness Lore when using Scent|WildernessLoreBonus			DEFINE:WildernessLoreBonus|4		DESC:+%1|WildernessLoreBonus
+Wilderness Scent				OUTPUTNAME:Bonus Wilderness Lore when using Scent				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+% Wilderness Lore when using Scent|WildernessLoreBonus			DEFINE:WildernessLoreBonus|4		DESC:+%1|WildernessLoreBonus	ASPECT:Ability Bonus|+%1|WildernessLoreBonus
 Wilderness Spot Scent			OUTPUTNAME:+8 to Spot and Wilderness Lore when using Scent			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:+8 to Spot and Wilderness Lore when using Scent
 
 ###Block: Standard Immunities
-# Ability Name		Category of Ability		Type								Visible	Special ABility				Description
+# Ability Name		Category of Ability		Type								Visible	Special ABility				Description						ASPECT
 Immunity To Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Acid (Ex)		DESC:You never take Acid damage
-Immunity To Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Cold (Ex)		DESC:You never take Cold damage
-Immunity To Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Fire (Ex)		DESC:You never take Fire damage
-Immunity To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Electricity (Ex)	DESC:You never take Electricity damage
-Immunity To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Sonic (Ex)		DESC:You never take Sonic damage
+Immunity To Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Cold (Ex)		DESC:You never take Cold damage		ASPECT:Immunity|Cold
+Immunity To Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Fire (Ex)		DESC:You never take Fire damage		ASPECT:Immunity|Fire
+Immunity To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Electricity (Ex)	DESC:You never take Electricity damage	ASPECT:Immunity|Electricity
+Immunity To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Sonic (Ex)		DESC:You never take Sonic damage		ASPECT:Immunity|Sonic
 
 # Unspecified Immunities
 Immunities			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunities (Ex)
 Immunities ~ Su		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Immunity		VISIBLE:NO	SAB:Immunities (Su)
 
 ###Block: Other Immunities
-# Ability Name					Category of Ability		Type								Visible	Special ABility							Description
-Immunity To All Mind Affecting Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to All Mind Affecting Effects (Ex)
-Immunity To Banishment				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Banishment (Ex)				DESC:You can never be banished
-Immunity To Blindness				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Blindness (Ex)
-Immunity To Charm Effects			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Charm Effects (Ex)				DESC:You are never subject to charm effects
-Immunity To Critical Hits			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Critical Hits (Ex)				DESC:You are never subject to critical hits
-Immunity To Death Effects			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Death Effects (Ex)				DESC:You are never subject to death effects
-Immunity To Disease				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Disease (Ex)					DESC:You never take disease damage
-Immunity To Disintegration			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Disintegration (Ex)				DESC:You can never be disintegrated
-Immunity To Energy Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Energy Drain (Ex)				DESC:You can never be energy drained
-Immunity To Flanking				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Flanking (Ex)					DESC:You can never be flanked
-Immunity To Force					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Force (Ex)
-Immunity To Gaze Attacks			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Gaze Attacks (Ex)
-Immunity To Heat					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Heat (Ex)					DESC:You never take damage from heat
-Immunity To Learned Spell			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Learned Spell (Ex)
-Immunity To Light					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Light (Ex)
-Immunity To Magic					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Magic (Ex)					DESC:You are never subject to magical effects
-Immunity To Magical or Alchemical Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Magical or Alchemical Poison (Ex)	DESC:You never take poison damage from Magical or Alchemical poisons
-Immunity To Mind-Affecting			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Mind-Affecting (Ex)				DESC:You are never subject to mind-affecting effects
-Immunity To Paralysis				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Paralysis (Ex)				DESC:You can never be paralysed
-Immunity To Petrification			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Petrification					DESC:You can never be petrified
-Immunity To Phantasms				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Phantasms (Ex)				DESC:You are never fooled by phantasms
-Immunity To Poison				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Poison (Ex)					DESC:You never take poison damage
-Immunity To Polymorph				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Polymorph (Ex)				DESC:You can never be polymorphed
-Immunity To Psionics				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Psionics (Ex)					DESC:You are never subject to psionics effects
-Immunity To Slashing and Piercing		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immune to Slashing and Piercing (Ex)			DESC:You never take damage from Slashing and Piercing
-Immunity To Sleep					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Sleep (Ex)					DESC:You are never subject to sleep effects
-Immunity To Stunning				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Stunning (Ex)					DESC:You can never be stunned
-Immunity To Transformation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Transformation (Ex)				DESC:You can never be transformed
-Immunity To Transmutation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity to Transmutation (Ex)				DESC:You can never be transmutated
+# Ability Name					Category of Ability		Type								Visible	Special ABility							Description											ASPECT
+Immunity To All Mind Affecting Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to All Mind Affecting Effects (Ex)														ASPECT:Immunity|All Mind Affecting Effects
+Immunity To Banishment				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Banishment (Ex)				DESC:You can never be banished							ASPECT:Immunity|Banishment
+Immunity To Blindness				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Blindness (Ex)																ASPECT:Immunity|Blindness
+Immunity To Charm Effects			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity To Charm Effects (Ex)				DESC:You are never subject to charm effects					ASPECT:Immunity|Charm Effects
+Immunity To Critical Hits			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity To Critical Hits (Ex)				DESC:You are never subject to critical hits					ASPECT:Immunity|Critical Hits
+Immunity To Death Effects			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Death Effects (Ex)				DESC:You are never subject to death effects					ASPECT:Immunity|Death Effects
+Immunity To Disease				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Disease (Ex)					DESC:You never take disease damage							ASPECT:Immunity|Disease
+Immunity To Disintegration			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Disintegration (Ex)				DESC:You can never be disintegrated							ASPECT:Immunity|Disintegration
+Immunity To Energy Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Energy Drain (Ex)				DESC:You can never be energy drained						ASPECT:Immunity|Energy Drain
+Immunity To Flanking				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Flanking (Ex)					DESC:You can never be flanked								ASPECT:Immunity|Flanking
+Immunity To Force					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Force (Ex)																	ASPECT:Immunity|Force
+Immunity To Gaze Attacks			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Gaze Attacks (Ex)																ASPECT:Immunity|Gaze Attacks
+Immunity To Heat					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Heat (Ex)					DESC:You never take damage from heat						ASPECT:Immunity|Heat
+Immunity To Learned Spell			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Learned Spell (Ex)																ASPECT:Immunity|Learned Spell
+Immunity To Light					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Light (Ex)																	ASPECT:Immunity|Light
+Immunity To Magic					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Magic (Ex)					DESC:You are never subject to magical effects					ASPECT:Immunity|Magic
+Immunity To Magical or Alchemical Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Magical or Alchemical Poison (Ex)	DESC:You never take poison damage from Magical or Alchemical poisons	ASPECT:Immunity|Magical or Alchemical Poison
+Immunity To Mind-Affecting			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Mind-Affecting (Ex)				DESC:You are never subject to mind-affecting effects				ASPECT:Immunity|Mind-Affecting
+Immunity To Paralysis				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Paralysis (Ex)				DESC:You can never be paralysed							ASPECT:Immunity|Paralysis
+Immunity To Petrification			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Petrification					DESC:You can never be petrified							ASPECT:Immunity|Petrification
+Immunity To Phantasms				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Phantasms (Ex)				DESC:You are never fooled by phantasms						ASPECT:Immunity|Phantasms
+Immunity To Poison				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Poison (Ex)					DESC:You never take poison damage							ASPECT:Immunity|Poison
+Immunity To Polymorph				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Polymorph (Ex)				DESC:You can never be polymorphed							ASPECT:Immunity|Polymorph
+Immunity To Psionics				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Psionics (Ex)					DESC:You are never subject to psionics effects					ASPECT:Immunity|Psionics
+Immunity To Slashing and Piercing		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immune to Slashing and Piercing (Ex)			DESC:You never take damage from Slashing and Piercing				ASPECT:Immunity|Slashing and Piercing
+Immunity To Sleep					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Sleep (Ex)					DESC:You are never subject to sleep effects					ASPECT:Immunity|Sleep
+Immunity To Stunning				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Stunning (Ex)					DESC:You can never be stunned								ASPECT:Immunity|Stunning
+Immunity To Transformation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Transformation (Ex)				DESC:You can never be transformed							ASPECT:Immunity|Transformation
+Immunity To Transmutation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	SAB:Immunity to Transmutation (Ex)				DESC:You can never be transmutated							ASPECT:Immunity|Transmutation
 
 ###Block: Resistances
 # Ability Name			Category of Ability		Visible	Define					Ability
@@ -409,12 +409,12 @@ Resistance To Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Electricity
 Resistance To Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic,Vulnerability To Sonic
 
 ###Block: Resistances Output
-# Ability Name				Output Name						Category of Ability		Type								Visible	Special ABility								Description
-Resistance To Acid Output		OUTPUTNAME:Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Acid %|AcidResistanceBonus			DESC:You may ignore %1 points of Acid damage each time you take Acid damage|AcidResistanceBonus
-Resistance To Cold Output		OUTPUTNAME:Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Cold %|ColdResistanceBonus			DESC:You may ignore %1 points of Cold damage each time you take Cold damage|ColdResistanceBonus
-Resistance To Fire Output		OUTPUTNAME:Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Fire %|FireResistanceBonus			DESC:You may ignore %1 points of Fire damage each time you take Fire damage|FireResistanceBonus
-Resistance To Electricity Output	OUTPUTNAME:Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Electricity %|ElectricityResistanceBonus	DESC:You may ignore %1 points of Electricity damage each time you take Electricity damage|ElectricityResistanceBonus
-Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:NO	SAB:Resistance To Sonic %|SonicResistanceBonus			DESC:You may ignore %1 points of Sonic damage each time you take Sonic damage|SonicResistanceBonus
+# Ability Name				Output Name						Category of Ability		Type								Visible	Special ABility								Description																			ASPECT
+Resistance To Acid Output		OUTPUTNAME:Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	SAB:Resistance To Acid %|AcidResistanceBonus			DESC:You may ignore %1 points of Acid damage each time you take Acid damage|AcidResistanceBonus					ASPECT:Resistance|Acid	ASPECT:Ability Benefit|%1|AcidResistanceBonus
+Resistance To Cold Output		OUTPUTNAME:Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	SAB:Resistance To Cold %|ColdResistanceBonus			DESC:You may ignore %1 points of Cold damage each time you take Cold damage|ColdResistanceBonus					ASPECT:Resistance|Cold	ASPECT:Ability Benefit|%1|ColdResistanceBonus
+Resistance To Fire Output		OUTPUTNAME:Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	SAB:Resistance To Fire %|FireResistanceBonus			DESC:You may ignore %1 points of Fire damage each time you take Fire damage|FireResistanceBonus					ASPECT:Resistance|Fire	ASPECT:Ability Benefit|%1|FireResistanceBonus
+Resistance To Electricity Output	OUTPUTNAME:Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	SAB:Resistance To Electricity %|ElectricityResistanceBonus	DESC:You may ignore %1 points of Electricity damage each time you take Electricity damage|ElectricityResistanceBonus	ASPECT:Resistance|Electricity	ASPECT:Ability Benefit|%1|ElectricityResistanceBonus
+Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	SAB:Resistance To Sonic %|SonicResistanceBonus			DESC:You may ignore %1 points of Sonic damage each time you take Sonic damage|SonicResistanceBonus				ASPECT:Resistance|Sonic	ASPECT:Ability Benefit|%1|SonicResistanceBonus
 
 ###Block: Vulnerabilities
 # Ability Name			Category of Ability		Type								Visible	Special ABility				Description

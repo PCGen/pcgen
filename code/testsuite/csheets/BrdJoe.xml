@@ -132,13 +132,17 @@ BIO
 			<weight_nounit>145</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>0</cost>
+			<cost>-1</cost>
 			<current>0</current>
 		</poolpoints>
 		<notes>
 			<note>
 				<name>New Item</name>
 				<value>New Value</value>
+			</note>
+			<note>
+				<name>Character Sheet Notes</name>
+				<value></value>
 			</note>
 		</notes>
 	</basics>
@@ -306,7 +310,7 @@ BIO
 			<used>20</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Appraise +5, Climb +3, Craft (Carpentry) +5, Escape Artist +5, Knowledge (Religion) +5, Listen +2, Search +2, Spellcraft +5, Spot +2</list_mods>
+		<list_mods>Appraise +5, Climb +3, Craft (Carpentry) +5, Knowledge (Religion) +5, Listen +2, Perform +4, Search +2, Spellcraft +5, Spot +2</list_mods>
 		<max_class_skill_level>4</max_class_skill_level>
 		<max_cross_class_skill_level>2</max_cross_class_skill_level>
 		<skill>
@@ -464,10 +468,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Escape Artist</name>
-			<ranks>4.0</ranks>
+			<ranks>0.0</ranks>
 			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>5</skill_mod>
+			<skill_mod>1</skill_mod>
 			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -476,8 +480,8 @@ BIO
 			<synergy>Escape Artist</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Forgery</name>
@@ -634,10 +638,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Perform</name>
-			<ranks>0.0</ranks>
+			<ranks>4.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
+			<skill_mod>4</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -646,8 +650,8 @@ BIO
 			<synergy>Perform</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
 		</skill>
 		<skill>
 			<name>Ride</name>
@@ -1008,11 +1012,23 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
+			<name>Countersong (Su) for up to 10 rounds</name>
+			<description></description>
+		</ability>
+		<ability>
 			<name>Elven Blood</name>
 			<description></description>
 		</ability>
 		<ability>
+			<name>Fascinate (Sp) can effect 1 creature for up to 1 rounds</name>
+			<description></description>
+		</ability>
+		<ability>
 			<name>Immunity to magic sleep spells and effects</name>
+			<description></description>
+		</ability>
+		<ability>
+			<name>Inspire Courage (Su) +2 to saves against charm or fear effects and +2 morale bonus on attack and damage rolls.</name>
 			<description></description>
 		</ability>
 		<race></race>
@@ -1110,7 +1126,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1120,8 +1136,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Bardic Knowledge</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<description>+2 to see whether you know some relevant information about local notable people, legendary items, or noteworthy places.</description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1131,8 +1147,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Bardic Music</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<description>1 times per day you can use your song or poetics to produce magical effects on those around you.</description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1143,7 +1159,7 @@ BIO
 		<ability_object>
 			<name>Immunity to magic sleep spells and effects</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1154,7 +1170,7 @@ BIO
 		<ability_object>
 			<name>+2 racial saving throw bonus against Enchantment spells or effects</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1175,9 +1191,9 @@ BIO
 		</ability_object>
 	<!-- Hidden Virtual "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>Bardic Countersong</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<name>Countersong</name>
+			<description>for 10 rounds you can use your music or poetics to counter magical effects that depend on sound</description>
+			<type>SPECIALQUALITY.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1186,9 +1202,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bardic Fascinate</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<name>Fascinate</name>
+			<description>You can use your music or poetics to cause 1 creature(s) to become fascinated for up to 1 rounds</description>
+			<type>SPECIALATTACK.SPELLLIKE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1197,9 +1213,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bardic Inspire Courage</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<name>Inspire Courage</name>
+			<description>+2 to saves against charm or fear effects and +2 morale bonus on attack and damage rolls.</description>
+			<type>SPECIALQUALITY.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

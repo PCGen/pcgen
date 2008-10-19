@@ -38,7 +38,7 @@ Camouflage								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VIS
 Call/Dismiss Weapon						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Call/Dismiss Weapon (Su)
 Can't Run								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Can't Run (Ex)
 Captivating Song							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Captivating Song (Su)
-Cast Web								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Cast Web(Ex) 8/day maximum range 50'
+Cast Web								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Cast Web (Ex) 8/day maximum range 50'
 Chain Reaction							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Chain Reaction (Su) ~ 400 points of damage to everything within 400 ft and 100 points of damage to everything within a mile, Ref save (DC %) for half|10+(TL/2)+DEX
 Charge								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Charge (Ex)
 Chemical Healing							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Chemical Healing (Ex)
@@ -197,7 +197,7 @@ Scent									CATEGORY:Special Ability	TYPE:Extraordinary			VISIBLE:NO	SAB:Scent
 Selective Invisibility						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Selective Invisibility (Su)
 Self-Destruct							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Self-Destruct (Ex)
 Sentience								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sentience (Ex)
-Shared Host								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Shared Host(Ex)
+Shared Host								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Shared Host (Ex)
 Sharp Implements							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Sharp Implements
 Shift Dimension							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shift Dimension (Su)
 Shock Touch								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Shock Touch (Ex)
@@ -242,7 +242,7 @@ Vulnerability							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	V
 Wall Smash								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Wall Smash (Ex)
 Wavesense								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Wavesense (Ex)
 Weakness								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Weakness (Ex)
-Web									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web (Ex)|PREVAREQ:WebEscapeDC,0	SAB:Web(Ex) - Escape DC % Break DC % Hit Points %|WebEscapeDC|WebBreakDC|WebHitPoints|PREVARGT:WebEscapeDC,0				DEFINE:WebEscapeDC|0	DEFINE:WebBreakDC|0	DEFINE:WebHitPoints|0
+Web									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web (Ex)|PREVAREQ:WebEscapeDC,0	SAB:Web (Ex) - Escape DC % Break DC % Hit Points %|WebEscapeDC|WebBreakDC|WebHitPoints|PREVARGT:WebEscapeDC,0				DEFINE:WebEscapeDC|0	DEFINE:WebBreakDC|0	DEFINE:WebHitPoints|0
 Web Cocoon								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Web Cocoon (Ex)
 Wheels								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Wheels
 Wild Empathy							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Wild Empathy (Ex) (1d20+%)|6+CHA
@@ -263,11 +263,11 @@ Bonus vs Sleep and Paralysis		OUTPUTNAME:+4 species bonus on saves against sleep
 Bonus vs Spells and SPA			OUTPUTNAME:+2 species bonus on Will saves against spells and spell-like abilities																																						CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+2 species bonus on Will saves against spells and spell-like abilities
 Cannot be Raised				OUTPUTNAME:Cannot be raised from dead																																													CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:Cannot be raised from dead
 Cannot Heal					OUTPUTNAME:Cannot heal but can be reparied																																												CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:Cannot heal but can be reparied
-Concussion Damage				OUTPUTNAME:Double damage from Sonic/Concussion damage																																											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Double damage from Sonic/Concussion damage(Ex)
+Concussion Damage				OUTPUTNAME:Double damage from Sonic/Concussion damage																																											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Double damage from Sonic/Concussion damage (Ex)
 Dodge Giants				OUTPUTNAME:+4 dodge bonus to Defense against creatures of the giant type																																							CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+4 dodge bonus to Defense against creatures of the giant type
 Dwarf Attacks				OUTPUTNAME:+1 species bonus on attack rolls against bugbears, goblins, orcs, and  other goblinoids.																																			CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+1 species bonus on attack rolls against bugbears, goblins, orcs, and  other goblinoids.
 Gnome Attacks				OUTPUTNAME:+1 species bonus on attack rolls against bugbears, goblins (and other goblinoids), and kobolds																																		CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+1 species bonus on attack rolls against bugbears, goblins (and other goblinoids), and kobolds
-Half Actions				OUTPUTNAME:Move or Attack Action Only																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Move or Attack Action Only(Ex)
+Half Actions				OUTPUTNAME:Move or Attack Action Only																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Move or Attack Action Only (Ex)
 Hide in Forest				OUTPUTNAME:+16 to Hide in forested areas																																													CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+16 to Hide in forested areas
 Hide in Lair				OUTPUTNAME:+8 species bonus to Hide in its lair																																												CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+8 species bonus to Hide in its lair
 Hide in Snow				OUTPUTNAME:+15 species bonus on Hide in snowy conditions																																										CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+15 species bonus on Hide in snowy conditions
@@ -283,7 +283,7 @@ Quarter Damage				OUTPUTNAME:1/4 damage from ballistic, piercing or slashing				
 Skills at Night				OUTPUTNAME:+4 on Intimidate and Sense Motive during the night																																									CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+4 on Intimidate and Sense Motive during the night
 Spot in Darkness				OUTPUTNAME:+8 Spot in dusk/darkness																																														CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+8 Spot in dusk/darkness
 Spot in Daylight				OUTPUTNAME:+8 species bonus on Spot checks during daylight																																										CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+8 species bonus on Spot checks during daylight
-Sunlight Damage				OUTPUTNAME:Direct sunlight causes 50 points damage per round																																									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Direct sunlight causes 50 points damage per round(Ex)
+Sunlight Damage				OUTPUTNAME:Direct sunlight causes 50 points damage per round																																									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Direct sunlight causes 50 points damage per round (Ex)
 Tracking by Scent				OUTPUTNAME:+4 Survival checks when Tracking by Scent																																											CATEGORY:Special Ability	TYPE:RacialTrait				VISIBLE:NO	SAB:+4 Survival checks when Tracking by Scent
 
 ###Block: Creature Type and Subtype Traits

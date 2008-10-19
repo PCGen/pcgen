@@ -2,7 +2,7 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:MSRD - Arcana|CAMPAIGN:MSRD - Basics|CAMPAIGN:MSRD - Future|CAMPAIGN:MSRD - Menaces
-VERSION:5.15.5-dev
+VERSION:5.15.5
 ROLLMETHOD:1|EXPRESSION:13
 PURCHASEPOINTS:N
 POOLPOINTS:0
@@ -106,8 +106,9 @@ USERPOOL:Internal|POOLPOINTS:0.0
 USERPOOL:Talent|POOLPOINTS:0.0
 USERPOOL:Special Ability|POOLPOINTS:0.0
 USERPOOL:Starting Occupation|POOLPOINTS:0.0
-ABILITY:Wealth|TYPE:NORMAL|CATEGORY:Wealth|KEY:Wealth Roll of 6|TYPE:WEALTH.WEALTHROLL
 USERPOOL:Wealth|POOLPOINTS:0.0
+ABILITY:Wealth Roll|TYPE:NORMAL|CATEGORY:Wealth|KEY:Wealth Roll ~ 6|TYPE:WEALTH.WEALTHROLL
+USERPOOL:Wealth Roll|POOLPOINTS:0.0
 ABILITY:Occupation|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Outcast|TYPE:OCCUPATION|DESC:"Outcast" is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.
 USERPOOL:Occupation|POOLPOINTS:0.0
 USERPOOL:Strong Feat|POOLPOINTS:0.0
