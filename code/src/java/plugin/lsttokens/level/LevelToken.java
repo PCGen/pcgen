@@ -27,22 +27,48 @@ package plugin.lsttokens.level;
 
 import pcgen.core.LevelInfo;
 import pcgen.persistence.lst.LevelLstToken;
+import pcgen.util.Logging;
 
 /**
- * <code>LevelToken</code>
+ * <code>LevelToken</code> parses the LEVEL tag for the game mode 
+ * file level.lst. 
  *
+ * 
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ * 
  * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * @version $Revision$
  */
 public class LevelToken implements LevelLstToken
 {
 
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.LstToken#getTokenName()
+	 */
 	public String getTokenName()
 	{
 		return "LEVEL";
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.LevelLstToken#parse(pcgen.core.LevelInfo, java.lang.String)
+	 */
 	public boolean parse(LevelInfo levelInfo, String value)
 	{
+		if (!value.equals("LEVEL"))
+		{
+			try
+			{
+				Integer.parseInt(value);
+			}
+			catch (NumberFormatException e)
+			{
+				Logging.errorPrint("Invalid " + getTokenName() + " value: '"
+					+ value + "'. Value must be either LEVEL or a number.");
+				return false;
+			}
+		}
 		levelInfo.setLevelString(value);
 		return true;
 	}

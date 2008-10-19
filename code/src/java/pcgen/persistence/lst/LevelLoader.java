@@ -123,9 +123,8 @@ final class LevelLoader
 					source, value);
 				if (!token.parse(levelInfo, value))
 				{
-					Logging.errorPrint("Error parsing ability "
-						+ levelInfo.getLevelString() + ':' + "level.lst" + ':'
-						+ colString + "\"");
+					Logging.errorPrint("LevelLoader got invalid " + key + " value of '" + value + "' in '"
+						+ inputLine + "' at line " + lineNum + " of " + source + ". Token ignored.");
 				}
 			}
 			else
