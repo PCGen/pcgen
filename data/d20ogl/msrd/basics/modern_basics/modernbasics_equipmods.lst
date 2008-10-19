@@ -57,7 +57,7 @@ Autofire			KEY:AUTOFIRE								TYPE:Automatic														VISIBLE:QUALIFY				RE
 Burst fire			KEY:BURSTFIRE								TYPE:Automatic														VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	PRETYPE:1,EQMOD=AUTOFIRE																					BONUS:WEAPON|TOHIT|-4
 Double Tap fire		KEY:DBLTAP									TYPE:Semiauto														VISIBLE:QUALIFY				REPLACES:AUTOFIRE	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																										BONUS:WEAPON|TOHIT|-2												SPROP:Adds 1 die to damage.
 
-Upgrade			KEY:UPGRADE									TYPE:Desktop.Desktop											COST:1	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																						BONUS:ITEMCOST|TYPE.Notebook|1																SPROP:Applies EXTRA +1 Bonus beyond normal.
+Upgrade			KEY:UPGRADE									TYPE:Desktop.Notebook											COST:1	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																						BONUS:ITEMCOST|TYPE.Notebook|1																SPROP:Applies EXTRA +1 Bonus beyond normal.
 Illuminator			KEY:ILLUMINATOR								TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Illuminator Purchase DC 7
 #Illuminator						KEY:ILLUMINATOR			TYPE:Firearm		COST:7		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 Laser Sight			KEY:LSR_SIGHT								TYPE:Firearm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf																	BONUS:EQM|WEIGHTADD|.5																							SPROP:Laser Sight Purchase DC 15
