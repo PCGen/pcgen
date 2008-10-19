@@ -28,9 +28,9 @@ package plugin.pretokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import pcgen.AbstractCharacterTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
+import pcgen.testsupport.TestSupport;
 import plugin.pretokens.parser.PreAlignParser;
 import plugin.pretokens.writer.PreAlignWriter;
 
@@ -66,27 +66,27 @@ public class PreAlignRoundRobin extends AbstractAlignRoundRobin
 		TokenRegistration.register(new PreAlignParser());
 		TokenRegistration.register(new PreAlignWriter());
 		GameMode gamemode = SettingsHandler.getGame();
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Lawful Good", "LG"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Lawful Neutral", "LN"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Lawful Evil", "LE"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Neutral Good", "NG"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"True Neutral", "TN"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Neutral Evil", "NE"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Chaotic Good", "CG"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Chaotic Neutral", "CN"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Chaotic Evil", "CE"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"None", "NONE"));
-		gamemode.addToAlignmentList(AbstractCharacterTestCase.createAlignment(
+		gamemode.addToAlignmentList(TestSupport.createAlignment(
 				"Deity's", "Deity"));
 	}
 

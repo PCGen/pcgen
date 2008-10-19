@@ -3,6 +3,8 @@ package pcgen.testsupport;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import pcgen.core.PCAlignment;
+
 /**
  * Support class for running Junit tests
  */
@@ -49,5 +51,13 @@ public class TestSupport
 		
 		return instance;
 	}
-	
+
+	public static PCAlignment createAlignment(final String longName,
+			final String shortName)
+		{
+			final PCAlignment align = new PCAlignment();
+			align.setName(longName);
+			align.setKeyName(shortName);
+			return align;
+		}	
 }
