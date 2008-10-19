@@ -95,8 +95,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
     <td class="divider"></td>
   </tr>
 </table>
-<b>AC</b> |AC.Total|, <b>touch</b> |AC.Touch|, <b>flat-footed</b> |AC.Flatfooted|; 
-|FOR,%ACfeats,0,COUNT[FEATTYPE.ModifyAC.ALL]-1,1,1| , |FEATALL.%ACfeats.TYPE=ModifyAC| 
+<b>AC</b> |AC.Total|, <b>touch</b> |AC.Touch|, <b>flat-footed</b> |AC.Flatfooted|
+|FOR,%ACfeats,0,COUNT[FEATTYPE.ModifyAC.ALL]-1,1,1|
+; |FEATALL.%ACfeats.TYPE=ModifyAC|
+|ENDFOR|
+|FOR,%ACabilities,0,count("ABILITIES","TYPE=ModifyAC","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,1|
+; |ABILITYALLLIST.Special Ability.TYPE=ModifyAC|
 |ENDFOR|
 <br>
 &nbsp;&nbsp;&nbsp;(
@@ -146,7 +150,7 @@ Tower Shield,
 |ELSE|
 <b>vp</b> |HP| <b>wp</b> |ALTHP| 
 |ENDIF|
-(|HITDICE|)<br>
+|HITDICE|<br>
 
 <b>Fort</b> |CHECK.FORTITUDE.TOTAL|, <b>Ref</b> |CHECK.REFLEX.TOTAL|, <b>Will</b> |CHECK.2.TOTAL|<br>
 
@@ -158,15 +162,38 @@ Tower Shield,
 |ENDFOR|
 
 <!-- Immunity TYPE Abilities -->
+|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Immunities </b> |FEATALLLIST.TYPE=Immunity| |ABILITYALLLIST.Special Ability.TYPE=Immunity|<br>
+<b>Immunities </b> 
+|FOR,%immunities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Immunity:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Immunity|
+|ELSE|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity|
 |ENDIF|
+,
+|ENDFOR|
+<br>
+|ENDIF|
+|ENDMANUALWHITESPACE|
 <!-- End Immunity TYPE Abilities -->
 
 <!-- Resistance TYPE Abilities -->
+|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Resistances </b> |FEATALLLIST.TYPE=Aura| |ABILITYALLLIST.Special Ability.TYPE=Resistance|<br>
+<b>Resistances </b> 
+|FOR,%resistances,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Resistance:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Resistance|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Ability Benefit|
+|ELSE|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance|
 |ENDIF|
+,
+|ENDFOR|
+<br>
+|ENDIF|
+|ENDMANUALWHITESPACE|
 <!-- End Resistance TYPE Abilities -->
 
 |IIF(SR:0)|
@@ -180,6 +207,22 @@ Tower Shield,
 |ENDIF|
 <!-- End Weakness TYPE Abilities -->
 
+<!-- Defensive TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Defensive Abilities </b> |ABILITYALLLIST.Special Ability.TYPE=Defensive|<br>
+|ENDIF|
+<!-- End Defensive TYPE Abilities -->
+
+<!-- Defensive Gear -->
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.DefensiveGear]")>0;1;0):1)|
+<b>Defensive Gear </b>
+|FOR,%defensiveGear,0,COUNT[EQTYPE.DefensiveGear]-1,1,1|
+<i>|TEXT.LOWER.EQ.IS.DefensiveGear.%defensiveGear.NAME|; </i>
+|ENDFOR|
+<br>
+|ENDIF|
+<!-- End Defensive Gear -->
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="divider"><b>OFFENSE</b></td>
@@ -189,19 +232,26 @@ Tower Shield,
   </tr>
 </table>
 
+|MANUALWHITESPACE|
 <b>Speed</b>
 |FOR,%movement,0,COUNT[MOVE]-1,1,1|
 |IIF(MOVE.0.NAME:Walk)|
 |IIF(MOVE.%movement.NAME:Walk)|
-|MOVE.%movement.RATE|
+&nbsp;|MOVE.%movement.RATE|
 |ELSE|
-|MOVE.%movement.NAME| |MOVE.%movement.RATE|
+&nbsp;|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
 |ENDIF|
 |ELSE|
-|MOVE.%movement.NAME| |MOVE.%movement.RATE|
+&nbsp;|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
 |ENDIF|
- 
 |ENDFOR|
+
+<!-- ModifyMovement TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=ModifyMovement";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+,&nbsp;|ABILITYALLLIST.Special Ability.TYPE=ModifyMovement|
+|ENDIF|
+<!-- End ModifyMovement TYPE Abilities -->
+|ENDMANUALWHITESPACE|
 
 <!-- Attacks -->
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
@@ -263,12 +313,33 @@ Tower Shield,
 <b>Reach</b> |REACH|
 |ENDIF|
 
-<!-- Special Attacks -->
+<!-- SpecialAttack TYPE Abilities -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<br><b>Special Attacks </b> |ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack|
+|MANUALWHITESPACE|
+<br><b>Special&nbsp;Attacks</b> 
+|FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Bonus:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Bonus|
 |ENDIF|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Benefit|
+|ENDIF|
+,
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|ENDIF|
+<!-- End SpecialAttack TYPE Abilities -->
 
-<!-- TODO: Combat Gear need to be defined by Equipment TYPE -->
+<!-- Offensive Gear -->
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.OffensiveGear]")>0;1;0):1)|
+<br><b>Offensive Gear </b>
+|FOR,%offensiveGear,0,COUNT[EQTYPE.OffensiveGear]-1,1,1|
+<i>|TEXT.LOWER.EQ.IS.OffensiveGear.%offensiveGear.NAME|; </i>
+|ENDFOR|
+<br>
+|ENDIF|
+<!-- End Offensive Gear -->
 
 <!-- Known Spells -->
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
@@ -457,25 +528,39 @@ at will)
 |ENDFOR|
 <br>
 
+<!-- Languages and Communicate TYPE Abilities -->
+|MANUALWHITESPACE|
 |FOR,%LanguageTest,STRLEN[LANGUAGES],STRLEN[LANGUAGES],1,0|
 |IIF(%LanguageTest:0)|
 |ELSE|
-<b>Languages</b> |LANGUAGES|<br>
+<b>Languages</b>&nbsp;|LANGUAGES|
+|IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+,&nbsp;|ABILITYALLLIST.Special Ability.TYPE=Communicate|
+|ENDIF|
+<br>
 |ENDIF|
 |ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- End Languages Communicate TYPE Abilities -->
 
-<!-- Special Qualities -->
+<!-- SpecialQuality TYPE Abilities -->
+|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Special Qualities </b> 
-|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
-|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Resistance.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Immunity.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Weakness)|
-|ELSE|
-|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality|, 
+<b>Special&nbsp;Qualities</b> 
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Bonus:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Bonus|
 |ENDIF|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Benefit|
+|ENDIF|
+,
 |ENDFOR|
 <br>
 |ENDIF|
-<!-- End Special Qualities -->
+|ENDMANUALWHITESPACE|
+<!-- End SpecialQuality TYPE Abilities -->
 
 |%COUNT[SA]|
 <b>Special Abilities </b> |SPECIALLIST|<br>

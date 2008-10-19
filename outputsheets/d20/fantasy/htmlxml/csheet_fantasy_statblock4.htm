@@ -18,8 +18,14 @@ $Date$
 </head>
 <body>
 
-<b>|TEXT.UPPER.NAME| CR |CR|</b><br>
-|RACE|; 
+<table width="100%">
+	<tr>
+		<td><b><font size="+1">|TEXT.UPPER.NAME|</font></b></td>
+		<td align="right"><b><font size="+1">CR |CR|</font></b></td>
+	</tr>
+</table>
+
+|GENDER.LONG| |RACE| 
 |FOR,%class,0,COUNT[CLASSES]-1,1,1|
 |IIF(%class:0)|
 |ELSE|
@@ -29,7 +35,7 @@ $Date$
 |ENDFOR|
 <br>
 
-|ALIGNMENT.SHORT| |SIZELONG| 
+|ALIGNMENT.SHORT| |TEXT.LOWER.SIZELONG| 
 |IIF(RACETYPE:None)|
 |TEXT.LOWER.TYPE|
 |ELSE|
@@ -69,18 +75,28 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDIF|
 <!-- End Aura TYPE Abilities -->
 
+<!-- Languages and Communicate TYPE Abilities -->
 |FOR,%LanguageTest,STRLEN[LANGUAGES],STRLEN[LANGUAGES],1,0|
 |IIF(%LanguageTest:0)|
 |ELSE|
-<b>Languages</b> |LANGUAGES|<br>
+<b>Languages</b> |LANGUAGES|
+|IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+, |ABILITYALLLIST.Special Ability.TYPE=Communicate|
+|ENDIF|
+<br>
 |ENDIF|
 |ENDFOR|
+<!-- End Languages Communicate TYPE Abilities -->
+
 <hr />
 
-<b>AC</b> |AC.Total|, <b>touch</b> |AC.Touch|, <b>flat-footed</b> |AC.Flatfooted|; 
+<b>AC</b> |AC.Total|, <b>touch</b> |AC.Touch|, <b>flat-footed</b> |AC.Flatfooted|
 
 |FOR,%ACfeats,0,COUNT[FEATTYPE.ModifyAC.ALL]-1,1,1|
-, |FEATALL.%ACfeats.TYPE=ModifyAC|
+; |FEATALL.%ACfeats.TYPE=ModifyAC|
+|ENDFOR|
+|FOR,%ACabilities,0,count("ABILITIES","TYPE=ModifyAC","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,1|
+; |ABILITYALLLIST.Special Ability.TYPE=ModifyAC|
 |ENDFOR|
 <br>
 
@@ -100,6 +116,8 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 
 <br>
 
+<b>Fort</b> |CHECK.FORTITUDE.TOTAL|, <b>Ref</b> |CHECK.REFLEX.TOTAL|, <b>Will</b> |CHECK.2.TOTAL|<br>
+
 <!-- Immunity TYPE Abilities -->
 |IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Immunity </b> |FEATALLLIST.TYPE=Immunity| |ABILITYALLLIST.Special Ability.TYPE=Immunity|<br>
@@ -114,16 +132,30 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 
 |IIF(SR:0)|
 |ELSE|
-<b>SR</b> |SR|<br>
+<b>Spell Resistance</b> |SR|<br>
 |ENDIF|
-
-<b>Fort</b> |CHECK.FORTITUDE.TOTAL|, <b>Ref</b> |CHECK.REFLEX.TOTAL|, <b>Will</b> |CHECK.2.TOTAL|<br>
 
 <!-- Weakness TYPE Abilities -->
 |IIF(count("ABILITIES";"TYPE=Weakness";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Weakness </b> |FEATALLLIST.TYPE=Aura| |ABILITYALLLIST.Special Ability.TYPE=Weakness|<br>
 |ENDIF|
 <!-- End Weakness TYPE Abilities -->
+
+<!-- Defensive TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<b>Defensive Abilities </b> |ABILITYALLLIST.Special Ability.TYPE=Defensive|<br>
+|ENDIF|
+<!-- End Defensive TYPE Abilities -->
+
+<!-- Defensive Gear -->
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.DefensiveGear]")>0;1;0):1)|
+<b>Defensive Gear </b>
+|FOR,%defensiveGear,0,COUNT[EQTYPE.DefensiveGear]-1,1,1|
+<i>|TEXT.LOWER.EQ.IS.DefensiveGear.%defensiveGear.NAME|; </i>
+|ENDFOR|
+<br>
+|ENDIF|
+<!-- End Defensive Gear -->
 
 <hr />
 
@@ -140,6 +172,12 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDIF|
  
 |ENDFOR|
+
+<!-- ModifyMovement TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=ModifyMovement";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+, |ABILITYALLLIST.Special Ability.TYPE=ModifyMovement|
+|ENDIF|
+<!-- End ModifyMovement TYPE Abilities -->
 
 <!-- Attacks -->
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
@@ -201,11 +239,37 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDIF|
 <!-- End AttackOption TYPE Abilities -->
 
+<!-- SpecialAttack TYPE Abilities -->
+|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<br><b>Special Actions </b> |ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack|
+<br><b>Special Actions </b> 
+|FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.TYPE:AttackOption)|
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Bonus:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Bonus|
 |ENDIF|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Benefit|
+|ENDIF|
+, 
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDMANUALWHITESPACE|
+<!-- End SpecialAttack TYPE Abilities -->
 
-<!-- TODO: Combat Gear need to be defined by Equipment TYPE -->
+<!-- Offensive Gear -->
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.OffensiveGear]")>0;1;0):1)|
+<br><b>Offensive Gear </b>
+|FOR,%offensiveGear,0,COUNT[EQTYPE.OffensiveGear]-1,1,1|
+<i>|TEXT.LOWER.EQ.IS.OffensiveGear.%offensiveGear.NAME|; </i>
+|ENDFOR|
+<br>
+|ENDIF|
+<!-- End Offensive Gear -->
+
 
 <!-- Known Spells -->
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
@@ -367,13 +431,30 @@ at will)
 |TEXT.TITLECASE.STAT.%stat.NAME| |STAT.%stat|
 |ENDFOR|
 <br>
+
+<!-- SpecialQuality TYPE Abilities -->
+|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Special Qualities </b> 
-|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
-|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality|, 
+<b>Special Qualities</b> 
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Bonus:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Bonus|
+|ENDIF|
+
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality|
+
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Benefit|
+|ENDIF|
+
+,
 |ENDFOR|
 <br>
 |ENDIF|
+|ENDMANUALWHITESPACE|
+<!-- End SpecialQuality TYPE Abilities -->
+
 |%COUNT[SA]|
 <b>Special Abilities </b> |SPECIALLIST|<br>
 |%|
