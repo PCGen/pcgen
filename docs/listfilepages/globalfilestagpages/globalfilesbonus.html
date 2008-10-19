@@ -61,7 +61,7 @@
 <hr>
 
 	<p class="indent1"><strong>Bonus Type:</strong> Typeless</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>These have no <code>TYPE=</code> statement, and are always added into the final result.</li>
 		<li>Because it is typeless, it can not be tracked in the OS sheets in a breakdown by bonus type.</li>
@@ -78,7 +78,7 @@
 <hr>
 
 	<p class="indent1"><strong>Bonus Type:</strong> Standard</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>These have a TYPE=name and are used for stacking purposes.</li>
 		<li>There is a special system file called system\bonusstacks.lst.</li>
@@ -107,7 +107,7 @@
 <hr>
 
 	<p class="indent1"><strong>Bonus Type:</strong> .REPLACE</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>This is subtype of the TYPE= standard type.</li>
 		<li>.REPLACE items are counted together to determine the final value of a particular TYPE.</li>
@@ -133,7 +133,7 @@
 <hr>
 
 	<p class="indent1"><strong>Bonus Type:</strong> <code>.STACK</code></p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>This is subtype of the <code>TYPE=&lt;type&gt;</code> standard type.</li>
 		<li><code>.STACK</code> items are counted in addition to the normal and <code>.REPLACE</code> to determine the
@@ -223,7 +223,7 @@
 	<p class="indent0"><strong><a name="ABILITYPOOL">Tag Name:</a></strong> BONUS:ABILITYPOOL|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability Category)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Amount added to pool)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the number of available Abilities the character can take.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:ABILITYPOOL|Salient Divine Ability|1</code></p>
@@ -243,7 +243,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL.Text (Subschool name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to caster level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Each spellcasting class should have a CASTERLEVEL bonus associated with it.</li>
 		<li>If no CASTERLEVEL bonus is present for a spell casting class, it will default to class level.</li>
@@ -291,15 +291,17 @@
 	<p class="indent0"><strong><a name="CHECKS">Tag Name:</a></strong> BONUS:CHECKS|x,x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Any check defined in the GameMode - e.g. Fortitude,Reflex,Willpower)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Save Bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adds to indicated saving throw.</p>
-	<p class="indent2">it takes %LIST as a substitution now.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Adds to the indicated saving throw.</li>
+		<li>Substitution is allowed through the use of <code>%LIST</code>.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:CHECKS|Fortitude,Reflex|1</code></p>
 	<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
-	<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will &lt;tab&gt; BONUS:CHECKS|%LIST|1</p>
-	<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will, of which the selection is put into BONUS:CHECKS|%LIST|1<br /></p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
+	<p class="indent3">The selection, &quot;Fortitude&quot;, &quot;Reflex&quot; or &quot;Will&quot;, is put 
+		into the <code>BONUS:CHECKS</code> tag in place of the <code>%LIST</code></p>
 	<p class="indent2"><code>BONUS:CHECKS|Willpower||max(CHA,WIS)-WIS</code></p>
 	<p class="indent3">How does one code up something like 'you can add your Charisma modifier instead of
 		Wisdom for Willpower saves'?</p>
@@ -310,10 +312,13 @@
 <hr>
 
 	<p class="indent0"><strong><a name="CHECKSBASE">Tag Name:</a></strong> BONUS:CHECKS|BASE.x,BASE.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Any check defined in the GameMode - e.g. Fortitude,Reflex,Willpower)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Save Bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adds to indicated Base saving throw (normally only used in class progressions).</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Check name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Save Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Adds to indicated Base saving throw (normally only used in class progressions).</li>
+		<li>Checks must have been defined in the currently loaded GameMode file.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1</code></p>
 	<p class="indent3">Adds one to the base &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
@@ -323,48 +328,38 @@
 
 	<p class="new">*** New 4.3.9</p>
 	<p class="indent0"><strong><a name="CHECKSALL">Tag Name:</a></strong> BONUS:CHECKS|ALL|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Save Bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adds to all saving throw.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Save Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Adds to all saving throws.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:CHECKS|ALL|1</code></p>
 	<p class="indent3">Adds one to the all saves.</p>
 	<p class="indent2"><code>BONUS:CHECKS|ALL|3|TYPE=Morale|PREAPPLY:ANYPC</code></p>
-	<p class="indent3">Adds three to the all saves due to morale to all PC Characters.</p>
+	<p class="indent3">Adds three to all saves, due to morale, to all PC Characters.</p>
 	<p></p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="COMBAT">Tag Name:</a></strong> BONUS:COMBAT|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Combat bonus type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Combat Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to indicated combat bonus.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|Armor|2|TYPE=NaturalArmor.STACK</code></p>
-	<p class="indent3">Increases Natural armor bonus to two.</p>
+	<p class="indent3">Increases Natural armor bonus by two.</p>
 	<p></p>
 
 <hr>
 
-	<p class="indent0"><strong><a name="COMBATAC">Tag Name:</a></strong> BONUS:COMBAT|AC|x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Armor class bonus)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (TYPE=&lt;Armor bonus
-		type&gt;)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent0"><strong><a name="COMBATAC">Tag Name:</a></strong> BONUS:COMBAT|AC|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Armor Class Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to indicated armor class bonus.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|2|TYPE=Enhancement</code></p>
-	<p class="indent3">Increases enchantment armor bonus to two.</p>
+	<p class="indent3">Increases enchantment armor bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|1|TYPE=NaturalArmor</code></p>
-	<p class="indent3">Increases natural armor bonus to one.</p>
-	<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
-		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
-	<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the
-		SIZENAME:.</p>
+	<p class="indent3">Increases natural armor bonus by one.</p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE</code></p>
 	<p class="indent3">Replaces the natural armor bonus to seven.</p>
 	<p></p>
@@ -372,26 +367,24 @@
 <hr>
 
 	<p class="indent0"><strong><a name="COMBATATTACKS">Tag Name:</a></strong> BONUS:COMBAT|ATTACKS|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of primary
-		hand attacks)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Bonus Primary
+		Hand Attacks)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to number of attacks the primary hand gets.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|ATTACKS|2</code></p>
-	<p class="indent3">Increases number of attacks to two.</p>
+	<p class="indent3">Increases number of attacks by two.</p>
 	<p></p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="COMBATBAB">Tag Name:</a></strong> BONUS:COMBAT|BAB|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of primary
-		hand attacks)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (BAB Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to number of attacks the primary hand gets.</li>
 		<li>Formula is used when determining the Base Attack Bonus for a class in the class line of an
 			xxxclasses.lst file.</li>
-		<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|BAB|1</code></p>
@@ -404,30 +397,34 @@
 
 	<p class="new">*** New 5.7.1</p>
 	<p class="indent0"><strong><a name="COMBATDAMAGE">Tag Name:</a></strong> BONUS:COMBAT|DAMAGE.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Damage type&gt;)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage bonus or
-		stat name)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adds to damage bonus. Damage type can be Melee, Ranged, Unarmed, Shortrange, Thrown,
-		Unarmed Strike or any weapon type such as Piercing, Slashing, Martial, Simple, Blunt, Projectile, etc.</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon or Weapon Damage Type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Damage Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Adds to damage bonus.</li>
+		<li>Weapon or Weapon Damage Type must be a valid equipment type assigned to a weapon in the current data 
+			set or must have been defined by the <code>WEAPONTYPE</code> tag in the current gamemode files.</li>
+		<li>Some standard Weapon and Weapon Damage types can be found on the 
+			<a href="globalfilestype.html#Equipment">Global Type</a> page.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Melee|2</code></p>
-	<p class="indent3">Increases &quot;Melee&quot; damage bonus by two.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Piercing|2</code></p>
+	<p class="indent3">Increases &quot;Piercing&quot; damage bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Unarmed,DAMAGE.Thrown|DEX</code></p>
-	<p class="indent3">Adds the characters Dexterity modifier to both &quot;Unarmed&quot; and &quot;Thrown&quot; damage.</p>
+	<p class="indent3">Adds the characters dexterity modifier to both &quot;Unarmed&quot; and &quot;Thrown&quot; 
+		damage.</p>
 	<p></p>
 
 <hr>
 
 	<p class="new">*** New 5.5.6</p>
 	<p class="indent0"><strong><a name="COMBATDAMAGEMULT">Tag Name:</a></strong> BONUS:COMBAT|DAMAGEMULT:x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (0 for off-hand, 1 for primary and 2 for
-		two handed)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage multiplier)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (0 for off-hand, 1 for primary and 2 for two handed)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Damage Multiplier)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Increases damage multiplier by the number specified.</li>
-		<li>Bonuses are additive between each BONUS. Two <code>BONUS:WEAPON|DAMAGEMULT:0|1.5</code> 
+		<li>Bonuses are additive between each <code>BONUS</code>. Two <code>BONUS:WEAPON|DAMAGEMULT:0|1.5</code> 
 			tags will do a total of x3 (1.5 + 1.5), not 2.25.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -446,14 +443,15 @@
 
 	<p class="new">*** New Entry</p>
 	<p class="indent0"><strong><a name="COMBATDAMAGESIZE">Tag Name:</a></strong> BONUS:COMBAT|DAMAGESIZE|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of steps
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Number of steps
 		along the damage dice scale)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Increases or decreases damage dice size along the same scale as is used for weapons
 		size.</li>
 		<li>This effects all damage dice associated with the PC including Unarmed damage.</li>
-		<li>The scale is defined in the miscinfo.lst gameMode file and is as follows:
+		<li>The scale is defined in the miscinfo.lst gameMode file.</li>
+		<li>The scale used in the RSRD/MSRD is as follows:
 			<ul>
 				<li>Base Damage Dice:1d2
 					<ul>
@@ -534,10 +532,9 @@
 <hr>
 
 	<p class="indent0"><strong><a name="COMBATINITIATIVE">Tag Name:</a></strong> BONUS:COMBAT|INITIATIVE|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Initiative bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Initiative Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to initiative.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|3</code></p>
 	<p class="indent3">Increases initiative by three.</p>
@@ -548,8 +545,8 @@
 <hr>
 
 	<p class="indent0"><strong><a name="COMBATREACH">Tag Name:</a></strong> BONUS:COMBAT|REACH|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Reach)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Reach)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the PC's reach.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|REACH|10</code></p>
@@ -559,9 +556,8 @@
 <hr>
 
 	<p class="indent0"><strong><a name="COMBATSECONDARYATTACKS">Tag Name:</a></strong> BONUS:COMBAT|SECONDARYATTACKS|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of secondary
-		attacks)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Number of Attacks)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Increases the number of Secondary attacks.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|SECONDARYATTACKS|1</code></p>
@@ -571,8 +567,8 @@
 <hr>
 
 	<p class="indent0"><strong><a name="COMBATSECONDARYDAMAGE">Tag Name:</a></strong> BONUS:COMBAT|SECONDARYDAMAGE|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Damage bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Damage Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the damage dealt by a secondary attack.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|SECONDARYDAMAGE|2</code></p>
@@ -583,21 +579,16 @@
 
 	<p class="new">*** Updated 5.11.4</p>
 	<p class="indent0"><strong><a name="COMBATTOHIT">Tag Name:</a></strong> BONUS:COMBAT|TOHIT|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (adds to attack bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adds to Primary Attack bonus.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Attack Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Adds to primary attack bonus.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT|2|TYPE=Luck</code></p>
 	<p class="indent3">Increases Attack bonus by two.</p>
 	<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by one if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-	<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
-		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
-	<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
+	<p class="indent3">Increases Attack bonus by two if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
 	<p class="indent3">Increases Attack bonus by one for three WEAPONPROFS based on Talent.</p>
 	<p></p>
@@ -606,24 +597,28 @@
 
 	<p class="new">*** Updated 5.11.4</p>
 	<p class="indent0"><strong><a name="COMBATTOHIT2">Tag Name:</a></strong> BONUS:COMBAT|TOHIT.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GRAPPLE, MELEE, RANGED or any weapon type</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (adds to attack bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Adds to Attack bonus of specific types.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> GRAPPLE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MELEE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> RANGED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Attack Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Adds to Attack bonus of specific types.</li>
+		<li>Weapon or Weapon Damage Type must be a valid equipment type assigned to a weapon in the current data 
+			set or must have been defined by the <code>WEAPONTYPE</code> tag in the current gamemode files.</li>
+		<li>Some standard Weapon and Weapon Damage types can be found on the 
+			<a href="globalfilestype.html#Equipment">Global Type</a> page.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.THROWN|2|TYPE=Racial</code></p>
 	<p class="indent3">Increases Attack for thrown weapons bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement</code></p>
 	<p class="indent3">Increases Attack bonus by two when using a Slashing weapon.</p>
 	<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT|1|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by one if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT|2|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by two (total three) if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-	<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
-		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
-	<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
+	<p class="indent3">Increases Attack bonus by two (total three) if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.GRAPPLE|2|TYPE=Circumstance|PREAPPLY:ANYPC</code></p>
 	<p class="indent3">Increases Attack bonus by two when grappling depending on the circumstance to any PC Character.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged</code></p>
@@ -634,42 +629,40 @@
 
 	<p class="new">*** Updated 5.11.4</p>
 	<p class="indent0"><strong><a name="COMBATTOHITPRIMARY">Tag Name:</a></strong> BONUS:COMBAT|TOHIT-PRIMARY|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Primary attack
-		bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Attack Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to Primary Attack bonus.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT-PRIMARY|2</code></p>
 	<p class="indent3">Increases Primary Attack bonus to two.</p>
 	<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by one if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|WIS|TYPE=Ranged</code></p>
-	<p class="indent3">Increases Attack bonus by the Wisdom Modifier for ranged attacks. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by the Wisdom Modifier for ranged attacks.</p>
 	<p></p>
 
 <hr>
 
 	<p class="new">*** Updated 5.11.4</p>
 	<p class="indent0"><strong><a name="COMBATTOHITSECONDARY">Tag Name:</a></strong> BONUS:COMBAT|TOHIT-SECONDARY|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Secondary attack bonus)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Attack Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to Secondary Attack bonus.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT-SECONDARY|1</code></p>
 	<p class="indent3">Increases Secondary Attack bonus to one.</p>
 	<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT-SECONDARY|1|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by one if a <code>TYPE=DivineWeapon</code> is in Secondary Hand.</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SECONDARY|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by two if a <code>TYPE=DivineWeapon</code> is in Secondary Hand.</p>
 	<p></p>
 
 <hr>
 
 	<p class="new">*** Updated 5.11.4</p>
 	<p class="indent0"><strong><a name="COMBATTOHITSHORTRANGE">Tag Name:</a></strong> BONUS:COMBAT|TOHIT-SHORTRANGE|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to To-Hit)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Attack Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to ranged attack rolls that are less than game mode defined
   		SHORTRANGE but does not effect attacks per round (The distance of SHORTRANGE
   		is defined in the GameMode files).</p>
@@ -677,9 +670,9 @@
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT-SHORTRANGE|1</code></p>
 	<p class="indent3">Adds one to character's short range To-Hit attack rolls.</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SHORTRANGE|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by two if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SHORTRANGE|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
-	<p class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
+	<p class="indent3">Increases Attack bonus by two if a <code>TYPE=DivineWeapon</code> is in Secondary Hand.</p>
 	<p></p>
 
 <hr>
@@ -700,7 +693,7 @@
 	<p class="indent0"><strong><a name="DC">Tag Name:</a></strong> BONUS:DC|SPELL.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of a specific spell.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|SPELL.Fireball|7</code></p>
@@ -714,7 +707,7 @@
 	<p class="new">*** Updated 5.3.3 - Replaces the deprecated ALL tag</p>
 	<p class="indent0"><strong><a name="DCALLSPELLS">Tag Name:</a></strong> BONUS:DC|ALLSPELLS|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of all spells.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|ALLSPELLS|1</code></p>
@@ -726,7 +719,7 @@
 	<p class="indent0"><strong><a name="DCCLASS">Tag Name:</a></strong> BONUS:DC|CLASS.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of class)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified caster class.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|CLASS.Sorcerer|2</code></p>
@@ -738,7 +731,7 @@
 	<p class="indent0"><strong><a name="DCDESCRIPTOR">Tag Name:</a></strong> BONUS:DC|DESCRIPTOR.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of descriptor)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of spells with the specified descriptor.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:DC|DESCRIPTOR.Law|4</code></p>
@@ -753,7 +746,7 @@
 	<p class="indent0"><strong><a name="DCDOMAIN">Tag Name:</a></strong> BONUS:DC|DOMAIN.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of domain)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of spells with the specified domain.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|DOMAIN.War|6</code></p>
@@ -767,7 +760,7 @@
 	<p class="new">*** Updated 5.9.3</p>
 	<p class="indent0"><strong><a name="DCFEATBONUS">Tag Name:</a></strong> BONUS:DC|FEATBONUS|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of spells by increasing the spell's actual level.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:DC|FEATBONUS|1</code></p>
@@ -779,7 +772,7 @@
 	<p class="indent0"><strong><a name="DCSCHOOL">Tag Name:</a></strong> BONUS:DC|SCHOOL.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of school)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified spell school.</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -796,7 +789,7 @@
 	<p class="indent0"><strong><a name="DCSUBSCHOOL">Tag Name:</a></strong> BONUS:DC|SUBSCHOOL.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of subschool)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified spell subschool.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|SUBSCHOOL.something|5</code></p>
@@ -808,7 +801,7 @@
 	<p class="indent0"><strong><a name="DCTYPE">Tag Name:</a></strong> BONUS:DC|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified spell type.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|TYPE.Arcane|3</code></p>
@@ -820,7 +813,7 @@
 	<p class="indent0"><strong><a name="DR">Tag Name:</a></strong> BONUS:DR|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Damage reduction type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage reduction amount)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds a bonus to a Damage Reduction type, previously defined
 	  by a standard <a href="globalfilesother.html#DR">DR</a> tag (the BONUS tag needs
 	  to be coordinated with a DR:#/&lt;string&gt;).</p>
@@ -833,7 +826,7 @@
 
 	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> BONUS:DOMAIN|NUMBER|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of additional Domains)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Add additional domain selections to the character. If this is in a
 		CLASS with SPELLSTAT: and SPELLTYPE tags, it will also grant 1 spell per level from
 		1-9 that the class chose from the domains.</p>
@@ -848,7 +841,7 @@
 
 	<p class="indent0"><strong><a name="EQMHANDS">Tag Name:</a></strong> BONUS:EQM|HANDS|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Hands required by item)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the number of hands required for the item (Valid only on equipment modifiers).</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:EQM|HANDS|1</code></p>
@@ -861,7 +854,7 @@
 
 	<p class="indent0"><strong><a name="EQMWEIGHTADD">Tag Name:</a></strong> BONUS:EQM|WEIGHTADD|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to weight)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the weight of the item (Valid only on equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -875,7 +868,7 @@
 
 	<p class="indent0"><strong><a name="EQMWEIGHTDIV">Tag Name:</a></strong> BONUS:EQM|WEIGHTDIV|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number divide weight by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the weight of the item (Valid only on equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -890,7 +883,7 @@
 	<p class="indent0"><strong><a name="EQMWEIGHTMULT">Tag Name:</a></strong> BONUS:EQM|WEIGHTMULT|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number multiply
 		weight by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the weight of the item (Valid only on equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -905,7 +898,7 @@
 	<p class="indent0"><strong><a name="EQMARMORACCHECK">Tag Name:</a></strong> BONUS:EQMARMOR|ACCHECK|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
 		armor check penalty)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the armor check penalty of the item (Valid only on equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -920,7 +913,7 @@
 
 	<p class="indent0"><strong><a name="EQMARMOREDR">Tag Name:</a></strong> BONUS:EQMARMOR|EDR|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to damage resistance)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the EDR (Effective damage resistance) of the item (Valid only on equipment and equipment modifiers).</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMARMOR|EDR|1</code></p>
@@ -932,7 +925,7 @@
 	<p class="indent0"><strong><a name="EQMARMORMAXDEX">Tag Name:</a></strong> BONUS:EQMARMOR|MAXDEX|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
 		maximum dexterity)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the maximum dexterity applicable to users of the item (Valid only on
 		equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
@@ -948,7 +941,7 @@
 	<p class="indent0"><strong><a name="EQMARMORSPELLFAILURE">Tag Name:</a></strong> BONUS:EQMARMOR|SPELLFAILURE|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
 		Spell Failure %)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the spell failure percentage applicable to users of the item (Valid only on
 		equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
@@ -963,7 +956,7 @@
 
 	<p class="indent0"><strong><a name="EQMWEAPONCRITRANGEADD">Tag Name:</a></strong> BONUS:EQMWEAPON|CRITRANGEADD|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the critical range)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the critical range of the item (Valid only on equipment modifiers).</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEADD|1</code></p>
@@ -974,7 +967,7 @@
 
 	<p class="indent0"><strong><a name="EQMWEAPONCRITRANGEDOUBLE">Tag Name:</a></strong> BONUS:EQMWEAPON|CRITRANGEDOUBLE|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the critical range)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the critical range of the item (Valid only on equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -988,7 +981,7 @@
 
 	<p class="indent0"><strong><a name="EQMWEAPONDAMAGESIZE">Tag Name:</a></strong> BONUS:EQMWEAPON|DAMAGESIZE|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to damage size)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the damage size of the item (Valid only on equipment modifiers).</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|DAMAGESIZE|1</code></p>
@@ -999,7 +992,7 @@
 
 	<p class="indent0"><strong><a name="EQMWEAPONRANGEADD">Tag Name:</a></strong> BONUS:EQMWEAPON|RANGEADD|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to distance range)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the range of the item (Valid only on equipment modifiers).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1013,7 +1006,7 @@
 
 	<p class="indent0"><strong><a name="EQMWEAPONRANGEMULT">Tag Name:</a></strong> BONUS:EQMWEAPON|RANGEMULT|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to multiply the distance range by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the range of the item (Valid only on equipment modifiers).</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:EQMWEAPON|RANGEMULT|2</code></p>
@@ -1025,7 +1018,7 @@
 	<p class="new">*** New 5.7.6</p>
 	<p class="indent0"><strong><a name="FEATPOOL">Tag Name:</a></strong> BONUS:FEAT|POOL|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add or subtract from the feat pool)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters feat pool total. Can be qualified by PRExxx tags and TYPE tags like other BONUS tags.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:FEAT|POOL|1</code></p>
@@ -1043,7 +1036,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (The type of companion list to add to).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number of
 		additional followers of this type of companion the master can have)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul>
 	<li>Adjusts the number of this type of companion the master can have.</li>
 	<li>If the character has no FOLLOWERS tag of the same type this tag has no effect.</li>
@@ -1060,7 +1053,7 @@
 	<p class="indent0"><strong><a name="HD">Tag Name:</a></strong> BONUS:HD|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Property (MIN or MAX)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to increase the Hit Dice by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Increases characters Hit Dice size. Valid only in Class lines.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:HD|MAX|2</code></p>
@@ -1073,7 +1066,7 @@
 
 	<p class="indent0"><strong><a name="HPALTHP">Tag Name:</a></strong> BONUS:HP|ALTHP|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to secondary 			hit points, as defined in miscinfo.lst)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to secondary Hit Points.</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1088,7 +1081,7 @@
 	<p class="indent0"><strong><a name="HPCURRENTMAX">Tag Name:</a></strong> BONUS:HP|CURRENTMAX|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
 		hit points)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to total Hit Points.</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1107,7 +1100,7 @@
 	<p class="indent0"><strong><a name="ITEMCOST">Tag Name:</a></strong> BONUS:ITEMCOST|TYPE.x.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Item Type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Cost formula)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Used in Equipment and Equipment Modifiers, applies the cost formula to the equipment
 		if it has all the listed types. Any formula that is valid in an
 		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#COST"> EQMOD COST</a> tag can be used.
@@ -1123,7 +1116,7 @@
 
 	<p class="indent0"><strong><a name="MISCACCHECK">Tag Name:</a></strong> BONUS:MISC|ACCHECK|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to armor check)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters armor check.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|ACCHECK|1</code></p>
@@ -1135,7 +1128,7 @@
 	<p class="new">*** New 5.13.6</p>
 	<p class="indent0"><strong><a name="MISCCR">Tag Name:</a></strong> BONUS:MISC|CR|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to challange rating)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters challange rating.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|CR|2</code></p>
@@ -1146,7 +1139,7 @@
 
 	<p class="indent0"><strong><a name="MISCMAXDEX">Tag Name:</a></strong> BONUS:MISC|MAXDEX|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the maximum dexterity)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters maximum dexterity armor penalty.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:MISC|MAXDEX|1</code></p>
@@ -1158,7 +1151,7 @@
 	<p class="indent0"><strong><a name="MISCSPELLFAILURE">Tag Name:</a></strong> BONUS:MISC|SPELLFAILURE|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the
 		spell failure percentage)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters spell failure armor penalty.</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1172,7 +1165,7 @@
 
 	<p class="indent0"><strong><a name="MISCSR">Tag Name:</a></strong> BONUS:MISC|SR|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to spell resistance)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Modifies the characters spell resistance.</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1195,7 +1188,7 @@
 	<p class="indent0"><strong><a name="MOVEADD">Tag Name:</a></strong> BONUS:MOVEADD|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Movement type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to movement to the listed TYPE.</li>
 		<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
@@ -1218,7 +1211,7 @@
 	<p class="indent0"><strong><a name="MOVEMULT">Tag Name:</a></strong> BONUS:MOVEMULT|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Movement type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to multiply the movement rate)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Multiplies the movement of the listed TYPEs.</li>
 		<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
@@ -1239,7 +1232,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add class level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Sets the spellcasting level higher than the current class level.</li>
 		<li>The character must already have a level in the class to gain the bonus spellcasting level.</li>
@@ -1256,7 +1249,7 @@
 	<p class="indent0"><strong><a name="PCLEVEL2">Tag Name:</a></strong> BONUS:PCLEVEL|Type=x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add class level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Sets the spellcasting level higher than the current class level.</li>
 		<li>The character must already have a level in the class to gain the bonus spellcasting level.</li>
@@ -1272,7 +1265,7 @@
 	<p class="indent0"><strong><a name="POSTMOVEADD">Tag Name:</a></strong> BONUS:POSTMOVEADD|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Movement type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to movement to the listed TYPE.</li>
 		<li>Done after MOVEMULT and MOVEADD calculations.</li>
@@ -1292,7 +1285,7 @@
 	<p class="indent0"><strong><a name="POSTRANGEADD">Tag Name:</a></strong> BONUS:POSTRANGEADD|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (PROJECTILE or THROWN)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to range)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Increases range by integer.</li>
 		<li>PROJECTILE and THROWN are hardcoded types (will be changed later).</li>
@@ -1311,7 +1304,7 @@
 	<p class="indent0"><strong><a name="RANGEADD">Tag Name:</a></strong> BONUS:RANGEADD|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (PROJECTILE or THROWN)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to range)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Increases range by integer.</li>
 		<li>PROJECTILE and THROWN are hardcoded types (will be changed later).</li>
@@ -1330,7 +1323,7 @@
 	<p class="indent0"><strong><a name="RANGEMULT">Tag Name:</a></strong> BONUS:RANGEMULT|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (PROJECTILE or THROWN)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to range)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Increases range by percent.</li>
 		<li>PROJECTILE and THROWN are hardcoded types (will be changed later).</li>
@@ -1352,7 +1345,7 @@
 
 	<p class="indent0"><strong><a name="SIZEMOD">Tag Name:</a></strong> BONUS:SIZEMOD|NUMBER|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of size categories to adjust)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Moves the character's size up or down the size range by the indicated number of steps.</li>
 		<li>All stat modifications caused by a size change will take effect.</li>
@@ -1383,7 +1376,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to
 		skill level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to listed skills.</p>
 	<p class="indent2">There is no leading space between the comma groups.</p>
 	<p class="indent2">Don't forget the space in subsets (i.e. between Craft and (Metalworking),Craft (Metalworking))</p>
@@ -1411,7 +1404,7 @@
 	<p class="new">*** New 4.3.9</p>
 	<p class="indent0"><strong><a name="SKILLALL">Tag Name:</a></strong> BONUS:SKILL|ALL|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to skill level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Grants bonus to all skills.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILL|ALL|1</code></p>
@@ -1422,7 +1415,7 @@
 
 	<p class="indent0"><strong><a name="SKILLLIST">Tag Name:</a></strong> BONUS:SKILL|LIST|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to skill level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">LIST is replaced by the selection from the CHOOSE statement (Used in Feat.lst).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1437,7 +1430,7 @@
 	<p class="indent0"><strong><a name="SKILLSTAT">Tag Name:</a></strong> BONUS:SKILL|STAT.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to skill level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to skills based on a stat.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SKILL|STAT.STR|1</code></p>
@@ -1451,7 +1444,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to skill level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to skill ranks (Maximum ranks still apply).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1467,7 +1460,7 @@
 
 	<p class="indent0"><strong><a name="SKILLPOINTS">Tag Name:</a></strong> BONUS:SKILLPOINTS|NUMBER|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to skill level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to the number of skill ranks gained when the character gains a level.</li>
 		<li>Not retroactive.</li>
@@ -1496,7 +1489,7 @@
 		points are to be awarded to)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of points
 		to be added to skill the pool)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to the number of points in the skill pool of the class at the level specified. </li>
 		<li>PRExxx tags may be used with this tag.</li>
@@ -1517,7 +1510,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Slot type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> LIST (When used in conjunction with CHOOSE)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number of item slots)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to the number of items usable in the defined slot.</li>
 		<li>These slots are defined in the equipmentslots.lst file for each gameMode.</li>
@@ -1559,7 +1552,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional spell slots.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCAST|CLASS=Wizard;LEVEL=1|1</code></p>
@@ -1572,7 +1565,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional spell slots.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1</code></p>
@@ -1585,7 +1578,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional spell slots.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCASTMULT|CLASS=Wizard;LEVEL=1|2</code></p>
@@ -1598,7 +1591,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional spell slots.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2</code></p>
@@ -1611,7 +1604,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional known spells.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1</code></p>
@@ -1624,7 +1617,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional known spells.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1</code></p>
@@ -1638,7 +1631,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional known spells.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2</code></p>
@@ -1652,7 +1645,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Number of spells)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds additional known spells.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|2</code></p>
@@ -1665,7 +1658,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to adjust
 		stat by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to character stats (stat can be any stat that has been defined in the
 		statsandchecks.lst system file).</p>
 	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
@@ -1690,7 +1683,7 @@
 	<p class="new">*** New 5.5</p>
 	<p class="indent0"><strong><a name="STATBASESPELLKNOWNSTAT">Tag Name:</a></strong> BONUS:STAT|BASESPELLKNOWNSTAT|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to adjust stat bonus by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds a virtual bonus to characters base spell stat bonus
 		when PCGen calculates the number of spells the character knows.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1704,7 +1697,7 @@
 	<p class="indent0"><strong><a name="STATBASESPELLKNOWNSTATClass">Tag Name:</a></strong> BONUS:STAT|BASESPELLKNOWNSTAT:Class=x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to adjust stat bonus by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds a virtual bonus to characters base spell stat bonus
 		when PCGen calculates the number of spells the character knows for the class specified.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1716,7 +1709,7 @@
 
 	<p class="indent0"><strong><a name="STATBASESPELLSTAT">Tag Name:</a></strong> BONUS:STAT|BASESPELLSTAT|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to adjust stat bonus by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to characters base spell stat bonus.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLSTAT|1</code></p>
@@ -1728,7 +1721,7 @@
 	<p class="indent0"><strong><a name="STATBASESPELLSTATClass">Tag Name:</a></strong> BONUS:STAT|BASESPELLSTAT:Class=x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to adjust stat by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Adds to character base spell stat bonus for the class specified.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLSTAT:Class=Wizard|2</code></p>
@@ -1747,7 +1740,7 @@
 	<p class="indent0"><strong><a name="UDAM">Tag Name:</a></strong> BONUS:UDAM|CLASS.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Levels to add to unarmed damage)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>This tag adds levels to the character's unarmed damage bonus as if he/she had gained those levels as a Monk.</li>
 	</ul>
@@ -1764,7 +1757,7 @@
 	<p class="indent0"><strong><a name="VAR">Tag Name:</a></strong> BONUS:VAR|x,x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Variable name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to adjust variable by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to a data DEFINEd VARiable.</li>
 		<li>A <a href="globalfilesdefine.html">DEFINE tag </a>for the listed variable
@@ -1788,7 +1781,7 @@
 	<p class="indent0"><strong><a name="VISION">Tag Name:</a></strong> BONUS:VISION|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Vision type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number or formula to adjust vision range by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds the vision type specified if you don't already have it, otherwise it increases the range of the vision type by the number specified.</li>
 		<li>Vision types include (but are not limited to): Blindsense, Darkvision, Low-Light.</li>
@@ -1808,7 +1801,7 @@
 	<p class="indent0"><strong><a name="WEAPON">Tag Name:</a></strong> BONUS:WEAPON|x,x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Property (Weapon property)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Modifies the indicated property of the weapon the tag is contained in.
 		<li>This tag only works in Equipment, Equipmod and temporary bonuses files.
@@ -1866,7 +1859,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon proficiency type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Property (Weapon proficiency property)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number, variable or formula (Number to add)</p>
-	<p class="indent2"><strong>What it does:</strong></p>
+	<p class="indent2"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Modifies the indicated property of the weapon proficiency or weapon proficiency type.</li>
 		<li>Weapon proficiency properties defined are:
@@ -1924,7 +1917,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> TwoHanded (Effects TwoHanded weapon category)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL (Effects all weapon categories)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to increase or decrease the category by)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<p class="indent2">Changes the wield category of weapons a character may use.</p>
 	<p class="indent2">The wield category names are defined in the system/gameModes/miscinfo.lst file.</p>
 	<p class="indent2">This bonus will only have an effect if the gameMode has defined wield categories,
