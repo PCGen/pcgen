@@ -4,7 +4,6 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: count feat for Psionic Talent: workaround for COUNT[FEATNAME bug
 # Ability Name			Category of Ability		Type			Visible	Define							Modify VAR																															Source Page
-#Psionic Talent Power Points	CATEGORY:Special Ability	TYPE:PsiTalentPP	VISIBLE:NO	DEFINE:PsiTalentCount|1	DEFINE:PsiTalentBonus|0	BONUS:VAR|PsiTalentCount|COUNT[FEATNAME=Psionic Talent]	BONUS:VAR|PsiTalentBonus|(-1 +(.5*PsiTalentCount) + (.5*(PsiTalentCount*PsiTalentCount)))	BONUS:VAR|BasePowerPoints|PsiTalentBonus	SOURCEPAGE:PsionicFeats.rtf
 #Psionic Body Hit Points		CATEGORY:Special Ability	TYPE:PsiBodyHP	VISIBLE:NO	DEFINE:PsiFeatCount|0					BONUS:HP|CURRENTMAX|2*COUNT[FEATTYPE=Psionic]																								SOURCEPAGE:PsionicFeats.rtf
 
 #Weapon Proficiencies for .MOD capabilities in classes.
@@ -12,6 +11,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 ###Block: Weapon proficiencies
 # Ability Name			Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
 Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
+Psionic Talent Power Points	CATEGORY:Special Ability 	TYPE:Special	VISIBLE:NO 	BONUS:VAR|BasePowerPoints|(((COUNT[FEATNAME=Psionic Talent])*((COUNT[FEATNAME=Psionic Talent])+3))/2)
 
 ###Block: Mind Blade abilities
 # Ability Name			Category of Ability		Type			Visible	Special ABility							Define																Automatically Gained Weapon Prof.	Modify VAR
