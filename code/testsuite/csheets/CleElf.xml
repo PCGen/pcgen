@@ -1513,7 +1513,7 @@ BIO
 		<ability_object>
 			<name>Turn Undead</name>
 			<description></description>
-			<type>TURNING.TURNUNDEAD</type>
+			<type>SPECIALATTACK.SUPERNATURAL.TURNING.TURNUNDEAD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1525,7 +1525,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1547,7 +1547,7 @@ BIO
 		<ability_object>
 			<name>Immunity to magic sleep spells and effects</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1558,7 +1558,7 @@ BIO
 		<ability_object>
 			<name>+2 racial saving throw bonus against Enchantment spells or effects</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1569,7 +1569,7 @@ BIO
 		<ability_object>
 			<name>Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for the door</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

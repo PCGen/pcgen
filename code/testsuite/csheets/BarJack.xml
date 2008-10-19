@@ -1316,7 +1316,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1327,7 +1327,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1336,9 +1336,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Barbarian Fast Movement</name>
+			<name>Fast Movement</name>
 			<description></description>
-			<type>EXTRAORDINARY</type>
+			<type>SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1349,7 +1349,7 @@ BIO
 		<ability_object>
 			<name>+4 dodge bonus against giants</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1360,7 +1360,7 @@ BIO
 		<ability_object>
 			<name>+1 racial bonus to attack rolls against kobolds and goblinoids</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1371,7 +1371,7 @@ BIO
 		<ability_object>
 			<name>+2 racial bonus on saving throws against illusions</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1382,7 +1382,7 @@ BIO
 		<ability_object>
 			<name>Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal</name>
 			<description></description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1392,8 +1392,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Rage</name>
-			<description></description>
-			<type>SPECIAL</type>
+			<description>2 times/day (5 rounds)</description>
+			<type>SPECIALQUALITY.ATTACKOPTION.MODIFYAC</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1403,8 +1403,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Uncanny Dodge</name>
-			<description></description>
-			<type></type>
+			<description>Dex bonus to AC</description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
