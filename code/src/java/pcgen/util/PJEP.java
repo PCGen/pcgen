@@ -69,12 +69,11 @@ public final class PJEP extends JEP
 		setAllowUndeclared(true);
 		addStandardFunctions();
 
-		for (int i = 0; i < commandList.size(); i++)
+		for (Class<PCGenCommand> aClass : commandList)
 		{
 			try
 			{
-				Class<PCGenCommand> clazz = commandList.get(i);
-				PCGenCommand com = clazz.newInstance();
+				PCGenCommand com = aClass.newInstance();
 				localCommandList.add(com);
 				addFunction(com.getFunctionName().toLowerCase(), com);
 				addFunction(com.getFunctionName().toUpperCase(), com);
@@ -112,9 +111,8 @@ public final class PJEP extends JEP
 	 */
 	public boolean isResultCachable()
 	{
-		boolean result = isResultCachable(getTopNode());
 
-		return result;
+		return isResultCachable(getTopNode());
 	}
 
 	/**
@@ -181,29 +179,26 @@ public final class PJEP extends JEP
 		 * Runs classlevel on the inStack. The parameter is popped
 		 * off the <code>inStack</code>, and the variable's value is
 		 * pushed back to the top of <code>inStack</code>.
-		 * \nTODO is it intentional that this method does not call PostfixMathCommand.run()?
-		 * @param inStack
+		 * 
+		 * @param inStack The stack to process
+		 * 
 		 * @throws ParseException
 		 */
-		@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+//		@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
 		public void run(Stack inStack) throws ParseException
 		{
-			LstUtils
-				.deprecationWarning("Jep function cl deprecated, use classlevel instead");
+			LstUtils.deprecationWarning("Jep function cl deprecated, use classlevel instead");
 
 			// check the stack
 			checkStack(inStack);
 
 			// get the parameter from the stack
-			Object param1;
-			Object param2 = null;
 
 			int paramCount = curNumberOfParameters;
 
-			//
-			// If there are no parameters and this is used in a CLASS file, then use the
-			// class name
-			//
+			// If there are no parameters and this is used in a CLASS file,
+			// then use the class name
+
 			if (paramCount == 0)
 			{
 				String src = getVariableSource();
@@ -218,6 +213,8 @@ public final class PJEP extends JEP
 			//
 			// have to do this in reverse order...this is a stack afterall
 			//
+			Object param1;
+			Object param2 = null;
 			if (paramCount == 1)
 			{
 				param1 = inStack.pop();
@@ -229,11 +226,11 @@ public final class PJEP extends JEP
 
 				if (param2 instanceof Integer)
 				{
-					// TODO Do Nothing?
+					// Nothing to do, it's already an Integer
 				}
 				else if (param2 instanceof Double)
 				{
-					param2 = Integer.valueOf(((Double) param2).intValue());
+					param2 = ((Double) param2).intValue();
 				}
 				else
 				{
@@ -244,8 +241,6 @@ public final class PJEP extends JEP
 			{
 				throw new ParseException("Invalid parameter count");
 			}
-
-			Object result = null;
 
 			if (param1 instanceof String)
 			{
@@ -271,9 +266,7 @@ public final class PJEP extends JEP
 					cl += ";BEFORELEVEL=" + param2.toString();
 				}
 
-				result = new Double(aPC.getClassLevelString(cl, false));
-
-				inStack.push(result);
+				inStack.push(new Double(aPC.getClassLevelString(cl, false)));
 			}
 			else
 			{
