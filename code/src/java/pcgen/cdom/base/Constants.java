@@ -315,6 +315,11 @@ public interface Constants
 	String LST_CHOOSE = "CHOOSE:";
 	String LST_ADDCHOICE = "ADDCHOICE:";
 	char CHAR_ASTERISK = '*';
+	String LST_UNTRAINED = "UNTRAINED";
+	String LST_TRAINED = "TRAINED";
+	String LST_EXCLUSIVE = "EXCLUSIVE";
+	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
+	String LST_CROSSCLASS = "CROSSCLASS";
 	char PERCENT = '%';
 	public static final int NO_LEVEL_LIMIT = -1;
 }

@@ -118,4 +118,45 @@ public final class StringUtil
 
 		return result.toString();
 	}
+
+	/**
+	 * Replaces all of the instances of the find String with newStr in the
+	 * (first) given String.
+	 */
+	public static String replaceAll(final String in, final String find,
+		final String newStr)
+	{
+		final char[] working = in.toCharArray();
+		final StringBuilder sb =
+				new StringBuilder(in.length() + newStr.length());
+		int startindex = in.indexOf(find);
+
+		if (startindex < 0)
+		{
+			return in;
+		}
+
+		int currindex = 0;
+
+		while (startindex > -1)
+		{
+			for (int i = currindex; i < startindex; ++i)
+			{
+				sb.append(working[i]);
+			}
+
+			currindex = startindex;
+			sb.append(newStr);
+			currindex += find.length();
+			startindex = in.indexOf(find, currindex);
+		}
+
+		for (int i = currindex; i < working.length; ++i)
+		{
+			sb.append(working[i]);
+		}
+
+		return sb.toString();
+	}
+
 }

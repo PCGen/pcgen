@@ -32,6 +32,7 @@ import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.ClassSkillChoiceActor;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.ObjectMatchingReference;
 import pcgen.core.PCClass;
@@ -43,8 +44,8 @@ import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class ClassSkillsToken extends AbstractToken implements
-		CDOMSecondaryToken<PCClass>
+public class ClassSkillsLevelToken extends AbstractToken implements
+		CDOMSecondaryToken<PCClassLevel>
 {
 	@Override
 	public String getTokenName()
@@ -64,7 +65,7 @@ public class ClassSkillsToken extends AbstractToken implements
 		return getParentToken() + ":" + getTokenName();
 	}
 
-	public boolean parse(LoadContext context, PCClass obj, String value)
+	public boolean parse(LoadContext context, PCClassLevel obj, String value)
 	{
 		if (value.length() == 0)
 		{
@@ -178,12 +179,14 @@ public class ClassSkillsToken extends AbstractToken implements
 		TransitionChoice<Skill> tc = new TransitionChoice<Skill>(cs,
 				FormulaFactory.getFormulaFor(count));
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(obj, autoRank);
+		//TODO This is a hack, to get this to work pre-CDOM
+		PCClass parent = (PCClass) obj.get(ObjectKey.PARENT);
+		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(parent, autoRank);
 		tc.setChoiceActor(actor);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, PCClass obj)
+	public String[] unparse(LoadContext context, PCClassLevel obj)
 	{
 		Changes<TransitionChoice<?>> grantChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.ADD);
@@ -220,8 +223,8 @@ public class ClassSkillsToken extends AbstractToken implements
 		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
-	public Class<PCClass> getTokenClass()
+	public Class<PCClassLevel> getTokenClass()
 	{
-		return PCClass.class;
+		return PCClassLevel.class;
 	}
 }

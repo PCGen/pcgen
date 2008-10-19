@@ -53,6 +53,8 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 
 	private final V value;
 
+	private boolean allowNull = false;
+
 	/*
 	 * CONSIDER is it necessary/useful to cache the results of the pattern
 	 * match? If that is done, under what conditions does the cache need to be
@@ -131,9 +133,9 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 			return false;
 		}
 		V actual = obj.get(key);
-		if (value == null)
+		if (actual == null)
 		{
-			return actual == null;
+			return allowNull || value == null;
 		}
 		return value.equals(actual);
 	}
@@ -209,6 +211,11 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 			}
 		}
 		return count;
+	}
+
+	public void returnIncludesNulls(boolean b)
+	{
+		allowNull = b;
 	}
 
 	/**
