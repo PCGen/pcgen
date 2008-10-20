@@ -318,11 +318,12 @@
 
 	<p class="indent0"><strong><a name="PRECLASS">Tag Name:</a></strong> PRECLASS:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of classes that must be equal to or greater than the numbers specified for the check to succeed).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined class name or ANY).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.ClassType (A Class type such as Base or Prestige).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER (Any spellcaster).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER.Type (A spellcaster type such as Arcane or Divine).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (Class level the associated class must meet or exceed).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Class Name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Class Type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER.</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER.Type (Spellcaster Type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Class Level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Sets class requirements.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -356,10 +357,6 @@
 	<p class="indent3">SA: will fire with 10 levels of Shaper Class.</p>
 	<p class="indent2"><code>SA:Spy|PREMULT:2,[PRECLASS:1,Aradil's Eye=5],[PRECLASSLEVELMAX:1,Aradil's Eye=9]</code></p>
 	<p class="indent3">SA: will fire with 5 levels of Aradil's Eye Class or not more than 9 levels of Aradil's Eye Class.</p>
-	<p class="indent2"><code>!PRECLASS:1,SPELLCASTER.Arcane=1.CLEAR &lt;tab&gt; PRECLASS:1,ANY</code></p>
-	<p class="indent3">Removes the character must have 1 level in SPELLCASTER.Arcane class. Can now be any Class</p>
-	<p class="indent2"><code>PRECLASS:1,SPELLCASTER.Divine=6,SPELLCASTER.Psionic=3.MOD &lt;tab&gt; PRECLASS:1,Rogue=6,Ranger=3.MOD</code></p>
-	<p class="indent3">Changes the character must have 6 levels in any divine spellcasting class or 3 levels in any psionic manifesting class, with a requirement for either Rogue at 6 levels or Ranger at 3 levels.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong> <a href="#FPRECLASSOLD">PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</a></p>
 	<p></p>
 
