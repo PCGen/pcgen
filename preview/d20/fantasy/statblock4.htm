@@ -166,12 +166,6 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDIF|
 <!-- End Weakness TYPE Abilities -->
 
-<!-- Defensive TYPE Abilities -->
-|IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Defensive Abilities </b> |ABILITYALLLIST.Special Ability.TYPE=Defensive|<br>
-|ENDIF|
-<!-- End Defensive TYPE Abilities -->
-
 <!-- Defensive Gear -->
 |IIF(VAR.IF(VAR("COUNT[EQTYPE.DefensiveGear]")>0;1;0):1)|
 <b>Defensive Gear </b>
