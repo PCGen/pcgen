@@ -1232,444 +1232,73 @@ Wisdom
 |%|
 <!-- STOP Domain Table -->
 <!-- Start Turning Table -->
-|IIF(count("ABILITIES";"NAME=Turn Undead[or]NAME=Rebuke Undead")>0)|
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Turning"),1,0|
+|IIF(ABILITYALL.Special Ability.%turncount.TYPE=Turning.HASASPECT.TurnType:Y)|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
-      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(count("ABILITIES";"NAME=Turn Undead")>0)|
-      TURN UNDEAD
-|ELSE|
-      REBUKE UNDEAD
-|ENDIF|
-		</b></font></td>
+      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnType| |ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnKind|</b></font></td>
      </tr>
      <tr >
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">TURNING CHECK<br />RESULT</font></td>
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
       <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>|VAR.TurnLevelUndead.INTVAL|</b></td>
+      <td width="25%" class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel.INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN DAMAGE</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN.NOZERO|</b></td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnDamage|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelUndead-4).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-4).INTVAL|</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNING CHECK</font></td>
-      <td class="border9" align="center"><b>1d20|VAR.TurnCheckUndead.INTVAL.SIGN.NOZERO|</b></td>
+      <td class="border9" align="center"><b>1d20|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnCheck.INTVAL.SIGN.NOZERO|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelUndead-3).INTVAL|</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-3).INTVAL|</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNS/DAY</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnTimesUndead.INTVAL|</b></td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelUndead-2).INTVAL|</b></td>
-      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,TurnTimesUndead,5,&#9744;, , ,1|</font></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-2).INTVAL|</b></td>
+      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL,5,&#9744;, , ,1|</font></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelUndead-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(count("ABILITIES";"NAME=Turn Undead")>0)|
-	NOTE: You destroy undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.</td>
-|ELSE|
-	NOTE: You command undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.</td>
-|ENDIF|
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-1).INTVAL|</b></td>
+      <td colspan="2" rowspan="6" class="border8" valign="top">|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnNotes|
      </tr>
      <tr>
       <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelUndead+0).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+0).INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelUndead+1).INTVAL|</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+1).INTVAL|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelUndead+2).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+2).INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelUndead+3).INTVAL|</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+3).INTVAL|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelUndead+4).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+4).INTVAL|</b></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
+
 |ENDIF|
+|ENDFOR|
+
+
 <!-- Stop Turning Table -->
-<!-- Start Turning Table Earth-->
-|IIF(count("ABILITIES";"NAME=Turn Earth[or]NAME=Rebuke Earth")>0)|
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
-     <tr>
-      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(count("ABILITIES";"NAME=Turn Earth")>0)|
-      TURN EARTH
-|ELSE|
-      REBUKE EARTH
-|ENDIF|
-		</b></font></td>
-     </tr>
-     <tr >
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">TURNING CHECK<br />RESULT</font></td>
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
-      <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>|VAR.TurnLevelEarth.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN DAMAGE</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnDiceEarth.INTVAL|d|VAR.TurnDieSizeEarth.INTVAL||VAR.TurnDamagePlusEarth.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelEarth-4).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNING CHECK</font></td>
-      <td class="border9" align="center"><b>1d20|VAR.TurnCheckEarth.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelEarth-3).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNS/DAY</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnTimesEarth.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelEarth-2).INTVAL|</b></td>
-      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,TurnTimesEarth,5,&#9744;, , ,1|</font></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelEarth-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(count("ABILITIES";"NAME=Turn Earth")>0)|
-	NOTE: You destroy Earth creatures with total hit dice up to |(VAR.TurnLevelEarth/2).INTVAL|.</td>
-|ELSE|
-	NOTE: You command Earth creatures with total hit dice up to |VAR.TurnLevelEarth.INTVAL|.</td>
-|ENDIF|
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelEarth+0).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelEarth+1).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelEarth+2).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelEarth+3).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelEarth+4).INTVAL|</b></td>
-     </tr>
-    </table>
-<font style="font-size:2pt"><br /></font>
-|ENDIF|
-<!-- Stop Turning Table Earth -->
-<!-- Start Turning Table Air -->
-|IIF(count("ABILITIES";"NAME=Turn Air[or]NAME=Rebuke Air")>0)|
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
-     <tr>
-      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(count("ABILITIES";"NAME=Turn Air")>0)|
-      TURN AIR
-|ELSE|
-      REBUKE AIR
-|ENDIF|
-		</b></font></td>
-     </tr>
-     <tr >
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">TURNING CHECK<br />RESULT</font></td>
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
-      <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>|VAR.TurnLevelAir.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN DAMAGE</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnDiceAir.INTVAL|d|VAR.TurnDieSizeAir.INTVAL||VAR.TurnDamagePlusAir.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelAir-4).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNING CHECK</font></td>
-      <td class="border9" align="center"><b>1d20|VAR.TurnCheckAir.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelAir-3).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNS/DAY</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnTimesAir.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelAir-2).INTVAL|</b></td>
-      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,TurnTimesAir,5,&#9744;, , ,1|</font></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelAir-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(count("ABILITIES";"NAME=Turn Air")>0)|
-	NOTE: You destroy Air creatures with total hit dice up to |(VAR.TurnLevelAir/2).INTVAL|.</td>
-|ELSE|
-	NOTE: You command Air creatures with total hit dice up to |VAR.TurnLevelAir.INTVAL|.</td>
-|ENDIF|
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelAir+0).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelAir+1).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelAir+2).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelAir+3).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelAir+4).INTVAL|</b></td>
-     </tr>
-    </table>
-<font style="font-size:2pt"><br /></font>
-|ENDIF|
-<!-- Stop Turning Table Air -->
-<!-- Start Turning Table Plant -->
-|IIF(count("ABILITIES";"NAME=Turn Plant[or]NAME=Rebuke Plant")>0)|
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
-     <tr>
-      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(count("ABILITIES";"NAME=Turn Plant")>0)|
-      TURN PLANT
-|ELSE|
-      REBUKE PLANT
-|ENDIF|
-		</b></font></td>
-     </tr>
-     <tr >
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">TURNING CHECK<br />RESULT</font></td>
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
-      <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>|VAR.TurnLevelPlant.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN DAMAGE</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnDicePlant.INTVAL|d|VAR.TurnDieSizePlant.INTVAL||VAR.TurnDamagePlusPlant.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelPlant-4).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNING CHECK</font></td>
-      <td class="border9" align="center"><b>1d20|VAR.TurnCheckPlant.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelPlant-3).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNS/DAY</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnTimesPlant.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelPlant-2).INTVAL|</b></td>
-      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,TurnTimesPlant,5,&#9744;, , ,1|</font></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelPlant-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(count("ABILITIES";"NAME=Turn Plant")>0)|
-	NOTE: You destroy Plant creatures with total hit dice up to |(VAR.TurnLevelPlant/2).INTVAL|.</td>
-|ELSE|
-	NOTE: You command Plant creatures with total hit dice up to |VAR.TurnLevelPlant.INTVAL|.</td>
-|ENDIF|
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelPlant+0).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelPlant+1).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelPlant+2).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelPlant+3).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelPlant+4).INTVAL|</b></td>
-     </tr>
-    </table>
-<font style="font-size:2pt"><br /></font>
-|ENDIF|
-<!-- Stop Turning Table Plant -->
-<!-- Start Turning Table Water -->
-|IIF(count("ABILITIES";"NAME=Turn Water[or]NAME=Rebuke Water")>0)|
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
-     <tr>
-      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(count("ABILITIES";"NAME=Turn Water")>0)|
-      TURN WATER
-|ELSE|
-      REBUKE WATER
-|ENDIF|
-		</b></font></td>
-     </tr>
-     <tr >
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">TURNING CHECK<br />RESULT</font></td>
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
-      <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>|VAR.TurnLevelWater.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN DAMAGE</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnDiceWater.INTVAL|d|VAR.TurnDieSizeWater.INTVAL||VAR.TurnDamagePlusWater.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelWater-4).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNING CHECK</font></td>
-      <td class="border9" align="center"><b>1d20|VAR.TurnCheckWater.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelWater-3).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNS/DAY</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnTimesWater.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelWater-2).INTVAL|</b></td>
-      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,TurnTimesWater,5,&#9744;, , ,1|</font></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelWater-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(count("ABILITIES";"NAME=Turn Water")>0)|
-	NOTE: You destroy Water creatures with total hit dice up to |(VAR.TurnLevelWater/2).INTVAL|.</td>
-|ELSE|
-	NOTE: You command Water creatures with total hit dice up to |VAR.TurnLevelWater.INTVAL|.</td>
-|ENDIF|
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelWater+0).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelWater+1).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelWater+2).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelWater+3).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelWater+4).INTVAL|</b></td>
-     </tr>
-    </table>
-<font style="font-size:2pt"><br /></font>
-|ENDIF|
-<!-- Stop Turning Table Water -->
-<!-- Start Turning Table Fire -->
-|IIF(count("ABILITIES";"NAME=Turn Fire[or]NAME=Rebuke Fire")>0)|
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
-     <tr>
-      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>
-|IIF(count("ABILITIES";"NAME=Turn Fire")>0)|
-      TURN FIRE
-|ELSE|
-      REBUKE FIRE
-|ENDIF|
-		</b></font></td>
-     </tr>
-     <tr >
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">TURNING CHECK<br />RESULT</font></td>
-      <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
-      <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>|VAR.TurnLevelFire.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN DAMAGE</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnDiceFire.INTVAL|d|VAR.TurnDieSizeFire.INTVAL||VAR.TurnDamagePlusFire.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelFire-4).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNING CHECK</font></td>
-      <td class="border9" align="center"><b>1d20|VAR.TurnCheckFire.INTVAL.SIGN.NOZERO|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelFire-3).INTVAL|</b></td>
-      <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNS/DAY</font></td>
-      <td class="border9" align="center"><b>|VAR.TurnTimesFire.INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelFire-2).INTVAL|</b></td>
-      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,TurnTimesFire,5,&#9744;, , ,1|</font></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelFire-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border8" valign="top">
-|IIF(count("ABILITIES";"NAME=Turn Fire")>0)|
-	NOTE: You destroy Fire creatures with total hit dice up to |(VAR.TurnLevelFire/2).INTVAL|.</td>
-|ELSE|
-	NOTE: You command Fire creatures with total hit dice up to |VAR.TurnLevelFire.INTVAL|.</td>
-|ENDIF|
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelFire+0).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelFire+1).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelFire+2).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|(VAR.TurnLevelFire+3).INTVAL|</b></td>
-     </tr>
-     <tr>
-      <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>|(VAR.TurnLevelFire+4).INTVAL|</b></td>
-     </tr>
-    </table>
-<font style="font-size:2pt"><br /></font>
-|ENDIF|
-<!-- Stop Turning Table Fire -->
-<!-- Stop Turning Tables -->
+
 <!-- Start Overflow Weapons table -->
 |FOR,%weap,3,COUNT[EQTYPE.Weapon]-1,1,1|
    <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Overflow">

@@ -958,115 +958,18 @@
 
 
 	<!-- Turning ability -->
-|IIF(count("ABILITIES";"NAME=Turn Undead")>0)|
-	<turning kind="UNDEAD" type="TURN">
-			<level>|VAR.TurnLevelUndead.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesUndead.INTVAL|</uses_per_day>
-			<notes>You destroy Undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Undead")>0)|
-	<turning kind="UNDEAD" type="REBUKE">
-			<level>|VAR.TurnLevelUndead.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceUndead.INTVAL|d|VAR.TurnDieSizeUndead.INTVAL||VAR.TurnDamagePlusUndead.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesUndead.INTVAL|</uses_per_day>
-			<notes>You command Undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Air")>0)|
-	<turning kind="AIR" type="TURN">
-			<level>|VAR.TurnLevelAir.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceAir.INTVAL|d|VAR.TurnDieSizeAir.INTVAL||VAR.TurnDamagePlusAir.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesAir.INTVAL|</uses_per_day>
-			<notes>You destroy Air creatures with total hit dice up to |(VAR.TurnLevelAir/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Air")>0)|
-	<turning kind="AIR" type="REBUKE">
-			<level>|VAR.TurnLevelAir.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceAir.INTVAL|d|VAR.TurnDieSizeAir.INTVAL||VAR.TurnDamagePlusAir.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesAir.INTVAL|</uses_per_day>
-			<notes>You command Air creatures with total hit dice up to |VAR.TurnLevelAir.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Earth")>0)|
-	<turning kind="EARTH" type="TURN">
-			<level>|VAR.TurnLevelEarth.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceEarth.INTVAL|d|VAR.TurnDieSizeEarth.INTVAL||VAR.TurnDamagePlusEarth.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesEarth.INTVAL|</uses_per_day>
-			<notes>You destroy Earth creatures with total hit dice up to |(VAR.TurnLevelEarth/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Earth")>0)|
-	<turning kind="EARTH" type="REBUKE">
-			<level>|VAR.TurnLevelEarth.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceEarth.INTVAL|d|VAR.TurnDieSizeEarth.INTVAL||VAR.TurnDamagePlusEarth.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesEarth.INTVAL|</uses_per_day>
-			<notes>You command Earth creatures with total hit dice up to |VAR.TurnLevelEarth.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Fire")>0)|
-	<turning kind="FIRE" type="TURN">
-			<level>|VAR.TurnLevelFire.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceFire.INTVAL|d|VAR.TurnDieSizeFire.INTVAL||VAR.TurnDamagePlusFire.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesFire.INTVAL|</uses_per_day>
-			<notes>You destroy Fire creatures with total hit dice up to |(VAR.TurnLevelFire/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Fire")>0)|
-	<turning kind="FIRE" type="REBUKE">
-			<level>|VAR.TurnLevelFire.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceFire.INTVAL|d|VAR.TurnDieSizeFire.INTVAL||VAR.TurnDamagePlusFire.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesFire.INTVAL|</uses_per_day>
-			<notes>You command Fire creatures with total hit dice up to |VAR.TurnLevelFire.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Water")>0)|
-	<turning kind="WATER" type="TURN">
-			<level>|VAR.TurnLevelWater.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceWater.INTVAL|d|VAR.TurnDieSizeWater.INTVAL||VAR.TurnDamagePlusWater.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesWater.INTVAL|</uses_per_day>
-			<notes>You destroy Water creatures with total hit dice up to |(VAR.TurnLevelWater/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Water")>0)|
-	<turning kind="WATER" type="REBUKE">
-			<level>|VAR.TurnLevelWater.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDiceWater.INTVAL|d|VAR.TurnDieSizeWater.INTVAL||VAR.TurnDamagePlusWater.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesWater.INTVAL|</uses_per_day>
-			<notes>You command Water creatures with total hit dice up to |VAR.TurnLevelWater.INTVAL|</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Plant")>0)|
-	<turning kind="PLANT" type="TURN">
-			<level>|VAR.TurnLevelPlant.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDicePlant.INTVAL|d|VAR.TurnDieSizePlant.INTVAL||VAR.TurnDamagePlusPlant.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesPlant.INTVAL|</uses_per_day>
-			<notes>You destroy Plant creatures with total hit dice up to |(VAR.TurnLevelPlant/2).INTVAL|.</notes>
-		</turning>
-|ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Plant")>0)|
-	<turning kind="PLANT" type="REBUKE">
-			<level>|VAR.TurnLevelPlant.INTVAL|</level>
-			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
-			<damage>|VAR.TurnDicePlant.INTVAL|d|VAR.TurnDieSizePlant.INTVAL||VAR.TurnDamagePlusPlant.INTVAL.SIGN|</damage>
-			<uses_per_day>|VAR.TurnTimesPlant.INTVAL|</uses_per_day>
-			<notes>You command Plant creatures with total hit dice up to |VAR.TurnLevelPlant.INTVAL|.</notes>
-		</turning>
-|ENDIF|
 
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Turning"),1,0|
+|IIF(ABILITYALL.Special Ability.%turncount.TYPE=Turning.HASASPECT.TurnType:Y)|
+	<turning kind="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnType|">
+		<level>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel.INTVAL|</level>
+		<turn_check>1d20|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnCheck.INTVAL.SIGN|</turn_check>
+		<damage>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnDamage|</damage>
+		<uses_per_day>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL|</uses_per_day>
+		<notes>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnNotes|</notes>
+	</turning>
+|ENDIF|
+|ENDFOR|
 
 
 |%VAR.StunningAttack.GTEQ.1|
