@@ -1512,7 +1512,7 @@ BIO
 	<!-- Hidden Standard "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Turn Undead</name>
-			<description></description>
+			<description>6/day (turn level 2) (turn damage 2d6+1)</description>
 			<type>SPECIALATTACK.SUPERNATURAL.TURNING.TURNUNDEAD</type>
 			<associated></associated>
 			<count>0</count>

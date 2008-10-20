@@ -1162,7 +1162,7 @@ BIO
 		<ability_object>
 			<name>Evasion</name>
 			<description>If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE</type>
+			<type>SPECIALQUALITY.EXTRAORDINARY.MODIFYAC</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
