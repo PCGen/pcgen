@@ -26,11 +26,11 @@ CLASS:Guerilla	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electr
 2					ADD:FEAT|1|TYPE=Guerilla
 3	SAB:Suicidal Attack
 4					ADD:FEAT|1|TYPE=Guerilla
-5					ADD:FEAT|1|TYPE=GuerillaWarfare
+5					ADD:ABILITY|1|Special Ability|AUTOMATIC|TYPE=GuerillaWarfare
 6					ADD:FEAT|1|TYPE=Guerilla
-7					ADD:FEAT|1|TYPE=GuerillaWarfare
+7					ADD:ABILITY|1|Special Ability|AUTOMATIC|TYPE=GuerillaWarfare
 8					ADD:FEAT|1|TYPE=Guerilla
-9					ADD:FEAT|1|TYPE=GuerillaWarfare
+9					ADD:ABILITY|1|Special Ability|AUTOMATIC|TYPE=GuerillaWarfare
 10					ADD:FEAT|1|TYPE=Guerilla
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -53,7 +53,7 @@ CLASS:Organizer	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Writing)|Computer Use|Diplom
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Psyop		HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name	Required Feat																					Required Skill							Required Text
-CLASS:Psyop		PREFEAT:6,Interrogation,Psychological Warfare,Personal Firearms Proficiency,MOS Intelligence 3,Jump School,Defense Language Institute	PRESKILL:3,Craft (Writing)=5,Diplomacy,Intimidate=5	PRETEXT:Active or Reserve Duty (US Army)
+CLASS:Psyop		PREFEAT:6,Interrogation,Psychological Warfare,Personal Firearms Proficiency,MOS Intelligence 3,Jump School,Defense Language Institute	PRESKILL:3,Craft (Writing)=5,Diplomacy=5,Intimidate=5	PRETEXT:Active or Reserve Duty (US Army)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Psyop		STARTSKILLPTS:8	CSKILL:Bluff|Climb|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Tactics)|Move Silently|Paradrop|Read/Write Language|Sense Motive|Speak Language
 1	SAB:Talk Down One Opponent within 15 ft, Will DC %|10+CL+CHA|PREVARLT:CL,5
@@ -118,7 +118,7 @@ CLASS:US Secret Service Protective Detail	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus		Modify VAR
 CLASS:Y12 SRT	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
 # Class Name	Req. Att.	Required Feat																Required Skill					Required Text
-CLASS:Y12 SRT	PREATT:8	PREFEAT:7,Personal Firearms Proficiency,Teamwork,Point Blank Shot,Dodge,Mobility,Shot on the Run,MOS NBC 1	PRESKILL:3,Investigate=8,Listen,Spot=8	PRETEXT:Active Duty (Depart of Energy)
+CLASS:Y12 SRT	PREATT:8	PREFEAT:7,Personal Firearms Proficiency,Teamwork,Point Blank Shot,Dodge,Mobility,Shot on the Run,MOS NBC 1	PRESKILL:3,Investigate=8,Listen=8,Spot=8	PRETEXT:Active Duty (Depart of Energy)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Y12 SRT	STARTSKILLPTS:6	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|Drive|Hide|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Tactics)|Listen|Move Silently|Sense Motive|Spot
 1	SAB:Mental Toughness

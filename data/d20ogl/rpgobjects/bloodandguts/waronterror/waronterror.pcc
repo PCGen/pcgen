@@ -6,7 +6,7 @@ BOOKTYPE:Supplement
 GENRE:Modern
 SETTING:Modern
 TYPE:RPGObjects.Blood and Guts
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,RPGObjects - Blood and Guts - Modern Military
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/
@@ -27,5 +27,5 @@ INFOTEXT:Requires the use of Blood and Guts: Modern Military
 
 CLASS:waronterror_class.lst
 FEAT:waronterror_feats.lst
-FEAT:waronterror_feats_hidden.lst
+ABILITY:waronterror_abilities.lst
 FEAT:waronterror_feats_mod.lst

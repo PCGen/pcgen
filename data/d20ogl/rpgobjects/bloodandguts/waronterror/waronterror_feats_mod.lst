@@ -40,11 +40,13 @@ Improved Damage Threshold.MOD		TYPE:Y12SRT
 Improved Initiative.MOD			TYPE:Terrorist
 Information Network.MOD			TYPE:Organizer
 Iron Will.MOD				TYPE:Psyop
+Leadership.MOD						TYPE:General																															SAB:Leadership Score %|LeadershipScore																										DEFINE:LeadershipScore|0			DESC:You are a natural leader who attracts followers and brings them under your command.																																																						BONUS:VAR|LeadershipScore|TL+CHA														SOURCEPAGE:p.16
 Low Profile.MOD				TYPE:Guerilla.Psyop.Terrorist.Zealot
 Mobility.MOD				TYPE:Guerilla
 Personal Firearms Proficiency.MOD	TYPE:Guerilla.Zealot
 Point Blank Shot.MOD			TYPE:Guerilla.SWAT.Terrorist.Y12SRT.Zealot
 Precise Shot.MOD				TYPE:SWAT.Y12SRT
+Psychological Warfare.MOD				TYPE:General																																																																								DESC:You are trained to cause Psychological damage to his opponents.																																																																												SOURCEPAGE:p.17
 Quick Draw.MOD				TYPE:Y12SRT
 Quick Reload.MOD				TYPE:Y12SRT
 Renown.MOD					TYPE:Demagogue.Guerilla.Organizer.Terrorist.Y12SRT.Zealot

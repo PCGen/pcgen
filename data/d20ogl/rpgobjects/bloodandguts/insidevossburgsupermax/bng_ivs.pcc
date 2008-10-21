@@ -6,7 +6,7 @@ BOOKTYPE:Supplement
 GENRE:Modern
 SETTING:Modern
 TYPE:RPGObjects.Blood and Guts
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:3,BOOKTYPE=Core Rules,RPGObjects - Blood and Guts - Modern Military,RPGObjects - Blood and Guts - War on Terror
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/
