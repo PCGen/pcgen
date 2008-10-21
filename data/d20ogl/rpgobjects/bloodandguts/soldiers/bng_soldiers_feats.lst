@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
 
-# Feat Name					Type			Required Feat						Required Skill				Total Skill Points Req.				Required Text								Description																																																																				Add													Modify VAR			Source Page
+# Feat Name					Type			Required Feat						Required Skill				Total Skill Points Req.				Required Text								Description																																																																				Add 													Modify VAR			Source Page
 Basic Training				TYPE:General	PREFEAT:1,Personal Firearms Proficiency															PRETEXT:Active or Reserve Duty (one branch of service)	DESC:You have decided to be all you can be a little later in life than most.																																																									ADD:FEAT|2|TYPE=Military_Skills								BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5
 Black Market				TYPE:General									PRESKILL:1,Knowledge (Streetwise)=3																		DESC:You are willing to use illicit back channel methods to procure equipment. It is a well-known (though unfortunate) fact that soldiers with access to equipment (because they are in charge of supply) are willing to grant "preference" in return for money or other favors. Some soldiers in dire need of money will even sell their own equipment and then claim they lost it or it was damaged.																					SOURCEPAGE:p.6
 MOS Mastery					TYPE:General	PREFEAT:1,TYPE.MOS																												DESC:You are especially skilled at your MOS.																																																																															SOURCEPAGE:p.6

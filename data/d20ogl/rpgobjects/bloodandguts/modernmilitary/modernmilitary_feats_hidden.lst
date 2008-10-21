@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Apr  1 12:15:52 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
-# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add					Modify VAR
+# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add 					Modify VAR
 Psychotherapy Qualify			TYPE:MedicalFeat		VISIBLE:NO	PREFEAT:1,Officer Candidate School																																	ADD:FEAT|1|Psychotherapy
 Surgery Qualify				TYPE:MedicalFeat		VISIBLE:NO	PREFEAT:1,Officer Candidate School																																	ADD:FEAT|1|Surgery
 

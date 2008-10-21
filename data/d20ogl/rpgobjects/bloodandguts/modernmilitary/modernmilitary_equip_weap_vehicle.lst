@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
@@ -25,7 +25,7 @@ Phoenix		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CR
 Sidewinder		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
 Sonar Buoys		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons														RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
 Sparrow		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12		RANGE:250		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:S
-Stinger (Vehicle)		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
+Stinger (Vehicle)	TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
 Tomahawk		TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:12d12	RANGE:5280000	SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:varies
 TOW			TYPE:Weapon.Ranged.Standard.Ballistic.VehicleWeapons			CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12		RANGE:150		SIZE:H	SOURCEPAGE:p.77	SPROP:Magazine varies	RATEOFFIRE:1
 

@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24
 
-# Feat Name					Type
+# Feat Name					Type										Special ABility					Define				Description														Modify VAR					Source Page
 Advanced Firearms Proficiency.MOD	TYPE:Guerilla.Terrorist.Y12SRT
 Aircraft Operation.MOD			TYPE:Terrorist
 Alertness.MOD				TYPE:Demagogue.Guerilla.Psyop.SWAT.Y12SRT.Zealot
@@ -40,13 +40,13 @@ Improved Damage Threshold.MOD		TYPE:Y12SRT
 Improved Initiative.MOD			TYPE:Terrorist
 Information Network.MOD			TYPE:Organizer
 Iron Will.MOD				TYPE:Psyop
-Leadership.MOD						TYPE:General																															SAB:Leadership Score %|LeadershipScore																										DEFINE:LeadershipScore|0			DESC:You are a natural leader who attracts followers and brings them under your command.																																																						BONUS:VAR|LeadershipScore|TL+CHA														SOURCEPAGE:p.16
+Leadership.MOD				TYPE:General								SAB:Leadership Score %|LeadershipScore	DEFINE:LeadershipScore|0	DESC:You are a natural leader who attracts followers and brings them under your command.	BONUS:VAR|LeadershipScore|TL+CHA	SOURCEPAGE:p.16
 Low Profile.MOD				TYPE:Guerilla.Psyop.Terrorist.Zealot
 Mobility.MOD				TYPE:Guerilla
 Personal Firearms Proficiency.MOD	TYPE:Guerilla.Zealot
 Point Blank Shot.MOD			TYPE:Guerilla.SWAT.Terrorist.Y12SRT.Zealot
 Precise Shot.MOD				TYPE:SWAT.Y12SRT
-Psychological Warfare.MOD				TYPE:General																																																																								DESC:You are trained to cause Psychological damage to his opponents.																																																																												SOURCEPAGE:p.17
+Psychological Warfare.MOD		TYPE:General																				DESC:You are trained to cause Psychological damage to his opponents.										SOURCEPAGE:p.17
 Quick Draw.MOD				TYPE:Y12SRT
 Quick Reload.MOD				TYPE:Y12SRT
 Renown.MOD					TYPE:Demagogue.Guerilla.Organizer.Terrorist.Y12SRT.Zealot

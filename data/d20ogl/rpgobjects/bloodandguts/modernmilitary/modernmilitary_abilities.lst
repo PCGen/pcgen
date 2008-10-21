@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 14:45:52 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
@@ -43,3 +43,8 @@ CATEGORY=Starting Occupation|Swim(class skill).MOD						TYPE:DiverSkills
 CATEGORY=Starting Occupation|Survival(class skill).MOD					TYPE:CombatEngineeringSkills.InfantrySkills
 CATEGORY=Starting Occupation|Treat Injury(class skill).MOD					TYPE:NBCSkills.MedicalSkills
 
+# Due to the Guerilla class having sneak attack as an OPTION, Sneak attack is giving itself
+# BONUS:VAR|SneakAttack|1 to resolve conflicts.
+###Block: Sneak Attack Mod
+# Ability Name					Modify VAR
+CATEGORY=Special Ability|Sneak Attack.MOD	BONUS:VAR|SneakAttack|1

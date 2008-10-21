@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
 CAMPAIGN:RPGObjects - Blood and Guts - Soldiers
-RANK:6
+RANK:7
 GAMEMODE:Modern
 BOOKTYPE:Supplement
 GENRE:Modern
@@ -28,6 +28,6 @@ INFOTEXT:Requires the use of Blood and Guts: Modern Military
 CLASS:bng_soldiers_classes.lst
 FEAT:bng_soldiers_feats.lst
 FEAT:bng_soldiers_feats_hidden.lst
-FEAT:bng_soldiers_feats_hidden_mod.lst
+ABILITY:bng_soldiers_abilities_mod.lst
 FEAT:bng_soldiers_feats_mod.lst
 SKILL:bng_soldiers_skills_mod.lst
