@@ -40,8 +40,6 @@ EQUIPMENT:modernmilitary_equip_weap_ranged_firearms.lst
 EQUIPMENT:modernmilitary_equip_weap_indirectfire.lst
 EQUIPMENT:modernmilitary_equip_weap_vehicle.lst
 WEAPONPROF:modernmilitary_weaponprofs.lst
-# Need Dagger Proficiency for M-9 Bayonet
-WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst|(INCLUDE:Dagger)
 
 FEAT:modernmilitary_feats.lst
 FEAT:modernmilitary_feats_advancedtraining.lst
@@ -49,13 +47,9 @@ FEAT:modernmilitary_feats_eliteunits.lst
 FEAT:modernmilitary_feats_hidden.lst
 FEAT:modernmilitary_feats_mod.lst
 FEAT:modernmilitary_feats_hidden_specops.lst
-# Need Sneak Attack from SRD 3.0 for Silent Kill
-ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack)
 
 SKILL:modernmilitary_skills.lst
 SKILL:modernmilitary_skills_mod.lst
-# Use Rope from SRD.
-SKILL:@/d20ogl/srd/basics/srd_skills.lst|(INCLUDE:Use Rope)
 
 #Included from BloodandSecrets
 FEAT:@/d20ogl/rpgobjects/modernsystem/bloodandsecrets/blood_and_secrets_feat.lst|(INCLUDE:Cover Fire,Enemy,Fast Track,Tactician,Teamwork)

@@ -1,11 +1,13 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Oct 21 20:54:48 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
 # Calling Use Rope from SRD.
 
-# Skill Name			Key Stat	Untrained?		Skill Penalty Apply	Type																Source Page
+# Skill Name			Key Stat	Untrained?		Skill Penalty Apply	Type																Source Page				Bonus to skill														Temporary effect description
 Air Traffic Control		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.AviationSkills.PilotSkills									SOURCEPAGE:p.31
 Communication Operations	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.ArmorSkills.AviationSkills.SignalsSkills.MaintenanceSkills.IntelligenceSkills	SOURCEPAGE:p.31
 Paradrop				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity														SOURCEPAGE:p.34
-#Use Rope				KEYSTAT:DEX								TYPE:Dexterity														SOURCEPAGE:p.35
+
+#Copied from SRD to eliminate simplistic INCLUDE: tag causing errors - Fluxxdog
+Use Rope				KEYSTAT:DEX								TYPE:Dexterity														SOURCEPAGE:srdskillsii.rtf	BONUS:SKILL|Escape Artist,Climb|SynergyBonus|PRESKILL:1,Use Rope=5|PREAPPLY:PC|TYPE=TempSynergy	TEMPDESC:A character with 5 or more ranks of Use Rope gets a +2 synergy bonus on Escape Artist checks when escaping from rope bonds. A character with 5 or more ranks in Use Rope gets a +2 synergy bonus on checks to climb a rope, a knotted rope, or a rope and wall combination

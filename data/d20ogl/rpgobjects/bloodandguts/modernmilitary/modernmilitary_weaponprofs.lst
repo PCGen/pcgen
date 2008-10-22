@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Oct 21 20:54:48 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
@@ -17,3 +17,6 @@ Stinger		TYPE:ExoticFirearms
 M120 Mortar		TYPE:ExoticFirearms
 M224 Mortar		TYPE:ExoticFirearms
 M252 Mortar		TYPE:ExoticFirearms
+
+#Copied from SRD to eliminate simplistic INCLUDE: tag causing errors - Fluxxdog
+Dagger		TYPE:Simple.Dagger
