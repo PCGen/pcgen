@@ -17112,9 +17112,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 											abilities);
 							if (added != null) {
 								added.setAbilityNature(nature);
+								for (CDOMReference<PCTemplate> tr : added
+										.getSafeListFor(ListKey.TEMPLATE))
+								{
+									templateList.addAll(tr
+											.getContainedObjects());
+								}
+								naturalWeaponsList.addAll(added
+										.getSafeListFor(ListKey.NATURAL_WEAPON));
 							}
 						}
 					}
+					// May have added templates, so scan for them
+					addTemplatesIfMissing(templateList);
+					addNaturalWeaponsIfMissing(naturalWeaponsList);
 				}
 				for (CDOMReference<AbilityList> list : abilityLists)
 				{
@@ -17144,8 +17155,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 												abilities);
 								if (added != null) {
 									added.setAbilityNature(nature);
+									for (CDOMReference<PCTemplate> tr : added
+											.getSafeListFor(ListKey.TEMPLATE))
+									{
+										templateList.addAll(tr
+												.getContainedObjects());
+									}
+									naturalWeaponsList.addAll(added
+											.getSafeListFor(ListKey.NATURAL_WEAPON));
 								}
 							}
+							// May have added templates, so scan for them
+							addTemplatesIfMissing(templateList);
+							addNaturalWeaponsIfMissing(naturalWeaponsList);
 						}
 					}
 				}
