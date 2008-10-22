@@ -170,7 +170,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 							+ " had an invalid reference: " + tokText);
 					return false;
 				}
-				refs.add(allRef);
+				refs.add(skref);
 			}
 		}
 
