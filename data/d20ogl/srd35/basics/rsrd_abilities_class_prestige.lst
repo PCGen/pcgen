@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 15 22:26:41 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Oct 22 22:16:58 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -20,7 +20,7 @@ Impromptu Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	
 ###Block: Assassin special abilities -------------------------------------------------------------------------------------------------
 # Ability Name				Category of Ability		Type						Visible	Special ABility						Define				Description								Ability									Modify VAR				Source Page
 Save against Poisons			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:+% save against poisons|AssassinPoisonSave	DEFINE:AssassinPoisonSave|0	DESC:+%1 save against poisons|AssassinPoisonSave																SOURCEPAGE:PrestigeClasses.rtf
-Hide in Plain Sight (Assassin)	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO																							ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Su)
+Hide in Plain Sight (Assassin)	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																							ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Su)
 Death Attack				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:NO	SAB:Death Attack (DC %)|DeathAttack			DEFINE:DeathAttack|0		DESC:DC %1|DeathAttack																BONUS:VAR|DeathAttack|10+INT	SOURCEPAGE:PrestigeClasses.rtf
 Poison Use					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Poison Use (Ex)																																		SOURCEPAGE:PrestigeClasses.rtf
 
@@ -39,12 +39,11 @@ Spell-Like Ability		CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.SpecialAt
 
 
 ###Block: Blackguard special abilities -----------------------------------------------------------------------------------------------
-# Feat Name		Type			Visible	Special ABility			Innate Spells											Save checks bonus						Source Page
 # Ability Name		Output Name			Category of Ability		Type							Visible	Special ABility							Define				Innate Spells											Description												Save checks bonus						Source Page
 Detect Good							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			VISIBLE:NO	SAB:Detect Good (Sp)											SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS																						SOURCEPAGE:PrestigeClasses.rtf
 Dark Blessing						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Dark Blessing (Su)																																					BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)	SOURCEPAGE:PrestigeClasses.rtf
 Aura of Despair						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Aura of Despair (Su)																							DESC:Enemies within 10 feet of you to take a -2 penalty on all saving throws.									SOURCEPAGE:PrestigeClasses.rtf
-Blackguard Lay on Hands	OUTPUTNAME:Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands	DEFINE:BlackguardLayOnHands|0																																			SOURCEPAGE:PrestigeClasses.rtf
+Blackguard Lay on Hands	OUTPUTNAME:Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|BlackguardLayOnHands	DEFINE:BlackguardLayOnHands|0														DESC:%1 hp/day|BlackguardLayOnHands																SOURCEPAGE:PrestigeClasses.rtf
 Fiendish Summoning					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			VISIBLE:NO	SAB:Fiendish Summoning (Sp)																																												SOURCEPAGE:PrestigeClasses.rtf
 
 
@@ -71,12 +70,12 @@ DD~Cone of Cold		OUTPUTNAME:Breath Weapon ~ Cone of Cold		CATEGORY:Special Abili
 
 
 ###Block: Duelist special abilities ----------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type						Visible	Special ABility								Define								Description							Combat bonus																					Modify VAR												Source Page
+# Ability Name	Category of Ability		Type						Visible	Special ABility								Define								Description							Combat bonus																					Modify VAR												Source Page					ASPECT
 Canny Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Canny Defense (Ex)							DEFINE:CannyDefenseLVL|0													BONUS:COMBAT|AC|max(0,min(INT,CannyDefenseLVL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
-Improved Reaction	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Reaction +% (Ex)|ImprovedReaction			DEFINE:ImprovedReaction|0					DESC:+%1 (Ex)|ImprovedReaction			BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf
+Improved Reaction	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Reaction +% (Ex)|ImprovedReaction			DEFINE:ImprovedReaction|0					DESC:+%1|ImprovedReaction				BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|+%1|ImprovedReaction
 Enhanced Mobility	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Enhanced Mobility (Ex)																																																											SOURCEPAGE:PrestigeClasses.rtf
 Grace			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Grace (Ex)																																																													SOURCEPAGE:PrestigeClasses.rtf
-Precise Strike	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6	DESC:+%1d%2|PreciseStrike|PreciseStrikeDie																																					SOURCEPAGE:PrestigeClasses.rtf
+Precise Strike	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6	DESC:+%1d%2|PreciseStrike|PreciseStrikeDie																																					SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|+%1d%2|PreciseStrike|PreciseStrikeDie
 Acrobatic Charge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Acrobatic Charge (Ex)																																																											SOURCEPAGE:PrestigeClasses.rtf
 Elaborate Parry	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Elaborate Parry (Ex)						DEFINE:ElaborateParryLVL|0																																				BONUS:VAR|FightingDefensivelyACBonus,TotalDefenseACBonus|ElaborateParryLVL	SOURCEPAGE:PrestigeClasses.rtf
 
@@ -95,7 +94,7 @@ Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	CATEGORY:Special Abili
 
 
 ###Block: Hierophant Abilities ------------------------------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type								Visible		Required AL		Required Class		Var. Must Be Lower	Special ABility				Define			Description				Stackable?	Multiple?	Choose							Bonus to Ability Pool			Caster level				Modify VAR								Source Page
+# Ability Name			Category of Ability		Type								Visible		Required AL		Required Class		Var. Must Be Lower	Special ABility				Define			Description				Stackable?	Multiple?	Choose							Bonus to Ability Pool			Caster level				Modify VAR								Source Page					ASPECT
 Blast Infidel Lawful Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:TN,CE									SAB:Blast Infidel (Lawful Good)																																											SOURCEPAGE:PrestigeClasses.rtf
 Blast Infidel Lawful Neutral	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:CN										SAB:Blast Infidel (Lawful Neutral)																																											SOURCEPAGE:PrestigeClasses.rtf
 Blast Infidel Lawful Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:TN,CG									SAB:Blast Infidel (Lawful Evil)																																											SOURCEPAGE:PrestigeClasses.rtf
@@ -104,7 +103,7 @@ Blast Infidel Neutral Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural
 Blast Infidel Chaotic Good	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LE,TN									SAB:Blast Infidel (Chaotic Good)																																											SOURCEPAGE:PrestigeClasses.rtf
 Blast Infidel Chaotic Neutral	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LN										SAB:Blast Infidel (Chaotic Neutral)																																											SOURCEPAGE:PrestigeClasses.rtf
 Blast Infidel Chaotic Evil	CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY	PREALIGN:LG,TN									SAB:Blast Infidel (Chaotic Evil																																											SOURCEPAGE:PrestigeClasses.rtf
-Divine Reach			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY								PREVARLT:DivineReach,60	SAB:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0								MULT:YES	CHOOSE:NOCHOICE																		BONUS:VAR|DivineReach|30					SOURCEPAGE:PrestigeClasses.rtf
+Divine Reach			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:DISPLAY								PREVARLT:DivineReach,60	SAB:Divine Reach % ft|DivineReach	DEFINE:DivineReach|0	DESC:%1 ft|DivineReach				MULT:YES	CHOOSE:NOCHOICE																		BONUS:VAR|DivineReach|30					SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|%1 ft|DivineReach
 Faith Healing			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY												SAB:Faith Healing																																														SOURCEPAGE:PrestigeClasses.rtf
 Gift of the Divine		CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1					SAB:Gift of the Divine																																													SOURCEPAGE:PrestigeClasses.rtf
 Mastery of Energy			CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialQuality	VISIBLE:DISPLAY				PRECLASS:1,Cleric=1					SAB:Mastery of Energy																																				BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|4	SOURCEPAGE:PrestigeClasses.rtf
@@ -135,8 +134,8 @@ Other Planar		CATEGORY:Special Ability	TYPE:Planar.SpecialQuality	VISIBLE:DISPLA
 
 
 ###Block: Loremaster Lore Abilities ------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type						Visible	Special ABility			Define			Description			Source Page
-Secret Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Lore (+%)|SecretLore	DEFINE:SecretLore|0	DESC:+%1|SecretLore	SOURCEPAGE:PrestigeClasses.rtf
+# Ability Name	Category of Ability		Type						Visible	Special ABility			Define			Description			Source Page					ASPECT
+Secret Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Lore (+%)|SecretLore	DEFINE:SecretLore|0	DESC:+%1|SecretLore	SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|+%1|SecretLore
 Greater Lore	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Greater Lore (Ex)										SOURCEPAGE:PrestigeClasses.rtf
 True Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:True Lore (Ex)										SOURCEPAGE:PrestigeClasses.rtf
 
@@ -155,14 +154,12 @@ More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSec
 
 
 ###Block: Shadowdancer special abilities ------------------------------------------------------------------------------------
-# Feat Name		Type						Visible	Special ABility										Define									Innate Spells										Source Page
 # Ability Name	Category of Ability		Type						Visible	Special ABility										Define									Innate Spells										Description									Source Page
 Shadow Illusion	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Shadow Illusion (Sp)								DEFINE:ShadowIllusionLVL|0						SPELLS:Class|TIMES=1|CASTERLEVEL=ShadowIllusionLVL|Silent Image,11+CHA											SOURCEPAGE:PrestigeClasses.rtf
 Shadow Jump		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shadow Jump (Su) % ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	DEFINE:ShadowJump|0	DEFINE:ShadowJumpProgression|0													DESC:%1 ft|ShadowJump|PREVAREQ:ShadowJumpProgression,0	SOURCEPAGE:PrestigeClasses.rtf
 
 
 ###Block: Thaumaturgist special abilities ------------------------------------------------------------------------------------------------------------
-# Feat Name			Type			Visible	Special ABility			Source Page
 # Ability Name		Category of Ability		Type				Visible	Special ABility			Source Page
 Improved Ally		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Improved Ally			SOURCEPAGE:PrestigeClasses.rtf
 Extended Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Extended Summoning		SOURCEPAGE:PrestigeClasses.rtf

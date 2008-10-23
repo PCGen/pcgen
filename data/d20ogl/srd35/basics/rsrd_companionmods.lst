@@ -26,7 +26,7 @@ FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
 
 ###Block: Undead Companion
 # Class of the Master			Type				Hit Dice	Spell Res.	Ability																																	Define						Combat bonus						Stat bonus		Modify VAR
-FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Empathic Link (Su)	ABILITY:Special Ability|AUTOMATIC|Share Spells|Share Saving Throws|Improved Evasion|Cannot be Turned	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3
+FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Empathic Link (Su)	ABILITY:Special Ability|AUTOMATIC|Share Spells|Share Saving Throws|Improved Evasion|Cannot be Turned	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	BONUS:VAR|SmiteGoodToHit|max(CHA,0)	BONUS:VAR|SmiteGoodDamage|min(TL,20)
 FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard																									DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond																											DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																																				DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1

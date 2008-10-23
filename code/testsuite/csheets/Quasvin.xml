@@ -1386,7 +1386,7 @@ BIO
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Naturally Psionic</name>
-			<description></description>
+			<description>+2 BonusPP</description>
 			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>

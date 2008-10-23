@@ -1388,7 +1388,7 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
-			<name>Immunity To Charm Effects (Ex)</name>
+			<name>Immunity To Charm Effects</name>
 			<description></description>
 		</ability>
 		<ability>
@@ -1396,7 +1396,7 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
-			<name>Immunity to Sleep (Ex)</name>
+			<name>Immunity To Sleep</name>
 			<description></description>
 		</ability>
 		<ability>
@@ -1618,7 +1618,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Breath Weapon</name>
-			<description></description>
+			<description>60&#39; Line of Fire 1/day 6d8 (DC 16)</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1673,7 +1673,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Monstrous Humanoid Traits</name>
-			<description></description>
+			<description>Monstrous Humanoids eat/sleep/breathe</description>
 			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>

@@ -1543,7 +1543,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Giant Traits</name>
-			<description></description>
+			<description>Giants eat/sleep/breathe</description>
 			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1554,7 +1554,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Breath Weapon</name>
-			<description></description>
+			<description>60&#39; Line of Fire 1/day 6d8 (DC 27)</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1621,7 +1621,7 @@ BIO
 		<ability_object>
 			<name>Scent</name>
 			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>SPECIALQUALITY.EXTRAORDINARY.SENSE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
