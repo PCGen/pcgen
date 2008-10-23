@@ -143,7 +143,7 @@ public abstract class AbstractPrerequisiteListParser extends
 	* </prereq>
 	*/
 	protected void parsePrereqListType(Prerequisite prereq, String kind,
-		String formula)
+		String formula) throws PersistenceLayerException
 	{
 
 		String[] elements = formula.split(",|\\|");
@@ -154,10 +154,8 @@ public abstract class AbstractPrerequisiteListParser extends
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.deprecationPrint("You are using a deprecated syntax of PRE"
-				+ kind + ": " + formula
-				+ " ... You should be using a leading number, e.g.: PRE" + kind
-				+ ":1,First,Second");
+			throw new PersistenceLayerException("'" + elements[0]
+				+ "' is not a valid integer");
 		}
 
 		// Examine the last element to see if it is of the form "foo=n"
