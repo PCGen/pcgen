@@ -32,14 +32,18 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
+ * PRECLASS Parser
+ * 
  * @author wardc
- *
  */
 public class PreClassParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface
 {
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
+	/**
+	 * Returns a Array of the kings of PRE tags this class parses, 
+	 * in this case CLASS.
+	 *
+	 * @return String array containing "CLASS" 
 	 */
 	public String[] kindsHandled()
 	{

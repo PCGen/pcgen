@@ -35,15 +35,16 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
 /**
- * @author wardc
- *
+ * Abstract PRE parser, provides common parsing for many PRE tokens
+ * 
+ * @author PCGen Development Team
  */
 public abstract class AbstractPrerequisiteListParser extends
 		AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 
 	/**
-	 *
+	 * Default Constructor
 	 */
 	public AbstractPrerequisiteListParser()
 	{
@@ -106,45 +107,46 @@ public abstract class AbstractPrerequisiteListParser extends
 		return prereq;
 	}
 
+	/*
+	 * Parses a PRE type, some examples below:
+	 * 
+	 * CLASS:1,Spellcaster=3
+	* <prereq kind="class" key="Spellcaster" min="3" />
+	 *
+	* SKILL:1,Heal=5
+	* <prereq kind="skill" key="Heal" min="5" />
+	 *
+	* FEAT:1,TYPE=Necromantic
+	* <prereq kind="feat" key="TYPE=Necromantic" />
+	 *
+	* SKILL:2,Knowledge (Anthropology),Knowledge (Biology),Knowledge
+	* (Chemistry)=5
+	* <prereq min="2">
+	*   <prereq kind="skill" key="Knowledge (Anthropology)" min="5" />
+	*   <prereq kind="skill" key="Knowledge (Biology)" min="5" />
+	*   <prereq kind="skill" key="Knowledge (Chemistry)" min="5" />
+	* </prereq>
+	 *
+	* FEAT:2,CHECKMULT,Spell Focus
+	* <prereq kind="feat" count-multiples="true" key="feat.spell_focus" />
+	 *
+	* FEAT:2,CHECKMULT,Spell Focus,[Spell Focus(Enchantment)]
+	* <prereq min="2">
+	*  <prereq kind="feat" key="feat.spell_focus" count-multiples="true" min="2"/>
+	*   <prereq kind="feat" key="feat.spell_focus_enchantment" logical="not" />
+	* </prereq>
+	 *
+	* STAT:1,DEX=9,STR=13
+	* <prereq operator="gteq" op1="1">
+	*   <prereq kind="stat" key="dex" operator="gteq" op1="9" />
+	*   <prereq kind="stat" key="str" operator="gteq" op1="13" />
+	* </prereq>
+	*/
 	protected void parsePrereqListType(Prerequisite prereq, String kind,
 		String formula)
 	{
-		// CLASS:Spellcaster=3
-		// <prereq kind="class" key="Spellcaster" min="3" />
-
-		// SKILL:1,Heal=5
-		// <prereq kind="skill" key="Heal" min="5" />
-
-		// FEAT:1,TYPE=Necromantic
-		// <prereq kind="feat" key="TYPE=Necromantic" />
-
-		// SKILL:2,Knowledge (Anthropology),Knowledge (Biology),Knowledge
-		// (Chemistry)=5
-		// <prereq min="2">
-		//   <prereq kind="skill" key="Knowledge (Anthropology)" min="5" />
-		//   <prereq kind="skill" key="Knowledge (Biology)" min="5" />
-		//   <prereq kind="skill" key="Knowledge (Chemistry)" min="5" />
-		// </prereq>
-
-		// FEAT:2,CHECKMULT,Spell Focus
-		// <prereq kind="feat" count-multiples="true" key="feat.spell_focus" />
-
-		// FEAT:2,CHECKMULT,Spell Focus,[Spell Focus(Enchantment)]
-		// <prereq min="2">
-		//   <prereq kind="feat" key="feat.spell_focus" count-multiples="true" min="2"/>
-		//   <prereq kind="feat" key="feat.spell_focus_enchantment" logical="not" />
-		// </prereq>
-
-		// STAT:1,DEX=9,STR=13
-		// <prereq operator="gteq" op1="1">
-		//   <prereq kind="stat" key="dex" operator="gteq" op1="9" />
-		//   <prereq kind="stat" key="str" operator="gteq" op1="13" />
-		// </prereq>
-
-		//		int min = 0;
 
 		String[] elements = formula.split(",|\\|");
-		boolean parseOldStyle = false;
 		int numRequired = 0;
 		try
 		{
@@ -153,190 +155,166 @@ public abstract class AbstractPrerequisiteListParser extends
 		catch (NumberFormatException nfe)
 		{
 			Logging.deprecationPrint("You are using a deprecated syntax of PRE"
-					+ kind + ": " + formula
-					+ " ... You should be using a leading number, e.g.: PRE"
-					+ kind + ":1,First,Second");
-			parseOldStyle = true;
+				+ kind + ": " + formula
+				+ " ... You should be using a leading number, e.g.: PRE" + kind
+				+ ":1,First,Second");
 		}
 
-		if (parseOldStyle)
+		// Examine the last element to see if it is of the form "foo=n"
+		int elementsLength = elements.length;
+		for (int i = elementsLength - 1; i >= 0; --i)
 		{
-			parsePrereqOldStyleList(prereq, kind, formula);
-		}
-		else
-		{
-			// Examine the last element to see if it is of the form "foo=n"
-			//			String[] lastElements = elements[elements.length - 1].split("=");
-			//			if (lastElements.length == 2) {
-			//				try {
-			//					// Parse the number off of the end of the element
-			//					min = Integer.parseInt(lastElements[1]);
-			//
-			//					// replace the element in the list with the name (less the "=n");
-			//					elements[elements.length - 1] = lastElements[0];
-			//				} catch (NumberFormatException nfe) {
-			//				}
-			//			}
-
-			int elementsLength = elements.length;
-			for (int i = elementsLength - 1; i >= 0; --i)
+			if ("CHECKMULT".equalsIgnoreCase(elements[i]))
 			{
-				if ("CHECKMULT".equalsIgnoreCase(elements[i]))
-				{
-					prereq.setCountMultiples(true);
-					--elementsLength;
-				}
+				prereq.setCountMultiples(true);
+				--elementsLength;
 			}
+		}
 
-			// tokens now contains all of the possible matches,
-			// min contains the target number (if there is one)
-			// number contains the number of 'tokens' that be be at lease 'min'
-			if (elementsLength > 2)
+		// Token now contains all of the possible matches,
+		// min contains the target number (if there is one)
+		// number contains the number of 'tokens' that be be at least 'min'
+		if (elementsLength > 2)
+		{
+			// we have more than one option, so use a group
+			prereq.setOperator(PrerequisiteOperator.GTEQ);
+			prereq.setOperand(Integer.toString(numRequired));
+			prereq.setKind(null);
+			boolean hasKeyValue = false;
+			boolean hasKeyOnly = false;
+			int min = -99;
+			for (int i = 1; i < elements.length; i++)
 			{
-				// we have more than one option, so use a group
-				prereq.setOperator(PrerequisiteOperator.GTEQ);
-				prereq.setOperand(Integer.toString(numRequired));
-				prereq.setKind(null);
-
-				boolean hasKeyValue = false;
-				boolean hasKeyOnly = false;
-				int min = -99;
-				for (int i = 1; i < elements.length; i++)
+				if ("CHECKMULT".equals(elements[i]))
 				{
-					if ("CHECKMULT".equals(elements[i]))
+					continue;
+				}
+				Prerequisite subreq = new Prerequisite();
+				subreq.setKind(kind.toLowerCase());
+				subreq.setCountMultiples(true);
+				if (elements[i].indexOf('=') >= 0)
+				{
+					// The element is either of the form "TYPE=foo" or "DEX=9"
+					// if it is the later, we need to extract the '9'
+					subreq.setOperator(PrerequisiteOperator.GTEQ);
+					String[] tokens = elements[i].split("=");
+					try
 					{
-						continue;
-					}
-
-					Prerequisite subreq = new Prerequisite();
-					subreq.setKind(kind.toLowerCase());
-					subreq.setCountMultiples(true);
-
-					if (elements[i].indexOf('=') >= 0)
-					{
-						// The element is either of the form "TYPE=foo" or "DEX=9"
-						// if it is the later, we need to extract the '9'
-						subreq.setOperator(PrerequisiteOperator.GTEQ);
-						String[] tokens = elements[i].split("=");
-						try
-						{
-							min = Integer.parseInt(tokens[1]);
-							subreq.setOperand(Integer.toString(min));
-							subreq.setKey(tokens[0]);
-
-							// now back fill all of the previous prereqs with this minium
-							for (Iterator<Prerequisite> iter =
-									prereq.getPrerequisites().iterator(); iter
-								.hasNext();)
-							{
-								Prerequisite element = iter.next();
-								if (element.getOperand().equals("-99"))
-								{
-									element.setOperand(Integer.toString(min));
-									// If this requirement has already been added, we don't want to repeat it.
-									if (element.getKey().equals(tokens[0]))
-									{
-										iter.remove();
-									}
-								}
-							}
-							hasKeyValue = true;
-						}
-						catch (NumberFormatException nfe)
-						{
-							subreq.setKey(elements[i]);
-							hasKeyOnly = true;
-						}
-					}
-					else
-					{
-						hasKeyOnly = true;
-						subreq.setKey(elements[i]);
-						subreq.setOperator(PrerequisiteOperator.GTEQ);
+						min = Integer.parseInt(tokens[1]);
 						subreq.setOperand(Integer.toString(min));
-					}
-					subreq.setOperand(Integer.toString(min));
-					prereq.addPrerequisite(subreq);
-				}
-				for (Prerequisite element : prereq.getPrerequisites())
-				{
-					if (element.getOperand().equals("-99"))
-					{
-						element.setOperand("1");
-					}
-				}
-				if (hasKeyOnly && hasKeyValue)
-				{
-					Logging.deprecationPrint("You are using a deprecated syntax of PRE"
-						+ kind + ": " + formula
-						+ " ... Each item in the list should have a target value, e.g.: PRE"
-						+ kind + ":1,First=99,Second=5");
-				}
-
-			}
-			else
-			{
-				// We only have a number of prereqs to pass, and a single prereq so we do not want a
-				// wrapper prereq around a list of 1 element.
-				// i.e. 1,Alertness, or 2,TYPE=ItemCreation, or 1,Reflex=7 or 3,Knowledge%=2 or 4,TYPE.Craft=5
-				Prerequisite subreq = prereq;
-
-				if (elementsLength > 1)
-				{
-					for (int i = 1; i < elements.length; ++i)
-					{
-						if ("CHECKMULT".equalsIgnoreCase(elements[i]))
+						subreq.setKey(tokens[0]);
+						// now back fill all of the previous prereqs with this minium
+						for (Iterator<Prerequisite> iter =
+								prereq.getPrerequisites().iterator(); iter
+							.hasNext();)
 						{
-							continue;
-						}
-
-						if (elements[i].indexOf('=') >= 0)
-						{
-							// i.e. TYPE=ItemCreation or Reflex=7
-							String[] tokens = elements[i].split("=");
-							try
+							Prerequisite element = iter.next();
+							if (element.getOperand().equals("-99"))
 							{
-								// i.e. Reflex=7 or TYPE.Craft=5
-								int iOper = Integer.parseInt(tokens[1]);
-								if (numRequired != 1)
+								element.setOperand(Integer.toString(min));
+								// If this requirement has already been added, we don't want to repeat it.
+								if (element.getKey().equals(tokens[0]))
 								{
-									//
-									// If we would lose the required number of matches, then make this a PREMULT
-									//
-									prereq
-										.setOperator(PrerequisiteOperator.GTEQ);
-									prereq.setOperand(Integer
-										.toString(numRequired));
-									prereq.setKind(null);
-									subreq = new Prerequisite();
-									prereq.addPrerequisite(subreq);
-									subreq.setCountMultiples(true);
+									iter.remove();
 								}
-								subreq.setOperand(Integer.toString(iOper));
-								subreq.setKey(tokens[0]);
-							}
-							catch (NumberFormatException nfe)
-							{
-								// i.e. TYPE=ItemCreation
-								subreq.setOperand(elements[0]);
-								subreq.setKey(elements[i]);
 							}
 						}
-						else
-						{
-							subreq.setOperand(elements[0]);
-							subreq.setKey(elements[i]);
-						}
-						break;
+						hasKeyValue = true;
+					}
+					catch (NumberFormatException nfe)
+					{
+						subreq.setKey(elements[i]);
+						hasKeyOnly = true;
 					}
 				}
 				else
 				{
-					subreq.setOperand(elements[0]);
+					hasKeyOnly = true;
+					subreq.setKey(elements[i]);
+					subreq.setOperator(PrerequisiteOperator.GTEQ);
+					subreq.setOperand(Integer.toString(min));
 				}
-				subreq.setKind(kind.toLowerCase());
-				subreq.setOperator(PrerequisiteOperator.GTEQ);
+				subreq.setOperand(Integer.toString(min));
+				prereq.addPrerequisite(subreq);
 			}
+			for (Prerequisite element : prereq.getPrerequisites())
+			{
+				if (element.getOperand().equals("-99"))
+				{
+					element.setOperand("1");
+				}
+			}
+			if (hasKeyOnly && hasKeyValue)
+			{
+				Logging
+					.deprecationPrint("You are using a deprecated syntax of PRE"
+						+ kind
+						+ ": "
+						+ formula
+						+ " ... Each item in the list should have a target value, e.g.: PRE"
+						+ kind + ":1,First=99,Second=5");
+			}
+		}
+		else
+		{
+			// We only have a number of prereqs to pass, and a single prereq so we do not want a
+			// wrapper prereq around a list of 1 element.
+			// i.e. 1,Alertness, or 2,TYPE=ItemCreation, or 1,Reflex=7 or 3,Knowledge%=2 or 4,TYPE.Craft=5
+			Prerequisite subreq = prereq;
+			if (elementsLength > 1)
+			{
+				for (int i = 1; i < elements.length; ++i)
+				{
+					if ("CHECKMULT".equalsIgnoreCase(elements[i]))
+					{
+						continue;
+					}
+
+					if (elements[i].indexOf('=') >= 0)
+					{
+						// i.e. TYPE=ItemCreation or Reflex=7
+						String[] tokens = elements[i].split("=");
+						try
+						{
+							// i.e. Reflex=7 or TYPE.Craft=5
+							int iOper = Integer.parseInt(tokens[1]);
+							if (numRequired != 1)
+							{
+								//
+								// If we would lose the required number of matches, then make this a PREMULT
+								//
+								prereq.setOperator(PrerequisiteOperator.GTEQ);
+								prereq
+									.setOperand(Integer.toString(numRequired));
+								prereq.setKind(null);
+								subreq = new Prerequisite();
+								prereq.addPrerequisite(subreq);
+								subreq.setCountMultiples(true);
+							}
+							subreq.setOperand(Integer.toString(iOper));
+							subreq.setKey(tokens[0]);
+						}
+						catch (NumberFormatException nfe)
+						{
+							// i.e. TYPE=ItemCreation
+							subreq.setOperand(elements[0]);
+							subreq.setKey(elements[i]);
+						}
+					}
+					else
+					{
+						subreq.setOperand(elements[0]);
+						subreq.setKey(elements[i]);
+					}
+					break;
+				}
+			}
+			else
+			{
+				subreq.setOperand(elements[0]);
+			}
+			subreq.setKind(kind.toLowerCase());
+			subreq.setOperator(PrerequisiteOperator.GTEQ);
 		}
 	}
 

@@ -36,7 +36,7 @@ import pcgen.persistence.PersistenceLayerException;
  * interface.
  *
  * Each class implementing this interface will parse 1 or more
- * prerequsite types. Normally if an implementation handles more
+ * prerequisite types. Normally if an implementation handles more
  * than 1 type the types will be very similar (i.e. a single
  * implementation might handle PRESTAT, PRESTATGTEQ and PRESTATNEQ
  * each of which differs only by the operator).
@@ -52,12 +52,12 @@ public interface PrerequisiteParserInterface
 	/**
 	 * @param kind the kind of the prerequisite (less the "PRE" prefix)
 	 * @param formula The body of the prerequisite;
-	 * @param invertResult If the prerquisite should invert the result
+	 * @param invertResult If the prerequisite should invert the result
 	 * before it is returned
 	 * @param overrideQualify
 	 *
 	 * @return Returns a Prerequisite instance containing the parsed contents
-	 * of the input string "value". If the inupt could not be parsed
+	 * of the input string "value". If the input could not be parsed
 	 * for any reason a PersistenceLayerException will be thrown.
 	 * @throws PersistenceLayerException
 	 */
