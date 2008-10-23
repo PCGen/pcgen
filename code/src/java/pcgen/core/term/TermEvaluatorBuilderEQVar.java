@@ -212,7 +212,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 			return new EQSizeTermEvaluator(expressionString);
 		}
 	},
-
+	
 	COMPLETE_EQ_WT
 		("WT",
 		 new String[] { "WT" },

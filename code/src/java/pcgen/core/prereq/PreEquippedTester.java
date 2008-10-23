@@ -76,29 +76,8 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 				}
 				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
 				{
-					StringTokenizer tok = new StringTokenizer(aString.substring(5), ".");
-					boolean match = false;
-					if (tok.hasMoreTokens())
-					{
-						match = true;
-					}
-					//
-					// Must match all listed types in order to qualify
-					//
-					while(tok.hasMoreTokens())
-					{
-						final String type = tok.nextToken();
-						if (!eq.isType(type))
-						{
-							match = false;
-							break;
-						}
-					}
-					if (match)
-					{
-						isEquipped = true;
-						break;
-					}
+					isEquipped = eq.isType(aString);
+					break;
 				}
 				else	 //not a TYPE string
 				{

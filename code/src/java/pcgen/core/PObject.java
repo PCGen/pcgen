@@ -563,16 +563,43 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public boolean isType(final String aType)
 	{
 		final String myType;
+		boolean match = false;
 
-		if ((aType.length() > 0) && (aType.charAt(0) == '!'))
+		if (aType.length() == 0)
+		{
+			return match;
+		}
+		else if (aType.charAt(0) == '!')
 		{
 			myType = aType.substring(1).toUpperCase();
+		}
+		else if (aType.startsWith("TYPE=") || aType.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+		{
+			myType = aType.substring(5).toUpperCase();
 		}
 		else
 		{
 			myType = aType.toUpperCase();
 		}
-
+		
+		//
+		// Must match all listed types in order to qualify
+		//
+		StringTokenizer tok = new StringTokenizer(myType, ".");
+		if (tok.hasMoreTokens())
+		{
+			match = true;
+			while(tok.hasMoreTokens())
+			{
+				final String type = tok.nextToken();
+				if (!types.contains(type))
+				{
+					match = false;
+					break;
+				}
+			}
+			return match;
+		}
 		return types.contains(myType);
 	}
 
