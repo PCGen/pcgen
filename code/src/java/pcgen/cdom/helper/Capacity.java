@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 public class Capacity
 {
 
-	public static BigDecimal UNLIMITED = new BigDecimal(-1);
+	public static final BigDecimal UNLIMITED = new BigDecimal(-1);
 	/*
 	 * CONSIDER Need to flesh out how this works; depends on how Capacity
 	 * interacts with the core... - Tom Parker 3/1/07

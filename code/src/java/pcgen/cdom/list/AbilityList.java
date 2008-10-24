@@ -37,7 +37,7 @@ public class AbilityList extends CDOMListObject<Ability>
 {
 
 	
-	public static DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>> map =
+	public static final DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>> map =
 			new DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>>();
 	
 	/**
