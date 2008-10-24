@@ -15,8 +15,8 @@ ABILITYCATEGORY:Hauler Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Pirate Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:Pirate					PLURAL:Pirate Feats					DISPLAYLOCATION:Feats
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number				Category of Object			Type of Object				Plural description for UI				Display Location
-ABILITYCATEGORY:Preferred Occupation Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:PreferredOccupationChoice	CATEGORY:Preferred Occupation Bonus	TYPE:PreferredOccupationBonus		PLURAL:Preferred Occupation Bonuses			DISPLAYLOCATION:Background
-ABILITYCATEGORY:Base Programming				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Base Programming		TYPE:BaseProgramming			PLURAL:Base Programming					DISPLAYLOCATION:Background
+ABILITYCATEGORY:Preferred Occupation Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:PreferredOccupationChoice	CATEGORY:Preferred Occupation Bonus			PLURAL:Preferred Occupation Bonuses			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Base Programming				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Base Programming					PLURAL:Base Programming					DISPLAYLOCATION:Background
 
 #
 # End
