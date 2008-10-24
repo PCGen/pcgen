@@ -31,6 +31,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreFeatParser;
 
 /**
@@ -39,6 +40,10 @@ import plugin.pretokens.parser.PreFeatParser;
  */
 public class PreFeatParserTest extends TestCase
 {
+    /**
+     * Run the test from CL
+     * @param args
+     */
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreFeatParserTest.class);
@@ -68,6 +73,7 @@ public class PreFeatParserTest extends TestCase
 	}
 
 	/**
+	 * Test the the PRE FEAT removed syntax fails utterly (throws a PersistenceLayerException)
 	 * @throws Exception
 	 */
 	public void testFeatOldStyle() throws Exception
@@ -75,14 +81,15 @@ public class PreFeatParserTest extends TestCase
 		PreFeatParser parser = new PreFeatParser();
 		// "PREFEAT:Alertness|Cleave";
 
-		Prerequisite prereq =
-				parser.parse("feat", "Alertness|Cleave", false, false);
-		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"feat\" key=\"Alertness\" operator=\"gteq\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"feat\" key=\"Cleave\" operator=\"gteq\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+		try
+		{
+		    parser.parse("feat", "Alertness|Cleave", false, false);
+		    fail();
+		}
+		catch (PersistenceLayerException e)
+		{
+		    // Do Nothing
+		}
 	}
 
 	/**

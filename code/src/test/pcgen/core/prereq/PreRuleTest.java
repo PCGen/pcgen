@@ -103,12 +103,12 @@ public class PreRuleTest extends AbstractCharacterTestCase
 			.checkRule("PRERULE"));
 
 		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "PRERULE", false, false);
+		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
 		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
 		assertFalse("PreRule should fail when rule is disabled.", passes);
 
-		prereq = parser.parse("RULE", "PRERULE", true, false);
+		prereq = parser.parse("RULE", "1,PRERULE", true, false);
 		passes = PrereqHandler.passes(prereq, getCharacter(), null);
 		assertTrue("!PreRule should pass when rule is disabled.", passes);
 	}
@@ -130,12 +130,12 @@ public class PreRuleTest extends AbstractCharacterTestCase
 			.checkRule("PRERULE"));
 
 		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "PRERULE", false, false);
+		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
 		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
 		assertTrue("PreRule should pass when rule is enabled.", passes);
 
-		prereq = parser.parse("RULE", "PRERULE", true, false);
+		prereq = parser.parse("RULE", "1,PRERULE", true, false);
 		passes = PrereqHandler.passes(prereq, getCharacter(), null);
 		assertFalse("!PreRule should fail when rule is enabled.", passes);
 	}

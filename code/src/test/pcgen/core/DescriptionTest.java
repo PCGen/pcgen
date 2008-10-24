@@ -79,8 +79,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 
-		final Prerequisite prereqNE =
-				factory.parse("PRETEMPLATE:KEY_Natural Lycanthrope");
+		final Prerequisite prereqNE = factory.parse("PRETEMPLATE:1,KEY_Natural Lycanthrope");
 		desc.addPrerequisite(prereqNE);
 		is(desc.getDescription(getCharacter(), null), strEq(""));
 

@@ -66,7 +66,7 @@ public class PreTemplateParserTest extends TestCase
 		PreTemplateParser parser = new PreTemplateParser();
 
 		Prerequisite prereq =
-				parser.parse("TEMPLATE", "Half-Dragon", false, false);
+				parser.parse("TEMPLATE", "1,Half-Dragon", false, false);
 
 		assertEquals(
 			"<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"gteq\" operand=\"1\" >\n</prereq>\n",
@@ -81,7 +81,7 @@ public class PreTemplateParserTest extends TestCase
 		PreTemplateParser parser = new PreTemplateParser();
 
 		Prerequisite prereq =
-				parser.parse("TEMPLATE", "Half-Dragon", true, false);
+				parser.parse("TEMPLATE", "1,Half-Dragon", true, false);
 
 		assertEquals(
 			"<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"lt\" operand=\"1\" >\n</prereq>\n",

@@ -192,6 +192,13 @@ public class PrereqHandler {
 		return false;
 	}
 
+	/**
+	 * Returns true if the character passes the prereq
+	 * @param prereq The prerequisite to pass
+	 * @param character The character to test against
+	 * @param caller The CDOMojbect that is calling this method
+	 * @return true if the character passes the prereq
+	 */
 	public static boolean passes(final Prerequisite prereq, final PlayerCharacter character, final CDOMObject caller)
 	{
 		if (character == null && prereq.isCharacterRequired())

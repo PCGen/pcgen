@@ -44,7 +44,7 @@ import pcgen.core.character.WieldCategory;
 public class PreEquipBothTest extends AbstractCharacterTestCase
 {
 
-	/*
+	/**
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
 	public void testPassesPrerequisitePlayerCharacter()

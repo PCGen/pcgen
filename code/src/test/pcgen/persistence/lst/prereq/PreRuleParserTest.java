@@ -67,7 +67,7 @@ public class PreRuleParserTest extends TestCase
 	public void testPositive() throws Exception
 	{
 		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "DISPLAYTYPETRAITS", false, false);
+		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", false, false);
 
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"gteq\" operand=\"1\" >\n</prereq>\n",
@@ -80,7 +80,7 @@ public class PreRuleParserTest extends TestCase
 	public void testNegative() throws Exception
 	{
 		PreRuleParser parser = new PreRuleParser();
-		Prerequisite prereq = parser.parse("RULE", "DISPLAYTYPETRAITS", true, false);
+		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", true, false);
 
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"lt\" operand=\"1\" >\n</prereq>\n",
