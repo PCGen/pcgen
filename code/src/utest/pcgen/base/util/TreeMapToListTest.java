@@ -107,7 +107,6 @@ public class TreeMapToListTest extends TestCase
 	@Test
 	public void testPutGet()
 	{
-		assertNull(dkm.getListFor(null));
 		assertNull(dkm.getListFor(Integer.valueOf(1)));
 		populate();
 		List<Character> l = dkm.getListFor(Integer.valueOf(1));
