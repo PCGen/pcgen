@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 25 03:30:13 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+# CVS $Revision$ $Author$ -- Thu Oct 23 20:27:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
 # Original Entry by: Terrence FitzSimons * 8 May 2006
 
@@ -116,7 +116,7 @@ Bullet Cold-Load (5.7mm/50)			OUTPUTNAME:5.7mm Cold-Load Bullets, 50 pack			TYPE
 Bullet FMJ (5.7mm/50)				OUTPUTNAME:5.7mm FMJ Bullets, 50 pack				TYPE:Ammunition.Standard.Metal.Bullet.FMJ					COST:4.00	WT:1.5								SOURCEPAGE:p.BP/2004722a	SPROP:Standard Ammo
 Bullet Glazer (5.7mm/50)			OUTPUTNAME:5.7mm Glazer Bullets, 50 pack				TYPE:Ammunition.Standard.Metal.Bullet.Glazer				COST:8.00	WT:1.5								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -2 to attack roll, +2 to damage
 Bullet HowPoint (5.7mm/50)			OUTPUTNAME:5.7mm HowPoint Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet.HowPoint				COST:4.00	WT:1.5								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -1 to attack roll, +1 to damage
-Bullet HowPoint (5.7mm/50)			OUTPUTNAME:5.7mm HowPoint Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet.Tracer				COST:6.00	WT:1.5								SOURCEPAGE:p.9			SPROP:If on autofire and 10 bullets are used in attack, +1 to attack
+Bullet Tracer (5.7mm/50)			OUTPUTNAME:5.7mm HowPoint Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet.Tracer				COST:6.00	WT:1.5								SOURCEPAGE:p.9			SPROP:If on autofire and 10 bullets are used in attack, +1 to attack
 
 # BP/2004722a
 Bullet AET (5.8mm/20)				OUTPUTNAME:5.8mm AET Bullets, 20 pack				TYPE:Ammunition.Standard.Metal.Bullet.AET					COST:9.00	WT:1									SOURCEPAGE:p.9			SPROP:Damage +1	SPROP:Weapon is Unreliable Fumble increases 5%
@@ -832,13 +832,13 @@ Bullet Glazer (5.56mm Knight)			OUTPUTNAME:5.56mm Knight Glazer Bullet				TYPE:A
 Bullet HowPoint (5.56mm Knight)		OUTPUTNAME:5.56mm Knight HowPoint Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual.HowPoint		COST:5.00	WT:0.03								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -1 to attack roll, +1 to damage
 Bullet Tracer (5.56mm Knight)			OUTPUTNAME:5.56mm Knight Tracer Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual.Tracer		COST:7.00	WT:0.03								SOURCEPAGE:p.9			SPROP:If on autofire and 10 bullets are used in attack, +1 to attack
 
-Bullet AET (5.56x45mm/20)			OUTPUTNAME:5.56x45mm AET Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.AET			COST:9.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Damage +1	SPROP:Weapon is Unreliable Fumble increases 5%
-Bullet AP (5.56x45mm/20)			OUTPUTNAME:5.56x45mm AP Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.AP			COST:5.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Damage -1	SPROP:If target armored (Natural or not) +1 to attack roll
-Bullet Cold-Load (5.56x45mm/20)		OUTPUTNAME:5.56x45mm Cold-Load Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual.Cold-Load		COST:5.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Weapon damage 2d4< N/C, 2d6 -1 damage, 2d8+ -2 damage
-Bullet FMJ (5.56x45mm/20)			OUTPUTNAME:5.56x45mm FMJ Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.FMJ			COST:4.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Standard Ammo
-Bullet Glazer (5.56x45mm/20)			OUTPUTNAME:5.56x45mm Glazer Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.Glazer		COST:8.00	WT:0.05								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -2 to attack roll, +2 to damage
-Bullet HowPoint (5.56x45mm/20)		OUTPUTNAME:5.56x45mm HowPoint Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual.HowPoint		COST:4.00	WT:0.05								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -1 to attack roll, +1 to damage
-Bullet Tracer (5.56x45mm/20)			OUTPUTNAME:5.56x45mm Tracer Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.Tracer		COST:6.00	WT:0.05								SOURCEPAGE:p.9			SPROP:If on autofire and 10 bullets are used in attack, +1 to attack
+Bullet AET (5.56x45mm)				OUTPUTNAME:5.56x45mm AET Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.AET			COST:9.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Damage +1	SPROP:Weapon is Unreliable Fumble increases 5%
+Bullet AP (5.56x45mm)				OUTPUTNAME:5.56x45mm AP Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.AP			COST:5.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Damage -1	SPROP:If target armored (Natural or not) +1 to attack roll
+Bullet Cold-Load (5.56x45mm)			OUTPUTNAME:5.56x45mm Cold-Load Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual.Cold-Load		COST:5.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Weapon damage 2d4< N/C, 2d6 -1 damage, 2d8+ -2 damage
+Bullet FMJ (5.56x45mm)				OUTPUTNAME:5.56x45mm FMJ Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.FMJ			COST:4.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Standard Ammo
+Bullet Glazer (5.56x45mm)			OUTPUTNAME:5.56x45mm Glazer Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.Glazer		COST:8.00	WT:0.05								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -2 to attack roll, +2 to damage
+Bullet HowPoint (5.56x45mm)			OUTPUTNAME:5.56x45mm HowPoint Bullet				TYPE:Ammunition.Standard.Metal.Bullet.Individual.HowPoint		COST:4.00	WT:0.05								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -1 to attack roll, +1 to damage
+Bullet Tracer (5.56x45mm)			OUTPUTNAME:5.56x45mm Tracer Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual.Tracer		COST:6.00	WT:0.05								SOURCEPAGE:p.9			SPROP:If on autofire and 10 bullets are used in attack, +1 to attack
 
 # .22 Cal price in core P.103
 Bullet AET (.22)					OUTPUTNAME:.22 AET Bullets, 50 pack					TYPE:Ammunition.Standard.Metal.Bullet.Individual.AET			COST:9.00	WT:0.03								SOURCEPAGE:p.9			SPROP:Damage +1	SPROP:Weapon is Unreliable Fumble increases 5%
@@ -865,7 +865,7 @@ Bullet Cold-Load (5.7mm)			OUTPUTNAME:5.7mm Cold-Load Bullets, 50 pack			TYPE:Am
 Bullet FMJ (5.7mm)				OUTPUTNAME:5.7mm FMJ Bullets, 50 pack				TYPE:Ammunition.Standard.Metal.Bullet.Individual.FMJ			COST:4.00	WT:0.03								SOURCEPAGE:p.BP/2004722a	SPROP:Standard Ammo
 Bullet Glazer (5.7mm)				OUTPUTNAME:5.7mm Glazer Bullets, 50 pack				TYPE:Ammunition.Standard.Metal.Bullet.Individual.Glazer		COST:8.00	WT:0.03								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -2 to attack roll, +2 to damage
 Bullet HowPoint (5.7mm)				OUTPUTNAME:5.7mm HowPoint Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet.Individual.HowPoint		COST:4.00	WT:0.03								SOURCEPAGE:p.9			SPROP:If target armored (Natural or not) -1 to attack roll, +1 to damage
-Bullet HowPoint (5.7mm)				OUTPUTNAME:5.7mm HowPoint Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet.Individual.Tracer		COST:6.00	WT:0.03								SOURCEPAGE:p.9			SPROP:If on autofire and 10 bullets are used in attack, +1 to attack
+Bullet Tracer (5.7mm)				OUTPUTNAME:5.7mm HowPoint Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet.Individual.Tracer		COST:6.00	WT:0.03								SOURCEPAGE:p.9			SPROP:If on autofire and 10 bullets are used in attack, +1 to attack
 
 # BP/2004722a
 Bullet AET (5.8mm)				OUTPUTNAME:5.8mm AET Bullets, 20 pack				TYPE:Ammunition.Standard.Metal.Bullet.Individual.AET			COST:9.00	WT:0.05								SOURCEPAGE:p.9			SPROP:Damage +1	SPROP:Weapon is Unreliable Fumble increases 5%
@@ -1518,7 +1518,6 @@ Bullet (23mm S Slug Penetrator)		OUTPUTNAME:23mm S Slug Penetrator					TYPE:Ammu
 43mm flare grenade														TYPE:Ammunition.Ranged.Standard.Metal.Shell.Chemical			COST:10	WT:1		CRITRANGE:1			DAMAGE:Special	SOURCEPAGE:p.176			SPROP:Burst Range Special ft., see text
 43mm flash bomb															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Bludgeoning		COST:19	WT:1		CRITRANGE:1			DAMAGE:3D6		SOURCEPAGE:p.176			SPROP:Burst Range 20 ft.,Mil(+3), see text
 43mm fragmentation grenade													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:16	WT:1		CRITRANGE:1			DAMAGE:3D6		SOURCEPAGE:p.176			SPROP:Burst Range 10 ft.,Mil(+3), see text
-40mm smoke grenade														TYPE:Ammunition.Ranged.Standard.Metal.Shell.Chemical			COST:10	WT:1		CRITRANGE:1			DAMAGE:Special	SOURCEPAGE:p.176			SPROP:Burst Range Special ft., see text
 76.2mm HE shell															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:19	WT:2		CRITRANGE:1			DAMAGE:4D6		SOURCEPAGE:p.176			SPROP:Burst Range 30 ft.,Mil(+3), see text
 
 
