@@ -7,6 +7,7 @@ GENRE:Future
 SETTING:Future
 TYPE:RPGObjects.Blood and Space
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,MSRD - Future,Future - Basics
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/
@@ -37,7 +38,5 @@ EQUIPMENT:merchantspiratesandsmugglers_equip_drug.lst
 EQUIPMENT:merchantspiratesandsmugglers_equip.lst
 FEAT:merchantspiratesandsmugglers_feats.lst
 FEAT:merchantspiratesandsmugglers_feats_mods.lst
-
-### References to the RSRD.
-FEAT:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack,Rage)
+ABILITY:merchantspiratesandsmugglers_abilities.lst
 

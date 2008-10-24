@@ -45,7 +45,7 @@ CLASS:Pirate	PREATT:2	PREFEAT:2,Starship Operation,Zero G Training	PRESKILL:2,Pi
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|Read/Write Language|Speak Language|Tumble
 ###Block:Sneak Attack
-1	BONUS:VAR|SneakAttack|CL/4+1	AUTO:FEAT|Sneak Attack
+1	BONUS:VAR|SneakAttack|CL/4+1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block:Normal Progression
 2	SAB:Black Sail	BONUS:VAR|LeadershipScore|CL					AUTO:FEAT|Henchmen
 3									ADD:FEAT|1|TYPE.Pirate
