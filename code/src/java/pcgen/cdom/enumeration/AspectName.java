@@ -191,4 +191,16 @@ public final class AspectName implements TypeSafeConstant, Comparable<AspectName
 		return fieldName.compareTo(o.fieldName);
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		return o == this || o instanceof AspectName
+				&& ((AspectName) o).ordinal == ordinal;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return ordinal;
+	}
 }
