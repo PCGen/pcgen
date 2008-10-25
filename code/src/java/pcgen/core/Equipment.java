@@ -483,8 +483,37 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		final List<String> tList = typeList(bPrimary);
+		boolean match = false;
+		final String myType;
 
-		return tList.contains(aType.toUpperCase());
+		if (aType.startsWith("TYPE=") || aType.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+		{
+			myType = aType.substring(5).toUpperCase();
+		}
+		else
+		{
+			myType = aType.toUpperCase();
+		}
+		
+		//
+		// Must match all listed types in order to qualify
+		//
+		StringTokenizer tok = new StringTokenizer(myType, ".");
+		if (tok.hasMoreTokens())
+		{
+			match = true;
+			while(tok.hasMoreTokens())
+			{
+				final String type = tok.nextToken();
+				if (!tList.contains(type))
+				{
+					match = false;
+					break;
+				}
+			}
+			return match;
+		}
+		return tList.contains(aType);
 	}
 
 	/**
