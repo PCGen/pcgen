@@ -85,7 +85,7 @@ CLASS:Prophet of Fatima	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS
 CLASS:Prophet of Fatima	PREFEAT:2,Second Sight,Secret Society (Seers of Fatima/6)	PRESKILL:2,Prophecy=10,Sense Motive=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prophet of Fatima	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Prophecy|Research|Search|Sense Motive|Spot
-1	SAB:Prescience +%|Prescience							BONUS:VAR|Prescience|(CL+1)/2	BONUS:CHECKS|Reflex|Prescience	BONUS:COMBAT|INITIATIVE|Prescience	BONUS:SKILL|Prophecy|Prescience	DEFINE:Prescience|0
+1	SAB:Prescience +%|Prescience							BONUS:VAR|Prescience|(CL+1)/2	BONUS:CHECKS|Reflex|var("Prescience")	BONUS:COMBAT|INITIATIVE|var("Prescience)	BONUS:SKILL|Prophecy|var("Prescience")	DEFINE:Prescience|0
 2	SAB:Flash of Insight - +% to all Action Point rolls|Prescience
 4	SAB:Flash of Insight (Damage)
 6	SAB:Flash of Insight (Defense)
