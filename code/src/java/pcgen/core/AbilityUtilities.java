@@ -33,7 +33,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.analysis.ChoiceModification;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
@@ -413,7 +412,11 @@ public class AbilityUtilities
 		 * which doesn't appear to be used anywhere, so this code is totally
 		 * redundant.
 		 */
-		ChoiceModification.modifyChoice(aPC, ability);
+		TransitionChoice<Ability> mc = ability.get(ObjectKey.MODIFY_CHOICE);
+		if (mc != null)
+		{
+			mc.act(mc.driveChoice(aPC), aPC);
+		}
 
 		if (addIt)
 		{

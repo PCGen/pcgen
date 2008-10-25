@@ -226,6 +226,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<SpellProhibitor> CHOICE = new ObjectKey<SpellProhibitor>(null);
 
+	public static final ObjectKey<TransitionChoice<Ability>> MODIFY_CHOICE = new ObjectKey<TransitionChoice<Ability>>(null);
+
 	public static final ObjectKey<Boolean> CONTAINER_CONSTANT_WEIGHT = new ObjectKey<Boolean>(Boolean.FALSE);
 
 	public static final ObjectKey<BigDecimal> CONTAINER_WEIGHT_CAPACITY = new ObjectKey<BigDecimal>(null);

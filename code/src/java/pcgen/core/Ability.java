@@ -170,14 +170,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
 		txt.append("\tCATEGORY:").append(getCategory());
-
-		if (getChoiceToModify().length() != 0)
-		{
-            txt.append("\tMODIFYABILITYCHOICE:").append(getChoiceToModify());
-		}
-
 		txt.append(super.getPCCText(false));
-
 		return txt.toString();
 	}
 
@@ -231,29 +224,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		}
 
 		return iCount;
-	}
-
-	/**
-	 * Simple setter method for a String representing a choice that must be
-	 * made when applying this ability
-	 *
-	 * @param  choiceToModify sets the choice
-	 */
-	public void setChoiceToModify(final String choiceToModify)
-	{
-		put(StringKey.CHOICE_TO_MODIFY, choiceToModify);
-	}
-
-	/**
-	 * simple getter method for a string that represents a choice that must
-	 * be made when applying this Ability.
-	 *
-	 * @return  The choice to be made.
-	 */
-	public String getChoiceToModify()
-	{
-		final String characteristic = get(StringKey.CHOICE_TO_MODIFY);
-		return characteristic == null ? "" : characteristic;
 	}
 
     /**
