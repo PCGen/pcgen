@@ -1,31 +1,31 @@
-# CVS $Revision$ $Author$ -- Fri Sep 12 12:16:09 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Oct 23 11:46:20 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
 ###Block: Epic Horizon Walker Terrain Abilities
-# Ability Name			Category of Ability		Type				Visible		Required Ability								Var. Max. Value										Special ABility										Define					Stackable?	Multiple?	Choose		Modify VAR						Source Page
-Improved Aquatic Terrain	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Aquatic Terrain		PREVARLTEQ:ImprovedAquaticTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Aquatic Terrain Mastery +%|ImprovedAquaticTerrain		DEFINE:ImprovedAquaticTerrain|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedAquaticTerrain|1		SOURCEPAGE:epicclasses.rtf
-Improved Desert Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Desert Terrain		PREVARLTEQ:ImprovedDesertTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Desert Terrain Mastery +%|ImprovedDesertTerrain		DEFINE:ImprovedDesertTerrain|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedDesertTerrain|1		SOURCEPAGE:epicclasses.rtf
-Improved Forest Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Forest Terrain		PREVARLTEQ:ImprovedForestTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Forest Terrain Mastery +%|ImprovedForestTerrain		DEFINE:ImprovedForestTerrain|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedForestTerrain|1		SOURCEPAGE:epicclasses.rtf
-Improved Hills Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Hills Terrain		PREVARLTEQ:ImprovedHillsTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Hills Terrain Mastery +%|ImprovedHillsTerrain			DEFINE:ImprovedHillsTerrain|1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedHillsTerrain|1		SOURCEPAGE:epicclasses.rtf
-Improved Marsh Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Marsh Terrain		PREVARLTEQ:ImprovedMarshTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Marsh Terrain Mastery +%|ImprovedMarshTerrain			DEFINE:ImprovedMarshTerrain|1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedMarshTerrain|1		SOURCEPAGE:epicclasses.rtf
-Improved Mountain Terrain	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Mountain Terrain	PREVARLTEQ:ImprovedMountainTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Mountain Terrain Mastery +%|ImprovedMountainTerrain		DEFINE:ImprovedMountainTerrain|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedMountainTerrain|1		SOURCEPAGE:epicclasses.rtf
-Improved Plains Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Plains Terrain		PREVARLTEQ:ImprovedPlainsTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Plains Terrain Mastery +%|ImprovedPlainsTerrain		DEFINE:ImprovedPlainsTerrain|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedPlainsTerrain|1		SOURCEPAGE:epicclasses.rtf
-Improved Underground Terrain	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Underground Terrain	PREVARLTEQ:ImprovedUndergroundTerrain,ceil((CL=Horizon Walker)/10)	SAB:Improved Underground Terrain Mastery +%|ImprovedUndergroundTerrain	DEFINE:ImprovedUndergroundTerrain|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedUndergroundTerrain|1	SOURCEPAGE:epicclasses.rtf
-Improved Fiery Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiery Planar		PREVARLTEQ:ImprovedFieryPlanar,ceil((CL=Horizon Walker)/10)			SAB:Improved Fiery Planar Mastery +%|ImprovedFieryPlanar			DEFINE:ImprovedFieryPlanar|1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedFieryPlanar|1		SOURCEPAGE:epicclasses.rtf
-Improved Weightless Planar	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Weightless Planar	PREVARLTEQ:ImprovedWeightlessPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Weightless Planar Mastery +%|ImprovedWeightlessPlanar	DEFINE:ImprovedWeightlessPlanar|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedWeightlessPlanar|1	SOURCEPAGE:epicclasses.rtf
-Improved Cold Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Cold Planar		PREVARLTEQ:ImprovedColdPlanar,ceil((CL=Horizon Walker)/10)			SAB:Improved Cold Planar Mastery +%|ImprovedColdPlanar			DEFINE:ImprovedColdPlanar|1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedColdPlanar|1		SOURCEPAGE:epicclasses.rtf
-Improved Shifting Planar	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Shifting Planar		PREVARLTEQ:ImprovedShiftingPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Shifting Planar Mastery +%|ImprovedShiftingPlanar		DEFINE:ImprovedShiftingPlanar|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedShiftingPlanar|1		SOURCEPAGE:epicclasses.rtf
-Improved Aligned Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Aligned Planar		PREVARLTEQ:ImprovedAlignedPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Aligned Planar Mastery +%|ImprovedAlignedPlanar		DEFINE:ImprovedAlignedPlanar|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedAlignedPlanar|1		SOURCEPAGE:epicclasses.rtf
-Improved Cavernous Planar	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Cavernous Planar	PREVARLTEQ:ImprovedCavernousPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Cavernous Planar Mastery +%|ImprovedCavernousPlanar		DEFINE:ImprovedCavernousPlanar|1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedCavernousPlanar|1		SOURCEPAGE:epicclasses.rtf
-Improved Other Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Other Planar		PREVARLTEQ:ImprovedOtherPlanar,ceil((CL=Horizon Walker)/10)			SAB:Improved Other Planar Mastery +%|ImprovedOtherPlanar			DEFINE:ImprovedOtherPlanar|1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedOtherPlanar|1		SOURCEPAGE:epicclasses.rtf
+# Ability Name			Category of Ability		Type				Visible		Required Ability								Var. Max. Value										Special ABility										Define					Description					Stackable?	Multiple?	Choose		Modify VAR						Source Page
+Improved Aquatic Terrain	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Aquatic Terrain		PREVARLTEQ:ImprovedAquaticTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Aquatic Terrain Mastery +%|ImprovedAquaticTerrain		DEFINE:ImprovedAquaticTerrain|1	DESC:+%1|ImprovedAquaticTerrain	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedAquaticTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Desert Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Desert Terrain		PREVARLTEQ:ImprovedDesertTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Desert Terrain Mastery +%|ImprovedDesertTerrain		DEFINE:ImprovedDesertTerrain|1	DESC:+%1|ImprovedDesertTerrain	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedDesertTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Forest Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Forest Terrain		PREVARLTEQ:ImprovedForestTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Forest Terrain Mastery +%|ImprovedForestTerrain		DEFINE:ImprovedForestTerrain|1	DESC:+%1|ImprovedForestTerrain	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedForestTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Hills Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Hills Terrain		PREVARLTEQ:ImprovedHillsTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Hills Terrain Mastery +%|ImprovedHillsTerrain			DEFINE:ImprovedHillsTerrain|1		DESC:+%1|ImprovedHillsTerrain		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedHillsTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Marsh Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Marsh Terrain		PREVARLTEQ:ImprovedMarshTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Marsh Terrain Mastery +%|ImprovedMarshTerrain			DEFINE:ImprovedMarshTerrain|1		DESC:+%1|ImprovedMarshTerrain		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedMarshTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Mountain Terrain	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Mountain Terrain	PREVARLTEQ:ImprovedMountainTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Mountain Terrain Mastery +%|ImprovedMountainTerrain		DEFINE:ImprovedMountainTerrain|1	DESC:+%1|ImprovedMountainTerrain	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedMountainTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Plains Terrain		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Plains Terrain		PREVARLTEQ:ImprovedPlainsTerrain,ceil((CL=Horizon Walker)/10)		SAB:Improved Plains Terrain Mastery +%|ImprovedPlainsTerrain		DEFINE:ImprovedPlainsTerrain|1	DESC:+%1|ImprovedPlainsTerrain	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedPlainsTerrain|1		SOURCEPAGE:epicclasses.rtf
+Improved Underground Terrain	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Underground Terrain	PREVARLTEQ:ImprovedUndergroundTerrain,ceil((CL=Horizon Walker)/10)	SAB:Improved Underground Terrain Mastery +%|ImprovedUndergroundTerrain	DEFINE:ImprovedUndergroundTerrain|1	DESC:+%1|ImprovedUndergroundTerrain	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedUndergroundTerrain|1	SOURCEPAGE:epicclasses.rtf
+Improved Fiery Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fiery Planar		PREVARLTEQ:ImprovedFieryPlanar,ceil((CL=Horizon Walker)/10)			SAB:Improved Fiery Planar Mastery +%|ImprovedFieryPlanar			DEFINE:ImprovedFieryPlanar|1		DESC:+%1|ImprovedFieryPlanar		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedFieryPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Weightless Planar	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Weightless Planar	PREVARLTEQ:ImprovedWeightlessPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Weightless Planar Mastery +%|ImprovedWeightlessPlanar	DEFINE:ImprovedWeightlessPlanar|1	DESC:+%1|ImprovedWeightlessPlanar	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedWeightlessPlanar|1	SOURCEPAGE:epicclasses.rtf
+Improved Cold Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Cold Planar		PREVARLTEQ:ImprovedColdPlanar,ceil((CL=Horizon Walker)/10)			SAB:Improved Cold Planar Mastery +%|ImprovedColdPlanar			DEFINE:ImprovedColdPlanar|1		DESC:+%1|ImprovedColdPlanar		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedColdPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Shifting Planar	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Shifting Planar		PREVARLTEQ:ImprovedShiftingPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Shifting Planar Mastery +%|ImprovedShiftingPlanar		DEFINE:ImprovedShiftingPlanar|1	DESC:+%1|ImprovedShiftingPlanar	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedShiftingPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Aligned Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Aligned Planar		PREVARLTEQ:ImprovedAlignedPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Aligned Planar Mastery +%|ImprovedAlignedPlanar		DEFINE:ImprovedAlignedPlanar|1	DESC:+%1|ImprovedAlignedPlanar	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedAlignedPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Cavernous Planar	CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Cavernous Planar	PREVARLTEQ:ImprovedCavernousPlanar,ceil((CL=Horizon Walker)/10)		SAB:Improved Cavernous Planar Mastery +%|ImprovedCavernousPlanar		DEFINE:ImprovedCavernousPlanar|1	DESC:+%1|ImprovedCavernousPlanar	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedCavernousPlanar|1		SOURCEPAGE:epicclasses.rtf
+Improved Other Planar		CATEGORY:Special Ability	TYPE:ImprovedTerrain	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Other Planar		PREVARLTEQ:ImprovedOtherPlanar,ceil((CL=Horizon Walker)/10)			SAB:Improved Other Planar Mastery +%|ImprovedOtherPlanar			DEFINE:ImprovedOtherPlanar|1		DESC:+%1|ImprovedOtherPlanar		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|ImprovedOtherPlanar|1		SOURCEPAGE:epicclasses.rtf
 
 ###Block: Epic Infiltrator Specialist Training
-# Ability Name		Category of Ability		Type				Visible		Required Class			Special ABility							Define			Stackable?	Multiple?	Choose		Bonus to skill												Modify VAR				Source Page
-Concealment Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Concealment) +%|EIConcealment	DEFINE:EIConcealment|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Bluff,Disguise,Forgery|EIConcealment						BONUS:VAR|EIConcealment|3	SOURCEPAGE:epicprestigeclasses.rtf
-Subterfuge Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Subterfuge) +%|EISubterfuge	DEFINE:EISubterfuge|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Hide,Move Silently,Open Lock,Sleight of Hand|EISubterfuge			BONUS:VAR|EISubterfuge|3	SOURCEPAGE:epicprestigeclasses.rtf
-Espionage Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Espionage) +%|EIEspionage	DEFINE:EIEspionage|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Listen,Search,Spot|EIEspionage							BONUS:VAR|EIEspionage|3		SOURCEPAGE:epicprestigeclasses.rtf
-Interaction Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Interaction) +%|EIInteraction	DEFINE:EIInteraction|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Diplomacy,Gather Information,Intimidate,Sense Motive|EIInteraction	BONUS:VAR|EIInteraction|3	SOURCEPAGE:epicprestigeclasses.rtf
+# Ability Name		Category of Ability		Type				Visible		Required Class			Special ABility							Define			Description			Stackable?	Multiple?	Choose		Bonus to skill												Modify VAR				Source Page
+Concealment Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Concealment) +%|EIConcealment	DEFINE:EIConcealment|0	DESC:+%1|EIConcealment	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Bluff,Disguise,Forgery|EIConcealment						BONUS:VAR|EIConcealment|3	SOURCEPAGE:epicprestigeclasses.rtf
+Subterfuge Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Subterfuge) +%|EISubterfuge	DEFINE:EISubterfuge|0	DESC:+%1|EISubterfuge	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Hide,Move Silently,Open Lock,Sleight of Hand|EISubterfuge			BONUS:VAR|EISubterfuge|3	SOURCEPAGE:epicprestigeclasses.rtf
+Espionage Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Espionage) +%|EIEspionage	DEFINE:EIEspionage|0	DESC:+%1|EIEspionage	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Listen,Search,Spot|EIEspionage							BONUS:VAR|EIEspionage|3		SOURCEPAGE:epicprestigeclasses.rtf
+Interaction Specialist	CATEGORY:Special Ability	TYPE:SpecialistTraining	VISIBLE:DISPLAY	PRECLASS:1,Epic Infiltrator=2	SAB:Specalist Training (Interaction) +%|EIInteraction	DEFINE:EIInteraction|0	DESC:+%1|EIInteraction	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Diplomacy,Gather Information,Intimidate,Sense Motive|EIInteraction	BONUS:VAR|EIInteraction|3	SOURCEPAGE:epicprestigeclasses.rtf
 
 ###Block: Epic Spellcasting Support
 # Ability Name					Category of Ability		Type			Visible		Add 							Bonus to spell cast/day
@@ -37,71 +37,70 @@ Epic Spellcaster (Divine/WIS Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells
 Epic Spellcaster (Divine/CHA Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Divine/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Divine/CHA);LEVEL=10|EpicSpellsPerDay
 
 ###Block: Cosmic Descryer Naturalization
-# Feat Name		Category of Ability		Type				Visible	Special ABility						Define				Source Page
-# Ability Name	Category of Ability		Type				Visible	Special ABility						Define				Source Page
-Naturalization	CATEGORY:Special Ability	TYPE:Naturalization	VISIBLE:NO	SAB:Naturalization (% planes)|CSNaturalization	DEFINE:CSNaturalization|0	SOURCEPAGE:epicclasses.rtf
+# Ability Name	Category of Ability		Type				Visible	Special ABility						Define				Description					Source Page
+Naturalization	CATEGORY:Special Ability	TYPE:Naturalization	VISIBLE:NO	SAB:Naturalization (% planes)|CSNaturalization	DEFINE:CSNaturalization|0	DESC:%1 planes|CSNaturalization	SOURCEPAGE:epicclasses.rtf
 
 ###Block: Mod Shadow Jump:
 # Feat Name		Special ABility																																								Define
-# Ability Name					Special ABility																																								Define
-CATEGORY=Special Ability|Shadow Jump.MOD	SAB:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SAB:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SAB:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0
+# Ability Name					Special ABility																																								Define			Description
+CATEGORY=Special Ability|Shadow Jump.MOD	SAB:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SAB:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SAB:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0	DESC:%1 ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	DESC:%1 mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	DESC:%1 AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3
 
 ###Block: Agent Retriever Abilities
-# Ability Name				Category of Ability		Type					Visible	Special ABility									Define				Modify VAR
+# Ability Name				Category of Ability		Type					Visible	Special ABility									Define				Description								Modify VAR
 Uncanny Location				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Uncanny Location (Sp)
-Agent Retriever Tracking Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:NO	SAB:Tracking Bonus +%|ARTracking						DEFINE:ARTracking|0
-Force Sphere				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Force Sphere (Sp) %/day DC %|ForceSphereTimes|20+(CL/2)+DEX	DEFINE:ForceSphereTimes|0	BONUS:VAR|ForceSphereTimes|(CL+2)/5
+Agent Retriever Tracking Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:NO	SAB:Tracking Bonus +%|ARTracking						DEFINE:ARTracking|0		DESC:+%1|ARTracking
+Force Sphere				CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike	VISIBLE:NO	SAB:Force Sphere (Sp) %/day DC %|ForceSphereTimes|20+(CL/2)+DEX	DEFINE:ForceSphereTimes|0	DESC:%1/day DC %2|ForceSphereTimes|20+(CL/2)+DEX	BONUS:VAR|ForceSphereTimes|(CL+2)/5
 
 ###Block: Cosmic Descryer Abilities
-# Ability Name			Category of Ability		Type						Visible	Special ABility								Define
-Superior Planar Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Superior Planar Summoning (Ex) +% HD|SuperiorSummoning	DEFINE:SuperiorSummoning|0
-Enduring Gate			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Enduring Gate (Su) % days|EnduringGate			DEFINE:EnduringGate|0
-Cosmic Connection			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cosmic Connection (Su) %/day|CosmicConnection		DEFINE:CosmicConnection|0
+# Ability Name			Category of Ability		Type						Visible	Special ABility								Define				Description
+Superior Planar Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Superior Planar Summoning (Ex) +% HD|SuperiorSummoning	DEFINE:SuperiorSummoning|0	DESC:+%1 HD|SuperiorSummoning
+Enduring Gate			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Enduring Gate (Su) % days|EnduringGate			DEFINE:EnduringGate|0		DESC:%1 days|EnduringGate
+Cosmic Connection			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Cosmic Connection (Su) %/day|CosmicConnection		DEFINE:CosmicConnection|0	DESC:%1/day|CosmicConnection
 
 ###Block: Divine Emissary Abilities
-# Ability Name		Category of Ability		Type						Visible	Special ABility							Define
-Divine Inspiration	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Divine Inspiration (Sp) %/day|DEDivineInspiration	DEFINE:DEDivineInspiration|0
-Divine Hand			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Divine Hand (Su) %/day|DEDivineHand			DEFINE:DEDivineHand|0
+# Ability Name		Category of Ability		Type						Visible	Special ABility							Define				Description
+Divine Inspiration	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Divine Inspiration (Sp) %/day|DEDivineInspiration	DEFINE:DEDivineInspiration|0	DESC:%1/day|DEDivineInspiration
+Divine Hand			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Divine Hand (Su) %/day|DEDivineHand			DEFINE:DEDivineHand|0		DESC:%1/day|DEDivineHand
 
 ###Block: Epic Infiltrator Abilities
-# Ability Name		Category of Ability		Type						Visible	Special ABility								Define
-Improved Cover Identity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Improved Cover Identity (Ex/Su) %/day|EICover		DEFINE:EICover|0
-Read Thoughts		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Read Thoughts (Su) %/day|EIReadThoughts			DEFINE:EIReadThoughts|0
-Far Senses			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Far Senses (Su) %/day % ft|EIFarSenses|FarSensesRange	DEFINE:EIFarSenses|0	DEFINE:FarSensesRange|0
+# Ability Name		Category of Ability		Type								Visible	Special ABility								Define							Description
+Improved Cover Identity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Improved Cover Identity (Ex/Su) %/day|EICover		DEFINE:EICover|0						DESC:%1/day|EICover
+Read Thoughts		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:NO	SAB:Read Thoughts (Su) %/day|EIReadThoughts			DEFINE:EIReadThoughts|0					DESC:%1/day|EIReadThoughts
+Far Senses			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:NO	SAB:Far Senses (Su) %/day % ft|EIFarSenses|FarSensesRange	DEFINE:EIFarSenses|0	DEFINE:FarSensesRange|0	DESC:%1/day %2 ft|EIFarSenses|FarSensesRange
 
 ###Block: Guardian Paramount Abilities
-# Ability Name					Output Name				Category of Ability		Type						Visible	Special ABility						Define
-Uncanny Dodge Enabler									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler	DEFINE:GPEnabler|0
-Evasive Preceptor										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Evasive Preceptor (Ex) %/day|GPPreceptor	DEFINE:GPPreceptor|0
-Protective Aura ~ Guardian Paramount	OUTPUTNAME:Protective Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Protective Aura (Sp) %/day|GPAura		DEFINE:GPAura|0
-Adjust Probability									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Adjust Probability (Ex) %/day|GPProbability	DEFINE:GPProbability|0
-Call Back											CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Call Back (Sp) %/day|GPCallBack			DEFINE:GPCallBack|0
+# Ability Name					Output Name				Category of Ability		Type								Visible	Special ABility						Define			Description
+Uncanny Dodge Enabler									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:NO	SAB:Uncanny Dodge Enabler (Ex) %/day|GPEnabler	DEFINE:GPEnabler|0	DESC:%1/day|GPEnabler
+Evasive Preceptor										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Evasive Preceptor (Ex) %/day|GPPreceptor	DEFINE:GPPreceptor|0	DESC:%1/day|GPPreceptor
+Protective Aura ~ Guardian Paramount	OUTPUTNAME:Protective Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:NO	SAB:Protective Aura (Sp) %/day|GPAura		DEFINE:GPAura|0		DESC:%1/day|GPAura
+Adjust Probability									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Adjust Probability (Ex) %/day|GPProbability	DEFINE:GPProbability|0	DESC:%1/day|GPProbability
+Call Back											CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:NO	SAB:Call Back (Sp) %/day|GPCallBack			DEFINE:GPCallBack|0	DESC:%1/day|GPCallBack
 
 ###Block: High Proselytizer Abilities
-# Ability Name	Category of Ability		Type					Visible	Special ABility								Define
-Proselytize		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Sp) %/day|HPProsetilyze				DEFINE:HPProsetilyze|0
-Deific Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Touch) (Sp) %/day|HPProsetilyzeDT	DEFINE:HPProsetilyzeDT|0
-Deific Word		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Word) (Sp) %/day|HPProsetilyzeDW	DEFINE:HPProsetilyzeDW|0
-Deific Face		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Face) (Sp) %/day|HPProsetilyzeDF	DEFINE:HPProsetilyzeDF|0
-Deific Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Aura) (Sp) %/day|HPProsetilyzeDA	DEFINE:HPProsetilyzeDA|0
+# Ability Name	Category of Ability		Type					Visible	Special ABility								Define				Description
+Proselytize		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Sp) %/day|HPProsetilyze				DEFINE:HPProsetilyze|0		DESC:%1/day|HPProsetilyze
+Deific Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Touch) (Sp) %/day|HPProsetilyzeDT	DEFINE:HPProsetilyzeDT|0	DESC:%1/day|HPProsetilyzeDT
+Deific Word		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Word) (Sp) %/day|HPProsetilyzeDW	DEFINE:HPProsetilyzeDW|0	DESC:%1/day|HPProsetilyzeDW
+Deific Face		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Face) (Sp) %/day|HPProsetilyzeDF	DEFINE:HPProsetilyzeDF|0	DESC:%1/day|HPProsetilyzeDF
+Deific Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:NO	SAB:Proselytize (Deific Aura) (Sp) %/day|HPProsetilyzeDA	DEFINE:HPProsetilyzeDA|0	DESC:%1/day|HPProsetilyzeDA
 
 ###Block: Legendary Dreadnought Abilities
-# Ability Name		Category of Ability		Type						Visible	Special ABility					Define			Damage reduction			Bonus to HP
-Unstoppable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unstoppable (Ex) %/day|LDUnstoppable	DEFINE:LDUnstoppable|0
-Unmovable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unmovable (Ex) %/day|LDUnmovable	DEFINE:LDUnmovable|0
-Shrug Off Punishment	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Shrug Off Punishment (Ex)			DEFINE:LDShrugOff|0						BONUS:HP|CURRENTMAX|LDShrugOff
-Thick Skinned		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Thick Skinned (Ex)				DEFINE:ThickSkinnedDR|0	BONUS:DR|-|ThickSkinnedDR
+# Ability Name		Category of Ability		Type								Visible	Special ABility					Define			Description				Damage reduction			Bonus to HP
+Unstoppable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Unstoppable (Ex) %/day|LDUnstoppable	DEFINE:LDUnstoppable|0	DESC:%1/day|LDUnstoppable
+Unmovable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Unmovable (Ex) %/day|LDUnmovable	DEFINE:LDUnmovable|0	DESC:%1/day|LDUnmovable
+Shrug Off Punishment	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:NO	SAB:Shrug Off Punishment (Ex)			DEFINE:LDShrugOff|0											BONUS:HP|CURRENTMAX|LDShrugOff
+Thick Skinned		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:NO	SAB:Thick Skinned (Ex)				DEFINE:ThickSkinnedDR|0						BONUS:DR|-|ThickSkinnedDR
 
 ###Block: Perfect Wight Abilities
-# Ability Name			Output Name			Category of Ability		Type						Visible	Special ABility							Define
-Improved Legerdemain						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Improved Legerdemain (Su) %/day|PWLengerdemain	DEFINE:PWLengerdemain|0
-Incorporeal ~ Perfect Wight	OUTPUTNAME:Incorporeal	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Incorporeal (Su) %/day|PWIncorporeal			DEFINE:PWIncorporeal|0
-Shadow Form								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shadow Form (Su) %/day|PWShadowForm			DEFINE:PWShadowForm|0
+# Ability Name			Output Name			Category of Ability		Type						Visible	Special ABility							Define			Description
+Improved Legerdemain						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Improved Legerdemain (Su) %/day|PWLengerdemain	DEFINE:PWLengerdemain|0	DESC:%1/day|PWLengerdemain
+Incorporeal ~ Perfect Wight	OUTPUTNAME:Incorporeal	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Incorporeal (Su) %/day|PWIncorporeal			DEFINE:PWIncorporeal|0	DESC:%1/day|PWIncorporeal
+Shadow Form								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Shadow Form (Su) %/day|PWShadowForm			DEFINE:PWShadowForm|0	DESC:%1/day|PWShadowForm
 
 ###Block: Union Sentinel Abilities
-# Ability Name	Category of Ability		Type						Visible	Special ABility																		Define
-Portal Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Portal Guardian (Su) %/day|USPortalGuardian													DEFINE:USPortalGuardian|0
-Imprisonment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Imprisonment (Sp) %/week|USImprisonment|PREVARGT:USImprisonment,0	SAB:Imprisonment (Sp)|PREVAREQ:USImprisonment,0	DEFINE:USImprisonment|0
+# Ability Name	Category of Ability		Type						Visible	Special ABility																		Define				Description
+Portal Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Portal Guardian (Su) %/day|USPortalGuardian													DEFINE:USPortalGuardian|0	DESC:%1/day|USPortalGuardian
+Imprisonment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:NO	SAB:Imprisonment (Sp) %/week|USImprisonment|PREVARGT:USImprisonment,0	SAB:Imprisonment (Sp)|PREVAREQ:USImprisonment,0	DEFINE:USImprisonment|0		DESC:%1/week|USImprisonment|PREVARGT:USImprisonment,0
 
 #
 # End

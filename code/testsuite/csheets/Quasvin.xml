@@ -1398,7 +1398,7 @@ BIO
 		<ability_object>
 			<name>Psion Weapon Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

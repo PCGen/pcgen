@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 15:38:23 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Oct 25 16:06:21 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -105,16 +105,12 @@ CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Psicrystal Affinity	PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
-1										ABILITY:Special Ability|AUTOMATIC|Free Manifesting 1
-2	BONUS:VAR|CogPsiCrystal|5	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cognizance Psicrystal
-3										ABILITY:Special Ability|AUTOMATIC|Free Manifesting 2
-4	BONUS:VAR|CogPsiCrystal|2	ADD:SPELLCASTER|Psionic
-5										ABILITY:Special Ability|AUTOMATIC|Free Manifesting 3
-6	BONUS:VAR|CogPsiCrystal|2	ADD:SPELLCASTER|Psionic
-7										ABILITY:Special Ability|AUTOMATIC|Free Manifesting 4
-8	BONUS:VAR|CogPsiCrystal|2	ADD:SPELLCASTER|Psionic
-9										ABILITY:Special Ability|AUTOMATIC|Free Manifesting 5
-10						ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power
+1	BONUS:VAR|FreeManifestingProgression|(CL+1)/2					ABILITY:Special Ability|AUTOMATIC|Free Manifesting
+2	BONUS:VAR|CogPsiCrystal|5				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cognizance Psicrystal
+4	BONUS:VAR|CogPsiCrystal|2				ADD:SPELLCASTER|Psionic
+6	BONUS:VAR|CogPsiCrystal|2				ADD:SPELLCASTER|Psionic
+8	BONUS:VAR|CogPsiCrystal|2				ADD:SPELLCASTER|Psionic
+10									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity

@@ -25,7 +25,6 @@ INFOTEXT:RSRD Psionics options. Requires the RSRD Basics set.
 #EXTRAFILE:notes.txt
 
 # Psionics
-ABILITY:rsrd_abilities_psionic_hidden.lst
 ABILITY:rsrd_abilities_psionic.lst
 
 ABILITYCATEGORY:rsrd_ability_categories_psionic.lst
@@ -37,7 +36,6 @@ RACE:rsrd_races_psionic_p_z.lst
 TEMPLATE:rsrd_templates_psionic.lst
 SKILL:rsrd_skills_psionic.lst
 FEAT:rsrd_feats_psionic.lst
-FEAT:rsrd_feats_psionic_hidden.lst
 WEAPONPROF:rsrd_weaponprofs_psionic.lst
 CLASS:rsrd_classes_psionic.lst
 CLASS:rsrd_classes_psionic_prestige.lst

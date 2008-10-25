@@ -159,7 +159,7 @@ TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates_monsters.lst
 TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
 
 # RSRD Imports -  Psionics
-ABILITY:@/d20ogl/srd35/psionics/rsrd_abilities_psionic_hidden.lst
+ABILITY:@/d20ogl/srd35/psionics/rsrd_abilities_psionic.lst
 ABILITYCATEGORY:@/d20ogl/srd35/psionics/rsrd_ability_categories_psionic.lst
 CLASS:@/d20ogl/srd35/psionics/rsrd_classes_psionic_monsters.lst
 CLASS:@/d20ogl/srd35/psionics/rsrd_classes_psionic_prestige.lst
@@ -169,7 +169,6 @@ EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_psionic.lst
 EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_weap_psionic.lst
 EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic_enhancing.lst
 EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic.lst
-FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic_hidden.lst
 FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic.lst|(EXCLUDE:CATEGORY=FEAT,Speed of Thought,Psychic Inquisitor)
 SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst
 SKILL:@/d20ogl/srd35/psionics/rsrd_skills_psionic.lst
