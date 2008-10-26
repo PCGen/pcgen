@@ -49,15 +49,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
-import java.util.SortedSet;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -97,14 +94,13 @@ import pcgen.core.Globals;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
-import pcgen.core.SystemCollections;
-import pcgen.core.UnitSet;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.prefs.CharacterStatsPanel;
 import pcgen.gui.prefs.CopySettingsPanel;
 import pcgen.gui.prefs.ExperiencePanel;
+import pcgen.gui.prefs.LanguagePanel;
 import pcgen.gui.prefs.MonsterPanel;
 import pcgen.gui.prefs.PCGenPrefsPanel;
 import pcgen.gui.utils.JComboBoxEx;
@@ -135,8 +131,6 @@ final class PreferencesDialog extends JDialog
 			new String[SPELLLVLMAX - SPELLLVLMIN + 1];
 
 	// Resource strings
-	private static String in_abilities =
-			PropertyFactory.getString("in_Prefs_abilities");
 	private static String in_allowMetamagic =
 			PropertyFactory.getString("in_Prefs_allowMetamagic");
 	private static String in_allowOverride =
@@ -218,22 +212,6 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_invalidDmgText");
 	private static String in_loadURLs =
 			PropertyFactory.getString("in_Prefs_loadURLs");
-	private static String in_language =
-			PropertyFactory.getString("in_Prefs_language");
-	private static String in_langEnglish =
-			PropertyFactory.getString("in_Prefs_langEnglish");
-	private static String in_langFrench =
-			PropertyFactory.getString("in_Prefs_langFrench");
-	private static String in_langGerman =
-			PropertyFactory.getString("in_Prefs_langGerman");
-	private static String in_langItalian =
-			PropertyFactory.getString("in_Prefs_langItalian");
-	private static String in_langSpanish =
-			PropertyFactory.getString("in_Prefs_langSpanish");
-	private static String in_langPortuguese =
-			PropertyFactory.getString("in_Prefs_langPortuguese");
-	private static String in_langSystem =
-			PropertyFactory.getString("in_Prefs_langSystem");
 	private static String in_location =
 			PropertyFactory.getString("in_Prefs_location");
 	private static String in_lookAndFeel =
@@ -327,8 +305,6 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_tabPosRight");
 	private static String in_tabAbilities =
 			PropertyFactory.getString("in_Prefs_tabAbilities");
-	private static String in_unitSetType =
-			PropertyFactory.getString("in_Prefs_unitSetType");
 	private static String in_useAutoWaitCursor =
 			PropertyFactory.getString("in_Prefs_useAutoWaitCursor");
 	private static String in_useOutputNamesEquipment =
@@ -439,7 +415,6 @@ final class PreferencesDialog extends JDialog
 	private JComboBoxEx skillChoice = new JComboBoxEx();
 	private JComboBoxEx sourceOptions = new JComboBoxEx();
 	private JComboBoxEx tabLabelsCombo;
-	private JComboBoxEx unitSetType = new JComboBoxEx();
 	private JComboBoxEx wandMaxLevel = new JComboBoxEx();
 	private JPanel controlPanel;
 	private JPanel settingsPanel;
@@ -460,13 +435,6 @@ final class PreferencesDialog extends JDialog
 			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAverageRoundedUp"));
 
 	// Language
-	private JRadioButton langEng;
-	private JRadioButton langFre;
-	private JRadioButton langGer;
-	private JRadioButton langIt;
-	private JRadioButton langEs;
-	private JRadioButton langPt;
-	private JRadioButton langSystem;
 	private JRadioButton noAutoEquipCreate;
 	private JRadioButton pcgenFilesDirRadio;
 	private JRadioButton selectFilesDirRadio;
@@ -522,10 +490,11 @@ final class PreferencesDialog extends JDialog
 	// Look and Feel
 	private JRadioButton[] laf;
 	private String[] paperNames = null;
-	private String[] unitSetNames = null;
 
 	// "Character Stats"
 	private PCGenPrefsPanel characterStatsPanel;
+
+	private LanguagePanel languagePanel;
 
 	// "Monsters"
 	private PCGenPrefsPanel monsterPanel;
@@ -928,45 +897,8 @@ final class PreferencesDialog extends JDialog
 			.isSelected()); // Now set it properly
 
 		// Language
-		if (langEng.isSelected())
-		{
-			Globals.setLanguage("en");
-			Globals.setCountry("US");
-		}
-		else if (langFre.isSelected())
-		{
-			Globals.setLanguage("fr");
-			Globals.setCountry("FR");
-		}
-		else if (langGer.isSelected())
-		{
-			Globals.setLanguage("de");
-			Globals.setCountry("DE");
-		}
-		else if (langIt.isSelected())
-		{
-			Globals.setLanguage("it");
-			Globals.setCountry("IT");
-		}
-		else if (langEs.isSelected())
-		{
-			Globals.setLanguage("es");
-			Globals.setCountry("ES");
-		}
-		else if (langPt.isSelected())
-		{
-			Globals.setLanguage("pt");
-			Globals.setCountry("PT");
-		}
-		else if (langSystem.isSelected())
-		{
-			Globals.setLanguage(null);
-			Globals.setCountry(null);
-		}
-
-		SettingsHandler.getGame().selectUnitSet(
-			(String) unitSetType.getSelectedItem());
-
+		languagePanel.setOptionsBasedOnControls();
+		
 		// Input
 		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages
 			.isSelected());
@@ -1359,59 +1291,8 @@ final class PreferencesDialog extends JDialog
 			.isSelected()); // Reset its state now we are done
 
 		// Language
-		langEng.setSelected(false);
-		langFre.setSelected(false);
-		langGer.setSelected(false);
-		langIt.setSelected(false);
-		langEs.setSelected(false);
-		langPt.setSelected(false);
-		langSystem.setSelected(false);
-
-		String language = Globals.getLanguage();
-		if (language == null || language.equals(""))
-		{
-			langSystem.setSelected(true);
-		}
-		else if (Globals.getLanguage().equals("en"))
-		{
-			langEng.setSelected(true);
-		}
-		else if (Globals.getLanguage().equals("fr"))
-		{
-			langFre.setSelected(true);
-		}
-		else if (Globals.getLanguage().equals("de"))
-		{
-			langGer.setSelected(true);
-		}
-		else if (Globals.getLanguage().equals("it"))
-		{
-			langIt.setSelected(true);
-		}
-		else if (Globals.getLanguage().equals("es"))
-		{
-			langEs.setSelected(true);
-		}
-		else if (Globals.getLanguage().equals("pt"))
-		{
-			langPt.setSelected(true);
-		}
-		else
-		{
-			// Default to English
-			langSystem.setSelected(true);
-		}
-
-		unitSetType.setSelectedIndex(0);
-		for (int i = 0; i < SystemCollections.getUnitSetList().size(); ++i)
-		{
-			if (unitSetNames[i].equals(SettingsHandler.getGameModeUnitSet()
-				.getName()))
-			{
-				unitSetType.setSelectedIndex(i);
-			}
-		}
-
+		languagePanel.applyOptionValuesToControls();
+		
 		// Locations
 		pcgenCreateBackupCharacter.setSelected(SettingsHandler
 			.getCreatePcgBackup());
@@ -1479,7 +1360,7 @@ final class PreferencesDialog extends JDialog
 		copySettingsPanel.applyOptionValuesToControls();
 		copySettingsPanel.registerAffectedPanel(characterStatsPanel);
 		copySettingsPanel.registerAffectedPanel(experiencePanel);
-		//TODO: Need to add langages tab
+		copySettingsPanel.registerAffectedPanel(languagePanel);
 
 	}
 
@@ -2068,98 +1949,6 @@ final class PreferencesDialog extends JDialog
 		houseRulesPanel.add(label);
 
 		return houseRulesPanel;
-	}
-
-	private JPanel buildLanguagePanel()
-	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JLabel label;
-		ButtonGroup exclusiveGroup;
-		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_language);
-		JPanel langPanel = new JPanel();
-
-		title1.setTitleJustification(TitledBorder.LEFT);
-		langPanel.setBorder(title1);
-		langPanel.setLayout(gridbag);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
-		c.insets = new Insets(2, 2, 2, 2);
-		exclusiveGroup = new ButtonGroup();
-
-		int line = 0;
-
-		// Use OS system language
-		line =
-				addLanguageOption(line, c, gridbag, langPanel, langSystem =
-						new JRadioButton(in_langSystem), exclusiveGroup);
-
-		final SortedSet<JRadioButton> sorted =
-				new TreeSet<JRadioButton>(new Comparator<JRadioButton>()
-				{
-					public int compare(final JRadioButton o1,
-						final JRadioButton o2)
-					{
-						return o1.getText().compareToIgnoreCase(o2.getText());
-					}
-				});
-
-		sorted.add(langEng = new JRadioButton(in_langEnglish));
-		sorted.add(langFre = new JRadioButton(in_langFrench));
-		sorted.add(langGer = new JRadioButton(in_langGerman));
-		sorted.add(langIt = new JRadioButton(in_langItalian));
-		sorted.add(langEs = new JRadioButton(in_langSpanish));
-		sorted.add(langPt = new JRadioButton(in_langPortuguese));
-
-		for (JRadioButton b : sorted)
-		{
-			line =
-					addLanguageOption(line, c, gridbag, langPanel, b,
-						exclusiveGroup);
-		}
-
-		Utility.buildConstraints(c, 0, line++, 1, 1, 0, 0);
-		label = new JLabel(in_unitSetType + ": ");
-		gridbag.setConstraints(label, c);
-		langPanel.add(label);
-
-		Utility.buildConstraints(c, 1, line++, 2, 1, 0, 0);
-		Map<String, UnitSet> unitSetList = SystemCollections.getUnitSetList();
-		unitSetNames = new String[unitSetList.size()];
-		int i = 0;
-		for (UnitSet unitSet : unitSetList.values())
-		{
-			if (unitSet != null)
-			{
-				unitSetNames[i++] = unitSet.getName();
-			}
-		}
-
-		unitSetType = new JComboBoxEx(unitSetNames);
-		gridbag.setConstraints(unitSetType, c);
-		langPanel.add(unitSetType);
-
-		Utility.buildConstraints(c, 5, line, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
-		gridbag.setConstraints(label, c);
-		langPanel.add(label);
-
-		return langPanel;
-	}
-
-	private static int addLanguageOption(int line,
-		final GridBagConstraints constraints, final GridBagLayout gridbag,
-		final JPanel panel, final JRadioButton button, final ButtonGroup group)
-	{
-		Utility.buildConstraints(constraints, 0, line++, 2, 1, 0, 0);
-		gridbag.setConstraints(button, constraints);
-		panel.add(button);
-		group.add(button);
-
-		return line;
 	}
 
 	private JPanel buildLevelUpPanel()
@@ -2945,9 +2734,10 @@ final class PreferencesDialog extends JDialog
 		settingsPanel.add(buildEmptyPanel("", PropertyFactory
 			.getString("in_Prefs_charTip")), in_character);
 
-		characterNode.add(new DefaultMutableTreeNode(in_abilities));
 		characterStatsPanel = new CharacterStatsPanel(this);
-		settingsPanel.add(characterStatsPanel, in_abilities);
+		characterNode.add(new DefaultMutableTreeNode(characterStatsPanel
+			.getTitle()));
+		settingsPanel.add(characterStatsPanel, characterStatsPanel.getTitle());
 		characterNode.add(new DefaultMutableTreeNode(in_hp));
 		settingsPanel.add(buildHitPointsPanel(), in_hp);
 		characterNode.add(new DefaultMutableTreeNode(in_houseRules));
@@ -2983,8 +2773,9 @@ final class PreferencesDialog extends JDialog
 
 		pcGenNode.add(new DefaultMutableTreeNode(in_equipment));
 		settingsPanel.add(buildEquipmentPanel(), in_equipment);
-		pcGenNode.add(new DefaultMutableTreeNode(in_language));
-		settingsPanel.add(buildLanguagePanel(), in_language);
+		languagePanel = new LanguagePanel();
+		pcGenNode.add(new DefaultMutableTreeNode(languagePanel.getTitle()));
+		settingsPanel.add(languagePanel, languagePanel.getTitle());
 		pcGenNode.add(new DefaultMutableTreeNode(in_location));
 		settingsPanel.add(buildLocationPanel(), in_location);
 		pcGenNode.add(new DefaultMutableTreeNode(in_input));
@@ -3052,6 +2843,7 @@ final class PreferencesDialog extends JDialog
 		settingsTree.expandPath(new TreePath(characterNode.getPath()));
 		settingsTree.expandPath(new TreePath(pcGenNode.getPath()));
 		settingsTree.expandPath(new TreePath(appearanceNode.getPath()));
+		settingsTree.expandPath(new TreePath(gameModeNode.getPath()));
 		settingsTree.expandPath(new TreePath(pluginNode.getPath()));
 
 		// Add the listener which switches panels when a node of the tree is selected
