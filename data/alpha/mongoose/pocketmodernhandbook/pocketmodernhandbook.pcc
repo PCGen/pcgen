@@ -24,6 +24,11 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_class.lst
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_occupations.lst
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_racial.lst
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
+ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
 CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_advanced.lst
 CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_npc.lst
 CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
@@ -38,20 +43,27 @@ EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_ranged_fire
 EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_vehicles.lst
 EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
 FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst
-FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats_occupations.lst
-RACE:@/d20ogl/msrd/basics/modern_basics/modernbasics_race_human.lst
-WEAPONPROF:@/d20ogl/msrd/basics/modern_basics/modernbasics_weaponprofs.lst
+KIT:@/d20ogl/msrd/basics/modern_basics/modernbasics_kits_defaultmonsters_animals.lst
 LANGUAGE:@/d20ogl/msrd/basics/modern_basics/modernbasics_languages.lst
-TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
+RACE:@/d20ogl/msrd/basics/modern_basics/modernbasics_race_human.lst
+RACE:@/d20ogl/msrd/basics/modern_basics/modernbasics_races_animals.lst
 SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst
+TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
+ARMORPROF:@/d20ogl/msrd/basics/modern_basics/modernbasics_profs_armor.lst
+SHIELDPROF:@/d20ogl/msrd/basics/modern_basics/modernbasics_profs_shields.lst
+WEAPONPROF:@/d20ogl/msrd/basics/modern_basics/modernbasics_weaponprofs.lst
 
 
 # Creatures
+ABILITY:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_abilities_monster.lst
+ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_ability_categories.lst
 KIT:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_kits_defaultmonsters.lst
 RACE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_races.lst
 TEMPLATE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_templates.lst
 
 # FX
+ABILITY:@/d20ogl/msrd/basics/modern_fx/modernfx_abilities_class.lst
+ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_fx/modernfx_ability_categories.lst
 CLASS:@/d20ogl/msrd/basics/modern_fx/modernfx_classes.lst
 COMPANIONMOD:@/d20ogl/msrd/basics/modern_fx/modernfx_companionmods.lst
 EQUIPMENT:@/d20ogl/msrd/basics/modern_fx/modernfx_equip.lst
@@ -59,4 +71,6 @@ EQUIPMOD:@/d20ogl/msrd/basics/modern_fx/modernfx_equipmods.lst
 SPELL:@/d20ogl/msrd/basics/modern_fx/modernfx_powers.lst
 SPELL:@/d20ogl/msrd/basics/modern_fx/modernfx_spells.lst
 SKILL:@/d20ogl/msrd/basics/modern_fx/modernfx_skills.lst
+SHIELDPROF:@/d20ogl/msrd/basics/modern_fx/modernfx_profs_shield.lst
+WEAPONPROF:@/d20ogl/msrd/basics/modern_fx/modernfx_weaponprofs.lst
 
