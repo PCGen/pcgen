@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  */
-package pcgen.gui;
+package pcgen.gui.prefs;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.*;
@@ -32,10 +32,16 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
+ * The Class <code>PurchaseModeFrame</code> is responsible for displaying  
+ * the character stats purchase mode (aka point buy) configuration dialog.  
+ * 
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ * 
  * @author Chris Ryan
  * @version    $Revision$
  */
-final class PurchaseModeFrame extends JDialog
+public final class PurchaseModeFrame extends JDialog
 {
 	static final long serialVersionUID = -5244500546425680322L;
 	private static String s_TITLE = "Purchase Mode Configuration";

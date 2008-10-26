@@ -21,7 +21,7 @@
  *
  * $Id$
  */
-package pcgen.gui;
+package pcgen.gui.prefs;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
