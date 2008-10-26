@@ -3544,4 +3544,10 @@ public final class GameMode implements Comparable<Object>
 	{
 		this.bonusStatAllowsStack = bonusStatAllowsStack;
 	}
+
+	@Override
+	public String toString()
+	{
+		return name;
+	}
 }

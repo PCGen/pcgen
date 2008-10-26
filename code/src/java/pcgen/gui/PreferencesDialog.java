@@ -63,6 +63,7 @@ import pcgen.core.system.GameModeRollMethod;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.prefs.CopySettingsPanel;
 import pcgen.gui.prefs.ExperiencePanel;
 import pcgen.gui.prefs.MonsterPanel;
 import pcgen.gui.prefs.PCGenPrefsPanel;
@@ -514,6 +515,9 @@ final class PreferencesDialog extends JDialog
 
 	// "Experience"
 	private PCGenPrefsPanel experiencePanel;
+
+	// "Copy Settings"
+	private CopySettingsPanel copySettingsPanel;
 
 	//Plugins
 	private static PreferencesComponent compInst;
@@ -1127,6 +1131,9 @@ final class PreferencesDialog extends JDialog
 				break;
 		}
 
+		// Copy Settings
+		copySettingsPanel.setOptionsBasedOnControls();
+		
 		// Now get any panels affected to refresh
 		CharacterInfo ci = PCGen_Frame1.getCharacterPane();
 		if (ci != null)
@@ -1572,6 +1579,12 @@ final class PreferencesDialog extends JDialog
 
 				break;
 		}
+		
+		// Copy Settings
+		copySettingsPanel.applyOptionValuesToControls();
+		copySettingsPanel.registerAffectedPanel(experiencePanel);
+		//TODO: Need to add stats and langages tabs
+
 	}
 
 	private JPanel buildAbilitiesPanel()
@@ -3170,6 +3183,7 @@ final class PreferencesDialog extends JDialog
 		DefaultMutableTreeNode characterNode;
 		DefaultMutableTreeNode pcGenNode;
 		DefaultMutableTreeNode appearanceNode;
+		DefaultMutableTreeNode gameModeNode;
 
 		// Build the settings panel
 		settingsPanel = new JPanel();
@@ -3229,6 +3243,16 @@ final class PreferencesDialog extends JDialog
 		settingsPanel.add(buildSourcesPanel(), in_sources);
 		rootNode.add(pcGenNode);
 
+		String in_gamemode =  PropertyFactory.getString("in_mnuSettingsCampaign");
+		gameModeNode = new DefaultMutableTreeNode(in_gamemode);
+		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+			.getString("in_Prefs_gameModeTip")), in_gamemode);
+
+		gameModeNode.add(new DefaultMutableTreeNode(PropertyFactory.getString("in_Prefs_copy")));
+		copySettingsPanel = new CopySettingsPanel();
+		settingsPanel.add(copySettingsPanel, copySettingsPanel.getTitle());
+		rootNode.add(gameModeNode);
+		
 		DefaultMutableTreeNode pluginNode =
 				new DefaultMutableTreeNode("Plugins");
 

@@ -69,6 +69,7 @@ public final class CharacterInfo extends JPanel {
 //	private InfoAbility infoFeats;
 	private InfoDomain infoDomain;
 	private InfoSpells infoSpells;
+	private InfoCharacterSheet infoCharacterSheet;
 	private JTabbedPane characterInfoTabbedPane = new JTabbedPane();
 	private PlayerCharacter pc;
 	private static Set<CharacterInfoTab> updateSet = new HashSet<CharacterInfoTab>();
@@ -93,6 +94,7 @@ public final class CharacterInfo extends JPanel {
 //		infoFeats = new InfoAbility(pc);
 		infoDomain = new InfoDomain(pc);
 		infoSpells = new InfoSpells(pc);
+		infoCharacterSheet = new InfoCharacterSheet(pc);
 		setName(""); //$NON-NLS-1$
 
 		try {
@@ -247,6 +249,14 @@ public final class CharacterInfo extends JPanel {
 	}
 
 	/**
+	 * Get the character sheet panel
+	 * @return character sheet panel
+	 */
+	public InfoCharacterSheet infoCharacterSheet() {
+		return infoCharacterSheet;
+	}
+
+	/**
 	 * Get the info skills
 	 * @return info skills
 	 */
@@ -376,7 +386,7 @@ public final class CharacterInfo extends JPanel {
 		addTab(infoSpells());
 		addTab(infoInventory());
 		addTab(infoDesc());
-		addTab(new InfoCharacterSheet(pc));
+		addTab(infoCharacterSheet);
 		for (int i = 0; i < tempTabList.size(); i++) {
 			CharacterInfoTab tab = (CharacterInfoTab) tempTabList.get(i);
 			addTab(tab);
