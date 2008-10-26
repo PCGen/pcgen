@@ -243,7 +243,7 @@ public class Bonus
 
 		if (aTok.hasMoreTokens())
 		{
-			bValue = aTok.nextToken().toUpperCase();
+			bValue = aTok.nextToken();
 		}
 		
 		if (bValue.startsWith("PRE") || bValue.startsWith("!PRE"))
@@ -252,6 +252,8 @@ public class Bonus
 			return null;
 		}
 
+		bValue = bValue.toUpperCase();
+		
 		BonusObj aBonus = null;
 		try
 		{
