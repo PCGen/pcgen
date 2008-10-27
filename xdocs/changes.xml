@@ -5,8 +5,8 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.15.6" date="In SVN" description="Alpha Release"> 
-      <action dev="jdempsey" type="add" issue="1929959">Copy gamemode preferences</action> 
+    <release version="5.15.6" date="2008-10-27" description="Alpha Release"> 
+      <action dev="jdempsey" type="add" issue="1929959">Copy gamemode preferences</action>  
       <action dev="jdempsey" type="add" issue="2034599">CHOOSE:ABILITY needs to be usable in abilities</action> 
     </release>  
     <release version="5.15.5" date="2008-10-13" description="Alpha Release"> 
