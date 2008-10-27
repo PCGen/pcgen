@@ -74,7 +74,7 @@
 	<RULESET id="roman-agnomen-rule" title="Agnomen" usage="public">
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="1">
-			<GETLIST idref="roman-cognomen" title="Agnomen"/>
+			<GETLIST idref="roman-agnomen" title="Agnomen"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="roman-historical-village-rule" title="Roman Location" usage="final">
@@ -486,6 +486,135 @@
 		<VALUE>Vitella</VALUE>
 		<VALUE>Voltii</VALUE>
 		<VALUE>Volusa</VALUE>
+	</LIST>
+	<!-- This is not the actual list, but a copy of Cognomen, but has been raised -->
+	<LIST id="roman-agnomen" title="Agnomen">
+		<VALUE>Aelianus</VALUE>
+		<VALUE>Agricola</VALUE>
+		<VALUE>Agrippa</VALUE>
+		<VALUE>Albanus</VALUE>
+		<VALUE>Albinus</VALUE>
+		<VALUE>Aprilis</VALUE>
+		<VALUE>Arcanus</VALUE>
+		<VALUE>Avitus</VALUE>
+		<VALUE>Balbus</VALUE>
+		<VALUE>Bassus</VALUE>
+		<VALUE>Bellicianus</VALUE>
+		<VALUE>Betto</VALUE>
+		<VALUE>Caelianus</VALUE>
+		<VALUE>Capito</VALUE>
+		<VALUE>Castus</VALUE>
+		<VALUE>Cattianus</VALUE>
+		<VALUE>Celer</VALUE>
+		<VALUE>Cerialis</VALUE>
+		<VALUE>Civilis</VALUE>
+		<VALUE>Clemens</VALUE>
+		<VALUE>Coranus</VALUE>
+		<VALUE>Corvinus</VALUE>
+		<VALUE>Crescens</VALUE>
+		<VALUE>Crispus</VALUE>
+		<VALUE>Dexter</VALUE>
+		<VALUE>Dida</VALUE>
+		<VALUE>Disertus</VALUE>
+		<VALUE>Donatus</VALUE>
+		<VALUE>Drusus</VALUE>
+		<VALUE>Erasinus</VALUE>
+		<VALUE>Facilis</VALUE>
+		<VALUE>Faustus</VALUE>
+		<VALUE>Felicissimus</VALUE>
+		<VALUE>Felix</VALUE>
+		<VALUE>Festus</VALUE>
+		<VALUE>Fidus</VALUE>
+		<VALUE>Firmus</VALUE>
+		<VALUE>Flavinus</VALUE>
+		<VALUE>Fortunatus</VALUE>
+		<VALUE>Frontinus</VALUE>
+		<VALUE>Fronto</VALUE>
+		<VALUE>Fuscus</VALUE>
+		<VALUE>Gaianus</VALUE>
+		<VALUE>Galba</VALUE>
+		<VALUE>Gallienus</VALUE>
+		<VALUE>Gallus</VALUE>
+		<VALUE>Gemellus</VALUE>
+		<VALUE>Genialis</VALUE>
+		<VALUE>Geta</VALUE>
+		<VALUE>Gracchus</VALUE>
+		<VALUE>Homullus</VALUE>
+		<VALUE>Honoratus</VALUE>
+		<VALUE>Ingenuus</VALUE>
+		<VALUE>Justus</VALUE>
+		<VALUE>Libo</VALUE>
+		<VALUE>Longinus</VALUE>
+		<VALUE>Lucullus</VALUE>
+		<VALUE>Lupus</VALUE>
+		<VALUE>Macer</VALUE>
+		<VALUE>Macrinus</VALUE>
+		<VALUE>Macro</VALUE>
+		<VALUE>Magnus</VALUE>
+		<VALUE>Mansuetus</VALUE>
+		<VALUE>Marcellus</VALUE>
+		<VALUE>Maritimus</VALUE>
+		<VALUE>Martialis</VALUE>
+		<VALUE>Martius</VALUE>
+		<VALUE>Masala</VALUE>
+		<VALUE>Masavo</VALUE>
+		<VALUE>Maternus</VALUE>
+		<VALUE>Maurus</VALUE>
+		<VALUE>Maximus</VALUE>
+		<VALUE>Melito</VALUE>
+		<VALUE>Messalinus</VALUE>
+		<VALUE>Mettellus</VALUE>
+		<VALUE>Modianus</VALUE>
+		<VALUE>Montanus</VALUE>
+		<VALUE>Natalis</VALUE>
+		<VALUE>Nepos</VALUE>
+		<VALUE>Nerva</VALUE>
+		<VALUE>Noricus</VALUE>
+		<VALUE>Novanus</VALUE>
+		<VALUE>Paetus</VALUE>
+		<VALUE>Panthera</VALUE>
+		<VALUE>Paulinus</VALUE>
+		<VALUE>Pertinax</VALUE>
+		<VALUE>Petra</VALUE>
+		<VALUE>Picens</VALUE>
+		<VALUE>Pius</VALUE>
+		<VALUE>Probus</VALUE>
+		<VALUE>Proclus</VALUE>
+		<VALUE>Pudens</VALUE>
+		<VALUE>Pulcher</VALUE>
+		<VALUE>Quadratus</VALUE>
+		<VALUE>Quietus</VALUE>
+		<VALUE>Romanus</VALUE>
+		<VALUE>Rufinus</VALUE>
+		<VALUE>Rufus</VALUE>
+		<VALUE>Rusticus</VALUE>
+		<VALUE>Sabinus</VALUE>
+		<VALUE>Saenus</VALUE>
+		<VALUE>Saturninus</VALUE>
+		<VALUE>Savius</VALUE>
+		<VALUE>Scapula</VALUE>
+		<VALUE>Scipio</VALUE>
+		<VALUE>Secundus</VALUE>
+		<VALUE>Seianus</VALUE>
+		<VALUE>Senecio</VALUE>
+		<VALUE>Severus</VALUE>
+		<VALUE>Silanus</VALUE>
+		<VALUE>Silvanus</VALUE>
+		<VALUE>SolonSolus</VALUE>
+		<VALUE>Speratus</VALUE>
+		<VALUE>Strabo</VALUE>
+		<VALUE>Suavis</VALUE>
+		<VALUE>Super</VALUE>
+		<VALUE>Surinus</VALUE>
+		<VALUE>Thurinus</VALUE>
+		<VALUE>Valens</VALUE>
+		<VALUE>Venator</VALUE>
+		<VALUE>Verus</VALUE>
+		<VALUE>Viator</VALUE>
+		<VALUE>Victor</VALUE>
+		<VALUE>Vindex</VALUE>
+		<VALUE>Virilis</VALUE>
+		<VALUE>Vitalis</VALUE>
 	</LIST>
 	<LIST id="roman-cognomen" title="Cognomen">
 		<VALUE>Aelianus</VALUE>
