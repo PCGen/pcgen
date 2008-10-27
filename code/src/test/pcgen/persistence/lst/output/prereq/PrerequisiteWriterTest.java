@@ -347,7 +347,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PRECHECKBASE:1,Will=3",														"PRECHECKBASE:1,Will=3",
 		"PRECLASSLEVELMAX:1,Barbarian=1",												"!PRECLASS:1,Barbarian=2",
 		"!PRECLASSLEVELMAX:1,Barbarian=1",												"PRECLASS:1,Barbarian=2",
-		"PRECLASSLEVELMAX:1,Rogue=5,Fighter,SPELLCASTER=2,Monk=3",						"!PRECLASS:1,Rogue=6,Fighter=3,SPELLCASTER=3,Monk=4",
+		"PRECLASSLEVELMAX:4,Rogue=5,Fighter=2,SPELLCASTER=2,Monk=3",					"!PRECLASS:1,Rogue=6,Fighter=3,SPELLCASTER=3,Monk=4",
 		"PRECLASSLEVELMAX:1,Cleric=1,Fighter=1,Monk=1,Rogue=1",							"PREMULT:1,[!PRECLASS:1,Cleric=2],[!PRECLASS:1,Fighter=2],[!PRECLASS:1,Monk=2],[!PRECLASS:1,Rogue=2]",
 		"!PRECLASS:1,Battlemind=7",														"!PRECLASS:1,Battlemind=7",
 		"PRECSKILL:1,Swim",																"PRECSKILL:1,Swim",
