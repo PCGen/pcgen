@@ -14,10 +14,19 @@
 			<SPACE/>
 			<GETLIST idref="frankish-aka" title="Also Known As"/>
 			<SPACE/>
-			<GETRULE idref="frankish-male-given-rule" title="Given"/>
+			<GETRULE idref="frankish-male-given-rule2" title="Given"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="frankish-male-given-rule" title="Given" usage="public">
+		<RULE weight="1">
+			<GETLIST idref="frankish-male-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="frankish-syl1" title="Given"/>
+			<GETLIST idref="frankish-male-syl2" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="frankish-male-given-rule2" title="Given" usage="public">
 		<RULE weight="1">
 			<GETLIST idref="frankish-male-given" title="Given"/>
 		</RULE>
@@ -46,10 +55,19 @@
 			<SPACE/>
 			<GETLIST idref="frankish-aka" title="Also Known As"/>
 			<SPACE/>
-			<GETRULE idref="frankish-female-given-rule" title="Given"/>
+			<GETRULE idref="frankish-female-given-rule2" title="Given"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="frankish-female-given-rule" title="Given" usage="public">
+		<RULE weight="1">
+			<GETLIST idref="frankish-female-given" title="Given"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="frankish-syl1" title="Given"/>
+			<GETLIST idref="frankish-female-syl2" title="Given"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="frankish-female-given-rule2" title="Given" usage="public">
 		<RULE weight="1">
 			<GETLIST idref="frankish-female-given" title="Given"/>
 		</RULE>
