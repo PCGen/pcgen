@@ -52,7 +52,7 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule_alt" title="Patrynomic"/>
 		</RULE>
 		<RULE weight="1">
 			<GETLIST idref="russian-male-christian" title="Christian Name"/>
@@ -68,7 +68,7 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule_alt" title="Patrynomic"/>
 		</RULE>
 		<RULE weight="2">
 			<GETLIST idref="russian-male-christian" title="Christian Name"/>
@@ -84,7 +84,7 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule_alt" title="Patrynomic"/>
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
 		</RULE>
@@ -106,6 +106,26 @@
 			<GETLIST idref="russian-male-modifier" title="Grandson of"/>
 			<SPACE/>
 			<GETLIST idref="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name"/>
+		</RULE>
+	</RULESET>
+	<!-- Attempt at splitting out rules -->
+	<RULESET id="russian-historical-male-patrynomic-rule_alt" title="Russian Patrynomic" usage="public">
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="9">
+			<GETLIST idref="russian-male-christian-patronymic2" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="12">
+			<GETLIST idref="russian-male-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-modifier2" title="Grandson of"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-christian-patronymic2" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-male-modifier2" title="Grandson of"/>
+			<SPACE/>
+			<GETLIST idref="russian-male-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="russian-historical-male-surname-rule" title="Russian Surname" usage="public">
@@ -217,7 +237,7 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule2" title="Patrynomic"/>
 		</RULE>
 		<RULE weight="1">
 			<GETLIST idref="russian-female-christian" title="Christian Name"/>
@@ -233,7 +253,7 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule2" title="Patrynomic"/>
 		</RULE>
 		<RULE weight="2">
 			<GETLIST idref="russian-female-christian" title="Christian Name"/>
@@ -249,7 +269,7 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule2" title="Patrynomic"/>
 			<SPACE/>
 			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
 		</RULE>
@@ -263,14 +283,33 @@
 			<GETLIST idref="russian-female-old-russian-patronymic" title="Old Russian Patronymic Name"/>
 		</RULE>
 		<RULE weight="1">
-			<GETLIST idref="russian-female-modifier" title="Grandson of"/>
+			<GETLIST idref="russian-female-modifier" title="Granddaughter of"/>
 			<SPACE/>
 			<GETLIST idref="russian-female-christian-patronymic" title="Christian Patronymic Name"/>
 		</RULE>
 		<RULE weight="2">
-			<GETLIST idref="russian-female-modifier" title="Grandson of"/>
+			<GETLIST idref="russian-female-modifier" title="Granddaughter of"/>
 			<SPACE/>
 			<GETLIST idref="russian-female-old-russian-patronymic" title="Old Russian Patronymic Name"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-historical-female-patrynomic-rule2" title="Russian Patrynomic" usage="public">
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="9">
+			<GETLIST idref="russian-female-christian-patronymic2" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="12">
+			<GETLIST idref="russian-female-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-modifier2" title="Granddaughter of"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-christian-patronymic2" title="Christian Patronymic Name"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-modifier2" title="Granddaughter of"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="russian-historical-female-surname-rule" title="Russian Surname" usage="public">
@@ -2295,6 +2334,33 @@
 		<VALUE>Vasilievich<SUBVALUE type="meaning">Son of Vasilij</SUBVALUE></VALUE>
 		<VALUE>Zakhariev<SUBVALUE type="meaning">Son of Zaxarii</SUBVALUE></VALUE>
 	</LIST>
+	<!--Patronymics-->
+	<LIST id="russian-male-christian-patronymic2" title="Christian Patronymic Name">
+		<VALUE>Alekseev<SUBVALUE type="meaning">Son of Aleksei</SUBVALUE></VALUE>
+		<VALUE>Andreev<SUBVALUE type="meaning">Son of Andrei</SUBVALUE></VALUE>
+		<VALUE>Borisov<SUBVALUE type="meaning">Son of Boris</SUBVALUE></VALUE>
+		<VALUE>Dmitriev<SUBVALUE type="meaning">Son of Dmitrii</SUBVALUE></VALUE>
+		<VALUE>Fedorov<SUBVALUE type="meaning">Son of Fedor</SUBVALUE></VALUE>
+		<VALUE>Fomin<SUBVALUE type="meaning">Son of Foma</SUBVALUE></VALUE>
+		<VALUE>Fominich<SUBVALUE type="meaning">Son of Foma</SUBVALUE></VALUE>
+		<VALUE>Georgiev<SUBVALUE type="meaning">Son of Georgii</SUBVALUE></VALUE>
+		<VALUE>Grigoriev<SUBVALUE type="meaning">Son of Grigorii</SUBVALUE></VALUE>
+		<VALUE>Iakol'<SUBVALUE type="meaning">Son of Iakov</SUBVALUE></VALUE>
+		<VALUE>Iecifovich<SUBVALUE type="meaning">Son of Iosif</SUBVALUE></VALUE>
+		<VALUE>Ivanov<SUBVALUE type="meaning">Son of Ivan</SUBVALUE></VALUE>
+		<VALUE>Ivanovich<SUBVALUE type="meaning">Son of Ivan</SUBVALUE></VALUE>
+		<VALUE>Kuz'mich<SUBVALUE type="meaning">Son of Kuz'ma</SUBVALUE></VALUE>
+		<VALUE>Maksimov<SUBVALUE type="meaning">Son of Maksim</SUBVALUE></VALUE>
+		<VALUE>Matfeevich<SUBVALUE type="meaning">Son of Matfei</SUBVALUE></VALUE>
+		<VALUE>Mikhailovich<SUBVALUE type="meaning">Son of Mixail</SUBVALUE></VALUE>
+		<VALUE>Nikitin<SUBVALUE type="meaning">Son of Nikita</SUBVALUE></VALUE>
+		<VALUE>Pavlov<SUBVALUE type="meaning">Son of Pavel</SUBVALUE></VALUE>
+		<VALUE>Semenov<SUBVALUE type="meaning">Son of Semen</SUBVALUE></VALUE>
+		<VALUE>Sidorov<SUBVALUE type="meaning">Son of Sidor</SUBVALUE></VALUE>
+		<VALUE>Stepanov<SUBVALUE type="meaning">Son of Stepan</SUBVALUE></VALUE>
+		<VALUE>Vasilievich<SUBVALUE type="meaning">Son of Vasilij</SUBVALUE></VALUE>
+		<VALUE>Zakhariev<SUBVALUE type="meaning">Son of Zaxarii</SUBVALUE></VALUE>
+	</LIST>
 	<LIST id="russian-female-christian-patronymic" title="Christian Patronymic Name">
 		<VALUE>Alekseeva<SUBVALUE type="meaning">Daughter of Aleksei</SUBVALUE></VALUE>
 		<VALUE>Andreeva<SUBVALUE type="meaning">Daughter of Andrei</SUBVALUE></VALUE>
@@ -2319,7 +2385,69 @@
 		<VALUE>Vasilieva<SUBVALUE type="meaning">Daughter of Vasilij</SUBVALUE></VALUE>
 		<VALUE>Zakharieva<SUBVALUE type="meaning">Daughter of Zaxarii</SUBVALUE></VALUE>
 	</LIST>
+	<LIST id="russian-female-christian-patronymic2" title="Christian Patronymic Name">
+		<VALUE>Alekseeva<SUBVALUE type="meaning">Daughter of Aleksei</SUBVALUE></VALUE>
+		<VALUE>Andreeva<SUBVALUE type="meaning">Daughter of Andrei</SUBVALUE></VALUE>
+		<VALUE>Borisova<SUBVALUE type="meaning">Daughter of Boris</SUBVALUE></VALUE>
+		<VALUE>Dmitrieva<SUBVALUE type="meaning">Daughter of Dmitrii</SUBVALUE></VALUE>
+		<VALUE>Fedorova<SUBVALUE type="meaning">Daughter of Fedor</SUBVALUE></VALUE>
+		<VALUE>Fomina<SUBVALUE type="meaning">Daughter of Foma</SUBVALUE></VALUE>
+		<VALUE>Georgieva<SUBVALUE type="meaning">Daughter of Georgii</SUBVALUE></VALUE>
+		<VALUE>Grigorieva<SUBVALUE type="meaning">Daughter of Grigorii</SUBVALUE></VALUE>
+		<VALUE>Iakova<SUBVALUE type="meaning">Daughter of Iakov</SUBVALUE></VALUE>
+		<VALUE>Iosifova<SUBVALUE type="meaning">Daughter of Iosif</SUBVALUE></VALUE>
+		<VALUE>Ivanova<SUBVALUE type="meaning">Daughter of Ivan</SUBVALUE></VALUE>
+		<VALUE>Kuz'mina<SUBVALUE type="meaning">Daughter of Kuz'ma</SUBVALUE></VALUE>
+		<VALUE>Maksimova<SUBVALUE type="meaning">Daughter of Maksim</SUBVALUE></VALUE>
+		<VALUE>Matfeeva<SUBVALUE type="meaning">Daughter of Matfei</SUBVALUE></VALUE>
+		<VALUE>Mikhailova<SUBVALUE type="meaning">Daughter of Mixail</SUBVALUE></VALUE>
+		<VALUE>Nikitina<SUBVALUE type="meaning">Daughter of Nikita</SUBVALUE></VALUE>
+		<VALUE>Pavlova<SUBVALUE type="meaning">Daughter of Pavel</SUBVALUE></VALUE>
+		<VALUE>Semenova<SUBVALUE type="meaning">Daughter of Semen</SUBVALUE></VALUE>
+		<VALUE>Sidorova<SUBVALUE type="meaning">Daughter of Sidor</SUBVALUE></VALUE>
+		<VALUE>Stepanova<SUBVALUE type="meaning">Daughter of Stepan</SUBVALUE></VALUE>
+		<VALUE>Vasilieva<SUBVALUE type="meaning">Daughter of Vasilij</SUBVALUE></VALUE>
+		<VALUE>Zakharieva<SUBVALUE type="meaning">Daughter of Zaxarii</SUBVALUE></VALUE>
+	</LIST>
 	<LIST id="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name">
+		<VALUE>Boldin<SUBVALUE type="meaning">Son of Bolda</SUBVALUE></VALUE>
+		<VALUE>Buiakov<SUBVALUE type="meaning">Son of Buiak</SUBVALUE></VALUE>
+		<VALUE>Chernekov<SUBVALUE type="meaning">Son of Chernek</SUBVALUE></VALUE>
+		<VALUE>Chortov<SUBVALUE type="meaning">Son of Chort</SUBVALUE></VALUE>
+		<VALUE>Domaslavov<SUBVALUE type="meaning">Son of Domaslav</SUBVALUE></VALUE>
+		<VALUE>Domazhirov<SUBVALUE type="meaning">Son of Domazhir</SUBVALUE></VALUE>
+		<VALUE>Drozdov<SUBVALUE type="meaning">Son of Drozd</SUBVALUE></VALUE>
+		<VALUE>Grechinov<SUBVALUE type="meaning">Son of Grechin</SUBVALUE></VALUE>
+		<VALUE>Gubin<SUBVALUE type="meaning">Son of Guba</SUBVALUE></VALUE>
+		<VALUE>Kiselev<SUBVALUE type="meaning">Son of Kisel</SUBVALUE></VALUE>
+		<VALUE>Kozlov<SUBVALUE type="meaning">Son of Kozel</SUBVALUE></VALUE>
+		<VALUE>Kuritsev<SUBVALUE type="meaning">Son of Kuritsa</SUBVALUE></VALUE>
+		<VALUE>Malov<SUBVALUE type="meaning">Son of Mal</SUBVALUE></VALUE>
+		<VALUE>Milov<SUBVALUE type="meaning">Son of Mil</SUBVALUE></VALUE>
+		<VALUE>Miloslavov<SUBVALUE type="meaning">Son of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Milov<SUBVALUE type="meaning">Son of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Miroslavov<SUBVALUE type="meaning">Son of Miroslav</SUBVALUE></VALUE>
+		<VALUE>Mstislavov<SUBVALUE type="meaning">Son of Mstislav</SUBVALUE></VALUE>
+		<VALUE>Nezhkov<SUBVALUE type="meaning">Son of Nezhek</SUBVALUE></VALUE>
+		<VALUE>Orekhov<SUBVALUE type="meaning">Son of Orekh</SUBVALUE></VALUE>
+		<VALUE>Radoslavov<SUBVALUE type="meaning">Son of Radoslav</SUBVALUE></VALUE>
+		<VALUE>Sbyslavov<SUBVALUE type="meaning">Son of Sbyslav</SUBVALUE></VALUE>
+		<VALUE>Shchukin<SUBVALUE type="meaning">Son of Shchuka</SUBVALUE></VALUE>
+		<VALUE>Shubin<SUBVALUE type="meaning">Son of Shuba</SUBVALUE></VALUE>
+		<VALUE>Sobol&#245;tsev<SUBVALUE type="meaning">Son of Sobol'</SUBVALUE></VALUE>
+		<VALUE>Stanimirov<SUBVALUE type="meaning">Son of Stanimir</SUBVALUE></VALUE>
+		<VALUE>Sviatoslavov<SUBVALUE type="meaning">Son of Sviatoslav</SUBVALUE></VALUE>
+		<VALUE>Tvorimirov<SUBVALUE type="meaning">Son of Tvorimir</SUBVALUE></VALUE>
+		<VALUE>Viacheslavov<SUBVALUE type="meaning">Son of Viacheslav</SUBVALUE></VALUE>
+		<VALUE>Voislavov<SUBVALUE type="meaning">Son of Voislav</SUBVALUE></VALUE>
+		<VALUE>Volchkov<SUBVALUE type="meaning">Son of Volchok</SUBVALUE></VALUE>
+		<VALUE>Zaitsev<SUBVALUE type="meaning">Son of Zaiats</SUBVALUE></VALUE>
+		<VALUE>Zavidov<SUBVALUE type="meaning">Son of Zavid</SUBVALUE></VALUE>
+		<VALUE>Zhiroslavov<SUBVALUE type="meaning">Son of Zhiroslav</SUBVALUE></VALUE>
+		<VALUE>Zhiznobudov<SUBVALUE type="meaning">Son of Zhiznobud</SUBVALUE></VALUE>
+		<VALUE>Zubov<SUBVALUE type="meaning">Son of Zub</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-male-old-russian-patronymic2" title="Old Russian Patronymic Name">
 		<VALUE>Boldin<SUBVALUE type="meaning">Son of Bolda</SUBVALUE></VALUE>
 		<VALUE>Buiakov<SUBVALUE type="meaning">Son of Buiak</SUBVALUE></VALUE>
 		<VALUE>Chernekov<SUBVALUE type="meaning">Son of Chernek</SUBVALUE></VALUE>
@@ -2395,6 +2523,44 @@
 		<VALUE>Zhiznobudova<SUBVALUE type="meaning">Daughter of Zhiznobud</SUBVALUE></VALUE>
 		<VALUE>Zubova<SUBVALUE type="meaning">Daughter of Zub</SUBVALUE></VALUE>
 	</LIST>
+	<LIST id="russian-female-old-russian-patronymic2" title="Old Russian Patronymic Name">
+		<VALUE>Boldina<SUBVALUE type="meaning">Daughter of Bolda</SUBVALUE></VALUE>
+		<VALUE>Buiakova<SUBVALUE type="meaning">Daughter of Buiak</SUBVALUE></VALUE>
+		<VALUE>Chernekova<SUBVALUE type="meaning">Daughter of Chernek</SUBVALUE></VALUE>
+		<VALUE>Chortova<SUBVALUE type="meaning">Daughter of Chort</SUBVALUE></VALUE>
+		<VALUE>Domaslavova<SUBVALUE type="meaning">Daughter of Domaslav</SUBVALUE></VALUE>
+		<VALUE>Domazhirova<SUBVALUE type="meaning">Daughter of Domazhir</SUBVALUE></VALUE>
+		<VALUE>Drozdova<SUBVALUE type="meaning">Daughter of Drozd</SUBVALUE></VALUE>
+		<VALUE>Grechinova<SUBVALUE type="meaning">Daughter of Grechin</SUBVALUE></VALUE>
+		<VALUE>Gubina<SUBVALUE type="meaning">Daughter of Guba</SUBVALUE></VALUE>
+		<VALUE>Kiseleva<SUBVALUE type="meaning">Daughter of Kisel</SUBVALUE></VALUE>
+		<VALUE>Kozlova<SUBVALUE type="meaning">Daughter of Kozel</SUBVALUE></VALUE>
+		<VALUE>Kuritseva<SUBVALUE type="meaning">Daughter of Kuritsa</SUBVALUE></VALUE>
+		<VALUE>Malova<SUBVALUE type="meaning">Daughter of Mal</SUBVALUE></VALUE>
+		<VALUE>Milova<SUBVALUE type="meaning">Daughter of Mil</SUBVALUE></VALUE>
+		<VALUE>Miloslavova<SUBVALUE type="meaning">Daughter of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Milov<SUBVALUE type="meaning">Daughter of Miloslav</SUBVALUE></VALUE>
+		<VALUE>Miroslavova<SUBVALUE type="meaning">Daughter of Miroslav</SUBVALUE></VALUE>
+		<VALUE>Mstislavova<SUBVALUE type="meaning">Daughter of Mstislav</SUBVALUE></VALUE>
+		<VALUE>Nezhkova<SUBVALUE type="meaning">Daughter of Nezhek</SUBVALUE></VALUE>
+		<VALUE>Orekhova<SUBVALUE type="meaning">Daughter of Orekh</SUBVALUE></VALUE>
+		<VALUE>Radoslavova<SUBVALUE type="meaning">Daughter of Radoslav</SUBVALUE></VALUE>
+		<VALUE>Sbyslavova<SUBVALUE type="meaning">Daughter of Sbyslav</SUBVALUE></VALUE>
+		<VALUE>Shchukina<SUBVALUE type="meaning">Daughter of Shchuka</SUBVALUE></VALUE>
+		<VALUE>Shubina<SUBVALUE type="meaning">Daughter of Shuba</SUBVALUE></VALUE>
+		<VALUE>Sobol&#245;tseva<SUBVALUE type="meaning">Daughter of Sobol'</SUBVALUE></VALUE>
+		<VALUE>Stanimirova<SUBVALUE type="meaning">Daughter of Stanimir</SUBVALUE></VALUE>
+		<VALUE>Sviatoslavova<SUBVALUE type="meaning">Daughter of Sviatoslav</SUBVALUE></VALUE>
+		<VALUE>Tvorimirova<SUBVALUE type="meaning">Daughter of Tvorimir</SUBVALUE></VALUE>
+		<VALUE>Viacheslavova<SUBVALUE type="meaning">Daughter of Viacheslav</SUBVALUE></VALUE>
+		<VALUE>Voislavova<SUBVALUE type="meaning">Daughter of Voislav</SUBVALUE></VALUE>
+		<VALUE>Volchkova<SUBVALUE type="meaning">Daughter of Volchok</SUBVALUE></VALUE>
+		<VALUE>Zaitseva<SUBVALUE type="meaning">Daughter of Zaiats</SUBVALUE></VALUE>
+		<VALUE>Zavidova<SUBVALUE type="meaning">Daughter of Zavid</SUBVALUE></VALUE>
+		<VALUE>Zhiroslavova<SUBVALUE type="meaning">Daughter of Zhiroslav</SUBVALUE></VALUE>
+		<VALUE>Zhiznobudova<SUBVALUE type="meaning">Daughter of Zhiznobud</SUBVALUE></VALUE>
+		<VALUE>Zubova<SUBVALUE type="meaning">Daughter of Zub</SUBVALUE></VALUE>
+	</LIST>
 	<LIST id="russian-female-modifier" title="Modifier">
 		<VALUE>doch'</VALUE>
 		<VALUE>zhena</VALUE>
@@ -2404,7 +2570,19 @@
 		<VALUE>vnuka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
 		<VALUE>vnuchka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
 	</LIST>
+	<LIST id="russian-female-modifier2" title="Modifier">
+		<VALUE>doch'</VALUE>
+		<VALUE>zhena</VALUE>
+		<VALUE>vdova</VALUE>
+		<VALUE>devka</VALUE>
+		<VALUE>mat'</VALUE>
+		<VALUE>vnuka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
+		<VALUE>vnuchka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
+	</LIST>
 	<LIST id="russian-male-modifier" title="Modifier">
+		<VALUE>vnuk<SUBVALUE type="meaning">grandson of</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-male-modifier2" title="Modifier">
 		<VALUE>vnuk<SUBVALUE type="meaning">grandson of</SUBVALUE></VALUE>
 	</LIST>
 	<!--Bynames-->
