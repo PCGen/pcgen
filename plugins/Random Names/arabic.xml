@@ -60,7 +60,7 @@
 		<RULE weight="1">
 			<GETLIST idref="arabic-location-prefix" title="Prefix"/>
 			<SPACE/>
-			<GETLIST idref="arabic-location-prefix" title="Prefix"/>
+			<GETLIST idref="arabic-location-prefix2" title="Prefix"/>
 			<SPACE/>
 			<GETLIST idref="arabic-historical-location-name-rule" title="Location"/>
 		</RULE>
@@ -1531,6 +1531,17 @@
 		<VALUE>az-Zulayj<SUBVALUE type="meaning">Burnished Pebble</SUBVALUE></VALUE>
 	</LIST>
 	<LIST id="arabic-location-prefix" title="Prefix">
+		<VALUE>Dayr</VALUE>
+		<VALUE>Ayn</VALUE>
+		<VALUE>Bayt</VALUE>
+		<VALUE>Arab</VALUE>
+		<VALUE>Abu</VALUE>
+		<VALUE>Kafr</VALUE>
+		<VALUE>Khirbat</VALUE>
+		<VALUE>Umm</VALUE>
+		<VALUE>Wadi<SUBVALUE type="meaning">River</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="arabic-location-prefix2" title="Prefix">
 		<VALUE>Dayr</VALUE>
 		<VALUE>Ayn</VALUE>
 		<VALUE>Bayt</VALUE>
