@@ -161,7 +161,7 @@ public class pcGenGUI
 
 		// if on Mac then set the Frame so the Application menu will work
 		// tmilam 21 Jan 2006
-		if (System.getProperty("os.name").equals("Mac OS X"))
+		if (Globals.isMacPlatform)
 		{
 			try {
 				Class[] cargs = new Class[]{PCGen_Frame1.class};
@@ -247,7 +247,7 @@ public class pcGenGUI
 		// sk4p 12 Dec 2002
 		// Moved into separate class
 		// tmilam 21 Jan 2006
-		if (System.getProperty("os.name").equals("Mac OS X"))
+		if (Globals.isMacPlatform)
 		{
 			try {
 				Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[]) null, (Object[])null);
@@ -765,13 +765,16 @@ public class pcGenGUI
 		final JPanel allPanel = new JPanel(new BorderLayout());
 
 		ButtonGroup rGroup = new ButtonGroup();
+		JRadioButton rMButton = new JRadioButton("Mac User Dir", "mac_user"
+			.equals(SettingsHandler.getFilePaths()));
 		JRadioButton rPButton = new JRadioButton("PCGen Dir", "pcgen"
 			.equals(SettingsHandler.getFilePaths()));
 		JRadioButton rUButton = new JRadioButton("Home Dir", "user"
 			.equals(SettingsHandler.getFilePaths()));
 		JRadioButton rSButton = new JRadioButton("Select a directory", !"pcgen"
 			.equals(SettingsHandler.getFilePaths())
-			&& !"user".equals(SettingsHandler.getFilePaths()));
+			&& !"user".equals(SettingsHandler.getFilePaths())
+			&& !"mac_user".equals(SettingsHandler.getFilePaths()));
 		final JTextField textField = new JTextField(String.valueOf(SettingsHandler.getPcgenFilesDir()));
 		textField.setEditable(false);
 		textField.setMinimumSize(new Dimension(90, 25));
@@ -779,17 +782,43 @@ public class pcGenGUI
 		{
 			textField.setText(System.getProperty("user.home") + File.separator + ".pcgen");
 		}
+		else if ("mac_user".equals(SettingsHandler.getFilePaths()))
+		{
+			textField.setText(Globals.defaultMacOptionsPath);
+		}
 
 		final JButton dirButton = new JButton("...");
 		dirButton.setEnabled(false);
+		if (Globals.isMacPlatform)
+		{
+			// only add if on Mac platform
+			rGroup.add(rMButton);
+		}
 		rGroup.add(rPButton);
 		rGroup.add(rUButton);
 		rGroup.add(rSButton);
 
 		aPanel.add(aLabel);
+		if (Globals.isMacPlatform)
+		{
+			// only add if on Mac platform
+			bPanel.add(rMButton);
+		}
 		bPanel.add(rPButton);
 		bPanel.add(rUButton);
 		cPanel.add(rSButton, BorderLayout.NORTH);
+		if (Globals.isMacPlatform)
+		{
+			// only add if on Mac platform
+			rMButton.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent evt)
+					{
+						SettingsHandler.setFilePaths("mac_user");
+						textField.setText(Globals.defaultMacOptionsPath);
+					}
+				});
+		}
 		rPButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)

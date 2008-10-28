@@ -582,7 +582,12 @@ public final class SettingsHandler
 
 	public static String getFilePaths()
 	{
-		return getFilepathProp().getProperty("pcgen.filepaths", "user"); //$NON-NLS-1$ //$NON-NLS-2$
+		String def_type = "user";
+		if (Globals.isMacPlatform)
+		{
+			def_type = "mac_user";
+		}
+		return getFilepathProp().getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	public static Properties getFilepathProp()
@@ -1780,7 +1785,12 @@ public final class SettingsHandler
 		if ((fType == null) || (fType.length() < 1))
 		{
 			// make sure we have a default
-			fType = "pcgen";
+			if (Globals.isMacPlatform)
+			{
+				fType = "mac_user";
+			} else {
+				fType = "pcgen";
+			}
 		}
 
 		if (fType.equals("pcgen"))
@@ -1791,6 +1801,10 @@ public final class SettingsHandler
 		{
 			return new File(System.getProperty("user.home")
 				+ File.separator + ".pcgen");
+		}
+		else if (fType.equals("mac_user"))
+		{
+			return new File(Globals.defaultMacOptionsPath);
 		}
 		return getPcgenFilesDir();
 	}
@@ -2665,7 +2679,7 @@ public final class SettingsHandler
 		final String header = getPropertiesFileHeader(
 				"# filepaths.ini -- location of other .ini files set in pcgen");
 
-		if (!fType.equals("pcgen") && !fType.equals("user")) //$NON-NLS-1$ //$NON-NLS-2$
+		if (!fType.equals("pcgen") && !fType.equals("user") && !fType.equals("mac_user")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			if (fType != null)
 			{
@@ -2682,6 +2696,25 @@ public final class SettingsHandler
 		if (fType.equals("user")) //$NON-NLS-1$
 		{
 			final String aLoc = System.getProperty("user.home") + File.separator + ".pcgen"; //$NON-NLS-1$ //$NON-NLS-2$
+			final File aFile = new File(aLoc);
+
+			if (!aFile.exists())
+			{
+				// Directory doesn't exist, so create it
+				aFile.mkdir();
+				Logging.errorPrint(PropertyFactory.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
+			}
+			else if (!aFile.isDirectory())
+			{
+				ShowMessageDelegate.showMessageDialog( PropertyFactory.getFormattedString("SettingsHandler.is.not.a.directory", aLoc), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+
+		// if it's the standard Mac user directory, we need to make sure
+		// that the $HOME/Library/Preferences/pcgen directory exists
+		if (fType.equals("mac_user")) //$NON-NLS-1$
+		{
+			final String aLoc = Globals.defaultMacOptionsPath;
 			final File aFile = new File(aLoc);
 
 			if (!aFile.exists())
@@ -3207,7 +3240,14 @@ public final class SettingsHandler
 			if ((fType == null) || (fType.length() < 1))
 			{
 				// make sure we have a default
-				fType = "user"; //$NON-NLS-1$
+				if (Globals.isMacPlatform)
+				{
+					fType = "mac_user"; //$NON-NLS-1$
+				}
+				else
+				{
+					fType = "user"; //$NON-NLS-1$
+				}
 			}
 
 			if (fType.equals("pcgen")) //$NON-NLS-1$
@@ -3217,6 +3257,10 @@ public final class SettingsHandler
 			else if (fType.equals("user")) //$NON-NLS-1$
 			{
 				setPcgenFilesDir(new File(System.getProperty("user.home") + File.separator + ".pcgen")); //$NON-NLS-1$ //$NON-NLS-2$
+			}
+			else if (fType.equals("mac_user")) //$NON-NLS-1$
+			{
+				setPcgenFilesDir(new File(Globals.defaultMacOptionsPath));
 			}
 			else
 			{

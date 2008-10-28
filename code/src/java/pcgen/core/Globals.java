@@ -180,6 +180,11 @@ public final class Globals
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
 
+	/** whether or not we are running on a Mac */
+	public static final boolean isMacPlatform = System.getProperty("os.name").equals("Mac OS X");
+	/** default location for options.ini on a Mac */
+	public static final String defaultMacOptionsPath = System.getProperty("user.home") + "/Library/Preferences/pcgen";
+
 	private static final Comparator<PObject> pObjectComp = new Comparator<PObject>()
 		{
 			public int compare(final PObject o1, final PObject o2)
@@ -2753,6 +2758,11 @@ public final class Globals
 		{
 			// use the users "home" directory + .pcgen
 			return System.getProperty("user.home") + File.separator + ".pcgen" + File.separator + aString;
+		}
+		else if (fType.equals("mac_user"))
+		{
+			// use the users "home" directory + standard Mac settings
+			return System.getProperty("user.home") + "/Library/Preferences/pcgen" + File.separator + aString;
 		}
 		else
 		{
