@@ -1,4 +1,4 @@
-# CVS $Revision: 7080 $ $Author: eddyanthony $ -- Mon Apr 14 11:44:27 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision: 7080 $ $Author: eddyanthony $ -- Tue Oct 28 15:41:22 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
 
 STARTPACK:NPC (Goblin Warchanter)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p. 12
@@ -45,6 +45,7 @@ STARTPACK:NPC (Tsuto Kaijitsu)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!P
 RACE:Half-Elf	!PRERACE:1,%
 NAME:Tsuto Kaijitsu
 ALIGN:LE
+LANGBONUS:Goblin
 CLASS:Rogue	LEVEL:1
 STAT:STR=12|DEX=15|CON=8|INT=13|WIS=14|CHA=10
 SKILL:Tumble				RANK:4
@@ -63,8 +64,8 @@ SKILL:Bluff					RANK:1
 SKILL:Disable Device			RANK:1
 FEAT:Dodge
 FEAT:Weapon Finesse
-ABILITY:CATEGORY=Monk Feat|Monk Lvl 1 Bonus Feat (Stunning Fist)
-ABILITY:CATEGORY=Monk Feat|Monk Lvl 2 Bonus Feat (Deflect Arrows)
+ABILITY:CATEGORY=Monk Feat|Stunning Fist
+ABILITY:CATEGORY=Monk Feat|Deflect Arrows
 GEAR:Potion (Cure Light Wounds)	LOCATION:Equipped
 GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:BOWSTR|+1.WOOD
 GEAR:Ring (Protection +1)		LOCATION:Equipped
@@ -157,7 +158,7 @@ CLASS:Fighter	LEVEL:3
 STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
 SKILL:Climb			RANK:6
 SKILL:Intimidate		RANK:6
-SKILL:Speak Language	RANK:1
+SKILL:Speak Language	RANK:1	SELECTION:Goblin
 SKILL:Swim			RANK:4
 FEAT:Weapon Focus(Sword (Bastard))
 FEAT:Athletic
@@ -179,8 +180,8 @@ RACE:Human	!PRERACE:1,%
 GENDER:Female
 NAME:Lyrie Akenja
 ALIGN:CE
+LANGBONUS:Goblin|Thassilonian
 CLASS:Wizard	LEVEL:3	SUBCLASS:Wizard
-
 STAT:STR=8|DEX=14|CON=12|INT=15|WIS=10|CHA=13
 SKILL:Concentration		RANK:6
 SKILL:Knowledge (Arcana)	RANK:6
@@ -277,6 +278,7 @@ CLASS:Cleric	LEVEL:3
 DEITY:Lamashtu	DOMAIN:Evil|Strength
 SKILL:Concentration		RANK:3
 SKILL:Knowledge (Religion)	RANK:3
+SKILL:Speak Language		RANK:1	FREE:YES	SELECTION:Goblin
 FEAT:Weapon Focus(Sword (Bastard))
 FEAT:Lamashtu's Mark
 ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
@@ -322,6 +324,7 @@ SKILL:Move Silently		RANK:13
 SKILL:Sense Motive		RANK:13
 SKILL:Spot				RANK:13
 SKILL:Tumble			RANK:13
+SKILL:Speak Language		RANK:2	FREE:YES	SELECTION:Common,Giant
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Improved Natural Attack(Bite)

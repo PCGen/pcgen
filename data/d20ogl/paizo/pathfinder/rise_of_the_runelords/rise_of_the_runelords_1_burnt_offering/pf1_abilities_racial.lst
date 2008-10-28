@@ -28,7 +28,6 @@ Snake Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE
 ###Block: Sandpoint Devil Abilities
 # Feat Name		Type						Visible	Special ABility						Define				Modify VAR
 # Ability Name	Category of Ability		Type						Visible	Special ABility						Define				Modify VAR
-Bay			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Bay (Su) DC %|BayDC					DEFINE:BayDC|0			BONUS:VAR|BayDC|10+(HD/2)+CHA
 Hellfire Breath	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Hellfire Breath (Su) DC %|HellfireBreathDC	DEFINE:HellfireBreathDC|0	BONUS:VAR|HellfireBreathDC|10+(HD/2)+CON
 
 ###Block: Sinspawn Abilities
