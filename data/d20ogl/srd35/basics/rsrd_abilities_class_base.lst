@@ -229,6 +229,16 @@ Ki Strike		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	S
 # Ability Name			Category of Ability		Type			Visible	Modify VAR																										Source Page
 Monk Ki Strike Advancement	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 
+###Block: Monk Bonus Feats
+# Ability Name	Category of Ability		Type				Visible		Restricted Ability							Var. Min. Value			Virtual Feat
+Improved Grapple	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Stunning Fist		PREVARGTEQ:MonkBonusFeatLVL,1	VFEAT:Improved Grapple
+Stunning Fist	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Grapple	PREVARGTEQ:MonkBonusFeatLVL,1	VFEAT:Stunning Fist
+Combat Reflexes	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Deflect Arrows		PREVARGTEQ:MonkBonusFeatLVL,2	VFEAT:Combat Reflexes
+Deflect Arrows	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Combat Reflexes	PREVARGTEQ:MonkBonusFeatLVL,2	VFEAT:Deflect Arrows
+Improved Disarm	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip		PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Disarm
+Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Disarm	PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Trip
+
+
 ###Block: Paladin Abilities --------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type							Visible	Special ABility																					Define								Innate Spells										Description																Save checks bonus						Modify VAR							Source Page
 Aura of Courage	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:NO	SAB:Aura of Courage (Su)																																								DESC:Each ally within 10 feet of you gains a +4 morale bonus on saving throws against fear effects.																	SOURCEPAGE:ClassesII.rtf
@@ -443,16 +453,6 @@ Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Su
 Fiendish Servant	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Fiendish Servant		DEFINE:FSLevel|0			FOLLOWERS:Fiendish Servant|1	COMPANIONLIST:Fiendish Servant|Bat,Cat,Dire Animal (Dire Rat),Horse (Heavy),Horse (Light),Horse (Warhorse Heavy),Horse (Warhorse Light),Pony,Raven,Toad																																																																																																																																																																														SOURCEPAGE:PrestigeClasses.rtf
 Undead Companion	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Undead Companion		DEFINE:UndeadCompanionLVL|0	FOLLOWERS:Undead Companion|1	COMPANIONLIST:Undead Companion|Skeleton (Human Warrior),Zombie (Human Commoner)																																																																																																																																																																																										SOURCEPAGE:PrestigeClasses.rtf
 Summon Shadow	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Summon Shadow (Su)		DEFINE:ShadowCompanion|0	FOLLOWERS:Shadow Companion|1	COMPANIONLIST:Shadow Companion|Shadow																																																																																																																																																																																																	SOURCEPAGE:PrestigeClasses.rtf
-
-
-###Block: Monk Bonus Feats
-# Ability Name	Category of Ability		Type				Visible		Restricted Ability							Var. Min. Value			Virtual Feat
-Improved Grapple	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Stunning Fist		PREVARGTEQ:MonkBonusFeatLVL,1	VFEAT:Improved Grapple
-Stunning Fist	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Grapple	PREVARGTEQ:MonkBonusFeatLVL,1	VFEAT:Stunning Fist
-Combat Reflexes	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Deflect Arrows		PREVARGTEQ:MonkBonusFeatLVL,2	VFEAT:Combat Reflexes
-Deflect Arrows	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Combat Reflexes	PREVARGTEQ:MonkBonusFeatLVL,2	VFEAT:Deflect Arrows
-Improved Disarm	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip		PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Disarm
-Improved Trip	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Disarm	PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Improved Trip
 
 ###Block: Expert Class Skills
 # Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose			Class Skill
