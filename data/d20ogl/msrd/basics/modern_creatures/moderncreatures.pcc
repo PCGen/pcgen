@@ -27,3 +27,6 @@ ABILITYCATEGORY:moderncreatures_ability_categories.lst
 KIT:moderncreatures_kits_defaultmonsters.lst
 RACE:moderncreatures_races.lst
 TEMPLATE:moderncreatures_templates.lst
+
+#Included from Arcana to avoid duplicates
+LANGUAGE:@/d20ogl/msrd/arcana/basics/arcanabasics_languages_menaces.lst

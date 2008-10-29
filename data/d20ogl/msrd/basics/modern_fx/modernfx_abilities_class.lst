@@ -1,4 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Oct 10 16:27:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block:Shadow Slayer -------------------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type					Visible	Special ABility							Define
@@ -48,3 +49,13 @@ Spell Mastery		CATEGORY:Special Ability	TYPE:SpellMastery					SAB:Spell Mastery 
 # Ability Name		Category of Ability		Type					Visible	Special ABility
 Spontaneous Casting	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Spontaneous Casting
 
+###Block: FX Skills (for Starting Occupations that may use them in other supplements)
+# Ability Name			Category of Ability		Type							Visible		Class Skill
+Psicraft(class skill)		CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Psicraft
+Spellcraft(class skill)		CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Spellcraft
+Autohypnosis(class skill)	CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Autohypnosis
+Use Magic Device(class skill)	CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Use Magic Device
+
+#
+# End
+#

@@ -235,13 +235,9 @@ Treat Injury(+1 to skill)					CATEGORY:Starting Occupation	TYPE:Occupation_Skill
 Tumble(class skill)						CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Athlete_Skills																								VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																		CSKILL:Tumble
 Tumble(+1 to skill)						CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Athlete_Skills																								VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																	BONUS:SKILL|Tumble|1|TYPE=Competance					CSKILL:Tumble
 
-###Block: FX Skills
+###Block: FX Skills - the others have been moved to /data/d20ogl/msrd/basics/modern_fx/modernfx_abilities_class.lst
 # Ability Name			Category of Ability		Type							Visible		Class Skill
 Control Shape(class skill)	CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Control Shape
-Psicraft(class skill)		CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Psicraft
-Spellcraft(class skill)		CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Spellcraft
-Autohypnosis(class skill)	CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Autohypnosis
-Use Magic Device(class skill)	CATEGORY:Starting Occupation	TYPE:Occupation_Skill.NoOccupationYet	VISIBLE:DISPLAY	CSKILL:Use Magic Device
 
 #
 # EoF
