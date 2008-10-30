@@ -49,4 +49,4 @@ CATEGORY=Special Ability|Favored Enemy (Undead).MOD															PREMULT:1,[!PR
 CATEGORY=Special Ability|Favored Enemy (Vermin).MOD															PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]																																																																																																																																																																																																																																				SOURCELONG:ClassesII.rtf
 
 # Blackguard
-Infernal Servant											CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																														SAB:Infernal Servant	DEFINE:ISLevel|0	FOLLOWERS:Infernal Servant|1			COMPANIONLIST:Infernal Servant|Devil (Imp),Demon (Quasit)SOURCEPAGE:PrestigeClasses.rtf
+Infernal Servant											CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																														SAB:Infernal Servant	DEFINE:ISLevel|0	FOLLOWERS:Infernal Servant|1			COMPANIONLIST:Infernal Servant|Devil (Imp),Demon (Quasit)

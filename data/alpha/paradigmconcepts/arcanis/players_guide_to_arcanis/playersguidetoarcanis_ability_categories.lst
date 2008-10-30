@@ -1,6 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Jul 11 19:40:38 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+# CVS $Revision$ $Author$ -- Thu Oct 30 13:08:10 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 
 ###:Block: Universal Category
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Special Ability			VISIBLE:NO		EDITABLE:YES									CATEGORY:Special Ability
 ABILITYCATEGORY:FEAT																			CATEGORY:FEAT
 

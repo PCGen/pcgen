@@ -92,6 +92,7 @@ RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst
 RACE:@/d20ogl/srd35/basics/rsrd_races__base.lst|(EXCLUDE:Elf|Half-Elf|Halfling)
 SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
+SPELL:@/d20ogl/srd35/basics/rsrd_spells_monster.lst
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
 WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
@@ -170,6 +171,10 @@ EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_weap_psionic.lst
 EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic_enhancing.lst
 EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic.lst
 FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic.lst|(EXCLUDE:CATEGORY=FEAT,Speed of Thought,Psychic Inquisitor)
+KIT:@/d20ogl/srd35/psionics/rsrd_kits_psionic_races_a_o.lst
+KIT:@/d20ogl/srd35/psionics/rsrd_kits_psionic_races_p_z.lst
+RACE:@/d20ogl/srd35/psionics/rsrd_races_psionic_a_o.lst
+RACE:@/d20ogl/srd35/psionics/rsrd_races_psionic_p_z.lst
 SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst
 SKILL:@/d20ogl/srd35/psionics/rsrd_skills_psionic.lst
 SPELL:@/d20ogl/srd35/psionics/rsrd_spells_psionic.lst
