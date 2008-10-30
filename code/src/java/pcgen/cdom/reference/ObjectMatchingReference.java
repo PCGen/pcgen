@@ -163,7 +163,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 		for (T obj : all.getContainedObjects())
 		{
 			V actual = obj.get(key);
-			if (value == null && actual == null || value != null
+			if (actual == null && (value == null || allowNull) || value != null
 					&& value.equals(actual))
 			{
 				list.add(obj);
