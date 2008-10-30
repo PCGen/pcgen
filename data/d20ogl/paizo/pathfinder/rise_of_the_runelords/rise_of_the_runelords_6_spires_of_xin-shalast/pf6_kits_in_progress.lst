@@ -1,0 +1,290 @@
+##Svevenka CR 16
+Female icy nymph druid 8 (MM 197, Advanced Bestiary 150)
+CN Medium elemental (augmented fey, cold, extraplanar, water)
+Init +6; Senses low-light vision; Listen +23, Spot +23
+Aura blinding beauty (30 ft., DC 20), cold (10 ft., DC 22)
+Defense
+AC 28, touch 21, flat-footed 22
+(+5 deflection, +6 Dexterity, +5 natural, +2 shield)
+hp 161 (14d8+98)
+Fort +20, Ref +18, Will +22
+DR 10/cold iron; Immune cold; Resist fire 30
+Weakness vulnerable to fire
+Offense
+Spd 30 ft., swim 20 ft.
+Melee +3 dagger +18/+13 (1d4+2/19–20 plus icy touch) or
+icy touch +15 touch (1d6 cold)
+Special Attacks exude ice, icy touch, stunning glance (DC 18), wild
+
+
+
+##Abominable Snowmen (6) CR 10
+Yeti barbarian 2/fighter 4 (Tome of Horrors 283)
+
+#The Hidden Beast CR 15
+Male advanced dread vampire decapus sorcerer 10 (Tome of Horrors
+64, Advanced Bestiary 97)
+CE Large undead (augmented aberration)
+Init +8; Senses blindsight 30 ft., darkvision 120 ft., scent; Listen
++22, Spot +22
+Defense
+AC 33, touch 16, flat-footed 29
+(+5 armor, +3 deflection, +4 Dexterity, +12 natural, –1 size)
+hp 177 (25d12+15); fast healing 5
+Fort +13, Ref +17, Will +22
+Defensive Abilities turn resistance +6; DR 10/good and silver;
+Immune cold; Resist acid 10, electricity 10, sonic 10
+Weaknesses sunlight vulnerability, water vulnerability
+Offense
+Spd 30 ft., climb 30 ft., fly 15 ft. (perfect)
+Melee 10 tentacles +27 (1d8+12/19–20)
+Space 10 ft.; Reach 15 ft.
+Special Attacks blood drain, children of the night, constrict 1d8+12,
+create spawn, dominate (DC 26), energy drain, illusion, improved
+grab, sound imitation
+Spell-Like Abilities (CL 10th)
+3/day—darkness, fog cloud
+1/day—deeper darkness
+Spells Known (CL 10th, +19 ranged touch)
+5th (5/day)—telekinesis (DC 24)
+4th (7/day)—greater invisibility, phantasmal killer (DC 25)
+3rd (7/day)—dispel magic, displacement, lightning bolt (DC 22)
+2nd (8/day)—blindness/deafness, false life, mirror image, scorching ray
+1st (9/day)—alarm, magic missile, ray of enfeeblement, shield,
+ventriloquism (DC 22)
+0 (6/day)—acid splash, dancing lights, detect magic, ghost sound (DC
+21), mage hand, message, open/close, prestidigitation, read magic
+
+
+#Vampire Skulk CR 9
+Vampire skulk rogue 6 (MM 251, Tome of Horrors 231)
+
+#Gamigin CR 16
+Male elite advanced ice devil (MM 56)
+
+#Mountain Roper CR 15
+Advanced roper (MM 215)
+
+#Ghlorofaex CR 17
+Male elite mature adult blue dragon (earth) (MM 72)
+LE Huge dragon
+
+#Viorian Dekanti, Champion of Shalast CR 18
+Female human fighter 18
+
+#Wardens of Runes (2) CR 14
+Male rune giant (see page 86)
+LE Gargantuan giant
+
+#Khalib CR 16
+Male human transmuter 16
+LE Medium humanoid
+
+#Most High Ceoptra CR 16
+Female lamia harridan cleric 4 (see page 82)
+
+##Module: NPCs and Creatures:
+The Horror Tree	CR:14		RACETYPE:Undead	
+Unique undead advanced treant (MM 245)
+SIZE:G	MONSTERCLASS:Undead:21
+ABILITY:Special Ability|AUTOMATIC|Darkvision|Low-light Vision|Vulnerability To Fire|Immunity To Cold|Undead Traits
+
+BONUS:VAR|DarkvisionRange|60
+BONUS:COMBAT|AC|23|TYPE=NaturalArmor
+
+
+hp 220 (21d12+84)
+DR:10/slashing
+
+TEMPLATE:Undead
+
+Spd 30 ft.
+Melee 2 slams +22 (4d6+15 plus fungus)
+Space 20 ft.; Reach 20 ft.
+Special Attacks double damage against objects, trample 3d6+22
+(DC 35)
+Str 41, Dex 8, Con —, Int 12, Wis 16, Cha 18
+Feats Awesome Blow, Cleave, Improved Bull Rush, Improved Critical (slam),
+Improved Natural Attack (slam), Power Attack, Weapon Focus (slam)
+Skills Knowledge (nature) +25, Listen +27, Sense Motive +27, Spot
++27, Survival +27 (+29 in above-ground natural environments)
+Languages Sylvan
+SQ unholy fortitude
+Special Abilities
+Fungus (Ex) The horror tree’s branches are encrusted with a
+virulent fungus that grows rapidly when in contact with blood,
+sending filaments ripping through the bodies of any living
+creatures damaged by its slams and dealing 1d6 points of
+Dexterity damage in the process. A creature brought to 0
+Dexterity by this effect is slain.
+Unholy Fortitude (Ex) The horror tree gains bonus hit points equal
+to its Charisma modifier times its Hit Dice, and a bonus on its
+Fortitude saves equal to its Charisma modifier.
+
+
+
+
+###########
+
+
+Karivek Vekker CR 15
+Male dwarf ghost expert 14 (incorporeal) (MM 116)
+NE Medium undead
+Init +6; Senses darkvision 60 ft.; Listen +10, Spot +10
+Aura horrific appearance (60 ft., DC 22)
+Defense
+AC 17, touch 17, flat-footed 15
+(+5 deflection, +2 Dexterity)
+hp 91 (14d12)
+Fort +6, Ref +6, Will +12
+Defensive Abilities +4 turn resistance; Immune incorporeal traits,
+undead traits
+
+
+
+#The Thing from beyond Time CR 16
+Advanced hound of Tindalos (Pathfinder #4 82)
+NE Large outsider (evil)
+Init +13; Senses darkvision 120 ft.; Listen +36, Spot +36
+Aura ripping gaze (30 ft.)
+Defense
+AC 26, touch 19, flat-footed 17
+(+9 Dexterity, +7 natural)
+hp 294 (28d8+168)
+Fort +21, Ref +26, Will +20
+DR 10/magic; Immune poison, mind-affecting effects
+Offense
+Spd 40 ft.
+Melee bite +26 (4d6+16) and
+2 claws +21 (3d6+13)
+Space 10 ft.; Reach 10 ft.
+Spell-Like Abilities (CL 10th)
+At will—air walk, fog cloud, invisibility, locate creature
+3/day—dimensional anchor, greater scrying (DC 18), haste, slow (DC 17)
+Str 23, Dex 28, Con 22, Int 20, Wis 21, Cha 18
+Base Atk +28; Grp +38
+Feats Ability Focus (ripping gaze), Combat Reflexes, Dodge, Improved
+Initiative, Improved Natural Attack (bite, claw), Lightning Reflexes,
+Power Attack, Track, Weapon Finesse
+Skills Balance +44, Concentration +37, Hide +36, Jump +45,
+Knowledge (arcana) +36, Knowledge (geography) +36,
+Knowledge (the planes) +36, Listen +36, Move Silently +40,
+Search +36, Spot +36, Survival +36, Tumble +44
+SQ angled entry, otherworldly mind
+Special Abilities
+Angled Entry (Su) Normally, a hound of Tindalos can use greater
+teleport at will once per round as a free action and plane shift three
+times a day, but as long as the occluding field is active, the Thing
+from beyond Time cannot use these abilities.
+Otherworldly Mind (Ex) A non-outsider who attempts to read
+a hound’s thoughts must make a DC 29 Will save. Those who
+succeed take 5d6 points of damage and the attempt to read the
+hound’s thoughts ends. Those who fail are driven insane, as the
+spell insanity. The save DC is Wisdom-based.
+Ripping Gaze (Su) 14d6 damage, 30 ft., Fortitude DC 29
+negates. Those damaged by this gaze attack suffer deep,
+bloodless, but hideously painful rents in their flesh. The save
+DC is Charisma-based.
+
+
+
+
+#Karzoug the Claimer CR 21
+hp 266 (see page 62)
+
+Male human transmuter 16/archmage 4
+NE Medium humanoid
+Init +7; Senses arcane sight, darkvision 60 ft., see invisibility; Listen +1, Spot +1
+Defense
+AC 36, touch 21, flat-footed 29
+(+6 armor, +4 deflection, +7 Dexterity, +5 natural, +4 shield)
+hp 266 (20d4+215); fast healing 10
+Fort +15, Ref +15, Will +17
+Defensive Abilities freedom of movement; Immune mind-affecting effects;
+SR 24
+Offense
+Spd 30 ft., fly 60 ft. (perfect)
+Melee Karzoug's burning glaive +20/+15 (1d10+12/19–20/×3 plus 1d6
+fire) or
+2 talons of Leng +18 (1d4+8/×3)
+Ranged arcane fire +17 (4d6+1d6 per level of spell sacrificed)
+Special Attacks high arcana (arcane fire, mastery of elements, spell power,
+spell-like ability)
+Spell-Like Abilities (CL 22nd)
+2/day—quickened teleport
+Spells Prepared (CL 22nd, +17 ranged touch)
+9th—meteor swarm, time stop, wail of the banshee (DC 31), wish (2)
+8th—horrid wilting (DC 30), maze, mind blank (already cast), prismatic
+wall (DC 30), temporal stasis (2, DC 31)
+7th—finger of death (DC 29), forcecage, quickened haste, quickened
+lightning bolt (DC 24), limited wish, reverse gravity, spell turning
+6th— disintegrate (DC 29), flesh to stone (DC 29), globe of invulnerability,
+greater dispel magic, repulsion (DC 27), quickened resist energy, sign
+of wrath* (DC 27), true seeing
+5th—baleful polymorph (DC 28), cloudkill, cone of cold (DC 26), quickened
+magic missile, quickened shield, telekinesis (DC 28), wall of force
+4th—bestow curse (DC 26), black tentacles, enervation (2), ice storm (2),
+mass reduce person (DC 27), scrying
+3rd—blink, fireball (DC 24), keen edge (already cast), greater magic
+weapon (already cast), protection from energy, slow (DC 26), stinking
+cloud (DC 25), vampiric touch
+2nd—blindness/deafness (DC 24), false life (already cast), glitterdust (DC
+24), protection from arrows, pyrotechnics (DC 25), resist energy,
+scorching ray (2), shatter (DC 23)
+1st—alarm, enlarge person, expeditious retreat, grease (DC 23), ray of
+enfeeblement (4), reduce person (DC 24)
+0—acid splash, flare (DC 21), mage hand, prestidigitation, touch of fatigue
+(DC 22)
+Prohibited Schools enchantment, illusion
+XP Karzoug has 17,500 XP available for casting powerful spells like wish
+Statistics
+Str 20, Dex 24, Con 24, Int 32, Wis 12, Cha 18
+Base Atk +10; Grp +15
+Feats Craft Magic Arms and Armor, Craft Wand, Craft Wondrous Item,
+Eschew Materials, Greater Spell Focus (transmutation), Inscribe Rune*,
+Martial Weapon Proficiency (glaive), Quicken Spell, Scribe Scroll, Skill
+Focus (Spellcraft), Spell Focus (conjuration, necromancy, transmutation)
+Skills Concentration +30, Craft (alchemy) +34, Knowledge (arcana)
++34, Knowledge (architecture and engineering) +34, Knowledge
+(geography) +16, Knowledge (nobility) +34, Knowledge (religion)
++16, Knowledge (the planes) +22, Spellcraft +36
+Languages Abyssal, Giant, Thassilonian; tongues
+SQ contingency, exceptional stats, immortal, inherent bonuses, permanent
+spells, summon familiar (none currently)
+Combat Gear rod of greater quicken metamagic, wand of blood money*
+(33 charges), wand of dispel magic (CL 10th, 40 charges), wand of
+magic missile (CL 9th, 24 charges), wand of stoneskin (CL 10th, 17
+charges); Other Gear Karzoug's burning glaive, talons of Leng, belt
+of giant strength +6, boots of Dexterity +6, implanted ioun stones (3
+crimson spheres, 12 emerald ellipsoids, 3 onyx rhomboids, 2 amber
+spindles), Sihedron Tome, robes of Xin-Shalast, ring of protection +5,
+ring of freedom of movement, rune of contingency, runewell amulet,
+ruby inscribed with the rune of wrath worth 1,000 gp (focus for sign
+of wrath), ruby dust worth 1,500 gp (for forcecage), vial of powdered
+gemstones worth 10,000 gp (for temporal stasis)
+*Sign of wrath, Inscribe Rune, and blood money are detailed in Pathfinder #5.
+Speci al Abilities
+Exceptional Stats (Ex) Karzoug was destined from birth to become
+one of the greatest wizards of his age. As a result, his ability scores
+were generated using 32 points, rather than the standard 25-point
+elite array. Additionally, he has much more gear than standard for an
+NPC of his level. These modifications increase his total CR by 1.
+Immortal Secrets from ancient Thassilon and realms beyond have
+allowed Karzoug to sustain his life indefinitely. Unless slain by
+violent means, he is effectively immortal.
+Inherent Bonuses Karzoug has used wish spells to increase his stats.
+He has a +5 inherent bonus to his Intelligence and a +4 inherent
+bonus to his other five ability scores.
+Contingency If Karzoug ever becomes affected by a hostile spell
+effect that prevents him from acting on his own, a greater dispel
+magic targets him.
+Permanent Spells Karzoug has made the following spells permanent
+on himself: arcane sight, darkvision, see invisibility, and tongues.
+Rune of Contingency This magic rune, created by Karzoug's Inscribe
+Rune feat, allows Karzoug to gain the effects of feather fall and
+water breathing once each per day. In addition, if he’s reduced to 0
+or fewer hit points but is not killed, he turns into a cloud of vapor
+as per the spell gaseous form for 5 rounds. He remains conscious
+during this time, but after 5 rounds he returns to his normal form
+and is unconscious and dying.
+

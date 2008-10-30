@@ -1,0 +1,231 @@
+# CVS $Revision$ $Author$ -- Sun Jul 13 19:51:28 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Rise of the Runelords - Chapter 6: Spires of Xin-Shalast	SOURCESHORT:PF6	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+#Original Entry: Andrew Maitland
+
+
+STARTPACK:Crag Spider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Craig Spider]
+RACE:Craig Spider	!PRERACE:1,%
+NAME:Craig Spider
+ALIGN:TN
+#hp 104 (16d8+32)
+#Str 20, Dex 18, Con 14, Int —, Wis 10, Cha 2
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+#Skills Climb +21, Hide +0, Jump +15, Spot +8
+SKILL:Climb	RANK:2
+SKILL:Hide	RANK:0
+SKILL:Jump	RANK:2
+SKILL:Spot	RANK:0
+#Skills A crag spider has a +4 racial bonus on Jump checks, and a +8 racial bonus on Climb checks.
+
+
+#KIT - Leng
+STARTPACK:Denizen of Leng Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
+RACE:Denizen of Leng	!PRERACE:1,%
+NAME:Denizen of Leng
+ALIGN:NE
+#hp 105 (10d8+60)
+#Str 14, Dex 22, Con 23, Int 22, Wis 16, Cha 20
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+#Skills Bluff +18, Concentration +19, Craft (alchemy) +20, Disable Device +20, Disguise +18 (+22 as human),
+#Forgery +20, Intimidate +20, Knowledge (any one) +20, Listen +16, Profession (sailor) +16, Search +20,
+#Sleight of Hand +23, Spellcraft +20, Spot +16, Use Magic Device +18
+SKILL:Climb	RANK:2
+SKILL:Hide	RANK:0
+SKILL:Jump	RANK:2
+SKILL:Spot	RANK:0
+FEAT:Improved Critical(Dagger)
+FEAT:Multiattack
+FEAT:Quick Draw
+FEAT:Weapon Finesse
+GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped
+GEAR:Dagger +1				SIZE:PC	LOCATION:Primary Hand
+
+
+
+###Kit: Kuchrima
+STARTPACK:Kuchrima Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kuchrima]
+RACE:Kuchrima	!PRERACE:1,%
+NAME:Kuchrima
+ALIGN:CE
+#hp 84 (11d10+22)
+#Str 14, Dex 22, Con 15, Int 7, Wis 9, Cha 10
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+#Skills Spot +19
+SKILL:Spot	RANK:14
+FEAT:Alertness
+FEAT:Altitude Affinity
+FEAT:Endurance
+FEAT:Point Blank Shot
+GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped
+GEAR:Dagger +1				SIZE:PC	LOCATION:Primary Hand
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#Combat Gear
+#Large masterwork composite longbow (+2 Str bonus)
+#w/20 arrows
+
+
+###:Harridan
+STARTPACK:Harridan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harridan]
+RACE:Harridan	!PRERACE:1,%
+NAME:Harridan
+ALIGN:CE|NE|LE
+#hp 161 (17d10+68)
+#Str 26, Dex 15, Con 19, Int 13, Wis 16, Cha 16
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+#Skills Bluff +16, Climb + 12, Concentration +14, Diplomacy +10, Hide
+#+12, Knowledge (Arcana) +6, Listen +13, Move Silently +7, Spot +13
+#BONUS:SKILL|Climb|4|TYPE=Racial
+#BONUS:SKILL|Bluff,Hide|8|TYPE=Racial
+SKILL:Bluff				RANK:1
+SKILL:Climb				RANK:0
+SKILL:Concentration		RANK:10
+SKILL:Diplomacy			RANK:7
+SKILL:Hide				RANK:6
+SKILL:Knowledge (Arcana)	RANK:5
+SKILL:Listen			RANK:10
+SKILL:Move Silently		RANK:5
+SKILL:Spot				RANK:10
+FEAT:Altitude Affinity
+FEAT:Dodge
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Multiattack
+FEAT:Spring Attack
+GEAR:Masterwork Breastplate	SIZE:PC	LOCATION:Equipped
+GEAR:Masterwork Greatsword	SIZE:PC	LOCATION:Primary Hand
+
+###:Hungerer
+STARTPACK:Hungerer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hungerer]
+RACE:Hungerer	!PRERACE:1,%
+NAME:Hungerer
+ALIGN:CE
+#hp 262 (21d10+147)
+#Str 30, Dex 13, Con 25, Int 13, Wis 10, Cha 13
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+FEAT:Altitude Affinity
+FEAT:Diehard
+FEAT:Dodge
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Mobility
+FEAT:Spring Attack
+#Skills Climb +28, Hide +3, Intimidate +12, Listen +10, Spot +16, Use Magic Device +11
+SKILL:Climb			RANK:0
+SKILL:Hide			RANK:0
+SKILL:Intimidate		RANK:0
+SKILL:Listen		RANK:0
+SKILL:Spot			RANK:0
+SKILL:Use Magic Device	RANK:0
+
+
+#Rune Giant CR 14
+STARTPACK:Rune Giant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rune Giant]
+RACE:Rune Giant	!PRERACE:1,%
+NAME:Rune Giant
+ALIGN:LE
+# Gargantuan giant
+#hp 230 (20d8+140)
+#Str 42, Dex 13, Con 24, Int 14, Wis 12, Cha 24
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#Skills Climb +34, Jump +38, Listen +24, Spot +24
+SKILL:Climb		RANK:0
+SKILL:Jump		RANK:0
+SKILL:Listen	RANK:0
+SKILL:Spot		RANK:0
+FEAT:Altitude Affinity
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (great sword)
+FEAT:Power Attack
+FEAT:Quick Draw
+
+#Wendigo	CR:17
+STARTPACK:Wendigo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
+RACE:Wendigo	!PRERACE:1,%
+NAME:Wendigo
+ALIGN:CE
+#hp 279 (18d8+198); regeneration 15 (fire)
+#Str 29, Dex 19, Con 33, Int 16, Wis 20, Cha 24
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+FEAT:Ability Focus(Howl)
+FEAT:Ability Focus(Dream Haunting)
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Track
+#Skills Hide +23, Knowledge (geography) +24, Knowledge (nature)+24, Knowledge (religion) +24,
+#Knowledge (the planes) +24,Listen +26, Move Silently +27, Search +24, Spot +26, Survival+26, Tumble +25
+SKILL:Hide				RANK:0
+SKILL:Knowledge (Geography)	RANK:0
+SKILL:Knowledge (Nature)	RANK:0
+SKILL:Knowledge (Religion)	RANK:0
+SKILL:Knowledge (The Planes)	RANK:0
+SKILL:Listen			RANK:0
+SKILL:Move Silently		RANK:0
+SKILL:Search			RANK:0
+SKILL:Spot				RANK:0
+SKILL:Survival			RANK:0
+SKILL:Tumble			RANK:0
+
+
+#####Karivek Vekker - pg. 19
+STARTPACK:Karivek Vekker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Anaxim)]
+RACE:Dwarf	!PRERACE:1,%
+NAME:Karivek Vekker
+ALIGN:LN
+CLASS:Expert	LEVEL:14
+TEMPLATE:Ghost
+SKILL:Climb	RANK:41
+SKILL:Jump	RANK:41
+FEAT:Blind Fight
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Weapon Focus(Spinning Blade)
+FEAT:Improved Critical(Spinning Blade)
+FEAT:Devastating Critical(Spinning Blade)
+FEAT:Overwhelming Critical(Spinning Blade)
+FEAT:Epic Weapon Focus(Spinning Blade)
+FEAT:Improved Bull Rush
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Epic Toughness
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+
+
+
+#Karivek Vekker CR 15
+#Male dwarf ghost expert 14 (incorporeal) (MM 116)
+#NE Medium undead
+#Init +6; Senses darkvision 60 ft.; Listen +10, Spot +10
+#Aura horrific appearance (60 ft., DC 22)
+#Defense
+#AC 17, touch 17, flat-footed 15
+#(+5 deflection, +2 Dexterity)
+#hp 91 (14d12)
+#Fort +6, Ref +6, Will +12
+#Defensive Abilities +4 turn resistance; Immune incorporeal traits,
+#undead traits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
