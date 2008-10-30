@@ -28,7 +28,7 @@ import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.choiceset.NonClassChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.ClassSkillChoiceActor;
@@ -173,13 +173,13 @@ public class ClassSkillsToken extends AbstractToken implements
 			}
 		}
 
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		NonClassChoiceSet rcs = new NonClassChoiceSet(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getFullName(), rcs);
 		TransitionChoice<Skill> tc = new TransitionChoice<Skill>(cs,
 				FormulaFactory.getFormulaFor(count));
-		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(obj, autoRank);
 		tc.setChoiceActor(actor);
+		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		return true;
 	}
 
