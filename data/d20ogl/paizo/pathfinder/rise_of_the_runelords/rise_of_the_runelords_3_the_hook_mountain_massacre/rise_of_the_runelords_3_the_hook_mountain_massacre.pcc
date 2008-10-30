@@ -1,0 +1,39 @@
+# CVS $Revision$ $Author$ -- Mon Jun 30 17:16:58 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+CAMPAIGN:Paizo - Rise of the Runelords - Chapter 3: The Hook Mountain Massacre
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Rise of the Runelords - Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre
+SOURCESHORT:PF3
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80e8
+SOURCEDATE:2007-08
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author: F. Wesley Schneider.
+COPYRIGHT:Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Author: James Jacobs.
+COPYRIGHT:Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett.
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 3: The Hook Mountain Massacre" Copyright 2008, PCGen Data Team (including, but not limited to Eric C. Smith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:pf3_abilities_racial.lst
+ABILITYCATEGORY:pf3_ability_categories.lst
+EQUIPMENT:pf3_equip_wondrousitems.lst
+KIT:pf3_kits_animals.lst
+KIT:pf3_kits_npcs.lst
+KIT:pf3_kits_races.lst
+RACE:pf3_races.lst
+SKILL:pf3_skills.lst
+TEMPLATE:pf3_templates.lst
