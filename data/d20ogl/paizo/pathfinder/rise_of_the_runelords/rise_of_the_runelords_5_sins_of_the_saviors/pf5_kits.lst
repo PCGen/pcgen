@@ -1,0 +1,217 @@
+# CVS $Revision$ $Author$ -- Wed Jul 30 21:45:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+#Original Entry: Andrew Maitland
+#COMMENT: Still a work in progress... Safe for testing now
+### Custom
+STARTPACK:Default Ercinee	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ercinee]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+#Str 17, Dex 15, Con 10, Int 10, Wis 14, Cha 13
+RACE:Ercinee	!PRERACE:1,%
+NAME:Ercinee
+ALIGN:TN
+#Skills Bluff +8, Listen +10, Spot +11
+SKILL:Bluff		RANK:7
+SKILL:Listen	RANK:8
+SKILL:Spot		RANK:9
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Wingover
+
+
+#Block: Marsh Giant----------------------------------------
+STARTPACK:Default Marsh Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+#Str 23, Dex 17, Con 20, Int 8, Wis 13, Cha 12
+RACE:Marsh Giant	!PRERACE:1,%
+NAME:Marsh Giant
+ALIGN:CE
+#Skills Hide +1 (+9 in swamps), Knowledge (nature) +1, Listen +3, Move Silently +7, Spot +5, Survival +3, Swim +14
+SKILL:Hide				RANK:5
+SKILL:Knowledge (Nature)	RANK:2
+SKILL:Listen			RANK:2
+SKILL:Move Silently		RANK:4
+SKILL:Spot				RANK:4
+SKILL:Survival			RANK:2
+SKILL:Swim				RANK:0
+FEAT:Combat Reflexes
+FEAT:Great Fortitude
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Power Attack
+GEAR:Greatclub	SIZE:PC	LOCATION:Primary Hand
+#GEAR:Giant Throwing Rock	SIZE:PC	LOCATION:Equipped
+
+
+###Block: Witchfire -------------------------------------------------------------------------
+STARTPACK:Default Witchfire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+#Str —, Dex 22, Con —, Int 17, Wis 16, Cha 25
+RACE:Witchfire	!PRERACE:1,%
+NAME:Witchfire
+ALIGN:CE
+#Skills Bluff +23, Hide +22, Intimidate +25, Knowledge (any two) +19, Listen +19, Spot +19
+SKILL:Bluff			RANK:0
+SKILL:Hide			RANK:0
+SKILL:Intimidate		RANK:0
+SKILL:Listen		RANK:0
+SKILL:Spot			RANK:0
+SKILL:TYPE=Knowledge	RANK:16	COUNT:2
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Mobility
+
+
+###Block: Demon (Shemhazian)---------------------------------------------------------------------------------------
+STARTPACK:Default Demon (Shemhazian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Shemhazian)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+#Str 30, Dex 19, Con 27, Int 10, Wis 18, Cha 16
+RACE:Demon (Shemhazian)	!PRERACE:1,%
+NAME:Shemhazian
+ALIGN:CE
+#Skills Climb +37, Hide +11, Intimidate +22, Jump +33,Listen +25, Move Silently +23, Search +27-8, Spot +33-8
+SKILL:Climb			RANK:0
+SKILL:Hide			RANK:0
+SKILL:Intimidate		RANK:0
+SKILL:Jump			RANK:0
+SKILL:Listen		RANK:0
+SKILL:Move Silently	RANK:0
+SKILL:Search		RANK:0
+SKILL:Spot			RANK:0
+FEAT:Alertness
+FEAT:Awesome Blow
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Multiattack
+FEAT:Power Attack
+#Languages Abyssal, Celestial, Draconic; telepathy 100 ft.
+#BONUS:SKILL|Search,Spot|8
+
+#Block: Star Monarch --------------------------------------------------------------------------------
+STARTPACK:Default Star Monarch	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Monarch]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+#Str 25, Dex 22, Con 25, Int 20, Wis 18, Cha 24
+RACE:Star Monarch	!PRERACE:1,%
+NAME:Star Monarch
+ALIGN:CG
+#Skills Diplomacy +30, Handle Animal +28, Heal +25, Hide +11, Knowledge (geography) +26, Knowledge (nature) +26,
+# Knowledge (religion) +26, Knowledge (the planes) +26, Listen +27, Move Silently +27, Search +26, Sense Motive +25,
+# Spot +27, Survival +25 (+2 when following tracks, +2 above ground, +2 on other planes)
+SKILL:Diplomacy			RANK:0
+SKILL:Handle Animal		RANK:0
+SKILL:Heal				RANK:0
+SKILL:Hide				RANK:0
+SKILL:Knowledge (Geography)	RANK:0
+SKILL:Knowledge (Nature)	RANK:0
+SKILL:Knowledge (Religion)	RANK:0
+SKILL:Knowledge (The Planes)	RANK:0
+SKILL:Listen			RANK:0
+SKILL:Move Silently		RANK:0
+SKILL:Search			RANK:0
+SKILL:Sense Motive		RANK:0
+SKILL:Spot				RANK:0
+SKILL:Survival			RANK:0
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Multiattack
+FEAT:Snatch
+#Languages Auran, Celestial, Common (cannot speak), touch telepathy
+
+
+###Block: Yethazmari ------------------------------------------------------------------------------------------
+STARTPACK:Default Yethazmari	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yethazmari]
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+#Str 24, Dex 20, Con 22, Int 17, Wis 23, Cha 22
+RACE:Yethazmari	!PRERACE:1,%
+NAME:Yethazmari
+ALIGN:CE
+#Skills Balance +17, Bluff +27, Climb +17, Intimidate +29, Knowledge (Religion) #+14, Knowledge (The Planes) +14, Listen +29,
+#Move Silently +26, Search +24, Spellcraft +24, Spot +21, Survival +27 (+29 To #Follow Tracks), Tumble +28
+#hp 189 (18d8+108)
+SKILL:Balance			RANK:0
+SKILL:Bluff				RANK:0
+SKILL:Climb				RANK:0
+SKILL:Intimidate			RANK:0
+SKILL:Knowledge (Religion)	RANK:0
+SKILL:Knowledge (The Planes)	RANK:0
+SKILL:Listen			RANK:0
+SKILL:Move Silently		RANK:0
+SKILL:Search			RANK:0
+SKILL:Spellcraft			RANK:0
+SKILL:Spot				RANK:0
+SKILL:Survival			RANK:0
+SKILL:Tumble			RANK:0
+FEAT:Alertness
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Improved Bull Rush
+FEAT:Improved Critical(Bite)
+FEAT:Improved Initiative
+FEAT:Power Attack
+#Languages Abyssal, Common, Infernal
+
+
+###NPCS and Core Book modified monsters----------------------------------------------------------------------------------------
+STARTPACK:Default Hounds of Lamashtu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Mastiff]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+#Str 21, Dex 14, Con 20, Int 2, Wis 12, Cha 15
+RACE:Shadow Mastiff	!PRERACE:1,%
+NAME:Hounds of Lamashtu
+ALIGN:NE
+#Skills Hide +11, Listen +10, Move Silently +11, Spot +10, Survival +1 (+5 tracking by scent)
+SKILL:Hide			RANK:9
+SKILL:Listen		RANK:9
+SKILL:Move Silently	RANK:9
+SKILL:Spot			RANK:9
+SKILL:Survival		RANK:0
+FEAT:Improved Initiative
+FEAT:Improved Natural Attack(Bite)
+FEAT:Track
+FEAT:Weapon Focus(Bite)
+#Hounds of Lamashtu (6) CR 6
+#Advanced elite shadow mastiff (MM 222)
+#NE Medium outsider (extraplanar)
+
+
+#Not Complete - missing STAT, SKILL, FEAT, Gear
+STARTPACK:Default Yaenit-Ku	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Glabrezu)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Demon (Glabrezu)	!PRERACE:1,%
+NAME:Yaenit-Ku
+ALIGN:CE
+#Male glabrezu demon (MM 43)
+#hp 174
+
+
+#Not Complete - missing STAT,, FEAT, Gear
+STARTPACK:Default Arkrhyst	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Old)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Dragon (White Old)	!PRERACE:1,%
+NAME:Arkrhyst
+ALIGN:LE
+#Skills Listen +28, Spot +28
+SKILL:Listen	RANK:27
+SKILL:Spot		RANK:27
+#Arkrhyst CR 15
+#Male old white dragon (MM 77)
+#CE Huge dragon (cold)
+
+
+#Not Complete - missing STAT, SKILL, FEAT, Gear
+STARTPACK:Default Thassilonian Mummy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+RACE:Mummy	!PRERACE:1,%
+NAME:Thassilonian Mummy
+ALIGN:LE
+#Skills Listen +19, Spot +19
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+#Thassilonian Mummy (6) CR 7
+#Elite advanced mummy (MM 190)
+#No Elite advanced mummy specified... What is it?
+#LE Medium undead

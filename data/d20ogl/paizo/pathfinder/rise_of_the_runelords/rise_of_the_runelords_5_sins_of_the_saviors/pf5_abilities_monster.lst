@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Fri Aug 22 00:12:42 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+#Original Entry: Andrew Maitland
+
+###Block: Monster Abilities
+#Ercinee Abilities ------------------------------------------------
+# Ability Name			Output Name			Category of Ability		Type								Special ABility														Define												Innate Spells
+Unstable Screech							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Unstable Screech (Su)
+Lighted Way								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			SAB:Lighted Way (Su)
+Radiance								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				SAB:Radiance (Sp)
+ErcineeSpelllike Abilities					CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Dancing Lights|Light	SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Searing Light
+
+#Marsh Giant ---------------------
+Marsh Giant Abilities						CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=2|CASTERLEVEL=6|Bestow Curse,15|Fog Cloud	SPELLS:Innate|TIMES=1|CASTERLEVEL=6|Augury
+Marsh Giant Rock Throwing					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			SAB:Rock Throwing (Ex) %'|RockThrowRange										DEFINE:RockThrowRange|0
+Marsh Giant Rock Catching					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			SAB:Rock Catching (Ex)
+#Variant -------------------------------------------
+Brineborn Abilities						CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Speak with Animals	SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Contagion,15|Diminish Plants,14|Quench,14
+###
+
+Withfire Abilities						CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Dancing Lights|Disguise Self|Ghost Sound,17|Invisibility|Pyrotechnics,18|Ray of Enfeeblement
+Summon Will-O-Wisps						CATEGORY:Special Ability	TYPE:Supernatural						SAB:Summon Will-O’-Wisps (Sp)
+Witchflame								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Witchflame (Su)
+Witchflame Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			SAB:Witchflame Aura (Su)
+
+
+Shemhazian Spells							CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=16|Detect Good|Invisibility|Teleport (Greater)|Unholy Blight,17	SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Clairaudience/Clairvoyance|Fly|Prying Eyes
+Shemhazian Rend			OUTPUTNAME:Rend		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			SAB:Rend (Ex) ~ %d%+%|RendDamage|RendDieSize|RendBonusDamage						DEFINE:RendDieSize|0	DEFINE:RendDamage|0	DEFINE:RendBonusDamage|0
+Summon Demons							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				SAB:Summon Demons (Sp)
+Shemhazian Telepathy		OUTPUTNAME:Telepathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			SAB:Telepathy (Su) - can communicate telepathically with creature within (%')|TelepathRange	DEFINE:TelepathRange|0
+
+
+####Night Monarch
+Adhesive Spray							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Adhesive Spray
+Dream Dust								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Dream Dust
+No Breath								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			SAB:No Breath
+Poison Flesh							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			SAB:Poison Flesh
+Touch Telepathy							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			SAB:Touch Telepathy
+Night Monarch Special Powers					CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Cure Serious Wounds|Dream|Freedom of Movement|Hypnotic Pattern,26	SPELLS:Innate|TIMES=3|CASTERLEVEL=15|Break Enchantment|Dispel Magic (Greater)|Plane Shift|Remove Curse|Remove Fear|Remove Paralysis	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Hallow,26|Regenerate
+
+#Yethazmari
+Yethazmari Spells							CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Blindness/Deafness,17|Locate Creature|Rage,18|Veil,22	SPELLS:Innate|TIMES=3|CASTERLEVEL=15|Baleful Polymorph,20|Feeblemind,20|Dispel Magic (Greater)|Plane Shift|Summon Monster IV	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Control Weather|Unhallow,20
+
+Yethazmari Bay			OUTPUTNAME:Bay		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Bay
+Maddening Vision							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Maddening Vision
+Poison Gout								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Poison Gout
+Soul Scream								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			SAB:Soul Scream
+#Yethazmari Poison		CATEGORY:Special Ability			TYPE:SpecialAttack.Supernatural	SAB:Poison %|PoisonDC	DEFINE:PoisonDC|25		BONUS:VAR|PoisonDC|10+CON+HD/2
+
+
+#Immune to Fire|Incorporeal Traits|Undead Traits|Darkvision
+Sleep Immunity							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	SAB:Sleep Immunity

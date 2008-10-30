@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Wed Jul 30 21:45:27 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+#Original Entry: Andrew Maitland
+#Variant Classes aka Substitution Classes
+
+
+# Class Name	Substitution levels?
+CLASS:Druid.MOD	HASSUBSTITUTIONLEVEL:YES
+SUBSTITUTIONCLASS:Ashvawg Tamer Druid	CSKILL:Intimidate|Knowledge (Arcana)|Concentration|TYPE.Craft|Handle Animal|Knowledge (Nature)|Listen|TYPE.Profession|Ride|Spellcraft|Spot|Survival|Swim
+SUBSTITUTIONLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Bestial Bond-RotRL|Variant Companion-RotRL
+SUBSTITUTIONLEVEL:6	BONUS:VAR|WildShapeTimes|-1	ABILITY:Special Ability|AUTOMATIC|Undying Bond-RotRL
+#Wild Shape (Su) The druid does not gain her second daily use of her wild shape ability at level 6. Hereafter she has one fewer daily use of the ability than a standard druid of her level.
+SUBSTITUTIONLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Exotic Companion-RotRL
+
+
+
+
