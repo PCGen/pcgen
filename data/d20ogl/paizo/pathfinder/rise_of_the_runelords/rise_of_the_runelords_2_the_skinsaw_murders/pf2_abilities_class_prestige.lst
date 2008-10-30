@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Sat Jun 21 12:17:40 2008 -- reformated by prettylst.pl v1.38 (build 6763)
+SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+# Original Entry by: Stefan Radermacher
+
+###Block: Spherewalker special abilities
+# Ability Name	Category of Ability		Type				Visible	Special ABility																	Define			Innate Spells										Source Page
+Landmark		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Landmark (Su)																																	SOURCEPAGE:p.74
+Longstrider		CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Longstrider (Sp)																				SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Spherewalker")|Longstrider	SOURCEPAGE:p.74
+Efficient Sleep	CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Efficient Sleep (Su)																															SOURCEPAGE:p.74
+Star Slinger	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Star Slinger (Ex)																																SOURCEPAGE:p.74
+Dream Link		CATEGORY:Special Ability	TYPE:SpellLike		VISIBLE:NO	SAB:Dream Link (Sp)																																SOURCEPAGE:p.74
+Divine Luck		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Divine Luck (Su) +% bonus to attack rolls, skill checks or saving throws, %/day|DivineLuckLVL|max(1,CHA)	DEFINE:DivineLuckLVL|0													SOURCEPAGE:p.74
+Swarm Form		CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Swarm Form (Su) %/day|SwarmFormLVL													DEFINE:SwarmFormLVL|0													SOURCEPAGE:p.74

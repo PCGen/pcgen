@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Sat Jan 17 15:39:52 2004 -- reformated by prettylst.pl v1.31 (build 327)
+CAMPAIGN:Paizo - Rise of the Runelords - Chapter 2: The Skinsaw Murders
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Rise of the Runelords - Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders
+SOURCESHORT:PF2
+SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029
+SOURCEDATE:2007-10
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on Material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007, Paizo Publishing LLC. Author F. Wesley Schneider.
+COPYRIGHT:Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Author: James Jacobs
+COPYRIGHT:Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett
+COPYRIGHT:Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 2: The Skinsaw Murders" Copyright 2007-2008, PCGen Data Team (including, but not limited to, Stefan Radermacher.)
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:pf2_abilities_class_prestige.lst
+ABILITY:pf2_abilities_racial.lst
+CLASS:pf2_classes_prestige.lst
+CLASS:pf2_classes_monsters_specific.lst
+COMPANIONMOD:pf2_companionmods.lst
+DEITY:pf2_deities.lst
+EQUIPMENT:pf2_equip_wondrousitems.lst
+FEAT:pf2_feats.lst
+KIT:pf2_kits_races.lst
+LANGUAGE:pf2_languages.lst
+RACE:pf2_races.lst
+SPELL:pf2_spells.lst
+TEMPLATE:pf2_templates_hidden.lst

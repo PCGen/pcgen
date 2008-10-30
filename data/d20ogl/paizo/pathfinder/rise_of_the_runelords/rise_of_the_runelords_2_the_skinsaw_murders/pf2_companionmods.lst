@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Thu Apr 10 14:27:45 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+# Original Entry by: Stefan Radermacher
+
+###Block: Specific Familiars
+# Class of the Master	Type			Required Race		Apply Kit
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Lyrakien	KIT:1|Lyrakien Familiar
