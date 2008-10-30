@@ -457,10 +457,6 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		{
 			return new LevelAbilityAbility(aowner, aLevel, aString, true);
 		}
-		else if (aString.startsWith("CLASSSKILLS"))
-		{
-			return new LevelAbilityClassSkills(aowner, aLevel, aString);
-		}
 		else if (aString.startsWith("SPELLCASTER"))
 		{
 			return new LevelAbilitySpellCaster(aowner, aLevel, aString);
