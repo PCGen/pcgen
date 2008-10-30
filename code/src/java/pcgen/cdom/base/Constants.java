@@ -319,7 +319,7 @@ public interface Constants
 	String LST_TRAINED = "TRAINED";
 	String LST_EXCLUSIVE = "EXCLUSIVE";
 	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
-	String LST_CROSSCLASS = "CROSSCLASS";
+	String LST_CROSSCLASS = "CROSSCLASSSKILLS";
 	char PERCENT = '%';
 	public static final int NO_LEVEL_LIMIT = -1;
 }
