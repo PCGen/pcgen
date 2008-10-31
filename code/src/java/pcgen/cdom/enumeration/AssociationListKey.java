@@ -33,6 +33,7 @@ import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
 
@@ -73,6 +74,9 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Skill> MONCSKILL = new AssociationListKey<Skill>();
 
 	public static final AssociationListKey<BonusObj> BONUS = new AssociationListKey<BonusObj>();
+
+	public static final AssociationListKey<SpellProhibitor> PROHIBITED_SCHOOLS =
+			new AssociationListKey<SpellProhibitor>();
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

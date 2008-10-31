@@ -237,6 +237,7 @@ public final class ListKey<T> {
 	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();
 	public static final ListKey<String> UNARMED_DAMAGE = new ListKey<String>();
 	public static final ListKey<Capacity> CAPACITY = new ListKey<Capacity>();
+	public static final ListKey<SpellProhibitor> PROHIBITED_SPELLS = new ListKey<SpellProhibitor>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

@@ -33,7 +33,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
@@ -71,6 +73,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.BonusObj;
@@ -856,14 +859,18 @@ final class PCGVer2Creator implements IOConstants
 					.getCastListForLevel(classLevel), ","));
 			}
 
-			List<String> prohibited = pcClass.getProhibitedSchools();
+			Set<String> set = new TreeSet<String>();
+			for (SpellProhibitor sp : pcClass
+				.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+			{
+				set.addAll(sp.getValueList());
+			}
 
-			if (prohibited != null)
+			if (!set.isEmpty())
 			{
 				buffer.append('|');
 				buffer.append(TAG_PROHIBITED).append(':');
-				buffer.append(EntityEncoder.encode(StringUtil.join(prohibited,
-					",")));
+				buffer.append(EntityEncoder.encode(StringUtil.join(set, ",")));
 			}
 
 			buffer.append(LINE_SEP);

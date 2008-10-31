@@ -1972,11 +1972,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_PROHIBITED.equals(tag))
 			{
-				PCClassLstToken token =
-						(PCClassLstToken) TokenStore.inst().getTokenMap(
-							PCClassLstToken.class).get(TAG_PROHIBITED);
-				token.parse(aPCClass, EntityEncoder.decode(element.getText()),
-					-9);
+				Globals.getContext().unconditionallyProcess(aPCClass,
+					"PROHIBITED", EntityEncoder.decode(element.getText()));
 			}
 		}
 

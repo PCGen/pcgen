@@ -33,6 +33,8 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JComponent;
@@ -49,7 +51,9 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -60,6 +64,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
@@ -767,11 +772,28 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				b.appendI18nElement("InfoSpells.school", schoolInfo.toString()); //$NON-NLS-1$ 
 			}
 
-			if (aClass.getProhibitedSchools() != null)
+			Set<String> set = new TreeSet<String>();
+			for (SpellProhibitor sp : aClass
+				.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+			{
+				set.addAll(sp.getValueList());
+			}
+
+			List<SpellProhibitor> prohibList =
+					pc.getAssocList(aClass,
+						AssociationListKey.PROHIBITED_SCHOOLS);
+			if (prohibList != null)
+			{
+				for (SpellProhibitor sp : prohibList)
+				{
+					set.addAll(sp.getValueList());
+				}
+			}
+			if (!set.isEmpty())
 			{
 				b.appendLineBreak();
 				b.appendI18nElement("InfoSpells.prohibited.school", //$NON-NLS-1$ 
-					StringUtil.join(aClass.getProhibitedSchools(), ",")); //$NON-NLS-1$ 
+					StringUtil.join(set, ",")); //$NON-NLS-1$ 
 			}
 
 			String bString = aClass.getDefaultSourceString();

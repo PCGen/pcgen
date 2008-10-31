@@ -25,14 +25,18 @@
  */
 package plugin.exporttokens;
 
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SpellProhibitor;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.ArrayList;
-import java.util.List;
 
 //PROHIBITEDLIST
 public class ProhibitedListToken extends Token
@@ -71,29 +75,30 @@ public class ProhibitedListToken extends Token
 			jointext = ",";
 		}
 
-		List<String> stringList = new ArrayList<String>();
-
+		Set<String> set = new TreeSet<String>();
 		for (PCClass pcClass : pc.getClassList())
 		{
 			if (pcClass.getLevel() > 0)
 			{
-				if (pcClass.getProhibitedSchools() != null)
+				for (SpellProhibitor sp : pcClass
+					.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 				{
-					/*
-					 * CONSIDER This was changed from adding
-					 * pcClass.getProhibitedString() directly into stringList,
-					 * which was adding a string which was "," delimited into
-					 * the List, which gets joined by ", " below... SOOOOO, in
-					 * THEORY, it is easier to add the individual items here and
-					 * let the join happen in one step below - but it will
-					 * change some spacing!! I hope this doesn't break anything :) -
-					 * thpr 10/29/06
-					 */
-					stringList.addAll(pcClass.getProhibitedSchools());
+					set.addAll(sp.getValueList());
+				}
+
+				List<SpellProhibitor> prohibList =
+						pc.getAssocList(pcClass,
+							AssociationListKey.PROHIBITED_SCHOOLS);
+				if (prohibList != null)
+				{
+					for (SpellProhibitor sp : prohibList)
+					{
+						set.addAll(sp.getValueList());
+					}
 				}
 			}
 		}
 
-		return StringUtil.join(stringList, jointext);
+		return StringUtil.join(set, jointext);
 	}
 }

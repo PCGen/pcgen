@@ -93,6 +93,7 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
+import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * <code>PCClass</code>.
@@ -173,17 +174,6 @@ public class PCClass extends PObject
 	 * up) this becomes ALLCLASSLEVELS and gets passed into each PCClassLevel.
 	 */
 	private RaceType preRaceType = null;
-
-	/*
-	 * FINALALLCLASSLEVELS Because this indicates prohibited Spell Schools and Spells
-	 * Known and Cast are granted by each PCClassLevel, this must be passed into
-	 * each and every PCClassLevel (though it can be given in its pure form).
-	 */
-	/*
-	 * TYPESAFETY Since this is storing Spell Schools/SubSchools, this should
-	 * be type safe
-	 */
-	private List<String> prohibitedSchools = null;
 
 	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
@@ -853,42 +843,6 @@ public class PCClass extends PObject
 		buf.append(getDisplayClassName());
 
 		return buf.append(" ").append(level).toString();
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass because it
-	 * is a Tag
-	 */
-	public final boolean addProhibitedSchool(String school)
-	{
-		if (prohibitedSchools == null)
-		{
-			prohibitedSchools = new ArrayList<String>();
-		}
-		boolean addedSchool = false;
-		if (!prohibitedSchools.contains(school))
-		{
-			addedSchool = prohibitedSchools.add(school);
-		}
-		return addedSchool;
-	}
-
-	/*
-	 * FINALPCCLASSONLY This is required in PCClass because it is used in
-	 * construction of PCClassLevel... (or is it required there too??)
-	 */
-	public final void clearProhibitedSchools()
-	{
-		prohibitedSchools = null;
-	}
-
-	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public final List<String> getProhibitedSchools()
-	{
-		return prohibitedSchools;
 	}
 
 	/*
@@ -1890,12 +1844,6 @@ public class PCClass extends PObject
 		pccTxt.append("CLASS:").append(getDisplayName());
 		pccTxt.append(super.getPCCText(false));
 
-		if (prohibitedSchools != null)
-		{
-			pccTxt.append('\t').append("PROHIBITED:");
-			pccTxt.append(StringUtil.join(prohibitedSchools, ","));
-		}
-
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 
@@ -2237,11 +2185,6 @@ public class PCClass extends PObject
 		{
 			aClass = (PCClass) super.clone();
 
-			if (prohibitedSchools != null)
-			{
-				aClass.prohibitedSchools =
-						new ArrayList<String>(prohibitedSchools);
-			}
 			spellCache = null;
 			spellCacheValid = false;
 			//			if ( theAutoAbilities != null )
@@ -2769,12 +2712,21 @@ public class PCClass extends PObject
 			}
 		}
 
-		if (prohibitedSchools != null)
+		for (SpellProhibitor prohibit : getSafeListFor(ListKey.PROHIBITED_SPELLS))
 		{
-			for (String school : prohibitedSchools)
+			if (prohibit.isProhibited(aSpell, aPC))
 			{
-				if (aSpell.containsInList(ListKey.SPELL_SCHOOL, school)
-					|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, school))
+				return true;
+			}
+		}
+
+		List<SpellProhibitor> assocList =
+				aPC.getAssocList(this, AssociationListKey.PROHIBITED_SCHOOLS);
+		if (assocList != null)
+		{
+			for (SpellProhibitor prohibit : assocList)
+			{
+				if (prohibit.isProhibited(aSpell, aPC))
 				{
 					return true;
 				}
@@ -3989,7 +3941,7 @@ public class PCClass extends PObject
 
 		if (!selectedList.isEmpty() && subselected instanceof SubClass)
 		{
-			clearProhibitedSchools();
+			aPC.removeAllAssocs(this, AssociationListKey.PROHIBITED_SCHOOLS);
 			/*
 			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
 			 */
@@ -4062,7 +4014,16 @@ public class PCClass extends PObject
 				{
 					final List columns = i.next();
 					sc = (SubClass) columns.get(0);
-					addProhibitedSchool(sc.getChoice());
+					SpellProhibitor prohibSchool = new SpellProhibitor();
+					prohibSchool.setType(ProhibitedSpellType.SCHOOL);
+					prohibSchool.addValue(sc.getChoice());
+					SpellProhibitor prohibSubSchool = new SpellProhibitor();
+					prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
+					prohibSubSchool.addValue(sc.getChoice());
+					aPC.addAssoc(this, AssociationListKey.PROHIBITED_SCHOOLS,
+						prohibSchool);
+					aPC.addAssoc(this, AssociationListKey.PROHIBITED_SCHOOLS,
+						prohibSubSchool);
 				}
 			}
 		}

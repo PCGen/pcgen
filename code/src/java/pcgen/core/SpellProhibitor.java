@@ -92,7 +92,6 @@ public class SpellProhibitor extends ConcretePrereqObject
 		}
 
 		int hits = 0;
-
 		for (String typeDesc : type.getCheckList(s))
 		{
 			for (String prohib : valueList)
@@ -103,7 +102,6 @@ public class SpellProhibitor extends ConcretePrereqObject
 				}
 			}
 		}
-
 		return hits == type.getRequiredCount(valueList);
 	}
 

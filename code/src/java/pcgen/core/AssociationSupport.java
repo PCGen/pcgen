@@ -108,4 +108,9 @@ public class AssociationSupport implements Cloneable
 					oldTarget, secKey));
 		}
 	}
+
+	public boolean containsAssocList(Object o, AssociationListKey<?> alk)
+	{
+		return assocMTL.containsListFor(o, alk);
+	}
 }

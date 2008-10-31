@@ -29,6 +29,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
@@ -50,6 +52,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.lst.PCClassLstToken;
@@ -231,7 +234,13 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			knownSpells.setText(known[0]);
 		}
 		memorize.setSelected(obj.getSafe(ObjectKey.MEMORIZE_SPELLS));
-		prohibited.setText(StringUtil.join(obj.getProhibitedSchools(), ","));
+		Set<String> set = new TreeSet<String>();
+		for (SpellProhibitor sp : obj
+			.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+		{
+			set.addAll(sp.getValueList());
+		}
+		prohibited.setText(StringUtil.join(set, ","));
 
 //		StringBuffer specKnown = new StringBuffer();
 //		for (LevelProperty<String> lp : obj.getSpecialtyKnownList())

@@ -18259,4 +18259,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
+	public boolean containsAssocList(Object o, AssociationListKey<?> alk)
+	{
+		return assocSupt.containsAssocList(o, alk);
+	}
+
 }
