@@ -79,6 +79,7 @@ SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
 HIDETYPE:EQUIP|Starting
 #Hiding specific tool types that are used in BONUSes
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 
 # Advanced
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst

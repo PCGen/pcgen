@@ -21,6 +21,8 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 INFOTEXT:Subset of the RSRD that contains the Monsters.  Requires the RSRD Basics set.
 
+ABILITY:rsrd_abilities_mods.lst
+
 ABILITYCATEGORY:rsrd_ability_categories_monster.lst
 
 CLASS:rsrd_classes_monsters_dragons.lst
@@ -28,8 +30,9 @@ CLASS:rsrd_classes_monsters_specific.lst
 
 COMPANIONMOD:rsrd_companionmods_monsters.lst
 
-FEAT:rsrd_feats_templates.lst
+FEAT:rsrd_feats_mods.lst
 
+KIT:rsrd_kits_races__companions.lst
 KIT:rsrd_kits_races__vermin.lst
 KIT:rsrd_kits_races_a_b.lst
 KIT:rsrd_kits_races_a_b_extras.lst

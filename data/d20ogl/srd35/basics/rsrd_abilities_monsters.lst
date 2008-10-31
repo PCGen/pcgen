@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 22 23:28:32 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Fri Oct 31 15:13:06 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Eddy Anthony, Tir Gwaith
 
@@ -159,7 +159,7 @@ Flaming Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		
 Flaming Hooves									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Flaming Hooves (Su)
 Flight (Ex)					OUTPUTNAME:Flight			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Flight (Ex)																																										DESC:You can cease or resume flight as a free action
 Flight (Su)					OUTPUTNAME:Flight			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Flight (Su)																																										DESC:You can cease or resume flight as a free action
-Freedom Of Movement								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:NO	SAB:Freedom Of Movement (Su)
+Freedom of Movement								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:NO	SAB:Freedom of Movement (Su)
 Freeze										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Freeze (Ex)
 Freezing Bite									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:NO	SAB:Freezing Bite (Su)
 Freezing Fog									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:NO	SAB:Freezing Fog (Sp) %/day|FreezingFogTimes																									DEFINE:FreezingFogTimes|3								DESC:%1/day|FreezingFogTimes
@@ -425,6 +425,7 @@ Immunity To Death Effects			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraor
 Immunity To Disease				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Disease					DESC:You never take disease damage				ASPECT:Immunity|Disease
 Immunity To Disintegration			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Disintegration			DESC:You can never be disintegrated				ASPECT:Immunity|Disintegration
 Immunity To Energy Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Energy Drain				DESC:You can never be energy drained			ASPECT:Immunity|Energy Drain
+Immunity To Fear					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Fear					DESC:You are never subject to fear effects		ASPECT:Immunity|Fear
 Immunity To Flanking				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Flanking				DESC:You can never be flanked					ASPECT:Immunity|Flanking
 Immunity To Force					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Force					DESC:You are never subject to force effects		ASPECT:Immunity|Force
 Immunity To Heat					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:NO	SAB:Immunity To Heat					DESC:You never take damage from heat			ASPECT:Immunity|Heat

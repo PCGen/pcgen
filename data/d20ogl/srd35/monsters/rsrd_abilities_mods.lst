@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Fri Oct 31 15:13:06 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+# Ability Name						Allowed Companions																																																																																																																						Source Page
+CATEGORY=Special Ability|Animal Companion.MOD	COMPANIONLIST:Animal Companion|Dire Animal (Dire Rat)	COMPANIONLIST:Animal Companion|Dire Animal (Dire Badger),Dire Animal (Dire Bat),Dire Animal (Dire Weasel)|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Dire Animal (Dire Wolverine),Dinosaur (Deinonychus),Dire Animal (Dire Ape),Dire Animal (Dire Boar),Dire Animal (Dire Wolf),Dinosaur (Elasmosaurus)|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Dire Animal (Dire Lion),Dinosaur (Megaraptor)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Animal (Dire Bear)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dire Animal (Dire Shark),Dire Animal (Dire Tiger),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus)|FOLLOWERADJUSTMENT:-15
+CATEGORY=Special Ability|Fiendish Servant.MOD	COMPANIONLIST:Fiendish Servant|Dire Animal (Dire Rat)
+CATEGORY=Special Ability|Undead Companion.MOD	COMPANIONLIST:Undead Companion|Skeleton (Human Warrior),Zombie (Human Commoner)																																																																																																												SOURCEPAGE:PrestigeClasses.rtf
+CATEGORY=Special Ability|Summon Shadow.MOD	COMPANIONLIST:Shadow Companion|Shadow																																																																																																																			SOURCEPAGE:PrestigeClasses.rtf
+
+#
+# End
+#
