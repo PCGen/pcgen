@@ -7,7 +7,7 @@ SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF
 Bestial Bond-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.SpellLike	VISIBLE:NO	SAB:Bestial Bond (Sp)
 Variant Companion-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.Extraordinary	VISIBLE:NO	SAB:Variant Companion (Ex)	COMPANIONLIST:Animal Companion|Darkmantle,Krenshar,Shocker Lizard	COMPANIONLIST:Animal Companion|Hippogriff|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Girallon,Griffon,Owlbear,Sea Cat|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Bulette,Chimera|FOLLOWERADJUSTMENT:-12
 Undying Bond-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.SpellLike	VISIBLE:NO	SAB:Undying Bond (Sp)
-Exotic Companion-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.Extraordinary	VISIBLE:NO	SAB:Exotic Companion (Ex)	COMPANIONLIST:Animal Companion|Worg|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Ettercap,Manticore,Minotaur,Winter Wolf|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Behir,Dragonne,Hieracosphinx|FOLLOWERADJUSTMENT:-12
+Exotic Companion-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.Extraordinary	VISIBLE:NO	SAB:Exotic Companion (Ex)	COMPANIONLIST:Animal Companion|Worg|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Ettercap,Manticore,Minotaur,Winter Wolf|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Behir,Dragonne,Sphinx (Hieracosphinx)|FOLLOWERADJUSTMENT:-12
 
 
 
