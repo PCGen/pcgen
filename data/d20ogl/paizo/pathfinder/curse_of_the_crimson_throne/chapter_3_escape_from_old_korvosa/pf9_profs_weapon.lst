@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 11:45:23 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+
+
+
+# Weapon Name		Type
+Bichhwa			TYPE:Weapon.Melee.Finesseable.Exotic.Piercing.Slashing
+Katar (Tri-Bladed)	TYPE:Weapon.Melee.Finesseable.Exotic.Piercing
+Pata				TYPE:Weapon.Melee.Finesseable.Exotic.Piercing
+Temple Sword		TYPE:Weapon.Melee.Exotic.Slashing
+Urumi				TYPE:Weapon.Melee.Exotic.Slashing
