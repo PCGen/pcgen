@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Paizo - Curse of the Crimson Throne - Player's Guide
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:PDF
+SETTING:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Curse of the Crimson Throne Player's Guide
+SOURCESHORT:CCTPG
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v
+SOURCEDATE:2008-02
+ISOGL:YES
+ISLICENSED:NO
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author James Jacobs and Mike McArtor.
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+COPYRIGHT:PCGen dataset conversion for the Curse of the Crimson Throne Player's Guide Copyright 2008, PCGen Data Team (including, but not limited to Eddy Anthony)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:cotct_pg_abilities.lst
+DEITY:cotct_pg_deities.lst
+EQUIPMENT:cotct_pg_equipment.lst
+EQUIPMENT:cotct_pg_equipment_armor.lst
+EQUIPMENT:cotct_pg_equipment_weapons.lst
+FEAT:cotct_pg_feats.lst
+ARMORPROF:cotct_pg_profs_armor.lst
+WEAPONPROF:cotct_pg_profs_weapons.lst
+
+#
+# End
+#
