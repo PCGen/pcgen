@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Fri Aug 22 00:10:55 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:SoS	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-08
+# Original Entry by: Stefan Radermacher
+
+# Language		Product Identity?	Type
+#Shoanti		NAMEISPI:YES	TYPE:Spoken.Written.Read
+# Language		Product Identity?	Type
+Telepathy 500 ft	NAMEISPI:NO		TYPE:Spoken
