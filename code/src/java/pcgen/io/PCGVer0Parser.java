@@ -600,10 +600,8 @@ final class PCGVer0Parser implements PCGParser
 				}
 
 				aClass.setSubClassKey(aPC, subClassKey);
-				PCClassLstToken token =
-						(PCClassLstToken) TokenStore.inst().getTokenMap(
-							PCClassLstToken.class).get("PROHIBITED");
-				token.parse(aClass, prohibitedString, -9);
+				Globals.getContext().unconditionallyProcess(aClass,
+					"PROHIBITED", prohibitedString);
 			}
 
 			//
