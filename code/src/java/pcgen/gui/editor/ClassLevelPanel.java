@@ -57,6 +57,7 @@ import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
@@ -339,24 +340,15 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				LevelTag lt = new LevelTag(cl, LevelTag.TAG_BONUS, bonusValue);
 				levelTagList.add(lt);
 			}
-
-		}
-
-		String s = obj.getRegionString();
-
-		if ((s != null) && !s.equals(""))
-		{
-			int y = s.indexOf('|');
-			String l = "1";
-
-			if (y > 0)
+			
+			TransitionChoice<Region> region = pcl.get(ObjectKey.REGION_CHOICE);
+			if (region != null)
 			{
-				l = s.substring(0, y);
-				s = s.substring(y + 1);
+				LevelTag lt = new LevelTag(cl, LevelTag.TAG_REGION, region
+						.getChoices().getLSTformat().replaceAll(
+								Constants.COMMA, Constants.PIPE));
+				levelTagList.add(lt);
 			}
-
-			LevelTag lt = new LevelTag(l, LevelTag.TAG_REGION, s);
-			levelTagList.add(lt);
 		}
 
 		LoadContext context = Globals.getContext();

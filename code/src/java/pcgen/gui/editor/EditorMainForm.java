@@ -1629,11 +1629,15 @@ public final class EditorMainForm extends JDialog
 				for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 				{
 //					final String raceName = (String) e.next();
-					aString = race.getRegionString();
+					String[] unp = Globals.getContext().unparse(race, "REGION");
 
-					if (aString == null)
+					if (unp == null)
 					{
 						aString = Constants.s_NONE;
+					}
+					else
+					{
+						aString = unp[0];
 					}
 
 					aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "HAIR");

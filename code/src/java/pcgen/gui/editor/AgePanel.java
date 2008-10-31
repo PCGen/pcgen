@@ -82,11 +82,15 @@ final class AgePanel extends JPanel implements PObjectUpdater
 
 		race = (Race) obj;
 
-		region = race.getRegionString();
+		String[] unp = Globals.getContext().unparse(race, "REGION");
 
-		if (region == null)
+		if (unp == null)
 		{
 			region = defaultRegionName;
+		}
+		else
+		{
+			region = unp[0];
 		}
 
 		raceName = race.getKeyName();
@@ -113,11 +117,15 @@ final class AgePanel extends JPanel implements PObjectUpdater
 
 		race = (Race) obj;
 
-		region = race.getRegionString();
+		String[] unp = Globals.getContext().unparse(race, "REGION");
 
-		if (region == null)
+		if (unp == null)
 		{
 			region = defaultRegionName;
+		}
+		else
+		{
+			region = unp[0];
 		}
 
 		raceKey = race.getKeyName();

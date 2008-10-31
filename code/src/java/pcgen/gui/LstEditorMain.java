@@ -233,11 +233,16 @@ public final class LstEditorMain extends JFrame
 	{
 		if (originalItem instanceof Race)
 		{
-			String region = originalItem.getRegionString();
+			String[] unp = Globals.getContext().unparse(originalItem, "REGION");
 
-			if (region == null)
+			String region;
+			if (unp == null)
 			{
 				region = Constants.s_NONE;
+			}
+			else
+			{
+				region = unp[0];
 			}
 
 			Globals.getBioSet().copyRaceTags(region, originalItem.getKeyName(), region, copyItem.getKeyName());

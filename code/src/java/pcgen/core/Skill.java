@@ -31,6 +31,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -183,7 +184,11 @@ public final class Skill extends PObject
 		{
 			kit.act(kit.driveChoice(aPC), aPC);
 		}
-		makeRegionSelection(aPC);
+		TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
+		if (region != null)
+		{
+			region.act(region.driveChoice(aPC), aPC);
+		}
 
 		if (flag)
 		{

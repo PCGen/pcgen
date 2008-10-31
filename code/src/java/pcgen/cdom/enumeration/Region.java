@@ -30,7 +30,7 @@ import pcgen.base.util.CaseInsensitiveMap;
  * type-safe fashion, so that they can be quickly compared and use less memory
  * when identical Regions exist in two CDOMObjects.
  */
-public final class Region implements TypeSafeConstant
+public final class Region implements TypeSafeConstant, Comparable<Region>
 {
 
 	/**
@@ -57,8 +57,7 @@ public final class Region implements TypeSafeConstant
 	{
 		if (name == null)
 		{
-			throw new IllegalArgumentException(
-					"Name for Region cannot be null");
+			throw new IllegalArgumentException("Name for Region cannot be null");
 		}
 		ordinal = ordinalCount++;
 		fieldName = name;
@@ -172,6 +171,11 @@ public final class Region implements TypeSafeConstant
 		{
 			typeMap.clear();
 		}
+	}
+
+	public int compareTo(Region r0)
+	{
+		return fieldName.compareToIgnoreCase(r0.fieldName);
 	}
 
 }

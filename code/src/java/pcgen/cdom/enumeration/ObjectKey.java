@@ -242,6 +242,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<SizeAdjustment> SIZE;
 
+	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<TransitionChoice<Region>>(null);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

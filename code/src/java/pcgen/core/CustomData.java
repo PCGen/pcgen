@@ -475,11 +475,16 @@ public final class CustomData
 			{
 				if (race.isType(Constants.s_CUSTOM))
 				{
-					String region = race.getRegionString();
+					String region;
+					String[] unp = Globals.getContext().unparse(race, "REGION");
 
-					if (region == null)
+					if (unp == null)
 					{
 						region = Constants.s_NONE;
+					}
+					else
+					{
+						region = unp[0];
 					}
 
 					final String key = race.getKeyName();

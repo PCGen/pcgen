@@ -57,6 +57,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.AttackCycle;
@@ -1847,15 +1848,6 @@ public class PCClass extends PObject
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 
-		String regionString = getRegionString();
-		if ((regionString != null) && !regionString.startsWith("0|"))
-		{
-			final int x = regionString.indexOf('|');
-			pccTxt.append(lineSep).append(regionString.substring(0, x)).append(
-				"\tREGION:").append(regionString.substring(x + 1));
-		}
-
-		pccTxt.append('\t');
 		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
 		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
@@ -3050,7 +3042,11 @@ public class PCClass extends PObject
 				{
 					kit.act(kit.driveChoice(aPC), aPC);
 				}
-				makeRegionSelection(0, aPC);
+				TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
+				if (region != null)
+				{
+					region.act(region.driveChoice(aPC), aPC);
+				}
 				addAdds(aPC);
 				aPC.addNaturalWeapons(getListFor(ListKey.NATURAL_WEAPON));
 			}
@@ -3060,7 +3056,12 @@ public class PCClass extends PObject
 			{
 				kit.act(kit.driveChoice(aPC), aPC);
 			}
-			makeRegionSelection(newLevel, aPC);
+			TransitionChoice<Region> region = classLevel
+					.get(ObjectKey.REGION_CHOICE);
+			if (region != null)
+			{
+				region.act(region.driveChoice(aPC), aPC);
+			}
 
 			// Make sure any natural weapons are added
 			aPC.addNaturalWeapons(classLevel.getListFor(ListKey.NATURAL_WEAPON));
@@ -4232,9 +4233,11 @@ public class PCClass extends PObject
 		addAllToListFor(ListKey.KIT_CHOICE, otherClass
 				.getSafeListFor(ListKey.KIT_CHOICE));
 
-		if (otherClass.getRegionString() != null)
+		remove(ObjectKey.REGION_CHOICE);
+		if (otherClass.containsKey(ObjectKey.REGION_CHOICE))
 		{
-			setRegionString(otherClass.getRegionString());
+			put(ObjectKey.REGION_CHOICE, otherClass
+					.get(ObjectKey.REGION_CHOICE));
 		}
 
 		removeListFor(ListKey.SAB);

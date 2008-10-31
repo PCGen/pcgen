@@ -47,6 +47,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.BonusCalc;
@@ -678,24 +679,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the region string
-	 * @param arg
-	 */
-	public final void setRegionString(final String arg)
-	{
-		put(StringKey.REGION, arg);
-	}
-
-	/**
-	 * Get the region string
-	 * @return the region string
-	 */
-	public final String getRegionString()
-	{
-		return get(StringKey.REGION);
-	}
-
-	/**
 	 * Set the remove list for the character list
 	 * @param arg
 	 */
@@ -1244,12 +1227,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append("\tSOURCEPAGE:").append(aString);
 		}
 
-		String regionString = get(StringKey.REGION);
-		if ((regionString != null) && regionString.startsWith("0|"))
-		{
-			txt.append("\tREGION:").append(regionString.substring(2));
-		}
-
 		// SPELLLEVEL
 		txt.append('\t').append(getSpellSupport().getPCCText());
 		
@@ -1401,7 +1378,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			kit.act(kit.driveChoice(aPC), aPC);
 		}
-		makeRegionSelection(aPC);
+		TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
+		if (region != null)
+		{
+			region.act(region.driveChoice(aPC), aPC);
+		}
 
 		if (flag)
 		{
@@ -1763,86 +1744,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		return false;
-	}
-
-	final void makeRegionSelection(final PlayerCharacter aPC)
-	{
-		makeRegionSelection(0, aPC);
-	}
-
-	final void makeRegionSelection(final int arg, final PlayerCharacter aPC)
-	{
-		String regionString = get(StringKey.REGION);
-		if (regionString == null)
-		{
-			return;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(regionString, "|");
-
-		// first element is prelevel - should be 0 for everything but PCClass entries
-		String tok = aTok.nextToken();
-		int aLevel;
-
-		try
-		{
-			aLevel = Integer.parseInt(tok);
-		}
-		catch (NumberFormatException e)
-		{
-			Logging.errorPrint("Badly formed preLevel attribute in makeRegionSelection: " + tok);
-			aLevel = 0;
-		}
-
-		if (aLevel > arg)
-		{
-			return;
-		}
-
-		tok = aTok.nextToken();
-
-		int num;
-
-		try
-		{
-			num = Integer.parseInt(tok); // number of selections
-		}
-		catch (NumberFormatException e)
-		{
-			Logging.errorPrint("Badly formed number of selection attribute in makeRegionSelection: " + tok);
-			num = -1;
-		}
-
-		List<String> aList = new ArrayList<String>();
-
-		while (aTok.hasMoreTokens())
-		{
-			aList.add(aTok.nextToken());
-		}
-
-		if (num != aList.size())
-		{
-			final ChooserInterface c = ChooserFactory.getChooserInstance();
-			c.setTitle("Region Selection");
-			c.setTotalChoicesAvail(num);
-			c.setPoolFlag(false);
-			c.setAvailableList(aList);
-			c.setVisible(true);
-			aList = c.getSelectedList();
-		}
-
-		if (aList.size() > 0)
-		{
-			for ( String region : aList )
-			{
-				if (aPC.getRegion().equalsIgnoreCase(region))
-				{
-					continue;
-				}
-
-				aPC.setRegion(region);
-			}
-		}
 	}
 
 	int numberInList(PlayerCharacter pc, final String aType)
