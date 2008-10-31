@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Thu Jul 24 15:11:02 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+
+# Weapons
+# Equipment Name	Required Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Requires Modification?	Range		Size		Special Property
+Gavel of Abadar	PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.Martial.Bludgeoning.Hammer				COST:0	WT:40		CRITMULT:x3			CRITRANGE:1			DAMAGE:4d6			WIELD:OneHanded	MODS:NO					SIZE:G	SPROP:law-aligned,+2d6 lawful damage vs. chaos. touch can cure serious wounds, neutralize poison, remove blindness/deafness, remove curse, remove disease, and remove paralysis, as if cast by an 18thlevel cleric 3/day.
+Wand of Misery	PROFICIENCY:WEAPON|Club		TYPE:Weapon.Melee.Ranged.Thrown.Simple.Standard.Bludgeoning.Club	COST:5	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	WIELD:OneHanded					RANGE:10	SIZE:M
+
+###Block: Other Gear
+# Equipment Name			Output Name				Type					Cost		Weight	Requires Modification?	Source Page		Special Property
+Plaguebringer's Mask							TYPE:Headgear			COST:2000	WT:2		MODS:NO			SOURCEPAGE:p. 18	SPROP:+2 resistance bonus on saving throws against nauseating scents and immunity to one specific disease
+Lavender's Luxuriant Liniment						TYPE:Goods												SOURCEPAGE:p. 23
+Outfit (Doctor's)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable	COST:150	WT:6						SOURCEPAGE:p. 61
+Mortician's Tools								TYPE:Goods.Tools			COST:20	WT:5						SOURCEPAGE:p. 49
+Surgeons' Tools								TYPE:Goods.Tools			COST:20	WT:5						SOURCEPAGE:p. 61
+Thurible									TYPE:Goods				COST:50	WT:3						SOURCEPAGE:p. 61
+Death's Head Coffer							TYPE:Magic.Wondrous		COST:1000	WT:5						SOURCEPAGE:p. 32
+
+#
+# End
+#
