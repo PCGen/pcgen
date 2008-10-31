@@ -25,11 +25,13 @@ import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 
-public class AssociationSupport
+public class AssociationSupport implements Cloneable
 {
 
-	private final DoubleKeyMapToList assocMTL = new DoubleKeyMapToList(IdentityHashMap.class, IdentityHashMap.class);
-	private final DoubleKeyMap assocMap = new DoubleKeyMap(IdentityHashMap.class, IdentityHashMap.class);
+	private DoubleKeyMapToList assocMTL = new DoubleKeyMapToList(
+			IdentityHashMap.class, IdentityHashMap.class);
+	private DoubleKeyMap assocMap = new DoubleKeyMap(IdentityHashMap.class,
+			IdentityHashMap.class);
 
 	public <T> void addAssoc(Object obj, AssociationListKey<T> ak, T o)
 	{
@@ -84,5 +86,26 @@ public class AssociationSupport
 	public <T> T getAssoc(Object obj, AssociationKey<T> ak)
 	{
 		return (T) assocMap.get(obj, ak);
+	}
+
+	public AssociationSupport clone() throws CloneNotSupportedException
+	{
+		AssociationSupport as = (AssociationSupport) super.clone();
+		as.assocMTL = assocMTL.clone();
+		as.assocMap = assocMap.clone();
+		return as;
+	}
+
+	public void convertAssociations(Object oldTarget, Object newTarget)
+	{
+		for (Object secKey : assocMap.getSecondaryKeySet(oldTarget))
+		{
+			assocMap.put(newTarget, secKey, assocMap.remove(oldTarget, secKey));
+		}
+		for (Object secKey : assocMTL.getSecondaryKeySet(oldTarget))
+		{
+			assocMTL.addAllToListFor(newTarget, secKey, assocMTL.removeListFor(
+					oldTarget, secKey));
+		}
 	}
 }

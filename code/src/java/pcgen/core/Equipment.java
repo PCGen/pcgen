@@ -2749,8 +2749,9 @@ public final class Equipment extends PObject implements Serializable,
 			eq.d_containedEquipment = 
 					new ArrayList<Equipment>(d_containedEquipment);
 
-			eq.eqModifierList = cloneEqModList(true);
-			eq.altEqModifierList = cloneEqModList(false);
+			eq.assocSupt = assocSupt.clone();
+			eq.eqModifierList = cloneEqModList(eq, true);
+			eq.altEqModifierList = cloneEqModList(eq, false);
 		} catch (CloneNotSupportedException e) {
 			ShowMessageDelegate.showMessageDialog(e.getMessage(),
 					Constants.s_APPNAME, MessageType.ERROR);
@@ -4226,7 +4227,7 @@ public final class Equipment extends PObject implements Serializable,
 				|| !("".equals(pickChildType(aTypeList, aQuant)));
 	}
 
-	private List<EquipmentModifier> cloneEqModList(final boolean primary) {
+	private List<EquipmentModifier> cloneEqModList(Equipment other, boolean primary) {
 
 		final List<EquipmentModifier> clonedList = 
 				new ArrayList<EquipmentModifier>();
@@ -4235,7 +4236,9 @@ public final class Equipment extends PObject implements Serializable,
 
 			// only make a copy if we need to add qualifiers to modifier
 			if (eqMod.getChoiceString().length() != 0) {
-				eqMod = eqMod.clone();
+				EquipmentModifier newEqMod = eqMod.clone();
+				other.assocSupt.convertAssociations(eqMod, newEqMod);
+				eqMod = newEqMod;
 			}
 
 			clonedList.add(eqMod);

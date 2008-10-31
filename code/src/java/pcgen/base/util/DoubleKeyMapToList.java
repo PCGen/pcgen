@@ -19,6 +19,7 @@
  */
 package pcgen.base.util;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -109,12 +110,12 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		if (cl1 == null)
 		{
 			throw new IllegalArgumentException(
-					"First underlying Class cannot be null for DoubleKeyMap");
+					"First underlying Class cannot be null for DoubleKeyMapToList");
 		}
 		if (cl2 == null)
 		{
 			throw new IllegalArgumentException(
-					"Second underlying Class cannot be null for DoubleKeyMap");
+					"Second underlying Class cannot be null for DoubleKeyMapToList");
 		}
 		firstClass = cl1;
 		secondClass = cl2;
@@ -155,6 +156,37 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 			mtmtl.put(key1, localMap);
 		}
 		localMap.addToListFor(key2, value);
+	}
+
+	/**
+	 * Adds all of the Objects in the given list to the (internal) List for the
+	 * given keys. The null value cannot be used as a key in a
+	 * DoubleKeyMapToList. This method will automatically initialize the list
+	 * for the given key if there is not already a List for that key.
+	 * 
+	 * This method is reference-semantic and this DoubleKeyMapToList will
+	 * maintain a strong reference to both the key objects and the objects in
+	 * the given list.
+	 * 
+	 * @param key1
+	 *            The primary key indicating which List the given objects should
+	 *            be added to.
+	 * @param key2
+	 *            The secondary key indicating which List the given objects
+	 *            should be added to.
+	 * @param list
+	 *            A Collection containing the items to be added to the List for
+	 *            the given keys.
+	 */
+	public void addAllToListFor(K1 key1, K2 key2, Collection<V> value)
+	{
+		MapToList<K2, V> localMap = mtmtl.get(key1);
+		if (localMap == null)
+		{
+			localMap = GenericMapToList.getMapToList(secondClass);
+			mtmtl.put(key1, localMap);
+		}
+		localMap.addAllToListFor(key2, value);
 	}
 
 	/**
