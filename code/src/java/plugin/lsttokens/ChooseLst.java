@@ -49,7 +49,6 @@ public class ChooseLst implements GlobalLstToken
 		String key;
 		String val = value;
 		int activeLoc = 0;
-		String count = null;
 		String maxCount = null;
 		List<String> prefixList = new ArrayList<String>(2);
 		while (true)
@@ -70,29 +69,7 @@ public class ChooseLst implements GlobalLstToken
 				key = val.substring(activeLoc, pipeLoc);
 				val = val.substring(pipeLoc + 1);
 			}
-			if (key.startsWith("COUNT="))
-			{
-				if (count != null)
-				{
-					Logging
-							.errorPrint("Cannot use COUNT more than once in CHOOSE: "
-									+ value);
-					return false;
-				}
-				prefixList.add(key);
-				count = key.substring(6);
-				if (count == null)
-				{
-					Logging.errorPrint("COUNT in CHOOSE must be a formula: "
-							+ value);
-					return false;
-				}
-				Logging
-						.deprecationPrint("Support for COUNT= in CHOOSE"
-								+ "is tenuous, at best, use the SELECT: token "
-								+ value);
-			}
-			else if (key.startsWith("NUMCHOICES="))
+			if (key.startsWith("NUMCHOICES="))
 			{
 				if (maxCount != null)
 				{
