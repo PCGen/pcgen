@@ -133,7 +133,7 @@ public class AllJUnitTests extends TestCase
 
 		// core.levelability
 		suite.addTest(new TestSuite(
-			pcgen.core.levelability.LevelAbilityClassSkillsTest.class));
+			pcgen.core.levelability.AddClassSkillsTest.class));
 		suite.addTest(new TestSuite(LevelAbilityTest.class));
 
 		// core.prereq
