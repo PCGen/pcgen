@@ -55,10 +55,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 /**
  * <code>ClassAbilityPanel</code>
@@ -102,11 +99,10 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		PCClass obj = (PCClass) po;
 		String a = attackCycle.getText().trim();
 
+		LoadContext context = Globals.getContext();
 		if (a.length() > 0)
 		{
-			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
-					.getTokenMap(PCClassLstToken.class).get("ATTACKCYCLE");
-			token.parse(obj, a, -9);
+			context.unconditionallyProcess(obj, "ATTACKCYCLE", a);
 		}
 
 		a = hitDice.getText().trim();
@@ -120,7 +116,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			Globals.getContext().unconditionallyProcess(obj, "DEITY", a);
+			context.unconditionallyProcess(obj, "DEITY", a);
 		}
 
 		a = itemCreate.getText().trim();
@@ -143,7 +139,6 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			obj.put(IntegerKey.LEVELS_PER_FEAT, Integer.valueOf(a));
 		}
 
-		LoadContext context = Globals.getContext();
 		a = knownSpells.getText().trim();
 
 		if (a.length() > 0)
@@ -157,24 +152,11 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
-					.getTokenMap(PCClassLstToken.class).get("PROHIBITED");
-			token.parse(obj, a, -9);
+			context.unconditionallyProcess(obj, "PROHIBITED", a);
 		}
 
 		obj.put(ObjectKey.SPELLBOOK, spellBook.getSelectedObjects() != null);
-		
-		PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
-				.getTokenMap(PCClassLstToken.class).get("SPELLLIST");
-		if (token == null)
-		{
-			//TODO This is due to the change to CDOMPrimaryToken<PCClass> - need to know how these are stored and referenced
-			Logging.errorPrint("Failed to find SPELLLIST token class in map!");
-		}
-		else
-		{
-			token.parse(obj, spellList.getText().trim(), -9);
-		}
+		context.unconditionallyProcess(obj, "SPELLLIST", spellList.getText().trim());
 
 		a = (String) spellStat.getSelectedItem();
 
