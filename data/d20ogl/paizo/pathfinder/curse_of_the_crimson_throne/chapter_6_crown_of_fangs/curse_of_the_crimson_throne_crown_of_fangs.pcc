@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 6: Crown of Fangs
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:PDF
+SETTING:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Curse of the Crimson Throne - Player's Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Curse of the Crimson Throne - Chapter 6: Crown of Fangs
+SOURCESHORT:CotCT:CoF
+SOURCEWEB:http://paizo.com/store/paizo/v5748btpy84el
+SOURCEDATE:2008-08
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 12: Crown of Fangs. Copyright 2008, Paizo Publishing, LLC; Author: Tito Leati.
+COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 12: Crown of Fangs" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:pf12_ability.lst
+EQUIPMENT:pf12_equipment.lst
+FEAT:pf12_feat.lst
+KIT:pf12_kit_monsters.lst
+RACE:pf12_race.lst
+SKILL:pf12_skills.lst
+
+#
+# End
+#
