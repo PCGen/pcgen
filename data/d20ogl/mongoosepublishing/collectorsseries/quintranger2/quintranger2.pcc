@@ -1,0 +1,55 @@
+# CVS $Revision$ $Author$ -- Mon May 19 13:27:21 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+CAMPAIGN:Mongoose - Quintessential Ranger II
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Mongoose.Accessory
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
+SOURCELONG:Mongoose Publishing - Quintessential Ranger II
+SOURCESHORT:QR_II
+SOURCEWEB:http://mongoosepublishing.com
+SOURCEDATE:2004-01
+ISOGL:YES
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Open game content from The Quintessential Ranger II: Advanced Tactics copyright 2004, Mongoose Publishing Ltd.
+COPYRIGHT:PCGen dataset conversion for Quintessential Ranger II Copyright 2008, PCGen Data team including, but not limited to, Andrew Maitland
+
+COVER:quintranger2.jpg
+LOGO:@/publisher_logos/Mongoose_Publishing.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Mongoose Publishing
+URL:WEBSITE|http://www.mongoosepublishing.com|Visit Mongoose Publishing.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1652&it=1?affiliate_id=200170|Buy this pdf from RPGNow.com!
+URL:Amazon.com|http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2FQuintessential-Ranger-II-Advanced-Roleplaying%2Fdp%2F1904854516%2F&tag=httppcgensfne-20&linkCode=ur2&camp=1789&creative=9325|Buy this book from Amazon.com!
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:quintranger2_abilities_careers.lst
+ABILITY:quintranger2_abilities_class.lst
+
+ABILITYCATEGORY:quintranger2_abilitycategories.lst
+
+CLASS:quintranger2_classes_prestige.lst
+
+COMPANIONMOD:quintranger2_companionmods.lst
+
+EQUIPMENT:quintranger2_equip.lst
+
+EQUIPMOD:quintranger2_equipmods.lst
+
+FEAT:quintranger2_feats.lst
+
+SKILL:quintranger2_skills.lst
+
+SPELL:quintranger2_spells.lst
+
+TEMPLATE:quintranger2_templates.lst
+
+WEAPONPROF:quintranger2_profs_weapon.lst
+
+SKILL:@/d20ogl/mongoosepublishing/collectorsseries/quintranger/quintranger_skills.lst

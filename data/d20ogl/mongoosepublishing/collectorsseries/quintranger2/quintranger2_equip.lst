@@ -1,0 +1,63 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 17:53:58 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
+#Original Entry by: Andrew Maitland
+
+
+###Block: New Ranger Weapons
+# Equipment Name			Output Name				Required Proficiency				Type							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page		Special Property
+Bola (Explosive)			OUTPUTNAME:Bola, [NAME]		PROFICIENCY:WEAPON|Bolas			TYPE:Weapon.Ranged.Piercing.Bludgeoning	COST:30	WT:3		CRITMULT:x2							DAMAGE:1d3	RANGE:10	SOURCEPAGE:p.72	SPROP:+1d6 fire damage
+Crossbow (Elephant)		OUTPUTNAME:Crossbow, [NAME]	PROFICIENCY:WEAPON|Crossbow (Elephant)	TYPE:Weapon.Ranged.Exotic.Piercing		COST:250	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:4d4	RANGE:130	SOURCEPAGE:p.73
+Crossbow (Heavy Double)		OUTPUTNAME:Crossbow, [NAME]	PROFICIENCY:WEAPON|Crossbow (Heavy)		TYPE:Weapon.Ranged.Simple.Piercing		COST:80	WT:10		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	RANGE:120	SOURCEPAGE:p.73
+Crossbow (Light Double)		OUTPUTNAME:Crossbow, [NAME]	PROFICIENCY:WEAPON|Crossbow (Light)		TYPE:Weapon.Ranged.Simple.Piercing		COST:55	WT:6		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	RANGE:80	SOURCEPAGE:p.73
+Harpoon									PROFICIENCY:WEAPON|Harpoon			TYPE:Weapon.Melee.Ranged.Simple.Piercing	COST:10	WT:5		CRITMULT:x3							DAMAGE:1d6	RANGE:20	SOURCEPAGE:p.73
+Harpoon (Whaling)			OUTPUTNAME:Harpoon, [NAME]	PROFICIENCY:WEAPON|Harpoon (Whaling)	TYPE:Weapon.Melee.Martial.Piercing.Ranged	COST:15	WT:7		CRITMULT:x3							DAMAGE:1d8	RANGE:10	SOURCEPAGE:p.73
+Net (Reinforced Hunting)	OUTPUTNAME:Net, [NAME]		PROFICIENCY:WEAPON|Net				TYPE:Weapon.Ranged.Exotic			COST:35	WT:7												RANGE:15	SOURCEPAGE:p.73
+Net (Reinforced Snap)		OUTPUTNAME:Net, [NAME]		PROFICIENCY:WEAPON|Net				TYPE:Weapon.Ranged.Exotic			COST:50	WT:7												RANGE:10	SOURCEPAGE:p.73
+Whip (Elephant)			OUTPUTNAME:Whip, [NAME]		PROFICIENCY:WEAPON|Whip				TYPE:Weapon.Melee.Martial.Slashing		COST:10	WT:5		CRITMULT:x2							DAMAGE:1d6			SOURCEPAGE:p.74
+
+
+###Block: Equipment -------------------------------------------------------------------------------------------------
+# Equipment Name			Output Name					Type					Cost		Weight	Source Page
+Blind Frame										TYPE:Goods.General		COST:30	WT:5		SOURCEPAGE:p.75
+Bridle (Training)			OUTPUTNAME:Bridle, [NAME]		TYPE:Goods.General		COST:5	WT:0		SOURCEPAGE:p.75
+Glove (Falconry)			OUTPUTNAME:Glove, [NAME]		TYPE:Goods.General.Glove	COST:5	WT:0		SOURCEPAGE:p.75
+Hunting Horn									TYPE:Goods.General		COST:10	WT:2		SOURCEPAGE:p.75
+Hunting Horn (Dissonance)	OUTPUTNAME:Hunting Horn, [NAME]	TYPE:Goods.General		COST:25	WT:2		SOURCEPAGE:p.75
+Leash (Signal)			OUTPUTNAME:Leash, [NAME]		TYPE:Goods.General		COST:5	WT:0		SOURCEPAGE:p.75
+Skis											TYPE:Goods.General		COST:20	WT:5		SOURCEPAGE:p.76
+Sled (Dog)				OUTPUTNAME:Sled, [NAME]			TYPE:Goods.General		COST:15	WT:10		SOURCEPAGE:p.76
+Sledge (Hunting)			OUTPUTNAME:Sledge, [NAME]		TYPE:Goods.General		COST:50	WT:100	SOURCEPAGE:p.76
+Whistle (Dog)			OUTPUTNAME:Whistle, [NAME]		TYPE:Goods.General		COST:10	WT:0		SOURCEPAGE:p.77
+Whistle (Silent Dog)		OUTPUTNAME:Whistle, [NAME]		TYPE:Goods.General		COST:10	WT:0		SOURCEPAGE:p.77
+
+###Block: Specific Armour and Shields
+# Equipment Name	Required Proficiency			Type							Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier								Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Innate Spells						Combat bonus
+Razor Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard			COST:26432	WT:5		ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:PLUS1S.QRII_THROW_SHLD.QRII_RETURN_SHLD.WOOD	WIELD:Light					SIZE:M	SOURCEPAGE:p.91	SPELLFAILURE:5										BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
+#Comment: Shield Type not specified - using Light Wood for now
+Salmon Scale	PROFICIENCY:ARMOR|Scale Mail		TYPE:Armor.Medium.Suit.Standard		COST:54860	WT:30		ACCHECK:-4												EQMOD:PLUS2A.QRII_BUOYANT_GRT_ARMR.STEEL						MAXDEX:3				SOURCEPAGE:p.91	SPELLFAILURE:25										BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+Sylvan Armour	PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:19560	WT:15		ACCHECK:0												EQMOD:PLUS1A.LEATHER									MAXDEX:6				SOURCEPAGE:p.91	SPELLFAILURE:10		SPELLS:Sylvan Armour|CASTERLEVEL=15|Barkskin	BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
+
+###Block: Magic Weapons ---------------------------------------------------------------------------
+# Equipment Name			Required Proficiency			Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Range		Size		Source Page		Weapon prop. bonus			Special Property
+Bow of the Red Rainbow		PROFICIENCY:WEAPON|Longbow		TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:1|Arrow=1	COST:100	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.QRII_FAVNEMES_WEAP.QRII_THRTSEEK_WEAP.DISTNC.WOOD				RANGE:110			SOURCEPAGE:p.92	BONUS:WEAPON|DAMAGE|min(STR,0)
+Tidebreaker				PROFICIENCY:WEAPON|Spear		TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear							COST:2	WT:6				CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.RETRN.WOOD								WIELD:TwoHanded	RANGE:20	SIZE:M	SOURCEPAGE:p.92
+Tree Breaker			PROFICIENCY:WEAPON|Battleaxe		TYPE:Weapon.Melee.Martial.Standard.Slashing.Axe												COST:10	WT:6				CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.KEEN.STEEL								WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.92							SPROP:+2 enhancement bonus and does +2d6 bonus damage vs. Plant
+#
+Twin Fangs				PROFICIENCY:WEAPON|Greatsword		TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword											COST:50	WT:8				CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:PLUS4W.DEFEND.BANE_M							WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.92
+#Twin Fangs when Split
+Twin Fangs (Longsword)		PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword											COST:15	WT:4				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:PLUS2W.BANE_M								WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.92
+Twin Fangs (Sword (Short))	PROFICIENCY:WEAPON|Sword (Short)	TYPE:Weapon.Melee.Finesseable.Martial.Standard.Piercing.Sword									COST:10	WT:2				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PLUS2W.DEFEND								WIELD:Light				SIZE:M	SOURCEPAGE:p.92
+#Comment: Bane not specified in write up for the TWIN FANGS
+
+###Block: Wondrous Items --------------------------------------------------------------------------
+# Equipment Name				Type				Cost		Source Page		Ability							Innate Spells
+Atlatl of Mighty Throwing		TYPE:Magic.Wonderous	COST:2300	SOURCEPAGE:p.93
+Blazing Brand				TYPE:Magic.Wonderous	COST:1600	SOURCEPAGE:p.93
+Blazing Brand (Produce Flame)		TYPE:Magic.Wonderous	COST:2500	SOURCEPAGE:p.93									SPELLS:Blazing Brand (Produce Flame)|CASTERLEVEL=7|Produce Flame
+Dog Whistle of the Golden Hound	TYPE:Magic.Wonderous	COST:1400	SOURCEPAGE:p.94
+Hound Helm					TYPE:Magic.Headgear	COST:7700	SOURCEPAGE:p.94	ABILITY:Special Ability|VIRTUAL|Scent		SPELLS:Hound Helm|CASTERLEVEL=9|Sound Burst,12
+Wolf's Cloak				TYPE:Magic.Cape		COST:17500	SOURCEPAGE:p.94	ABILITY:Special Ability|VIRTUAL|Wolf's Cloak	SPELLS:Wolf's Cloak|CASTERLEVEL=7|Charm Animal
+
+
+
+

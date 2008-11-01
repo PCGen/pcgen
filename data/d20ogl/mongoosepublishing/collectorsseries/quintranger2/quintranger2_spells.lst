@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 17:53:58 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
+#Original Entry by: Andrew Maitland
+
+###Block: Ranger Spells ------------------------------------------------------------------------------------------
+# Spell Name			Classes of caster	School			Sub-School			Components		Casting Time			Range										Target Area or Effect											Duration				Save Info			Spell Resistance		Description		Source Page
+Arrow Storm				CLASSES:Ranger=4	SCHOOL:Conjuration	SUBSCHOOL:Creation	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Medium								TARGETAREA:1 arrow; 1 creature/2 levels, all of whom must be within a 20 ft. radius	DURATION:Instantaneous		SAVEINFO:Reflex half	SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.86
+Companion Ascendance		CLASSES:Ranger=3	SCHOOL:Transmutation					COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch									TARGETAREA:1 companion animal										DURATION:1 round/level		SAVEINFO:Will negates	SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.86
+Companion Transformation	CLASSES:Ranger=4	SCHOOL:Transmutation					COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Personal								TARGETAREA:You												DURATION:1 round/level		SAVEINFO:No			SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.87
+Favoured Blade			CLASSES:Ranger=3	SCHOOL:Divination						COMPS:M		CASTTIME:1 standard action	RANGE:Personal								TARGETAREA:Weapon touched										DURATION:1 round/level										DESC:See text	SOURCEPAGE:p.87
+Heartseeker				CLASSES:Ranger=3	SCHOOL:Divination						COMPS:M		CASTTIME:1 standard action	RANGE:Personal								TARGETAREA:You												DURATION:1 round/ two levels	SAVEINFO:No			SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.87
+Hobble Thorn			CLASSES:Ranger=2	SCHOOL:Conjuration	SUBSCHOOL:Creation	COMPS:M		CASTTIME:1 standard action	RANGE:Close									TARGETAREA:1 target/two levels									DURATION:1 round/level		SAVEINFO:Fort half	SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.87
+Instant Camouflage		CLASSES:Ranger=1	SCHOOL:Conjuration	SUBSCHOOL:Creation	COMPS:M		CASTTIME:1 standard action	RANGE:Touch									TARGETAREA:One touched creature/2 levels								DURATION:1 min./level		SAVEINFO:Reflex negates	SPELLRES:No			DESC:See text	SOURCEPAGE:p.88
+Soft Step				CLASSES:Ranger=1	SCHOOL:Transmutation					COMPS:M		CASTTIME:1 standard action	RANGE:Touch									TARGETAREA:Creature touched										DURATION:1 round/level		SAVEINFO:None		SPELLRES:Yes (harmless)	DESC:See text	SOURCEPAGE:p.88
+Stinging Stench			CLASSES:Ranger=2	SCHOOL:Transmutation					COMPS:V, M		CASTTIME:1 standard action	RANGE:Personal; see text						TARGETAREA:You												DURATION:1 round/caster level	SAVEINFO:Fort partial	SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.88
+Tag					CLASSES:Ranger=1	SCHOOL:Divination						COMPS:V, M		CASTTIME:1 standard action	RANGE:Medium								TARGETAREA:1 creature											DURATION:Permanent		SAVEINFO:Will negates	SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.89
+Twig Spear				CLASSES:Ranger=2	SCHOOL:Transmutation					COMPS:M		CASTTIME:1 standard action	RANGE:10 ft. radius circle, centred on the caster; see text	TARGETAREA:1 small wooden branch/level, all within a 10 foot radius			DURATION:1 round/level		SAVEINFO:See text		SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.89
+Vision of Passage			CLASSES:Ranger=4	SCHOOL:Divination						COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch									TARGETAREA:1 set of tracks touched									DURATION:See text							SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.89
+

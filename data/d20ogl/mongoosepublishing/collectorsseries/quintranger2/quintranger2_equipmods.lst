@@ -1,0 +1,40 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 17:53:58 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
+#Original Entry by: Andrew Maitland
+
+
+#EQMODS:
+###Block: New Armour Options (Make these EQMODs)
+# Modifier Name		Unique Key			Type		Cost		Required Type		Modify VAR
+Animal Shape Armour	KEY:QRII_ANIMALSH_ARMR	TYPE:Armor	COST:50	PRETYPE:1,Light,Medium	BONUS:VAR|WildEmpathy|2
+Climber's Armour		KEY:QRII_CLIMBERS_ARMR	TYPE:Armor	COST:50	PRETYPE:1,Light,Medium
+
+###Block: Weapon Options (Make These EQMODS -------------------------------------------------------------------------------------
+# Modifier Name	Unique Key			Type				Cost		Type granted		Bonus Weapon Modifiers
+Atlatl		KEY:QRII_ATLATL_WEAP	TYPE:Weapon.Thrown	COST:5					BONUS:EQMWEAPON|RANGEADD|10
+Balanced		KEY:QRII_BALANCED_WEAP	TYPE:Weapon			COST:50	ITYPE:Ranged.Thrown	BONUS:EQMWEAPON|RANGEADD|5
+Dagger Hilt		KEY:QRII_DAGRHILT_WEAP	TYPE:Weapon			COST:20
+
+
+
+###Block: Armour & Shield Magical Modifiers
+# Modifier Name	Unique Key				Type			Plus		Cost		Visible		Required Type		Bonus to skill
+Buoyant		KEY:QRII_BUOYANT_ARMR		TYPE:Armor				COST:10000	VISIBLE:QUALIFY
+Buoyant Improved	KEY:QRII_BUOYANT_IMP_ARMR	TYPE:Armor				COST:13750	VISIBLE:QUALIFY					BONUS:SKILL|Swim|5|TYPE=Competence
+Buoyant Greater	KEY:QRII_BUOYANT_GRT_ARMR	TYPE:Armor				COST:25000	VISIBLE:QUALIFY					BONUS:SKILL|Swim|10|TYPE=Competence
+Chameleon		KEY:QRII_CHAMELEON_ARMR		TYPE:Armor				COST:15000	VISIBLE:QUALIFY					BONUS:SKILL|Hide|10|TYPE=Competence
+Chameleon Greater	KEY:QRII_CHAMELEON_GRT_ARMR	TYPE:Armor				COST:33750	VISIBLE:QUALIFY					BONUS:SKILL|Hide|15|TYPE=Competence
+Creature Bane	KEY:QRII_CRETBANE_ARMR		TYPE:Armor		PLUS:1	COST:0	VISIBLE:QUALIFY
+Marathon		KEY:QRII_MARATHON_ARMR		TYPE:Armor		PLUS:1	COST:0	VISIBLE:QUALIFY
+Nature Attuned	KEY:QRII_NATTUNED_ARMR_SHLD	TYPE:Armor.Shield	PLUS:1			VISIBLE:QUALIFY
+Returning		KEY:QRII_RETURN_SHLD		TYPE:Shield		PLUS:1			VISIBLE:QUALIFY	PRETYPE:1,Light,Buckler
+Throwing		KEY:QRII_THROW_SHLD		TYPE:Shield		PLUS:1			VISIBLE:QUALIFY	PRETYPE:1,Light,Buckler
+
+###Block: Weapon Special Abilities
+# Modifier Name		Unique Key			Type		Plus		Visible
+Favoured Nemesis		KEY:QRII_FAVNEMES_WEAP	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY
+Hemlock			KEY:QRII_HEMLOCK_WEAP	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY
+Nature Attuned weap	KEY:QRII_NATTUNED_WEAP	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY
+Throatseeker		KEY:QRII_THRTSEEK_WEAP	TYPE:Weapon	PLUS:5	VISIBLE:QUALIFY
+
+
