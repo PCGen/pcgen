@@ -43,7 +43,6 @@ EQUIPMOD:pf10_equipmods_enhancing.lst
 FEAT:pf10_feats.lst
 KIT:pf10_kits_races_monsters.lst
 KIT:pf10_kits_npcs.lst
-LANGUAGE:pf10_languages.lst
 RACE:pf10_races_monsters.lst
 TEMPLATE:pf10_templates.lst
 WEAPONPROF:pf10_weaponprofs.lst

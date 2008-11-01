@@ -34,7 +34,6 @@ CLASS:pf11_classes_monster.lst
 EQUIPMENT:pf11_equipment.lst
 KIT:pf11_kit_monsters.lst
 # KIT:pf11_kit_npc.lst
-LANGUAGE:pf11_languages.lst
 RACE:pf11_race.lst
 
 #

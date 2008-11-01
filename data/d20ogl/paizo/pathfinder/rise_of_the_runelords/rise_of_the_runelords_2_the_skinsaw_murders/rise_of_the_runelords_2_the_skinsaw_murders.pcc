@@ -37,7 +37,6 @@ DEITY:pf2_deities.lst
 EQUIPMENT:pf2_equip_wondrousitems.lst
 FEAT:pf2_feats.lst
 KIT:pf2_kits_races.lst
-LANGUAGE:pf2_languages.lst
 RACE:pf2_races.lst
 SPELL:pf2_spells.lst
 TEMPLATE:pf2_templates_hidden.lst
