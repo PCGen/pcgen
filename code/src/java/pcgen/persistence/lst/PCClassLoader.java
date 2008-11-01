@@ -24,7 +24,6 @@ package pcgen.persistence.lst;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.IntegerKey;
@@ -283,8 +282,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		final StringTokenizer colToken = new StringTokenizer(restOfLine,
 				SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				PCClassLstToken.class);
 		// loop through all the tokens and parse them
 		while (colToken.hasMoreTokens())
 		{
@@ -310,17 +307,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				context.commit();
 			}
-			else if (tokenMap.containsKey(key))
-			{
-				PCClassLstToken tok = (PCClassLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, pcClass, value);
-				if (!tok.parse(pcClass, value, lvl))
-				{
-					Logging.errorPrint("Error parsing class "
-							+ pcClass.getDisplayName() + ':' + source.getURI()
-							+ ':' + token + "\"");
-				}
-			}
 			else if (!PObjectLoader.parseTagLevel(pcClass, token, lvl))
  			{
 				Logging.replayParsedMessages();
@@ -339,8 +325,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		final StringTokenizer colToken =
 				new StringTokenizer(restOfLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(PCClassLstToken.class);
 		// loop through all the tokens and parse them
 		while (colToken.hasMoreTokens())
 		{
@@ -371,17 +355,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			if (context.processToken(pcClass, key, value))
 			{
 				context.commit();
-			}
-			else if (tokenMap.containsKey(key))
-			{
-				PCClassLstToken tok = (PCClassLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, pcClass, value);
-				if (!tok.parse(pcClass, value, 0))
-				{
-					Logging.errorPrint("Error parsing class "
-						+ pcClass.getDisplayName() + ':' + source.getURI() + ':'
-						+ token + "\"");
-				}
 			}
 			else if (!PObjectLoader.parseTagLevel(pcClass, token, 0))
  			{

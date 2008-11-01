@@ -56,7 +56,6 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -167,16 +166,6 @@ public class PCClass extends PObject
 	// really working properly
 
 	/*
-	 * UNKNOWNDESTINATION This is (yet again) a bit complicated due to the fact
-	 * that this is a prerequisite test. First, this is LEVELONEONLY in the
-	 * sense that this prerequisite might only be justifiably tested for the
-	 * first time a class is taken (if the Race changes, then all bets are off,
-	 * right?). To maintain the existing code function (always check on level
-	 * up) this becomes ALLCLASSLEVELS and gets passed into each PCClassLevel.
-	 */
-	private RaceType preRaceType = null;
-
-	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
 	 * store what the sublevel actually is. This is NOT set by a tag, so it is
 	 * PCCLASSLEVELONLY
@@ -189,8 +178,6 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY
 	 */
 	private Map<Integer, String> substitutionClassKey = null;
-
-	// private TreeSet<Language> languageBonus = new TreeSet<Language>();
 
 	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
@@ -700,24 +687,6 @@ public class PCClass extends PObject
 		Integer ll = get(IntegerKey.LEVEL_LIMIT);
 		return ll != null && ll != Constants.NO_LEVEL_LIMIT;
 	}
-
-	/*
-	 * PCCLASSANDLEVEL This is a characteristic of both the PCClass and
-	 * the individual PCClassLevels (since the prereq needs to be 
-	 * enforced at every level-up)
-	 * 
-	 * Trying to DELETEMETHOD by cleaning out PRERACETYPE - but need
-	 * some more guidance from Tir on how this should work - thpr 11/6/06
-	 */
-	public final void setPreRaceType(RaceType rt)
-	{
-		preRaceType = rt;
-	}
-
-	// public final void setSkillPool(final Integer argSkillPool)
-	// {
-	// skillPool = argSkillPool;
-	// }
 
 	/*
 	 * REFACTOR This is BAD that this is referring to PCLevelInfo - that gets
@@ -1775,67 +1744,10 @@ public class PCClass extends PObject
 		return false;
 	}
 
-	//	/*
-	//	 * (non-Javadoc)
-	//	 * 
-	//	 * @see pcgen.core.PObject#getWeaponProfAutos()
-	//	 */
-	//	public List<String> getWeaponProfAutos() {
-	//		// first build up the list of the standard auto weapon profs
-	//		final List<String> list = super.getWeaponProfAutos();
-	//
-	//		// then add in the proficiencies for each natural weapon
-	//		// we have active.
-	//		if (naturalWeapons != null) {
-	//			for (Iterator<LevelProperty> li = naturalWeapons.iterator(); li
-	//					.hasNext();) {
-	//				final LevelProperty lp = li.next();
-	//				if (lp.getLevel() <= level) {
-	//					final Equipment weapon = (Equipment) lp.getObject();
-	//					list.add(weapon.getSimpleName());
-	//				}
-	//			}
-	//		}
-	//		return list;
-	//	}
-
-	/*
-	 * TYPESAFETY This needs to be checking vs. a RaceType TypesafeEnumeration,
-	 * not a general String
-	 */
-	/*
-	 * REFACTOR How exactly does this work in the new PCClass is a PCClassLevel
-	 * Factory model? Does this exist as a method in PCClass that should be
-	 * called before getLevel() is used (and before the user tries to add the
-	 * level to PlayerCharacter?) or is this a check that the level performs 
-	 * when the code attempts to add it to the PC?
-	 */
 	public boolean isQualified(final PlayerCharacter aPC)
 	{
-
-		if (aPC == null)
-		{
-			return false;
-		}
-
-		// if (isMonster() && (preRaceType != null) &&
-		// !contains(aPC.getCritterType(), preRaceType))
-		if (isMonster()
-			&& (preRaceType != null)
-			&& (!preRaceType.equals(aPC.getRace().get(ObjectKey.RACETYPE)) && !(aPC
-				.getCritterType().indexOf(preRaceType.toString()) >= 0)))
-		// Move the check for type out of race and into PlayerCharacter to make
-		// it easier for a template to adjust it.
-		{
-			return false;
-		}
-
-		if (!PrereqHandler.passesAll(getPrerequisiteList(), aPC, this))
-		{
-			return false;
-		}
-
-		return true;
+		return aPC != null
+			&& PrereqHandler.passesAll(getPrerequisiteList(), aPC, this);
 	}
 
 	@Override
@@ -4494,23 +4406,7 @@ public class PCClass extends PObject
 		}
 	}
 
-	//	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
-	//	{
-	//		if ( aCategory == AbilityCategory.FEAT )
-	//		{
-	//			removeAllAutoFeats(aLevel);
-	//			return;
-	//		}
-	//		
-	//		if ( theAutoAbilities == null )
-	//		{
-	//			return;
-	//		}
-	//		theAutoAbilities.put(aCategory, aLevel, null);
-	//	}
-
 	SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();
-//	List<PCClassLevel> repeatLevelObjects = new ArrayList<PCClassLevel>();
 
 	public PCClassLevel getClassLevel(int lvl)
 	{
