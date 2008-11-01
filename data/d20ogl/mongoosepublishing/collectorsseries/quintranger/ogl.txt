@@ -1,0 +1,153 @@
+Open Game License
+THIS LICENSE IS APPROVED FOR GENERAL USE. PERMISSION TO DISTRIBUTE THIS
+LICENSE IS MADE BY WIZARDS OF THE COAST!
+OPEN GAME LICENSE Version 1.0a
+The following text is the property of Wizards of the Coast, Inc. and is Copyright 2000 Wizards of
+the Coast, Inc (“Wizards”). All Rights Reserved.
+1. Definitions: (a)”Contributors” means the copyright and/or trademark owners who have
+contributed Open Game Content; (b)”Derivative Material” means copyrighted material
+including derivative works and translations (including into other computer languages), potation,
+modification, correction, addition, extension, upgrade, improvement, compilation, abridgement
+or other form in which an existing work may be recast, transformed or adapted; (c) “Distribute”
+means to reproduce, license, rent, lease, sell, broadcast, publicly display, transmit or otherwise
+distribute; (d)”Open Game Content” means the game mechanic and includes the methods,
+procedures, processes and routines to the extent such content does not embody the Product
+Identity and is an enhancement over the prior art and any additional content clearly identified as
+Open Game Content by the Contributor, and means any work covered by this License, including
+translations and derivative works under copyright law, but specifically excludes Product Identity.
+(e) “Product Identity” means product and product line names, logos and identifying marks
+including trade dress; artifacts; creatures characters; stories, storylines, plots, thematic elements,
+dialogue, incidents, language, artwork, symbols, designs, depictions, likenesses, formats, poses,
+concepts, themes and graphic, photographic and other visual or audio representations; names and
+descriptions of characters, spells, enchantments, personalities, teams, personas, likenesses and
+special abilities; places, locations, environments, creatures, equipment, magical or supernatural
+abilities or effects, logos, symbols, or graphic designs; and any other trademark or registered
+trademark clearly identified as Product identity by the owner of the Product Identity, and
+which specifically excludes the Open Game Content; (f) “Trademark” means the logos, names,
+mark, sign, motto, designs that are used by a Contributor to identify itself or its products or the
+associated products contributed to the Open Game License by the Contributor (g) “Use”, “Used”
+or “Using” means to use, Distribute, copy, edit, format, modify, translate and otherwise create
+Derivative Material of Open Game Content. (h) “You” or “Your” means the licensee in terms of
+this agreement.
+2. The License: This License applies to any Open Game Content that contains a notice
+indicating that the Open Game Content may only be Used under and in terms of this License.
+You must affix such a notice to any Open Game Content that you Use. No terms may be added
+to or subtracted from this License except as described by the License itself. No other terms or
+conditions may be applied to any Open Game Content distributed using this License.
+3.Offer and Acceptance: By Using the Open Game Content You indicate Your acceptance of the
+terms of this License.
+4. Grant and Consideration: In consideration for agreeing to use this License, the Contributors
+grant You a perpetual, worldwide, royalty-free, non-exclusive license with the exact terms of this
+License to Use, the Open Game Content.
+5.Representation of Authority to Contribute: If You are contributing original material as Open
+Game Content, You represent that Your Contributions are Your original creation and/or You have
+sufficient rights to grant the rights conveyed by this License.
+6.Notice of License Copyright: You must update the COPYRIGHT NOTICE portion of this
+License to include the exact text of the COPYRIGHT NOTICE of any Open Game Content You
+are copying, modifying or distributing, and You must add the title, the copyright date, and the
+copyright holder’s name to the COPYRIGHT NOTICE of any original Open Game Content you
+Distribute.
+7. Use of Product Identity: You agree not to Use any Product Identity, including as an indication
+as to compatibility, except as expressly licensed in another, independent Agreement with the
+owner of each element of that Product Identity. You agree not to indicate compatibility or coadaptability
+with any Trademark or Registered Trademark in conjunction with a work containing
+Open Game Content except as expressly licensed in another, independent Agreement with the
+owner of such Trademark or Registered Trademark. The use of any Product Identity in Open
+Game Content does not constitute a challenge to the ownership of that Product Identity. The
+owner of any Product Identity used in Open Game Content shall retain all rights, title and interest
+in and to that Product Identity.
+8. Identification: If you distribute Open Game Content You must clearly indicate which portions
+of the work that you are distributing are Open Game Content.
+9. Updating the License: Wizards or its designated Agents may publish updated versions of this
+License. You may use any authorized version of this License to copy, modify and distribute any
+Open Game Content originally distributed under any version of this License.
+10 Copy of this License: You MUST include a copy of this License with every copy of the Open
+Game Content You Distribute.
+11. Use of Contributor Credits: You may not market or advertise the Open Game Content using
+the name of any Contributor unless You have written permission from the Contributor to do so.
+12 Inability to Comply: If it is impossible for You to comply with any of the terms of this
+License with respect to some or all of the Open Game Content due to statute, judicial order, or
+governmental regulation then You may not Use any Open Game Material so affected.
+13 Termination: This License will terminate automatically if You fail to comply with all
+terms herein and fail to cure such breach within 30 days of becoming aware of the breach. All
+sublicenses shall survive the termination of this License.
+14 Reformation: If any provision of this License is held to be unenforceable, such provision shall
+be reformed only to the extent necessary to make it enforceable.
+15 COPYRIGHT NOTICE
+Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+D20 System Rules & Content Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan
+Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave
+Arneson.
+Open game content from The Quintessential Ranger copyright 2003, Mongoose Publishing Ltd.
+The d20 System® License version 3.0
+By downloading the enclosed graphic files and/or by returning the Confirmation Card as
+presented in the file “card.pdf,” the Licensee (“You”) accept to be bound by the following terms
+and conditions:
+1. Copyright & Trademark
+Wizards of the Coast, Inc. retains title and ownership of the d20 System trademark logos, the d20
+System trademark, and all other copyrights and trademarks claimed by Wizards of the Coast in
+The Official Wizards of the Coast d20 System Trademark Logo Guide version 1.0, incorporated
+here by reference.
+2. License to use
+You are hereby granted the non-transferable, non-exclusive, royalty-free license to use the d20
+System trademark logos, the d20 System trademark, and certain other trademarks and copyrights
+owned by Wizards of the Coast in accordance with the conditions specified in The Official Wizards
+of the Coast d20 System Trademark Logo Guide version 1.0. (the “Licensed Articles”)
+3. Agreement not to Contest
+By making use of and/or distributing material using the d20 System Trademark under the terms
+of this License, You agree not to contest the ownership of the Licensed Articles
+4. Breach and Cure
+In the event that You fail to comply with the terms of this License, You will be considered to be
+in breach of this License. Wizards of the Coast will attempt to notify you in writing by sending
+a Registered Letter to the address listed on the most recent Confirmation Card on file, if any. You
+will have 30 days from the date the notice (the “cure period”) to cure the breach to the satisfaction
+of Wizards of the Coast. If no Confirmation Card is on file, you will be considered to be in
+breach of this License immediately.
+5. Termination
+If, at the end of the cure period, the breach is not cured, Wizards of the Coast may terminate this
+License without further written notice to You.
+6. Effects of Termination
+Upon termination, You shall immediately stop all use of the Licensed Articles and will destroy
+any inventory or marketing material in Your possession bearing the d20 System Trademark logos.
+You will remove any use of the d20 System Trademark logos from your advertising, web site,
+letterhead, or any other use. You must instruct any company or individual that You are or become
+aware of who is in possession of any materials distributed by You bearing the d20 System
+Trademark logos to destroy those materials. You will solely bear any costs related to carrying out
+this term of the License.
+7. Penalty for Failure to Comply with Termination Instructions
+If You fail to comply with the Effects of Termination, Wizards of the Coast may, at its option,
+pursue litigation, for which You shall be responsible for all legal costs, against You to the full
+extent of the law for breach of contract, copyright and trademark infringement, damages and any
+other remedy available.
+8. Updates
+Wizards of the Coast may issue updates and/or new releases of the d20 System Trademark logos
+without prior notice. You will, at the earliest possible opportunity, update all material distributed
+by You to use the updated and/or new version of the d20 System Trademark logos. You may
+continue to distribute any pre-existing material that bears an older version of the d20 System
+Trademark logo.
+9. Changes to Terms of the License
+Wizards of the Coast may issue updates and/or revisions to this License without prior notice.
+You will, at the earliest possible opportunity, conform in all respects to the updated or revised
+terms of this License. For a period of 90 days You may continue to distribute any pre-existing
+material that complies with a previous version of the License. Thereafter written consent should
+be obtained from Wizards of the Coast. Subsequent versions of this License will bear a different
+version number.
+10. Updates of Licensee information
+You may transmit an updated version of the “card.pdf” Confirmation Card at any time to Wizards
+of the Coast.
+11. Notices to Licensor:
+Wizards of the Coast
+d20 System License Dept.
+PO Box 707
+Renton, WA 98057-0707
+12. No maintenance or support
+Wizards of the Coast shall have no obligation whatsoever to provide You with any kind of maintenance
+or support in relation to the d20 System Trademark logos.
+13. No Warranty / Disclaimer
+THE d20 SYSTEM TRADEMARK LOGO FILES ARE MADE AVAILABLE ON AN “AS
+IS” BASIS. WIZARDS OF THE COAST DOES NOT MAKE ANY REPRESENTATION OR
+WARRANTY, WHETHER EXPRESS OR IMPLIED, AS TO THE FITNESS FOR A PARTICULAR
+PURPOSE, USE OR MERCHANTABILITY. WIZARDS OF THE COAST MAKES NO
+REPRESENTATION OR WARRANTY THAT THE d20 SYSTEM TRADEMARK LOGO
+FILES ARE ERROR-FREE.MAKES NO REPRESENTATION OR WARRANTY THAT THE
+D20 SYSTEM TRADEMARK LOGO FILES ARE ERROR-FREE.

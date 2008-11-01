@@ -1,0 +1,293 @@
+# CVS $Revision$ $Author$ -- Sat Nov  1 17:22:30 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+#Original Entry by: Andrew Maitland
+
+###Block: Animal Champion --------------------------------------------------------------------------
+# Ability Name			Category of Ability		Type			Visible	Special ABility																												Define				Innate Spells																																																	Bonus to Ability Pool					Allow Follower
+Chosen Species			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Chosen Species
+Animal Friendship			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Animal Friendship (Ex)
+Animal Champion Companion	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Animal Companion																																																																																			BONUS:ABILITYPOOL|Animal Companion Choice|1	FOLLOWERS:Animal Champion Companion|1
+Charm Animal			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Charm Animal (Sp)																																SPELLS:Class|TIMES=CompLevel|Charm Animal
+Power of the Animal		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Power of the Animal I|PREVAREQ:PowerOfTheAnimalLVL,1	SAB:Power of the Animal II|PREVAREQ:PowerOfTheAnimalLVL,2	SAB:Power of the Animal III|PREVAREQ:PowerOfTheAnimalLVL,3	DEFINE:PowerOfTheAnimalLVL|0
+Animal Form				CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Animal Form (Sp)|PREVAREQ:AnimalFormTimes,1	SAB:Animal Form (Sp) (3/day)|PREVAREQ:AnimalFormTimes,2	SAB:Animal Growth (Sp) (unlimited)|PREVAREQ:AnimalFormTimes,3		DEFINE:AnimalFormTimes|0	SPELLS:Class|CASTERLEVEL=10+var("CL=Animal Champion")|Animal Form|PREVAREQ:AnimalFormTimes,1	SPELLS:Class|TIMES=3|CASTERLEVEL=10+var("CL=Animal Champion")|Animal Form|PREVAREQ:AnimalFormTimes,2	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=10+var("CL=Animal Champion")|Animal Form|PREVAREQ:AnimalFormTimes,3
+Animal Growth			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Animal Growth (Sp)|PREVAREQ:AnimalGrowthTimes,1	SAB:Animal Growth (Sp) (3/day)|PREVAREQ:AnimalGrowthTimes,3												DEFINE:AnimalGrowthTimes|0	SPELLS:Class|TIMES=AnimalGrowthTimes|CASTERLEVEL=10+var("CL=Animal Champion")|Animal Growth
+Companion Pack			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Companion Pack																											DEFINE:CompanionPackLvl|0																																																				BONUS:ABILITYPOOL|Companion Pack Choice|1
+
+
+###Block:Animal Champion Subclass Abilities --------------------------------
+###Block:Animal Champion ~ (Ape/Dire Ape)
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Innate Spells					Bonus to skill
+Ape's Agile Clamering	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ape's Agile Clamering (Ex)								BONUS:SKILL|Climb|4|TYPE=Competence
+Ape's Mimicry		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ape's Mimicry (Ex)										BONUS:SKILL|Disguise|4|TYPE=Competence
+Ape's Muteness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ape's Muteness (Sp)			SPELLS:Class|CASTERLEVEL=9|True Seeing
+
+###Block:Animal Champion ~ (Badger/Dire Badger)
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Save checks bonus						Combat bonus						Stat bonus
+Badger's Fury	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Fury (Ex)										BONUS:COMBAT|AC|-2|PREAPPLY:PC			BONUS:STAT|STR,CON|4|PREAPPLY:PC
+Badger's Luck	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Luck (Sp)
+Badger's Tenacity	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Tenacity (Ex)	BONUS:CHECKS|ALL|2|TYPE=Morale|PREAPPLY:PC	BONUS:COMBAT|TOHIT|2|TYPE=Morale|PREAPPLY:PC
+
+###Block:Animal Champion ~ (Dire Bat)
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Define				Innate Spells						Bonus to skill					Add to vision					Vision
+Blindsight			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Blindsight (Ex)		DEFINE:BlindsightRange|0																BONUS:VISION|Blindsight|BlindsightRange	VISION:Blindsight
+Improved Blindsight	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Improved Blindsight (Ex)														BONUS:SKILL|Spot,Listen|4|TYPE=Innate
+Bat's Uncanny Travel	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Bat's Uncanny Travel (Sp)						SPELLS:Class|TIMEUNIT=Month|Ethereal Jaunt
+
+###Block:Animal Champion ~ (Bear)
+# Ability Name		Category of Ability		Type			Visible	Special ABility
+Bearhug			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Bearhug (Ex)
+Bearpaw's Nourishment	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Bearpaw's Nourishment (Su)
+Bear's Loyalty		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Bear's Loyalty (Ex)
+
+###Block:Animal Champion ~ (Bison)
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Bonus to skill
+Bison's Rush		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Bison's Rush (Ex)
+Bison's Sharp Ears	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Bison's Sharp Ears (Ex)	BONUS:SKILL|Listen|4|TYPE=Innate
+Bison Dance			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Bison Dance (Sp)
+
+###Block:Animal Champion ~ (Boar/Dire Boar)	PREFEAT:Improved Overrun
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Innate Spells
+Boar's Ferocity	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's Ferocity (Ex)
+Boar's Charge	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's Charge (Ex)
+Boar's Cunning	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's Cunning (Sp)		SPELLS:Class|TIMES=2|True Strike
+
+###Block:Animal Champion ~ (Camel)	PREFEAT:1,Endurance
+# Ability Name			Category of Ability		Type			Visible	Special ABility				Save checks bonus
+Camel's Wilful Fortitude	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Wilful Fortitude (Ex)	BONUS:CHECKS|Fortitude|min(WIS,0)
+Camel's Fortified Will		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Fortified Will (Ex)	BONUS:CHECKS|Will|min(CON,0)
+Camel's Hardiness			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Hardiness (Ex)
+
+###Block:Animal Champion ~ (Cheetah)	PREFEAT:1,Run
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Add to base move
+Cheetah's Run	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Cheetah's Run (Ex)		BONUS:MOVEADD|TYPE.Walk|10|TYPE=FastMovement|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
+#bonus:moveadd|10 only if in no or light armor, no med or hvy load, not culm w/ fast movement from other classes
+Cheetah's Sprint	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Cheetah's Sprint (Ex)
+# Pounce (exists in the RSRD)
+
+###Block:Animal Champion ~ (Croodile)	PREFEAT:1,Toughness
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Combat bonus
+Crocodile's Ambush	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Crocodile's Ambush (Ex)
+Crocodile's Scales	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Crocodile's Scales (Ex)	BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Crocodile Tears		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Crocodile Tears (Ex)
+
+###Block:Animal Champion ~ (Dinosaur)	PREMULT:2,[PREFEAT:1,Power Attack],[PREFEAT:2,Improved Sunder,Sunder]
+# Ability Name	Category of Ability		Type			Visible	Special ABility
+Dinosaur Sunder	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dinosaur Sunder (Ex)
+Dinosaur Strength	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dinosaur Strength (Ex)
+Terrible Lizard	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Terrible Lizard (Ex)
+
+###Block:Animal Champion ~ (Dog/Riding Dog)	PREFEAT:1,Track
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Save checks bonus					Bonus to skill
+Dog's Nose		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog's Nose (Ex)								BONUS:SKILL|Search|2|TYPE=Innate
+Doggedness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Doggedness (Ex)	BONUS:CHECKS|Fortitude|2|TYPE=Innate
+Dog Guardian	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog Guardian (Ex)
+
+###Block:Animal Champion ~ (Eagle)			PREFEAT:1,Alertness
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Innate Spells						Bonus to skill
+Eagle's Eyes	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Eagle's Eyes (Ex)
+Eagle Strike	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Eagle Strike (Su)									BONUS:SKILL|TYPE.Charisma|1|TYPE=Innate
+Eagle's Cry		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Eagle's Cry (Sp)	SPELLS:Class|TIMEUNIT=Month|Finger of Death
+#Need casterlevel and DC  10+CHA+Spell Level
+
+###Block:Animal Champion ~ (Elephant)	PREFEAT:1,Skill Focus(Diplomacy)
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Innate Spells			Bonus to skill
+Elephant's Nobility	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Elephant's Nobility (Ex)						BONUS:SKILL|Diplomacy|4|TYPE=Competence
+Elephant's Memory		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Elephant's Memory(Ex)						BONUS:SKILL|TYPE.Knowledge|2|TYPE=Competence
+Elephant's Blessing	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Elephant's Blessing (Sp)	SPELLS:Class|Righteous Might
+#COMMENT: Righteous Blessing per the book, but no such spell. Used closest match Righteous Might
+
+###Block:Animal Champion ~ (Fox)	PREFEAT:1,Skill Focus(Bluff)
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Innate Spells				Bonus to skill
+Fox's Cunning	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Fox's Cunning								BONUS:SKILL|Bluff,Gather Information|3|TYPE=Competence
+Foxtongue		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Foxtongue (Sp)
+Foxtail Flight	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Foxtail Flight (Sp)	SPELLS:Class|TIMES=3|Foxtail Flight
+
+###Block:Animal Champion ~ (Hawk)	PREFEAT:1,Skill Focus
+# Ability Name		Category of Ability		Type			Visible	Special ABility	Innate Spells				Bonus to skill
+Hawkeye			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Hawkeye								BONUS:SKILL|Spot|4|TYPE=Competence
+Sunhawk			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Sunhawk (Sp)	SPELLS:Class|TIMES=3|Searing Light
+Sunhawk (Fire Shield)	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO				SPELLS:Class|TIMES=3|Fire Shield
+
+###Block:Animal Champion ~ (Horse/Pony)		PREFEAT:1,Skill Focus(Ride)
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Innate Spells			Combat bonus								Bonus to skill
+Horse's Surefootedness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Horse's Surefootedness
+Born to the Saddle	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Born to the Saddle							BONUS:COMBAT|TOHIT,DAMAGE|2|TYPE=Competence|PREAPPLY:PC	BONUS:SKILL|Ride|2|TYPE=Circumstance|PREAPPLY:PC
+Horse and Hattock		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Horse and Hattock (Sp)	SPELLS:Class|Dimension Door
+
+###Block:Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	PREFEAT:1,Stealthy
+# Ability Name		Category of Ability		Type			Visible	Special ABility
+Hide in Plain Sight	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Hide in Plain Sight
+
+###Block:Animal Champion ~ (Lion/Dire Lion)	PREFEAT:2,Skill Focus(Intimidate),Wild Empathy
+# Pounce (exists in the RSRD)
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Innate Spells			Bonus to skill							Modify VAR
+Lion's Roar			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Lion's Roar (Sp)		SPELLS:Class|TIMES=3|Fear
+Lion's Regal Bearing	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Lion's Regal Bearing (Ex)						BONUS:SKILL|Diplomacy,Intimidate|3|TYPE=Competence	BONUS:VAR|WildEmpathy|2
+
+###Block:Animal Champion ~ (Giant Lizard)
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Innate Spells		Bonus to skill
+Lizard's Tongue		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Lizard's Tongue (Ex)						BONUS:SKILL|Search|4|TYPE=Competence
+Lizard's Sunbeam		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Lizard's Sunbeam (Sp)		SPELLS:Class|Sunbeam
+Lizard's Regeneration	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Lizard's Regeneration (Ex)
+
+###Block:Animal Champion ~ (Dire Mongoose)	PREFEAT:1,Improved Initiative
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Combat bonus
+Mongoose's Quickness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Quickness (Ex)		BONUS:COMBAT|INITIATIVE|4|TYPE=Competence
+Mongoose's Stubbornness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Stubbornness (Ex)
+Mongoose's Retaliation	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Retaliation (Ex)	BONUS:COMBAT|TOHIT,DAMAGE|INT|PREAPPLY:PC
+
+###Block:Animal Champion ~ (Owl)	PREFEAT:1,Skill Focus(Knowledge%)
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Innate Spells					Combat bonus
+Owl's Insight	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Owl's Insight (Su)									BONUS:COMBAT|AC|INT|TYPE=Insight
+Owl's Cry		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Owl's Cry (Sp)		SPELLS:Class|TIMES=3|Bestow Curse
+Owl's Knowledge	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Owl's Knowledge (Sp)	SPELLS:Class|TIMEUNIT=Week|Legend Lore
+
+###Block:Animal Champion ~ (Dire Rat)	PREFEAT:1,Skill Focus(Disarm Device),Skill Focus(Disable Device)
+#Trap Sense +2	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Trap Sense (Ex)
+#Trap Sense +4	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:
+# Ability Name	Category of Ability		Type			Visible	Special ABility
+Diseased Weapons	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Diseased Weapons (Ex)
+
+###Block:Animal Champion ~ (Rhinoceros)	PREFEAT:1,Improved Overrun
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Innate Spells
+Rhino's Charge		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Rhino's Charge (Ex)
+Rhino's Purifying Horn	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Rhino's Purifying Horn (Sp)	SPELLS:Class|TIMES=3|Neutralize Poison
+Rhino's Healing Horn	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Rhino's Healing Horn (Sp)		SPELLS:Class|TIMES=3|Cure Critical Wounds
+
+###Block:Animal Champion ~ (Shark any)
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Combat bonus				Bonus to skill
+Shark's Skin	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Shark's Skin (Ex)		BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Swim|1|TYPE=Innate
+Shark's Tracking	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Shark's Tracking (Ex)
+
+###Block:Animal Champion ~ (Snake any)	PREFEAT:1,Persuasive
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Innate Spells												Bonus to skill
+Snake's Forked Tongue	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Snake's Forked Tongue (Ex)															BONUS:SKILL|Bluff|4|TYPE=Innate
+Snake Eyes			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Snake Eyes (Sp)			SPELLS:Class|TIMES=ATWILL|Hold Animal	SPELLS:Class|Hold Person|Hold Monster
+Snake's Healing Slough	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Snake's Healing Slough (Sp)	SPELLS:Class|Heal
+
+###Block:Animal Champion ~ (Tiger/Dire Tiger)	PREFEAT:1,Skill Focus(Move Silently)
+# Pounce (exists in the RSRD)
+#Camouflage
+# Ability Name			Category of Ability		Type			Visible	Special ABility				Innate Spells
+Tiger's Fearful Symmetry	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Tiger's Fearful Symmetry (Sp)	SPELLS:Class|TIMES=3|Phantasmal Killer
+
+###Block:Animal Champion ~ (Dire Weasel)	PREFEAT:2,Skill Focus(Appraise),Skill Focus(Sleight of Hand)
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Ability							Bonus to skill					Modify VAR			Class Skill
+Weasel's Gaze		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Weasel's Gaze (Ex)																					CSKILL:Appraise|Sleight of Hand
+Weasel's Sneakiness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Weasel's Sneakiness (Ex)	ABILITY:Special Ability|AUTOMATIC|Sneak Attack								BONUS:VAR|SneakAttack|2
+Weasel's Acumen		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Weasel's Acumen (Ex)									BONUS:SKILL|Appraise|2|TYPE=Competence
+
+###Block:Animal Champion ~ (Whale)
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Innate Spells
+Aquatic Adaptation	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Aquatic Adaptation (Ex)
+Smooth Waters		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Smooth Waters (Sp)		SPELLS:Class|Control Weather
+Whale's Archives		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Whale's Archives (Sp)	SPELLS:Class|Commune|Commune with Nature
+
+###Block:Animal Champion ~ (Wolf/Dire Wolf)	PREFEAT:1,Improved Trip
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Add to base move
+Wolf Trip		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Wolf Trip (Ex)
+Wolf Lope		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Wolf Lope (Ex)	BONUS:MOVEADD|TYPE.Walk|10|TYPE=FastMovement
+#Not stackable with Fast Movement CLass Features - Using Class to add to any other Bonus moves.
+Wolf Growl		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Wolf Growl (Su)
+
+###Block:Animal Champion ~ (Wolverine)	PREFEAT:2,Iron Will,Skill Focus(Bluff)
+# Ability Name			Category of Ability		Type			Visible	Special ABility				Innate Spells
+Wolverine's Steadfastness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Wolverine's Steadfastness (Ex)
+Wolverine's Tricks		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Wolverine's Tricks (Sp)		SPELLS:Class|TIMES=ATWILL|Ghost Sound	SPELLS:Class|TIMES=3|Ventriloquism|Disguise Self	SPELLS:Class|Mirror Image|Minor Image
+Wolverine's Fearlessness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Wolverine's Fearlessness (Ex)
+
+###END Animal Champion Block ----------------------------------------------------------------------------------------------------
+
+
+###Block:Briar Archer ---------------------------------------------------------------
+
+# Ability Name	Category of Ability		Type			Visible	Special ABility																																															Define				Innate Spells
+Briar Arrows	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Briar Arrows (Su) +%|BriarArrowsPlus																																											DEFINE:BriarArrowsPlus|0
+Special Arrow	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Special Arrow (Vine)|PREVARGTEQ:SpecialArrowLVL,1	SAB:Special Arrow (Bramble)|PREVARGTEQ:SpecialArrowLVL,2	SAB:Special Arrow (Hawthorn)|PREVARGTEQ:SpecialArrowLVL,3	SAB:Special Arrow (Thicket)|PREVARGTEQ:SpecialArrowLVL,4	SAB:Special Arrow (Blackthorn)|PREVARGTEQ:SpecialArrowLVL,5	DEFINE:SpecialArrowLVL|0
+Speak with Plants	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Speak with Plants (Sp)																																													DEFINE:SpeakWithPlantsTimes|0	SPELLS:Class|TIMES=SpeakWithPlantsTimes|CASTERLEVEL=var("CL=Briar Archer")|Speak with Plants
+
+###Block:Green Knight ----------------------------------------------
+# Ability Name		Category of Ability		Type			Visible	Special ABility																																	Define
+Green Axe			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Green Axe|PREVAREQ:GreenAxeProgression,1	SAB:Green Axe (+4)|PREVAREQ:GreenAxeProgression,2	SAB:Green Axe (Keen)|PREVAREQ:GreenAxeProgression,3	SAB:Green Axe (Vorpal)|PREVAREQ:GreenAxeProgression,4	DEFINE:GreenAxeProgression|0
+#Wild Empathy						CATEGORY:Special Ability		TYPE:Class.Hidden	VISIBLE:NO	SAB:
+Code of Green Chivalry	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Code of Green Chivalry
+Green Demeanour		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Green Demeanour|PREVAREQ:GreenDemeanourProgression,1	SAB:Green Demeanour (Full Green)|PREVAREQ:GreenDemeanourProgression,2														DEFINE:GreenDemeanourProgression|0
+Green Armor			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Green Armor|PREVAREQ:GreenArmorProgression,1	SAB:Green Armor (Full Plate +2)|PREVAREQ:GreenArmorProgression,2	SAB:Green Armor (Full Plate +3)|PREVAREQ:GreenArmorProgression,3					DEFINE:GreenArmorProgression|0
+Holly Club			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Holly Club|PREVAREQ:HollyClubProgression,1	SAB:Holly Club (Green Dub)|PREVAREQ:HollyClubProgression,2	SAB:Holly Club (Regeneration)|PREVAREQ:HollyClubProgression,3							DEFINE:HollyClubProgression|0
+Green Challenge		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Green Challenge
+
+###Block:Greenwood Judge ------------------------------------------------------------------------------
+# Ability Name			Output Name				Category of Ability		Type			Visible	Special ABility				Define				Innate Spells
+Greenwood Leadership							CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Greenwood Leadership (Ex)
+Greenwood Signal								CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Greenwood Signal (Sp)		DEFINE:GreenwoodSignalTimes|0	SPELLS:Class|TIMES=GreenwoodSignalTimes|CASTERLEVEL=15|Summon Nature's Ally V|PREVAREQ:GreenwoodSignalTimes,1	SPELLS:Class|TIMES=GreenwoodSignalTimes|CASTERLEVEL=15|Summon Nature's Ally VI|PREVAREQ:GreenwoodSignalTimes,2	SPELLS:Class|TIMES=GreenwoodSignalTimes|CASTERLEVEL=15|Summon Nature's Ally VII|PREVAREQ:GreenwoodSignalTimes,3
+Commonwealth of the Forest						CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Commonwealth of the Forest (Ex)
+Code of Conduct ~ GWJ		OUTPUTNAME:Code of Conduct	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Code of Conduct
+Mark of the Greenwood Foe						CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mark of the Greenwood Foe (Su)
+Discern Lies								CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Discern Lies (Sp)								SPELLS:Class|CASTERLEVEL=15|Discern Lies
+Discern Location								CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Discern Location (Sp)							SPELLS:Class|TIMES=3|CASTERLEVEL=15|Discern Location
+
+###Block:Master of the Staff ---------------------------------------------------------------------------------------
+# Ability Name		Category of Ability		Type			Visible	Special ABility						Define					Combat bonus
+Spinning Defence		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Spinning Defence (Ex)
+Shortstaff's Quickness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Shortstaff's Quickness (Ex)			DEFINE:ShortstaffQuicknessBonus|0	BONUS:COMBAT|INITIATIVE|ShortstaffQuicknessBonus|TYPE=Circumstance
+Shortstaff's Nimbleness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Shortstaff's Nimbleness
+Skull Crack			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Skull Crack (Ex) %/day|SkullCrackTimes	DEFINE:SkullCrackTimes|0
+Whirling Sweep		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Whirling Sweep (Ex)
+
+###Block:Outlaw --------------------------------------------------------------------------------------
+
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Modify VAR
+Forest Expertise	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Forest Expertise (Ex)
+Longbow Feat	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Longbow Feat
+Outlaw Fellowship	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Outlaw Fellowship (Ex)
+#Commonwealth of the Forest	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Commonwealth of the Forest
+Outlaw King		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Outlaw King (Ex)		BONUS:VAR|LeadershipScore|2
+
+###Block:Wild Hunter ---------------------------------------------------------------------------------------
+#CATEGORY:FEAT	TYPE:Class.Hidden	VISIBLE:NO	SAB:
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Define			Allow Follower					Allowed Companions
+Wild Pack		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Wild Pack (Ex)	DEFINE:WildPackLvl|0	FOLLOWERS:Wild Pack|var("CL=Wild Hunter")	COMPANIONLIST:Wild Pack|Dog (Riding)
+Hunter		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Hunter (Ex)
+Monster Slayer	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Monster Slayer (Ex)
+Resist Charge	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Resist Charge (Ex)
+Big Game		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Big Game (Ex)
+Ritual Feast	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ritual Feast (Su)
+
+###Block: Ranger Combat Styles
+# Ability Name		Category of Ability		Type				Visible		Restricted Ability								Special ABility			Virtual Feat																																																												Source Page
+Mounted Combat Style	CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Mounted Combat Style	VFEAT:Mounted Combat|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Mounted Archery|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Ride By Attack|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]						SOURCEPAGE:p.100
+Skirmishing			CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Skirmishing			VFEAT:Dodge|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Mobility|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Spring Attack|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]								SOURCEPAGE:p.101
+Staff Combat		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Staff Combat			VFEAT:Weapon Focus(Shortstaff)|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Stunning Staff|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Critical(Shortstaff)|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	SOURCEPAGE:p.101
+Stamina			CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Stamina				VFEAT:Great Fortitude|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Tough As Old Boots|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Strider|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]						SOURCEPAGE:p.101
+Unarmed Combat		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Unarmed Combat		VFEAT:Improved Unarmed Strike|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Grapple|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Stunning Fist|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]				SOURCEPAGE:p.102
+
+
+###Block:Monster SQ & SA
+# Ability Name		Category of Ability		Type								Visible	Special ABility			Define				Description																																																																																																							Vision		Source Page
+# Scent (exists in the RSRD)
+# Pounce (exists in the RSRD)
+#Improved Grab (exists in the RSRD)
+#Rake (exists in the RSRD)
+
+# Ability Name		Category of Ability		Type								Visible	Special ABility			Define				Description																								Vision		Source Page
+Stunning Swat		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Stunning Swat (Ex)
+
+Poison Tolerance		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Poison Tolerance (Ex)
+Snake-Killer		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Snake-Killer (Ex)
+Many-Headed Monster	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Many-Headed Monster (Ex)
+
+Puncture			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Puncture (Ex)
+Tooth Breaking		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Tooth Breaking (Ex)
+Low-light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses		VISIBLE:NO																																				VISION:Low-light
+
+Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|10+HD+CON	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC				SOURCEPAGE:TypesSubtypesAbilities.rtf
+
+Frenzy			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Frenzy (Ex)
+
+###Block: MOD Animal Companion
+# Ability Name						Allowed Companions
+CATEGORY=Special Ability|Animal Companion.MOD	COMPANIONLIST:Animal Companion|Fox,Wildcat,Caracal,Snake (Spitting Cobra)	COMPANIONLIST:Animal Companion|Dire Animal (Dire Mongoose),Lynx|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Saber-Tooth|FOLLOWERADJUSTMENT:-6
+
+#
+##EOF
+#

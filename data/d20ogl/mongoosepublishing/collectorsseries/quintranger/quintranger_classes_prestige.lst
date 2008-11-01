@@ -1,0 +1,307 @@
+# CVS $Revision$ $Author$ -- Sat Nov  1 17:22:30 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+#Original Entry by: Andrew Maitland
+
+
+###Block:Animal Champion -----------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Ex Class				Source Page		Define			Save checks bonus												Combat bonus
+CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	ABB:AC		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:pg.23	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat
+CLASS:Animal Champion	PREALIGN:TN,NG	PREATT:10	PREFEAT:1,Animal Affinity
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal|Hide|Knowledge (Nature)|Jump|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
+
+SUBCLASS:Animal Champion ~ (Ape/Dire Ape)						COST:0	PREFEAT:1,Improved Unarmed Strike
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Ape's Agile Clamering
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Ape's Mimicry
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Ape's Muteness
+SUBCLASS:Animal Champion ~ (Badger/Dire Badger)					COST:0	PREFEAT:1,Great Fortitude
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Badger's Fury
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Badger's Luck
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Badger's Tenacity
+SUBCLASS:Animal Champion ~ (Dire Bat)						COST:0
+SUBCLASSLEVEL:3	BONUS:VAR|BlindsightRange|120	ABILITY:Special Ability|AUTOMATIC|Blindsight
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Improved Blindsight
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Bat's Uncanny Travel
+SUBCLASS:Animal Champion ~ (Bear any)						COST:0												PRESIZEGTEQ:M
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Bearhug
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Bearpaw's Nourishment
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Bear's Loyalty
+SUBCLASS:Animal Champion ~ (Bison)							COST:0	PREFEAT:1,Toughness
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Bison's Rush
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Bison's Sharp Ears
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Bison Dance
+SUBCLASS:Animal Champion ~ (Boar/Dire Boar)					COST:0	PREFEAT:1,Improved Overrun
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Boar's Ferocity
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Boar's Charge
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Boar's Cunning
+SUBCLASS:Animal Champion ~ (Camel)							COST:0	PREFEAT:1,Endurance
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Camel's Wilful Fortitude
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Camel's Fortified Will
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Camel's Hardiness
+SUBCLASS:Animal Champion ~ (Cheetah)						COST:0	PREFEAT:1,Run
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Cheetah's Run
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Cheetah's Sprint
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Pounce
+SUBCLASS:Animal Champion ~ (Croodile any)						COST:0	PREFEAT:1,Toughness
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Crocodile's Ambush
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Crocodile's Scales
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Crocodile Tears
+SUBCLASS:Animal Champion ~ (Dinosaur any)						COST:0	PREFEAT:2,Power Attack,Improved Sunder
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Dinosaur Sunder
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Dinosaur Strength
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Terrible Lizard
+SUBCLASS:Animal Champion ~ (Dog/Riding Dog)					COST:0	PREFEAT:1,Track
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Dog's Nose
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Doggedness
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Dog Guardian
+SUBCLASS:Animal Champion ~ (Eagle)							COST:0	PREFEAT:1,Alertness
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Eagle's Eyes
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Eagle Strike
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Eagle's Cry
+SUBCLASS:Animal Champion ~ (Elephant)						COST:0	PREFEAT:1,Skill Focus(Diplomacy)
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Elephant's Nobility
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Elephant's Memory
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Elephant's Blessing
+SUBCLASS:Animal Champion ~ (Fox)							COST:0	PREFEAT:1,Skill Focus(Bluff)
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Fox's Cunning
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Foxtongue
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Foxtail Flight
+SUBCLASS:Animal Champion ~ (Hawk)							COST:0	PREFEAT:1,Skill Focus
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Hawkeye
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Sunhawk
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Sunhawk (Fire Shield)
+SUBCLASS:Animal Champion ~ (Horse/Pony)						COST:0	PREFEAT:1,Skill Focus(Ride)
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Horse's Surefootedness
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Born to the Saddle
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Horse and Hattock
+SUBCLASS:Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	COST:0	PREFEAT:1,Stealthy
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Camouflage
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Pounce
+SUBCLASS:Animal Champion ~ (Lion/Dire Lion)					COST:0	PREFEAT:2,Skill Focus(Intimidate),Wild Empathy
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pounce
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Lion's Roar
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Lion's Regal Bearing
+SUBCLASS:Animal Champion ~ (Giant Lizard)						COST:0
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Lizard's Tongue
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Lizard's Sunbeam
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Lizard's Regeneration
+SUBCLASS:Animal Champion ~ (Dire Mongoose)					COST:0	PREFEAT:1,Improved Initiative
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Mongoose's Quickness
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Mongoose's Stubbornness
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Mongoose's Retaliation
+SUBCLASS:Animal Champion ~ (Octopus/Giant Squid)				COST:0
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Water Breathing
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Camouflage
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Darkness
+SUBCLASS:Animal Champion ~ (Owl)							COST:0	PREFEAT:1,Skill Focus(Knowledge%)
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Owl's Insight
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Owl's Cry
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Owl's Knowledge
+SUBCLASS:Animal Champion ~ (Dire Rat)						COST:0	PREFEAT:1,Skill Focus(Disarm Device),Skill Focus(Disable Device)
+SUBCLASSLEVEL:3	BONUS:VAR|TrapSense|2		ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
+SUBCLASSLEVEL:6	BONUS:VAR|TrapSense|2
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Diseased Weapons
+SUBCLASS:Animal Champion ~ (Rhinoceros)						COST:0	PREFEAT:1,Improved Overrun
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Rhino's Charge
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Rhino's Purifying Horn
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Rhino's Healing Horn
+SUBCLASS:Animal Champion ~ (Shark any)						COST:0
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Water Breathing
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Shark's Skin
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Shark's Tracking
+SUBCLASS:Animal Champion ~ (Snake any)						COST:0	PREFEAT:1,Persuasive
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Snake's Forked Tongue
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Snake Eyes
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Snake's Healing Slough
+SUBCLASS:Animal Champion ~ (Tiger/Dire Tiger)					COST:0	PREFEAT:1,Skill Focus(Move Silently)
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pounce
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Camouflage
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Tiger's Fearful Symmetry
+SUBCLASS:Animal Champion ~ (Dire Weasel)						COST:0	PREFEAT:2,Skill Focus(Appraise),Skill Focus(Sleight of Hand)
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Weasel's Gaze
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Weasel's Sneakiness
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Weasel's Acumen
+SUBCLASS:Animal Champion ~ (Whale)							COST:0
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Aquatic Adaptation
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Smooth Waters
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Whale's Archives
+SUBCLASS:Animal Champion ~ (Wolf/Dire Wolf)					COST:0	PREFEAT:1,Improved Trip
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Wolf Trip
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Wolf Lope
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolf Growl
+SUBCLASS:Animal Champion ~ (Wolverine any)					COST:0	PREFEAT:2,Iron Will,Skill Focus(Bluff)
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Wolverine's Steadfastness
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Wolverine's Tricks
+SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolverine's Fearlessness
+###Block:Weapon & Armor Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
+###Block: Level Abilities
+1	BONUS:VAR|CompLevel|CL							ABILITY:Special Ability|AUTOMATIC|Animal Friendship|Chosen Species|Animal Champion Companion
+2											ABILITY:Special Ability|AUTOMATIC|Charm Animal
+3	BONUS:VAR|PowerOfTheAnimalLVL|1					ABILITY:Special Ability|AUTOMATIC|Power of the Animal
+4											ABILITY:Special Ability|AUTOMATIC|Animal Form
+5	BONUS:VAR|AnimalGrowthTimes|1						ABILITY:Special Ability|AUTOMATIC|Animal Growth
+6	BONUS:VAR|PowerOfTheAnimalLVL|1
+7	BONUS:VAR|AnimalFormTimes|1	BONUS:VAR|AnimalGrowthTimes|2
+8	BONUS:VAR|CompanionPackLvl|1						ABILITY:Special Ability|AUTOMATIC|Companion Pack
+9	BONUS:VAR|PowerOfTheAnimalLVL|1
+10	BONUS:VAR|AnimalFormTimes|1
+
+#CLASS:Ex Animal Champion --------------------------------------------------------------------
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus												Combat bonus
+CLASS:Ex Animal Champion	HD:8		TYPE:PC.Prestige	ABB:XAC		MAXLEVEL:10	SOURCEPAGE:pg.23	VISIBLE:NO	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ex Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal|Hide|Knowledge (Nature)|Jump|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
+###Block:Weapon & Armor Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
+
+
+###Block:Briar Archer -------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Briar Archer	HD:8		TYPE:PC.Prestige	ABB:BA		MAXLEVEL:10	SOURCEPAGE:pg.36	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL	Req. Att.	Required Feat									Required Race							Required Skill							Required Text
+CLASS:Briar Archer	PREALIGN:TN	PREATT:7	PREFEAT:4,Point Blank Shot,Precise Shot,Rapid Shot,Weapon Focus	PRERACE:1,Human,Elf%,Half-Elf,RACETYPE=Fey,Centaur	PRESKILL:2,Craft (Fletcher)=10,Knowledge (Nature)=10	PRETEXT:Must be able to cast speak with plants; Weapon Focus (any bow)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
+
+###Block:Weapon & Armor Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
+###Block: Level Abilities
+1	BONUS:VAR|BriarArrowsPlus|CL+1/2	BONUS:VAR|SpeakWithPlantsTimes|CL	ABILITY:Special Ability|AUTOMATIC|Briar Arrows|Speak with Plants
+2	BONUS:VAR|SpecialArrowLVL|CL/2							ABILITY:Special Ability|AUTOMATIC|Special Arrow
+
+
+###Block:Green Knight ---------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GK		MAXLEVEL:10	SOURCEPAGE:pg.39	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Restricted AL		Req. Att.	Required Feat				Required Skill								Required Text
+CLASS:Green Knight	!PREALIGN:LE,NE,CE	PREATT:8	PREFEAT:1,Weapon Focus(Greataxe)	PRESKILL:2,Craft (Weaponsmithing)=8,Craft (Armorsmithing)=8	PRETEXT:Must possess the woodland empathy class feature; must have the honour of green knighthood
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE.Profession|Spot|Survival|Swim
+
+###Block:Weapon & Armor Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:FEAT|Shield Proficiency
+
+###Block: Level Abilities
+1	BONUS:VAR|GreenAxeProgression|1	BONUS:VAR|GreenDemeanourProgression|1	ABILITY:Special Ability|AUTOMATIC|Green Axe|Wild Empathy|Code of Green Chivalry|Green Demeanour
+2	BONUS:VAR|GreenArmorProgression|1								ABILITY:Special Ability|AUTOMATIC|Green Armor
+3	BONUS:VAR|HollyClubProgression|1								ABILITY:Special Ability|AUTOMATIC|Holly Club
+4	BONUS:VAR|GreenAxeProgression|1
+5	BONUS:VAR|GreenArmorProgression|1
+6	BONUS:VAR|HollyClubProgression|1	BONUS:VAR|GreenDemeanourProgression|1
+7	BONUS:VAR|GreenAxeProgression|1
+8	BONUS:VAR|GreenArmorProgression|1
+9	BONUS:VAR|HollyClubProgression|1
+10	BONUS:VAR|GreenAxeProgression|1								ABILITY:Special Ability|AUTOMATIC|Green Challenge
+
+
+###Block:Greenwood Judge --------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Save checks bonus											Combat bonus
+CLASS:Greenwood Judge	HD:8		TYPE:PC.Prestige	ABB:GJ		MAXLEVEL:5	EXCLASS:Ex Greenwood Judge	SOURCEPAGE:pg.43	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL		Required Feat							Required Skill														Required Text
+CLASS:Greenwood Judge	PREALIGN:LG,NG,CG	PREFEAT:4,Track,Leadership,Negotiator,Wild Empathy	PRESKILL:5,Diplomacy=12,Knowledge (Local)=8,Knowledge (Nature)=10,Sense Motive=12,Survival=12	PRETEXT:Must have been declared outlaw by a nearby court of law
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Sense Motive|Spot|Survival
+
+###Block: Level Abilities
+1	BONUS:VAR|GreenwoodSignalTimes|1	ABILITY:Special Ability|AUTOMATIC|Greenwood Leadership|Greenwood Signal|Commonwealth of the Forest|Code of Conduct ~ GWJ
+2							ABILITY:Special Ability|AUTOMATIC|Detect Evil|Mark of the Greenwood Foe
+3	BONUS:VAR|GreenwoodSignalTimes|1
+4							ABILITY:Special Ability|AUTOMATIC|Discern Lies
+5	BONUS:VAR|GreenwoodSignalTimes|1	ABILITY:Special Ability|AUTOMATIC|Discern Location
+
+#Ex-Class
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus											Combat bonus
+CLASS:Ex Greenwood Judge	HD:8		TYPE:PC.Prestige	ABB:GJ		MAXLEVEL:5	SOURCEPAGE:pg.43	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ex Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Sense Motive|Spot|Survival
+
+###Block:Master of the Staff -------------------------------------------------------------------------------------
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Master of the Staff	HD:8		TYPE:PC.Prestige	ABB:MotS		MAXLEVEL:10	SOURCEPAGE:pg.46	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Req. Att.	Required Feat
+CLASS:Master of the Staff	PREATT:5	PREFEAT:3,Stunning Staff,Combat Expertise,Improved Trip	PREFEAT:1,Weapon Focus(Shortstaff),Weapon Focus(Tipstaff)
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|Spot|Survival
+
+###Block:Weapon & Armor Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+
+###Block: Level Abilities
+1								ABILITY:Special Ability|AUTOMATIC|Spinning Defence
+2	BONUS:VAR|ShortstaffQuicknessBonus|1	ABILITY:Special Ability|AUTOMATIC|Shortstaff's Quickness
+3								ABILITY:Special Ability|AUTOMATIC|Shortstaff's Nimbleness
+4	BONUS:VAR|SkullCrackTimes|1			ABILITY:Special Ability|AUTOMATIC|Skull Crack
+5	BONUS:VAR|ShortstaffQuicknessBonus|1
+6								ABILITY:Special Ability|AUTOMATIC|Whirling Sweep
+7	BONUS:VAR|SkullCrackTimes|1
+8	BONUS:VAR|ShortstaffQuicknessBonus|1
+10	BONUS:VAR|SkullCrackTimes|1
+
+###Block:Outlaw ------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Outlaw	HD:8		TYPE:PC.Prestige	ABB:Olw		MAXLEVEL:10	SOURCEPAGE:pg.46	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat
+CLASS:Outlaw	PREATT:5	PREFEAT:3,Point Blank Shot,Track,Weapon Focus(Longbow)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Climb|Disguise|Gather Information|Hide|Intimidate|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE.Perform|Ride|Search|Spot|Survival
+
+###Block:Weapon & Armor Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+
+###Block: Level Abilities
+1							ABILITY:Special Ability|AUTOMATIC|Forest Expertise
+2	BONUS:ABILITYPOOL|Longbow Feat|1	ABILITY:Special Ability|AUTOMATIC|Longbow Feat
+3							ABILITY:Special Ability|AUTOMATIC|Outlaw Fellowship
+4							ABILITY:Special Ability|AUTOMATIC|Commonwealth of the Forest
+5	BONUS:ABILITYPOOL|Longbow Feat|1
+8	BONUS:ABILITYPOOL|Longbow Feat|1
+10							ABILITY:Special Ability|AUTOMATIC|Outlaw King
+
+
+###Block:Wild Hunter ---------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Wild Hunter	HD:8		TYPE:PC.Prestige	ABB:WH		MAXLEVEL:10	SOURCEPAGE:pg.50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat															Required Skill								Required Text
+CLASS:Wild Hunter	PREATT:8	PREFEAT:6,Endurance,Track,Power Attack,Dodge,Simple Weapon Proficiency,Martial Weapon Proficiency	PRESKILL:3,Handle Animal=8,Knowledge (Nature)=8,Survival=8	PRETEXT:Must have Favoured Enemy (Animal), Must have an animal companion which is a riding dog.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wild Hunter	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Use Rope
+
+###Block: Level Abilities
+1														BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Ranger Animal Companion
+1														BONUS:VAR|WildPackLvl|CL		ABILITY:Special Ability|AUTOMATIC|Wild Pack|Hunter
+2																				ABILITY:Special Ability|AUTOMATIC|Monster Slayer
+3	BONUS:ABILITYPOOL|Wild Hunter Exotic Weapon|1
+4																				ABILITY:Special Ability|AUTOMATIC|Resist Charge|Big Game
+5	BONUS:ABILITYPOOL|Favored Enemy|1	BONUS:ABILITYPOOL|Favored Enemy Bonus|1
+6	BONUS:ABILITYPOOL|Wild Hunter Exotic Weapon|1
+7																				ABILITY:Special Ability|AUTOMATIC|Resist Charge
+8	BONUS:ABILITYPOOL|Wild Hunter Exotic Weapon|1
+9																				ABILITY:Special Ability|AUTOMATIC|Ritual Feast
+10	BONUS:ABILITYPOOL|Favored Enemy|1	BONUS:ABILITYPOOL|Favored Enemy Bonus|1
+
+
+#
+##EOF
+#

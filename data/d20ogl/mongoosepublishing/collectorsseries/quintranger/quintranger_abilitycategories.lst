@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Thu Jul 31 23:18:44 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+#Original Entry by: Andrew Maitland
+
+###Block: Added Class Stuff
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Concepts			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:1		CATEGORY:Special Ability	TYPE:Concept			PLURAL:Concepts				DISPLAYLOCATION:Concepts
+
+ABILITYCATEGORY:Longbow Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:FEAT			TYPE:LongbowFeat			PLURAL:Longbow Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wild Hunter Exotic Weapon	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:FEAT			TYPE:WildHunter			PLURAL:Wild Hunter Exotic Weapons	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Animal Companion Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	PLURAL:Animal Companions		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Companion Pack Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:Special Ability	TYPE:CompanionPackChoice	PLURAL:Animal Companions		DISPLAYLOCATION:Class Abilities

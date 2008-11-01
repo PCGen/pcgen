@@ -1,0 +1,57 @@
+# CVS $Revision$ $Author$ -- Mon May 19 13:27:21 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+CAMPAIGN:Mongoose - Quintessential Ranger
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Mongoose.Accessory
+PUBNAMELONG:Mongoose Publishing
+PUBNAMESHORT:Mongoose
+PUBNAMEWEB:http://mongoosepublishing.com
+SOURCELONG:Mongoose Publishing - Quintessential Ranger
+SOURCESHORT:QR
+SOURCEWEB:http://mongoosepublishing.com
+SOURCEDATE:2003-01
+ISOGL:YES
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Open game content from The Quintessential Ranger copyright 2003, Mongoose Publishing Ltd.
+COPYRIGHT:PCGen dataset conversion for The Quintessential Ranger Copyright 2008, PCGen Data team including, but not limited to, Andrew Maitland
+
+COVER:quintranger.jpg
+LOGO:@/publisher_logos/Mongoose_Publishing.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Mongoose Publishing
+URL:WEBSITE|http://www.mongoosepublishing.com|Visit Mongoose Publishing.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1695&it=1?affiliate_id=200170|Buy this pdf from RPGNow.com!
+URL:Amazon.com|http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2FQuintessential-Ranger-Alejandro-Melchor%2Fdp%2F1904577245%3Fpf%5Frd%5Fp%3D258372101%26pf%5Frd%5Fs%3Dcenter-1%26pf%5Frd%5Ft%3D1501%26pf%5Frd%5Fi%3Dlist%26pf%5Frd%5Fm%3DATVPDKIKX0DER%26pf%5Frd%5Fr%3D1YH8NWEFXGK6AGA9ZPCP&tag=httppcgensfne-20&linkCode=ur2&camp=1789&creative=9325|Buy this book from Amazon.com!
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:ogl.txt
+
+ABILITY:quintranger_abilities_animalchoices.lst
+ABILITY:quintranger_abilities_class.lst
+ABILITY:quintranger_abilities_concepts.lst
+
+ABILITYCATEGORY:quintranger_abilitycategories.lst
+
+CLASS:quintranger_classes_prestige.lst
+
+COMPANIONMOD:quintranger_companionmods.lst
+
+EQUIPMOD:quintranger_eqmods.lst
+EQUIPMENT:quintranger_equip.lst
+
+FEAT:quintranger_feats.lst
+FEAT:quintranger_feat_mods.lst
+
+KIT:quintranger_kits_animals.lst
+
+RACE:quintranger_races_animals.lst
+
+SKILL:quintranger_skills.lst
+
+SPELL:quintranger_spells.lst
+
+WEAPONPROF:quintranger_profs_weapon.lst
+ARMORPROF:quintranger_profs_armor.lst

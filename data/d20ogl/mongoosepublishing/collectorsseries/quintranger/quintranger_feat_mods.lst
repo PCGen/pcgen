@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Sat Nov  1 17:22:30 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+#Original Entry by: Andrew Maitland
+
+
+# Feat Name				Type
+Far Shot.MOD			TYPE:LongbowFeat
+Improved Critical.MOD		TYPE:LongbowFeat
+Improved Precise Shot.MOD	TYPE:LongbowFeat
+Manyshot.MOD			TYPE:LongbowFeat
+Precise Shot.MOD			TYPE:LongbowFeat
+Rapid Shot.MOD			TYPE:LongbowFeat
+Shot on the Run.MOD		TYPE:LongbowFeat
+
+Exotic Weapon Proficiency.MOD	TYPE:WildHunter
+

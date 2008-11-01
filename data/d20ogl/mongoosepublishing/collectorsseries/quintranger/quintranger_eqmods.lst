@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 17:50:25 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+#Original Entry by: Andrew Maitland
+
+###EQMODS:
+# Modifier Name	Unique Key			Type		Cost		Special Property
+Steel Secret	KEY:QR_STEELSCRT_ARMR	TYPE:Armor	COST:40	SPROP:+1 AC bonus against critical hit confirmation rolls
+Dyed Armour		KEY:QR_DYEDARMR_ARMR	TYPE:Armor	COST:50	SPROP:+1 circumstance bonus to hide if color matches terrain
