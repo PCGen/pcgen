@@ -1,4 +1,4 @@
-# CVS $Revision: 7080 $ $Author: eddyanthony $ -- Sun Mar  2 22:49:32 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Mar  2 22:49:32 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
 
 STARTPACK:Attic Whisperer Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Attic Whisperer]	SOURCEPAGE:p.92
