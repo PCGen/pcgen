@@ -248,7 +248,9 @@ SUBCLASSLEVEL:9																																			CAST:0,3,3,2
 SUBCLASSLEVEL:10	SPELLLEVEL:CLASS|Holy Champion=4|Beltine's Blessed Strike,Cure Critical Wounds,Cure Moderate Wounds (Mass)																	CAST:0,3,3,2,0																																																										ABILITY:Special Ability|VIRTUAL|Call Upon My Ancestors
 SUBCLASSLEVEL:11																																			CAST:0,3,3,3,1
 SUBCLASSLEVEL:12																																			CAST:0,3,3,3,2
-SUBCLASSLEVEL:13	SPELLLEVEL:CLASS|Holy Champion=5|Atonement,Break Enchantment,Command (Greater),Cure Serious Wounds (Mass),Dispel Evil,Disrupting Weapon,Hallow,Heal,Raise Dead,Spell Resistance,Symbol of Sleep,True Seeing	CAST:0,3,3,3,2,0	KNOWNSPELLS:LEVEL=5
+SUBCLASSLEVEL:13	SPELLLEVEL:CLASS|Holy Champion=5|Atonement,Break Enchantment,Command (Greater),Cure Serious Wounds (Mass),Dispel Evil,Disrupting Weapon,Hallow,Heal,Raise Dead,Spell Resistance,Symbol of Sleep,True Seeing	CAST:0,3,3,3,2,0
+#TODO: This tag does not work past level line 0 or 1: KNOWNSPELLS:LEVEL=5  We'll need to find some other way to do this.
+#SUBCLASSLEVEL:13	KNOWNSPELLS:LEVEL=5
 SUBCLASSLEVEL:14																																			CAST:0,3,3,3,3,1																																																										ABILITY:Special Ability|VIRTUAL|Honor Thy Word
 SUBCLASSLEVEL:15																																			CAST:0,4,3,3,3,2
 SUBCLASSLEVEL:16																																			CAST:0,4,4,3,3,2
@@ -445,7 +447,7 @@ SUBCLASSLEVEL:7																																			CAST:0,1
 SUBCLASSLEVEL:8	SPELLLEVEL:CLASS|Holy Champion=2|Darkness,Produce Flame,Protection from Evil,Undetectable Alignment																		CAST:0,1,0																																																											ABILITY:Special Ability|VIRTUAL|Special Mount ID
 SUBCLASSLEVEL:9																																			CAST:0,1,0
 SUBCLASSLEVEL:10																																			CAST:0,1,1									BONUS:ABILITYPOOL|Second Symbiosis|1																																												ABILITY:Special Ability|VIRTUAL|SymbiosisII
-SUBCLASSLEVEL:11	SPELLLEVEL:CLASS|Holy Champion=3|Fear,Deeper Darkness,Magic Circle against Chaos,Magic Circle against Law,Magic Circle against Evil,Nondetection										CAST:0,1,1,0																																																																																																																																																																										SPELLLIST:CLASS|Holy Champion=3|Oath[PRETEMPLATE:1,Mehan,HolrynMehan
+SUBCLASSLEVEL:11	SPELLLEVEL:CLASS|Holy Champion=3|Fear,Deeper Darkness,Magic Circle against Chaos,Magic Circle against Law,Magic Circle against Evil,Nondetection										CAST:0,1,1,0																																																																																																																																																																										SPELLLEVEL:CLASS|Holy Champion=3|Oath[PRETEMPLATE:1,Mehan,HolrynMehan
 SUBCLASSLEVEL:12																																			CAST:0,1,1,1																																																										ABILITY:Special Ability|VIRTUAL|Aura of Courage|Infernal Resistances Grtr																			DEFINE:GreaterResistLevel|0
 SUBCLASSLEVEL:13																																			CAST:0,1,1,1
 SUBCLASSLEVEL:14	SPELLLEVEL:CLASS|Holy Champion=4|Dispel Chaos,Dispel Evil,Summon Thy Own (Lesser),Zone of Silence																		CAST:0,2,1,1,0								BONUS:ABILITYPOOL|Third Symbiosis|1																																													ABILITY:Special Ability|VIRTUAL|SymbiosisIII

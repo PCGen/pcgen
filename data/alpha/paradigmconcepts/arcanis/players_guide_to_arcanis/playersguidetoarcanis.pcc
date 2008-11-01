@@ -114,10 +114,12 @@ EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_wondrousitems.lst
 SPELL:@/d20ogl/srd35/advanced/rsrd_spells_class_prestige.lst
 
 # RSRD Imports - Monsters
+ABILITY:@/d20ogl/srd35/monsters/rsrd_abilities_mods.lst
 ABILITYCATEGORY:@/d20ogl/srd35/monsters/rsrd_ability_categories_monster.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_dragons.lst
 CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_specific.lst
-FEAT:@/d20ogl/srd35/monsters/rsrd_feats_templates.lst
+FEAT:@/d20ogl/srd35/monsters/rsrd_feats_mods.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races__companions.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races__vermin.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b_extras.lst
